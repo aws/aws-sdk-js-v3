@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
 import type { BatchDeleteDetectorRequest, BatchDeleteDetectorResponse } from "../models/models_0";
-import { BatchDeleteDetector } from "../schemas/schemas_0";
+import { BatchDeleteDetector$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class BatchDeleteDetectorCommand extends $Command
   })
   .s("IotColumboDataService", "BatchDeleteDetector", {})
   .n("IoTEventsDataClient", "BatchDeleteDetectorCommand")
-  .sc(BatchDeleteDetector)
+  .sc(BatchDeleteDetector$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

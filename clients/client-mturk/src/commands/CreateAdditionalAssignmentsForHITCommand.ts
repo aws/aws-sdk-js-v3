@@ -9,7 +9,7 @@ import type {
   CreateAdditionalAssignmentsForHITResponse,
 } from "../models/models_0";
 import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { CreateAdditionalAssignmentsForHIT } from "../schemas/schemas_0";
+import { CreateAdditionalAssignmentsForHIT$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class CreateAdditionalAssignmentsForHITCommand extends $Command
   })
   .s("MTurkRequesterServiceV20170117", "CreateAdditionalAssignmentsForHIT", {})
   .n("MTurkClient", "CreateAdditionalAssignmentsForHITCommand")
-  .sc(CreateAdditionalAssignmentsForHIT)
+  .sc(CreateAdditionalAssignmentsForHIT$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: BCMRecommendedActionsClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.bcmrecommendedactions",
-        serviceTarget: "AWSBillingAndCostManagementRecommendedActions",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.bcmrecommendedactions",
+      version: "2024-11-14",
+      serviceTarget: "AWSBillingAndCostManagementRecommendedActions",
+    },
     serviceId: config?.serviceId ?? "BCM Recommended Actions",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

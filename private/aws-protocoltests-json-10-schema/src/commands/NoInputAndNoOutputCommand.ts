@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
-import { NoInputAndNoOutput } from "../schemas/schemas_0";
+import { NoInputAndNoOutput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -70,7 +70,7 @@ export class NoInputAndNoOutputCommand extends $Command
   })
   .s("JsonRpc10", "NoInputAndNoOutput", {})
   .n("JSONRPC10Client", "NoInputAndNoOutputCommand")
-  .sc(NoInputAndNoOutput)
+  .sc(NoInputAndNoOutput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

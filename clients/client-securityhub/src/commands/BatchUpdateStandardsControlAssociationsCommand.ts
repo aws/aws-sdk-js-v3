@@ -8,7 +8,7 @@ import type {
   BatchUpdateStandardsControlAssociationsRequest,
   BatchUpdateStandardsControlAssociationsResponse,
 } from "../models/models_2";
-import { BatchUpdateStandardsControlAssociations } from "../schemas/schemas_0";
+import { BatchUpdateStandardsControlAssociations$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -155,7 +155,7 @@ export class BatchUpdateStandardsControlAssociationsCommand extends $Command
   })
   .s("SecurityHubAPIService", "BatchUpdateStandardsControlAssociations", {})
   .n("SecurityHubClient", "BatchUpdateStandardsControlAssociationsCommand")
-  .sc(BatchUpdateStandardsControlAssociations)
+  .sc(BatchUpdateStandardsControlAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

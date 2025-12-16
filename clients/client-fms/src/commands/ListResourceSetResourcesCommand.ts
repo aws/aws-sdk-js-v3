@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import type { ListResourceSetResourcesRequest, ListResourceSetResourcesResponse } from "../models/models_0";
-import { ListResourceSetResources } from "../schemas/schemas_0";
+import { ListResourceSetResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class ListResourceSetResourcesCommand extends $Command
   })
   .s("AWSFMS_20180101", "ListResourceSetResources", {})
   .n("FMSClient", "ListResourceSetResourcesCommand")
-  .sc(ListResourceSetResources)
+  .sc(ListResourceSetResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

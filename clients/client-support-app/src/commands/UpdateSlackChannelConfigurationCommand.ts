@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateSlackChannelConfigurationRequest, UpdateSlackChannelConfigurationResult } from "../models/models_0";
-import { UpdateSlackChannelConfiguration } from "../schemas/schemas_0";
+import { UpdateSlackChannelConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
@@ -131,7 +131,7 @@ export class UpdateSlackChannelConfigurationCommand extends $Command
   })
   .s("SupportApp", "UpdateSlackChannelConfiguration", {})
   .n("SupportAppClient", "UpdateSlackChannelConfigurationCommand")
-  .sc(UpdateSlackChannelConfiguration)
+  .sc(UpdateSlackChannelConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateTemplateAliasRequest, CreateTemplateAliasResponse } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { CreateTemplateAlias } from "../schemas/schemas_0";
+import { CreateTemplateAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class CreateTemplateAliasCommand extends $Command
   })
   .s("QuickSight_20180401", "CreateTemplateAlias", {})
   .n("QuickSightClient", "CreateTemplateAliasCommand")
-  .sc(CreateTemplateAlias)
+  .sc(CreateTemplateAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

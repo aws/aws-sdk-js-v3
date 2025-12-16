@@ -87,28 +87,28 @@ import type {
 } from "@smithy/types";
 
 import {
-  InternalDependencyException as __InternalDependencyException,
-  InternalFailure as __InternalFailure,
-  InternalStreamFailure as __InternalStreamFailure,
-  ModelError as __ModelError,
-  ModelNotReadyException as __ModelNotReadyException,
-  ModelStreamError as __ModelStreamError,
-  ServiceUnavailable as __ServiceUnavailable,
-  ValidationError as __ValidationError,
+  InternalDependencyException,
+  InternalFailure,
+  InternalStreamFailure,
+  ModelError,
+  ModelNotReadyException,
+  ModelStreamError,
+  ServiceUnavailable,
+  ValidationError,
 } from "../models/errors";
-import { SageMakerRuntimeServiceException as __SageMakerRuntimeServiceException } from "../models/SageMakerRuntimeServiceException";
+import { SageMakerRuntimeServiceException } from "../models/SageMakerRuntimeServiceException";
 
 /* eslint no-var: 0 */
-export var BodyBlob: StaticSimpleSchema = [0, n0, _BB, 8, 21];
-export var CustomAttributesHeader: StaticSimpleSchema = [0, n0, _CAH, 8, 0];
-export var PartBlob: StaticSimpleSchema = [0, n0, _PB, 8, 21];
-export var InternalDependencyException: StaticErrorSchema = [-3, n0, _IDE, { [_e]: _s, [_hE]: 530 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InternalDependencyException, __InternalDependencyException);
-export var InternalFailure: StaticErrorSchema = [-3, n0, _IF, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InternalFailure, __InternalFailure);
-export var InternalStreamFailure: StaticErrorSchema = [-3, n0, _ISF, { [_e]: _s }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InternalStreamFailure, __InternalStreamFailure);
-export var InvokeEndpointAsyncInput: StaticStructureSchema = [
+var BodyBlob: StaticSimpleSchema = [0, n0, _BB, 8, 21];
+var CustomAttributesHeader: StaticSimpleSchema = [0, n0, _CAH, 8, 0];
+var PartBlob: StaticSimpleSchema = [0, n0, _PB, 8, 21];
+export var InternalDependencyException$: StaticErrorSchema = [-3, n0, _IDE, { [_e]: _s, [_hE]: 530 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InternalDependencyException$, InternalDependencyException);
+export var InternalFailure$: StaticErrorSchema = [-3, n0, _IF, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InternalFailure$, InternalFailure);
+export var InternalStreamFailure$: StaticErrorSchema = [-3, n0, _ISF, { [_e]: _s }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InternalStreamFailure$, InternalStreamFailure);
+export var InvokeEndpointAsyncInput$: StaticStructureSchema = [
   3,
   n0,
   _IEAI,
@@ -125,7 +125,7 @@ export var InvokeEndpointAsyncInput: StaticStructureSchema = [
     [1, { [_hH]: _XASI_ }],
   ],
 ];
-export var InvokeEndpointAsyncOutput: StaticStructureSchema = [
+export var InvokeEndpointAsyncOutput$: StaticStructureSchema = [
   3,
   n0,
   _IEAO,
@@ -133,7 +133,7 @@ export var InvokeEndpointAsyncOutput: StaticStructureSchema = [
   [_II, _OL, _FL],
   [0, [0, { [_hH]: _XASO }], [0, { [_hH]: _XASF }]],
 ];
-export var InvokeEndpointInput: StaticStructureSchema = [
+export var InvokeEndpointInput$: StaticStructureSchema = [
   3,
   n0,
   _IEI,
@@ -154,7 +154,7 @@ export var InvokeEndpointInput: StaticStructureSchema = [
     [0, { [_hH]: _XASSI }],
   ],
 ];
-export var InvokeEndpointOutput: StaticStructureSchema = [
+export var InvokeEndpointOutput$: StaticStructureSchema = [
   3,
   n0,
   _IEO,
@@ -169,7 +169,7 @@ export var InvokeEndpointOutput: StaticStructureSchema = [
     [0, { [_hH]: _XASCSI }],
   ],
 ];
-export var InvokeEndpointWithResponseStreamInput: StaticStructureSchema = [
+export var InvokeEndpointWithResponseStreamInput$: StaticStructureSchema = [
   3,
   n0,
   _IEWRSI,
@@ -188,22 +188,29 @@ export var InvokeEndpointWithResponseStreamInput: StaticStructureSchema = [
     [0, { [_hH]: _XASSI }],
   ],
 ];
-export var InvokeEndpointWithResponseStreamOutput: StaticStructureSchema = [
+export var InvokeEndpointWithResponseStreamOutput$: StaticStructureSchema = [
   3,
   n0,
   _IEWRSO,
   0,
   [_B, _CT, _IPV, _CA],
   [
-    [() => ResponseStream, 16],
+    [() => ResponseStream$, 16],
     [0, { [_hH]: _XASCT }],
     [0, { [_hH]: _xAIPV }],
     [() => CustomAttributesHeader, { [_hH]: _XASCA }],
   ],
 ];
-export var ModelError: StaticErrorSchema = [-3, n0, _ME, { [_e]: _c, [_hE]: 424 }, [_M, _OSC, _OM, _LSA], [0, 1, 0, 0]];
-TypeRegistry.for(n0).registerError(ModelError, __ModelError);
-export var ModelNotReadyException: StaticErrorSchema = [
+export var ModelError$: StaticErrorSchema = [
+  -3,
+  n0,
+  _ME,
+  { [_e]: _c, [_hE]: 424 },
+  [_M, _OSC, _OM, _LSA],
+  [0, 1, 0, 0],
+];
+TypeRegistry.for(n0).registerError(ModelError$, ModelError);
+export var ModelNotReadyException$: StaticErrorSchema = [
   -3,
   n0,
   _MNRE,
@@ -211,15 +218,15 @@ export var ModelNotReadyException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ModelNotReadyException, __ModelNotReadyException);
-export var ModelStreamError: StaticErrorSchema = [-3, n0, _MSE, { [_e]: _c }, [_M, _EC], [0, 0]];
-TypeRegistry.for(n0).registerError(ModelStreamError, __ModelStreamError);
-export var PayloadPart: StaticStructureSchema = [3, n0, _PP, 0, [_By], [[() => PartBlob, { [_eP]: 1 }]]];
-export var ServiceUnavailable: StaticErrorSchema = [-3, n0, _SU, { [_e]: _s, [_hE]: 503 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ServiceUnavailable, __ServiceUnavailable);
-export var ValidationError: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ValidationError, __ValidationError);
-export var SageMakerRuntimeServiceException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ModelNotReadyException$, ModelNotReadyException);
+export var ModelStreamError$: StaticErrorSchema = [-3, n0, _MSE, { [_e]: _c }, [_M, _EC], [0, 0]];
+TypeRegistry.for(n0).registerError(ModelStreamError$, ModelStreamError);
+export var PayloadPart$: StaticStructureSchema = [3, n0, _PP, 0, [_By], [[() => PartBlob, { [_eP]: 1 }]]];
+export var ServiceUnavailable$: StaticErrorSchema = [-3, n0, _SU, { [_e]: _s, [_hE]: 503 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ServiceUnavailable$, ServiceUnavailable);
+export var ValidationError$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ValidationError$, ValidationError);
+export var SageMakerRuntimeServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "SageMakerRuntimeServiceException",
@@ -227,40 +234,40 @@ export var SageMakerRuntimeServiceException: StaticErrorSchema = [
   [],
   [],
 ];
-TypeRegistry.for(_sm).registerError(SageMakerRuntimeServiceException, __SageMakerRuntimeServiceException);
-export var ResponseStream: StaticStructureSchema = [
+TypeRegistry.for(_sm).registerError(SageMakerRuntimeServiceException$, SageMakerRuntimeServiceException);
+export var ResponseStream$: StaticStructureSchema = [
   3,
   n0,
   _RS,
   { [_st]: 1 },
   [_PP, _MSE, _ISF],
   [
-    [() => PayloadPart, 0],
-    [() => ModelStreamError, 0],
-    [() => InternalStreamFailure, 0],
+    [() => PayloadPart$, 0],
+    [() => ModelStreamError$, 0],
+    [() => InternalStreamFailure$, 0],
   ],
 ];
-export var InvokeEndpoint: StaticOperationSchema = [
+export var InvokeEndpoint$: StaticOperationSchema = [
   9,
   n0,
   _IE,
   { [_h]: ["POST", "/endpoints/{EndpointName}/invocations", 200] },
-  () => InvokeEndpointInput,
-  () => InvokeEndpointOutput,
+  () => InvokeEndpointInput$,
+  () => InvokeEndpointOutput$,
 ];
-export var InvokeEndpointAsync: StaticOperationSchema = [
+export var InvokeEndpointAsync$: StaticOperationSchema = [
   9,
   n0,
   _IEA,
   { [_h]: ["POST", "/endpoints/{EndpointName}/async-invocations", 202] },
-  () => InvokeEndpointAsyncInput,
-  () => InvokeEndpointAsyncOutput,
+  () => InvokeEndpointAsyncInput$,
+  () => InvokeEndpointAsyncOutput$,
 ];
-export var InvokeEndpointWithResponseStream: StaticOperationSchema = [
+export var InvokeEndpointWithResponseStream$: StaticOperationSchema = [
   9,
   n0,
   _IEWRS,
   { [_h]: ["POST", "/endpoints/{EndpointName}/invocations-response-stream", 200] },
-  () => InvokeEndpointWithResponseStreamInput,
-  () => InvokeEndpointWithResponseStreamOutput,
+  () => InvokeEndpointWithResponseStreamInput$,
+  () => InvokeEndpointWithResponseStreamOutput$,
 ];

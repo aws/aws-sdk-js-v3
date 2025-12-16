@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSegmentSnapshotRequest, GetSegmentSnapshotResponse } from "../models/models_0";
-import { GetSegmentSnapshot } from "../schemas/schemas_0";
+import { GetSegmentSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class GetSegmentSnapshotCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "GetSegmentSnapshot", {})
   .n("CustomerProfilesClient", "GetSegmentSnapshotCommand")
-  .sc(GetSegmentSnapshot)
+  .sc(GetSegmentSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

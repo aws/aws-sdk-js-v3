@@ -518,46 +518,46 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { AuditManagerServiceException as __AuditManagerServiceException } from "../models/AuditManagerServiceException";
+import { AuditManagerServiceException } from "../models/AuditManagerServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var ActionPlanInstructions: StaticSimpleSchema = [0, n0, _API, 8, 0];
-export var ActionPlanTitle: StaticSimpleSchema = [0, n0, _APT, 8, 0];
-export var AssessmentDescription: StaticSimpleSchema = [0, n0, _AD, 8, 0];
-export var AssessmentName: StaticSimpleSchema = [0, n0, _AN, 8, 0];
-export var AssessmentReportDescription: StaticSimpleSchema = [0, n0, _ARD, 8, 0];
-export var ComplianceType: StaticSimpleSchema = [0, n0, _CT, 8, 0];
-export var ControlCommentBody: StaticSimpleSchema = [0, n0, _CCB, 8, 0];
-export var ControlDescription: StaticSimpleSchema = [0, n0, _CD, 8, 0];
-export var CreatedBy: StaticSimpleSchema = [0, n0, _CB, 8, 0];
-export var DelegationComment: StaticSimpleSchema = [0, n0, _DC, 8, 0];
-export var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
-export var LastUpdatedBy: StaticSimpleSchema = [0, n0, _LUB, 8, 0];
-export var ManualEvidenceLocalFileName: StaticSimpleSchema = [0, n0, _MELFN, 8, 0];
-export var ManualEvidenceTextResponse: StaticSimpleSchema = [0, n0, _METR, 8, 0];
-export var SNSTopic: StaticSimpleSchema = [0, n0, _SNST, 8, 0];
-export var TestingInformation: StaticSimpleSchema = [0, n0, _TI, 8, 0];
-export var TroubleshootingText: StaticSimpleSchema = [0, n0, _TT, 8, 0];
-export var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var Assessment: StaticStructureSchema = [
+var ActionPlanInstructions: StaticSimpleSchema = [0, n0, _API, 8, 0];
+var ActionPlanTitle: StaticSimpleSchema = [0, n0, _APT, 8, 0];
+var AssessmentDescription: StaticSimpleSchema = [0, n0, _AD, 8, 0];
+var AssessmentName: StaticSimpleSchema = [0, n0, _AN, 8, 0];
+var AssessmentReportDescription: StaticSimpleSchema = [0, n0, _ARD, 8, 0];
+var ComplianceType: StaticSimpleSchema = [0, n0, _CT, 8, 0];
+var ControlCommentBody: StaticSimpleSchema = [0, n0, _CCB, 8, 0];
+var ControlDescription: StaticSimpleSchema = [0, n0, _CD, 8, 0];
+var CreatedBy: StaticSimpleSchema = [0, n0, _CB, 8, 0];
+var DelegationComment: StaticSimpleSchema = [0, n0, _DC, 8, 0];
+var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
+var LastUpdatedBy: StaticSimpleSchema = [0, n0, _LUB, 8, 0];
+var ManualEvidenceLocalFileName: StaticSimpleSchema = [0, n0, _MELFN, 8, 0];
+var ManualEvidenceTextResponse: StaticSimpleSchema = [0, n0, _METR, 8, 0];
+var SNSTopic: StaticSimpleSchema = [0, n0, _SNST, 8, 0];
+var TestingInformation: StaticSimpleSchema = [0, n0, _TI, 8, 0];
+var TroubleshootingText: StaticSimpleSchema = [0, n0, _TT, 8, 0];
+var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var Assessment$: StaticStructureSchema = [
   3,
   n0,
   _A,
   0,
   [_a, _aA, _me, _f, _t],
-  [0, [() => AWSAccount, 0], [() => AssessmentMetadata, 0], [() => AssessmentFramework, 0], 128 | 0],
+  [0, [() => AWSAccount$, 0], [() => AssessmentMetadata$, 0], [() => AssessmentFramework$, 0], 128 | 0],
 ];
-export var AssessmentControl: StaticStructureSchema = [
+export var AssessmentControl$: StaticStructureSchema = [
   3,
   n0,
   _AC,
@@ -565,7 +565,7 @@ export var AssessmentControl: StaticStructureSchema = [
   [_i, _n, _d, _s, _r, _co, _eS, _eC, _aREC],
   [0, 0, [() => ControlDescription, 0], 0, 0, [() => ControlComments, 0], 64 | 0, 1, 1],
 ];
-export var AssessmentControlSet: StaticStructureSchema = [
+export var AssessmentControlSet$: StaticStructureSchema = [
   3,
   n0,
   _ACS,
@@ -573,7 +573,7 @@ export var AssessmentControlSet: StaticStructureSchema = [
   [_i, _d, _s, _ro, _con, _de, _sEC, _mEC],
   [0, 0, 0, [() => Roles, 0], [() => AssessmentControls, 0], [() => Delegations, 0], 1, 1],
 ];
-export var AssessmentEvidenceFolder: StaticStructureSchema = [
+export var AssessmentEvidenceFolder$: StaticStructureSchema = [
   3,
   n0,
   _AEF,
@@ -581,15 +581,15 @@ export var AssessmentEvidenceFolder: StaticStructureSchema = [
   [_n, _da, _aI, _cSI, _cI, _i, _dS, _au, _tE, _aRSC, _cN, _eRIC, _eBTCDC, _eBTMC, _eBTCCC, _eBTCCIC, _eBTUAC, _eASSC],
   [0, 4, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1],
 ];
-export var AssessmentFramework: StaticStructureSchema = [
+export var AssessmentFramework$: StaticStructureSchema = [
   3,
   n0,
   _AF,
   8,
   [_i, _a, _me, _cS],
-  [0, 0, [() => FrameworkMetadata, 0], [() => AssessmentControlSets, 0]],
+  [0, 0, [() => FrameworkMetadata$, 0], [() => AssessmentControlSets, 0]],
 ];
-export var AssessmentFrameworkMetadata: StaticStructureSchema = [
+export var AssessmentFrameworkMetadata$: StaticStructureSchema = [
   3,
   n0,
   _AFM,
@@ -597,7 +597,7 @@ export var AssessmentFrameworkMetadata: StaticStructureSchema = [
   [_a, _i, _ty, _n, _d, _l, _cT, _cC, _cSC, _cA, _lUA],
   [0, 0, 0, 0, 0, 0, [() => ComplianceType, 0], 1, 1, 4, 4],
 ];
-export var AssessmentFrameworkShareRequest: StaticStructureSchema = [
+export var AssessmentFrameworkShareRequest$: StaticStructureSchema = [
   3,
   n0,
   _AFSR,
@@ -605,7 +605,7 @@ export var AssessmentFrameworkShareRequest: StaticStructureSchema = [
   [_i, _fI, _fN, _fD, _s, _sA, _dA, _dR, _eT, _cTr, _lU, _com, _sCC, _cCC, _cT],
   [0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 1, 1, [() => ComplianceType, 0]],
 ];
-export var AssessmentMetadata: StaticStructureSchema = [
+export var AssessmentMetadata$: StaticStructureSchema = [
   3,
   n0,
   _AM,
@@ -617,15 +617,15 @@ export var AssessmentMetadata: StaticStructureSchema = [
     [() => AssessmentDescription, 0],
     [() => ComplianceType, 0],
     0,
-    [() => AssessmentReportsDestination, 0],
-    [() => Scope, 0],
+    [() => AssessmentReportsDestination$, 0],
+    [() => Scope$, 0],
     [() => Roles, 0],
     [() => Delegations, 0],
     4,
     4,
   ],
 ];
-export var AssessmentMetadataItem: StaticStructureSchema = [
+export var AssessmentMetadataItem$: StaticStructureSchema = [
   3,
   n0,
   _AMI,
@@ -633,7 +633,7 @@ export var AssessmentMetadataItem: StaticStructureSchema = [
   [_n, _i, _cT, _s, _ro, _de, _cTr, _lU],
   [[() => AssessmentName, 0], 0, [() => ComplianceType, 0], 0, [() => Roles, 0], [() => Delegations, 0], 4, 4],
 ];
-export var AssessmentReport: StaticStructureSchema = [
+export var AssessmentReport$: StaticStructureSchema = [
   3,
   n0,
   _AR,
@@ -641,8 +641,8 @@ export var AssessmentReport: StaticStructureSchema = [
   [_i, _n, _d, _aAI, _aI, _aN, _au, _s, _cTr],
   [0, 0, [() => AssessmentReportDescription, 0], 0, 0, [() => AssessmentName, 0], [() => Username, 0], 0, 4],
 ];
-export var AssessmentReportEvidenceError: StaticStructureSchema = [3, n0, _AREE, 0, [_eI, _eCr, _eM], [0, 0, 0]];
-export var AssessmentReportMetadata: StaticStructureSchema = [
+export var AssessmentReportEvidenceError$: StaticStructureSchema = [3, n0, _AREE, 0, [_eI, _eCr, _eM], [0, 0, 0]];
+export var AssessmentReportMetadata$: StaticStructureSchema = [
   3,
   n0,
   _ARM,
@@ -650,8 +650,8 @@ export var AssessmentReportMetadata: StaticStructureSchema = [
   [_i, _n, _d, _aI, _aN, _au, _s, _cTr],
   [0, 0, [() => AssessmentReportDescription, 0], 0, [() => AssessmentName, 0], [() => Username, 0], 0, 4],
 ];
-export var AssessmentReportsDestination: StaticStructureSchema = [3, n0, _ARDs, 8, [_dT, _des], [0, 0]];
-export var AssociateAssessmentReportEvidenceFolderRequest: StaticStructureSchema = [
+export var AssessmentReportsDestination$: StaticStructureSchema = [3, n0, _ARDs, 8, [_dT, _des], [0, 0]];
+export var AssociateAssessmentReportEvidenceFolderRequest$: StaticStructureSchema = [
   3,
   n0,
   _AAREFR,
@@ -659,10 +659,10 @@ export var AssociateAssessmentReportEvidenceFolderRequest: StaticStructureSchema
   [_aI, _eFI],
   [[0, 1], 0],
 ];
-export var AssociateAssessmentReportEvidenceFolderResponse: StaticStructureSchema = [3, n0, _AAREFRs, 0, [], []];
-export var AWSAccount: StaticStructureSchema = [3, n0, _AWSA, 0, [_i, _eA, _n], [0, [() => EmailAddress, 0], 0]];
-export var AWSService: StaticStructureSchema = [3, n0, _AWSS, 0, [_sN], [0]];
-export var BatchAssociateAssessmentReportEvidenceRequest: StaticStructureSchema = [
+export var AssociateAssessmentReportEvidenceFolderResponse$: StaticStructureSchema = [3, n0, _AAREFRs, 0, [], []];
+export var AWSAccount$: StaticStructureSchema = [3, n0, _AWSA, 0, [_i, _eA, _n], [0, [() => EmailAddress, 0], 0]];
+export var AWSService$: StaticStructureSchema = [3, n0, _AWSS, 0, [_sN], [0]];
+export var BatchAssociateAssessmentReportEvidenceRequest$: StaticStructureSchema = [
   3,
   n0,
   _BAARER,
@@ -670,7 +670,7 @@ export var BatchAssociateAssessmentReportEvidenceRequest: StaticStructureSchema 
   [_aI, _eFI, _eIv],
   [[0, 1], 0, 64 | 0],
 ];
-export var BatchAssociateAssessmentReportEvidenceResponse: StaticStructureSchema = [
+export var BatchAssociateAssessmentReportEvidenceResponse$: StaticStructureSchema = [
   3,
   n0,
   _BAARERa,
@@ -678,15 +678,15 @@ export var BatchAssociateAssessmentReportEvidenceResponse: StaticStructureSchema
   [_eIv, _er],
   [64 | 0, () => AssessmentReportEvidenceErrors],
 ];
-export var BatchCreateDelegationByAssessmentError: StaticStructureSchema = [
+export var BatchCreateDelegationByAssessmentError$: StaticStructureSchema = [
   3,
   n0,
   _BCDBAE,
   0,
   [_cDR, _eCr, _eM],
-  [[() => CreateDelegationRequest, 0], 0, 0],
+  [[() => CreateDelegationRequest$, 0], 0, 0],
 ];
-export var BatchCreateDelegationByAssessmentRequest: StaticStructureSchema = [
+export var BatchCreateDelegationByAssessmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _BCDBAR,
@@ -697,7 +697,7 @@ export var BatchCreateDelegationByAssessmentRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var BatchCreateDelegationByAssessmentResponse: StaticStructureSchema = [
+export var BatchCreateDelegationByAssessmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _BCDBARa,
@@ -708,7 +708,7 @@ export var BatchCreateDelegationByAssessmentResponse: StaticStructureSchema = [
     [() => BatchCreateDelegationByAssessmentErrors, 0],
   ],
 ];
-export var BatchDeleteDelegationByAssessmentError: StaticStructureSchema = [
+export var BatchDeleteDelegationByAssessmentError$: StaticStructureSchema = [
   3,
   n0,
   _BDDBAE,
@@ -716,7 +716,7 @@ export var BatchDeleteDelegationByAssessmentError: StaticStructureSchema = [
   [_dI, _eCr, _eM],
   [0, 0, 0],
 ];
-export var BatchDeleteDelegationByAssessmentRequest: StaticStructureSchema = [
+export var BatchDeleteDelegationByAssessmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _BDDBAR,
@@ -724,7 +724,7 @@ export var BatchDeleteDelegationByAssessmentRequest: StaticStructureSchema = [
   [_dIe, _aI],
   [64 | 0, [0, 1]],
 ];
-export var BatchDeleteDelegationByAssessmentResponse: StaticStructureSchema = [
+export var BatchDeleteDelegationByAssessmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _BDDBARa,
@@ -732,7 +732,7 @@ export var BatchDeleteDelegationByAssessmentResponse: StaticStructureSchema = [
   [_er],
   [[() => BatchDeleteDelegationByAssessmentErrors, 0]],
 ];
-export var BatchDisassociateAssessmentReportEvidenceRequest: StaticStructureSchema = [
+export var BatchDisassociateAssessmentReportEvidenceRequest$: StaticStructureSchema = [
   3,
   n0,
   _BDARER,
@@ -740,7 +740,7 @@ export var BatchDisassociateAssessmentReportEvidenceRequest: StaticStructureSche
   [_aI, _eFI, _eIv],
   [[0, 1], 0, 64 | 0],
 ];
-export var BatchDisassociateAssessmentReportEvidenceResponse: StaticStructureSchema = [
+export var BatchDisassociateAssessmentReportEvidenceResponse$: StaticStructureSchema = [
   3,
   n0,
   _BDARERa,
@@ -748,15 +748,15 @@ export var BatchDisassociateAssessmentReportEvidenceResponse: StaticStructureSch
   [_eIv, _er],
   [64 | 0, () => AssessmentReportEvidenceErrors],
 ];
-export var BatchImportEvidenceToAssessmentControlError: StaticStructureSchema = [
+export var BatchImportEvidenceToAssessmentControlError$: StaticStructureSchema = [
   3,
   n0,
   _BIETACE,
   0,
   [_mE, _eCr, _eM],
-  [[() => ManualEvidence, 0], 0, 0],
+  [[() => ManualEvidence$, 0], 0, 0],
 ];
-export var BatchImportEvidenceToAssessmentControlRequest: StaticStructureSchema = [
+export var BatchImportEvidenceToAssessmentControlRequest$: StaticStructureSchema = [
   3,
   n0,
   _BIETACR,
@@ -769,7 +769,7 @@ export var BatchImportEvidenceToAssessmentControlRequest: StaticStructureSchema 
     [() => ManualEvidenceList, 0],
   ],
 ];
-export var BatchImportEvidenceToAssessmentControlResponse: StaticStructureSchema = [
+export var BatchImportEvidenceToAssessmentControlResponse$: StaticStructureSchema = [
   3,
   n0,
   _BIETACRa,
@@ -777,8 +777,8 @@ export var BatchImportEvidenceToAssessmentControlResponse: StaticStructureSchema
   [_er],
   [[() => BatchImportEvidenceToAssessmentControlErrors, 0]],
 ];
-export var ChangeLog: StaticStructureSchema = [3, n0, _CL, 0, [_oT, _oN, _ac, _cA, _cB], [0, 0, 0, 4, 0]];
-export var Control: StaticStructureSchema = [
+export var ChangeLog$: StaticStructureSchema = [3, n0, _CL, 0, [_oT, _oN, _ac, _cA, _cB], [0, 0, 0, 4, 0]];
+export var Control$: StaticStructureSchema = [
   3,
   n0,
   _C,
@@ -803,7 +803,7 @@ export var Control: StaticStructureSchema = [
     0,
   ],
 ];
-export var ControlComment: StaticStructureSchema = [
+export var ControlComment$: StaticStructureSchema = [
   3,
   n0,
   _CC,
@@ -811,42 +811,42 @@ export var ControlComment: StaticStructureSchema = [
   [_aNu, _cBo, _pD],
   [[() => Username, 0], [() => ControlCommentBody, 0], 4],
 ];
-export var ControlDomainInsights: StaticStructureSchema = [
+export var ControlDomainInsights$: StaticStructureSchema = [
   3,
   n0,
   _CDI,
   0,
   [_n, _i, _cCBNE, _tCC, _eIvi, _lU],
-  [0, 0, 1, 1, () => EvidenceInsights, 4],
+  [0, 0, 1, 1, () => EvidenceInsights$, 4],
 ];
-export var ControlInsightsMetadataByAssessmentItem: StaticStructureSchema = [
+export var ControlInsightsMetadataByAssessmentItem$: StaticStructureSchema = [
   3,
   n0,
   _CIMBAI,
   0,
   [_n, _i, _eIvi, _cSN, _lU],
-  [0, 0, () => EvidenceInsights, 0, 4],
+  [0, 0, () => EvidenceInsights$, 0, 4],
 ];
-export var ControlInsightsMetadataItem: StaticStructureSchema = [
+export var ControlInsightsMetadataItem$: StaticStructureSchema = [
   3,
   n0,
   _CIMI,
   0,
   [_n, _i, _eIvi, _lU],
-  [0, 0, () => EvidenceInsights, 4],
+  [0, 0, () => EvidenceInsights$, 4],
 ];
-export var ControlMappingSource: StaticStructureSchema = [
+export var ControlMappingSource$: StaticStructureSchema = [
   3,
   n0,
   _CMS,
   0,
   [_sI, _sNo, _sD, _sSUO, _sT, _sK, _sF, _tT],
-  [0, 0, 0, 0, 0, () => SourceKeyword, 0, [() => TroubleshootingText, 0]],
+  [0, 0, 0, 0, 0, () => SourceKeyword$, 0, [() => TroubleshootingText, 0]],
 ];
-export var ControlMetadata: StaticStructureSchema = [3, n0, _CM, 0, [_a, _i, _n, _cSo, _cA, _lUA], [0, 0, 0, 0, 4, 4]];
-export var ControlSet: StaticStructureSchema = [3, n0, _CS, 0, [_i, _n, _con], [0, 0, [() => Controls, 0]]];
-export var CreateAssessmentFrameworkControl: StaticStructureSchema = [3, n0, _CAFC, 0, [_i], [0]];
-export var CreateAssessmentFrameworkControlSet: StaticStructureSchema = [
+export var ControlMetadata$: StaticStructureSchema = [3, n0, _CM, 0, [_a, _i, _n, _cSo, _cA, _lUA], [0, 0, 0, 0, 4, 4]];
+export var ControlSet$: StaticStructureSchema = [3, n0, _CS, 0, [_i, _n, _con], [0, 0, [() => Controls, 0]]];
+export var CreateAssessmentFrameworkControl$: StaticStructureSchema = [3, n0, _CAFC, 0, [_i], [0]];
+export var CreateAssessmentFrameworkControlSet$: StaticStructureSchema = [
   3,
   n0,
   _CAFCS,
@@ -854,7 +854,7 @@ export var CreateAssessmentFrameworkControlSet: StaticStructureSchema = [
   [_n, _con],
   [0, () => CreateAssessmentFrameworkControls],
 ];
-export var CreateAssessmentFrameworkRequest: StaticStructureSchema = [
+export var CreateAssessmentFrameworkRequest$: StaticStructureSchema = [
   3,
   n0,
   _CAFR,
@@ -862,8 +862,15 @@ export var CreateAssessmentFrameworkRequest: StaticStructureSchema = [
   [_n, _d, _cT, _cS, _t],
   [0, 0, [() => ComplianceType, 0], () => CreateAssessmentFrameworkControlSets, 128 | 0],
 ];
-export var CreateAssessmentFrameworkResponse: StaticStructureSchema = [3, n0, _CAFRr, 0, [_f], [[() => Framework, 0]]];
-export var CreateAssessmentReportRequest: StaticStructureSchema = [
+export var CreateAssessmentFrameworkResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _CAFRr,
+  0,
+  [_f],
+  [[() => Framework$, 0]],
+];
+export var CreateAssessmentReportRequest$: StaticStructureSchema = [
   3,
   n0,
   _CARR,
@@ -871,15 +878,15 @@ export var CreateAssessmentReportRequest: StaticStructureSchema = [
   [_n, _d, _aI, _qS],
   [0, [() => AssessmentReportDescription, 0], [0, 1], 0],
 ];
-export var CreateAssessmentReportResponse: StaticStructureSchema = [
+export var CreateAssessmentReportResponse$: StaticStructureSchema = [
   3,
   n0,
   _CARRr,
   0,
   [_aR],
-  [[() => AssessmentReport, 0]],
+  [[() => AssessmentReport$, 0]],
 ];
-export var CreateAssessmentRequest: StaticStructureSchema = [
+export var CreateAssessmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _CAR,
@@ -888,23 +895,23 @@ export var CreateAssessmentRequest: StaticStructureSchema = [
   [
     [() => AssessmentName, 0],
     [() => AssessmentDescription, 0],
-    [() => AssessmentReportsDestination, 0],
-    [() => Scope, 0],
+    [() => AssessmentReportsDestination$, 0],
+    [() => Scope$, 0],
     [() => Roles, 0],
     0,
     128 | 0,
   ],
 ];
-export var CreateAssessmentResponse: StaticStructureSchema = [3, n0, _CARr, 0, [_as], [[() => Assessment, 0]]];
-export var CreateControlMappingSource: StaticStructureSchema = [
+export var CreateAssessmentResponse$: StaticStructureSchema = [3, n0, _CARr, 0, [_as], [[() => Assessment$, 0]]];
+export var CreateControlMappingSource$: StaticStructureSchema = [
   3,
   n0,
   _CCMS,
   0,
   [_sNo, _sD, _sSUO, _sT, _sK, _sF, _tT],
-  [0, 0, 0, 0, () => SourceKeyword, 0, [() => TroubleshootingText, 0]],
+  [0, 0, 0, 0, () => SourceKeyword$, 0, [() => TroubleshootingText, 0]],
 ];
-export var CreateControlRequest: StaticStructureSchema = [
+export var CreateControlRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCR,
@@ -920,8 +927,8 @@ export var CreateControlRequest: StaticStructureSchema = [
     128 | 0,
   ],
 ];
-export var CreateControlResponse: StaticStructureSchema = [3, n0, _CCRr, 0, [_cont], [[() => Control, 0]]];
-export var CreateDelegationRequest: StaticStructureSchema = [
+export var CreateControlResponse$: StaticStructureSchema = [3, n0, _CCRr, 0, [_cont], [[() => Control$, 0]]];
+export var CreateDelegationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDR,
@@ -929,8 +936,8 @@ export var CreateDelegationRequest: StaticStructureSchema = [
   [_com, _cSI, _rA, _rT],
   [[() => DelegationComment, 0], 0, 0, 0],
 ];
-export var DefaultExportDestination: StaticStructureSchema = [3, n0, _DED, 0, [_dT, _des], [0, 0]];
-export var Delegation: StaticStructureSchema = [
+export var DefaultExportDestination$: StaticStructureSchema = [3, n0, _DED, 0, [_dT, _des], [0, 0]];
+export var Delegation$: StaticStructureSchema = [
   3,
   n0,
   _D,
@@ -938,7 +945,7 @@ export var Delegation: StaticStructureSchema = [
   [_i, _aN, _aI, _s, _rA, _rT, _cTr, _lU, _cSI, _com, _cB],
   [0, [() => AssessmentName, 0], 0, 0, 0, 0, 4, 4, 0, [() => DelegationComment, 0], [() => CreatedBy, 0]],
 ];
-export var DelegationMetadata: StaticStructureSchema = [
+export var DelegationMetadata$: StaticStructureSchema = [
   3,
   n0,
   _DM,
@@ -946,9 +953,9 @@ export var DelegationMetadata: StaticStructureSchema = [
   [_i, _aN, _aI, _s, _rA, _cTr, _cSN],
   [0, [() => AssessmentName, 0], 0, 0, 0, 4, 0],
 ];
-export var DeleteAssessmentFrameworkRequest: StaticStructureSchema = [3, n0, _DAFR, 0, [_fI], [[0, 1]]];
-export var DeleteAssessmentFrameworkResponse: StaticStructureSchema = [3, n0, _DAFRe, 0, [], []];
-export var DeleteAssessmentFrameworkShareRequest: StaticStructureSchema = [
+export var DeleteAssessmentFrameworkRequest$: StaticStructureSchema = [3, n0, _DAFR, 0, [_fI], [[0, 1]]];
+export var DeleteAssessmentFrameworkResponse$: StaticStructureSchema = [3, n0, _DAFRe, 0, [], []];
+export var DeleteAssessmentFrameworkShareRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAFSR,
@@ -959,8 +966,8 @@ export var DeleteAssessmentFrameworkShareRequest: StaticStructureSchema = [
     [0, { [_hQ]: _rTe }],
   ],
 ];
-export var DeleteAssessmentFrameworkShareResponse: StaticStructureSchema = [3, n0, _DAFSRe, 0, [], []];
-export var DeleteAssessmentReportRequest: StaticStructureSchema = [
+export var DeleteAssessmentFrameworkShareResponse$: StaticStructureSchema = [3, n0, _DAFSRe, 0, [], []];
+export var DeleteAssessmentReportRequest$: StaticStructureSchema = [
   3,
   n0,
   _DARR,
@@ -971,17 +978,17 @@ export var DeleteAssessmentReportRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteAssessmentReportResponse: StaticStructureSchema = [3, n0, _DARRe, 0, [], []];
-export var DeleteAssessmentRequest: StaticStructureSchema = [3, n0, _DAR, 0, [_aI], [[0, 1]]];
-export var DeleteAssessmentResponse: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
-export var DeleteControlRequest: StaticStructureSchema = [3, n0, _DCR, 0, [_cI], [[0, 1]]];
-export var DeleteControlResponse: StaticStructureSchema = [3, n0, _DCRe, 0, [], []];
-export var DeregisterAccountRequest: StaticStructureSchema = [3, n0, _DARer, 0, [], []];
-export var DeregisterAccountResponse: StaticStructureSchema = [3, n0, _DARere, 0, [_s], [0]];
-export var DeregisterOrganizationAdminAccountRequest: StaticStructureSchema = [3, n0, _DOAAR, 0, [_aAId], [0]];
-export var DeregisterOrganizationAdminAccountResponse: StaticStructureSchema = [3, n0, _DOAARe, 0, [], []];
-export var DeregistrationPolicy: StaticStructureSchema = [3, n0, _DP, 0, [_dRe], [0]];
-export var DisassociateAssessmentReportEvidenceFolderRequest: StaticStructureSchema = [
+export var DeleteAssessmentReportResponse$: StaticStructureSchema = [3, n0, _DARRe, 0, [], []];
+export var DeleteAssessmentRequest$: StaticStructureSchema = [3, n0, _DAR, 0, [_aI], [[0, 1]]];
+export var DeleteAssessmentResponse$: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
+export var DeleteControlRequest$: StaticStructureSchema = [3, n0, _DCR, 0, [_cI], [[0, 1]]];
+export var DeleteControlResponse$: StaticStructureSchema = [3, n0, _DCRe, 0, [], []];
+export var DeregisterAccountRequest$: StaticStructureSchema = [3, n0, _DARer, 0, [], []];
+export var DeregisterAccountResponse$: StaticStructureSchema = [3, n0, _DARere, 0, [_s], [0]];
+export var DeregisterOrganizationAdminAccountRequest$: StaticStructureSchema = [3, n0, _DOAAR, 0, [_aAId], [0]];
+export var DeregisterOrganizationAdminAccountResponse$: StaticStructureSchema = [3, n0, _DOAARe, 0, [], []];
+export var DeregistrationPolicy$: StaticStructureSchema = [3, n0, _DP, 0, [_dRe], [0]];
+export var DisassociateAssessmentReportEvidenceFolderRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAREFR,
@@ -989,8 +996,8 @@ export var DisassociateAssessmentReportEvidenceFolderRequest: StaticStructureSch
   [_aI, _eFI],
   [[0, 1], 0],
 ];
-export var DisassociateAssessmentReportEvidenceFolderResponse: StaticStructureSchema = [3, n0, _DAREFRi, 0, [], []];
-export var Evidence: StaticStructureSchema = [
+export var DisassociateAssessmentReportEvidenceFolderResponse$: StaticStructureSchema = [3, n0, _DAREFRi, 0, [], []];
+export var Evidence$: StaticStructureSchema = [
   3,
   n0,
   _E,
@@ -998,9 +1005,9 @@ export var Evidence: StaticStructureSchema = [
   [_dS, _eAAI, _ti, _eSv, _eN, _eBT, _rIe, _at, _iI, _cCo, _aO, _aAI, _eFI, _i, _aRS],
   [0, 0, 4, 0, 0, 0, () => Resources, 128 | 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var EvidenceFinderEnablement: StaticStructureSchema = [3, n0, _EFE, 0, [_eDSA, _eSn, _bS, _e], [0, 0, 0, 0]];
-export var EvidenceInsights: StaticStructureSchema = [3, n0, _EI, 0, [_nEC, _cEC, _iEC], [1, 1, 1]];
-export var Framework: StaticStructureSchema = [
+export var EvidenceFinderEnablement$: StaticStructureSchema = [3, n0, _EFE, 0, [_eDSA, _eSn, _bS, _e], [0, 0, 0, 0]];
+export var EvidenceInsights$: StaticStructureSchema = [3, n0, _EI, 0, [_nEC, _cEC, _iEC], [1, 1, 1]];
+export var Framework$: StaticStructureSchema = [
   3,
   n0,
   _F,
@@ -1023,7 +1030,7 @@ export var Framework: StaticStructureSchema = [
     128 | 0,
   ],
 ];
-export var FrameworkMetadata: StaticStructureSchema = [
+export var FrameworkMetadata$: StaticStructureSchema = [
   3,
   n0,
   _FM,
@@ -1031,11 +1038,11 @@ export var FrameworkMetadata: StaticStructureSchema = [
   [_n, _d, _l, _cT],
   [[() => AssessmentName, 0], 0, 0, [() => ComplianceType, 0]],
 ];
-export var GetAccountStatusRequest: StaticStructureSchema = [3, n0, _GASR, 0, [], []];
-export var GetAccountStatusResponse: StaticStructureSchema = [3, n0, _GASRe, 0, [_s], [0]];
-export var GetAssessmentFrameworkRequest: StaticStructureSchema = [3, n0, _GAFR, 0, [_fI], [[0, 1]]];
-export var GetAssessmentFrameworkResponse: StaticStructureSchema = [3, n0, _GAFRe, 0, [_f], [[() => Framework, 0]]];
-export var GetAssessmentReportUrlRequest: StaticStructureSchema = [
+export var GetAccountStatusRequest$: StaticStructureSchema = [3, n0, _GASR, 0, [], []];
+export var GetAccountStatusResponse$: StaticStructureSchema = [3, n0, _GASRe, 0, [_s], [0]];
+export var GetAssessmentFrameworkRequest$: StaticStructureSchema = [3, n0, _GAFR, 0, [_fI], [[0, 1]]];
+export var GetAssessmentFrameworkResponse$: StaticStructureSchema = [3, n0, _GAFRe, 0, [_f], [[() => Framework$, 0]]];
+export var GetAssessmentReportUrlRequest$: StaticStructureSchema = [
   3,
   n0,
   _GARUR,
@@ -1046,17 +1053,17 @@ export var GetAssessmentReportUrlRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetAssessmentReportUrlResponse: StaticStructureSchema = [3, n0, _GARURe, 0, [_pSU], [() => URL]];
-export var GetAssessmentRequest: StaticStructureSchema = [3, n0, _GAR, 0, [_aI], [[0, 1]]];
-export var GetAssessmentResponse: StaticStructureSchema = [
+export var GetAssessmentReportUrlResponse$: StaticStructureSchema = [3, n0, _GARURe, 0, [_pSU], [() => URL$]];
+export var GetAssessmentRequest$: StaticStructureSchema = [3, n0, _GAR, 0, [_aI], [[0, 1]]];
+export var GetAssessmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _GARe,
   0,
   [_as, _uR],
-  [[() => Assessment, 0], () => Role],
+  [[() => Assessment$, 0], () => Role$],
 ];
-export var GetChangeLogsRequest: StaticStructureSchema = [
+export var GetChangeLogsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCLR,
@@ -1070,10 +1077,10 @@ export var GetChangeLogsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var GetChangeLogsResponse: StaticStructureSchema = [3, n0, _GCLRe, 0, [_cL, _nT], [() => ChangeLogs, 0]];
-export var GetControlRequest: StaticStructureSchema = [3, n0, _GCR, 0, [_cI], [[0, 1]]];
-export var GetControlResponse: StaticStructureSchema = [3, n0, _GCRe, 0, [_cont], [[() => Control, 0]]];
-export var GetDelegationsRequest: StaticStructureSchema = [
+export var GetChangeLogsResponse$: StaticStructureSchema = [3, n0, _GCLRe, 0, [_cL, _nT], [() => ChangeLogs, 0]];
+export var GetControlRequest$: StaticStructureSchema = [3, n0, _GCR, 0, [_cI], [[0, 1]]];
+export var GetControlResponse$: StaticStructureSchema = [3, n0, _GCRe, 0, [_cont], [[() => Control$, 0]]];
+export var GetDelegationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDR,
@@ -1084,7 +1091,7 @@ export var GetDelegationsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var GetDelegationsResponse: StaticStructureSchema = [
+export var GetDelegationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDRe,
@@ -1092,7 +1099,7 @@ export var GetDelegationsResponse: StaticStructureSchema = [
   [_de, _nT],
   [[() => DelegationMetadataList, 0], 0],
 ];
-export var GetEvidenceByEvidenceFolderRequest: StaticStructureSchema = [
+export var GetEvidenceByEvidenceFolderRequest$: StaticStructureSchema = [
   3,
   n0,
   _GEBEFR,
@@ -1106,7 +1113,7 @@ export var GetEvidenceByEvidenceFolderRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var GetEvidenceByEvidenceFolderResponse: StaticStructureSchema = [
+export var GetEvidenceByEvidenceFolderResponse$: StaticStructureSchema = [
   3,
   n0,
   _GEBEFRe,
@@ -1114,7 +1121,7 @@ export var GetEvidenceByEvidenceFolderResponse: StaticStructureSchema = [
   [_ev, _nT],
   [() => EvidenceList, 0],
 ];
-export var GetEvidenceFileUploadUrlRequest: StaticStructureSchema = [
+export var GetEvidenceFileUploadUrlRequest$: StaticStructureSchema = [
   3,
   n0,
   _GEFUUR,
@@ -1122,8 +1129,8 @@ export var GetEvidenceFileUploadUrlRequest: StaticStructureSchema = [
   [_fNi],
   [[() => ManualEvidenceLocalFileName, { [_hQ]: _fNi }]],
 ];
-export var GetEvidenceFileUploadUrlResponse: StaticStructureSchema = [3, n0, _GEFUURe, 8, [_eFN, _uU], [0, 0]];
-export var GetEvidenceFolderRequest: StaticStructureSchema = [
+export var GetEvidenceFileUploadUrlResponse$: StaticStructureSchema = [3, n0, _GEFUURe, 8, [_eFN, _uU], [0, 0]];
+export var GetEvidenceFolderRequest$: StaticStructureSchema = [
   3,
   n0,
   _GEFR,
@@ -1135,15 +1142,15 @@ export var GetEvidenceFolderRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetEvidenceFolderResponse: StaticStructureSchema = [
+export var GetEvidenceFolderResponse$: StaticStructureSchema = [
   3,
   n0,
   _GEFRe,
   0,
   [_eF],
-  [() => AssessmentEvidenceFolder],
+  [() => AssessmentEvidenceFolder$],
 ];
-export var GetEvidenceFoldersByAssessmentControlRequest: StaticStructureSchema = [
+export var GetEvidenceFoldersByAssessmentControlRequest$: StaticStructureSchema = [
   3,
   n0,
   _GEFBACR,
@@ -1157,7 +1164,7 @@ export var GetEvidenceFoldersByAssessmentControlRequest: StaticStructureSchema =
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var GetEvidenceFoldersByAssessmentControlResponse: StaticStructureSchema = [
+export var GetEvidenceFoldersByAssessmentControlResponse$: StaticStructureSchema = [
   3,
   n0,
   _GEFBACRe,
@@ -1165,7 +1172,7 @@ export var GetEvidenceFoldersByAssessmentControlResponse: StaticStructureSchema 
   [_eFv, _nT],
   [() => AssessmentEvidenceFolders, 0],
 ];
-export var GetEvidenceFoldersByAssessmentRequest: StaticStructureSchema = [
+export var GetEvidenceFoldersByAssessmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _GEFBAR,
@@ -1177,7 +1184,7 @@ export var GetEvidenceFoldersByAssessmentRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var GetEvidenceFoldersByAssessmentResponse: StaticStructureSchema = [
+export var GetEvidenceFoldersByAssessmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _GEFBARe,
@@ -1185,7 +1192,7 @@ export var GetEvidenceFoldersByAssessmentResponse: StaticStructureSchema = [
   [_eFv, _nT],
   [() => AssessmentEvidenceFolders, 0],
 ];
-export var GetEvidenceRequest: StaticStructureSchema = [
+export var GetEvidenceRequest$: StaticStructureSchema = [
   3,
   n0,
   _GER,
@@ -1198,25 +1205,25 @@ export var GetEvidenceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetEvidenceResponse: StaticStructureSchema = [3, n0, _GERe, 0, [_ev], [() => Evidence]];
-export var GetInsightsByAssessmentRequest: StaticStructureSchema = [3, n0, _GIBAR, 0, [_aI], [[0, 1]]];
-export var GetInsightsByAssessmentResponse: StaticStructureSchema = [
+export var GetEvidenceResponse$: StaticStructureSchema = [3, n0, _GERe, 0, [_ev], [() => Evidence$]];
+export var GetInsightsByAssessmentRequest$: StaticStructureSchema = [3, n0, _GIBAR, 0, [_aI], [[0, 1]]];
+export var GetInsightsByAssessmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _GIBARe,
   0,
   [_in],
-  [() => InsightsByAssessment],
+  [() => InsightsByAssessment$],
 ];
-export var GetInsightsRequest: StaticStructureSchema = [3, n0, _GIR, 0, [], []];
-export var GetInsightsResponse: StaticStructureSchema = [3, n0, _GIRe, 0, [_in], [() => Insights]];
-export var GetOrganizationAdminAccountRequest: StaticStructureSchema = [3, n0, _GOAAR, 0, [], []];
-export var GetOrganizationAdminAccountResponse: StaticStructureSchema = [3, n0, _GOAARe, 0, [_aAId, _oI], [0, 0]];
-export var GetServicesInScopeRequest: StaticStructureSchema = [3, n0, _GSISR, 0, [], []];
-export var GetServicesInScopeResponse: StaticStructureSchema = [3, n0, _GSISRe, 0, [_sM], [() => ServiceMetadataList]];
-export var GetSettingsRequest: StaticStructureSchema = [3, n0, _GSR, 0, [_att], [[0, 1]]];
-export var GetSettingsResponse: StaticStructureSchema = [3, n0, _GSRe, 0, [_se], [[() => Settings, 0]]];
-export var Insights: StaticStructureSchema = [
+export var GetInsightsRequest$: StaticStructureSchema = [3, n0, _GIR, 0, [], []];
+export var GetInsightsResponse$: StaticStructureSchema = [3, n0, _GIRe, 0, [_in], [() => Insights$]];
+export var GetOrganizationAdminAccountRequest$: StaticStructureSchema = [3, n0, _GOAAR, 0, [], []];
+export var GetOrganizationAdminAccountResponse$: StaticStructureSchema = [3, n0, _GOAARe, 0, [_aAId, _oI], [0, 0]];
+export var GetServicesInScopeRequest$: StaticStructureSchema = [3, n0, _GSISR, 0, [], []];
+export var GetServicesInScopeResponse$: StaticStructureSchema = [3, n0, _GSISRe, 0, [_sM], [() => ServiceMetadataList]];
+export var GetSettingsRequest$: StaticStructureSchema = [3, n0, _GSR, 0, [_att], [[0, 1]]];
+export var GetSettingsResponse$: StaticStructureSchema = [3, n0, _GSRe, 0, [_se], [[() => Settings$, 0]]];
+export var Insights$: StaticStructureSchema = [
   3,
   n0,
   _I,
@@ -1224,7 +1231,7 @@ export var Insights: StaticStructureSchema = [
   [_aAC, _nEC, _cEC, _iEC, _aCCBNE, _tACC, _lU],
   [1, 1, 1, 1, 1, 1, 4],
 ];
-export var InsightsByAssessment: StaticStructureSchema = [
+export var InsightsByAssessment$: StaticStructureSchema = [
   3,
   n0,
   _IBA,
@@ -1232,9 +1239,9 @@ export var InsightsByAssessment: StaticStructureSchema = [
   [_nEC, _cEC, _iEC, _aCCBNE, _tACC, _lU],
   [1, 1, 1, 1, 1, 4],
 ];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser, [_hE]: 500 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var ListAssessmentControlInsightsByControlDomainRequest: StaticStructureSchema = [
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser, [_hE]: 500 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var ListAssessmentControlInsightsByControlDomainRequest$: StaticStructureSchema = [
   3,
   n0,
   _LACIBCDR,
@@ -1247,7 +1254,7 @@ export var ListAssessmentControlInsightsByControlDomainRequest: StaticStructureS
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListAssessmentControlInsightsByControlDomainResponse: StaticStructureSchema = [
+export var ListAssessmentControlInsightsByControlDomainResponse$: StaticStructureSchema = [
   3,
   n0,
   _LACIBCDRi,
@@ -1255,7 +1262,7 @@ export var ListAssessmentControlInsightsByControlDomainResponse: StaticStructure
   [_cIBA, _nT],
   [() => ControlInsightsMetadataByAssessment, 0],
 ];
-export var ListAssessmentFrameworkShareRequestsRequest: StaticStructureSchema = [
+export var ListAssessmentFrameworkShareRequestsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAFSRR,
@@ -1267,7 +1274,7 @@ export var ListAssessmentFrameworkShareRequestsRequest: StaticStructureSchema = 
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListAssessmentFrameworkShareRequestsResponse: StaticStructureSchema = [
+export var ListAssessmentFrameworkShareRequestsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAFSRRi,
@@ -1275,7 +1282,7 @@ export var ListAssessmentFrameworkShareRequestsResponse: StaticStructureSchema =
   [_aFSR, _nT],
   [[() => AssessmentFrameworkShareRequestList, 0], 0],
 ];
-export var ListAssessmentFrameworksRequest: StaticStructureSchema = [
+export var ListAssessmentFrameworksRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAFR,
@@ -1287,7 +1294,7 @@ export var ListAssessmentFrameworksRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListAssessmentFrameworksResponse: StaticStructureSchema = [
+export var ListAssessmentFrameworksResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAFRi,
@@ -1295,7 +1302,7 @@ export var ListAssessmentFrameworksResponse: StaticStructureSchema = [
   [_fML, _nT],
   [[() => FrameworkMetadataList, 0], 0],
 ];
-export var ListAssessmentReportsRequest: StaticStructureSchema = [
+export var ListAssessmentReportsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LARR,
@@ -1306,7 +1313,7 @@ export var ListAssessmentReportsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListAssessmentReportsResponse: StaticStructureSchema = [
+export var ListAssessmentReportsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LARRi,
@@ -1314,7 +1321,7 @@ export var ListAssessmentReportsResponse: StaticStructureSchema = [
   [_aRs, _nT],
   [[() => AssessmentReportsMetadata, 0], 0],
 ];
-export var ListAssessmentsRequest: StaticStructureSchema = [
+export var ListAssessmentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAR,
@@ -1326,7 +1333,7 @@ export var ListAssessmentsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListAssessmentsResponse: StaticStructureSchema = [
+export var ListAssessmentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LARi,
@@ -1334,7 +1341,7 @@ export var ListAssessmentsResponse: StaticStructureSchema = [
   [_aM, _nT],
   [[() => ListAssessmentMetadata, 0], 0],
 ];
-export var ListControlDomainInsightsByAssessmentRequest: StaticStructureSchema = [
+export var ListControlDomainInsightsByAssessmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCDIBAR,
@@ -1346,7 +1353,7 @@ export var ListControlDomainInsightsByAssessmentRequest: StaticStructureSchema =
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListControlDomainInsightsByAssessmentResponse: StaticStructureSchema = [
+export var ListControlDomainInsightsByAssessmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCDIBARi,
@@ -1354,7 +1361,7 @@ export var ListControlDomainInsightsByAssessmentResponse: StaticStructureSchema 
   [_cDIo, _nT],
   [() => ControlDomainInsightsList, 0],
 ];
-export var ListControlDomainInsightsRequest: StaticStructureSchema = [
+export var ListControlDomainInsightsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCDIR,
@@ -1365,7 +1372,7 @@ export var ListControlDomainInsightsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListControlDomainInsightsResponse: StaticStructureSchema = [
+export var ListControlDomainInsightsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCDIRi,
@@ -1373,7 +1380,7 @@ export var ListControlDomainInsightsResponse: StaticStructureSchema = [
   [_cDIo, _nT],
   [() => ControlDomainInsightsList, 0],
 ];
-export var ListControlInsightsByControlDomainRequest: StaticStructureSchema = [
+export var ListControlInsightsByControlDomainRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCIBCDR,
@@ -1385,7 +1392,7 @@ export var ListControlInsightsByControlDomainRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListControlInsightsByControlDomainResponse: StaticStructureSchema = [
+export var ListControlInsightsByControlDomainResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCIBCDRi,
@@ -1393,7 +1400,7 @@ export var ListControlInsightsByControlDomainResponse: StaticStructureSchema = [
   [_cIM, _nT],
   [() => ControlInsightsMetadata, 0],
 ];
-export var ListControlsRequest: StaticStructureSchema = [
+export var ListControlsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCR,
@@ -1406,8 +1413,15 @@ export var ListControlsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _cCI }],
   ],
 ];
-export var ListControlsResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_cML, _nT], [() => ControlMetadataList, 0]];
-export var ListKeywordsForDataSourceRequest: StaticStructureSchema = [
+export var ListControlsResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _LCRi,
+  0,
+  [_cML, _nT],
+  [() => ControlMetadataList, 0],
+];
+export var ListKeywordsForDataSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _LKFDSR,
@@ -1419,8 +1433,8 @@ export var ListKeywordsForDataSourceRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListKeywordsForDataSourceResponse: StaticStructureSchema = [3, n0, _LKFDSRi, 0, [_k, _nT], [64 | 0, 0]];
-export var ListNotificationsRequest: StaticStructureSchema = [
+export var ListKeywordsForDataSourceResponse$: StaticStructureSchema = [3, n0, _LKFDSRi, 0, [_k, _nT], [64 | 0, 0]];
+export var ListNotificationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LNR,
@@ -1431,7 +1445,7 @@ export var ListNotificationsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListNotificationsResponse: StaticStructureSchema = [
+export var ListNotificationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LNRi,
@@ -1439,9 +1453,9 @@ export var ListNotificationsResponse: StaticStructureSchema = [
   [_no, _nT],
   [[() => Notifications, 0], 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rAe], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
-export var ManualEvidence: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rAe], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
+export var ManualEvidence$: StaticStructureSchema = [
   3,
   n0,
   _ME,
@@ -1449,7 +1463,7 @@ export var ManualEvidence: StaticStructureSchema = [
   [_sRP, _tR, _eFN],
   [0, [() => ManualEvidenceTextResponse, 0], [() => ManualEvidenceLocalFileName, 0]],
 ];
-export var Notification: StaticStructureSchema = [
+export var Notification$: StaticStructureSchema = [
   3,
   n0,
   _N,
@@ -1457,12 +1471,12 @@ export var Notification: StaticStructureSchema = [
   [_i, _aI, _aN, _cSI, _cSN, _d, _eTv, _so],
   [0, 0, [() => AssessmentName, 0], 0, 0, 0, 4, 0],
 ];
-export var RegisterAccountRequest: StaticStructureSchema = [3, n0, _RAR, 0, [_kK, _dAA], [0, 0]];
-export var RegisterAccountResponse: StaticStructureSchema = [3, n0, _RARe, 0, [_s], [0]];
-export var RegisterOrganizationAdminAccountRequest: StaticStructureSchema = [3, n0, _ROAAR, 0, [_aAId], [0]];
-export var RegisterOrganizationAdminAccountResponse: StaticStructureSchema = [3, n0, _ROAARe, 0, [_aAId, _oI], [0, 0]];
-export var Resource: StaticStructureSchema = [3, n0, _R, 0, [_a, _v, _cCo], [0, 0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
+export var RegisterAccountRequest$: StaticStructureSchema = [3, n0, _RAR, 0, [_kK, _dAA], [0, 0]];
+export var RegisterAccountResponse$: StaticStructureSchema = [3, n0, _RARe, 0, [_s], [0]];
+export var RegisterOrganizationAdminAccountRequest$: StaticStructureSchema = [3, n0, _ROAAR, 0, [_aAId], [0]];
+export var RegisterOrganizationAdminAccountResponse$: StaticStructureSchema = [3, n0, _ROAARe, 0, [_aAId, _oI], [0, 0]];
+export var Resource$: StaticStructureSchema = [3, n0, _R, 0, [_a, _v, _cCo], [0, 0, 0]];
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -1470,13 +1484,13 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_m, _rIes, _rTes],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var Role: StaticStructureSchema = [3, n0, _Ro, 0, [_rT, _rA], [0, 0]];
-export var Scope: StaticStructureSchema = [3, n0, _S, 8, [_aAw, _aS], [[() => AWSAccounts, 0], () => AWSServices]];
-export var ServiceMetadata: StaticStructureSchema = [3, n0, _SM, 0, [_n, _dN, _d, _ca], [0, 0, 0, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var Settings: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var Role$: StaticStructureSchema = [3, n0, _Ro, 0, [_rT, _rA], [0, 0]];
+export var Scope$: StaticStructureSchema = [3, n0, _S, 8, [_aAw, _aS], [[() => AWSAccounts, 0], () => AWSServices]];
+export var ServiceMetadata$: StaticStructureSchema = [3, n0, _SM, 0, [_n, _dN, _d, _ca], [0, 0, 0, 0]];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var Settings$: StaticStructureSchema = [
   3,
   n0,
   _Se,
@@ -1485,16 +1499,16 @@ export var Settings: StaticStructureSchema = [
   [
     2,
     [() => SNSTopic, 0],
-    [() => AssessmentReportsDestination, 0],
+    [() => AssessmentReportsDestination$, 0],
     [() => Roles, 0],
     0,
-    () => EvidenceFinderEnablement,
-    () => DeregistrationPolicy,
-    () => DefaultExportDestination,
+    () => EvidenceFinderEnablement$,
+    () => DeregistrationPolicy$,
+    () => DefaultExportDestination$,
   ],
 ];
-export var SourceKeyword: StaticStructureSchema = [3, n0, _SK, 0, [_kIT, _kV], [0, 0]];
-export var StartAssessmentFrameworkShareRequest: StaticStructureSchema = [
+export var SourceKeyword$: StaticStructureSchema = [3, n0, _SK, 0, [_kIT, _kV], [0, 0]];
+export var StartAssessmentFrameworkShareRequest$: StaticStructureSchema = [
   3,
   n0,
   _SAFSR,
@@ -1502,19 +1516,19 @@ export var StartAssessmentFrameworkShareRequest: StaticStructureSchema = [
   [_fI, _dA, _dR, _com],
   [[0, 1], 0, 0, 0],
 ];
-export var StartAssessmentFrameworkShareResponse: StaticStructureSchema = [
+export var StartAssessmentFrameworkShareResponse$: StaticStructureSchema = [
   3,
   n0,
   _SAFSRt,
   0,
   [_aFSRs],
-  [[() => AssessmentFrameworkShareRequest, 0]],
+  [[() => AssessmentFrameworkShareRequest$, 0]],
 ];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _t], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var UntagResourceRequest: StaticStructureSchema = [
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _t], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -1525,8 +1539,8 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateAssessmentControlRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateAssessmentControlRequest$: StaticStructureSchema = [
   3,
   n0,
   _UACR,
@@ -1534,15 +1548,15 @@ export var UpdateAssessmentControlRequest: StaticStructureSchema = [
   [_aI, _cSI, _cI, _cSon, _cBo],
   [[0, 1], [0, 1], [0, 1], 0, [() => ControlCommentBody, 0]],
 ];
-export var UpdateAssessmentControlResponse: StaticStructureSchema = [
+export var UpdateAssessmentControlResponse$: StaticStructureSchema = [
   3,
   n0,
   _UACRp,
   0,
   [_cont],
-  [[() => AssessmentControl, 0]],
+  [[() => AssessmentControl$, 0]],
 ];
-export var UpdateAssessmentControlSetStatusRequest: StaticStructureSchema = [
+export var UpdateAssessmentControlSetStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _UACSSR,
@@ -1550,15 +1564,15 @@ export var UpdateAssessmentControlSetStatusRequest: StaticStructureSchema = [
   [_aI, _cSI, _s, _com],
   [[0, 1], [0, 1], 0, [() => DelegationComment, 0]],
 ];
-export var UpdateAssessmentControlSetStatusResponse: StaticStructureSchema = [
+export var UpdateAssessmentControlSetStatusResponse$: StaticStructureSchema = [
   3,
   n0,
   _UACSSRp,
   0,
   [_cSont],
-  [[() => AssessmentControlSet, 0]],
+  [[() => AssessmentControlSet$, 0]],
 ];
-export var UpdateAssessmentFrameworkControlSet: StaticStructureSchema = [
+export var UpdateAssessmentFrameworkControlSet$: StaticStructureSchema = [
   3,
   n0,
   _UAFCS,
@@ -1566,7 +1580,7 @@ export var UpdateAssessmentFrameworkControlSet: StaticStructureSchema = [
   [_i, _n, _con],
   [0, 0, () => CreateAssessmentFrameworkControls],
 ];
-export var UpdateAssessmentFrameworkRequest: StaticStructureSchema = [
+export var UpdateAssessmentFrameworkRequest$: StaticStructureSchema = [
   3,
   n0,
   _UAFR,
@@ -1574,8 +1588,15 @@ export var UpdateAssessmentFrameworkRequest: StaticStructureSchema = [
   [_fI, _n, _d, _cT, _cS],
   [[0, 1], 0, 0, [() => ComplianceType, 0], () => UpdateAssessmentFrameworkControlSets],
 ];
-export var UpdateAssessmentFrameworkResponse: StaticStructureSchema = [3, n0, _UAFRp, 0, [_f], [[() => Framework, 0]]];
-export var UpdateAssessmentFrameworkShareRequest: StaticStructureSchema = [
+export var UpdateAssessmentFrameworkResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _UAFRp,
+  0,
+  [_f],
+  [[() => Framework$, 0]],
+];
+export var UpdateAssessmentFrameworkShareRequest$: StaticStructureSchema = [
   3,
   n0,
   _UAFSR,
@@ -1583,15 +1604,15 @@ export var UpdateAssessmentFrameworkShareRequest: StaticStructureSchema = [
   [_rI, _rTe, _ac],
   [[0, 1], 0, 0],
 ];
-export var UpdateAssessmentFrameworkShareResponse: StaticStructureSchema = [
+export var UpdateAssessmentFrameworkShareResponse$: StaticStructureSchema = [
   3,
   n0,
   _UAFSRp,
   0,
   [_aFSRs],
-  [[() => AssessmentFrameworkShareRequest, 0]],
+  [[() => AssessmentFrameworkShareRequest$, 0]],
 ];
-export var UpdateAssessmentRequest: StaticStructureSchema = [
+export var UpdateAssessmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _UAR,
@@ -1601,15 +1622,15 @@ export var UpdateAssessmentRequest: StaticStructureSchema = [
     [0, 1],
     [() => AssessmentName, 0],
     [() => AssessmentDescription, 0],
-    [() => Scope, 0],
-    [() => AssessmentReportsDestination, 0],
+    [() => Scope$, 0],
+    [() => AssessmentReportsDestination$, 0],
     [() => Roles, 0],
   ],
 ];
-export var UpdateAssessmentResponse: StaticStructureSchema = [3, n0, _UARp, 0, [_as], [[() => Assessment, 0]]];
-export var UpdateAssessmentStatusRequest: StaticStructureSchema = [3, n0, _UASR, 0, [_aI, _s], [[0, 1], 0]];
-export var UpdateAssessmentStatusResponse: StaticStructureSchema = [3, n0, _UASRp, 0, [_as], [[() => Assessment, 0]]];
-export var UpdateControlRequest: StaticStructureSchema = [
+export var UpdateAssessmentResponse$: StaticStructureSchema = [3, n0, _UARp, 0, [_as], [[() => Assessment$, 0]]];
+export var UpdateAssessmentStatusRequest$: StaticStructureSchema = [3, n0, _UASR, 0, [_aI, _s], [[0, 1], 0]];
+export var UpdateAssessmentStatusResponse$: StaticStructureSchema = [3, n0, _UASRp, 0, [_as], [[() => Assessment$, 0]]];
+export var UpdateControlRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCR,
@@ -1625,8 +1646,8 @@ export var UpdateControlRequest: StaticStructureSchema = [
     [() => ControlMappingSources, 0],
   ],
 ];
-export var UpdateControlResponse: StaticStructureSchema = [3, n0, _UCRp, 0, [_cont], [[() => Control, 0]]];
-export var UpdateSettingsRequest: StaticStructureSchema = [
+export var UpdateControlResponse$: StaticStructureSchema = [3, n0, _UCRp, 0, [_cont], [[() => Control$, 0]]];
+export var UpdateSettingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _USR,
@@ -1634,18 +1655,18 @@ export var UpdateSettingsRequest: StaticStructureSchema = [
   [_sTn, _dARD, _dPO, _kK, _eFEv, _dP, _dED],
   [
     0,
-    [() => AssessmentReportsDestination, 0],
+    [() => AssessmentReportsDestination$, 0],
     [() => Roles, 0],
     0,
     2,
-    () => DeregistrationPolicy,
-    () => DefaultExportDestination,
+    () => DeregistrationPolicy$,
+    () => DefaultExportDestination$,
   ],
 ];
-export var UpdateSettingsResponse: StaticStructureSchema = [3, n0, _USRp, 0, [_se], [[() => Settings, 0]]];
-export var URL: StaticStructureSchema = [3, n0, _URL, 0, [_hN, _li], [0, 0]];
-export var ValidateAssessmentReportIntegrityRequest: StaticStructureSchema = [3, n0, _VARIR, 0, [_sRPe], [0]];
-export var ValidateAssessmentReportIntegrityResponse: StaticStructureSchema = [
+export var UpdateSettingsResponse$: StaticStructureSchema = [3, n0, _USRp, 0, [_se], [[() => Settings$, 0]]];
+export var URL$: StaticStructureSchema = [3, n0, _URL, 0, [_hN, _li], [0, 0]];
+export var ValidateAssessmentReportIntegrityRequest$: StaticStructureSchema = [3, n0, _VARIR, 0, [_sRPe], [0]];
+export var ValidateAssessmentReportIntegrityResponse$: StaticStructureSchema = [
   3,
   n0,
   _VARIRa,
@@ -1653,7 +1674,7 @@ export var ValidateAssessmentReportIntegrityResponse: StaticStructureSchema = [
   [_sV, _sAi, _sDT, _sKI, _vE],
   [2, 0, 0, 0, 64 | 0],
 ];
-export var ValidationException: StaticErrorSchema = [
+export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
@@ -1661,303 +1682,297 @@ export var ValidationException: StaticErrorSchema = [
   [_m, _re, _fi],
   [0, 0, () => ValidationExceptionFieldList],
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var AuditManagerServiceException: StaticErrorSchema = [-3, _sm, "AuditManagerServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AuditManagerServiceException, __AuditManagerServiceException);
-export var AssessmentControls: StaticListSchema = [1, n0, _ACs, 0, [() => AssessmentControl, 0]];
-export var AssessmentControlSets: StaticListSchema = [1, n0, _ACSs, 0, [() => AssessmentControlSet, 0]];
-export var AssessmentEvidenceFolders: StaticListSchema = [1, n0, _AEFs, 0, () => AssessmentEvidenceFolder];
-export var AssessmentFrameworkShareRequestList: StaticListSchema = [
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
+export var AuditManagerServiceException$: StaticErrorSchema = [-3, _sm, "AuditManagerServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(AuditManagerServiceException$, AuditManagerServiceException);
+var AssessmentControls: StaticListSchema = [1, n0, _ACs, 0, [() => AssessmentControl$, 0]];
+var AssessmentControlSets: StaticListSchema = [1, n0, _ACSs, 0, [() => AssessmentControlSet$, 0]];
+var AssessmentEvidenceFolders: StaticListSchema = [1, n0, _AEFs, 0, () => AssessmentEvidenceFolder$];
+var AssessmentFrameworkShareRequestList: StaticListSchema = [
   1,
   n0,
   _AFSRL,
   0,
-  [() => AssessmentFrameworkShareRequest, 0],
+  [() => AssessmentFrameworkShareRequest$, 0],
 ];
-export var AssessmentReportEvidenceErrors: StaticListSchema = [1, n0, _AREEs, 0, () => AssessmentReportEvidenceError];
-export var AssessmentReportsMetadata: StaticListSchema = [1, n0, _ARMs, 0, [() => AssessmentReportMetadata, 0]];
-export var AWSAccounts: StaticListSchema = [1, n0, _AWSAc, 8, [() => AWSAccount, 0]];
-export var AWSServices: StaticListSchema = [1, n0, _AWSSe, 0, () => AWSService];
-export var BatchCreateDelegationByAssessmentErrors: StaticListSchema = [
+var AssessmentReportEvidenceErrors: StaticListSchema = [1, n0, _AREEs, 0, () => AssessmentReportEvidenceError$];
+var AssessmentReportsMetadata: StaticListSchema = [1, n0, _ARMs, 0, [() => AssessmentReportMetadata$, 0]];
+var AWSAccounts: StaticListSchema = [1, n0, _AWSAc, 8, [() => AWSAccount$, 0]];
+var AWSServices: StaticListSchema = [1, n0, _AWSSe, 0, () => AWSService$];
+var BatchCreateDelegationByAssessmentErrors: StaticListSchema = [
   1,
   n0,
   _BCDBAEa,
   8,
-  [() => BatchCreateDelegationByAssessmentError, 0],
+  [() => BatchCreateDelegationByAssessmentError$, 0],
 ];
-export var BatchDeleteDelegationByAssessmentErrors: StaticListSchema = [
+var BatchDeleteDelegationByAssessmentErrors: StaticListSchema = [
   1,
   n0,
   _BDDBAEa,
   8,
-  () => BatchDeleteDelegationByAssessmentError,
+  () => BatchDeleteDelegationByAssessmentError$,
 ];
-export var BatchImportEvidenceToAssessmentControlErrors: StaticListSchema = [
+var BatchImportEvidenceToAssessmentControlErrors: StaticListSchema = [
   1,
   n0,
   _BIETACEa,
   0,
-  [() => BatchImportEvidenceToAssessmentControlError, 0],
+  [() => BatchImportEvidenceToAssessmentControlError$, 0],
 ];
-export var ChangeLogs: StaticListSchema = [1, n0, _CLh, 0, () => ChangeLog];
-export var ControlComments: StaticListSchema = [1, n0, _CCo, 0, [() => ControlComment, 0]];
-export var ControlDomainInsightsList: StaticListSchema = [1, n0, _CDIL, 0, () => ControlDomainInsights];
-export var ControlInsightsMetadata: StaticListSchema = [1, n0, _CIM, 0, () => ControlInsightsMetadataItem];
-export var ControlInsightsMetadataByAssessment: StaticListSchema = [
+var ChangeLogs: StaticListSchema = [1, n0, _CLh, 0, () => ChangeLog$];
+var ControlComments: StaticListSchema = [1, n0, _CCo, 0, [() => ControlComment$, 0]];
+var ControlDomainInsightsList: StaticListSchema = [1, n0, _CDIL, 0, () => ControlDomainInsights$];
+var ControlInsightsMetadata: StaticListSchema = [1, n0, _CIM, 0, () => ControlInsightsMetadataItem$];
+var ControlInsightsMetadataByAssessment: StaticListSchema = [
   1,
   n0,
   _CIMBA,
   0,
-  () => ControlInsightsMetadataByAssessmentItem,
+  () => ControlInsightsMetadataByAssessmentItem$,
 ];
-export var ControlMappingSources: StaticListSchema = [1, n0, _CMSo, 0, [() => ControlMappingSource, 0]];
-export var ControlMetadataList: StaticListSchema = [1, n0, _CML, 0, () => ControlMetadata];
-export var Controls: StaticListSchema = [1, n0, _Co, 0, [() => Control, 0]];
-export var ControlSets: StaticListSchema = [1, n0, _CSo, 8, [() => ControlSet, 0]];
-export var CreateAssessmentFrameworkControls: StaticListSchema = [
-  1,
-  n0,
-  _CAFCr,
-  0,
-  () => CreateAssessmentFrameworkControl,
-];
-export var CreateAssessmentFrameworkControlSets: StaticListSchema = [
+var ControlMappingSources: StaticListSchema = [1, n0, _CMSo, 0, [() => ControlMappingSource$, 0]];
+var ControlMetadataList: StaticListSchema = [1, n0, _CML, 0, () => ControlMetadata$];
+var Controls: StaticListSchema = [1, n0, _Co, 0, [() => Control$, 0]];
+var ControlSets: StaticListSchema = [1, n0, _CSo, 8, [() => ControlSet$, 0]];
+var CreateAssessmentFrameworkControls: StaticListSchema = [1, n0, _CAFCr, 0, () => CreateAssessmentFrameworkControl$];
+var CreateAssessmentFrameworkControlSets: StaticListSchema = [
   1,
   n0,
   _CAFCSr,
   0,
-  () => CreateAssessmentFrameworkControlSet,
+  () => CreateAssessmentFrameworkControlSet$,
 ];
-export var CreateControlMappingSources: StaticListSchema = [1, n0, _CCMSr, 0, [() => CreateControlMappingSource, 0]];
-export var CreateDelegationRequests: StaticListSchema = [1, n0, _CDRr, 8, [() => CreateDelegationRequest, 0]];
-export var DelegationIds = 64 | 0;
-export var DelegationMetadataList: StaticListSchema = [1, n0, _DML, 0, [() => DelegationMetadata, 0]];
-export var Delegations: StaticListSchema = [1, n0, _De, 0, [() => Delegation, 0]];
-export var EvidenceIds = 64 | 0;
-export var EvidenceList: StaticListSchema = [1, n0, _EL, 0, () => Evidence];
-export var EvidenceSources = 64 | 0;
-export var FrameworkMetadataList: StaticListSchema = [1, n0, _FML, 0, [() => AssessmentFrameworkMetadata, 0]];
-export var Keywords = 64 | 0;
-export var ListAssessmentMetadata: StaticListSchema = [1, n0, _LAM, 0, [() => AssessmentMetadataItem, 0]];
-export var ManualEvidenceList: StaticListSchema = [1, n0, _MEL, 0, [() => ManualEvidence, 0]];
-export var Notifications: StaticListSchema = [1, n0, _No, 0, [() => Notification, 0]];
-export var Resources: StaticListSchema = [1, n0, _Re, 0, () => Resource];
-export var Roles: StaticListSchema = [1, n0, _Rol, 8, () => Role];
-export var ServiceMetadataList: StaticListSchema = [1, n0, _SML, 0, () => ServiceMetadata];
-export var TagKeyList = 64 | 0;
-export var UpdateAssessmentFrameworkControlSets: StaticListSchema = [
+var CreateControlMappingSources: StaticListSchema = [1, n0, _CCMSr, 0, [() => CreateControlMappingSource$, 0]];
+var CreateDelegationRequests: StaticListSchema = [1, n0, _CDRr, 8, [() => CreateDelegationRequest$, 0]];
+var DelegationIds = 64 | 0;
+var DelegationMetadataList: StaticListSchema = [1, n0, _DML, 0, [() => DelegationMetadata$, 0]];
+var Delegations: StaticListSchema = [1, n0, _De, 0, [() => Delegation$, 0]];
+var EvidenceIds = 64 | 0;
+var EvidenceList: StaticListSchema = [1, n0, _EL, 0, () => Evidence$];
+var EvidenceSources = 64 | 0;
+var FrameworkMetadataList: StaticListSchema = [1, n0, _FML, 0, [() => AssessmentFrameworkMetadata$, 0]];
+var Keywords = 64 | 0;
+var ListAssessmentMetadata: StaticListSchema = [1, n0, _LAM, 0, [() => AssessmentMetadataItem$, 0]];
+var ManualEvidenceList: StaticListSchema = [1, n0, _MEL, 0, [() => ManualEvidence$, 0]];
+var Notifications: StaticListSchema = [1, n0, _No, 0, [() => Notification$, 0]];
+var Resources: StaticListSchema = [1, n0, _Re, 0, () => Resource$];
+var Roles: StaticListSchema = [1, n0, _Rol, 8, () => Role$];
+var ServiceMetadataList: StaticListSchema = [1, n0, _SML, 0, () => ServiceMetadata$];
+var TagKeyList = 64 | 0;
+var UpdateAssessmentFrameworkControlSets: StaticListSchema = [
   1,
   n0,
   _UAFCSp,
   0,
-  () => UpdateAssessmentFrameworkControlSet,
+  () => UpdateAssessmentFrameworkControlSet$,
 ];
-export var ValidationErrors = 64 | 0;
-export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
-export var EvidenceAttributes = 128 | 0;
-export var TagMap = 128 | 0;
-export var AssociateAssessmentReportEvidenceFolder: StaticOperationSchema = [
+var ValidationErrors = 64 | 0;
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
+var EvidenceAttributes = 128 | 0;
+var TagMap = 128 | 0;
+export var AssociateAssessmentReportEvidenceFolder$: StaticOperationSchema = [
   9,
   n0,
   _AAREF,
   { [_h]: ["PUT", "/assessments/{assessmentId}/associateToAssessmentReport", 200] },
-  () => AssociateAssessmentReportEvidenceFolderRequest,
-  () => AssociateAssessmentReportEvidenceFolderResponse,
+  () => AssociateAssessmentReportEvidenceFolderRequest$,
+  () => AssociateAssessmentReportEvidenceFolderResponse$,
 ];
-export var BatchAssociateAssessmentReportEvidence: StaticOperationSchema = [
+export var BatchAssociateAssessmentReportEvidence$: StaticOperationSchema = [
   9,
   n0,
   _BAARE,
   { [_h]: ["PUT", "/assessments/{assessmentId}/batchAssociateToAssessmentReport", 200] },
-  () => BatchAssociateAssessmentReportEvidenceRequest,
-  () => BatchAssociateAssessmentReportEvidenceResponse,
+  () => BatchAssociateAssessmentReportEvidenceRequest$,
+  () => BatchAssociateAssessmentReportEvidenceResponse$,
 ];
-export var BatchCreateDelegationByAssessment: StaticOperationSchema = [
+export var BatchCreateDelegationByAssessment$: StaticOperationSchema = [
   9,
   n0,
   _BCDBA,
   { [_h]: ["POST", "/assessments/{assessmentId}/delegations", 200] },
-  () => BatchCreateDelegationByAssessmentRequest,
-  () => BatchCreateDelegationByAssessmentResponse,
+  () => BatchCreateDelegationByAssessmentRequest$,
+  () => BatchCreateDelegationByAssessmentResponse$,
 ];
-export var BatchDeleteDelegationByAssessment: StaticOperationSchema = [
+export var BatchDeleteDelegationByAssessment$: StaticOperationSchema = [
   9,
   n0,
   _BDDBA,
   { [_h]: ["PUT", "/assessments/{assessmentId}/delegations", 200] },
-  () => BatchDeleteDelegationByAssessmentRequest,
-  () => BatchDeleteDelegationByAssessmentResponse,
+  () => BatchDeleteDelegationByAssessmentRequest$,
+  () => BatchDeleteDelegationByAssessmentResponse$,
 ];
-export var BatchDisassociateAssessmentReportEvidence: StaticOperationSchema = [
+export var BatchDisassociateAssessmentReportEvidence$: StaticOperationSchema = [
   9,
   n0,
   _BDARE,
   { [_h]: ["PUT", "/assessments/{assessmentId}/batchDisassociateFromAssessmentReport", 200] },
-  () => BatchDisassociateAssessmentReportEvidenceRequest,
-  () => BatchDisassociateAssessmentReportEvidenceResponse,
+  () => BatchDisassociateAssessmentReportEvidenceRequest$,
+  () => BatchDisassociateAssessmentReportEvidenceResponse$,
 ];
-export var BatchImportEvidenceToAssessmentControl: StaticOperationSchema = [
+export var BatchImportEvidenceToAssessmentControl$: StaticOperationSchema = [
   9,
   n0,
   _BIETAC,
   { [_h]: ["POST", "/assessments/{assessmentId}/controlSets/{controlSetId}/controls/{controlId}/evidence", 200] },
-  () => BatchImportEvidenceToAssessmentControlRequest,
-  () => BatchImportEvidenceToAssessmentControlResponse,
+  () => BatchImportEvidenceToAssessmentControlRequest$,
+  () => BatchImportEvidenceToAssessmentControlResponse$,
 ];
-export var CreateAssessment: StaticOperationSchema = [
+export var CreateAssessment$: StaticOperationSchema = [
   9,
   n0,
   _CA,
   { [_h]: ["POST", "/assessments", 200] },
-  () => CreateAssessmentRequest,
-  () => CreateAssessmentResponse,
+  () => CreateAssessmentRequest$,
+  () => CreateAssessmentResponse$,
 ];
-export var CreateAssessmentFramework: StaticOperationSchema = [
+export var CreateAssessmentFramework$: StaticOperationSchema = [
   9,
   n0,
   _CAF,
   { [_h]: ["POST", "/assessmentFrameworks", 200] },
-  () => CreateAssessmentFrameworkRequest,
-  () => CreateAssessmentFrameworkResponse,
+  () => CreateAssessmentFrameworkRequest$,
+  () => CreateAssessmentFrameworkResponse$,
 ];
-export var CreateAssessmentReport: StaticOperationSchema = [
+export var CreateAssessmentReport$: StaticOperationSchema = [
   9,
   n0,
   _CARre,
   { [_h]: ["POST", "/assessments/{assessmentId}/reports", 200] },
-  () => CreateAssessmentReportRequest,
-  () => CreateAssessmentReportResponse,
+  () => CreateAssessmentReportRequest$,
+  () => CreateAssessmentReportResponse$,
 ];
-export var CreateControl: StaticOperationSchema = [
+export var CreateControl$: StaticOperationSchema = [
   9,
   n0,
   _CCr,
   { [_h]: ["POST", "/controls", 200] },
-  () => CreateControlRequest,
-  () => CreateControlResponse,
+  () => CreateControlRequest$,
+  () => CreateControlResponse$,
 ];
-export var DeleteAssessment: StaticOperationSchema = [
+export var DeleteAssessment$: StaticOperationSchema = [
   9,
   n0,
   _DA,
   { [_h]: ["DELETE", "/assessments/{assessmentId}", 200] },
-  () => DeleteAssessmentRequest,
-  () => DeleteAssessmentResponse,
+  () => DeleteAssessmentRequest$,
+  () => DeleteAssessmentResponse$,
 ];
-export var DeleteAssessmentFramework: StaticOperationSchema = [
+export var DeleteAssessmentFramework$: StaticOperationSchema = [
   9,
   n0,
   _DAF,
   { [_h]: ["DELETE", "/assessmentFrameworks/{frameworkId}", 200] },
-  () => DeleteAssessmentFrameworkRequest,
-  () => DeleteAssessmentFrameworkResponse,
+  () => DeleteAssessmentFrameworkRequest$,
+  () => DeleteAssessmentFrameworkResponse$,
 ];
-export var DeleteAssessmentFrameworkShare: StaticOperationSchema = [
+export var DeleteAssessmentFrameworkShare$: StaticOperationSchema = [
   9,
   n0,
   _DAFS,
   { [_h]: ["DELETE", "/assessmentFrameworkShareRequests/{requestId}", 200] },
-  () => DeleteAssessmentFrameworkShareRequest,
-  () => DeleteAssessmentFrameworkShareResponse,
+  () => DeleteAssessmentFrameworkShareRequest$,
+  () => DeleteAssessmentFrameworkShareResponse$,
 ];
-export var DeleteAssessmentReport: StaticOperationSchema = [
+export var DeleteAssessmentReport$: StaticOperationSchema = [
   9,
   n0,
   _DARel,
   { [_h]: ["DELETE", "/assessments/{assessmentId}/reports/{assessmentReportId}", 200] },
-  () => DeleteAssessmentReportRequest,
-  () => DeleteAssessmentReportResponse,
+  () => DeleteAssessmentReportRequest$,
+  () => DeleteAssessmentReportResponse$,
 ];
-export var DeleteControl: StaticOperationSchema = [
+export var DeleteControl$: StaticOperationSchema = [
   9,
   n0,
   _DCe,
   { [_h]: ["DELETE", "/controls/{controlId}", 200] },
-  () => DeleteControlRequest,
-  () => DeleteControlResponse,
+  () => DeleteControlRequest$,
+  () => DeleteControlResponse$,
 ];
-export var DeregisterAccount: StaticOperationSchema = [
+export var DeregisterAccount$: StaticOperationSchema = [
   9,
   n0,
   _DAe,
   { [_h]: ["POST", "/account/deregisterAccount", 200] },
-  () => DeregisterAccountRequest,
-  () => DeregisterAccountResponse,
+  () => DeregisterAccountRequest$,
+  () => DeregisterAccountResponse$,
 ];
-export var DeregisterOrganizationAdminAccount: StaticOperationSchema = [
+export var DeregisterOrganizationAdminAccount$: StaticOperationSchema = [
   9,
   n0,
   _DOAA,
   { [_h]: ["POST", "/account/deregisterOrganizationAdminAccount", 200] },
-  () => DeregisterOrganizationAdminAccountRequest,
-  () => DeregisterOrganizationAdminAccountResponse,
+  () => DeregisterOrganizationAdminAccountRequest$,
+  () => DeregisterOrganizationAdminAccountResponse$,
 ];
-export var DisassociateAssessmentReportEvidenceFolder: StaticOperationSchema = [
+export var DisassociateAssessmentReportEvidenceFolder$: StaticOperationSchema = [
   9,
   n0,
   _DAREF,
   { [_h]: ["PUT", "/assessments/{assessmentId}/disassociateFromAssessmentReport", 200] },
-  () => DisassociateAssessmentReportEvidenceFolderRequest,
-  () => DisassociateAssessmentReportEvidenceFolderResponse,
+  () => DisassociateAssessmentReportEvidenceFolderRequest$,
+  () => DisassociateAssessmentReportEvidenceFolderResponse$,
 ];
-export var GetAccountStatus: StaticOperationSchema = [
+export var GetAccountStatus$: StaticOperationSchema = [
   9,
   n0,
   _GAS,
   { [_h]: ["GET", "/account/status", 200] },
-  () => GetAccountStatusRequest,
-  () => GetAccountStatusResponse,
+  () => GetAccountStatusRequest$,
+  () => GetAccountStatusResponse$,
 ];
-export var GetAssessment: StaticOperationSchema = [
+export var GetAssessment$: StaticOperationSchema = [
   9,
   n0,
   _GA,
   { [_h]: ["GET", "/assessments/{assessmentId}", 200] },
-  () => GetAssessmentRequest,
-  () => GetAssessmentResponse,
+  () => GetAssessmentRequest$,
+  () => GetAssessmentResponse$,
 ];
-export var GetAssessmentFramework: StaticOperationSchema = [
+export var GetAssessmentFramework$: StaticOperationSchema = [
   9,
   n0,
   _GAF,
   { [_h]: ["GET", "/assessmentFrameworks/{frameworkId}", 200] },
-  () => GetAssessmentFrameworkRequest,
-  () => GetAssessmentFrameworkResponse,
+  () => GetAssessmentFrameworkRequest$,
+  () => GetAssessmentFrameworkResponse$,
 ];
-export var GetAssessmentReportUrl: StaticOperationSchema = [
+export var GetAssessmentReportUrl$: StaticOperationSchema = [
   9,
   n0,
   _GARU,
   { [_h]: ["GET", "/assessments/{assessmentId}/reports/{assessmentReportId}/url", 200] },
-  () => GetAssessmentReportUrlRequest,
-  () => GetAssessmentReportUrlResponse,
+  () => GetAssessmentReportUrlRequest$,
+  () => GetAssessmentReportUrlResponse$,
 ];
-export var GetChangeLogs: StaticOperationSchema = [
+export var GetChangeLogs$: StaticOperationSchema = [
   9,
   n0,
   _GCL,
   { [_h]: ["GET", "/assessments/{assessmentId}/changelogs", 200] },
-  () => GetChangeLogsRequest,
-  () => GetChangeLogsResponse,
+  () => GetChangeLogsRequest$,
+  () => GetChangeLogsResponse$,
 ];
-export var GetControl: StaticOperationSchema = [
+export var GetControl$: StaticOperationSchema = [
   9,
   n0,
   _GC,
   { [_h]: ["GET", "/controls/{controlId}", 200] },
-  () => GetControlRequest,
-  () => GetControlResponse,
+  () => GetControlRequest$,
+  () => GetControlResponse$,
 ];
-export var GetDelegations: StaticOperationSchema = [
+export var GetDelegations$: StaticOperationSchema = [
   9,
   n0,
   _GD,
   { [_h]: ["GET", "/delegations", 200] },
-  () => GetDelegationsRequest,
-  () => GetDelegationsResponse,
+  () => GetDelegationsRequest$,
+  () => GetDelegationsResponse$,
 ];
-export var GetEvidence: StaticOperationSchema = [
+export var GetEvidence$: StaticOperationSchema = [
   9,
   n0,
   _GE,
@@ -1968,10 +1983,10 @@ export var GetEvidence: StaticOperationSchema = [
       200,
     ],
   },
-  () => GetEvidenceRequest,
-  () => GetEvidenceResponse,
+  () => GetEvidenceRequest$,
+  () => GetEvidenceResponse$,
 ];
-export var GetEvidenceByEvidenceFolder: StaticOperationSchema = [
+export var GetEvidenceByEvidenceFolder$: StaticOperationSchema = [
   9,
   n0,
   _GEBEF,
@@ -1982,288 +1997,288 @@ export var GetEvidenceByEvidenceFolder: StaticOperationSchema = [
       200,
     ],
   },
-  () => GetEvidenceByEvidenceFolderRequest,
-  () => GetEvidenceByEvidenceFolderResponse,
+  () => GetEvidenceByEvidenceFolderRequest$,
+  () => GetEvidenceByEvidenceFolderResponse$,
 ];
-export var GetEvidenceFileUploadUrl: StaticOperationSchema = [
+export var GetEvidenceFileUploadUrl$: StaticOperationSchema = [
   9,
   n0,
   _GEFUU,
   { [_h]: ["GET", "/evidenceFileUploadUrl", 200] },
-  () => GetEvidenceFileUploadUrlRequest,
-  () => GetEvidenceFileUploadUrlResponse,
+  () => GetEvidenceFileUploadUrlRequest$,
+  () => GetEvidenceFileUploadUrlResponse$,
 ];
-export var GetEvidenceFolder: StaticOperationSchema = [
+export var GetEvidenceFolder$: StaticOperationSchema = [
   9,
   n0,
   _GEF,
   { [_h]: ["GET", "/assessments/{assessmentId}/controlSets/{controlSetId}/evidenceFolders/{evidenceFolderId}", 200] },
-  () => GetEvidenceFolderRequest,
-  () => GetEvidenceFolderResponse,
+  () => GetEvidenceFolderRequest$,
+  () => GetEvidenceFolderResponse$,
 ];
-export var GetEvidenceFoldersByAssessment: StaticOperationSchema = [
+export var GetEvidenceFoldersByAssessment$: StaticOperationSchema = [
   9,
   n0,
   _GEFBA,
   { [_h]: ["GET", "/assessments/{assessmentId}/evidenceFolders", 200] },
-  () => GetEvidenceFoldersByAssessmentRequest,
-  () => GetEvidenceFoldersByAssessmentResponse,
+  () => GetEvidenceFoldersByAssessmentRequest$,
+  () => GetEvidenceFoldersByAssessmentResponse$,
 ];
-export var GetEvidenceFoldersByAssessmentControl: StaticOperationSchema = [
+export var GetEvidenceFoldersByAssessmentControl$: StaticOperationSchema = [
   9,
   n0,
   _GEFBAC,
   {
     [_h]: ["GET", "/assessments/{assessmentId}/evidenceFolders-by-assessment-control/{controlSetId}/{controlId}", 200],
   },
-  () => GetEvidenceFoldersByAssessmentControlRequest,
-  () => GetEvidenceFoldersByAssessmentControlResponse,
+  () => GetEvidenceFoldersByAssessmentControlRequest$,
+  () => GetEvidenceFoldersByAssessmentControlResponse$,
 ];
-export var GetInsights: StaticOperationSchema = [
+export var GetInsights$: StaticOperationSchema = [
   9,
   n0,
   _GI,
   { [_h]: ["GET", "/insights", 200] },
-  () => GetInsightsRequest,
-  () => GetInsightsResponse,
+  () => GetInsightsRequest$,
+  () => GetInsightsResponse$,
 ];
-export var GetInsightsByAssessment: StaticOperationSchema = [
+export var GetInsightsByAssessment$: StaticOperationSchema = [
   9,
   n0,
   _GIBA,
   { [_h]: ["GET", "/insights/assessments/{assessmentId}", 200] },
-  () => GetInsightsByAssessmentRequest,
-  () => GetInsightsByAssessmentResponse,
+  () => GetInsightsByAssessmentRequest$,
+  () => GetInsightsByAssessmentResponse$,
 ];
-export var GetOrganizationAdminAccount: StaticOperationSchema = [
+export var GetOrganizationAdminAccount$: StaticOperationSchema = [
   9,
   n0,
   _GOAA,
   { [_h]: ["GET", "/account/organizationAdminAccount", 200] },
-  () => GetOrganizationAdminAccountRequest,
-  () => GetOrganizationAdminAccountResponse,
+  () => GetOrganizationAdminAccountRequest$,
+  () => GetOrganizationAdminAccountResponse$,
 ];
-export var GetServicesInScope: StaticOperationSchema = [
+export var GetServicesInScope$: StaticOperationSchema = [
   9,
   n0,
   _GSIS,
   { [_h]: ["GET", "/services", 200] },
-  () => GetServicesInScopeRequest,
-  () => GetServicesInScopeResponse,
+  () => GetServicesInScopeRequest$,
+  () => GetServicesInScopeResponse$,
 ];
-export var GetSettings: StaticOperationSchema = [
+export var GetSettings$: StaticOperationSchema = [
   9,
   n0,
   _GS,
   { [_h]: ["GET", "/settings/{attribute}", 200] },
-  () => GetSettingsRequest,
-  () => GetSettingsResponse,
+  () => GetSettingsRequest$,
+  () => GetSettingsResponse$,
 ];
-export var ListAssessmentControlInsightsByControlDomain: StaticOperationSchema = [
+export var ListAssessmentControlInsightsByControlDomain$: StaticOperationSchema = [
   9,
   n0,
   _LACIBCD,
   { [_h]: ["GET", "/insights/controls-by-assessment", 200] },
-  () => ListAssessmentControlInsightsByControlDomainRequest,
-  () => ListAssessmentControlInsightsByControlDomainResponse,
+  () => ListAssessmentControlInsightsByControlDomainRequest$,
+  () => ListAssessmentControlInsightsByControlDomainResponse$,
 ];
-export var ListAssessmentFrameworks: StaticOperationSchema = [
+export var ListAssessmentFrameworks$: StaticOperationSchema = [
   9,
   n0,
   _LAF,
   { [_h]: ["GET", "/assessmentFrameworks", 200] },
-  () => ListAssessmentFrameworksRequest,
-  () => ListAssessmentFrameworksResponse,
+  () => ListAssessmentFrameworksRequest$,
+  () => ListAssessmentFrameworksResponse$,
 ];
-export var ListAssessmentFrameworkShareRequests: StaticOperationSchema = [
+export var ListAssessmentFrameworkShareRequests$: StaticOperationSchema = [
   9,
   n0,
   _LAFSR,
   { [_h]: ["GET", "/assessmentFrameworkShareRequests", 200] },
-  () => ListAssessmentFrameworkShareRequestsRequest,
-  () => ListAssessmentFrameworkShareRequestsResponse,
+  () => ListAssessmentFrameworkShareRequestsRequest$,
+  () => ListAssessmentFrameworkShareRequestsResponse$,
 ];
-export var ListAssessmentReports: StaticOperationSchema = [
+export var ListAssessmentReports$: StaticOperationSchema = [
   9,
   n0,
   _LARis,
   { [_h]: ["GET", "/assessmentReports", 200] },
-  () => ListAssessmentReportsRequest,
-  () => ListAssessmentReportsResponse,
+  () => ListAssessmentReportsRequest$,
+  () => ListAssessmentReportsResponse$,
 ];
-export var ListAssessments: StaticOperationSchema = [
+export var ListAssessments$: StaticOperationSchema = [
   9,
   n0,
   _LA,
   { [_h]: ["GET", "/assessments", 200] },
-  () => ListAssessmentsRequest,
-  () => ListAssessmentsResponse,
+  () => ListAssessmentsRequest$,
+  () => ListAssessmentsResponse$,
 ];
-export var ListControlDomainInsights: StaticOperationSchema = [
+export var ListControlDomainInsights$: StaticOperationSchema = [
   9,
   n0,
   _LCDI,
   { [_h]: ["GET", "/insights/control-domains", 200] },
-  () => ListControlDomainInsightsRequest,
-  () => ListControlDomainInsightsResponse,
+  () => ListControlDomainInsightsRequest$,
+  () => ListControlDomainInsightsResponse$,
 ];
-export var ListControlDomainInsightsByAssessment: StaticOperationSchema = [
+export var ListControlDomainInsightsByAssessment$: StaticOperationSchema = [
   9,
   n0,
   _LCDIBA,
   { [_h]: ["GET", "/insights/control-domains-by-assessment", 200] },
-  () => ListControlDomainInsightsByAssessmentRequest,
-  () => ListControlDomainInsightsByAssessmentResponse,
+  () => ListControlDomainInsightsByAssessmentRequest$,
+  () => ListControlDomainInsightsByAssessmentResponse$,
 ];
-export var ListControlInsightsByControlDomain: StaticOperationSchema = [
+export var ListControlInsightsByControlDomain$: StaticOperationSchema = [
   9,
   n0,
   _LCIBCD,
   { [_h]: ["GET", "/insights/controls", 200] },
-  () => ListControlInsightsByControlDomainRequest,
-  () => ListControlInsightsByControlDomainResponse,
+  () => ListControlInsightsByControlDomainRequest$,
+  () => ListControlInsightsByControlDomainResponse$,
 ];
-export var ListControls: StaticOperationSchema = [
+export var ListControls$: StaticOperationSchema = [
   9,
   n0,
   _LC,
   { [_h]: ["GET", "/controls", 200] },
-  () => ListControlsRequest,
-  () => ListControlsResponse,
+  () => ListControlsRequest$,
+  () => ListControlsResponse$,
 ];
-export var ListKeywordsForDataSource: StaticOperationSchema = [
+export var ListKeywordsForDataSource$: StaticOperationSchema = [
   9,
   n0,
   _LKFDS,
   { [_h]: ["GET", "/dataSourceKeywords", 200] },
-  () => ListKeywordsForDataSourceRequest,
-  () => ListKeywordsForDataSourceResponse,
+  () => ListKeywordsForDataSourceRequest$,
+  () => ListKeywordsForDataSourceResponse$,
 ];
-export var ListNotifications: StaticOperationSchema = [
+export var ListNotifications$: StaticOperationSchema = [
   9,
   n0,
   _LN,
   { [_h]: ["GET", "/notifications", 200] },
-  () => ListNotificationsRequest,
-  () => ListNotificationsResponse,
+  () => ListNotificationsRequest$,
+  () => ListNotificationsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var RegisterAccount: StaticOperationSchema = [
+export var RegisterAccount$: StaticOperationSchema = [
   9,
   n0,
   _RA,
   { [_h]: ["POST", "/account/registerAccount", 200] },
-  () => RegisterAccountRequest,
-  () => RegisterAccountResponse,
+  () => RegisterAccountRequest$,
+  () => RegisterAccountResponse$,
 ];
-export var RegisterOrganizationAdminAccount: StaticOperationSchema = [
+export var RegisterOrganizationAdminAccount$: StaticOperationSchema = [
   9,
   n0,
   _ROAA,
   { [_h]: ["POST", "/account/registerOrganizationAdminAccount", 200] },
-  () => RegisterOrganizationAdminAccountRequest,
-  () => RegisterOrganizationAdminAccountResponse,
+  () => RegisterOrganizationAdminAccountRequest$,
+  () => RegisterOrganizationAdminAccountResponse$,
 ];
-export var StartAssessmentFrameworkShare: StaticOperationSchema = [
+export var StartAssessmentFrameworkShare$: StaticOperationSchema = [
   9,
   n0,
   _SAFS,
   { [_h]: ["POST", "/assessmentFrameworks/{frameworkId}/shareRequests", 200] },
-  () => StartAssessmentFrameworkShareRequest,
-  () => StartAssessmentFrameworkShareResponse,
+  () => StartAssessmentFrameworkShareRequest$,
+  () => StartAssessmentFrameworkShareResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateAssessment: StaticOperationSchema = [
+export var UpdateAssessment$: StaticOperationSchema = [
   9,
   n0,
   _UA,
   { [_h]: ["PUT", "/assessments/{assessmentId}", 200] },
-  () => UpdateAssessmentRequest,
-  () => UpdateAssessmentResponse,
+  () => UpdateAssessmentRequest$,
+  () => UpdateAssessmentResponse$,
 ];
-export var UpdateAssessmentControl: StaticOperationSchema = [
+export var UpdateAssessmentControl$: StaticOperationSchema = [
   9,
   n0,
   _UAC,
   { [_h]: ["PUT", "/assessments/{assessmentId}/controlSets/{controlSetId}/controls/{controlId}", 200] },
-  () => UpdateAssessmentControlRequest,
-  () => UpdateAssessmentControlResponse,
+  () => UpdateAssessmentControlRequest$,
+  () => UpdateAssessmentControlResponse$,
 ];
-export var UpdateAssessmentControlSetStatus: StaticOperationSchema = [
+export var UpdateAssessmentControlSetStatus$: StaticOperationSchema = [
   9,
   n0,
   _UACSS,
   { [_h]: ["PUT", "/assessments/{assessmentId}/controlSets/{controlSetId}/status", 200] },
-  () => UpdateAssessmentControlSetStatusRequest,
-  () => UpdateAssessmentControlSetStatusResponse,
+  () => UpdateAssessmentControlSetStatusRequest$,
+  () => UpdateAssessmentControlSetStatusResponse$,
 ];
-export var UpdateAssessmentFramework: StaticOperationSchema = [
+export var UpdateAssessmentFramework$: StaticOperationSchema = [
   9,
   n0,
   _UAF,
   { [_h]: ["PUT", "/assessmentFrameworks/{frameworkId}", 200] },
-  () => UpdateAssessmentFrameworkRequest,
-  () => UpdateAssessmentFrameworkResponse,
+  () => UpdateAssessmentFrameworkRequest$,
+  () => UpdateAssessmentFrameworkResponse$,
 ];
-export var UpdateAssessmentFrameworkShare: StaticOperationSchema = [
+export var UpdateAssessmentFrameworkShare$: StaticOperationSchema = [
   9,
   n0,
   _UAFS,
   { [_h]: ["PUT", "/assessmentFrameworkShareRequests/{requestId}", 200] },
-  () => UpdateAssessmentFrameworkShareRequest,
-  () => UpdateAssessmentFrameworkShareResponse,
+  () => UpdateAssessmentFrameworkShareRequest$,
+  () => UpdateAssessmentFrameworkShareResponse$,
 ];
-export var UpdateAssessmentStatus: StaticOperationSchema = [
+export var UpdateAssessmentStatus$: StaticOperationSchema = [
   9,
   n0,
   _UAS,
   { [_h]: ["PUT", "/assessments/{assessmentId}/status", 200] },
-  () => UpdateAssessmentStatusRequest,
-  () => UpdateAssessmentStatusResponse,
+  () => UpdateAssessmentStatusRequest$,
+  () => UpdateAssessmentStatusResponse$,
 ];
-export var UpdateControl: StaticOperationSchema = [
+export var UpdateControl$: StaticOperationSchema = [
   9,
   n0,
   _UC,
   { [_h]: ["PUT", "/controls/{controlId}", 200] },
-  () => UpdateControlRequest,
-  () => UpdateControlResponse,
+  () => UpdateControlRequest$,
+  () => UpdateControlResponse$,
 ];
-export var UpdateSettings: StaticOperationSchema = [
+export var UpdateSettings$: StaticOperationSchema = [
   9,
   n0,
   _US,
   { [_h]: ["PUT", "/settings", 200] },
-  () => UpdateSettingsRequest,
-  () => UpdateSettingsResponse,
+  () => UpdateSettingsRequest$,
+  () => UpdateSettingsResponse$,
 ];
-export var ValidateAssessmentReportIntegrity: StaticOperationSchema = [
+export var ValidateAssessmentReportIntegrity$: StaticOperationSchema = [
   9,
   n0,
   _VARI,
   { [_h]: ["POST", "/assessmentReports/integrity", 200] },
-  () => ValidateAssessmentReportIntegrityRequest,
-  () => ValidateAssessmentReportIntegrityResponse,
+  () => ValidateAssessmentReportIntegrityRequest$,
+  () => ValidateAssessmentReportIntegrityResponse$,
 ];

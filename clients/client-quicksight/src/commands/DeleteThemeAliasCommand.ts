@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteThemeAliasRequest, DeleteThemeAliasResponse } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DeleteThemeAlias } from "../schemas/schemas_0";
+import { DeleteThemeAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class DeleteThemeAliasCommand extends $Command
   })
   .s("QuickSight_20180401", "DeleteThemeAlias", {})
   .n("QuickSightClient", "DeleteThemeAliasCommand")
-  .sc(DeleteThemeAlias)
+  .sc(DeleteThemeAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   SetIdentityHeadersInNotificationsEnabledRequest,
   SetIdentityHeadersInNotificationsEnabledResponse,
 } from "../models/models_0";
-import { SetIdentityHeadersInNotificationsEnabled } from "../schemas/schemas_0";
+import { SetIdentityHeadersInNotificationsEnabled$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -99,7 +99,7 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command
   })
   .s("SimpleEmailService", "SetIdentityHeadersInNotificationsEnabled", {})
   .n("SESClient", "SetIdentityHeadersInNotificationsEnabledCommand")
-  .sc(SetIdentityHeadersInNotificationsEnabled)
+  .sc(SetIdentityHeadersInNotificationsEnabled$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

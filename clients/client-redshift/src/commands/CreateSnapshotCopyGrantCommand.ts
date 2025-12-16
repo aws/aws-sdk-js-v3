@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateSnapshotCopyGrantMessage, CreateSnapshotCopyGrantResult } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { CreateSnapshotCopyGrant } from "../schemas/schemas_0";
+import { CreateSnapshotCopyGrant$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class CreateSnapshotCopyGrantCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "CreateSnapshotCopyGrant", {})
   .n("RedshiftClient", "CreateSnapshotCopyGrantCommand")
-  .sc(CreateSnapshotCopyGrant)
+  .sc(CreateSnapshotCopyGrant$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

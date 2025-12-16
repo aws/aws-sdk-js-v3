@@ -9,7 +9,7 @@ import type {
   ListIntegrationResourcePropertiesRequest,
   ListIntegrationResourcePropertiesResponse,
 } from "../models/models_2";
-import { ListIntegrationResourceProperties } from "../schemas/schemas_0";
+import { ListIntegrationResourceProperties$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class ListIntegrationResourcePropertiesCommand extends $Command
   })
   .s("AWSGlue", "ListIntegrationResourceProperties", {})
   .n("GlueClient", "ListIntegrationResourcePropertiesCommand")
-  .sc(ListIntegrationResourceProperties)
+  .sc(ListIntegrationResourceProperties$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

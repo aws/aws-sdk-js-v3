@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAccountsForParentRequest, ListAccountsForParentResponse } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { ListAccountsForParent } from "../schemas/schemas_0";
+import { ListAccountsForParent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -302,7 +302,7 @@ export class ListAccountsForParentCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "ListAccountsForParent", {})
   .n("OrganizationsClient", "ListAccountsForParentCommand")
-  .sc(ListAccountsForParent)
+  .sc(ListAccountsForParent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

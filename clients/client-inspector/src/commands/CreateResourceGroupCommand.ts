@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import type { CreateResourceGroupRequest, CreateResourceGroupResponse } from "../models/models_0";
-import { CreateResourceGroup } from "../schemas/schemas_0";
+import { CreateResourceGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class CreateResourceGroupCommand extends $Command
   })
   .s("InspectorService", "CreateResourceGroup", {})
   .n("InspectorClient", "CreateResourceGroupCommand")
-  .sc(CreateResourceGroup)
+  .sc(CreateResourceGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

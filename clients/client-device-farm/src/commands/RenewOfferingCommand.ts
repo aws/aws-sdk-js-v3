@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RenewOfferingRequest, RenewOfferingResult } from "../models/models_0";
-import { RenewOffering } from "../schemas/schemas_0";
+import { RenewOffering$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class RenewOfferingCommand extends $Command
   })
   .s("DeviceFarm_20150623", "RenewOffering", {})
   .n("DeviceFarmClient", "RenewOfferingCommand")
-  .sc(RenewOffering)
+  .sc(RenewOffering$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationAutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutScheduledActionRequest, PutScheduledActionResponse } from "../models/models_0";
-import { PutScheduledAction } from "../schemas/schemas_0";
+import { PutScheduledAction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -141,7 +141,7 @@ export class PutScheduledActionCommand extends $Command
   })
   .s("AnyScaleFrontendService", "PutScheduledAction", {})
   .n("ApplicationAutoScalingClient", "PutScheduledActionCommand")
-  .sc(PutScheduledAction)
+  .sc(PutScheduledAction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

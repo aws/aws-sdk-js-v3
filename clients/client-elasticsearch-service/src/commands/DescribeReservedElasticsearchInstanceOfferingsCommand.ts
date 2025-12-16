@@ -13,7 +13,7 @@ import type {
   DescribeReservedElasticsearchInstanceOfferingsRequest,
   DescribeReservedElasticsearchInstanceOfferingsResponse,
 } from "../models/models_0";
-import { DescribeReservedElasticsearchInstanceOfferings } from "../schemas/schemas_0";
+import { DescribeReservedElasticsearchInstanceOfferings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class DescribeReservedElasticsearchInstanceOfferingsCommand extends $Comm
   })
   .s("AmazonElasticsearchService2015", "DescribeReservedElasticsearchInstanceOfferings", {})
   .n("ElasticsearchServiceClient", "DescribeReservedElasticsearchInstanceOfferingsCommand")
-  .sc(DescribeReservedElasticsearchInstanceOfferings)
+  .sc(DescribeReservedElasticsearchInstanceOfferings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

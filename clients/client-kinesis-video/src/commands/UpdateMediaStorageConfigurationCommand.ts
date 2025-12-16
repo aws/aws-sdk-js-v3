@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import type { UpdateMediaStorageConfigurationInput, UpdateMediaStorageConfigurationOutput } from "../models/models_0";
-import { UpdateMediaStorageConfiguration } from "../schemas/schemas_0";
+import { UpdateMediaStorageConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class UpdateMediaStorageConfigurationCommand extends $Command
   })
   .s("KinesisVideo_20170930", "UpdateMediaStorageConfiguration", {})
   .n("KinesisVideoClient", "UpdateMediaStorageConfigurationCommand")
-  .sc(UpdateMediaStorageConfiguration)
+  .sc(UpdateMediaStorageConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeVerifiedAccessGroupsRequest, DescribeVerifiedAccessGroupsResult } from "../models/models_4";
-import { DescribeVerifiedAccessGroups } from "../schemas/schemas_0";
+import { DescribeVerifiedAccessGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class DescribeVerifiedAccessGroupsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeVerifiedAccessGroups", {})
   .n("EC2Client", "DescribeVerifiedAccessGroupsCommand")
-  .sc(DescribeVerifiedAccessGroups)
+  .sc(DescribeVerifiedAccessGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

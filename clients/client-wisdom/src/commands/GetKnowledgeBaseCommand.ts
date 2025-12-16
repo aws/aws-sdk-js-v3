@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetKnowledgeBaseRequest, GetKnowledgeBaseResponse } from "../models/models_0";
-import { GetKnowledgeBase } from "../schemas/schemas_0";
+import { GetKnowledgeBase$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -107,7 +107,7 @@ export class GetKnowledgeBaseCommand extends $Command
   })
   .s("WisdomService", "GetKnowledgeBase", {})
   .n("WisdomClient", "GetKnowledgeBaseCommand")
-  .sc(GetKnowledgeBase)
+  .sc(GetKnowledgeBase$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

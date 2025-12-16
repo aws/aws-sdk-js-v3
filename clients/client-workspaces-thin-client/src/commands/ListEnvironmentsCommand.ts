@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListEnvironmentsRequest, ListEnvironmentsResponse } from "../models/models_0";
-import { ListEnvironments } from "../schemas/schemas_0";
+import { ListEnvironments$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -118,7 +118,7 @@ export class ListEnvironmentsCommand extends $Command
   })
   .s("ThinClient", "ListEnvironments", {})
   .n("WorkSpacesThinClientClient", "ListEnvironmentsCommand")
-  .sc(ListEnvironments)
+  .sc(ListEnvironments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

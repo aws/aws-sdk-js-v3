@@ -10,7 +10,7 @@ import type {
 } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AddFacetToObjectRequest, AddFacetToObjectResponse } from "../models/models_0";
-import { AddFacetToObject } from "../schemas/schemas_0";
+import { AddFacetToObject$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -148,7 +148,7 @@ export class AddFacetToObjectCommand extends $Command
   })
   .s("AmazonCloudDirectory_20170111", "AddFacetToObject", {})
   .n("CloudDirectoryClient", "AddFacetToObjectCommand")
-  .sc(AddFacetToObject)
+  .sc(AddFacetToObject$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

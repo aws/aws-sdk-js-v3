@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { GetResolverRuleAssociation } from "../schemas/schemas_0";
+import { GetResolverRuleAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class GetResolverRuleAssociationCommand extends $Command
   })
   .s("Route53Resolver", "GetResolverRuleAssociation", {})
   .n("Route53ResolverClient", "GetResolverRuleAssociationCommand")
-  .sc(GetResolverRuleAssociation)
+  .sc(GetResolverRuleAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

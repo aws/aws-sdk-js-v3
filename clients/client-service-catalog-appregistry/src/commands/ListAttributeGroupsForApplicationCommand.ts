@@ -8,7 +8,7 @@ import type {
   ListAttributeGroupsForApplicationRequest,
   ListAttributeGroupsForApplicationResponse,
 } from "../models/models_0";
-import { ListAttributeGroupsForApplication } from "../schemas/schemas_0";
+import { ListAttributeGroupsForApplication$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -101,7 +101,7 @@ export class ListAttributeGroupsForApplicationCommand extends $Command
   })
   .s("AWS242AppRegistry", "ListAttributeGroupsForApplication", {})
   .n("ServiceCatalogAppRegistryClient", "ListAttributeGroupsForApplicationCommand")
-  .sc(ListAttributeGroupsForApplication)
+  .sc(ListAttributeGroupsForApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { CarrierLookup } from "../schemas/schemas_0";
+import { CarrierLookup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class CarrierLookupCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "CarrierLookup", {})
   .n("PinpointSMSVoiceV2Client", "CarrierLookupCommand")
-  .sc(CarrierLookup)
+  .sc(CarrierLookup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

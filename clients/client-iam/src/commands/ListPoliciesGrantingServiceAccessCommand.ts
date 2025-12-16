@@ -9,7 +9,7 @@ import type {
   ListPoliciesGrantingServiceAccessRequest,
   ListPoliciesGrantingServiceAccessResponse,
 } from "../models/models_0";
-import { ListPoliciesGrantingServiceAccess } from "../schemas/schemas_0";
+import { ListPoliciesGrantingServiceAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -191,7 +191,7 @@ export class ListPoliciesGrantingServiceAccessCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "ListPoliciesGrantingServiceAccess", {})
   .n("IAMClient", "ListPoliciesGrantingServiceAccessCommand")
-  .sc(ListPoliciesGrantingServiceAccess)
+  .sc(ListPoliciesGrantingServiceAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

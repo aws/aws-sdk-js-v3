@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchDeleteTaxRegistrationRequest, BatchDeleteTaxRegistrationResponse } from "../models/models_0";
-import { BatchDeleteTaxRegistration } from "../schemas/schemas_0";
+import { BatchDeleteTaxRegistration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig } from "../TaxSettingsClient";
 
 /**
@@ -95,7 +95,7 @@ export class BatchDeleteTaxRegistrationCommand extends $Command
   })
   .s("TaxSettings", "BatchDeleteTaxRegistration", {})
   .n("TaxSettingsClient", "BatchDeleteTaxRegistrationCommand")
-  .sc(BatchDeleteTaxRegistration)
+  .sc(BatchDeleteTaxRegistration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

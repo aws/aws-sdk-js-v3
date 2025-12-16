@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteRunRequest, DeleteRunResult } from "../models/models_0";
-import { DeleteRun } from "../schemas/schemas_0";
+import { DeleteRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class DeleteRunCommand extends $Command
   })
   .s("DeviceFarm_20150623", "DeleteRun", {})
   .n("DeviceFarmClient", "DeleteRunCommand")
-  .sc(DeleteRun)
+  .sc(DeleteRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

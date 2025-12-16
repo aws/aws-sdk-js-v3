@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: InvoicingClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.invoicing",
-        serviceTarget: "Invoicing",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.invoicing",
+      version: "2024-12-01",
+      serviceTarget: "Invoicing",
+    },
     serviceId: config?.serviceId ?? "Invoicing",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

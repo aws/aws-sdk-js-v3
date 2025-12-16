@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralAccountClient";
-import { StartProfileUpdateTask } from "../schemas/schemas_0";
+import { StartProfileUpdateTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -150,7 +150,7 @@ export class StartProfileUpdateTaskCommand extends $Command
   })
   .s("PartnerCentralAccount", "StartProfileUpdateTask", {})
   .n("PartnerCentralAccountClient", "StartProfileUpdateTaskCommand")
-  .sc(StartProfileUpdateTask)
+  .sc(StartProfileUpdateTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

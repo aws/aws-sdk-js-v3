@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateServiceRequest, UpdateServiceResponse } from "../models/models_0";
-import { UpdateService } from "../schemas/schemas_0";
+import { UpdateService$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -255,7 +255,7 @@ export class UpdateServiceCommand extends $Command
   })
   .s("AppRunner", "UpdateService", {})
   .n("AppRunnerClient", "UpdateServiceCommand")
-  .sc(UpdateService)
+  .sc(UpdateService$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

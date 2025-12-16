@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { DisableDomainAutoRenew } from "../schemas/schemas_0";
+import { DisableDomainAutoRenew$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DisableDomainAutoRenewCommand extends $Command
   })
   .s("Route53Domains_v20140515", "DisableDomainAutoRenew", {})
   .n("Route53DomainsClient", "DisableDomainAutoRenewCommand")
-  .sc(DisableDomainAutoRenew)
+  .sc(DisableDomainAutoRenew$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

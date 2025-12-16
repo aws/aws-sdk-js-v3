@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { UpdateManagedThingRequest } from "../models/models_0";
-import { UpdateManagedThing } from "../schemas/schemas_0";
+import { UpdateManagedThing$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -148,7 +148,7 @@ export class UpdateManagedThingCommand extends $Command
   })
   .s("IotManagedIntegrations", "UpdateManagedThing", {})
   .n("IoTManagedIntegrationsClient", "UpdateManagedThingCommand")
-  .sc(UpdateManagedThing)
+  .sc(UpdateManagedThing$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisablePolicyTypeRequest, DisablePolicyTypeResponse } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { DisablePolicyType } from "../schemas/schemas_0";
+import { DisablePolicyType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -550,7 +550,7 @@ export class DisablePolicyTypeCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "DisablePolicyType", {})
   .n("OrganizationsClient", "DisablePolicyTypeCommand")
-  .sc(DisablePolicyType)
+  .sc(DisablePolicyType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

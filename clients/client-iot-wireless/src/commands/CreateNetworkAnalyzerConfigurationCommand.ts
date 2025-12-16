@@ -9,7 +9,7 @@ import type {
   CreateNetworkAnalyzerConfigurationRequest,
   CreateNetworkAnalyzerConfigurationResponse,
 } from "../models/models_0";
-import { CreateNetworkAnalyzerConfiguration } from "../schemas/schemas_0";
+import { CreateNetworkAnalyzerConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class CreateNetworkAnalyzerConfigurationCommand extends $Command
   })
   .s("iotwireless", "CreateNetworkAnalyzerConfiguration", {})
   .n("IoTWirelessClient", "CreateNetworkAnalyzerConfigurationCommand")
-  .sc(CreateNetworkAnalyzerConfiguration)
+  .sc(CreateNetworkAnalyzerConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

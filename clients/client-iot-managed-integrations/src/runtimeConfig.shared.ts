@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: IoTManagedIntegrationsClientConfig) => 
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.iotmanagedintegrations" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.iotmanagedintegrations",
+      version: "2025-03-03",
+      serviceTarget: "IotManagedIntegrations",
+    },
     serviceId: config?.serviceId ?? "IoT Managed Integrations",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

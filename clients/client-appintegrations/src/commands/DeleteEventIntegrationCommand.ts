@@ -10,7 +10,7 @@ import type {
 } from "../AppIntegrationsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteEventIntegrationRequest, DeleteEventIntegrationResponse } from "../models/models_0";
-import { DeleteEventIntegration } from "../schemas/schemas_0";
+import { DeleteEventIntegration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteEventIntegrationCommand extends $Command
   })
   .s("AmazonAppIntegrationService", "DeleteEventIntegration", {})
   .n("AppIntegrationsClient", "DeleteEventIntegrationCommand")
-  .sc(DeleteEventIntegration)
+  .sc(DeleteEventIntegration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

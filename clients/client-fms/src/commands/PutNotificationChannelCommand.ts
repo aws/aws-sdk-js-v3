@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import type { PutNotificationChannelRequest } from "../models/models_0";
-import { PutNotificationChannel } from "../schemas/schemas_0";
+import { PutNotificationChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class PutNotificationChannelCommand extends $Command
   })
   .s("AWSFMS_20180101", "PutNotificationChannel", {})
   .n("FMSClient", "PutNotificationChannelCommand")
-  .sc(PutNotificationChannel)
+  .sc(PutNotificationChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

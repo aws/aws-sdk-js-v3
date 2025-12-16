@@ -9,7 +9,7 @@ import type {
   ListDevicesForWirelessDeviceImportTaskRequest,
   ListDevicesForWirelessDeviceImportTaskResponse,
 } from "../models/models_0";
-import { ListDevicesForWirelessDeviceImportTask } from "../schemas/schemas_0";
+import { ListDevicesForWirelessDeviceImportTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class ListDevicesForWirelessDeviceImportTaskCommand extends $Command
   })
   .s("iotwireless", "ListDevicesForWirelessDeviceImportTask", {})
   .n("IoTWirelessClient", "ListDevicesForWirelessDeviceImportTaskCommand")
-  .sc(ListDevicesForWirelessDeviceImportTask)
+  .sc(ListDevicesForWirelessDeviceImportTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

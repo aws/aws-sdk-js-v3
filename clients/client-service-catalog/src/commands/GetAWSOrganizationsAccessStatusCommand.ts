@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAWSOrganizationsAccessStatusInput, GetAWSOrganizationsAccessStatusOutput } from "../models/models_0";
-import { GetAWSOrganizationsAccessStatus } from "../schemas/schemas_0";
+import { GetAWSOrganizationsAccessStatus$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -84,7 +84,7 @@ export class GetAWSOrganizationsAccessStatusCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "GetAWSOrganizationsAccessStatus", {})
   .n("ServiceCatalogClient", "GetAWSOrganizationsAccessStatusCommand")
-  .sc(GetAWSOrganizationsAccessStatus)
+  .sc(GetAWSOrganizationsAccessStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

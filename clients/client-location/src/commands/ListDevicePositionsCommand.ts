@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import type { ListDevicePositionsRequest, ListDevicePositionsResponse } from "../models/models_0";
-import { ListDevicePositions } from "../schemas/schemas_0";
+import { ListDevicePositions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class ListDevicePositionsCommand extends $Command
   })
   .s("LocationService", "ListDevicePositions", {})
   .n("LocationClient", "ListDevicePositionsCommand")
-  .sc(ListDevicePositions)
+  .sc(ListDevicePositions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

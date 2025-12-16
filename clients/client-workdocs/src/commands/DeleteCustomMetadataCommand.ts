@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteCustomMetadataRequest, DeleteCustomMetadataResponse } from "../models/models_0";
-import { DeleteCustomMetadata } from "../schemas/schemas_0";
+import { DeleteCustomMetadata$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -97,7 +97,7 @@ export class DeleteCustomMetadataCommand extends $Command
   })
   .s("AWSGorillaBoyService", "DeleteCustomMetadata", {})
   .n("WorkDocsClient", "DeleteCustomMetadataCommand")
-  .sc(DeleteCustomMetadata)
+  .sc(DeleteCustomMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

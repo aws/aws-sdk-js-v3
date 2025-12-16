@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeDataTableRequest, DescribeDataTableResponse } from "../models/models_1";
-import { DescribeDataTable } from "../schemas/schemas_0";
+import { DescribeDataTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class DescribeDataTableCommand extends $Command
   })
   .s("AmazonConnectService", "DescribeDataTable", {})
   .n("ConnectClient", "DescribeDataTableCommand")
-  .sc(DescribeDataTable)
+  .sc(DescribeDataTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

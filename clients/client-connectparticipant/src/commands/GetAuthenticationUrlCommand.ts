@@ -10,7 +10,7 @@ import type {
 } from "../ConnectParticipantClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAuthenticationUrlRequest, GetAuthenticationUrlResponse } from "../models/models_0";
-import { GetAuthenticationUrl } from "../schemas/schemas_0";
+import { GetAuthenticationUrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class GetAuthenticationUrlCommand extends $Command
   })
   .s("AmazonConnectParticipantServiceLambda", "GetAuthenticationUrl", {})
   .n("ConnectParticipantClient", "GetAuthenticationUrlCommand")
-  .sc(GetAuthenticationUrl)
+  .sc(GetAuthenticationUrl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

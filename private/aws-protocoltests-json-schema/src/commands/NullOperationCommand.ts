@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import type { NullOperationInputOutput } from "../models/models_0";
-import { NullOperation } from "../schemas/schemas_0";
+import { NullOperation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -73,7 +73,7 @@ export class NullOperationCommand extends $Command
   })
   .s("JsonProtocol", "NullOperation", {})
   .n("JsonProtocolClient", "NullOperationCommand")
-  .sc(NullOperation)
+  .sc(NullOperation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

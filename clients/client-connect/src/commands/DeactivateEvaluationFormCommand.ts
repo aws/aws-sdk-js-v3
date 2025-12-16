@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeactivateEvaluationFormRequest, DeactivateEvaluationFormResponse } from "../models/models_0";
-import { DeactivateEvaluationForm } from "../schemas/schemas_0";
+import { DeactivateEvaluationForm$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeactivateEvaluationFormCommand extends $Command
   })
   .s("AmazonConnectService", "DeactivateEvaluationForm", {})
   .n("ConnectClient", "DeactivateEvaluationFormCommand")
-  .sc(DeactivateEvaluationForm)
+  .sc(DeactivateEvaluationForm$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

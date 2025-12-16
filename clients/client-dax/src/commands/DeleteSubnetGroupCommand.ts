@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSubnetGroupRequest, DeleteSubnetGroupResponse } from "../models/models_0";
-import { DeleteSubnetGroup } from "../schemas/schemas_0";
+import { DeleteSubnetGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteSubnetGroupCommand extends $Command
   })
   .s("AmazonDAXV3", "DeleteSubnetGroup", {})
   .n("DAXClient", "DeleteSubnetGroupCommand")
-  .sc(DeleteSubnetGroup)
+  .sc(DeleteSubnetGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

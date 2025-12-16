@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutAccountSettingRequest, PutAccountSettingResponse } from "../models/models_0";
-import { PutAccountSetting } from "../schemas/schemas_0";
+import { PutAccountSetting$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class PutAccountSettingCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "PutAccountSetting", {})
   .n("ECRClient", "PutAccountSettingCommand")
-  .sc(PutAccountSetting)
+  .sc(PutAccountSetting$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
-import { GetResourceExplorerSetup } from "../schemas/schemas_0";
+import { GetResourceExplorerSetup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class GetResourceExplorerSetupCommand extends $Command
   })
   .s("ResourceExplorer", "GetResourceExplorerSetup", {})
   .n("ResourceExplorer2Client", "GetResourceExplorerSetupCommand")
-  .sc(GetResourceExplorerSetup)
+  .sc(GetResourceExplorerSetup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

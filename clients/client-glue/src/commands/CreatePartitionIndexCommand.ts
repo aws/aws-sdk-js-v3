@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { CreatePartitionIndexRequest, CreatePartitionIndexResponse } from "../models/models_1";
-import { CreatePartitionIndex } from "../schemas/schemas_0";
+import { CreatePartitionIndex$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class CreatePartitionIndexCommand extends $Command
   })
   .s("AWSGlue", "CreatePartitionIndex", {})
   .n("GlueClient", "CreatePartitionIndexCommand")
-  .sc(CreatePartitionIndex)
+  .sc(CreatePartitionIndex$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   UpdateColumnStatisticsTaskSettingsRequest,
   UpdateColumnStatisticsTaskSettingsResponse,
 } from "../models/models_2";
-import { UpdateColumnStatisticsTaskSettings } from "../schemas/schemas_0";
+import { UpdateColumnStatisticsTaskSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class UpdateColumnStatisticsTaskSettingsCommand extends $Command
   })
   .s("AWSGlue", "UpdateColumnStatisticsTaskSettings", {})
   .n("GlueClient", "UpdateColumnStatisticsTaskSettingsCommand")
-  .sc(UpdateColumnStatisticsTaskSettings)
+  .sc(UpdateColumnStatisticsTaskSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

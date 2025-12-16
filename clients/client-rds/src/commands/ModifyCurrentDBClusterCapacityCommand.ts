@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DBClusterCapacityInfo, ModifyCurrentDBClusterCapacityMessage } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { ModifyCurrentDBClusterCapacity } from "../schemas/schemas_0";
+import { ModifyCurrentDBClusterCapacity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class ModifyCurrentDBClusterCapacityCommand extends $Command
   })
   .s("AmazonRDSv19", "ModifyCurrentDBClusterCapacity", {})
   .n("RDSClient", "ModifyCurrentDBClusterCapacityCommand")
-  .sc(ModifyCurrentDBClusterCapacity)
+  .sc(ModifyCurrentDBClusterCapacity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: OpenSearchServerlessClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.opensearchserverless",
-        serviceTarget: "OpenSearchServerless",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.opensearchserverless",
+      version: "2021-11-01",
+      serviceTarget: "OpenSearchServerless",
+    },
     serviceId: config?.serviceId ?? "OpenSearchServerless",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

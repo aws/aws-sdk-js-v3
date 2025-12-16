@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetEmailIdentityRequest, GetEmailIdentityResponse } from "../models/models_0";
 import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { GetEmailIdentity } from "../schemas/schemas_0";
+import { GetEmailIdentity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class GetEmailIdentityCommand extends $Command
   })
   .s("AmazonPinpointEmailService", "GetEmailIdentity", {})
   .n("PinpointEmailClient", "GetEmailIdentityCommand")
-  .sc(GetEmailIdentity)
+  .sc(GetEmailIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   ListImageScanFindingAggregationsRequest,
   ListImageScanFindingAggregationsResponse,
 } from "../models/models_0";
-import { ListImageScanFindingAggregations } from "../schemas/schemas_0";
+import { ListImageScanFindingAggregations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -177,7 +177,7 @@ export class ListImageScanFindingAggregationsCommand extends $Command
   })
   .s("imagebuilder", "ListImageScanFindingAggregations", {})
   .n("ImagebuilderClient", "ListImageScanFindingAggregationsCommand")
-  .sc(ListImageScanFindingAggregations)
+  .sc(ListImageScanFindingAggregations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

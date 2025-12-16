@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetComplianceDetailsByResourceRequest, GetComplianceDetailsByResourceResponse } from "../models/models_0";
-import { GetComplianceDetailsByResource } from "../schemas/schemas_0";
+import { GetComplianceDetailsByResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class GetComplianceDetailsByResourceCommand extends $Command
   })
   .s("StarlingDoveService", "GetComplianceDetailsByResource", {})
   .n("ConfigServiceClient", "GetComplianceDetailsByResourceCommand")
-  .sc(GetComplianceDetailsByResource)
+  .sc(GetComplianceDetailsByResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

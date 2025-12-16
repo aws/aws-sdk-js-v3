@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: KeyspacesStreamsClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.keyspacesstreams",
-        serviceTarget: "KeyspacesStreams",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.keyspacesstreams",
+      version: "2024-09-09",
+      serviceTarget: "KeyspacesStreams",
+    },
     serviceId: config?.serviceId ?? "KeyspacesStreams",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

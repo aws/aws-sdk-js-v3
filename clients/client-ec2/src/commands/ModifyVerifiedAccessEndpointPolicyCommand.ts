@@ -9,7 +9,7 @@ import type {
   ModifyVerifiedAccessEndpointPolicyRequest,
   ModifyVerifiedAccessEndpointPolicyResult,
 } from "../models/models_6";
-import { ModifyVerifiedAccessEndpointPolicy } from "../schemas/schemas_0";
+import { ModifyVerifiedAccessEndpointPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class ModifyVerifiedAccessEndpointPolicyCommand extends $Command
   })
   .s("AmazonEC2", "ModifyVerifiedAccessEndpointPolicy", {})
   .n("EC2Client", "ModifyVerifiedAccessEndpointPolicyCommand")
-  .sc(ModifyVerifiedAccessEndpointPolicy)
+  .sc(ModifyVerifiedAccessEndpointPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

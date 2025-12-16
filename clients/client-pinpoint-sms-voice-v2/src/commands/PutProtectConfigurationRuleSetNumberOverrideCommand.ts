@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { PutProtectConfigurationRuleSetNumberOverride } from "../schemas/schemas_0";
+import { PutProtectConfigurationRuleSetNumberOverride$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class PutProtectConfigurationRuleSetNumberOverrideCommand extends $Comman
   })
   .s("PinpointSMSVoiceV2", "PutProtectConfigurationRuleSetNumberOverride", {})
   .n("PinpointSMSVoiceV2Client", "PutProtectConfigurationRuleSetNumberOverrideCommand")
-  .sc(PutProtectConfigurationRuleSetNumberOverride)
+  .sc(PutProtectConfigurationRuleSetNumberOverride$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

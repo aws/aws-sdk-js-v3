@@ -161,16 +161,12 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import {
-  ConcurrentModificationException as __ConcurrentModificationException,
-  InvalidPaginationToken as __InvalidPaginationToken,
-  UnsupportedLocale as __UnsupportedLocale,
-} from "../models/errors";
-import { HealthServiceException as __HealthServiceException } from "../models/HealthServiceException";
+import { ConcurrentModificationException, InvalidPaginationToken, UnsupportedLocale } from "../models/errors";
+import { HealthServiceException } from "../models/HealthServiceException";
 
 /* eslint no-var: 0 */
-export var AccountEntityAggregate: StaticStructureSchema = [3, n0, _AEA, 0, [_aI, _c, _s], [0, 1, 128 | 1]];
-export var AffectedEntity: StaticStructureSchema = [
+export var AccountEntityAggregate$: StaticStructureSchema = [3, n0, _AEA, 0, [_aI, _c, _s], [0, 1, 128 | 1]];
+export var AffectedEntity$: StaticStructureSchema = [
   3,
   n0,
   _AE,
@@ -178,10 +174,10 @@ export var AffectedEntity: StaticStructureSchema = [
   [_eA, _eAv, _eV, _eU, _aAI, _lUT, _sC, _t, _eM],
   [0, 0, 0, 0, 0, 4, 0, 128 | 0, 128 | 0],
 ];
-export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CME, { [_e]: _cl }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-export var DateTimeRange: StaticStructureSchema = [3, n0, _DTR, 0, [_f, _to], [4, 4]];
-export var DescribeAffectedAccountsForOrganizationRequest: StaticStructureSchema = [
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME, { [_e]: _cl }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var DateTimeRange$: StaticStructureSchema = [3, n0, _DTR, 0, [_f, _to], [4, 4]];
+export var DescribeAffectedAccountsForOrganizationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAAFOR,
@@ -189,7 +185,7 @@ export var DescribeAffectedAccountsForOrganizationRequest: StaticStructureSchema
   [_eAv, _nT, _mR],
   [0, 0, 1],
 ];
-export var DescribeAffectedAccountsForOrganizationResponse: StaticStructureSchema = [
+export var DescribeAffectedAccountsForOrganizationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DAAFORe,
@@ -197,7 +193,7 @@ export var DescribeAffectedAccountsForOrganizationResponse: StaticStructureSchem
   [_aA, _eSC, _nT],
   [64 | 0, 0, 0],
 ];
-export var DescribeAffectedEntitiesForOrganizationRequest: StaticStructureSchema = [
+export var DescribeAffectedEntitiesForOrganizationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAEFOR,
@@ -205,7 +201,7 @@ export var DescribeAffectedEntitiesForOrganizationRequest: StaticStructureSchema
   [_oEF, _l, _nT, _mR, _oEAF],
   [() => OrganizationEntityFiltersList, 0, 0, 1, () => OrganizationEntityAccountFiltersList],
 ];
-export var DescribeAffectedEntitiesForOrganizationResponse: StaticStructureSchema = [
+export var DescribeAffectedEntitiesForOrganizationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DAEFORe,
@@ -213,15 +209,15 @@ export var DescribeAffectedEntitiesForOrganizationResponse: StaticStructureSchem
   [_en, _fS, _nT],
   [() => EntityList, () => DescribeAffectedEntitiesForOrganizationFailedSet, 0],
 ];
-export var DescribeAffectedEntitiesRequest: StaticStructureSchema = [
+export var DescribeAffectedEntitiesRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAER,
   0,
   [_fi, _l, _nT, _mR],
-  [() => EntityFilter, 0, 0, 1],
+  [() => EntityFilter$, 0, 0, 1],
 ];
-export var DescribeAffectedEntitiesResponse: StaticStructureSchema = [
+export var DescribeAffectedEntitiesResponse$: StaticStructureSchema = [
   3,
   n0,
   _DAERe,
@@ -229,7 +225,7 @@ export var DescribeAffectedEntitiesResponse: StaticStructureSchema = [
   [_en, _nT],
   [() => EntityList, 0],
 ];
-export var DescribeEntityAggregatesForOrganizationRequest: StaticStructureSchema = [
+export var DescribeEntityAggregatesForOrganizationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DEAFOR,
@@ -237,7 +233,7 @@ export var DescribeEntityAggregatesForOrganizationRequest: StaticStructureSchema
   [_eAve, _aAIw],
   [64 | 0, 64 | 0],
 ];
-export var DescribeEntityAggregatesForOrganizationResponse: StaticStructureSchema = [
+export var DescribeEntityAggregatesForOrganizationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DEAFORe,
@@ -245,8 +241,8 @@ export var DescribeEntityAggregatesForOrganizationResponse: StaticStructureSchem
   [_oEA],
   [() => OrganizationEntityAggregatesList],
 ];
-export var DescribeEntityAggregatesRequest: StaticStructureSchema = [3, n0, _DEAR, 0, [_eAve], [64 | 0]];
-export var DescribeEntityAggregatesResponse: StaticStructureSchema = [
+export var DescribeEntityAggregatesRequest$: StaticStructureSchema = [3, n0, _DEAR, 0, [_eAve], [64 | 0]];
+export var DescribeEntityAggregatesResponse$: StaticStructureSchema = [
   3,
   n0,
   _DEARe,
@@ -254,15 +250,15 @@ export var DescribeEntityAggregatesResponse: StaticStructureSchema = [
   [_eAn],
   [() => EntityAggregateList],
 ];
-export var DescribeEventAggregatesRequest: StaticStructureSchema = [
+export var DescribeEventAggregatesRequest$: StaticStructureSchema = [
   3,
   n0,
   _DEARes,
   0,
   [_fi, _aF, _mR, _nT],
-  [() => EventFilter, 0, 1, 0],
+  [() => EventFilter$, 0, 1, 0],
 ];
-export var DescribeEventAggregatesResponse: StaticStructureSchema = [
+export var DescribeEventAggregatesResponse$: StaticStructureSchema = [
   3,
   n0,
   _DEAResc,
@@ -270,7 +266,7 @@ export var DescribeEventAggregatesResponse: StaticStructureSchema = [
   [_eAven, _nT],
   [() => EventAggregateList, 0],
 ];
-export var DescribeEventDetailsForOrganizationRequest: StaticStructureSchema = [
+export var DescribeEventDetailsForOrganizationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DEDFOR,
@@ -278,7 +274,7 @@ export var DescribeEventDetailsForOrganizationRequest: StaticStructureSchema = [
   [_oEDF, _l],
   [() => OrganizationEventDetailFiltersList, 0],
 ];
-export var DescribeEventDetailsForOrganizationResponse: StaticStructureSchema = [
+export var DescribeEventDetailsForOrganizationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DEDFORe,
@@ -286,8 +282,8 @@ export var DescribeEventDetailsForOrganizationResponse: StaticStructureSchema = 
   [_sS, _fS],
   [() => DescribeEventDetailsForOrganizationSuccessfulSet, () => DescribeEventDetailsForOrganizationFailedSet],
 ];
-export var DescribeEventDetailsRequest: StaticStructureSchema = [3, n0, _DEDR, 0, [_eAve, _l], [64 | 0, 0]];
-export var DescribeEventDetailsResponse: StaticStructureSchema = [
+export var DescribeEventDetailsRequest$: StaticStructureSchema = [3, n0, _DEDR, 0, [_eAve, _l], [64 | 0, 0]];
+export var DescribeEventDetailsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DEDRe,
@@ -295,15 +291,15 @@ export var DescribeEventDetailsResponse: StaticStructureSchema = [
   [_sS, _fS],
   [() => DescribeEventDetailsSuccessfulSet, () => DescribeEventDetailsFailedSet],
 ];
-export var DescribeEventsForOrganizationRequest: StaticStructureSchema = [
+export var DescribeEventsForOrganizationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DEFOR,
   0,
   [_fi, _nT, _mR, _l],
-  [() => OrganizationEventFilter, 0, 1, 0],
+  [() => OrganizationEventFilter$, 0, 1, 0],
 ];
-export var DescribeEventsForOrganizationResponse: StaticStructureSchema = [
+export var DescribeEventsForOrganizationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DEFORe,
@@ -311,25 +307,32 @@ export var DescribeEventsForOrganizationResponse: StaticStructureSchema = [
   [_ev, _nT],
   [() => OrganizationEventList, 0],
 ];
-export var DescribeEventsRequest: StaticStructureSchema = [
+export var DescribeEventsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DER,
   0,
   [_fi, _nT, _mR, _l],
-  [() => EventFilter, 0, 1, 0],
+  [() => EventFilter$, 0, 1, 0],
 ];
-export var DescribeEventsResponse: StaticStructureSchema = [3, n0, _DERe, 0, [_ev, _nT], [() => EventList, 0]];
-export var DescribeEventTypesRequest: StaticStructureSchema = [
+export var DescribeEventsResponse$: StaticStructureSchema = [3, n0, _DERe, 0, [_ev, _nT], [() => EventList, 0]];
+export var DescribeEventTypesRequest$: StaticStructureSchema = [
   3,
   n0,
   _DETR,
   0,
   [_fi, _l, _nT, _mR],
-  [() => EventTypeFilter, 0, 0, 1],
+  [() => EventTypeFilter$, 0, 0, 1],
 ];
-export var DescribeEventTypesResponse: StaticStructureSchema = [3, n0, _DETRe, 0, [_eT, _nT], [() => EventTypeList, 0]];
-export var DescribeHealthServiceStatusForOrganizationResponse: StaticStructureSchema = [
+export var DescribeEventTypesResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _DETRe,
+  0,
+  [_eT, _nT],
+  [() => EventTypeList, 0],
+];
+export var DescribeHealthServiceStatusForOrganizationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DHSSFOR,
@@ -337,9 +340,9 @@ export var DescribeHealthServiceStatusForOrganizationResponse: StaticStructureSc
   [_hSASFO],
   [0],
 ];
-export var EntityAccountFilter: StaticStructureSchema = [3, n0, _EAF, 0, [_eAv, _aAI, _sCt], [0, 0, 64 | 0]];
-export var EntityAggregate: StaticStructureSchema = [3, n0, _EA, 0, [_eAv, _c, _s], [0, 1, 128 | 1]];
-export var EntityFilter: StaticStructureSchema = [
+export var EntityAccountFilter$: StaticStructureSchema = [3, n0, _EAF, 0, [_eAv, _aAI, _sCt], [0, 0, 64 | 0]];
+export var EntityAggregate$: StaticStructureSchema = [3, n0, _EA, 0, [_eAv, _c, _s], [0, 1, 128 | 1]];
+export var EntityFilter$: StaticStructureSchema = [
   3,
   n0,
   _EF,
@@ -347,7 +350,7 @@ export var EntityFilter: StaticStructureSchema = [
   [_eAve, _eAnt, _eVn, _lUTa, _t, _sCt],
   [64 | 0, 64 | 0, 64 | 0, () => dateTimeRangeList, [1, n0, _tF, 0, 128 | 0], 64 | 0],
 ];
-export var Event: StaticStructureSchema = [
+export var Event$: StaticStructureSchema = [
   3,
   n0,
   _E,
@@ -355,19 +358,19 @@ export var Event: StaticStructureSchema = [
   [_a, _se, _eTC, _eTCv, _r, _aZ, _sT, _eTn, _lUT, _sC, _eSC, _ac, _p],
   [0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 64 | 0],
 ];
-export var EventAccountFilter: StaticStructureSchema = [3, n0, _EAFv, 0, [_eAv, _aAI], [0, 0]];
-export var EventAggregate: StaticStructureSchema = [3, n0, _EAv, 0, [_aV, _c], [0, 1]];
-export var EventDescription: StaticStructureSchema = [3, n0, _ED, 0, [_lD], [0]];
-export var EventDetails: StaticStructureSchema = [
+export var EventAccountFilter$: StaticStructureSchema = [3, n0, _EAFv, 0, [_eAv, _aAI], [0, 0]];
+export var EventAggregate$: StaticStructureSchema = [3, n0, _EAv, 0, [_aV, _c], [0, 1]];
+export var EventDescription$: StaticStructureSchema = [3, n0, _ED, 0, [_lD], [0]];
+export var EventDetails$: StaticStructureSchema = [
   3,
   n0,
   _EDv,
   0,
   [_eve, _eD, _eMv],
-  [() => Event, () => EventDescription, 128 | 0],
+  [() => Event$, () => EventDescription$, 128 | 0],
 ];
-export var EventDetailsErrorItem: StaticStructureSchema = [3, n0, _EDEI, 0, [_eAv, _eN, _eMr], [0, 0, 0]];
-export var EventFilter: StaticStructureSchema = [
+export var EventDetailsErrorItem$: StaticStructureSchema = [3, n0, _EDEI, 0, [_eAv, _eN, _eMr], [0, 0, 0]];
+export var EventFilter$: StaticStructureSchema = [
   3,
   n0,
   _EFv,
@@ -391,8 +394,8 @@ export var EventFilter: StaticStructureSchema = [
     64 | 0,
   ],
 ];
-export var EventType: StaticStructureSchema = [3, n0, _ET, 0, [_se, _co, _ca, _ac, _p], [0, 0, 0, 0, 64 | 0]];
-export var EventTypeFilter: StaticStructureSchema = [
+export var EventType$: StaticStructureSchema = [3, n0, _ET, 0, [_se, _co, _ca, _ac, _p], [0, 0, 0, 0, 64 | 0]];
+export var EventTypeFilter$: StaticStructureSchema = [
   3,
   n0,
   _ETF,
@@ -400,9 +403,9 @@ export var EventTypeFilter: StaticStructureSchema = [
   [_eTCve, _ser, _eTCven, _act, _p],
   [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0],
 ];
-export var InvalidPaginationToken: StaticErrorSchema = [-3, n0, _IPT, { [_e]: _cl }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InvalidPaginationToken, __InvalidPaginationToken);
-export var OrganizationAffectedEntitiesErrorItem: StaticStructureSchema = [
+export var InvalidPaginationToken$: StaticErrorSchema = [-3, n0, _IPT, { [_e]: _cl }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InvalidPaginationToken$, InvalidPaginationToken);
+export var OrganizationAffectedEntitiesErrorItem$: StaticStructureSchema = [
   3,
   n0,
   _OAEEI,
@@ -410,7 +413,7 @@ export var OrganizationAffectedEntitiesErrorItem: StaticStructureSchema = [
   [_aAI, _eAv, _eN, _eMr],
   [0, 0, 0, 0],
 ];
-export var OrganizationEntityAggregate: StaticStructureSchema = [
+export var OrganizationEntityAggregate$: StaticStructureSchema = [
   3,
   n0,
   _OEA,
@@ -418,7 +421,7 @@ export var OrganizationEntityAggregate: StaticStructureSchema = [
   [_eAv, _c, _s, _acc],
   [0, 1, 128 | 1, () => AccountEntityAggregatesList],
 ];
-export var OrganizationEvent: StaticStructureSchema = [
+export var OrganizationEvent$: StaticStructureSchema = [
   3,
   n0,
   _OE,
@@ -426,15 +429,15 @@ export var OrganizationEvent: StaticStructureSchema = [
   [_a, _se, _eTC, _eTCv, _eSC, _r, _sT, _eTn, _lUT, _sC, _ac, _p],
   [0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 0, 64 | 0],
 ];
-export var OrganizationEventDetails: StaticStructureSchema = [
+export var OrganizationEventDetails$: StaticStructureSchema = [
   3,
   n0,
   _OED,
   0,
   [_aAI, _eve, _eD, _eMv],
-  [0, () => Event, () => EventDescription, 128 | 0],
+  [0, () => Event$, () => EventDescription$, 128 | 0],
 ];
-export var OrganizationEventDetailsErrorItem: StaticStructureSchema = [
+export var OrganizationEventDetailsErrorItem$: StaticStructureSchema = [
   3,
   n0,
   _OEDEI,
@@ -442,7 +445,7 @@ export var OrganizationEventDetailsErrorItem: StaticStructureSchema = [
   [_aAI, _eAv, _eN, _eMr],
   [0, 0, 0, 0],
 ];
-export var OrganizationEventFilter: StaticStructureSchema = [
+export var OrganizationEventFilter$: StaticStructureSchema = [
   3,
   n0,
   _OEF,
@@ -454,9 +457,9 @@ export var OrganizationEventFilter: StaticStructureSchema = [
     64 | 0,
     64 | 0,
     64 | 0,
-    () => DateTimeRange,
-    () => DateTimeRange,
-    () => DateTimeRange,
+    () => DateTimeRange$,
+    () => DateTimeRange$,
+    () => DateTimeRange$,
     64 | 0,
     64 | 0,
     64 | 0,
@@ -464,169 +467,169 @@ export var OrganizationEventFilter: StaticStructureSchema = [
     64 | 0,
   ],
 ];
-export var UnsupportedLocale: StaticErrorSchema = [-3, n0, _UL, { [_e]: _cl }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UnsupportedLocale, __UnsupportedLocale);
-export var __Unit = "unit" as const;
-export var HealthServiceException: StaticErrorSchema = [-3, _sm, "HealthServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(HealthServiceException, __HealthServiceException);
-export var AccountEntityAggregatesList: StaticListSchema = [1, n0, _AEAL, 0, () => AccountEntityAggregate];
-export var affectedAccountsList = 64 | 0;
-export var availabilityZones = 64 | 0;
-export var awsAccountIdsList = 64 | 0;
-export var dateTimeRangeList: StaticListSchema = [1, n0, _dTRL, 0, () => DateTimeRange];
-export var DescribeAffectedEntitiesForOrganizationFailedSet: StaticListSchema = [
+export var UnsupportedLocale$: StaticErrorSchema = [-3, n0, _UL, { [_e]: _cl }, [_m], [0]];
+TypeRegistry.for(n0).registerError(UnsupportedLocale$, UnsupportedLocale);
+var __Unit = "unit" as const;
+export var HealthServiceException$: StaticErrorSchema = [-3, _sm, "HealthServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(HealthServiceException$, HealthServiceException);
+var AccountEntityAggregatesList: StaticListSchema = [1, n0, _AEAL, 0, () => AccountEntityAggregate$];
+var affectedAccountsList = 64 | 0;
+var availabilityZones = 64 | 0;
+var awsAccountIdsList = 64 | 0;
+var dateTimeRangeList: StaticListSchema = [1, n0, _dTRL, 0, () => DateTimeRange$];
+var DescribeAffectedEntitiesForOrganizationFailedSet: StaticListSchema = [
   1,
   n0,
   _DAEFOFS,
   0,
-  () => OrganizationAffectedEntitiesErrorItem,
+  () => OrganizationAffectedEntitiesErrorItem$,
 ];
-export var DescribeEventDetailsFailedSet: StaticListSchema = [1, n0, _DEDFS, 0, () => EventDetailsErrorItem];
-export var DescribeEventDetailsForOrganizationFailedSet: StaticListSchema = [
+var DescribeEventDetailsFailedSet: StaticListSchema = [1, n0, _DEDFS, 0, () => EventDetailsErrorItem$];
+var DescribeEventDetailsForOrganizationFailedSet: StaticListSchema = [
   1,
   n0,
   _DEDFOFS,
   0,
-  () => OrganizationEventDetailsErrorItem,
+  () => OrganizationEventDetailsErrorItem$,
 ];
-export var DescribeEventDetailsForOrganizationSuccessfulSet: StaticListSchema = [
+var DescribeEventDetailsForOrganizationSuccessfulSet: StaticListSchema = [
   1,
   n0,
   _DEDFOSS,
   0,
-  () => OrganizationEventDetails,
+  () => OrganizationEventDetails$,
 ];
-export var DescribeEventDetailsSuccessfulSet: StaticListSchema = [1, n0, _DEDSS, 0, () => EventDetails];
-export var EntityAggregateList: StaticListSchema = [1, n0, _EAL, 0, () => EntityAggregate];
-export var entityArnList = 64 | 0;
-export var EntityList: StaticListSchema = [1, n0, _EL, 0, () => AffectedEntity];
-export var entityStatusCodeList = 64 | 0;
-export var entityValueList = 64 | 0;
-export var EventActionabilityList = 64 | 0;
-export var EventAggregateList: StaticListSchema = [1, n0, _EALv, 0, () => EventAggregate];
-export var eventArnList = 64 | 0;
-export var EventArnsList = 64 | 0;
-export var EventList: StaticListSchema = [1, n0, _ELv, 0, () => Event];
-export var EventPersonaList = 64 | 0;
-export var eventStatusCodeList = 64 | 0;
-export var EventTypeActionabilityList = 64 | 0;
-export var EventTypeCategoryList = 64 | 0;
-export var eventTypeCategoryList2 = 64 | 0;
-export var EventTypeCodeList = 64 | 0;
-export var EventTypeList: StaticListSchema = [1, n0, _ETL, 0, () => EventType];
-export var eventTypeList2 = 64 | 0;
-export var EventTypePersonaList = 64 | 0;
-export var OrganizationAccountIdsList = 64 | 0;
-export var OrganizationEntityAccountFiltersList: StaticListSchema = [1, n0, _OEAFL, 0, () => EntityAccountFilter];
-export var OrganizationEntityAggregatesList: StaticListSchema = [1, n0, _OEAL, 0, () => OrganizationEntityAggregate];
-export var OrganizationEntityFiltersList: StaticListSchema = [1, n0, _OEFL, 0, () => EventAccountFilter];
-export var OrganizationEventArnsList = 64 | 0;
-export var OrganizationEventDetailFiltersList: StaticListSchema = [1, n0, _OEDFL, 0, () => EventAccountFilter];
-export var OrganizationEventList: StaticListSchema = [1, n0, _OEL, 0, () => OrganizationEvent];
-export var regionList = 64 | 0;
-export var serviceList = 64 | 0;
-export var tagFilter: StaticListSchema = [1, n0, _tF, 0, 128 | 0];
-export var entityMetadata = 128 | 0;
-export var entityStatuses = 128 | 1;
-export var eventMetadata = 128 | 0;
-export var tagSet = 128 | 0;
-export var DescribeAffectedAccountsForOrganization: StaticOperationSchema = [
+var DescribeEventDetailsSuccessfulSet: StaticListSchema = [1, n0, _DEDSS, 0, () => EventDetails$];
+var EntityAggregateList: StaticListSchema = [1, n0, _EAL, 0, () => EntityAggregate$];
+var entityArnList = 64 | 0;
+var EntityList: StaticListSchema = [1, n0, _EL, 0, () => AffectedEntity$];
+var entityStatusCodeList = 64 | 0;
+var entityValueList = 64 | 0;
+var EventActionabilityList = 64 | 0;
+var EventAggregateList: StaticListSchema = [1, n0, _EALv, 0, () => EventAggregate$];
+var eventArnList = 64 | 0;
+var EventArnsList = 64 | 0;
+var EventList: StaticListSchema = [1, n0, _ELv, 0, () => Event$];
+var EventPersonaList = 64 | 0;
+var eventStatusCodeList = 64 | 0;
+var EventTypeActionabilityList = 64 | 0;
+var EventTypeCategoryList = 64 | 0;
+var eventTypeCategoryList2 = 64 | 0;
+var EventTypeCodeList = 64 | 0;
+var EventTypeList: StaticListSchema = [1, n0, _ETL, 0, () => EventType$];
+var eventTypeList2 = 64 | 0;
+var EventTypePersonaList = 64 | 0;
+var OrganizationAccountIdsList = 64 | 0;
+var OrganizationEntityAccountFiltersList: StaticListSchema = [1, n0, _OEAFL, 0, () => EntityAccountFilter$];
+var OrganizationEntityAggregatesList: StaticListSchema = [1, n0, _OEAL, 0, () => OrganizationEntityAggregate$];
+var OrganizationEntityFiltersList: StaticListSchema = [1, n0, _OEFL, 0, () => EventAccountFilter$];
+var OrganizationEventArnsList = 64 | 0;
+var OrganizationEventDetailFiltersList: StaticListSchema = [1, n0, _OEDFL, 0, () => EventAccountFilter$];
+var OrganizationEventList: StaticListSchema = [1, n0, _OEL, 0, () => OrganizationEvent$];
+var regionList = 64 | 0;
+var serviceList = 64 | 0;
+var tagFilter: StaticListSchema = [1, n0, _tF, 0, 128 | 0];
+var entityMetadata = 128 | 0;
+var entityStatuses = 128 | 1;
+var eventMetadata = 128 | 0;
+var tagSet = 128 | 0;
+export var DescribeAffectedAccountsForOrganization$: StaticOperationSchema = [
   9,
   n0,
   _DAAFO,
   2,
-  () => DescribeAffectedAccountsForOrganizationRequest,
-  () => DescribeAffectedAccountsForOrganizationResponse,
+  () => DescribeAffectedAccountsForOrganizationRequest$,
+  () => DescribeAffectedAccountsForOrganizationResponse$,
 ];
-export var DescribeAffectedEntities: StaticOperationSchema = [
+export var DescribeAffectedEntities$: StaticOperationSchema = [
   9,
   n0,
   _DAE,
   2,
-  () => DescribeAffectedEntitiesRequest,
-  () => DescribeAffectedEntitiesResponse,
+  () => DescribeAffectedEntitiesRequest$,
+  () => DescribeAffectedEntitiesResponse$,
 ];
-export var DescribeAffectedEntitiesForOrganization: StaticOperationSchema = [
+export var DescribeAffectedEntitiesForOrganization$: StaticOperationSchema = [
   9,
   n0,
   _DAEFO,
   2,
-  () => DescribeAffectedEntitiesForOrganizationRequest,
-  () => DescribeAffectedEntitiesForOrganizationResponse,
+  () => DescribeAffectedEntitiesForOrganizationRequest$,
+  () => DescribeAffectedEntitiesForOrganizationResponse$,
 ];
-export var DescribeEntityAggregates: StaticOperationSchema = [
+export var DescribeEntityAggregates$: StaticOperationSchema = [
   9,
   n0,
   _DEA,
   2,
-  () => DescribeEntityAggregatesRequest,
-  () => DescribeEntityAggregatesResponse,
+  () => DescribeEntityAggregatesRequest$,
+  () => DescribeEntityAggregatesResponse$,
 ];
-export var DescribeEntityAggregatesForOrganization: StaticOperationSchema = [
+export var DescribeEntityAggregatesForOrganization$: StaticOperationSchema = [
   9,
   n0,
   _DEAFO,
   2,
-  () => DescribeEntityAggregatesForOrganizationRequest,
-  () => DescribeEntityAggregatesForOrganizationResponse,
+  () => DescribeEntityAggregatesForOrganizationRequest$,
+  () => DescribeEntityAggregatesForOrganizationResponse$,
 ];
-export var DescribeEventAggregates: StaticOperationSchema = [
+export var DescribeEventAggregates$: StaticOperationSchema = [
   9,
   n0,
   _DEAe,
   2,
-  () => DescribeEventAggregatesRequest,
-  () => DescribeEventAggregatesResponse,
+  () => DescribeEventAggregatesRequest$,
+  () => DescribeEventAggregatesResponse$,
 ];
-export var DescribeEventDetails: StaticOperationSchema = [
+export var DescribeEventDetails$: StaticOperationSchema = [
   9,
   n0,
   _DED,
   2,
-  () => DescribeEventDetailsRequest,
-  () => DescribeEventDetailsResponse,
+  () => DescribeEventDetailsRequest$,
+  () => DescribeEventDetailsResponse$,
 ];
-export var DescribeEventDetailsForOrganization: StaticOperationSchema = [
+export var DescribeEventDetailsForOrganization$: StaticOperationSchema = [
   9,
   n0,
   _DEDFO,
   2,
-  () => DescribeEventDetailsForOrganizationRequest,
-  () => DescribeEventDetailsForOrganizationResponse,
+  () => DescribeEventDetailsForOrganizationRequest$,
+  () => DescribeEventDetailsForOrganizationResponse$,
 ];
-export var DescribeEvents: StaticOperationSchema = [
+export var DescribeEvents$: StaticOperationSchema = [
   9,
   n0,
   _DE,
   2,
-  () => DescribeEventsRequest,
-  () => DescribeEventsResponse,
+  () => DescribeEventsRequest$,
+  () => DescribeEventsResponse$,
 ];
-export var DescribeEventsForOrganization: StaticOperationSchema = [
+export var DescribeEventsForOrganization$: StaticOperationSchema = [
   9,
   n0,
   _DEFO,
   2,
-  () => DescribeEventsForOrganizationRequest,
-  () => DescribeEventsForOrganizationResponse,
+  () => DescribeEventsForOrganizationRequest$,
+  () => DescribeEventsForOrganizationResponse$,
 ];
-export var DescribeEventTypes: StaticOperationSchema = [
+export var DescribeEventTypes$: StaticOperationSchema = [
   9,
   n0,
   _DET,
   2,
-  () => DescribeEventTypesRequest,
-  () => DescribeEventTypesResponse,
+  () => DescribeEventTypesRequest$,
+  () => DescribeEventTypesResponse$,
 ];
-export var DescribeHealthServiceStatusForOrganization: StaticOperationSchema = [
+export var DescribeHealthServiceStatusForOrganization$: StaticOperationSchema = [
   9,
   n0,
   _DHSSFO,
   2,
   () => __Unit,
-  () => DescribeHealthServiceStatusForOrganizationResponse,
+  () => DescribeHealthServiceStatusForOrganizationResponse$,
 ];
-export var DisableHealthServiceAccessForOrganization: StaticOperationSchema = [
+export var DisableHealthServiceAccessForOrganization$: StaticOperationSchema = [
   9,
   n0,
   _DHSAFO,
@@ -634,7 +637,7 @@ export var DisableHealthServiceAccessForOrganization: StaticOperationSchema = [
   () => __Unit,
   () => __Unit,
 ];
-export var EnableHealthServiceAccessForOrganization: StaticOperationSchema = [
+export var EnableHealthServiceAccessForOrganization$: StaticOperationSchema = [
   9,
   n0,
   _EHSAFO,

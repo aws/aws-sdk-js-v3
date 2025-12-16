@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { CreateInstancesFromSnapshotRequest, CreateInstancesFromSnapshotResult } from "../models/models_0";
-import { CreateInstancesFromSnapshot } from "../schemas/schemas_0";
+import { CreateInstancesFromSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -166,7 +166,7 @@ export class CreateInstancesFromSnapshotCommand extends $Command
   })
   .s("Lightsail_20161128", "CreateInstancesFromSnapshot", {})
   .n("LightsailClient", "CreateInstancesFromSnapshotCommand")
-  .sc(CreateInstancesFromSnapshot)
+  .sc(CreateInstancesFromSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetHypervisorPropertyMappingsInput, GetHypervisorPropertyMappingsOutput } from "../models/models_0";
-import { GetHypervisorPropertyMappings } from "../schemas/schemas_0";
+import { GetHypervisorPropertyMappings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class GetHypervisorPropertyMappingsCommand extends $Command
   })
   .s("BackupOnPremises_v20210101", "GetHypervisorPropertyMappings", {})
   .n("BackupGatewayClient", "GetHypervisorPropertyMappingsCommand")
-  .sc(GetHypervisorPropertyMappings)
+  .sc(GetHypervisorPropertyMappings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

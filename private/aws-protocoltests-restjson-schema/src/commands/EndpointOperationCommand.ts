@@ -9,7 +9,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { EndpointOperation } from "../schemas/schemas_0";
+import { EndpointOperation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -72,7 +72,7 @@ export class EndpointOperationCommand extends $Command
   })
   .s("RestJson", "EndpointOperation", {})
   .n("RestJsonProtocolClient", "EndpointOperationCommand")
-  .sc(EndpointOperation)
+  .sc(EndpointOperation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

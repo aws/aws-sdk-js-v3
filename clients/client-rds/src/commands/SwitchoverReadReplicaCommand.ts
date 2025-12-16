@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SwitchoverReadReplicaMessage, SwitchoverReadReplicaResult } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { SwitchoverReadReplica } from "../schemas/schemas_0";
+import { SwitchoverReadReplica$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -328,7 +328,7 @@ export class SwitchoverReadReplicaCommand extends $Command
   })
   .s("AmazonRDSv19", "SwitchoverReadReplica", {})
   .n("RDSClient", "SwitchoverReadReplicaCommand")
-  .sc(SwitchoverReadReplica)
+  .sc(SwitchoverReadReplica$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAdapterVersionRequest, DeleteAdapterVersionResponse } from "../models/models_0";
-import { DeleteAdapterVersion } from "../schemas/schemas_0";
+import { DeleteAdapterVersion$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
@@ -103,7 +103,7 @@ export class DeleteAdapterVersionCommand extends $Command
   })
   .s("Textract", "DeleteAdapterVersion", {})
   .n("TextractClient", "DeleteAdapterVersionCommand")
-  .sc(DeleteAdapterVersion)
+  .sc(DeleteAdapterVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

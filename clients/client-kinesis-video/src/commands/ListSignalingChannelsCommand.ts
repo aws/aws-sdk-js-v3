@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import type { ListSignalingChannelsInput, ListSignalingChannelsOutput } from "../models/models_0";
-import { ListSignalingChannels } from "../schemas/schemas_0";
+import { ListSignalingChannels$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class ListSignalingChannelsCommand extends $Command
   })
   .s("KinesisVideo_20170930", "ListSignalingChannels", {})
   .n("KinesisVideoClient", "ListSignalingChannelsCommand")
-  .sc(ListSignalingChannels)
+  .sc(ListSignalingChannels$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

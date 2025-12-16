@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: ManagedBlockchainClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.managedblockchain" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.managedblockchain",
+      version: "2018-09-24",
+      serviceTarget: "TaigaWebService",
+    },
     serviceId: config?.serviceId ?? "ManagedBlockchain",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

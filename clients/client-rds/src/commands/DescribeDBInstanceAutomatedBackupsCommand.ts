@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DBInstanceAutomatedBackupMessage, DescribeDBInstanceAutomatedBackupsMessage } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DescribeDBInstanceAutomatedBackups } from "../schemas/schemas_0";
+import { DescribeDBInstanceAutomatedBackups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -194,7 +194,7 @@ export class DescribeDBInstanceAutomatedBackupsCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeDBInstanceAutomatedBackups", {})
   .n("RDSClient", "DescribeDBInstanceAutomatedBackupsCommand")
-  .sc(DescribeDBInstanceAutomatedBackups)
+  .sc(DescribeDBInstanceAutomatedBackups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   BatchGetAggregateResourceConfigRequest,
   BatchGetAggregateResourceConfigResponse,
 } from "../models/models_0";
-import { BatchGetAggregateResourceConfig } from "../schemas/schemas_0";
+import { BatchGetAggregateResourceConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -167,7 +167,7 @@ export class BatchGetAggregateResourceConfigCommand extends $Command
   })
   .s("StarlingDoveService", "BatchGetAggregateResourceConfig", {})
   .n("ConfigServiceClient", "BatchGetAggregateResourceConfigCommand")
-  .sc(BatchGetAggregateResourceConfig)
+  .sc(BatchGetAggregateResourceConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

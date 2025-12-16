@@ -9,7 +9,7 @@ import type {
   PutServiceLinkedConfigurationRecorderRequest,
   PutServiceLinkedConfigurationRecorderResponse,
 } from "../models/models_0";
-import { PutServiceLinkedConfigurationRecorder } from "../schemas/schemas_0";
+import { PutServiceLinkedConfigurationRecorder$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -190,7 +190,7 @@ export class PutServiceLinkedConfigurationRecorderCommand extends $Command
   })
   .s("StarlingDoveService", "PutServiceLinkedConfigurationRecorder", {})
   .n("ConfigServiceClient", "PutServiceLinkedConfigurationRecorderCommand")
-  .sc(PutServiceLinkedConfigurationRecorder)
+  .sc(PutServiceLinkedConfigurationRecorder$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

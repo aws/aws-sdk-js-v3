@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ReplacePermissionAssociationsRequest, ReplacePermissionAssociationsResponse } from "../models/models_0";
 import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { ReplacePermissionAssociations } from "../schemas/schemas_0";
+import { ReplacePermissionAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class ReplacePermissionAssociationsCommand extends $Command
   })
   .s("AmazonResourceSharing", "ReplacePermissionAssociations", {})
   .n("RAMClient", "ReplacePermissionAssociationsCommand")
-  .sc(ReplacePermissionAssociations)
+  .sc(ReplacePermissionAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

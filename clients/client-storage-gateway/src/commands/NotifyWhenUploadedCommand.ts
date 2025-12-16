@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { NotifyWhenUploadedInput, NotifyWhenUploadedOutput } from "../models/models_0";
-import { NotifyWhenUploaded } from "../schemas/schemas_0";
+import { NotifyWhenUploaded$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -96,7 +96,7 @@ export class NotifyWhenUploadedCommand extends $Command
   })
   .s("StorageGateway_20130630", "NotifyWhenUploaded", {})
   .n("StorageGatewayClient", "NotifyWhenUploadedCommand")
-  .sc(NotifyWhenUploaded)
+  .sc(NotifyWhenUploaded$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

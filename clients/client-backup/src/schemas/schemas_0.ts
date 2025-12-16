@@ -766,25 +766,25 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { BackupServiceException as __BackupServiceException } from "../models/BackupServiceException";
+import { BackupServiceException } from "../models/BackupServiceException";
 import {
-  AlreadyExistsException as __AlreadyExistsException,
-  ConflictException as __ConflictException,
-  DependencyFailureException as __DependencyFailureException,
-  InvalidParameterValueException as __InvalidParameterValueException,
-  InvalidRequestException as __InvalidRequestException,
-  InvalidResourceStateException as __InvalidResourceStateException,
-  LimitExceededException as __LimitExceededException,
-  MissingParameterValueException as __MissingParameterValueException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceUnavailableException as __ServiceUnavailableException,
+  AlreadyExistsException,
+  ConflictException,
+  DependencyFailureException,
+  InvalidParameterValueException,
+  InvalidRequestException,
+  InvalidResourceStateException,
+  LimitExceededException,
+  MissingParameterValueException,
+  ResourceNotFoundException,
+  ServiceUnavailableException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var RequesterComment: StaticSimpleSchema = [0, n0, _RC, 8, 0];
-export var AdvancedBackupSetting: StaticStructureSchema = [3, n0, _ABS, 0, [_RT, _BO], [0, 128 | 0]];
-export var AggregatedScanResult: StaticStructureSchema = [3, n0, _ASR, 0, [_FS, _F, _LC], [2, 64 | 0, 4]];
-export var AlreadyExistsException: StaticErrorSchema = [
+var RequesterComment: StaticSimpleSchema = [0, n0, _RC, 8, 0];
+export var AdvancedBackupSetting$: StaticStructureSchema = [3, n0, _ABS, 0, [_RT, _BO], [0, 128 | 0]];
+export var AggregatedScanResult$: StaticStructureSchema = [3, n0, _ASR, 0, [_FS, _F, _LC], [2, 64 | 0, 4]];
+export var AlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _AEE,
@@ -792,8 +792,8 @@ export var AlreadyExistsException: StaticErrorSchema = [
   [_C, _M, _CRI, _A, _T, _Co],
   [0, 0, 0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(AlreadyExistsException, __AlreadyExistsException);
-export var AssociateBackupVaultMpaApprovalTeamInput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(AlreadyExistsException$, AlreadyExistsException);
+export var AssociateBackupVaultMpaApprovalTeamInput$: StaticStructureSchema = [
   3,
   n0,
   _ABVMATI,
@@ -801,7 +801,7 @@ export var AssociateBackupVaultMpaApprovalTeamInput: StaticStructureSchema = [
   [_BVN, _MATA, _RC],
   [[0, 1], 0, [() => RequesterComment, 0]],
 ];
-export var BackupJob: StaticStructureSchema = [
+export var BackupJob$: StaticStructureSchema = [
   3,
   n0,
   _BJ,
@@ -846,7 +846,7 @@ export var BackupJob: StaticStructureSchema = [
     0,
     0,
     0,
-    () => Lifecycle,
+    () => Lifecycle$,
     0,
     2,
     0,
@@ -857,7 +857,7 @@ export var BackupJob: StaticStructureSchema = [
     0,
     1,
     0,
-    () => RecoveryPointCreator,
+    () => RecoveryPointCreator$,
     4,
     4,
     0,
@@ -871,7 +871,7 @@ export var BackupJob: StaticStructureSchema = [
     0,
   ],
 ];
-export var BackupJobSummary: StaticStructureSchema = [
+export var BackupJobSummary$: StaticStructureSchema = [
   3,
   n0,
   _BJS,
@@ -879,7 +879,7 @@ export var BackupJobSummary: StaticStructureSchema = [
   [_R, _AI, _S, _RT, _MC, _Cou, _ST, _ET],
   [0, 0, 0, 0, 0, 1, 4, 4],
 ];
-export var BackupPlan: StaticStructureSchema = [
+export var BackupPlan$: StaticStructureSchema = [
   3,
   n0,
   _BP,
@@ -887,7 +887,7 @@ export var BackupPlan: StaticStructureSchema = [
   [_BPN, _Ru, _ABSd, _SS],
   [0, [() => BackupRules, 0], () => AdvancedBackupSettings, () => ScanSettings],
 ];
-export var BackupPlanInput: StaticStructureSchema = [
+export var BackupPlanInput$: StaticStructureSchema = [
   3,
   n0,
   _BPI,
@@ -895,7 +895,7 @@ export var BackupPlanInput: StaticStructureSchema = [
   [_BPN, _Ru, _ABSd, _SS],
   [0, [() => BackupRulesInput, 0], () => AdvancedBackupSettings, () => ScanSettings],
 ];
-export var BackupPlansListMember: StaticStructureSchema = [
+export var BackupPlansListMember$: StaticStructureSchema = [
   3,
   n0,
   _BPLM,
@@ -903,8 +903,8 @@ export var BackupPlansListMember: StaticStructureSchema = [
   [_BPA, _BPIa, _CD, _DD, _VI, _BPN, _CRI, _LED, _ABSd],
   [0, 0, 4, 4, 0, 0, 0, 4, () => AdvancedBackupSettings],
 ];
-export var BackupPlanTemplatesListMember: StaticStructureSchema = [3, n0, _BPTLM, 0, [_BPTI, _BPTN], [0, 0]];
-export var BackupRule: StaticStructureSchema = [
+export var BackupPlanTemplatesListMember$: StaticStructureSchema = [3, n0, _BPTLM, 0, [_BPTI, _BPTN], [0, 0]];
+export var BackupRule$: StaticStructureSchema = [
   3,
   n0,
   _BR,
@@ -917,7 +917,7 @@ export var BackupRule: StaticStructureSchema = [
     0,
     1,
     1,
-    () => Lifecycle,
+    () => Lifecycle$,
     [() => Tags, 0],
     0,
     () => CopyActions,
@@ -927,23 +927,23 @@ export var BackupRule: StaticStructureSchema = [
     () => ScanActions,
   ],
 ];
-export var BackupRuleInput: StaticStructureSchema = [
+export var BackupRuleInput$: StaticStructureSchema = [
   3,
   n0,
   _BRI,
   0,
   [_RNu, _TBVN, _TLAGBVA, _SE, _SWM, _CWM, _L, _RPT, _CA, _ECB, _SET, _IA, _SA],
-  [0, 0, 0, 0, 1, 1, () => Lifecycle, [() => Tags, 0], () => CopyActions, 2, 0, () => IndexActions, () => ScanActions],
+  [0, 0, 0, 0, 1, 1, () => Lifecycle$, [() => Tags, 0], () => CopyActions, 2, 0, () => IndexActions, () => ScanActions],
 ];
-export var BackupSelection: StaticStructureSchema = [
+export var BackupSelection$: StaticStructureSchema = [
   3,
   n0,
   _BS,
   0,
   [_SN, _IRA, _Re, _LOT, _NR, _Con],
-  [0, 0, 64 | 0, () => ListOfTags, 64 | 0, () => Conditions],
+  [0, 0, 64 | 0, () => ListOfTags, 64 | 0, () => Conditions$],
 ];
-export var BackupSelectionsListMember: StaticStructureSchema = [
+export var BackupSelectionsListMember$: StaticStructureSchema = [
   3,
   n0,
   _BSLM,
@@ -951,7 +951,7 @@ export var BackupSelectionsListMember: StaticStructureSchema = [
   [_SI, _SN, _BPIa, _CD, _CRI, _IRA],
   [0, 0, 0, 4, 0, 0],
 ];
-export var BackupVaultListMember: StaticStructureSchema = [
+export var BackupVaultListMember$: StaticStructureSchema = [
   3,
   n0,
   _BVLM,
@@ -959,8 +959,8 @@ export var BackupVaultListMember: StaticStructureSchema = [
   [_BVN, _BVA, _VT, _VS, _CD, _EKA, _CRI, _NORP, _Lo, _MRD, _MRDa, _LD, _EKT],
   [0, 0, 0, 0, 4, 0, 0, 1, 2, 1, 1, 4, 0],
 ];
-export var CalculatedLifecycle: StaticStructureSchema = [3, n0, _CL, 0, [_MTCSA, _DA], [4, 4]];
-export var CancelLegalHoldInput: StaticStructureSchema = [
+export var CalculatedLifecycle$: StaticStructureSchema = [3, n0, _CL, 0, [_MTCSA, _DA], [4, 4]];
+export var CancelLegalHoldInput$: StaticStructureSchema = [
   3,
   n0,
   _CLHI,
@@ -972,10 +972,10 @@ export var CancelLegalHoldInput: StaticStructureSchema = [
     [1, { [_hQ]: _rRID }],
   ],
 ];
-export var CancelLegalHoldOutput: StaticStructureSchema = [3, n0, _CLHO, 0, [], []];
-export var Condition: StaticStructureSchema = [3, n0, _Cond, 0, [_CT, _CK, _CV], [0, 0, 0]];
-export var ConditionParameter: StaticStructureSchema = [3, n0, _CP, 0, [_CK, _CV], [0, 0]];
-export var Conditions: StaticStructureSchema = [
+export var CancelLegalHoldOutput$: StaticStructureSchema = [3, n0, _CLHO, 0, [], []];
+export var Condition$: StaticStructureSchema = [3, n0, _Cond, 0, [_CT, _CK, _CV], [0, 0, 0]];
+export var ConditionParameter$: StaticStructureSchema = [3, n0, _CP, 0, [_CK, _CV], [0, 0]];
+export var Conditions$: StaticStructureSchema = [
   3,
   n0,
   _Con,
@@ -983,7 +983,7 @@ export var Conditions: StaticStructureSchema = [
   [_SEt, _SNE, _SL, _SNL],
   [() => ConditionParameters, () => ConditionParameters, () => ConditionParameters, () => ConditionParameters],
 ];
-export var ConflictException: StaticErrorSchema = [
+export var ConflictException$: StaticErrorSchema = [
   -3,
   n0,
   _CE,
@@ -991,11 +991,11 @@ export var ConflictException: StaticErrorSchema = [
   [_C, _M, _T, _Co],
   [0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var ControlInputParameter: StaticStructureSchema = [3, n0, _CIP, 0, [_PN, _PV], [0, 0]];
-export var ControlScope: StaticStructureSchema = [3, n0, _CS, 0, [_CRIo, _CRT, _Ta], [64 | 0, 64 | 0, 128 | 0]];
-export var CopyAction: StaticStructureSchema = [3, n0, _CAo, 0, [_L, _DBVA], [() => Lifecycle, 0]];
-export var CopyJob: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var ControlInputParameter$: StaticStructureSchema = [3, n0, _CIP, 0, [_PN, _PV], [0, 0]];
+export var ControlScope$: StaticStructureSchema = [3, n0, _CS, 0, [_CRIo, _CRT, _Ta], [64 | 0, 64 | 0, 128 | 0]];
+export var CopyAction$: StaticStructureSchema = [3, n0, _CAo, 0, [_L, _DBVA], [() => Lifecycle$, 0]];
+export var CopyJob$: StaticStructureSchema = [
   3,
   n0,
   _CJ,
@@ -1039,7 +1039,7 @@ export var CopyJob: StaticStructureSchema = [
     0,
     0,
     0,
-    () => Lifecycle,
+    () => Lifecycle$,
     0,
     4,
     4,
@@ -1047,7 +1047,7 @@ export var CopyJob: StaticStructureSchema = [
     0,
     1,
     0,
-    () => RecoveryPointCreator,
+    () => RecoveryPointCreator$,
     0,
     0,
     0,
@@ -1059,7 +1059,7 @@ export var CopyJob: StaticStructureSchema = [
     0,
   ],
 ];
-export var CopyJobSummary: StaticStructureSchema = [
+export var CopyJobSummary$: StaticStructureSchema = [
   3,
   n0,
   _CJS,
@@ -1067,19 +1067,19 @@ export var CopyJobSummary: StaticStructureSchema = [
   [_R, _AI, _S, _RT, _MC, _Cou, _ST, _ET],
   [0, 0, 0, 0, 0, 1, 4, 4],
 ];
-export var CreateBackupPlanInput: StaticStructureSchema = [
+export var CreateBackupPlanInput$: StaticStructureSchema = [
   3,
   n0,
   _CBPI,
   0,
   [_BP, _BPT, _CRI],
   [
-    [() => BackupPlanInput, 0],
+    [() => BackupPlanInput$, 0],
     [() => Tags, 0],
     [0, 4],
   ],
 ];
-export var CreateBackupPlanOutput: StaticStructureSchema = [
+export var CreateBackupPlanOutput$: StaticStructureSchema = [
   3,
   n0,
   _CBPO,
@@ -1087,16 +1087,16 @@ export var CreateBackupPlanOutput: StaticStructureSchema = [
   [_BPIa, _BPA, _CD, _VI, _ABSd],
   [0, 0, 4, 0, () => AdvancedBackupSettings],
 ];
-export var CreateBackupSelectionInput: StaticStructureSchema = [
+export var CreateBackupSelectionInput$: StaticStructureSchema = [
   3,
   n0,
   _CBSI,
   0,
   [_BPIa, _BS, _CRI],
-  [[0, 1], () => BackupSelection, [0, 4]],
+  [[0, 1], () => BackupSelection$, [0, 4]],
 ];
-export var CreateBackupSelectionOutput: StaticStructureSchema = [3, n0, _CBSO, 0, [_SI, _BPIa, _CD], [0, 0, 4]];
-export var CreateBackupVaultInput: StaticStructureSchema = [
+export var CreateBackupSelectionOutput$: StaticStructureSchema = [3, n0, _CBSO, 0, [_SI, _BPIa, _CD], [0, 0, 4]];
+export var CreateBackupVaultInput$: StaticStructureSchema = [
   3,
   n0,
   _CBVI,
@@ -1104,8 +1104,8 @@ export var CreateBackupVaultInput: StaticStructureSchema = [
   [_BVN, _BVT, _EKA, _CRI],
   [[0, 1], [() => Tags, 0], 0, [0, 4]],
 ];
-export var CreateBackupVaultOutput: StaticStructureSchema = [3, n0, _CBVO, 0, [_BVN, _BVA, _CD], [0, 0, 4]];
-export var CreateFrameworkInput: StaticStructureSchema = [
+export var CreateBackupVaultOutput$: StaticStructureSchema = [3, n0, _CBVO, 0, [_BVN, _BVA, _CD], [0, 0, 4]];
+export var CreateFrameworkInput$: StaticStructureSchema = [
   3,
   n0,
   _CFI,
@@ -1113,24 +1113,24 @@ export var CreateFrameworkInput: StaticStructureSchema = [
   [_FN, _FD, _FC, _IT, _FT],
   [0, 0, () => FrameworkControls, [0, 4], 128 | 0],
 ];
-export var CreateFrameworkOutput: StaticStructureSchema = [3, n0, _CFO, 0, [_FN, _FA], [0, 0]];
-export var CreateLegalHoldInput: StaticStructureSchema = [
+export var CreateFrameworkOutput$: StaticStructureSchema = [3, n0, _CFO, 0, [_FN, _FA], [0, 0]];
+export var CreateLegalHoldInput$: StaticStructureSchema = [
   3,
   n0,
   _CLHIr,
   0,
   [_Ti, _D, _IT, _RPS, _Ta],
-  [0, 0, [0, 4], () => RecoveryPointSelection, [() => Tags, 0]],
+  [0, 0, [0, 4], () => RecoveryPointSelection$, [() => Tags, 0]],
 ];
-export var CreateLegalHoldOutput: StaticStructureSchema = [
+export var CreateLegalHoldOutput$: StaticStructureSchema = [
   3,
   n0,
   _CLHOr,
   0,
   [_Ti, _St, _D, _LHI, _LHA, _CD, _RPS],
-  [0, 0, 0, 0, 0, 4, () => RecoveryPointSelection],
+  [0, 0, 0, 0, 0, 4, () => RecoveryPointSelection$],
 ];
-export var CreateLogicallyAirGappedBackupVaultInput: StaticStructureSchema = [
+export var CreateLogicallyAirGappedBackupVaultInput$: StaticStructureSchema = [
   3,
   n0,
   _CLAGBVI,
@@ -1138,7 +1138,7 @@ export var CreateLogicallyAirGappedBackupVaultInput: StaticStructureSchema = [
   [_BVN, _BVT, _CRI, _MRD, _MRDa, _EKA],
   [[0, 1], [() => Tags, 0], [0, 4], 1, 1, 0],
 ];
-export var CreateLogicallyAirGappedBackupVaultOutput: StaticStructureSchema = [
+export var CreateLogicallyAirGappedBackupVaultOutput$: StaticStructureSchema = [
   3,
   n0,
   _CLAGBVO,
@@ -1146,16 +1146,16 @@ export var CreateLogicallyAirGappedBackupVaultOutput: StaticStructureSchema = [
   [_BVN, _BVA, _CD, _VS],
   [0, 0, 4, 0],
 ];
-export var CreateReportPlanInput: StaticStructureSchema = [
+export var CreateReportPlanInput$: StaticStructureSchema = [
   3,
   n0,
   _CRPI,
   0,
   [_RPN, _RPD, _RDC, _RS, _RPTe, _IT],
-  [0, 0, () => ReportDeliveryChannel, () => ReportSetting, 128 | 0, [0, 4]],
+  [0, 0, () => ReportDeliveryChannel$, () => ReportSetting$, 128 | 0, [0, 4]],
 ];
-export var CreateReportPlanOutput: StaticStructureSchema = [3, n0, _CRPO, 0, [_RPN, _RPAe, _CTr], [0, 0, 4]];
-export var CreateRestoreAccessBackupVaultInput: StaticStructureSchema = [
+export var CreateReportPlanOutput$: StaticStructureSchema = [3, n0, _CRPO, 0, [_RPN, _RPAe, _CTr], [0, 0, 4]];
+export var CreateRestoreAccessBackupVaultInput$: StaticStructureSchema = [
   3,
   n0,
   _CRABVI,
@@ -1163,7 +1163,7 @@ export var CreateRestoreAccessBackupVaultInput: StaticStructureSchema = [
   [_SBVA, _BVN, _BVT, _CRI, _RC],
   [0, 0, [() => Tags, 0], [0, 4], [() => RequesterComment, 0]],
 ];
-export var CreateRestoreAccessBackupVaultOutput: StaticStructureSchema = [
+export var CreateRestoreAccessBackupVaultOutput$: StaticStructureSchema = [
   3,
   n0,
   _CRABVO,
@@ -1171,24 +1171,24 @@ export var CreateRestoreAccessBackupVaultOutput: StaticStructureSchema = [
   [_RABVA, _VS, _RABVN, _CD],
   [0, 0, 0, 4],
 ];
-export var CreateRestoreTestingPlanInput: StaticStructureSchema = [
+export var CreateRestoreTestingPlanInput$: StaticStructureSchema = [
   3,
   n0,
   _CRTPI,
   0,
   [_CRI, _RTP, _Ta],
-  [0, () => RestoreTestingPlanForCreate, [() => SensitiveStringMap, 0]],
+  [0, () => RestoreTestingPlanForCreate$, [() => SensitiveStringMap, 0]],
 ];
-export var CreateRestoreTestingPlanOutput: StaticStructureSchema = [3, n0, _CRTPO, 0, [_CTr, _RTPA, _RTPN], [4, 0, 0]];
-export var CreateRestoreTestingSelectionInput: StaticStructureSchema = [
+export var CreateRestoreTestingPlanOutput$: StaticStructureSchema = [3, n0, _CRTPO, 0, [_CTr, _RTPA, _RTPN], [4, 0, 0]];
+export var CreateRestoreTestingSelectionInput$: StaticStructureSchema = [
   3,
   n0,
   _CRTSI,
   0,
   [_CRI, _RTPN, _RTS],
-  [0, [0, 1], [() => RestoreTestingSelectionForCreate, 0]],
+  [0, [0, 1], [() => RestoreTestingSelectionForCreate$, 0]],
 ];
-export var CreateRestoreTestingSelectionOutput: StaticStructureSchema = [
+export var CreateRestoreTestingSelectionOutput$: StaticStructureSchema = [
   3,
   n0,
   _CRTSO,
@@ -1196,19 +1196,19 @@ export var CreateRestoreTestingSelectionOutput: StaticStructureSchema = [
   [_CTr, _RTPA, _RTPN, _RTSN],
   [4, 0, 0, 0],
 ];
-export var CreateTieringConfigurationInput: StaticStructureSchema = [
+export var CreateTieringConfigurationInput$: StaticStructureSchema = [
   3,
   n0,
   _CTCI,
   0,
   [_TC, _TCT, _CRI],
-  [() => TieringConfigurationInputForCreate, [() => Tags, 0], [0, 4]],
+  [() => TieringConfigurationInputForCreate$, [() => Tags, 0], [0, 4]],
 ];
-export var CreateTieringConfigurationOutput: StaticStructureSchema = [3, n0, _CTCO, 0, [_TCA, _TCN, _CTr], [0, 0, 4]];
-export var DateRange: StaticStructureSchema = [3, n0, _DR, 0, [_FDr, _TD], [4, 4]];
-export var DeleteBackupPlanInput: StaticStructureSchema = [3, n0, _DBPI, 0, [_BPIa], [[0, 1]]];
-export var DeleteBackupPlanOutput: StaticStructureSchema = [3, n0, _DBPO, 0, [_BPIa, _BPA, _DD, _VI], [0, 0, 4, 0]];
-export var DeleteBackupSelectionInput: StaticStructureSchema = [
+export var CreateTieringConfigurationOutput$: StaticStructureSchema = [3, n0, _CTCO, 0, [_TCA, _TCN, _CTr], [0, 0, 4]];
+export var DateRange$: StaticStructureSchema = [3, n0, _DR, 0, [_FDr, _TD], [4, 4]];
+export var DeleteBackupPlanInput$: StaticStructureSchema = [3, n0, _DBPI, 0, [_BPIa], [[0, 1]]];
+export var DeleteBackupPlanOutput$: StaticStructureSchema = [3, n0, _DBPO, 0, [_BPIa, _BPA, _DD, _VI], [0, 0, 4, 0]];
+export var DeleteBackupSelectionInput$: StaticStructureSchema = [
   3,
   n0,
   _DBSI,
@@ -1219,12 +1219,12 @@ export var DeleteBackupSelectionInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteBackupVaultAccessPolicyInput: StaticStructureSchema = [3, n0, _DBVAPI, 0, [_BVN], [[0, 1]]];
-export var DeleteBackupVaultInput: StaticStructureSchema = [3, n0, _DBVI, 0, [_BVN], [[0, 1]]];
-export var DeleteBackupVaultLockConfigurationInput: StaticStructureSchema = [3, n0, _DBVLCI, 0, [_BVN], [[0, 1]]];
-export var DeleteBackupVaultNotificationsInput: StaticStructureSchema = [3, n0, _DBVNI, 0, [_BVN], [[0, 1]]];
-export var DeleteFrameworkInput: StaticStructureSchema = [3, n0, _DFI, 0, [_FN], [[0, 1]]];
-export var DeleteRecoveryPointInput: StaticStructureSchema = [
+export var DeleteBackupVaultAccessPolicyInput$: StaticStructureSchema = [3, n0, _DBVAPI, 0, [_BVN], [[0, 1]]];
+export var DeleteBackupVaultInput$: StaticStructureSchema = [3, n0, _DBVI, 0, [_BVN], [[0, 1]]];
+export var DeleteBackupVaultLockConfigurationInput$: StaticStructureSchema = [3, n0, _DBVLCI, 0, [_BVN], [[0, 1]]];
+export var DeleteBackupVaultNotificationsInput$: StaticStructureSchema = [3, n0, _DBVNI, 0, [_BVN], [[0, 1]]];
+export var DeleteFrameworkInput$: StaticStructureSchema = [3, n0, _DFI, 0, [_FN], [[0, 1]]];
+export var DeleteRecoveryPointInput$: StaticStructureSchema = [
   3,
   n0,
   _DRPI,
@@ -1235,9 +1235,9 @@ export var DeleteRecoveryPointInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteReportPlanInput: StaticStructureSchema = [3, n0, _DRPIe, 0, [_RPN], [[0, 1]]];
-export var DeleteRestoreTestingPlanInput: StaticStructureSchema = [3, n0, _DRTPI, 0, [_RTPN], [[0, 1]]];
-export var DeleteRestoreTestingSelectionInput: StaticStructureSchema = [
+export var DeleteReportPlanInput$: StaticStructureSchema = [3, n0, _DRPIe, 0, [_RPN], [[0, 1]]];
+export var DeleteRestoreTestingPlanInput$: StaticStructureSchema = [3, n0, _DRTPI, 0, [_RTPN], [[0, 1]]];
+export var DeleteRestoreTestingSelectionInput$: StaticStructureSchema = [
   3,
   n0,
   _DRTSI,
@@ -1248,9 +1248,9 @@ export var DeleteRestoreTestingSelectionInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteTieringConfigurationInput: StaticStructureSchema = [3, n0, _DTCI, 0, [_TCN], [[0, 1]]];
-export var DeleteTieringConfigurationOutput: StaticStructureSchema = [3, n0, _DTCO, 0, [], []];
-export var DependencyFailureException: StaticErrorSchema = [
+export var DeleteTieringConfigurationInput$: StaticStructureSchema = [3, n0, _DTCI, 0, [_TCN], [[0, 1]]];
+export var DeleteTieringConfigurationOutput$: StaticStructureSchema = [3, n0, _DTCO, 0, [], []];
+export var DependencyFailureException$: StaticErrorSchema = [
   -3,
   n0,
   _DFE,
@@ -1258,9 +1258,9 @@ export var DependencyFailureException: StaticErrorSchema = [
   [_C, _M, _T, _Co],
   [0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(DependencyFailureException, __DependencyFailureException);
-export var DescribeBackupJobInput: StaticStructureSchema = [3, n0, _DBJI, 0, [_BJI], [[0, 1]]];
-export var DescribeBackupJobOutput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(DependencyFailureException$, DependencyFailureException);
+export var DescribeBackupJobInput$: StaticStructureSchema = [3, n0, _DBJI, 0, [_BJI], [[0, 1]]];
+export var DescribeBackupJobOutput$: StaticStructureSchema = [
   3,
   n0,
   _DBJO,
@@ -1303,7 +1303,7 @@ export var DescribeBackupJobOutput: StaticStructureSchema = [
     0,
     0,
     0,
-    () => Lifecycle,
+    () => Lifecycle$,
     0,
     0,
     0,
@@ -1318,7 +1318,7 @@ export var DescribeBackupJobOutput: StaticStructureSchema = [
     0,
     1,
     0,
-    () => RecoveryPointCreator,
+    () => RecoveryPointCreator$,
     0,
     1,
     4,
@@ -1334,7 +1334,7 @@ export var DescribeBackupJobOutput: StaticStructureSchema = [
     0,
   ],
 ];
-export var DescribeBackupVaultInput: StaticStructureSchema = [
+export var DescribeBackupVaultInput$: StaticStructureSchema = [
   3,
   n0,
   _DBVIe,
@@ -1345,18 +1345,18 @@ export var DescribeBackupVaultInput: StaticStructureSchema = [
     [0, { [_hQ]: _bVAI }],
   ],
 ];
-export var DescribeBackupVaultOutput: StaticStructureSchema = [
+export var DescribeBackupVaultOutput$: StaticStructureSchema = [
   3,
   n0,
   _DBVO,
   0,
   [_BVN, _BVA, _VT, _VS, _EKA, _CD, _CRI, _NORP, _Lo, _MRD, _MRDa, _LD, _SBVA, _MATA, _MSA, _LMATU, _EKT],
-  [0, 0, 0, 0, 0, 4, 0, 1, 2, 1, 1, 4, 0, 0, 0, () => LatestMpaApprovalTeamUpdate, 0],
+  [0, 0, 0, 0, 0, 4, 0, 1, 2, 1, 1, 4, 0, 0, 0, () => LatestMpaApprovalTeamUpdate$, 0],
 ];
-export var DescribeCopyJobInput: StaticStructureSchema = [3, n0, _DCJI, 0, [_CJI], [[0, 1]]];
-export var DescribeCopyJobOutput: StaticStructureSchema = [3, n0, _DCJO, 0, [_CJ], [() => CopyJob]];
-export var DescribeFrameworkInput: StaticStructureSchema = [3, n0, _DFIe, 0, [_FN], [[0, 1]]];
-export var DescribeFrameworkOutput: StaticStructureSchema = [
+export var DescribeCopyJobInput$: StaticStructureSchema = [3, n0, _DCJI, 0, [_CJI], [[0, 1]]];
+export var DescribeCopyJobOutput$: StaticStructureSchema = [3, n0, _DCJO, 0, [_CJ], [() => CopyJob$]];
+export var DescribeFrameworkInput$: StaticStructureSchema = [3, n0, _DFIe, 0, [_FN], [[0, 1]]];
+export var DescribeFrameworkOutput$: StaticStructureSchema = [
   3,
   n0,
   _DFO,
@@ -1364,10 +1364,10 @@ export var DescribeFrameworkOutput: StaticStructureSchema = [
   [_FN, _FA, _FD, _FC, _CTr, _DS, _FSr, _IT],
   [0, 0, 0, () => FrameworkControls, 4, 0, 0, 0],
 ];
-export var DescribeGlobalSettingsInput: StaticStructureSchema = [3, n0, _DGSI, 0, [], []];
-export var DescribeGlobalSettingsOutput: StaticStructureSchema = [3, n0, _DGSO, 0, [_GS, _LUT], [128 | 0, 4]];
-export var DescribeProtectedResourceInput: StaticStructureSchema = [3, n0, _DPRI, 0, [_RA], [[0, 1]]];
-export var DescribeProtectedResourceOutput: StaticStructureSchema = [
+export var DescribeGlobalSettingsInput$: StaticStructureSchema = [3, n0, _DGSI, 0, [], []];
+export var DescribeGlobalSettingsOutput$: StaticStructureSchema = [3, n0, _DGSO, 0, [_GS, _LUT], [128 | 0, 4]];
+export var DescribeProtectedResourceInput$: StaticStructureSchema = [3, n0, _DPRI, 0, [_RA], [[0, 1]]];
+export var DescribeProtectedResourceOutput$: StaticStructureSchema = [
   3,
   n0,
   _DPRO,
@@ -1375,7 +1375,7 @@ export var DescribeProtectedResourceOutput: StaticStructureSchema = [
   [_RA, _RT, _LBT, _RN, _LBVA, _LRPA, _LRETM, _LRJCD, _LRRPCD],
   [0, 0, 4, 0, 0, 0, 1, 4, 4],
 ];
-export var DescribeRecoveryPointInput: StaticStructureSchema = [
+export var DescribeRecoveryPointInput$: StaticStructureSchema = [
   3,
   n0,
   _DRPIes,
@@ -1387,7 +1387,7 @@ export var DescribeRecoveryPointInput: StaticStructureSchema = [
     [0, { [_hQ]: _bVAI }],
   ],
 ];
-export var DescribeRecoveryPointOutput: StaticStructureSchema = [
+export var DescribeRecoveryPointOutput$: StaticStructureSchema = [
   3,
   n0,
   _DRPO,
@@ -1430,7 +1430,7 @@ export var DescribeRecoveryPointOutput: StaticStructureSchema = [
     0,
     0,
     0,
-    () => RecoveryPointCreator,
+    () => RecoveryPointCreator$,
     0,
     0,
     0,
@@ -1438,8 +1438,8 @@ export var DescribeRecoveryPointOutput: StaticStructureSchema = [
     4,
     4,
     1,
-    () => CalculatedLifecycle,
-    () => Lifecycle,
+    () => CalculatedLifecycle$,
+    () => Lifecycle$,
     0,
     2,
     0,
@@ -1455,14 +1455,21 @@ export var DescribeRecoveryPointOutput: StaticStructureSchema = [
     () => ScanResults,
   ],
 ];
-export var DescribeRegionSettingsInput: StaticStructureSchema = [3, n0, _DRSI, 0, [], []];
-export var DescribeRegionSettingsOutput: StaticStructureSchema = [3, n0, _DRSO, 0, [_RTOIP, _RTMP], [128 | 2, 128 | 2]];
-export var DescribeReportJobInput: StaticStructureSchema = [3, n0, _DRJI, 0, [_RJI], [[0, 1]]];
-export var DescribeReportJobOutput: StaticStructureSchema = [3, n0, _DRJO, 0, [_RJ], [() => ReportJob]];
-export var DescribeReportPlanInput: StaticStructureSchema = [3, n0, _DRPIesc, 0, [_RPN], [[0, 1]]];
-export var DescribeReportPlanOutput: StaticStructureSchema = [3, n0, _DRPOe, 0, [_RP], [() => ReportPlan]];
-export var DescribeRestoreJobInput: StaticStructureSchema = [3, n0, _DRJIe, 0, [_RJIe], [[0, 1]]];
-export var DescribeRestoreJobOutput: StaticStructureSchema = [
+export var DescribeRegionSettingsInput$: StaticStructureSchema = [3, n0, _DRSI, 0, [], []];
+export var DescribeRegionSettingsOutput$: StaticStructureSchema = [
+  3,
+  n0,
+  _DRSO,
+  0,
+  [_RTOIP, _RTMP],
+  [128 | 2, 128 | 2],
+];
+export var DescribeReportJobInput$: StaticStructureSchema = [3, n0, _DRJI, 0, [_RJI], [[0, 1]]];
+export var DescribeReportJobOutput$: StaticStructureSchema = [3, n0, _DRJO, 0, [_RJ], [() => ReportJob$]];
+export var DescribeReportPlanInput$: StaticStructureSchema = [3, n0, _DRPIesc, 0, [_RPN], [[0, 1]]];
+export var DescribeReportPlanOutput$: StaticStructureSchema = [3, n0, _DRPOe, 0, [_RP], [() => ReportPlan$]];
+export var DescribeRestoreJobInput$: StaticStructureSchema = [3, n0, _DRJIe, 0, [_RJIe], [[0, 1]]];
+export var DescribeRestoreJobOutput$: StaticStructureSchema = [
   3,
   n0,
   _DRJOe,
@@ -1492,18 +1499,18 @@ export var DescribeRestoreJobOutput: StaticStructureSchema = [
     _IP,
     _PJI,
   ],
-  [0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 1, 0, 1, 0, 0, 4, () => RestoreJobCreator, 0, 0, 0, 0, 2, 0],
+  [0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 1, 0, 1, 0, 0, 4, () => RestoreJobCreator$, 0, 0, 0, 0, 2, 0],
 ];
-export var DescribeScanJobInput: StaticStructureSchema = [3, n0, _DSJI, 0, [_SJI], [[0, 1]]];
-export var DescribeScanJobOutput: StaticStructureSchema = [
+export var DescribeScanJobInput$: StaticStructureSchema = [3, n0, _DSJI, 0, [_SJI], [[0, 1]]];
+export var DescribeScanJobOutput$: StaticStructureSchema = [
   3,
   n0,
   _DSJO,
   0,
   [_AI, _BVA, _BVN, _CDo, _CB, _CD, _IRA, _MS, _RPA, _RA, _RN, _RT, _SBRPA, _SIc, _SJI, _SMc, _SRc, _SRAc, _S, _SM],
-  [0, 0, 0, 4, () => ScanJobCreator, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => ScanResultInfo, 0, 0, 0],
+  [0, 0, 0, 4, () => ScanJobCreator$, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => ScanResultInfo$, 0, 0, 0],
 ];
-export var DisassociateBackupVaultMpaApprovalTeamInput: StaticStructureSchema = [
+export var DisassociateBackupVaultMpaApprovalTeamInput$: StaticStructureSchema = [
   3,
   n0,
   _DBVMATI,
@@ -1514,7 +1521,7 @@ export var DisassociateBackupVaultMpaApprovalTeamInput: StaticStructureSchema = 
     [() => RequesterComment, 0],
   ],
 ];
-export var DisassociateRecoveryPointFromParentInput: StaticStructureSchema = [
+export var DisassociateRecoveryPointFromParentInput$: StaticStructureSchema = [
   3,
   n0,
   _DRPFPI,
@@ -1525,7 +1532,7 @@ export var DisassociateRecoveryPointFromParentInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DisassociateRecoveryPointInput: StaticStructureSchema = [
+export var DisassociateRecoveryPointInput$: StaticStructureSchema = [
   3,
   n0,
   _DRPIi,
@@ -1536,29 +1543,36 @@ export var DisassociateRecoveryPointInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ExportBackupPlanTemplateInput: StaticStructureSchema = [3, n0, _EBPTI, 0, [_BPIa], [[0, 1]]];
-export var ExportBackupPlanTemplateOutput: StaticStructureSchema = [3, n0, _EBPTO, 0, [_BPTJ], [0]];
-export var Framework: StaticStructureSchema = [3, n0, _Fr, 0, [_FN, _FA, _FD, _NOC, _CTr, _DS], [0, 0, 0, 1, 4, 0]];
-export var FrameworkControl: StaticStructureSchema = [
+export var ExportBackupPlanTemplateInput$: StaticStructureSchema = [3, n0, _EBPTI, 0, [_BPIa], [[0, 1]]];
+export var ExportBackupPlanTemplateOutput$: StaticStructureSchema = [3, n0, _EBPTO, 0, [_BPTJ], [0]];
+export var Framework$: StaticStructureSchema = [3, n0, _Fr, 0, [_FN, _FA, _FD, _NOC, _CTr, _DS], [0, 0, 0, 1, 4, 0]];
+export var FrameworkControl$: StaticStructureSchema = [
   3,
   n0,
   _FCr,
   0,
   [_CN, _CIPo, _CS],
-  [0, () => ControlInputParameters, () => ControlScope],
+  [0, () => ControlInputParameters, () => ControlScope$],
 ];
-export var GetBackupPlanFromJSONInput: StaticStructureSchema = [3, n0, _GBPFJSONI, 0, [_BPTJ], [0]];
-export var GetBackupPlanFromJSONOutput: StaticStructureSchema = [3, n0, _GBPFJSONO, 0, [_BP], [[() => BackupPlan, 0]]];
-export var GetBackupPlanFromTemplateInput: StaticStructureSchema = [3, n0, _GBPFTI, 0, [_BPTI], [[0, 1]]];
-export var GetBackupPlanFromTemplateOutput: StaticStructureSchema = [
+export var GetBackupPlanFromJSONInput$: StaticStructureSchema = [3, n0, _GBPFJSONI, 0, [_BPTJ], [0]];
+export var GetBackupPlanFromJSONOutput$: StaticStructureSchema = [
+  3,
+  n0,
+  _GBPFJSONO,
+  0,
+  [_BP],
+  [[() => BackupPlan$, 0]],
+];
+export var GetBackupPlanFromTemplateInput$: StaticStructureSchema = [3, n0, _GBPFTI, 0, [_BPTI], [[0, 1]]];
+export var GetBackupPlanFromTemplateOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBPFTO,
   0,
   [_BPD],
-  [[() => BackupPlan, 0]],
+  [[() => BackupPlan$, 0]],
 ];
-export var GetBackupPlanInput: StaticStructureSchema = [
+export var GetBackupPlanInput$: StaticStructureSchema = [
   3,
   n0,
   _GBPI,
@@ -1570,15 +1584,15 @@ export var GetBackupPlanInput: StaticStructureSchema = [
     [1, { [_hQ]: _MSRP }],
   ],
 ];
-export var GetBackupPlanOutput: StaticStructureSchema = [
+export var GetBackupPlanOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBPO,
   0,
   [_BP, _BPIa, _BPA, _VI, _CRI, _CD, _DD, _LED, _ABSd, _SRP],
-  [[() => BackupPlan, 0], 0, 0, 0, 0, 4, 4, 4, () => AdvancedBackupSettings, () => ScheduledRunsPreview],
+  [[() => BackupPlan$, 0], 0, 0, 0, 0, 4, 4, 4, () => AdvancedBackupSettings, () => ScheduledRunsPreview],
 ];
-export var GetBackupSelectionInput: StaticStructureSchema = [
+export var GetBackupSelectionInput$: StaticStructureSchema = [
   3,
   n0,
   _GBSI,
@@ -1589,18 +1603,18 @@ export var GetBackupSelectionInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetBackupSelectionOutput: StaticStructureSchema = [
+export var GetBackupSelectionOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBSO,
   0,
   [_BS, _SI, _BPIa, _CD, _CRI],
-  [() => BackupSelection, 0, 0, 4, 0],
+  [() => BackupSelection$, 0, 0, 4, 0],
 ];
-export var GetBackupVaultAccessPolicyInput: StaticStructureSchema = [3, n0, _GBVAPI, 0, [_BVN], [[0, 1]]];
-export var GetBackupVaultAccessPolicyOutput: StaticStructureSchema = [3, n0, _GBVAPO, 0, [_BVN, _BVA, _P], [0, 0, 0]];
-export var GetBackupVaultNotificationsInput: StaticStructureSchema = [3, n0, _GBVNI, 0, [_BVN], [[0, 1]]];
-export var GetBackupVaultNotificationsOutput: StaticStructureSchema = [
+export var GetBackupVaultAccessPolicyInput$: StaticStructureSchema = [3, n0, _GBVAPI, 0, [_BVN], [[0, 1]]];
+export var GetBackupVaultAccessPolicyOutput$: StaticStructureSchema = [3, n0, _GBVAPO, 0, [_BVN, _BVA, _P], [0, 0, 0]];
+export var GetBackupVaultNotificationsInput$: StaticStructureSchema = [3, n0, _GBVNI, 0, [_BVN], [[0, 1]]];
+export var GetBackupVaultNotificationsOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBVNO,
@@ -1608,16 +1622,16 @@ export var GetBackupVaultNotificationsOutput: StaticStructureSchema = [
   [_BVN, _BVA, _SNSTA, _BVE],
   [0, 0, 0, 64 | 0],
 ];
-export var GetLegalHoldInput: StaticStructureSchema = [3, n0, _GLHI, 0, [_LHI], [[0, 1]]];
-export var GetLegalHoldOutput: StaticStructureSchema = [
+export var GetLegalHoldInput$: StaticStructureSchema = [3, n0, _GLHI, 0, [_LHI], [[0, 1]]];
+export var GetLegalHoldOutput$: StaticStructureSchema = [
   3,
   n0,
   _GLHO,
   0,
   [_Ti, _St, _D, _CDa, _LHI, _LHA, _CD, _CDan, _RRU, _RPS],
-  [0, 0, 0, 0, 0, 0, 4, 4, 4, () => RecoveryPointSelection],
+  [0, 0, 0, 0, 0, 0, 4, 4, 4, () => RecoveryPointSelection$],
 ];
-export var GetRecoveryPointIndexDetailsInput: StaticStructureSchema = [
+export var GetRecoveryPointIndexDetailsInput$: StaticStructureSchema = [
   3,
   n0,
   _GRPIDI,
@@ -1628,7 +1642,7 @@ export var GetRecoveryPointIndexDetailsInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetRecoveryPointIndexDetailsOutput: StaticStructureSchema = [
+export var GetRecoveryPointIndexDetailsOutput$: StaticStructureSchema = [
   3,
   n0,
   _GRPIDO,
@@ -1636,7 +1650,7 @@ export var GetRecoveryPointIndexDetailsOutput: StaticStructureSchema = [
   [_RPA, _BVA, _SRA, _ICD, _IDD, _ICDn, _IS, _ISM, _TII],
   [0, 0, 0, 4, 4, 4, 0, 0, 1],
 ];
-export var GetRecoveryPointRestoreMetadataInput: StaticStructureSchema = [
+export var GetRecoveryPointRestoreMetadataInput$: StaticStructureSchema = [
   3,
   n0,
   _GRPRMI,
@@ -1648,7 +1662,7 @@ export var GetRecoveryPointRestoreMetadataInput: StaticStructureSchema = [
     [0, { [_hQ]: _bVAI }],
   ],
 ];
-export var GetRecoveryPointRestoreMetadataOutput: StaticStructureSchema = [
+export var GetRecoveryPointRestoreMetadataOutput$: StaticStructureSchema = [
   3,
   n0,
   _GRPRMO,
@@ -1656,8 +1670,8 @@ export var GetRecoveryPointRestoreMetadataOutput: StaticStructureSchema = [
   [_BVA, _RPA, _RM, _RT],
   [0, 0, [() => Metadata, 0], 0],
 ];
-export var GetRestoreJobMetadataInput: StaticStructureSchema = [3, n0, _GRJMI, 0, [_RJIe], [[0, 1]]];
-export var GetRestoreJobMetadataOutput: StaticStructureSchema = [
+export var GetRestoreJobMetadataInput$: StaticStructureSchema = [3, n0, _GRJMI, 0, [_RJIe], [[0, 1]]];
+export var GetRestoreJobMetadataOutput$: StaticStructureSchema = [
   3,
   n0,
   _GRJMO,
@@ -1665,7 +1679,7 @@ export var GetRestoreJobMetadataOutput: StaticStructureSchema = [
   [_RJIe, _Me],
   [0, [() => Metadata, 0]],
 ];
-export var GetRestoreTestingInferredMetadataInput: StaticStructureSchema = [
+export var GetRestoreTestingInferredMetadataInput$: StaticStructureSchema = [
   3,
   n0,
   _GRTIMI,
@@ -1677,17 +1691,17 @@ export var GetRestoreTestingInferredMetadataInput: StaticStructureSchema = [
     [0, { [_hQ]: _RPA }],
   ],
 ];
-export var GetRestoreTestingInferredMetadataOutput: StaticStructureSchema = [3, n0, _GRTIMO, 0, [_IM], [128 | 0]];
-export var GetRestoreTestingPlanInput: StaticStructureSchema = [3, n0, _GRTPI, 0, [_RTPN], [[0, 1]]];
-export var GetRestoreTestingPlanOutput: StaticStructureSchema = [
+export var GetRestoreTestingInferredMetadataOutput$: StaticStructureSchema = [3, n0, _GRTIMO, 0, [_IM], [128 | 0]];
+export var GetRestoreTestingPlanInput$: StaticStructureSchema = [3, n0, _GRTPI, 0, [_RTPN], [[0, 1]]];
+export var GetRestoreTestingPlanOutput$: StaticStructureSchema = [
   3,
   n0,
   _GRTPO,
   0,
   [_RTP],
-  [() => RestoreTestingPlanForGet],
+  [() => RestoreTestingPlanForGet$],
 ];
-export var GetRestoreTestingSelectionInput: StaticStructureSchema = [
+export var GetRestoreTestingSelectionInput$: StaticStructureSchema = [
   3,
   n0,
   _GRTSI,
@@ -1698,26 +1712,26 @@ export var GetRestoreTestingSelectionInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetRestoreTestingSelectionOutput: StaticStructureSchema = [
+export var GetRestoreTestingSelectionOutput$: StaticStructureSchema = [
   3,
   n0,
   _GRTSO,
   0,
   [_RTS],
-  [[() => RestoreTestingSelectionForGet, 0]],
+  [[() => RestoreTestingSelectionForGet$, 0]],
 ];
-export var GetSupportedResourceTypesOutput: StaticStructureSchema = [3, n0, _GSRTO, 0, [_RTe], [64 | 0]];
-export var GetTieringConfigurationInput: StaticStructureSchema = [3, n0, _GTCI, 0, [_TCN], [[0, 1]]];
-export var GetTieringConfigurationOutput: StaticStructureSchema = [
+export var GetSupportedResourceTypesOutput$: StaticStructureSchema = [3, n0, _GSRTO, 0, [_RTe], [64 | 0]];
+export var GetTieringConfigurationInput$: StaticStructureSchema = [3, n0, _GTCI, 0, [_TCN], [[0, 1]]];
+export var GetTieringConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _GTCO,
   0,
   [_TC],
-  [() => TieringConfiguration],
+  [() => TieringConfiguration$],
 ];
-export var IndexAction: StaticStructureSchema = [3, n0, _IAn, 0, [_RTe], [64 | 0]];
-export var IndexedRecoveryPoint: StaticStructureSchema = [
+export var IndexAction$: StaticStructureSchema = [3, n0, _IAn, 0, [_RTe], [64 | 0]];
+export var IndexedRecoveryPoint$: StaticStructureSchema = [
   3,
   n0,
   _IRP,
@@ -1725,7 +1739,7 @@ export var IndexedRecoveryPoint: StaticStructureSchema = [
   [_RPA, _SRA, _IRA, _BCD, _RT, _ICD, _IS, _ISM, _BVA],
   [0, 0, 0, 4, 0, 4, 0, 0, 0],
 ];
-export var InvalidParameterValueException: StaticErrorSchema = [
+export var InvalidParameterValueException$: StaticErrorSchema = [
   -3,
   n0,
   _IPVE,
@@ -1733,10 +1747,10 @@ export var InvalidParameterValueException: StaticErrorSchema = [
   [_C, _M, _T, _Co],
   [0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
-export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_C, _M, _T, _Co], [0, 0, 0, 0]];
-TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-export var InvalidResourceStateException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(InvalidParameterValueException$, InvalidParameterValueException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_C, _M, _T, _Co], [0, 0, 0, 0]];
+TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
+export var InvalidResourceStateException$: StaticErrorSchema = [
   -3,
   n0,
   _IRSE,
@@ -1744,9 +1758,9 @@ export var InvalidResourceStateException: StaticErrorSchema = [
   [_C, _M, _T, _Co],
   [0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(InvalidResourceStateException, __InvalidResourceStateException);
-export var KeyValue: StaticStructureSchema = [3, n0, _KV, 0, [_K, _V], [0, 0]];
-export var LatestMpaApprovalTeamUpdate: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InvalidResourceStateException$, InvalidResourceStateException);
+export var KeyValue$: StaticStructureSchema = [3, n0, _KV, 0, [_K, _V], [0, 0]];
+export var LatestMpaApprovalTeamUpdate$: StaticStructureSchema = [
   3,
   n0,
   _LMATU,
@@ -1754,8 +1768,8 @@ export var LatestMpaApprovalTeamUpdate: StaticStructureSchema = [
   [_MSA, _St, _SM, _ID, _ED],
   [0, 0, 0, 4, 4],
 ];
-export var LatestRevokeRequest: StaticStructureSchema = [3, n0, _LRR, 0, [_MSA, _St, _SM, _ID, _ED], [0, 0, 0, 4, 4]];
-export var LegalHold: StaticStructureSchema = [
+export var LatestRevokeRequest$: StaticStructureSchema = [3, n0, _LRR, 0, [_MSA, _St, _SM, _ID, _ED], [0, 0, 0, 4, 4]];
+export var LegalHold$: StaticStructureSchema = [
   3,
   n0,
   _LH,
@@ -1763,10 +1777,10 @@ export var LegalHold: StaticStructureSchema = [
   [_Ti, _St, _D, _LHI, _LHA, _CD, _CDan],
   [0, 0, 0, 0, 0, 4, 4],
 ];
-export var Lifecycle: StaticStructureSchema = [3, n0, _L, 0, [_MTCSAD, _DAD, _OITAFSR, _DAE], [1, 1, 2, 0]];
-export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_C, _M, _T, _Co], [0, 0, 0, 0]];
-TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-export var ListBackupJobsInput: StaticStructureSchema = [
+export var Lifecycle$: StaticStructureSchema = [3, n0, _L, 0, [_MTCSAD, _DAD, _OITAFSR, _DAE], [1, 1, 2, 0]];
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_C, _M, _T, _Co], [0, 0, 0, 0]];
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var ListBackupJobsInput$: StaticStructureSchema = [
   3,
   n0,
   _LBJI,
@@ -1788,8 +1802,8 @@ export var ListBackupJobsInput: StaticStructureSchema = [
     [0, { [_hQ]: _mC }],
   ],
 ];
-export var ListBackupJobsOutput: StaticStructureSchema = [3, n0, _LBJO, 0, [_BJa, _NT], [() => BackupJobsList, 0]];
-export var ListBackupJobSummariesInput: StaticStructureSchema = [
+export var ListBackupJobsOutput$: StaticStructureSchema = [3, n0, _LBJO, 0, [_BJa, _NT], [() => BackupJobsList, 0]];
+export var ListBackupJobSummariesInput$: StaticStructureSchema = [
   3,
   n0,
   _LBJSI,
@@ -1805,7 +1819,7 @@ export var ListBackupJobSummariesInput: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListBackupJobSummariesOutput: StaticStructureSchema = [
+export var ListBackupJobSummariesOutput$: StaticStructureSchema = [
   3,
   n0,
   _LBJSO,
@@ -1813,7 +1827,7 @@ export var ListBackupJobSummariesOutput: StaticStructureSchema = [
   [_BJSa, _AP, _NT],
   [() => BackupJobSummaryList, 0, 0],
 ];
-export var ListBackupPlansInput: StaticStructureSchema = [
+export var ListBackupPlansInput$: StaticStructureSchema = [
   3,
   n0,
   _LBPI,
@@ -1825,8 +1839,8 @@ export var ListBackupPlansInput: StaticStructureSchema = [
     [2, { [_hQ]: _iD }],
   ],
 ];
-export var ListBackupPlansOutput: StaticStructureSchema = [3, n0, _LBPO, 0, [_NT, _BPL], [0, () => BackupPlansList]];
-export var ListBackupPlanTemplatesInput: StaticStructureSchema = [
+export var ListBackupPlansOutput$: StaticStructureSchema = [3, n0, _LBPO, 0, [_NT, _BPL], [0, () => BackupPlansList]];
+export var ListBackupPlanTemplatesInput$: StaticStructureSchema = [
   3,
   n0,
   _LBPTI,
@@ -1837,7 +1851,7 @@ export var ListBackupPlanTemplatesInput: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListBackupPlanTemplatesOutput: StaticStructureSchema = [
+export var ListBackupPlanTemplatesOutput$: StaticStructureSchema = [
   3,
   n0,
   _LBPTO,
@@ -1845,7 +1859,7 @@ export var ListBackupPlanTemplatesOutput: StaticStructureSchema = [
   [_NT, _BPTL],
   [0, () => BackupPlanTemplatesList],
 ];
-export var ListBackupPlanVersionsInput: StaticStructureSchema = [
+export var ListBackupPlanVersionsInput$: StaticStructureSchema = [
   3,
   n0,
   _LBPVI,
@@ -1857,7 +1871,7 @@ export var ListBackupPlanVersionsInput: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListBackupPlanVersionsOutput: StaticStructureSchema = [
+export var ListBackupPlanVersionsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LBPVO,
@@ -1865,7 +1879,7 @@ export var ListBackupPlanVersionsOutput: StaticStructureSchema = [
   [_NT, _BPVL],
   [0, () => BackupPlanVersionsList],
 ];
-export var ListBackupSelectionsInput: StaticStructureSchema = [
+export var ListBackupSelectionsInput$: StaticStructureSchema = [
   3,
   n0,
   _LBSI,
@@ -1877,7 +1891,7 @@ export var ListBackupSelectionsInput: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListBackupSelectionsOutput: StaticStructureSchema = [
+export var ListBackupSelectionsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LBSO,
@@ -1885,7 +1899,7 @@ export var ListBackupSelectionsOutput: StaticStructureSchema = [
   [_NT, _BSL],
   [0, () => BackupSelectionsList],
 ];
-export var ListBackupVaultsInput: StaticStructureSchema = [
+export var ListBackupVaultsInput$: StaticStructureSchema = [
   3,
   n0,
   _LBVI,
@@ -1898,8 +1912,8 @@ export var ListBackupVaultsInput: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListBackupVaultsOutput: StaticStructureSchema = [3, n0, _LBVO, 0, [_BVL, _NT], [() => BackupVaultList, 0]];
-export var ListCopyJobsInput: StaticStructureSchema = [
+export var ListBackupVaultsOutput$: StaticStructureSchema = [3, n0, _LBVO, 0, [_BVL, _NT], [() => BackupVaultList, 0]];
+export var ListCopyJobsInput$: StaticStructureSchema = [
   3,
   n0,
   _LCJI,
@@ -1922,8 +1936,8 @@ export var ListCopyJobsInput: StaticStructureSchema = [
     [0, { [_hQ]: _sRPA }],
   ],
 ];
-export var ListCopyJobsOutput: StaticStructureSchema = [3, n0, _LCJO, 0, [_CJo, _NT], [() => CopyJobsList, 0]];
-export var ListCopyJobSummariesInput: StaticStructureSchema = [
+export var ListCopyJobsOutput$: StaticStructureSchema = [3, n0, _LCJO, 0, [_CJo, _NT], [() => CopyJobsList, 0]];
+export var ListCopyJobSummariesInput$: StaticStructureSchema = [
   3,
   n0,
   _LCJSI,
@@ -1939,7 +1953,7 @@ export var ListCopyJobSummariesInput: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListCopyJobSummariesOutput: StaticStructureSchema = [
+export var ListCopyJobSummariesOutput$: StaticStructureSchema = [
   3,
   n0,
   _LCJSO,
@@ -1947,7 +1961,7 @@ export var ListCopyJobSummariesOutput: StaticStructureSchema = [
   [_CJSo, _AP, _NT],
   [() => CopyJobSummaryList, 0, 0],
 ];
-export var ListFrameworksInput: StaticStructureSchema = [
+export var ListFrameworksInput$: StaticStructureSchema = [
   3,
   n0,
   _LFI,
@@ -1958,8 +1972,8 @@ export var ListFrameworksInput: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListFrameworksOutput: StaticStructureSchema = [3, n0, _LFO, 0, [_Fra, _NT], [() => FrameworkList, 0]];
-export var ListIndexedRecoveryPointsInput: StaticStructureSchema = [
+export var ListFrameworksOutput$: StaticStructureSchema = [3, n0, _LFO, 0, [_Fra, _NT], [() => FrameworkList, 0]];
+export var ListIndexedRecoveryPointsInput$: StaticStructureSchema = [
   3,
   n0,
   _LIRPI,
@@ -1975,7 +1989,7 @@ export var ListIndexedRecoveryPointsInput: StaticStructureSchema = [
     [0, { [_hQ]: _iS }],
   ],
 ];
-export var ListIndexedRecoveryPointsOutput: StaticStructureSchema = [
+export var ListIndexedRecoveryPointsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LIRPO,
@@ -1983,7 +1997,7 @@ export var ListIndexedRecoveryPointsOutput: StaticStructureSchema = [
   [_IRPn, _NT],
   [() => IndexedRecoveryPointList, 0],
 ];
-export var ListLegalHoldsInput: StaticStructureSchema = [
+export var ListLegalHoldsInput$: StaticStructureSchema = [
   3,
   n0,
   _LLHI,
@@ -1994,8 +2008,8 @@ export var ListLegalHoldsInput: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListLegalHoldsOutput: StaticStructureSchema = [3, n0, _LLHO, 0, [_NT, _LHe], [0, () => LegalHoldsList]];
-export var ListProtectedResourcesByBackupVaultInput: StaticStructureSchema = [
+export var ListLegalHoldsOutput$: StaticStructureSchema = [3, n0, _LLHO, 0, [_NT, _LHe], [0, () => LegalHoldsList]];
+export var ListProtectedResourcesByBackupVaultInput$: StaticStructureSchema = [
   3,
   n0,
   _LPRBBVI,
@@ -2008,7 +2022,7 @@ export var ListProtectedResourcesByBackupVaultInput: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListProtectedResourcesByBackupVaultOutput: StaticStructureSchema = [
+export var ListProtectedResourcesByBackupVaultOutput$: StaticStructureSchema = [
   3,
   n0,
   _LPRBBVO,
@@ -2016,7 +2030,7 @@ export var ListProtectedResourcesByBackupVaultOutput: StaticStructureSchema = [
   [_Res, _NT],
   [() => ProtectedResourcesList, 0],
 ];
-export var ListProtectedResourcesInput: StaticStructureSchema = [
+export var ListProtectedResourcesInput$: StaticStructureSchema = [
   3,
   n0,
   _LPRI,
@@ -2027,7 +2041,7 @@ export var ListProtectedResourcesInput: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListProtectedResourcesOutput: StaticStructureSchema = [
+export var ListProtectedResourcesOutput$: StaticStructureSchema = [
   3,
   n0,
   _LPRO,
@@ -2035,7 +2049,7 @@ export var ListProtectedResourcesOutput: StaticStructureSchema = [
   [_Res, _NT],
   [() => ProtectedResourcesList, 0],
 ];
-export var ListRecoveryPointsByBackupVaultInput: StaticStructureSchema = [
+export var ListRecoveryPointsByBackupVaultInput$: StaticStructureSchema = [
   3,
   n0,
   _LRPBBVI,
@@ -2054,7 +2068,7 @@ export var ListRecoveryPointsByBackupVaultInput: StaticStructureSchema = [
     [0, { [_hQ]: _pRPA }],
   ],
 ];
-export var ListRecoveryPointsByBackupVaultOutput: StaticStructureSchema = [
+export var ListRecoveryPointsByBackupVaultOutput$: StaticStructureSchema = [
   3,
   n0,
   _LRPBBVO,
@@ -2062,7 +2076,7 @@ export var ListRecoveryPointsByBackupVaultOutput: StaticStructureSchema = [
   [_NT, _RPe],
   [0, () => RecoveryPointByBackupVaultList],
 ];
-export var ListRecoveryPointsByLegalHoldInput: StaticStructureSchema = [
+export var ListRecoveryPointsByLegalHoldInput$: StaticStructureSchema = [
   3,
   n0,
   _LRPBLHI,
@@ -2074,7 +2088,7 @@ export var ListRecoveryPointsByLegalHoldInput: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListRecoveryPointsByLegalHoldOutput: StaticStructureSchema = [
+export var ListRecoveryPointsByLegalHoldOutput$: StaticStructureSchema = [
   3,
   n0,
   _LRPBLHO,
@@ -2082,7 +2096,7 @@ export var ListRecoveryPointsByLegalHoldOutput: StaticStructureSchema = [
   [_RPe, _NT],
   [() => RecoveryPointsList, 0],
 ];
-export var ListRecoveryPointsByResourceInput: StaticStructureSchema = [
+export var ListRecoveryPointsByResourceInput$: StaticStructureSchema = [
   3,
   n0,
   _LRPBRI,
@@ -2095,7 +2109,7 @@ export var ListRecoveryPointsByResourceInput: StaticStructureSchema = [
     [2, { [_hQ]: _mBAWSBO }],
   ],
 ];
-export var ListRecoveryPointsByResourceOutput: StaticStructureSchema = [
+export var ListRecoveryPointsByResourceOutput$: StaticStructureSchema = [
   3,
   n0,
   _LRPBRO,
@@ -2103,7 +2117,7 @@ export var ListRecoveryPointsByResourceOutput: StaticStructureSchema = [
   [_NT, _RPe],
   [0, () => RecoveryPointByResourceList],
 ];
-export var ListReportJobsInput: StaticStructureSchema = [
+export var ListReportJobsInput$: StaticStructureSchema = [
   3,
   n0,
   _LRJI,
@@ -2118,8 +2132,8 @@ export var ListReportJobsInput: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListReportJobsOutput: StaticStructureSchema = [3, n0, _LRJO, 0, [_RJe, _NT], [() => ReportJobList, 0]];
-export var ListReportPlansInput: StaticStructureSchema = [
+export var ListReportJobsOutput$: StaticStructureSchema = [3, n0, _LRJO, 0, [_RJe, _NT], [() => ReportJobList, 0]];
+export var ListReportPlansInput$: StaticStructureSchema = [
   3,
   n0,
   _LRPI,
@@ -2130,8 +2144,8 @@ export var ListReportPlansInput: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListReportPlansOutput: StaticStructureSchema = [3, n0, _LRPO, 0, [_RPep, _NT], [() => ReportPlanList, 0]];
-export var ListRestoreAccessBackupVaultsInput: StaticStructureSchema = [
+export var ListReportPlansOutput$: StaticStructureSchema = [3, n0, _LRPO, 0, [_RPep, _NT], [() => ReportPlanList, 0]];
+export var ListRestoreAccessBackupVaultsInput$: StaticStructureSchema = [
   3,
   n0,
   _LRABVI,
@@ -2143,7 +2157,7 @@ export var ListRestoreAccessBackupVaultsInput: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListRestoreAccessBackupVaultsOutput: StaticStructureSchema = [
+export var ListRestoreAccessBackupVaultsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LRABVO,
@@ -2151,7 +2165,7 @@ export var ListRestoreAccessBackupVaultsOutput: StaticStructureSchema = [
   [_NT, _RABV],
   [0, () => RestoreAccessBackupVaultList],
 ];
-export var ListRestoreJobsByProtectedResourceInput: StaticStructureSchema = [
+export var ListRestoreJobsByProtectedResourceInput$: StaticStructureSchema = [
   3,
   n0,
   _LRJBPRI,
@@ -2166,7 +2180,7 @@ export var ListRestoreJobsByProtectedResourceInput: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListRestoreJobsByProtectedResourceOutput: StaticStructureSchema = [
+export var ListRestoreJobsByProtectedResourceOutput$: StaticStructureSchema = [
   3,
   n0,
   _LRJBPRO,
@@ -2174,7 +2188,7 @@ export var ListRestoreJobsByProtectedResourceOutput: StaticStructureSchema = [
   [_RJes, _NT],
   [() => RestoreJobsList, 0],
 ];
-export var ListRestoreJobsInput: StaticStructureSchema = [
+export var ListRestoreJobsInput$: StaticStructureSchema = [
   3,
   n0,
   _LRJIi,
@@ -2194,8 +2208,8 @@ export var ListRestoreJobsInput: StaticStructureSchema = [
     [0, { [_hQ]: _pJI }],
   ],
 ];
-export var ListRestoreJobsOutput: StaticStructureSchema = [3, n0, _LRJOi, 0, [_RJes, _NT], [() => RestoreJobsList, 0]];
-export var ListRestoreJobSummariesInput: StaticStructureSchema = [
+export var ListRestoreJobsOutput$: StaticStructureSchema = [3, n0, _LRJOi, 0, [_RJes, _NT], [() => RestoreJobsList, 0]];
+export var ListRestoreJobSummariesInput$: StaticStructureSchema = [
   3,
   n0,
   _LRJSI,
@@ -2210,7 +2224,7 @@ export var ListRestoreJobSummariesInput: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListRestoreJobSummariesOutput: StaticStructureSchema = [
+export var ListRestoreJobSummariesOutput$: StaticStructureSchema = [
   3,
   n0,
   _LRJSO,
@@ -2218,7 +2232,7 @@ export var ListRestoreJobSummariesOutput: StaticStructureSchema = [
   [_RJS, _AP, _NT],
   [() => RestoreJobSummaryList, 0, 0],
 ];
-export var ListRestoreTestingPlansInput: StaticStructureSchema = [
+export var ListRestoreTestingPlansInput$: StaticStructureSchema = [
   3,
   n0,
   _LRTPI,
@@ -2229,7 +2243,7 @@ export var ListRestoreTestingPlansInput: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListRestoreTestingPlansOutput: StaticStructureSchema = [
+export var ListRestoreTestingPlansOutput$: StaticStructureSchema = [
   3,
   n0,
   _LRTPO,
@@ -2237,7 +2251,7 @@ export var ListRestoreTestingPlansOutput: StaticStructureSchema = [
   [_NT, _RTPe],
   [0, () => RestoreTestingPlans],
 ];
-export var ListRestoreTestingSelectionsInput: StaticStructureSchema = [
+export var ListRestoreTestingSelectionsInput$: StaticStructureSchema = [
   3,
   n0,
   _LRTSI,
@@ -2249,7 +2263,7 @@ export var ListRestoreTestingSelectionsInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ListRestoreTestingSelectionsOutput: StaticStructureSchema = [
+export var ListRestoreTestingSelectionsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LRTSO,
@@ -2257,7 +2271,7 @@ export var ListRestoreTestingSelectionsOutput: StaticStructureSchema = [
   [_NT, _RTSe],
   [0, () => RestoreTestingSelections],
 ];
-export var ListScanJobsInput: StaticStructureSchema = [
+export var ListScanJobsInput$: StaticStructureSchema = [
   3,
   n0,
   _LSJI,
@@ -2278,8 +2292,8 @@ export var ListScanJobsInput: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListScanJobsOutput: StaticStructureSchema = [3, n0, _LSJO, 0, [_NT, _SJ], [0, () => ScanJobs]];
-export var ListScanJobSummariesInput: StaticStructureSchema = [
+export var ListScanJobsOutput$: StaticStructureSchema = [3, n0, _LSJO, 0, [_NT, _SJ], [0, () => ScanJobs]];
+export var ListScanJobSummariesInput$: StaticStructureSchema = [
   3,
   n0,
   _LSJSI,
@@ -2296,7 +2310,7 @@ export var ListScanJobSummariesInput: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListScanJobSummariesOutput: StaticStructureSchema = [
+export var ListScanJobSummariesOutput$: StaticStructureSchema = [
   3,
   n0,
   _LSJSO,
@@ -2304,7 +2318,7 @@ export var ListScanJobSummariesOutput: StaticStructureSchema = [
   [_SJS, _AP, _NT],
   [() => ScanJobSummaryList, 0, 0],
 ];
-export var ListTagsInput: StaticStructureSchema = [
+export var ListTagsInput$: StaticStructureSchema = [
   3,
   n0,
   _LTI,
@@ -2316,8 +2330,8 @@ export var ListTagsInput: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListTagsOutput: StaticStructureSchema = [3, n0, _LTO, 0, [_NT, _Ta], [0, [() => Tags, 0]]];
-export var ListTieringConfigurationsInput: StaticStructureSchema = [
+export var ListTagsOutput$: StaticStructureSchema = [3, n0, _LTO, 0, [_NT, _Ta], [0, [() => Tags, 0]]];
+export var ListTieringConfigurationsInput$: StaticStructureSchema = [
   3,
   n0,
   _LTCI,
@@ -2328,7 +2342,7 @@ export var ListTieringConfigurationsInput: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListTieringConfigurationsOutput: StaticStructureSchema = [
+export var ListTieringConfigurationsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LTCO,
@@ -2336,7 +2350,7 @@ export var ListTieringConfigurationsOutput: StaticStructureSchema = [
   [_TCi, _NT],
   [() => TieringConfigurationsList, 0],
 ];
-export var MissingParameterValueException: StaticErrorSchema = [
+export var MissingParameterValueException$: StaticErrorSchema = [
   -3,
   n0,
   _MPVE,
@@ -2344,8 +2358,8 @@ export var MissingParameterValueException: StaticErrorSchema = [
   [_C, _M, _T, _Co],
   [0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(MissingParameterValueException, __MissingParameterValueException);
-export var ProtectedResource: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(MissingParameterValueException$, MissingParameterValueException);
+export var ProtectedResource$: StaticStructureSchema = [
   3,
   n0,
   _PR,
@@ -2353,7 +2367,7 @@ export var ProtectedResource: StaticStructureSchema = [
   [_RA, _RT, _LBT, _RN, _LBVA, _LRPA],
   [0, 0, 4, 0, 0, 0],
 ];
-export var ProtectedResourceConditions: StaticStructureSchema = [
+export var ProtectedResourceConditions$: StaticStructureSchema = [
   3,
   n0,
   _PRC,
@@ -2361,8 +2375,8 @@ export var ProtectedResourceConditions: StaticStructureSchema = [
   [_SEt, _SNE],
   [() => KeyValueList, () => KeyValueList],
 ];
-export var PutBackupVaultAccessPolicyInput: StaticStructureSchema = [3, n0, _PBVAPI, 0, [_BVN, _P], [[0, 1], 0]];
-export var PutBackupVaultLockConfigurationInput: StaticStructureSchema = [
+export var PutBackupVaultAccessPolicyInput$: StaticStructureSchema = [3, n0, _PBVAPI, 0, [_BVN, _P], [[0, 1], 0]];
+export var PutBackupVaultLockConfigurationInput$: StaticStructureSchema = [
   3,
   n0,
   _PBVLCI,
@@ -2370,7 +2384,7 @@ export var PutBackupVaultLockConfigurationInput: StaticStructureSchema = [
   [_BVN, _MRD, _MRDa, _CFD],
   [[0, 1], 1, 1, 1],
 ];
-export var PutBackupVaultNotificationsInput: StaticStructureSchema = [
+export var PutBackupVaultNotificationsInput$: StaticStructureSchema = [
   3,
   n0,
   _PBVNI,
@@ -2378,7 +2392,7 @@ export var PutBackupVaultNotificationsInput: StaticStructureSchema = [
   [_BVN, _SNSTA, _BVE],
   [[0, 1], 0, 64 | 0],
 ];
-export var PutRestoreValidationResultInput: StaticStructureSchema = [
+export var PutRestoreValidationResultInput$: StaticStructureSchema = [
   3,
   n0,
   _PRVRI,
@@ -2386,7 +2400,7 @@ export var PutRestoreValidationResultInput: StaticStructureSchema = [
   [_RJIe, _VSa, _VSM],
   [[0, 1], 0, 0],
 ];
-export var RecoveryPointByBackupVault: StaticStructureSchema = [
+export var RecoveryPointByBackupVault$: StaticStructureSchema = [
   3,
   n0,
   _RPBBV,
@@ -2428,7 +2442,7 @@ export var RecoveryPointByBackupVault: StaticStructureSchema = [
     0,
     0,
     0,
-    () => RecoveryPointCreator,
+    () => RecoveryPointCreator$,
     0,
     0,
     0,
@@ -2436,8 +2450,8 @@ export var RecoveryPointByBackupVault: StaticStructureSchema = [
     4,
     4,
     1,
-    () => CalculatedLifecycle,
-    () => Lifecycle,
+    () => CalculatedLifecycle$,
+    () => Lifecycle$,
     0,
     2,
     4,
@@ -2449,18 +2463,18 @@ export var RecoveryPointByBackupVault: StaticStructureSchema = [
     0,
     0,
     0,
-    () => AggregatedScanResult,
+    () => AggregatedScanResult$,
   ],
 ];
-export var RecoveryPointByResource: StaticStructureSchema = [
+export var RecoveryPointByResource$: StaticStructureSchema = [
   3,
   n0,
   _RPBR,
   0,
   [_RPA, _CD, _St, _SM, _EKA, _BSB, _BVN, _IP, _PRPA, _RN, _VT, _IS, _ISM, _EKT, _ASR],
-  [0, 4, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, () => AggregatedScanResult],
+  [0, 4, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, () => AggregatedScanResult$],
 ];
-export var RecoveryPointCreator: StaticStructureSchema = [
+export var RecoveryPointCreator$: StaticStructureSchema = [
   3,
   n0,
   _RPC,
@@ -2468,34 +2482,34 @@ export var RecoveryPointCreator: StaticStructureSchema = [
   [_BPIa, _BPA, _BPN, _BPV, _BRIa, _BRN, _BRC, _BRTa],
   [0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var RecoveryPointMember: StaticStructureSchema = [3, n0, _RPM, 0, [_RPA, _RA, _RT, _BVN], [0, 0, 0, 0]];
-export var RecoveryPointSelection: StaticStructureSchema = [
+export var RecoveryPointMember$: StaticStructureSchema = [3, n0, _RPM, 0, [_RPA, _RA, _RT, _BVN], [0, 0, 0, 0]];
+export var RecoveryPointSelection$: StaticStructureSchema = [
   3,
   n0,
   _RPS,
   0,
   [_VN, _RIe, _DR],
-  [64 | 0, 64 | 0, () => DateRange],
+  [64 | 0, 64 | 0, () => DateRange$],
 ];
-export var ReportDeliveryChannel: StaticStructureSchema = [3, n0, _RDC, 0, [_SBN, _SKP, _Fo], [0, 0, 64 | 0]];
-export var ReportDestination: StaticStructureSchema = [3, n0, _RD, 0, [_SBN, _SK], [0, 64 | 0]];
-export var ReportJob: StaticStructureSchema = [
+export var ReportDeliveryChannel$: StaticStructureSchema = [3, n0, _RDC, 0, [_SBN, _SKP, _Fo], [0, 0, 64 | 0]];
+export var ReportDestination$: StaticStructureSchema = [3, n0, _RD, 0, [_SBN, _SK], [0, 64 | 0]];
+export var ReportJob$: StaticStructureSchema = [
   3,
   n0,
   _RJ,
   0,
   [_RJI, _RPAe, _RTep, _CTr, _CTo, _St, _SM, _RD],
-  [0, 0, 0, 4, 4, 0, 0, () => ReportDestination],
+  [0, 0, 0, 4, 4, 0, 0, () => ReportDestination$],
 ];
-export var ReportPlan: StaticStructureSchema = [
+export var ReportPlan$: StaticStructureSchema = [
   3,
   n0,
   _RP,
   0,
   [_RPAe, _RPN, _RPD, _RS, _RDC, _DS, _CTr, _LAET, _LSET],
-  [0, 0, 0, () => ReportSetting, () => ReportDeliveryChannel, 0, 4, 4, 4],
+  [0, 0, 0, () => ReportSetting$, () => ReportDeliveryChannel$, 0, 4, 4, 4],
 ];
-export var ReportSetting: StaticStructureSchema = [
+export var ReportSetting$: StaticStructureSchema = [
   3,
   n0,
   _RS,
@@ -2503,7 +2517,7 @@ export var ReportSetting: StaticStructureSchema = [
   [_RTep, _FAr, _NOF, _Ac, _OU, _Reg],
   [0, 64 | 0, 1, 64 | 0, 64 | 0, 64 | 0],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -2511,18 +2525,18 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_C, _M, _T, _Co],
   [0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ResourceSelection: StaticStructureSchema = [3, n0, _RSe, 0, [_Re, _TDSID, _RT], [64 | 0, 1, 0]];
-export var RestoreAccessBackupVaultListMember: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceSelection$: StaticStructureSchema = [3, n0, _RSe, 0, [_Re, _TDSID, _RT], [64 | 0, 1, 0]];
+export var RestoreAccessBackupVaultListMember$: StaticStructureSchema = [
   3,
   n0,
   _RABVLM,
   0,
   [_RABVA, _CD, _AD, _VS, _LRR],
-  [0, 4, 4, 0, () => LatestRevokeRequest],
+  [0, 4, 4, 0, () => LatestRevokeRequest$],
 ];
-export var RestoreJobCreator: StaticStructureSchema = [3, n0, _RJC, 0, [_RTPA], [0]];
-export var RestoreJobsListMember: StaticStructureSchema = [
+export var RestoreJobCreator$: StaticStructureSchema = [3, n0, _RJC, 0, [_RTPA], [0]];
+export var RestoreJobsListMember$: StaticStructureSchema = [
   3,
   n0,
   _RJLM,
@@ -2552,9 +2566,9 @@ export var RestoreJobsListMember: StaticStructureSchema = [
     _DSe,
     _DSM,
   ],
-  [0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 1, 0, 1, 0, 0, 4, 2, 0, () => RestoreJobCreator, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 1, 0, 1, 0, 0, 4, 2, 0, () => RestoreJobCreator$, 0, 0, 0, 0],
 ];
-export var RestoreJobSummary: StaticStructureSchema = [
+export var RestoreJobSummary$: StaticStructureSchema = [
   3,
   n0,
   _RJSe,
@@ -2562,23 +2576,23 @@ export var RestoreJobSummary: StaticStructureSchema = [
   [_R, _AI, _S, _RT, _Cou, _ST, _ET],
   [0, 0, 0, 0, 1, 4, 4],
 ];
-export var RestoreTestingPlanForCreate: StaticStructureSchema = [
+export var RestoreTestingPlanForCreate$: StaticStructureSchema = [
   3,
   n0,
   _RTPFC,
   0,
   [_RPS, _RTPN, _SE, _SET, _SWH],
-  [() => RestoreTestingRecoveryPointSelection, 0, 0, 0, 1],
+  [() => RestoreTestingRecoveryPointSelection$, 0, 0, 0, 1],
 ];
-export var RestoreTestingPlanForGet: StaticStructureSchema = [
+export var RestoreTestingPlanForGet$: StaticStructureSchema = [
   3,
   n0,
   _RTPFG,
   0,
   [_CTr, _CRI, _LET, _LUT, _RPS, _RTPA, _RTPN, _SE, _SET, _SWH],
-  [4, 0, 4, 4, () => RestoreTestingRecoveryPointSelection, 0, 0, 0, 0, 1],
+  [4, 0, 4, 4, () => RestoreTestingRecoveryPointSelection$, 0, 0, 0, 0, 1],
 ];
-export var RestoreTestingPlanForList: StaticStructureSchema = [
+export var RestoreTestingPlanForList$: StaticStructureSchema = [
   3,
   n0,
   _RTPFL,
@@ -2586,15 +2600,15 @@ export var RestoreTestingPlanForList: StaticStructureSchema = [
   [_CTr, _LET, _LUT, _RTPA, _RTPN, _SE, _SET, _SWH],
   [4, 4, 4, 0, 0, 0, 0, 1],
 ];
-export var RestoreTestingPlanForUpdate: StaticStructureSchema = [
+export var RestoreTestingPlanForUpdate$: StaticStructureSchema = [
   3,
   n0,
   _RTPFU,
   0,
   [_RPS, _SE, _SET, _SWH],
-  [() => RestoreTestingRecoveryPointSelection, 0, 0, 1],
+  [() => RestoreTestingRecoveryPointSelection$, 0, 0, 1],
 ];
-export var RestoreTestingRecoveryPointSelection: StaticStructureSchema = [
+export var RestoreTestingRecoveryPointSelection$: StaticStructureSchema = [
   3,
   n0,
   _RTRPS,
@@ -2602,23 +2616,23 @@ export var RestoreTestingRecoveryPointSelection: StaticStructureSchema = [
   [_Al, _EV, _IV, _RPTec, _SWD],
   [0, 64 | 0, 64 | 0, 64 | 0, 1],
 ];
-export var RestoreTestingSelectionForCreate: StaticStructureSchema = [
+export var RestoreTestingSelectionForCreate$: StaticStructureSchema = [
   3,
   n0,
   _RTSFC,
   0,
   [_IRA, _PRA, _PRC, _PRT, _RMO, _RTSN, _VWH],
-  [0, 64 | 0, () => ProtectedResourceConditions, 0, [() => SensitiveStringMap, 0], 0, 1],
+  [0, 64 | 0, () => ProtectedResourceConditions$, 0, [() => SensitiveStringMap, 0], 0, 1],
 ];
-export var RestoreTestingSelectionForGet: StaticStructureSchema = [
+export var RestoreTestingSelectionForGet$: StaticStructureSchema = [
   3,
   n0,
   _RTSFG,
   0,
   [_CTr, _CRI, _IRA, _PRA, _PRC, _PRT, _RMO, _RTPN, _RTSN, _VWH],
-  [4, 0, 0, 64 | 0, () => ProtectedResourceConditions, 0, [() => SensitiveStringMap, 0], 0, 0, 1],
+  [4, 0, 0, 64 | 0, () => ProtectedResourceConditions$, 0, [() => SensitiveStringMap, 0], 0, 0, 1],
 ];
-export var RestoreTestingSelectionForList: StaticStructureSchema = [
+export var RestoreTestingSelectionForList$: StaticStructureSchema = [
   3,
   n0,
   _RTSFL,
@@ -2626,15 +2640,15 @@ export var RestoreTestingSelectionForList: StaticStructureSchema = [
   [_CTr, _IRA, _PRT, _RTPN, _RTSN, _VWH],
   [4, 0, 0, 0, 0, 1],
 ];
-export var RestoreTestingSelectionForUpdate: StaticStructureSchema = [
+export var RestoreTestingSelectionForUpdate$: StaticStructureSchema = [
   3,
   n0,
   _RTSFU,
   0,
   [_IRA, _PRA, _PRC, _RMO, _VWH],
-  [0, 64 | 0, () => ProtectedResourceConditions, [() => SensitiveStringMap, 0], 1],
+  [0, 64 | 0, () => ProtectedResourceConditions$, [() => SensitiveStringMap, 0], 1],
 ];
-export var RevokeRestoreAccessBackupVaultInput: StaticStructureSchema = [
+export var RevokeRestoreAccessBackupVaultInput$: StaticStructureSchema = [
   3,
   n0,
   _RRABVI,
@@ -2646,17 +2660,17 @@ export var RevokeRestoreAccessBackupVaultInput: StaticStructureSchema = [
     [() => RequesterComment, { [_hQ]: _rC }],
   ],
 ];
-export var ScanAction: StaticStructureSchema = [3, n0, _SAc, 0, [_MS, _SMc], [0, 0]];
-export var ScanJob: StaticStructureSchema = [
+export var ScanAction$: StaticStructureSchema = [3, n0, _SAc, 0, [_MS, _SMc], [0, 0]];
+export var ScanJob$: StaticStructureSchema = [
   3,
   n0,
   _SJc,
   0,
   [_AI, _BVA, _BVN, _CDo, _CB, _CD, _IRA, _MS, _RPA, _RA, _RN, _RT, _SBRPA, _SIc, _SJI, _SMc, _SRc, _SRAc, _S, _SM],
-  [0, 0, 0, 4, () => ScanJobCreator, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => ScanResultInfo, 0, 0, 0],
+  [0, 0, 0, 4, () => ScanJobCreator$, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => ScanResultInfo$, 0, 0, 0],
 ];
-export var ScanJobCreator: StaticStructureSchema = [3, n0, _SJC, 0, [_BPA, _BPIa, _BPV, _BRIa], [0, 0, 0, 0]];
-export var ScanJobSummary: StaticStructureSchema = [
+export var ScanJobCreator$: StaticStructureSchema = [3, n0, _SJC, 0, [_BPA, _BPIa, _BPV, _BRIa], [0, 0, 0, 0]];
+export var ScanJobSummary$: StaticStructureSchema = [
   3,
   n0,
   _SJSc,
@@ -2664,11 +2678,11 @@ export var ScanJobSummary: StaticStructureSchema = [
   [_R, _AI, _S, _RT, _Cou, _ST, _ET, _MS, _SRS],
   [0, 0, 0, 0, 1, 4, 4, 0, 0],
 ];
-export var ScanResult: StaticStructureSchema = [3, n0, _SRc, 0, [_MS, _SJSca, _LST, _F], [0, 0, 4, 64 | 0]];
-export var ScanResultInfo: StaticStructureSchema = [3, n0, _SRI, 0, [_SRS], [0]];
-export var ScanSetting: StaticStructureSchema = [3, n0, _SSc, 0, [_MS, _RTe, _SRAc], [0, 64 | 0, 0]];
-export var ScheduledPlanExecutionMember: StaticStructureSchema = [3, n0, _SPEM, 0, [_ETx, _RI, _RET], [4, 0, 0]];
-export var ServiceUnavailableException: StaticErrorSchema = [
+export var ScanResult$: StaticStructureSchema = [3, n0, _SRc, 0, [_MS, _SJSca, _LST, _F], [0, 0, 4, 64 | 0]];
+export var ScanResultInfo$: StaticStructureSchema = [3, n0, _SRI, 0, [_SRS], [0]];
+export var ScanSetting$: StaticStructureSchema = [3, n0, _SSc, 0, [_MS, _RTe, _SRAc], [0, 64 | 0, 0]];
+export var ScheduledPlanExecutionMember$: StaticStructureSchema = [3, n0, _SPEM, 0, [_ETx, _RI, _RET], [4, 0, 0]];
+export var ServiceUnavailableException$: StaticErrorSchema = [
   -3,
   n0,
   _SUE,
@@ -2676,26 +2690,26 @@ export var ServiceUnavailableException: StaticErrorSchema = [
   [_C, _M, _T, _Co],
   [0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-export var StartBackupJobInput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var StartBackupJobInput$: StaticStructureSchema = [
   3,
   n0,
   _SBJI,
   0,
   [_BVN, _LAGBVA, _RA, _IRA, _IT, _SWM, _CWMo, _L, _RPT, _BO, _I],
-  [0, 0, 0, 0, [0, 4], 1, 1, () => Lifecycle, [() => Tags, 0], 128 | 0, 0],
+  [0, 0, 0, 0, [0, 4], 1, 1, () => Lifecycle$, [() => Tags, 0], 128 | 0, 0],
 ];
-export var StartBackupJobOutput: StaticStructureSchema = [3, n0, _SBJO, 0, [_BJI, _RPA, _CD, _IP], [0, 0, 4, 2]];
-export var StartCopyJobInput: StaticStructureSchema = [
+export var StartBackupJobOutput$: StaticStructureSchema = [3, n0, _SBJO, 0, [_BJI, _RPA, _CD, _IP], [0, 0, 4, 2]];
+export var StartCopyJobInput$: StaticStructureSchema = [
   3,
   n0,
   _SCJI,
   0,
   [_RPA, _SBVN, _DBVA, _IRA, _IT, _L],
-  [0, 0, 0, 0, [0, 4], () => Lifecycle],
+  [0, 0, 0, 0, [0, 4], () => Lifecycle$],
 ];
-export var StartCopyJobOutput: StaticStructureSchema = [3, n0, _SCJO, 0, [_CJI, _CD, _IP], [0, 4, 2]];
-export var StartReportJobInput: StaticStructureSchema = [
+export var StartCopyJobOutput$: StaticStructureSchema = [3, n0, _SCJO, 0, [_CJI, _CD, _IP], [0, 4, 2]];
+export var StartReportJobInput$: StaticStructureSchema = [
   3,
   n0,
   _SRJI,
@@ -2706,8 +2720,8 @@ export var StartReportJobInput: StaticStructureSchema = [
     [0, 4],
   ],
 ];
-export var StartReportJobOutput: StaticStructureSchema = [3, n0, _SRJO, 0, [_RJI], [0]];
-export var StartRestoreJobInput: StaticStructureSchema = [
+export var StartReportJobOutput$: StaticStructureSchema = [3, n0, _SRJO, 0, [_RJI], [0]];
+export var StartRestoreJobInput$: StaticStructureSchema = [
   3,
   n0,
   _SRJIt,
@@ -2715,8 +2729,8 @@ export var StartRestoreJobInput: StaticStructureSchema = [
   [_RPA, _Me, _IRA, _IT, _RT, _CSTTRR],
   [0, [() => Metadata, 0], 0, [0, 4], 0, 2],
 ];
-export var StartRestoreJobOutput: StaticStructureSchema = [3, n0, _SRJOt, 0, [_RJIe], [0]];
-export var StartScanJobInput: StaticStructureSchema = [
+export var StartRestoreJobOutput$: StaticStructureSchema = [3, n0, _SRJOt, 0, [_RJIe], [0]];
+export var StartScanJobInput$: StaticStructureSchema = [
   3,
   n0,
   _SSJI,
@@ -2724,9 +2738,9 @@ export var StartScanJobInput: StaticStructureSchema = [
   [_BVN, _IRA, _IT, _MS, _RPA, _SBRPA, _SMc, _SRAc],
   [0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var StartScanJobOutput: StaticStructureSchema = [3, n0, _SSJO, 0, [_CD, _SJI], [4, 0]];
-export var StopBackupJobInput: StaticStructureSchema = [3, n0, _SBJIt, 0, [_BJI], [[0, 1]]];
-export var TagResourceInput: StaticStructureSchema = [
+export var StartScanJobOutput$: StaticStructureSchema = [3, n0, _SSJO, 0, [_CD, _SJI], [4, 0]];
+export var StopBackupJobInput$: StaticStructureSchema = [3, n0, _SBJIt, 0, [_BJI], [[0, 1]]];
+export var TagResourceInput$: StaticStructureSchema = [
   3,
   n0,
   _TRI,
@@ -2737,7 +2751,7 @@ export var TagResourceInput: StaticStructureSchema = [
     [() => Tags, 0],
   ],
 ];
-export var TieringConfiguration: StaticStructureSchema = [
+export var TieringConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _TC,
@@ -2745,7 +2759,7 @@ export var TieringConfiguration: StaticStructureSchema = [
   [_TCN, _TCA, _BVN, _RSe, _CRI, _CTr, _LUTa],
   [0, 0, 0, () => ResourceSelections, 0, 4, 4],
 ];
-export var TieringConfigurationInputForCreate: StaticStructureSchema = [
+export var TieringConfigurationInputForCreate$: StaticStructureSchema = [
   3,
   n0,
   _TCIFC,
@@ -2753,7 +2767,7 @@ export var TieringConfigurationInputForCreate: StaticStructureSchema = [
   [_TCN, _BVN, _RSe],
   [0, 0, () => ResourceSelections],
 ];
-export var TieringConfigurationInputForUpdate: StaticStructureSchema = [
+export var TieringConfigurationInputForUpdate$: StaticStructureSchema = [
   3,
   n0,
   _TCIFU,
@@ -2761,7 +2775,7 @@ export var TieringConfigurationInputForUpdate: StaticStructureSchema = [
   [_RSe, _BVN],
   [() => ResourceSelections, 0],
 ];
-export var TieringConfigurationsListMember: StaticStructureSchema = [
+export var TieringConfigurationsListMember$: StaticStructureSchema = [
   3,
   n0,
   _TCLM,
@@ -2769,7 +2783,7 @@ export var TieringConfigurationsListMember: StaticStructureSchema = [
   [_TCA, _TCN, _BVN, _CTr, _LUTa],
   [0, 0, 0, 4, 4],
 ];
-export var UntagResourceInput: StaticStructureSchema = [
+export var UntagResourceInput$: StaticStructureSchema = [
   3,
   n0,
   _URI,
@@ -2780,7 +2794,7 @@ export var UntagResourceInput: StaticStructureSchema = [
     [() => TagKeyList, 0],
   ],
 ];
-export var UpdateBackupPlanInput: StaticStructureSchema = [
+export var UpdateBackupPlanInput$: StaticStructureSchema = [
   3,
   n0,
   _UBPI,
@@ -2788,10 +2802,10 @@ export var UpdateBackupPlanInput: StaticStructureSchema = [
   [_BPIa, _BP],
   [
     [0, 1],
-    [() => BackupPlanInput, 0],
+    [() => BackupPlanInput$, 0],
   ],
 ];
-export var UpdateBackupPlanOutput: StaticStructureSchema = [
+export var UpdateBackupPlanOutput$: StaticStructureSchema = [
   3,
   n0,
   _UBPO,
@@ -2799,7 +2813,7 @@ export var UpdateBackupPlanOutput: StaticStructureSchema = [
   [_BPIa, _BPA, _CD, _VI, _ABSd, _SS],
   [0, 0, 4, 0, () => AdvancedBackupSettings, () => ScanSettings],
 ];
-export var UpdateFrameworkInput: StaticStructureSchema = [
+export var UpdateFrameworkInput$: StaticStructureSchema = [
   3,
   n0,
   _UFI,
@@ -2807,9 +2821,9 @@ export var UpdateFrameworkInput: StaticStructureSchema = [
   [_FN, _FD, _FC, _IT],
   [[0, 1], 0, () => FrameworkControls, [0, 4]],
 ];
-export var UpdateFrameworkOutput: StaticStructureSchema = [3, n0, _UFO, 0, [_FN, _FA, _CTr], [0, 0, 4]];
-export var UpdateGlobalSettingsInput: StaticStructureSchema = [3, n0, _UGSI, 0, [_GS], [128 | 0]];
-export var UpdateRecoveryPointIndexSettingsInput: StaticStructureSchema = [
+export var UpdateFrameworkOutput$: StaticStructureSchema = [3, n0, _UFO, 0, [_FN, _FA, _CTr], [0, 0, 4]];
+export var UpdateGlobalSettingsInput$: StaticStructureSchema = [3, n0, _UGSI, 0, [_GS], [128 | 0]];
+export var UpdateRecoveryPointIndexSettingsInput$: StaticStructureSchema = [
   3,
   n0,
   _URPISI,
@@ -2817,7 +2831,7 @@ export var UpdateRecoveryPointIndexSettingsInput: StaticStructureSchema = [
   [_BVN, _RPA, _IRA, _I],
   [[0, 1], [0, 1], 0, 0],
 ];
-export var UpdateRecoveryPointIndexSettingsOutput: StaticStructureSchema = [
+export var UpdateRecoveryPointIndexSettingsOutput$: StaticStructureSchema = [
   3,
   n0,
   _URPISO,
@@ -2825,41 +2839,41 @@ export var UpdateRecoveryPointIndexSettingsOutput: StaticStructureSchema = [
   [_BVN, _RPA, _IS, _I],
   [0, 0, 0, 0],
 ];
-export var UpdateRecoveryPointLifecycleInput: StaticStructureSchema = [
+export var UpdateRecoveryPointLifecycleInput$: StaticStructureSchema = [
   3,
   n0,
   _URPLI,
   0,
   [_BVN, _RPA, _L],
-  [[0, 1], [0, 1], () => Lifecycle],
+  [[0, 1], [0, 1], () => Lifecycle$],
 ];
-export var UpdateRecoveryPointLifecycleOutput: StaticStructureSchema = [
+export var UpdateRecoveryPointLifecycleOutput$: StaticStructureSchema = [
   3,
   n0,
   _URPLO,
   0,
   [_BVA, _RPA, _L, _CL],
-  [0, 0, () => Lifecycle, () => CalculatedLifecycle],
+  [0, 0, () => Lifecycle$, () => CalculatedLifecycle$],
 ];
-export var UpdateRegionSettingsInput: StaticStructureSchema = [3, n0, _URSI, 0, [_RTOIP, _RTMP], [128 | 2, 128 | 2]];
-export var UpdateReportPlanInput: StaticStructureSchema = [
+export var UpdateRegionSettingsInput$: StaticStructureSchema = [3, n0, _URSI, 0, [_RTOIP, _RTMP], [128 | 2, 128 | 2]];
+export var UpdateReportPlanInput$: StaticStructureSchema = [
   3,
   n0,
   _URPI,
   0,
   [_RPN, _RPD, _RDC, _RS, _IT],
-  [[0, 1], 0, () => ReportDeliveryChannel, () => ReportSetting, [0, 4]],
+  [[0, 1], 0, () => ReportDeliveryChannel$, () => ReportSetting$, [0, 4]],
 ];
-export var UpdateReportPlanOutput: StaticStructureSchema = [3, n0, _URPO, 0, [_RPN, _RPAe, _CTr], [0, 0, 4]];
-export var UpdateRestoreTestingPlanInput: StaticStructureSchema = [
+export var UpdateReportPlanOutput$: StaticStructureSchema = [3, n0, _URPO, 0, [_RPN, _RPAe, _CTr], [0, 0, 4]];
+export var UpdateRestoreTestingPlanInput$: StaticStructureSchema = [
   3,
   n0,
   _URTPI,
   0,
   [_RTP, _RTPN],
-  [() => RestoreTestingPlanForUpdate, [0, 1]],
+  [() => RestoreTestingPlanForUpdate$, [0, 1]],
 ];
-export var UpdateRestoreTestingPlanOutput: StaticStructureSchema = [
+export var UpdateRestoreTestingPlanOutput$: StaticStructureSchema = [
   3,
   n0,
   _URTPO,
@@ -2867,7 +2881,7 @@ export var UpdateRestoreTestingPlanOutput: StaticStructureSchema = [
   [_CTr, _RTPA, _RTPN, _UT],
   [4, 0, 0, 4],
 ];
-export var UpdateRestoreTestingSelectionInput: StaticStructureSchema = [
+export var UpdateRestoreTestingSelectionInput$: StaticStructureSchema = [
   3,
   n0,
   _URTSI,
@@ -2875,11 +2889,11 @@ export var UpdateRestoreTestingSelectionInput: StaticStructureSchema = [
   [_RTPN, _RTS, _RTSN],
   [
     [0, 1],
-    [() => RestoreTestingSelectionForUpdate, 0],
+    [() => RestoreTestingSelectionForUpdate$, 0],
     [0, 1],
   ],
 ];
-export var UpdateRestoreTestingSelectionOutput: StaticStructureSchema = [
+export var UpdateRestoreTestingSelectionOutput$: StaticStructureSchema = [
   3,
   n0,
   _URTSO,
@@ -2887,15 +2901,15 @@ export var UpdateRestoreTestingSelectionOutput: StaticStructureSchema = [
   [_CTr, _RTPA, _RTPN, _RTSN, _UT],
   [4, 0, 0, 0, 4],
 ];
-export var UpdateTieringConfigurationInput: StaticStructureSchema = [
+export var UpdateTieringConfigurationInput$: StaticStructureSchema = [
   3,
   n0,
   _UTCI,
   0,
   [_TCN, _TC],
-  [[0, 1], () => TieringConfigurationInputForUpdate],
+  [[0, 1], () => TieringConfigurationInputForUpdate$],
 ];
-export var UpdateTieringConfigurationOutput: StaticStructureSchema = [
+export var UpdateTieringConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _UTCO,
@@ -2903,791 +2917,785 @@ export var UpdateTieringConfigurationOutput: StaticStructureSchema = [
   [_TCA, _TCN, _CTr, _LUTa],
   [0, 0, 4, 4],
 ];
-export var __Unit = "unit" as const;
-export var BackupServiceException: StaticErrorSchema = [-3, _sm, "BackupServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BackupServiceException, __BackupServiceException);
-export var AdvancedBackupSettings: StaticListSchema = [1, n0, _ABSd, 0, () => AdvancedBackupSetting];
-export var BackupJobsList: StaticListSchema = [1, n0, _BJL, 0, () => BackupJob];
-export var BackupJobSummaryList: StaticListSchema = [1, n0, _BJSL, 0, () => BackupJobSummary];
-export var BackupPlansList: StaticListSchema = [1, n0, _BPL, 0, () => BackupPlansListMember];
-export var BackupPlanTemplatesList: StaticListSchema = [1, n0, _BPTL, 0, () => BackupPlanTemplatesListMember];
-export var BackupPlanVersionsList: StaticListSchema = [1, n0, _BPVL, 0, () => BackupPlansListMember];
-export var BackupRules: StaticListSchema = [1, n0, _BRa, 0, [() => BackupRule, 0]];
-export var BackupRulesInput: StaticListSchema = [1, n0, _BRIac, 0, [() => BackupRuleInput, 0]];
-export var BackupSelectionsList: StaticListSchema = [1, n0, _BSL, 0, () => BackupSelectionsListMember];
-export var BackupVaultEvents = 64 | 0;
-export var BackupVaultList: StaticListSchema = [1, n0, _BVL, 0, () => BackupVaultListMember];
-export var ComplianceResourceIdList = 64 | 0;
-export var ConditionParameters: StaticListSchema = [1, n0, _CPo, 0, () => ConditionParameter];
-export var ControlInputParameters: StaticListSchema = [1, n0, _CIPo, 0, () => ControlInputParameter];
-export var CopyActions: StaticListSchema = [1, n0, _CA, 0, () => CopyAction];
-export var CopyJobsList: StaticListSchema = [1, n0, _CJL, 0, () => CopyJob];
-export var CopyJobSummaryList: StaticListSchema = [1, n0, _CJSL, 0, () => CopyJobSummary];
-export var FormatList = 64 | 0;
-export var FrameworkControls: StaticListSchema = [1, n0, _FC, 0, () => FrameworkControl];
-export var FrameworkList: StaticListSchema = [1, n0, _FL, 0, () => Framework];
-export var IndexActions: StaticListSchema = [1, n0, _IA, 0, () => IndexAction];
-export var IndexedRecoveryPointList: StaticListSchema = [1, n0, _IRPL, 0, () => IndexedRecoveryPoint];
-export var KeyValueList: StaticListSchema = [1, n0, _KVL, 0, () => KeyValue];
-export var LegalHoldsList: StaticListSchema = [1, n0, _LHL, 0, () => LegalHold];
-export var ListOfTags: StaticListSchema = [1, n0, _LOT, 0, () => Condition];
-export var ProtectedResourcesList: StaticListSchema = [1, n0, _PRL, 0, () => ProtectedResource];
-export var RecoveryPointByBackupVaultList: StaticListSchema = [1, n0, _RPBBVL, 0, () => RecoveryPointByBackupVault];
-export var RecoveryPointByResourceList: StaticListSchema = [1, n0, _RPBRL, 0, () => RecoveryPointByResource];
-export var RecoveryPointsList: StaticListSchema = [1, n0, _RPLe, 0, () => RecoveryPointMember];
-export var ReportJobList: StaticListSchema = [1, n0, _RJL, 0, () => ReportJob];
-export var ReportPlanList: StaticListSchema = [1, n0, _RPLep, 0, () => ReportPlan];
-export var ResourceArns = 64 | 0;
-export var ResourceIdentifiers = 64 | 0;
-export var ResourceSelections: StaticListSchema = [1, n0, _RSes, 0, () => ResourceSelection];
-export var ResourceTypeList = 64 | 0;
-export var ResourceTypes = 64 | 0;
-export var RestoreAccessBackupVaultList: StaticListSchema = [
-  1,
-  n0,
-  _RABVL,
-  0,
-  () => RestoreAccessBackupVaultListMember,
-];
-export var RestoreJobsList: StaticListSchema = [1, n0, _RJLe, 0, () => RestoreJobsListMember];
-export var RestoreJobSummaryList: StaticListSchema = [1, n0, _RJSL, 0, () => RestoreJobSummary];
-export var RestoreTestingPlans: StaticListSchema = [1, n0, _RTPe, 0, () => RestoreTestingPlanForList];
-export var RestoreTestingRecoveryPointTypeList = 64 | 0;
-export var RestoreTestingSelections: StaticListSchema = [1, n0, _RTSe, 0, () => RestoreTestingSelectionForList];
-export var ScanActions: StaticListSchema = [1, n0, _SA, 0, () => ScanAction];
-export var ScanFindings = 64 | 0;
-export var ScanJobs: StaticListSchema = [1, n0, _SJ, 0, () => ScanJob];
-export var ScanJobSummaryList: StaticListSchema = [1, n0, _SJSL, 0, () => ScanJobSummary];
-export var ScanResults: StaticListSchema = [1, n0, _SR, 0, () => ScanResult];
-export var ScanSettings: StaticListSchema = [1, n0, _SS, 0, () => ScanSetting];
-export var ScheduledRunsPreview: StaticListSchema = [1, n0, _SRP, 0, () => ScheduledPlanExecutionMember];
-export var stringList = 64 | 0;
-export var TagKeyList: StaticListSchema = [1, n0, _TKL, 8, 0];
-export var TieringConfigurationsList: StaticListSchema = [1, n0, _TCL, 0, () => TieringConfigurationsListMember];
-export var VaultNames = 64 | 0;
-export var BackupJobChildJobsInState = 128 | 1;
-export var BackupOptions = 128 | 0;
-export var CopyJobChildJobsInState = 128 | 1;
-export var GlobalSettings = 128 | 0;
-export var Metadata: StaticMapSchema = [2, n0, _Me, 8, 0, 0];
-export var ResourceTypeManagementPreference = 128 | 2;
-export var ResourceTypeOptInPreference = 128 | 2;
-export var SensitiveStringMap: StaticMapSchema = [2, n0, _SSM, 8, 0, 0];
-export var stringMap = 128 | 0;
-export var Tags: StaticMapSchema = [2, n0, _Ta, 8, 0, 0];
-export var AssociateBackupVaultMpaApprovalTeam: StaticOperationSchema = [
+var __Unit = "unit" as const;
+export var BackupServiceException$: StaticErrorSchema = [-3, _sm, "BackupServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(BackupServiceException$, BackupServiceException);
+var AdvancedBackupSettings: StaticListSchema = [1, n0, _ABSd, 0, () => AdvancedBackupSetting$];
+var BackupJobsList: StaticListSchema = [1, n0, _BJL, 0, () => BackupJob$];
+var BackupJobSummaryList: StaticListSchema = [1, n0, _BJSL, 0, () => BackupJobSummary$];
+var BackupPlansList: StaticListSchema = [1, n0, _BPL, 0, () => BackupPlansListMember$];
+var BackupPlanTemplatesList: StaticListSchema = [1, n0, _BPTL, 0, () => BackupPlanTemplatesListMember$];
+var BackupPlanVersionsList: StaticListSchema = [1, n0, _BPVL, 0, () => BackupPlansListMember$];
+var BackupRules: StaticListSchema = [1, n0, _BRa, 0, [() => BackupRule$, 0]];
+var BackupRulesInput: StaticListSchema = [1, n0, _BRIac, 0, [() => BackupRuleInput$, 0]];
+var BackupSelectionsList: StaticListSchema = [1, n0, _BSL, 0, () => BackupSelectionsListMember$];
+var BackupVaultEvents = 64 | 0;
+var BackupVaultList: StaticListSchema = [1, n0, _BVL, 0, () => BackupVaultListMember$];
+var ComplianceResourceIdList = 64 | 0;
+var ConditionParameters: StaticListSchema = [1, n0, _CPo, 0, () => ConditionParameter$];
+var ControlInputParameters: StaticListSchema = [1, n0, _CIPo, 0, () => ControlInputParameter$];
+var CopyActions: StaticListSchema = [1, n0, _CA, 0, () => CopyAction$];
+var CopyJobsList: StaticListSchema = [1, n0, _CJL, 0, () => CopyJob$];
+var CopyJobSummaryList: StaticListSchema = [1, n0, _CJSL, 0, () => CopyJobSummary$];
+var FormatList = 64 | 0;
+var FrameworkControls: StaticListSchema = [1, n0, _FC, 0, () => FrameworkControl$];
+var FrameworkList: StaticListSchema = [1, n0, _FL, 0, () => Framework$];
+var IndexActions: StaticListSchema = [1, n0, _IA, 0, () => IndexAction$];
+var IndexedRecoveryPointList: StaticListSchema = [1, n0, _IRPL, 0, () => IndexedRecoveryPoint$];
+var KeyValueList: StaticListSchema = [1, n0, _KVL, 0, () => KeyValue$];
+var LegalHoldsList: StaticListSchema = [1, n0, _LHL, 0, () => LegalHold$];
+var ListOfTags: StaticListSchema = [1, n0, _LOT, 0, () => Condition$];
+var ProtectedResourcesList: StaticListSchema = [1, n0, _PRL, 0, () => ProtectedResource$];
+var RecoveryPointByBackupVaultList: StaticListSchema = [1, n0, _RPBBVL, 0, () => RecoveryPointByBackupVault$];
+var RecoveryPointByResourceList: StaticListSchema = [1, n0, _RPBRL, 0, () => RecoveryPointByResource$];
+var RecoveryPointsList: StaticListSchema = [1, n0, _RPLe, 0, () => RecoveryPointMember$];
+var ReportJobList: StaticListSchema = [1, n0, _RJL, 0, () => ReportJob$];
+var ReportPlanList: StaticListSchema = [1, n0, _RPLep, 0, () => ReportPlan$];
+var ResourceArns = 64 | 0;
+var ResourceIdentifiers = 64 | 0;
+var ResourceSelections: StaticListSchema = [1, n0, _RSes, 0, () => ResourceSelection$];
+var ResourceTypeList = 64 | 0;
+var ResourceTypes = 64 | 0;
+var RestoreAccessBackupVaultList: StaticListSchema = [1, n0, _RABVL, 0, () => RestoreAccessBackupVaultListMember$];
+var RestoreJobsList: StaticListSchema = [1, n0, _RJLe, 0, () => RestoreJobsListMember$];
+var RestoreJobSummaryList: StaticListSchema = [1, n0, _RJSL, 0, () => RestoreJobSummary$];
+var RestoreTestingPlans: StaticListSchema = [1, n0, _RTPe, 0, () => RestoreTestingPlanForList$];
+var RestoreTestingRecoveryPointTypeList = 64 | 0;
+var RestoreTestingSelections: StaticListSchema = [1, n0, _RTSe, 0, () => RestoreTestingSelectionForList$];
+var ScanActions: StaticListSchema = [1, n0, _SA, 0, () => ScanAction$];
+var ScanFindings = 64 | 0;
+var ScanJobs: StaticListSchema = [1, n0, _SJ, 0, () => ScanJob$];
+var ScanJobSummaryList: StaticListSchema = [1, n0, _SJSL, 0, () => ScanJobSummary$];
+var ScanResults: StaticListSchema = [1, n0, _SR, 0, () => ScanResult$];
+var ScanSettings: StaticListSchema = [1, n0, _SS, 0, () => ScanSetting$];
+var ScheduledRunsPreview: StaticListSchema = [1, n0, _SRP, 0, () => ScheduledPlanExecutionMember$];
+var stringList = 64 | 0;
+var TagKeyList: StaticListSchema = [1, n0, _TKL, 8, 0];
+var TieringConfigurationsList: StaticListSchema = [1, n0, _TCL, 0, () => TieringConfigurationsListMember$];
+var VaultNames = 64 | 0;
+var BackupJobChildJobsInState = 128 | 1;
+var BackupOptions = 128 | 0;
+var CopyJobChildJobsInState = 128 | 1;
+var GlobalSettings = 128 | 0;
+var Metadata: StaticMapSchema = [2, n0, _Me, 8, 0, 0];
+var ResourceTypeManagementPreference = 128 | 2;
+var ResourceTypeOptInPreference = 128 | 2;
+var SensitiveStringMap: StaticMapSchema = [2, n0, _SSM, 8, 0, 0];
+var stringMap = 128 | 0;
+var Tags: StaticMapSchema = [2, n0, _Ta, 8, 0, 0];
+export var AssociateBackupVaultMpaApprovalTeam$: StaticOperationSchema = [
   9,
   n0,
   _ABVMAT,
   { [_h]: ["PUT", "/backup-vaults/{BackupVaultName}/mpaApprovalTeam", 204] },
-  () => AssociateBackupVaultMpaApprovalTeamInput,
+  () => AssociateBackupVaultMpaApprovalTeamInput$,
   () => __Unit,
 ];
-export var CancelLegalHold: StaticOperationSchema = [
+export var CancelLegalHold$: StaticOperationSchema = [
   9,
   n0,
   _CLH,
   { [_h]: ["DELETE", "/legal-holds/{LegalHoldId}", 201] },
-  () => CancelLegalHoldInput,
-  () => CancelLegalHoldOutput,
+  () => CancelLegalHoldInput$,
+  () => CancelLegalHoldOutput$,
 ];
-export var CreateBackupPlan: StaticOperationSchema = [
+export var CreateBackupPlan$: StaticOperationSchema = [
   9,
   n0,
   _CBP,
   { [_h]: ["PUT", "/backup/plans", 200] },
-  () => CreateBackupPlanInput,
-  () => CreateBackupPlanOutput,
+  () => CreateBackupPlanInput$,
+  () => CreateBackupPlanOutput$,
 ];
-export var CreateBackupSelection: StaticOperationSchema = [
+export var CreateBackupSelection$: StaticOperationSchema = [
   9,
   n0,
   _CBS,
   { [_h]: ["PUT", "/backup/plans/{BackupPlanId}/selections", 200] },
-  () => CreateBackupSelectionInput,
-  () => CreateBackupSelectionOutput,
+  () => CreateBackupSelectionInput$,
+  () => CreateBackupSelectionOutput$,
 ];
-export var CreateBackupVault: StaticOperationSchema = [
+export var CreateBackupVault$: StaticOperationSchema = [
   9,
   n0,
   _CBV,
   { [_h]: ["PUT", "/backup-vaults/{BackupVaultName}", 200] },
-  () => CreateBackupVaultInput,
-  () => CreateBackupVaultOutput,
+  () => CreateBackupVaultInput$,
+  () => CreateBackupVaultOutput$,
 ];
-export var CreateFramework: StaticOperationSchema = [
+export var CreateFramework$: StaticOperationSchema = [
   9,
   n0,
   _CF,
   { [_h]: ["POST", "/audit/frameworks", 200] },
-  () => CreateFrameworkInput,
-  () => CreateFrameworkOutput,
+  () => CreateFrameworkInput$,
+  () => CreateFrameworkOutput$,
 ];
-export var CreateLegalHold: StaticOperationSchema = [
+export var CreateLegalHold$: StaticOperationSchema = [
   9,
   n0,
   _CLHr,
   { [_h]: ["POST", "/legal-holds", 200] },
-  () => CreateLegalHoldInput,
-  () => CreateLegalHoldOutput,
+  () => CreateLegalHoldInput$,
+  () => CreateLegalHoldOutput$,
 ];
-export var CreateLogicallyAirGappedBackupVault: StaticOperationSchema = [
+export var CreateLogicallyAirGappedBackupVault$: StaticOperationSchema = [
   9,
   n0,
   _CLAGBV,
   { [_h]: ["PUT", "/logically-air-gapped-backup-vaults/{BackupVaultName}", 200] },
-  () => CreateLogicallyAirGappedBackupVaultInput,
-  () => CreateLogicallyAirGappedBackupVaultOutput,
+  () => CreateLogicallyAirGappedBackupVaultInput$,
+  () => CreateLogicallyAirGappedBackupVaultOutput$,
 ];
-export var CreateReportPlan: StaticOperationSchema = [
+export var CreateReportPlan$: StaticOperationSchema = [
   9,
   n0,
   _CRP,
   { [_h]: ["POST", "/audit/report-plans", 200] },
-  () => CreateReportPlanInput,
-  () => CreateReportPlanOutput,
+  () => CreateReportPlanInput$,
+  () => CreateReportPlanOutput$,
 ];
-export var CreateRestoreAccessBackupVault: StaticOperationSchema = [
+export var CreateRestoreAccessBackupVault$: StaticOperationSchema = [
   9,
   n0,
   _CRABV,
   { [_h]: ["PUT", "/restore-access-backup-vaults", 200] },
-  () => CreateRestoreAccessBackupVaultInput,
-  () => CreateRestoreAccessBackupVaultOutput,
+  () => CreateRestoreAccessBackupVaultInput$,
+  () => CreateRestoreAccessBackupVaultOutput$,
 ];
-export var CreateRestoreTestingPlan: StaticOperationSchema = [
+export var CreateRestoreTestingPlan$: StaticOperationSchema = [
   9,
   n0,
   _CRTP,
   { [_h]: ["PUT", "/restore-testing/plans", 201] },
-  () => CreateRestoreTestingPlanInput,
-  () => CreateRestoreTestingPlanOutput,
+  () => CreateRestoreTestingPlanInput$,
+  () => CreateRestoreTestingPlanOutput$,
 ];
-export var CreateRestoreTestingSelection: StaticOperationSchema = [
+export var CreateRestoreTestingSelection$: StaticOperationSchema = [
   9,
   n0,
   _CRTS,
   { [_h]: ["PUT", "/restore-testing/plans/{RestoreTestingPlanName}/selections", 201] },
-  () => CreateRestoreTestingSelectionInput,
-  () => CreateRestoreTestingSelectionOutput,
+  () => CreateRestoreTestingSelectionInput$,
+  () => CreateRestoreTestingSelectionOutput$,
 ];
-export var CreateTieringConfiguration: StaticOperationSchema = [
+export var CreateTieringConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _CTC,
   { [_h]: ["PUT", "/tiering-configurations", 200] },
-  () => CreateTieringConfigurationInput,
-  () => CreateTieringConfigurationOutput,
+  () => CreateTieringConfigurationInput$,
+  () => CreateTieringConfigurationOutput$,
 ];
-export var DeleteBackupPlan: StaticOperationSchema = [
+export var DeleteBackupPlan$: StaticOperationSchema = [
   9,
   n0,
   _DBP,
   { [_h]: ["DELETE", "/backup/plans/{BackupPlanId}", 200] },
-  () => DeleteBackupPlanInput,
-  () => DeleteBackupPlanOutput,
+  () => DeleteBackupPlanInput$,
+  () => DeleteBackupPlanOutput$,
 ];
-export var DeleteBackupSelection: StaticOperationSchema = [
+export var DeleteBackupSelection$: StaticOperationSchema = [
   9,
   n0,
   _DBS,
   { [_h]: ["DELETE", "/backup/plans/{BackupPlanId}/selections/{SelectionId}", 200] },
-  () => DeleteBackupSelectionInput,
+  () => DeleteBackupSelectionInput$,
   () => __Unit,
 ];
-export var DeleteBackupVault: StaticOperationSchema = [
+export var DeleteBackupVault$: StaticOperationSchema = [
   9,
   n0,
   _DBV,
   { [_h]: ["DELETE", "/backup-vaults/{BackupVaultName}", 200] },
-  () => DeleteBackupVaultInput,
+  () => DeleteBackupVaultInput$,
   () => __Unit,
 ];
-export var DeleteBackupVaultAccessPolicy: StaticOperationSchema = [
+export var DeleteBackupVaultAccessPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DBVAP,
   { [_h]: ["DELETE", "/backup-vaults/{BackupVaultName}/access-policy", 200] },
-  () => DeleteBackupVaultAccessPolicyInput,
+  () => DeleteBackupVaultAccessPolicyInput$,
   () => __Unit,
 ];
-export var DeleteBackupVaultLockConfiguration: StaticOperationSchema = [
+export var DeleteBackupVaultLockConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DBVLC,
   { [_h]: ["DELETE", "/backup-vaults/{BackupVaultName}/vault-lock", 200] },
-  () => DeleteBackupVaultLockConfigurationInput,
+  () => DeleteBackupVaultLockConfigurationInput$,
   () => __Unit,
 ];
-export var DeleteBackupVaultNotifications: StaticOperationSchema = [
+export var DeleteBackupVaultNotifications$: StaticOperationSchema = [
   9,
   n0,
   _DBVN,
   { [_h]: ["DELETE", "/backup-vaults/{BackupVaultName}/notification-configuration", 200] },
-  () => DeleteBackupVaultNotificationsInput,
+  () => DeleteBackupVaultNotificationsInput$,
   () => __Unit,
 ];
-export var DeleteFramework: StaticOperationSchema = [
+export var DeleteFramework$: StaticOperationSchema = [
   9,
   n0,
   _DF,
   { [_h]: ["DELETE", "/audit/frameworks/{FrameworkName}", 200] },
-  () => DeleteFrameworkInput,
+  () => DeleteFrameworkInput$,
   () => __Unit,
 ];
-export var DeleteRecoveryPoint: StaticOperationSchema = [
+export var DeleteRecoveryPoint$: StaticOperationSchema = [
   9,
   n0,
   _DRP,
   { [_h]: ["DELETE", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}", 200] },
-  () => DeleteRecoveryPointInput,
+  () => DeleteRecoveryPointInput$,
   () => __Unit,
 ];
-export var DeleteReportPlan: StaticOperationSchema = [
+export var DeleteReportPlan$: StaticOperationSchema = [
   9,
   n0,
   _DRPe,
   { [_h]: ["DELETE", "/audit/report-plans/{ReportPlanName}", 200] },
-  () => DeleteReportPlanInput,
+  () => DeleteReportPlanInput$,
   () => __Unit,
 ];
-export var DeleteRestoreTestingPlan: StaticOperationSchema = [
+export var DeleteRestoreTestingPlan$: StaticOperationSchema = [
   9,
   n0,
   _DRTP,
   { [_h]: ["DELETE", "/restore-testing/plans/{RestoreTestingPlanName}", 204] },
-  () => DeleteRestoreTestingPlanInput,
+  () => DeleteRestoreTestingPlanInput$,
   () => __Unit,
 ];
-export var DeleteRestoreTestingSelection: StaticOperationSchema = [
+export var DeleteRestoreTestingSelection$: StaticOperationSchema = [
   9,
   n0,
   _DRTS,
   { [_h]: ["DELETE", "/restore-testing/plans/{RestoreTestingPlanName}/selections/{RestoreTestingSelectionName}", 204] },
-  () => DeleteRestoreTestingSelectionInput,
+  () => DeleteRestoreTestingSelectionInput$,
   () => __Unit,
 ];
-export var DeleteTieringConfiguration: StaticOperationSchema = [
+export var DeleteTieringConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DTC,
   { [_h]: ["DELETE", "/tiering-configurations/{TieringConfigurationName}", 200] },
-  () => DeleteTieringConfigurationInput,
-  () => DeleteTieringConfigurationOutput,
+  () => DeleteTieringConfigurationInput$,
+  () => DeleteTieringConfigurationOutput$,
 ];
-export var DescribeBackupJob: StaticOperationSchema = [
+export var DescribeBackupJob$: StaticOperationSchema = [
   9,
   n0,
   _DBJ,
   { [_h]: ["GET", "/backup-jobs/{BackupJobId}", 200] },
-  () => DescribeBackupJobInput,
-  () => DescribeBackupJobOutput,
+  () => DescribeBackupJobInput$,
+  () => DescribeBackupJobOutput$,
 ];
-export var DescribeBackupVault: StaticOperationSchema = [
+export var DescribeBackupVault$: StaticOperationSchema = [
   9,
   n0,
   _DBVe,
   { [_h]: ["GET", "/backup-vaults/{BackupVaultName}", 200] },
-  () => DescribeBackupVaultInput,
-  () => DescribeBackupVaultOutput,
+  () => DescribeBackupVaultInput$,
+  () => DescribeBackupVaultOutput$,
 ];
-export var DescribeCopyJob: StaticOperationSchema = [
+export var DescribeCopyJob$: StaticOperationSchema = [
   9,
   n0,
   _DCJ,
   { [_h]: ["GET", "/copy-jobs/{CopyJobId}", 200] },
-  () => DescribeCopyJobInput,
-  () => DescribeCopyJobOutput,
+  () => DescribeCopyJobInput$,
+  () => DescribeCopyJobOutput$,
 ];
-export var DescribeFramework: StaticOperationSchema = [
+export var DescribeFramework$: StaticOperationSchema = [
   9,
   n0,
   _DFe,
   { [_h]: ["GET", "/audit/frameworks/{FrameworkName}", 200] },
-  () => DescribeFrameworkInput,
-  () => DescribeFrameworkOutput,
+  () => DescribeFrameworkInput$,
+  () => DescribeFrameworkOutput$,
 ];
-export var DescribeGlobalSettings: StaticOperationSchema = [
+export var DescribeGlobalSettings$: StaticOperationSchema = [
   9,
   n0,
   _DGS,
   { [_h]: ["GET", "/global-settings", 200] },
-  () => DescribeGlobalSettingsInput,
-  () => DescribeGlobalSettingsOutput,
+  () => DescribeGlobalSettingsInput$,
+  () => DescribeGlobalSettingsOutput$,
 ];
-export var DescribeProtectedResource: StaticOperationSchema = [
+export var DescribeProtectedResource$: StaticOperationSchema = [
   9,
   n0,
   _DPR,
   { [_h]: ["GET", "/resources/{ResourceArn}", 200] },
-  () => DescribeProtectedResourceInput,
-  () => DescribeProtectedResourceOutput,
+  () => DescribeProtectedResourceInput$,
+  () => DescribeProtectedResourceOutput$,
 ];
-export var DescribeRecoveryPoint: StaticOperationSchema = [
+export var DescribeRecoveryPoint$: StaticOperationSchema = [
   9,
   n0,
   _DRPes,
   { [_h]: ["GET", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}", 200] },
-  () => DescribeRecoveryPointInput,
-  () => DescribeRecoveryPointOutput,
+  () => DescribeRecoveryPointInput$,
+  () => DescribeRecoveryPointOutput$,
 ];
-export var DescribeRegionSettings: StaticOperationSchema = [
+export var DescribeRegionSettings$: StaticOperationSchema = [
   9,
   n0,
   _DRS,
   { [_h]: ["GET", "/account-settings", 200] },
-  () => DescribeRegionSettingsInput,
-  () => DescribeRegionSettingsOutput,
+  () => DescribeRegionSettingsInput$,
+  () => DescribeRegionSettingsOutput$,
 ];
-export var DescribeReportJob: StaticOperationSchema = [
+export var DescribeReportJob$: StaticOperationSchema = [
   9,
   n0,
   _DRJ,
   { [_h]: ["GET", "/audit/report-jobs/{ReportJobId}", 200] },
-  () => DescribeReportJobInput,
-  () => DescribeReportJobOutput,
+  () => DescribeReportJobInput$,
+  () => DescribeReportJobOutput$,
 ];
-export var DescribeReportPlan: StaticOperationSchema = [
+export var DescribeReportPlan$: StaticOperationSchema = [
   9,
   n0,
   _DRPesc,
   { [_h]: ["GET", "/audit/report-plans/{ReportPlanName}", 200] },
-  () => DescribeReportPlanInput,
-  () => DescribeReportPlanOutput,
+  () => DescribeReportPlanInput$,
+  () => DescribeReportPlanOutput$,
 ];
-export var DescribeRestoreJob: StaticOperationSchema = [
+export var DescribeRestoreJob$: StaticOperationSchema = [
   9,
   n0,
   _DRJe,
   { [_h]: ["GET", "/restore-jobs/{RestoreJobId}", 200] },
-  () => DescribeRestoreJobInput,
-  () => DescribeRestoreJobOutput,
+  () => DescribeRestoreJobInput$,
+  () => DescribeRestoreJobOutput$,
 ];
-export var DescribeScanJob: StaticOperationSchema = [
+export var DescribeScanJob$: StaticOperationSchema = [
   9,
   n0,
   _DSJ,
   { [_h]: ["GET", "/scan/jobs/{ScanJobId}", 200] },
-  () => DescribeScanJobInput,
-  () => DescribeScanJobOutput,
+  () => DescribeScanJobInput$,
+  () => DescribeScanJobOutput$,
 ];
-export var DisassociateBackupVaultMpaApprovalTeam: StaticOperationSchema = [
+export var DisassociateBackupVaultMpaApprovalTeam$: StaticOperationSchema = [
   9,
   n0,
   _DBVMAT,
   { [_h]: ["POST", "/backup-vaults/{BackupVaultName}/mpaApprovalTeam?delete", 204] },
-  () => DisassociateBackupVaultMpaApprovalTeamInput,
+  () => DisassociateBackupVaultMpaApprovalTeamInput$,
   () => __Unit,
 ];
-export var DisassociateRecoveryPoint: StaticOperationSchema = [
+export var DisassociateRecoveryPoint$: StaticOperationSchema = [
   9,
   n0,
   _DRPi,
   { [_h]: ["POST", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/disassociate", 200] },
-  () => DisassociateRecoveryPointInput,
+  () => DisassociateRecoveryPointInput$,
   () => __Unit,
 ];
-export var DisassociateRecoveryPointFromParent: StaticOperationSchema = [
+export var DisassociateRecoveryPointFromParent$: StaticOperationSchema = [
   9,
   n0,
   _DRPFP,
   { [_h]: ["DELETE", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/parentAssociation", 204] },
-  () => DisassociateRecoveryPointFromParentInput,
+  () => DisassociateRecoveryPointFromParentInput$,
   () => __Unit,
 ];
-export var ExportBackupPlanTemplate: StaticOperationSchema = [
+export var ExportBackupPlanTemplate$: StaticOperationSchema = [
   9,
   n0,
   _EBPT,
   { [_h]: ["GET", "/backup/plans/{BackupPlanId}/toTemplate", 200] },
-  () => ExportBackupPlanTemplateInput,
-  () => ExportBackupPlanTemplateOutput,
+  () => ExportBackupPlanTemplateInput$,
+  () => ExportBackupPlanTemplateOutput$,
 ];
-export var GetBackupPlan: StaticOperationSchema = [
+export var GetBackupPlan$: StaticOperationSchema = [
   9,
   n0,
   _GBP,
   { [_h]: ["GET", "/backup/plans/{BackupPlanId}", 200] },
-  () => GetBackupPlanInput,
-  () => GetBackupPlanOutput,
+  () => GetBackupPlanInput$,
+  () => GetBackupPlanOutput$,
 ];
-export var GetBackupPlanFromJSON: StaticOperationSchema = [
+export var GetBackupPlanFromJSON$: StaticOperationSchema = [
   9,
   n0,
   _GBPFJSON,
   { [_h]: ["POST", "/backup/template/json/toPlan", 200] },
-  () => GetBackupPlanFromJSONInput,
-  () => GetBackupPlanFromJSONOutput,
+  () => GetBackupPlanFromJSONInput$,
+  () => GetBackupPlanFromJSONOutput$,
 ];
-export var GetBackupPlanFromTemplate: StaticOperationSchema = [
+export var GetBackupPlanFromTemplate$: StaticOperationSchema = [
   9,
   n0,
   _GBPFT,
   { [_h]: ["GET", "/backup/template/plans/{BackupPlanTemplateId}/toPlan", 200] },
-  () => GetBackupPlanFromTemplateInput,
-  () => GetBackupPlanFromTemplateOutput,
+  () => GetBackupPlanFromTemplateInput$,
+  () => GetBackupPlanFromTemplateOutput$,
 ];
-export var GetBackupSelection: StaticOperationSchema = [
+export var GetBackupSelection$: StaticOperationSchema = [
   9,
   n0,
   _GBS,
   { [_h]: ["GET", "/backup/plans/{BackupPlanId}/selections/{SelectionId}", 200] },
-  () => GetBackupSelectionInput,
-  () => GetBackupSelectionOutput,
+  () => GetBackupSelectionInput$,
+  () => GetBackupSelectionOutput$,
 ];
-export var GetBackupVaultAccessPolicy: StaticOperationSchema = [
+export var GetBackupVaultAccessPolicy$: StaticOperationSchema = [
   9,
   n0,
   _GBVAP,
   { [_h]: ["GET", "/backup-vaults/{BackupVaultName}/access-policy", 200] },
-  () => GetBackupVaultAccessPolicyInput,
-  () => GetBackupVaultAccessPolicyOutput,
+  () => GetBackupVaultAccessPolicyInput$,
+  () => GetBackupVaultAccessPolicyOutput$,
 ];
-export var GetBackupVaultNotifications: StaticOperationSchema = [
+export var GetBackupVaultNotifications$: StaticOperationSchema = [
   9,
   n0,
   _GBVN,
   { [_h]: ["GET", "/backup-vaults/{BackupVaultName}/notification-configuration", 200] },
-  () => GetBackupVaultNotificationsInput,
-  () => GetBackupVaultNotificationsOutput,
+  () => GetBackupVaultNotificationsInput$,
+  () => GetBackupVaultNotificationsOutput$,
 ];
-export var GetLegalHold: StaticOperationSchema = [
+export var GetLegalHold$: StaticOperationSchema = [
   9,
   n0,
   _GLH,
   { [_h]: ["GET", "/legal-holds/{LegalHoldId}", 200] },
-  () => GetLegalHoldInput,
-  () => GetLegalHoldOutput,
+  () => GetLegalHoldInput$,
+  () => GetLegalHoldOutput$,
 ];
-export var GetRecoveryPointIndexDetails: StaticOperationSchema = [
+export var GetRecoveryPointIndexDetails$: StaticOperationSchema = [
   9,
   n0,
   _GRPID,
   { [_h]: ["GET", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/index", 200] },
-  () => GetRecoveryPointIndexDetailsInput,
-  () => GetRecoveryPointIndexDetailsOutput,
+  () => GetRecoveryPointIndexDetailsInput$,
+  () => GetRecoveryPointIndexDetailsOutput$,
 ];
-export var GetRecoveryPointRestoreMetadata: StaticOperationSchema = [
+export var GetRecoveryPointRestoreMetadata$: StaticOperationSchema = [
   9,
   n0,
   _GRPRM,
   { [_h]: ["GET", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/restore-metadata", 200] },
-  () => GetRecoveryPointRestoreMetadataInput,
-  () => GetRecoveryPointRestoreMetadataOutput,
+  () => GetRecoveryPointRestoreMetadataInput$,
+  () => GetRecoveryPointRestoreMetadataOutput$,
 ];
-export var GetRestoreJobMetadata: StaticOperationSchema = [
+export var GetRestoreJobMetadata$: StaticOperationSchema = [
   9,
   n0,
   _GRJM,
   { [_h]: ["GET", "/restore-jobs/{RestoreJobId}/metadata", 200] },
-  () => GetRestoreJobMetadataInput,
-  () => GetRestoreJobMetadataOutput,
+  () => GetRestoreJobMetadataInput$,
+  () => GetRestoreJobMetadataOutput$,
 ];
-export var GetRestoreTestingInferredMetadata: StaticOperationSchema = [
+export var GetRestoreTestingInferredMetadata$: StaticOperationSchema = [
   9,
   n0,
   _GRTIM,
   { [_h]: ["GET", "/restore-testing/inferred-metadata", 200] },
-  () => GetRestoreTestingInferredMetadataInput,
-  () => GetRestoreTestingInferredMetadataOutput,
+  () => GetRestoreTestingInferredMetadataInput$,
+  () => GetRestoreTestingInferredMetadataOutput$,
 ];
-export var GetRestoreTestingPlan: StaticOperationSchema = [
+export var GetRestoreTestingPlan$: StaticOperationSchema = [
   9,
   n0,
   _GRTP,
   { [_h]: ["GET", "/restore-testing/plans/{RestoreTestingPlanName}", 200] },
-  () => GetRestoreTestingPlanInput,
-  () => GetRestoreTestingPlanOutput,
+  () => GetRestoreTestingPlanInput$,
+  () => GetRestoreTestingPlanOutput$,
 ];
-export var GetRestoreTestingSelection: StaticOperationSchema = [
+export var GetRestoreTestingSelection$: StaticOperationSchema = [
   9,
   n0,
   _GRTS,
   { [_h]: ["GET", "/restore-testing/plans/{RestoreTestingPlanName}/selections/{RestoreTestingSelectionName}", 200] },
-  () => GetRestoreTestingSelectionInput,
-  () => GetRestoreTestingSelectionOutput,
+  () => GetRestoreTestingSelectionInput$,
+  () => GetRestoreTestingSelectionOutput$,
 ];
-export var GetSupportedResourceTypes: StaticOperationSchema = [
+export var GetSupportedResourceTypes$: StaticOperationSchema = [
   9,
   n0,
   _GSRT,
   { [_h]: ["GET", "/supported-resource-types", 200] },
   () => __Unit,
-  () => GetSupportedResourceTypesOutput,
+  () => GetSupportedResourceTypesOutput$,
 ];
-export var GetTieringConfiguration: StaticOperationSchema = [
+export var GetTieringConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GTC,
   { [_h]: ["GET", "/tiering-configurations/{TieringConfigurationName}", 200] },
-  () => GetTieringConfigurationInput,
-  () => GetTieringConfigurationOutput,
+  () => GetTieringConfigurationInput$,
+  () => GetTieringConfigurationOutput$,
 ];
-export var ListBackupJobs: StaticOperationSchema = [
+export var ListBackupJobs$: StaticOperationSchema = [
   9,
   n0,
   _LBJ,
   { [_h]: ["GET", "/backup-jobs", 200] },
-  () => ListBackupJobsInput,
-  () => ListBackupJobsOutput,
+  () => ListBackupJobsInput$,
+  () => ListBackupJobsOutput$,
 ];
-export var ListBackupJobSummaries: StaticOperationSchema = [
+export var ListBackupJobSummaries$: StaticOperationSchema = [
   9,
   n0,
   _LBJS,
   { [_h]: ["GET", "/audit/backup-job-summaries", 200] },
-  () => ListBackupJobSummariesInput,
-  () => ListBackupJobSummariesOutput,
+  () => ListBackupJobSummariesInput$,
+  () => ListBackupJobSummariesOutput$,
 ];
-export var ListBackupPlans: StaticOperationSchema = [
+export var ListBackupPlans$: StaticOperationSchema = [
   9,
   n0,
   _LBP,
   { [_h]: ["GET", "/backup/plans", 200] },
-  () => ListBackupPlansInput,
-  () => ListBackupPlansOutput,
+  () => ListBackupPlansInput$,
+  () => ListBackupPlansOutput$,
 ];
-export var ListBackupPlanTemplates: StaticOperationSchema = [
+export var ListBackupPlanTemplates$: StaticOperationSchema = [
   9,
   n0,
   _LBPT,
   { [_h]: ["GET", "/backup/template/plans", 200] },
-  () => ListBackupPlanTemplatesInput,
-  () => ListBackupPlanTemplatesOutput,
+  () => ListBackupPlanTemplatesInput$,
+  () => ListBackupPlanTemplatesOutput$,
 ];
-export var ListBackupPlanVersions: StaticOperationSchema = [
+export var ListBackupPlanVersions$: StaticOperationSchema = [
   9,
   n0,
   _LBPV,
   { [_h]: ["GET", "/backup/plans/{BackupPlanId}/versions", 200] },
-  () => ListBackupPlanVersionsInput,
-  () => ListBackupPlanVersionsOutput,
+  () => ListBackupPlanVersionsInput$,
+  () => ListBackupPlanVersionsOutput$,
 ];
-export var ListBackupSelections: StaticOperationSchema = [
+export var ListBackupSelections$: StaticOperationSchema = [
   9,
   n0,
   _LBS,
   { [_h]: ["GET", "/backup/plans/{BackupPlanId}/selections", 200] },
-  () => ListBackupSelectionsInput,
-  () => ListBackupSelectionsOutput,
+  () => ListBackupSelectionsInput$,
+  () => ListBackupSelectionsOutput$,
 ];
-export var ListBackupVaults: StaticOperationSchema = [
+export var ListBackupVaults$: StaticOperationSchema = [
   9,
   n0,
   _LBV,
   { [_h]: ["GET", "/backup-vaults", 200] },
-  () => ListBackupVaultsInput,
-  () => ListBackupVaultsOutput,
+  () => ListBackupVaultsInput$,
+  () => ListBackupVaultsOutput$,
 ];
-export var ListCopyJobs: StaticOperationSchema = [
+export var ListCopyJobs$: StaticOperationSchema = [
   9,
   n0,
   _LCJ,
   { [_h]: ["GET", "/copy-jobs", 200] },
-  () => ListCopyJobsInput,
-  () => ListCopyJobsOutput,
+  () => ListCopyJobsInput$,
+  () => ListCopyJobsOutput$,
 ];
-export var ListCopyJobSummaries: StaticOperationSchema = [
+export var ListCopyJobSummaries$: StaticOperationSchema = [
   9,
   n0,
   _LCJS,
   { [_h]: ["GET", "/audit/copy-job-summaries", 200] },
-  () => ListCopyJobSummariesInput,
-  () => ListCopyJobSummariesOutput,
+  () => ListCopyJobSummariesInput$,
+  () => ListCopyJobSummariesOutput$,
 ];
-export var ListFrameworks: StaticOperationSchema = [
+export var ListFrameworks$: StaticOperationSchema = [
   9,
   n0,
   _LF,
   { [_h]: ["GET", "/audit/frameworks", 200] },
-  () => ListFrameworksInput,
-  () => ListFrameworksOutput,
+  () => ListFrameworksInput$,
+  () => ListFrameworksOutput$,
 ];
-export var ListIndexedRecoveryPoints: StaticOperationSchema = [
+export var ListIndexedRecoveryPoints$: StaticOperationSchema = [
   9,
   n0,
   _LIRP,
   { [_h]: ["GET", "/indexes/recovery-point", 200] },
-  () => ListIndexedRecoveryPointsInput,
-  () => ListIndexedRecoveryPointsOutput,
+  () => ListIndexedRecoveryPointsInput$,
+  () => ListIndexedRecoveryPointsOutput$,
 ];
-export var ListLegalHolds: StaticOperationSchema = [
+export var ListLegalHolds$: StaticOperationSchema = [
   9,
   n0,
   _LLH,
   { [_h]: ["GET", "/legal-holds", 200] },
-  () => ListLegalHoldsInput,
-  () => ListLegalHoldsOutput,
+  () => ListLegalHoldsInput$,
+  () => ListLegalHoldsOutput$,
 ];
-export var ListProtectedResources: StaticOperationSchema = [
+export var ListProtectedResources$: StaticOperationSchema = [
   9,
   n0,
   _LPR,
   { [_h]: ["GET", "/resources", 200] },
-  () => ListProtectedResourcesInput,
-  () => ListProtectedResourcesOutput,
+  () => ListProtectedResourcesInput$,
+  () => ListProtectedResourcesOutput$,
 ];
-export var ListProtectedResourcesByBackupVault: StaticOperationSchema = [
+export var ListProtectedResourcesByBackupVault$: StaticOperationSchema = [
   9,
   n0,
   _LPRBBV,
   { [_h]: ["GET", "/backup-vaults/{BackupVaultName}/resources", 200] },
-  () => ListProtectedResourcesByBackupVaultInput,
-  () => ListProtectedResourcesByBackupVaultOutput,
+  () => ListProtectedResourcesByBackupVaultInput$,
+  () => ListProtectedResourcesByBackupVaultOutput$,
 ];
-export var ListRecoveryPointsByBackupVault: StaticOperationSchema = [
+export var ListRecoveryPointsByBackupVault$: StaticOperationSchema = [
   9,
   n0,
   _LRPBBV,
   { [_h]: ["GET", "/backup-vaults/{BackupVaultName}/recovery-points", 200] },
-  () => ListRecoveryPointsByBackupVaultInput,
-  () => ListRecoveryPointsByBackupVaultOutput,
+  () => ListRecoveryPointsByBackupVaultInput$,
+  () => ListRecoveryPointsByBackupVaultOutput$,
 ];
-export var ListRecoveryPointsByLegalHold: StaticOperationSchema = [
+export var ListRecoveryPointsByLegalHold$: StaticOperationSchema = [
   9,
   n0,
   _LRPBLH,
   { [_h]: ["GET", "/legal-holds/{LegalHoldId}/recovery-points", 200] },
-  () => ListRecoveryPointsByLegalHoldInput,
-  () => ListRecoveryPointsByLegalHoldOutput,
+  () => ListRecoveryPointsByLegalHoldInput$,
+  () => ListRecoveryPointsByLegalHoldOutput$,
 ];
-export var ListRecoveryPointsByResource: StaticOperationSchema = [
+export var ListRecoveryPointsByResource$: StaticOperationSchema = [
   9,
   n0,
   _LRPBR,
   { [_h]: ["GET", "/resources/{ResourceArn}/recovery-points", 200] },
-  () => ListRecoveryPointsByResourceInput,
-  () => ListRecoveryPointsByResourceOutput,
+  () => ListRecoveryPointsByResourceInput$,
+  () => ListRecoveryPointsByResourceOutput$,
 ];
-export var ListReportJobs: StaticOperationSchema = [
+export var ListReportJobs$: StaticOperationSchema = [
   9,
   n0,
   _LRJ,
   { [_h]: ["GET", "/audit/report-jobs", 200] },
-  () => ListReportJobsInput,
-  () => ListReportJobsOutput,
+  () => ListReportJobsInput$,
+  () => ListReportJobsOutput$,
 ];
-export var ListReportPlans: StaticOperationSchema = [
+export var ListReportPlans$: StaticOperationSchema = [
   9,
   n0,
   _LRP,
   { [_h]: ["GET", "/audit/report-plans", 200] },
-  () => ListReportPlansInput,
-  () => ListReportPlansOutput,
+  () => ListReportPlansInput$,
+  () => ListReportPlansOutput$,
 ];
-export var ListRestoreAccessBackupVaults: StaticOperationSchema = [
+export var ListRestoreAccessBackupVaults$: StaticOperationSchema = [
   9,
   n0,
   _LRABV,
   { [_h]: ["GET", "/logically-air-gapped-backup-vaults/{BackupVaultName}/restore-access-backup-vaults", 200] },
-  () => ListRestoreAccessBackupVaultsInput,
-  () => ListRestoreAccessBackupVaultsOutput,
+  () => ListRestoreAccessBackupVaultsInput$,
+  () => ListRestoreAccessBackupVaultsOutput$,
 ];
-export var ListRestoreJobs: StaticOperationSchema = [
+export var ListRestoreJobs$: StaticOperationSchema = [
   9,
   n0,
   _LRJi,
   { [_h]: ["GET", "/restore-jobs", 200] },
-  () => ListRestoreJobsInput,
-  () => ListRestoreJobsOutput,
+  () => ListRestoreJobsInput$,
+  () => ListRestoreJobsOutput$,
 ];
-export var ListRestoreJobsByProtectedResource: StaticOperationSchema = [
+export var ListRestoreJobsByProtectedResource$: StaticOperationSchema = [
   9,
   n0,
   _LRJBPR,
   { [_h]: ["GET", "/resources/{ResourceArn}/restore-jobs", 200] },
-  () => ListRestoreJobsByProtectedResourceInput,
-  () => ListRestoreJobsByProtectedResourceOutput,
+  () => ListRestoreJobsByProtectedResourceInput$,
+  () => ListRestoreJobsByProtectedResourceOutput$,
 ];
-export var ListRestoreJobSummaries: StaticOperationSchema = [
+export var ListRestoreJobSummaries$: StaticOperationSchema = [
   9,
   n0,
   _LRJS,
   { [_h]: ["GET", "/audit/restore-job-summaries", 200] },
-  () => ListRestoreJobSummariesInput,
-  () => ListRestoreJobSummariesOutput,
+  () => ListRestoreJobSummariesInput$,
+  () => ListRestoreJobSummariesOutput$,
 ];
-export var ListRestoreTestingPlans: StaticOperationSchema = [
+export var ListRestoreTestingPlans$: StaticOperationSchema = [
   9,
   n0,
   _LRTP,
   { [_h]: ["GET", "/restore-testing/plans", 200] },
-  () => ListRestoreTestingPlansInput,
-  () => ListRestoreTestingPlansOutput,
+  () => ListRestoreTestingPlansInput$,
+  () => ListRestoreTestingPlansOutput$,
 ];
-export var ListRestoreTestingSelections: StaticOperationSchema = [
+export var ListRestoreTestingSelections$: StaticOperationSchema = [
   9,
   n0,
   _LRTS,
   { [_h]: ["GET", "/restore-testing/plans/{RestoreTestingPlanName}/selections", 200] },
-  () => ListRestoreTestingSelectionsInput,
-  () => ListRestoreTestingSelectionsOutput,
+  () => ListRestoreTestingSelectionsInput$,
+  () => ListRestoreTestingSelectionsOutput$,
 ];
-export var ListScanJobs: StaticOperationSchema = [
+export var ListScanJobs$: StaticOperationSchema = [
   9,
   n0,
   _LSJ,
   { [_h]: ["GET", "/scan/jobs", 200] },
-  () => ListScanJobsInput,
-  () => ListScanJobsOutput,
+  () => ListScanJobsInput$,
+  () => ListScanJobsOutput$,
 ];
-export var ListScanJobSummaries: StaticOperationSchema = [
+export var ListScanJobSummaries$: StaticOperationSchema = [
   9,
   n0,
   _LSJS,
   { [_h]: ["GET", "/audit/scan-job-summaries", 200] },
-  () => ListScanJobSummariesInput,
-  () => ListScanJobSummariesOutput,
+  () => ListScanJobSummariesInput$,
+  () => ListScanJobSummariesOutput$,
 ];
-export var ListTags: StaticOperationSchema = [
+export var ListTags$: StaticOperationSchema = [
   9,
   n0,
   _LT,
   { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
-  () => ListTagsInput,
-  () => ListTagsOutput,
+  () => ListTagsInput$,
+  () => ListTagsOutput$,
 ];
-export var ListTieringConfigurations: StaticOperationSchema = [
+export var ListTieringConfigurations$: StaticOperationSchema = [
   9,
   n0,
   _LTC,
   { [_h]: ["GET", "/tiering-configurations", 200] },
-  () => ListTieringConfigurationsInput,
-  () => ListTieringConfigurationsOutput,
+  () => ListTieringConfigurationsInput$,
+  () => ListTieringConfigurationsOutput$,
 ];
-export var PutBackupVaultAccessPolicy: StaticOperationSchema = [
+export var PutBackupVaultAccessPolicy$: StaticOperationSchema = [
   9,
   n0,
   _PBVAP,
   { [_h]: ["PUT", "/backup-vaults/{BackupVaultName}/access-policy", 200] },
-  () => PutBackupVaultAccessPolicyInput,
+  () => PutBackupVaultAccessPolicyInput$,
   () => __Unit,
 ];
-export var PutBackupVaultLockConfiguration: StaticOperationSchema = [
+export var PutBackupVaultLockConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PBVLC,
   { [_h]: ["PUT", "/backup-vaults/{BackupVaultName}/vault-lock", 200] },
-  () => PutBackupVaultLockConfigurationInput,
+  () => PutBackupVaultLockConfigurationInput$,
   () => __Unit,
 ];
-export var PutBackupVaultNotifications: StaticOperationSchema = [
+export var PutBackupVaultNotifications$: StaticOperationSchema = [
   9,
   n0,
   _PBVN,
   { [_h]: ["PUT", "/backup-vaults/{BackupVaultName}/notification-configuration", 200] },
-  () => PutBackupVaultNotificationsInput,
+  () => PutBackupVaultNotificationsInput$,
   () => __Unit,
 ];
-export var PutRestoreValidationResult: StaticOperationSchema = [
+export var PutRestoreValidationResult$: StaticOperationSchema = [
   9,
   n0,
   _PRVR,
   { [_h]: ["PUT", "/restore-jobs/{RestoreJobId}/validations", 204] },
-  () => PutRestoreValidationResultInput,
+  () => PutRestoreValidationResultInput$,
   () => __Unit,
 ];
-export var RevokeRestoreAccessBackupVault: StaticOperationSchema = [
+export var RevokeRestoreAccessBackupVault$: StaticOperationSchema = [
   9,
   n0,
   _RRABV,
@@ -3698,150 +3706,150 @@ export var RevokeRestoreAccessBackupVault: StaticOperationSchema = [
       200,
     ],
   },
-  () => RevokeRestoreAccessBackupVaultInput,
+  () => RevokeRestoreAccessBackupVaultInput$,
   () => __Unit,
 ];
-export var StartBackupJob: StaticOperationSchema = [
+export var StartBackupJob$: StaticOperationSchema = [
   9,
   n0,
   _SBJ,
   { [_h]: ["PUT", "/backup-jobs", 200] },
-  () => StartBackupJobInput,
-  () => StartBackupJobOutput,
+  () => StartBackupJobInput$,
+  () => StartBackupJobOutput$,
 ];
-export var StartCopyJob: StaticOperationSchema = [
+export var StartCopyJob$: StaticOperationSchema = [
   9,
   n0,
   _SCJ,
   { [_h]: ["PUT", "/copy-jobs", 200] },
-  () => StartCopyJobInput,
-  () => StartCopyJobOutput,
+  () => StartCopyJobInput$,
+  () => StartCopyJobOutput$,
 ];
-export var StartReportJob: StaticOperationSchema = [
+export var StartReportJob$: StaticOperationSchema = [
   9,
   n0,
   _SRJ,
   { [_h]: ["POST", "/audit/report-jobs/{ReportPlanName}", 200] },
-  () => StartReportJobInput,
-  () => StartReportJobOutput,
+  () => StartReportJobInput$,
+  () => StartReportJobOutput$,
 ];
-export var StartRestoreJob: StaticOperationSchema = [
+export var StartRestoreJob$: StaticOperationSchema = [
   9,
   n0,
   _SRJt,
   { [_h]: ["PUT", "/restore-jobs", 200] },
-  () => StartRestoreJobInput,
-  () => StartRestoreJobOutput,
+  () => StartRestoreJobInput$,
+  () => StartRestoreJobOutput$,
 ];
-export var StartScanJob: StaticOperationSchema = [
+export var StartScanJob$: StaticOperationSchema = [
   9,
   n0,
   _SSJ,
   { [_h]: ["PUT", "/scan/job", 201] },
-  () => StartScanJobInput,
-  () => StartScanJobOutput,
+  () => StartScanJobInput$,
+  () => StartScanJobOutput$,
 ];
-export var StopBackupJob: StaticOperationSchema = [
+export var StopBackupJob$: StaticOperationSchema = [
   9,
   n0,
   _SBJt,
   { [_h]: ["POST", "/backup-jobs/{BackupJobId}", 200] },
-  () => StopBackupJobInput,
+  () => StopBackupJobInput$,
   () => __Unit,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{ResourceArn}", 200] },
-  () => TagResourceInput,
+  () => TagResourceInput$,
   () => __Unit,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["POST", "/untag/{ResourceArn}", 200] },
-  () => UntagResourceInput,
+  () => UntagResourceInput$,
   () => __Unit,
 ];
-export var UpdateBackupPlan: StaticOperationSchema = [
+export var UpdateBackupPlan$: StaticOperationSchema = [
   9,
   n0,
   _UBP,
   { [_h]: ["POST", "/backup/plans/{BackupPlanId}", 200] },
-  () => UpdateBackupPlanInput,
-  () => UpdateBackupPlanOutput,
+  () => UpdateBackupPlanInput$,
+  () => UpdateBackupPlanOutput$,
 ];
-export var UpdateFramework: StaticOperationSchema = [
+export var UpdateFramework$: StaticOperationSchema = [
   9,
   n0,
   _UF,
   { [_h]: ["PUT", "/audit/frameworks/{FrameworkName}", 200] },
-  () => UpdateFrameworkInput,
-  () => UpdateFrameworkOutput,
+  () => UpdateFrameworkInput$,
+  () => UpdateFrameworkOutput$,
 ];
-export var UpdateGlobalSettings: StaticOperationSchema = [
+export var UpdateGlobalSettings$: StaticOperationSchema = [
   9,
   n0,
   _UGS,
   { [_h]: ["PUT", "/global-settings", 200] },
-  () => UpdateGlobalSettingsInput,
+  () => UpdateGlobalSettingsInput$,
   () => __Unit,
 ];
-export var UpdateRecoveryPointIndexSettings: StaticOperationSchema = [
+export var UpdateRecoveryPointIndexSettings$: StaticOperationSchema = [
   9,
   n0,
   _URPIS,
   { [_h]: ["POST", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/index", 200] },
-  () => UpdateRecoveryPointIndexSettingsInput,
-  () => UpdateRecoveryPointIndexSettingsOutput,
+  () => UpdateRecoveryPointIndexSettingsInput$,
+  () => UpdateRecoveryPointIndexSettingsOutput$,
 ];
-export var UpdateRecoveryPointLifecycle: StaticOperationSchema = [
+export var UpdateRecoveryPointLifecycle$: StaticOperationSchema = [
   9,
   n0,
   _URPL,
   { [_h]: ["POST", "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}", 200] },
-  () => UpdateRecoveryPointLifecycleInput,
-  () => UpdateRecoveryPointLifecycleOutput,
+  () => UpdateRecoveryPointLifecycleInput$,
+  () => UpdateRecoveryPointLifecycleOutput$,
 ];
-export var UpdateRegionSettings: StaticOperationSchema = [
+export var UpdateRegionSettings$: StaticOperationSchema = [
   9,
   n0,
   _URS,
   { [_h]: ["PUT", "/account-settings", 200] },
-  () => UpdateRegionSettingsInput,
+  () => UpdateRegionSettingsInput$,
   () => __Unit,
 ];
-export var UpdateReportPlan: StaticOperationSchema = [
+export var UpdateReportPlan$: StaticOperationSchema = [
   9,
   n0,
   _URP,
   { [_h]: ["PUT", "/audit/report-plans/{ReportPlanName}", 200] },
-  () => UpdateReportPlanInput,
-  () => UpdateReportPlanOutput,
+  () => UpdateReportPlanInput$,
+  () => UpdateReportPlanOutput$,
 ];
-export var UpdateRestoreTestingPlan: StaticOperationSchema = [
+export var UpdateRestoreTestingPlan$: StaticOperationSchema = [
   9,
   n0,
   _URTP,
   { [_h]: ["PUT", "/restore-testing/plans/{RestoreTestingPlanName}", 200] },
-  () => UpdateRestoreTestingPlanInput,
-  () => UpdateRestoreTestingPlanOutput,
+  () => UpdateRestoreTestingPlanInput$,
+  () => UpdateRestoreTestingPlanOutput$,
 ];
-export var UpdateRestoreTestingSelection: StaticOperationSchema = [
+export var UpdateRestoreTestingSelection$: StaticOperationSchema = [
   9,
   n0,
   _URTS,
   { [_h]: ["PUT", "/restore-testing/plans/{RestoreTestingPlanName}/selections/{RestoreTestingSelectionName}", 200] },
-  () => UpdateRestoreTestingSelectionInput,
-  () => UpdateRestoreTestingSelectionOutput,
+  () => UpdateRestoreTestingSelectionInput$,
+  () => UpdateRestoreTestingSelectionOutput$,
 ];
-export var UpdateTieringConfiguration: StaticOperationSchema = [
+export var UpdateTieringConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UTC,
   { [_h]: ["PUT", "/tiering-configurations/{TieringConfigurationName}", 200] },
-  () => UpdateTieringConfigurationInput,
-  () => UpdateTieringConfigurationOutput,
+  () => UpdateTieringConfigurationInput$,
+  () => UpdateTieringConfigurationOutput$,
 ];

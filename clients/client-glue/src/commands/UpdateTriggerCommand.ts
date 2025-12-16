@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { UpdateTriggerRequest } from "../models/models_2";
 import type { UpdateTriggerResponse } from "../models/models_3";
-import { UpdateTrigger } from "../schemas/schemas_0";
+import { UpdateTrigger$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -163,7 +163,7 @@ export class UpdateTriggerCommand extends $Command
   })
   .s("AWSGlue", "UpdateTrigger", {})
   .n("GlueClient", "UpdateTriggerCommand")
-  .sc(UpdateTrigger)
+  .sc(UpdateTrigger$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

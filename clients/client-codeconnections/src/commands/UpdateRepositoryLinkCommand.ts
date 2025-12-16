@@ -10,7 +10,7 @@ import type {
 } from "../CodeConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateRepositoryLinkInput, UpdateRepositoryLinkOutput } from "../models/models_0";
-import { UpdateRepositoryLink } from "../schemas/schemas_0";
+import { UpdateRepositoryLink$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class UpdateRepositoryLinkCommand extends $Command
   })
   .s("CodeConnections_20231201", "UpdateRepositoryLink", {})
   .n("CodeConnectionsClient", "UpdateRepositoryLinkCommand")
-  .sc(UpdateRepositoryLink)
+  .sc(UpdateRepositoryLink$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

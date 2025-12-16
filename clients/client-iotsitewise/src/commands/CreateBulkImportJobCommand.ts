@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import type { CreateBulkImportJobRequest, CreateBulkImportJobResponse } from "../models/models_0";
-import { CreateBulkImportJob } from "../schemas/schemas_0";
+import { CreateBulkImportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class CreateBulkImportJobCommand extends $Command
   })
   .s("AWSIoTSiteWise", "CreateBulkImportJob", {})
   .n("IoTSiteWiseClient", "CreateBulkImportJobCommand")
-  .sc(CreateBulkImportJob)
+  .sc(CreateBulkImportJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

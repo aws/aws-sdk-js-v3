@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { GetCoreNetworkChangeEvents } from "../schemas/schemas_0";
+import { GetCoreNetworkChangeEvents$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class GetCoreNetworkChangeEventsCommand extends $Command
   })
   .s("NetworkManager", "GetCoreNetworkChangeEvents", {})
   .n("NetworkManagerClient", "GetCoreNetworkChangeEventsCommand")
-  .sc(GetCoreNetworkChangeEvents)
+  .sc(GetCoreNetworkChangeEvents$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

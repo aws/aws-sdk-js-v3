@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateStorageLocationResultMessage } from "../models/models_0";
-import { CreateStorageLocation } from "../schemas/schemas_0";
+import { CreateStorageLocation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class CreateStorageLocationCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "CreateStorageLocation", {})
   .n("ElasticBeanstalkClient", "CreateStorageLocationCommand")
-  .sc(CreateStorageLocation)
+  .sc(CreateStorageLocation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

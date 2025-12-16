@@ -8,7 +8,7 @@ import type {
   GetIdentityNotificationAttributesRequest,
   GetIdentityNotificationAttributesResponse,
 } from "../models/models_0";
-import { GetIdentityNotificationAttributes } from "../schemas/schemas_0";
+import { GetIdentityNotificationAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -122,7 +122,7 @@ export class GetIdentityNotificationAttributesCommand extends $Command
   })
   .s("SimpleEmailService", "GetIdentityNotificationAttributes", {})
   .n("SESClient", "GetIdentityNotificationAttributesCommand")
-  .sc(GetIdentityNotificationAttributes)
+  .sc(GetIdentityNotificationAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

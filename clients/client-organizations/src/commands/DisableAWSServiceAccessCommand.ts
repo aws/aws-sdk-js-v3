@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisableAWSServiceAccessRequest } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { DisableAWSServiceAccess } from "../schemas/schemas_0";
+import { DisableAWSServiceAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -547,7 +547,7 @@ export class DisableAWSServiceAccessCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "DisableAWSServiceAccess", {})
   .n("OrganizationsClient", "DisableAWSServiceAccessCommand")
-  .sc(DisableAWSServiceAccess)
+  .sc(DisableAWSServiceAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

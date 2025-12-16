@@ -9,7 +9,7 @@ import type {
   DeleteNetworkInsightsAccessScopeAnalysisRequest,
   DeleteNetworkInsightsAccessScopeAnalysisResult,
 } from "../models/models_2";
-import { DeleteNetworkInsightsAccessScopeAnalysis } from "../schemas/schemas_0";
+import { DeleteNetworkInsightsAccessScopeAnalysis$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -80,7 +80,7 @@ export class DeleteNetworkInsightsAccessScopeAnalysisCommand extends $Command
   })
   .s("AmazonEC2", "DeleteNetworkInsightsAccessScopeAnalysis", {})
   .n("EC2Client", "DeleteNetworkInsightsAccessScopeAnalysisCommand")
-  .sc(DeleteNetworkInsightsAccessScopeAnalysis)
+  .sc(DeleteNetworkInsightsAccessScopeAnalysis$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

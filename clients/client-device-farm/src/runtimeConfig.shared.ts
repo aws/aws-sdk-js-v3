@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: DeviceFarmClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.devicefarm",
-        serviceTarget: "DeviceFarm_20150623",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.devicefarm",
+      xmlNamespace: "http://devicefarm.amazonaws.com/doc/2015-06-23/",
+      version: "2015-06-23",
+      serviceTarget: "DeviceFarm_20150623",
+    },
     serviceId: config?.serviceId ?? "Device Farm",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

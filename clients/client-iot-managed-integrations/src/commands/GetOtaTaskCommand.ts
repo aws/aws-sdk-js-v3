@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { GetOtaTaskRequest, GetOtaTaskResponse } from "../models/models_0";
-import { GetOtaTask } from "../schemas/schemas_0";
+import { GetOtaTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -141,7 +141,7 @@ export class GetOtaTaskCommand extends $Command
   })
   .s("IotManagedIntegrations", "GetOtaTask", {})
   .n("IoTManagedIntegrationsClient", "GetOtaTaskCommand")
-  .sc(GetOtaTask)
+  .sc(GetOtaTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

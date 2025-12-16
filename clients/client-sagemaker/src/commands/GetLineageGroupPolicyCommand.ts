@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetLineageGroupPolicyRequest, GetLineageGroupPolicyResponse } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { GetLineageGroupPolicy } from "../schemas/schemas_0";
+import { GetLineageGroupPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class GetLineageGroupPolicyCommand extends $Command
   })
   .s("SageMaker", "GetLineageGroupPolicy", {})
   .n("SageMakerClient", "GetLineageGroupPolicyCommand")
-  .sc(GetLineageGroupPolicy)
+  .sc(GetLineageGroupPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

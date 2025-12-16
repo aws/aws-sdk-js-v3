@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteBucketReplicationRequest } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { DeleteBucketReplication } from "../schemas/schemas_0";
+import { DeleteBucketReplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class DeleteBucketReplicationCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "DeleteBucketReplication", {})
   .n("S3ControlClient", "DeleteBucketReplicationCommand")
-  .sc(DeleteBucketReplication)
+  .sc(DeleteBucketReplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MachineLearningClient";
 import type { CreateDataSourceFromRedshiftInput, CreateDataSourceFromRedshiftOutput } from "../models/models_0";
-import { CreateDataSourceFromRedshift } from "../schemas/schemas_0";
+import { CreateDataSourceFromRedshift$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,7 +138,7 @@ export class CreateDataSourceFromRedshiftCommand extends $Command
   })
   .s("AmazonML_20141212", "CreateDataSourceFromRedshift", {})
   .n("MachineLearningClient", "CreateDataSourceFromRedshiftCommand")
-  .sc(CreateDataSourceFromRedshift)
+  .sc(CreateDataSourceFromRedshift$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRateBasedRuleRequest, GetRateBasedRuleResponse } from "../models/models_0";
-import { GetRateBasedRule } from "../schemas/schemas_0";
+import { GetRateBasedRule$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -105,7 +105,7 @@ export class GetRateBasedRuleCommand extends $Command
   })
   .s("AWSWAF_20150824", "GetRateBasedRule", {})
   .n("WAFClient", "GetRateBasedRuleCommand")
-  .sc(GetRateBasedRule)
+  .sc(GetRateBasedRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest,
   StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse,
 } from "../models/models_1";
-import { StartBulkDisassociateWirelessDeviceFromMulticastGroup } from "../schemas/schemas_0";
+import { StartBulkDisassociateWirelessDeviceFromMulticastGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand extend
   })
   .s("iotwireless", "StartBulkDisassociateWirelessDeviceFromMulticastGroup", {})
   .n("IoTWirelessClient", "StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand")
-  .sc(StartBulkDisassociateWirelessDeviceFromMulticastGroup)
+  .sc(StartBulkDisassociateWirelessDeviceFromMulticastGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

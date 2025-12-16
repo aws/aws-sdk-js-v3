@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutTelemetryRecordsRequest, PutTelemetryRecordsResult } from "../models/models_0";
-import { PutTelemetryRecords } from "../schemas/schemas_0";
+import { PutTelemetryRecords$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -96,7 +96,7 @@ export class PutTelemetryRecordsCommand extends $Command
   })
   .s("AWSXRay", "PutTelemetryRecords", {})
   .n("XRayClient", "PutTelemetryRecordsCommand")
-  .sc(PutTelemetryRecords)
+  .sc(PutTelemetryRecords$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

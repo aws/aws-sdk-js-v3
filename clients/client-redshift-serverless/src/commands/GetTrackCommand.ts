@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { GetTrack } from "../schemas/schemas_0";
+import { GetTrack$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class GetTrackCommand extends $Command
   })
   .s("RedshiftServerless", "GetTrack", {})
   .n("RedshiftServerlessClient", "GetTrackCommand")
-  .sc(GetTrack)
+  .sc(GetTrack$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

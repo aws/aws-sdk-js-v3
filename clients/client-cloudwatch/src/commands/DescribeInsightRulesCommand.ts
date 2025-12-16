@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeInsightRulesInput, DescribeInsightRulesOutput } from "../models/models_0";
-import { DescribeInsightRules } from "../schemas/schemas_0";
+import { DescribeInsightRules$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DescribeInsightRulesCommand extends $Command
   })
   .s("GraniteServiceVersion20100801", "DescribeInsightRules", {})
   .n("CloudWatchClient", "DescribeInsightRulesCommand")
-  .sc(DescribeInsightRules)
+  .sc(DescribeInsightRules$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

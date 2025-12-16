@@ -9,7 +9,7 @@ import type {
   ListRestoreJobsByProtectedResourceInput,
   ListRestoreJobsByProtectedResourceOutput,
 } from "../models/models_0";
-import { ListRestoreJobsByProtectedResource } from "../schemas/schemas_0";
+import { ListRestoreJobsByProtectedResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class ListRestoreJobsByProtectedResourceCommand extends $Command
   })
   .s("CryoControllerUserManager", "ListRestoreJobsByProtectedResource", {})
   .n("BackupClient", "ListRestoreJobsByProtectedResourceCommand")
-  .sc(ListRestoreJobsByProtectedResource)
+  .sc(ListRestoreJobsByProtectedResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   ListProtectedResourcesByBackupVaultInput,
   ListProtectedResourcesByBackupVaultOutput,
 } from "../models/models_0";
-import { ListProtectedResourcesByBackupVault } from "../schemas/schemas_0";
+import { ListProtectedResourcesByBackupVault$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class ListProtectedResourcesByBackupVaultCommand extends $Command
   })
   .s("CryoControllerUserManager", "ListProtectedResourcesByBackupVault", {})
   .n("BackupClient", "ListProtectedResourcesByBackupVaultCommand")
-  .sc(ListProtectedResourcesByBackupVault)
+  .sc(ListProtectedResourcesByBackupVault$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

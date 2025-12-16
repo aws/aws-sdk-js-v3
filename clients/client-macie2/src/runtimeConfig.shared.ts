@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: Macie2ClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.macie2" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.macie2",
+      version: "2020-01-01",
+      serviceTarget: "Macie2",
+    },
     serviceId: config?.serviceId ?? "Macie2",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

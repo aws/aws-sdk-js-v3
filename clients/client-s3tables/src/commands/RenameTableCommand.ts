@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RenameTableRequest } from "../models/models_0";
 import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
-import { RenameTable } from "../schemas/schemas_0";
+import { RenameTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class RenameTableCommand extends $Command
   })
   .s("S3TableBuckets", "RenameTable", {})
   .n("S3TablesClient", "RenameTableCommand")
-  .sc(RenameTable)
+  .sc(RenameTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeleteConfiguredAudienceModelAssociationInput,
   DeleteConfiguredAudienceModelAssociationOutput,
 } from "../models/models_0";
-import { DeleteConfiguredAudienceModelAssociation } from "../schemas/schemas_0";
+import { DeleteConfiguredAudienceModelAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteConfiguredAudienceModelAssociationCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "DeleteConfiguredAudienceModelAssociation", {})
   .n("CleanRoomsClient", "DeleteConfiguredAudienceModelAssociationCommand")
-  .sc(DeleteConfiguredAudienceModelAssociation)
+  .sc(DeleteConfiguredAudienceModelAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

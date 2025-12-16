@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PurchaseReservedNodeOfferingMessage, PurchaseReservedNodeOfferingResult } from "../models/models_1";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { PurchaseReservedNodeOffering } from "../schemas/schemas_0";
+import { PurchaseReservedNodeOffering$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class PurchaseReservedNodeOfferingCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "PurchaseReservedNodeOffering", {})
   .n("RedshiftClient", "PurchaseReservedNodeOfferingCommand")
-  .sc(PurchaseReservedNodeOffering)
+  .sc(PurchaseReservedNodeOffering$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

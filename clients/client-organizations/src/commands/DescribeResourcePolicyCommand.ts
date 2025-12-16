@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeResourcePolicyResponse } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { DescribeResourcePolicy } from "../schemas/schemas_0";
+import { DescribeResourcePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -351,7 +351,7 @@ export class DescribeResourcePolicyCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "DescribeResourcePolicy", {})
   .n("OrganizationsClient", "DescribeResourcePolicyCommand")
-  .sc(DescribeResourcePolicy)
+  .sc(DescribeResourcePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

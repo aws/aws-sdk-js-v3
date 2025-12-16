@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: SocialMessagingClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.socialmessaging" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.socialmessaging",
+      version: "2024-01-01",
+      serviceTarget: "SocialMessaging",
+    },
     serviceId: config?.serviceId ?? "SocialMessaging",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ReportTaskRunnerHeartbeatInput, ReportTaskRunnerHeartbeatOutput } from "../models/models_0";
-import { ReportTaskRunnerHeartbeat } from "../schemas/schemas_0";
+import { ReportTaskRunnerHeartbeat$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class ReportTaskRunnerHeartbeatCommand extends $Command
   })
   .s("DataPipeline", "ReportTaskRunnerHeartbeat", {})
   .n("DataPipelineClient", "ReportTaskRunnerHeartbeatCommand")
-  .sc(ReportTaskRunnerHeartbeat)
+  .sc(ReportTaskRunnerHeartbeat$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

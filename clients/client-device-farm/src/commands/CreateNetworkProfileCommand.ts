@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateNetworkProfileRequest, CreateNetworkProfileResult } from "../models/models_0";
-import { CreateNetworkProfile } from "../schemas/schemas_0";
+import { CreateNetworkProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class CreateNetworkProfileCommand extends $Command
   })
   .s("DeviceFarm_20150623", "CreateNetworkProfile", {})
   .n("DeviceFarmClient", "CreateNetworkProfileCommand")
-  .sc(CreateNetworkProfile)
+  .sc(CreateNetworkProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

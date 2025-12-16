@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAppMonitorRequest, DeleteAppMonitorResponse } from "../models/models_0";
 import type { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
-import { DeleteAppMonitor } from "../schemas/schemas_0";
+import { DeleteAppMonitor$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeleteAppMonitorCommand extends $Command
   })
   .s("RUM", "DeleteAppMonitor", {})
   .n("RUMClient", "DeleteAppMonitorCommand")
-  .sc(DeleteAppMonitor)
+  .sc(DeleteAppMonitor$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

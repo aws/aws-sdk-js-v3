@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeletePackageVersionsRequest, DeletePackageVersionsResult } from "../models/models_0";
-import { DeletePackageVersions } from "../schemas/schemas_0";
+import { DeletePackageVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class DeletePackageVersionsCommand extends $Command
   })
   .s("CodeArtifactControlPlaneService", "DeletePackageVersions", {})
   .n("CodeartifactClient", "DeletePackageVersionsCommand")
-  .sc(DeletePackageVersions)
+  .sc(DeletePackageVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

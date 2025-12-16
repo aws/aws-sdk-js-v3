@@ -9,7 +9,7 @@ import type {
   AssociateAwsAccountWithPartnerAccountRequest,
   AssociateAwsAccountWithPartnerAccountResponse,
 } from "../models/models_0";
-import { AssociateAwsAccountWithPartnerAccount } from "../schemas/schemas_0";
+import { AssociateAwsAccountWithPartnerAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class AssociateAwsAccountWithPartnerAccountCommand extends $Command
   })
   .s("iotwireless", "AssociateAwsAccountWithPartnerAccount", {})
   .n("IoTWirelessClient", "AssociateAwsAccountWithPartnerAccountCommand")
-  .sc(AssociateAwsAccountWithPartnerAccount)
+  .sc(AssociateAwsAccountWithPartnerAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

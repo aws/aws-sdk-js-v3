@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetOpenCypherQueryStatusInput, GetOpenCypherQueryStatusOutput } from "../models/models_0";
 import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
-import { GetOpenCypherQueryStatus } from "../schemas/schemas_0";
+import { GetOpenCypherQueryStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class GetOpenCypherQueryStatusCommand extends $Command
   })
   .s("AmazonNeptuneDataplane", "GetOpenCypherQueryStatus", {})
   .n("NeptunedataClient", "GetOpenCypherQueryStatusCommand")
-  .sc(GetOpenCypherQueryStatus)
+  .sc(GetOpenCypherQueryStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

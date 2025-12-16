@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImportSnapshotRequest, ImportSnapshotResult } from "../models/models_6";
-import { ImportSnapshot } from "../schemas/schemas_0";
+import { ImportSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class ImportSnapshotCommand extends $Command
   })
   .s("AmazonEC2", "ImportSnapshot", {})
   .n("EC2Client", "ImportSnapshotCommand")
-  .sc(ImportSnapshot)
+  .sc(ImportSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

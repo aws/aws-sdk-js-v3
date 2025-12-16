@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import type { DeletePartnerEventSourceRequest } from "../models/models_0";
-import { DeletePartnerEventSource } from "../schemas/schemas_0";
+import { DeletePartnerEventSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DeletePartnerEventSourceCommand extends $Command
   })
   .s("AWSEvents", "DeletePartnerEventSource", {})
   .n("EventBridgeClient", "DeletePartnerEventSourceCommand")
-  .sc(DeletePartnerEventSource)
+  .sc(DeletePartnerEventSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

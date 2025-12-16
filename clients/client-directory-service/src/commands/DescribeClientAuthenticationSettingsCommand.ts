@@ -13,7 +13,7 @@ import type {
   DescribeClientAuthenticationSettingsRequest,
   DescribeClientAuthenticationSettingsResult,
 } from "../models/models_0";
-import { DescribeClientAuthenticationSettings } from "../schemas/schemas_0";
+import { DescribeClientAuthenticationSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class DescribeClientAuthenticationSettingsCommand extends $Command
   })
   .s("DirectoryService_20150416", "DescribeClientAuthenticationSettings", {})
   .n("DirectoryServiceClient", "DescribeClientAuthenticationSettingsCommand")
-  .sc(DescribeClientAuthenticationSettings)
+  .sc(DescribeClientAuthenticationSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateResourceRequest, UpdateResourceResponse } from "../models/models_0";
-import { UpdateResource } from "../schemas/schemas_0";
+import { UpdateResource$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -127,7 +127,7 @@ export class UpdateResourceCommand extends $Command
   })
   .s("WorkMailService", "UpdateResource", {})
   .n("WorkMailClient", "UpdateResourceCommand")
-  .sc(UpdateResource)
+  .sc(UpdateResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

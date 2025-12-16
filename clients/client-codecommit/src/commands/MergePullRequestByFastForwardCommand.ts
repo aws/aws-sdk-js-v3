@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MergePullRequestByFastForwardInput, MergePullRequestByFastForwardOutput } from "../models/models_0";
-import { MergePullRequestByFastForward } from "../schemas/schemas_0";
+import { MergePullRequestByFastForward$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -182,7 +182,7 @@ export class MergePullRequestByFastForwardCommand extends $Command
   })
   .s("CodeCommit_20150413", "MergePullRequestByFastForward", {})
   .n("CodeCommitClient", "MergePullRequestByFastForwardCommand")
-  .sc(MergePullRequestByFastForward)
+  .sc(MergePullRequestByFastForward$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

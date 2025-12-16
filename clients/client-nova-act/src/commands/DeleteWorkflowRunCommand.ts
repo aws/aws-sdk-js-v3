@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteWorkflowRunRequest, DeleteWorkflowRunResponse } from "../models/models_0";
 import type { NovaActClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NovaActClient";
-import { DeleteWorkflowRun } from "../schemas/schemas_0";
+import { DeleteWorkflowRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DeleteWorkflowRunCommand extends $Command
   })
   .s("AmazonNovaAgentsDataPlane", "DeleteWorkflowRun", {})
   .n("NovaActClient", "DeleteWorkflowRunCommand")
-  .sc(DeleteWorkflowRun)
+  .sc(DeleteWorkflowRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

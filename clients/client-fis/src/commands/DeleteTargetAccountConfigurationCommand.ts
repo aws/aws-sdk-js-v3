@@ -9,7 +9,7 @@ import type {
   DeleteTargetAccountConfigurationRequest,
   DeleteTargetAccountConfigurationResponse,
 } from "../models/models_0";
-import { DeleteTargetAccountConfiguration } from "../schemas/schemas_0";
+import { DeleteTargetAccountConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeleteTargetAccountConfigurationCommand extends $Command
   })
   .s("FaultInjectionSimulator", "DeleteTargetAccountConfiguration", {})
   .n("FisClient", "DeleteTargetAccountConfigurationCommand")
-  .sc(DeleteTargetAccountConfiguration)
+  .sc(DeleteTargetAccountConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

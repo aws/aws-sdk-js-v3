@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartActivityStreamRequest, StartActivityStreamResponse } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { StartActivityStream } from "../schemas/schemas_0";
+import { StartActivityStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class StartActivityStreamCommand extends $Command
   })
   .s("AmazonRDSv19", "StartActivityStream", {})
   .n("RDSClient", "StartActivityStreamCommand")
-  .sc(StartActivityStream)
+  .sc(StartActivityStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

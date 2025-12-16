@@ -7,7 +7,7 @@ import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchUserHierarchyGroupsResponse } from "../models/models_2";
 import type { SearchUserHierarchyGroupsRequest } from "../models/models_3";
-import { SearchUserHierarchyGroups } from "../schemas/schemas_0";
+import { SearchUserHierarchyGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -194,7 +194,7 @@ export class SearchUserHierarchyGroupsCommand extends $Command
   })
   .s("AmazonConnectService", "SearchUserHierarchyGroups", {})
   .n("ConnectClient", "SearchUserHierarchyGroupsCommand")
-  .sc(SearchUserHierarchyGroups)
+  .sc(SearchUserHierarchyGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

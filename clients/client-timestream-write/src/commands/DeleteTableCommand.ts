@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTableRequest } from "../models/models_0";
-import { DeleteTable } from "../schemas/schemas_0";
+import { DeleteTable$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -114,7 +114,7 @@ export class DeleteTableCommand extends $Command
   })
   .s("Timestream_20181101", "DeleteTable", {})
   .n("TimestreamWriteClient", "DeleteTableCommand")
-  .sc(DeleteTable)
+  .sc(DeleteTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

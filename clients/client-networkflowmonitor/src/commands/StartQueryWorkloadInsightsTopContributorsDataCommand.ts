@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFlowMonitorClient";
-import { StartQueryWorkloadInsightsTopContributorsData } from "../schemas/schemas_0";
+import { StartQueryWorkloadInsightsTopContributorsData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class StartQueryWorkloadInsightsTopContributorsDataCommand extends $Comma
   })
   .s("NetworkFlowMonitor", "StartQueryWorkloadInsightsTopContributorsData", {})
   .n("NetworkFlowMonitorClient", "StartQueryWorkloadInsightsTopContributorsDataCommand")
-  .sc(StartQueryWorkloadInsightsTopContributorsData)
+  .sc(StartQueryWorkloadInsightsTopContributorsData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   PutEmailIdentityDkimSigningAttributesRequest,
   PutEmailIdentityDkimSigningAttributesResponse,
 } from "../models/models_0";
-import { PutEmailIdentityDkimSigningAttributes } from "../schemas/schemas_0";
+import { PutEmailIdentityDkimSigningAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -121,7 +121,7 @@ export class PutEmailIdentityDkimSigningAttributesCommand extends $Command
   })
   .s("SimpleEmailService_v2", "PutEmailIdentityDkimSigningAttributes", {})
   .n("SESv2Client", "PutEmailIdentityDkimSigningAttributesCommand")
-  .sc(PutEmailIdentityDkimSigningAttributes)
+  .sc(PutEmailIdentityDkimSigningAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

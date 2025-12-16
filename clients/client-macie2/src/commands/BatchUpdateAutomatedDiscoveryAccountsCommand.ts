@@ -9,7 +9,7 @@ import type {
   BatchUpdateAutomatedDiscoveryAccountsRequest,
   BatchUpdateAutomatedDiscoveryAccountsResponse,
 } from "../models/models_0";
-import { BatchUpdateAutomatedDiscoveryAccounts } from "../schemas/schemas_0";
+import { BatchUpdateAutomatedDiscoveryAccounts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class BatchUpdateAutomatedDiscoveryAccountsCommand extends $Command
   })
   .s("Macie2", "BatchUpdateAutomatedDiscoveryAccounts", {})
   .n("Macie2Client", "BatchUpdateAutomatedDiscoveryAccountsCommand")
-  .sc(BatchUpdateAutomatedDiscoveryAccounts)
+  .sc(BatchUpdateAutomatedDiscoveryAccounts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

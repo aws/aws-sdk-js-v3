@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RegisterDomainInput } from "../models/models_0";
-import { RegisterDomain } from "../schemas/schemas_0";
+import { RegisterDomain$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -114,7 +114,7 @@ export class RegisterDomainCommand extends $Command
   })
   .s("SimpleWorkflowService", "RegisterDomain", {})
   .n("SWFClient", "RegisterDomainCommand")
-  .sc(RegisterDomain)
+  .sc(RegisterDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   UpdateConnectionRecordingPreferencesRequest,
   UpdateConnectionRecordingPreferencesResponse,
 } from "../models/models_0";
-import { UpdateConnectionRecordingPreferences } from "../schemas/schemas_0";
+import { UpdateConnectionRecordingPreferences$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMGuiConnectClientResolvedConfig } from "../SSMGuiConnectClient";
 
 /**
@@ -157,7 +157,7 @@ export class UpdateConnectionRecordingPreferencesCommand extends $Command
   })
   .s("SSMGuiConnect", "UpdateConnectionRecordingPreferences", {})
   .n("SSMGuiConnectClient", "UpdateConnectionRecordingPreferencesCommand")
-  .sc(UpdateConnectionRecordingPreferences)
+  .sc(UpdateConnectionRecordingPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

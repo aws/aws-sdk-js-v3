@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BillingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateSourceViewsRequest, AssociateSourceViewsResponse } from "../models/models_0";
-import { AssociateSourceViews } from "../schemas/schemas_0";
+import { AssociateSourceViews$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class AssociateSourceViewsCommand extends $Command
   })
   .s("AWSBilling", "AssociateSourceViews", {})
   .n("BillingClient", "AssociateSourceViewsCommand")
-  .sc(AssociateSourceViews)
+  .sc(AssociateSourceViews$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

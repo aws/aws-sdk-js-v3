@@ -13,7 +13,7 @@ import type {
   ExportRDSDatabaseRecommendationsRequest,
   ExportRDSDatabaseRecommendationsResponse,
 } from "../models/models_0";
-import { ExportRDSDatabaseRecommendations } from "../schemas/schemas_0";
+import { ExportRDSDatabaseRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -143,7 +143,7 @@ export class ExportRDSDatabaseRecommendationsCommand extends $Command
   })
   .s("ComputeOptimizerService", "ExportRDSDatabaseRecommendations", {})
   .n("ComputeOptimizerClient", "ExportRDSDatabaseRecommendationsCommand")
-  .sc(ExportRDSDatabaseRecommendations)
+  .sc(ExportRDSDatabaseRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

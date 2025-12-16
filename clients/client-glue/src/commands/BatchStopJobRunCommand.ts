@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { BatchStopJobRunRequest, BatchStopJobRunResponse } from "../models/models_0";
-import { BatchStopJobRun } from "../schemas/schemas_0";
+import { BatchStopJobRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class BatchStopJobRunCommand extends $Command
   })
   .s("AWSGlue", "BatchStopJobRun", {})
   .n("GlueClient", "BatchStopJobRunCommand")
-  .sc(BatchStopJobRun)
+  .sc(BatchStopJobRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

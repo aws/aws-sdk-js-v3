@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: ApplicationInsightsClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.applicationinsights",
-        serviceTarget: "EC2WindowsBarleyService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.applicationinsights",
+      version: "2018-11-25",
+      serviceTarget: "EC2WindowsBarleyService",
+    },
     serviceId: config?.serviceId ?? "Application Insights",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

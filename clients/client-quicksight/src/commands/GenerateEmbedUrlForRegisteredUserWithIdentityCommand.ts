@@ -9,7 +9,7 @@ import type {
   GenerateEmbedUrlForRegisteredUserWithIdentityResponse,
 } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { GenerateEmbedUrlForRegisteredUserWithIdentity } from "../schemas/schemas_0";
+import { GenerateEmbedUrlForRegisteredUserWithIdentity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -217,7 +217,7 @@ export class GenerateEmbedUrlForRegisteredUserWithIdentityCommand extends $Comma
   })
   .s("QuickSight_20180401", "GenerateEmbedUrlForRegisteredUserWithIdentity", {})
   .n("QuickSightClient", "GenerateEmbedUrlForRegisteredUserWithIdentityCommand")
-  .sc(GenerateEmbedUrlForRegisteredUserWithIdentity)
+  .sc(GenerateEmbedUrlForRegisteredUserWithIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

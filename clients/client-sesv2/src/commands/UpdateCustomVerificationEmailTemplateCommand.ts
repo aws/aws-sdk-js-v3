@@ -8,7 +8,7 @@ import type {
   UpdateCustomVerificationEmailTemplateRequest,
   UpdateCustomVerificationEmailTemplateResponse,
 } from "../models/models_1";
-import { UpdateCustomVerificationEmailTemplate } from "../schemas/schemas_0";
+import { UpdateCustomVerificationEmailTemplate$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -95,7 +95,7 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command
   })
   .s("SimpleEmailService_v2", "UpdateCustomVerificationEmailTemplate", {})
   .n("SESv2Client", "UpdateCustomVerificationEmailTemplateCommand")
-  .sc(UpdateCustomVerificationEmailTemplate)
+  .sc(UpdateCustomVerificationEmailTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

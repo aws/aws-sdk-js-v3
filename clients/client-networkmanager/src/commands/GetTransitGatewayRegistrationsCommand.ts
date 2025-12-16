@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { GetTransitGatewayRegistrations } from "../schemas/schemas_0";
+import { GetTransitGatewayRegistrations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class GetTransitGatewayRegistrationsCommand extends $Command
   })
   .s("NetworkManager", "GetTransitGatewayRegistrations", {})
   .n("NetworkManagerClient", "GetTransitGatewayRegistrationsCommand")
-  .sc(GetTransitGatewayRegistrations)
+  .sc(GetTransitGatewayRegistrations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

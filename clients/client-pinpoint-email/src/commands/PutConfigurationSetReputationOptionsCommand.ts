@@ -9,7 +9,7 @@ import type {
   PutConfigurationSetReputationOptionsResponse,
 } from "../models/models_0";
 import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { PutConfigurationSetReputationOptions } from "../schemas/schemas_0";
+import { PutConfigurationSetReputationOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command
   })
   .s("AmazonPinpointEmailService", "PutConfigurationSetReputationOptions", {})
   .n("PinpointEmailClient", "PutConfigurationSetReputationOptionsCommand")
-  .sc(PutConfigurationSetReputationOptions)
+  .sc(PutConfigurationSetReputationOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

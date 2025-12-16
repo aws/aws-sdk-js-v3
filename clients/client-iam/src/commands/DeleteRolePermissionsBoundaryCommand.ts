@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { DeleteRolePermissionsBoundaryRequest } from "../models/models_0";
-import { DeleteRolePermissionsBoundary } from "../schemas/schemas_0";
+import { DeleteRolePermissionsBoundary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteRolePermissionsBoundaryCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "DeleteRolePermissionsBoundary", {})
   .n("IAMClient", "DeleteRolePermissionsBoundaryCommand")
-  .sc(DeleteRolePermissionsBoundary)
+  .sc(DeleteRolePermissionsBoundary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

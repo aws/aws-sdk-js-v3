@@ -9,7 +9,7 @@ import type {
   GetOrganizationConformancePackDetailedStatusRequest,
   GetOrganizationConformancePackDetailedStatusResponse,
 } from "../models/models_0";
-import { GetOrganizationConformancePackDetailedStatus } from "../schemas/schemas_0";
+import { GetOrganizationConformancePackDetailedStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class GetOrganizationConformancePackDetailedStatusCommand extends $Comman
   })
   .s("StarlingDoveService", "GetOrganizationConformancePackDetailedStatus", {})
   .n("ConfigServiceClient", "GetOrganizationConformancePackDetailedStatusCommand")
-  .sc(GetOrganizationConformancePackDetailedStatus)
+  .sc(GetOrganizationConformancePackDetailedStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

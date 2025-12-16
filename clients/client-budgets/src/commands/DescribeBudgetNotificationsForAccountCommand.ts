@@ -9,7 +9,7 @@ import type {
   DescribeBudgetNotificationsForAccountRequest,
   DescribeBudgetNotificationsForAccountResponse,
 } from "../models/models_0";
-import { DescribeBudgetNotificationsForAccount } from "../schemas/schemas_0";
+import { DescribeBudgetNotificationsForAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class DescribeBudgetNotificationsForAccountCommand extends $Command
   })
   .s("AWSBudgetServiceGateway", "DescribeBudgetNotificationsForAccount", {})
   .n("BudgetsClient", "DescribeBudgetNotificationsForAccountCommand")
-  .sc(DescribeBudgetNotificationsForAccount)
+  .sc(DescribeBudgetNotificationsForAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

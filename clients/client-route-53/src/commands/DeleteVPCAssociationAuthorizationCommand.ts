@@ -10,7 +10,7 @@ import type {
   DeleteVPCAssociationAuthorizationResponse,
 } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { DeleteVPCAssociationAuthorization } from "../schemas/schemas_0";
+import { DeleteVPCAssociationAuthorization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command
   })
   .s("AWSDnsV20130401", "DeleteVPCAssociationAuthorization", {})
   .n("Route53Client", "DeleteVPCAssociationAuthorizationCommand")
-  .sc(DeleteVPCAssociationAuthorization)
+  .sc(DeleteVPCAssociationAuthorization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

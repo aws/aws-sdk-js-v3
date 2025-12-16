@@ -9,7 +9,7 @@ import type {
   DescribeModelExplainabilityJobDefinitionResponse,
 } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DescribeModelExplainabilityJobDefinition } from "../schemas/schemas_0";
+import { DescribeModelExplainabilityJobDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -170,7 +170,7 @@ export class DescribeModelExplainabilityJobDefinitionCommand extends $Command
   })
   .s("SageMaker", "DescribeModelExplainabilityJobDefinition", {})
   .n("SageMakerClient", "DescribeModelExplainabilityJobDefinitionCommand")
-  .sc(DescribeModelExplainabilityJobDefinition)
+  .sc(DescribeModelExplainabilityJobDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

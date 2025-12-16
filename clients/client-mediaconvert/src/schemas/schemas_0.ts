@@ -1794,18 +1794,18 @@ import type {
 } from "@smithy/types";
 
 import {
-  BadRequestException as __BadRequestException,
-  ConflictException as __ConflictException,
-  ForbiddenException as __ForbiddenException,
-  InternalServerErrorException as __InternalServerErrorException,
-  NotFoundException as __NotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  TooManyRequestsException as __TooManyRequestsException,
+  BadRequestException,
+  ConflictException,
+  ForbiddenException,
+  InternalServerErrorException,
+  NotFoundException,
+  ServiceQuotaExceededException,
+  TooManyRequestsException,
 } from "../models/errors";
-import { MediaConvertServiceException as __MediaConvertServiceException } from "../models/MediaConvertServiceException";
+import { MediaConvertServiceException } from "../models/MediaConvertServiceException";
 
 /* eslint no-var: 0 */
-export var AacSettings: StaticStructureSchema = [
+export var AacSettings$: StaticStructureSchema = [
   3,
   n0,
   _AS,
@@ -1826,7 +1826,7 @@ export var AacSettings: StaticStructureSchema = [
     [0, { [_jN]: _vQ }],
   ],
 ];
-export var Ac3Settings: StaticStructureSchema = [
+export var Ac3Settings$: StaticStructureSchema = [
   3,
   n0,
   _ASc,
@@ -1845,8 +1845,8 @@ export var Ac3Settings: StaticStructureSchema = [
     [1, { [_jN]: _sR }],
   ],
 ];
-export var AccelerationSettings: StaticStructureSchema = [3, n0, _AScc, 0, [_M], [[0, { [_jN]: _m }]]];
-export var AdvancedInputFilterSettings: StaticStructureSchema = [
+export var AccelerationSettings$: StaticStructureSchema = [3, n0, _AScc, 0, [_M], [[0, { [_jN]: _m }]]];
+export var AdvancedInputFilterSettings$: StaticStructureSchema = [
   3,
   n0,
   _AIFS,
@@ -1857,7 +1857,7 @@ export var AdvancedInputFilterSettings: StaticStructureSchema = [
     [0, { [_jN]: _sh }],
   ],
 ];
-export var AiffSettings: StaticStructureSchema = [
+export var AiffSettings$: StaticStructureSchema = [
   3,
   n0,
   _ASi,
@@ -1869,7 +1869,7 @@ export var AiffSettings: StaticStructureSchema = [
     [1, { [_jN]: _sR }],
   ],
 ];
-export var AllowedRenditionSize: StaticStructureSchema = [
+export var AllowedRenditionSize$: StaticStructureSchema = [
   3,
   n0,
   _ARS,
@@ -1881,7 +1881,7 @@ export var AllowedRenditionSize: StaticStructureSchema = [
     [1, { [_jN]: _w }],
   ],
 ];
-export var AncillarySourceSettings: StaticStructureSchema = [
+export var AncillarySourceSettings$: StaticStructureSchema = [
   3,
   n0,
   _ASS,
@@ -1893,9 +1893,9 @@ export var AncillarySourceSettings: StaticStructureSchema = [
     [0, { [_jN]: _tC }],
   ],
 ];
-export var AssociateCertificateRequest: StaticStructureSchema = [3, n0, _ACR, 0, [_A], [[0, { [_jN]: _a }]]];
-export var AssociateCertificateResponse: StaticStructureSchema = [3, n0, _ACRs, 0, [], []];
-export var AudioChannelTaggingSettings: StaticStructureSchema = [
+export var AssociateCertificateRequest$: StaticStructureSchema = [3, n0, _ACR, 0, [_A], [[0, { [_jN]: _a }]]];
+export var AssociateCertificateResponse$: StaticStructureSchema = [3, n0, _ACRs, 0, [], []];
+export var AudioChannelTaggingSettings$: StaticStructureSchema = [
   3,
   n0,
   _ACTS,
@@ -1906,49 +1906,49 @@ export var AudioChannelTaggingSettings: StaticStructureSchema = [
     [64 | 0, { [_jN]: _cTha }],
   ],
 ];
-export var AudioCodecSettings: StaticStructureSchema = [
+export var AudioCodecSettings$: StaticStructureSchema = [
   3,
   n0,
   _ACS,
   0,
   [_AS, _ASc, _ASi, _Co, _EAS, _ES, _FS, _MS, _MSp, _OS, _VS, _WS],
   [
-    [() => AacSettings, { [_jN]: _aS }],
-    [() => Ac3Settings, { [_jN]: _aSc }],
-    [() => AiffSettings, { [_jN]: _aSi }],
+    [() => AacSettings$, { [_jN]: _aS }],
+    [() => Ac3Settings$, { [_jN]: _aSc }],
+    [() => AiffSettings$, { [_jN]: _aSi }],
     [0, { [_jN]: _co }],
-    [() => Eac3AtmosSettings, { [_jN]: _eAS }],
-    [() => Eac3Settings, { [_jN]: _eS }],
-    [() => FlacSettings, { [_jN]: _fS }],
-    [() => Mp2Settings, { [_jN]: _mS }],
-    [() => Mp3Settings, { [_jN]: _mSp }],
-    [() => OpusSettings, { [_jN]: _oS }],
-    [() => VorbisSettings, { [_jN]: _vS }],
-    [() => WavSettings, { [_jN]: _wS }],
+    [() => Eac3AtmosSettings$, { [_jN]: _eAS }],
+    [() => Eac3Settings$, { [_jN]: _eS }],
+    [() => FlacSettings$, { [_jN]: _fS }],
+    [() => Mp2Settings$, { [_jN]: _mS }],
+    [() => Mp3Settings$, { [_jN]: _mSp }],
+    [() => OpusSettings$, { [_jN]: _oS }],
+    [() => VorbisSettings$, { [_jN]: _vS }],
+    [() => WavSettings$, { [_jN]: _wS }],
   ],
 ];
-export var AudioDescription: StaticStructureSchema = [
+export var AudioDescription$: StaticStructureSchema = [
   3,
   n0,
   _AD,
   0,
   [_ACTS, _ANS, _APCS, _ASN, _ATu, _ATC, _CS, _CLC, _LC, _LCC, _RS, _SN],
   [
-    [() => AudioChannelTaggingSettings, { [_jN]: _aCTS }],
-    [() => AudioNormalizationSettings, { [_jN]: _aNS }],
-    [() => AudioPitchCorrectionSettings, { [_jN]: _aPCS }],
+    [() => AudioChannelTaggingSettings$, { [_jN]: _aCTS }],
+    [() => AudioNormalizationSettings$, { [_jN]: _aNS }],
+    [() => AudioPitchCorrectionSettings$, { [_jN]: _aPCS }],
     [0, { [_jN]: _aSN }],
     [1, { [_jN]: _aTu }],
     [0, { [_jN]: _aTC }],
-    [() => AudioCodecSettings, { [_jN]: _cS }],
+    [() => AudioCodecSettings$, { [_jN]: _cS }],
     [0, { [_jN]: _cLC }],
     [0, { [_jN]: _lC }],
     [0, { [_jN]: _lCC }],
-    [() => RemixSettings, { [_jN]: _rS }],
+    [() => RemixSettings$, { [_jN]: _rS }],
     [0, { [_jN]: _sN }],
   ],
 ];
-export var AudioNormalizationSettings: StaticStructureSchema = [
+export var AudioNormalizationSettings$: StaticStructureSchema = [
   3,
   n0,
   _ANS,
@@ -1964,8 +1964,8 @@ export var AudioNormalizationSettings: StaticStructureSchema = [
     [1, { [_jN]: _tPLT }],
   ],
 ];
-export var AudioPitchCorrectionSettings: StaticStructureSchema = [3, n0, _APCS, 0, [_SPPC], [[0, { [_jN]: _sPPC }]]];
-export var AudioProperties: StaticStructureSchema = [
+export var AudioPitchCorrectionSettings$: StaticStructureSchema = [3, n0, _APCS, 0, [_SPPC], [[0, { [_jN]: _sPPC }]]];
+export var AudioProperties$: StaticStructureSchema = [
   3,
   n0,
   _AP,
@@ -1975,12 +1975,12 @@ export var AudioProperties: StaticStructureSchema = [
     [1, { [_jN]: _bD }],
     [1, { [_jN]: _bR }],
     [1, { [_jN]: _c }],
-    [() => FrameRate, { [_jN]: _fR }],
+    [() => FrameRate$, { [_jN]: _fR }],
     [0, { [_jN]: _lC }],
     [1, { [_jN]: _sR }],
   ],
 ];
-export var AudioSelector: StaticStructureSchema = [
+export var AudioSelector$: StaticStructureSchema = [
   3,
   n0,
   _ASu,
@@ -1991,19 +1991,19 @@ export var AudioSelector: StaticStructureSchema = [
     [0, { [_jN]: _cLC }],
     [0, { [_jN]: _dS }],
     [0, { [_jN]: _eAFI }],
-    [() => HlsRenditionGroupSettings, { [_jN]: _hRGS }],
+    [() => HlsRenditionGroupSettings$, { [_jN]: _hRGS }],
     [0, { [_jN]: _lC }],
     [1, { [_jN]: _o }],
     [64 | 1, { [_jN]: _p }],
     [1, { [_jN]: _pS }],
-    [() => RemixSettings, { [_jN]: _rS }],
+    [() => RemixSettings$, { [_jN]: _rS }],
     [0, { [_jN]: _sT }],
     [64 | 1, { [_jN]: _st }],
     [64 | 1, { [_jN]: _t }],
   ],
 ];
-export var AudioSelectorGroup: StaticStructureSchema = [3, n0, _ASG, 0, [_ASNu], [[64 | 0, { [_jN]: _aSNu }]]];
-export var AutomatedAbrRule: StaticStructureSchema = [
+export var AudioSelectorGroup$: StaticStructureSchema = [3, n0, _ASG, 0, [_ASNu], [[64 | 0, { [_jN]: _aSNu }]]];
+export var AutomatedAbrRule$: StaticStructureSchema = [
   3,
   n0,
   _AAR,
@@ -2012,12 +2012,12 @@ export var AutomatedAbrRule: StaticStructureSchema = [
   [
     [() => __listOfAllowedRenditionSize, { [_jN]: _aR }],
     [() => __listOfForceIncludeRenditionSize, { [_jN]: _fIR }],
-    [() => MinBottomRenditionSize, { [_jN]: _mBRS }],
-    [() => MinTopRenditionSize, { [_jN]: _mTRS }],
+    [() => MinBottomRenditionSize$, { [_jN]: _mBRS }],
+    [() => MinTopRenditionSize$, { [_jN]: _mTRS }],
     [0, { [_jN]: _ty }],
   ],
 ];
-export var AutomatedAbrSettings: StaticStructureSchema = [
+export var AutomatedAbrSettings$: StaticStructureSchema = [
   3,
   n0,
   _AAS,
@@ -2031,15 +2031,15 @@ export var AutomatedAbrSettings: StaticStructureSchema = [
     [() => __listOfAutomatedAbrRule, { [_jN]: _ru }],
   ],
 ];
-export var AutomatedEncodingSettings: StaticStructureSchema = [
+export var AutomatedEncodingSettings$: StaticStructureSchema = [
   3,
   n0,
   _AES,
   0,
   [_ASb],
-  [[() => AutomatedAbrSettings, { [_jN]: _aSb }]],
+  [[() => AutomatedAbrSettings$, { [_jN]: _aSb }]],
 ];
-export var Av1QvbrSettings: StaticStructureSchema = [
+export var Av1QvbrSettings$: StaticStructureSchema = [
   3,
   n0,
   _AQS,
@@ -2050,7 +2050,7 @@ export var Av1QvbrSettings: StaticStructureSchema = [
     [1, { [_jN]: _qQLFT }],
   ],
 ];
-export var Av1Settings: StaticStructureSchema = [
+export var Av1Settings$: StaticStructureSchema = [
   3,
   n0,
   _ASv,
@@ -2068,14 +2068,14 @@ export var Av1Settings: StaticStructureSchema = [
     [1, { [_jN]: _mB }],
     [1, { [_jN]: _nBFBRF }],
     [64 | 0, { [_jN]: _pFM }],
-    [() => Av1QvbrSettings, { [_jN]: _qS }],
+    [() => Av1QvbrSettings$, { [_jN]: _qS }],
     [0, { [_jN]: _rCM }],
     [1, { [_jN]: _sl }],
     [0, { [_jN]: _sAQ }],
   ],
 ];
-export var AvailBlanking: StaticStructureSchema = [3, n0, _AB, 0, [_ABI], [[0, { [_jN]: _aBI }]]];
-export var AvcIntraSettings: StaticStructureSchema = [
+export var AvailBlanking$: StaticStructureSchema = [3, n0, _AB, 0, [_ABI], [[0, { [_jN]: _aBI }]]];
+export var AvcIntraSettings$: StaticStructureSchema = [
   3,
   n0,
   _AIS,
@@ -2083,7 +2083,7 @@ export var AvcIntraSettings: StaticStructureSchema = [
   [_AIC, _AIUS, _FC, _FCA, _FD, _FN, _IM, _PFM, _STCM, _SP, _Te],
   [
     [0, { [_jN]: _aIC }],
-    [() => AvcIntraUhdSettings, { [_jN]: _aIUS }],
+    [() => AvcIntraUhdSettings$, { [_jN]: _aIUS }],
     [0, { [_jN]: _fC }],
     [0, { [_jN]: _fCA }],
     [1, { [_jN]: _fD }],
@@ -2095,8 +2095,8 @@ export var AvcIntraSettings: StaticStructureSchema = [
     [0, { [_jN]: _te }],
   ],
 ];
-export var AvcIntraUhdSettings: StaticStructureSchema = [3, n0, _AIUS, 0, [_QTL], [[0, { [_jN]: _qTL }]]];
-export var BadRequestException: StaticErrorSchema = [
+export var AvcIntraUhdSettings$: StaticStructureSchema = [3, n0, _AIUS, 0, [_QTL], [[0, { [_jN]: _qTL }]]];
+export var BadRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _BRE,
@@ -2104,8 +2104,8 @@ export var BadRequestException: StaticErrorSchema = [
   [_Me],
   [[0, { [_jN]: _me }]],
 ];
-TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-export var BandwidthReductionFilter: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+export var BandwidthReductionFilter$: StaticStructureSchema = [
   3,
   n0,
   _BRF,
@@ -2116,7 +2116,7 @@ export var BandwidthReductionFilter: StaticStructureSchema = [
     [0, { [_jN]: _str }],
   ],
 ];
-export var BurninDestinationSettings: StaticStructureSchema = [
+export var BurninDestinationSettings$: StaticStructureSchema = [
   3,
   n0,
   _BDS,
@@ -2178,9 +2178,9 @@ export var BurninDestinationSettings: StaticStructureSchema = [
     [1, { [_jN]: _yP }],
   ],
 ];
-export var CancelJobRequest: StaticStructureSchema = [3, n0, _CJR, 0, [_I], [[0, 1]]];
-export var CancelJobResponse: StaticStructureSchema = [3, n0, _CJRa, 0, [], []];
-export var CaptionDescription: StaticStructureSchema = [
+export var CancelJobRequest$: StaticStructureSchema = [3, n0, _CJR, 0, [_I], [[0, 1]]];
+export var CancelJobResponse$: StaticStructureSchema = [3, n0, _CJRa, 0, [], []];
+export var CaptionDescription$: StaticStructureSchema = [
   3,
   n0,
   _CD,
@@ -2189,12 +2189,12 @@ export var CaptionDescription: StaticStructureSchema = [
   [
     [0, { [_jN]: _cSN }],
     [0, { [_jN]: _cLC }],
-    [() => CaptionDestinationSettings, { [_jN]: _dSe }],
+    [() => CaptionDestinationSettings$, { [_jN]: _dSe }],
     [0, { [_jN]: _lC }],
     [0, { [_jN]: _lD }],
   ],
 ];
-export var CaptionDescriptionPreset: StaticStructureSchema = [
+export var CaptionDescriptionPreset$: StaticStructureSchema = [
   3,
   n0,
   _CDP,
@@ -2202,31 +2202,31 @@ export var CaptionDescriptionPreset: StaticStructureSchema = [
   [_CLC, _DSe, _LC, _LD],
   [
     [0, { [_jN]: _cLC }],
-    [() => CaptionDestinationSettings, { [_jN]: _dSe }],
+    [() => CaptionDestinationSettings$, { [_jN]: _dSe }],
     [0, { [_jN]: _lC }],
     [0, { [_jN]: _lD }],
   ],
 ];
-export var CaptionDestinationSettings: StaticStructureSchema = [
+export var CaptionDestinationSettings$: StaticStructureSchema = [
   3,
   n0,
   _CDS,
   0,
   [_BDS, _DT, _DSDS, _EDS, _IDS, _SDS, _SDSr, _TDS, _TDSt, _WDS],
   [
-    [() => BurninDestinationSettings, { [_jN]: _bDS }],
+    [() => BurninDestinationSettings$, { [_jN]: _bDS }],
     [0, { [_jN]: _dT }],
-    [() => DvbSubDestinationSettings, { [_jN]: _dSDS }],
-    [() => EmbeddedDestinationSettings, { [_jN]: _eDS }],
-    [() => ImscDestinationSettings, { [_jN]: _iDS }],
-    [() => SccDestinationSettings, { [_jN]: _sDS }],
-    [() => SrtDestinationSettings, { [_jN]: _sDSr }],
-    [() => TeletextDestinationSettings, { [_jN]: _tDS }],
-    [() => TtmlDestinationSettings, { [_jN]: _tDSt }],
-    [() => WebvttDestinationSettings, { [_jN]: _wDS }],
+    [() => DvbSubDestinationSettings$, { [_jN]: _dSDS }],
+    [() => EmbeddedDestinationSettings$, { [_jN]: _eDS }],
+    [() => ImscDestinationSettings$, { [_jN]: _iDS }],
+    [() => SccDestinationSettings$, { [_jN]: _sDS }],
+    [() => SrtDestinationSettings$, { [_jN]: _sDSr }],
+    [() => TeletextDestinationSettings$, { [_jN]: _tDS }],
+    [() => TtmlDestinationSettings$, { [_jN]: _tDSt }],
+    [() => WebvttDestinationSettings$, { [_jN]: _wDS }],
   ],
 ];
-export var CaptionSelector: StaticStructureSchema = [
+export var CaptionSelector$: StaticStructureSchema = [
   3,
   n0,
   _CSa,
@@ -2235,10 +2235,10 @@ export var CaptionSelector: StaticStructureSchema = [
   [
     [0, { [_jN]: _cLC }],
     [0, { [_jN]: _lC }],
-    [() => CaptionSourceSettings, { [_jN]: _sS }],
+    [() => CaptionSourceSettings$, { [_jN]: _sS }],
   ],
 ];
-export var CaptionSourceFramerate: StaticStructureSchema = [
+export var CaptionSourceFramerate$: StaticStructureSchema = [
   3,
   n0,
   _CSF,
@@ -2249,24 +2249,24 @@ export var CaptionSourceFramerate: StaticStructureSchema = [
     [1, { [_jN]: _fN }],
   ],
 ];
-export var CaptionSourceSettings: StaticStructureSchema = [
+export var CaptionSourceSettings$: StaticStructureSchema = [
   3,
   n0,
   _CSS,
   0,
   [_ASS, _DSSS, _ESS, _FSS, _STo, _TSS, _TSSr, _WHSS],
   [
-    [() => AncillarySourceSettings, { [_jN]: _aSS }],
-    [() => DvbSubSourceSettings, { [_jN]: _dSSS }],
-    [() => EmbeddedSourceSettings, { [_jN]: _eSS }],
-    [() => FileSourceSettings, { [_jN]: _fSS }],
+    [() => AncillarySourceSettings$, { [_jN]: _aSS }],
+    [() => DvbSubSourceSettings$, { [_jN]: _dSSS }],
+    [() => EmbeddedSourceSettings$, { [_jN]: _eSS }],
+    [() => FileSourceSettings$, { [_jN]: _fSS }],
     [0, { [_jN]: _sTo }],
-    [() => TeletextSourceSettings, { [_jN]: _tSS }],
-    [() => TrackSourceSettings, { [_jN]: _tSSr }],
-    [() => WebvttHlsSourceSettings, { [_jN]: _wHSS }],
+    [() => TeletextSourceSettings$, { [_jN]: _tSS }],
+    [() => TrackSourceSettings$, { [_jN]: _tSSr }],
+    [() => WebvttHlsSourceSettings$, { [_jN]: _wHSS }],
   ],
 ];
-export var ChannelMapping: StaticStructureSchema = [
+export var ChannelMapping$: StaticStructureSchema = [
   3,
   n0,
   _CMh,
@@ -2274,7 +2274,7 @@ export var ChannelMapping: StaticStructureSchema = [
   [_OCu],
   [[() => __listOfOutputChannelMapping, { [_jN]: _oCu }]],
 ];
-export var ClipLimits: StaticStructureSchema = [
+export var ClipLimits$: StaticStructureSchema = [
   3,
   n0,
   _CL,
@@ -2287,7 +2287,7 @@ export var ClipLimits: StaticStructureSchema = [
     [1, { [_jN]: _mYUVi }],
   ],
 ];
-export var CmafAdditionalManifest: StaticStructureSchema = [
+export var CmafAdditionalManifest$: StaticStructureSchema = [
   3,
   n0,
   _CAM,
@@ -2298,7 +2298,7 @@ export var CmafAdditionalManifest: StaticStructureSchema = [
     [64 | 0, { [_jN]: _sOe }],
   ],
 ];
-export var CmafEncryptionSettings: StaticStructureSchema = [
+export var CmafEncryptionSettings$: StaticStructureSchema = [
   3,
   n0,
   _CES,
@@ -2308,12 +2308,12 @@ export var CmafEncryptionSettings: StaticStructureSchema = [
     [0, { [_jN]: _cIV }],
     [0, { [_jN]: _eM }],
     [0, { [_jN]: _iVIM }],
-    [() => SpekeKeyProviderCmaf, { [_jN]: _sKP }],
-    [() => StaticKeyProvider, { [_jN]: _sKPt }],
+    [() => SpekeKeyProviderCmaf$, { [_jN]: _sKP }],
+    [() => StaticKeyProvider$, { [_jN]: _sKPt }],
     [0, { [_jN]: _ty }],
   ],
 ];
-export var CmafGroupSettings: StaticStructureSchema = [
+export var CmafGroupSettings$: StaticStructureSchema = [
   3,
   n0,
   _CGS,
@@ -2356,11 +2356,11 @@ export var CmafGroupSettings: StaticStructureSchema = [
     [0, { [_jN]: _dIFTPNM }],
     [0, { [_jN]: _dMS }],
     [0, { [_jN]: _de }],
-    [() => DestinationSettings, { [_jN]: _dSe }],
-    [() => CmafEncryptionSettings, { [_jN]: _en }],
+    [() => DestinationSettings$, { [_jN]: _dSe }],
+    [() => CmafEncryptionSettings$, { [_jN]: _en }],
     [1, { [_jN]: _fL }],
     [0, { [_jN]: _iBTP }],
-    [() => CmafImageBasedTrickPlaySettings, { [_jN]: _iBTPS }],
+    [() => CmafImageBasedTrickPlaySettings$, { [_jN]: _iBTPS }],
     [0, { [_jN]: _mCa }],
     [0, { [_jN]: _mDF }],
     [1, { [_jN]: _mBT }],
@@ -2379,7 +2379,7 @@ export var CmafGroupSettings: StaticStructureSchema = [
     [0, { [_jN]: _wSTIR }],
   ],
 ];
-export var CmafImageBasedTrickPlaySettings: StaticStructureSchema = [
+export var CmafImageBasedTrickPlaySettings$: StaticStructureSchema = [
   3,
   n0,
   _CIBTPS,
@@ -2394,7 +2394,7 @@ export var CmafImageBasedTrickPlaySettings: StaticStructureSchema = [
     [1, { [_jN]: _tWi }],
   ],
 ];
-export var CmfcSettings: StaticStructureSchema = [
+export var CmfcSettings$: StaticStructureSchema = [
   3,
   n0,
   _CSm,
@@ -2420,7 +2420,7 @@ export var CmfcSettings: StaticStructureSchema = [
     [0, { [_jN]: _tMV }],
   ],
 ];
-export var CodecMetadata: StaticStructureSchema = [
+export var CodecMetadata$: StaticStructureSchema = [
   3,
   n0,
   _CMo,
@@ -2429,7 +2429,7 @@ export var CodecMetadata: StaticStructureSchema = [
   [
     [1, { [_jN]: _bD }],
     [0, { [_jN]: _cSh }],
-    [() => FrameRate, { [_jN]: _cFR }],
+    [() => FrameRate$, { [_jN]: _cFR }],
     [0, { [_jN]: _cPo }],
     [1, { [_jN]: _h }],
     [0, { [_jN]: _l }],
@@ -2440,7 +2440,7 @@ export var CodecMetadata: StaticStructureSchema = [
     [1, { [_jN]: _w }],
   ],
 ];
-export var ColorConversion3DLUTSetting: StaticStructureSchema = [
+export var ColorConversion3DLUTSetting$: StaticStructureSchema = [
   3,
   n0,
   _CCDLUTS,
@@ -2454,7 +2454,7 @@ export var ColorConversion3DLUTSetting: StaticStructureSchema = [
     [1, { [_jN]: _oML }],
   ],
 ];
-export var ColorCorrector: StaticStructureSchema = [
+export var ColorCorrector$: StaticStructureSchema = [
   3,
   n0,
   _CCo,
@@ -2462,10 +2462,10 @@ export var ColorCorrector: StaticStructureSchema = [
   [_Br, _CL, _CSC, _Con, _HM, _HTSTM, _Hu, _ML, _SRC, _Sa, _SRWL],
   [
     [1, { [_jN]: _br }],
-    [() => ClipLimits, { [_jN]: _cL }],
+    [() => ClipLimits$, { [_jN]: _cL }],
     [0, { [_jN]: _cSC }],
     [1, { [_jN]: _con }],
-    [() => Hdr10Metadata, { [_jN]: _hM }],
+    [() => Hdr10Metadata$, { [_jN]: _hM }],
     [0, { [_jN]: _hTSTM }],
     [1, { [_jN]: _hu }],
     [1, { [_jN]: _mL }],
@@ -2474,7 +2474,7 @@ export var ColorCorrector: StaticStructureSchema = [
     [1, { [_jN]: _sRWL }],
   ],
 ];
-export var ConflictException: StaticErrorSchema = [
+export var ConflictException$: StaticErrorSchema = [
   -3,
   n0,
   _CE,
@@ -2482,8 +2482,8 @@ export var ConflictException: StaticErrorSchema = [
   [_Me],
   [[0, { [_jN]: _me }]],
 ];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var Container: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var Container$: StaticStructureSchema = [
   3,
   n0,
   _Cont,
@@ -2495,32 +2495,32 @@ export var Container: StaticStructureSchema = [
     [() => __listOfTrack, { [_jN]: _t }],
   ],
 ];
-export var ContainerSettings: StaticStructureSchema = [
+export var ContainerSettings$: StaticStructureSchema = [
   3,
   n0,
   _CSon,
   0,
   [_CSm, _Cont, _FSv, _MSt, _MSu, _MSo, _MSpe, _MSpd, _MSx],
   [
-    [() => CmfcSettings, { [_jN]: _cSm }],
+    [() => CmfcSettings$, { [_jN]: _cSm }],
     [0, { [_jN]: _cont }],
-    [() => F4vSettings, { [_jN]: _fSv }],
-    [() => M2tsSettings, { [_jN]: _mSt }],
-    [() => M3u8Settings, { [_jN]: _mSu }],
-    [() => MovSettings, { [_jN]: _mSo }],
-    [() => Mp4Settings, { [_jN]: _mSpe }],
-    [() => MpdSettings, { [_jN]: _mSpd }],
-    [() => MxfSettings, { [_jN]: _mSx }],
+    [() => F4vSettings$, { [_jN]: _fSv }],
+    [() => M2tsSettings$, { [_jN]: _mSt }],
+    [() => M3u8Settings$, { [_jN]: _mSu }],
+    [() => MovSettings$, { [_jN]: _mSo }],
+    [() => Mp4Settings$, { [_jN]: _mSpe }],
+    [() => MpdSettings$, { [_jN]: _mSpd }],
+    [() => MxfSettings$, { [_jN]: _mSx }],
   ],
 ];
-export var CreateJobRequest: StaticStructureSchema = [
+export var CreateJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _CJRr,
   0,
   [_AScc, _BTS, _CRT, _HD, _JEV, _JT, _Pri, _Q, _Ro, _Se, _SRQ, _SUI, _Ta, _UM],
   [
-    [() => AccelerationSettings, { [_jN]: _aScc }],
+    [() => AccelerationSettings$, { [_jN]: _aScc }],
     [0, { [_jN]: _bTS }],
     [0, { [_jN]: _cRT, [_iT]: 1 }],
     [() => __listOfHopDestination, { [_jN]: _hD }],
@@ -2529,42 +2529,42 @@ export var CreateJobRequest: StaticStructureSchema = [
     [1, { [_jN]: _pri }],
     [0, { [_jN]: _q }],
     [0, { [_jN]: _ro }],
-    [() => JobSettings, { [_jN]: _se }],
+    [() => JobSettings$, { [_jN]: _se }],
     [0, { [_jN]: _sRQ }],
     [0, { [_jN]: _sUI }],
     [128 | 0, { [_jN]: _ta }],
     [128 | 0, { [_jN]: _uM }],
   ],
 ];
-export var CreateJobResponse: StaticStructureSchema = [3, n0, _CJRre, 0, [_J], [[() => Job, { [_jN]: _j }]]];
-export var CreateJobTemplateRequest: StaticStructureSchema = [
+export var CreateJobResponse$: StaticStructureSchema = [3, n0, _CJRre, 0, [_J], [[() => Job$, { [_jN]: _j }]]];
+export var CreateJobTemplateRequest$: StaticStructureSchema = [
   3,
   n0,
   _CJTR,
   0,
   [_AScc, _Ca, _Des, _HD, _N, _Pri, _Q, _Se, _SUI, _Ta],
   [
-    [() => AccelerationSettings, { [_jN]: _aScc }],
+    [() => AccelerationSettings$, { [_jN]: _aScc }],
     [0, { [_jN]: _ca }],
     [0, { [_jN]: _des }],
     [() => __listOfHopDestination, { [_jN]: _hD }],
     [0, { [_jN]: _n }],
     [1, { [_jN]: _pri }],
     [0, { [_jN]: _q }],
-    [() => JobTemplateSettings, { [_jN]: _se }],
+    [() => JobTemplateSettings$, { [_jN]: _se }],
     [0, { [_jN]: _sUI }],
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var CreateJobTemplateResponse: StaticStructureSchema = [
+export var CreateJobTemplateResponse$: StaticStructureSchema = [
   3,
   n0,
   _CJTRr,
   0,
   [_JT],
-  [[() => JobTemplate, { [_jN]: _jT }]],
+  [[() => JobTemplate$, { [_jN]: _jT }]],
 ];
-export var CreatePresetRequest: StaticStructureSchema = [
+export var CreatePresetRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPR,
@@ -2574,12 +2574,12 @@ export var CreatePresetRequest: StaticStructureSchema = [
     [0, { [_jN]: _ca }],
     [0, { [_jN]: _des }],
     [0, { [_jN]: _n }],
-    [() => PresetSettings, { [_jN]: _se }],
+    [() => PresetSettings$, { [_jN]: _se }],
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var CreatePresetResponse: StaticStructureSchema = [3, n0, _CPRr, 0, [_Pre], [[() => Preset, { [_jN]: _pre }]]];
-export var CreateQueueRequest: StaticStructureSchema = [
+export var CreatePresetResponse$: StaticStructureSchema = [3, n0, _CPRr, 0, [_Pre], [[() => Preset$, { [_jN]: _pre }]]];
+export var CreateQueueRequest$: StaticStructureSchema = [
   3,
   n0,
   _CQR,
@@ -2590,13 +2590,13 @@ export var CreateQueueRequest: StaticStructureSchema = [
     [0, { [_jN]: _des }],
     [0, { [_jN]: _n }],
     [0, { [_jN]: _pP }],
-    [() => ReservationPlanSettings, { [_jN]: _rPS }],
+    [() => ReservationPlanSettings$, { [_jN]: _rPS }],
     [0, { [_jN]: _sta }],
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var CreateQueueResponse: StaticStructureSchema = [3, n0, _CQRr, 0, [_Q], [[() => Queue, { [_jN]: _q }]]];
-export var CreateResourceShareRequest: StaticStructureSchema = [
+export var CreateQueueResponse$: StaticStructureSchema = [3, n0, _CQRr, 0, [_Q], [[() => Queue$, { [_jN]: _q }]]];
+export var CreateResourceShareRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRSR,
@@ -2607,8 +2607,8 @@ export var CreateResourceShareRequest: StaticStructureSchema = [
     [0, { [_jN]: _sCI }],
   ],
 ];
-export var CreateResourceShareResponse: StaticStructureSchema = [3, n0, _CRSRr, 0, [], []];
-export var DashAdditionalManifest: StaticStructureSchema = [
+export var CreateResourceShareResponse$: StaticStructureSchema = [3, n0, _CRSRr, 0, [], []];
+export var DashAdditionalManifest$: StaticStructureSchema = [
   3,
   n0,
   _DAM,
@@ -2619,7 +2619,7 @@ export var DashAdditionalManifest: StaticStructureSchema = [
     [64 | 0, { [_jN]: _sOe }],
   ],
 ];
-export var DashIsoEncryptionSettings: StaticStructureSchema = [
+export var DashIsoEncryptionSettings$: StaticStructureSchema = [
   3,
   n0,
   _DIES,
@@ -2627,10 +2627,10 @@ export var DashIsoEncryptionSettings: StaticStructureSchema = [
   [_PDC, _SKP],
   [
     [0, { [_jN]: _pDC }],
-    [() => SpekeKeyProvider, { [_jN]: _sKP }],
+    [() => SpekeKeyProvider$, { [_jN]: _sKP }],
   ],
 ];
-export var DashIsoGroupSettings: StaticStructureSchema = [
+export var DashIsoGroupSettings$: StaticStructureSchema = [
   3,
   n0,
   _DIGS,
@@ -2666,12 +2666,12 @@ export var DashIsoGroupSettings: StaticStructureSchema = [
     [0, { [_jN]: _dIFTPNM }],
     [0, { [_jN]: _dMS }],
     [0, { [_jN]: _de }],
-    [() => DestinationSettings, { [_jN]: _dSe }],
-    [() => DashIsoEncryptionSettings, { [_jN]: _en }],
+    [() => DestinationSettings$, { [_jN]: _dSe }],
+    [() => DashIsoEncryptionSettings$, { [_jN]: _en }],
     [1, { [_jN]: _fL }],
     [0, { [_jN]: _hC }],
     [0, { [_jN]: _iBTP }],
-    [() => DashIsoImageBasedTrickPlaySettings, { [_jN]: _iBTPS }],
+    [() => DashIsoImageBasedTrickPlaySettings$, { [_jN]: _iBTPS }],
     [1, { [_jN]: _mBT }],
     [1, { [_jN]: _mFSL }],
     [0, { [_jN]: _mMBT }],
@@ -2684,7 +2684,7 @@ export var DashIsoGroupSettings: StaticStructureSchema = [
     [0, { [_jN]: _wSTIR }],
   ],
 ];
-export var DashIsoImageBasedTrickPlaySettings: StaticStructureSchema = [
+export var DashIsoImageBasedTrickPlaySettings$: StaticStructureSchema = [
   3,
   n0,
   _DIIBTPS,
@@ -2699,8 +2699,8 @@ export var DashIsoImageBasedTrickPlaySettings: StaticStructureSchema = [
     [1, { [_jN]: _tWi }],
   ],
 ];
-export var DataProperties: StaticStructureSchema = [3, n0, _DP, 0, [_LC], [[0, { [_jN]: _lC }]]];
-export var Deinterlacer: StaticStructureSchema = [
+export var DataProperties$: StaticStructureSchema = [3, n0, _DP, 0, [_LC], [[0, { [_jN]: _lC }]]];
+export var Deinterlacer$: StaticStructureSchema = [
   3,
   n0,
   _Dei,
@@ -2712,15 +2712,15 @@ export var Deinterlacer: StaticStructureSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-export var DeleteJobTemplateRequest: StaticStructureSchema = [3, n0, _DJTR, 0, [_N], [[0, 1]]];
-export var DeleteJobTemplateResponse: StaticStructureSchema = [3, n0, _DJTRe, 0, [], []];
-export var DeletePolicyRequest: StaticStructureSchema = [3, n0, _DPR, 0, [], []];
-export var DeletePolicyResponse: StaticStructureSchema = [3, n0, _DPRe, 0, [], []];
-export var DeletePresetRequest: StaticStructureSchema = [3, n0, _DPRel, 0, [_N], [[0, 1]]];
-export var DeletePresetResponse: StaticStructureSchema = [3, n0, _DPRele, 0, [], []];
-export var DeleteQueueRequest: StaticStructureSchema = [3, n0, _DQR, 0, [_N], [[0, 1]]];
-export var DeleteQueueResponse: StaticStructureSchema = [3, n0, _DQRe, 0, [], []];
-export var DescribeEndpointsRequest: StaticStructureSchema = [
+export var DeleteJobTemplateRequest$: StaticStructureSchema = [3, n0, _DJTR, 0, [_N], [[0, 1]]];
+export var DeleteJobTemplateResponse$: StaticStructureSchema = [3, n0, _DJTRe, 0, [], []];
+export var DeletePolicyRequest$: StaticStructureSchema = [3, n0, _DPR, 0, [], []];
+export var DeletePolicyResponse$: StaticStructureSchema = [3, n0, _DPRe, 0, [], []];
+export var DeletePresetRequest$: StaticStructureSchema = [3, n0, _DPRel, 0, [_N], [[0, 1]]];
+export var DeletePresetResponse$: StaticStructureSchema = [3, n0, _DPRele, 0, [], []];
+export var DeleteQueueRequest$: StaticStructureSchema = [3, n0, _DQR, 0, [_N], [[0, 1]]];
+export var DeleteQueueResponse$: StaticStructureSchema = [3, n0, _DQRe, 0, [], []];
+export var DescribeEndpointsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DER,
@@ -2732,7 +2732,7 @@ export var DescribeEndpointsRequest: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var DescribeEndpointsResponse: StaticStructureSchema = [
+export var DescribeEndpointsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DERe,
@@ -2743,30 +2743,30 @@ export var DescribeEndpointsResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var DestinationSettings: StaticStructureSchema = [
+export var DestinationSettings$: StaticStructureSchema = [
   3,
   n0,
   _DSe,
   0,
   [_SSe],
-  [[() => S3DestinationSettings, { [_jN]: _sSe }]],
+  [[() => S3DestinationSettings$, { [_jN]: _sSe }]],
 ];
-export var DisassociateCertificateRequest: StaticStructureSchema = [3, n0, _DCR, 0, [_A], [[0, 1]]];
-export var DisassociateCertificateResponse: StaticStructureSchema = [3, n0, _DCRi, 0, [], []];
-export var DolbyVision: StaticStructureSchema = [
+export var DisassociateCertificateRequest$: StaticStructureSchema = [3, n0, _DCR, 0, [_A], [[0, 1]]];
+export var DisassociateCertificateResponse$: StaticStructureSchema = [3, n0, _DCRi, 0, [], []];
+export var DolbyVision$: StaticStructureSchema = [
   3,
   n0,
   _DV,
   0,
   [_LM, _LMo, _Ma, _Pr],
   [
-    [() => DolbyVisionLevel6Metadata, { [_jN]: _lM }],
+    [() => DolbyVisionLevel6Metadata$, { [_jN]: _lM }],
     [0, { [_jN]: _lMo }],
     [0, { [_jN]: _ma }],
     [0, { [_jN]: _pr }],
   ],
 ];
-export var DolbyVisionLevel6Metadata: StaticStructureSchema = [
+export var DolbyVisionLevel6Metadata$: StaticStructureSchema = [
   3,
   n0,
   _DVLM,
@@ -2777,7 +2777,7 @@ export var DolbyVisionLevel6Metadata: StaticStructureSchema = [
     [1, { [_jN]: _mF }],
   ],
 ];
-export var DvbNitSettings: StaticStructureSchema = [
+export var DvbNitSettings$: StaticStructureSchema = [
   3,
   n0,
   _DNS,
@@ -2789,7 +2789,7 @@ export var DvbNitSettings: StaticStructureSchema = [
     [1, { [_jN]: _nIi }],
   ],
 ];
-export var DvbSdtSettings: StaticStructureSchema = [
+export var DvbSdtSettings$: StaticStructureSchema = [
   3,
   n0,
   _DSS,
@@ -2802,7 +2802,7 @@ export var DvbSdtSettings: StaticStructureSchema = [
     [0, { [_jN]: _sPN }],
   ],
 ];
-export var DvbSubDestinationSettings: StaticStructureSchema = [
+export var DvbSubDestinationSettings$: StaticStructureSchema = [
   3,
   n0,
   _DSDS,
@@ -2874,9 +2874,9 @@ export var DvbSubDestinationSettings: StaticStructureSchema = [
     [1, { [_jN]: _yP }],
   ],
 ];
-export var DvbSubSourceSettings: StaticStructureSchema = [3, n0, _DSSS, 0, [_Pi], [[1, { [_jN]: _pi }]]];
-export var DvbTdtSettings: StaticStructureSchema = [3, n0, _DTS, 0, [_TId], [[1, { [_jN]: _tId }]]];
-export var DynamicAudioSelector: StaticStructureSchema = [
+export var DvbSubSourceSettings$: StaticStructureSchema = [3, n0, _DSSS, 0, [_Pi], [[1, { [_jN]: _pi }]]];
+export var DvbTdtSettings$: StaticStructureSchema = [3, n0, _DTS, 0, [_TId], [[1, { [_jN]: _tId }]]];
+export var DynamicAudioSelector$: StaticStructureSchema = [
   3,
   n0,
   _DAS,
@@ -2890,7 +2890,7 @@ export var DynamicAudioSelector: StaticStructureSchema = [
     [0, { [_jN]: _sT }],
   ],
 ];
-export var Eac3AtmosSettings: StaticStructureSchema = [
+export var Eac3AtmosSettings$: StaticStructureSchema = [
   3,
   n0,
   _EAS,
@@ -2916,7 +2916,7 @@ export var Eac3AtmosSettings: StaticStructureSchema = [
     [0, { [_jN]: _sEM }],
   ],
 ];
-export var Eac3Settings: StaticStructureSchema = [
+export var Eac3Settings$: StaticStructureSchema = [
   3,
   n0,
   _ES,
@@ -2968,7 +2968,7 @@ export var Eac3Settings: StaticStructureSchema = [
     [0, { [_jN]: _sM }],
   ],
 ];
-export var EmbeddedDestinationSettings: StaticStructureSchema = [
+export var EmbeddedDestinationSettings$: StaticStructureSchema = [
   3,
   n0,
   _EDS,
@@ -2979,7 +2979,7 @@ export var EmbeddedDestinationSettings: StaticStructureSchema = [
     [1, { [_jN]: _dSN }],
   ],
 ];
-export var EmbeddedSourceSettings: StaticStructureSchema = [
+export var EmbeddedSourceSettings$: StaticStructureSchema = [
   3,
   n0,
   _ESS,
@@ -2992,7 +2992,7 @@ export var EmbeddedSourceSettings: StaticStructureSchema = [
     [0, { [_jN]: _tC }],
   ],
 ];
-export var EncryptionContractConfiguration: StaticStructureSchema = [
+export var EncryptionContractConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ECC,
@@ -3003,8 +3003,8 @@ export var EncryptionContractConfiguration: StaticStructureSchema = [
     [0, { [_jN]: _sVP }],
   ],
 ];
-export var Endpoint: StaticStructureSchema = [3, n0, _End, 0, [_U], [[0, { [_jN]: _u }]]];
-export var EsamManifestConfirmConditionNotification: StaticStructureSchema = [
+export var Endpoint$: StaticStructureSchema = [3, n0, _End, 0, [_U], [[0, { [_jN]: _u }]]];
+export var EsamManifestConfirmConditionNotification$: StaticStructureSchema = [
   3,
   n0,
   _EMCCN,
@@ -3012,20 +3012,20 @@ export var EsamManifestConfirmConditionNotification: StaticStructureSchema = [
   [_MX],
   [[0, { [_jN]: _mX }]],
 ];
-export var EsamSettings: StaticStructureSchema = [
+export var EsamSettings$: StaticStructureSchema = [
   3,
   n0,
   _ESs,
   0,
   [_MCCN, _RSP, _SPNi],
   [
-    [() => EsamManifestConfirmConditionNotification, { [_jN]: _mCCN }],
+    [() => EsamManifestConfirmConditionNotification$, { [_jN]: _mCCN }],
     [1, { [_jN]: _rSP }],
-    [() => EsamSignalProcessingNotification, { [_jN]: _sPNi }],
+    [() => EsamSignalProcessingNotification$, { [_jN]: _sPNi }],
   ],
 ];
-export var EsamSignalProcessingNotification: StaticStructureSchema = [3, n0, _ESPN, 0, [_SX], [[0, { [_jN]: _sX }]]];
-export var ExtendedDataServices: StaticStructureSchema = [
+export var EsamSignalProcessingNotification$: StaticStructureSchema = [3, n0, _ESPN, 0, [_SX], [[0, { [_jN]: _sX }]]];
+export var ExtendedDataServices$: StaticStructureSchema = [
   3,
   n0,
   _EDSx,
@@ -3036,8 +3036,8 @@ export var ExtendedDataServices: StaticStructureSchema = [
     [0, { [_jN]: _vA }],
   ],
 ];
-export var F4vSettings: StaticStructureSchema = [3, n0, _FSv, 0, [_MPo], [[0, { [_jN]: _mPo }]]];
-export var FileGroupSettings: StaticStructureSchema = [
+export var F4vSettings$: StaticStructureSchema = [3, n0, _FSv, 0, [_MPo], [[0, { [_jN]: _mPo }]]];
+export var FileGroupSettings$: StaticStructureSchema = [
   3,
   n0,
   _FGSi,
@@ -3045,10 +3045,10 @@ export var FileGroupSettings: StaticStructureSchema = [
   [_De, _DSe],
   [
     [0, { [_jN]: _de }],
-    [() => DestinationSettings, { [_jN]: _dSe }],
+    [() => DestinationSettings$, { [_jN]: _dSe }],
   ],
 ];
-export var FileSourceSettings: StaticStructureSchema = [
+export var FileSourceSettings$: StaticStructureSchema = [
   3,
   n0,
   _FSS,
@@ -3058,14 +3058,14 @@ export var FileSourceSettings: StaticStructureSchema = [
     [0, { [_jN]: _bRL }],
     [0, { [_jN]: _cT }],
     [0, { [_jN]: _cPTP }],
-    [() => CaptionSourceFramerate, { [_jN]: _fr }],
+    [() => CaptionSourceFramerate$, { [_jN]: _fr }],
     [0, { [_jN]: _sF }],
     [1, { [_jN]: _tD }],
     [0, { [_jN]: _tDU }],
     [0, { [_jN]: _uSTLTT }],
   ],
 ];
-export var FlacSettings: StaticStructureSchema = [
+export var FlacSettings$: StaticStructureSchema = [
   3,
   n0,
   _FS,
@@ -3077,7 +3077,7 @@ export var FlacSettings: StaticStructureSchema = [
     [1, { [_jN]: _sR }],
   ],
 ];
-export var ForbiddenException: StaticErrorSchema = [
+export var ForbiddenException$: StaticErrorSchema = [
   -3,
   n0,
   _FE,
@@ -3085,8 +3085,8 @@ export var ForbiddenException: StaticErrorSchema = [
   [_Me],
   [[0, { [_jN]: _me }]],
 ];
-TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-export var ForceIncludeRenditionSize: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
+export var ForceIncludeRenditionSize$: StaticStructureSchema = [
   3,
   n0,
   _FIRS,
@@ -3097,7 +3097,7 @@ export var ForceIncludeRenditionSize: StaticStructureSchema = [
     [1, { [_jN]: _w }],
   ],
 ];
-export var FrameCaptureSettings: StaticStructureSchema = [
+export var FrameCaptureSettings$: StaticStructureSchema = [
   3,
   n0,
   _FCS,
@@ -3110,7 +3110,7 @@ export var FrameCaptureSettings: StaticStructureSchema = [
     [1, { [_jN]: _qu }],
   ],
 ];
-export var FrameRate: StaticStructureSchema = [
+export var FrameRate$: StaticStructureSchema = [
   3,
   n0,
   _FR,
@@ -3121,10 +3121,10 @@ export var FrameRate: StaticStructureSchema = [
     [1, { [_jN]: _nu }],
   ],
 ];
-export var GetJobRequest: StaticStructureSchema = [3, n0, _GJR, 0, [_I], [[0, 1]]];
-export var GetJobResponse: StaticStructureSchema = [3, n0, _GJRe, 0, [_J], [[() => Job, { [_jN]: _j }]]];
-export var GetJobsQueryResultsRequest: StaticStructureSchema = [3, n0, _GJQRR, 0, [_I], [[0, 1]]];
-export var GetJobsQueryResultsResponse: StaticStructureSchema = [
+export var GetJobRequest$: StaticStructureSchema = [3, n0, _GJR, 0, [_I], [[0, 1]]];
+export var GetJobResponse$: StaticStructureSchema = [3, n0, _GJRe, 0, [_J], [[() => Job$, { [_jN]: _j }]]];
+export var GetJobsQueryResultsRequest$: StaticStructureSchema = [3, n0, _GJQRR, 0, [_I], [[0, 1]]];
+export var GetJobsQueryResultsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GJQRRe,
@@ -3136,22 +3136,22 @@ export var GetJobsQueryResultsResponse: StaticStructureSchema = [
     [0, { [_jN]: _sta }],
   ],
 ];
-export var GetJobTemplateRequest: StaticStructureSchema = [3, n0, _GJTR, 0, [_N], [[0, 1]]];
-export var GetJobTemplateResponse: StaticStructureSchema = [
+export var GetJobTemplateRequest$: StaticStructureSchema = [3, n0, _GJTR, 0, [_N], [[0, 1]]];
+export var GetJobTemplateResponse$: StaticStructureSchema = [
   3,
   n0,
   _GJTRe,
   0,
   [_JT],
-  [[() => JobTemplate, { [_jN]: _jT }]],
+  [[() => JobTemplate$, { [_jN]: _jT }]],
 ];
-export var GetPolicyRequest: StaticStructureSchema = [3, n0, _GPR, 0, [], []];
-export var GetPolicyResponse: StaticStructureSchema = [3, n0, _GPRe, 0, [_Po], [[() => Policy, { [_jN]: _po }]]];
-export var GetPresetRequest: StaticStructureSchema = [3, n0, _GPRet, 0, [_N], [[0, 1]]];
-export var GetPresetResponse: StaticStructureSchema = [3, n0, _GPRetr, 0, [_Pre], [[() => Preset, { [_jN]: _pre }]]];
-export var GetQueueRequest: StaticStructureSchema = [3, n0, _GQR, 0, [_N], [[0, 1]]];
-export var GetQueueResponse: StaticStructureSchema = [3, n0, _GQRe, 0, [_Q], [[() => Queue, { [_jN]: _q }]]];
-export var GifSettings: StaticStructureSchema = [
+export var GetPolicyRequest$: StaticStructureSchema = [3, n0, _GPR, 0, [], []];
+export var GetPolicyResponse$: StaticStructureSchema = [3, n0, _GPRe, 0, [_Po], [[() => Policy$, { [_jN]: _po }]]];
+export var GetPresetRequest$: StaticStructureSchema = [3, n0, _GPRet, 0, [_N], [[0, 1]]];
+export var GetPresetResponse$: StaticStructureSchema = [3, n0, _GPRetr, 0, [_Pre], [[() => Preset$, { [_jN]: _pre }]]];
+export var GetQueueRequest$: StaticStructureSchema = [3, n0, _GQR, 0, [_N], [[0, 1]]];
+export var GetQueueResponse$: StaticStructureSchema = [3, n0, _GQRe, 0, [_Q], [[() => Queue$, { [_jN]: _q }]]];
+export var GifSettings$: StaticStructureSchema = [
   3,
   n0,
   _GSi,
@@ -3164,7 +3164,7 @@ export var GifSettings: StaticStructureSchema = [
     [1, { [_jN]: _fN }],
   ],
 ];
-export var H264QvbrSettings: StaticStructureSchema = [
+export var H264QvbrSettings$: StaticStructureSchema = [
   3,
   n0,
   _HQS,
@@ -3176,7 +3176,7 @@ export var H264QvbrSettings: StaticStructureSchema = [
     [1, { [_jN]: _qQLFT }],
   ],
 ];
-export var H264Settings: StaticStructureSchema = [
+export var H264Settings$: StaticStructureSchema = [
   3,
   n0,
   _HS,
@@ -3231,7 +3231,7 @@ export var H264Settings: StaticStructureSchema = [
   ],
   [
     [0, { [_jN]: _aQ }],
-    [() => BandwidthReductionFilter, { [_jN]: _bRF }],
+    [() => BandwidthReductionFilter$, { [_jN]: _bRF }],
     [1, { [_jN]: _b }],
     [0, { [_jN]: _cLo }],
     [0, { [_jN]: _cP }],
@@ -3261,7 +3261,7 @@ export var H264Settings: StaticStructureSchema = [
     [1, { [_jN]: _pN }],
     [64 | 0, { [_jN]: _pFM }],
     [0, { [_jN]: _qTL }],
-    [() => H264QvbrSettings, { [_jN]: _qS }],
+    [() => H264QvbrSettings$, { [_jN]: _qS }],
     [0, { [_jN]: _rCM }],
     [0, { [_jN]: _rP }],
     [0, { [_jN]: _sAE }],
@@ -3278,7 +3278,7 @@ export var H264Settings: StaticStructureSchema = [
     [0, { [_jN]: _wMPT }],
   ],
 ];
-export var H265QvbrSettings: StaticStructureSchema = [
+export var H265QvbrSettings$: StaticStructureSchema = [
   3,
   n0,
   _HQSv,
@@ -3290,7 +3290,7 @@ export var H265QvbrSettings: StaticStructureSchema = [
     [1, { [_jN]: _qQLFT }],
   ],
 ];
-export var H265Settings: StaticStructureSchema = [
+export var H265Settings$: StaticStructureSchema = [
   3,
   n0,
   _HSe,
@@ -3345,7 +3345,7 @@ export var H265Settings: StaticStructureSchema = [
   [
     [0, { [_jN]: _aQ }],
     [0, { [_jN]: _aTFS }],
-    [() => BandwidthReductionFilter, { [_jN]: _bRF }],
+    [() => BandwidthReductionFilter$, { [_jN]: _bRF }],
     [1, { [_jN]: _b }],
     [0, { [_jN]: _cLo }],
     [0, { [_jN]: _cP }],
@@ -3374,7 +3374,7 @@ export var H265Settings: StaticStructureSchema = [
     [1, { [_jN]: _pN }],
     [64 | 0, { [_jN]: _pFM }],
     [0, { [_jN]: _qTL }],
-    [() => H265QvbrSettings, { [_jN]: _qS }],
+    [() => H265QvbrSettings$, { [_jN]: _qS }],
     [0, { [_jN]: _rCM }],
     [0, { [_jN]: _sAOFM }],
     [0, { [_jN]: _sTCM }],
@@ -3390,7 +3390,7 @@ export var H265Settings: StaticStructureSchema = [
     [0, { [_jN]: _wMPT }],
   ],
 ];
-export var Hdr10Metadata: StaticStructureSchema = [
+export var Hdr10Metadata$: StaticStructureSchema = [
   3,
   n0,
   _HM,
@@ -3411,7 +3411,7 @@ export var Hdr10Metadata: StaticStructureSchema = [
     [1, { [_jN]: _wPY }],
   ],
 ];
-export var Hdr10Plus: StaticStructureSchema = [
+export var Hdr10Plus$: StaticStructureSchema = [
   3,
   n0,
   _HP,
@@ -3422,7 +3422,7 @@ export var Hdr10Plus: StaticStructureSchema = [
     [1, { [_jN]: _tMN }],
   ],
 ];
-export var HlsAdditionalManifest: StaticStructureSchema = [
+export var HlsAdditionalManifest$: StaticStructureSchema = [
   3,
   n0,
   _HAM,
@@ -3433,7 +3433,7 @@ export var HlsAdditionalManifest: StaticStructureSchema = [
     [64 | 0, { [_jN]: _sOe }],
   ],
 ];
-export var HlsCaptionLanguageMapping: StaticStructureSchema = [
+export var HlsCaptionLanguageMapping$: StaticStructureSchema = [
   3,
   n0,
   _HCLM,
@@ -3446,7 +3446,7 @@ export var HlsCaptionLanguageMapping: StaticStructureSchema = [
     [0, { [_jN]: _lD }],
   ],
 ];
-export var HlsEncryptionSettings: StaticStructureSchema = [
+export var HlsEncryptionSettings$: StaticStructureSchema = [
   3,
   n0,
   _HES,
@@ -3457,12 +3457,12 @@ export var HlsEncryptionSettings: StaticStructureSchema = [
     [0, { [_jN]: _eM }],
     [0, { [_jN]: _iVIM }],
     [0, { [_jN]: _oE }],
-    [() => SpekeKeyProvider, { [_jN]: _sKP }],
-    [() => StaticKeyProvider, { [_jN]: _sKPt }],
+    [() => SpekeKeyProvider$, { [_jN]: _sKP }],
+    [() => StaticKeyProvider$, { [_jN]: _sKPt }],
     [0, { [_jN]: _ty }],
   ],
 ];
-export var HlsGroupSettings: StaticStructureSchema = [
+export var HlsGroupSettings$: StaticStructureSchema = [
   3,
   n0,
   _HGS,
@@ -3512,11 +3512,11 @@ export var HlsGroupSettings: StaticStructureSchema = [
     [0, { [_jN]: _cC }],
     [0, { [_jN]: _cSo }],
     [0, { [_jN]: _de }],
-    [() => DestinationSettings, { [_jN]: _dSe }],
+    [() => DestinationSettings$, { [_jN]: _dSe }],
     [0, { [_jN]: _dSi }],
-    [() => HlsEncryptionSettings, { [_jN]: _en }],
+    [() => HlsEncryptionSettings$, { [_jN]: _en }],
     [0, { [_jN]: _iBTP }],
-    [() => HlsImageBasedTrickPlaySettings, { [_jN]: _iBTPS }],
+    [() => HlsImageBasedTrickPlaySettings$, { [_jN]: _iBTPS }],
     [0, { [_jN]: _mCa }],
     [0, { [_jN]: _mDF }],
     [1, { [_jN]: _mFSL }],
@@ -3536,7 +3536,7 @@ export var HlsGroupSettings: StaticStructureSchema = [
     [1, { [_jN]: _tDM }],
   ],
 ];
-export var HlsImageBasedTrickPlaySettings: StaticStructureSchema = [
+export var HlsImageBasedTrickPlaySettings$: StaticStructureSchema = [
   3,
   n0,
   _HIBTPS,
@@ -3551,7 +3551,7 @@ export var HlsImageBasedTrickPlaySettings: StaticStructureSchema = [
     [1, { [_jN]: _tWi }],
   ],
 ];
-export var HlsRenditionGroupSettings: StaticStructureSchema = [
+export var HlsRenditionGroupSettings$: StaticStructureSchema = [
   3,
   n0,
   _HRGS,
@@ -3563,7 +3563,7 @@ export var HlsRenditionGroupSettings: StaticStructureSchema = [
     [0, { [_jN]: _rN }],
   ],
 ];
-export var HlsSettings: StaticStructureSchema = [
+export var HlsSettings$: StaticStructureSchema = [
   3,
   n0,
   _HSl,
@@ -3579,7 +3579,7 @@ export var HlsSettings: StaticStructureSchema = [
     [0, { [_jN]: _sMe }],
   ],
 ];
-export var HopDestination: StaticStructureSchema = [
+export var HopDestination$: StaticStructureSchema = [
   3,
   n0,
   _HDo,
@@ -3591,7 +3591,7 @@ export var HopDestination: StaticStructureSchema = [
     [1, { [_jN]: _wM }],
   ],
 ];
-export var Id3Insertion: StaticStructureSchema = [
+export var Id3Insertion$: StaticStructureSchema = [
   3,
   n0,
   _II,
@@ -3602,7 +3602,7 @@ export var Id3Insertion: StaticStructureSchema = [
     [0, { [_jN]: _tim }],
   ],
 ];
-export var ImageInserter: StaticStructureSchema = [
+export var ImageInserter$: StaticStructureSchema = [
   3,
   n0,
   _IIm,
@@ -3613,7 +3613,7 @@ export var ImageInserter: StaticStructureSchema = [
     [1, { [_jN]: _sRWL }],
   ],
 ];
-export var ImscDestinationSettings: StaticStructureSchema = [
+export var ImscDestinationSettings$: StaticStructureSchema = [
   3,
   n0,
   _IDS,
@@ -3624,7 +3624,7 @@ export var ImscDestinationSettings: StaticStructureSchema = [
     [0, { [_jN]: _sPt }],
   ],
 ];
-export var Input: StaticStructureSchema = [
+export var Input$: StaticStructureSchema = [
   3,
   n0,
   _In,
@@ -3660,35 +3660,35 @@ export var Input: StaticStructureSchema = [
   ],
   [
     [0, { [_jN]: _aIF }],
-    [() => AdvancedInputFilterSettings, { [_jN]: _aIFS }],
+    [() => AdvancedInputFilterSettings$, { [_jN]: _aIFS }],
     [() => __mapOfAudioSelectorGroup, { [_jN]: _aSG }],
     [() => __mapOfAudioSelector, { [_jN]: _aSu }],
     [() => __mapOfCaptionSelector, { [_jN]: _cSa }],
-    [() => Rectangle, { [_jN]: _cr }],
+    [() => Rectangle$, { [_jN]: _cr }],
     [0, { [_jN]: _dFe }],
-    [() => InputDecryptionSettings, { [_jN]: _dSec }],
+    [() => InputDecryptionSettings$, { [_jN]: _dSec }],
     [0, { [_jN]: _dFen }],
     [0, { [_jN]: _dVMX }],
     [() => __mapOfDynamicAudioSelector, { [_jN]: _dAS }],
     [0, { [_jN]: _fI }],
     [0, { [_jN]: _fEi }],
     [1, { [_jN]: _fSi }],
-    [() => ImageInserter, { [_jN]: _iIm }],
+    [() => ImageInserter$, { [_jN]: _iIm }],
     [() => __listOfInputClipping, { [_jN]: _iCn }],
     [0, { [_jN]: _iST }],
-    [() => Rectangle, { [_jN]: _pos }],
+    [() => Rectangle$, { [_jN]: _pos }],
     [1, { [_jN]: _pNr }],
     [0, { [_jN]: _pCs }],
     [64 | 0, { [_jN]: _sIu }],
-    [() => InputTamsSettings, { [_jN]: _tSa }],
+    [() => InputTamsSettings$, { [_jN]: _tSa }],
     [0, { [_jN]: _tSi }],
     [0, { [_jN]: _tSim }],
-    [() => InputVideoGenerator, { [_jN]: _vG }],
+    [() => InputVideoGenerator$, { [_jN]: _vG }],
     [() => __listOfVideoOverlay, { [_jN]: _vO }],
-    [() => VideoSelector, { [_jN]: _vSi }],
+    [() => VideoSelector$, { [_jN]: _vSi }],
   ],
 ];
-export var InputClipping: StaticStructureSchema = [
+export var InputClipping$: StaticStructureSchema = [
   3,
   n0,
   _ICnp,
@@ -3699,7 +3699,7 @@ export var InputClipping: StaticStructureSchema = [
     [0, { [_jN]: _sTt }],
   ],
 ];
-export var InputDecryptionSettings: StaticStructureSchema = [
+export var InputDecryptionSettings$: StaticStructureSchema = [
   3,
   n0,
   _IDSn,
@@ -3712,7 +3712,7 @@ export var InputDecryptionSettings: StaticStructureSchema = [
     [0, { [_jN]: _kKR }],
   ],
 ];
-export var InputTamsSettings: StaticStructureSchema = [
+export var InputTamsSettings$: StaticStructureSchema = [
   3,
   n0,
   _ITS,
@@ -3725,7 +3725,7 @@ export var InputTamsSettings: StaticStructureSchema = [
     [0, { [_jN]: _time }],
   ],
 ];
-export var InputTemplate: StaticStructureSchema = [
+export var InputTemplate$: StaticStructureSchema = [
   3,
   n0,
   _IT,
@@ -3756,30 +3756,30 @@ export var InputTemplate: StaticStructureSchema = [
   ],
   [
     [0, { [_jN]: _aIF }],
-    [() => AdvancedInputFilterSettings, { [_jN]: _aIFS }],
+    [() => AdvancedInputFilterSettings$, { [_jN]: _aIFS }],
     [() => __mapOfAudioSelectorGroup, { [_jN]: _aSG }],
     [() => __mapOfAudioSelector, { [_jN]: _aSu }],
     [() => __mapOfCaptionSelector, { [_jN]: _cSa }],
-    [() => Rectangle, { [_jN]: _cr }],
+    [() => Rectangle$, { [_jN]: _cr }],
     [0, { [_jN]: _dFe }],
     [0, { [_jN]: _dFen }],
     [0, { [_jN]: _dVMX }],
     [() => __mapOfDynamicAudioSelector, { [_jN]: _dAS }],
     [0, { [_jN]: _fEi }],
     [1, { [_jN]: _fSi }],
-    [() => ImageInserter, { [_jN]: _iIm }],
+    [() => ImageInserter$, { [_jN]: _iIm }],
     [() => __listOfInputClipping, { [_jN]: _iCn }],
     [0, { [_jN]: _iST }],
-    [() => Rectangle, { [_jN]: _pos }],
+    [() => Rectangle$, { [_jN]: _pos }],
     [1, { [_jN]: _pNr }],
     [0, { [_jN]: _pCs }],
     [0, { [_jN]: _tSi }],
     [0, { [_jN]: _tSim }],
     [() => __listOfVideoOverlay, { [_jN]: _vO }],
-    [() => VideoSelector, { [_jN]: _vSi }],
+    [() => VideoSelector$, { [_jN]: _vSi }],
   ],
 ];
-export var InputVideoGenerator: StaticStructureSchema = [
+export var InputVideoGenerator$: StaticStructureSchema = [
   3,
   n0,
   _IVG,
@@ -3795,7 +3795,7 @@ export var InputVideoGenerator: StaticStructureSchema = [
     [1, { [_jN]: _w }],
   ],
 ];
-export var InsertableImage: StaticStructureSchema = [
+export var InsertableImage$: StaticStructureSchema = [
   3,
   n0,
   _IIns,
@@ -3815,7 +3815,7 @@ export var InsertableImage: StaticStructureSchema = [
     [1, { [_jN]: _w }],
   ],
 ];
-export var InternalServerErrorException: StaticErrorSchema = [
+export var InternalServerErrorException$: StaticErrorSchema = [
   -3,
   n0,
   _ISEE,
@@ -3823,8 +3823,8 @@ export var InternalServerErrorException: StaticErrorSchema = [
   [_Me],
   [[0, { [_jN]: _me }]],
 ];
-TypeRegistry.for(n0).registerError(InternalServerErrorException, __InternalServerErrorException);
-export var Job: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
+export var Job$: StaticStructureSchema = [
   3,
   n0,
   _J,
@@ -3863,7 +3863,7 @@ export var Job: StaticStructureSchema = [
     _Wa,
   ],
   [
-    [() => AccelerationSettings, { [_jN]: _aScc }],
+    [() => AccelerationSettings$, { [_jN]: _aScc }],
     [0, { [_jN]: _aScce }],
     [0, { [_jN]: _a }],
     [0, { [_jN]: _bTS }],
@@ -3879,24 +3879,24 @@ export var Job: StaticStructureSchema = [
     [1, { [_jN]: _jPC }],
     [0, { [_jN]: _jT }],
     [0, { [_jN]: _lSD }],
-    [() => JobMessages, { [_jN]: _mes }],
+    [() => JobMessages$, { [_jN]: _mes }],
     [() => __listOfOutputGroupDetail, { [_jN]: _oGD }],
     [1, { [_jN]: _pri }],
     [0, { [_jN]: _q }],
     [() => __listOfQueueTransition, { [_jN]: _qT }],
     [1, { [_jN]: _rC }],
     [0, { [_jN]: _ro }],
-    [() => JobSettings, { [_jN]: _se }],
+    [() => JobSettings$, { [_jN]: _se }],
     [0, { [_jN]: _sSh }],
     [0, { [_jN]: _sRQ }],
     [0, { [_jN]: _sta }],
     [0, { [_jN]: _sUI }],
-    [() => Timing, { [_jN]: _timi }],
+    [() => Timing$, { [_jN]: _timi }],
     [128 | 0, { [_jN]: _uM }],
     [() => __listOfWarningGroup, { [_jN]: _wa }],
   ],
 ];
-export var JobEngineVersion: StaticStructureSchema = [
+export var JobEngineVersion$: StaticStructureSchema = [
   3,
   n0,
   _JEV,
@@ -3907,7 +3907,7 @@ export var JobEngineVersion: StaticStructureSchema = [
     [0, { [_jN]: _v }],
   ],
 ];
-export var JobMessages: StaticStructureSchema = [
+export var JobMessages$: StaticStructureSchema = [
   3,
   n0,
   _JM,
@@ -3918,7 +3918,7 @@ export var JobMessages: StaticStructureSchema = [
     [64 | 0, { [_jN]: _war }],
   ],
 ];
-export var JobSettings: StaticStructureSchema = [
+export var JobSettings$: StaticStructureSchema = [
   3,
   n0,
   _JS,
@@ -3926,22 +3926,22 @@ export var JobSettings: StaticStructureSchema = [
   [_AAO, _AB, _CCDLUTSo, _Es, _EDSx, _FSol, _Inp, _KW, _MIIo, _NC, _NNLW, _OG, _TCi, _TMI],
   [
     [1, { [_jN]: _aAO }],
-    [() => AvailBlanking, { [_jN]: _aB }],
+    [() => AvailBlanking$, { [_jN]: _aB }],
     [() => __listOfColorConversion3DLUTSetting, { [_jN]: _cCDLUTS }],
-    [() => EsamSettings, { [_jN]: _es }],
-    [() => ExtendedDataServices, { [_jN]: _eDSx }],
+    [() => EsamSettings$, { [_jN]: _es }],
+    [() => ExtendedDataServices$, { [_jN]: _eDSx }],
     [1, { [_jN]: _fSol }],
     [() => __listOfInput, { [_jN]: _inp }],
-    [() => KantarWatermarkSettings, { [_jN]: _kW }],
-    [() => MotionImageInserter, { [_jN]: _mIIo }],
-    [() => NielsenConfiguration, { [_jN]: _nC }],
-    [() => NielsenNonLinearWatermarkSettings, { [_jN]: _nNLW }],
+    [() => KantarWatermarkSettings$, { [_jN]: _kW }],
+    [() => MotionImageInserter$, { [_jN]: _mIIo }],
+    [() => NielsenConfiguration$, { [_jN]: _nC }],
+    [() => NielsenNonLinearWatermarkSettings$, { [_jN]: _nNLW }],
     [() => __listOfOutputGroup, { [_jN]: _oG }],
-    [() => TimecodeConfig, { [_jN]: _tCi }],
-    [() => TimedMetadataInsertion, { [_jN]: _tMI }],
+    [() => TimecodeConfig$, { [_jN]: _tCi }],
+    [() => TimedMetadataInsertion$, { [_jN]: _tMI }],
   ],
 ];
-export var JobsQueryFilter: StaticStructureSchema = [
+export var JobsQueryFilter$: StaticStructureSchema = [
   3,
   n0,
   _JQF,
@@ -3952,14 +3952,14 @@ export var JobsQueryFilter: StaticStructureSchema = [
     [64 | 0, { [_jN]: _va }],
   ],
 ];
-export var JobTemplate: StaticStructureSchema = [
+export var JobTemplate$: StaticStructureSchema = [
   3,
   n0,
   _JT,
   0,
   [_AScc, _A, _Ca, _CA, _Des, _HD, _LU, _N, _Pri, _Q, _Se, _SUI, _Ty],
   [
-    [() => AccelerationSettings, { [_jN]: _aScc }],
+    [() => AccelerationSettings$, { [_jN]: _aScc }],
     [0, { [_jN]: _a }],
     [0, { [_jN]: _ca }],
     [7, { [_jN]: _cA }],
@@ -3969,12 +3969,12 @@ export var JobTemplate: StaticStructureSchema = [
     [0, { [_jN]: _n }],
     [1, { [_jN]: _pri }],
     [0, { [_jN]: _q }],
-    [() => JobTemplateSettings, { [_jN]: _se }],
+    [() => JobTemplateSettings$, { [_jN]: _se }],
     [0, { [_jN]: _sUI }],
     [0, { [_jN]: _ty }],
   ],
 ];
-export var JobTemplateSettings: StaticStructureSchema = [
+export var JobTemplateSettings$: StaticStructureSchema = [
   3,
   n0,
   _JTS,
@@ -3982,22 +3982,22 @@ export var JobTemplateSettings: StaticStructureSchema = [
   [_AAO, _AB, _CCDLUTSo, _Es, _EDSx, _FSol, _Inp, _KW, _MIIo, _NC, _NNLW, _OG, _TCi, _TMI],
   [
     [1, { [_jN]: _aAO }],
-    [() => AvailBlanking, { [_jN]: _aB }],
+    [() => AvailBlanking$, { [_jN]: _aB }],
     [() => __listOfColorConversion3DLUTSetting, { [_jN]: _cCDLUTS }],
-    [() => EsamSettings, { [_jN]: _es }],
-    [() => ExtendedDataServices, { [_jN]: _eDSx }],
+    [() => EsamSettings$, { [_jN]: _es }],
+    [() => ExtendedDataServices$, { [_jN]: _eDSx }],
     [1, { [_jN]: _fSol }],
     [() => __listOfInputTemplate, { [_jN]: _inp }],
-    [() => KantarWatermarkSettings, { [_jN]: _kW }],
-    [() => MotionImageInserter, { [_jN]: _mIIo }],
-    [() => NielsenConfiguration, { [_jN]: _nC }],
-    [() => NielsenNonLinearWatermarkSettings, { [_jN]: _nNLW }],
+    [() => KantarWatermarkSettings$, { [_jN]: _kW }],
+    [() => MotionImageInserter$, { [_jN]: _mIIo }],
+    [() => NielsenConfiguration$, { [_jN]: _nC }],
+    [() => NielsenNonLinearWatermarkSettings$, { [_jN]: _nNLW }],
     [() => __listOfOutputGroup, { [_jN]: _oG }],
-    [() => TimecodeConfig, { [_jN]: _tCi }],
-    [() => TimedMetadataInsertion, { [_jN]: _tMI }],
+    [() => TimecodeConfig$, { [_jN]: _tCi }],
+    [() => TimedMetadataInsertion$, { [_jN]: _tMI }],
   ],
 ];
-export var KantarWatermarkSettings: StaticStructureSchema = [
+export var KantarWatermarkSettings$: StaticStructureSchema = [
   3,
   n0,
   _KWS,
@@ -4019,7 +4019,7 @@ export var KantarWatermarkSettings: StaticStructureSchema = [
     [0, { [_jN]: _metadata }],
   ],
 ];
-export var ListJobsRequest: StaticStructureSchema = [
+export var ListJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LJR,
@@ -4033,7 +4033,7 @@ export var ListJobsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sta }],
   ],
 ];
-export var ListJobsResponse: StaticStructureSchema = [
+export var ListJobsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LJRi,
@@ -4044,7 +4044,7 @@ export var ListJobsResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListJobTemplatesRequest: StaticStructureSchema = [
+export var ListJobTemplatesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LJTR,
@@ -4058,7 +4058,7 @@ export var ListJobTemplatesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _or }],
   ],
 ];
-export var ListJobTemplatesResponse: StaticStructureSchema = [
+export var ListJobTemplatesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LJTRi,
@@ -4069,7 +4069,7 @@ export var ListJobTemplatesResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListPresetsRequest: StaticStructureSchema = [
+export var ListPresetsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPR,
@@ -4083,7 +4083,7 @@ export var ListPresetsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _or }],
   ],
 ];
-export var ListPresetsResponse: StaticStructureSchema = [
+export var ListPresetsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPRi,
@@ -4094,7 +4094,7 @@ export var ListPresetsResponse: StaticStructureSchema = [
     [() => __listOfPreset, { [_jN]: _pres }],
   ],
 ];
-export var ListQueuesRequest: StaticStructureSchema = [
+export var ListQueuesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LQR,
@@ -4107,7 +4107,7 @@ export var ListQueuesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _or }],
   ],
 ];
-export var ListQueuesResponse: StaticStructureSchema = [
+export var ListQueuesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LQRi,
@@ -4120,16 +4120,16 @@ export var ListQueuesResponse: StaticStructureSchema = [
     [1, { [_jN]: _uCJ }],
   ],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_A], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_A], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTFRRi,
   0,
   [_RT],
-  [[() => ResourceTags, { [_jN]: _rT }]],
+  [[() => ResourceTags$, { [_jN]: _rT }]],
 ];
-export var ListVersionsRequest: StaticStructureSchema = [
+export var ListVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LVR,
@@ -4140,7 +4140,7 @@ export var ListVersionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListVersionsResponse: StaticStructureSchema = [
+export var ListVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LVRi,
@@ -4151,8 +4151,8 @@ export var ListVersionsResponse: StaticStructureSchema = [
     [() => __listOfJobEngineVersion, { [_jN]: _ve }],
   ],
 ];
-export var M2tsScte35Esam: StaticStructureSchema = [3, n0, _MSE, 0, [_SEP], [[1, { [_jN]: _sEP }]]];
-export var M2tsSettings: StaticStructureSchema = [
+export var M2tsScte35Esam$: StaticStructureSchema = [3, n0, _MSE, 0, [_SEP], [[1, { [_jN]: _sEP }]]];
+export var M2tsSettings$: StaticStructureSchema = [
   3,
   n0,
   _MSt,
@@ -4211,10 +4211,10 @@ export var M2tsSettings: StaticStructureSchema = [
     [1, { [_jN]: _b }],
     [0, { [_jN]: _bMu }],
     [0, { [_jN]: _dPTSC }],
-    [() => DvbNitSettings, { [_jN]: _dNS }],
-    [() => DvbSdtSettings, { [_jN]: _dSS }],
+    [() => DvbNitSettings$, { [_jN]: _dNS }],
+    [() => DvbSdtSettings$, { [_jN]: _dSS }],
     [64 | 1, { [_jN]: _dSP }],
-    [() => DvbTdtSettings, { [_jN]: _dTS }],
+    [() => DvbTdtSettings$, { [_jN]: _dTS }],
     [1, { [_jN]: _dTP }],
     [0, { [_jN]: _eAI }],
     [0, { [_jN]: _eP }],
@@ -4237,7 +4237,7 @@ export var M2tsSettings: StaticStructureSchema = [
     [1, { [_jN]: _pO }],
     [0, { [_jN]: _pOM }],
     [0, { [_jN]: _rM }],
-    [() => M2tsScte35Esam, { [_jN]: _sE }],
+    [() => M2tsScte35Esam$, { [_jN]: _sE }],
     [1, { [_jN]: _sPc }],
     [0, { [_jN]: _sSc }],
     [0, { [_jN]: _sMeg }],
@@ -4248,7 +4248,7 @@ export var M2tsSettings: StaticStructureSchema = [
     [1, { [_jN]: _vP }],
   ],
 ];
-export var M3u8Settings: StaticStructureSchema = [
+export var M3u8Settings$: StaticStructureSchema = [
   3,
   n0,
   _MSu,
@@ -4302,7 +4302,7 @@ export var M3u8Settings: StaticStructureSchema = [
     [1, { [_jN]: _vP }],
   ],
 ];
-export var Metadata: StaticStructureSchema = [
+export var Metadata$: StaticStructureSchema = [
   3,
   n0,
   _Metadata_,
@@ -4315,7 +4315,7 @@ export var Metadata: StaticStructureSchema = [
     [0, { [_jN]: _mT }],
   ],
 ];
-export var MinBottomRenditionSize: StaticStructureSchema = [
+export var MinBottomRenditionSize$: StaticStructureSchema = [
   3,
   n0,
   _MBRS,
@@ -4326,7 +4326,7 @@ export var MinBottomRenditionSize: StaticStructureSchema = [
     [1, { [_jN]: _w }],
   ],
 ];
-export var MinTopRenditionSize: StaticStructureSchema = [
+export var MinTopRenditionSize$: StaticStructureSchema = [
   3,
   n0,
   _MTRS,
@@ -4337,22 +4337,22 @@ export var MinTopRenditionSize: StaticStructureSchema = [
     [1, { [_jN]: _w }],
   ],
 ];
-export var MotionImageInserter: StaticStructureSchema = [
+export var MotionImageInserter$: StaticStructureSchema = [
   3,
   n0,
   _MIIo,
   0,
   [_Fr, _In, _IMn, _O, _Pl, _STta],
   [
-    [() => MotionImageInsertionFramerate, { [_jN]: _fr }],
+    [() => MotionImageInsertionFramerate$, { [_jN]: _fr }],
     [0, { [_jN]: _inpu }],
     [0, { [_jN]: _iMn }],
-    [() => MotionImageInsertionOffset, { [_jN]: _o }],
+    [() => MotionImageInsertionOffset$, { [_jN]: _o }],
     [0, { [_jN]: _pl }],
     [0, { [_jN]: _sTta }],
   ],
 ];
-export var MotionImageInsertionFramerate: StaticStructureSchema = [
+export var MotionImageInsertionFramerate$: StaticStructureSchema = [
   3,
   n0,
   _MIIF,
@@ -4363,7 +4363,7 @@ export var MotionImageInsertionFramerate: StaticStructureSchema = [
     [1, { [_jN]: _fN }],
   ],
 ];
-export var MotionImageInsertionOffset: StaticStructureSchema = [
+export var MotionImageInsertionOffset$: StaticStructureSchema = [
   3,
   n0,
   _MIIO,
@@ -4374,7 +4374,7 @@ export var MotionImageInsertionOffset: StaticStructureSchema = [
     [1, { [_jN]: _iY }],
   ],
 ];
-export var MovSettings: StaticStructureSchema = [
+export var MovSettings$: StaticStructureSchema = [
   3,
   n0,
   _MSo,
@@ -4388,7 +4388,7 @@ export var MovSettings: StaticStructureSchema = [
     [0, { [_jN]: _re }],
   ],
 ];
-export var Mp2Settings: StaticStructureSchema = [
+export var Mp2Settings$: StaticStructureSchema = [
   3,
   n0,
   _MS,
@@ -4401,7 +4401,7 @@ export var Mp2Settings: StaticStructureSchema = [
     [1, { [_jN]: _sR }],
   ],
 ];
-export var Mp3Settings: StaticStructureSchema = [
+export var Mp3Settings$: StaticStructureSchema = [
   3,
   n0,
   _MSp,
@@ -4415,7 +4415,7 @@ export var Mp3Settings: StaticStructureSchema = [
     [1, { [_jN]: _vQ }],
   ],
 ];
-export var Mp4Settings: StaticStructureSchema = [
+export var Mp4Settings$: StaticStructureSchema = [
   3,
   n0,
   _MSpe,
@@ -4433,7 +4433,7 @@ export var Mp4Settings: StaticStructureSchema = [
     [0, { [_jN]: _sKK }],
   ],
 ];
-export var MpdSettings: StaticStructureSchema = [
+export var MpdSettings$: StaticStructureSchema = [
   3,
   n0,
   _MSpd,
@@ -4456,7 +4456,7 @@ export var MpdSettings: StaticStructureSchema = [
     [0, { [_jN]: _tMV }],
   ],
 ];
-export var Mpeg2Settings: StaticStructureSchema = [
+export var Mpeg2Settings$: StaticStructureSchema = [
   3,
   n0,
   _MSpeg,
@@ -4534,7 +4534,7 @@ export var Mpeg2Settings: StaticStructureSchema = [
     [0, { [_jN]: _tAQ }],
   ],
 ];
-export var MsSmoothAdditionalManifest: StaticStructureSchema = [
+export var MsSmoothAdditionalManifest$: StaticStructureSchema = [
   3,
   n0,
   _MSAM,
@@ -4545,15 +4545,15 @@ export var MsSmoothAdditionalManifest: StaticStructureSchema = [
     [64 | 0, { [_jN]: _sOe }],
   ],
 ];
-export var MsSmoothEncryptionSettings: StaticStructureSchema = [
+export var MsSmoothEncryptionSettings$: StaticStructureSchema = [
   3,
   n0,
   _MSES,
   0,
   [_SKP],
-  [[() => SpekeKeyProvider, { [_jN]: _sKP }]],
+  [[() => SpekeKeyProvider$, { [_jN]: _sKP }]],
 ];
-export var MsSmoothGroupSettings: StaticStructureSchema = [
+export var MsSmoothGroupSettings$: StaticStructureSchema = [
   3,
   n0,
   _MSGS,
@@ -4563,14 +4563,14 @@ export var MsSmoothGroupSettings: StaticStructureSchema = [
     [() => __listOfMsSmoothAdditionalManifest, { [_jN]: _aM }],
     [0, { [_jN]: _aDu }],
     [0, { [_jN]: _de }],
-    [() => DestinationSettings, { [_jN]: _dSe }],
-    [() => MsSmoothEncryptionSettings, { [_jN]: _en }],
+    [() => DestinationSettings$, { [_jN]: _dSe }],
+    [() => MsSmoothEncryptionSettings$, { [_jN]: _en }],
     [1, { [_jN]: _fL }],
     [0, { [_jN]: _fLC }],
     [0, { [_jN]: _mE }],
   ],
 ];
-export var MxfSettings: StaticStructureSchema = [
+export var MxfSettings$: StaticStructureSchema = [
   3,
   n0,
   _MSx,
@@ -4579,10 +4579,10 @@ export var MxfSettings: StaticStructureSchema = [
   [
     [0, { [_jN]: _aSf }],
     [0, { [_jN]: _pr }],
-    [() => MxfXavcProfileSettings, { [_jN]: _xPS }],
+    [() => MxfXavcProfileSettings$, { [_jN]: _xPS }],
   ],
 ];
-export var MxfXavcProfileSettings: StaticStructureSchema = [
+export var MxfXavcProfileSettings$: StaticStructureSchema = [
   3,
   n0,
   _MXPS,
@@ -4593,7 +4593,7 @@ export var MxfXavcProfileSettings: StaticStructureSchema = [
     [1, { [_jN]: _mADS }],
   ],
 ];
-export var NexGuardFileMarkerSettings: StaticStructureSchema = [
+export var NexGuardFileMarkerSettings$: StaticStructureSchema = [
   3,
   n0,
   _NGFMS,
@@ -4606,7 +4606,7 @@ export var NexGuardFileMarkerSettings: StaticStructureSchema = [
     [0, { [_jN]: _str }],
   ],
 ];
-export var NielsenConfiguration: StaticStructureSchema = [
+export var NielsenConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _NC,
@@ -4617,7 +4617,7 @@ export var NielsenConfiguration: StaticStructureSchema = [
     [0, { [_jN]: _dIi }],
   ],
 ];
-export var NielsenNonLinearWatermarkSettings: StaticStructureSchema = [
+export var NielsenNonLinearWatermarkSettings$: StaticStructureSchema = [
   3,
   n0,
   _NNLWS,
@@ -4637,7 +4637,7 @@ export var NielsenNonLinearWatermarkSettings: StaticStructureSchema = [
     [0, { [_jN]: _uTPAT }],
   ],
 ];
-export var NoiseReducer: StaticStructureSchema = [
+export var NoiseReducer$: StaticStructureSchema = [
   3,
   n0,
   _NR,
@@ -4645,13 +4645,13 @@ export var NoiseReducer: StaticStructureSchema = [
   [_Fi, _FSilt, _SFS, _TFS],
   [
     [0, { [_jN]: _fi }],
-    [() => NoiseReducerFilterSettings, { [_jN]: _fSilt }],
-    [() => NoiseReducerSpatialFilterSettings, { [_jN]: _sFS }],
-    [() => NoiseReducerTemporalFilterSettings, { [_jN]: _tFS }],
+    [() => NoiseReducerFilterSettings$, { [_jN]: _fSilt }],
+    [() => NoiseReducerSpatialFilterSettings$, { [_jN]: _sFS }],
+    [() => NoiseReducerTemporalFilterSettings$, { [_jN]: _tFS }],
   ],
 ];
-export var NoiseReducerFilterSettings: StaticStructureSchema = [3, n0, _NRFS, 0, [_Str], [[1, { [_jN]: _str }]]];
-export var NoiseReducerSpatialFilterSettings: StaticStructureSchema = [
+export var NoiseReducerFilterSettings$: StaticStructureSchema = [3, n0, _NRFS, 0, [_Str], [[1, { [_jN]: _str }]]];
+export var NoiseReducerSpatialFilterSettings$: StaticStructureSchema = [
   3,
   n0,
   _NRSFS,
@@ -4663,7 +4663,7 @@ export var NoiseReducerSpatialFilterSettings: StaticStructureSchema = [
     [1, { [_jN]: _str }],
   ],
 ];
-export var NoiseReducerTemporalFilterSettings: StaticStructureSchema = [
+export var NoiseReducerTemporalFilterSettings$: StaticStructureSchema = [
   3,
   n0,
   _NRTFS,
@@ -4677,7 +4677,7 @@ export var NoiseReducerTemporalFilterSettings: StaticStructureSchema = [
     [1, { [_jN]: _str }],
   ],
 ];
-export var NotFoundException: StaticErrorSchema = [
+export var NotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _NFE,
@@ -4685,8 +4685,8 @@ export var NotFoundException: StaticErrorSchema = [
   [_Me],
   [[0, { [_jN]: _me }]],
 ];
-TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-export var OpusSettings: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
+export var OpusSettings$: StaticStructureSchema = [
   3,
   n0,
   _OS,
@@ -4698,7 +4698,7 @@ export var OpusSettings: StaticStructureSchema = [
     [1, { [_jN]: _sR }],
   ],
 ];
-export var Output: StaticStructureSchema = [
+export var Output$: StaticStructureSchema = [
   3,
   n0,
   _Ou,
@@ -4707,15 +4707,15 @@ export var Output: StaticStructureSchema = [
   [
     [() => __listOfAudioDescription, { [_jN]: _aDud }],
     [() => __listOfCaptionDescription, { [_jN]: _cD }],
-    [() => ContainerSettings, { [_jN]: _cSon }],
+    [() => ContainerSettings$, { [_jN]: _cSon }],
     [0, { [_jN]: _ex }],
     [0, { [_jN]: _nM }],
-    [() => OutputSettings, { [_jN]: _oSutpu }],
+    [() => OutputSettings$, { [_jN]: _oSutpu }],
     [0, { [_jN]: _pre }],
-    [() => VideoDescription, { [_jN]: _vD }],
+    [() => VideoDescription$, { [_jN]: _vD }],
   ],
 ];
-export var OutputChannelMapping: StaticStructureSchema = [
+export var OutputChannelMapping$: StaticStructureSchema = [
   3,
   n0,
   _OCM,
@@ -4726,7 +4726,7 @@ export var OutputChannelMapping: StaticStructureSchema = [
     [64 | 1, { [_jN]: _iCFT }],
   ],
 ];
-export var OutputDetail: StaticStructureSchema = [
+export var OutputDetail$: StaticStructureSchema = [
   3,
   n0,
   _OD,
@@ -4734,24 +4734,24 @@ export var OutputDetail: StaticStructureSchema = [
   [_DIM, _VDi],
   [
     [1, { [_jN]: _dIM }],
-    [() => VideoDetail, { [_jN]: _vDi }],
+    [() => VideoDetail$, { [_jN]: _vDi }],
   ],
 ];
-export var OutputGroup: StaticStructureSchema = [
+export var OutputGroup$: StaticStructureSchema = [
   3,
   n0,
   _OGu,
   0,
   [_AES, _CNu, _N, _OGS, _Out],
   [
-    [() => AutomatedEncodingSettings, { [_jN]: _aES }],
+    [() => AutomatedEncodingSettings$, { [_jN]: _aES }],
     [0, { [_jN]: _cNu }],
     [0, { [_jN]: _n }],
-    [() => OutputGroupSettings, { [_jN]: _oGS }],
+    [() => OutputGroupSettings$, { [_jN]: _oGS }],
     [() => __listOfOutput, { [_jN]: _ou }],
   ],
 ];
-export var OutputGroupDetail: StaticStructureSchema = [
+export var OutputGroupDetail$: StaticStructureSchema = [
   3,
   n0,
   _OGDu,
@@ -4759,32 +4759,32 @@ export var OutputGroupDetail: StaticStructureSchema = [
   [_ODu],
   [[() => __listOfOutputDetail, { [_jN]: _oD }]],
 ];
-export var OutputGroupSettings: StaticStructureSchema = [
+export var OutputGroupSettings$: StaticStructureSchema = [
   3,
   n0,
   _OGS,
   0,
   [_CGS, _DIGS, _FGSi, _HGS, _MSGS, _PFM, _Ty],
   [
-    [() => CmafGroupSettings, { [_jN]: _cGS }],
-    [() => DashIsoGroupSettings, { [_jN]: _dIGS }],
-    [() => FileGroupSettings, { [_jN]: _fGSi }],
-    [() => HlsGroupSettings, { [_jN]: _hGS }],
-    [() => MsSmoothGroupSettings, { [_jN]: _mSGS }],
+    [() => CmafGroupSettings$, { [_jN]: _cGS }],
+    [() => DashIsoGroupSettings$, { [_jN]: _dIGS }],
+    [() => FileGroupSettings$, { [_jN]: _fGSi }],
+    [() => HlsGroupSettings$, { [_jN]: _hGS }],
+    [() => MsSmoothGroupSettings$, { [_jN]: _mSGS }],
     [64 | 0, { [_jN]: _pFM }],
     [0, { [_jN]: _ty }],
   ],
 ];
-export var OutputSettings: StaticStructureSchema = [3, n0, _OSutpu, 0, [_HSl], [[() => HlsSettings, { [_jN]: _hS }]]];
-export var PartnerWatermarking: StaticStructureSchema = [
+export var OutputSettings$: StaticStructureSchema = [3, n0, _OSutpu, 0, [_HSl], [[() => HlsSettings$, { [_jN]: _hS }]]];
+export var PartnerWatermarking$: StaticStructureSchema = [
   3,
   n0,
   _PW,
   0,
   [_NFMS],
-  [[() => NexGuardFileMarkerSettings, { [_jN]: _nFMS }]],
+  [[() => NexGuardFileMarkerSettings$, { [_jN]: _nFMS }]],
 ];
-export var PassthroughSettings: StaticStructureSchema = [
+export var PassthroughSettings$: StaticStructureSchema = [
   3,
   n0,
   _PSa,
@@ -4795,7 +4795,7 @@ export var PassthroughSettings: StaticStructureSchema = [
     [0, { [_jN]: _vSM }],
   ],
 ];
-export var Policy: StaticStructureSchema = [
+export var Policy$: StaticStructureSchema = [
   3,
   n0,
   _Po,
@@ -4807,7 +4807,7 @@ export var Policy: StaticStructureSchema = [
     [0, { [_jN]: _sIn }],
   ],
 ];
-export var Preset: StaticStructureSchema = [
+export var Preset$: StaticStructureSchema = [
   3,
   n0,
   _Pre,
@@ -4820,11 +4820,11 @@ export var Preset: StaticStructureSchema = [
     [0, { [_jN]: _des }],
     [7, { [_jN]: _lU }],
     [0, { [_jN]: _n }],
-    [() => PresetSettings, { [_jN]: _se }],
+    [() => PresetSettings$, { [_jN]: _se }],
     [0, { [_jN]: _ty }],
   ],
 ];
-export var PresetSettings: StaticStructureSchema = [
+export var PresetSettings$: StaticStructureSchema = [
   3,
   n0,
   _PSr,
@@ -4833,12 +4833,12 @@ export var PresetSettings: StaticStructureSchema = [
   [
     [() => __listOfAudioDescription, { [_jN]: _aDud }],
     [() => __listOfCaptionDescriptionPreset, { [_jN]: _cD }],
-    [() => ContainerSettings, { [_jN]: _cSon }],
-    [() => VideoDescription, { [_jN]: _vD }],
+    [() => ContainerSettings$, { [_jN]: _cSon }],
+    [() => VideoDescription$, { [_jN]: _vD }],
   ],
 ];
-export var ProbeInputFile: StaticStructureSchema = [3, n0, _PIF, 0, [_FU], [[0, { [_jN]: _fU }]]];
-export var ProbeRequest: StaticStructureSchema = [
+export var ProbeInputFile$: StaticStructureSchema = [3, n0, _PIF, 0, [_FU], [[0, { [_jN]: _fU }]]];
+export var ProbeRequest$: StaticStructureSchema = [
   3,
   n0,
   _PR,
@@ -4846,7 +4846,7 @@ export var ProbeRequest: StaticStructureSchema = [
   [_IF],
   [[() => __listOfProbeInputFile, { [_jN]: _iF }]],
 ];
-export var ProbeResponse: StaticStructureSchema = [
+export var ProbeResponse$: StaticStructureSchema = [
   3,
   n0,
   _PRr,
@@ -4854,19 +4854,19 @@ export var ProbeResponse: StaticStructureSchema = [
   [_PRro],
   [[() => __listOfProbeResult, { [_jN]: _pR }]],
 ];
-export var ProbeResult: StaticStructureSchema = [
+export var ProbeResult$: StaticStructureSchema = [
   3,
   n0,
   _PRrob,
   0,
   [_Cont, _Metadata_, _TMr],
   [
-    [() => Container, { [_jN]: _cont }],
-    [() => Metadata, { [_jN]: _metadata_ }],
+    [() => Container$, { [_jN]: _cont }],
+    [() => Metadata$, { [_jN]: _metadata_ }],
     [() => __listOfTrackMapping, { [_jN]: _tMr }],
   ],
 ];
-export var ProresSettings: StaticStructureSchema = [
+export var ProresSettings$: StaticStructureSchema = [
   3,
   n0,
   _PSro,
@@ -4889,9 +4889,9 @@ export var ProresSettings: StaticStructureSchema = [
     [0, { [_jN]: _te }],
   ],
 ];
-export var PutPolicyRequest: StaticStructureSchema = [3, n0, _PPR, 0, [_Po], [[() => Policy, { [_jN]: _po }]]];
-export var PutPolicyResponse: StaticStructureSchema = [3, n0, _PPRu, 0, [_Po], [[() => Policy, { [_jN]: _po }]]];
-export var Queue: StaticStructureSchema = [
+export var PutPolicyRequest$: StaticStructureSchema = [3, n0, _PPR, 0, [_Po], [[() => Policy$, { [_jN]: _po }]]];
+export var PutPolicyResponse$: StaticStructureSchema = [3, n0, _PPRu, 0, [_Po], [[() => Policy$, { [_jN]: _po }]]];
+export var Queue$: StaticStructureSchema = [
   3,
   n0,
   _Q,
@@ -4906,14 +4906,14 @@ export var Queue: StaticStructureSchema = [
     [0, { [_jN]: _n }],
     [0, { [_jN]: _pP }],
     [1, { [_jN]: _pJC }],
-    [() => ReservationPlan, { [_jN]: _rPe }],
+    [() => ReservationPlan$, { [_jN]: _rPe }],
     [() => __listOfServiceOverride, { [_jN]: _sOer }],
     [0, { [_jN]: _sta }],
     [1, { [_jN]: _sJC }],
     [0, { [_jN]: _ty }],
   ],
 ];
-export var QueueTransition: StaticStructureSchema = [
+export var QueueTransition$: StaticStructureSchema = [
   3,
   n0,
   _QTu,
@@ -4925,7 +4925,7 @@ export var QueueTransition: StaticStructureSchema = [
     [7, { [_jN]: _times }],
   ],
 ];
-export var Rectangle: StaticStructureSchema = [
+export var Rectangle$: StaticStructureSchema = [
   3,
   n0,
   _Rec,
@@ -4938,7 +4938,7 @@ export var Rectangle: StaticStructureSchema = [
     [1, { [_jN]: _y }],
   ],
 ];
-export var RemixSettings: StaticStructureSchema = [
+export var RemixSettings$: StaticStructureSchema = [
   3,
   n0,
   _RS,
@@ -4947,12 +4947,12 @@ export var RemixSettings: StaticStructureSchema = [
   [
     [1, { [_jN]: _aDAC }],
     [1, { [_jN]: _aDDC }],
-    [() => ChannelMapping, { [_jN]: _cMh }],
+    [() => ChannelMapping$, { [_jN]: _cMh }],
     [1, { [_jN]: _cI }],
     [1, { [_jN]: _cO }],
   ],
 ];
-export var ReservationPlan: StaticStructureSchema = [
+export var ReservationPlan$: StaticStructureSchema = [
   3,
   n0,
   _RPe,
@@ -4967,7 +4967,7 @@ export var ReservationPlan: StaticStructureSchema = [
     [0, { [_jN]: _sta }],
   ],
 ];
-export var ReservationPlanSettings: StaticStructureSchema = [
+export var ReservationPlanSettings$: StaticStructureSchema = [
   3,
   n0,
   _RPS,
@@ -4979,7 +4979,7 @@ export var ReservationPlanSettings: StaticStructureSchema = [
     [1, { [_jN]: _rSe }],
   ],
 ];
-export var ResourceTags: StaticStructureSchema = [
+export var ResourceTags$: StaticStructureSchema = [
   3,
   n0,
   _RT,
@@ -4990,20 +4990,20 @@ export var ResourceTags: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var S3DestinationAccessControl: StaticStructureSchema = [3, n0, _SDAC, 0, [_CAa], [[0, { [_jN]: _cAa }]]];
-export var S3DestinationSettings: StaticStructureSchema = [
+export var S3DestinationAccessControl$: StaticStructureSchema = [3, n0, _SDAC, 0, [_CAa], [[0, { [_jN]: _cAa }]]];
+export var S3DestinationSettings$: StaticStructureSchema = [
   3,
   n0,
   _SDSe,
   0,
   [_ACc, _E, _SCt],
   [
-    [() => S3DestinationAccessControl, { [_jN]: _aCc }],
-    [() => S3EncryptionSettings, { [_jN]: _en }],
+    [() => S3DestinationAccessControl$, { [_jN]: _aCc }],
+    [() => S3EncryptionSettings$, { [_jN]: _en }],
     [0, { [_jN]: _sCt }],
   ],
 ];
-export var S3EncryptionSettings: StaticStructureSchema = [
+export var S3EncryptionSettings$: StaticStructureSchema = [
   3,
   n0,
   _SES,
@@ -5015,8 +5015,8 @@ export var S3EncryptionSettings: StaticStructureSchema = [
     [0, { [_jN]: _kKA }],
   ],
 ];
-export var SccDestinationSettings: StaticStructureSchema = [3, n0, _SDS, 0, [_Fr], [[0, { [_jN]: _fr }]]];
-export var SearchJobsRequest: StaticStructureSchema = [
+export var SccDestinationSettings$: StaticStructureSchema = [3, n0, _SDS, 0, [_Fr], [[0, { [_jN]: _fr }]]];
+export var SearchJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _SJR,
@@ -5031,7 +5031,7 @@ export var SearchJobsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sta }],
   ],
 ];
-export var SearchJobsResponse: StaticStructureSchema = [
+export var SearchJobsResponse$: StaticStructureSchema = [
   3,
   n0,
   _SJRe,
@@ -5042,7 +5042,7 @@ export var SearchJobsResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ServiceOverride: StaticStructureSchema = [
+export var ServiceOverride$: StaticStructureSchema = [
   3,
   n0,
   _SOerv,
@@ -5055,7 +5055,7 @@ export var ServiceOverride: StaticStructureSchema = [
     [0, { [_jN]: _val }],
   ],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
+export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
@@ -5063,8 +5063,8 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   [_Me],
   [[0, { [_jN]: _me }]],
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var SpekeKeyProvider: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SpekeKeyProvider$: StaticStructureSchema = [
   3,
   n0,
   _SKP,
@@ -5072,13 +5072,13 @@ export var SpekeKeyProvider: StaticStructureSchema = [
   [_CAe, _ECC, _RIe, _SIy, _U],
   [
     [0, { [_jN]: _cAe }],
-    [() => EncryptionContractConfiguration, { [_jN]: _eCC }],
+    [() => EncryptionContractConfiguration$, { [_jN]: _eCC }],
     [0, { [_jN]: _rIe }],
     [64 | 0, { [_jN]: _sIy }],
     [0, { [_jN]: _u }],
   ],
 ];
-export var SpekeKeyProviderCmaf: StaticStructureSchema = [
+export var SpekeKeyProviderCmaf$: StaticStructureSchema = [
   3,
   n0,
   _SKPC,
@@ -5087,14 +5087,14 @@ export var SpekeKeyProviderCmaf: StaticStructureSchema = [
   [
     [0, { [_jN]: _cAe }],
     [64 | 0, { [_jN]: _dSSI }],
-    [() => EncryptionContractConfiguration, { [_jN]: _eCC }],
+    [() => EncryptionContractConfiguration$, { [_jN]: _eCC }],
     [64 | 0, { [_jN]: _hSSI }],
     [0, { [_jN]: _rIe }],
     [0, { [_jN]: _u }],
   ],
 ];
-export var SrtDestinationSettings: StaticStructureSchema = [3, n0, _SDSr, 0, [_SPt], [[0, { [_jN]: _sPt }]]];
-export var StartJobsQueryRequest: StaticStructureSchema = [
+export var SrtDestinationSettings$: StaticStructureSchema = [3, n0, _SDSr, 0, [_SPt], [[0, { [_jN]: _sPt }]]];
+export var StartJobsQueryRequest$: StaticStructureSchema = [
   3,
   n0,
   _SJQR,
@@ -5107,8 +5107,8 @@ export var StartJobsQueryRequest: StaticStructureSchema = [
     [0, { [_jN]: _or }],
   ],
 ];
-export var StartJobsQueryResponse: StaticStructureSchema = [3, n0, _SJQRt, 0, [_I], [[0, { [_jN]: _id }]]];
-export var StaticKeyProvider: StaticStructureSchema = [
+export var StartJobsQueryResponse$: StaticStructureSchema = [3, n0, _SJQRt, 0, [_I], [[0, { [_jN]: _id }]]];
+export var StaticKeyProvider$: StaticStructureSchema = [
   3,
   n0,
   _SKPt,
@@ -5121,7 +5121,7 @@ export var StaticKeyProvider: StaticStructureSchema = [
     [0, { [_jN]: _u }],
   ],
 ];
-export var TagResourceRequest: StaticStructureSchema = [
+export var TagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _TRR,
@@ -5132,8 +5132,8 @@ export var TagResourceRequest: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TeletextDestinationSettings: StaticStructureSchema = [
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var TeletextDestinationSettings$: StaticStructureSchema = [
   3,
   n0,
   _TDS,
@@ -5144,8 +5144,8 @@ export var TeletextDestinationSettings: StaticStructureSchema = [
     [64 | 0, { [_jN]: _pT }],
   ],
 ];
-export var TeletextSourceSettings: StaticStructureSchema = [3, n0, _TSS, 0, [_PNa], [[0, { [_jN]: _pNa }]]];
-export var TimecodeBurnin: StaticStructureSchema = [
+export var TeletextSourceSettings$: StaticStructureSchema = [3, n0, _TSS, 0, [_PNa], [[0, { [_jN]: _pNa }]]];
+export var TimecodeBurnin$: StaticStructureSchema = [
   3,
   n0,
   _TB,
@@ -5157,7 +5157,7 @@ export var TimecodeBurnin: StaticStructureSchema = [
     [0, { [_jN]: _pref }],
   ],
 ];
-export var TimecodeConfig: StaticStructureSchema = [
+export var TimecodeConfig$: StaticStructureSchema = [
   3,
   n0,
   _TCi,
@@ -5170,7 +5170,7 @@ export var TimecodeConfig: StaticStructureSchema = [
     [0, { [_jN]: _tO }],
   ],
 ];
-export var TimedMetadataInsertion: StaticStructureSchema = [
+export var TimedMetadataInsertion$: StaticStructureSchema = [
   3,
   n0,
   _TMI,
@@ -5178,7 +5178,7 @@ export var TimedMetadataInsertion: StaticStructureSchema = [
   [_IId],
   [[() => __listOfId3Insertion, { [_jN]: _iId }]],
 ];
-export var Timing: StaticStructureSchema = [
+export var Timing$: StaticStructureSchema = [
   3,
   n0,
   _Timi,
@@ -5190,7 +5190,7 @@ export var Timing: StaticStructureSchema = [
     [7, { [_jN]: _sTub }],
   ],
 ];
-export var TooManyRequestsException: StaticErrorSchema = [
+export var TooManyRequestsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMRE,
@@ -5198,24 +5198,24 @@ export var TooManyRequestsException: StaticErrorSchema = [
   [_Me],
   [[0, { [_jN]: _me }]],
 ];
-TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-export var Track: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
+export var Track$: StaticStructureSchema = [
   3,
   n0,
   _Tr,
   0,
   [_AP, _Co, _DP, _Du, _Ind, _TT, _VPi],
   [
-    [() => AudioProperties, { [_jN]: _aPu }],
+    [() => AudioProperties$, { [_jN]: _aPu }],
     [0, { [_jN]: _co }],
-    [() => DataProperties, { [_jN]: _dP }],
+    [() => DataProperties$, { [_jN]: _dP }],
     [1, { [_jN]: _du }],
     [1, { [_jN]: _ind }],
     [0, { [_jN]: _tT }],
-    [() => VideoProperties, { [_jN]: _vPi }],
+    [() => VideoProperties$, { [_jN]: _vPi }],
   ],
 ];
-export var TrackMapping: StaticStructureSchema = [
+export var TrackMapping$: StaticStructureSchema = [
   3,
   n0,
   _TMra,
@@ -5227,7 +5227,7 @@ export var TrackMapping: StaticStructureSchema = [
     [64 | 1, { [_jN]: _vTI }],
   ],
 ];
-export var TrackSourceSettings: StaticStructureSchema = [
+export var TrackSourceSettings$: StaticStructureSchema = [
   3,
   n0,
   _TSSr,
@@ -5238,8 +5238,8 @@ export var TrackSourceSettings: StaticStructureSchema = [
     [1, { [_jN]: _tN }],
   ],
 ];
-export var TtmlDestinationSettings: StaticStructureSchema = [3, n0, _TDSt, 0, [_SPt], [[0, { [_jN]: _sPt }]]];
-export var UncompressedSettings: StaticStructureSchema = [
+export var TtmlDestinationSettings$: StaticStructureSchema = [3, n0, _TDSt, 0, [_SPt], [[0, { [_jN]: _sPt }]]];
+export var UncompressedSettings$: StaticStructureSchema = [
   3,
   n0,
   _US,
@@ -5257,7 +5257,7 @@ export var UncompressedSettings: StaticStructureSchema = [
     [0, { [_jN]: _te }],
   ],
 ];
-export var UntagResourceRequest: StaticStructureSchema = [
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -5268,34 +5268,34 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_jN]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateJobTemplateRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateJobTemplateRequest$: StaticStructureSchema = [
   3,
   n0,
   _UJTR,
   0,
   [_AScc, _Ca, _Des, _HD, _N, _Pri, _Q, _Se, _SUI],
   [
-    [() => AccelerationSettings, { [_jN]: _aScc }],
+    [() => AccelerationSettings$, { [_jN]: _aScc }],
     [0, { [_jN]: _ca }],
     [0, { [_jN]: _des }],
     [() => __listOfHopDestination, { [_jN]: _hD }],
     [0, 1],
     [1, { [_jN]: _pri }],
     [0, { [_jN]: _q }],
-    [() => JobTemplateSettings, { [_jN]: _se }],
+    [() => JobTemplateSettings$, { [_jN]: _se }],
     [0, { [_jN]: _sUI }],
   ],
 ];
-export var UpdateJobTemplateResponse: StaticStructureSchema = [
+export var UpdateJobTemplateResponse$: StaticStructureSchema = [
   3,
   n0,
   _UJTRp,
   0,
   [_JT],
-  [[() => JobTemplate, { [_jN]: _jT }]],
+  [[() => JobTemplate$, { [_jN]: _jT }]],
 ];
-export var UpdatePresetRequest: StaticStructureSchema = [
+export var UpdatePresetRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPR,
@@ -5305,11 +5305,11 @@ export var UpdatePresetRequest: StaticStructureSchema = [
     [0, { [_jN]: _ca }],
     [0, { [_jN]: _des }],
     [0, 1],
-    [() => PresetSettings, { [_jN]: _se }],
+    [() => PresetSettings$, { [_jN]: _se }],
   ],
 ];
-export var UpdatePresetResponse: StaticStructureSchema = [3, n0, _UPRp, 0, [_Pre], [[() => Preset, { [_jN]: _pre }]]];
-export var UpdateQueueRequest: StaticStructureSchema = [
+export var UpdatePresetResponse$: StaticStructureSchema = [3, n0, _UPRp, 0, [_Pre], [[() => Preset$, { [_jN]: _pre }]]];
+export var UpdateQueueRequest$: StaticStructureSchema = [
   3,
   n0,
   _UQR,
@@ -5319,12 +5319,12 @@ export var UpdateQueueRequest: StaticStructureSchema = [
     [1, { [_jN]: _cJ }],
     [0, { [_jN]: _des }],
     [0, 1],
-    [() => ReservationPlanSettings, { [_jN]: _rPS }],
+    [() => ReservationPlanSettings$, { [_jN]: _rPS }],
     [0, { [_jN]: _sta }],
   ],
 ];
-export var UpdateQueueResponse: StaticStructureSchema = [3, n0, _UQRp, 0, [_Q], [[() => Queue, { [_jN]: _q }]]];
-export var Vc3Settings: StaticStructureSchema = [
+export var UpdateQueueResponse$: StaticStructureSchema = [3, n0, _UQRp, 0, [_Q], [[() => Queue$, { [_jN]: _q }]]];
+export var Vc3Settings$: StaticStructureSchema = [
   3,
   n0,
   _VSc,
@@ -5342,31 +5342,31 @@ export var Vc3Settings: StaticStructureSchema = [
     [0, { [_jN]: _vC }],
   ],
 ];
-export var VideoCodecSettings: StaticStructureSchema = [
+export var VideoCodecSettings$: StaticStructureSchema = [
   3,
   n0,
   _VCS,
   0,
   [_ASv, _AIS, _Co, _FCS, _GSi, _HS, _HSe, _MSpeg, _PSa, _PSro, _US, _VSc, _VSp, _VSpe, _XS],
   [
-    [() => Av1Settings, { [_jN]: _aSv }],
-    [() => AvcIntraSettings, { [_jN]: _aIS }],
+    [() => Av1Settings$, { [_jN]: _aSv }],
+    [() => AvcIntraSettings$, { [_jN]: _aIS }],
     [0, { [_jN]: _co }],
-    [() => FrameCaptureSettings, { [_jN]: _fCS }],
-    [() => GifSettings, { [_jN]: _gSi }],
-    [() => H264Settings, { [_jN]: _hSe }],
-    [() => H265Settings, { [_jN]: _hSet }],
-    [() => Mpeg2Settings, { [_jN]: _mSpeg }],
-    [() => PassthroughSettings, { [_jN]: _pSa }],
-    [() => ProresSettings, { [_jN]: _pSr }],
-    [() => UncompressedSettings, { [_jN]: _uS }],
-    [() => Vc3Settings, { [_jN]: _vSc }],
-    [() => Vp8Settings, { [_jN]: _vSp }],
-    [() => Vp9Settings, { [_jN]: _vSpe }],
-    [() => XavcSettings, { [_jN]: _xS }],
+    [() => FrameCaptureSettings$, { [_jN]: _fCS }],
+    [() => GifSettings$, { [_jN]: _gSi }],
+    [() => H264Settings$, { [_jN]: _hSe }],
+    [() => H265Settings$, { [_jN]: _hSet }],
+    [() => Mpeg2Settings$, { [_jN]: _mSpeg }],
+    [() => PassthroughSettings$, { [_jN]: _pSa }],
+    [() => ProresSettings$, { [_jN]: _pSr }],
+    [() => UncompressedSettings$, { [_jN]: _uS }],
+    [() => Vc3Settings$, { [_jN]: _vSc }],
+    [() => Vp8Settings$, { [_jN]: _vSp }],
+    [() => Vp9Settings$, { [_jN]: _vSpe }],
+    [() => XavcSettings$, { [_jN]: _xS }],
   ],
 ];
-export var VideoDescription: StaticStructureSchema = [
+export var VideoDescription$: StaticStructureSchema = [
   3,
   n0,
   _VD,
@@ -5376,23 +5376,23 @@ export var VideoDescription: StaticStructureSchema = [
     [0, { [_jN]: _aSf }],
     [0, { [_jN]: _aA }],
     [0, { [_jN]: _cPM }],
-    [() => VideoCodecSettings, { [_jN]: _cS }],
+    [() => VideoCodecSettings$, { [_jN]: _cS }],
     [0, { [_jN]: _cMo }],
-    [() => Rectangle, { [_jN]: _cr }],
+    [() => Rectangle$, { [_jN]: _cr }],
     [0, { [_jN]: _dFT }],
     [1, { [_jN]: _fA }],
     [1, { [_jN]: _h }],
-    [() => Rectangle, { [_jN]: _pos }],
+    [() => Rectangle$, { [_jN]: _pos }],
     [0, { [_jN]: _rTA }],
     [0, { [_jN]: _sB }],
     [1, { [_jN]: _sha }],
     [0, { [_jN]: _tIi }],
     [0, { [_jN]: _tTi }],
-    [() => VideoPreprocessor, { [_jN]: _vPid }],
+    [() => VideoPreprocessor$, { [_jN]: _vPid }],
     [1, { [_jN]: _w }],
   ],
 ];
-export var VideoDetail: StaticStructureSchema = [
+export var VideoDetail$: StaticStructureSchema = [
   3,
   n0,
   _VDid,
@@ -5403,23 +5403,23 @@ export var VideoDetail: StaticStructureSchema = [
     [1, { [_jN]: _wIP }],
   ],
 ];
-export var VideoOverlay: StaticStructureSchema = [
+export var VideoOverlay$: StaticStructureSchema = [
   3,
   n0,
   _VOi,
   0,
   [_Cr, _ET, _IP, _In, _Pl, _STt, _Tra],
   [
-    [() => VideoOverlayCrop, { [_jN]: _cr }],
+    [() => VideoOverlayCrop$, { [_jN]: _cr }],
     [0, { [_jN]: _eT }],
-    [() => VideoOverlayPosition, { [_jN]: _iP }],
-    [() => VideoOverlayInput, { [_jN]: _inpu }],
+    [() => VideoOverlayPosition$, { [_jN]: _iP }],
+    [() => VideoOverlayInput$, { [_jN]: _inpu }],
     [0, { [_jN]: _pl }],
     [0, { [_jN]: _sTt }],
     [() => __listOfVideoOverlayTransition, { [_jN]: _tr }],
   ],
 ];
-export var VideoOverlayCrop: StaticStructureSchema = [
+export var VideoOverlayCrop$: StaticStructureSchema = [
   3,
   n0,
   _VOC,
@@ -5433,7 +5433,7 @@ export var VideoOverlayCrop: StaticStructureSchema = [
     [1, { [_jN]: _y }],
   ],
 ];
-export var VideoOverlayInput: StaticStructureSchema = [
+export var VideoOverlayInput$: StaticStructureSchema = [
   3,
   n0,
   _VOI,
@@ -5446,7 +5446,7 @@ export var VideoOverlayInput: StaticStructureSchema = [
     [0, { [_jN]: _tSim }],
   ],
 ];
-export var VideoOverlayInputClipping: StaticStructureSchema = [
+export var VideoOverlayInputClipping$: StaticStructureSchema = [
   3,
   n0,
   _VOIC,
@@ -5457,7 +5457,7 @@ export var VideoOverlayInputClipping: StaticStructureSchema = [
     [0, { [_jN]: _sTt }],
   ],
 ];
-export var VideoOverlayPosition: StaticStructureSchema = [
+export var VideoOverlayPosition$: StaticStructureSchema = [
   3,
   n0,
   _VOP,
@@ -5472,36 +5472,36 @@ export var VideoOverlayPosition: StaticStructureSchema = [
     [1, { [_jN]: _yP }],
   ],
 ];
-export var VideoOverlayTransition: StaticStructureSchema = [
+export var VideoOverlayTransition$: StaticStructureSchema = [
   3,
   n0,
   _VOT,
   0,
   [_EPn, _ET, _STt],
   [
-    [() => VideoOverlayPosition, { [_jN]: _ePn }],
+    [() => VideoOverlayPosition$, { [_jN]: _ePn }],
     [0, { [_jN]: _eT }],
     [0, { [_jN]: _sTt }],
   ],
 ];
-export var VideoPreprocessor: StaticStructureSchema = [
+export var VideoPreprocessor$: StaticStructureSchema = [
   3,
   n0,
   _VPide,
   0,
   [_CCo, _Dei, _DV, _HP, _IIm, _NR, _PW, _TB],
   [
-    [() => ColorCorrector, { [_jN]: _cCo }],
-    [() => Deinterlacer, { [_jN]: _dei }],
-    [() => DolbyVision, { [_jN]: _dV }],
-    [() => Hdr10Plus, { [_jN]: _hP }],
-    [() => ImageInserter, { [_jN]: _iIm }],
-    [() => NoiseReducer, { [_jN]: _nR }],
-    [() => PartnerWatermarking, { [_jN]: _pW }],
-    [() => TimecodeBurnin, { [_jN]: _tB }],
+    [() => ColorCorrector$, { [_jN]: _cCo }],
+    [() => Deinterlacer$, { [_jN]: _dei }],
+    [() => DolbyVision$, { [_jN]: _dV }],
+    [() => Hdr10Plus$, { [_jN]: _hP }],
+    [() => ImageInserter$, { [_jN]: _iIm }],
+    [() => NoiseReducer$, { [_jN]: _nR }],
+    [() => PartnerWatermarking$, { [_jN]: _pW }],
+    [() => TimecodeBurnin$, { [_jN]: _tB }],
   ],
 ];
-export var VideoProperties: StaticStructureSchema = [
+export var VideoProperties$: StaticStructureSchema = [
   3,
   n0,
   _VPi,
@@ -5510,16 +5510,16 @@ export var VideoProperties: StaticStructureSchema = [
   [
     [1, { [_jN]: _bD }],
     [1, { [_jN]: _bR }],
-    [() => CodecMetadata, { [_jN]: _cMod }],
+    [() => CodecMetadata$, { [_jN]: _cMod }],
     [0, { [_jN]: _cPo }],
-    [() => FrameRate, { [_jN]: _fR }],
+    [() => FrameRate$, { [_jN]: _fR }],
     [1, { [_jN]: _h }],
     [0, { [_jN]: _mCat }],
     [0, { [_jN]: _tCr }],
     [1, { [_jN]: _w }],
   ],
 ];
-export var VideoSelector: StaticStructureSchema = [
+export var VideoSelector$: StaticStructureSchema = [
   3,
   n0,
   _VSi,
@@ -5530,7 +5530,7 @@ export var VideoSelector: StaticStructureSchema = [
     [0, { [_jN]: _cSol }],
     [0, { [_jN]: _cSU }],
     [0, { [_jN]: _eTO }],
-    [() => Hdr10Metadata, { [_jN]: _hM }],
+    [() => Hdr10Metadata$, { [_jN]: _hM }],
     [1, { [_jN]: _mL }],
     [0, { [_jN]: _pV }],
     [1, { [_jN]: _pi }],
@@ -5541,7 +5541,7 @@ export var VideoSelector: StaticStructureSchema = [
     [64 | 1, { [_jN]: _st }],
   ],
 ];
-export var VorbisSettings: StaticStructureSchema = [
+export var VorbisSettings$: StaticStructureSchema = [
   3,
   n0,
   _VS,
@@ -5553,7 +5553,7 @@ export var VorbisSettings: StaticStructureSchema = [
     [1, { [_jN]: _vQ }],
   ],
 ];
-export var Vp8Settings: StaticStructureSchema = [
+export var Vp8Settings$: StaticStructureSchema = [
   3,
   n0,
   _VSp,
@@ -5575,7 +5575,7 @@ export var Vp8Settings: StaticStructureSchema = [
     [0, { [_jN]: _rCM }],
   ],
 ];
-export var Vp9Settings: StaticStructureSchema = [
+export var Vp9Settings$: StaticStructureSchema = [
   3,
   n0,
   _VSpe,
@@ -5597,7 +5597,7 @@ export var Vp9Settings: StaticStructureSchema = [
     [0, { [_jN]: _rCM }],
   ],
 ];
-export var WarningGroup: StaticStructureSchema = [
+export var WarningGroup$: StaticStructureSchema = [
   3,
   n0,
   _WG,
@@ -5608,7 +5608,7 @@ export var WarningGroup: StaticStructureSchema = [
     [1, { [_jN]: _cou }],
   ],
 ];
-export var WavSettings: StaticStructureSchema = [
+export var WavSettings$: StaticStructureSchema = [
   3,
   n0,
   _WS,
@@ -5621,7 +5621,7 @@ export var WavSettings: StaticStructureSchema = [
     [1, { [_jN]: _sR }],
   ],
 ];
-export var WebvttDestinationSettings: StaticStructureSchema = [
+export var WebvttDestinationSettings$: StaticStructureSchema = [
   3,
   n0,
   _WDS,
@@ -5632,7 +5632,7 @@ export var WebvttDestinationSettings: StaticStructureSchema = [
     [0, { [_jN]: _sPt }],
   ],
 ];
-export var WebvttHlsSourceSettings: StaticStructureSchema = [
+export var WebvttHlsSourceSettings$: StaticStructureSchema = [
   3,
   n0,
   _WHSS,
@@ -5644,9 +5644,9 @@ export var WebvttHlsSourceSettings: StaticStructureSchema = [
     [0, { [_jN]: _rN }],
   ],
 ];
-export var Xavc4kIntraCbgProfileSettings: StaticStructureSchema = [3, n0, _XICPS, 0, [_XC], [[0, { [_jN]: _xC }]]];
-export var Xavc4kIntraVbrProfileSettings: StaticStructureSchema = [3, n0, _XIVPS, 0, [_XC], [[0, { [_jN]: _xC }]]];
-export var Xavc4kProfileSettings: StaticStructureSchema = [
+export var Xavc4kIntraCbgProfileSettings$: StaticStructureSchema = [3, n0, _XICPS, 0, [_XC], [[0, { [_jN]: _xC }]]];
+export var Xavc4kIntraVbrProfileSettings$: StaticStructureSchema = [3, n0, _XIVPS, 0, [_XC], [[0, { [_jN]: _xC }]]];
+export var Xavc4kProfileSettings$: StaticStructureSchema = [
   3,
   n0,
   _XPSa,
@@ -5663,8 +5663,8 @@ export var Xavc4kProfileSettings: StaticStructureSchema = [
     [1, { [_jN]: _sl }],
   ],
 ];
-export var XavcHdIntraCbgProfileSettings: StaticStructureSchema = [3, n0, _XHICPS, 0, [_XC], [[0, { [_jN]: _xC }]]];
-export var XavcHdProfileSettings: StaticStructureSchema = [
+export var XavcHdIntraCbgProfileSettings$: StaticStructureSchema = [3, n0, _XHICPS, 0, [_XC], [[0, { [_jN]: _xC }]]];
+export var XavcHdProfileSettings$: StaticStructureSchema = [
   3,
   n0,
   _XHPS,
@@ -5682,7 +5682,7 @@ export var XavcHdProfileSettings: StaticStructureSchema = [
     [0, { [_jN]: _te }],
   ],
 ];
-export var XavcSettings: StaticStructureSchema = [
+export var XavcSettings$: StaticStructureSchema = [
   3,
   n0,
   _XS,
@@ -5701,374 +5701,350 @@ export var XavcSettings: StaticStructureSchema = [
     [1, { [_jN]: _so }],
     [0, { [_jN]: _sAQ }],
     [0, { [_jN]: _tAQ }],
-    [() => Xavc4kIntraCbgProfileSettings, { [_jN]: _xICPS }],
-    [() => Xavc4kIntraVbrProfileSettings, { [_jN]: _xIVPS }],
-    [() => Xavc4kProfileSettings, { [_jN]: _xPSa }],
-    [() => XavcHdIntraCbgProfileSettings, { [_jN]: _xHICPS }],
-    [() => XavcHdProfileSettings, { [_jN]: _xHPS }],
+    [() => Xavc4kIntraCbgProfileSettings$, { [_jN]: _xICPS }],
+    [() => Xavc4kIntraVbrProfileSettings$, { [_jN]: _xIVPS }],
+    [() => Xavc4kProfileSettings$, { [_jN]: _xPSa }],
+    [() => XavcHdIntraCbgProfileSettings$, { [_jN]: _xHICPS }],
+    [() => XavcHdProfileSettings$, { [_jN]: _xHPS }],
   ],
 ];
-export var MediaConvertServiceException: StaticErrorSchema = [-3, _sm, "MediaConvertServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MediaConvertServiceException, __MediaConvertServiceException);
-export var __listOf__doubleMinNegative60Max6 = 64 | 1;
-export var __listOf__integer = 64 | 1;
-export var __listOf__integerMin1Max2147483647 = 64 | 1;
-export var __listOf__integerMin32Max8182 = 64 | 1;
-export var __listOf__integerMinNegative60Max6 = 64 | 1;
-export var __listOf__string = 64 | 0;
-export var __listOf__stringMax100 = 64 | 0;
-export var __listOf__stringMin1 = 64 | 0;
-export var __listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12 = 64 | 0;
-export var __listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12 = 64 | 0;
-export var __listOf__stringPatternS3ASSETMAPXml = 64 | 0;
-export var __listOfAllowedRenditionSize: StaticListSchema = [1, n0, _lOARS, 0, [() => AllowedRenditionSize, 0]];
-export var __listOfAudioChannelTag = 64 | 0;
-export var __listOfAudioDescription: StaticListSchema = [1, n0, _lOAD, 0, [() => AudioDescription, 0]];
-export var __listOfAutomatedAbrRule: StaticListSchema = [1, n0, _lOAAR, 0, [() => AutomatedAbrRule, 0]];
-export var __listOfCaptionDescription: StaticListSchema = [1, n0, _lOCD, 0, [() => CaptionDescription, 0]];
-export var __listOfCaptionDescriptionPreset: StaticListSchema = [1, n0, _lOCDP, 0, [() => CaptionDescriptionPreset, 0]];
-export var __listOfCmafAdditionalManifest: StaticListSchema = [1, n0, _lOCAM, 0, [() => CmafAdditionalManifest, 0]];
-export var __listOfColorConversion3DLUTSetting: StaticListSchema = [
+export var MediaConvertServiceException$: StaticErrorSchema = [-3, _sm, "MediaConvertServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(MediaConvertServiceException$, MediaConvertServiceException);
+var __listOf__doubleMinNegative60Max6 = 64 | 1;
+var __listOf__integer = 64 | 1;
+var __listOf__integerMin1Max2147483647 = 64 | 1;
+var __listOf__integerMin32Max8182 = 64 | 1;
+var __listOf__integerMinNegative60Max6 = 64 | 1;
+var __listOf__string = 64 | 0;
+var __listOf__stringMax100 = 64 | 0;
+var __listOf__stringMin1 = 64 | 0;
+var __listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12 = 64 | 0;
+var __listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12 = 64 | 0;
+var __listOf__stringPatternS3ASSETMAPXml = 64 | 0;
+var __listOfAllowedRenditionSize: StaticListSchema = [1, n0, _lOARS, 0, [() => AllowedRenditionSize$, 0]];
+var __listOfAudioChannelTag = 64 | 0;
+var __listOfAudioDescription: StaticListSchema = [1, n0, _lOAD, 0, [() => AudioDescription$, 0]];
+var __listOfAutomatedAbrRule: StaticListSchema = [1, n0, _lOAAR, 0, [() => AutomatedAbrRule$, 0]];
+var __listOfCaptionDescription: StaticListSchema = [1, n0, _lOCD, 0, [() => CaptionDescription$, 0]];
+var __listOfCaptionDescriptionPreset: StaticListSchema = [1, n0, _lOCDP, 0, [() => CaptionDescriptionPreset$, 0]];
+var __listOfCmafAdditionalManifest: StaticListSchema = [1, n0, _lOCAM, 0, [() => CmafAdditionalManifest$, 0]];
+var __listOfColorConversion3DLUTSetting: StaticListSchema = [
   1,
   n0,
   _lOCCDLUTS,
   0,
-  [() => ColorConversion3DLUTSetting, 0],
+  [() => ColorConversion3DLUTSetting$, 0],
 ];
-export var __listOfDashAdditionalManifest: StaticListSchema = [1, n0, _lODAM, 0, [() => DashAdditionalManifest, 0]];
-export var __listOfEndpoint: StaticListSchema = [1, n0, _lOE, 0, [() => Endpoint, 0]];
-export var __listOfForceIncludeRenditionSize: StaticListSchema = [
-  1,
-  n0,
-  _lOFIRS,
-  0,
-  [() => ForceIncludeRenditionSize, 0],
-];
-export var __listOfFrameMetricType = 64 | 0;
-export var __listOfHlsAdditionalManifest: StaticListSchema = [1, n0, _lOHAM, 0, [() => HlsAdditionalManifest, 0]];
-export var __listOfHlsAdMarkers = 64 | 0;
-export var __listOfHlsCaptionLanguageMapping: StaticListSchema = [
-  1,
-  n0,
-  _lOHCLM,
-  0,
-  [() => HlsCaptionLanguageMapping, 0],
-];
-export var __listOfHopDestination: StaticListSchema = [1, n0, _lOHD, 0, [() => HopDestination, 0]];
-export var __listOfId3Insertion: StaticListSchema = [1, n0, _lOII, 0, [() => Id3Insertion, 0]];
-export var __listOfInput: StaticListSchema = [1, n0, _lOI, 0, [() => Input, 0]];
-export var __listOfInputClipping: StaticListSchema = [1, n0, _lOIC, 0, [() => InputClipping, 0]];
-export var __listOfInputTemplate: StaticListSchema = [1, n0, _lOIT, 0, [() => InputTemplate, 0]];
-export var __listOfInsertableImage: StaticListSchema = [1, n0, _lOIIi, 0, [() => InsertableImage, 0]];
-export var __listOfJob: StaticListSchema = [1, n0, _lOJ, 0, [() => Job, 0]];
-export var __listOfJobEngineVersion: StaticListSchema = [1, n0, _lOJEV, 0, [() => JobEngineVersion, 0]];
-export var __listOfJobsQueryFilter: StaticListSchema = [1, n0, _lOJQF, 0, [() => JobsQueryFilter, 0]];
-export var __listOfJobTemplate: StaticListSchema = [1, n0, _lOJT, 0, [() => JobTemplate, 0]];
-export var __listOfMsSmoothAdditionalManifest: StaticListSchema = [
-  1,
-  n0,
-  _lOMSAM,
-  0,
-  [() => MsSmoothAdditionalManifest, 0],
-];
-export var __listOfOutput: StaticListSchema = [1, n0, _lOO, 0, [() => Output, 0]];
-export var __listOfOutputChannelMapping: StaticListSchema = [1, n0, _lOOCM, 0, [() => OutputChannelMapping, 0]];
-export var __listOfOutputDetail: StaticListSchema = [1, n0, _lOOD, 0, [() => OutputDetail, 0]];
-export var __listOfOutputGroup: StaticListSchema = [1, n0, _lOOG, 0, [() => OutputGroup, 0]];
-export var __listOfOutputGroupDetail: StaticListSchema = [1, n0, _lOOGD, 0, [() => OutputGroupDetail, 0]];
-export var __listOfPreset: StaticListSchema = [1, n0, _lOP, 0, [() => Preset, 0]];
-export var __listOfProbeInputFile: StaticListSchema = [1, n0, _lOPIF, 0, [() => ProbeInputFile, 0]];
-export var __listOfProbeResult: StaticListSchema = [1, n0, _lOPR, 0, [() => ProbeResult, 0]];
-export var __listOfQueue: StaticListSchema = [1, n0, _lOQ, 0, [() => Queue, 0]];
-export var __listOfQueueTransition: StaticListSchema = [1, n0, _lOQT, 0, [() => QueueTransition, 0]];
-export var __listOfServiceOverride: StaticListSchema = [1, n0, _lOSO, 0, [() => ServiceOverride, 0]];
-export var __listOfTeletextPageType = 64 | 0;
-export var __listOfTrack: StaticListSchema = [1, n0, _lOT, 0, [() => Track, 0]];
-export var __listOfTrackMapping: StaticListSchema = [1, n0, _lOTM, 0, [() => TrackMapping, 0]];
-export var __listOfVideoOverlay: StaticListSchema = [1, n0, _lOVO, 0, [() => VideoOverlay, 0]];
-export var __listOfVideoOverlayInputClipping: StaticListSchema = [
-  1,
-  n0,
-  _lOVOIC,
-  0,
-  [() => VideoOverlayInputClipping, 0],
-];
-export var __listOfVideoOverlayTransition: StaticListSchema = [1, n0, _lOVOT, 0, [() => VideoOverlayTransition, 0]];
-export var __listOfWarningGroup: StaticListSchema = [1, n0, _lOWG, 0, [() => WarningGroup, 0]];
-export var __mapOf__string = 128 | 0;
-export var __mapOfAudioSelector: StaticMapSchema = [2, n0, _mOAS, 0, [0, 0], [() => AudioSelector, 0]];
-export var __mapOfAudioSelectorGroup: StaticMapSchema = [2, n0, _mOASG, 0, [0, 0], [() => AudioSelectorGroup, 0]];
-export var __mapOfCaptionSelector: StaticMapSchema = [2, n0, _mOCS, 0, [0, 0], [() => CaptionSelector, 0]];
-export var __mapOfDynamicAudioSelector: StaticMapSchema = [2, n0, _mODAS, 0, [0, 0], [() => DynamicAudioSelector, 0]];
-export var AssociateCertificate: StaticOperationSchema = [
+var __listOfDashAdditionalManifest: StaticListSchema = [1, n0, _lODAM, 0, [() => DashAdditionalManifest$, 0]];
+var __listOfEndpoint: StaticListSchema = [1, n0, _lOE, 0, [() => Endpoint$, 0]];
+var __listOfForceIncludeRenditionSize: StaticListSchema = [1, n0, _lOFIRS, 0, [() => ForceIncludeRenditionSize$, 0]];
+var __listOfFrameMetricType = 64 | 0;
+var __listOfHlsAdditionalManifest: StaticListSchema = [1, n0, _lOHAM, 0, [() => HlsAdditionalManifest$, 0]];
+var __listOfHlsAdMarkers = 64 | 0;
+var __listOfHlsCaptionLanguageMapping: StaticListSchema = [1, n0, _lOHCLM, 0, [() => HlsCaptionLanguageMapping$, 0]];
+var __listOfHopDestination: StaticListSchema = [1, n0, _lOHD, 0, [() => HopDestination$, 0]];
+var __listOfId3Insertion: StaticListSchema = [1, n0, _lOII, 0, [() => Id3Insertion$, 0]];
+var __listOfInput: StaticListSchema = [1, n0, _lOI, 0, [() => Input$, 0]];
+var __listOfInputClipping: StaticListSchema = [1, n0, _lOIC, 0, [() => InputClipping$, 0]];
+var __listOfInputTemplate: StaticListSchema = [1, n0, _lOIT, 0, [() => InputTemplate$, 0]];
+var __listOfInsertableImage: StaticListSchema = [1, n0, _lOIIi, 0, [() => InsertableImage$, 0]];
+var __listOfJob: StaticListSchema = [1, n0, _lOJ, 0, [() => Job$, 0]];
+var __listOfJobEngineVersion: StaticListSchema = [1, n0, _lOJEV, 0, [() => JobEngineVersion$, 0]];
+var __listOfJobsQueryFilter: StaticListSchema = [1, n0, _lOJQF, 0, [() => JobsQueryFilter$, 0]];
+var __listOfJobTemplate: StaticListSchema = [1, n0, _lOJT, 0, [() => JobTemplate$, 0]];
+var __listOfMsSmoothAdditionalManifest: StaticListSchema = [1, n0, _lOMSAM, 0, [() => MsSmoothAdditionalManifest$, 0]];
+var __listOfOutput: StaticListSchema = [1, n0, _lOO, 0, [() => Output$, 0]];
+var __listOfOutputChannelMapping: StaticListSchema = [1, n0, _lOOCM, 0, [() => OutputChannelMapping$, 0]];
+var __listOfOutputDetail: StaticListSchema = [1, n0, _lOOD, 0, [() => OutputDetail$, 0]];
+var __listOfOutputGroup: StaticListSchema = [1, n0, _lOOG, 0, [() => OutputGroup$, 0]];
+var __listOfOutputGroupDetail: StaticListSchema = [1, n0, _lOOGD, 0, [() => OutputGroupDetail$, 0]];
+var __listOfPreset: StaticListSchema = [1, n0, _lOP, 0, [() => Preset$, 0]];
+var __listOfProbeInputFile: StaticListSchema = [1, n0, _lOPIF, 0, [() => ProbeInputFile$, 0]];
+var __listOfProbeResult: StaticListSchema = [1, n0, _lOPR, 0, [() => ProbeResult$, 0]];
+var __listOfQueue: StaticListSchema = [1, n0, _lOQ, 0, [() => Queue$, 0]];
+var __listOfQueueTransition: StaticListSchema = [1, n0, _lOQT, 0, [() => QueueTransition$, 0]];
+var __listOfServiceOverride: StaticListSchema = [1, n0, _lOSO, 0, [() => ServiceOverride$, 0]];
+var __listOfTeletextPageType = 64 | 0;
+var __listOfTrack: StaticListSchema = [1, n0, _lOT, 0, [() => Track$, 0]];
+var __listOfTrackMapping: StaticListSchema = [1, n0, _lOTM, 0, [() => TrackMapping$, 0]];
+var __listOfVideoOverlay: StaticListSchema = [1, n0, _lOVO, 0, [() => VideoOverlay$, 0]];
+var __listOfVideoOverlayInputClipping: StaticListSchema = [1, n0, _lOVOIC, 0, [() => VideoOverlayInputClipping$, 0]];
+var __listOfVideoOverlayTransition: StaticListSchema = [1, n0, _lOVOT, 0, [() => VideoOverlayTransition$, 0]];
+var __listOfWarningGroup: StaticListSchema = [1, n0, _lOWG, 0, [() => WarningGroup$, 0]];
+var __mapOf__string = 128 | 0;
+var __mapOfAudioSelector: StaticMapSchema = [2, n0, _mOAS, 0, [0, 0], [() => AudioSelector$, 0]];
+var __mapOfAudioSelectorGroup: StaticMapSchema = [2, n0, _mOASG, 0, [0, 0], [() => AudioSelectorGroup$, 0]];
+var __mapOfCaptionSelector: StaticMapSchema = [2, n0, _mOCS, 0, [0, 0], [() => CaptionSelector$, 0]];
+var __mapOfDynamicAudioSelector: StaticMapSchema = [2, n0, _mODAS, 0, [0, 0], [() => DynamicAudioSelector$, 0]];
+export var AssociateCertificate$: StaticOperationSchema = [
   9,
   n0,
   _ACs,
   { [_ht]: ["POST", "/2017-08-29/certificates", 201] },
-  () => AssociateCertificateRequest,
-  () => AssociateCertificateResponse,
+  () => AssociateCertificateRequest$,
+  () => AssociateCertificateResponse$,
 ];
-export var CancelJob: StaticOperationSchema = [
+export var CancelJob$: StaticOperationSchema = [
   9,
   n0,
   _CJa,
   { [_ht]: ["DELETE", "/2017-08-29/jobs/{Id}", 202] },
-  () => CancelJobRequest,
-  () => CancelJobResponse,
+  () => CancelJobRequest$,
+  () => CancelJobResponse$,
 ];
-export var CreateJob: StaticOperationSchema = [
+export var CreateJob$: StaticOperationSchema = [
   9,
   n0,
   _CJr,
   { [_ht]: ["POST", "/2017-08-29/jobs", 201] },
-  () => CreateJobRequest,
-  () => CreateJobResponse,
+  () => CreateJobRequest$,
+  () => CreateJobResponse$,
 ];
-export var CreateJobTemplate: StaticOperationSchema = [
+export var CreateJobTemplate$: StaticOperationSchema = [
   9,
   n0,
   _CJT,
   { [_ht]: ["POST", "/2017-08-29/jobTemplates", 201] },
-  () => CreateJobTemplateRequest,
-  () => CreateJobTemplateResponse,
+  () => CreateJobTemplateRequest$,
+  () => CreateJobTemplateResponse$,
 ];
-export var CreatePreset: StaticOperationSchema = [
+export var CreatePreset$: StaticOperationSchema = [
   9,
   n0,
   _CPr,
   { [_ht]: ["POST", "/2017-08-29/presets", 201] },
-  () => CreatePresetRequest,
-  () => CreatePresetResponse,
+  () => CreatePresetRequest$,
+  () => CreatePresetResponse$,
 ];
-export var CreateQueue: StaticOperationSchema = [
+export var CreateQueue$: StaticOperationSchema = [
   9,
   n0,
   _CQ,
   { [_ht]: ["POST", "/2017-08-29/queues", 201] },
-  () => CreateQueueRequest,
-  () => CreateQueueResponse,
+  () => CreateQueueRequest$,
+  () => CreateQueueResponse$,
 ];
-export var CreateResourceShare: StaticOperationSchema = [
+export var CreateResourceShare$: StaticOperationSchema = [
   9,
   n0,
   _CRS,
   { [_ht]: ["POST", "/2017-08-29/resourceShares", 202] },
-  () => CreateResourceShareRequest,
-  () => CreateResourceShareResponse,
+  () => CreateResourceShareRequest$,
+  () => CreateResourceShareResponse$,
 ];
-export var DeleteJobTemplate: StaticOperationSchema = [
+export var DeleteJobTemplate$: StaticOperationSchema = [
   9,
   n0,
   _DJT,
   { [_ht]: ["DELETE", "/2017-08-29/jobTemplates/{Name}", 202] },
-  () => DeleteJobTemplateRequest,
-  () => DeleteJobTemplateResponse,
+  () => DeleteJobTemplateRequest$,
+  () => DeleteJobTemplateResponse$,
 ];
-export var DeletePolicy: StaticOperationSchema = [
+export var DeletePolicy$: StaticOperationSchema = [
   9,
   n0,
   _DPe,
   { [_ht]: ["DELETE", "/2017-08-29/policy", 200] },
-  () => DeletePolicyRequest,
-  () => DeletePolicyResponse,
+  () => DeletePolicyRequest$,
+  () => DeletePolicyResponse$,
 ];
-export var DeletePreset: StaticOperationSchema = [
+export var DeletePreset$: StaticOperationSchema = [
   9,
   n0,
   _DPel,
   { [_ht]: ["DELETE", "/2017-08-29/presets/{Name}", 202] },
-  () => DeletePresetRequest,
-  () => DeletePresetResponse,
+  () => DeletePresetRequest$,
+  () => DeletePresetResponse$,
 ];
-export var DeleteQueue: StaticOperationSchema = [
+export var DeleteQueue$: StaticOperationSchema = [
   9,
   n0,
   _DQe,
   { [_ht]: ["DELETE", "/2017-08-29/queues/{Name}", 202] },
-  () => DeleteQueueRequest,
-  () => DeleteQueueResponse,
+  () => DeleteQueueRequest$,
+  () => DeleteQueueResponse$,
 ];
-export var DescribeEndpoints: StaticOperationSchema = [
+export var DescribeEndpoints$: StaticOperationSchema = [
   9,
   n0,
   _DE,
   { [_ht]: ["POST", "/2017-08-29/endpoints", 200] },
-  () => DescribeEndpointsRequest,
-  () => DescribeEndpointsResponse,
+  () => DescribeEndpointsRequest$,
+  () => DescribeEndpointsResponse$,
 ];
-export var DisassociateCertificate: StaticOperationSchema = [
+export var DisassociateCertificate$: StaticOperationSchema = [
   9,
   n0,
   _DCi,
   { [_ht]: ["DELETE", "/2017-08-29/certificates/{Arn}", 202] },
-  () => DisassociateCertificateRequest,
-  () => DisassociateCertificateResponse,
+  () => DisassociateCertificateRequest$,
+  () => DisassociateCertificateResponse$,
 ];
-export var GetJob: StaticOperationSchema = [
+export var GetJob$: StaticOperationSchema = [
   9,
   n0,
   _GJ,
   { [_ht]: ["GET", "/2017-08-29/jobs/{Id}", 200] },
-  () => GetJobRequest,
-  () => GetJobResponse,
+  () => GetJobRequest$,
+  () => GetJobResponse$,
 ];
-export var GetJobsQueryResults: StaticOperationSchema = [
+export var GetJobsQueryResults$: StaticOperationSchema = [
   9,
   n0,
   _GJQR,
   { [_ht]: ["GET", "/2017-08-29/jobsQueries/{Id}", 200] },
-  () => GetJobsQueryResultsRequest,
-  () => GetJobsQueryResultsResponse,
+  () => GetJobsQueryResultsRequest$,
+  () => GetJobsQueryResultsResponse$,
 ];
-export var GetJobTemplate: StaticOperationSchema = [
+export var GetJobTemplate$: StaticOperationSchema = [
   9,
   n0,
   _GJT,
   { [_ht]: ["GET", "/2017-08-29/jobTemplates/{Name}", 200] },
-  () => GetJobTemplateRequest,
-  () => GetJobTemplateResponse,
+  () => GetJobTemplateRequest$,
+  () => GetJobTemplateResponse$,
 ];
-export var GetPolicy: StaticOperationSchema = [
+export var GetPolicy$: StaticOperationSchema = [
   9,
   n0,
   _GP,
   { [_ht]: ["GET", "/2017-08-29/policy", 200] },
-  () => GetPolicyRequest,
-  () => GetPolicyResponse,
+  () => GetPolicyRequest$,
+  () => GetPolicyResponse$,
 ];
-export var GetPreset: StaticOperationSchema = [
+export var GetPreset$: StaticOperationSchema = [
   9,
   n0,
   _GPe,
   { [_ht]: ["GET", "/2017-08-29/presets/{Name}", 200] },
-  () => GetPresetRequest,
-  () => GetPresetResponse,
+  () => GetPresetRequest$,
+  () => GetPresetResponse$,
 ];
-export var GetQueue: StaticOperationSchema = [
+export var GetQueue$: StaticOperationSchema = [
   9,
   n0,
   _GQ,
   { [_ht]: ["GET", "/2017-08-29/queues/{Name}", 200] },
-  () => GetQueueRequest,
-  () => GetQueueResponse,
+  () => GetQueueRequest$,
+  () => GetQueueResponse$,
 ];
-export var ListJobs: StaticOperationSchema = [
+export var ListJobs$: StaticOperationSchema = [
   9,
   n0,
   _LJ,
   { [_ht]: ["GET", "/2017-08-29/jobs", 200] },
-  () => ListJobsRequest,
-  () => ListJobsResponse,
+  () => ListJobsRequest$,
+  () => ListJobsResponse$,
 ];
-export var ListJobTemplates: StaticOperationSchema = [
+export var ListJobTemplates$: StaticOperationSchema = [
   9,
   n0,
   _LJT,
   { [_ht]: ["GET", "/2017-08-29/jobTemplates", 200] },
-  () => ListJobTemplatesRequest,
-  () => ListJobTemplatesResponse,
+  () => ListJobTemplatesRequest$,
+  () => ListJobTemplatesResponse$,
 ];
-export var ListPresets: StaticOperationSchema = [
+export var ListPresets$: StaticOperationSchema = [
   9,
   n0,
   _LP,
   { [_ht]: ["GET", "/2017-08-29/presets", 200] },
-  () => ListPresetsRequest,
-  () => ListPresetsResponse,
+  () => ListPresetsRequest$,
+  () => ListPresetsResponse$,
 ];
-export var ListQueues: StaticOperationSchema = [
+export var ListQueues$: StaticOperationSchema = [
   9,
   n0,
   _LQ,
   { [_ht]: ["GET", "/2017-08-29/queues", 200] },
-  () => ListQueuesRequest,
-  () => ListQueuesResponse,
+  () => ListQueuesRequest$,
+  () => ListQueuesResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_ht]: ["GET", "/2017-08-29/tags/{Arn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListVersions: StaticOperationSchema = [
+export var ListVersions$: StaticOperationSchema = [
   9,
   n0,
   _LV,
   { [_ht]: ["GET", "/2017-08-29/versions", 200] },
-  () => ListVersionsRequest,
-  () => ListVersionsResponse,
+  () => ListVersionsRequest$,
+  () => ListVersionsResponse$,
 ];
-export var Probe: StaticOperationSchema = [
+export var Probe$: StaticOperationSchema = [
   9,
   n0,
   _Pro,
   { [_ht]: ["POST", "/2017-08-29/probe", 200] },
-  () => ProbeRequest,
-  () => ProbeResponse,
+  () => ProbeRequest$,
+  () => ProbeResponse$,
 ];
-export var PutPolicy: StaticOperationSchema = [
+export var PutPolicy$: StaticOperationSchema = [
   9,
   n0,
   _PPu,
   { [_ht]: ["PUT", "/2017-08-29/policy", 200] },
-  () => PutPolicyRequest,
-  () => PutPolicyResponse,
+  () => PutPolicyRequest$,
+  () => PutPolicyResponse$,
 ];
-export var SearchJobs: StaticOperationSchema = [
+export var SearchJobs$: StaticOperationSchema = [
   9,
   n0,
   _SJ,
   { [_ht]: ["GET", "/2017-08-29/search", 200] },
-  () => SearchJobsRequest,
-  () => SearchJobsResponse,
+  () => SearchJobsRequest$,
+  () => SearchJobsResponse$,
 ];
-export var StartJobsQuery: StaticOperationSchema = [
+export var StartJobsQuery$: StaticOperationSchema = [
   9,
   n0,
   _SJQ,
   { [_ht]: ["POST", "/2017-08-29/jobsQueries", 201] },
-  () => StartJobsQueryRequest,
-  () => StartJobsQueryResponse,
+  () => StartJobsQueryRequest$,
+  () => StartJobsQueryResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_ht]: ["POST", "/2017-08-29/tags", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_ht]: ["PUT", "/2017-08-29/tags/{Arn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateJobTemplate: StaticOperationSchema = [
+export var UpdateJobTemplate$: StaticOperationSchema = [
   9,
   n0,
   _UJT,
   { [_ht]: ["PUT", "/2017-08-29/jobTemplates/{Name}", 200] },
-  () => UpdateJobTemplateRequest,
-  () => UpdateJobTemplateResponse,
+  () => UpdateJobTemplateRequest$,
+  () => UpdateJobTemplateResponse$,
 ];
-export var UpdatePreset: StaticOperationSchema = [
+export var UpdatePreset$: StaticOperationSchema = [
   9,
   n0,
   _UP,
   { [_ht]: ["PUT", "/2017-08-29/presets/{Name}", 200] },
-  () => UpdatePresetRequest,
-  () => UpdatePresetResponse,
+  () => UpdatePresetRequest$,
+  () => UpdatePresetResponse$,
 ];
-export var UpdateQueue: StaticOperationSchema = [
+export var UpdateQueue$: StaticOperationSchema = [
   9,
   n0,
   _UQ,
   { [_ht]: ["PUT", "/2017-08-29/queues/{Name}", 200] },
-  () => UpdateQueueRequest,
-  () => UpdateQueueResponse,
+  () => UpdateQueueRequest$,
+  () => UpdateQueueResponse$,
 ];

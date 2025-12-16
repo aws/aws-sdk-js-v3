@@ -10,7 +10,7 @@ import type {
 } from "../ComprehendMedicalClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartEntitiesDetectionV2JobRequest, StartEntitiesDetectionV2JobResponse } from "../models/models_0";
-import { StartEntitiesDetectionV2Job } from "../schemas/schemas_0";
+import { StartEntitiesDetectionV2Job$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class StartEntitiesDetectionV2JobCommand extends $Command
   })
   .s("ComprehendMedical_20181030", "StartEntitiesDetectionV2Job", {})
   .n("ComprehendMedicalClient", "StartEntitiesDetectionV2JobCommand")
-  .sc(StartEntitiesDetectionV2Job)
+  .sc(StartEntitiesDetectionV2Job$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

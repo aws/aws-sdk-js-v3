@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateRecordsRequest, UpdateRecordsResponse } from "../models/models_0";
-import { UpdateRecords } from "../schemas/schemas_0";
+import { UpdateRecords$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class UpdateRecordsCommand extends $Command
   })
   .s("AWSCognitoSyncService", "UpdateRecords", {})
   .n("CognitoSyncClient", "UpdateRecordsCommand")
-  .sc(UpdateRecords)
+  .sc(UpdateRecords$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

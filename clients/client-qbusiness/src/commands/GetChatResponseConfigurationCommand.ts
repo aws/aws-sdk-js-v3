@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetChatResponseConfigurationRequest, GetChatResponseConfigurationResponse } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { GetChatResponseConfiguration } from "../schemas/schemas_0";
+import { GetChatResponseConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,7 +140,7 @@ export class GetChatResponseConfigurationCommand extends $Command
   })
   .s("ExpertQ", "GetChatResponseConfiguration", {})
   .n("QBusinessClient", "GetChatResponseConfigurationCommand")
-  .sc(GetChatResponseConfiguration)
+  .sc(GetChatResponseConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CloseCaseRequest, CloseCaseResponse } from "../models/models_0";
-import { CloseCase } from "../schemas/schemas_0";
+import { CloseCase$ } from "../schemas/schemas_0";
 import type { SecurityIRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityIRClient";
 
 /**
@@ -117,7 +117,7 @@ export class CloseCaseCommand extends $Command
   })
   .s("SecurityIncidentResponse", "CloseCase", {})
   .n("SecurityIRClient", "CloseCaseCommand")
-  .sc(CloseCase)
+  .sc(CloseCase$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

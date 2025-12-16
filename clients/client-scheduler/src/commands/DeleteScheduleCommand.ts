@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteScheduleInput, DeleteScheduleOutput } from "../models/models_0";
 import type { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
-import { DeleteSchedule } from "../schemas/schemas_0";
+import { DeleteSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeleteScheduleCommand extends $Command
   })
   .s("AWSChronosService", "DeleteSchedule", {})
   .n("SchedulerClient", "DeleteScheduleCommand")
-  .sc(DeleteSchedule)
+  .sc(DeleteSchedule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

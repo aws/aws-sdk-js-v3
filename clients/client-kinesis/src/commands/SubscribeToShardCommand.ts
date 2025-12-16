@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import type { SubscribeToShardInput, SubscribeToShardOutput } from "../models/models_0";
-import { SubscribeToShard } from "../schemas/schemas_0";
+import { SubscribeToShard$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -185,7 +185,7 @@ export class SubscribeToShardCommand extends $Command
     },
   })
   .n("KinesisClient", "SubscribeToShardCommand")
-  .sc(SubscribeToShard)
+  .sc(SubscribeToShard$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

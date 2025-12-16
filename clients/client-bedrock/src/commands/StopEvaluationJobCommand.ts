@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopEvaluationJobRequest, StopEvaluationJobResponse } from "../models/models_0";
-import { StopEvaluationJob } from "../schemas/schemas_0";
+import { StopEvaluationJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class StopEvaluationJobCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "StopEvaluationJob", {})
   .n("BedrockClient", "StopEvaluationJobCommand")
-  .sc(StopEvaluationJob)
+  .sc(StopEvaluationJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

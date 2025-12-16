@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeInstanceAttributeRequest, DescribeInstanceAttributeResponse } from "../models/models_1";
-import { DescribeInstanceAttribute } from "../schemas/schemas_0";
+import { DescribeInstanceAttribute$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DescribeInstanceAttributeCommand extends $Command
   })
   .s("AmazonConnectService", "DescribeInstanceAttribute", {})
   .n("ConnectClient", "DescribeInstanceAttributeCommand")
-  .sc(DescribeInstanceAttribute)
+  .sc(DescribeInstanceAttribute$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

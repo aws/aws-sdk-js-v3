@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeEngineDefaultParametersMessage, DescribeEngineDefaultParametersResult } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DescribeEngineDefaultParameters } from "../schemas/schemas_0";
+import { DescribeEngineDefaultParameters$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class DescribeEngineDefaultParametersCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeEngineDefaultParameters", {})
   .n("RDSClient", "DescribeEngineDefaultParametersCommand")
-  .sc(DescribeEngineDefaultParameters)
+  .sc(DescribeEngineDefaultParameters$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

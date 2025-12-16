@@ -13,7 +13,7 @@ import type {
   CancelElasticsearchServiceSoftwareUpdateRequest,
   CancelElasticsearchServiceSoftwareUpdateResponse,
 } from "../models/models_0";
-import { CancelElasticsearchServiceSoftwareUpdate } from "../schemas/schemas_0";
+import { CancelElasticsearchServiceSoftwareUpdate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "CancelElasticsearchServiceSoftwareUpdate", {})
   .n("ElasticsearchServiceClient", "CancelElasticsearchServiceSoftwareUpdateCommand")
-  .sc(CancelElasticsearchServiceSoftwareUpdate)
+  .sc(CancelElasticsearchServiceSoftwareUpdate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

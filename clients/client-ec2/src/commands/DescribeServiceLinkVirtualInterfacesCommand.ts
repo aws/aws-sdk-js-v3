@@ -9,7 +9,7 @@ import type {
   DescribeServiceLinkVirtualInterfacesRequest,
   DescribeServiceLinkVirtualInterfacesResult,
 } from "../models/models_4";
-import { DescribeServiceLinkVirtualInterfaces } from "../schemas/schemas_0";
+import { DescribeServiceLinkVirtualInterfaces$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class DescribeServiceLinkVirtualInterfacesCommand extends $Command
   })
   .s("AmazonEC2", "DescribeServiceLinkVirtualInterfaces", {})
   .n("EC2Client", "DescribeServiceLinkVirtualInterfacesCommand")
-  .sc(DescribeServiceLinkVirtualInterfaces)
+  .sc(DescribeServiceLinkVirtualInterfaces$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

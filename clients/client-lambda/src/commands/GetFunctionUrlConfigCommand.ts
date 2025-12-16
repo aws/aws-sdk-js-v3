@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import type { GetFunctionUrlConfigRequest, GetFunctionUrlConfigResponse } from "../models/models_0";
-import { GetFunctionUrlConfig } from "../schemas/schemas_0";
+import { GetFunctionUrlConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class GetFunctionUrlConfigCommand extends $Command
   })
   .s("AWSGirApiService", "GetFunctionUrlConfig", {})
   .n("LambdaClient", "GetFunctionUrlConfigCommand")
-  .sc(GetFunctionUrlConfig)
+  .sc(GetFunctionUrlConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

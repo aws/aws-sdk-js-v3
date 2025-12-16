@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: MWAAClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.mwaa" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.mwaa",
+      version: "2020-07-01",
+      serviceTarget: "AmazonMWAA",
+    },
     serviceId: config?.serviceId ?? "MWAA",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -10,7 +10,7 @@ import type {
 } from "../ElasticsearchServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPackageVersionHistoryRequest, GetPackageVersionHistoryResponse } from "../models/models_0";
-import { GetPackageVersionHistory } from "../schemas/schemas_0";
+import { GetPackageVersionHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class GetPackageVersionHistoryCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "GetPackageVersionHistory", {})
   .n("ElasticsearchServiceClient", "GetPackageVersionHistoryCommand")
-  .sc(GetPackageVersionHistory)
+  .sc(GetPackageVersionHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

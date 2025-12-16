@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import type { GetMemberDetectorsRequest } from "../models/models_0";
 import type { GetMemberDetectorsResponse } from "../models/models_1";
-import { GetMemberDetectors } from "../schemas/schemas_0";
+import { GetMemberDetectors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,7 +138,7 @@ export class GetMemberDetectorsCommand extends $Command
   })
   .s("GuardDutyAPIService", "GetMemberDetectors", {})
   .n("GuardDutyClient", "GetMemberDetectorsCommand")
-  .sc(GetMemberDetectors)
+  .sc(GetMemberDetectors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

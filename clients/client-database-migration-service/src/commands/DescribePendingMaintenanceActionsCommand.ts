@@ -13,7 +13,7 @@ import type {
   DescribePendingMaintenanceActionsMessage,
   DescribePendingMaintenanceActionsResponse,
 } from "../models/models_0";
-import { DescribePendingMaintenanceActions } from "../schemas/schemas_0";
+import { DescribePendingMaintenanceActions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class DescribePendingMaintenanceActionsCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribePendingMaintenanceActions", {})
   .n("DatabaseMigrationServiceClient", "DescribePendingMaintenanceActionsCommand")
-  .sc(DescribePendingMaintenanceActions)
+  .sc(DescribePendingMaintenanceActions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

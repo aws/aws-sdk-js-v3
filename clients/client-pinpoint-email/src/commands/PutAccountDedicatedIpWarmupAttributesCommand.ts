@@ -9,7 +9,7 @@ import type {
   PutAccountDedicatedIpWarmupAttributesResponse,
 } from "../models/models_0";
 import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { PutAccountDedicatedIpWarmupAttributes } from "../schemas/schemas_0";
+import { PutAccountDedicatedIpWarmupAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command
   })
   .s("AmazonPinpointEmailService", "PutAccountDedicatedIpWarmupAttributes", {})
   .n("PinpointEmailClient", "PutAccountDedicatedIpWarmupAttributesCommand")
-  .sc(PutAccountDedicatedIpWarmupAttributes)
+  .sc(PutAccountDedicatedIpWarmupAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

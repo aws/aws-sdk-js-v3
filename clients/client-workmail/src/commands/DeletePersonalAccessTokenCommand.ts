@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeletePersonalAccessTokenRequest, DeletePersonalAccessTokenResponse } from "../models/models_0";
-import { DeletePersonalAccessToken } from "../schemas/schemas_0";
+import { DeletePersonalAccessToken$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -85,7 +85,7 @@ export class DeletePersonalAccessTokenCommand extends $Command
   })
   .s("WorkMailService", "DeletePersonalAccessToken", {})
   .n("WorkMailClient", "DeletePersonalAccessTokenCommand")
-  .sc(DeletePersonalAccessToken)
+  .sc(DeletePersonalAccessToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

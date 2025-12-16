@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RedactConversationMessageRequest, RedactConversationMessageResponse } from "../models/models_0";
-import { RedactConversationMessage } from "../schemas/schemas_0";
+import { RedactConversationMessage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class RedactConversationMessageCommand extends $Command
   })
   .s("UCBuzzConsoleService", "RedactConversationMessage", {})
   .n("ChimeClient", "RedactConversationMessageCommand")
-  .sc(RedactConversationMessage)
+  .sc(RedactConversationMessage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

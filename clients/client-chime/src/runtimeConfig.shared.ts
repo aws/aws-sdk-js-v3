@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: ChimeClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.chime" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.chime",
+      version: "2018-05-01",
+      serviceTarget: "UCBuzzConsoleService",
+    },
     serviceId: config?.serviceId ?? "Chime",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

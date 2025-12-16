@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: WAFV2ClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.wafv2",
-        serviceTarget: "AWSWAF_20190729",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.wafv2",
+      xmlNamespace: "http://waf.amazonaws.com/doc/2019-07-29/",
+      version: "2019-07-29",
+      serviceTarget: "AWSWAF_20190729",
+    },
     serviceId: config?.serviceId ?? "WAFV2",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

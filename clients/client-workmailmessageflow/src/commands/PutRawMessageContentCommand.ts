@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutRawMessageContentRequest, PutRawMessageContentResponse } from "../models/models_0";
-import { PutRawMessageContent } from "../schemas/schemas_0";
+import { PutRawMessageContent$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -122,7 +122,7 @@ export class PutRawMessageContentCommand extends $Command
   })
   .s("GiraffeMessageInTransitService", "PutRawMessageContent", {})
   .n("WorkMailMessageFlowClient", "PutRawMessageContentCommand")
-  .sc(PutRawMessageContent)
+  .sc(PutRawMessageContent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -268,39 +268,39 @@ const n0 = "com.amazonaws.costoptimizationhub";
 import { TypeRegistry } from "@smithy/core/schema";
 import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
-import { CostOptimizationHubServiceException as __CostOptimizationHubServiceException } from "../models/CostOptimizationHubServiceException";
+import { CostOptimizationHubServiceException } from "../models/CostOptimizationHubServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AccountEnrollmentStatus: StaticStructureSchema = [3, n0, _AES, 0, [_aI, _s, _lUT, _cT], [0, 0, 4, 4]];
-export var AuroraDbClusterStorage: StaticStructureSchema = [
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AccountEnrollmentStatus$: StaticStructureSchema = [3, n0, _AES, 0, [_aI, _s, _lUT, _cT], [0, 0, 4, 4]];
+export var AuroraDbClusterStorage$: StaticStructureSchema = [
   3,
   n0,
   _ADCS,
   0,
   [_co, _cC],
-  [() => AuroraDbClusterStorageConfiguration, () => ResourceCostCalculation],
+  [() => AuroraDbClusterStorageConfiguration$, () => ResourceCostCalculation$],
 ];
-export var AuroraDbClusterStorageConfiguration: StaticStructureSchema = [3, n0, _ADCSC, 0, [_sT], [0]];
-export var BlockStoragePerformanceConfiguration: StaticStructureSchema = [3, n0, _BSPC, 0, [_i, _t], [1, 1]];
-export var ComputeConfiguration: StaticStructureSchema = [3, n0, _CC, 0, [_vC, _mSIMB, _a, _p], [1, 1, 0, 0]];
-export var ComputeSavingsPlans: StaticStructureSchema = [
+export var AuroraDbClusterStorageConfiguration$: StaticStructureSchema = [3, n0, _ADCSC, 0, [_sT], [0]];
+export var BlockStoragePerformanceConfiguration$: StaticStructureSchema = [3, n0, _BSPC, 0, [_i, _t], [1, 1]];
+export var ComputeConfiguration$: StaticStructureSchema = [3, n0, _CC, 0, [_vC, _mSIMB, _a, _p], [1, 1, 0, 0]];
+export var ComputeSavingsPlans$: StaticStructureSchema = [
   3,
   n0,
   _CSP,
   0,
   [_co, _cC],
-  [() => ComputeSavingsPlansConfiguration, () => SavingsPlansCostCalculation],
+  [() => ComputeSavingsPlansConfiguration$, () => SavingsPlansCostCalculation$],
 ];
-export var ComputeSavingsPlansConfiguration: StaticStructureSchema = [
+export var ComputeSavingsPlansConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CSPC,
@@ -308,16 +308,16 @@ export var ComputeSavingsPlansConfiguration: StaticStructureSchema = [
   [_aS, _te, _pO, _hC],
   [0, 0, 0, 0],
 ];
-export var DbInstanceConfiguration: StaticStructureSchema = [3, n0, _DIC, 0, [_dIC], [0]];
-export var DynamoDbReservedCapacity: StaticStructureSchema = [
+export var DbInstanceConfiguration$: StaticStructureSchema = [3, n0, _DIC, 0, [_dIC], [0]];
+export var DynamoDbReservedCapacity$: StaticStructureSchema = [
   3,
   n0,
   _DDRC,
   0,
   [_co, _cC],
-  [() => DynamoDbReservedCapacityConfiguration, () => ReservedInstancesCostCalculation],
+  [() => DynamoDbReservedCapacityConfiguration$, () => ReservedInstancesCostCalculation$],
 ];
-export var DynamoDbReservedCapacityConfiguration: StaticStructureSchema = [
+export var DynamoDbReservedCapacityConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DDRCC,
@@ -325,56 +325,56 @@ export var DynamoDbReservedCapacityConfiguration: StaticStructureSchema = [
   [_aS, _se, _te, _pO, _rIR, _uC, _mRC, _nOCUTP, _cU],
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var EbsVolume: StaticStructureSchema = [
+export var EbsVolume$: StaticStructureSchema = [
   3,
   n0,
   _EV,
   0,
   [_co, _cC],
-  [() => EbsVolumeConfiguration, () => ResourceCostCalculation],
+  [() => EbsVolumeConfiguration$, () => ResourceCostCalculation$],
 ];
-export var EbsVolumeConfiguration: StaticStructureSchema = [
+export var EbsVolumeConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _EVC,
   0,
   [_st, _pe, _aSt],
-  [() => StorageConfiguration, () => BlockStoragePerformanceConfiguration, 0],
+  [() => StorageConfiguration$, () => BlockStoragePerformanceConfiguration$, 0],
 ];
-export var Ec2AutoScalingGroup: StaticStructureSchema = [
+export var Ec2AutoScalingGroup$: StaticStructureSchema = [
   3,
   n0,
   _EASG,
   0,
   [_co, _cC],
-  [() => Ec2AutoScalingGroupConfiguration, () => ResourceCostCalculation],
+  [() => Ec2AutoScalingGroupConfiguration$, () => ResourceCostCalculation$],
 ];
-export var Ec2AutoScalingGroupConfiguration: StaticStructureSchema = [
+export var Ec2AutoScalingGroupConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _EASGC,
   0,
   [_in, _mI, _ty, _aSl],
-  [() => InstanceConfiguration, () => MixedInstanceConfigurationList, 0, 0],
+  [() => InstanceConfiguration$, () => MixedInstanceConfigurationList, 0, 0],
 ];
-export var Ec2Instance: StaticStructureSchema = [
+export var Ec2Instance$: StaticStructureSchema = [
   3,
   n0,
   _EI,
   0,
   [_co, _cC],
-  [() => Ec2InstanceConfiguration, () => ResourceCostCalculation],
+  [() => Ec2InstanceConfiguration$, () => ResourceCostCalculation$],
 ];
-export var Ec2InstanceConfiguration: StaticStructureSchema = [3, n0, _EIC, 0, [_in], [() => InstanceConfiguration]];
-export var Ec2InstanceSavingsPlans: StaticStructureSchema = [
+export var Ec2InstanceConfiguration$: StaticStructureSchema = [3, n0, _EIC, 0, [_in], [() => InstanceConfiguration$]];
+export var Ec2InstanceSavingsPlans$: StaticStructureSchema = [
   3,
   n0,
   _EISP,
   0,
   [_co, _cC],
-  [() => Ec2InstanceSavingsPlansConfiguration, () => SavingsPlansCostCalculation],
+  [() => Ec2InstanceSavingsPlansConfiguration$, () => SavingsPlansCostCalculation$],
 ];
-export var Ec2InstanceSavingsPlansConfiguration: StaticStructureSchema = [
+export var Ec2InstanceSavingsPlansConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _EISPC,
@@ -382,15 +382,15 @@ export var Ec2InstanceSavingsPlansConfiguration: StaticStructureSchema = [
   [_aS, _te, _pO, _hC, _iF, _sPR],
   [0, 0, 0, 0, 0, 0],
 ];
-export var Ec2ReservedInstances: StaticStructureSchema = [
+export var Ec2ReservedInstances$: StaticStructureSchema = [
   3,
   n0,
   _ERI,
   0,
   [_co, _cC],
-  [() => Ec2ReservedInstancesConfiguration, () => ReservedInstancesCostCalculation],
+  [() => Ec2ReservedInstancesConfiguration$, () => ReservedInstancesCostCalculation$],
 ];
-export var Ec2ReservedInstancesConfiguration: StaticStructureSchema = [
+export var Ec2ReservedInstancesConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ERIC,
@@ -398,16 +398,16 @@ export var Ec2ReservedInstancesConfiguration: StaticStructureSchema = [
   [_aS, _se, _te, _pO, _rIR, _uC, _mRC, _nUTP, _nOITP, _oC, _iF, _iT, _cG, _p, _ten, _sFE],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
 ];
-export var EcsService: StaticStructureSchema = [
+export var EcsService$: StaticStructureSchema = [
   3,
   n0,
   _ES,
   0,
   [_co, _cC],
-  [() => EcsServiceConfiguration, () => ResourceCostCalculation],
+  [() => EcsServiceConfiguration$, () => ResourceCostCalculation$],
 ];
-export var EcsServiceConfiguration: StaticStructureSchema = [3, n0, _ESC, 0, [_com], [() => ComputeConfiguration]];
-export var EfficiencyMetricsByGroup: StaticStructureSchema = [
+export var EcsServiceConfiguration$: StaticStructureSchema = [3, n0, _ESC, 0, [_com], [() => ComputeConfiguration$]];
+export var EfficiencyMetricsByGroup$: StaticStructureSchema = [
   3,
   n0,
   _EMBG,
@@ -415,15 +415,15 @@ export var EfficiencyMetricsByGroup: StaticStructureSchema = [
   [_mBT, _g, _m],
   [() => MetricsByTimeList, 0, 0],
 ];
-export var ElastiCacheReservedInstances: StaticStructureSchema = [
+export var ElastiCacheReservedInstances$: StaticStructureSchema = [
   3,
   n0,
   _ECRI,
   0,
   [_co, _cC],
-  [() => ElastiCacheReservedInstancesConfiguration, () => ReservedInstancesCostCalculation],
+  [() => ElastiCacheReservedInstancesConfiguration$, () => ReservedInstancesCostCalculation$],
 ];
-export var ElastiCacheReservedInstancesConfiguration: StaticStructureSchema = [
+export var ElastiCacheReservedInstancesConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ECRIC,
@@ -431,8 +431,8 @@ export var ElastiCacheReservedInstancesConfiguration: StaticStructureSchema = [
   [_aS, _se, _te, _pO, _rIR, _uC, _mRC, _nUTP, _nOITP, _iF, _iT, _cG, _sFE],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
 ];
-export var EstimatedDiscounts: StaticStructureSchema = [3, n0, _ED, 0, [_sPD, _rID, _oD], [1, 1, 1]];
-export var Filter: StaticStructureSchema = [
+export var EstimatedDiscounts$: StaticStructureSchema = [3, n0, _ED, 0, [_sPD, _rID, _oD], [1, 1, 1]];
+export var Filter$: StaticStructureSchema = [
   3,
   n0,
   _F,
@@ -440,17 +440,17 @@ export var Filter: StaticStructureSchema = [
   [_rN, _rP, _iE, _aIc, _r, _rT, _aT, _ta, _rI, _rA, _rIe],
   [2, 2, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => TagList, 64 | 0, 64 | 0, 64 | 0],
 ];
-export var GetPreferencesRequest: StaticStructureSchema = [3, n0, _GPR, 0, [], []];
-export var GetPreferencesResponse: StaticStructureSchema = [
+export var GetPreferencesRequest$: StaticStructureSchema = [3, n0, _GPR, 0, [], []];
+export var GetPreferencesResponse$: StaticStructureSchema = [
   3,
   n0,
   _GPRe,
   0,
   [_sEM, _mADV, _pC],
-  [0, 0, () => PreferredCommitment],
+  [0, 0, () => PreferredCommitment$],
 ];
-export var GetRecommendationRequest: StaticStructureSchema = [3, n0, _GRR, 0, [_rIec], [0]];
-export var GetRecommendationResponse: StaticStructureSchema = [
+export var GetRecommendationRequest$: StaticStructureSchema = [3, n0, _GRR, 0, [_rIec], [0]];
+export var GetRecommendationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRRe,
@@ -501,32 +501,39 @@ export var GetRecommendationResponse: StaticStructureSchema = [
     2,
     0,
     2,
-    () => ResourceDetails,
-    () => ResourceDetails,
+    () => ResourceDetails$,
+    () => ResourceDetails$,
     () => TagList,
   ],
 ];
-export var InstanceConfiguration: StaticStructureSchema = [3, n0, _IC, 0, [_ty], [0]];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser, [_hE]: 500 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var LambdaFunction: StaticStructureSchema = [
+export var InstanceConfiguration$: StaticStructureSchema = [3, n0, _IC, 0, [_ty], [0]];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser, [_hE]: 500 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var LambdaFunction$: StaticStructureSchema = [
   3,
   n0,
   _LF,
   0,
   [_co, _cC],
-  [() => LambdaFunctionConfiguration, () => ResourceCostCalculation],
+  [() => LambdaFunctionConfiguration$, () => ResourceCostCalculation$],
 ];
-export var LambdaFunctionConfiguration: StaticStructureSchema = [3, n0, _LFC, 0, [_com], [() => ComputeConfiguration]];
-export var ListEfficiencyMetricsRequest: StaticStructureSchema = [
+export var LambdaFunctionConfiguration$: StaticStructureSchema = [
+  3,
+  n0,
+  _LFC,
+  0,
+  [_com],
+  [() => ComputeConfiguration$],
+];
+export var ListEfficiencyMetricsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LEMR,
   0,
   [_gB, _gr, _tP, _mR, _oB, _nT],
-  [0, 0, () => TimePeriod, 1, () => OrderBy, 0],
+  [0, 0, () => TimePeriod$, 1, () => OrderBy$, 0],
 ];
-export var ListEfficiencyMetricsResponse: StaticStructureSchema = [
+export var ListEfficiencyMetricsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LEMRi,
@@ -534,7 +541,7 @@ export var ListEfficiencyMetricsResponse: StaticStructureSchema = [
   [_eMBG, _nT],
   [() => EfficiencyMetricsByGroupList, 0],
 ];
-export var ListEnrollmentStatusesRequest: StaticStructureSchema = [
+export var ListEnrollmentStatusesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LESR,
@@ -542,7 +549,7 @@ export var ListEnrollmentStatusesRequest: StaticStructureSchema = [
   [_iOI, _aI, _nT, _mR],
   [2, 0, 0, 1],
 ];
-export var ListEnrollmentStatusesResponse: StaticStructureSchema = [
+export var ListEnrollmentStatusesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LESRi,
@@ -550,15 +557,15 @@ export var ListEnrollmentStatusesResponse: StaticStructureSchema = [
   [_it, _iMA, _nT],
   [() => AccountEnrollmentStatuses, 2, 0],
 ];
-export var ListRecommendationsRequest: StaticStructureSchema = [
+export var ListRecommendationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRR,
   0,
   [_f, _oB, _iAR, _mR, _nT],
-  [() => Filter, () => OrderBy, 2, 1, 0],
+  [() => Filter$, () => OrderBy$, 2, 1, 0],
 ];
-export var ListRecommendationsResponse: StaticStructureSchema = [
+export var ListRecommendationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRRi,
@@ -566,31 +573,31 @@ export var ListRecommendationsResponse: StaticStructureSchema = [
   [_it, _nT],
   [() => RecommendationList, 0],
 ];
-export var ListRecommendationSummariesRequest: StaticStructureSchema = [
+export var ListRecommendationSummariesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRSR,
   0,
   [_f, _gB, _mR, _me, _nT],
-  [() => Filter, 0, 1, 64 | 0, 0],
+  [() => Filter$, 0, 1, 64 | 0, 0],
 ];
-export var ListRecommendationSummariesResponse: StaticStructureSchema = [
+export var ListRecommendationSummariesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRSRi,
   0,
   [_eTDS, _it, _gB, _cCu, _me, _nT],
-  [1, () => RecommendationSummariesList, 0, 0, () => SummaryMetricsResult, 0],
+  [1, () => RecommendationSummariesList, 0, 0, () => SummaryMetricsResult$, 0],
 ];
-export var MemoryDbReservedInstances: StaticStructureSchema = [
+export var MemoryDbReservedInstances$: StaticStructureSchema = [
   3,
   n0,
   _MDRI,
   0,
   [_co, _cC],
-  [() => MemoryDbReservedInstancesConfiguration, () => ReservedInstancesCostCalculation],
+  [() => MemoryDbReservedInstancesConfiguration$, () => ReservedInstancesCostCalculation$],
 ];
-export var MemoryDbReservedInstancesConfiguration: StaticStructureSchema = [
+export var MemoryDbReservedInstancesConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _MDRIC,
@@ -598,26 +605,26 @@ export var MemoryDbReservedInstancesConfiguration: StaticStructureSchema = [
   [_aS, _se, _te, _pO, _rIR, _uC, _mRC, _nUTP, _nOITP, _iT, _iF, _sFE, _cG],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0],
 ];
-export var MetricsByTime: StaticStructureSchema = [3, n0, _MBT, 0, [_sc, _sa, _sp, _ti], [1, 1, 1, 0]];
-export var MixedInstanceConfiguration: StaticStructureSchema = [3, n0, _MIC, 0, [_ty], [0]];
-export var NatGateway: StaticStructureSchema = [
+export var MetricsByTime$: StaticStructureSchema = [3, n0, _MBT, 0, [_sc, _sa, _sp, _ti], [1, 1, 1, 0]];
+export var MixedInstanceConfiguration$: StaticStructureSchema = [3, n0, _MIC, 0, [_ty], [0]];
+export var NatGateway$: StaticStructureSchema = [
   3,
   n0,
   _NG,
   0,
   [_co, _cC],
-  [() => NatGatewayConfiguration, () => ResourceCostCalculation],
+  [() => NatGatewayConfiguration$, () => ResourceCostCalculation$],
 ];
-export var NatGatewayConfiguration: StaticStructureSchema = [3, n0, _NGC, 0, [_aCC, _pIFS, _pIFD], [1, 1, 1]];
-export var OpenSearchReservedInstances: StaticStructureSchema = [
+export var NatGatewayConfiguration$: StaticStructureSchema = [3, n0, _NGC, 0, [_aCC, _pIFS, _pIFD], [1, 1, 1]];
+export var OpenSearchReservedInstances$: StaticStructureSchema = [
   3,
   n0,
   _OSRI,
   0,
   [_co, _cC],
-  [() => OpenSearchReservedInstancesConfiguration, () => ReservedInstancesCostCalculation],
+  [() => OpenSearchReservedInstancesConfiguration$, () => ReservedInstancesCostCalculation$],
 ];
-export var OpenSearchReservedInstancesConfiguration: StaticStructureSchema = [
+export var OpenSearchReservedInstancesConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _OSRIC,
@@ -625,33 +632,33 @@ export var OpenSearchReservedInstancesConfiguration: StaticStructureSchema = [
   [_aS, _se, _te, _pO, _rIR, _uC, _mRC, _nUTP, _nOITP, _iT, _cG, _sFE],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
 ];
-export var OrderBy: StaticStructureSchema = [3, n0, _OB, 0, [_d, _o], [0, 0]];
-export var PreferredCommitment: StaticStructureSchema = [3, n0, _PC, 0, [_te, _pO], [0, 0]];
-export var RdsDbInstance: StaticStructureSchema = [
+export var OrderBy$: StaticStructureSchema = [3, n0, _OB, 0, [_d, _o], [0, 0]];
+export var PreferredCommitment$: StaticStructureSchema = [3, n0, _PC, 0, [_te, _pO], [0, 0]];
+export var RdsDbInstance$: StaticStructureSchema = [
   3,
   n0,
   _RDI,
   0,
   [_co, _cC],
-  [() => RdsDbInstanceConfiguration, () => ResourceCostCalculation],
+  [() => RdsDbInstanceConfiguration$, () => ResourceCostCalculation$],
 ];
-export var RdsDbInstanceConfiguration: StaticStructureSchema = [
+export var RdsDbInstanceConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RDIC,
   0,
   [_in],
-  [() => DbInstanceConfiguration],
+  [() => DbInstanceConfiguration$],
 ];
-export var RdsDbInstanceStorage: StaticStructureSchema = [
+export var RdsDbInstanceStorage$: StaticStructureSchema = [
   3,
   n0,
   _RDIS,
   0,
   [_co, _cC],
-  [() => RdsDbInstanceStorageConfiguration, () => ResourceCostCalculation],
+  [() => RdsDbInstanceStorageConfiguration$, () => ResourceCostCalculation$],
 ];
-export var RdsDbInstanceStorageConfiguration: StaticStructureSchema = [
+export var RdsDbInstanceStorageConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RDISC,
@@ -659,15 +666,15 @@ export var RdsDbInstanceStorageConfiguration: StaticStructureSchema = [
   [_sT, _aSIG, _i, _sTt],
   [0, 1, 1, 1],
 ];
-export var RdsReservedInstances: StaticStructureSchema = [
+export var RdsReservedInstances$: StaticStructureSchema = [
   3,
   n0,
   _RRI,
   0,
   [_co, _cC],
-  [() => RdsReservedInstancesConfiguration, () => ReservedInstancesCostCalculation],
+  [() => RdsReservedInstancesConfiguration$, () => ReservedInstancesCostCalculation$],
 ];
-export var RdsReservedInstancesConfiguration: StaticStructureSchema = [
+export var RdsReservedInstancesConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RRIC,
@@ -675,7 +682,7 @@ export var RdsReservedInstancesConfiguration: StaticStructureSchema = [
   [_aS, _se, _te, _pO, _rIR, _uC, _mRC, _nUTP, _nOITP, _iF, _iT, _sFE, _cG, _lM, _dE, _dEa, _dO],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0],
 ];
-export var Recommendation: StaticStructureSchema = [
+export var Recommendation$: StaticStructureSchema = [
   3,
   n0,
   _R,
@@ -705,16 +712,16 @@ export var Recommendation: StaticStructureSchema = [
   ],
   [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 2, 0, 2, 0, 0, 4, 1, 0, () => TagList],
 ];
-export var RecommendationSummary: StaticStructureSchema = [3, n0, _RS, 0, [_g, _eMS, _rC], [0, 1, 1]];
-export var RedshiftReservedInstances: StaticStructureSchema = [
+export var RecommendationSummary$: StaticStructureSchema = [3, n0, _RS, 0, [_g, _eMS, _rC], [0, 1, 1]];
+export var RedshiftReservedInstances$: StaticStructureSchema = [
   3,
   n0,
   _RRIe,
   0,
   [_co, _cC],
-  [() => RedshiftReservedInstancesConfiguration, () => ReservedInstancesCostCalculation],
+  [() => RedshiftReservedInstancesConfiguration$, () => ReservedInstancesCostCalculation$],
 ];
-export var RedshiftReservedInstancesConfiguration: StaticStructureSchema = [
+export var RedshiftReservedInstancesConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RRICe,
@@ -722,15 +729,15 @@ export var RedshiftReservedInstancesConfiguration: StaticStructureSchema = [
   [_aS, _se, _te, _pO, _rIR, _uC, _mRC, _nUTP, _nOITP, _iF, _iT, _sFE, _cG],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0],
 ];
-export var ReservedInstancesCostCalculation: StaticStructureSchema = [
+export var ReservedInstancesCostCalculation$: StaticStructureSchema = [
   3,
   n0,
   _RICC,
   0,
   [_pr],
-  [() => ReservedInstancesPricing],
+  [() => ReservedInstancesPricing$],
 ];
-export var ReservedInstancesPricing: StaticStructureSchema = [
+export var ReservedInstancesPricing$: StaticStructureSchema = [
   3,
   n0,
   _RIP,
@@ -738,15 +745,15 @@ export var ReservedInstancesPricing: StaticStructureSchema = [
   [_eODC, _mREC, _sP, _eMARC],
   [1, 1, 1, 1],
 ];
-export var ResourceCostCalculation: StaticStructureSchema = [
+export var ResourceCostCalculation$: StaticStructureSchema = [
   3,
   n0,
   _RCC,
   0,
   [_u, _pr],
-  [() => UsageList, () => ResourcePricing],
+  [() => UsageList, () => ResourcePricing$],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -754,24 +761,24 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_m, _rIes],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ResourcePricing: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourcePricing$: StaticStructureSchema = [
   3,
   n0,
   _RP,
   0,
   [_eCBD, _eNUAC, _eD, _eCAD],
-  [1, 1, () => EstimatedDiscounts, 1],
+  [1, 1, () => EstimatedDiscounts$, 1],
 ];
-export var SageMakerSavingsPlans: StaticStructureSchema = [
+export var SageMakerSavingsPlans$: StaticStructureSchema = [
   3,
   n0,
   _SMSP,
   0,
   [_co, _cC],
-  [() => SageMakerSavingsPlansConfiguration, () => SavingsPlansCostCalculation],
+  [() => SageMakerSavingsPlansConfiguration$, () => SavingsPlansCostCalculation$],
 ];
-export var SageMakerSavingsPlansConfiguration: StaticStructureSchema = [
+export var SageMakerSavingsPlansConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SMSPC,
@@ -779,34 +786,34 @@ export var SageMakerSavingsPlansConfiguration: StaticStructureSchema = [
   [_aS, _te, _pO, _hC],
   [0, 0, 0, 0],
 ];
-export var SavingsPlansCostCalculation: StaticStructureSchema = [3, n0, _SPCC, 0, [_pr], [() => SavingsPlansPricing]];
-export var SavingsPlansPricing: StaticStructureSchema = [3, n0, _SPP, 0, [_mSPEC, _eMCs, _sP, _eODC], [1, 1, 1, 1]];
-export var StorageConfiguration: StaticStructureSchema = [3, n0, _SC, 0, [_ty, _sIG], [0, 1]];
-export var SummaryMetricsResult: StaticStructureSchema = [3, n0, _SMR, 0, [_sP], [0]];
-export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _v], [0, 0]];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TimePeriod: StaticStructureSchema = [3, n0, _TP, 0, [_sta, _en], [0, 0]];
-export var UpdateEnrollmentStatusRequest: StaticStructureSchema = [3, n0, _UESR, 0, [_s, _iMA], [0, 2]];
-export var UpdateEnrollmentStatusResponse: StaticStructureSchema = [3, n0, _UESRp, 0, [_s], [0]];
-export var UpdatePreferencesRequest: StaticStructureSchema = [
+export var SavingsPlansCostCalculation$: StaticStructureSchema = [3, n0, _SPCC, 0, [_pr], [() => SavingsPlansPricing$]];
+export var SavingsPlansPricing$: StaticStructureSchema = [3, n0, _SPP, 0, [_mSPEC, _eMCs, _sP, _eODC], [1, 1, 1, 1]];
+export var StorageConfiguration$: StaticStructureSchema = [3, n0, _SC, 0, [_ty, _sIG], [0, 1]];
+export var SummaryMetricsResult$: StaticStructureSchema = [3, n0, _SMR, 0, [_sP], [0]];
+export var Tag$: StaticStructureSchema = [3, n0, _T, 0, [_k, _v], [0, 0]];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TimePeriod$: StaticStructureSchema = [3, n0, _TP, 0, [_sta, _en], [0, 0]];
+export var UpdateEnrollmentStatusRequest$: StaticStructureSchema = [3, n0, _UESR, 0, [_s, _iMA], [0, 2]];
+export var UpdateEnrollmentStatusResponse$: StaticStructureSchema = [3, n0, _UESRp, 0, [_s], [0]];
+export var UpdatePreferencesRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPR,
   0,
   [_sEM, _mADV, _pC],
-  [0, 0, () => PreferredCommitment],
+  [0, 0, () => PreferredCommitment$],
 ];
-export var UpdatePreferencesResponse: StaticStructureSchema = [
+export var UpdatePreferencesResponse$: StaticStructureSchema = [
   3,
   n0,
   _UPRp,
   0,
   [_sEM, _mADV, _pC],
-  [0, 0, () => PreferredCommitment],
+  [0, 0, () => PreferredCommitment$],
 ];
-export var Usage: StaticStructureSchema = [3, n0, _U, 0, [_uT, _uA, _op, _pCr, _un], [0, 1, 0, 0, 0]];
-export var ValidationException: StaticErrorSchema = [
+export var Usage$: StaticStructureSchema = [3, n0, _U, 0, [_uT, _uA, _op, _pCr, _un], [0, 1, 0, 0, 0]];
+export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
@@ -814,9 +821,9 @@ export var ValidationException: StaticErrorSchema = [
   [_m, _rea, _fi],
   [0, 0, () => ValidationExceptionDetails],
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ValidationExceptionDetail: StaticStructureSchema = [3, n0, _VED, 0, [_fN, _m], [0, 0]];
-export var CostOptimizationHubServiceException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ValidationExceptionDetail$: StaticStructureSchema = [3, n0, _VED, 0, [_fN, _m], [0, 0]];
+export var CostOptimizationHubServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "CostOptimizationHubServiceException",
@@ -824,26 +831,26 @@ export var CostOptimizationHubServiceException: StaticErrorSchema = [
   [],
   [],
 ];
-TypeRegistry.for(_sm).registerError(CostOptimizationHubServiceException, __CostOptimizationHubServiceException);
-export var AccountEnrollmentStatuses: StaticListSchema = [1, n0, _AESc, 0, () => AccountEnrollmentStatus];
-export var AccountIdList = 64 | 0;
-export var ActionTypeList = 64 | 0;
-export var EfficiencyMetricsByGroupList: StaticListSchema = [1, n0, _EMBGL, 0, () => EfficiencyMetricsByGroup];
-export var ImplementationEffortList = 64 | 0;
-export var MetricsByTimeList: StaticListSchema = [1, n0, _MBTL, 0, () => MetricsByTime];
-export var MixedInstanceConfigurationList: StaticListSchema = [1, n0, _MICL, 0, () => MixedInstanceConfiguration];
-export var RecommendationIdList = 64 | 0;
-export var RecommendationList: StaticListSchema = [1, n0, _RL, 0, () => Recommendation];
-export var RecommendationSummariesList: StaticListSchema = [1, n0, _RSL, 0, () => RecommendationSummary];
-export var RegionList = 64 | 0;
-export var ResourceArnList = 64 | 0;
-export var ResourceIdList = 64 | 0;
-export var ResourceTypeList = 64 | 0;
-export var SummaryMetricsList = 64 | 0;
-export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
-export var UsageList: StaticListSchema = [1, n0, _UL, 0, () => Usage];
-export var ValidationExceptionDetails: StaticListSchema = [1, n0, _VEDa, 0, () => ValidationExceptionDetail];
-export var ResourceDetails: StaticStructureSchema = [
+TypeRegistry.for(_sm).registerError(CostOptimizationHubServiceException$, CostOptimizationHubServiceException);
+var AccountEnrollmentStatuses: StaticListSchema = [1, n0, _AESc, 0, () => AccountEnrollmentStatus$];
+var AccountIdList = 64 | 0;
+var ActionTypeList = 64 | 0;
+var EfficiencyMetricsByGroupList: StaticListSchema = [1, n0, _EMBGL, 0, () => EfficiencyMetricsByGroup$];
+var ImplementationEffortList = 64 | 0;
+var MetricsByTimeList: StaticListSchema = [1, n0, _MBTL, 0, () => MetricsByTime$];
+var MixedInstanceConfigurationList: StaticListSchema = [1, n0, _MICL, 0, () => MixedInstanceConfiguration$];
+var RecommendationIdList = 64 | 0;
+var RecommendationList: StaticListSchema = [1, n0, _RL, 0, () => Recommendation$];
+var RecommendationSummariesList: StaticListSchema = [1, n0, _RSL, 0, () => RecommendationSummary$];
+var RegionList = 64 | 0;
+var ResourceArnList = 64 | 0;
+var ResourceIdList = 64 | 0;
+var ResourceTypeList = 64 | 0;
+var SummaryMetricsList = 64 | 0;
+var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
+var UsageList: StaticListSchema = [1, n0, _UL, 0, () => Usage$];
+var ValidationExceptionDetails: StaticListSchema = [1, n0, _VEDa, 0, () => ValidationExceptionDetail$];
+export var ResourceDetails$: StaticStructureSchema = [
   3,
   n0,
   _RD,
@@ -870,88 +877,88 @@ export var ResourceDetails: StaticStructureSchema = [
     _nG,
   ],
   [
-    () => LambdaFunction,
-    () => EcsService,
-    () => Ec2Instance,
-    () => EbsVolume,
-    () => Ec2AutoScalingGroup,
-    () => Ec2ReservedInstances,
-    () => RdsReservedInstances,
-    () => ElastiCacheReservedInstances,
-    () => OpenSearchReservedInstances,
-    () => RedshiftReservedInstances,
-    () => Ec2InstanceSavingsPlans,
-    () => ComputeSavingsPlans,
-    () => SageMakerSavingsPlans,
-    () => RdsDbInstance,
-    () => RdsDbInstanceStorage,
-    () => AuroraDbClusterStorage,
-    () => DynamoDbReservedCapacity,
-    () => MemoryDbReservedInstances,
-    () => NatGateway,
+    () => LambdaFunction$,
+    () => EcsService$,
+    () => Ec2Instance$,
+    () => EbsVolume$,
+    () => Ec2AutoScalingGroup$,
+    () => Ec2ReservedInstances$,
+    () => RdsReservedInstances$,
+    () => ElastiCacheReservedInstances$,
+    () => OpenSearchReservedInstances$,
+    () => RedshiftReservedInstances$,
+    () => Ec2InstanceSavingsPlans$,
+    () => ComputeSavingsPlans$,
+    () => SageMakerSavingsPlans$,
+    () => RdsDbInstance$,
+    () => RdsDbInstanceStorage$,
+    () => AuroraDbClusterStorage$,
+    () => DynamoDbReservedCapacity$,
+    () => MemoryDbReservedInstances$,
+    () => NatGateway$,
   ],
 ];
-export var GetPreferences: StaticOperationSchema = [
+export var GetPreferences$: StaticOperationSchema = [
   9,
   n0,
   _GP,
   0,
-  () => GetPreferencesRequest,
-  () => GetPreferencesResponse,
+  () => GetPreferencesRequest$,
+  () => GetPreferencesResponse$,
 ];
-export var GetRecommendation: StaticOperationSchema = [
+export var GetRecommendation$: StaticOperationSchema = [
   9,
   n0,
   _GR,
   0,
-  () => GetRecommendationRequest,
-  () => GetRecommendationResponse,
+  () => GetRecommendationRequest$,
+  () => GetRecommendationResponse$,
 ];
-export var ListEfficiencyMetrics: StaticOperationSchema = [
+export var ListEfficiencyMetrics$: StaticOperationSchema = [
   9,
   n0,
   _LEM,
   0,
-  () => ListEfficiencyMetricsRequest,
-  () => ListEfficiencyMetricsResponse,
+  () => ListEfficiencyMetricsRequest$,
+  () => ListEfficiencyMetricsResponse$,
 ];
-export var ListEnrollmentStatuses: StaticOperationSchema = [
+export var ListEnrollmentStatuses$: StaticOperationSchema = [
   9,
   n0,
   _LES,
   0,
-  () => ListEnrollmentStatusesRequest,
-  () => ListEnrollmentStatusesResponse,
+  () => ListEnrollmentStatusesRequest$,
+  () => ListEnrollmentStatusesResponse$,
 ];
-export var ListRecommendations: StaticOperationSchema = [
+export var ListRecommendations$: StaticOperationSchema = [
   9,
   n0,
   _LR,
   0,
-  () => ListRecommendationsRequest,
-  () => ListRecommendationsResponse,
+  () => ListRecommendationsRequest$,
+  () => ListRecommendationsResponse$,
 ];
-export var ListRecommendationSummaries: StaticOperationSchema = [
+export var ListRecommendationSummaries$: StaticOperationSchema = [
   9,
   n0,
   _LRS,
   0,
-  () => ListRecommendationSummariesRequest,
-  () => ListRecommendationSummariesResponse,
+  () => ListRecommendationSummariesRequest$,
+  () => ListRecommendationSummariesResponse$,
 ];
-export var UpdateEnrollmentStatus: StaticOperationSchema = [
+export var UpdateEnrollmentStatus$: StaticOperationSchema = [
   9,
   n0,
   _UES,
   0,
-  () => UpdateEnrollmentStatusRequest,
-  () => UpdateEnrollmentStatusResponse,
+  () => UpdateEnrollmentStatusRequest$,
+  () => UpdateEnrollmentStatusResponse$,
 ];
-export var UpdatePreferences: StaticOperationSchema = [
+export var UpdatePreferences$: StaticOperationSchema = [
   9,
   n0,
   _UP,
   0,
-  () => UpdatePreferencesRequest,
-  () => UpdatePreferencesResponse,
+  () => UpdatePreferencesRequest$,
+  () => UpdatePreferencesResponse$,
 ];

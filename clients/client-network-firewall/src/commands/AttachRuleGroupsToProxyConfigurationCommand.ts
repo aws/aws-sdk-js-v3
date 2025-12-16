@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { AttachRuleGroupsToProxyConfiguration } from "../schemas/schemas_0";
+import { AttachRuleGroupsToProxyConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -144,7 +144,7 @@ export class AttachRuleGroupsToProxyConfigurationCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "AttachRuleGroupsToProxyConfiguration", {})
   .n("NetworkFirewallClient", "AttachRuleGroupsToProxyConfigurationCommand")
-  .sc(AttachRuleGroupsToProxyConfiguration)
+  .sc(AttachRuleGroupsToProxyConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

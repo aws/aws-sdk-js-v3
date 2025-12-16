@@ -10,7 +10,7 @@ import type {
 } from "../CodeGuruProfilerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRecommendationsRequest, GetRecommendationsResponse } from "../models/models_0";
-import { GetRecommendations } from "../schemas/schemas_0";
+import { GetRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -157,7 +157,7 @@ export class GetRecommendationsCommand extends $Command
   })
   .s("CodeGuruProfiler", "GetRecommendations", {})
   .n("CodeGuruProfilerClient", "GetRecommendationsCommand")
-  .sc(GetRecommendations)
+  .sc(GetRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

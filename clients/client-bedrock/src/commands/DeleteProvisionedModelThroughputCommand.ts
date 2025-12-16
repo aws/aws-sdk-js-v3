@@ -9,7 +9,7 @@ import type {
   DeleteProvisionedModelThroughputRequest,
   DeleteProvisionedModelThroughputResponse,
 } from "../models/models_1";
-import { DeleteProvisionedModelThroughput } from "../schemas/schemas_0";
+import { DeleteProvisionedModelThroughput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteProvisionedModelThroughputCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "DeleteProvisionedModelThroughput", {})
   .n("BedrockClient", "DeleteProvisionedModelThroughputCommand")
-  .sc(DeleteProvisionedModelThroughput)
+  .sc(DeleteProvisionedModelThroughput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDefaultSubnetRequest, CreateDefaultSubnetResult } from "../models/models_0";
-import { CreateDefaultSubnet } from "../schemas/schemas_0";
+import { CreateDefaultSubnet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class CreateDefaultSubnetCommand extends $Command
   })
   .s("AmazonEC2", "CreateDefaultSubnet", {})
   .n("EC2Client", "CreateDefaultSubnetCommand")
-  .sc(CreateDefaultSubnet)
+  .sc(CreateDefaultSubnet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

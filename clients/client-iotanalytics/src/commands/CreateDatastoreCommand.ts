@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
 import type { CreateDatastoreRequest, CreateDatastoreResponse } from "../models/models_0";
-import { CreateDatastore } from "../schemas/schemas_0";
+import { CreateDatastore$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class CreateDatastoreCommand extends $Command
   })
   .s("AWSIoTAnalytics", "CreateDatastore", {})
   .n("IoTAnalyticsClient", "CreateDatastoreCommand")
-  .sc(CreateDatastore)
+  .sc(CreateDatastore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

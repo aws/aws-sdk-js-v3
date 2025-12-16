@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: ApplicationDiscoveryServiceClientConfig
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.applicationdiscoveryservice",
-        serviceTarget: "AWSPoseidonService_V2015_11_01",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.applicationdiscoveryservice",
+      xmlNamespace: "http://ec2.amazon.com/awsposiedon/V2015_11_01/",
+      version: "2015-11-01",
+      serviceTarget: "AWSPoseidonService_V2015_11_01",
+    },
     serviceId: config?.serviceId ?? "Application Discovery Service",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

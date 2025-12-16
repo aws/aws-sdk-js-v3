@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDefaultCreditSpecificationRequest, GetDefaultCreditSpecificationResult } from "../models/models_5";
-import { GetDefaultCreditSpecification } from "../schemas/schemas_0";
+import { GetDefaultCreditSpecification$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class GetDefaultCreditSpecificationCommand extends $Command
   })
   .s("AmazonEC2", "GetDefaultCreditSpecification", {})
   .n("EC2Client", "GetDefaultCreditSpecificationCommand")
-  .sc(GetDefaultCreditSpecification)
+  .sc(GetDefaultCreditSpecification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

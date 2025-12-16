@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { ConvertRecoveryPointToSnapshot } from "../schemas/schemas_0";
+import { ConvertRecoveryPointToSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class ConvertRecoveryPointToSnapshotCommand extends $Command
   })
   .s("RedshiftServerless", "ConvertRecoveryPointToSnapshot", {})
   .n("RedshiftServerlessClient", "ConvertRecoveryPointToSnapshotCommand")
-  .sc(ConvertRecoveryPointToSnapshot)
+  .sc(ConvertRecoveryPointToSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

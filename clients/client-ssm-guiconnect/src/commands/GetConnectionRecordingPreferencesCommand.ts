@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetConnectionRecordingPreferencesResponse } from "../models/models_0";
-import { GetConnectionRecordingPreferences } from "../schemas/schemas_0";
+import { GetConnectionRecordingPreferences$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMGuiConnectClientResolvedConfig } from "../SSMGuiConnectClient";
 
 /**
@@ -129,7 +129,7 @@ export class GetConnectionRecordingPreferencesCommand extends $Command
   })
   .s("SSMGuiConnect", "GetConnectionRecordingPreferences", {})
   .n("SSMGuiConnectClient", "GetConnectionRecordingPreferencesCommand")
-  .sc(GetConnectionRecordingPreferences)
+  .sc(GetConnectionRecordingPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

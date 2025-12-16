@@ -9,7 +9,7 @@ import type {
   CreateMacSystemIntegrityProtectionModificationTaskRequest,
   CreateMacSystemIntegrityProtectionModificationTaskResult,
 } from "../models/models_1";
-import { CreateMacSystemIntegrityProtectionModificationTask } from "../schemas/schemas_0";
+import { CreateMacSystemIntegrityProtectionModificationTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -168,7 +168,7 @@ export class CreateMacSystemIntegrityProtectionModificationTaskCommand extends $
   })
   .s("AmazonEC2", "CreateMacSystemIntegrityProtectionModificationTask", {})
   .n("EC2Client", "CreateMacSystemIntegrityProtectionModificationTaskCommand")
-  .sc(CreateMacSystemIntegrityProtectionModificationTask)
+  .sc(CreateMacSystemIntegrityProtectionModificationTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

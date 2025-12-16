@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GeoRoutesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoRoutesClient";
 import type { CalculateIsolinesRequest, CalculateIsolinesResponse } from "../models/models_0";
-import { CalculateIsolines } from "../schemas/schemas_0";
+import { CalculateIsolines$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -316,7 +316,7 @@ export class CalculateIsolinesCommand extends $Command
   })
   .s("RoutesService", "CalculateIsolines", {})
   .n("GeoRoutesClient", "CalculateIsolinesCommand")
-  .sc(CalculateIsolines)
+  .sc(CalculateIsolines$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

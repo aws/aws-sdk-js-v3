@@ -8,7 +8,7 @@ import type {
   CreateWhatsAppMessageTemplateFromLibraryInput,
   CreateWhatsAppMessageTemplateFromLibraryOutput,
 } from "../models/models_0";
-import { CreateWhatsAppMessageTemplateFromLibrary } from "../schemas/schemas_0";
+import { CreateWhatsAppMessageTemplateFromLibrary$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -136,7 +136,7 @@ export class CreateWhatsAppMessageTemplateFromLibraryCommand extends $Command
   })
   .s("SocialMessaging", "CreateWhatsAppMessageTemplateFromLibrary", {})
   .n("SocialMessagingClient", "CreateWhatsAppMessageTemplateFromLibraryCommand")
-  .sc(CreateWhatsAppMessageTemplateFromLibrary)
+  .sc(CreateWhatsAppMessageTemplateFromLibrary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

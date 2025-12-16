@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchGetUserAccessTasksRequest, BatchGetUserAccessTasksResponse } from "../models/models_0";
-import { BatchGetUserAccessTasks } from "../schemas/schemas_0";
+import { BatchGetUserAccessTasks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class BatchGetUserAccessTasksCommand extends $Command
   })
   .s("FabricFrontEndService", "BatchGetUserAccessTasks", {})
   .n("AppFabricClient", "BatchGetUserAccessTasksCommand")
-  .sc(BatchGetUserAccessTasks)
+  .sc(BatchGetUserAccessTasks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

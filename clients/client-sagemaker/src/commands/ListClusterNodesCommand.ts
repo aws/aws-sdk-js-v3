@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListClusterNodesRequest, ListClusterNodesResponse } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListClusterNodes } from "../schemas/schemas_0";
+import { ListClusterNodes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class ListClusterNodesCommand extends $Command
   })
   .s("SageMaker", "ListClusterNodes", {})
   .n("SageMakerClient", "ListClusterNodesCommand")
-  .sc(ListClusterNodes)
+  .sc(ListClusterNodes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

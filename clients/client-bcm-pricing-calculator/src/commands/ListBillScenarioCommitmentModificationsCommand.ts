@@ -13,7 +13,7 @@ import type {
   ListBillScenarioCommitmentModificationsRequest,
   ListBillScenarioCommitmentModificationsResponse,
 } from "../models/models_0";
-import { ListBillScenarioCommitmentModifications } from "../schemas/schemas_0";
+import { ListBillScenarioCommitmentModifications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class ListBillScenarioCommitmentModificationsCommand extends $Command
   })
   .s("AWSBCMPricingCalculator", "ListBillScenarioCommitmentModifications", {})
   .n("BCMPricingCalculatorClient", "ListBillScenarioCommitmentModificationsCommand")
-  .sc(ListBillScenarioCommitmentModifications)
+  .sc(ListBillScenarioCommitmentModifications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

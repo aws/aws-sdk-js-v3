@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateScheduleInput, UpdateScheduleOutput } from "../models/models_0";
 import type { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
-import { UpdateSchedule } from "../schemas/schemas_0";
+import { UpdateSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -186,7 +186,7 @@ export class UpdateScheduleCommand extends $Command
   })
   .s("AWSChronosService", "UpdateSchedule", {})
   .n("SchedulerClient", "UpdateScheduleCommand")
-  .sc(UpdateSchedule)
+  .sc(UpdateSchedule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

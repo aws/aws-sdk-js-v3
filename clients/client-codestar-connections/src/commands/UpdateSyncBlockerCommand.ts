@@ -10,7 +10,7 @@ import type {
 } from "../CodeStarConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateSyncBlockerInput, UpdateSyncBlockerOutput } from "../models/models_0";
-import { UpdateSyncBlocker } from "../schemas/schemas_0";
+import { UpdateSyncBlocker$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class UpdateSyncBlockerCommand extends $Command
   })
   .s("CodeStar_connections_20191201", "UpdateSyncBlocker", {})
   .n("CodeStarConnectionsClient", "UpdateSyncBlockerCommand")
-  .sc(UpdateSyncBlocker)
+  .sc(UpdateSyncBlocker$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

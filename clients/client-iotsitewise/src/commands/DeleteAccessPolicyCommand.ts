@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import type { DeleteAccessPolicyRequest, DeleteAccessPolicyResponse } from "../models/models_0";
-import { DeleteAccessPolicy } from "../schemas/schemas_0";
+import { DeleteAccessPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteAccessPolicyCommand extends $Command
   })
   .s("AWSIoTSiteWise", "DeleteAccessPolicy", {})
   .n("IoTSiteWiseClient", "DeleteAccessPolicyCommand")
-  .sc(DeleteAccessPolicy)
+  .sc(DeleteAccessPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

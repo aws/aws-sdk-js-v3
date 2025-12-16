@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchDeleteRecipeVersionRequest, BatchDeleteRecipeVersionResponse } from "../models/models_0";
-import { BatchDeleteRecipeVersion } from "../schemas/schemas_0";
+import { BatchDeleteRecipeVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class BatchDeleteRecipeVersionCommand extends $Command
   })
   .s("AWSGlueDataBrew", "BatchDeleteRecipeVersion", {})
   .n("DataBrewClient", "BatchDeleteRecipeVersionCommand")
-  .sc(BatchDeleteRecipeVersion)
+  .sc(BatchDeleteRecipeVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateAggregatorV2Request, UpdateAggregatorV2Response } from "../models/models_3";
-import { UpdateAggregatorV2 } from "../schemas/schemas_0";
+import { UpdateAggregatorV2$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -104,7 +104,7 @@ export class UpdateAggregatorV2Command extends $Command
   })
   .s("SecurityHubAPIService", "UpdateAggregatorV2", {})
   .n("SecurityHubClient", "UpdateAggregatorV2Command")
-  .sc(UpdateAggregatorV2)
+  .sc(UpdateAggregatorV2$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

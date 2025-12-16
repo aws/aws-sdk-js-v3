@@ -8,7 +8,7 @@ import type {
   GetApplicationAuthenticationMethodRequest,
   GetApplicationAuthenticationMethodResponse,
 } from "../models/models_0";
-import { GetApplicationAuthenticationMethod } from "../schemas/schemas_0";
+import { GetApplicationAuthenticationMethod$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -98,7 +98,7 @@ export class GetApplicationAuthenticationMethodCommand extends $Command
   })
   .s("SWBExternalService", "GetApplicationAuthenticationMethod", {})
   .n("SSOAdminClient", "GetApplicationAuthenticationMethodCommand")
-  .sc(GetApplicationAuthenticationMethod)
+  .sc(GetApplicationAuthenticationMethod$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

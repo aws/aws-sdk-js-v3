@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreatePromptRouterRequest, CreatePromptRouterResponse } from "../models/models_1";
-import { CreatePromptRouter } from "../schemas/schemas_0";
+import { CreatePromptRouter$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class CreatePromptRouterCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "CreatePromptRouter", {})
   .n("BedrockClient", "CreatePromptRouterCommand")
-  .sc(CreatePromptRouter)
+  .sc(CreatePromptRouter$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import type { DeleteFunctionConcurrencyRequest } from "../models/models_0";
-import { DeleteFunctionConcurrency } from "../schemas/schemas_0";
+import { DeleteFunctionConcurrency$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class DeleteFunctionConcurrencyCommand extends $Command
   })
   .s("AWSGirApiService", "DeleteFunctionConcurrency", {})
   .n("LambdaClient", "DeleteFunctionConcurrencyCommand")
-  .sc(DeleteFunctionConcurrency)
+  .sc(DeleteFunctionConcurrency$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

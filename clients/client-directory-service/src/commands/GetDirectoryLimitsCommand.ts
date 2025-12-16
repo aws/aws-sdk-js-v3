@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDirectoryLimitsRequest, GetDirectoryLimitsResult } from "../models/models_0";
-import { GetDirectoryLimits } from "../schemas/schemas_0";
+import { GetDirectoryLimits$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class GetDirectoryLimitsCommand extends $Command
   })
   .s("DirectoryService_20150416", "GetDirectoryLimits", {})
   .n("DirectoryServiceClient", "GetDirectoryLimitsCommand")
-  .sc(GetDirectoryLimits)
+  .sc(GetDirectoryLimits$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

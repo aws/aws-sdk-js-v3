@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: SFNClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.sfn",
-        serviceTarget: "AWSStepFunctions",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.sfn",
+      xmlNamespace: "http://swf.amazonaws.com/doc/2015-07-20/",
+      version: "2016-11-23",
+      serviceTarget: "AWSStepFunctions",
+    },
     serviceId: config?.serviceId ?? "SFN",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

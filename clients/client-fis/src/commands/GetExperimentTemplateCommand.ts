@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
 import type { GetExperimentTemplateRequest, GetExperimentTemplateResponse } from "../models/models_0";
-import { GetExperimentTemplate } from "../schemas/schemas_0";
+import { GetExperimentTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -165,7 +165,7 @@ export class GetExperimentTemplateCommand extends $Command
   })
   .s("FaultInjectionSimulator", "GetExperimentTemplate", {})
   .n("FisClient", "GetExperimentTemplateCommand")
-  .sc(GetExperimentTemplate)
+  .sc(GetExperimentTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

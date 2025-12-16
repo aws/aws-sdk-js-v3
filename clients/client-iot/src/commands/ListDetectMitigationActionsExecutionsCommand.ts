@@ -9,7 +9,7 @@ import type {
   ListDetectMitigationActionsExecutionsRequest,
   ListDetectMitigationActionsExecutionsResponse,
 } from "../models/models_1";
-import { ListDetectMitigationActionsExecutions } from "../schemas/schemas_0";
+import { ListDetectMitigationActionsExecutions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class ListDetectMitigationActionsExecutionsCommand extends $Command
   })
   .s("AWSIotService", "ListDetectMitigationActionsExecutions", {})
   .n("IoTClient", "ListDetectMitigationActionsExecutionsCommand")
-  .sc(ListDetectMitigationActionsExecutions)
+  .sc(ListDetectMitigationActionsExecutions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

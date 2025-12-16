@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { NotifyWorkersRequest, NotifyWorkersResponse } from "../models/models_0";
 import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { NotifyWorkers } from "../schemas/schemas_0";
+import { NotifyWorkers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class NotifyWorkersCommand extends $Command
   })
   .s("MTurkRequesterServiceV20170117", "NotifyWorkers", {})
   .n("MTurkClient", "NotifyWorkersCommand")
-  .sc(NotifyWorkers)
+  .sc(NotifyWorkers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

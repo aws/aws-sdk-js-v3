@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaStoreDataClient";
 import type { DeleteObjectRequest, DeleteObjectResponse } from "../models/models_0";
-import { DeleteObject } from "../schemas/schemas_0";
+import { DeleteObject$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DeleteObjectCommand extends $Command
   })
   .s("MediaStoreObject_20170901", "DeleteObject", {})
   .n("MediaStoreDataClient", "DeleteObjectCommand")
-  .sc(DeleteObject)
+  .sc(DeleteObject$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

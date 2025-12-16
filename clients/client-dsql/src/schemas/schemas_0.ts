@@ -106,40 +106,40 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { DSQLServiceException as __DSQLServiceException } from "../models/DSQLServiceException";
+import { DSQLServiceException } from "../models/DSQLServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var ClusterSummary: StaticStructureSchema = [3, n0, _CS, 0, [_i, _a], [0, 0]];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateClusterInput: StaticStructureSchema = [
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var ClusterSummary$: StaticStructureSchema = [3, n0, _CS, 0, [_i, _a], [0, 0]];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateClusterInput$: StaticStructureSchema = [
   3,
   n0,
   _CCI,
   0,
   [_dPE, _kEK, _t, _cT, _mRP, _p, _bPLSC],
-  [2, 0, 128 | 0, [0, 4], () => MultiRegionProperties, 0, 2],
+  [2, 0, 128 | 0, [0, 4], () => MultiRegionProperties$, 0, 2],
 ];
-export var CreateClusterOutput: StaticStructureSchema = [
+export var CreateClusterOutput$: StaticStructureSchema = [
   3,
   n0,
   _CCO,
   0,
   [_i, _a, _s, _cTr, _mRP, _eD, _dPE, _en],
-  [0, 0, 0, 4, () => MultiRegionProperties, () => EncryptionDetails, 2, 0],
+  [0, 0, 0, 4, () => MultiRegionProperties$, () => EncryptionDetails$, 2, 0],
 ];
-export var DeleteClusterInput: StaticStructureSchema = [
+export var DeleteClusterInput$: StaticStructureSchema = [
   3,
   n0,
   _DCI,
@@ -150,8 +150,8 @@ export var DeleteClusterInput: StaticStructureSchema = [
     [0, { [_iT]: 1, [_hQ]: _ct }],
   ],
 ];
-export var DeleteClusterOutput: StaticStructureSchema = [3, n0, _DCO, 0, [_i, _a, _s, _cTr], [0, 0, 0, 4]];
-export var DeleteClusterPolicyInput: StaticStructureSchema = [
+export var DeleteClusterOutput$: StaticStructureSchema = [3, n0, _DCO, 0, [_i, _a, _s, _cTr], [0, 0, 0, 4]];
+export var DeleteClusterPolicyInput$: StaticStructureSchema = [
   3,
   n0,
   _DCPI,
@@ -163,22 +163,22 @@ export var DeleteClusterPolicyInput: StaticStructureSchema = [
     [0, { [_iT]: 1, [_hQ]: _ct }],
   ],
 ];
-export var DeleteClusterPolicyOutput: StaticStructureSchema = [3, n0, _DCPO, 0, [_pV], [0]];
-export var EncryptionDetails: StaticStructureSchema = [3, n0, _ED, 0, [_eT, _kKA, _eS], [0, 0, 0]];
-export var GetClusterInput: StaticStructureSchema = [3, n0, _GCI, 0, [_i], [[0, 1]]];
-export var GetClusterOutput: StaticStructureSchema = [
+export var DeleteClusterPolicyOutput$: StaticStructureSchema = [3, n0, _DCPO, 0, [_pV], [0]];
+export var EncryptionDetails$: StaticStructureSchema = [3, n0, _ED, 0, [_eT, _kKA, _eS], [0, 0, 0]];
+export var GetClusterInput$: StaticStructureSchema = [3, n0, _GCI, 0, [_i], [[0, 1]]];
+export var GetClusterOutput$: StaticStructureSchema = [
   3,
   n0,
   _GCO,
   0,
   [_i, _a, _s, _cTr, _dPE, _mRP, _t, _eD, _en],
-  [0, 0, 0, 4, 2, () => MultiRegionProperties, 128 | 0, () => EncryptionDetails, 0],
+  [0, 0, 0, 4, 2, () => MultiRegionProperties$, 128 | 0, () => EncryptionDetails$, 0],
 ];
-export var GetClusterPolicyInput: StaticStructureSchema = [3, n0, _GCPI, 0, [_i], [[0, 1]]];
-export var GetClusterPolicyOutput: StaticStructureSchema = [3, n0, _GCPO, 0, [_p, _pV], [0, 0]];
-export var GetVpcEndpointServiceNameInput: StaticStructureSchema = [3, n0, _GVESNI, 0, [_i], [[0, 1]]];
-export var GetVpcEndpointServiceNameOutput: StaticStructureSchema = [3, n0, _GVESNO, 0, [_sN, _cVE], [0, 0]];
-export var InternalServerException: StaticErrorSchema = [
+export var GetClusterPolicyInput$: StaticStructureSchema = [3, n0, _GCPI, 0, [_i], [[0, 1]]];
+export var GetClusterPolicyOutput$: StaticStructureSchema = [3, n0, _GCPO, 0, [_p, _pV], [0, 0]];
+export var GetVpcEndpointServiceNameInput$: StaticStructureSchema = [3, n0, _GVESNI, 0, [_i], [[0, 1]]];
+export var GetVpcEndpointServiceNameOutput$: StaticStructureSchema = [3, n0, _GVESNO, 0, [_sN, _cVE], [0, 0]];
+export var InternalServerException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
@@ -186,8 +186,8 @@ export var InternalServerException: StaticErrorSchema = [
   [_m, _rAS],
   [0, [1, { [_hH]: _RA }]],
 ];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var ListClustersInput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var ListClustersInput$: StaticStructureSchema = [
   3,
   n0,
   _LCI,
@@ -198,11 +198,11 @@ export var ListClustersInput: StaticStructureSchema = [
     [0, { [_hQ]: _nt }],
   ],
 ];
-export var ListClustersOutput: StaticStructureSchema = [3, n0, _LCO, 0, [_nT, _cl], [0, () => ClusterList]];
-export var ListTagsForResourceInput: StaticStructureSchema = [3, n0, _LTFRI, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceOutput: StaticStructureSchema = [3, n0, _LTFRO, 0, [_t], [128 | 0]];
-export var MultiRegionProperties: StaticStructureSchema = [3, n0, _MRP, 0, [_wR, _cl], [0, 64 | 0]];
-export var PutClusterPolicyInput: StaticStructureSchema = [
+export var ListClustersOutput$: StaticStructureSchema = [3, n0, _LCO, 0, [_nT, _cl], [0, () => ClusterList]];
+export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI, 0, [_rA], [[0, 1]]];
+export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO, 0, [_t], [128 | 0]];
+export var MultiRegionProperties$: StaticStructureSchema = [3, n0, _MRP, 0, [_wR, _cl], [0, 64 | 0]];
+export var PutClusterPolicyInput$: StaticStructureSchema = [
   3,
   n0,
   _PCPI,
@@ -210,8 +210,8 @@ export var PutClusterPolicyInput: StaticStructureSchema = [
   [_i, _p, _bPLSC, _ePV, _cT],
   [[0, 1], 0, 2, 0, [0, 4]],
 ];
-export var PutClusterPolicyOutput: StaticStructureSchema = [3, n0, _PCPO, 0, [_pV], [0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
+export var PutClusterPolicyOutput$: StaticStructureSchema = [3, n0, _PCPO, 0, [_pV], [0]];
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -219,8 +219,8 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ServiceQuotaExceededException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
@@ -228,9 +228,9 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   [_m, _rI, _rT, _sC, _qC],
   [0, 0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_rA, _t], [[0, 1], 128 | 0]];
-export var ThrottlingException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI, 0, [_rA, _t], [[0, 1], 128 | 0]];
+export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
@@ -238,8 +238,8 @@ export var ThrottlingException: StaticErrorSchema = [
   [_m, _sC, _qC, _rAS],
   [0, 0, 0, [1, { [_hH]: _RA }]],
 ];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var UntagResourceInput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UntagResourceInput$: StaticStructureSchema = [
   3,
   n0,
   _URI,
@@ -250,16 +250,16 @@ export var UntagResourceInput: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UpdateClusterInput: StaticStructureSchema = [
+export var UpdateClusterInput$: StaticStructureSchema = [
   3,
   n0,
   _UCI,
   0,
   [_i, _dPE, _kEK, _cT, _mRP],
-  [[0, 1], 2, 0, [0, 4], () => MultiRegionProperties],
+  [[0, 1], 2, 0, [0, 4], () => MultiRegionProperties$],
 ];
-export var UpdateClusterOutput: StaticStructureSchema = [3, n0, _UCO, 0, [_i, _a, _s, _cTr], [0, 0, 0, 4]];
-export var ValidationException: StaticErrorSchema = [
+export var UpdateClusterOutput$: StaticStructureSchema = [3, n0, _UCO, 0, [_i, _a, _s, _cTr], [0, 0, 0, 4]];
+export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
@@ -267,109 +267,109 @@ export var ValidationException: StaticErrorSchema = [
   [_m, _r, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var __Unit = "unit" as const;
-export var DSQLServiceException: StaticErrorSchema = [-3, _sm, "DSQLServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DSQLServiceException, __DSQLServiceException);
-export var ClusterArnList = 64 | 0;
-export var ClusterList: StaticListSchema = [1, n0, _CL, 0, () => ClusterSummary];
-export var TagKeyList = 64 | 0;
-export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
-export var TagMap = 128 | 0;
-export var CreateCluster: StaticOperationSchema = [
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
+var __Unit = "unit" as const;
+export var DSQLServiceException$: StaticErrorSchema = [-3, _sm, "DSQLServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(DSQLServiceException$, DSQLServiceException);
+var ClusterArnList = 64 | 0;
+var ClusterList: StaticListSchema = [1, n0, _CL, 0, () => ClusterSummary$];
+var TagKeyList = 64 | 0;
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
+var TagMap = 128 | 0;
+export var CreateCluster$: StaticOperationSchema = [
   9,
   n0,
   _CC,
   { [_h]: ["POST", "/cluster", 200] },
-  () => CreateClusterInput,
-  () => CreateClusterOutput,
+  () => CreateClusterInput$,
+  () => CreateClusterOutput$,
 ];
-export var DeleteCluster: StaticOperationSchema = [
+export var DeleteCluster$: StaticOperationSchema = [
   9,
   n0,
   _DC,
   { [_h]: ["DELETE", "/cluster/{identifier}", 200] },
-  () => DeleteClusterInput,
-  () => DeleteClusterOutput,
+  () => DeleteClusterInput$,
+  () => DeleteClusterOutput$,
 ];
-export var DeleteClusterPolicy: StaticOperationSchema = [
+export var DeleteClusterPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DCP,
   { [_h]: ["DELETE", "/cluster/{identifier}/policy", 200] },
-  () => DeleteClusterPolicyInput,
-  () => DeleteClusterPolicyOutput,
+  () => DeleteClusterPolicyInput$,
+  () => DeleteClusterPolicyOutput$,
 ];
-export var GetCluster: StaticOperationSchema = [
+export var GetCluster$: StaticOperationSchema = [
   9,
   n0,
   _GC,
   { [_h]: ["GET", "/cluster/{identifier}", 200] },
-  () => GetClusterInput,
-  () => GetClusterOutput,
+  () => GetClusterInput$,
+  () => GetClusterOutput$,
 ];
-export var GetClusterPolicy: StaticOperationSchema = [
+export var GetClusterPolicy$: StaticOperationSchema = [
   9,
   n0,
   _GCP,
   { [_h]: ["GET", "/cluster/{identifier}/policy", 200] },
-  () => GetClusterPolicyInput,
-  () => GetClusterPolicyOutput,
+  () => GetClusterPolicyInput$,
+  () => GetClusterPolicyOutput$,
 ];
-export var GetVpcEndpointServiceName: StaticOperationSchema = [
+export var GetVpcEndpointServiceName$: StaticOperationSchema = [
   9,
   n0,
   _GVESN,
   { [_h]: ["GET", "/clusters/{identifier}/vpc-endpoint-service-name", 200] },
-  () => GetVpcEndpointServiceNameInput,
-  () => GetVpcEndpointServiceNameOutput,
+  () => GetVpcEndpointServiceNameInput$,
+  () => GetVpcEndpointServiceNameOutput$,
 ];
-export var ListClusters: StaticOperationSchema = [
+export var ListClusters$: StaticOperationSchema = [
   9,
   n0,
   _LC,
   { [_h]: ["GET", "/cluster", 200] },
-  () => ListClustersInput,
-  () => ListClustersOutput,
+  () => ListClustersInput$,
+  () => ListClustersOutput$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceInput,
-  () => ListTagsForResourceOutput,
+  () => ListTagsForResourceInput$,
+  () => ListTagsForResourceOutput$,
 ];
-export var PutClusterPolicy: StaticOperationSchema = [
+export var PutClusterPolicy$: StaticOperationSchema = [
   9,
   n0,
   _PCP,
   { [_h]: ["POST", "/cluster/{identifier}/policy", 200] },
-  () => PutClusterPolicyInput,
-  () => PutClusterPolicyOutput,
+  () => PutClusterPolicyInput$,
+  () => PutClusterPolicyOutput$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceInput,
+  () => TagResourceInput$,
   () => __Unit,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceInput,
+  () => UntagResourceInput$,
   () => __Unit,
 ];
-export var UpdateCluster: StaticOperationSchema = [
+export var UpdateCluster$: StaticOperationSchema = [
   9,
   n0,
   _UC,
   { [_h]: ["POST", "/cluster/{identifier}", 200] },
-  () => UpdateClusterInput,
-  () => UpdateClusterOutput,
+  () => UpdateClusterInput$,
+  () => UpdateClusterOutput$,
 ];

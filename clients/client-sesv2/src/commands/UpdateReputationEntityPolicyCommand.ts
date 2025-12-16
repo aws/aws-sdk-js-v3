@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateReputationEntityPolicyRequest, UpdateReputationEntityPolicyResponse } from "../models/models_1";
-import { UpdateReputationEntityPolicy } from "../schemas/schemas_0";
+import { UpdateReputationEntityPolicy$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -88,7 +88,7 @@ export class UpdateReputationEntityPolicyCommand extends $Command
   })
   .s("SimpleEmailService_v2", "UpdateReputationEntityPolicy", {})
   .n("SESv2Client", "UpdateReputationEntityPolicyCommand")
-  .sc(UpdateReputationEntityPolicy)
+  .sc(UpdateReputationEntityPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

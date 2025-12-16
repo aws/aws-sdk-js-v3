@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAgentAliasRequest, DeleteAgentAliasResponse } from "../models/models_0";
-import { DeleteAgentAlias } from "../schemas/schemas_0";
+import { DeleteAgentAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteAgentAliasCommand extends $Command
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "DeleteAgentAlias", {})
   .n("BedrockAgentClient", "DeleteAgentAliasCommand")
-  .sc(DeleteAgentAlias)
+  .sc(DeleteAgentAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

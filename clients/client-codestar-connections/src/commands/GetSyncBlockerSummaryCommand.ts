@@ -10,7 +10,7 @@ import type {
 } from "../CodeStarConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSyncBlockerSummaryInput, GetSyncBlockerSummaryOutput } from "../models/models_0";
-import { GetSyncBlockerSummary } from "../schemas/schemas_0";
+import { GetSyncBlockerSummary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class GetSyncBlockerSummaryCommand extends $Command
   })
   .s("CodeStar_connections_20191201", "GetSyncBlockerSummary", {})
   .n("CodeStarConnectionsClient", "GetSyncBlockerSummaryCommand")
-  .sc(GetSyncBlockerSummary)
+  .sc(GetSyncBlockerSummary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

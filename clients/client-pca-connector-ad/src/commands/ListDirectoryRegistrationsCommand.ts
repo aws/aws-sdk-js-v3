@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PcaConnectorAdClient";
-import { ListDirectoryRegistrations } from "../schemas/schemas_0";
+import { ListDirectoryRegistrations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class ListDirectoryRegistrationsCommand extends $Command
   })
   .s("PcaConnectorAd", "ListDirectoryRegistrations", {})
   .n("PcaConnectorAdClient", "ListDirectoryRegistrationsCommand")
-  .sc(ListDirectoryRegistrations)
+  .sc(ListDirectoryRegistrations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

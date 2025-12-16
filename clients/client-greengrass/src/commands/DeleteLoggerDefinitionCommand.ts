@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import type { DeleteLoggerDefinitionRequest, DeleteLoggerDefinitionResponse } from "../models/models_0";
-import { DeleteLoggerDefinition } from "../schemas/schemas_0";
+import { DeleteLoggerDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -74,7 +74,7 @@ export class DeleteLoggerDefinitionCommand extends $Command
   })
   .s("Greengrass", "DeleteLoggerDefinition", {})
   .n("GreengrassClient", "DeleteLoggerDefinitionCommand")
-  .sc(DeleteLoggerDefinition)
+  .sc(DeleteLoggerDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

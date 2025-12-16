@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { VerifyTrustRequest, VerifyTrustResult } from "../models/models_0";
-import { VerifyTrust } from "../schemas/schemas_0";
+import { VerifyTrust$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class VerifyTrustCommand extends $Command
   })
   .s("DirectoryService_20150416", "VerifyTrust", {})
   .n("DirectoryServiceClient", "VerifyTrustCommand")
-  .sc(VerifyTrust)
+  .sc(VerifyTrust$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

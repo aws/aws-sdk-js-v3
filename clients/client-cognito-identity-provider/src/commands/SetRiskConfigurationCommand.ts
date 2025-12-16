@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SetRiskConfigurationRequest, SetRiskConfigurationResponse } from "../models/models_0";
-import { SetRiskConfiguration } from "../schemas/schemas_0";
+import { SetRiskConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -238,7 +238,7 @@ export class SetRiskConfigurationCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "SetRiskConfiguration", {})
   .n("CognitoIdentityProviderClient", "SetRiskConfigurationCommand")
-  .sc(SetRiskConfiguration)
+  .sc(SetRiskConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

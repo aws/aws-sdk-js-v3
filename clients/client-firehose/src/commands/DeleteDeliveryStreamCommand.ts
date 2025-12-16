@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import type { DeleteDeliveryStreamInput, DeleteDeliveryStreamOutput } from "../models/models_0";
-import { DeleteDeliveryStream } from "../schemas/schemas_0";
+import { DeleteDeliveryStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteDeliveryStreamCommand extends $Command
   })
   .s("Firehose_20150804", "DeleteDeliveryStream", {})
   .n("FirehoseClient", "DeleteDeliveryStreamCommand")
-  .sc(DeleteDeliveryStream)
+  .sc(DeleteDeliveryStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

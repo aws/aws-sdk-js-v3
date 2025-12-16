@@ -9,7 +9,7 @@ import type {
   ListAutomatedReasoningPolicyTestCasesRequest,
   ListAutomatedReasoningPolicyTestCasesResponse,
 } from "../models/models_0";
-import { ListAutomatedReasoningPolicyTestCases } from "../schemas/schemas_0";
+import { ListAutomatedReasoningPolicyTestCases$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class ListAutomatedReasoningPolicyTestCasesCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "ListAutomatedReasoningPolicyTestCases", {})
   .n("BedrockClient", "ListAutomatedReasoningPolicyTestCasesCommand")
-  .sc(ListAutomatedReasoningPolicyTestCases)
+  .sc(ListAutomatedReasoningPolicyTestCases$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

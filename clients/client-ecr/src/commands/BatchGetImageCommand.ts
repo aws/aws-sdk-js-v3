@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchGetImageRequest, BatchGetImageResponse } from "../models/models_0";
-import { BatchGetImage } from "../schemas/schemas_0";
+import { BatchGetImage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -163,7 +163,7 @@ export class BatchGetImageCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "BatchGetImage", {})
   .n("ECRClient", "BatchGetImageCommand")
-  .sc(BatchGetImage)
+  .sc(BatchGetImage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

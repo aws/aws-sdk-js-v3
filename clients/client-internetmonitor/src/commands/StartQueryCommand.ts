@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../InternetMonitorClient";
 import type { StartQueryInput, StartQueryOutput } from "../models/models_0";
-import { StartQuery } from "../schemas/schemas_0";
+import { StartQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class StartQueryCommand extends $Command
   })
   .s("InternetMonitor20210603", "StartQuery", {})
   .n("InternetMonitorClient", "StartQueryCommand")
-  .sc(StartQuery)
+  .sc(StartQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

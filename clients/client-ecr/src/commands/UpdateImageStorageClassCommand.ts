@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateImageStorageClassRequest, UpdateImageStorageClassResponse } from "../models/models_0";
-import { UpdateImageStorageClass } from "../schemas/schemas_0";
+import { UpdateImageStorageClass$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -155,7 +155,7 @@ export class UpdateImageStorageClassCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "UpdateImageStorageClass", {})
   .n("ECRClient", "UpdateImageStorageClassCommand")
-  .sc(UpdateImageStorageClass)
+  .sc(UpdateImageStorageClass$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

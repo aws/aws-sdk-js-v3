@@ -5,6 +5,7 @@ import {
   AacLoudnessMeasurementMode,
   AacRateControlMode,
   AacRawFormat,
+  AacSettings$,
   AacSpecification,
   AacVbrQuality,
   Ac3BitstreamMode,
@@ -14,48 +15,76 @@ import {
   Ac3DynamicRangeCompressionRf,
   Ac3LfeFilter,
   Ac3MetadataControl,
+  Ac3Settings$,
   AccelerationMode,
+  AccelerationSettings$,
   AccelerationStatus,
   AdvancedInputFilter,
   AdvancedInputFilterAddTexture,
+  AdvancedInputFilterSettings$,
   AdvancedInputFilterSharpen,
   AfdSignaling,
+  AiffSettings$,
+  AllowedRenditionSize$,
   AlphaBehavior,
   AncillaryConvert608To708,
+  AncillarySourceSettings$,
   AncillaryTerminateCaptions,
   AntiAlias,
+  AssociateCertificate$,
   AssociateCertificateCommand,
+  AssociateCertificateRequest$,
+  AssociateCertificateResponse$,
   AudioChannelTag,
+  AudioChannelTaggingSettings$,
   AudioCodec,
+  AudioCodecSettings$,
   AudioDefaultSelection,
+  AudioDescription$,
   AudioDurationCorrection,
   AudioLanguageCodeControl,
   AudioNormalizationAlgorithm,
   AudioNormalizationAlgorithmControl,
   AudioNormalizationLoudnessLogging,
   AudioNormalizationPeakCalculation,
+  AudioNormalizationSettings$,
+  AudioPitchCorrectionSettings$,
+  AudioProperties$,
+  AudioSelector$,
+  AudioSelectorGroup$,
   AudioSelectorType,
   AudioTypeControl,
+  AutomatedAbrRule$,
+  AutomatedAbrSettings$,
+  AutomatedEncodingSettings$,
   Av1AdaptiveQuantization,
   Av1BitDepth,
   Av1FilmGrainSynthesis,
   Av1FramerateControl,
   Av1FramerateConversionAlgorithm,
+  Av1QvbrSettings$,
   Av1RateControlMode,
+  Av1Settings$,
   Av1SpatialAdaptiveQuantization,
+  AvailBlanking$,
   AvcIntraClass,
   AvcIntraFramerateControl,
   AvcIntraFramerateConversionAlgorithm,
   AvcIntraInterlaceMode,
   AvcIntraScanTypeConversionMode,
+  AvcIntraSettings$,
   AvcIntraSlowPal,
   AvcIntraTelecine,
   AvcIntraUhdQualityTuningLevel,
+  AvcIntraUhdSettings$,
   BadRequestException,
+  BadRequestException$,
+  BandwidthReductionFilter$,
   BandwidthReductionFilterSharpening,
   BandwidthReductionFilterStrength,
   BillingTagsSource,
   BurnInSubtitleStylePassthrough,
+  BurninDestinationSettings$,
   BurninSubtitleAlignment,
   BurninSubtitleApplyFontColor,
   BurninSubtitleBackgroundColor,
@@ -64,17 +93,32 @@ import {
   BurninSubtitleOutlineColor,
   BurninSubtitleShadowColor,
   BurninSubtitleTeletextSpacing,
+  CancelJob$,
   CancelJobCommand,
+  CancelJobRequest$,
+  CancelJobResponse$,
+  CaptionDescription$,
+  CaptionDescriptionPreset$,
+  CaptionDestinationSettings$,
   CaptionDestinationType,
+  CaptionSelector$,
   CaptionSourceByteRateLimit,
   CaptionSourceConvertPaintOnToPopOn,
+  CaptionSourceFramerate$,
+  CaptionSourceSettings$,
   CaptionSourceType,
   CaptionSourceUpconvertSTLToTeletext,
+  ChannelMapping$,
   ChromaPositionMode,
+  ClipLimits$,
+  CmafAdditionalManifest$,
   CmafClientCache,
   CmafCodecSpecification,
+  CmafEncryptionSettings$,
   CmafEncryptionType,
+  CmafGroupSettings$,
   CmafImageBasedTrickPlay,
+  CmafImageBasedTrickPlaySettings$,
   CmafInitializationVectorInManifest,
   CmafIntervalCadence,
   CmafKeyProviderType,
@@ -100,9 +144,13 @@ import {
   CmfcManifestMetadataSignaling,
   CmfcScte35Esam,
   CmfcScte35Source,
+  CmfcSettings$,
   CmfcTimedMetadata,
   CmfcTimedMetadataBoxVersion,
   Codec,
+  CodecMetadata$,
+  ColorConversion3DLUTSetting$,
+  ColorCorrector$,
   ColorMetadata,
   ColorPrimaries,
   ColorSpace,
@@ -110,16 +158,38 @@ import {
   ColorSpaceUsage,
   Commitment,
   ConflictException,
+  ConflictException$,
+  Container$,
+  ContainerSettings$,
   ContainerType,
   CopyProtectionAction,
+  CreateJob$,
   CreateJobCommand,
+  CreateJobRequest$,
+  CreateJobResponse$,
+  CreateJobTemplate$,
   CreateJobTemplateCommand,
+  CreateJobTemplateRequest$,
+  CreateJobTemplateResponse$,
+  CreatePreset$,
   CreatePresetCommand,
+  CreatePresetRequest$,
+  CreatePresetResponse$,
+  CreateQueue$,
   CreateQueueCommand,
+  CreateQueueRequest$,
+  CreateQueueResponse$,
+  CreateResourceShare$,
   CreateResourceShareCommand,
+  CreateResourceShareRequest$,
+  CreateResourceShareResponse$,
+  DashAdditionalManifest$,
+  DashIsoEncryptionSettings$,
   DashIsoGroupAudioChannelConfigSchemeIdUri,
+  DashIsoGroupSettings$,
   DashIsoHbbtvCompliance,
   DashIsoImageBasedTrickPlay,
+  DashIsoImageBasedTrickPlaySettings$,
   DashIsoIntervalCadence,
   DashIsoMpdManifestBandwidthType,
   DashIsoMpdProfile,
@@ -130,21 +200,48 @@ import {
   DashIsoVideoCompositionOffsets,
   DashIsoWriteSegmentTimelineInRepresentation,
   DashManifestStyle,
+  DataProperties$,
   DecryptionMode,
   DeinterlaceAlgorithm,
+  Deinterlacer$,
   DeinterlacerControl,
   DeinterlacerMode,
+  DeleteJobTemplate$,
   DeleteJobTemplateCommand,
+  DeleteJobTemplateRequest$,
+  DeleteJobTemplateResponse$,
+  DeletePolicy$,
   DeletePolicyCommand,
+  DeletePolicyRequest$,
+  DeletePolicyResponse$,
+  DeletePreset$,
   DeletePresetCommand,
+  DeletePresetRequest$,
+  DeletePresetResponse$,
+  DeleteQueue$,
   DeleteQueueCommand,
+  DeleteQueueRequest$,
+  DeleteQueueResponse$,
+  DescribeEndpoints$,
   DescribeEndpointsCommand,
   DescribeEndpointsMode,
+  DescribeEndpointsRequest$,
+  DescribeEndpointsResponse$,
+  DestinationSettings$,
+  DisassociateCertificate$,
   DisassociateCertificateCommand,
+  DisassociateCertificateRequest$,
+  DisassociateCertificateResponse$,
+  DolbyVision$,
+  DolbyVisionLevel6Metadata$,
   DolbyVisionLevel6Mode,
   DolbyVisionMapping,
   DolbyVisionProfile,
   DropFrameTimecode,
+  DvbNitSettings$,
+  DvbSdtSettings$,
+  DvbSubDestinationSettings$,
+  DvbSubSourceSettings$,
   DvbSubSubtitleFallbackFont,
   DvbSubtitleAlignment,
   DvbSubtitleApplyFontColor,
@@ -155,7 +252,9 @@ import {
   DvbSubtitleStylePassthrough,
   DvbSubtitleTeletextSpacing,
   DvbSubtitlingType,
+  DvbTdtSettings$,
   DvbddsHandling,
+  DynamicAudioSelector$,
   DynamicAudioSelectorType,
   Eac3AtmosBitstreamMode,
   Eac3AtmosCodingMode,
@@ -165,6 +264,7 @@ import {
   Eac3AtmosDynamicRangeCompressionRf,
   Eac3AtmosDynamicRangeControl,
   Eac3AtmosMeteringMode,
+  Eac3AtmosSettings$,
   Eac3AtmosStereoDownmix,
   Eac3AtmosSurroundExMode,
   Eac3AttenuationControl,
@@ -178,28 +278,64 @@ import {
   Eac3MetadataControl,
   Eac3PassthroughControl,
   Eac3PhaseControl,
+  Eac3Settings$,
   Eac3StereoDownmix,
   Eac3SurroundExMode,
   Eac3SurroundMode,
   EmbeddedConvert608To708,
+  EmbeddedDestinationSettings$,
+  EmbeddedSourceSettings$,
   EmbeddedTerminateCaptions,
   EmbeddedTimecodeOverride,
+  EncryptionContractConfiguration$,
+  Endpoint$,
+  EsamManifestConfirmConditionNotification$,
+  EsamSettings$,
+  EsamSignalProcessingNotification$,
+  ExtendedDataServices$,
   F4vMoovPlacement,
+  F4vSettings$,
+  FileGroupSettings$,
   FileSourceConvert608To708,
+  FileSourceSettings$,
   FileSourceTimeDeltaUnits,
+  FlacSettings$,
   FontScript,
   ForbiddenException,
+  ForbiddenException$,
+  ForceIncludeRenditionSize$,
   Format,
+  FrameCaptureSettings$,
   FrameControl,
   FrameMetricType,
+  FrameRate$,
+  GetJob$,
   GetJobCommand,
+  GetJobRequest$,
+  GetJobResponse$,
+  GetJobTemplate$,
   GetJobTemplateCommand,
+  GetJobTemplateRequest$,
+  GetJobTemplateResponse$,
+  GetJobsQueryResults$,
   GetJobsQueryResultsCommand,
+  GetJobsQueryResultsRequest$,
+  GetJobsQueryResultsResponse$,
+  GetPolicy$,
   GetPolicyCommand,
+  GetPolicyRequest$,
+  GetPolicyResponse$,
+  GetPreset$,
   GetPresetCommand,
+  GetPresetRequest$,
+  GetPresetResponse$,
+  GetQueue$,
   GetQueueCommand,
+  GetQueueRequest$,
+  GetQueueResponse$,
   GifFramerateControl,
   GifFramerateConversionAlgorithm,
+  GifSettings$,
   H264AdaptiveQuantization,
   H264CodecLevel,
   H264CodecProfile,
@@ -215,11 +351,13 @@ import {
   H264InterlaceMode,
   H264ParControl,
   H264QualityTuningLevel,
+  H264QvbrSettings$,
   H264RateControlMode,
   H264RepeatPps,
   H264SaliencyAwareEncoding,
   H264ScanTypeConversionMode,
   H264SceneChangeDetect,
+  H264Settings$,
   H264SlowPal,
   H264SpatialAdaptiveQuantization,
   H264Syntax,
@@ -242,10 +380,12 @@ import {
   H265InterlaceMode,
   H265ParControl,
   H265QualityTuningLevel,
+  H265QvbrSettings$,
   H265RateControlMode,
   H265SampleAdaptiveOffsetFilterMode,
   H265ScanTypeConversionMode,
   H265SceneChangeDetect,
+  H265Settings$,
   H265SlowPal,
   H265SpatialAdaptiveQuantization,
   H265Telecine,
@@ -255,19 +395,26 @@ import {
   H265UnregisteredSeiTimecode,
   H265WriteMp4PackagingType,
   HDRToSDRToneMapper,
+  Hdr10Metadata$,
+  Hdr10Plus$,
   HlsAdMarkers,
+  HlsAdditionalManifest$,
   HlsAudioOnlyContainer,
   HlsAudioOnlyHeader,
   HlsAudioTrackType,
+  HlsCaptionLanguageMapping$,
   HlsCaptionLanguageSetting,
   HlsCaptionSegmentLengthControl,
   HlsClientCache,
   HlsCodecSpecification,
   HlsDescriptiveVideoServiceFlag,
   HlsDirectoryStructure,
+  HlsEncryptionSettings$,
   HlsEncryptionType,
+  HlsGroupSettings$,
   HlsIFrameOnlyManifest,
   HlsImageBasedTrickPlay,
+  HlsImageBasedTrickPlaySettings$,
   HlsInitializationVectorInManifest,
   HlsIntervalCadence,
   HlsKeyProviderType,
@@ -277,14 +424,23 @@ import {
   HlsOutputSelection,
   HlsProgramDateTime,
   HlsProgressiveWriteHlsManifest,
+  HlsRenditionGroupSettings$,
   HlsSegmentControl,
   HlsSegmentLengthControl,
+  HlsSettings$,
   HlsStreamInfResolution,
   HlsTargetDurationCompatibilityMode,
   HlsTimedMetadataId3Frame,
+  HopDestination$,
+  Id3Insertion$,
+  ImageInserter$,
   ImscAccessibilitySubs,
+  ImscDestinationSettings$,
   ImscStylePassthrough,
+  Input$,
+  InputClipping$,
   InputDeblockFilter,
+  InputDecryptionSettings$,
   InputDenoiseFilter,
   InputFilterEnable,
   InputPolicy,
@@ -292,20 +448,51 @@ import {
   InputRotate,
   InputSampleRange,
   InputScanType,
+  InputTamsSettings$,
+  InputTemplate$,
   InputTimecodeSource,
+  InputVideoGenerator$,
+  InsertableImage$,
   InternalServerErrorException,
+  InternalServerErrorException$,
+  Job$,
+  JobEngineVersion$,
+  JobMessages$,
   JobPhase,
+  JobSettings$,
   JobStatus,
+  JobTemplate$,
   JobTemplateListBy,
+  JobTemplateSettings$,
+  JobsQueryFilter$,
   JobsQueryFilterKey,
   JobsQueryStatus,
+  KantarWatermarkSettings$,
   LanguageCode,
+  ListJobTemplates$,
   ListJobTemplatesCommand,
+  ListJobTemplatesRequest$,
+  ListJobTemplatesResponse$,
+  ListJobs$,
   ListJobsCommand,
+  ListJobsRequest$,
+  ListJobsResponse$,
+  ListPresets$,
   ListPresetsCommand,
+  ListPresetsRequest$,
+  ListPresetsResponse$,
+  ListQueues$,
   ListQueuesCommand,
+  ListQueuesRequest$,
+  ListQueuesResponse$,
+  ListTagsForResource$,
   ListTagsForResourceCommand,
+  ListTagsForResourceRequest$,
+  ListTagsForResourceResponse$,
+  ListVersions$,
   ListVersionsCommand,
+  ListVersionsRequest$,
+  ListVersionsResponse$,
   M2tsAudioBufferModel,
   M2tsAudioDuration,
   M2tsBufferModel,
@@ -319,31 +506,44 @@ import {
   M2tsPcrControl,
   M2tsPreventBufferUnderflow,
   M2tsRateMode,
+  M2tsScte35Esam$,
   M2tsScte35Source,
   M2tsSegmentationMarkers,
   M2tsSegmentationStyle,
+  M2tsSettings$,
   M3u8AudioDuration,
   M3u8DataPtsControl,
   M3u8NielsenId3,
   M3u8PcrControl,
   M3u8Scte35Source,
+  M3u8Settings$,
   MatrixCoefficients,
   MediaConvert,
   MediaConvertClient,
   MediaConvertServiceException,
+  Metadata$,
+  MinBottomRenditionSize$,
+  MinTopRenditionSize$,
+  MotionImageInserter$,
+  MotionImageInsertionFramerate$,
   MotionImageInsertionMode,
+  MotionImageInsertionOffset$,
   MotionImagePlayback,
   MovClapAtom,
   MovCslgAtom,
   MovMpeg2FourCCControl,
   MovPaddingControl,
   MovReference,
+  MovSettings$,
   Mp2AudioDescriptionMix,
+  Mp2Settings$,
   Mp3RateControlMode,
+  Mp3Settings$,
   Mp4C2paManifest,
   Mp4CslgAtom,
   Mp4FreeSpaceBox,
   Mp4MoovPlacement,
+  Mp4Settings$,
   MpdAccessibilityCaptionHints,
   MpdAudioDuration,
   MpdC2paManifest,
@@ -352,6 +552,7 @@ import {
   MpdManifestMetadataSignaling,
   MpdScte35Esam,
   MpdScte35Source,
+  MpdSettings$,
   MpdTimedMetadata,
   MpdTimedMetadataBoxVersion,
   Mpeg2AdaptiveQuantization,
@@ -368,33 +569,65 @@ import {
   Mpeg2RateControlMode,
   Mpeg2ScanTypeConversionMode,
   Mpeg2SceneChangeDetect,
+  Mpeg2Settings$,
   Mpeg2SlowPal,
   Mpeg2SpatialAdaptiveQuantization,
   Mpeg2Syntax,
   Mpeg2Telecine,
   Mpeg2TemporalAdaptiveQuantization,
+  MsSmoothAdditionalManifest$,
   MsSmoothAudioDeduplication,
+  MsSmoothEncryptionSettings$,
   MsSmoothFragmentLengthControl,
+  MsSmoothGroupSettings$,
   MsSmoothManifestEncoding,
   MxfAfdSignaling,
   MxfProfile,
+  MxfSettings$,
   MxfXavcDurationMode,
+  MxfXavcProfileSettings$,
+  NexGuardFileMarkerSettings$,
   NielsenActiveWatermarkProcessType,
+  NielsenConfiguration$,
+  NielsenNonLinearWatermarkSettings$,
   NielsenSourceWatermarkStatusType,
   NielsenUniqueTicPerAudioTrackType,
   NoiseFilterPostTemporalSharpening,
   NoiseFilterPostTemporalSharpeningStrength,
+  NoiseReducer$,
   NoiseReducerFilter,
+  NoiseReducerFilterSettings$,
+  NoiseReducerSpatialFilterSettings$,
+  NoiseReducerTemporalFilterSettings$,
   NotFoundException,
+  NotFoundException$,
+  OpusSettings$,
   Order,
+  Output$,
+  OutputChannelMapping$,
+  OutputDetail$,
+  OutputGroup$,
+  OutputGroupDetail$,
+  OutputGroupSettings$,
   OutputGroupType,
   OutputSdt,
+  OutputSettings$,
   PadVideo,
+  PartnerWatermarking$,
+  PassthroughSettings$,
+  Policy$,
+  Preset$,
   PresetListBy,
+  PresetSettings$,
   PresetSpeke20Audio,
   PresetSpeke20Video,
   PricingPlan,
+  Probe$,
   ProbeCommand,
+  ProbeInputFile$,
+  ProbeRequest$,
+  ProbeResponse$,
+  ProbeResult$,
   ProresChromaSampling,
   ProresCodecProfile,
   ProresFramerateControl,
@@ -402,42 +635,83 @@ import {
   ProresInterlaceMode,
   ProresParControl,
   ProresScanTypeConversionMode,
+  ProresSettings$,
   ProresSlowPal,
   ProresTelecine,
+  PutPolicy$,
   PutPolicyCommand,
+  PutPolicyRequest$,
+  PutPolicyResponse$,
+  Queue$,
   QueueListBy,
   QueueStatus,
+  QueueTransition$,
+  Rectangle$,
+  RemixSettings$,
   RemoveRubyReserveAttributes,
   RenewalType,
   RequiredFlag,
+  ReservationPlan$,
+  ReservationPlanSettings$,
   ReservationPlanStatus,
+  ResourceTags$,
   RespondToAfd,
   RuleType,
+  S3DestinationAccessControl$,
+  S3DestinationSettings$,
+  S3EncryptionSettings$,
   S3ObjectCannedAcl,
   S3ServerSideEncryptionType,
   S3StorageClass,
   SampleRangeConversion,
   ScalingBehavior,
   SccDestinationFramerate,
+  SccDestinationSettings$,
+  SearchJobs$,
   SearchJobsCommand,
+  SearchJobsRequest$,
+  SearchJobsResponse$,
+  ServiceOverride$,
   ServiceQuotaExceededException,
+  ServiceQuotaExceededException$,
   ShareStatus,
   SimulateReservedQueue,
   SlowPalPitchCorrection,
+  SpekeKeyProvider$,
+  SpekeKeyProviderCmaf$,
+  SrtDestinationSettings$,
   SrtStylePassthrough,
+  StartJobsQuery$,
   StartJobsQueryCommand,
+  StartJobsQueryRequest$,
+  StartJobsQueryResponse$,
+  StaticKeyProvider$,
   StatusUpdateInterval,
+  TagResource$,
   TagResourceCommand,
+  TagResourceRequest$,
+  TagResourceResponse$,
   TamsGapHandling,
+  TeletextDestinationSettings$,
   TeletextPageType,
+  TeletextSourceSettings$,
+  TimecodeBurnin$,
   TimecodeBurninPosition,
+  TimecodeConfig$,
   TimecodeSource,
   TimecodeTrack,
   TimedMetadata,
+  TimedMetadataInsertion$,
+  Timing$,
   TooManyRequestsException,
+  TooManyRequestsException$,
+  Track$,
+  TrackMapping$,
+  TrackSourceSettings$,
   TrackType,
   TransferCharacteristics,
   TsPtsOffset,
+  TtmlDestinationSettings$,
   TtmlStylePassthrough,
   Type,
   UncompressedFourcc,
@@ -445,45 +719,81 @@ import {
   UncompressedFramerateConversionAlgorithm,
   UncompressedInterlaceMode,
   UncompressedScanTypeConversionMode,
+  UncompressedSettings$,
   UncompressedSlowPal,
   UncompressedTelecine,
+  UntagResource$,
   UntagResourceCommand,
+  UntagResourceRequest$,
+  UntagResourceResponse$,
+  UpdateJobTemplate$,
   UpdateJobTemplateCommand,
+  UpdateJobTemplateRequest$,
+  UpdateJobTemplateResponse$,
+  UpdatePreset$,
   UpdatePresetCommand,
+  UpdatePresetRequest$,
+  UpdatePresetResponse$,
+  UpdateQueue$,
   UpdateQueueCommand,
+  UpdateQueueRequest$,
+  UpdateQueueResponse$,
   Vc3Class,
   Vc3FramerateControl,
   Vc3FramerateConversionAlgorithm,
   Vc3InterlaceMode,
   Vc3ScanTypeConversionMode,
+  Vc3Settings$,
   Vc3SlowPal,
   Vc3Telecine,
   VchipAction,
   VideoCodec,
+  VideoCodecSettings$,
+  VideoDescription$,
+  VideoDetail$,
+  VideoOverlay$,
+  VideoOverlayCrop$,
+  VideoOverlayInput$,
+  VideoOverlayInputClipping$,
   VideoOverlayPlayBackMode,
+  VideoOverlayPosition$,
+  VideoOverlayTransition$,
   VideoOverlayUnit,
+  VideoPreprocessor$,
+  VideoProperties$,
+  VideoSelector$,
   VideoSelectorMode,
   VideoSelectorType,
   VideoTimecodeInsertion,
+  VorbisSettings$,
   Vp8FramerateControl,
   Vp8FramerateConversionAlgorithm,
   Vp8ParControl,
   Vp8QualityTuningLevel,
   Vp8RateControlMode,
+  Vp8Settings$,
   Vp9FramerateControl,
   Vp9FramerateConversionAlgorithm,
   Vp9ParControl,
   Vp9QualityTuningLevel,
   Vp9RateControlMode,
+  Vp9Settings$,
+  WarningGroup$,
   WatermarkingStrength,
   WavFormat,
+  WavSettings$,
   WebvttAccessibilitySubs,
+  WebvttDestinationSettings$,
+  WebvttHlsSourceSettings$,
   WebvttStylePassthrough,
   Xavc4kIntraCbgProfileClass,
+  Xavc4kIntraCbgProfileSettings$,
   Xavc4kIntraVbrProfileClass,
+  Xavc4kIntraVbrProfileSettings$,
   Xavc4kProfileBitrateClass,
   Xavc4kProfileCodecProfile,
   Xavc4kProfileQualityTuningLevel,
+  Xavc4kProfileSettings$,
   XavcAdaptiveQuantization,
   XavcEntropyEncoding,
   XavcFlickerAdaptiveQuantization,
@@ -491,11 +801,14 @@ import {
   XavcFramerateConversionAlgorithm,
   XavcGopBReference,
   XavcHdIntraCbgProfileClass,
+  XavcHdIntraCbgProfileSettings$,
   XavcHdProfileBitrateClass,
   XavcHdProfileQualityTuningLevel,
+  XavcHdProfileSettings$,
   XavcHdProfileTelecine,
   XavcInterlaceMode,
   XavcProfile,
+  XavcSettings$,
   XavcSlowPal,
   XavcSpatialAdaptiveQuantization,
   XavcTemporalAdaptiveQuantization,
@@ -513,39 +826,346 @@ assert(typeof MediaConvertClient === "function");
 assert(typeof MediaConvert === "function");
 // commands
 assert(typeof AssociateCertificateCommand === "function");
+assert(typeof AssociateCertificate$ === "object");
 assert(typeof CancelJobCommand === "function");
+assert(typeof CancelJob$ === "object");
 assert(typeof CreateJobCommand === "function");
+assert(typeof CreateJob$ === "object");
 assert(typeof CreateJobTemplateCommand === "function");
+assert(typeof CreateJobTemplate$ === "object");
 assert(typeof CreatePresetCommand === "function");
+assert(typeof CreatePreset$ === "object");
 assert(typeof CreateQueueCommand === "function");
+assert(typeof CreateQueue$ === "object");
 assert(typeof CreateResourceShareCommand === "function");
+assert(typeof CreateResourceShare$ === "object");
 assert(typeof DeleteJobTemplateCommand === "function");
+assert(typeof DeleteJobTemplate$ === "object");
 assert(typeof DeletePolicyCommand === "function");
+assert(typeof DeletePolicy$ === "object");
 assert(typeof DeletePresetCommand === "function");
+assert(typeof DeletePreset$ === "object");
 assert(typeof DeleteQueueCommand === "function");
+assert(typeof DeleteQueue$ === "object");
 assert(typeof DescribeEndpointsCommand === "function");
+assert(typeof DescribeEndpoints$ === "object");
 assert(typeof DisassociateCertificateCommand === "function");
+assert(typeof DisassociateCertificate$ === "object");
 assert(typeof GetJobCommand === "function");
+assert(typeof GetJob$ === "object");
 assert(typeof GetJobsQueryResultsCommand === "function");
+assert(typeof GetJobsQueryResults$ === "object");
 assert(typeof GetJobTemplateCommand === "function");
+assert(typeof GetJobTemplate$ === "object");
 assert(typeof GetPolicyCommand === "function");
+assert(typeof GetPolicy$ === "object");
 assert(typeof GetPresetCommand === "function");
+assert(typeof GetPreset$ === "object");
 assert(typeof GetQueueCommand === "function");
+assert(typeof GetQueue$ === "object");
 assert(typeof ListJobsCommand === "function");
+assert(typeof ListJobs$ === "object");
 assert(typeof ListJobTemplatesCommand === "function");
+assert(typeof ListJobTemplates$ === "object");
 assert(typeof ListPresetsCommand === "function");
+assert(typeof ListPresets$ === "object");
 assert(typeof ListQueuesCommand === "function");
+assert(typeof ListQueues$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
+assert(typeof ListTagsForResource$ === "object");
 assert(typeof ListVersionsCommand === "function");
+assert(typeof ListVersions$ === "object");
 assert(typeof ProbeCommand === "function");
+assert(typeof Probe$ === "object");
 assert(typeof PutPolicyCommand === "function");
+assert(typeof PutPolicy$ === "object");
 assert(typeof SearchJobsCommand === "function");
+assert(typeof SearchJobs$ === "object");
 assert(typeof StartJobsQueryCommand === "function");
+assert(typeof StartJobsQuery$ === "object");
 assert(typeof TagResourceCommand === "function");
+assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
+assert(typeof UntagResource$ === "object");
 assert(typeof UpdateJobTemplateCommand === "function");
+assert(typeof UpdateJobTemplate$ === "object");
 assert(typeof UpdatePresetCommand === "function");
+assert(typeof UpdatePreset$ === "object");
 assert(typeof UpdateQueueCommand === "function");
+assert(typeof UpdateQueue$ === "object");
+// structural schemas
+assert(typeof AacSettings$ === "object");
+assert(typeof Ac3Settings$ === "object");
+assert(typeof AccelerationSettings$ === "object");
+assert(typeof AdvancedInputFilterSettings$ === "object");
+assert(typeof AiffSettings$ === "object");
+assert(typeof AllowedRenditionSize$ === "object");
+assert(typeof AncillarySourceSettings$ === "object");
+assert(typeof AssociateCertificateRequest$ === "object");
+assert(typeof AssociateCertificateResponse$ === "object");
+assert(typeof AudioChannelTaggingSettings$ === "object");
+assert(typeof AudioCodecSettings$ === "object");
+assert(typeof AudioDescription$ === "object");
+assert(typeof AudioNormalizationSettings$ === "object");
+assert(typeof AudioPitchCorrectionSettings$ === "object");
+assert(typeof AudioProperties$ === "object");
+assert(typeof AudioSelector$ === "object");
+assert(typeof AudioSelectorGroup$ === "object");
+assert(typeof AutomatedAbrRule$ === "object");
+assert(typeof AutomatedAbrSettings$ === "object");
+assert(typeof AutomatedEncodingSettings$ === "object");
+assert(typeof Av1QvbrSettings$ === "object");
+assert(typeof Av1Settings$ === "object");
+assert(typeof AvailBlanking$ === "object");
+assert(typeof AvcIntraSettings$ === "object");
+assert(typeof AvcIntraUhdSettings$ === "object");
+assert(typeof BandwidthReductionFilter$ === "object");
+assert(typeof BurninDestinationSettings$ === "object");
+assert(typeof CancelJobRequest$ === "object");
+assert(typeof CancelJobResponse$ === "object");
+assert(typeof CaptionDescription$ === "object");
+assert(typeof CaptionDescriptionPreset$ === "object");
+assert(typeof CaptionDestinationSettings$ === "object");
+assert(typeof CaptionSelector$ === "object");
+assert(typeof CaptionSourceFramerate$ === "object");
+assert(typeof CaptionSourceSettings$ === "object");
+assert(typeof ChannelMapping$ === "object");
+assert(typeof ClipLimits$ === "object");
+assert(typeof CmafAdditionalManifest$ === "object");
+assert(typeof CmafEncryptionSettings$ === "object");
+assert(typeof CmafGroupSettings$ === "object");
+assert(typeof CmafImageBasedTrickPlaySettings$ === "object");
+assert(typeof CmfcSettings$ === "object");
+assert(typeof CodecMetadata$ === "object");
+assert(typeof ColorConversion3DLUTSetting$ === "object");
+assert(typeof ColorCorrector$ === "object");
+assert(typeof Container$ === "object");
+assert(typeof ContainerSettings$ === "object");
+assert(typeof CreateJobRequest$ === "object");
+assert(typeof CreateJobResponse$ === "object");
+assert(typeof CreateJobTemplateRequest$ === "object");
+assert(typeof CreateJobTemplateResponse$ === "object");
+assert(typeof CreatePresetRequest$ === "object");
+assert(typeof CreatePresetResponse$ === "object");
+assert(typeof CreateQueueRequest$ === "object");
+assert(typeof CreateQueueResponse$ === "object");
+assert(typeof CreateResourceShareRequest$ === "object");
+assert(typeof CreateResourceShareResponse$ === "object");
+assert(typeof DashAdditionalManifest$ === "object");
+assert(typeof DashIsoEncryptionSettings$ === "object");
+assert(typeof DashIsoGroupSettings$ === "object");
+assert(typeof DashIsoImageBasedTrickPlaySettings$ === "object");
+assert(typeof DataProperties$ === "object");
+assert(typeof Deinterlacer$ === "object");
+assert(typeof DeleteJobTemplateRequest$ === "object");
+assert(typeof DeleteJobTemplateResponse$ === "object");
+assert(typeof DeletePolicyRequest$ === "object");
+assert(typeof DeletePolicyResponse$ === "object");
+assert(typeof DeletePresetRequest$ === "object");
+assert(typeof DeletePresetResponse$ === "object");
+assert(typeof DeleteQueueRequest$ === "object");
+assert(typeof DeleteQueueResponse$ === "object");
+assert(typeof DescribeEndpointsRequest$ === "object");
+assert(typeof DescribeEndpointsResponse$ === "object");
+assert(typeof DestinationSettings$ === "object");
+assert(typeof DisassociateCertificateRequest$ === "object");
+assert(typeof DisassociateCertificateResponse$ === "object");
+assert(typeof DolbyVision$ === "object");
+assert(typeof DolbyVisionLevel6Metadata$ === "object");
+assert(typeof DvbNitSettings$ === "object");
+assert(typeof DvbSdtSettings$ === "object");
+assert(typeof DvbSubDestinationSettings$ === "object");
+assert(typeof DvbSubSourceSettings$ === "object");
+assert(typeof DvbTdtSettings$ === "object");
+assert(typeof DynamicAudioSelector$ === "object");
+assert(typeof Eac3AtmosSettings$ === "object");
+assert(typeof Eac3Settings$ === "object");
+assert(typeof EmbeddedDestinationSettings$ === "object");
+assert(typeof EmbeddedSourceSettings$ === "object");
+assert(typeof EncryptionContractConfiguration$ === "object");
+assert(typeof Endpoint$ === "object");
+assert(typeof EsamManifestConfirmConditionNotification$ === "object");
+assert(typeof EsamSettings$ === "object");
+assert(typeof EsamSignalProcessingNotification$ === "object");
+assert(typeof ExtendedDataServices$ === "object");
+assert(typeof F4vSettings$ === "object");
+assert(typeof FileGroupSettings$ === "object");
+assert(typeof FileSourceSettings$ === "object");
+assert(typeof FlacSettings$ === "object");
+assert(typeof ForceIncludeRenditionSize$ === "object");
+assert(typeof FrameCaptureSettings$ === "object");
+assert(typeof FrameRate$ === "object");
+assert(typeof GetJobRequest$ === "object");
+assert(typeof GetJobResponse$ === "object");
+assert(typeof GetJobsQueryResultsRequest$ === "object");
+assert(typeof GetJobsQueryResultsResponse$ === "object");
+assert(typeof GetJobTemplateRequest$ === "object");
+assert(typeof GetJobTemplateResponse$ === "object");
+assert(typeof GetPolicyRequest$ === "object");
+assert(typeof GetPolicyResponse$ === "object");
+assert(typeof GetPresetRequest$ === "object");
+assert(typeof GetPresetResponse$ === "object");
+assert(typeof GetQueueRequest$ === "object");
+assert(typeof GetQueueResponse$ === "object");
+assert(typeof GifSettings$ === "object");
+assert(typeof H264QvbrSettings$ === "object");
+assert(typeof H264Settings$ === "object");
+assert(typeof H265QvbrSettings$ === "object");
+assert(typeof H265Settings$ === "object");
+assert(typeof Hdr10Metadata$ === "object");
+assert(typeof Hdr10Plus$ === "object");
+assert(typeof HlsAdditionalManifest$ === "object");
+assert(typeof HlsCaptionLanguageMapping$ === "object");
+assert(typeof HlsEncryptionSettings$ === "object");
+assert(typeof HlsGroupSettings$ === "object");
+assert(typeof HlsImageBasedTrickPlaySettings$ === "object");
+assert(typeof HlsRenditionGroupSettings$ === "object");
+assert(typeof HlsSettings$ === "object");
+assert(typeof HopDestination$ === "object");
+assert(typeof Id3Insertion$ === "object");
+assert(typeof ImageInserter$ === "object");
+assert(typeof ImscDestinationSettings$ === "object");
+assert(typeof Input$ === "object");
+assert(typeof InputClipping$ === "object");
+assert(typeof InputDecryptionSettings$ === "object");
+assert(typeof InputTamsSettings$ === "object");
+assert(typeof InputTemplate$ === "object");
+assert(typeof InputVideoGenerator$ === "object");
+assert(typeof InsertableImage$ === "object");
+assert(typeof Job$ === "object");
+assert(typeof JobEngineVersion$ === "object");
+assert(typeof JobMessages$ === "object");
+assert(typeof JobSettings$ === "object");
+assert(typeof JobsQueryFilter$ === "object");
+assert(typeof JobTemplate$ === "object");
+assert(typeof JobTemplateSettings$ === "object");
+assert(typeof KantarWatermarkSettings$ === "object");
+assert(typeof ListJobsRequest$ === "object");
+assert(typeof ListJobsResponse$ === "object");
+assert(typeof ListJobTemplatesRequest$ === "object");
+assert(typeof ListJobTemplatesResponse$ === "object");
+assert(typeof ListPresetsRequest$ === "object");
+assert(typeof ListPresetsResponse$ === "object");
+assert(typeof ListQueuesRequest$ === "object");
+assert(typeof ListQueuesResponse$ === "object");
+assert(typeof ListTagsForResourceRequest$ === "object");
+assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof ListVersionsRequest$ === "object");
+assert(typeof ListVersionsResponse$ === "object");
+assert(typeof M2tsScte35Esam$ === "object");
+assert(typeof M2tsSettings$ === "object");
+assert(typeof M3u8Settings$ === "object");
+assert(typeof Metadata$ === "object");
+assert(typeof MinBottomRenditionSize$ === "object");
+assert(typeof MinTopRenditionSize$ === "object");
+assert(typeof MotionImageInserter$ === "object");
+assert(typeof MotionImageInsertionFramerate$ === "object");
+assert(typeof MotionImageInsertionOffset$ === "object");
+assert(typeof MovSettings$ === "object");
+assert(typeof Mp2Settings$ === "object");
+assert(typeof Mp3Settings$ === "object");
+assert(typeof Mp4Settings$ === "object");
+assert(typeof MpdSettings$ === "object");
+assert(typeof Mpeg2Settings$ === "object");
+assert(typeof MsSmoothAdditionalManifest$ === "object");
+assert(typeof MsSmoothEncryptionSettings$ === "object");
+assert(typeof MsSmoothGroupSettings$ === "object");
+assert(typeof MxfSettings$ === "object");
+assert(typeof MxfXavcProfileSettings$ === "object");
+assert(typeof NexGuardFileMarkerSettings$ === "object");
+assert(typeof NielsenConfiguration$ === "object");
+assert(typeof NielsenNonLinearWatermarkSettings$ === "object");
+assert(typeof NoiseReducer$ === "object");
+assert(typeof NoiseReducerFilterSettings$ === "object");
+assert(typeof NoiseReducerSpatialFilterSettings$ === "object");
+assert(typeof NoiseReducerTemporalFilterSettings$ === "object");
+assert(typeof OpusSettings$ === "object");
+assert(typeof Output$ === "object");
+assert(typeof OutputChannelMapping$ === "object");
+assert(typeof OutputDetail$ === "object");
+assert(typeof OutputGroup$ === "object");
+assert(typeof OutputGroupDetail$ === "object");
+assert(typeof OutputGroupSettings$ === "object");
+assert(typeof OutputSettings$ === "object");
+assert(typeof PartnerWatermarking$ === "object");
+assert(typeof PassthroughSettings$ === "object");
+assert(typeof Policy$ === "object");
+assert(typeof Preset$ === "object");
+assert(typeof PresetSettings$ === "object");
+assert(typeof ProbeInputFile$ === "object");
+assert(typeof ProbeRequest$ === "object");
+assert(typeof ProbeResponse$ === "object");
+assert(typeof ProbeResult$ === "object");
+assert(typeof ProresSettings$ === "object");
+assert(typeof PutPolicyRequest$ === "object");
+assert(typeof PutPolicyResponse$ === "object");
+assert(typeof Queue$ === "object");
+assert(typeof QueueTransition$ === "object");
+assert(typeof Rectangle$ === "object");
+assert(typeof RemixSettings$ === "object");
+assert(typeof ReservationPlan$ === "object");
+assert(typeof ReservationPlanSettings$ === "object");
+assert(typeof ResourceTags$ === "object");
+assert(typeof S3DestinationAccessControl$ === "object");
+assert(typeof S3DestinationSettings$ === "object");
+assert(typeof S3EncryptionSettings$ === "object");
+assert(typeof SccDestinationSettings$ === "object");
+assert(typeof SearchJobsRequest$ === "object");
+assert(typeof SearchJobsResponse$ === "object");
+assert(typeof ServiceOverride$ === "object");
+assert(typeof SpekeKeyProvider$ === "object");
+assert(typeof SpekeKeyProviderCmaf$ === "object");
+assert(typeof SrtDestinationSettings$ === "object");
+assert(typeof StartJobsQueryRequest$ === "object");
+assert(typeof StartJobsQueryResponse$ === "object");
+assert(typeof StaticKeyProvider$ === "object");
+assert(typeof TagResourceRequest$ === "object");
+assert(typeof TagResourceResponse$ === "object");
+assert(typeof TeletextDestinationSettings$ === "object");
+assert(typeof TeletextSourceSettings$ === "object");
+assert(typeof TimecodeBurnin$ === "object");
+assert(typeof TimecodeConfig$ === "object");
+assert(typeof TimedMetadataInsertion$ === "object");
+assert(typeof Timing$ === "object");
+assert(typeof Track$ === "object");
+assert(typeof TrackMapping$ === "object");
+assert(typeof TrackSourceSettings$ === "object");
+assert(typeof TtmlDestinationSettings$ === "object");
+assert(typeof UncompressedSettings$ === "object");
+assert(typeof UntagResourceRequest$ === "object");
+assert(typeof UntagResourceResponse$ === "object");
+assert(typeof UpdateJobTemplateRequest$ === "object");
+assert(typeof UpdateJobTemplateResponse$ === "object");
+assert(typeof UpdatePresetRequest$ === "object");
+assert(typeof UpdatePresetResponse$ === "object");
+assert(typeof UpdateQueueRequest$ === "object");
+assert(typeof UpdateQueueResponse$ === "object");
+assert(typeof Vc3Settings$ === "object");
+assert(typeof VideoCodecSettings$ === "object");
+assert(typeof VideoDescription$ === "object");
+assert(typeof VideoDetail$ === "object");
+assert(typeof VideoOverlay$ === "object");
+assert(typeof VideoOverlayCrop$ === "object");
+assert(typeof VideoOverlayInput$ === "object");
+assert(typeof VideoOverlayInputClipping$ === "object");
+assert(typeof VideoOverlayPosition$ === "object");
+assert(typeof VideoOverlayTransition$ === "object");
+assert(typeof VideoPreprocessor$ === "object");
+assert(typeof VideoProperties$ === "object");
+assert(typeof VideoSelector$ === "object");
+assert(typeof VorbisSettings$ === "object");
+assert(typeof Vp8Settings$ === "object");
+assert(typeof Vp9Settings$ === "object");
+assert(typeof WarningGroup$ === "object");
+assert(typeof WavSettings$ === "object");
+assert(typeof WebvttDestinationSettings$ === "object");
+assert(typeof WebvttHlsSourceSettings$ === "object");
+assert(typeof Xavc4kIntraCbgProfileSettings$ === "object");
+assert(typeof Xavc4kIntraVbrProfileSettings$ === "object");
+assert(typeof Xavc4kProfileSettings$ === "object");
+assert(typeof XavcHdIntraCbgProfileSettings$ === "object");
+assert(typeof XavcHdProfileSettings$ === "object");
+assert(typeof XavcSettings$ === "object");
 // enums
 assert(typeof AacAudioDescriptionBroadcasterMix === "object");
 assert(typeof AacCodecProfile === "object");
@@ -1005,12 +1625,19 @@ assert(typeof XavcSpatialAdaptiveQuantization === "object");
 assert(typeof XavcTemporalAdaptiveQuantization === "object");
 // errors
 assert(BadRequestException.prototype instanceof MediaConvertServiceException);
+assert(typeof BadRequestException$ === "object");
 assert(ConflictException.prototype instanceof MediaConvertServiceException);
+assert(typeof ConflictException$ === "object");
 assert(ForbiddenException.prototype instanceof MediaConvertServiceException);
+assert(typeof ForbiddenException$ === "object");
 assert(InternalServerErrorException.prototype instanceof MediaConvertServiceException);
+assert(typeof InternalServerErrorException$ === "object");
 assert(NotFoundException.prototype instanceof MediaConvertServiceException);
+assert(typeof NotFoundException$ === "object");
 assert(ServiceQuotaExceededException.prototype instanceof MediaConvertServiceException);
+assert(typeof ServiceQuotaExceededException$ === "object");
 assert(TooManyRequestsException.prototype instanceof MediaConvertServiceException);
+assert(typeof TooManyRequestsException$ === "object");
 assert(MediaConvertServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeEndpoints === "function");

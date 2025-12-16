@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import type { GetTelemetryMetadataRequest, GetTelemetryMetadataResponse } from "../models/models_0";
-import { GetTelemetryMetadata } from "../schemas/schemas_0";
+import { GetTelemetryMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -255,7 +255,7 @@ export class GetTelemetryMetadataCommand extends $Command
   })
   .s("InspectorService", "GetTelemetryMetadata", {})
   .n("InspectorClient", "GetTelemetryMetadataCommand")
-  .sc(GetTelemetryMetadata)
+  .sc(GetTelemetryMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

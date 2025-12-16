@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreatePersistentAppUIInput, CreatePersistentAppUIOutput } from "../models/models_0";
-import { CreatePersistentAppUI } from "../schemas/schemas_0";
+import { CreatePersistentAppUI$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class CreatePersistentAppUICommand extends $Command
   })
   .s("ElasticMapReduce", "CreatePersistentAppUI", {})
   .n("EMRClient", "CreatePersistentAppUICommand")
-  .sc(CreatePersistentAppUI)
+  .sc(CreatePersistentAppUI$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

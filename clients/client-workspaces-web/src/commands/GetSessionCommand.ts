@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSessionRequest, GetSessionResponse } from "../models/models_0";
-import { GetSession } from "../schemas/schemas_0";
+import { GetSession$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -99,7 +99,7 @@ export class GetSessionCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "GetSession", {})
   .n("WorkSpacesWebClient", "GetSessionCommand")
-  .sc(GetSession)
+  .sc(GetSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

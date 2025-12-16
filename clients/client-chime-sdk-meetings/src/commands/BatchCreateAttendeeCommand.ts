@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKMeetingsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchCreateAttendeeRequest, BatchCreateAttendeeResponse } from "../models/models_0";
-import { BatchCreateAttendee } from "../schemas/schemas_0";
+import { BatchCreateAttendee$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,7 +133,7 @@ export class BatchCreateAttendeeCommand extends $Command
   })
   .s("ChimeMeetingsSDKService", "BatchCreateAttendee", {})
   .n("ChimeSDKMeetingsClient", "BatchCreateAttendeeCommand")
-  .sc(BatchCreateAttendee)
+  .sc(BatchCreateAttendee$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

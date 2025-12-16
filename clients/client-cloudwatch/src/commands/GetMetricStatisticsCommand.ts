@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMetricStatisticsInput, GetMetricStatisticsOutput } from "../models/models_0";
-import { GetMetricStatistics } from "../schemas/schemas_0";
+import { GetMetricStatistics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -173,7 +173,7 @@ export class GetMetricStatisticsCommand extends $Command
   })
   .s("GraniteServiceVersion20100801", "GetMetricStatistics", {})
   .n("CloudWatchClient", "GetMetricStatisticsCommand")
-  .sc(GetMetricStatistics)
+  .sc(GetMetricStatistics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

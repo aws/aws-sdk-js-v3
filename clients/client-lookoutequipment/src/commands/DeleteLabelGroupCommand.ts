@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LookoutEquipmentClient";
 import type { DeleteLabelGroupRequest } from "../models/models_0";
-import { DeleteLabelGroup } from "../schemas/schemas_0";
+import { DeleteLabelGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DeleteLabelGroupCommand extends $Command
   })
   .s("AWSLookoutEquipmentFrontendService", "DeleteLabelGroup", {})
   .n("LookoutEquipmentClient", "DeleteLabelGroupCommand")
-  .sc(DeleteLabelGroup)
+  .sc(DeleteLabelGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

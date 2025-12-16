@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateIpAccessSettingsRequest, CreateIpAccessSettingsResponse } from "../models/models_0";
-import { CreateIpAccessSettings } from "../schemas/schemas_0";
+import { CreateIpAccessSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -109,7 +109,7 @@ export class CreateIpAccessSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "CreateIpAccessSettings", {})
   .n("WorkSpacesWebClient", "CreateIpAccessSettingsCommand")
-  .sc(CreateIpAccessSettings)
+  .sc(CreateIpAccessSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

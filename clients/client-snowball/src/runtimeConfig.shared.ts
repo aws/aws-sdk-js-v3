@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: SnowballClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.snowball",
-        serviceTarget: "AWSIESnowballJobManagementService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.snowball",
+      version: "2016-06-30",
+      serviceTarget: "AWSIESnowballJobManagementService",
+    },
     serviceId: config?.serviceId ?? "Snowball",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

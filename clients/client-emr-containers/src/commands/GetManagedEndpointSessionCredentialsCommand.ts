@@ -9,7 +9,7 @@ import type {
   GetManagedEndpointSessionCredentialsRequest,
   GetManagedEndpointSessionCredentialsResponse,
 } from "../models/models_0";
-import { GetManagedEndpointSessionCredentials } from "../schemas/schemas_0";
+import { GetManagedEndpointSessionCredentials$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class GetManagedEndpointSessionCredentialsCommand extends $Command
   })
   .s("AwsChicagoWebService", "GetManagedEndpointSessionCredentials", {})
   .n("EMRContainersClient", "GetManagedEndpointSessionCredentialsCommand")
-  .sc(GetManagedEndpointSessionCredentials)
+  .sc(GetManagedEndpointSessionCredentials$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

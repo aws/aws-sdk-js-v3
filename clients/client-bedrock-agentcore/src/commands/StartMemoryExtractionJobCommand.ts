@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartMemoryExtractionJobInput, StartMemoryExtractionJobOutput } from "../models/models_0";
-import { StartMemoryExtractionJob } from "../schemas/schemas_0";
+import { StartMemoryExtractionJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class StartMemoryExtractionJobCommand extends $Command
   })
   .s("AmazonBedrockAgentCore", "StartMemoryExtractionJob", {})
   .n("BedrockAgentCoreClient", "StartMemoryExtractionJobCommand")
-  .sc(StartMemoryExtractionJob)
+  .sc(StartMemoryExtractionJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

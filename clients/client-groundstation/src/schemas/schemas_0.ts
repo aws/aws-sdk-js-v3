@@ -401,17 +401,17 @@ import type {
 } from "@smithy/types";
 
 import {
-  DependencyException as __DependencyException,
-  InvalidParameterException as __InvalidParameterException,
-  ResourceInUseException as __ResourceInUseException,
-  ResourceLimitExceededException as __ResourceLimitExceededException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
+  DependencyException,
+  InvalidParameterException,
+  ResourceInUseException,
+  ResourceLimitExceededException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
 } from "../models/errors";
-import { GroundStationServiceException as __GroundStationServiceException } from "../models/GroundStationServiceException";
+import { GroundStationServiceException } from "../models/GroundStationServiceException";
 
 /* eslint no-var: 0 */
-export var AgentDetails: StaticStructureSchema = [
+export var AgentDetails$: StaticStructureSchema = [
   3,
   n0,
   _AD,
@@ -419,47 +419,47 @@ export var AgentDetails: StaticStructureSchema = [
   [_aV, _iI, _iT, _rCC, _aCC, _cV],
   [0, 0, 0, 64 | 1, 64 | 1, () => ComponentVersionList],
 ];
-export var AggregateStatus: StaticStructureSchema = [3, n0, _AS, 0, [_s, _sM], [0, 128 | 2]];
-export var AntennaDemodDecodeDetails: StaticStructureSchema = [3, n0, _ADDD, 0, [_oN], [0]];
-export var AntennaDownlinkConfig: StaticStructureSchema = [3, n0, _ADC, 0, [_sC], [() => SpectrumConfig]];
-export var AntennaDownlinkDemodDecodeConfig: StaticStructureSchema = [
+export var AggregateStatus$: StaticStructureSchema = [3, n0, _AS, 0, [_s, _sM], [0, 128 | 2]];
+export var AntennaDemodDecodeDetails$: StaticStructureSchema = [3, n0, _ADDD, 0, [_oN], [0]];
+export var AntennaDownlinkConfig$: StaticStructureSchema = [3, n0, _ADC, 0, [_sC], [() => SpectrumConfig$]];
+export var AntennaDownlinkDemodDecodeConfig$: StaticStructureSchema = [
   3,
   n0,
   _ADDDC,
   0,
   [_sC, _dC, _dCe],
-  [() => SpectrumConfig, () => DemodulationConfig, () => DecodeConfig],
+  [() => SpectrumConfig$, () => DemodulationConfig$, () => DecodeConfig$],
 ];
-export var AntennaUplinkConfig: StaticStructureSchema = [
+export var AntennaUplinkConfig$: StaticStructureSchema = [
   3,
   n0,
   _AUC,
   0,
   [_tD, _sC, _tE],
-  [2, () => UplinkSpectrumConfig, () => Eirp],
+  [2, () => UplinkSpectrumConfig$, () => Eirp$],
 ];
-export var AwsGroundStationAgentEndpoint: StaticStructureSchema = [
+export var AwsGroundStationAgentEndpoint$: StaticStructureSchema = [
   3,
   n0,
   _AGSAE,
   0,
   [_n, _eA, _iA, _aS, _aR],
-  [0, () => ConnectionDetails, () => RangedConnectionDetails, 0, 0],
+  [0, () => ConnectionDetails$, () => RangedConnectionDetails$, 0, 0],
 ];
-export var AzElEphemeris: StaticStructureSchema = [3, n0, _AEE, 0, [_gS, _d], [0, () => AzElSegmentsData]];
-export var AzElEphemerisFilter: StaticStructureSchema = [3, n0, _AEEF, 0, [_i], [0]];
-export var AzElProgramTrackSettings: StaticStructureSchema = [3, n0, _AEPTS, 0, [_eI], [0]];
-export var AzElSegment: StaticStructureSchema = [
+export var AzElEphemeris$: StaticStructureSchema = [3, n0, _AEE, 0, [_gS, _d], [0, () => AzElSegmentsData$]];
+export var AzElEphemerisFilter$: StaticStructureSchema = [3, n0, _AEEF, 0, [_i], [0]];
+export var AzElProgramTrackSettings$: StaticStructureSchema = [3, n0, _AEPTS, 0, [_eI], [0]];
+export var AzElSegment$: StaticStructureSchema = [
   3,
   n0,
   _AES,
   0,
   [_rE, _vTR, _aEL],
-  [5, () => ISO8601TimeRange, () => TimeAzElList],
+  [5, () => ISO8601TimeRange$, () => TimeAzElList],
 ];
-export var AzElSegments: StaticStructureSchema = [3, n0, _AESz, 0, [_aU, _aESL], [0, () => AzElSegmentList]];
-export var CancelContactRequest: StaticStructureSchema = [3, n0, _CCR, 0, [_cI], [[0, 1]]];
-export var ComponentStatusData: StaticStructureSchema = [
+export var AzElSegments$: StaticStructureSchema = [3, n0, _AESz, 0, [_aU, _aESL], [0, () => AzElSegmentList]];
+export var CancelContactRequest$: StaticStructureSchema = [3, n0, _CCR, 0, [_cI], [[0, 1]]];
+export var ComponentStatusData$: StaticStructureSchema = [
   3,
   n0,
   _CSD,
@@ -467,28 +467,28 @@ export var ComponentStatusData: StaticStructureSchema = [
   [_cT, _cA, _s, _bS, _bR, _pD, _dI],
   [0, 0, 0, 1, 1, 1, 0],
 ];
-export var ComponentVersion: StaticStructureSchema = [3, n0, _CV, 0, [_cT, _v], [0, 64 | 0]];
-export var ConfigIdResponse: StaticStructureSchema = [3, n0, _CIR, 0, [_cIo, _cTo, _cAo], [0, 0, 0]];
-export var ConfigListItem: StaticStructureSchema = [3, n0, _CLI, 0, [_cIo, _cTo, _cAo, _n], [0, 0, 0, 0]];
-export var ConnectionDetails: StaticStructureSchema = [3, n0, _CD, 0, [_sA, _m], [() => SocketAddress, 1]];
-export var ContactData: StaticStructureSchema = [
+export var ComponentVersion$: StaticStructureSchema = [3, n0, _CV, 0, [_cT, _v], [0, 64 | 0]];
+export var ConfigIdResponse$: StaticStructureSchema = [3, n0, _CIR, 0, [_cIo, _cTo, _cAo], [0, 0, 0]];
+export var ConfigListItem$: StaticStructureSchema = [3, n0, _CLI, 0, [_cIo, _cTo, _cAo, _n], [0, 0, 0, 0]];
+export var ConnectionDetails$: StaticStructureSchema = [3, n0, _CD, 0, [_sA, _m], [() => SocketAddress$, 1]];
+export var ContactData$: StaticStructureSchema = [
   3,
   n0,
   _CDo,
   0,
   [_cI, _mPA, _sAa, _sT, _eT, _pPST, _pPET, _gS, _cS, _eM, _mE, _r, _t, _vST, _vET, _e],
-  [0, 0, 0, 4, 4, 4, 4, 0, 0, 0, () => Elevation, 0, 128 | 0, 4, 4, () => EphemerisResponseData],
+  [0, 0, 0, 4, 4, 4, 4, 0, 0, 0, () => Elevation$, 0, 128 | 0, 4, 4, () => EphemerisResponseData$],
 ];
-export var ContactIdResponse: StaticStructureSchema = [3, n0, _CIRo, 0, [_cI], [0]];
-export var CreateConfigRequest: StaticStructureSchema = [
+export var ContactIdResponse$: StaticStructureSchema = [3, n0, _CIRo, 0, [_cI], [0]];
+export var CreateConfigRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCRr,
   0,
   [_n, _cD, _t],
-  [0, () => ConfigTypeData, 128 | 0],
+  [0, () => ConfigTypeData$, 128 | 0],
 ];
-export var CreateDataflowEndpointGroupRequest: StaticStructureSchema = [
+export var CreateDataflowEndpointGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDEGR,
@@ -496,7 +496,7 @@ export var CreateDataflowEndpointGroupRequest: StaticStructureSchema = [
   [_eD, _t, _cPPDS, _cPPDSo],
   [() => EndpointDetailsList, 128 | 0, 1, 1],
 ];
-export var CreateDataflowEndpointGroupV2Request: StaticStructureSchema = [
+export var CreateDataflowEndpointGroupV2Request$: StaticStructureSchema = [
   3,
   n0,
   _CDEGVR,
@@ -504,37 +504,44 @@ export var CreateDataflowEndpointGroupV2Request: StaticStructureSchema = [
   [_en, _cPPDS, _cPPDSo, _t],
   [() => CreateEndpointDetailsList, 1, 1, 128 | 0],
 ];
-export var CreateDataflowEndpointGroupV2Response: StaticStructureSchema = [3, n0, _CDEGVRr, 0, [_dEGI], [0]];
-export var CreateEphemerisRequest: StaticStructureSchema = [
+export var CreateDataflowEndpointGroupV2Response$: StaticStructureSchema = [3, n0, _CDEGVRr, 0, [_dEGI], [0]];
+export var CreateEphemerisRequest$: StaticStructureSchema = [
   3,
   n0,
   _CER,
   0,
   [_sI, _ena, _p, _eTx, _n, _kKA, _e, _t],
-  [0, 2, 1, 4, 0, 0, () => EphemerisData, 128 | 0],
+  [0, 2, 1, 4, 0, 0, () => EphemerisData$, 128 | 0],
 ];
-export var CreateMissionProfileRequest: StaticStructureSchema = [
+export var CreateMissionProfileRequest$: StaticStructureSchema = [
   3,
   n0,
   _CMPR,
   0,
   [_n, _cPPDS, _cPPDSo, _mVCDS, _dE, _tCA, _t, _sKK, _sKR],
-  [0, 1, 1, 1, [1, n0, _DEL, 0, 64 | 0], 0, 128 | 0, () => KmsKey, 0],
+  [0, 1, 1, 1, [1, n0, _DEL, 0, 64 | 0], 0, 128 | 0, () => KmsKey$, 0],
 ];
-export var DataflowDetail: StaticStructureSchema = [
+export var DataflowDetail$: StaticStructureSchema = [
   3,
   n0,
   _DD,
   0,
   [_so, _de, _eM],
-  [() => Source, () => Destination, 0],
+  [() => Source$, () => Destination$, 0],
 ];
-export var DataflowEndpoint: StaticStructureSchema = [3, n0, _DE, 0, [_n, _a, _s, _m], [0, () => SocketAddress, 0, 1]];
-export var DataflowEndpointConfig: StaticStructureSchema = [3, n0, _DEC, 0, [_dEN, _dER], [0, 0]];
-export var DataflowEndpointGroupIdResponse: StaticStructureSchema = [3, n0, _DEGIR, 0, [_dEGI], [0]];
-export var DataflowEndpointListItem: StaticStructureSchema = [3, n0, _DELI, 0, [_dEGI, _dEGA], [0, 0]];
-export var DecodeConfig: StaticStructureSchema = [3, n0, _DC, 0, [_uJSON], [0]];
-export var DeleteConfigRequest: StaticStructureSchema = [
+export var DataflowEndpoint$: StaticStructureSchema = [
+  3,
+  n0,
+  _DE,
+  0,
+  [_n, _a, _s, _m],
+  [0, () => SocketAddress$, 0, 1],
+];
+export var DataflowEndpointConfig$: StaticStructureSchema = [3, n0, _DEC, 0, [_dEN, _dER], [0, 0]];
+export var DataflowEndpointGroupIdResponse$: StaticStructureSchema = [3, n0, _DEGIR, 0, [_dEGI], [0]];
+export var DataflowEndpointListItem$: StaticStructureSchema = [3, n0, _DELI, 0, [_dEGI, _dEGA], [0, 0]];
+export var DecodeConfig$: StaticStructureSchema = [3, n0, _DC, 0, [_uJSON], [0]];
+export var DeleteConfigRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCR,
@@ -545,14 +552,14 @@ export var DeleteConfigRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteDataflowEndpointGroupRequest: StaticStructureSchema = [3, n0, _DDEGR, 0, [_dEGI], [[0, 1]]];
-export var DeleteEphemerisRequest: StaticStructureSchema = [3, n0, _DER, 0, [_eI], [[0, 1]]];
-export var DeleteMissionProfileRequest: StaticStructureSchema = [3, n0, _DMPR, 0, [_mPI], [[0, 1]]];
-export var DemodulationConfig: StaticStructureSchema = [3, n0, _DCe, 0, [_uJSON], [0]];
-export var DependencyException: StaticErrorSchema = [-3, n0, _DEe, { [_er]: _se, [_hE]: 531 }, [_me, _pN], [0, 0]];
-TypeRegistry.for(n0).registerError(DependencyException, __DependencyException);
-export var DescribeContactRequest: StaticStructureSchema = [3, n0, _DCRe, 0, [_cI], [[0, 1]]];
-export var DescribeContactResponse: StaticStructureSchema = [
+export var DeleteDataflowEndpointGroupRequest$: StaticStructureSchema = [3, n0, _DDEGR, 0, [_dEGI], [[0, 1]]];
+export var DeleteEphemerisRequest$: StaticStructureSchema = [3, n0, _DER, 0, [_eI], [[0, 1]]];
+export var DeleteMissionProfileRequest$: StaticStructureSchema = [3, n0, _DMPR, 0, [_mPI], [[0, 1]]];
+export var DemodulationConfig$: StaticStructureSchema = [3, n0, _DCe, 0, [_uJSON], [0]];
+export var DependencyException$: StaticErrorSchema = [-3, n0, _DEe, { [_er]: _se, [_hE]: 531 }, [_me, _pN], [0, 0]];
+TypeRegistry.for(n0).registerError(DependencyException$, DependencyException);
+export var DescribeContactRequest$: StaticStructureSchema = [3, n0, _DCRe, 0, [_cI], [[0, 1]]];
+export var DescribeContactResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCRes,
@@ -569,94 +576,94 @@ export var DescribeContactResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    () => Elevation,
+    () => Elevation$,
     128 | 0,
     0,
     () => DataflowList,
     4,
     4,
-    () => TrackingOverrides,
-    () => EphemerisResponseData,
+    () => TrackingOverrides$,
+    () => EphemerisResponseData$,
   ],
 ];
-export var DescribeEphemerisRequest: StaticStructureSchema = [3, n0, _DERe, 0, [_eI], [[0, 1]]];
-export var DescribeEphemerisResponse: StaticStructureSchema = [
+export var DescribeEphemerisRequest$: StaticStructureSchema = [3, n0, _DERe, 0, [_eI], [[0, 1]]];
+export var DescribeEphemerisResponse$: StaticStructureSchema = [
   3,
   n0,
   _DERes,
   0,
   [_eI, _sI, _s, _p, _cTr, _ena, _n, _t, _sD, _iR, _eR],
-  [0, 0, 0, 1, 4, 2, 0, 128 | 0, () => EphemerisTypeDescription, 0, () => EphemerisErrorReasonList],
+  [0, 0, 0, 1, 4, 2, 0, 128 | 0, () => EphemerisTypeDescription$, 0, () => EphemerisErrorReasonList],
 ];
-export var Destination: StaticStructureSchema = [
+export var Destination$: StaticStructureSchema = [
   3,
   n0,
   _D,
   0,
   [_cTo, _cIo, _cDo, _dDR],
-  [0, 0, () => ConfigDetails, 0],
+  [0, 0, () => ConfigDetails$, 0],
 ];
-export var DiscoveryData: StaticStructureSchema = [3, n0, _DDi, 0, [_pIA, _pIAr, _cAa], [64 | 0, 64 | 0, 64 | 0]];
-export var DownlinkAwsGroundStationAgentEndpoint: StaticStructureSchema = [
+export var DiscoveryData$: StaticStructureSchema = [3, n0, _DDi, 0, [_pIA, _pIAr, _cAa], [64 | 0, 64 | 0, 64 | 0]];
+export var DownlinkAwsGroundStationAgentEndpoint$: StaticStructureSchema = [
   3,
   n0,
   _DAGSAE,
   0,
   [_n, _dD],
-  [0, () => DownlinkDataflowDetails],
+  [0, () => DownlinkDataflowDetails$],
 ];
-export var DownlinkAwsGroundStationAgentEndpointDetails: StaticStructureSchema = [
+export var DownlinkAwsGroundStationAgentEndpointDetails$: StaticStructureSchema = [
   3,
   n0,
   _DAGSAED,
   0,
   [_n, _dD, _aS, _aR],
-  [0, () => DownlinkDataflowDetails, 0, 0],
+  [0, () => DownlinkDataflowDetails$, 0, 0],
 ];
-export var DownlinkConnectionDetails: StaticStructureSchema = [
+export var DownlinkConnectionDetails$: StaticStructureSchema = [
   3,
   n0,
   _DCD,
   0,
   [_aIAPA, _eAAP],
-  [() => RangedConnectionDetails, () => ConnectionDetails],
+  [() => RangedConnectionDetails$, () => ConnectionDetails$],
 ];
-export var Eirp: StaticStructureSchema = [3, n0, _E, 0, [_va, _u], [1, 0]];
-export var Elevation: StaticStructureSchema = [3, n0, _El, 0, [_va, _un], [1, 0]];
-export var EndpointDetails: StaticStructureSchema = [
+export var Eirp$: StaticStructureSchema = [3, n0, _E, 0, [_va, _u], [1, 0]];
+export var Elevation$: StaticStructureSchema = [3, n0, _El, 0, [_va, _un], [1, 0]];
+export var EndpointDetails$: StaticStructureSchema = [
   3,
   n0,
   _ED,
   0,
   [_sDe, _end, _aGSAE, _uAGSAE, _dAGSAE, _hS, _hR],
   [
-    () => SecurityDetails,
-    () => DataflowEndpoint,
-    () => AwsGroundStationAgentEndpoint,
-    () => UplinkAwsGroundStationAgentEndpointDetails,
-    () => DownlinkAwsGroundStationAgentEndpointDetails,
+    () => SecurityDetails$,
+    () => DataflowEndpoint$,
+    () => AwsGroundStationAgentEndpoint$,
+    () => UplinkAwsGroundStationAgentEndpointDetails$,
+    () => DownlinkAwsGroundStationAgentEndpointDetails$,
     0,
     64 | 0,
   ],
 ];
-export var EphemerisDescription: StaticStructureSchema = [3, n0, _EDp, 0, [_sSO, _eDp], [() => S3Object, 0]];
-export var EphemerisErrorReason: StaticStructureSchema = [3, n0, _EER, 0, [_eC, _eM], [0, 0]];
-export var EphemerisIdResponse: StaticStructureSchema = [3, n0, _EIR, 0, [_eI], [0]];
-export var EphemerisItem: StaticStructureSchema = [
+export var EphemerisDescription$: StaticStructureSchema = [3, n0, _EDp, 0, [_sSO, _eDp], [() => S3Object$, 0]];
+export var EphemerisErrorReason$: StaticStructureSchema = [3, n0, _EER, 0, [_eC, _eM], [0, 0]];
+export var EphemerisIdResponse$: StaticStructureSchema = [3, n0, _EIR, 0, [_eI], [0]];
+export var EphemerisItem$: StaticStructureSchema = [
   3,
   n0,
   _EI,
   0,
   [_eI, _eTp, _s, _p, _ena, _cTr, _n, _sSO],
-  [0, 0, 0, 1, 2, 4, 0, () => S3Object],
+  [0, 0, 0, 1, 2, 4, 0, () => S3Object$],
 ];
-export var EphemerisMetaData: StaticStructureSchema = [3, n0, _EMD, 0, [_so, _eI, _ep, _n], [0, 0, 4, 0]];
-export var EphemerisResponseData: StaticStructureSchema = [3, n0, _ERD, 0, [_eI, _eTp], [0, 0]];
-export var Frequency: StaticStructureSchema = [3, n0, _F, 0, [_va, _u], [1, 0]];
-export var FrequencyBandwidth: StaticStructureSchema = [3, n0, _FB, 0, [_va, _u], [1, 0]];
-export var GetAgentConfigurationRequest: StaticStructureSchema = [3, n0, _GACR, 0, [_aI], [[0, 1]]];
-export var GetAgentConfigurationResponse: StaticStructureSchema = [3, n0, _GACRe, 0, [_aI, _tDa], [0, 0]];
-export var GetAgentTaskResponseUrlRequest: StaticStructureSchema = [
+export var EphemerisMetaData$: StaticStructureSchema = [3, n0, _EMD, 0, [_so, _eI, _ep, _n], [0, 0, 4, 0]];
+export var EphemerisResponseData$: StaticStructureSchema = [3, n0, _ERD, 0, [_eI, _eTp], [0, 0]];
+export var Frequency$: StaticStructureSchema = [3, n0, _F, 0, [_va, _u], [1, 0]];
+export var FrequencyBandwidth$: StaticStructureSchema = [3, n0, _FB, 0, [_va, _u], [1, 0]];
+export var GetAgentConfigurationRequest$: StaticStructureSchema = [3, n0, _GACR, 0, [_aI], [[0, 1]]];
+export var GetAgentConfigurationResponse$: StaticStructureSchema = [3, n0, _GACRe, 0, [_aI, _tDa], [0, 0]];
+export var GetAgentTaskResponseUrlRequest$: StaticStructureSchema = [
   3,
   n0,
   _GATRUR,
@@ -667,8 +674,8 @@ export var GetAgentTaskResponseUrlRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetAgentTaskResponseUrlResponse: StaticStructureSchema = [3, n0, _GATRURe, 0, [_aI, _tI, _pLU], [0, 0, 0]];
-export var GetConfigRequest: StaticStructureSchema = [
+export var GetAgentTaskResponseUrlResponse$: StaticStructureSchema = [3, n0, _GATRURe, 0, [_aI, _tI, _pLU], [0, 0, 0]];
+export var GetConfigRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCR,
@@ -679,16 +686,16 @@ export var GetConfigRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetConfigResponse: StaticStructureSchema = [
+export var GetConfigResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCRe,
   0,
   [_cIo, _cAo, _n, _cTo, _cD, _t],
-  [0, 0, 0, 0, () => ConfigTypeData, 128 | 0],
+  [0, 0, 0, 0, () => ConfigTypeData$, 128 | 0],
 ];
-export var GetDataflowEndpointGroupRequest: StaticStructureSchema = [3, n0, _GDEGR, 0, [_dEGI], [[0, 1]]];
-export var GetDataflowEndpointGroupResponse: StaticStructureSchema = [
+export var GetDataflowEndpointGroupRequest$: StaticStructureSchema = [3, n0, _GDEGR, 0, [_dEGI], [[0, 1]]];
+export var GetDataflowEndpointGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDEGRe,
@@ -696,8 +703,8 @@ export var GetDataflowEndpointGroupResponse: StaticStructureSchema = [
   [_dEGI, _dEGA, _eDn, _t, _cPPDS, _cPPDSo],
   [0, 0, () => EndpointDetailsList, 128 | 0, 1, 1],
 ];
-export var GetMinuteUsageRequest: StaticStructureSchema = [3, n0, _GMUR, 0, [_mo, _y], [1, 1]];
-export var GetMinuteUsageResponse: StaticStructureSchema = [
+export var GetMinuteUsageRequest$: StaticStructureSchema = [3, n0, _GMUR, 0, [_mo, _y], [1, 1]];
+export var GetMinuteUsageResponse$: StaticStructureSchema = [
   3,
   n0,
   _GMURe,
@@ -705,30 +712,37 @@ export var GetMinuteUsageResponse: StaticStructureSchema = [
   [_iRMC, _tRMA, _uMS, _tSM, _eMR],
   [2, 1, 1, 1, 1],
 ];
-export var GetMissionProfileRequest: StaticStructureSchema = [3, n0, _GMPR, 0, [_mPI], [[0, 1]]];
-export var GetMissionProfileResponse: StaticStructureSchema = [
+export var GetMissionProfileRequest$: StaticStructureSchema = [3, n0, _GMPR, 0, [_mPI], [[0, 1]]];
+export var GetMissionProfileResponse$: StaticStructureSchema = [
   3,
   n0,
   _GMPRe,
   0,
   [_mPI, _mPA, _n, _r, _cPPDS, _cPPDSo, _mVCDS, _dE, _tCA, _t, _sKK, _sKR],
-  [0, 0, 0, 0, 1, 1, 1, [1, n0, _DEL, 0, 64 | 0], 0, 128 | 0, () => KmsKey, 0],
+  [0, 0, 0, 0, 1, 1, 1, [1, n0, _DEL, 0, 64 | 0], 0, 128 | 0, () => KmsKey$, 0],
 ];
-export var GetSatelliteRequest: StaticStructureSchema = [3, n0, _GSR, 0, [_sI], [[0, 1]]];
-export var GetSatelliteResponse: StaticStructureSchema = [
+export var GetSatelliteRequest$: StaticStructureSchema = [3, n0, _GSR, 0, [_sI], [[0, 1]]];
+export var GetSatelliteResponse$: StaticStructureSchema = [
   3,
   n0,
   _GSRe,
   0,
   [_sI, _sAa, _nSID, _gSr, _cE],
-  [0, 0, 1, 64 | 0, () => EphemerisMetaData],
+  [0, 0, 1, 64 | 0, () => EphemerisMetaData$],
 ];
-export var GroundStationData: StaticStructureSchema = [3, n0, _GSD, 0, [_gSI, _gSN, _r], [0, 0, 0]];
-export var IntegerRange: StaticStructureSchema = [3, n0, _IR, 0, [_mi, _ma], [1, 1]];
-export var InvalidParameterException: StaticErrorSchema = [-3, n0, _IPE, { [_er]: _c, [_hE]: 431 }, [_me, _pN], [0, 0]];
-TypeRegistry.for(n0).registerError(InvalidParameterException, __InvalidParameterException);
-export var ISO8601TimeRange: StaticStructureSchema = [3, n0, _ISOTR, 0, [_sT, _eT], [5, 5]];
-export var ListConfigsRequest: StaticStructureSchema = [
+export var GroundStationData$: StaticStructureSchema = [3, n0, _GSD, 0, [_gSI, _gSN, _r], [0, 0, 0]];
+export var IntegerRange$: StaticStructureSchema = [3, n0, _IR, 0, [_mi, _ma], [1, 1]];
+export var InvalidParameterException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _IPE,
+  { [_er]: _c, [_hE]: 431 },
+  [_me, _pN],
+  [0, 0],
+];
+TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
+export var ISO8601TimeRange$: StaticStructureSchema = [3, n0, _ISOTR, 0, [_sT, _eT], [5, 5]];
+export var ListConfigsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCR,
@@ -739,17 +753,17 @@ export var ListConfigsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListConfigsResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_nT, _cL], [0, () => ConfigList]];
-export var ListContactsRequest: StaticStructureSchema = [
+export var ListConfigsResponse$: StaticStructureSchema = [3, n0, _LCRi, 0, [_nT, _cL], [0, () => ConfigList]];
+export var ListContactsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCRis,
   0,
   [_mR, _nT, _sL, _sT, _eT, _gS, _sAa, _mPA, _e],
-  [1, 0, 64 | 0, 4, 4, 0, 0, 0, () => EphemerisFilter],
+  [1, 0, 64 | 0, 4, 4, 0, 0, 0, () => EphemerisFilter$],
 ];
-export var ListContactsResponse: StaticStructureSchema = [3, n0, _LCRist, 0, [_nT, _cLo], [0, () => ContactList]];
-export var ListDataflowEndpointGroupsRequest: StaticStructureSchema = [
+export var ListContactsResponse$: StaticStructureSchema = [3, n0, _LCRist, 0, [_nT, _cLo], [0, () => ContactList]];
+export var ListDataflowEndpointGroupsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDEGR,
@@ -760,7 +774,7 @@ export var ListDataflowEndpointGroupsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListDataflowEndpointGroupsResponse: StaticStructureSchema = [
+export var ListDataflowEndpointGroupsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDEGRi,
@@ -768,7 +782,7 @@ export var ListDataflowEndpointGroupsResponse: StaticStructureSchema = [
   [_nT, _dEGL],
   [0, () => DataflowEndpointGroupList],
 ];
-export var ListEphemeridesRequest: StaticStructureSchema = [
+export var ListEphemeridesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LER,
@@ -776,8 +790,8 @@ export var ListEphemeridesRequest: StaticStructureSchema = [
   [_sI, _eTp, _sT, _eT, _sL, _mR, _nT],
   [0, 0, 4, 4, 64 | 0, [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]],
 ];
-export var ListEphemeridesResponse: StaticStructureSchema = [3, n0, _LERi, 0, [_nT, _eph], [0, () => EphemeridesList]];
-export var ListGroundStationsRequest: StaticStructureSchema = [
+export var ListEphemeridesResponse$: StaticStructureSchema = [3, n0, _LERi, 0, [_nT, _eph], [0, () => EphemeridesList]];
+export var ListGroundStationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LGSR,
@@ -789,7 +803,7 @@ export var ListGroundStationsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListGroundStationsResponse: StaticStructureSchema = [
+export var ListGroundStationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LGSRi,
@@ -797,7 +811,7 @@ export var ListGroundStationsResponse: StaticStructureSchema = [
   [_nT, _gSL],
   [0, () => GroundStationList],
 ];
-export var ListMissionProfilesRequest: StaticStructureSchema = [
+export var ListMissionProfilesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LMPR,
@@ -808,7 +822,7 @@ export var ListMissionProfilesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListMissionProfilesResponse: StaticStructureSchema = [
+export var ListMissionProfilesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LMPRi,
@@ -816,7 +830,7 @@ export var ListMissionProfilesResponse: StaticStructureSchema = [
   [_nT, _mPL],
   [0, () => MissionProfileList],
 ];
-export var ListSatellitesRequest: StaticStructureSchema = [
+export var ListSatellitesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSR,
@@ -827,34 +841,41 @@ export var ListSatellitesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListSatellitesResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_nT, _sa], [0, () => SatelliteList]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
-export var MissionProfileIdResponse: StaticStructureSchema = [3, n0, _MPIR, 0, [_mPI], [0]];
-export var MissionProfileListItem: StaticStructureSchema = [3, n0, _MPLI, 0, [_mPI, _mPA, _r, _n], [0, 0, 0, 0]];
-export var OEMEphemeris: StaticStructureSchema = [3, n0, _OEME, 0, [_sO, _oD], [() => S3Object, 0]];
-export var RangedConnectionDetails: StaticStructureSchema = [3, n0, _RCD, 0, [_sA, _m], [() => RangedSocketAddress, 1]];
-export var RangedSocketAddress: StaticStructureSchema = [3, n0, _RSA, 0, [_n, _pR], [0, () => IntegerRange]];
-export var RegisterAgentRequest: StaticStructureSchema = [
+export var ListSatellitesResponse$: StaticStructureSchema = [3, n0, _LSRi, 0, [_nT, _sa], [0, () => SatelliteList]];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
+export var MissionProfileIdResponse$: StaticStructureSchema = [3, n0, _MPIR, 0, [_mPI], [0]];
+export var MissionProfileListItem$: StaticStructureSchema = [3, n0, _MPLI, 0, [_mPI, _mPA, _r, _n], [0, 0, 0, 0]];
+export var OEMEphemeris$: StaticStructureSchema = [3, n0, _OEME, 0, [_sO, _oD], [() => S3Object$, 0]];
+export var RangedConnectionDetails$: StaticStructureSchema = [
+  3,
+  n0,
+  _RCD,
+  0,
+  [_sA, _m],
+  [() => RangedSocketAddress$, 1],
+];
+export var RangedSocketAddress$: StaticStructureSchema = [3, n0, _RSA, 0, [_n, _pR], [0, () => IntegerRange$]];
+export var RegisterAgentRequest$: StaticStructureSchema = [
   3,
   n0,
   _RAR,
   0,
   [_dDi, _aD, _t],
-  [() => DiscoveryData, () => AgentDetails, 128 | 0],
+  [() => DiscoveryData$, () => AgentDetails$, 128 | 0],
 ];
-export var RegisterAgentResponse: StaticStructureSchema = [3, n0, _RARe, 0, [_aI], [0]];
-export var ReserveContactRequest: StaticStructureSchema = [
+export var RegisterAgentResponse$: StaticStructureSchema = [3, n0, _RARe, 0, [_aI], [0]];
+export var ReserveContactRequest$: StaticStructureSchema = [
   3,
   n0,
   _RCR,
   0,
   [_mPA, _sAa, _sT, _eT, _gS, _t, _tO],
-  [0, 0, 4, 4, 0, 128 | 0, () => TrackingOverrides],
+  [0, 0, 4, 4, 0, 128 | 0, () => TrackingOverrides$],
 ];
-export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_er]: _c, [_hE]: 409 }, [_me], [0]];
-TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-export var ResourceLimitExceededException: StaticErrorSchema = [
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE, { [_er]: _c, [_hE]: 409 }, [_me], [0]];
+TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _RLEE,
@@ -862,22 +883,22 @@ export var ResourceLimitExceededException: StaticErrorSchema = [
   [_me, _pN],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceLimitExceededException, __ResourceLimitExceededException);
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_er]: _c, [_hE]: 434 }, [_me], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var S3Object: StaticStructureSchema = [3, n0, _SO, 0, [_b, _k, _ve], [0, 0, 0]];
-export var S3RecordingConfig: StaticStructureSchema = [3, n0, _SRC, 0, [_bA, _rAo, _pr], [0, 0, 0]];
-export var S3RecordingDetails: StaticStructureSchema = [3, n0, _SRD, 0, [_bA, _kT], [0, 0]];
-export var SatelliteListItem: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_er]: _c, [_hE]: 434 }, [_me], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var S3Object$: StaticStructureSchema = [3, n0, _SO, 0, [_b, _k, _ve], [0, 0, 0]];
+export var S3RecordingConfig$: StaticStructureSchema = [3, n0, _SRC, 0, [_bA, _rAo, _pr], [0, 0, 0]];
+export var S3RecordingDetails$: StaticStructureSchema = [3, n0, _SRD, 0, [_bA, _kT], [0, 0]];
+export var SatelliteListItem$: StaticStructureSchema = [
   3,
   n0,
   _SLI,
   0,
   [_sI, _sAa, _nSID, _gSr, _cE],
-  [0, 0, 1, 64 | 0, () => EphemerisMetaData],
+  [0, 0, 1, 64 | 0, () => EphemerisMetaData$],
 ];
-export var SecurityDetails: StaticStructureSchema = [3, n0, _SD, 0, [_sIu, _sGI, _rAo], [64 | 0, 64 | 0, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
+export var SecurityDetails$: StaticStructureSchema = [3, n0, _SD, 0, [_sIu, _sGI, _rAo], [64 | 0, 64 | 0, 0]];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
@@ -885,26 +906,26 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   [_me, _pN],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var SocketAddress: StaticStructureSchema = [3, n0, _SA, 0, [_n, _po], [0, 1]];
-export var Source: StaticStructureSchema = [3, n0, _S, 0, [_cTo, _cIo, _cDo, _dSR], [0, 0, () => ConfigDetails, 0]];
-export var SpectrumConfig: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SocketAddress$: StaticStructureSchema = [3, n0, _SA, 0, [_n, _po], [0, 1]];
+export var Source$: StaticStructureSchema = [3, n0, _S, 0, [_cTo, _cIo, _cDo, _dSR], [0, 0, () => ConfigDetails$, 0]];
+export var SpectrumConfig$: StaticStructureSchema = [
   3,
   n0,
   _SC,
   0,
   [_cF, _ba, _pol],
-  [() => Frequency, () => FrequencyBandwidth, 0],
+  [() => Frequency$, () => FrequencyBandwidth$, 0],
 ];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TimeAzEl: StaticStructureSchema = [3, n0, _TAE, 0, [_dt, _az, _el], [1, 1, 1]];
-export var TimeRange: StaticStructureSchema = [3, n0, _TR, 0, [_sT, _eT], [4, 4]];
-export var TLEData: StaticStructureSchema = [3, n0, _TLED, 0, [_tL, _tLl, _vTR], [0, 0, () => TimeRange]];
-export var TLEEphemeris: StaticStructureSchema = [3, n0, _TLEE, 0, [_sO, _tDl], [() => S3Object, () => TLEDataList]];
-export var TrackingConfig: StaticStructureSchema = [3, n0, _TC, 0, [_au], [0]];
-export var TrackingOverrides: StaticStructureSchema = [3, n0, _TO, 0, [_pTS], [() => ProgramTrackSettings]];
-export var UntagResourceRequest: StaticStructureSchema = [
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var TimeAzEl$: StaticStructureSchema = [3, n0, _TAE, 0, [_dt, _az, _el], [1, 1, 1]];
+export var TimeRange$: StaticStructureSchema = [3, n0, _TR, 0, [_sT, _eT], [4, 4]];
+export var TLEData$: StaticStructureSchema = [3, n0, _TLED, 0, [_tL, _tLl, _vTR], [0, 0, () => TimeRange$]];
+export var TLEEphemeris$: StaticStructureSchema = [3, n0, _TLEE, 0, [_sO, _tDl], [() => S3Object$, () => TLEDataList]];
+export var TrackingConfig$: StaticStructureSchema = [3, n0, _TC, 0, [_au], [0]];
+export var TrackingOverrides$: StaticStructureSchema = [3, n0, _TO, 0, [_pTS], [() => ProgramTrackSettings$]];
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -915,430 +936,437 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateAgentStatusRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateAgentStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _UASR,
   0,
   [_aI, _tI, _aSg, _cSo],
-  [[0, 1], 0, () => AggregateStatus, () => ComponentStatusList],
+  [[0, 1], 0, () => AggregateStatus$, () => ComponentStatusList],
 ];
-export var UpdateAgentStatusResponse: StaticStructureSchema = [3, n0, _UASRp, 0, [_aI], [0]];
-export var UpdateConfigRequest: StaticStructureSchema = [
+export var UpdateAgentStatusResponse$: StaticStructureSchema = [3, n0, _UASRp, 0, [_aI], [0]];
+export var UpdateConfigRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCR,
   0,
   [_cIo, _n, _cTo, _cD],
-  [[0, 1], 0, [0, 1], () => ConfigTypeData],
+  [[0, 1], 0, [0, 1], () => ConfigTypeData$],
 ];
-export var UpdateEphemerisRequest: StaticStructureSchema = [3, n0, _UER, 0, [_eI, _ena, _n, _p], [[0, 1], 2, 0, 1]];
-export var UpdateMissionProfileRequest: StaticStructureSchema = [
+export var UpdateEphemerisRequest$: StaticStructureSchema = [3, n0, _UER, 0, [_eI, _ena, _n, _p], [[0, 1], 2, 0, 1]];
+export var UpdateMissionProfileRequest$: StaticStructureSchema = [
   3,
   n0,
   _UMPR,
   0,
   [_mPI, _n, _cPPDS, _cPPDSo, _mVCDS, _dE, _tCA, _sKK, _sKR],
-  [[0, 1], 0, 1, 1, 1, [1, n0, _DEL, 0, 64 | 0], 0, () => KmsKey, 0],
+  [[0, 1], 0, 1, 1, 1, [1, n0, _DEL, 0, 64 | 0], 0, () => KmsKey$, 0],
 ];
-export var UplinkAwsGroundStationAgentEndpoint: StaticStructureSchema = [
+export var UplinkAwsGroundStationAgentEndpoint$: StaticStructureSchema = [
   3,
   n0,
   _UAGSAE,
   0,
   [_n, _dD],
-  [0, () => UplinkDataflowDetails],
+  [0, () => UplinkDataflowDetails$],
 ];
-export var UplinkAwsGroundStationAgentEndpointDetails: StaticStructureSchema = [
+export var UplinkAwsGroundStationAgentEndpointDetails$: StaticStructureSchema = [
   3,
   n0,
   _UAGSAED,
   0,
   [_n, _dD, _aS, _aR],
-  [0, () => UplinkDataflowDetails, 0, 0],
+  [0, () => UplinkDataflowDetails$, 0, 0],
 ];
-export var UplinkConnectionDetails: StaticStructureSchema = [
+export var UplinkConnectionDetails$: StaticStructureSchema = [
   3,
   n0,
   _UCD,
   0,
   [_iAAP, _aIAPA],
-  [() => ConnectionDetails, () => RangedConnectionDetails],
+  [() => ConnectionDetails$, () => RangedConnectionDetails$],
 ];
-export var UplinkEchoConfig: StaticStructureSchema = [3, n0, _UEC, 0, [_ena, _aUCA], [2, 0]];
-export var UplinkSpectrumConfig: StaticStructureSchema = [3, n0, _USC, 0, [_cF, _pol], [() => Frequency, 0]];
-export var GroundStationServiceException: StaticErrorSchema = [-3, _sm, "GroundStationServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(GroundStationServiceException, __GroundStationServiceException);
-export var AgentCpuCoresList = 64 | 1;
-export var AzElSegmentList: StaticListSchema = [1, n0, _AESL, 0, () => AzElSegment];
-export var CapabilityArnList = 64 | 0;
-export var CapabilityHealthReasonList = 64 | 0;
-export var ComponentStatusList: StaticListSchema = [1, n0, _CSL, 0, () => ComponentStatusData];
-export var ComponentVersionList: StaticListSchema = [1, n0, _CVL, 0, () => ComponentVersion];
-export var ConfigList: StaticListSchema = [1, n0, _CL, 0, () => ConfigListItem];
-export var ContactList: StaticListSchema = [1, n0, _CLo, 0, () => ContactData];
-export var CreateEndpointDetailsList: StaticListSchema = [1, n0, _CEDL, 0, () => CreateEndpointDetails];
-export var DataflowEdge = 64 | 0;
-export var DataflowEdgeList: StaticListSchema = [1, n0, _DEL, 0, 64 | 0];
-export var DataflowEndpointGroupList: StaticListSchema = [1, n0, _DEGL, 0, () => DataflowEndpointListItem];
-export var DataflowList: StaticListSchema = [1, n0, _DL, 0, () => DataflowDetail];
-export var EndpointDetailsList: StaticListSchema = [1, n0, _EDL, 0, () => EndpointDetails];
-export var EphemeridesList: StaticListSchema = [1, n0, _EL, 0, () => EphemerisItem];
-export var EphemerisErrorReasonList: StaticListSchema = [1, n0, _EERL, 0, () => EphemerisErrorReason];
-export var EphemerisStatusList = 64 | 0;
-export var GroundStationIdList = 64 | 0;
-export var GroundStationList: StaticListSchema = [1, n0, _GSL, 0, () => GroundStationData];
-export var IpAddressList = 64 | 0;
-export var MissionProfileList: StaticListSchema = [1, n0, _MPL, 0, () => MissionProfileListItem];
-export var SatelliteList: StaticListSchema = [1, n0, _SL, 0, () => SatelliteListItem];
-export var SecurityGroupIdList = 64 | 0;
-export var StatusList = 64 | 0;
-export var SubnetList = 64 | 0;
-export var TagKeys = 64 | 0;
-export var TimeAzElList: StaticListSchema = [1, n0, _TAEL, 0, () => TimeAzEl];
-export var TLEDataList: StaticListSchema = [1, n0, _TLEDL, 0, () => TLEData];
-export var VersionStringList = 64 | 0;
-export var SignatureMap = 128 | 2;
-export var TagsMap = 128 | 0;
-export var AzElSegmentsData: StaticStructureSchema = [
+export var UplinkEchoConfig$: StaticStructureSchema = [3, n0, _UEC, 0, [_ena, _aUCA], [2, 0]];
+export var UplinkSpectrumConfig$: StaticStructureSchema = [3, n0, _USC, 0, [_cF, _pol], [() => Frequency$, 0]];
+export var GroundStationServiceException$: StaticErrorSchema = [-3, _sm, "GroundStationServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(GroundStationServiceException$, GroundStationServiceException);
+var AgentCpuCoresList = 64 | 1;
+var AzElSegmentList: StaticListSchema = [1, n0, _AESL, 0, () => AzElSegment$];
+var CapabilityArnList = 64 | 0;
+var CapabilityHealthReasonList = 64 | 0;
+var ComponentStatusList: StaticListSchema = [1, n0, _CSL, 0, () => ComponentStatusData$];
+var ComponentVersionList: StaticListSchema = [1, n0, _CVL, 0, () => ComponentVersion$];
+var ConfigList: StaticListSchema = [1, n0, _CL, 0, () => ConfigListItem$];
+var ContactList: StaticListSchema = [1, n0, _CLo, 0, () => ContactData$];
+var CreateEndpointDetailsList: StaticListSchema = [1, n0, _CEDL, 0, () => CreateEndpointDetails$];
+var DataflowEdge = 64 | 0;
+var DataflowEdgeList: StaticListSchema = [1, n0, _DEL, 0, 64 | 0];
+var DataflowEndpointGroupList: StaticListSchema = [1, n0, _DEGL, 0, () => DataflowEndpointListItem$];
+var DataflowList: StaticListSchema = [1, n0, _DL, 0, () => DataflowDetail$];
+var EndpointDetailsList: StaticListSchema = [1, n0, _EDL, 0, () => EndpointDetails$];
+var EphemeridesList: StaticListSchema = [1, n0, _EL, 0, () => EphemerisItem$];
+var EphemerisErrorReasonList: StaticListSchema = [1, n0, _EERL, 0, () => EphemerisErrorReason$];
+var EphemerisStatusList = 64 | 0;
+var GroundStationIdList = 64 | 0;
+var GroundStationList: StaticListSchema = [1, n0, _GSL, 0, () => GroundStationData$];
+var IpAddressList = 64 | 0;
+var MissionProfileList: StaticListSchema = [1, n0, _MPL, 0, () => MissionProfileListItem$];
+var SatelliteList: StaticListSchema = [1, n0, _SL, 0, () => SatelliteListItem$];
+var SecurityGroupIdList = 64 | 0;
+var StatusList = 64 | 0;
+var SubnetList = 64 | 0;
+var TagKeys = 64 | 0;
+var TimeAzElList: StaticListSchema = [1, n0, _TAEL, 0, () => TimeAzEl$];
+var TLEDataList: StaticListSchema = [1, n0, _TLEDL, 0, () => TLEData$];
+var VersionStringList = 64 | 0;
+var SignatureMap = 128 | 2;
+var TagsMap = 128 | 0;
+export var AzElSegmentsData$: StaticStructureSchema = [
   3,
   n0,
   _AESD,
   0,
   [_sO, _aED],
-  [() => S3Object, () => AzElSegments],
+  [() => S3Object$, () => AzElSegments$],
 ];
-export var ConfigDetails: StaticStructureSchema = [
+export var ConfigDetails$: StaticStructureSchema = [
   3,
   n0,
   _CDon,
   0,
   [_eD, _aDDD, _sRD],
-  [() => EndpointDetails, () => AntennaDemodDecodeDetails, () => S3RecordingDetails],
+  [() => EndpointDetails$, () => AntennaDemodDecodeDetails$, () => S3RecordingDetails$],
 ];
-export var ConfigTypeData: StaticStructureSchema = [
+export var ConfigTypeData$: StaticStructureSchema = [
   3,
   n0,
   _CTD,
   0,
   [_aDC, _tC, _dEC, _aDDDC, _aUC, _uEC, _sRC],
   [
-    () => AntennaDownlinkConfig,
-    () => TrackingConfig,
-    () => DataflowEndpointConfig,
-    () => AntennaDownlinkDemodDecodeConfig,
-    () => AntennaUplinkConfig,
-    () => UplinkEchoConfig,
-    () => S3RecordingConfig,
+    () => AntennaDownlinkConfig$,
+    () => TrackingConfig$,
+    () => DataflowEndpointConfig$,
+    () => AntennaDownlinkDemodDecodeConfig$,
+    () => AntennaUplinkConfig$,
+    () => UplinkEchoConfig$,
+    () => S3RecordingConfig$,
   ],
 ];
-export var CreateEndpointDetails: StaticStructureSchema = [
+export var CreateEndpointDetails$: StaticStructureSchema = [
   3,
   n0,
   _CED,
   0,
   [_uAGSAE, _dAGSAE],
-  [() => UplinkAwsGroundStationAgentEndpoint, () => DownlinkAwsGroundStationAgentEndpoint],
+  [() => UplinkAwsGroundStationAgentEndpoint$, () => DownlinkAwsGroundStationAgentEndpoint$],
 ];
-export var DownlinkDataflowDetails: StaticStructureSchema = [3, n0, _DDD, 0, [_aCD], [() => DownlinkConnectionDetails]];
-export var EphemerisData: StaticStructureSchema = [
+export var DownlinkDataflowDetails$: StaticStructureSchema = [
+  3,
+  n0,
+  _DDD,
+  0,
+  [_aCD],
+  [() => DownlinkConnectionDetails$],
+];
+export var EphemerisData$: StaticStructureSchema = [
   3,
   n0,
   _EDph,
   0,
   [_tl, _o, _aE],
-  [() => TLEEphemeris, () => OEMEphemeris, () => AzElEphemeris],
+  [() => TLEEphemeris$, () => OEMEphemeris$, () => AzElEphemeris$],
 ];
-export var EphemerisFilter: StaticStructureSchema = [3, n0, _EF, 0, [_aE], [() => AzElEphemerisFilter]];
-export var EphemerisTypeDescription: StaticStructureSchema = [
+export var EphemerisFilter$: StaticStructureSchema = [3, n0, _EF, 0, [_aE], [() => AzElEphemerisFilter$]];
+export var EphemerisTypeDescription$: StaticStructureSchema = [
   3,
   n0,
   _ETD,
   0,
   [_tl, _o, _aE],
-  [() => EphemerisDescription, () => EphemerisDescription, () => EphemerisDescription],
+  [() => EphemerisDescription$, () => EphemerisDescription$, () => EphemerisDescription$],
 ];
-export var KmsKey: StaticStructureSchema = [3, n0, _KK, 0, [_kKA, _kAA, _kAN], [0, 0, 0]];
-export var ProgramTrackSettings: StaticStructureSchema = [3, n0, _PTS, 0, [_aE], [() => AzElProgramTrackSettings]];
-export var UplinkDataflowDetails: StaticStructureSchema = [3, n0, _UDD, 0, [_aCD], [() => UplinkConnectionDetails]];
-export var CancelContact: StaticOperationSchema = [
+export var KmsKey$: StaticStructureSchema = [3, n0, _KK, 0, [_kKA, _kAA, _kAN], [0, 0, 0]];
+export var ProgramTrackSettings$: StaticStructureSchema = [3, n0, _PTS, 0, [_aE], [() => AzElProgramTrackSettings$]];
+export var UplinkDataflowDetails$: StaticStructureSchema = [3, n0, _UDD, 0, [_aCD], [() => UplinkConnectionDetails$]];
+export var CancelContact$: StaticOperationSchema = [
   9,
   n0,
   _CC,
   { [_h]: ["DELETE", "/contact/{contactId}", 200] },
-  () => CancelContactRequest,
-  () => ContactIdResponse,
+  () => CancelContactRequest$,
+  () => ContactIdResponse$,
 ];
-export var CreateConfig: StaticOperationSchema = [
+export var CreateConfig$: StaticOperationSchema = [
   9,
   n0,
   _CCr,
   { [_h]: ["POST", "/config", 200] },
-  () => CreateConfigRequest,
-  () => ConfigIdResponse,
+  () => CreateConfigRequest$,
+  () => ConfigIdResponse$,
 ];
-export var CreateDataflowEndpointGroup: StaticOperationSchema = [
+export var CreateDataflowEndpointGroup$: StaticOperationSchema = [
   9,
   n0,
   _CDEG,
   { [_h]: ["POST", "/dataflowEndpointGroup", 200] },
-  () => CreateDataflowEndpointGroupRequest,
-  () => DataflowEndpointGroupIdResponse,
+  () => CreateDataflowEndpointGroupRequest$,
+  () => DataflowEndpointGroupIdResponse$,
 ];
-export var CreateDataflowEndpointGroupV2: StaticOperationSchema = [
+export var CreateDataflowEndpointGroupV2$: StaticOperationSchema = [
   9,
   n0,
   _CDEGV,
   { [_h]: ["POST", "/dataflowEndpointGroupV2", 200] },
-  () => CreateDataflowEndpointGroupV2Request,
-  () => CreateDataflowEndpointGroupV2Response,
+  () => CreateDataflowEndpointGroupV2Request$,
+  () => CreateDataflowEndpointGroupV2Response$,
 ];
-export var CreateEphemeris: StaticOperationSchema = [
+export var CreateEphemeris$: StaticOperationSchema = [
   9,
   n0,
   _CE,
   { [_h]: ["POST", "/ephemeris", 200] },
-  () => CreateEphemerisRequest,
-  () => EphemerisIdResponse,
+  () => CreateEphemerisRequest$,
+  () => EphemerisIdResponse$,
 ];
-export var CreateMissionProfile: StaticOperationSchema = [
+export var CreateMissionProfile$: StaticOperationSchema = [
   9,
   n0,
   _CMP,
   { [_h]: ["POST", "/missionprofile", 200] },
-  () => CreateMissionProfileRequest,
-  () => MissionProfileIdResponse,
+  () => CreateMissionProfileRequest$,
+  () => MissionProfileIdResponse$,
 ];
-export var DeleteConfig: StaticOperationSchema = [
+export var DeleteConfig$: StaticOperationSchema = [
   9,
   n0,
   _DCel,
   { [_h]: ["DELETE", "/config/{configType}/{configId}", 200] },
-  () => DeleteConfigRequest,
-  () => ConfigIdResponse,
+  () => DeleteConfigRequest$,
+  () => ConfigIdResponse$,
 ];
-export var DeleteDataflowEndpointGroup: StaticOperationSchema = [
+export var DeleteDataflowEndpointGroup$: StaticOperationSchema = [
   9,
   n0,
   _DDEG,
   { [_h]: ["DELETE", "/dataflowEndpointGroup/{dataflowEndpointGroupId}", 200] },
-  () => DeleteDataflowEndpointGroupRequest,
-  () => DataflowEndpointGroupIdResponse,
+  () => DeleteDataflowEndpointGroupRequest$,
+  () => DataflowEndpointGroupIdResponse$,
 ];
-export var DeleteEphemeris: StaticOperationSchema = [
+export var DeleteEphemeris$: StaticOperationSchema = [
   9,
   n0,
   _DEel,
   { [_h]: ["DELETE", "/ephemeris/{ephemerisId}", 200] },
-  () => DeleteEphemerisRequest,
-  () => EphemerisIdResponse,
+  () => DeleteEphemerisRequest$,
+  () => EphemerisIdResponse$,
 ];
-export var DeleteMissionProfile: StaticOperationSchema = [
+export var DeleteMissionProfile$: StaticOperationSchema = [
   9,
   n0,
   _DMP,
   { [_h]: ["DELETE", "/missionprofile/{missionProfileId}", 200] },
-  () => DeleteMissionProfileRequest,
-  () => MissionProfileIdResponse,
+  () => DeleteMissionProfileRequest$,
+  () => MissionProfileIdResponse$,
 ];
-export var DescribeContact: StaticOperationSchema = [
+export var DescribeContact$: StaticOperationSchema = [
   9,
   n0,
   _DCes,
   { [_h]: ["GET", "/contact/{contactId}", 200] },
-  () => DescribeContactRequest,
-  () => DescribeContactResponse,
+  () => DescribeContactRequest$,
+  () => DescribeContactResponse$,
 ];
-export var DescribeEphemeris: StaticOperationSchema = [
+export var DescribeEphemeris$: StaticOperationSchema = [
   9,
   n0,
   _DEes,
   { [_h]: ["GET", "/ephemeris/{ephemerisId}", 200] },
-  () => DescribeEphemerisRequest,
-  () => DescribeEphemerisResponse,
+  () => DescribeEphemerisRequest$,
+  () => DescribeEphemerisResponse$,
 ];
-export var GetAgentConfiguration: StaticOperationSchema = [
+export var GetAgentConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GAC,
   { [_h]: ["GET", "/agent/{agentId}/configuration", 200] },
-  () => GetAgentConfigurationRequest,
-  () => GetAgentConfigurationResponse,
+  () => GetAgentConfigurationRequest$,
+  () => GetAgentConfigurationResponse$,
 ];
-export var GetAgentTaskResponseUrl: StaticOperationSchema = [
+export var GetAgentTaskResponseUrl$: StaticOperationSchema = [
   9,
   n0,
   _GATRU,
   { [_h]: ["GET", "/agentResponseUrl/{agentId}/{taskId}", 200] },
-  () => GetAgentTaskResponseUrlRequest,
-  () => GetAgentTaskResponseUrlResponse,
+  () => GetAgentTaskResponseUrlRequest$,
+  () => GetAgentTaskResponseUrlResponse$,
 ];
-export var GetConfig: StaticOperationSchema = [
+export var GetConfig$: StaticOperationSchema = [
   9,
   n0,
   _GC,
   { [_h]: ["GET", "/config/{configType}/{configId}", 200] },
-  () => GetConfigRequest,
-  () => GetConfigResponse,
+  () => GetConfigRequest$,
+  () => GetConfigResponse$,
 ];
-export var GetDataflowEndpointGroup: StaticOperationSchema = [
+export var GetDataflowEndpointGroup$: StaticOperationSchema = [
   9,
   n0,
   _GDEG,
   { [_h]: ["GET", "/dataflowEndpointGroup/{dataflowEndpointGroupId}", 200] },
-  () => GetDataflowEndpointGroupRequest,
-  () => GetDataflowEndpointGroupResponse,
+  () => GetDataflowEndpointGroupRequest$,
+  () => GetDataflowEndpointGroupResponse$,
 ];
-export var GetMinuteUsage: StaticOperationSchema = [
+export var GetMinuteUsage$: StaticOperationSchema = [
   9,
   n0,
   _GMU,
   { [_h]: ["POST", "/minute-usage", 200] },
-  () => GetMinuteUsageRequest,
-  () => GetMinuteUsageResponse,
+  () => GetMinuteUsageRequest$,
+  () => GetMinuteUsageResponse$,
 ];
-export var GetMissionProfile: StaticOperationSchema = [
+export var GetMissionProfile$: StaticOperationSchema = [
   9,
   n0,
   _GMP,
   { [_h]: ["GET", "/missionprofile/{missionProfileId}", 200] },
-  () => GetMissionProfileRequest,
-  () => GetMissionProfileResponse,
+  () => GetMissionProfileRequest$,
+  () => GetMissionProfileResponse$,
 ];
-export var GetSatellite: StaticOperationSchema = [
+export var GetSatellite$: StaticOperationSchema = [
   9,
   n0,
   _GS,
   { [_h]: ["GET", "/satellite/{satelliteId}", 200] },
-  () => GetSatelliteRequest,
-  () => GetSatelliteResponse,
+  () => GetSatelliteRequest$,
+  () => GetSatelliteResponse$,
 ];
-export var ListConfigs: StaticOperationSchema = [
+export var ListConfigs$: StaticOperationSchema = [
   9,
   n0,
   _LC,
   { [_h]: ["GET", "/config", 200] },
-  () => ListConfigsRequest,
-  () => ListConfigsResponse,
+  () => ListConfigsRequest$,
+  () => ListConfigsResponse$,
 ];
-export var ListContacts: StaticOperationSchema = [
+export var ListContacts$: StaticOperationSchema = [
   9,
   n0,
   _LCi,
   { [_h]: ["POST", "/contacts", 200] },
-  () => ListContactsRequest,
-  () => ListContactsResponse,
+  () => ListContactsRequest$,
+  () => ListContactsResponse$,
 ];
-export var ListDataflowEndpointGroups: StaticOperationSchema = [
+export var ListDataflowEndpointGroups$: StaticOperationSchema = [
   9,
   n0,
   _LDEG,
   { [_h]: ["GET", "/dataflowEndpointGroup", 200] },
-  () => ListDataflowEndpointGroupsRequest,
-  () => ListDataflowEndpointGroupsResponse,
+  () => ListDataflowEndpointGroupsRequest$,
+  () => ListDataflowEndpointGroupsResponse$,
 ];
-export var ListEphemerides: StaticOperationSchema = [
+export var ListEphemerides$: StaticOperationSchema = [
   9,
   n0,
   _LE,
   { [_h]: ["POST", "/ephemerides", 200] },
-  () => ListEphemeridesRequest,
-  () => ListEphemeridesResponse,
+  () => ListEphemeridesRequest$,
+  () => ListEphemeridesResponse$,
 ];
-export var ListGroundStations: StaticOperationSchema = [
+export var ListGroundStations$: StaticOperationSchema = [
   9,
   n0,
   _LGS,
   { [_h]: ["GET", "/groundstation", 200] },
-  () => ListGroundStationsRequest,
-  () => ListGroundStationsResponse,
+  () => ListGroundStationsRequest$,
+  () => ListGroundStationsResponse$,
 ];
-export var ListMissionProfiles: StaticOperationSchema = [
+export var ListMissionProfiles$: StaticOperationSchema = [
   9,
   n0,
   _LMP,
   { [_h]: ["GET", "/missionprofile", 200] },
-  () => ListMissionProfilesRequest,
-  () => ListMissionProfilesResponse,
+  () => ListMissionProfilesRequest$,
+  () => ListMissionProfilesResponse$,
 ];
-export var ListSatellites: StaticOperationSchema = [
+export var ListSatellites$: StaticOperationSchema = [
   9,
   n0,
   _LS,
   { [_h]: ["GET", "/satellite", 200] },
-  () => ListSatellitesRequest,
-  () => ListSatellitesResponse,
+  () => ListSatellitesRequest$,
+  () => ListSatellitesResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var RegisterAgent: StaticOperationSchema = [
+export var RegisterAgent$: StaticOperationSchema = [
   9,
   n0,
   _RA,
   { [_h]: ["POST", "/agent", 200] },
-  () => RegisterAgentRequest,
-  () => RegisterAgentResponse,
+  () => RegisterAgentRequest$,
+  () => RegisterAgentResponse$,
 ];
-export var ReserveContact: StaticOperationSchema = [
+export var ReserveContact$: StaticOperationSchema = [
   9,
   n0,
   _RC,
   { [_h]: ["POST", "/contact", 200] },
-  () => ReserveContactRequest,
-  () => ContactIdResponse,
+  () => ReserveContactRequest$,
+  () => ContactIdResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TRa,
   { [_h]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateAgentStatus: StaticOperationSchema = [
+export var UpdateAgentStatus$: StaticOperationSchema = [
   9,
   n0,
   _UAS,
   { [_h]: ["PUT", "/agent/{agentId}", 200] },
-  () => UpdateAgentStatusRequest,
-  () => UpdateAgentStatusResponse,
+  () => UpdateAgentStatusRequest$,
+  () => UpdateAgentStatusResponse$,
 ];
-export var UpdateConfig: StaticOperationSchema = [
+export var UpdateConfig$: StaticOperationSchema = [
   9,
   n0,
   _UC,
   { [_h]: ["PUT", "/config/{configType}/{configId}", 200] },
-  () => UpdateConfigRequest,
-  () => ConfigIdResponse,
+  () => UpdateConfigRequest$,
+  () => ConfigIdResponse$,
 ];
-export var UpdateEphemeris: StaticOperationSchema = [
+export var UpdateEphemeris$: StaticOperationSchema = [
   9,
   n0,
   _UE,
   { [_h]: ["PUT", "/ephemeris/{ephemerisId}", 200] },
-  () => UpdateEphemerisRequest,
-  () => EphemerisIdResponse,
+  () => UpdateEphemerisRequest$,
+  () => EphemerisIdResponse$,
 ];
-export var UpdateMissionProfile: StaticOperationSchema = [
+export var UpdateMissionProfile$: StaticOperationSchema = [
   9,
   n0,
   _UMP,
   { [_h]: ["PUT", "/missionprofile/{missionProfileId}", 200] },
-  () => UpdateMissionProfileRequest,
-  () => MissionProfileIdResponse,
+  () => UpdateMissionProfileRequest$,
+  () => MissionProfileIdResponse$,
 ];

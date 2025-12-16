@@ -9,7 +9,7 @@ import type {
   UpdateProvisionedModelThroughputRequest,
   UpdateProvisionedModelThroughputResponse,
 } from "../models/models_1";
-import { UpdateProvisionedModelThroughput } from "../schemas/schemas_0";
+import { UpdateProvisionedModelThroughput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class UpdateProvisionedModelThroughputCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "UpdateProvisionedModelThroughput", {})
   .n("BedrockClient", "UpdateProvisionedModelThroughputCommand")
-  .sc(UpdateProvisionedModelThroughput)
+  .sc(UpdateProvisionedModelThroughput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

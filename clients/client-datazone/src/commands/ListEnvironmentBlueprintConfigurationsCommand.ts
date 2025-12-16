@@ -9,7 +9,7 @@ import type {
   ListEnvironmentBlueprintConfigurationsInput,
   ListEnvironmentBlueprintConfigurationsOutput,
 } from "../models/models_1";
-import { ListEnvironmentBlueprintConfigurations } from "../schemas/schemas_0";
+import { ListEnvironmentBlueprintConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class ListEnvironmentBlueprintConfigurationsCommand extends $Command
   })
   .s("DataZone", "ListEnvironmentBlueprintConfigurations", {})
   .n("DataZoneClient", "ListEnvironmentBlueprintConfigurationsCommand")
-  .sc(ListEnvironmentBlueprintConfigurations)
+  .sc(ListEnvironmentBlueprintConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListWhatsAppMessageTemplatesInput, ListWhatsAppMessageTemplatesOutput } from "../models/models_0";
-import { ListWhatsAppMessageTemplates } from "../schemas/schemas_0";
+import { ListWhatsAppMessageTemplates$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -113,7 +113,7 @@ export class ListWhatsAppMessageTemplatesCommand extends $Command
   })
   .s("SocialMessaging", "ListWhatsAppMessageTemplates", {})
   .n("SocialMessagingClient", "ListWhatsAppMessageTemplatesCommand")
-  .sc(ListWhatsAppMessageTemplates)
+  .sc(ListWhatsAppMessageTemplates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

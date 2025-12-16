@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CompleteWebAuthnRegistrationRequest, CompleteWebAuthnRegistrationResponse } from "../models/models_0";
-import { CompleteWebAuthnRegistration } from "../schemas/schemas_0";
+import { CompleteWebAuthnRegistration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class CompleteWebAuthnRegistrationCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "CompleteWebAuthnRegistration", {})
   .n("CognitoIdentityProviderClient", "CompleteWebAuthnRegistrationCommand")
-  .sc(CompleteWebAuthnRegistration)
+  .sc(CompleteWebAuthnRegistration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

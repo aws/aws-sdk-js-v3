@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteManagedEndpointRequest, DeleteManagedEndpointResponse } from "../models/models_0";
-import { DeleteManagedEndpoint } from "../schemas/schemas_0";
+import { DeleteManagedEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class DeleteManagedEndpointCommand extends $Command
   })
   .s("AwsChicagoWebService", "DeleteManagedEndpoint", {})
   .n("EMRContainersClient", "DeleteManagedEndpointCommand")
-  .sc(DeleteManagedEndpoint)
+  .sc(DeleteManagedEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

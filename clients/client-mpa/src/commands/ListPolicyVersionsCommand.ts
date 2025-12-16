@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListPolicyVersionsRequest, ListPolicyVersionsResponse } from "../models/models_0";
 import type { MPAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MPAClient";
-import { ListPolicyVersions } from "../schemas/schemas_0";
+import { ListPolicyVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class ListPolicyVersionsCommand extends $Command
   })
   .s("AWSFluffyCoreService", "ListPolicyVersions", {})
   .n("MPAClient", "ListPolicyVersionsCommand")
-  .sc(ListPolicyVersions)
+  .sc(ListPolicyVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

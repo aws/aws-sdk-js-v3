@@ -9,7 +9,7 @@ import type {
   PutGraphqlApiEnvironmentVariablesRequest,
   PutGraphqlApiEnvironmentVariablesResponse,
 } from "../models/models_0";
-import { PutGraphqlApiEnvironmentVariables } from "../schemas/schemas_0";
+import { PutGraphqlApiEnvironmentVariables$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -151,7 +151,7 @@ export class PutGraphqlApiEnvironmentVariablesCommand extends $Command
   })
   .s("AWSDeepdishControlPlaneService", "PutGraphqlApiEnvironmentVariables", {})
   .n("AppSyncClient", "PutGraphqlApiEnvironmentVariablesCommand")
-  .sc(PutGraphqlApiEnvironmentVariables)
+  .sc(PutGraphqlApiEnvironmentVariables$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

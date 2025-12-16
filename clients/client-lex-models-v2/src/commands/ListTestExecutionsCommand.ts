@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import type { ListTestExecutionsRequest, ListTestExecutionsResponse } from "../models/models_1";
-import { ListTestExecutions } from "../schemas/schemas_0";
+import { ListTestExecutions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class ListTestExecutionsCommand extends $Command
   })
   .s("LexModelBuildingServiceV2", "ListTestExecutions", {})
   .n("LexModelsV2Client", "ListTestExecutionsCommand")
-  .sc(ListTestExecutions)
+  .sc(ListTestExecutions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

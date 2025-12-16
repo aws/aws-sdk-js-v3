@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralSellingClient";
-import { ListOpportunities } from "../schemas/schemas_0";
+import { ListOpportunities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -162,7 +162,7 @@ export class ListOpportunitiesCommand extends $Command
   })
   .s("AWSPartnerCentralSelling", "ListOpportunities", {})
   .n("PartnerCentralSellingClient", "ListOpportunitiesCommand")
-  .sc(ListOpportunities)
+  .sc(ListOpportunities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

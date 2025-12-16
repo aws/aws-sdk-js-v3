@@ -9,7 +9,7 @@ import type {
   DeleteConfigurationSetEventDestinationResponse,
 } from "../models/models_0";
 import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { DeleteConfigurationSetEventDestination } from "../schemas/schemas_0";
+import { DeleteConfigurationSetEventDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command
   })
   .s("AmazonPinpointEmailService", "DeleteConfigurationSetEventDestination", {})
   .n("PinpointEmailClient", "DeleteConfigurationSetEventDestinationCommand")
-  .sc(DeleteConfigurationSetEventDestination)
+  .sc(DeleteConfigurationSetEventDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

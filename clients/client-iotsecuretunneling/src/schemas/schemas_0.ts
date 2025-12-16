@@ -79,15 +79,12 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import {
-  LimitExceededException as __LimitExceededException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-} from "../models/errors";
-import { IoTSecureTunnelingServiceException as __IoTSecureTunnelingServiceException } from "../models/IoTSecureTunnelingServiceException";
+import { LimitExceededException, ResourceNotFoundException } from "../models/errors";
+import { IoTSecureTunnelingServiceException } from "../models/IoTSecureTunnelingServiceException";
 
 /* eslint no-var: 0 */
-export var ClientAccessToken: StaticSimpleSchema = [0, n0, _CAT, 8, 0];
-export var CloseTunnelRequest: StaticStructureSchema = [
+var ClientAccessToken: StaticSimpleSchema = [0, n0, _CAT, 8, 0];
+export var CloseTunnelRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTR,
@@ -98,12 +95,12 @@ export var CloseTunnelRequest: StaticStructureSchema = [
     [2, { [_hQ]: _d }],
   ],
 ];
-export var CloseTunnelResponse: StaticStructureSchema = [3, n0, _CTRl, 0, [], []];
-export var ConnectionState: StaticStructureSchema = [3, n0, _CS, 0, [_s, _lUA], [0, 4]];
-export var DescribeTunnelRequest: StaticStructureSchema = [3, n0, _DTR, 0, [_tI], [[0, 1]]];
-export var DescribeTunnelResponse: StaticStructureSchema = [3, n0, _DTRe, 0, [_t], [() => Tunnel]];
-export var DestinationConfig: StaticStructureSchema = [3, n0, _DC, 0, [_tN, _se], [0, 64 | 0]];
-export var LimitExceededException: StaticErrorSchema = [
+export var CloseTunnelResponse$: StaticStructureSchema = [3, n0, _CTRl, 0, [], []];
+export var ConnectionState$: StaticStructureSchema = [3, n0, _CS, 0, [_s, _lUA], [0, 4]];
+export var DescribeTunnelRequest$: StaticStructureSchema = [3, n0, _DTR, 0, [_tI], [[0, 1]]];
+export var DescribeTunnelResponse$: StaticStructureSchema = [3, n0, _DTRe, 0, [_t], [() => Tunnel$]];
+export var DestinationConfig$: StaticStructureSchema = [3, n0, _DC, 0, [_tN, _se], [0, 64 | 0]];
+export var LimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
@@ -111,10 +108,10 @@ export var LimitExceededException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, { [_hQ]: _rA }]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [() => TagList]];
-export var ListTunnelsRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, { [_hQ]: _rA }]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [() => TagList]];
+export var ListTunnelsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTR,
@@ -126,16 +123,16 @@ export var ListTunnelsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListTunnelsResponse: StaticStructureSchema = [3, n0, _LTRi, 0, [_tS, _nT], [() => TunnelSummaryList, 0]];
-export var OpenTunnelRequest: StaticStructureSchema = [
+export var ListTunnelsResponse$: StaticStructureSchema = [3, n0, _LTRi, 0, [_tS, _nT], [() => TunnelSummaryList, 0]];
+export var OpenTunnelRequest$: StaticStructureSchema = [
   3,
   n0,
   _OTR,
   0,
   [_de, _ta, _dC, _tC],
-  [0, () => TagList, () => DestinationConfig, () => TimeoutConfig],
+  [0, () => TagList, () => DestinationConfig$, () => TimeoutConfig$],
 ];
-export var OpenTunnelResponse: StaticStructureSchema = [
+export var OpenTunnelResponse$: StaticStructureSchema = [
   3,
   n0,
   _OTRp,
@@ -143,7 +140,7 @@ export var OpenTunnelResponse: StaticStructureSchema = [
   [_tI, _tA, _sAT, _dAT],
   [0, 0, [() => ClientAccessToken, 0], [() => ClientAccessToken, 0]],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -151,16 +148,16 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var RotateTunnelAccessTokenRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var RotateTunnelAccessTokenRequest$: StaticStructureSchema = [
   3,
   n0,
   _RTATR,
   0,
   [_tI, _cM, _dC],
-  [[0, 1], 0, () => DestinationConfig],
+  [[0, 1], 0, () => DestinationConfig$],
 ];
-export var RotateTunnelAccessTokenResponse: StaticStructureSchema = [
+export var RotateTunnelAccessTokenResponse$: StaticStructureSchema = [
   3,
   n0,
   _RTATRo,
@@ -168,11 +165,11 @@ export var RotateTunnelAccessTokenResponse: StaticStructureSchema = [
   [_tA, _sAT, _dAT],
   [0, [() => ClientAccessToken, 0], [() => ClientAccessToken, 0]],
 ];
-export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _v], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _ta], [0, () => TagList]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TimeoutConfig: StaticStructureSchema = [3, n0, _TC, 0, [_mLTM], [1]];
-export var Tunnel: StaticStructureSchema = [
+export var Tag$: StaticStructureSchema = [3, n0, _T, 0, [_k, _v], [0, 0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _ta], [0, () => TagList]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var TimeoutConfig$: StaticStructureSchema = [3, n0, _TC, 0, [_mLTM], [1]];
+export var Tunnel$: StaticStructureSchema = [
   3,
   n0,
   _Tu,
@@ -182,20 +179,20 @@ export var Tunnel: StaticStructureSchema = [
     0,
     0,
     0,
-    () => ConnectionState,
-    () => ConnectionState,
+    () => ConnectionState$,
+    () => ConnectionState$,
     0,
-    () => DestinationConfig,
-    () => TimeoutConfig,
+    () => DestinationConfig$,
+    () => TimeoutConfig$,
     () => TagList,
     4,
     4,
   ],
 ];
-export var TunnelSummary: StaticStructureSchema = [3, n0, _TS, 0, [_tI, _tA, _s, _de, _cA, _lUA], [0, 0, 0, 0, 4, 4]];
-export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [0, 64 | 0]];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var IoTSecureTunnelingServiceException: StaticErrorSchema = [
+export var TunnelSummary$: StaticStructureSchema = [3, n0, _TS, 0, [_tI, _tA, _s, _de, _cA, _lUA], [0, 0, 0, 0, 4, 4]];
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [0, 64 | 0]];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var IoTSecureTunnelingServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "IoTSecureTunnelingServiceException",
@@ -203,72 +200,72 @@ export var IoTSecureTunnelingServiceException: StaticErrorSchema = [
   [],
   [],
 ];
-TypeRegistry.for(_sm).registerError(IoTSecureTunnelingServiceException, __IoTSecureTunnelingServiceException);
-export var ServiceList = 64 | 0;
-export var TagKeyList = 64 | 0;
-export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
-export var TunnelSummaryList: StaticListSchema = [1, n0, _TSL, 0, () => TunnelSummary];
-export var CloseTunnel: StaticOperationSchema = [
+TypeRegistry.for(_sm).registerError(IoTSecureTunnelingServiceException$, IoTSecureTunnelingServiceException);
+var ServiceList = 64 | 0;
+var TagKeyList = 64 | 0;
+var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
+var TunnelSummaryList: StaticListSchema = [1, n0, _TSL, 0, () => TunnelSummary$];
+export var CloseTunnel$: StaticOperationSchema = [
   9,
   n0,
   _CT,
   { [_h]: ["DELETE", "/tunnels/{tunnelId}", 200] },
-  () => CloseTunnelRequest,
-  () => CloseTunnelResponse,
+  () => CloseTunnelRequest$,
+  () => CloseTunnelResponse$,
 ];
-export var DescribeTunnel: StaticOperationSchema = [
+export var DescribeTunnel$: StaticOperationSchema = [
   9,
   n0,
   _DT,
   { [_h]: ["GET", "/tunnels/{tunnelId}", 200] },
-  () => DescribeTunnelRequest,
-  () => DescribeTunnelResponse,
+  () => DescribeTunnelRequest$,
+  () => DescribeTunnelResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListTunnels: StaticOperationSchema = [
+export var ListTunnels$: StaticOperationSchema = [
   9,
   n0,
   _LT,
   { [_h]: ["GET", "/tunnels", 200] },
-  () => ListTunnelsRequest,
-  () => ListTunnelsResponse,
+  () => ListTunnelsRequest$,
+  () => ListTunnelsResponse$,
 ];
-export var OpenTunnel: StaticOperationSchema = [
+export var OpenTunnel$: StaticOperationSchema = [
   9,
   n0,
   _OT,
   { [_h]: ["POST", "/tunnels", 200] },
-  () => OpenTunnelRequest,
-  () => OpenTunnelResponse,
+  () => OpenTunnelRequest$,
+  () => OpenTunnelResponse$,
 ];
-export var RotateTunnelAccessToken: StaticOperationSchema = [
+export var RotateTunnelAccessToken$: StaticOperationSchema = [
   9,
   n0,
   _RTAT,
   { [_h]: ["POST", "/tunnel/{tunnelId}/rotate", 200] },
-  () => RotateTunnelAccessTokenRequest,
-  () => RotateTunnelAccessTokenResponse,
+  () => RotateTunnelAccessTokenRequest$,
+  () => RotateTunnelAccessTokenResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["POST", "/untag", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];

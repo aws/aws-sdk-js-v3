@@ -9,7 +9,7 @@ import type {
   DisableAwsNetworkPerformanceMetricSubscriptionRequest,
   DisableAwsNetworkPerformanceMetricSubscriptionResult,
 } from "../models/models_5";
-import { DisableAwsNetworkPerformanceMetricSubscription } from "../schemas/schemas_0";
+import { DisableAwsNetworkPerformanceMetricSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class DisableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comm
   })
   .s("AmazonEC2", "DisableAwsNetworkPerformanceMetricSubscription", {})
   .n("EC2Client", "DisableAwsNetworkPerformanceMetricSubscriptionCommand")
-  .sc(DisableAwsNetworkPerformanceMetricSubscription)
+  .sc(DisableAwsNetworkPerformanceMetricSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

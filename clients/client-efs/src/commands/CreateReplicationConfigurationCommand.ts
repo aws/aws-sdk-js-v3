@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateReplicationConfigurationRequest, ReplicationConfigurationDescription } from "../models/models_0";
-import { CreateReplicationConfiguration } from "../schemas/schemas_0";
+import { CreateReplicationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -168,7 +168,7 @@ export class CreateReplicationConfigurationCommand extends $Command
   })
   .s("MagnolioAPIService_v20150201", "CreateReplicationConfiguration", {})
   .n("EFSClient", "CreateReplicationConfigurationCommand")
-  .sc(CreateReplicationConfiguration)
+  .sc(CreateReplicationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

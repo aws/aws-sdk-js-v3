@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: SagemakerEdgeClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.sagemakeredge" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.sagemakeredge",
+      version: "2020-09-23",
+      serviceTarget: "AmazonSageMakerEdge",
+    },
     serviceId: config?.serviceId ?? "Sagemaker Edge",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

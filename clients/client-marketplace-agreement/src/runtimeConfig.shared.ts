@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: MarketplaceAgreementClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.marketplaceagreement",
-        serviceTarget: "AWSMPCommerceService_v20200301",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.marketplaceagreement",
+      version: "2020-03-01",
+      serviceTarget: "AWSMPCommerceService_v20200301",
+    },
     serviceId: config?.serviceId ?? "Marketplace Agreement",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

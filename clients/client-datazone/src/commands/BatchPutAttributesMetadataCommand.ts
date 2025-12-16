@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchPutAttributesMetadataInput, BatchPutAttributesMetadataOutput } from "../models/models_0";
-import { BatchPutAttributesMetadata } from "../schemas/schemas_0";
+import { BatchPutAttributesMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class BatchPutAttributesMetadataCommand extends $Command
   })
   .s("DataZone", "BatchPutAttributesMetadata", {})
   .n("DataZoneClient", "BatchPutAttributesMetadataCommand")
-  .sc(BatchPutAttributesMetadata)
+  .sc(BatchPutAttributesMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

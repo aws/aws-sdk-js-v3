@@ -9,7 +9,7 @@ import type {
   DescribeSecurityGroupVpcAssociationsRequest,
   DescribeSecurityGroupVpcAssociationsResult,
 } from "../models/models_4";
-import { DescribeSecurityGroupVpcAssociations } from "../schemas/schemas_0";
+import { DescribeSecurityGroupVpcAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DescribeSecurityGroupVpcAssociationsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeSecurityGroupVpcAssociations", {})
   .n("EC2Client", "DescribeSecurityGroupVpcAssociationsCommand")
-  .sc(DescribeSecurityGroupVpcAssociations)
+  .sc(DescribeSecurityGroupVpcAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { SendConnectorEventRequest, SendConnectorEventResponse } from "../models/models_0";
-import { SendConnectorEvent } from "../schemas/schemas_0";
+import { SendConnectorEvent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -314,7 +314,7 @@ export class SendConnectorEventCommand extends $Command
   })
   .s("IotManagedIntegrations", "SendConnectorEvent", {})
   .n("IoTManagedIntegrationsClient", "SendConnectorEventCommand")
-  .sc(SendConnectorEvent)
+  .sc(SendConnectorEvent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

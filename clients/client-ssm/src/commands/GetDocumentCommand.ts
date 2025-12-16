@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDocumentRequest, GetDocumentResult } from "../models/models_0";
-import { GetDocument } from "../schemas/schemas_0";
+import { GetDocument$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -112,7 +112,7 @@ export class GetDocumentCommand extends $Command
   })
   .s("AmazonSSM", "GetDocument", {})
   .n("SSMClient", "GetDocumentCommand")
-  .sc(GetDocument)
+  .sc(GetDocument$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListTagsLogGroupRequest, ListTagsLogGroupResponse } from "../models/models_0";
-import { ListTagsLogGroup } from "../schemas/schemas_0";
+import { ListTagsLogGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class ListTagsLogGroupCommand extends $Command
   })
   .s("Logs_20140328", "ListTagsLogGroup", {})
   .n("CloudWatchLogsClient", "ListTagsLogGroupCommand")
-  .sc(ListTagsLogGroup)
+  .sc(ListTagsLogGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

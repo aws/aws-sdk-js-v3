@@ -274,23 +274,23 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  UnprocessableException as __UnprocessableException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  UnprocessableException,
+  ValidationException,
 } from "../models/errors";
-import { NeptuneGraphServiceException as __NeptuneGraphServiceException } from "../models/NeptuneGraphServiceException";
+import { NeptuneGraphServiceException } from "../models/NeptuneGraphServiceException";
 
 /* eslint no-var: 0 */
-export var QueryResponseBlob: StaticSimpleSchema = [0, n0, _QRB, { [_s]: 1 }, 42];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var CancelExportTaskInput: StaticStructureSchema = [3, n0, _CETI, 0, [_tI], [[0, 1]]];
-export var CancelExportTaskOutput: StaticStructureSchema = [
+var QueryResponseBlob: StaticSimpleSchema = [0, n0, _QRB, { [_s]: 1 }, 42];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var CancelExportTaskInput$: StaticStructureSchema = [3, n0, _CETI, 0, [_tI], [[0, 1]]];
+export var CancelExportTaskOutput$: StaticStructureSchema = [
   3,
   n0,
   _CETO,
@@ -298,8 +298,8 @@ export var CancelExportTaskOutput: StaticStructureSchema = [
   [_gI, _rA, _tIa, _st, _f, _d, _kKI, _pT, _sR],
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var CancelImportTaskInput: StaticStructureSchema = [3, n0, _CITI, 0, [_tI], [[0, 1]]];
-export var CancelImportTaskOutput: StaticStructureSchema = [
+export var CancelImportTaskInput$: StaticStructureSchema = [3, n0, _CITI, 0, [_tI], [[0, 1]]];
+export var CancelImportTaskOutput$: StaticStructureSchema = [
   3,
   n0,
   _CITO,
@@ -307,7 +307,7 @@ export var CancelImportTaskOutput: StaticStructureSchema = [
   [_gI, _tIa, _so, _f, _pT, _rA, _st],
   [0, 0, 0, 0, 0, 0, 0],
 ];
-export var CancelQueryInput: StaticStructureSchema = [
+export var CancelQueryInput$: StaticStructureSchema = [
   3,
   n0,
   _CQI,
@@ -318,26 +318,26 @@ export var CancelQueryInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _r], [0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateGraphInput: StaticStructureSchema = [
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _r], [0, 0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateGraphInput$: StaticStructureSchema = [
   3,
   n0,
   _CGI,
   0,
   [_gN, _t, _pC, _kKI, _vSC, _rC, _dP, _pM],
-  [0, 128 | 0, 2, 0, () => VectorSearchConfiguration, 1, 2, 1],
+  [0, 128 | 0, 2, 0, () => VectorSearchConfiguration$, 1, 2, 1],
 ];
-export var CreateGraphOutput: StaticStructureSchema = [
+export var CreateGraphOutput$: StaticStructureSchema = [
   3,
   n0,
   _CGO,
   0,
   [_i, _n, _a, _st, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
-  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration, 1, 0, 0, 2, 0],
+  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0],
 ];
-export var CreateGraphSnapshotInput: StaticStructureSchema = [3, n0, _CGSI, 0, [_gIr, _sN, _t], [0, 0, 128 | 0]];
-export var CreateGraphSnapshotOutput: StaticStructureSchema = [
+export var CreateGraphSnapshotInput$: StaticStructureSchema = [3, n0, _CGSI, 0, [_gIr, _sN, _t], [0, 0, 128 | 0]];
+export var CreateGraphSnapshotOutput$: StaticStructureSchema = [
   3,
   n0,
   _CGSO,
@@ -345,23 +345,23 @@ export var CreateGraphSnapshotOutput: StaticStructureSchema = [
   [_i, _n, _a, _sGI, _sCT, _st, _kKI],
   [0, 0, 0, 0, 4, 0, 0],
 ];
-export var CreateGraphUsingImportTaskInput: StaticStructureSchema = [
+export var CreateGraphUsingImportTaskInput$: StaticStructureSchema = [
   3,
   n0,
   _CGUITI,
   0,
   [_gN, _t, _pC, _kKI, _vSC, _rC, _dP, _iO, _mPM, _mPMi, _fOE, _so, _f, _pT, _bNH, _rA],
-  [0, 128 | 0, 2, 0, () => VectorSearchConfiguration, 1, 2, () => ImportOptions, 1, 1, 2, 0, 0, 0, 0, 0],
+  [0, 128 | 0, 2, 0, () => VectorSearchConfiguration$, 1, 2, () => ImportOptions$, 1, 1, 2, 0, 0, 0, 0, 0],
 ];
-export var CreateGraphUsingImportTaskOutput: StaticStructureSchema = [
+export var CreateGraphUsingImportTaskOutput$: StaticStructureSchema = [
   3,
   n0,
   _CGUITO,
   0,
   [_gI, _tIa, _so, _f, _pT, _rA, _st, _iO],
-  [0, 0, 0, 0, 0, 0, 0, () => ImportOptions],
+  [0, 0, 0, 0, 0, 0, 0, () => ImportOptions$],
 ];
-export var CreatePrivateGraphEndpointInput: StaticStructureSchema = [
+export var CreatePrivateGraphEndpointInput$: StaticStructureSchema = [
   3,
   n0,
   _CPGEI,
@@ -369,7 +369,7 @@ export var CreatePrivateGraphEndpointInput: StaticStructureSchema = [
   [_gIr, _vI, _sI, _vSGI],
   [[0, 1], 0, 64 | 0, 64 | 0],
 ];
-export var CreatePrivateGraphEndpointOutput: StaticStructureSchema = [
+export var CreatePrivateGraphEndpointOutput$: StaticStructureSchema = [
   3,
   n0,
   _CPGEO,
@@ -377,7 +377,7 @@ export var CreatePrivateGraphEndpointOutput: StaticStructureSchema = [
   [_vI, _sI, _st, _vEI],
   [0, 64 | 0, 0, 0],
 ];
-export var DeleteGraphInput: StaticStructureSchema = [
+export var DeleteGraphInput$: StaticStructureSchema = [
   3,
   n0,
   _DGI,
@@ -388,16 +388,16 @@ export var DeleteGraphInput: StaticStructureSchema = [
     [2, { [_hQ]: _sS }],
   ],
 ];
-export var DeleteGraphOutput: StaticStructureSchema = [
+export var DeleteGraphOutput$: StaticStructureSchema = [
   3,
   n0,
   _DGO,
   0,
   [_i, _n, _a, _st, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
-  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration, 1, 0, 0, 2, 0],
+  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0],
 ];
-export var DeleteGraphSnapshotInput: StaticStructureSchema = [3, n0, _DGSI, 0, [_sIn], [[0, 1]]];
-export var DeleteGraphSnapshotOutput: StaticStructureSchema = [
+export var DeleteGraphSnapshotInput$: StaticStructureSchema = [3, n0, _DGSI, 0, [_sIn], [[0, 1]]];
+export var DeleteGraphSnapshotOutput$: StaticStructureSchema = [
   3,
   n0,
   _DGSO,
@@ -405,7 +405,7 @@ export var DeleteGraphSnapshotOutput: StaticStructureSchema = [
   [_i, _n, _a, _sGI, _sCT, _st, _kKI],
   [0, 0, 0, 0, 4, 0, 0],
 ];
-export var DeletePrivateGraphEndpointInput: StaticStructureSchema = [
+export var DeletePrivateGraphEndpointInput$: StaticStructureSchema = [
   3,
   n0,
   _DPGEI,
@@ -416,7 +416,7 @@ export var DeletePrivateGraphEndpointInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeletePrivateGraphEndpointOutput: StaticStructureSchema = [
+export var DeletePrivateGraphEndpointOutput$: StaticStructureSchema = [
   3,
   n0,
   _DPGEO,
@@ -424,8 +424,8 @@ export var DeletePrivateGraphEndpointOutput: StaticStructureSchema = [
   [_vI, _sI, _st, _vEI],
   [0, 64 | 0, 0, 0],
 ];
-export var EdgeStructure: StaticStructureSchema = [3, n0, _ES, 0, [_co, _eP], [1, 64 | 0]];
-export var ExecuteQueryInput: StaticStructureSchema = [
+export var EdgeStructure$: StaticStructureSchema = [3, n0, _ES, 0, [_co, _eP], [1, 64 | 0]];
+export var ExecuteQueryInput$: StaticStructureSchema = [
   3,
   n0,
   _EQI,
@@ -433,8 +433,8 @@ export var ExecuteQueryInput: StaticStructureSchema = [
   [_gIr, _qS, _l, _p, _pCl, _eM, _qTM],
   [[0, { [_hL]: 1, [_hH]: _gIr }], [0, { [_jN]: _q }], 0, 128 | 15, 0, [0, { [_jN]: _ex }], 1],
 ];
-export var ExecuteQueryOutput: StaticStructureSchema = [3, n0, _EQO, 0, [_pa], [[() => QueryResponseBlob, 16]]];
-export var ExportFilter: StaticStructureSchema = [
+export var ExecuteQueryOutput$: StaticStructureSchema = [3, n0, _EQO, 0, [_pa], [[() => QueryResponseBlob, 16]]];
+export var ExportFilter$: StaticStructureSchema = [
   3,
   n0,
   _EF,
@@ -442,10 +442,10 @@ export var ExportFilter: StaticStructureSchema = [
   [_vF, _eF],
   [() => ExportFilterPerLabelMap, () => ExportFilterPerLabelMap],
 ];
-export var ExportFilterElement: StaticStructureSchema = [3, n0, _EFE, 0, [_pr], [() => ExportFilterPropertyMap]];
-export var ExportFilterPropertyAttributes: StaticStructureSchema = [3, n0, _EFPA, 0, [_oT, _sPN, _mVH], [0, 0, 0]];
-export var ExportTaskDetails: StaticStructureSchema = [3, n0, _ETD, 0, [_sT, _tES, _pP, _nVW, _nEW], [4, 1, 1, 1, 1]];
-export var ExportTaskSummary: StaticStructureSchema = [
+export var ExportFilterElement$: StaticStructureSchema = [3, n0, _EFE, 0, [_pr], [() => ExportFilterPropertyMap]];
+export var ExportFilterPropertyAttributes$: StaticStructureSchema = [3, n0, _EFPA, 0, [_oT, _sPN, _mVH], [0, 0, 0]];
+export var ExportTaskDetails$: StaticStructureSchema = [3, n0, _ETD, 0, [_sT, _tES, _pP, _nVW, _nEW], [4, 1, 1, 1, 1]];
+export var ExportTaskSummary$: StaticStructureSchema = [
   3,
   n0,
   _ETS,
@@ -453,26 +453,26 @@ export var ExportTaskSummary: StaticStructureSchema = [
   [_gI, _rA, _tIa, _st, _f, _d, _kKI, _pT, _sR],
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var GetExportTaskInput: StaticStructureSchema = [3, n0, _GETI, 0, [_tI], [[0, 1]]];
-export var GetExportTaskOutput: StaticStructureSchema = [
+export var GetExportTaskInput$: StaticStructureSchema = [3, n0, _GETI, 0, [_tI], [[0, 1]]];
+export var GetExportTaskOutput$: StaticStructureSchema = [
   3,
   n0,
   _GETO,
   0,
   [_gI, _rA, _tIa, _st, _f, _d, _kKI, _pT, _sR, _eTD, _eFx],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => ExportTaskDetails, () => ExportFilter],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => ExportTaskDetails$, () => ExportFilter$],
 ];
-export var GetGraphInput: StaticStructureSchema = [3, n0, _GGI, 0, [_gIr], [[0, 1]]];
-export var GetGraphOutput: StaticStructureSchema = [
+export var GetGraphInput$: StaticStructureSchema = [3, n0, _GGI, 0, [_gIr], [[0, 1]]];
+export var GetGraphOutput$: StaticStructureSchema = [
   3,
   n0,
   _GGO,
   0,
   [_i, _n, _a, _st, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
-  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration, 1, 0, 0, 2, 0],
+  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0],
 ];
-export var GetGraphSnapshotInput: StaticStructureSchema = [3, n0, _GGSI, 0, [_sIn], [[0, 1]]];
-export var GetGraphSnapshotOutput: StaticStructureSchema = [
+export var GetGraphSnapshotInput$: StaticStructureSchema = [3, n0, _GGSI, 0, [_sIn], [[0, 1]]];
+export var GetGraphSnapshotOutput$: StaticStructureSchema = [
   3,
   n0,
   _GGSO,
@@ -480,7 +480,7 @@ export var GetGraphSnapshotOutput: StaticStructureSchema = [
   [_i, _n, _a, _sGI, _sCT, _st, _kKI],
   [0, 0, 0, 0, 4, 0, 0],
 ];
-export var GetGraphSummaryInput: StaticStructureSchema = [
+export var GetGraphSummaryInput$: StaticStructureSchema = [
   3,
   n0,
   _GGSIe,
@@ -491,24 +491,24 @@ export var GetGraphSummaryInput: StaticStructureSchema = [
     [0, { [_hQ]: _mo }],
   ],
 ];
-export var GetGraphSummaryOutput: StaticStructureSchema = [
+export var GetGraphSummaryOutput$: StaticStructureSchema = [
   3,
   n0,
   _GGSOe,
   0,
   [_v, _lSCT, _gS],
-  [0, 5, () => GraphDataSummary],
+  [0, 5, () => GraphDataSummary$],
 ];
-export var GetImportTaskInput: StaticStructureSchema = [3, n0, _GITI, 0, [_tI], [[0, 1]]];
-export var GetImportTaskOutput: StaticStructureSchema = [
+export var GetImportTaskInput$: StaticStructureSchema = [3, n0, _GITI, 0, [_tI], [[0, 1]]];
+export var GetImportTaskOutput$: StaticStructureSchema = [
   3,
   n0,
   _GITO,
   0,
   [_gI, _tIa, _so, _f, _pT, _rA, _st, _iO, _iTD, _aN, _sR],
-  [0, 0, 0, 0, 0, 0, 0, () => ImportOptions, () => ImportTaskDetails, 1, 0],
+  [0, 0, 0, 0, 0, 0, 0, () => ImportOptions$, () => ImportTaskDetails$, 1, 0],
 ];
-export var GetPrivateGraphEndpointInput: StaticStructureSchema = [
+export var GetPrivateGraphEndpointInput$: StaticStructureSchema = [
   3,
   n0,
   _GPGEI,
@@ -519,7 +519,7 @@ export var GetPrivateGraphEndpointInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetPrivateGraphEndpointOutput: StaticStructureSchema = [
+export var GetPrivateGraphEndpointOutput$: StaticStructureSchema = [
   3,
   n0,
   _GPGEO,
@@ -527,7 +527,7 @@ export var GetPrivateGraphEndpointOutput: StaticStructureSchema = [
   [_vI, _sI, _st, _vEI],
   [0, 64 | 0, 0, 0],
 ];
-export var GetQueryInput: StaticStructureSchema = [
+export var GetQueryInput$: StaticStructureSchema = [
   3,
   n0,
   _GQI,
@@ -538,8 +538,8 @@ export var GetQueryInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetQueryOutput: StaticStructureSchema = [3, n0, _GQO, 0, [_i, _qS, _w, _el, _sta], [0, 0, 1, 1, 0]];
-export var GraphDataSummary: StaticStructureSchema = [
+export var GetQueryOutput$: StaticStructureSchema = [3, n0, _GQO, 0, [_i, _qS, _w, _el, _sta], [0, 0, 1, 1, 0]];
+export var GraphDataSummary$: StaticStructureSchema = [
   3,
   n0,
   _GDS,
@@ -562,7 +562,7 @@ export var GraphDataSummary: StaticStructureSchema = [
     () => EdgeStructures,
   ],
 ];
-export var GraphSnapshotSummary: StaticStructureSchema = [
+export var GraphSnapshotSummary$: StaticStructureSchema = [
   3,
   n0,
   _GSS,
@@ -570,7 +570,7 @@ export var GraphSnapshotSummary: StaticStructureSchema = [
   [_i, _n, _a, _sGI, _sCT, _st, _kKI],
   [0, 0, 0, 0, 4, 0, 0],
 ];
-export var GraphSummary: StaticStructureSchema = [
+export var GraphSummary$: StaticStructureSchema = [
   3,
   n0,
   _GS,
@@ -578,7 +578,7 @@ export var GraphSummary: StaticStructureSchema = [
   [_i, _n, _a, _st, _pM, _pC, _en, _rC, _kKI, _dP],
   [0, 0, 0, 0, 1, 2, 0, 1, 0, 2],
 ];
-export var ImportTaskDetails: StaticStructureSchema = [
+export var ImportTaskDetails$: StaticStructureSchema = [
   3,
   n0,
   _ITD,
@@ -586,7 +586,7 @@ export var ImportTaskDetails: StaticStructureSchema = [
   [_st, _sT, _tES, _pP, _eC, _eD, _sC, _dEC],
   [0, 4, 1, 1, 1, 0, 1, 1],
 ];
-export var ImportTaskSummary: StaticStructureSchema = [
+export var ImportTaskSummary$: StaticStructureSchema = [
   3,
   n0,
   _ITS,
@@ -594,9 +594,9 @@ export var ImportTaskSummary: StaticStructureSchema = [
   [_gI, _tIa, _so, _f, _pT, _rA, _st],
   [0, 0, 0, 0, 0, 0, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var ListExportTasksInput: StaticStructureSchema = [
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var ListExportTasksInput$: StaticStructureSchema = [
   3,
   n0,
   _LETI,
@@ -608,7 +608,7 @@ export var ListExportTasksInput: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListExportTasksOutput: StaticStructureSchema = [
+export var ListExportTasksOutput$: StaticStructureSchema = [
   3,
   n0,
   _LETO,
@@ -616,7 +616,7 @@ export var ListExportTasksOutput: StaticStructureSchema = [
   [_ta, _nT],
   [() => ExportTaskSummaryList, 0],
 ];
-export var ListGraphsInput: StaticStructureSchema = [
+export var ListGraphsInput$: StaticStructureSchema = [
   3,
   n0,
   _LGI,
@@ -627,7 +627,7 @@ export var ListGraphsInput: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListGraphSnapshotsInput: StaticStructureSchema = [
+export var ListGraphSnapshotsInput$: StaticStructureSchema = [
   3,
   n0,
   _LGSI,
@@ -639,7 +639,7 @@ export var ListGraphSnapshotsInput: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListGraphSnapshotsOutput: StaticStructureSchema = [
+export var ListGraphSnapshotsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LGSO,
@@ -647,8 +647,8 @@ export var ListGraphSnapshotsOutput: StaticStructureSchema = [
   [_gSr, _nT],
   [() => GraphSnapshotSummaryList, 0],
 ];
-export var ListGraphsOutput: StaticStructureSchema = [3, n0, _LGO, 0, [_g, _nT], [() => GraphSummaryList, 0]];
-export var ListImportTasksInput: StaticStructureSchema = [
+export var ListGraphsOutput$: StaticStructureSchema = [3, n0, _LGO, 0, [_g, _nT], [() => GraphSummaryList, 0]];
+export var ListImportTasksInput$: StaticStructureSchema = [
   3,
   n0,
   _LITI,
@@ -659,7 +659,7 @@ export var ListImportTasksInput: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListImportTasksOutput: StaticStructureSchema = [
+export var ListImportTasksOutput$: StaticStructureSchema = [
   3,
   n0,
   _LITO,
@@ -667,7 +667,7 @@ export var ListImportTasksOutput: StaticStructureSchema = [
   [_ta, _nT],
   [() => ImportTaskSummaryList, 0],
 ];
-export var ListPrivateGraphEndpointsInput: StaticStructureSchema = [
+export var ListPrivateGraphEndpointsInput$: StaticStructureSchema = [
   3,
   n0,
   _LPGEI,
@@ -679,7 +679,7 @@ export var ListPrivateGraphEndpointsInput: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListPrivateGraphEndpointsOutput: StaticStructureSchema = [
+export var ListPrivateGraphEndpointsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LPGEO,
@@ -687,7 +687,7 @@ export var ListPrivateGraphEndpointsOutput: StaticStructureSchema = [
   [_pGE, _nT],
   [() => PrivateGraphEndpointSummaryList, 0],
 ];
-export var ListQueriesInput: StaticStructureSchema = [
+export var ListQueriesInput$: StaticStructureSchema = [
   3,
   n0,
   _LQI,
@@ -699,12 +699,12 @@ export var ListQueriesInput: StaticStructureSchema = [
     [0, { [_hQ]: _sta }],
   ],
 ];
-export var ListQueriesOutput: StaticStructureSchema = [3, n0, _LQO, 0, [_qu], [() => QuerySummaryList]];
-export var ListTagsForResourceInput: StaticStructureSchema = [3, n0, _LTFRI, 0, [_rAe], [[0, 1]]];
-export var ListTagsForResourceOutput: StaticStructureSchema = [3, n0, _LTFRO, 0, [_t], [128 | 0]];
-export var NeptuneImportOptions: StaticStructureSchema = [3, n0, _NIO, 0, [_sEP, _sEKKI, _pDVL, _pEI], [0, 0, 2, 2]];
-export var NodeStructure: StaticStructureSchema = [3, n0, _NS, 0, [_co, _nP, _dOEL], [1, 64 | 0, 64 | 0]];
-export var PrivateGraphEndpointSummary: StaticStructureSchema = [
+export var ListQueriesOutput$: StaticStructureSchema = [3, n0, _LQO, 0, [_qu], [() => QuerySummaryList]];
+export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI, 0, [_rAe], [[0, 1]]];
+export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO, 0, [_t], [128 | 0]];
+export var NeptuneImportOptions$: StaticStructureSchema = [3, n0, _NIO, 0, [_sEP, _sEKKI, _pDVL, _pEI], [0, 0, 2, 2]];
+export var NodeStructure$: StaticStructureSchema = [3, n0, _NS, 0, [_co, _nP, _dOEL], [1, 64 | 0, 64 | 0]];
+export var PrivateGraphEndpointSummary$: StaticStructureSchema = [
   3,
   n0,
   _PGES,
@@ -712,19 +712,19 @@ export var PrivateGraphEndpointSummary: StaticStructureSchema = [
   [_vI, _sI, _st, _vEI],
   [0, 64 | 0, 0, 0],
 ];
-export var QuerySummary: StaticStructureSchema = [3, n0, _QS, 0, [_i, _qS, _w, _el, _sta], [0, 0, 1, 1, 0]];
-export var ResetGraphInput: StaticStructureSchema = [3, n0, _RGI, 0, [_gIr, _sS], [[0, 1], 2]];
-export var ResetGraphOutput: StaticStructureSchema = [
+export var QuerySummary$: StaticStructureSchema = [3, n0, _QS, 0, [_i, _qS, _w, _el, _sta], [0, 0, 1, 1, 0]];
+export var ResetGraphInput$: StaticStructureSchema = [3, n0, _RGI, 0, [_gIr, _sS], [[0, 1], 2]];
+export var ResetGraphOutput$: StaticStructureSchema = [
   3,
   n0,
   _RGO,
   0,
   [_i, _n, _a, _st, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
-  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration, 1, 0, 0, 2, 0],
+  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var RestoreGraphFromSnapshotInput: StaticStructureSchema = [
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var RestoreGraphFromSnapshotInput$: StaticStructureSchema = [
   3,
   n0,
   _RGFSI,
@@ -732,15 +732,15 @@ export var RestoreGraphFromSnapshotInput: StaticStructureSchema = [
   [_sIn, _gN, _pM, _dP, _t, _rC, _pC],
   [[0, 1], 0, 1, 2, 128 | 0, 1, 2],
 ];
-export var RestoreGraphFromSnapshotOutput: StaticStructureSchema = [
+export var RestoreGraphFromSnapshotOutput$: StaticStructureSchema = [
   3,
   n0,
   _RGFSO,
   0,
   [_i, _n, _a, _st, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
-  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration, 1, 0, 0, 2, 0],
+  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
+export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
@@ -748,64 +748,64 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   [_m, _rI, _rT, _sCe, _qC],
   [0, 0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var StartExportTaskInput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var StartExportTaskInput$: StaticStructureSchema = [
   3,
   n0,
   _SETI,
   0,
   [_gIr, _rA, _f, _d, _kKI, _pT, _eFx, _t],
-  [0, 0, 0, 0, 0, 0, () => ExportFilter, 128 | 0],
+  [0, 0, 0, 0, 0, 0, () => ExportFilter$, 128 | 0],
 ];
-export var StartExportTaskOutput: StaticStructureSchema = [
+export var StartExportTaskOutput$: StaticStructureSchema = [
   3,
   n0,
   _SETO,
   0,
   [_gI, _rA, _tIa, _st, _f, _d, _kKI, _pT, _sR, _eFx],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => ExportFilter],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => ExportFilter$],
 ];
-export var StartGraphInput: StaticStructureSchema = [3, n0, _SGI, 0, [_gIr], [[0, 1]]];
-export var StartGraphOutput: StaticStructureSchema = [
+export var StartGraphInput$: StaticStructureSchema = [3, n0, _SGI, 0, [_gIr], [[0, 1]]];
+export var StartGraphOutput$: StaticStructureSchema = [
   3,
   n0,
   _SGO,
   0,
   [_i, _n, _a, _st, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
-  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration, 1, 0, 0, 2, 0],
+  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0],
 ];
-export var StartImportTaskInput: StaticStructureSchema = [
+export var StartImportTaskInput$: StaticStructureSchema = [
   3,
   n0,
   _SITI,
   0,
   [_iO, _fOE, _so, _f, _pT, _bNH, _gIr, _rA],
-  [() => ImportOptions, 2, 0, 0, 0, 0, [0, 1], 0],
+  [() => ImportOptions$, 2, 0, 0, 0, 0, [0, 1], 0],
 ];
-export var StartImportTaskOutput: StaticStructureSchema = [
+export var StartImportTaskOutput$: StaticStructureSchema = [
   3,
   n0,
   _SITO,
   0,
   [_gI, _tIa, _so, _f, _pT, _rA, _st, _iO],
-  [0, 0, 0, 0, 0, 0, 0, () => ImportOptions],
+  [0, 0, 0, 0, 0, 0, 0, () => ImportOptions$],
 ];
-export var StopGraphInput: StaticStructureSchema = [3, n0, _SGIt, 0, [_gIr], [[0, 1]]];
-export var StopGraphOutput: StaticStructureSchema = [
+export var StopGraphInput$: StaticStructureSchema = [3, n0, _SGIt, 0, [_gIr], [[0, 1]]];
+export var StopGraphOutput$: StaticStructureSchema = [
   3,
   n0,
   _SGOt,
   0,
   [_i, _n, _a, _st, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
-  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration, 1, 0, 0, 2, 0],
+  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0],
 ];
-export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_rAe, _t], [[0, 1], 128 | 0]];
-export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var UnprocessableException: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 422 }, [_m, _r], [0, 0]];
-TypeRegistry.for(n0).registerError(UnprocessableException, __UnprocessableException);
-export var UntagResourceInput: StaticStructureSchema = [
+export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI, 0, [_rAe, _t], [[0, 1], 128 | 0]];
+export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UnprocessableException$: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 422 }, [_m, _r], [0, 0]];
+TypeRegistry.for(n0).registerError(UnprocessableException$, UnprocessableException);
+export var UntagResourceInput$: StaticStructureSchema = [
   3,
   n0,
   _URI,
@@ -816,314 +816,314 @@ export var UntagResourceInput: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
-export var UpdateGraphInput: StaticStructureSchema = [3, n0, _UGI, 0, [_gIr, _pC, _pM, _dP], [[0, 1], 2, 1, 2]];
-export var UpdateGraphOutput: StaticStructureSchema = [
+export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO, 0, [], []];
+export var UpdateGraphInput$: StaticStructureSchema = [3, n0, _UGI, 0, [_gIr, _pC, _pM, _dP], [[0, 1], 2, 1, 2]];
+export var UpdateGraphOutput$: StaticStructureSchema = [
   3,
   n0,
   _UGO,
   0,
   [_i, _n, _a, _st, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
-  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration, 1, 0, 0, 2, 0],
+  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0],
 ];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m, _r], [0, 0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var VectorSearchConfiguration: StaticStructureSchema = [3, n0, _VSC, 0, [_di], [1]];
-export var __Unit = "unit" as const;
-export var NeptuneGraphServiceException: StaticErrorSchema = [-3, _sm, "NeptuneGraphServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(NeptuneGraphServiceException, __NeptuneGraphServiceException);
-export var EdgeLabels = 64 | 0;
-export var EdgeProperties = 64 | 0;
-export var EdgeStructures: StaticListSchema = [1, n0, _ESd, 0, () => EdgeStructure];
-export var ExportTaskSummaryList: StaticListSchema = [1, n0, _ETSL, 0, () => ExportTaskSummary];
-export var GraphSnapshotSummaryList: StaticListSchema = [1, n0, _GSSL, 0, () => GraphSnapshotSummary];
-export var GraphSummaryList: StaticListSchema = [1, n0, _GSL, 0, () => GraphSummary];
-export var ImportTaskSummaryList: StaticListSchema = [1, n0, _ITSL, 0, () => ImportTaskSummary];
-export var LongValuedMapList: StaticListSchema = [1, n0, _LVML, 0, 128 | 1];
-export var NodeLabels = 64 | 0;
-export var NodeProperties = 64 | 0;
-export var NodeStructures: StaticListSchema = [1, n0, _NSo, 0, () => NodeStructure];
-export var OutgoingEdgeLabels = 64 | 0;
-export var PrivateGraphEndpointSummaryList: StaticListSchema = [1, n0, _PGESL, 0, () => PrivateGraphEndpointSummary];
-export var QuerySummaryList: StaticListSchema = [1, n0, _QSL, 0, () => QuerySummary];
-export var SecurityGroupIds = 64 | 0;
-export var SubnetIds = 64 | 0;
-export var TagKeyList = 64 | 0;
-export var DocumentValuedMap = 128 | 15;
-export var ExportFilterPerLabelMap: StaticMapSchema = [2, n0, _EFPLM, 0, 0, () => ExportFilterElement];
-export var ExportFilterPropertyMap: StaticMapSchema = [2, n0, _EFPM, 0, 0, () => ExportFilterPropertyAttributes];
-export var LongValuedMap = 128 | 1;
-export var TagMap = 128 | 0;
-export var ImportOptions: StaticStructureSchema = [3, n0, _IO, 0, [_ne], [() => NeptuneImportOptions]];
-export var CancelExportTask: StaticOperationSchema = [
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m, _r], [0, 0]];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var VectorSearchConfiguration$: StaticStructureSchema = [3, n0, _VSC, 0, [_di], [1]];
+var __Unit = "unit" as const;
+export var NeptuneGraphServiceException$: StaticErrorSchema = [-3, _sm, "NeptuneGraphServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(NeptuneGraphServiceException$, NeptuneGraphServiceException);
+var EdgeLabels = 64 | 0;
+var EdgeProperties = 64 | 0;
+var EdgeStructures: StaticListSchema = [1, n0, _ESd, 0, () => EdgeStructure$];
+var ExportTaskSummaryList: StaticListSchema = [1, n0, _ETSL, 0, () => ExportTaskSummary$];
+var GraphSnapshotSummaryList: StaticListSchema = [1, n0, _GSSL, 0, () => GraphSnapshotSummary$];
+var GraphSummaryList: StaticListSchema = [1, n0, _GSL, 0, () => GraphSummary$];
+var ImportTaskSummaryList: StaticListSchema = [1, n0, _ITSL, 0, () => ImportTaskSummary$];
+var LongValuedMapList: StaticListSchema = [1, n0, _LVML, 0, 128 | 1];
+var NodeLabels = 64 | 0;
+var NodeProperties = 64 | 0;
+var NodeStructures: StaticListSchema = [1, n0, _NSo, 0, () => NodeStructure$];
+var OutgoingEdgeLabels = 64 | 0;
+var PrivateGraphEndpointSummaryList: StaticListSchema = [1, n0, _PGESL, 0, () => PrivateGraphEndpointSummary$];
+var QuerySummaryList: StaticListSchema = [1, n0, _QSL, 0, () => QuerySummary$];
+var SecurityGroupIds = 64 | 0;
+var SubnetIds = 64 | 0;
+var TagKeyList = 64 | 0;
+var DocumentValuedMap = 128 | 15;
+var ExportFilterPerLabelMap: StaticMapSchema = [2, n0, _EFPLM, 0, 0, () => ExportFilterElement$];
+var ExportFilterPropertyMap: StaticMapSchema = [2, n0, _EFPM, 0, 0, () => ExportFilterPropertyAttributes$];
+var LongValuedMap = 128 | 1;
+var TagMap = 128 | 0;
+export var ImportOptions$: StaticStructureSchema = [3, n0, _IO, 0, [_ne], [() => NeptuneImportOptions$]];
+export var CancelExportTask$: StaticOperationSchema = [
   9,
   n0,
   _CET,
   { [_h]: ["DELETE", "/exporttasks/{taskIdentifier}", 200] },
-  () => CancelExportTaskInput,
-  () => CancelExportTaskOutput,
+  () => CancelExportTaskInput$,
+  () => CancelExportTaskOutput$,
 ];
-export var CancelImportTask: StaticOperationSchema = [
+export var CancelImportTask$: StaticOperationSchema = [
   9,
   n0,
   _CIT,
   { [_h]: ["DELETE", "/importtasks/{taskIdentifier}", 200] },
-  () => CancelImportTaskInput,
-  () => CancelImportTaskOutput,
+  () => CancelImportTaskInput$,
+  () => CancelImportTaskOutput$,
 ];
-export var CancelQuery: StaticOperationSchema = [
+export var CancelQuery$: StaticOperationSchema = [
   9,
   n0,
   _CQ,
   { [_en]: ["{graphIdentifier}."], [_h]: ["DELETE", "/queries/{queryId}", 200] },
-  () => CancelQueryInput,
+  () => CancelQueryInput$,
   () => __Unit,
 ];
-export var CreateGraph: StaticOperationSchema = [
+export var CreateGraph$: StaticOperationSchema = [
   9,
   n0,
   _CG,
   { [_h]: ["POST", "/graphs", 201] },
-  () => CreateGraphInput,
-  () => CreateGraphOutput,
+  () => CreateGraphInput$,
+  () => CreateGraphOutput$,
 ];
-export var CreateGraphSnapshot: StaticOperationSchema = [
+export var CreateGraphSnapshot$: StaticOperationSchema = [
   9,
   n0,
   _CGS,
   { [_h]: ["POST", "/snapshots", 201] },
-  () => CreateGraphSnapshotInput,
-  () => CreateGraphSnapshotOutput,
+  () => CreateGraphSnapshotInput$,
+  () => CreateGraphSnapshotOutput$,
 ];
-export var CreateGraphUsingImportTask: StaticOperationSchema = [
+export var CreateGraphUsingImportTask$: StaticOperationSchema = [
   9,
   n0,
   _CGUIT,
   { [_h]: ["POST", "/importtasks", 201] },
-  () => CreateGraphUsingImportTaskInput,
-  () => CreateGraphUsingImportTaskOutput,
+  () => CreateGraphUsingImportTaskInput$,
+  () => CreateGraphUsingImportTaskOutput$,
 ];
-export var CreatePrivateGraphEndpoint: StaticOperationSchema = [
+export var CreatePrivateGraphEndpoint$: StaticOperationSchema = [
   9,
   n0,
   _CPGE,
   { [_h]: ["POST", "/graphs/{graphIdentifier}/endpoints/", 201] },
-  () => CreatePrivateGraphEndpointInput,
-  () => CreatePrivateGraphEndpointOutput,
+  () => CreatePrivateGraphEndpointInput$,
+  () => CreatePrivateGraphEndpointOutput$,
 ];
-export var DeleteGraph: StaticOperationSchema = [
+export var DeleteGraph$: StaticOperationSchema = [
   9,
   n0,
   _DG,
   { [_h]: ["DELETE", "/graphs/{graphIdentifier}", 200] },
-  () => DeleteGraphInput,
-  () => DeleteGraphOutput,
+  () => DeleteGraphInput$,
+  () => DeleteGraphOutput$,
 ];
-export var DeleteGraphSnapshot: StaticOperationSchema = [
+export var DeleteGraphSnapshot$: StaticOperationSchema = [
   9,
   n0,
   _DGS,
   { [_h]: ["DELETE", "/snapshots/{snapshotIdentifier}", 200] },
-  () => DeleteGraphSnapshotInput,
-  () => DeleteGraphSnapshotOutput,
+  () => DeleteGraphSnapshotInput$,
+  () => DeleteGraphSnapshotOutput$,
 ];
-export var DeletePrivateGraphEndpoint: StaticOperationSchema = [
+export var DeletePrivateGraphEndpoint$: StaticOperationSchema = [
   9,
   n0,
   _DPGE,
   { [_h]: ["DELETE", "/graphs/{graphIdentifier}/endpoints/{vpcId}", 200] },
-  () => DeletePrivateGraphEndpointInput,
-  () => DeletePrivateGraphEndpointOutput,
+  () => DeletePrivateGraphEndpointInput$,
+  () => DeletePrivateGraphEndpointOutput$,
 ];
-export var ExecuteQuery: StaticOperationSchema = [
+export var ExecuteQuery$: StaticOperationSchema = [
   9,
   n0,
   _EQ,
   { [_h]: ["POST", "/queries", 200], [_en]: ["{graphIdentifier}."] },
-  () => ExecuteQueryInput,
-  () => ExecuteQueryOutput,
+  () => ExecuteQueryInput$,
+  () => ExecuteQueryOutput$,
 ];
-export var GetExportTask: StaticOperationSchema = [
+export var GetExportTask$: StaticOperationSchema = [
   9,
   n0,
   _GET,
   { [_h]: ["GET", "/exporttasks/{taskIdentifier}", 200] },
-  () => GetExportTaskInput,
-  () => GetExportTaskOutput,
+  () => GetExportTaskInput$,
+  () => GetExportTaskOutput$,
 ];
-export var GetGraph: StaticOperationSchema = [
+export var GetGraph$: StaticOperationSchema = [
   9,
   n0,
   _GG,
   { [_h]: ["GET", "/graphs/{graphIdentifier}", 200] },
-  () => GetGraphInput,
-  () => GetGraphOutput,
+  () => GetGraphInput$,
+  () => GetGraphOutput$,
 ];
-export var GetGraphSnapshot: StaticOperationSchema = [
+export var GetGraphSnapshot$: StaticOperationSchema = [
   9,
   n0,
   _GGS,
   { [_h]: ["GET", "/snapshots/{snapshotIdentifier}", 200] },
-  () => GetGraphSnapshotInput,
-  () => GetGraphSnapshotOutput,
+  () => GetGraphSnapshotInput$,
+  () => GetGraphSnapshotOutput$,
 ];
-export var GetGraphSummary: StaticOperationSchema = [
+export var GetGraphSummary$: StaticOperationSchema = [
   9,
   n0,
   _GGSe,
   { [_en]: ["{graphIdentifier}."], [_h]: ["GET", "/summary", 200] },
-  () => GetGraphSummaryInput,
-  () => GetGraphSummaryOutput,
+  () => GetGraphSummaryInput$,
+  () => GetGraphSummaryOutput$,
 ];
-export var GetImportTask: StaticOperationSchema = [
+export var GetImportTask$: StaticOperationSchema = [
   9,
   n0,
   _GIT,
   { [_h]: ["GET", "/importtasks/{taskIdentifier}", 200] },
-  () => GetImportTaskInput,
-  () => GetImportTaskOutput,
+  () => GetImportTaskInput$,
+  () => GetImportTaskOutput$,
 ];
-export var GetPrivateGraphEndpoint: StaticOperationSchema = [
+export var GetPrivateGraphEndpoint$: StaticOperationSchema = [
   9,
   n0,
   _GPGE,
   { [_h]: ["GET", "/graphs/{graphIdentifier}/endpoints/{vpcId}", 200] },
-  () => GetPrivateGraphEndpointInput,
-  () => GetPrivateGraphEndpointOutput,
+  () => GetPrivateGraphEndpointInput$,
+  () => GetPrivateGraphEndpointOutput$,
 ];
-export var GetQuery: StaticOperationSchema = [
+export var GetQuery$: StaticOperationSchema = [
   9,
   n0,
   _GQ,
   { [_en]: ["{graphIdentifier}."], [_h]: ["GET", "/queries/{queryId}", 200] },
-  () => GetQueryInput,
-  () => GetQueryOutput,
+  () => GetQueryInput$,
+  () => GetQueryOutput$,
 ];
-export var ListExportTasks: StaticOperationSchema = [
+export var ListExportTasks$: StaticOperationSchema = [
   9,
   n0,
   _LET,
   { [_h]: ["GET", "/exporttasks", 200] },
-  () => ListExportTasksInput,
-  () => ListExportTasksOutput,
+  () => ListExportTasksInput$,
+  () => ListExportTasksOutput$,
 ];
-export var ListGraphs: StaticOperationSchema = [
+export var ListGraphs$: StaticOperationSchema = [
   9,
   n0,
   _LG,
   { [_h]: ["GET", "/graphs", 200] },
-  () => ListGraphsInput,
-  () => ListGraphsOutput,
+  () => ListGraphsInput$,
+  () => ListGraphsOutput$,
 ];
-export var ListGraphSnapshots: StaticOperationSchema = [
+export var ListGraphSnapshots$: StaticOperationSchema = [
   9,
   n0,
   _LGS,
   { [_h]: ["GET", "/snapshots", 200] },
-  () => ListGraphSnapshotsInput,
-  () => ListGraphSnapshotsOutput,
+  () => ListGraphSnapshotsInput$,
+  () => ListGraphSnapshotsOutput$,
 ];
-export var ListImportTasks: StaticOperationSchema = [
+export var ListImportTasks$: StaticOperationSchema = [
   9,
   n0,
   _LIT,
   { [_h]: ["GET", "/importtasks", 200] },
-  () => ListImportTasksInput,
-  () => ListImportTasksOutput,
+  () => ListImportTasksInput$,
+  () => ListImportTasksOutput$,
 ];
-export var ListPrivateGraphEndpoints: StaticOperationSchema = [
+export var ListPrivateGraphEndpoints$: StaticOperationSchema = [
   9,
   n0,
   _LPGE,
   { [_h]: ["GET", "/graphs/{graphIdentifier}/endpoints/", 200] },
-  () => ListPrivateGraphEndpointsInput,
-  () => ListPrivateGraphEndpointsOutput,
+  () => ListPrivateGraphEndpointsInput$,
+  () => ListPrivateGraphEndpointsOutput$,
 ];
-export var ListQueries: StaticOperationSchema = [
+export var ListQueries$: StaticOperationSchema = [
   9,
   n0,
   _LQ,
   { [_en]: ["{graphIdentifier}."], [_h]: ["GET", "/queries", 200] },
-  () => ListQueriesInput,
-  () => ListQueriesOutput,
+  () => ListQueriesInput$,
+  () => ListQueriesOutput$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceInput,
-  () => ListTagsForResourceOutput,
+  () => ListTagsForResourceInput$,
+  () => ListTagsForResourceOutput$,
 ];
-export var ResetGraph: StaticOperationSchema = [
+export var ResetGraph$: StaticOperationSchema = [
   9,
   n0,
   _RG,
   { [_h]: ["PUT", "/graphs/{graphIdentifier}", 200] },
-  () => ResetGraphInput,
-  () => ResetGraphOutput,
+  () => ResetGraphInput$,
+  () => ResetGraphOutput$,
 ];
-export var RestoreGraphFromSnapshot: StaticOperationSchema = [
+export var RestoreGraphFromSnapshot$: StaticOperationSchema = [
   9,
   n0,
   _RGFS,
   { [_h]: ["POST", "/snapshots/{snapshotIdentifier}/restore", 201] },
-  () => RestoreGraphFromSnapshotInput,
-  () => RestoreGraphFromSnapshotOutput,
+  () => RestoreGraphFromSnapshotInput$,
+  () => RestoreGraphFromSnapshotOutput$,
 ];
-export var StartExportTask: StaticOperationSchema = [
+export var StartExportTask$: StaticOperationSchema = [
   9,
   n0,
   _SET,
   { [_h]: ["POST", "/exporttasks", 201] },
-  () => StartExportTaskInput,
-  () => StartExportTaskOutput,
+  () => StartExportTaskInput$,
+  () => StartExportTaskOutput$,
 ];
-export var StartGraph: StaticOperationSchema = [
+export var StartGraph$: StaticOperationSchema = [
   9,
   n0,
   _SG,
   { [_h]: ["POST", "/graphs/{graphIdentifier}/start", 200] },
-  () => StartGraphInput,
-  () => StartGraphOutput,
+  () => StartGraphInput$,
+  () => StartGraphOutput$,
 ];
-export var StartImportTask: StaticOperationSchema = [
+export var StartImportTask$: StaticOperationSchema = [
   9,
   n0,
   _SIT,
   { [_h]: ["POST", "/graphs/{graphIdentifier}/importtasks", 201] },
-  () => StartImportTaskInput,
-  () => StartImportTaskOutput,
+  () => StartImportTaskInput$,
+  () => StartImportTaskOutput$,
 ];
-export var StopGraph: StaticOperationSchema = [
+export var StopGraph$: StaticOperationSchema = [
   9,
   n0,
   _SGt,
   { [_h]: ["POST", "/graphs/{graphIdentifier}/stop", 200] },
-  () => StopGraphInput,
-  () => StopGraphOutput,
+  () => StopGraphInput$,
+  () => StopGraphOutput$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceInput,
-  () => TagResourceOutput,
+  () => TagResourceInput$,
+  () => TagResourceOutput$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceInput,
-  () => UntagResourceOutput,
+  () => UntagResourceInput$,
+  () => UntagResourceOutput$,
 ];
-export var UpdateGraph: StaticOperationSchema = [
+export var UpdateGraph$: StaticOperationSchema = [
   9,
   n0,
   _UG,
   { [_h]: ["PATCH", "/graphs/{graphIdentifier}", 200] },
-  () => UpdateGraphInput,
-  () => UpdateGraphOutput,
+  () => UpdateGraphInput$,
+  () => UpdateGraphOutput$,
 ];

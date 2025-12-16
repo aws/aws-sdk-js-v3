@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateMembershipRequest } from "../models/models_0";
-import { DisassociateMembership } from "../schemas/schemas_0";
+import { DisassociateMembership$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DisassociateMembershipCommand extends $Command
   })
   .s("AmazonDetective", "DisassociateMembership", {})
   .n("DetectiveClient", "DisassociateMembershipCommand")
-  .sc(DisassociateMembership)
+  .sc(DisassociateMembership$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

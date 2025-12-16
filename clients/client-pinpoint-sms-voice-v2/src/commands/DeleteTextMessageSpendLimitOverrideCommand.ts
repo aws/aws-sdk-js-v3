@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DeleteTextMessageSpendLimitOverride } from "../schemas/schemas_0";
+import { DeleteTextMessageSpendLimitOverride$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DeleteTextMessageSpendLimitOverrideCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DeleteTextMessageSpendLimitOverride", {})
   .n("PinpointSMSVoiceV2Client", "DeleteTextMessageSpendLimitOverrideCommand")
-  .sc(DeleteTextMessageSpendLimitOverride)
+  .sc(DeleteTextMessageSpendLimitOverride$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

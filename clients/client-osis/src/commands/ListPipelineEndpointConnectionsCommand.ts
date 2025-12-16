@@ -9,7 +9,7 @@ import type {
   ListPipelineEndpointConnectionsResponse,
 } from "../models/models_0";
 import type { OSISClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OSISClient";
-import { ListPipelineEndpointConnections } from "../schemas/schemas_0";
+import { ListPipelineEndpointConnections$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class ListPipelineEndpointConnectionsCommand extends $Command
   })
   .s("AmazonOpenSearchIngestionService", "ListPipelineEndpointConnections", {})
   .n("OSISClient", "ListPipelineEndpointConnectionsCommand")
-  .sc(ListPipelineEndpointConnections)
+  .sc(ListPipelineEndpointConnections$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

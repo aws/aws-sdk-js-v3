@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListActsRequest, ListActsResponse } from "../models/models_0";
 import type { NovaActClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NovaActClient";
-import { ListActs } from "../schemas/schemas_0";
+import { ListActs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class ListActsCommand extends $Command
   })
   .s("AmazonNovaAgentsDataPlane", "ListActs", {})
   .n("NovaActClient", "ListActsCommand")
-  .sc(ListActs)
+  .sc(ListActs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

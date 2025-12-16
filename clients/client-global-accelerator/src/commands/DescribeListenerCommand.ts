@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { DescribeListenerRequest, DescribeListenerResponse } from "../models/models_0";
-import { DescribeListener } from "../schemas/schemas_0";
+import { DescribeListener$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DescribeListenerCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "DescribeListener", {})
   .n("GlobalAcceleratorClient", "DescribeListenerCommand")
-  .sc(DescribeListener)
+  .sc(DescribeListener$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

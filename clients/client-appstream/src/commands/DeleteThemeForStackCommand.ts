@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteThemeForStackRequest, DeleteThemeForStackResult } from "../models/models_0";
-import { DeleteThemeForStack } from "../schemas/schemas_0";
+import { DeleteThemeForStack$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -80,7 +80,7 @@ export class DeleteThemeForStackCommand extends $Command
   })
   .s("PhotonAdminProxyService", "DeleteThemeForStack", {})
   .n("AppStreamClient", "DeleteThemeForStackCommand")
-  .sc(DeleteThemeForStack)
+  .sc(DeleteThemeForStack$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

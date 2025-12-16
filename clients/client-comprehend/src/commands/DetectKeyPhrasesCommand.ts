@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DetectKeyPhrasesRequest, DetectKeyPhrasesResponse } from "../models/models_0";
-import { DetectKeyPhrases } from "../schemas/schemas_0";
+import { DetectKeyPhrases$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DetectKeyPhrasesCommand extends $Command
   })
   .s("Comprehend_20171127", "DetectKeyPhrases", {})
   .n("ComprehendClient", "DetectKeyPhrasesCommand")
-  .sc(DetectKeyPhrases)
+  .sc(DetectKeyPhrases$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

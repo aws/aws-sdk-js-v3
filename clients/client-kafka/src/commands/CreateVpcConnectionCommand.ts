@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import type { CreateVpcConnectionRequest, CreateVpcConnectionResponse } from "../models/models_0";
-import { CreateVpcConnection } from "../schemas/schemas_0";
+import { CreateVpcConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class CreateVpcConnectionCommand extends $Command
   })
   .s("Kafka", "CreateVpcConnection", {})
   .n("KafkaClient", "CreateVpcConnectionCommand")
-  .sc(CreateVpcConnection)
+  .sc(CreateVpcConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

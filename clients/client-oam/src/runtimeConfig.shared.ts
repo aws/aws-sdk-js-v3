@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: OAMClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.oam" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.oam",
+      version: "2022-06-10",
+      serviceTarget: "oamservice",
+    },
     serviceId: config?.serviceId ?? "OAM",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

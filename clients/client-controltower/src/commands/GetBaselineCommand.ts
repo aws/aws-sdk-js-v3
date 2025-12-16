@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetBaselineInput, GetBaselineOutput } from "../models/models_0";
-import { GetBaseline } from "../schemas/schemas_0";
+import { GetBaseline$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class GetBaselineCommand extends $Command
   })
   .s("AWSControlTowerApis", "GetBaseline", {})
   .n("ControlTowerClient", "GetBaselineCommand")
-  .sc(GetBaseline)
+  .sc(GetBaseline$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSubscriptionFilterRequest } from "../models/models_0";
-import { DeleteSubscriptionFilter } from "../schemas/schemas_0";
+import { DeleteSubscriptionFilter$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeleteSubscriptionFilterCommand extends $Command
   })
   .s("Logs_20140328", "DeleteSubscriptionFilter", {})
   .n("CloudWatchLogsClient", "DeleteSubscriptionFilterCommand")
-  .sc(DeleteSubscriptionFilter)
+  .sc(DeleteSubscriptionFilter$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeleteDataRepositoryAssociationRequest,
   DeleteDataRepositoryAssociationResponse,
 } from "../models/models_0";
-import { DeleteDataRepositoryAssociation } from "../schemas/schemas_0";
+import { DeleteDataRepositoryAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class DeleteDataRepositoryAssociationCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "DeleteDataRepositoryAssociation", {})
   .n("FSxClient", "DeleteDataRepositoryAssociationCommand")
-  .sc(DeleteDataRepositoryAssociation)
+  .sc(DeleteDataRepositoryAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

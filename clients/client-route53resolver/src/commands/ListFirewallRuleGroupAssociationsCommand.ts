@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53ResolverClient";
-import { ListFirewallRuleGroupAssociations } from "../schemas/schemas_0";
+import { ListFirewallRuleGroupAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class ListFirewallRuleGroupAssociationsCommand extends $Command
   })
   .s("Route53Resolver", "ListFirewallRuleGroupAssociations", {})
   .n("Route53ResolverClient", "ListFirewallRuleGroupAssociationsCommand")
-  .sc(ListFirewallRuleGroupAssociations)
+  .sc(ListFirewallRuleGroupAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

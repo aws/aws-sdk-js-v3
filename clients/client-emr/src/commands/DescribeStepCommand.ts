@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeStepInput, DescribeStepOutput } from "../models/models_0";
-import { DescribeStep } from "../schemas/schemas_0";
+import { DescribeStep$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class DescribeStepCommand extends $Command
   })
   .s("ElasticMapReduce", "DescribeStep", {})
   .n("EMRClient", "DescribeStepCommand")
-  .sc(DescribeStep)
+  .sc(DescribeStep$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

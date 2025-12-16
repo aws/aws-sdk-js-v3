@@ -9,7 +9,7 @@ import type {
   CreateQueryLoggingConfigurationRequest,
   CreateQueryLoggingConfigurationResponse,
 } from "../models/models_0";
-import { CreateQueryLoggingConfiguration } from "../schemas/schemas_0";
+import { CreateQueryLoggingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class CreateQueryLoggingConfigurationCommand extends $Command
   })
   .s("AmazonPrometheusService", "CreateQueryLoggingConfiguration", {})
   .n("AmpClient", "CreateQueryLoggingConfigurationCommand")
-  .sc(CreateQueryLoggingConfiguration)
+  .sc(CreateQueryLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

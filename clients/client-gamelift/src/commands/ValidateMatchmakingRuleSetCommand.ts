@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import type { ValidateMatchmakingRuleSetInput, ValidateMatchmakingRuleSetOutput } from "../models/models_1";
-import { ValidateMatchmakingRuleSet } from "../schemas/schemas_0";
+import { ValidateMatchmakingRuleSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class ValidateMatchmakingRuleSetCommand extends $Command
   })
   .s("GameLift", "ValidateMatchmakingRuleSet", {})
   .n("GameLiftClient", "ValidateMatchmakingRuleSetCommand")
-  .sc(ValidateMatchmakingRuleSet)
+  .sc(ValidateMatchmakingRuleSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

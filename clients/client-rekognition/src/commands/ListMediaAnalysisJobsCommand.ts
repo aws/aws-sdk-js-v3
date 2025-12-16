@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListMediaAnalysisJobsRequest, ListMediaAnalysisJobsResponse } from "../models/models_0";
 import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { ListMediaAnalysisJobs } from "../schemas/schemas_0";
+import { ListMediaAnalysisJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -142,7 +142,7 @@ export class ListMediaAnalysisJobsCommand extends $Command
   })
   .s("RekognitionService", "ListMediaAnalysisJobs", {})
   .n("RekognitionClient", "ListMediaAnalysisJobsCommand")
-  .sc(ListMediaAnalysisJobs)
+  .sc(ListMediaAnalysisJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { CreateEndpointAccess } from "../schemas/schemas_0";
+import { CreateEndpointAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,7 +133,7 @@ export class CreateEndpointAccessCommand extends $Command
   })
   .s("RedshiftServerless", "CreateEndpointAccess", {})
   .n("RedshiftServerlessClient", "CreateEndpointAccessCommand")
-  .sc(CreateEndpointAccess)
+  .sc(CreateEndpointAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

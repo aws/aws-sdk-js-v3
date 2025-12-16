@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateComputeEnvironmentRequest, CreateComputeEnvironmentResponse } from "../models/models_0";
-import { CreateComputeEnvironment } from "../schemas/schemas_0";
+import { CreateComputeEnvironment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -255,7 +255,7 @@ export class CreateComputeEnvironmentCommand extends $Command
   })
   .s("AWSBatchV20160810", "CreateComputeEnvironment", {})
   .n("BatchClient", "CreateComputeEnvironmentCommand")
-  .sc(CreateComputeEnvironment)
+  .sc(CreateComputeEnvironment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchGetGraphMemberDatasourcesRequest, BatchGetGraphMemberDatasourcesResponse } from "../models/models_0";
-import { BatchGetGraphMemberDatasources } from "../schemas/schemas_0";
+import { BatchGetGraphMemberDatasources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class BatchGetGraphMemberDatasourcesCommand extends $Command
   })
   .s("AmazonDetective", "BatchGetGraphMemberDatasources", {})
   .n("DetectiveClient", "BatchGetGraphMemberDatasourcesCommand")
-  .sc(BatchGetGraphMemberDatasources)
+  .sc(BatchGetGraphMemberDatasources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

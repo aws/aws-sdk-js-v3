@@ -13,7 +13,7 @@ import type {
   RejectInboundCrossClusterSearchConnectionRequest,
   RejectInboundCrossClusterSearchConnectionResponse,
 } from "../models/models_0";
-import { RejectInboundCrossClusterSearchConnection } from "../schemas/schemas_0";
+import { RejectInboundCrossClusterSearchConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class RejectInboundCrossClusterSearchConnectionCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "RejectInboundCrossClusterSearchConnection", {})
   .n("ElasticsearchServiceClient", "RejectInboundCrossClusterSearchConnectionCommand")
-  .sc(RejectInboundCrossClusterSearchConnection)
+  .sc(RejectInboundCrossClusterSearchConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

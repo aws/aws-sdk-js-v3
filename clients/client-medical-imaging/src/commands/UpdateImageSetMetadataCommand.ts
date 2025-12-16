@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MedicalImagingClient";
 import type { UpdateImageSetMetadataRequest, UpdateImageSetMetadataResponse } from "../models/models_0";
-import { UpdateImageSetMetadata } from "../schemas/schemas_0";
+import { UpdateImageSetMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class UpdateImageSetMetadataCommand extends $Command
   })
   .s("AHIGatewayService", "UpdateImageSetMetadata", {})
   .n("MedicalImagingClient", "UpdateImageSetMetadataCommand")
-  .sc(UpdateImageSetMetadata)
+  .sc(UpdateImageSetMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

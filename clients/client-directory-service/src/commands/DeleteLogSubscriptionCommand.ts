@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteLogSubscriptionRequest, DeleteLogSubscriptionResult } from "../models/models_0";
-import { DeleteLogSubscription } from "../schemas/schemas_0";
+import { DeleteLogSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteLogSubscriptionCommand extends $Command
   })
   .s("DirectoryService_20150416", "DeleteLogSubscription", {})
   .n("DirectoryServiceClient", "DeleteLogSubscriptionCommand")
-  .sc(DeleteLogSubscription)
+  .sc(DeleteLogSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

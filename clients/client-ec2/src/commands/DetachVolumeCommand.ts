@@ -7,7 +7,7 @@ import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { VolumeAttachment } from "../models/models_0";
 import type { DetachVolumeRequest } from "../models/models_5";
-import { DetachVolume } from "../schemas/schemas_0";
+import { DetachVolume$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class DetachVolumeCommand extends $Command
   })
   .s("AmazonEC2", "DetachVolume", {})
   .n("EC2Client", "DetachVolumeCommand")
-  .sc(DetachVolume)
+  .sc(DetachVolume$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

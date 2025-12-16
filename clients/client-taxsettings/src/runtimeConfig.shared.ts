@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: TaxSettingsClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.taxsettings" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.taxsettings",
+      version: "2018-05-10",
+      serviceTarget: "TaxSettings",
+    },
     serviceId: config?.serviceId ?? "TaxSettings",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

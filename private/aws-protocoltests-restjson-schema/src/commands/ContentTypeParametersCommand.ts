@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { ContentTypeParameters } from "../schemas/schemas_0";
+import { ContentTypeParameters$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -76,7 +76,7 @@ export class ContentTypeParametersCommand extends $Command
   })
   .s("RestJson", "ContentTypeParameters", {})
   .n("RestJsonProtocolClient", "ContentTypeParametersCommand")
-  .sc(ContentTypeParameters)
+  .sc(ContentTypeParameters$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

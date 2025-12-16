@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutApplicationAccessScopeRequest } from "../models/models_0";
-import { PutApplicationAccessScope } from "../schemas/schemas_0";
+import { PutApplicationAccessScope$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -93,7 +93,7 @@ export class PutApplicationAccessScopeCommand extends $Command
   })
   .s("SWBExternalService", "PutApplicationAccessScope", {})
   .n("SSOAdminClient", "PutApplicationAccessScopeCommand")
-  .sc(PutApplicationAccessScope)
+  .sc(PutApplicationAccessScope$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

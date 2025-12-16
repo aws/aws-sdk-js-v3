@@ -1016,34 +1016,34 @@ import type {
 } from "@smithy/types";
 
 import {
-  BucketAlreadyExists as __BucketAlreadyExists,
-  BucketAlreadyOwnedByYou as __BucketAlreadyOwnedByYou,
-  EncryptionTypeMismatch as __EncryptionTypeMismatch,
-  IdempotencyParameterMismatch as __IdempotencyParameterMismatch,
-  InvalidObjectState as __InvalidObjectState,
-  InvalidRequest as __InvalidRequest,
-  InvalidWriteOffset as __InvalidWriteOffset,
-  NoSuchBucket as __NoSuchBucket,
-  NoSuchKey as __NoSuchKey,
-  NoSuchUpload as __NoSuchUpload,
-  NotFound as __NotFound,
-  ObjectAlreadyInActiveTierError as __ObjectAlreadyInActiveTierError,
-  ObjectNotInActiveTierError as __ObjectNotInActiveTierError,
-  TooManyParts as __TooManyParts,
+  BucketAlreadyExists,
+  BucketAlreadyOwnedByYou,
+  EncryptionTypeMismatch,
+  IdempotencyParameterMismatch,
+  InvalidObjectState,
+  InvalidRequest,
+  InvalidWriteOffset,
+  NoSuchBucket,
+  NoSuchKey,
+  NoSuchUpload,
+  NotFound,
+  ObjectAlreadyInActiveTierError,
+  ObjectNotInActiveTierError,
+  TooManyParts,
 } from "../models/errors";
-import { S3ServiceException as __S3ServiceException } from "../models/S3ServiceException";
+import { S3ServiceException } from "../models/S3ServiceException";
 
 /* eslint no-var: 0 */
-export var CopySourceSSECustomerKey: StaticSimpleSchema = [0, n0, _CSSSECK, 8, 0];
-export var SessionCredentialValue: StaticSimpleSchema = [0, n0, _SCV, 8, 0];
-export var SSECustomerKey: StaticSimpleSchema = [0, n0, _SSECK, 8, 0];
-export var SSEKMSEncryptionContext: StaticSimpleSchema = [0, n0, _SSEKMSEC, 8, 0];
-export var SSEKMSKeyId: StaticSimpleSchema = [0, n0, _SSEKMSKI, 8, 0];
-export var StreamingBlob: StaticSimpleSchema = [0, n0, _SB, { [_s]: 1 }, 42];
-export var AbacStatus: StaticStructureSchema = [3, n0, _AS, 0, [_S], [0]];
-export var AbortIncompleteMultipartUpload: StaticStructureSchema = [3, n0, _AIMU, 0, [_DAI], [1]];
-export var AbortMultipartUploadOutput: StaticStructureSchema = [3, n0, _AMUO, 0, [_RC], [[0, { [_hH]: _xarc }]]];
-export var AbortMultipartUploadRequest: StaticStructureSchema = [
+var CopySourceSSECustomerKey: StaticSimpleSchema = [0, n0, _CSSSECK, 8, 0];
+var SessionCredentialValue: StaticSimpleSchema = [0, n0, _SCV, 8, 0];
+var SSECustomerKey: StaticSimpleSchema = [0, n0, _SSECK, 8, 0];
+var SSEKMSEncryptionContext: StaticSimpleSchema = [0, n0, _SSEKMSEC, 8, 0];
+var SSEKMSKeyId: StaticSimpleSchema = [0, n0, _SSEKMSKI, 8, 0];
+var StreamingBlob: StaticSimpleSchema = [0, n0, _SB, { [_s]: 1 }, 42];
+export var AbacStatus$: StaticStructureSchema = [3, n0, _AS, 0, [_S], [0]];
+export var AbortIncompleteMultipartUpload$: StaticStructureSchema = [3, n0, _AIMU, 0, [_DAI], [1]];
+export var AbortMultipartUploadOutput$: StaticStructureSchema = [3, n0, _AMUO, 0, [_RC], [[0, { [_hH]: _xarc }]]];
+export var AbortMultipartUploadRequest$: StaticStructureSchema = [
   3,
   n0,
   _AMUR,
@@ -1058,17 +1058,17 @@ export var AbortMultipartUploadRequest: StaticStructureSchema = [
     [6, { [_hH]: _xaimit }],
   ],
 ];
-export var AccelerateConfiguration: StaticStructureSchema = [3, n0, _AC, 0, [_S], [0]];
-export var AccessControlPolicy: StaticStructureSchema = [
+export var AccelerateConfiguration$: StaticStructureSchema = [3, n0, _AC, 0, [_S], [0]];
+export var AccessControlPolicy$: StaticStructureSchema = [
   3,
   n0,
   _ACP,
   0,
   [_G, _O],
-  [[() => Grants, { [_xN]: _ACL }], () => Owner],
+  [[() => Grants, { [_xN]: _ACL }], () => Owner$],
 ];
-export var AccessControlTranslation: StaticStructureSchema = [3, n0, _ACT, 0, [_O], [0]];
-export var AnalyticsAndOperator: StaticStructureSchema = [
+export var AccessControlTranslation$: StaticStructureSchema = [3, n0, _ACT, 0, [_O], [0]];
+export var AnalyticsAndOperator$: StaticStructureSchema = [
   3,
   n0,
   _AAO,
@@ -1076,24 +1076,24 @@ export var AnalyticsAndOperator: StaticStructureSchema = [
   [_P, _T],
   [0, [() => TagSet, { [_xN]: _Ta, [_xF]: 1 }]],
 ];
-export var AnalyticsConfiguration: StaticStructureSchema = [
+export var AnalyticsConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ACn,
   0,
   [_I, _F, _SCA],
-  [0, [() => AnalyticsFilter, 0], () => StorageClassAnalysis],
+  [0, [() => AnalyticsFilter$, 0], () => StorageClassAnalysis$],
 ];
-export var AnalyticsExportDestination: StaticStructureSchema = [
+export var AnalyticsExportDestination$: StaticStructureSchema = [
   3,
   n0,
   _AED,
   0,
   [_SBD],
-  [() => AnalyticsS3BucketDestination],
+  [() => AnalyticsS3BucketDestination$],
 ];
-export var AnalyticsS3BucketDestination: StaticStructureSchema = [3, n0, _ASBD, 0, [_Fo, _BAI, _B, _P], [0, 0, 0, 0]];
-export var BlockedEncryptionTypes: StaticStructureSchema = [
+export var AnalyticsS3BucketDestination$: StaticStructureSchema = [3, n0, _ASBD, 0, [_Fo, _BAI, _B, _P], [0, 0, 0, 0]];
+export var BlockedEncryptionTypes$: StaticStructureSchema = [
   3,
   n0,
   _BET,
@@ -1101,13 +1101,13 @@ export var BlockedEncryptionTypes: StaticStructureSchema = [
   [_ET],
   [[() => EncryptionTypeList, { [_xF]: 1 }]],
 ];
-export var Bucket: StaticStructureSchema = [3, n0, _B, 0, [_N, _CD, _BR, _BA], [0, 4, 0, 0]];
-export var BucketAlreadyExists: StaticErrorSchema = [-3, n0, _BAE, { [_e]: _c, [_hE]: 409 }, [], []];
-TypeRegistry.for(n0).registerError(BucketAlreadyExists, __BucketAlreadyExists);
-export var BucketAlreadyOwnedByYou: StaticErrorSchema = [-3, n0, _BAOBY, { [_e]: _c, [_hE]: 409 }, [], []];
-TypeRegistry.for(n0).registerError(BucketAlreadyOwnedByYou, __BucketAlreadyOwnedByYou);
-export var BucketInfo: StaticStructureSchema = [3, n0, _BI, 0, [_DR, _Ty], [0, 0]];
-export var BucketLifecycleConfiguration: StaticStructureSchema = [
+export var Bucket$: StaticStructureSchema = [3, n0, _B, 0, [_N, _CD, _BR, _BA], [0, 4, 0, 0]];
+export var BucketAlreadyExists$: StaticErrorSchema = [-3, n0, _BAE, { [_e]: _c, [_hE]: 409 }, [], []];
+TypeRegistry.for(n0).registerError(BucketAlreadyExists$, BucketAlreadyExists);
+export var BucketAlreadyOwnedByYou$: StaticErrorSchema = [-3, n0, _BAOBY, { [_e]: _c, [_hE]: 409 }, [], []];
+TypeRegistry.for(n0).registerError(BucketAlreadyOwnedByYou$, BucketAlreadyOwnedByYou);
+export var BucketInfo$: StaticStructureSchema = [3, n0, _BI, 0, [_DR, _Ty], [0, 0]];
+export var BucketLifecycleConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _BLC,
@@ -1115,8 +1115,8 @@ export var BucketLifecycleConfiguration: StaticStructureSchema = [
   [_R],
   [[() => LifecycleRules, { [_xN]: _Ru, [_xF]: 1 }]],
 ];
-export var BucketLoggingStatus: StaticStructureSchema = [3, n0, _BLS, 0, [_LE], [[() => LoggingEnabled, 0]]];
-export var Checksum: StaticStructureSchema = [
+export var BucketLoggingStatus$: StaticStructureSchema = [3, n0, _BLS, 0, [_LE], [[() => LoggingEnabled$, 0]]];
+export var Checksum$: StaticStructureSchema = [
   3,
   n0,
   _C,
@@ -1124,8 +1124,8 @@ export var Checksum: StaticStructureSchema = [
   [_CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh, _CT],
   [0, 0, 0, 0, 0, 0],
 ];
-export var CommonPrefix: StaticStructureSchema = [3, n0, _CP, 0, [_P], [0]];
-export var CompletedMultipartUpload: StaticStructureSchema = [
+export var CommonPrefix$: StaticStructureSchema = [3, n0, _CP, 0, [_P], [0]];
+export var CompletedMultipartUpload$: StaticStructureSchema = [
   3,
   n0,
   _CMU,
@@ -1133,7 +1133,7 @@ export var CompletedMultipartUpload: StaticStructureSchema = [
   [_Pa],
   [[() => CompletedPartList, { [_xN]: _Par, [_xF]: 1 }]],
 ];
-export var CompletedPart: StaticStructureSchema = [
+export var CompletedPart$: StaticStructureSchema = [
   3,
   n0,
   _CPo,
@@ -1141,7 +1141,7 @@ export var CompletedPart: StaticStructureSchema = [
   [_ETa, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh, _PN],
   [0, 0, 0, 0, 0, 0, 1],
 ];
-export var CompleteMultipartUploadOutput: StaticStructureSchema = [
+export var CompleteMultipartUploadOutput$: StaticStructureSchema = [
   3,
   n0,
   _CMUO,
@@ -1166,7 +1166,7 @@ export var CompleteMultipartUploadOutput: StaticStructureSchema = [
     [0, { [_hH]: _xarc }],
   ],
 ];
-export var CompleteMultipartUploadRequest: StaticStructureSchema = [
+export var CompleteMultipartUploadRequest$: StaticStructureSchema = [
   3,
   n0,
   _CMURo,
@@ -1194,7 +1194,7 @@ export var CompleteMultipartUploadRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [() => CompletedMultipartUpload, { [_xN]: _CMUo, [_hP]: 1 }],
+    [() => CompletedMultipartUpload$, { [_xN]: _CMUo, [_hP]: 1 }],
     [0, { [_hQ]: _uI }],
     [0, { [_hH]: _xacc }],
     [0, { [_hH]: _xacc_ }],
@@ -1212,16 +1212,16 @@ export var CompleteMultipartUploadRequest: StaticStructureSchema = [
     [0, { [_hH]: _xasseckM }],
   ],
 ];
-export var Condition: StaticStructureSchema = [3, n0, _Co, 0, [_HECRE, _KPE], [0, 0]];
-export var ContinuationEvent: StaticStructureSchema = [3, n0, _CE, 0, [], []];
-export var CopyObjectOutput: StaticStructureSchema = [
+export var Condition$: StaticStructureSchema = [3, n0, _Co, 0, [_HECRE, _KPE], [0, 0]];
+export var ContinuationEvent$: StaticStructureSchema = [3, n0, _CE, 0, [], []];
+export var CopyObjectOutput$: StaticStructureSchema = [
   3,
   n0,
   _COO,
   0,
   [_COR, _E, _CSVI, _VI, _SSE, _SSECA, _SSECKMD, _SSEKMSKI, _SSEKMSEC, _BKE, _RC],
   [
-    [() => CopyObjectResult, 16],
+    [() => CopyObjectResult$, 16],
     [0, { [_hH]: _xae }],
     [0, { [_hH]: _xacsvi }],
     [0, { [_hH]: _xavi }],
@@ -1234,7 +1234,7 @@ export var CopyObjectOutput: StaticStructureSchema = [
     [0, { [_hH]: _xarc }],
   ],
 ];
-export var CopyObjectRequest: StaticStructureSchema = [
+export var CopyObjectRequest$: StaticStructureSchema = [
   3,
   n0,
   _CORo,
@@ -1330,7 +1330,7 @@ export var CopyObjectRequest: StaticStructureSchema = [
     [0, { [_hH]: _xasebo }],
   ],
 ];
-export var CopyObjectResult: StaticStructureSchema = [
+export var CopyObjectResult$: StaticStructureSchema = [
   3,
   n0,
   _COR,
@@ -1338,7 +1338,7 @@ export var CopyObjectResult: StaticStructureSchema = [
   [_ETa, _LM, _CT, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh],
   [0, 4, 0, 0, 0, 0, 0, 0],
 ];
-export var CopyPartResult: StaticStructureSchema = [
+export var CopyPartResult$: StaticStructureSchema = [
   3,
   n0,
   _CPR,
@@ -1346,7 +1346,7 @@ export var CopyPartResult: StaticStructureSchema = [
   [_ETa, _LM, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh],
   [0, 4, 0, 0, 0, 0, 0],
 ];
-export var CORSConfiguration: StaticStructureSchema = [
+export var CORSConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CORSC,
@@ -1354,7 +1354,7 @@ export var CORSConfiguration: StaticStructureSchema = [
   [_CORSR],
   [[() => CORSRules, { [_xN]: _CORSRu, [_xF]: 1 }]],
 ];
-export var CORSRule: StaticStructureSchema = [
+export var CORSRule$: StaticStructureSchema = [
   3,
   n0,
   _CORSRu,
@@ -1369,15 +1369,15 @@ export var CORSRule: StaticStructureSchema = [
     1,
   ],
 ];
-export var CreateBucketConfiguration: StaticStructureSchema = [
+export var CreateBucketConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CBC,
   0,
   [_LC, _L, _B, _T],
-  [0, () => LocationInfo, () => BucketInfo, [() => TagSet, 0]],
+  [0, () => LocationInfo$, () => BucketInfo$, [() => TagSet, 0]],
 ];
-export var CreateBucketMetadataConfigurationRequest: StaticStructureSchema = [
+export var CreateBucketMetadataConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CBMCR,
@@ -1387,11 +1387,11 @@ export var CreateBucketMetadataConfigurationRequest: StaticStructureSchema = [
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
-    [() => MetadataConfiguration, { [_xN]: _MC, [_hP]: 1 }],
+    [() => MetadataConfiguration$, { [_xN]: _MC, [_hP]: 1 }],
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var CreateBucketMetadataTableConfigurationRequest: StaticStructureSchema = [
+export var CreateBucketMetadataTableConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CBMTCR,
@@ -1401,11 +1401,11 @@ export var CreateBucketMetadataTableConfigurationRequest: StaticStructureSchema 
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
-    [() => MetadataTableConfiguration, { [_xN]: _MTC, [_hP]: 1 }],
+    [() => MetadataTableConfiguration$, { [_xN]: _MTC, [_hP]: 1 }],
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var CreateBucketOutput: StaticStructureSchema = [
+export var CreateBucketOutput$: StaticStructureSchema = [
   3,
   n0,
   _CBO,
@@ -1416,7 +1416,7 @@ export var CreateBucketOutput: StaticStructureSchema = [
     [0, { [_hH]: _xaba }],
   ],
 ];
-export var CreateBucketRequest: StaticStructureSchema = [
+export var CreateBucketRequest$: StaticStructureSchema = [
   3,
   n0,
   _CBR,
@@ -1425,7 +1425,7 @@ export var CreateBucketRequest: StaticStructureSchema = [
   [
     [0, { [_hH]: _xaa }],
     [0, 1],
-    [() => CreateBucketConfiguration, { [_xN]: _CBC, [_hP]: 1 }],
+    [() => CreateBucketConfiguration$, { [_xN]: _CBC, [_hP]: 1 }],
     [0, { [_hH]: _xagfc }],
     [0, { [_hH]: _xagr }],
     [0, { [_hH]: _xagra }],
@@ -1435,7 +1435,7 @@ export var CreateBucketRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaoo }],
   ],
 ];
-export var CreateMultipartUploadOutput: StaticStructureSchema = [
+export var CreateMultipartUploadOutput$: StaticStructureSchema = [
   3,
   n0,
   _CMUOr,
@@ -1458,7 +1458,7 @@ export var CreateMultipartUploadOutput: StaticStructureSchema = [
     [0, { [_hH]: _xact }],
   ],
 ];
-export var CreateMultipartUploadRequest: StaticStructureSchema = [
+export var CreateMultipartUploadRequest$: StaticStructureSchema = [
   3,
   n0,
   _CMURr,
@@ -1530,7 +1530,7 @@ export var CreateMultipartUploadRequest: StaticStructureSchema = [
     [0, { [_hH]: _xact }],
   ],
 ];
-export var CreateSessionOutput: StaticStructureSchema = [
+export var CreateSessionOutput$: StaticStructureSchema = [
   3,
   n0,
   _CSO,
@@ -1541,10 +1541,10 @@ export var CreateSessionOutput: StaticStructureSchema = [
     [() => SSEKMSKeyId, { [_hH]: _xasseakki }],
     [() => SSEKMSEncryptionContext, { [_hH]: _xassec }],
     [2, { [_hH]: _xassebke }],
-    [() => SessionCredentials, { [_xN]: _Cr }],
+    [() => SessionCredentials$, { [_xN]: _Cr }],
   ],
 ];
-export var CreateSessionRequest: StaticStructureSchema = [
+export var CreateSessionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSRr,
@@ -1559,7 +1559,7 @@ export var CreateSessionRequest: StaticStructureSchema = [
     [2, { [_hH]: _xassebke }],
   ],
 ];
-export var CSVInput: StaticStructureSchema = [
+export var CSVInput$: StaticStructureSchema = [
   3,
   n0,
   _CSVIn,
@@ -1567,9 +1567,9 @@ export var CSVInput: StaticStructureSchema = [
   [_FHI, _Com, _QEC, _RD, _FD, _QC, _AQRD],
   [0, 0, 0, 0, 0, 0, 2],
 ];
-export var CSVOutput: StaticStructureSchema = [3, n0, _CSVO, 0, [_QF, _QEC, _RD, _FD, _QC], [0, 0, 0, 0, 0]];
-export var DefaultRetention: StaticStructureSchema = [3, n0, _DRe, 0, [_Mo, _D, _Y], [0, 1, 1]];
-export var Delete: StaticStructureSchema = [
+export var CSVOutput$: StaticStructureSchema = [3, n0, _CSVO, 0, [_QF, _QEC, _RD, _FD, _QC], [0, 0, 0, 0, 0]];
+export var DefaultRetention$: StaticStructureSchema = [3, n0, _DRe, 0, [_Mo, _D, _Y], [0, 1, 1]];
+export var Delete$: StaticStructureSchema = [
   3,
   n0,
   _De,
@@ -1577,7 +1577,7 @@ export var Delete: StaticStructureSchema = [
   [_Ob, _Q],
   [[() => ObjectIdentifierList, { [_xN]: _Obj, [_xF]: 1 }], 2],
 ];
-export var DeleteBucketAnalyticsConfigurationRequest: StaticStructureSchema = [
+export var DeleteBucketAnalyticsConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBACR,
@@ -1589,7 +1589,7 @@ export var DeleteBucketAnalyticsConfigurationRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var DeleteBucketCorsRequest: StaticStructureSchema = [
+export var DeleteBucketCorsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBCR,
@@ -1600,7 +1600,7 @@ export var DeleteBucketCorsRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var DeleteBucketEncryptionRequest: StaticStructureSchema = [
+export var DeleteBucketEncryptionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBER,
@@ -1611,7 +1611,7 @@ export var DeleteBucketEncryptionRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var DeleteBucketIntelligentTieringConfigurationRequest: StaticStructureSchema = [
+export var DeleteBucketIntelligentTieringConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBITCR,
@@ -1623,7 +1623,7 @@ export var DeleteBucketIntelligentTieringConfigurationRequest: StaticStructureSc
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var DeleteBucketInventoryConfigurationRequest: StaticStructureSchema = [
+export var DeleteBucketInventoryConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBICR,
@@ -1635,7 +1635,7 @@ export var DeleteBucketInventoryConfigurationRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var DeleteBucketLifecycleRequest: StaticStructureSchema = [
+export var DeleteBucketLifecycleRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBLR,
@@ -1646,7 +1646,7 @@ export var DeleteBucketLifecycleRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var DeleteBucketMetadataConfigurationRequest: StaticStructureSchema = [
+export var DeleteBucketMetadataConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBMCR,
@@ -1657,7 +1657,7 @@ export var DeleteBucketMetadataConfigurationRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var DeleteBucketMetadataTableConfigurationRequest: StaticStructureSchema = [
+export var DeleteBucketMetadataTableConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBMTCR,
@@ -1668,7 +1668,7 @@ export var DeleteBucketMetadataTableConfigurationRequest: StaticStructureSchema 
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var DeleteBucketMetricsConfigurationRequest: StaticStructureSchema = [
+export var DeleteBucketMetricsConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBMCRe,
@@ -1680,7 +1680,7 @@ export var DeleteBucketMetricsConfigurationRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var DeleteBucketOwnershipControlsRequest: StaticStructureSchema = [
+export var DeleteBucketOwnershipControlsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBOCR,
@@ -1691,7 +1691,7 @@ export var DeleteBucketOwnershipControlsRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var DeleteBucketPolicyRequest: StaticStructureSchema = [
+export var DeleteBucketPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBPR,
@@ -1702,7 +1702,7 @@ export var DeleteBucketPolicyRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var DeleteBucketReplicationRequest: StaticStructureSchema = [
+export var DeleteBucketReplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBRR,
@@ -1713,7 +1713,7 @@ export var DeleteBucketReplicationRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var DeleteBucketRequest: StaticStructureSchema = [
+export var DeleteBucketRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBR,
@@ -1724,7 +1724,7 @@ export var DeleteBucketRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var DeleteBucketTaggingRequest: StaticStructureSchema = [
+export var DeleteBucketTaggingRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBTR,
@@ -1735,7 +1735,7 @@ export var DeleteBucketTaggingRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var DeleteBucketWebsiteRequest: StaticStructureSchema = [
+export var DeleteBucketWebsiteRequest$: StaticStructureSchema = [
   3,
   n0,
   _DBWR,
@@ -1746,17 +1746,17 @@ export var DeleteBucketWebsiteRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var DeletedObject: StaticStructureSchema = [3, n0, _DO, 0, [_K, _VI, _DM, _DMVI], [0, 0, 2, 0]];
-export var DeleteMarkerEntry: StaticStructureSchema = [
+export var DeletedObject$: StaticStructureSchema = [3, n0, _DO, 0, [_K, _VI, _DM, _DMVI], [0, 0, 2, 0]];
+export var DeleteMarkerEntry$: StaticStructureSchema = [
   3,
   n0,
   _DME,
   0,
   [_O, _K, _VI, _IL, _LM],
-  [() => Owner, 0, 0, 2, 4],
+  [() => Owner$, 0, 0, 2, 4],
 ];
-export var DeleteMarkerReplication: StaticStructureSchema = [3, n0, _DMR, 0, [_S], [0]];
-export var DeleteObjectOutput: StaticStructureSchema = [
+export var DeleteMarkerReplication$: StaticStructureSchema = [3, n0, _DMR, 0, [_S], [0]];
+export var DeleteObjectOutput$: StaticStructureSchema = [
   3,
   n0,
   _DOO,
@@ -1768,7 +1768,7 @@ export var DeleteObjectOutput: StaticStructureSchema = [
     [0, { [_hH]: _xarc }],
   ],
 ];
-export var DeleteObjectRequest: StaticStructureSchema = [
+export var DeleteObjectRequest$: StaticStructureSchema = [
   3,
   n0,
   _DOR,
@@ -1787,7 +1787,7 @@ export var DeleteObjectRequest: StaticStructureSchema = [
     [1, { [_hH]: _xaims }],
   ],
 ];
-export var DeleteObjectsOutput: StaticStructureSchema = [
+export var DeleteObjectsOutput$: StaticStructureSchema = [
   3,
   n0,
   _DOOe,
@@ -1799,7 +1799,7 @@ export var DeleteObjectsOutput: StaticStructureSchema = [
     [() => Errors, { [_xN]: _Err, [_xF]: 1 }],
   ],
 ];
-export var DeleteObjectsRequest: StaticStructureSchema = [
+export var DeleteObjectsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DORe,
@@ -1807,7 +1807,7 @@ export var DeleteObjectsRequest: StaticStructureSchema = [
   [_B, _De, _MFA, _RP, _BGR, _EBO, _CA],
   [
     [0, 1],
-    [() => Delete, { [_xN]: _De, [_hP]: 1 }],
+    [() => Delete$, { [_xN]: _De, [_hP]: 1 }],
     [0, { [_hH]: _xam_ }],
     [0, { [_hH]: _xarp }],
     [2, { [_hH]: _xabgr }],
@@ -1815,8 +1815,8 @@ export var DeleteObjectsRequest: StaticStructureSchema = [
     [0, { [_hH]: _xasca }],
   ],
 ];
-export var DeleteObjectTaggingOutput: StaticStructureSchema = [3, n0, _DOTO, 0, [_VI], [[0, { [_hH]: _xavi }]]];
-export var DeleteObjectTaggingRequest: StaticStructureSchema = [
+export var DeleteObjectTaggingOutput$: StaticStructureSchema = [3, n0, _DOTO, 0, [_VI], [[0, { [_hH]: _xavi }]]];
+export var DeleteObjectTaggingRequest$: StaticStructureSchema = [
   3,
   n0,
   _DOTR,
@@ -1829,7 +1829,7 @@ export var DeleteObjectTaggingRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var DeletePublicAccessBlockRequest: StaticStructureSchema = [
+export var DeletePublicAccessBlockRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPABR,
@@ -1840,28 +1840,28 @@ export var DeletePublicAccessBlockRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var Destination: StaticStructureSchema = [
+export var Destination$: StaticStructureSchema = [
   3,
   n0,
   _Des,
   0,
   [_B, _A, _SC, _ACT, _EC, _RT, _Me],
-  [0, 0, 0, () => AccessControlTranslation, () => EncryptionConfiguration, () => ReplicationTime, () => Metrics],
+  [0, 0, 0, () => AccessControlTranslation$, () => EncryptionConfiguration$, () => ReplicationTime$, () => Metrics$],
 ];
-export var DestinationResult: StaticStructureSchema = [3, n0, _DRes, 0, [_TBT, _TBA, _TN], [0, 0, 0]];
-export var Encryption: StaticStructureSchema = [3, n0, _En, 0, [_ET, _KMSKI, _KMSC], [0, [() => SSEKMSKeyId, 0], 0]];
-export var EncryptionConfiguration: StaticStructureSchema = [3, n0, _EC, 0, [_RKKID], [0]];
-export var EncryptionTypeMismatch: StaticErrorSchema = [-3, n0, _ETM, { [_e]: _c, [_hE]: 400 }, [], []];
-TypeRegistry.for(n0).registerError(EncryptionTypeMismatch, __EncryptionTypeMismatch);
-export var EndEvent: StaticStructureSchema = [3, n0, _EE, 0, [], []];
-export var _Error: StaticStructureSchema = [3, n0, _Err, 0, [_K, _VI, _Cod, _Mes], [0, 0, 0, 0]];
-export var ErrorDetails: StaticStructureSchema = [3, n0, _ED, 0, [_ECr, _EM], [0, 0]];
-export var ErrorDocument: StaticStructureSchema = [3, n0, _EDr, 0, [_K], [0]];
-export var EventBridgeConfiguration: StaticStructureSchema = [3, n0, _EBC, 0, [], []];
-export var ExistingObjectReplication: StaticStructureSchema = [3, n0, _EOR, 0, [_S], [0]];
-export var FilterRule: StaticStructureSchema = [3, n0, _FR, 0, [_N, _V], [0, 0]];
-export var GetBucketAbacOutput: StaticStructureSchema = [3, n0, _GBAO, 0, [_AS], [[() => AbacStatus, 16]]];
-export var GetBucketAbacRequest: StaticStructureSchema = [
+export var DestinationResult$: StaticStructureSchema = [3, n0, _DRes, 0, [_TBT, _TBA, _TN], [0, 0, 0]];
+export var Encryption$: StaticStructureSchema = [3, n0, _En, 0, [_ET, _KMSKI, _KMSC], [0, [() => SSEKMSKeyId, 0], 0]];
+export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC, 0, [_RKKID], [0]];
+export var EncryptionTypeMismatch$: StaticErrorSchema = [-3, n0, _ETM, { [_e]: _c, [_hE]: 400 }, [], []];
+TypeRegistry.for(n0).registerError(EncryptionTypeMismatch$, EncryptionTypeMismatch);
+export var EndEvent$: StaticStructureSchema = [3, n0, _EE, 0, [], []];
+export var _Error$: StaticStructureSchema = [3, n0, _Err, 0, [_K, _VI, _Cod, _Mes], [0, 0, 0, 0]];
+export var ErrorDetails$: StaticStructureSchema = [3, n0, _ED, 0, [_ECr, _EM], [0, 0]];
+export var ErrorDocument$: StaticStructureSchema = [3, n0, _EDr, 0, [_K], [0]];
+export var EventBridgeConfiguration$: StaticStructureSchema = [3, n0, _EBC, 0, [], []];
+export var ExistingObjectReplication$: StaticStructureSchema = [3, n0, _EOR, 0, [_S], [0]];
+export var FilterRule$: StaticStructureSchema = [3, n0, _FR, 0, [_N, _V], [0, 0]];
+export var GetBucketAbacOutput$: StaticStructureSchema = [3, n0, _GBAO, 0, [_AS], [[() => AbacStatus$, 16]]];
+export var GetBucketAbacRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBAR,
@@ -1872,7 +1872,7 @@ export var GetBucketAbacRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketAccelerateConfigurationOutput: StaticStructureSchema = [
+export var GetBucketAccelerateConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBACO,
@@ -1880,7 +1880,7 @@ export var GetBucketAccelerateConfigurationOutput: StaticStructureSchema = [
   [_S, _RC],
   [0, [0, { [_hH]: _xarc }]],
 ];
-export var GetBucketAccelerateConfigurationRequest: StaticStructureSchema = [
+export var GetBucketAccelerateConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBACR,
@@ -1892,15 +1892,15 @@ export var GetBucketAccelerateConfigurationRequest: StaticStructureSchema = [
     [0, { [_hH]: _xarp }],
   ],
 ];
-export var GetBucketAclOutput: StaticStructureSchema = [
+export var GetBucketAclOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBAOe,
   { [_xN]: _ACP },
   [_O, _G],
-  [() => Owner, [() => Grants, { [_xN]: _ACL }]],
+  [() => Owner$, [() => Grants, { [_xN]: _ACL }]],
 ];
-export var GetBucketAclRequest: StaticStructureSchema = [
+export var GetBucketAclRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBARe,
@@ -1911,15 +1911,15 @@ export var GetBucketAclRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketAnalyticsConfigurationOutput: StaticStructureSchema = [
+export var GetBucketAnalyticsConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBACOe,
   0,
   [_ACn],
-  [[() => AnalyticsConfiguration, 16]],
+  [[() => AnalyticsConfiguration$, 16]],
 ];
-export var GetBucketAnalyticsConfigurationRequest: StaticStructureSchema = [
+export var GetBucketAnalyticsConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBACRe,
@@ -1931,7 +1931,7 @@ export var GetBucketAnalyticsConfigurationRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketCorsOutput: StaticStructureSchema = [
+export var GetBucketCorsOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBCO,
@@ -1939,7 +1939,7 @@ export var GetBucketCorsOutput: StaticStructureSchema = [
   [_CORSR],
   [[() => CORSRules, { [_xN]: _CORSRu, [_xF]: 1 }]],
 ];
-export var GetBucketCorsRequest: StaticStructureSchema = [
+export var GetBucketCorsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBCR,
@@ -1950,15 +1950,15 @@ export var GetBucketCorsRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketEncryptionOutput: StaticStructureSchema = [
+export var GetBucketEncryptionOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBEO,
   0,
   [_SSEC],
-  [[() => ServerSideEncryptionConfiguration, 16]],
+  [[() => ServerSideEncryptionConfiguration$, 16]],
 ];
-export var GetBucketEncryptionRequest: StaticStructureSchema = [
+export var GetBucketEncryptionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBER,
@@ -1969,15 +1969,15 @@ export var GetBucketEncryptionRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketIntelligentTieringConfigurationOutput: StaticStructureSchema = [
+export var GetBucketIntelligentTieringConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBITCO,
   0,
   [_ITC],
-  [[() => IntelligentTieringConfiguration, 16]],
+  [[() => IntelligentTieringConfiguration$, 16]],
 ];
-export var GetBucketIntelligentTieringConfigurationRequest: StaticStructureSchema = [
+export var GetBucketIntelligentTieringConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBITCR,
@@ -1989,15 +1989,15 @@ export var GetBucketIntelligentTieringConfigurationRequest: StaticStructureSchem
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketInventoryConfigurationOutput: StaticStructureSchema = [
+export var GetBucketInventoryConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBICO,
   0,
   [_IC],
-  [[() => InventoryConfiguration, 16]],
+  [[() => InventoryConfiguration$, 16]],
 ];
-export var GetBucketInventoryConfigurationRequest: StaticStructureSchema = [
+export var GetBucketInventoryConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBICR,
@@ -2009,7 +2009,7 @@ export var GetBucketInventoryConfigurationRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketLifecycleConfigurationOutput: StaticStructureSchema = [
+export var GetBucketLifecycleConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBLCO,
@@ -2020,7 +2020,7 @@ export var GetBucketLifecycleConfigurationOutput: StaticStructureSchema = [
     [0, { [_hH]: _xatdmos }],
   ],
 ];
-export var GetBucketLifecycleConfigurationRequest: StaticStructureSchema = [
+export var GetBucketLifecycleConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBLCR,
@@ -2031,8 +2031,8 @@ export var GetBucketLifecycleConfigurationRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketLocationOutput: StaticStructureSchema = [3, n0, _GBLO, { [_xN]: _LC }, [_LC], [0]];
-export var GetBucketLocationRequest: StaticStructureSchema = [
+export var GetBucketLocationOutput$: StaticStructureSchema = [3, n0, _GBLO, { [_xN]: _LC }, [_LC], [0]];
+export var GetBucketLocationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBLR,
@@ -2043,15 +2043,15 @@ export var GetBucketLocationRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketLoggingOutput: StaticStructureSchema = [
+export var GetBucketLoggingOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBLOe,
   { [_xN]: _BLS },
   [_LE],
-  [[() => LoggingEnabled, 0]],
+  [[() => LoggingEnabled$, 0]],
 ];
-export var GetBucketLoggingRequest: StaticStructureSchema = [
+export var GetBucketLoggingRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBLRe,
@@ -2062,15 +2062,15 @@ export var GetBucketLoggingRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketMetadataConfigurationOutput: StaticStructureSchema = [
+export var GetBucketMetadataConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBMCO,
   0,
   [_GBMCR],
-  [[() => GetBucketMetadataConfigurationResult, 16]],
+  [[() => GetBucketMetadataConfigurationResult$, 16]],
 ];
-export var GetBucketMetadataConfigurationRequest: StaticStructureSchema = [
+export var GetBucketMetadataConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBMCRe,
@@ -2081,23 +2081,23 @@ export var GetBucketMetadataConfigurationRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketMetadataConfigurationResult: StaticStructureSchema = [
+export var GetBucketMetadataConfigurationResult$: StaticStructureSchema = [
   3,
   n0,
   _GBMCR,
   0,
   [_MCR],
-  [() => MetadataConfigurationResult],
+  [() => MetadataConfigurationResult$],
 ];
-export var GetBucketMetadataTableConfigurationOutput: StaticStructureSchema = [
+export var GetBucketMetadataTableConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBMTCO,
   0,
   [_GBMTCR],
-  [[() => GetBucketMetadataTableConfigurationResult, 16]],
+  [[() => GetBucketMetadataTableConfigurationResult$, 16]],
 ];
-export var GetBucketMetadataTableConfigurationRequest: StaticStructureSchema = [
+export var GetBucketMetadataTableConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBMTCRe,
@@ -2108,23 +2108,23 @@ export var GetBucketMetadataTableConfigurationRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketMetadataTableConfigurationResult: StaticStructureSchema = [
+export var GetBucketMetadataTableConfigurationResult$: StaticStructureSchema = [
   3,
   n0,
   _GBMTCR,
   0,
   [_MTCR, _S, _Err],
-  [() => MetadataTableConfigurationResult, 0, () => ErrorDetails],
+  [() => MetadataTableConfigurationResult$, 0, () => ErrorDetails$],
 ];
-export var GetBucketMetricsConfigurationOutput: StaticStructureSchema = [
+export var GetBucketMetricsConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBMCOe,
   0,
   [_MCe],
-  [[() => MetricsConfiguration, 16]],
+  [[() => MetricsConfiguration$, 16]],
 ];
-export var GetBucketMetricsConfigurationRequest: StaticStructureSchema = [
+export var GetBucketMetricsConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBMCRet,
@@ -2136,7 +2136,7 @@ export var GetBucketMetricsConfigurationRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketNotificationConfigurationRequest: StaticStructureSchema = [
+export var GetBucketNotificationConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBNCR,
@@ -2147,15 +2147,15 @@ export var GetBucketNotificationConfigurationRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketOwnershipControlsOutput: StaticStructureSchema = [
+export var GetBucketOwnershipControlsOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBOCO,
   0,
   [_OC],
-  [[() => OwnershipControls, 16]],
+  [[() => OwnershipControls$, 16]],
 ];
-export var GetBucketOwnershipControlsRequest: StaticStructureSchema = [
+export var GetBucketOwnershipControlsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBOCR,
@@ -2166,8 +2166,8 @@ export var GetBucketOwnershipControlsRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketPolicyOutput: StaticStructureSchema = [3, n0, _GBPO, 0, [_Po], [[0, 16]]];
-export var GetBucketPolicyRequest: StaticStructureSchema = [
+export var GetBucketPolicyOutput$: StaticStructureSchema = [3, n0, _GBPO, 0, [_Po], [[0, 16]]];
+export var GetBucketPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBPR,
@@ -2178,8 +2178,8 @@ export var GetBucketPolicyRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketPolicyStatusOutput: StaticStructureSchema = [3, n0, _GBPSO, 0, [_PS], [[() => PolicyStatus, 16]]];
-export var GetBucketPolicyStatusRequest: StaticStructureSchema = [
+export var GetBucketPolicyStatusOutput$: StaticStructureSchema = [3, n0, _GBPSO, 0, [_PS], [[() => PolicyStatus$, 16]]];
+export var GetBucketPolicyStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBPSR,
@@ -2190,15 +2190,15 @@ export var GetBucketPolicyStatusRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketReplicationOutput: StaticStructureSchema = [
+export var GetBucketReplicationOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBRO,
   0,
   [_RCe],
-  [[() => ReplicationConfiguration, 16]],
+  [[() => ReplicationConfiguration$, 16]],
 ];
-export var GetBucketReplicationRequest: StaticStructureSchema = [
+export var GetBucketReplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBRR,
@@ -2209,8 +2209,8 @@ export var GetBucketReplicationRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketRequestPaymentOutput: StaticStructureSchema = [3, n0, _GBRPO, { [_xN]: _RPC }, [_Pay], [0]];
-export var GetBucketRequestPaymentRequest: StaticStructureSchema = [
+export var GetBucketRequestPaymentOutput$: StaticStructureSchema = [3, n0, _GBRPO, { [_xN]: _RPC }, [_Pay], [0]];
+export var GetBucketRequestPaymentRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBRPR,
@@ -2221,8 +2221,8 @@ export var GetBucketRequestPaymentRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketTaggingOutput: StaticStructureSchema = [3, n0, _GBTO, { [_xN]: _Tag }, [_TS], [[() => TagSet, 0]]];
-export var GetBucketTaggingRequest: StaticStructureSchema = [
+export var GetBucketTaggingOutput$: StaticStructureSchema = [3, n0, _GBTO, { [_xN]: _Tag }, [_TS], [[() => TagSet, 0]]];
+export var GetBucketTaggingRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBTR,
@@ -2233,7 +2233,7 @@ export var GetBucketTaggingRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketVersioningOutput: StaticStructureSchema = [
+export var GetBucketVersioningOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBVO,
@@ -2241,7 +2241,7 @@ export var GetBucketVersioningOutput: StaticStructureSchema = [
   [_S, _MFAD],
   [0, [0, { [_xN]: _MDf }]],
 ];
-export var GetBucketVersioningRequest: StaticStructureSchema = [
+export var GetBucketVersioningRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBVR,
@@ -2252,15 +2252,15 @@ export var GetBucketVersioningRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetBucketWebsiteOutput: StaticStructureSchema = [
+export var GetBucketWebsiteOutput$: StaticStructureSchema = [
   3,
   n0,
   _GBWO,
   { [_xN]: _WC },
   [_RART, _IDn, _EDr, _RR],
-  [() => RedirectAllRequestsTo, () => IndexDocument, () => ErrorDocument, [() => RoutingRules, 0]],
+  [() => RedirectAllRequestsTo$, () => IndexDocument$, () => ErrorDocument$, [() => RoutingRules, 0]],
 ];
-export var GetBucketWebsiteRequest: StaticStructureSchema = [
+export var GetBucketWebsiteRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBWR,
@@ -2271,15 +2271,15 @@ export var GetBucketWebsiteRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetObjectAclOutput: StaticStructureSchema = [
+export var GetObjectAclOutput$: StaticStructureSchema = [
   3,
   n0,
   _GOAO,
   { [_xN]: _ACP },
   [_O, _G, _RC],
-  [() => Owner, [() => Grants, { [_xN]: _ACL }], [0, { [_hH]: _xarc }]],
+  [() => Owner$, [() => Grants, { [_xN]: _ACL }], [0, { [_hH]: _xarc }]],
 ];
-export var GetObjectAclRequest: StaticStructureSchema = [
+export var GetObjectAclRequest$: StaticStructureSchema = [
   3,
   n0,
   _GOAR,
@@ -2293,7 +2293,7 @@ export var GetObjectAclRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetObjectAttributesOutput: StaticStructureSchema = [
+export var GetObjectAttributesOutput$: StaticStructureSchema = [
   3,
   n0,
   _GOAOe,
@@ -2305,13 +2305,13 @@ export var GetObjectAttributesOutput: StaticStructureSchema = [
     [0, { [_hH]: _xavi }],
     [0, { [_hH]: _xarc }],
     0,
-    () => Checksum,
-    [() => GetObjectAttributesParts, 0],
+    () => Checksum$,
+    [() => GetObjectAttributesParts$, 0],
     0,
     1,
   ],
 ];
-export var GetObjectAttributesParts: StaticStructureSchema = [
+export var GetObjectAttributesParts$: StaticStructureSchema = [
   3,
   n0,
   _GOAP,
@@ -2319,7 +2319,7 @@ export var GetObjectAttributesParts: StaticStructureSchema = [
   [_TPC, _PNM, _NPNM, _MP, _IT, _Pa],
   [[1, { [_xN]: _PC }], 0, 0, 1, 2, [() => PartsList, { [_xN]: _Par, [_xF]: 1 }]],
 ];
-export var GetObjectAttributesRequest: StaticStructureSchema = [
+export var GetObjectAttributesRequest$: StaticStructureSchema = [
   3,
   n0,
   _GOARet,
@@ -2339,15 +2339,15 @@ export var GetObjectAttributesRequest: StaticStructureSchema = [
     [64 | 0, { [_hH]: _xaoa }],
   ],
 ];
-export var GetObjectLegalHoldOutput: StaticStructureSchema = [
+export var GetObjectLegalHoldOutput$: StaticStructureSchema = [
   3,
   n0,
   _GOLHO,
   0,
   [_LH],
-  [[() => ObjectLockLegalHold, { [_xN]: _LH, [_hP]: 1 }]],
+  [[() => ObjectLockLegalHold$, { [_xN]: _LH, [_hP]: 1 }]],
 ];
-export var GetObjectLegalHoldRequest: StaticStructureSchema = [
+export var GetObjectLegalHoldRequest$: StaticStructureSchema = [
   3,
   n0,
   _GOLHR,
@@ -2361,15 +2361,15 @@ export var GetObjectLegalHoldRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetObjectLockConfigurationOutput: StaticStructureSchema = [
+export var GetObjectLockConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _GOLCO,
   0,
   [_OLC],
-  [[() => ObjectLockConfiguration, 16]],
+  [[() => ObjectLockConfiguration$, 16]],
 ];
-export var GetObjectLockConfigurationRequest: StaticStructureSchema = [
+export var GetObjectLockConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GOLCR,
@@ -2380,7 +2380,7 @@ export var GetObjectLockConfigurationRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetObjectOutput: StaticStructureSchema = [
+export var GetObjectOutput$: StaticStructureSchema = [
   3,
   n0,
   _GOO,
@@ -2468,7 +2468,7 @@ export var GetObjectOutput: StaticStructureSchema = [
     [0, { [_hH]: _xaollh }],
   ],
 ];
-export var GetObjectRequest: StaticStructureSchema = [
+export var GetObjectRequest$: StaticStructureSchema = [
   3,
   n0,
   _GOR,
@@ -2520,15 +2520,15 @@ export var GetObjectRequest: StaticStructureSchema = [
     [0, { [_hH]: _xacm }],
   ],
 ];
-export var GetObjectRetentionOutput: StaticStructureSchema = [
+export var GetObjectRetentionOutput$: StaticStructureSchema = [
   3,
   n0,
   _GORO,
   0,
   [_Ret],
-  [[() => ObjectLockRetention, { [_xN]: _Ret, [_hP]: 1 }]],
+  [[() => ObjectLockRetention$, { [_xN]: _Ret, [_hP]: 1 }]],
 ];
-export var GetObjectRetentionRequest: StaticStructureSchema = [
+export var GetObjectRetentionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GORR,
@@ -2542,7 +2542,7 @@ export var GetObjectRetentionRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetObjectTaggingOutput: StaticStructureSchema = [
+export var GetObjectTaggingOutput$: StaticStructureSchema = [
   3,
   n0,
   _GOTO,
@@ -2553,7 +2553,7 @@ export var GetObjectTaggingOutput: StaticStructureSchema = [
     [() => TagSet, 0],
   ],
 ];
-export var GetObjectTaggingRequest: StaticStructureSchema = [
+export var GetObjectTaggingRequest$: StaticStructureSchema = [
   3,
   n0,
   _GOTR,
@@ -2567,7 +2567,7 @@ export var GetObjectTaggingRequest: StaticStructureSchema = [
     [0, { [_hH]: _xarp }],
   ],
 ];
-export var GetObjectTorrentOutput: StaticStructureSchema = [
+export var GetObjectTorrentOutput$: StaticStructureSchema = [
   3,
   n0,
   _GOTOe,
@@ -2578,7 +2578,7 @@ export var GetObjectTorrentOutput: StaticStructureSchema = [
     [0, { [_hH]: _xarc }],
   ],
 ];
-export var GetObjectTorrentRequest: StaticStructureSchema = [
+export var GetObjectTorrentRequest$: StaticStructureSchema = [
   3,
   n0,
   _GOTRe,
@@ -2591,15 +2591,15 @@ export var GetObjectTorrentRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GetPublicAccessBlockOutput: StaticStructureSchema = [
+export var GetPublicAccessBlockOutput$: StaticStructureSchema = [
   3,
   n0,
   _GPABO,
   0,
   [_PABC],
-  [[() => PublicAccessBlockConfiguration, 16]],
+  [[() => PublicAccessBlockConfiguration$, 16]],
 ];
-export var GetPublicAccessBlockRequest: StaticStructureSchema = [
+export var GetPublicAccessBlockRequest$: StaticStructureSchema = [
   3,
   n0,
   _GPABR,
@@ -2610,9 +2610,9 @@ export var GetPublicAccessBlockRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var GlacierJobParameters: StaticStructureSchema = [3, n0, _GJP, 0, [_Ti], [0]];
-export var Grant: StaticStructureSchema = [3, n0, _Gr, 0, [_Gra, _Pe], [[() => Grantee, { [_xNm]: [_x, _hi] }], 0]];
-export var Grantee: StaticStructureSchema = [
+export var GlacierJobParameters$: StaticStructureSchema = [3, n0, _GJP, 0, [_Ti], [0]];
+export var Grant$: StaticStructureSchema = [3, n0, _Gr, 0, [_Gra, _Pe], [[() => Grantee$, { [_xNm]: [_x, _hi] }], 0]];
+export var Grantee$: StaticStructureSchema = [
   3,
   n0,
   _Gra,
@@ -2620,7 +2620,7 @@ export var Grantee: StaticStructureSchema = [
   [_DN, _EA, _ID, _URI, _Ty],
   [0, 0, 0, 0, [0, { [_xN]: _xs, [_xA]: 1 }]],
 ];
-export var HeadBucketOutput: StaticStructureSchema = [
+export var HeadBucketOutput$: StaticStructureSchema = [
   3,
   n0,
   _HBO,
@@ -2634,7 +2634,7 @@ export var HeadBucketOutput: StaticStructureSchema = [
     [2, { [_hH]: _xaapa }],
   ],
 ];
-export var HeadBucketRequest: StaticStructureSchema = [
+export var HeadBucketRequest$: StaticStructureSchema = [
   3,
   n0,
   _HBR,
@@ -2645,7 +2645,7 @@ export var HeadBucketRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var HeadObjectOutput: StaticStructureSchema = [
+export var HeadObjectOutput$: StaticStructureSchema = [
   3,
   n0,
   _HOO,
@@ -2733,7 +2733,7 @@ export var HeadObjectOutput: StaticStructureSchema = [
     [0, { [_hH]: _xaollh }],
   ],
 ];
-export var HeadObjectRequest: StaticStructureSchema = [
+export var HeadObjectRequest$: StaticStructureSchema = [
   3,
   n0,
   _HOR,
@@ -2785,19 +2785,19 @@ export var HeadObjectRequest: StaticStructureSchema = [
     [0, { [_hH]: _xacm }],
   ],
 ];
-export var IdempotencyParameterMismatch: StaticErrorSchema = [-3, n0, _IPM, { [_e]: _c, [_hE]: 400 }, [], []];
-TypeRegistry.for(n0).registerError(IdempotencyParameterMismatch, __IdempotencyParameterMismatch);
-export var IndexDocument: StaticStructureSchema = [3, n0, _IDn, 0, [_Su], [0]];
-export var Initiator: StaticStructureSchema = [3, n0, _In, 0, [_ID, _DN], [0, 0]];
-export var InputSerialization: StaticStructureSchema = [
+export var IdempotencyParameterMismatch$: StaticErrorSchema = [-3, n0, _IPM, { [_e]: _c, [_hE]: 400 }, [], []];
+TypeRegistry.for(n0).registerError(IdempotencyParameterMismatch$, IdempotencyParameterMismatch);
+export var IndexDocument$: StaticStructureSchema = [3, n0, _IDn, 0, [_Su], [0]];
+export var Initiator$: StaticStructureSchema = [3, n0, _In, 0, [_ID, _DN], [0, 0]];
+export var InputSerialization$: StaticStructureSchema = [
   3,
   n0,
   _IS,
   0,
   [_CSV, _CTom, _JSON, _Parq],
-  [() => CSVInput, 0, () => JSONInput, () => ParquetInput],
+  [() => CSVInput$, 0, () => JSONInput$, () => ParquetInput$],
 ];
-export var IntelligentTieringAndOperator: StaticStructureSchema = [
+export var IntelligentTieringAndOperator$: StaticStructureSchema = [
   3,
   n0,
   _ITAO,
@@ -2805,151 +2805,151 @@ export var IntelligentTieringAndOperator: StaticStructureSchema = [
   [_P, _T],
   [0, [() => TagSet, { [_xN]: _Ta, [_xF]: 1 }]],
 ];
-export var IntelligentTieringConfiguration: StaticStructureSchema = [
+export var IntelligentTieringConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ITC,
   0,
   [_I, _F, _S, _Tie],
-  [0, [() => IntelligentTieringFilter, 0], 0, [() => TieringList, { [_xN]: _Tier, [_xF]: 1 }]],
+  [0, [() => IntelligentTieringFilter$, 0], 0, [() => TieringList, { [_xN]: _Tier, [_xF]: 1 }]],
 ];
-export var IntelligentTieringFilter: StaticStructureSchema = [
+export var IntelligentTieringFilter$: StaticStructureSchema = [
   3,
   n0,
   _ITF,
   0,
   [_P, _Ta, _An],
-  [0, () => Tag, [() => IntelligentTieringAndOperator, 0]],
+  [0, () => Tag$, [() => IntelligentTieringAndOperator$, 0]],
 ];
-export var InvalidObjectState: StaticErrorSchema = [-3, n0, _IOS, { [_e]: _c, [_hE]: 403 }, [_SC, _AT], [0, 0]];
-TypeRegistry.for(n0).registerError(InvalidObjectState, __InvalidObjectState);
-export var InvalidRequest: StaticErrorSchema = [-3, n0, _IR, { [_e]: _c, [_hE]: 400 }, [], []];
-TypeRegistry.for(n0).registerError(InvalidRequest, __InvalidRequest);
-export var InvalidWriteOffset: StaticErrorSchema = [-3, n0, _IWO, { [_e]: _c, [_hE]: 400 }, [], []];
-TypeRegistry.for(n0).registerError(InvalidWriteOffset, __InvalidWriteOffset);
-export var InventoryConfiguration: StaticStructureSchema = [
+export var InvalidObjectState$: StaticErrorSchema = [-3, n0, _IOS, { [_e]: _c, [_hE]: 403 }, [_SC, _AT], [0, 0]];
+TypeRegistry.for(n0).registerError(InvalidObjectState$, InvalidObjectState);
+export var InvalidRequest$: StaticErrorSchema = [-3, n0, _IR, { [_e]: _c, [_hE]: 400 }, [], []];
+TypeRegistry.for(n0).registerError(InvalidRequest$, InvalidRequest);
+export var InvalidWriteOffset$: StaticErrorSchema = [-3, n0, _IWO, { [_e]: _c, [_hE]: 400 }, [], []];
+TypeRegistry.for(n0).registerError(InvalidWriteOffset$, InvalidWriteOffset);
+export var InventoryConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _IC,
   0,
   [_Des, _IE, _F, _I, _IOV, _OF, _Sc],
   [
-    [() => InventoryDestination, 0],
+    [() => InventoryDestination$, 0],
     2,
-    () => InventoryFilter,
+    () => InventoryFilter$,
     0,
     0,
     [() => InventoryOptionalFields, 0],
-    () => InventorySchedule,
+    () => InventorySchedule$,
   ],
 ];
-export var InventoryDestination: StaticStructureSchema = [
+export var InventoryDestination$: StaticStructureSchema = [
   3,
   n0,
   _IDnv,
   0,
   [_SBD],
-  [[() => InventoryS3BucketDestination, 0]],
+  [[() => InventoryS3BucketDestination$, 0]],
 ];
-export var InventoryEncryption: StaticStructureSchema = [
+export var InventoryEncryption$: StaticStructureSchema = [
   3,
   n0,
   _IEn,
   0,
   [_SSES, _SSEKMS],
   [
-    [() => SSES3, { [_xN]: _SS }],
-    [() => SSEKMS, { [_xN]: _SK }],
+    [() => SSES3$, { [_xN]: _SS }],
+    [() => SSEKMS$, { [_xN]: _SK }],
   ],
 ];
-export var InventoryFilter: StaticStructureSchema = [3, n0, _IF, 0, [_P], [0]];
-export var InventoryS3BucketDestination: StaticStructureSchema = [
+export var InventoryFilter$: StaticStructureSchema = [3, n0, _IF, 0, [_P], [0]];
+export var InventoryS3BucketDestination$: StaticStructureSchema = [
   3,
   n0,
   _ISBD,
   0,
   [_AI, _B, _Fo, _P, _En],
-  [0, 0, 0, 0, [() => InventoryEncryption, 0]],
+  [0, 0, 0, 0, [() => InventoryEncryption$, 0]],
 ];
-export var InventorySchedule: StaticStructureSchema = [3, n0, _ISn, 0, [_Fr], [0]];
-export var InventoryTableConfiguration: StaticStructureSchema = [
+export var InventorySchedule$: StaticStructureSchema = [3, n0, _ISn, 0, [_Fr], [0]];
+export var InventoryTableConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ITCn,
   0,
   [_CSo, _EC],
-  [0, () => MetadataTableEncryptionConfiguration],
+  [0, () => MetadataTableEncryptionConfiguration$],
 ];
-export var InventoryTableConfigurationResult: StaticStructureSchema = [
+export var InventoryTableConfigurationResult$: StaticStructureSchema = [
   3,
   n0,
   _ITCR,
   0,
   [_CSo, _TSa, _Err, _TNa, _TA],
-  [0, 0, () => ErrorDetails, 0, 0],
+  [0, 0, () => ErrorDetails$, 0, 0],
 ];
-export var InventoryTableConfigurationUpdates: StaticStructureSchema = [
+export var InventoryTableConfigurationUpdates$: StaticStructureSchema = [
   3,
   n0,
   _ITCU,
   0,
   [_CSo, _EC],
-  [0, () => MetadataTableEncryptionConfiguration],
+  [0, () => MetadataTableEncryptionConfiguration$],
 ];
-export var JournalTableConfiguration: StaticStructureSchema = [
+export var JournalTableConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _JTC,
   0,
   [_REe, _EC],
-  [() => RecordExpiration, () => MetadataTableEncryptionConfiguration],
+  [() => RecordExpiration$, () => MetadataTableEncryptionConfiguration$],
 ];
-export var JournalTableConfigurationResult: StaticStructureSchema = [
+export var JournalTableConfigurationResult$: StaticStructureSchema = [
   3,
   n0,
   _JTCR,
   0,
   [_TSa, _Err, _TNa, _TA, _REe],
-  [0, () => ErrorDetails, 0, 0, () => RecordExpiration],
+  [0, () => ErrorDetails$, 0, 0, () => RecordExpiration$],
 ];
-export var JournalTableConfigurationUpdates: StaticStructureSchema = [
+export var JournalTableConfigurationUpdates$: StaticStructureSchema = [
   3,
   n0,
   _JTCU,
   0,
   [_REe],
-  [() => RecordExpiration],
+  [() => RecordExpiration$],
 ];
-export var JSONInput: StaticStructureSchema = [3, n0, _JSONI, 0, [_Ty], [0]];
-export var JSONOutput: StaticStructureSchema = [3, n0, _JSONO, 0, [_RD], [0]];
-export var LambdaFunctionConfiguration: StaticStructureSchema = [
+export var JSONInput$: StaticStructureSchema = [3, n0, _JSONI, 0, [_Ty], [0]];
+export var JSONOutput$: StaticStructureSchema = [3, n0, _JSONO, 0, [_RD], [0]];
+export var LambdaFunctionConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _LFC,
   0,
   [_I, _LFA, _Ev, _F],
-  [0, [0, { [_xN]: _CF }], [64 | 0, { [_xN]: _Eve, [_xF]: 1 }], [() => NotificationConfigurationFilter, 0]],
+  [0, [0, { [_xN]: _CF }], [64 | 0, { [_xN]: _Eve, [_xF]: 1 }], [() => NotificationConfigurationFilter$, 0]],
 ];
-export var LifecycleExpiration: StaticStructureSchema = [3, n0, _LEi, 0, [_Da, _D, _EODM], [5, 1, 2]];
-export var LifecycleRule: StaticStructureSchema = [
+export var LifecycleExpiration$: StaticStructureSchema = [3, n0, _LEi, 0, [_Da, _D, _EODM], [5, 1, 2]];
+export var LifecycleRule$: StaticStructureSchema = [
   3,
   n0,
   _LR,
   0,
   [_E, _ID, _P, _F, _S, _Tr, _NVT, _NVE, _AIMU],
   [
-    () => LifecycleExpiration,
+    () => LifecycleExpiration$,
     0,
     0,
-    [() => LifecycleRuleFilter, 0],
+    [() => LifecycleRuleFilter$, 0],
     0,
     [() => TransitionList, { [_xN]: _Tra, [_xF]: 1 }],
     [() => NoncurrentVersionTransitionList, { [_xN]: _NVTo, [_xF]: 1 }],
-    () => NoncurrentVersionExpiration,
-    () => AbortIncompleteMultipartUpload,
+    () => NoncurrentVersionExpiration$,
+    () => AbortIncompleteMultipartUpload$,
   ],
 ];
-export var LifecycleRuleAndOperator: StaticStructureSchema = [
+export var LifecycleRuleAndOperator$: StaticStructureSchema = [
   3,
   n0,
   _LRAO,
@@ -2957,15 +2957,15 @@ export var LifecycleRuleAndOperator: StaticStructureSchema = [
   [_P, _T, _OSGT, _OSLT],
   [0, [() => TagSet, { [_xN]: _Ta, [_xF]: 1 }], 1, 1],
 ];
-export var LifecycleRuleFilter: StaticStructureSchema = [
+export var LifecycleRuleFilter$: StaticStructureSchema = [
   3,
   n0,
   _LRF,
   0,
   [_P, _Ta, _OSGT, _OSLT, _An],
-  [0, () => Tag, 1, 1, [() => LifecycleRuleAndOperator, 0]],
+  [0, () => Tag$, 1, 1, [() => LifecycleRuleAndOperator$, 0]],
 ];
-export var ListBucketAnalyticsConfigurationsOutput: StaticStructureSchema = [
+export var ListBucketAnalyticsConfigurationsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LBACO,
@@ -2973,7 +2973,7 @@ export var ListBucketAnalyticsConfigurationsOutput: StaticStructureSchema = [
   [_IT, _CTon, _NCT, _ACLn],
   [2, 0, 0, [() => AnalyticsConfigurationList, { [_xN]: _ACn, [_xF]: 1 }]],
 ];
-export var ListBucketAnalyticsConfigurationsRequest: StaticStructureSchema = [
+export var ListBucketAnalyticsConfigurationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBACRi,
@@ -2985,7 +2985,7 @@ export var ListBucketAnalyticsConfigurationsRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var ListBucketIntelligentTieringConfigurationsOutput: StaticStructureSchema = [
+export var ListBucketIntelligentTieringConfigurationsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LBITCO,
@@ -2993,7 +2993,7 @@ export var ListBucketIntelligentTieringConfigurationsOutput: StaticStructureSche
   [_IT, _CTon, _NCT, _ITCL],
   [2, 0, 0, [() => IntelligentTieringConfigurationList, { [_xN]: _ITC, [_xF]: 1 }]],
 ];
-export var ListBucketIntelligentTieringConfigurationsRequest: StaticStructureSchema = [
+export var ListBucketIntelligentTieringConfigurationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBITCR,
@@ -3005,7 +3005,7 @@ export var ListBucketIntelligentTieringConfigurationsRequest: StaticStructureSch
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var ListBucketInventoryConfigurationsOutput: StaticStructureSchema = [
+export var ListBucketInventoryConfigurationsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LBICO,
@@ -3013,7 +3013,7 @@ export var ListBucketInventoryConfigurationsOutput: StaticStructureSchema = [
   [_CTon, _ICL, _IT, _NCT],
   [0, [() => InventoryConfigurationList, { [_xN]: _IC, [_xF]: 1 }], 2, 0],
 ];
-export var ListBucketInventoryConfigurationsRequest: StaticStructureSchema = [
+export var ListBucketInventoryConfigurationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBICR,
@@ -3025,7 +3025,7 @@ export var ListBucketInventoryConfigurationsRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var ListBucketMetricsConfigurationsOutput: StaticStructureSchema = [
+export var ListBucketMetricsConfigurationsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LBMCO,
@@ -3033,7 +3033,7 @@ export var ListBucketMetricsConfigurationsOutput: StaticStructureSchema = [
   [_IT, _CTon, _NCT, _MCL],
   [2, 0, 0, [() => MetricsConfigurationList, { [_xN]: _MCe, [_xF]: 1 }]],
 ];
-export var ListBucketMetricsConfigurationsRequest: StaticStructureSchema = [
+export var ListBucketMetricsConfigurationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBMCR,
@@ -3045,15 +3045,15 @@ export var ListBucketMetricsConfigurationsRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var ListBucketsOutput: StaticStructureSchema = [
+export var ListBucketsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LBO,
   { [_xN]: _LAMBR },
   [_Bu, _O, _CTon, _P],
-  [[() => Buckets, 0], () => Owner, 0, 0],
+  [[() => Buckets, 0], () => Owner$, 0, 0],
 ];
-export var ListBucketsRequest: StaticStructureSchema = [
+export var ListBucketsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBR,
@@ -3066,7 +3066,7 @@ export var ListBucketsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _br }],
   ],
 ];
-export var ListDirectoryBucketsOutput: StaticStructureSchema = [
+export var ListDirectoryBucketsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LDBO,
@@ -3074,7 +3074,7 @@ export var ListDirectoryBucketsOutput: StaticStructureSchema = [
   [_Bu, _CTon],
   [[() => Buckets, 0], 0],
 ];
-export var ListDirectoryBucketsRequest: StaticStructureSchema = [
+export var ListDirectoryBucketsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDBR,
@@ -3085,7 +3085,7 @@ export var ListDirectoryBucketsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mdb }],
   ],
 ];
-export var ListMultipartUploadsOutput: StaticStructureSchema = [
+export var ListMultipartUploadsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LMUO,
@@ -3107,7 +3107,7 @@ export var ListMultipartUploadsOutput: StaticStructureSchema = [
     [0, { [_hH]: _xarc }],
   ],
 ];
-export var ListMultipartUploadsRequest: StaticStructureSchema = [
+export var ListMultipartUploadsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LMURi,
@@ -3125,7 +3125,7 @@ export var ListMultipartUploadsRequest: StaticStructureSchema = [
     [0, { [_hH]: _xarp }],
   ],
 ];
-export var ListObjectsOutput: StaticStructureSchema = [
+export var ListObjectsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LOO,
@@ -3145,7 +3145,7 @@ export var ListObjectsOutput: StaticStructureSchema = [
     [0, { [_hH]: _xarc }],
   ],
 ];
-export var ListObjectsRequest: StaticStructureSchema = [
+export var ListObjectsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LOR,
@@ -3163,7 +3163,7 @@ export var ListObjectsRequest: StaticStructureSchema = [
     [64 | 0, { [_hH]: _xaooa }],
   ],
 ];
-export var ListObjectsV2Output: StaticStructureSchema = [
+export var ListObjectsV2Output$: StaticStructureSchema = [
   3,
   n0,
   _LOVO,
@@ -3185,7 +3185,7 @@ export var ListObjectsV2Output: StaticStructureSchema = [
     [0, { [_hH]: _xarc }],
   ],
 ];
-export var ListObjectsV2Request: StaticStructureSchema = [
+export var ListObjectsV2Request$: StaticStructureSchema = [
   3,
   n0,
   _LOVR,
@@ -3205,7 +3205,7 @@ export var ListObjectsV2Request: StaticStructureSchema = [
     [64 | 0, { [_hH]: _xaooa }],
   ],
 ];
-export var ListObjectVersionsOutput: StaticStructureSchema = [
+export var ListObjectVersionsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LOVOi,
@@ -3228,7 +3228,7 @@ export var ListObjectVersionsOutput: StaticStructureSchema = [
     [0, { [_hH]: _xarc }],
   ],
 ];
-export var ListObjectVersionsRequest: StaticStructureSchema = [
+export var ListObjectVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LOVRi,
@@ -3247,7 +3247,7 @@ export var ListObjectVersionsRequest: StaticStructureSchema = [
     [64 | 0, { [_hH]: _xaooa }],
   ],
 ];
-export var ListPartsOutput: StaticStructureSchema = [
+export var ListPartsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LPO,
@@ -3264,15 +3264,15 @@ export var ListPartsOutput: StaticStructureSchema = [
     1,
     2,
     [() => Parts, { [_xN]: _Par, [_xF]: 1 }],
-    () => Initiator,
-    () => Owner,
+    () => Initiator$,
+    () => Owner$,
     0,
     [0, { [_hH]: _xarc }],
     0,
     0,
   ],
 ];
-export var ListPartsRequest: StaticStructureSchema = [
+export var ListPartsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPRi,
@@ -3291,44 +3291,44 @@ export var ListPartsRequest: StaticStructureSchema = [
     [0, { [_hH]: _xasseckM }],
   ],
 ];
-export var LocationInfo: StaticStructureSchema = [3, n0, _LI, 0, [_Ty, _N], [0, 0]];
-export var LoggingEnabled: StaticStructureSchema = [
+export var LocationInfo$: StaticStructureSchema = [3, n0, _LI, 0, [_Ty, _N], [0, 0]];
+export var LoggingEnabled$: StaticStructureSchema = [
   3,
   n0,
   _LE,
   0,
   [_TB, _TG, _TP, _TOKF],
-  [0, [() => TargetGrants, 0], 0, [() => TargetObjectKeyFormat, 0]],
+  [0, [() => TargetGrants, 0], 0, [() => TargetObjectKeyFormat$, 0]],
 ];
-export var MetadataConfiguration: StaticStructureSchema = [
+export var MetadataConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _MC,
   0,
   [_JTC, _ITCn],
-  [() => JournalTableConfiguration, () => InventoryTableConfiguration],
+  [() => JournalTableConfiguration$, () => InventoryTableConfiguration$],
 ];
-export var MetadataConfigurationResult: StaticStructureSchema = [
+export var MetadataConfigurationResult$: StaticStructureSchema = [
   3,
   n0,
   _MCR,
   0,
   [_DRes, _JTCR, _ITCR],
-  [() => DestinationResult, () => JournalTableConfigurationResult, () => InventoryTableConfigurationResult],
+  [() => DestinationResult$, () => JournalTableConfigurationResult$, () => InventoryTableConfigurationResult$],
 ];
-export var MetadataEntry: StaticStructureSchema = [3, n0, _ME, 0, [_N, _V], [0, 0]];
-export var MetadataTableConfiguration: StaticStructureSchema = [3, n0, _MTC, 0, [_STD], [() => S3TablesDestination]];
-export var MetadataTableConfigurationResult: StaticStructureSchema = [
+export var MetadataEntry$: StaticStructureSchema = [3, n0, _ME, 0, [_N, _V], [0, 0]];
+export var MetadataTableConfiguration$: StaticStructureSchema = [3, n0, _MTC, 0, [_STD], [() => S3TablesDestination$]];
+export var MetadataTableConfigurationResult$: StaticStructureSchema = [
   3,
   n0,
   _MTCR,
   0,
   [_STDR],
-  [() => S3TablesDestinationResult],
+  [() => S3TablesDestinationResult$],
 ];
-export var MetadataTableEncryptionConfiguration: StaticStructureSchema = [3, n0, _MTEC, 0, [_SAs, _KKA], [0, 0]];
-export var Metrics: StaticStructureSchema = [3, n0, _Me, 0, [_S, _ETv], [0, () => ReplicationTimeValue]];
-export var MetricsAndOperator: StaticStructureSchema = [
+export var MetadataTableEncryptionConfiguration$: StaticStructureSchema = [3, n0, _MTEC, 0, [_SAs, _KKA], [0, 0]];
+export var Metrics$: StaticStructureSchema = [3, n0, _Me, 0, [_S, _ETv], [0, () => ReplicationTimeValue$]];
+export var MetricsAndOperator$: StaticStructureSchema = [
   3,
   n0,
   _MAO,
@@ -3336,26 +3336,26 @@ export var MetricsAndOperator: StaticStructureSchema = [
   [_P, _T, _APAc],
   [0, [() => TagSet, { [_xN]: _Ta, [_xF]: 1 }], 0],
 ];
-export var MetricsConfiguration: StaticStructureSchema = [3, n0, _MCe, 0, [_I, _F], [0, [() => MetricsFilter, 0]]];
-export var MultipartUpload: StaticStructureSchema = [
+export var MetricsConfiguration$: StaticStructureSchema = [3, n0, _MCe, 0, [_I, _F], [0, [() => MetricsFilter$, 0]]];
+export var MultipartUpload$: StaticStructureSchema = [
   3,
   n0,
   _MU,
   0,
   [_UI, _K, _Ini, _SC, _O, _In, _CA, _CT],
-  [0, 0, 4, 0, () => Owner, () => Initiator, 0, 0],
+  [0, 0, 4, 0, () => Owner$, () => Initiator$, 0, 0],
 ];
-export var NoncurrentVersionExpiration: StaticStructureSchema = [3, n0, _NVE, 0, [_ND, _NNV], [1, 1]];
-export var NoncurrentVersionTransition: StaticStructureSchema = [3, n0, _NVTo, 0, [_ND, _SC, _NNV], [1, 0, 1]];
-export var NoSuchBucket: StaticErrorSchema = [-3, n0, _NSB, { [_e]: _c, [_hE]: 404 }, [], []];
-TypeRegistry.for(n0).registerError(NoSuchBucket, __NoSuchBucket);
-export var NoSuchKey: StaticErrorSchema = [-3, n0, _NSK, { [_e]: _c, [_hE]: 404 }, [], []];
-TypeRegistry.for(n0).registerError(NoSuchKey, __NoSuchKey);
-export var NoSuchUpload: StaticErrorSchema = [-3, n0, _NSU, { [_e]: _c, [_hE]: 404 }, [], []];
-TypeRegistry.for(n0).registerError(NoSuchUpload, __NoSuchUpload);
-export var NotFound: StaticErrorSchema = [-3, n0, _NF, { [_e]: _c }, [], []];
-TypeRegistry.for(n0).registerError(NotFound, __NotFound);
-export var NotificationConfiguration: StaticStructureSchema = [
+export var NoncurrentVersionExpiration$: StaticStructureSchema = [3, n0, _NVE, 0, [_ND, _NNV], [1, 1]];
+export var NoncurrentVersionTransition$: StaticStructureSchema = [3, n0, _NVTo, 0, [_ND, _SC, _NNV], [1, 0, 1]];
+export var NoSuchBucket$: StaticErrorSchema = [-3, n0, _NSB, { [_e]: _c, [_hE]: 404 }, [], []];
+TypeRegistry.for(n0).registerError(NoSuchBucket$, NoSuchBucket);
+export var NoSuchKey$: StaticErrorSchema = [-3, n0, _NSK, { [_e]: _c, [_hE]: 404 }, [], []];
+TypeRegistry.for(n0).registerError(NoSuchKey$, NoSuchKey);
+export var NoSuchUpload$: StaticErrorSchema = [-3, n0, _NSU, { [_e]: _c, [_hE]: 404 }, [], []];
+TypeRegistry.for(n0).registerError(NoSuchUpload$, NoSuchUpload);
+export var NotFound$: StaticErrorSchema = [-3, n0, _NF, { [_e]: _c }, [], []];
+TypeRegistry.for(n0).registerError(NotFound$, NotFound);
+export var NotificationConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _NC,
@@ -3365,35 +3365,35 @@ export var NotificationConfiguration: StaticStructureSchema = [
     [() => TopicConfigurationList, { [_xN]: _TCop, [_xF]: 1 }],
     [() => QueueConfigurationList, { [_xN]: _QCue, [_xF]: 1 }],
     [() => LambdaFunctionConfigurationList, { [_xN]: _CFC, [_xF]: 1 }],
-    () => EventBridgeConfiguration,
+    () => EventBridgeConfiguration$,
   ],
 ];
-export var NotificationConfigurationFilter: StaticStructureSchema = [
+export var NotificationConfigurationFilter$: StaticStructureSchema = [
   3,
   n0,
   _NCF,
   0,
   [_K],
-  [[() => S3KeyFilter, { [_xN]: _SKe }]],
+  [[() => S3KeyFilter$, { [_xN]: _SKe }]],
 ];
-export var _Object: StaticStructureSchema = [
+export var _Object$: StaticStructureSchema = [
   3,
   n0,
   _Obj,
   0,
   [_K, _LM, _ETa, _CA, _CT, _Si, _SC, _O, _RSe],
-  [0, 4, 0, [64 | 0, { [_xF]: 1 }], 0, 1, 0, () => Owner, () => RestoreStatus],
+  [0, 4, 0, [64 | 0, { [_xF]: 1 }], 0, 1, 0, () => Owner$, () => RestoreStatus$],
 ];
-export var ObjectAlreadyInActiveTierError: StaticErrorSchema = [-3, n0, _OAIATE, { [_e]: _c, [_hE]: 403 }, [], []];
-TypeRegistry.for(n0).registerError(ObjectAlreadyInActiveTierError, __ObjectAlreadyInActiveTierError);
-export var ObjectIdentifier: StaticStructureSchema = [3, n0, _OI, 0, [_K, _VI, _ETa, _LMT, _Si], [0, 0, 0, 6, 1]];
-export var ObjectLockConfiguration: StaticStructureSchema = [3, n0, _OLC, 0, [_OLE, _Ru], [0, () => ObjectLockRule]];
-export var ObjectLockLegalHold: StaticStructureSchema = [3, n0, _OLLH, 0, [_S], [0]];
-export var ObjectLockRetention: StaticStructureSchema = [3, n0, _OLR, 0, [_Mo, _RUD], [0, 5]];
-export var ObjectLockRule: StaticStructureSchema = [3, n0, _OLRb, 0, [_DRe], [() => DefaultRetention]];
-export var ObjectNotInActiveTierError: StaticErrorSchema = [-3, n0, _ONIATE, { [_e]: _c, [_hE]: 403 }, [], []];
-TypeRegistry.for(n0).registerError(ObjectNotInActiveTierError, __ObjectNotInActiveTierError);
-export var ObjectPart: StaticStructureSchema = [
+export var ObjectAlreadyInActiveTierError$: StaticErrorSchema = [-3, n0, _OAIATE, { [_e]: _c, [_hE]: 403 }, [], []];
+TypeRegistry.for(n0).registerError(ObjectAlreadyInActiveTierError$, ObjectAlreadyInActiveTierError);
+export var ObjectIdentifier$: StaticStructureSchema = [3, n0, _OI, 0, [_K, _VI, _ETa, _LMT, _Si], [0, 0, 0, 6, 1]];
+export var ObjectLockConfiguration$: StaticStructureSchema = [3, n0, _OLC, 0, [_OLE, _Ru], [0, () => ObjectLockRule$]];
+export var ObjectLockLegalHold$: StaticStructureSchema = [3, n0, _OLLH, 0, [_S], [0]];
+export var ObjectLockRetention$: StaticStructureSchema = [3, n0, _OLR, 0, [_Mo, _RUD], [0, 5]];
+export var ObjectLockRule$: StaticStructureSchema = [3, n0, _OLRb, 0, [_DRe], [() => DefaultRetention$]];
+export var ObjectNotInActiveTierError$: StaticErrorSchema = [-3, n0, _ONIATE, { [_e]: _c, [_hE]: 403 }, [], []];
+TypeRegistry.for(n0).registerError(ObjectNotInActiveTierError$, ObjectNotInActiveTierError);
+export var ObjectPart$: StaticStructureSchema = [
   3,
   n0,
   _OPb,
@@ -3401,25 +3401,25 @@ export var ObjectPart: StaticStructureSchema = [
   [_PN, _Si, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh],
   [1, 1, 0, 0, 0, 0, 0],
 ];
-export var ObjectVersion: StaticStructureSchema = [
+export var ObjectVersion$: StaticStructureSchema = [
   3,
   n0,
   _OV,
   0,
   [_ETa, _CA, _CT, _Si, _SC, _K, _VI, _IL, _LM, _O, _RSe],
-  [0, [64 | 0, { [_xF]: 1 }], 0, 1, 0, 0, 0, 2, 4, () => Owner, () => RestoreStatus],
+  [0, [64 | 0, { [_xF]: 1 }], 0, 1, 0, 0, 0, 2, 4, () => Owner$, () => RestoreStatus$],
 ];
-export var OutputLocation: StaticStructureSchema = [3, n0, _OL, 0, [_S_], [[() => S3Location, 0]]];
-export var OutputSerialization: StaticStructureSchema = [
+export var OutputLocation$: StaticStructureSchema = [3, n0, _OL, 0, [_S_], [[() => S3Location$, 0]]];
+export var OutputSerialization$: StaticStructureSchema = [
   3,
   n0,
   _OSu,
   0,
   [_CSV, _JSON],
-  [() => CSVOutput, () => JSONOutput],
+  [() => CSVOutput$, () => JSONOutput$],
 ];
-export var Owner: StaticStructureSchema = [3, n0, _O, 0, [_DN, _ID], [0, 0]];
-export var OwnershipControls: StaticStructureSchema = [
+export var Owner$: StaticStructureSchema = [3, n0, _O, 0, [_DN, _ID], [0, 0]];
+export var OwnershipControls$: StaticStructureSchema = [
   3,
   n0,
   _OC,
@@ -3427,9 +3427,9 @@ export var OwnershipControls: StaticStructureSchema = [
   [_R],
   [[() => OwnershipControlsRules, { [_xN]: _Ru, [_xF]: 1 }]],
 ];
-export var OwnershipControlsRule: StaticStructureSchema = [3, n0, _OCR, 0, [_OO], [0]];
-export var ParquetInput: StaticStructureSchema = [3, n0, _PI, 0, [], []];
-export var Part: StaticStructureSchema = [
+export var OwnershipControlsRule$: StaticStructureSchema = [3, n0, _OCR, 0, [_OO], [0]];
+export var ParquetInput$: StaticStructureSchema = [3, n0, _PI, 0, [], []];
+export var Part$: StaticStructureSchema = [
   3,
   n0,
   _Par,
@@ -3437,11 +3437,11 @@ export var Part: StaticStructureSchema = [
   [_PN, _LM, _ETa, _Si, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh],
   [1, 4, 0, 1, 0, 0, 0, 0, 0],
 ];
-export var PartitionedPrefix: StaticStructureSchema = [3, n0, _PP, { [_xN]: _PP }, [_PDS], [0]];
-export var PolicyStatus: StaticStructureSchema = [3, n0, _PS, 0, [_IP], [[2, { [_xN]: _IP }]]];
-export var Progress: StaticStructureSchema = [3, n0, _Pr, 0, [_BS, _BP, _BRy], [1, 1, 1]];
-export var ProgressEvent: StaticStructureSchema = [3, n0, _PE, 0, [_Det], [[() => Progress, { [_eP]: 1 }]]];
-export var PublicAccessBlockConfiguration: StaticStructureSchema = [
+export var PartitionedPrefix$: StaticStructureSchema = [3, n0, _PP, { [_xN]: _PP }, [_PDS], [0]];
+export var PolicyStatus$: StaticStructureSchema = [3, n0, _PS, 0, [_IP], [[2, { [_xN]: _IP }]]];
+export var Progress$: StaticStructureSchema = [3, n0, _Pr, 0, [_BS, _BP, _BRy], [1, 1, 1]];
+export var ProgressEvent$: StaticStructureSchema = [3, n0, _PE, 0, [_Det], [[() => Progress$, { [_eP]: 1 }]]];
+export var PublicAccessBlockConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PABC,
@@ -3454,7 +3454,7 @@ export var PublicAccessBlockConfiguration: StaticStructureSchema = [
     [2, { [_xN]: _RPB }],
   ],
 ];
-export var PutBucketAbacRequest: StaticStructureSchema = [
+export var PutBucketAbacRequest$: StaticStructureSchema = [
   3,
   n0,
   _PBAR,
@@ -3465,10 +3465,10 @@ export var PutBucketAbacRequest: StaticStructureSchema = [
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
     [0, { [_hH]: _xaebo }],
-    [() => AbacStatus, { [_xN]: _AS, [_hP]: 1 }],
+    [() => AbacStatus$, { [_xN]: _AS, [_hP]: 1 }],
   ],
 ];
-export var PutBucketAccelerateConfigurationRequest: StaticStructureSchema = [
+export var PutBucketAccelerateConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PBACR,
@@ -3476,12 +3476,12 @@ export var PutBucketAccelerateConfigurationRequest: StaticStructureSchema = [
   [_B, _AC, _EBO, _CA],
   [
     [0, 1],
-    [() => AccelerateConfiguration, { [_xN]: _AC, [_hP]: 1 }],
+    [() => AccelerateConfiguration$, { [_xN]: _AC, [_hP]: 1 }],
     [0, { [_hH]: _xaebo }],
     [0, { [_hH]: _xasca }],
   ],
 ];
-export var PutBucketAclRequest: StaticStructureSchema = [
+export var PutBucketAclRequest$: StaticStructureSchema = [
   3,
   n0,
   _PBARu,
@@ -3489,7 +3489,7 @@ export var PutBucketAclRequest: StaticStructureSchema = [
   [_ACL_, _ACP, _B, _CMD, _CA, _GFC, _GR, _GRACP, _GW, _GWACP, _EBO],
   [
     [0, { [_hH]: _xaa }],
-    [() => AccessControlPolicy, { [_xN]: _ACP, [_hP]: 1 }],
+    [() => AccessControlPolicy$, { [_xN]: _ACP, [_hP]: 1 }],
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
@@ -3501,7 +3501,7 @@ export var PutBucketAclRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var PutBucketAnalyticsConfigurationRequest: StaticStructureSchema = [
+export var PutBucketAnalyticsConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PBACRu,
@@ -3510,11 +3510,11 @@ export var PutBucketAnalyticsConfigurationRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, { [_hQ]: _i }],
-    [() => AnalyticsConfiguration, { [_xN]: _ACn, [_hP]: 1 }],
+    [() => AnalyticsConfiguration$, { [_xN]: _ACn, [_hP]: 1 }],
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var PutBucketCorsRequest: StaticStructureSchema = [
+export var PutBucketCorsRequest$: StaticStructureSchema = [
   3,
   n0,
   _PBCR,
@@ -3522,13 +3522,13 @@ export var PutBucketCorsRequest: StaticStructureSchema = [
   [_B, _CORSC, _CMD, _CA, _EBO],
   [
     [0, 1],
-    [() => CORSConfiguration, { [_xN]: _CORSC, [_hP]: 1 }],
+    [() => CORSConfiguration$, { [_xN]: _CORSC, [_hP]: 1 }],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var PutBucketEncryptionRequest: StaticStructureSchema = [
+export var PutBucketEncryptionRequest$: StaticStructureSchema = [
   3,
   n0,
   _PBER,
@@ -3538,11 +3538,11 @@ export var PutBucketEncryptionRequest: StaticStructureSchema = [
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
-    [() => ServerSideEncryptionConfiguration, { [_xN]: _SSEC, [_hP]: 1 }],
+    [() => ServerSideEncryptionConfiguration$, { [_xN]: _SSEC, [_hP]: 1 }],
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var PutBucketIntelligentTieringConfigurationRequest: StaticStructureSchema = [
+export var PutBucketIntelligentTieringConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PBITCR,
@@ -3552,10 +3552,10 @@ export var PutBucketIntelligentTieringConfigurationRequest: StaticStructureSchem
     [0, 1],
     [0, { [_hQ]: _i }],
     [0, { [_hH]: _xaebo }],
-    [() => IntelligentTieringConfiguration, { [_xN]: _ITC, [_hP]: 1 }],
+    [() => IntelligentTieringConfiguration$, { [_xN]: _ITC, [_hP]: 1 }],
   ],
 ];
-export var PutBucketInventoryConfigurationRequest: StaticStructureSchema = [
+export var PutBucketInventoryConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PBICR,
@@ -3564,11 +3564,11 @@ export var PutBucketInventoryConfigurationRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, { [_hQ]: _i }],
-    [() => InventoryConfiguration, { [_xN]: _IC, [_hP]: 1 }],
+    [() => InventoryConfiguration$, { [_xN]: _IC, [_hP]: 1 }],
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var PutBucketLifecycleConfigurationOutput: StaticStructureSchema = [
+export var PutBucketLifecycleConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _PBLCO,
@@ -3576,7 +3576,7 @@ export var PutBucketLifecycleConfigurationOutput: StaticStructureSchema = [
   [_TDMOS],
   [[0, { [_hH]: _xatdmos }]],
 ];
-export var PutBucketLifecycleConfigurationRequest: StaticStructureSchema = [
+export var PutBucketLifecycleConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PBLCR,
@@ -3585,12 +3585,12 @@ export var PutBucketLifecycleConfigurationRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, { [_hH]: _xasca }],
-    [() => BucketLifecycleConfiguration, { [_xN]: _LCi, [_hP]: 1 }],
+    [() => BucketLifecycleConfiguration$, { [_xN]: _LCi, [_hP]: 1 }],
     [0, { [_hH]: _xaebo }],
     [0, { [_hH]: _xatdmos }],
   ],
 ];
-export var PutBucketLoggingRequest: StaticStructureSchema = [
+export var PutBucketLoggingRequest$: StaticStructureSchema = [
   3,
   n0,
   _PBLR,
@@ -3598,13 +3598,13 @@ export var PutBucketLoggingRequest: StaticStructureSchema = [
   [_B, _BLS, _CMD, _CA, _EBO],
   [
     [0, 1],
-    [() => BucketLoggingStatus, { [_xN]: _BLS, [_hP]: 1 }],
+    [() => BucketLoggingStatus$, { [_xN]: _BLS, [_hP]: 1 }],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var PutBucketMetricsConfigurationRequest: StaticStructureSchema = [
+export var PutBucketMetricsConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PBMCR,
@@ -3613,11 +3613,11 @@ export var PutBucketMetricsConfigurationRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, { [_hQ]: _i }],
-    [() => MetricsConfiguration, { [_xN]: _MCe, [_hP]: 1 }],
+    [() => MetricsConfiguration$, { [_xN]: _MCe, [_hP]: 1 }],
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var PutBucketNotificationConfigurationRequest: StaticStructureSchema = [
+export var PutBucketNotificationConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PBNCR,
@@ -3625,12 +3625,12 @@ export var PutBucketNotificationConfigurationRequest: StaticStructureSchema = [
   [_B, _NC, _EBO, _SDV],
   [
     [0, 1],
-    [() => NotificationConfiguration, { [_xN]: _NC, [_hP]: 1 }],
+    [() => NotificationConfiguration$, { [_xN]: _NC, [_hP]: 1 }],
     [0, { [_hH]: _xaebo }],
     [2, { [_hH]: _xasdv }],
   ],
 ];
-export var PutBucketOwnershipControlsRequest: StaticStructureSchema = [
+export var PutBucketOwnershipControlsRequest$: StaticStructureSchema = [
   3,
   n0,
   _PBOCR,
@@ -3640,11 +3640,11 @@ export var PutBucketOwnershipControlsRequest: StaticStructureSchema = [
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xaebo }],
-    [() => OwnershipControls, { [_xN]: _OC, [_hP]: 1 }],
+    [() => OwnershipControls$, { [_xN]: _OC, [_hP]: 1 }],
     [0, { [_hH]: _xasca }],
   ],
 ];
-export var PutBucketPolicyRequest: StaticStructureSchema = [
+export var PutBucketPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _PBPR,
@@ -3659,7 +3659,7 @@ export var PutBucketPolicyRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var PutBucketReplicationRequest: StaticStructureSchema = [
+export var PutBucketReplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PBRR,
@@ -3669,12 +3669,12 @@ export var PutBucketReplicationRequest: StaticStructureSchema = [
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
-    [() => ReplicationConfiguration, { [_xN]: _RCe, [_hP]: 1 }],
+    [() => ReplicationConfiguration$, { [_xN]: _RCe, [_hP]: 1 }],
     [0, { [_hH]: _xabolt }],
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var PutBucketRequestPaymentRequest: StaticStructureSchema = [
+export var PutBucketRequestPaymentRequest$: StaticStructureSchema = [
   3,
   n0,
   _PBRPR,
@@ -3684,11 +3684,11 @@ export var PutBucketRequestPaymentRequest: StaticStructureSchema = [
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
-    [() => RequestPaymentConfiguration, { [_xN]: _RPC, [_hP]: 1 }],
+    [() => RequestPaymentConfiguration$, { [_xN]: _RPC, [_hP]: 1 }],
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var PutBucketTaggingRequest: StaticStructureSchema = [
+export var PutBucketTaggingRequest$: StaticStructureSchema = [
   3,
   n0,
   _PBTR,
@@ -3698,11 +3698,11 @@ export var PutBucketTaggingRequest: StaticStructureSchema = [
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
-    [() => Tagging, { [_xN]: _Tag, [_hP]: 1 }],
+    [() => Tagging$, { [_xN]: _Tag, [_hP]: 1 }],
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var PutBucketVersioningRequest: StaticStructureSchema = [
+export var PutBucketVersioningRequest$: StaticStructureSchema = [
   3,
   n0,
   _PBVR,
@@ -3713,11 +3713,11 @@ export var PutBucketVersioningRequest: StaticStructureSchema = [
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
     [0, { [_hH]: _xam_ }],
-    [() => VersioningConfiguration, { [_xN]: _VC, [_hP]: 1 }],
+    [() => VersioningConfiguration$, { [_xN]: _VC, [_hP]: 1 }],
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var PutBucketWebsiteRequest: StaticStructureSchema = [
+export var PutBucketWebsiteRequest$: StaticStructureSchema = [
   3,
   n0,
   _PBWR,
@@ -3727,12 +3727,12 @@ export var PutBucketWebsiteRequest: StaticStructureSchema = [
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
-    [() => WebsiteConfiguration, { [_xN]: _WC, [_hP]: 1 }],
+    [() => WebsiteConfiguration$, { [_xN]: _WC, [_hP]: 1 }],
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var PutObjectAclOutput: StaticStructureSchema = [3, n0, _POAO, 0, [_RC], [[0, { [_hH]: _xarc }]]];
-export var PutObjectAclRequest: StaticStructureSchema = [
+export var PutObjectAclOutput$: StaticStructureSchema = [3, n0, _POAO, 0, [_RC], [[0, { [_hH]: _xarc }]]];
+export var PutObjectAclRequest$: StaticStructureSchema = [
   3,
   n0,
   _POAR,
@@ -3740,7 +3740,7 @@ export var PutObjectAclRequest: StaticStructureSchema = [
   [_ACL_, _ACP, _B, _CMD, _CA, _GFC, _GR, _GRACP, _GW, _GWACP, _K, _RP, _VI, _EBO],
   [
     [0, { [_hH]: _xaa }],
-    [() => AccessControlPolicy, { [_xN]: _ACP, [_hP]: 1 }],
+    [() => AccessControlPolicy$, { [_xN]: _ACP, [_hP]: 1 }],
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
@@ -3755,8 +3755,8 @@ export var PutObjectAclRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var PutObjectLegalHoldOutput: StaticStructureSchema = [3, n0, _POLHO, 0, [_RC], [[0, { [_hH]: _xarc }]]];
-export var PutObjectLegalHoldRequest: StaticStructureSchema = [
+export var PutObjectLegalHoldOutput$: StaticStructureSchema = [3, n0, _POLHO, 0, [_RC], [[0, { [_hH]: _xarc }]]];
+export var PutObjectLegalHoldRequest$: StaticStructureSchema = [
   3,
   n0,
   _POLHR,
@@ -3765,7 +3765,7 @@ export var PutObjectLegalHoldRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [() => ObjectLockLegalHold, { [_xN]: _LH, [_hP]: 1 }],
+    [() => ObjectLockLegalHold$, { [_xN]: _LH, [_hP]: 1 }],
     [0, { [_hH]: _xarp }],
     [0, { [_hQ]: _vI }],
     [0, { [_hH]: _CM }],
@@ -3773,8 +3773,15 @@ export var PutObjectLegalHoldRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var PutObjectLockConfigurationOutput: StaticStructureSchema = [3, n0, _POLCO, 0, [_RC], [[0, { [_hH]: _xarc }]]];
-export var PutObjectLockConfigurationRequest: StaticStructureSchema = [
+export var PutObjectLockConfigurationOutput$: StaticStructureSchema = [
+  3,
+  n0,
+  _POLCO,
+  0,
+  [_RC],
+  [[0, { [_hH]: _xarc }]],
+];
+export var PutObjectLockConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _POLCR,
@@ -3782,7 +3789,7 @@ export var PutObjectLockConfigurationRequest: StaticStructureSchema = [
   [_B, _OLC, _RP, _To, _CMD, _CA, _EBO],
   [
     [0, 1],
-    [() => ObjectLockConfiguration, { [_xN]: _OLC, [_hP]: 1 }],
+    [() => ObjectLockConfiguration$, { [_xN]: _OLC, [_hP]: 1 }],
     [0, { [_hH]: _xarp }],
     [0, { [_hH]: _xabolt }],
     [0, { [_hH]: _CM }],
@@ -3790,7 +3797,7 @@ export var PutObjectLockConfigurationRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var PutObjectOutput: StaticStructureSchema = [
+export var PutObjectOutput$: StaticStructureSchema = [
   3,
   n0,
   _POO,
@@ -3834,7 +3841,7 @@ export var PutObjectOutput: StaticStructureSchema = [
     [0, { [_hH]: _xarc }],
   ],
 ];
-export var PutObjectRequest: StaticStructureSchema = [
+export var PutObjectRequest$: StaticStructureSchema = [
   3,
   n0,
   _POR,
@@ -3926,8 +3933,8 @@ export var PutObjectRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var PutObjectRetentionOutput: StaticStructureSchema = [3, n0, _PORO, 0, [_RC], [[0, { [_hH]: _xarc }]]];
-export var PutObjectRetentionRequest: StaticStructureSchema = [
+export var PutObjectRetentionOutput$: StaticStructureSchema = [3, n0, _PORO, 0, [_RC], [[0, { [_hH]: _xarc }]]];
+export var PutObjectRetentionRequest$: StaticStructureSchema = [
   3,
   n0,
   _PORR,
@@ -3936,7 +3943,7 @@ export var PutObjectRetentionRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [() => ObjectLockRetention, { [_xN]: _Ret, [_hP]: 1 }],
+    [() => ObjectLockRetention$, { [_xN]: _Ret, [_hP]: 1 }],
     [0, { [_hH]: _xarp }],
     [0, { [_hQ]: _vI }],
     [2, { [_hH]: _xabgr }],
@@ -3945,8 +3952,8 @@ export var PutObjectRetentionRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var PutObjectTaggingOutput: StaticStructureSchema = [3, n0, _POTO, 0, [_VI], [[0, { [_hH]: _xavi }]]];
-export var PutObjectTaggingRequest: StaticStructureSchema = [
+export var PutObjectTaggingOutput$: StaticStructureSchema = [3, n0, _POTO, 0, [_VI], [[0, { [_hH]: _xavi }]]];
+export var PutObjectTaggingRequest$: StaticStructureSchema = [
   3,
   n0,
   _POTR,
@@ -3958,12 +3965,12 @@ export var PutObjectTaggingRequest: StaticStructureSchema = [
     [0, { [_hQ]: _vI }],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
-    [() => Tagging, { [_xN]: _Tag, [_hP]: 1 }],
+    [() => Tagging$, { [_xN]: _Tag, [_hP]: 1 }],
     [0, { [_hH]: _xaebo }],
     [0, { [_hH]: _xarp }],
   ],
 ];
-export var PutPublicAccessBlockRequest: StaticStructureSchema = [
+export var PutPublicAccessBlockRequest$: StaticStructureSchema = [
   3,
   n0,
   _PPABR,
@@ -3973,24 +3980,24 @@ export var PutPublicAccessBlockRequest: StaticStructureSchema = [
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
-    [() => PublicAccessBlockConfiguration, { [_xN]: _PABC, [_hP]: 1 }],
+    [() => PublicAccessBlockConfiguration$, { [_xN]: _PABC, [_hP]: 1 }],
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var QueueConfiguration: StaticStructureSchema = [
+export var QueueConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _QCue,
   0,
   [_I, _QA, _Ev, _F],
-  [0, [0, { [_xN]: _Qu }], [64 | 0, { [_xN]: _Eve, [_xF]: 1 }], [() => NotificationConfigurationFilter, 0]],
+  [0, [0, { [_xN]: _Qu }], [64 | 0, { [_xN]: _Eve, [_xF]: 1 }], [() => NotificationConfigurationFilter$, 0]],
 ];
-export var RecordExpiration: StaticStructureSchema = [3, n0, _REe, 0, [_E, _D], [0, 1]];
-export var RecordsEvent: StaticStructureSchema = [3, n0, _REec, 0, [_Payl], [[21, { [_eP]: 1 }]]];
-export var Redirect: StaticStructureSchema = [3, n0, _Red, 0, [_HN, _HRC, _Pro, _RKPW, _RKW], [0, 0, 0, 0, 0]];
-export var RedirectAllRequestsTo: StaticStructureSchema = [3, n0, _RART, 0, [_HN, _Pro], [0, 0]];
-export var RenameObjectOutput: StaticStructureSchema = [3, n0, _ROO, 0, [], []];
-export var RenameObjectRequest: StaticStructureSchema = [
+export var RecordExpiration$: StaticStructureSchema = [3, n0, _REe, 0, [_E, _D], [0, 1]];
+export var RecordsEvent$: StaticStructureSchema = [3, n0, _REec, 0, [_Payl], [[21, { [_eP]: 1 }]]];
+export var Redirect$: StaticStructureSchema = [3, n0, _Red, 0, [_HN, _HRC, _Pro, _RKPW, _RKW], [0, 0, 0, 0, 0]];
+export var RedirectAllRequestsTo$: StaticStructureSchema = [3, n0, _RART, 0, [_HN, _Pro], [0, 0]];
+export var RenameObjectOutput$: StaticStructureSchema = [3, n0, _ROO, 0, [], []];
+export var RenameObjectRequest$: StaticStructureSchema = [
   3,
   n0,
   _ROR,
@@ -4011,8 +4018,8 @@ export var RenameObjectRequest: StaticStructureSchema = [
     [0, { [_hH]: _xact_, [_iT]: 1 }],
   ],
 ];
-export var ReplicaModifications: StaticStructureSchema = [3, n0, _RM, 0, [_S], [0]];
-export var ReplicationConfiguration: StaticStructureSchema = [
+export var ReplicaModifications$: StaticStructureSchema = [3, n0, _RM, 0, [_S], [0]];
+export var ReplicationConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RCe,
@@ -4020,7 +4027,7 @@ export var ReplicationConfiguration: StaticStructureSchema = [
   [_Ro, _R],
   [0, [() => ReplicationRules, { [_xN]: _Ru, [_xF]: 1 }]],
 ];
-export var ReplicationRule: StaticStructureSchema = [
+export var ReplicationRule$: StaticStructureSchema = [
   3,
   n0,
   _RRe,
@@ -4030,15 +4037,15 @@ export var ReplicationRule: StaticStructureSchema = [
     0,
     1,
     0,
-    [() => ReplicationRuleFilter, 0],
+    [() => ReplicationRuleFilter$, 0],
     0,
-    () => SourceSelectionCriteria,
-    () => ExistingObjectReplication,
-    () => Destination,
-    () => DeleteMarkerReplication,
+    () => SourceSelectionCriteria$,
+    () => ExistingObjectReplication$,
+    () => Destination$,
+    () => DeleteMarkerReplication$,
   ],
 ];
-export var ReplicationRuleAndOperator: StaticStructureSchema = [
+export var ReplicationRuleAndOperator$: StaticStructureSchema = [
   3,
   n0,
   _RRAO,
@@ -4046,19 +4053,19 @@ export var ReplicationRuleAndOperator: StaticStructureSchema = [
   [_P, _T],
   [0, [() => TagSet, { [_xN]: _Ta, [_xF]: 1 }]],
 ];
-export var ReplicationRuleFilter: StaticStructureSchema = [
+export var ReplicationRuleFilter$: StaticStructureSchema = [
   3,
   n0,
   _RRF,
   0,
   [_P, _Ta, _An],
-  [0, () => Tag, [() => ReplicationRuleAndOperator, 0]],
+  [0, () => Tag$, [() => ReplicationRuleAndOperator$, 0]],
 ];
-export var ReplicationTime: StaticStructureSchema = [3, n0, _RT, 0, [_S, _Tim], [0, () => ReplicationTimeValue]];
-export var ReplicationTimeValue: StaticStructureSchema = [3, n0, _RTV, 0, [_Mi], [1]];
-export var RequestPaymentConfiguration: StaticStructureSchema = [3, n0, _RPC, 0, [_Pay], [0]];
-export var RequestProgress: StaticStructureSchema = [3, n0, _RPe, 0, [_Ena], [2]];
-export var RestoreObjectOutput: StaticStructureSchema = [
+export var ReplicationTime$: StaticStructureSchema = [3, n0, _RT, 0, [_S, _Tim], [0, () => ReplicationTimeValue$]];
+export var ReplicationTimeValue$: StaticStructureSchema = [3, n0, _RTV, 0, [_Mi], [1]];
+export var RequestPaymentConfiguration$: StaticStructureSchema = [3, n0, _RPC, 0, [_Pay], [0]];
+export var RequestProgress$: StaticStructureSchema = [3, n0, _RPe, 0, [_Ena], [2]];
+export var RestoreObjectOutput$: StaticStructureSchema = [
   3,
   n0,
   _ROOe,
@@ -4069,7 +4076,7 @@ export var RestoreObjectOutput: StaticStructureSchema = [
     [0, { [_hH]: _xarop }],
   ],
 ];
-export var RestoreObjectRequest: StaticStructureSchema = [
+export var RestoreObjectRequest$: StaticStructureSchema = [
   3,
   n0,
   _RORe,
@@ -4079,23 +4086,23 @@ export var RestoreObjectRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, { [_hQ]: _vI }],
-    [() => RestoreRequest, { [_hP]: 1, [_xN]: _RRes }],
+    [() => RestoreRequest$, { [_hP]: 1, [_xN]: _RRes }],
     [0, { [_hH]: _xarp }],
     [0, { [_hH]: _xasca }],
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var RestoreRequest: StaticStructureSchema = [
+export var RestoreRequest$: StaticStructureSchema = [
   3,
   n0,
   _RRes,
   0,
   [_D, _GJP, _Ty, _Ti, _Desc, _SP, _OL],
-  [1, () => GlacierJobParameters, 0, 0, 0, () => SelectParameters, [() => OutputLocation, 0]],
+  [1, () => GlacierJobParameters$, 0, 0, 0, () => SelectParameters$, [() => OutputLocation$, 0]],
 ];
-export var RestoreStatus: StaticStructureSchema = [3, n0, _RSe, 0, [_IRIP, _RED], [2, 4]];
-export var RoutingRule: StaticStructureSchema = [3, n0, _RRo, 0, [_Co, _Red], [() => Condition, () => Redirect]];
-export var S3KeyFilter: StaticStructureSchema = [
+export var RestoreStatus$: StaticStructureSchema = [3, n0, _RSe, 0, [_IRIP, _RED], [2, 4]];
+export var RoutingRule$: StaticStructureSchema = [3, n0, _RRo, 0, [_Co, _Red], [() => Condition$, () => Redirect$]];
+export var S3KeyFilter$: StaticStructureSchema = [
   3,
   n0,
   _SKF,
@@ -4103,26 +4110,26 @@ export var S3KeyFilter: StaticStructureSchema = [
   [_FRi],
   [[() => FilterRuleList, { [_xN]: _FR, [_xF]: 1 }]],
 ];
-export var S3Location: StaticStructureSchema = [
+export var S3Location$: StaticStructureSchema = [
   3,
   n0,
   _SL,
   0,
   [_BN, _P, _En, _CACL, _ACL, _Tag, _UM, _SC],
-  [0, 0, [() => Encryption, 0], 0, [() => Grants, 0], [() => Tagging, 0], [() => UserMetadata, 0], 0],
+  [0, 0, [() => Encryption$, 0], 0, [() => Grants, 0], [() => Tagging$, 0], [() => UserMetadata, 0], 0],
 ];
-export var S3TablesDestination: StaticStructureSchema = [3, n0, _STD, 0, [_TBA, _TNa], [0, 0]];
-export var S3TablesDestinationResult: StaticStructureSchema = [3, n0, _STDR, 0, [_TBA, _TNa, _TA, _TN], [0, 0, 0, 0]];
-export var ScanRange: StaticStructureSchema = [3, n0, _SR, 0, [_St, _End], [1, 1]];
-export var SelectObjectContentOutput: StaticStructureSchema = [
+export var S3TablesDestination$: StaticStructureSchema = [3, n0, _STD, 0, [_TBA, _TNa], [0, 0]];
+export var S3TablesDestinationResult$: StaticStructureSchema = [3, n0, _STDR, 0, [_TBA, _TNa, _TA, _TN], [0, 0, 0, 0]];
+export var ScanRange$: StaticStructureSchema = [3, n0, _SR, 0, [_St, _End], [1, 1]];
+export var SelectObjectContentOutput$: StaticStructureSchema = [
   3,
   n0,
   _SOCO,
   0,
   [_Payl],
-  [[() => SelectObjectContentEventStream, 16]],
+  [[() => SelectObjectContentEventStream$, 16]],
 ];
-export var SelectObjectContentRequest: StaticStructureSchema = [
+export var SelectObjectContentRequest$: StaticStructureSchema = [
   3,
   n0,
   _SOCR,
@@ -4136,22 +4143,22 @@ export var SelectObjectContentRequest: StaticStructureSchema = [
     [0, { [_hH]: _xasseckM }],
     0,
     0,
-    () => RequestProgress,
-    () => InputSerialization,
-    () => OutputSerialization,
-    () => ScanRange,
+    () => RequestProgress$,
+    () => InputSerialization$,
+    () => OutputSerialization$,
+    () => ScanRange$,
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var SelectParameters: StaticStructureSchema = [
+export var SelectParameters$: StaticStructureSchema = [
   3,
   n0,
   _SP,
   0,
   [_IS, _ETx, _Exp, _OSu],
-  [() => InputSerialization, 0, 0, () => OutputSerialization],
+  [() => InputSerialization$, 0, 0, () => OutputSerialization$],
 ];
-export var ServerSideEncryptionByDefault: StaticStructureSchema = [
+export var ServerSideEncryptionByDefault$: StaticStructureSchema = [
   3,
   n0,
   _SSEBD,
@@ -4159,7 +4166,7 @@ export var ServerSideEncryptionByDefault: StaticStructureSchema = [
   [_SSEA, _KMSMKID],
   [0, [() => SSEKMSKeyId, 0]],
 ];
-export var ServerSideEncryptionConfiguration: StaticStructureSchema = [
+export var ServerSideEncryptionConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SSEC,
@@ -4167,15 +4174,15 @@ export var ServerSideEncryptionConfiguration: StaticStructureSchema = [
   [_R],
   [[() => ServerSideEncryptionRules, { [_xN]: _Ru, [_xF]: 1 }]],
 ];
-export var ServerSideEncryptionRule: StaticStructureSchema = [
+export var ServerSideEncryptionRule$: StaticStructureSchema = [
   3,
   n0,
   _SSER,
   0,
   [_ASSEBD, _BKE, _BET],
-  [[() => ServerSideEncryptionByDefault, 0], 2, [() => BlockedEncryptionTypes, 0]],
+  [[() => ServerSideEncryptionByDefault$, 0], 2, [() => BlockedEncryptionTypes$, 0]],
 ];
-export var SessionCredentials: StaticStructureSchema = [
+export var SessionCredentials$: StaticStructureSchema = [
   3,
   n0,
   _SCe,
@@ -4188,70 +4195,70 @@ export var SessionCredentials: StaticStructureSchema = [
     [4, { [_xN]: _E }],
   ],
 ];
-export var SimplePrefix: StaticStructureSchema = [3, n0, _SPi, { [_xN]: _SPi }, [], []];
-export var SourceSelectionCriteria: StaticStructureSchema = [
+export var SimplePrefix$: StaticStructureSchema = [3, n0, _SPi, { [_xN]: _SPi }, [], []];
+export var SourceSelectionCriteria$: StaticStructureSchema = [
   3,
   n0,
   _SSC,
   0,
   [_SKEO, _RM],
-  [() => SseKmsEncryptedObjects, () => ReplicaModifications],
+  [() => SseKmsEncryptedObjects$, () => ReplicaModifications$],
 ];
-export var SSEKMS: StaticStructureSchema = [3, n0, _SSEKMS, { [_xN]: _SK }, [_KI], [[() => SSEKMSKeyId, 0]]];
-export var SseKmsEncryptedObjects: StaticStructureSchema = [3, n0, _SKEO, 0, [_S], [0]];
-export var SSES3: StaticStructureSchema = [3, n0, _SSES, { [_xN]: _SS }, [], []];
-export var Stats: StaticStructureSchema = [3, n0, _Sta, 0, [_BS, _BP, _BRy], [1, 1, 1]];
-export var StatsEvent: StaticStructureSchema = [3, n0, _SE, 0, [_Det], [[() => Stats, { [_eP]: 1 }]]];
-export var StorageClassAnalysis: StaticStructureSchema = [
+export var SSEKMS$: StaticStructureSchema = [3, n0, _SSEKMS, { [_xN]: _SK }, [_KI], [[() => SSEKMSKeyId, 0]]];
+export var SseKmsEncryptedObjects$: StaticStructureSchema = [3, n0, _SKEO, 0, [_S], [0]];
+export var SSES3$: StaticStructureSchema = [3, n0, _SSES, { [_xN]: _SS }, [], []];
+export var Stats$: StaticStructureSchema = [3, n0, _Sta, 0, [_BS, _BP, _BRy], [1, 1, 1]];
+export var StatsEvent$: StaticStructureSchema = [3, n0, _SE, 0, [_Det], [[() => Stats$, { [_eP]: 1 }]]];
+export var StorageClassAnalysis$: StaticStructureSchema = [
   3,
   n0,
   _SCA,
   0,
   [_DE],
-  [() => StorageClassAnalysisDataExport],
+  [() => StorageClassAnalysisDataExport$],
 ];
-export var StorageClassAnalysisDataExport: StaticStructureSchema = [
+export var StorageClassAnalysisDataExport$: StaticStructureSchema = [
   3,
   n0,
   _SCADE,
   0,
   [_OSV, _Des],
-  [0, () => AnalyticsExportDestination],
+  [0, () => AnalyticsExportDestination$],
 ];
-export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
-export var Tagging: StaticStructureSchema = [3, n0, _Tag, 0, [_TS], [[() => TagSet, 0]]];
-export var TargetGrant: StaticStructureSchema = [
+export var Tag$: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
+export var Tagging$: StaticStructureSchema = [3, n0, _Tag, 0, [_TS], [[() => TagSet, 0]]];
+export var TargetGrant$: StaticStructureSchema = [
   3,
   n0,
   _TGa,
   0,
   [_Gra, _Pe],
-  [[() => Grantee, { [_xNm]: [_x, _hi] }], 0],
+  [[() => Grantee$, { [_xNm]: [_x, _hi] }], 0],
 ];
-export var TargetObjectKeyFormat: StaticStructureSchema = [
+export var TargetObjectKeyFormat$: StaticStructureSchema = [
   3,
   n0,
   _TOKF,
   0,
   [_SPi, _PP],
   [
-    [() => SimplePrefix, { [_xN]: _SPi }],
-    [() => PartitionedPrefix, { [_xN]: _PP }],
+    [() => SimplePrefix$, { [_xN]: _SPi }],
+    [() => PartitionedPrefix$, { [_xN]: _PP }],
   ],
 ];
-export var Tiering: StaticStructureSchema = [3, n0, _Tier, 0, [_D, _AT], [1, 0]];
-export var TooManyParts: StaticErrorSchema = [-3, n0, _TMP, { [_e]: _c, [_hE]: 400 }, [], []];
-TypeRegistry.for(n0).registerError(TooManyParts, __TooManyParts);
-export var TopicConfiguration: StaticStructureSchema = [
+export var Tiering$: StaticStructureSchema = [3, n0, _Tier, 0, [_D, _AT], [1, 0]];
+export var TooManyParts$: StaticErrorSchema = [-3, n0, _TMP, { [_e]: _c, [_hE]: 400 }, [], []];
+TypeRegistry.for(n0).registerError(TooManyParts$, TooManyParts);
+export var TopicConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _TCop,
   0,
   [_I, _TAo, _Ev, _F],
-  [0, [0, { [_xN]: _Top }], [64 | 0, { [_xN]: _Eve, [_xF]: 1 }], [() => NotificationConfigurationFilter, 0]],
+  [0, [0, { [_xN]: _Top }], [64 | 0, { [_xN]: _Eve, [_xF]: 1 }], [() => NotificationConfigurationFilter$, 0]],
 ];
-export var Transition: StaticStructureSchema = [3, n0, _Tra, 0, [_Da, _D, _SC], [5, 1, 0]];
-export var UpdateBucketMetadataInventoryTableConfigurationRequest: StaticStructureSchema = [
+export var Transition$: StaticStructureSchema = [3, n0, _Tra, 0, [_Da, _D, _SC], [5, 1, 0]];
+export var UpdateBucketMetadataInventoryTableConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UBMITCR,
@@ -4261,11 +4268,11 @@ export var UpdateBucketMetadataInventoryTableConfigurationRequest: StaticStructu
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
-    [() => InventoryTableConfigurationUpdates, { [_xN]: _ITCn, [_hP]: 1 }],
+    [() => InventoryTableConfigurationUpdates$, { [_xN]: _ITCn, [_hP]: 1 }],
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var UpdateBucketMetadataJournalTableConfigurationRequest: StaticStructureSchema = [
+export var UpdateBucketMetadataJournalTableConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UBMJTCR,
@@ -4275,11 +4282,11 @@ export var UpdateBucketMetadataJournalTableConfigurationRequest: StaticStructure
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
-    [() => JournalTableConfigurationUpdates, { [_xN]: _JTC, [_hP]: 1 }],
+    [() => JournalTableConfigurationUpdates$, { [_xN]: _JTC, [_hP]: 1 }],
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var UploadPartCopyOutput: StaticStructureSchema = [
+export var UploadPartCopyOutput$: StaticStructureSchema = [
   3,
   n0,
   _UPCO,
@@ -4287,7 +4294,7 @@ export var UploadPartCopyOutput: StaticStructureSchema = [
   [_CSVI, _CPR, _SSE, _SSECA, _SSECKMD, _SSEKMSKI, _BKE, _RC],
   [
     [0, { [_hH]: _xacsvi }],
-    [() => CopyPartResult, 16],
+    [() => CopyPartResult$, 16],
     [0, { [_hH]: _xasse }],
     [0, { [_hH]: _xasseca }],
     [0, { [_hH]: _xasseckM }],
@@ -4296,7 +4303,7 @@ export var UploadPartCopyOutput: StaticStructureSchema = [
     [0, { [_hH]: _xarc }],
   ],
 ];
-export var UploadPartCopyRequest: StaticStructureSchema = [
+export var UploadPartCopyRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPCR,
@@ -4344,7 +4351,7 @@ export var UploadPartCopyRequest: StaticStructureSchema = [
     [0, { [_hH]: _xasebo }],
   ],
 ];
-export var UploadPartOutput: StaticStructureSchema = [
+export var UploadPartOutput$: StaticStructureSchema = [
   3,
   n0,
   _UPO,
@@ -4365,7 +4372,7 @@ export var UploadPartOutput: StaticStructureSchema = [
     [0, { [_hH]: _xarc }],
   ],
 ];
-export var UploadPartRequest: StaticStructureSchema = [
+export var UploadPartRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPR,
@@ -4411,16 +4418,16 @@ export var UploadPartRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaebo }],
   ],
 ];
-export var VersioningConfiguration: StaticStructureSchema = [3, n0, _VC, 0, [_MFAD, _S], [[0, { [_xN]: _MDf }], 0]];
-export var WebsiteConfiguration: StaticStructureSchema = [
+export var VersioningConfiguration$: StaticStructureSchema = [3, n0, _VC, 0, [_MFAD, _S], [[0, { [_xN]: _MDf }], 0]];
+export var WebsiteConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _WC,
   0,
   [_EDr, _IDn, _RART, _RR],
-  [() => ErrorDocument, () => IndexDocument, () => RedirectAllRequestsTo, [() => RoutingRules, 0]],
+  [() => ErrorDocument$, () => IndexDocument$, () => RedirectAllRequestsTo$, [() => RoutingRules, 0]],
 ];
-export var WriteGetObjectResponseRequest: StaticStructureSchema = [
+export var WriteGetObjectResponseRequest$: StaticStructureSchema = [
   3,
   n0,
   _WGORR,
@@ -4512,934 +4519,934 @@ export var WriteGetObjectResponseRequest: StaticStructureSchema = [
     [2, { [_hH]: _xafhxassebke }],
   ],
 ];
-export var __Unit = "unit" as const;
-export var S3ServiceException: StaticErrorSchema = [-3, _sm, "S3ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(S3ServiceException, __S3ServiceException);
-export var AllowedHeaders = 64 | 0;
-export var AllowedMethods = 64 | 0;
-export var AllowedOrigins = 64 | 0;
-export var AnalyticsConfigurationList: StaticListSchema = [1, n0, _ACLn, 0, [() => AnalyticsConfiguration, 0]];
-export var Buckets: StaticListSchema = [1, n0, _Bu, 0, [() => Bucket, { [_xN]: _B }]];
-export var ChecksumAlgorithmList = 64 | 0;
-export var CommonPrefixList: StaticListSchema = [1, n0, _CPL, 0, () => CommonPrefix];
-export var CompletedPartList: StaticListSchema = [1, n0, _CPLo, 0, () => CompletedPart];
-export var CORSRules: StaticListSchema = [1, n0, _CORSR, 0, [() => CORSRule, 0]];
-export var DeletedObjects: StaticListSchema = [1, n0, _DOe, 0, () => DeletedObject];
-export var DeleteMarkers: StaticListSchema = [1, n0, _DMe, 0, () => DeleteMarkerEntry];
-export var EncryptionTypeList: StaticListSchema = [1, n0, _ETL, 0, [0, { [_xN]: _ET }]];
-export var Errors: StaticListSchema = [1, n0, _Er, 0, () => _Error];
-export var EventList = 64 | 0;
-export var ExposeHeaders = 64 | 0;
-export var FilterRuleList: StaticListSchema = [1, n0, _FRL, 0, () => FilterRule];
-export var Grants: StaticListSchema = [1, n0, _G, 0, [() => Grant, { [_xN]: _Gr }]];
-export var IntelligentTieringConfigurationList: StaticListSchema = [
+var __Unit = "unit" as const;
+export var S3ServiceException$: StaticErrorSchema = [-3, _sm, "S3ServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(S3ServiceException$, S3ServiceException);
+var AllowedHeaders = 64 | 0;
+var AllowedMethods = 64 | 0;
+var AllowedOrigins = 64 | 0;
+var AnalyticsConfigurationList: StaticListSchema = [1, n0, _ACLn, 0, [() => AnalyticsConfiguration$, 0]];
+var Buckets: StaticListSchema = [1, n0, _Bu, 0, [() => Bucket$, { [_xN]: _B }]];
+var ChecksumAlgorithmList = 64 | 0;
+var CommonPrefixList: StaticListSchema = [1, n0, _CPL, 0, () => CommonPrefix$];
+var CompletedPartList: StaticListSchema = [1, n0, _CPLo, 0, () => CompletedPart$];
+var CORSRules: StaticListSchema = [1, n0, _CORSR, 0, [() => CORSRule$, 0]];
+var DeletedObjects: StaticListSchema = [1, n0, _DOe, 0, () => DeletedObject$];
+var DeleteMarkers: StaticListSchema = [1, n0, _DMe, 0, () => DeleteMarkerEntry$];
+var EncryptionTypeList: StaticListSchema = [1, n0, _ETL, 0, [0, { [_xN]: _ET }]];
+var Errors: StaticListSchema = [1, n0, _Er, 0, () => _Error$];
+var EventList = 64 | 0;
+var ExposeHeaders = 64 | 0;
+var FilterRuleList: StaticListSchema = [1, n0, _FRL, 0, () => FilterRule$];
+var Grants: StaticListSchema = [1, n0, _G, 0, [() => Grant$, { [_xN]: _Gr }]];
+var IntelligentTieringConfigurationList: StaticListSchema = [
   1,
   n0,
   _ITCL,
   0,
-  [() => IntelligentTieringConfiguration, 0],
+  [() => IntelligentTieringConfiguration$, 0],
 ];
-export var InventoryConfigurationList: StaticListSchema = [1, n0, _ICL, 0, [() => InventoryConfiguration, 0]];
-export var InventoryOptionalFields: StaticListSchema = [1, n0, _IOF, 0, [0, { [_xN]: _Fi }]];
-export var LambdaFunctionConfigurationList: StaticListSchema = [
-  1,
-  n0,
-  _LFCL,
-  0,
-  [() => LambdaFunctionConfiguration, 0],
-];
-export var LifecycleRules: StaticListSchema = [1, n0, _LRi, 0, [() => LifecycleRule, 0]];
-export var MetricsConfigurationList: StaticListSchema = [1, n0, _MCL, 0, [() => MetricsConfiguration, 0]];
-export var MultipartUploadList: StaticListSchema = [1, n0, _MUL, 0, () => MultipartUpload];
-export var NoncurrentVersionTransitionList: StaticListSchema = [1, n0, _NVTL, 0, () => NoncurrentVersionTransition];
-export var ObjectAttributesList = 64 | 0;
-export var ObjectIdentifierList: StaticListSchema = [1, n0, _OIL, 0, () => ObjectIdentifier];
-export var ObjectList: StaticListSchema = [1, n0, _OLb, 0, [() => _Object, 0]];
-export var ObjectVersionList: StaticListSchema = [1, n0, _OVL, 0, [() => ObjectVersion, 0]];
-export var OptionalObjectAttributesList = 64 | 0;
-export var OwnershipControlsRules: StaticListSchema = [1, n0, _OCRw, 0, () => OwnershipControlsRule];
-export var Parts: StaticListSchema = [1, n0, _Pa, 0, () => Part];
-export var PartsList: StaticListSchema = [1, n0, _PL, 0, () => ObjectPart];
-export var QueueConfigurationList: StaticListSchema = [1, n0, _QCL, 0, [() => QueueConfiguration, 0]];
-export var ReplicationRules: StaticListSchema = [1, n0, _RRep, 0, [() => ReplicationRule, 0]];
-export var RoutingRules: StaticListSchema = [1, n0, _RR, 0, [() => RoutingRule, { [_xN]: _RRo }]];
-export var ServerSideEncryptionRules: StaticListSchema = [1, n0, _SSERe, 0, [() => ServerSideEncryptionRule, 0]];
-export var TagSet: StaticListSchema = [1, n0, _TS, 0, [() => Tag, { [_xN]: _Ta }]];
-export var TargetGrants: StaticListSchema = [1, n0, _TG, 0, [() => TargetGrant, { [_xN]: _Gr }]];
-export var TieringList: StaticListSchema = [1, n0, _TL, 0, () => Tiering];
-export var TopicConfigurationList: StaticListSchema = [1, n0, _TCL, 0, [() => TopicConfiguration, 0]];
-export var TransitionList: StaticListSchema = [1, n0, _TLr, 0, () => Transition];
-export var UserMetadata: StaticListSchema = [1, n0, _UM, 0, [() => MetadataEntry, { [_xN]: _ME }]];
-export var Metadata = 128 | 0;
-export var AnalyticsFilter: StaticStructureSchema = [
+var InventoryConfigurationList: StaticListSchema = [1, n0, _ICL, 0, [() => InventoryConfiguration$, 0]];
+var InventoryOptionalFields: StaticListSchema = [1, n0, _IOF, 0, [0, { [_xN]: _Fi }]];
+var LambdaFunctionConfigurationList: StaticListSchema = [1, n0, _LFCL, 0, [() => LambdaFunctionConfiguration$, 0]];
+var LifecycleRules: StaticListSchema = [1, n0, _LRi, 0, [() => LifecycleRule$, 0]];
+var MetricsConfigurationList: StaticListSchema = [1, n0, _MCL, 0, [() => MetricsConfiguration$, 0]];
+var MultipartUploadList: StaticListSchema = [1, n0, _MUL, 0, () => MultipartUpload$];
+var NoncurrentVersionTransitionList: StaticListSchema = [1, n0, _NVTL, 0, () => NoncurrentVersionTransition$];
+var ObjectAttributesList = 64 | 0;
+var ObjectIdentifierList: StaticListSchema = [1, n0, _OIL, 0, () => ObjectIdentifier$];
+var ObjectList: StaticListSchema = [1, n0, _OLb, 0, [() => _Object$, 0]];
+var ObjectVersionList: StaticListSchema = [1, n0, _OVL, 0, [() => ObjectVersion$, 0]];
+var OptionalObjectAttributesList = 64 | 0;
+var OwnershipControlsRules: StaticListSchema = [1, n0, _OCRw, 0, () => OwnershipControlsRule$];
+var Parts: StaticListSchema = [1, n0, _Pa, 0, () => Part$];
+var PartsList: StaticListSchema = [1, n0, _PL, 0, () => ObjectPart$];
+var QueueConfigurationList: StaticListSchema = [1, n0, _QCL, 0, [() => QueueConfiguration$, 0]];
+var ReplicationRules: StaticListSchema = [1, n0, _RRep, 0, [() => ReplicationRule$, 0]];
+var RoutingRules: StaticListSchema = [1, n0, _RR, 0, [() => RoutingRule$, { [_xN]: _RRo }]];
+var ServerSideEncryptionRules: StaticListSchema = [1, n0, _SSERe, 0, [() => ServerSideEncryptionRule$, 0]];
+var TagSet: StaticListSchema = [1, n0, _TS, 0, [() => Tag$, { [_xN]: _Ta }]];
+var TargetGrants: StaticListSchema = [1, n0, _TG, 0, [() => TargetGrant$, { [_xN]: _Gr }]];
+var TieringList: StaticListSchema = [1, n0, _TL, 0, () => Tiering$];
+var TopicConfigurationList: StaticListSchema = [1, n0, _TCL, 0, [() => TopicConfiguration$, 0]];
+var TransitionList: StaticListSchema = [1, n0, _TLr, 0, () => Transition$];
+var UserMetadata: StaticListSchema = [1, n0, _UM, 0, [() => MetadataEntry$, { [_xN]: _ME }]];
+var Metadata = 128 | 0;
+export var AnalyticsFilter$: StaticStructureSchema = [
   3,
   n0,
   _AF,
   0,
   [_P, _Ta, _An],
-  [0, () => Tag, [() => AnalyticsAndOperator, 0]],
+  [0, () => Tag$, [() => AnalyticsAndOperator$, 0]],
 ];
-export var MetricsFilter: StaticStructureSchema = [
+export var MetricsFilter$: StaticStructureSchema = [
   3,
   n0,
   _MF,
   0,
   [_P, _Ta, _APAc, _An],
-  [0, () => Tag, 0, [() => MetricsAndOperator, 0]],
+  [0, () => Tag$, 0, [() => MetricsAndOperator$, 0]],
 ];
-export var SelectObjectContentEventStream: StaticStructureSchema = [
+export var SelectObjectContentEventStream$: StaticStructureSchema = [
   3,
   n0,
   _SOCES,
   { [_s]: 1 },
   [_Rec, _Sta, _Pr, _Cont, _End],
-  [[() => RecordsEvent, 0], [() => StatsEvent, 0], [() => ProgressEvent, 0], () => ContinuationEvent, () => EndEvent],
+  [
+    [() => RecordsEvent$, 0],
+    [() => StatsEvent$, 0],
+    [() => ProgressEvent$, 0],
+    () => ContinuationEvent$,
+    () => EndEvent$,
+  ],
 ];
-export var AbortMultipartUpload: StaticOperationSchema = [
+export var AbortMultipartUpload$: StaticOperationSchema = [
   9,
   n0,
   _AMU,
   { [_h]: ["DELETE", "/{Key+}?x-id=AbortMultipartUpload", 204] },
-  () => AbortMultipartUploadRequest,
-  () => AbortMultipartUploadOutput,
+  () => AbortMultipartUploadRequest$,
+  () => AbortMultipartUploadOutput$,
 ];
-export var CompleteMultipartUpload: StaticOperationSchema = [
+export var CompleteMultipartUpload$: StaticOperationSchema = [
   9,
   n0,
   _CMUo,
   { [_h]: ["POST", "/{Key+}", 200] },
-  () => CompleteMultipartUploadRequest,
-  () => CompleteMultipartUploadOutput,
+  () => CompleteMultipartUploadRequest$,
+  () => CompleteMultipartUploadOutput$,
 ];
-export var CopyObject: StaticOperationSchema = [
+export var CopyObject$: StaticOperationSchema = [
   9,
   n0,
   _CO,
   { [_h]: ["PUT", "/{Key+}?x-id=CopyObject", 200] },
-  () => CopyObjectRequest,
-  () => CopyObjectOutput,
+  () => CopyObjectRequest$,
+  () => CopyObjectOutput$,
 ];
-export var CreateBucket: StaticOperationSchema = [
+export var CreateBucket$: StaticOperationSchema = [
   9,
   n0,
   _CB,
   { [_h]: ["PUT", "/", 200] },
-  () => CreateBucketRequest,
-  () => CreateBucketOutput,
+  () => CreateBucketRequest$,
+  () => CreateBucketOutput$,
 ];
-export var CreateBucketMetadataConfiguration: StaticOperationSchema = [
+export var CreateBucketMetadataConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _CBMC,
   { [_h]: ["POST", "/?metadataConfiguration", 200] },
-  () => CreateBucketMetadataConfigurationRequest,
+  () => CreateBucketMetadataConfigurationRequest$,
   () => __Unit,
 ];
-export var CreateBucketMetadataTableConfiguration: StaticOperationSchema = [
+export var CreateBucketMetadataTableConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _CBMTC,
   { [_h]: ["POST", "/?metadataTable", 200] },
-  () => CreateBucketMetadataTableConfigurationRequest,
+  () => CreateBucketMetadataTableConfigurationRequest$,
   () => __Unit,
 ];
-export var CreateMultipartUpload: StaticOperationSchema = [
+export var CreateMultipartUpload$: StaticOperationSchema = [
   9,
   n0,
   _CMUr,
   { [_h]: ["POST", "/{Key+}?uploads", 200] },
-  () => CreateMultipartUploadRequest,
-  () => CreateMultipartUploadOutput,
+  () => CreateMultipartUploadRequest$,
+  () => CreateMultipartUploadOutput$,
 ];
-export var CreateSession: StaticOperationSchema = [
+export var CreateSession$: StaticOperationSchema = [
   9,
   n0,
   _CSr,
   { [_h]: ["GET", "/?session", 200] },
-  () => CreateSessionRequest,
-  () => CreateSessionOutput,
+  () => CreateSessionRequest$,
+  () => CreateSessionOutput$,
 ];
-export var DeleteBucket: StaticOperationSchema = [
+export var DeleteBucket$: StaticOperationSchema = [
   9,
   n0,
   _DB,
   { [_h]: ["DELETE", "/", 204] },
-  () => DeleteBucketRequest,
+  () => DeleteBucketRequest$,
   () => __Unit,
 ];
-export var DeleteBucketAnalyticsConfiguration: StaticOperationSchema = [
+export var DeleteBucketAnalyticsConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DBAC,
   { [_h]: ["DELETE", "/?analytics", 204] },
-  () => DeleteBucketAnalyticsConfigurationRequest,
+  () => DeleteBucketAnalyticsConfigurationRequest$,
   () => __Unit,
 ];
-export var DeleteBucketCors: StaticOperationSchema = [
+export var DeleteBucketCors$: StaticOperationSchema = [
   9,
   n0,
   _DBC,
   { [_h]: ["DELETE", "/?cors", 204] },
-  () => DeleteBucketCorsRequest,
+  () => DeleteBucketCorsRequest$,
   () => __Unit,
 ];
-export var DeleteBucketEncryption: StaticOperationSchema = [
+export var DeleteBucketEncryption$: StaticOperationSchema = [
   9,
   n0,
   _DBE,
   { [_h]: ["DELETE", "/?encryption", 204] },
-  () => DeleteBucketEncryptionRequest,
+  () => DeleteBucketEncryptionRequest$,
   () => __Unit,
 ];
-export var DeleteBucketIntelligentTieringConfiguration: StaticOperationSchema = [
+export var DeleteBucketIntelligentTieringConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DBITC,
   { [_h]: ["DELETE", "/?intelligent-tiering", 204] },
-  () => DeleteBucketIntelligentTieringConfigurationRequest,
+  () => DeleteBucketIntelligentTieringConfigurationRequest$,
   () => __Unit,
 ];
-export var DeleteBucketInventoryConfiguration: StaticOperationSchema = [
+export var DeleteBucketInventoryConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DBIC,
   { [_h]: ["DELETE", "/?inventory", 204] },
-  () => DeleteBucketInventoryConfigurationRequest,
+  () => DeleteBucketInventoryConfigurationRequest$,
   () => __Unit,
 ];
-export var DeleteBucketLifecycle: StaticOperationSchema = [
+export var DeleteBucketLifecycle$: StaticOperationSchema = [
   9,
   n0,
   _DBL,
   { [_h]: ["DELETE", "/?lifecycle", 204] },
-  () => DeleteBucketLifecycleRequest,
+  () => DeleteBucketLifecycleRequest$,
   () => __Unit,
 ];
-export var DeleteBucketMetadataConfiguration: StaticOperationSchema = [
+export var DeleteBucketMetadataConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DBMC,
   { [_h]: ["DELETE", "/?metadataConfiguration", 204] },
-  () => DeleteBucketMetadataConfigurationRequest,
+  () => DeleteBucketMetadataConfigurationRequest$,
   () => __Unit,
 ];
-export var DeleteBucketMetadataTableConfiguration: StaticOperationSchema = [
+export var DeleteBucketMetadataTableConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DBMTC,
   { [_h]: ["DELETE", "/?metadataTable", 204] },
-  () => DeleteBucketMetadataTableConfigurationRequest,
+  () => DeleteBucketMetadataTableConfigurationRequest$,
   () => __Unit,
 ];
-export var DeleteBucketMetricsConfiguration: StaticOperationSchema = [
+export var DeleteBucketMetricsConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DBMCe,
   { [_h]: ["DELETE", "/?metrics", 204] },
-  () => DeleteBucketMetricsConfigurationRequest,
+  () => DeleteBucketMetricsConfigurationRequest$,
   () => __Unit,
 ];
-export var DeleteBucketOwnershipControls: StaticOperationSchema = [
+export var DeleteBucketOwnershipControls$: StaticOperationSchema = [
   9,
   n0,
   _DBOC,
   { [_h]: ["DELETE", "/?ownershipControls", 204] },
-  () => DeleteBucketOwnershipControlsRequest,
+  () => DeleteBucketOwnershipControlsRequest$,
   () => __Unit,
 ];
-export var DeleteBucketPolicy: StaticOperationSchema = [
+export var DeleteBucketPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DBP,
   { [_h]: ["DELETE", "/?policy", 204] },
-  () => DeleteBucketPolicyRequest,
+  () => DeleteBucketPolicyRequest$,
   () => __Unit,
 ];
-export var DeleteBucketReplication: StaticOperationSchema = [
+export var DeleteBucketReplication$: StaticOperationSchema = [
   9,
   n0,
   _DBRe,
   { [_h]: ["DELETE", "/?replication", 204] },
-  () => DeleteBucketReplicationRequest,
+  () => DeleteBucketReplicationRequest$,
   () => __Unit,
 ];
-export var DeleteBucketTagging: StaticOperationSchema = [
+export var DeleteBucketTagging$: StaticOperationSchema = [
   9,
   n0,
   _DBT,
   { [_h]: ["DELETE", "/?tagging", 204] },
-  () => DeleteBucketTaggingRequest,
+  () => DeleteBucketTaggingRequest$,
   () => __Unit,
 ];
-export var DeleteBucketWebsite: StaticOperationSchema = [
+export var DeleteBucketWebsite$: StaticOperationSchema = [
   9,
   n0,
   _DBW,
   { [_h]: ["DELETE", "/?website", 204] },
-  () => DeleteBucketWebsiteRequest,
+  () => DeleteBucketWebsiteRequest$,
   () => __Unit,
 ];
-export var DeleteObject: StaticOperationSchema = [
+export var DeleteObject$: StaticOperationSchema = [
   9,
   n0,
   _DOel,
   { [_h]: ["DELETE", "/{Key+}?x-id=DeleteObject", 204] },
-  () => DeleteObjectRequest,
-  () => DeleteObjectOutput,
+  () => DeleteObjectRequest$,
+  () => DeleteObjectOutput$,
 ];
-export var DeleteObjects: StaticOperationSchema = [
+export var DeleteObjects$: StaticOperationSchema = [
   9,
   n0,
   _DOele,
   { [_h]: ["POST", "/?delete", 200] },
-  () => DeleteObjectsRequest,
-  () => DeleteObjectsOutput,
+  () => DeleteObjectsRequest$,
+  () => DeleteObjectsOutput$,
 ];
-export var DeleteObjectTagging: StaticOperationSchema = [
+export var DeleteObjectTagging$: StaticOperationSchema = [
   9,
   n0,
   _DOT,
   { [_h]: ["DELETE", "/{Key+}?tagging", 204] },
-  () => DeleteObjectTaggingRequest,
-  () => DeleteObjectTaggingOutput,
+  () => DeleteObjectTaggingRequest$,
+  () => DeleteObjectTaggingOutput$,
 ];
-export var DeletePublicAccessBlock: StaticOperationSchema = [
+export var DeletePublicAccessBlock$: StaticOperationSchema = [
   9,
   n0,
   _DPAB,
   { [_h]: ["DELETE", "/?publicAccessBlock", 204] },
-  () => DeletePublicAccessBlockRequest,
+  () => DeletePublicAccessBlockRequest$,
   () => __Unit,
 ];
-export var GetBucketAbac: StaticOperationSchema = [
+export var GetBucketAbac$: StaticOperationSchema = [
   9,
   n0,
   _GBA,
   { [_h]: ["GET", "/?abac", 200] },
-  () => GetBucketAbacRequest,
-  () => GetBucketAbacOutput,
+  () => GetBucketAbacRequest$,
+  () => GetBucketAbacOutput$,
 ];
-export var GetBucketAccelerateConfiguration: StaticOperationSchema = [
+export var GetBucketAccelerateConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GBAC,
   { [_h]: ["GET", "/?accelerate", 200] },
-  () => GetBucketAccelerateConfigurationRequest,
-  () => GetBucketAccelerateConfigurationOutput,
+  () => GetBucketAccelerateConfigurationRequest$,
+  () => GetBucketAccelerateConfigurationOutput$,
 ];
-export var GetBucketAcl: StaticOperationSchema = [
+export var GetBucketAcl$: StaticOperationSchema = [
   9,
   n0,
   _GBAe,
   { [_h]: ["GET", "/?acl", 200] },
-  () => GetBucketAclRequest,
-  () => GetBucketAclOutput,
+  () => GetBucketAclRequest$,
+  () => GetBucketAclOutput$,
 ];
-export var GetBucketAnalyticsConfiguration: StaticOperationSchema = [
+export var GetBucketAnalyticsConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GBACe,
   { [_h]: ["GET", "/?analytics&x-id=GetBucketAnalyticsConfiguration", 200] },
-  () => GetBucketAnalyticsConfigurationRequest,
-  () => GetBucketAnalyticsConfigurationOutput,
+  () => GetBucketAnalyticsConfigurationRequest$,
+  () => GetBucketAnalyticsConfigurationOutput$,
 ];
-export var GetBucketCors: StaticOperationSchema = [
+export var GetBucketCors$: StaticOperationSchema = [
   9,
   n0,
   _GBC,
   { [_h]: ["GET", "/?cors", 200] },
-  () => GetBucketCorsRequest,
-  () => GetBucketCorsOutput,
+  () => GetBucketCorsRequest$,
+  () => GetBucketCorsOutput$,
 ];
-export var GetBucketEncryption: StaticOperationSchema = [
+export var GetBucketEncryption$: StaticOperationSchema = [
   9,
   n0,
   _GBE,
   { [_h]: ["GET", "/?encryption", 200] },
-  () => GetBucketEncryptionRequest,
-  () => GetBucketEncryptionOutput,
+  () => GetBucketEncryptionRequest$,
+  () => GetBucketEncryptionOutput$,
 ];
-export var GetBucketIntelligentTieringConfiguration: StaticOperationSchema = [
+export var GetBucketIntelligentTieringConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GBITC,
   { [_h]: ["GET", "/?intelligent-tiering&x-id=GetBucketIntelligentTieringConfiguration", 200] },
-  () => GetBucketIntelligentTieringConfigurationRequest,
-  () => GetBucketIntelligentTieringConfigurationOutput,
+  () => GetBucketIntelligentTieringConfigurationRequest$,
+  () => GetBucketIntelligentTieringConfigurationOutput$,
 ];
-export var GetBucketInventoryConfiguration: StaticOperationSchema = [
+export var GetBucketInventoryConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GBIC,
   { [_h]: ["GET", "/?inventory&x-id=GetBucketInventoryConfiguration", 200] },
-  () => GetBucketInventoryConfigurationRequest,
-  () => GetBucketInventoryConfigurationOutput,
+  () => GetBucketInventoryConfigurationRequest$,
+  () => GetBucketInventoryConfigurationOutput$,
 ];
-export var GetBucketLifecycleConfiguration: StaticOperationSchema = [
+export var GetBucketLifecycleConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GBLC,
   { [_h]: ["GET", "/?lifecycle", 200] },
-  () => GetBucketLifecycleConfigurationRequest,
-  () => GetBucketLifecycleConfigurationOutput,
+  () => GetBucketLifecycleConfigurationRequest$,
+  () => GetBucketLifecycleConfigurationOutput$,
 ];
-export var GetBucketLocation: StaticOperationSchema = [
+export var GetBucketLocation$: StaticOperationSchema = [
   9,
   n0,
   _GBL,
   { [_h]: ["GET", "/?location", 200] },
-  () => GetBucketLocationRequest,
-  () => GetBucketLocationOutput,
+  () => GetBucketLocationRequest$,
+  () => GetBucketLocationOutput$,
 ];
-export var GetBucketLogging: StaticOperationSchema = [
+export var GetBucketLogging$: StaticOperationSchema = [
   9,
   n0,
   _GBLe,
   { [_h]: ["GET", "/?logging", 200] },
-  () => GetBucketLoggingRequest,
-  () => GetBucketLoggingOutput,
+  () => GetBucketLoggingRequest$,
+  () => GetBucketLoggingOutput$,
 ];
-export var GetBucketMetadataConfiguration: StaticOperationSchema = [
+export var GetBucketMetadataConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GBMC,
   { [_h]: ["GET", "/?metadataConfiguration", 200] },
-  () => GetBucketMetadataConfigurationRequest,
-  () => GetBucketMetadataConfigurationOutput,
+  () => GetBucketMetadataConfigurationRequest$,
+  () => GetBucketMetadataConfigurationOutput$,
 ];
-export var GetBucketMetadataTableConfiguration: StaticOperationSchema = [
+export var GetBucketMetadataTableConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GBMTC,
   { [_h]: ["GET", "/?metadataTable", 200] },
-  () => GetBucketMetadataTableConfigurationRequest,
-  () => GetBucketMetadataTableConfigurationOutput,
+  () => GetBucketMetadataTableConfigurationRequest$,
+  () => GetBucketMetadataTableConfigurationOutput$,
 ];
-export var GetBucketMetricsConfiguration: StaticOperationSchema = [
+export var GetBucketMetricsConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GBMCe,
   { [_h]: ["GET", "/?metrics&x-id=GetBucketMetricsConfiguration", 200] },
-  () => GetBucketMetricsConfigurationRequest,
-  () => GetBucketMetricsConfigurationOutput,
+  () => GetBucketMetricsConfigurationRequest$,
+  () => GetBucketMetricsConfigurationOutput$,
 ];
-export var GetBucketNotificationConfiguration: StaticOperationSchema = [
+export var GetBucketNotificationConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GBNC,
   { [_h]: ["GET", "/?notification", 200] },
-  () => GetBucketNotificationConfigurationRequest,
-  () => NotificationConfiguration,
+  () => GetBucketNotificationConfigurationRequest$,
+  () => NotificationConfiguration$,
 ];
-export var GetBucketOwnershipControls: StaticOperationSchema = [
+export var GetBucketOwnershipControls$: StaticOperationSchema = [
   9,
   n0,
   _GBOC,
   { [_h]: ["GET", "/?ownershipControls", 200] },
-  () => GetBucketOwnershipControlsRequest,
-  () => GetBucketOwnershipControlsOutput,
+  () => GetBucketOwnershipControlsRequest$,
+  () => GetBucketOwnershipControlsOutput$,
 ];
-export var GetBucketPolicy: StaticOperationSchema = [
+export var GetBucketPolicy$: StaticOperationSchema = [
   9,
   n0,
   _GBP,
   { [_h]: ["GET", "/?policy", 200] },
-  () => GetBucketPolicyRequest,
-  () => GetBucketPolicyOutput,
+  () => GetBucketPolicyRequest$,
+  () => GetBucketPolicyOutput$,
 ];
-export var GetBucketPolicyStatus: StaticOperationSchema = [
+export var GetBucketPolicyStatus$: StaticOperationSchema = [
   9,
   n0,
   _GBPS,
   { [_h]: ["GET", "/?policyStatus", 200] },
-  () => GetBucketPolicyStatusRequest,
-  () => GetBucketPolicyStatusOutput,
+  () => GetBucketPolicyStatusRequest$,
+  () => GetBucketPolicyStatusOutput$,
 ];
-export var GetBucketReplication: StaticOperationSchema = [
+export var GetBucketReplication$: StaticOperationSchema = [
   9,
   n0,
   _GBR,
   { [_h]: ["GET", "/?replication", 200] },
-  () => GetBucketReplicationRequest,
-  () => GetBucketReplicationOutput,
+  () => GetBucketReplicationRequest$,
+  () => GetBucketReplicationOutput$,
 ];
-export var GetBucketRequestPayment: StaticOperationSchema = [
+export var GetBucketRequestPayment$: StaticOperationSchema = [
   9,
   n0,
   _GBRP,
   { [_h]: ["GET", "/?requestPayment", 200] },
-  () => GetBucketRequestPaymentRequest,
-  () => GetBucketRequestPaymentOutput,
+  () => GetBucketRequestPaymentRequest$,
+  () => GetBucketRequestPaymentOutput$,
 ];
-export var GetBucketTagging: StaticOperationSchema = [
+export var GetBucketTagging$: StaticOperationSchema = [
   9,
   n0,
   _GBT,
   { [_h]: ["GET", "/?tagging", 200] },
-  () => GetBucketTaggingRequest,
-  () => GetBucketTaggingOutput,
+  () => GetBucketTaggingRequest$,
+  () => GetBucketTaggingOutput$,
 ];
-export var GetBucketVersioning: StaticOperationSchema = [
+export var GetBucketVersioning$: StaticOperationSchema = [
   9,
   n0,
   _GBV,
   { [_h]: ["GET", "/?versioning", 200] },
-  () => GetBucketVersioningRequest,
-  () => GetBucketVersioningOutput,
+  () => GetBucketVersioningRequest$,
+  () => GetBucketVersioningOutput$,
 ];
-export var GetBucketWebsite: StaticOperationSchema = [
+export var GetBucketWebsite$: StaticOperationSchema = [
   9,
   n0,
   _GBW,
   { [_h]: ["GET", "/?website", 200] },
-  () => GetBucketWebsiteRequest,
-  () => GetBucketWebsiteOutput,
+  () => GetBucketWebsiteRequest$,
+  () => GetBucketWebsiteOutput$,
 ];
-export var GetObject: StaticOperationSchema = [
+export var GetObject$: StaticOperationSchema = [
   9,
   n0,
   _GO,
   { [_h]: ["GET", "/{Key+}?x-id=GetObject", 200] },
-  () => GetObjectRequest,
-  () => GetObjectOutput,
+  () => GetObjectRequest$,
+  () => GetObjectOutput$,
 ];
-export var GetObjectAcl: StaticOperationSchema = [
+export var GetObjectAcl$: StaticOperationSchema = [
   9,
   n0,
   _GOA,
   { [_h]: ["GET", "/{Key+}?acl", 200] },
-  () => GetObjectAclRequest,
-  () => GetObjectAclOutput,
+  () => GetObjectAclRequest$,
+  () => GetObjectAclOutput$,
 ];
-export var GetObjectAttributes: StaticOperationSchema = [
+export var GetObjectAttributes$: StaticOperationSchema = [
   9,
   n0,
   _GOAe,
   { [_h]: ["GET", "/{Key+}?attributes", 200] },
-  () => GetObjectAttributesRequest,
-  () => GetObjectAttributesOutput,
+  () => GetObjectAttributesRequest$,
+  () => GetObjectAttributesOutput$,
 ];
-export var GetObjectLegalHold: StaticOperationSchema = [
+export var GetObjectLegalHold$: StaticOperationSchema = [
   9,
   n0,
   _GOLH,
   { [_h]: ["GET", "/{Key+}?legal-hold", 200] },
-  () => GetObjectLegalHoldRequest,
-  () => GetObjectLegalHoldOutput,
+  () => GetObjectLegalHoldRequest$,
+  () => GetObjectLegalHoldOutput$,
 ];
-export var GetObjectLockConfiguration: StaticOperationSchema = [
+export var GetObjectLockConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GOLC,
   { [_h]: ["GET", "/?object-lock", 200] },
-  () => GetObjectLockConfigurationRequest,
-  () => GetObjectLockConfigurationOutput,
+  () => GetObjectLockConfigurationRequest$,
+  () => GetObjectLockConfigurationOutput$,
 ];
-export var GetObjectRetention: StaticOperationSchema = [
+export var GetObjectRetention$: StaticOperationSchema = [
   9,
   n0,
   _GORe,
   { [_h]: ["GET", "/{Key+}?retention", 200] },
-  () => GetObjectRetentionRequest,
-  () => GetObjectRetentionOutput,
+  () => GetObjectRetentionRequest$,
+  () => GetObjectRetentionOutput$,
 ];
-export var GetObjectTagging: StaticOperationSchema = [
+export var GetObjectTagging$: StaticOperationSchema = [
   9,
   n0,
   _GOT,
   { [_h]: ["GET", "/{Key+}?tagging", 200] },
-  () => GetObjectTaggingRequest,
-  () => GetObjectTaggingOutput,
+  () => GetObjectTaggingRequest$,
+  () => GetObjectTaggingOutput$,
 ];
-export var GetObjectTorrent: StaticOperationSchema = [
+export var GetObjectTorrent$: StaticOperationSchema = [
   9,
   n0,
   _GOTe,
   { [_h]: ["GET", "/{Key+}?torrent", 200] },
-  () => GetObjectTorrentRequest,
-  () => GetObjectTorrentOutput,
+  () => GetObjectTorrentRequest$,
+  () => GetObjectTorrentOutput$,
 ];
-export var GetPublicAccessBlock: StaticOperationSchema = [
+export var GetPublicAccessBlock$: StaticOperationSchema = [
   9,
   n0,
   _GPAB,
   { [_h]: ["GET", "/?publicAccessBlock", 200] },
-  () => GetPublicAccessBlockRequest,
-  () => GetPublicAccessBlockOutput,
+  () => GetPublicAccessBlockRequest$,
+  () => GetPublicAccessBlockOutput$,
 ];
-export var HeadBucket: StaticOperationSchema = [
+export var HeadBucket$: StaticOperationSchema = [
   9,
   n0,
   _HB,
   { [_h]: ["HEAD", "/", 200] },
-  () => HeadBucketRequest,
-  () => HeadBucketOutput,
+  () => HeadBucketRequest$,
+  () => HeadBucketOutput$,
 ];
-export var HeadObject: StaticOperationSchema = [
+export var HeadObject$: StaticOperationSchema = [
   9,
   n0,
   _HO,
   { [_h]: ["HEAD", "/{Key+}", 200] },
-  () => HeadObjectRequest,
-  () => HeadObjectOutput,
+  () => HeadObjectRequest$,
+  () => HeadObjectOutput$,
 ];
-export var ListBucketAnalyticsConfigurations: StaticOperationSchema = [
+export var ListBucketAnalyticsConfigurations$: StaticOperationSchema = [
   9,
   n0,
   _LBAC,
   { [_h]: ["GET", "/?analytics&x-id=ListBucketAnalyticsConfigurations", 200] },
-  () => ListBucketAnalyticsConfigurationsRequest,
-  () => ListBucketAnalyticsConfigurationsOutput,
+  () => ListBucketAnalyticsConfigurationsRequest$,
+  () => ListBucketAnalyticsConfigurationsOutput$,
 ];
-export var ListBucketIntelligentTieringConfigurations: StaticOperationSchema = [
+export var ListBucketIntelligentTieringConfigurations$: StaticOperationSchema = [
   9,
   n0,
   _LBITC,
   { [_h]: ["GET", "/?intelligent-tiering&x-id=ListBucketIntelligentTieringConfigurations", 200] },
-  () => ListBucketIntelligentTieringConfigurationsRequest,
-  () => ListBucketIntelligentTieringConfigurationsOutput,
+  () => ListBucketIntelligentTieringConfigurationsRequest$,
+  () => ListBucketIntelligentTieringConfigurationsOutput$,
 ];
-export var ListBucketInventoryConfigurations: StaticOperationSchema = [
+export var ListBucketInventoryConfigurations$: StaticOperationSchema = [
   9,
   n0,
   _LBIC,
   { [_h]: ["GET", "/?inventory&x-id=ListBucketInventoryConfigurations", 200] },
-  () => ListBucketInventoryConfigurationsRequest,
-  () => ListBucketInventoryConfigurationsOutput,
+  () => ListBucketInventoryConfigurationsRequest$,
+  () => ListBucketInventoryConfigurationsOutput$,
 ];
-export var ListBucketMetricsConfigurations: StaticOperationSchema = [
+export var ListBucketMetricsConfigurations$: StaticOperationSchema = [
   9,
   n0,
   _LBMC,
   { [_h]: ["GET", "/?metrics&x-id=ListBucketMetricsConfigurations", 200] },
-  () => ListBucketMetricsConfigurationsRequest,
-  () => ListBucketMetricsConfigurationsOutput,
+  () => ListBucketMetricsConfigurationsRequest$,
+  () => ListBucketMetricsConfigurationsOutput$,
 ];
-export var ListBuckets: StaticOperationSchema = [
+export var ListBuckets$: StaticOperationSchema = [
   9,
   n0,
   _LB,
   { [_h]: ["GET", "/?x-id=ListBuckets", 200] },
-  () => ListBucketsRequest,
-  () => ListBucketsOutput,
+  () => ListBucketsRequest$,
+  () => ListBucketsOutput$,
 ];
-export var ListDirectoryBuckets: StaticOperationSchema = [
+export var ListDirectoryBuckets$: StaticOperationSchema = [
   9,
   n0,
   _LDB,
   { [_h]: ["GET", "/?x-id=ListDirectoryBuckets", 200] },
-  () => ListDirectoryBucketsRequest,
-  () => ListDirectoryBucketsOutput,
+  () => ListDirectoryBucketsRequest$,
+  () => ListDirectoryBucketsOutput$,
 ];
-export var ListMultipartUploads: StaticOperationSchema = [
+export var ListMultipartUploads$: StaticOperationSchema = [
   9,
   n0,
   _LMU,
   { [_h]: ["GET", "/?uploads", 200] },
-  () => ListMultipartUploadsRequest,
-  () => ListMultipartUploadsOutput,
+  () => ListMultipartUploadsRequest$,
+  () => ListMultipartUploadsOutput$,
 ];
-export var ListObjects: StaticOperationSchema = [
+export var ListObjects$: StaticOperationSchema = [
   9,
   n0,
   _LO,
   { [_h]: ["GET", "/", 200] },
-  () => ListObjectsRequest,
-  () => ListObjectsOutput,
+  () => ListObjectsRequest$,
+  () => ListObjectsOutput$,
 ];
-export var ListObjectsV2: StaticOperationSchema = [
+export var ListObjectsV2$: StaticOperationSchema = [
   9,
   n0,
   _LOV,
   { [_h]: ["GET", "/?list-type=2", 200] },
-  () => ListObjectsV2Request,
-  () => ListObjectsV2Output,
+  () => ListObjectsV2Request$,
+  () => ListObjectsV2Output$,
 ];
-export var ListObjectVersions: StaticOperationSchema = [
+export var ListObjectVersions$: StaticOperationSchema = [
   9,
   n0,
   _LOVi,
   { [_h]: ["GET", "/?versions", 200] },
-  () => ListObjectVersionsRequest,
-  () => ListObjectVersionsOutput,
+  () => ListObjectVersionsRequest$,
+  () => ListObjectVersionsOutput$,
 ];
-export var ListParts: StaticOperationSchema = [
+export var ListParts$: StaticOperationSchema = [
   9,
   n0,
   _LP,
   { [_h]: ["GET", "/{Key+}?x-id=ListParts", 200] },
-  () => ListPartsRequest,
-  () => ListPartsOutput,
+  () => ListPartsRequest$,
+  () => ListPartsOutput$,
 ];
-export var PutBucketAbac: StaticOperationSchema = [
+export var PutBucketAbac$: StaticOperationSchema = [
   9,
   n0,
   _PBA,
   { [_h]: ["PUT", "/?abac", 200] },
-  () => PutBucketAbacRequest,
+  () => PutBucketAbacRequest$,
   () => __Unit,
 ];
-export var PutBucketAccelerateConfiguration: StaticOperationSchema = [
+export var PutBucketAccelerateConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PBAC,
   { [_h]: ["PUT", "/?accelerate", 200] },
-  () => PutBucketAccelerateConfigurationRequest,
+  () => PutBucketAccelerateConfigurationRequest$,
   () => __Unit,
 ];
-export var PutBucketAcl: StaticOperationSchema = [
+export var PutBucketAcl$: StaticOperationSchema = [
   9,
   n0,
   _PBAu,
   { [_h]: ["PUT", "/?acl", 200] },
-  () => PutBucketAclRequest,
+  () => PutBucketAclRequest$,
   () => __Unit,
 ];
-export var PutBucketAnalyticsConfiguration: StaticOperationSchema = [
+export var PutBucketAnalyticsConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PBACu,
   { [_h]: ["PUT", "/?analytics", 200] },
-  () => PutBucketAnalyticsConfigurationRequest,
+  () => PutBucketAnalyticsConfigurationRequest$,
   () => __Unit,
 ];
-export var PutBucketCors: StaticOperationSchema = [
+export var PutBucketCors$: StaticOperationSchema = [
   9,
   n0,
   _PBC,
   { [_h]: ["PUT", "/?cors", 200] },
-  () => PutBucketCorsRequest,
+  () => PutBucketCorsRequest$,
   () => __Unit,
 ];
-export var PutBucketEncryption: StaticOperationSchema = [
+export var PutBucketEncryption$: StaticOperationSchema = [
   9,
   n0,
   _PBE,
   { [_h]: ["PUT", "/?encryption", 200] },
-  () => PutBucketEncryptionRequest,
+  () => PutBucketEncryptionRequest$,
   () => __Unit,
 ];
-export var PutBucketIntelligentTieringConfiguration: StaticOperationSchema = [
+export var PutBucketIntelligentTieringConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PBITC,
   { [_h]: ["PUT", "/?intelligent-tiering", 200] },
-  () => PutBucketIntelligentTieringConfigurationRequest,
+  () => PutBucketIntelligentTieringConfigurationRequest$,
   () => __Unit,
 ];
-export var PutBucketInventoryConfiguration: StaticOperationSchema = [
+export var PutBucketInventoryConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PBIC,
   { [_h]: ["PUT", "/?inventory", 200] },
-  () => PutBucketInventoryConfigurationRequest,
+  () => PutBucketInventoryConfigurationRequest$,
   () => __Unit,
 ];
-export var PutBucketLifecycleConfiguration: StaticOperationSchema = [
+export var PutBucketLifecycleConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PBLC,
   { [_h]: ["PUT", "/?lifecycle", 200] },
-  () => PutBucketLifecycleConfigurationRequest,
-  () => PutBucketLifecycleConfigurationOutput,
+  () => PutBucketLifecycleConfigurationRequest$,
+  () => PutBucketLifecycleConfigurationOutput$,
 ];
-export var PutBucketLogging: StaticOperationSchema = [
+export var PutBucketLogging$: StaticOperationSchema = [
   9,
   n0,
   _PBL,
   { [_h]: ["PUT", "/?logging", 200] },
-  () => PutBucketLoggingRequest,
+  () => PutBucketLoggingRequest$,
   () => __Unit,
 ];
-export var PutBucketMetricsConfiguration: StaticOperationSchema = [
+export var PutBucketMetricsConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PBMC,
   { [_h]: ["PUT", "/?metrics", 200] },
-  () => PutBucketMetricsConfigurationRequest,
+  () => PutBucketMetricsConfigurationRequest$,
   () => __Unit,
 ];
-export var PutBucketNotificationConfiguration: StaticOperationSchema = [
+export var PutBucketNotificationConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PBNC,
   { [_h]: ["PUT", "/?notification", 200] },
-  () => PutBucketNotificationConfigurationRequest,
+  () => PutBucketNotificationConfigurationRequest$,
   () => __Unit,
 ];
-export var PutBucketOwnershipControls: StaticOperationSchema = [
+export var PutBucketOwnershipControls$: StaticOperationSchema = [
   9,
   n0,
   _PBOC,
   { [_h]: ["PUT", "/?ownershipControls", 200] },
-  () => PutBucketOwnershipControlsRequest,
+  () => PutBucketOwnershipControlsRequest$,
   () => __Unit,
 ];
-export var PutBucketPolicy: StaticOperationSchema = [
+export var PutBucketPolicy$: StaticOperationSchema = [
   9,
   n0,
   _PBP,
   { [_h]: ["PUT", "/?policy", 200] },
-  () => PutBucketPolicyRequest,
+  () => PutBucketPolicyRequest$,
   () => __Unit,
 ];
-export var PutBucketReplication: StaticOperationSchema = [
+export var PutBucketReplication$: StaticOperationSchema = [
   9,
   n0,
   _PBR,
   { [_h]: ["PUT", "/?replication", 200] },
-  () => PutBucketReplicationRequest,
+  () => PutBucketReplicationRequest$,
   () => __Unit,
 ];
-export var PutBucketRequestPayment: StaticOperationSchema = [
+export var PutBucketRequestPayment$: StaticOperationSchema = [
   9,
   n0,
   _PBRP,
   { [_h]: ["PUT", "/?requestPayment", 200] },
-  () => PutBucketRequestPaymentRequest,
+  () => PutBucketRequestPaymentRequest$,
   () => __Unit,
 ];
-export var PutBucketTagging: StaticOperationSchema = [
+export var PutBucketTagging$: StaticOperationSchema = [
   9,
   n0,
   _PBT,
   { [_h]: ["PUT", "/?tagging", 200] },
-  () => PutBucketTaggingRequest,
+  () => PutBucketTaggingRequest$,
   () => __Unit,
 ];
-export var PutBucketVersioning: StaticOperationSchema = [
+export var PutBucketVersioning$: StaticOperationSchema = [
   9,
   n0,
   _PBV,
   { [_h]: ["PUT", "/?versioning", 200] },
-  () => PutBucketVersioningRequest,
+  () => PutBucketVersioningRequest$,
   () => __Unit,
 ];
-export var PutBucketWebsite: StaticOperationSchema = [
+export var PutBucketWebsite$: StaticOperationSchema = [
   9,
   n0,
   _PBW,
   { [_h]: ["PUT", "/?website", 200] },
-  () => PutBucketWebsiteRequest,
+  () => PutBucketWebsiteRequest$,
   () => __Unit,
 ];
-export var PutObject: StaticOperationSchema = [
+export var PutObject$: StaticOperationSchema = [
   9,
   n0,
   _PO,
   { [_h]: ["PUT", "/{Key+}?x-id=PutObject", 200] },
-  () => PutObjectRequest,
-  () => PutObjectOutput,
+  () => PutObjectRequest$,
+  () => PutObjectOutput$,
 ];
-export var PutObjectAcl: StaticOperationSchema = [
+export var PutObjectAcl$: StaticOperationSchema = [
   9,
   n0,
   _POA,
   { [_h]: ["PUT", "/{Key+}?acl", 200] },
-  () => PutObjectAclRequest,
-  () => PutObjectAclOutput,
+  () => PutObjectAclRequest$,
+  () => PutObjectAclOutput$,
 ];
-export var PutObjectLegalHold: StaticOperationSchema = [
+export var PutObjectLegalHold$: StaticOperationSchema = [
   9,
   n0,
   _POLH,
   { [_h]: ["PUT", "/{Key+}?legal-hold", 200] },
-  () => PutObjectLegalHoldRequest,
-  () => PutObjectLegalHoldOutput,
+  () => PutObjectLegalHoldRequest$,
+  () => PutObjectLegalHoldOutput$,
 ];
-export var PutObjectLockConfiguration: StaticOperationSchema = [
+export var PutObjectLockConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _POLC,
   { [_h]: ["PUT", "/?object-lock", 200] },
-  () => PutObjectLockConfigurationRequest,
-  () => PutObjectLockConfigurationOutput,
+  () => PutObjectLockConfigurationRequest$,
+  () => PutObjectLockConfigurationOutput$,
 ];
-export var PutObjectRetention: StaticOperationSchema = [
+export var PutObjectRetention$: StaticOperationSchema = [
   9,
   n0,
   _PORu,
   { [_h]: ["PUT", "/{Key+}?retention", 200] },
-  () => PutObjectRetentionRequest,
-  () => PutObjectRetentionOutput,
+  () => PutObjectRetentionRequest$,
+  () => PutObjectRetentionOutput$,
 ];
-export var PutObjectTagging: StaticOperationSchema = [
+export var PutObjectTagging$: StaticOperationSchema = [
   9,
   n0,
   _POT,
   { [_h]: ["PUT", "/{Key+}?tagging", 200] },
-  () => PutObjectTaggingRequest,
-  () => PutObjectTaggingOutput,
+  () => PutObjectTaggingRequest$,
+  () => PutObjectTaggingOutput$,
 ];
-export var PutPublicAccessBlock: StaticOperationSchema = [
+export var PutPublicAccessBlock$: StaticOperationSchema = [
   9,
   n0,
   _PPAB,
   { [_h]: ["PUT", "/?publicAccessBlock", 200] },
-  () => PutPublicAccessBlockRequest,
+  () => PutPublicAccessBlockRequest$,
   () => __Unit,
 ];
-export var RenameObject: StaticOperationSchema = [
+export var RenameObject$: StaticOperationSchema = [
   9,
   n0,
   _RO,
   { [_h]: ["PUT", "/{Key+}?renameObject", 200] },
-  () => RenameObjectRequest,
-  () => RenameObjectOutput,
+  () => RenameObjectRequest$,
+  () => RenameObjectOutput$,
 ];
-export var RestoreObject: StaticOperationSchema = [
+export var RestoreObject$: StaticOperationSchema = [
   9,
   n0,
   _ROe,
   { [_h]: ["POST", "/{Key+}?restore", 200] },
-  () => RestoreObjectRequest,
-  () => RestoreObjectOutput,
+  () => RestoreObjectRequest$,
+  () => RestoreObjectOutput$,
 ];
-export var SelectObjectContent: StaticOperationSchema = [
+export var SelectObjectContent$: StaticOperationSchema = [
   9,
   n0,
   _SOC,
   { [_h]: ["POST", "/{Key+}?select&select-type=2", 200] },
-  () => SelectObjectContentRequest,
-  () => SelectObjectContentOutput,
+  () => SelectObjectContentRequest$,
+  () => SelectObjectContentOutput$,
 ];
-export var UpdateBucketMetadataInventoryTableConfiguration: StaticOperationSchema = [
+export var UpdateBucketMetadataInventoryTableConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UBMITC,
   { [_h]: ["PUT", "/?metadataInventoryTable", 200] },
-  () => UpdateBucketMetadataInventoryTableConfigurationRequest,
+  () => UpdateBucketMetadataInventoryTableConfigurationRequest$,
   () => __Unit,
 ];
-export var UpdateBucketMetadataJournalTableConfiguration: StaticOperationSchema = [
+export var UpdateBucketMetadataJournalTableConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UBMJTC,
   { [_h]: ["PUT", "/?metadataJournalTable", 200] },
-  () => UpdateBucketMetadataJournalTableConfigurationRequest,
+  () => UpdateBucketMetadataJournalTableConfigurationRequest$,
   () => __Unit,
 ];
-export var UploadPart: StaticOperationSchema = [
+export var UploadPart$: StaticOperationSchema = [
   9,
   n0,
   _UP,
   { [_h]: ["PUT", "/{Key+}?x-id=UploadPart", 200] },
-  () => UploadPartRequest,
-  () => UploadPartOutput,
+  () => UploadPartRequest$,
+  () => UploadPartOutput$,
 ];
-export var UploadPartCopy: StaticOperationSchema = [
+export var UploadPartCopy$: StaticOperationSchema = [
   9,
   n0,
   _UPC,
   { [_h]: ["PUT", "/{Key+}?x-id=UploadPartCopy", 200] },
-  () => UploadPartCopyRequest,
-  () => UploadPartCopyOutput,
+  () => UploadPartCopyRequest$,
+  () => UploadPartCopyOutput$,
 ];
-export var WriteGetObjectResponse: StaticOperationSchema = [
+export var WriteGetObjectResponse$: StaticOperationSchema = [
   9,
   n0,
   _WGOR,
   { [_en]: ["{RequestRoute}."], [_h]: ["POST", "/WriteGetObjectResponse", 200] },
-  () => WriteGetObjectResponseRequest,
+  () => WriteGetObjectResponseRequest$,
   () => __Unit,
 ];

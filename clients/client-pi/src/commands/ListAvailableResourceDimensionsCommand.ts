@@ -9,7 +9,7 @@ import type {
   ListAvailableResourceDimensionsResponse,
 } from "../models/models_0";
 import type { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
-import { ListAvailableResourceDimensions } from "../schemas/schemas_0";
+import { ListAvailableResourceDimensions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class ListAvailableResourceDimensionsCommand extends $Command
   })
   .s("PerformanceInsightsv20180227", "ListAvailableResourceDimensions", {})
   .n("PIClient", "ListAvailableResourceDimensionsCommand")
-  .sc(ListAvailableResourceDimensions)
+  .sc(ListAvailableResourceDimensions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

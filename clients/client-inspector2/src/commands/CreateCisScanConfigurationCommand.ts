@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import type { CreateCisScanConfigurationRequest, CreateCisScanConfigurationResponse } from "../models/models_0";
-import { CreateCisScanConfiguration } from "../schemas/schemas_0";
+import { CreateCisScanConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -161,7 +161,7 @@ export class CreateCisScanConfigurationCommand extends $Command
   })
   .s("Inspector2", "CreateCisScanConfiguration", {})
   .n("Inspector2Client", "CreateCisScanConfigurationCommand")
-  .sc(CreateCisScanConfiguration)
+  .sc(CreateCisScanConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

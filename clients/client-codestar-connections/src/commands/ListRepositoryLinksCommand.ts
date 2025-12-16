@@ -10,7 +10,7 @@ import type {
 } from "../CodeStarConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListRepositoryLinksInput, ListRepositoryLinksOutput } from "../models/models_0";
-import { ListRepositoryLinks } from "../schemas/schemas_0";
+import { ListRepositoryLinks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class ListRepositoryLinksCommand extends $Command
   })
   .s("CodeStar_connections_20191201", "ListRepositoryLinks", {})
   .n("CodeStarConnectionsClient", "ListRepositoryLinksCommand")
-  .sc(ListRepositoryLinks)
+  .sc(ListRepositoryLinks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

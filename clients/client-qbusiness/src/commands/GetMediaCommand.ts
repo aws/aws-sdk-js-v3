@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMediaRequest, GetMediaResponse } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { GetMedia } from "../schemas/schemas_0";
+import { GetMedia$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class GetMediaCommand extends $Command
   })
   .s("ExpertQ", "GetMedia", {})
   .n("QBusinessClient", "GetMediaCommand")
-  .sc(GetMedia)
+  .sc(GetMedia$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

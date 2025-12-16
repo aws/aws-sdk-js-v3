@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetLogFieldsRequest, GetLogFieldsResponse } from "../models/models_0";
-import { GetLogFields } from "../schemas/schemas_0";
+import { GetLogFields$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class GetLogFieldsCommand extends $Command
   })
   .s("Logs_20140328", "GetLogFields", {})
   .n("CloudWatchLogsClient", "GetLogFieldsCommand")
-  .sc(GetLogFields)
+  .sc(GetLogFields$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

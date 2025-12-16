@@ -9,7 +9,7 @@ import type {
   ListUltraServersByReservedCapacityResponse,
 } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListUltraServersByReservedCapacity } from "../schemas/schemas_0";
+import { ListUltraServersByReservedCapacity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class ListUltraServersByReservedCapacityCommand extends $Command
   })
   .s("SageMaker", "ListUltraServersByReservedCapacity", {})
   .n("SageMakerClient", "ListUltraServersByReservedCapacityCommand")
-  .sc(ListUltraServersByReservedCapacity)
+  .sc(ListUltraServersByReservedCapacity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

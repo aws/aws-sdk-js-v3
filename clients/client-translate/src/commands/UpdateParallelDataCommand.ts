@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateParallelDataRequest, UpdateParallelDataResponse } from "../models/models_0";
-import { UpdateParallelData } from "../schemas/schemas_0";
+import { UpdateParallelData$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
@@ -114,7 +114,7 @@ export class UpdateParallelDataCommand extends $Command
   })
   .s("AWSShineFrontendService_20170701", "UpdateParallelData", {})
   .n("TranslateClient", "UpdateParallelDataCommand")
-  .sc(UpdateParallelData)
+  .sc(UpdateParallelData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

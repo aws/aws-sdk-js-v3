@@ -9,7 +9,7 @@ import type {
   GetAggregateDiscoveredResourceCountsRequest,
   GetAggregateDiscoveredResourceCountsResponse,
 } from "../models/models_0";
-import { GetAggregateDiscoveredResourceCounts } from "../schemas/schemas_0";
+import { GetAggregateDiscoveredResourceCounts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -143,7 +143,7 @@ export class GetAggregateDiscoveredResourceCountsCommand extends $Command
   })
   .s("StarlingDoveService", "GetAggregateDiscoveredResourceCounts", {})
   .n("ConfigServiceClient", "GetAggregateDiscoveredResourceCountsCommand")
-  .sc(GetAggregateDiscoveredResourceCounts)
+  .sc(GetAggregateDiscoveredResourceCounts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

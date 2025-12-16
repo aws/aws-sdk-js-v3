@@ -8,7 +8,7 @@ import type {
   DescribeEmailMonitoringConfigurationRequest,
   DescribeEmailMonitoringConfigurationResponse,
 } from "../models/models_0";
-import { DescribeEmailMonitoringConfiguration } from "../schemas/schemas_0";
+import { DescribeEmailMonitoringConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -93,7 +93,7 @@ export class DescribeEmailMonitoringConfigurationCommand extends $Command
   })
   .s("WorkMailService", "DescribeEmailMonitoringConfiguration", {})
   .n("WorkMailClient", "DescribeEmailMonitoringConfigurationCommand")
-  .sc(DescribeEmailMonitoringConfiguration)
+  .sc(DescribeEmailMonitoringConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

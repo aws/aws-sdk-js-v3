@@ -9,7 +9,7 @@ import type {
   AuthorizeClusterSecurityGroupIngressResult,
 } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { AuthorizeClusterSecurityGroupIngress } from "../schemas/schemas_0";
+import { AuthorizeClusterSecurityGroupIngress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -144,7 +144,7 @@ export class AuthorizeClusterSecurityGroupIngressCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "AuthorizeClusterSecurityGroupIngress", {})
   .n("RedshiftClient", "AuthorizeClusterSecurityGroupIngressCommand")
-  .sc(AuthorizeClusterSecurityGroupIngress)
+  .sc(AuthorizeClusterSecurityGroupIngress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetContactPolicyRequest, GetContactPolicyResult } from "../models/models_0";
-import { GetContactPolicy } from "../schemas/schemas_0";
+import { GetContactPolicy$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -91,7 +91,7 @@ export class GetContactPolicyCommand extends $Command
   })
   .s("SSMContacts", "GetContactPolicy", {})
   .n("SSMContactsClient", "GetContactPolicyCommand")
-  .sc(GetContactPolicy)
+  .sc(GetContactPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyInstanceEventWindowRequest, ModifyInstanceEventWindowResult } from "../models/models_6";
-import { ModifyInstanceEventWindow } from "../schemas/schemas_0";
+import { ModifyInstanceEventWindow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class ModifyInstanceEventWindowCommand extends $Command
   })
   .s("AmazonEC2", "ModifyInstanceEventWindow", {})
   .n("EC2Client", "ModifyInstanceEventWindowCommand")
-  .sc(ModifyInstanceEventWindow)
+  .sc(ModifyInstanceEventWindow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

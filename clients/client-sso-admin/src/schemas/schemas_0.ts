@@ -397,30 +397,30 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { SSOAdminServiceException as __SSOAdminServiceException } from "../models/SSOAdminServiceException";
+import { SSOAdminServiceException } from "../models/SSOAdminServiceException";
 
 /* eslint no-var: 0 */
-export var AccessControlAttribute: StaticStructureSchema = [
+export var AccessControlAttribute$: StaticStructureSchema = [
   3,
   n0,
   _ACA,
   0,
   [_K, _V],
-  [0, () => AccessControlAttributeValue],
+  [0, () => AccessControlAttributeValue$],
 ];
-export var AccessControlAttributeValue: StaticStructureSchema = [3, n0, _ACAV, 0, [_S], [64 | 0]];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M, _R], [0, 0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AccountAssignment: StaticStructureSchema = [3, n0, _AA, 0, [_AI, _PSA, _PT, _PI], [0, 0, 0, 0]];
-export var AccountAssignmentForPrincipal: StaticStructureSchema = [
+export var AccessControlAttributeValue$: StaticStructureSchema = [3, n0, _ACAV, 0, [_S], [64 | 0]];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M, _R], [0, 0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AccountAssignment$: StaticStructureSchema = [3, n0, _AA, 0, [_AI, _PSA, _PT, _PI], [0, 0, 0, 0]];
+export var AccountAssignmentForPrincipal$: StaticStructureSchema = [
   3,
   n0,
   _AAFP,
@@ -428,7 +428,7 @@ export var AccountAssignmentForPrincipal: StaticStructureSchema = [
   [_AI, _PSA, _PI, _PT],
   [0, 0, 0, 0],
 ];
-export var AccountAssignmentOperationStatus: StaticStructureSchema = [
+export var AccountAssignmentOperationStatus$: StaticStructureSchema = [
   3,
   n0,
   _AAOS,
@@ -436,7 +436,7 @@ export var AccountAssignmentOperationStatus: StaticStructureSchema = [
   [_St, _RI, _FR, _TI, _TT, _PSA, _PT, _PI, _CD],
   [0, 0, 0, 0, 0, 0, 0, 0, 4],
 ];
-export var AccountAssignmentOperationStatusMetadata: StaticStructureSchema = [
+export var AccountAssignmentOperationStatusMetadata$: StaticStructureSchema = [
   3,
   n0,
   _AAOSM,
@@ -444,33 +444,33 @@ export var AccountAssignmentOperationStatusMetadata: StaticStructureSchema = [
   [_St, _RI, _CD],
   [0, 0, 4],
 ];
-export var Application: StaticStructureSchema = [
+export var Application$: StaticStructureSchema = [
   3,
   n0,
   _A,
   0,
   [_AAp, _APA, _N, _AApp, _IA, _St, _PO, _D, _CD],
-  [0, 0, 0, 0, 0, 0, () => PortalOptions, 0, 4],
+  [0, 0, 0, 0, 0, 0, () => PortalOptions$, 0, 4],
 ];
-export var ApplicationAssignment: StaticStructureSchema = [3, n0, _AAppl, 0, [_AAp, _PI, _PT], [0, 0, 0]];
-export var ApplicationAssignmentForPrincipal: StaticStructureSchema = [3, n0, _AAFPp, 0, [_AAp, _PI, _PT], [0, 0, 0]];
-export var ApplicationProvider: StaticStructureSchema = [
+export var ApplicationAssignment$: StaticStructureSchema = [3, n0, _AAppl, 0, [_AAp, _PI, _PT], [0, 0, 0]];
+export var ApplicationAssignmentForPrincipal$: StaticStructureSchema = [3, n0, _AAFPp, 0, [_AAp, _PI, _PT], [0, 0, 0]];
+export var ApplicationProvider$: StaticStructureSchema = [
   3,
   n0,
   _AP,
   0,
   [_APA, _FP, _DD, _RSC],
-  [0, 0, () => DisplayData, () => ResourceServerConfig],
+  [0, 0, () => DisplayData$, () => ResourceServerConfig$],
 ];
-export var AttachCustomerManagedPolicyReferenceToPermissionSetRequest: StaticStructureSchema = [
+export var AttachCustomerManagedPolicyReferenceToPermissionSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _ACMPRTPSR,
   0,
   [_IA, _PSA, _CMPR],
-  [0, 0, () => CustomerManagedPolicyReference],
+  [0, 0, () => CustomerManagedPolicyReference$],
 ];
-export var AttachCustomerManagedPolicyReferenceToPermissionSetResponse: StaticStructureSchema = [
+export var AttachCustomerManagedPolicyReferenceToPermissionSetResponse$: StaticStructureSchema = [
   3,
   n0,
   _ACMPRTPSRt,
@@ -478,8 +478,8 @@ export var AttachCustomerManagedPolicyReferenceToPermissionSetResponse: StaticSt
   [],
   [],
 ];
-export var AttachedManagedPolicy: StaticStructureSchema = [3, n0, _AMP, 0, [_N, _Ar], [0, 0]];
-export var AttachManagedPolicyToPermissionSetRequest: StaticStructureSchema = [
+export var AttachedManagedPolicy$: StaticStructureSchema = [3, n0, _AMP, 0, [_N, _Ar], [0, 0]];
+export var AttachManagedPolicyToPermissionSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _AMPTPSR,
@@ -487,20 +487,20 @@ export var AttachManagedPolicyToPermissionSetRequest: StaticStructureSchema = [
   [_IA, _PSA, _MPA],
   [0, 0, 0],
 ];
-export var AttachManagedPolicyToPermissionSetResponse: StaticStructureSchema = [3, n0, _AMPTPSRt, 0, [], []];
-export var AuthenticationMethodItem: StaticStructureSchema = [
+export var AttachManagedPolicyToPermissionSetResponse$: StaticStructureSchema = [3, n0, _AMPTPSRt, 0, [], []];
+export var AuthenticationMethodItem$: StaticStructureSchema = [
   3,
   n0,
   _AMI,
   0,
   [_AMT, _AM],
-  [0, () => AuthenticationMethod],
+  [0, () => AuthenticationMethod$],
 ];
-export var AuthorizationCodeGrant: StaticStructureSchema = [3, n0, _ACG, 0, [_RU], [64 | 0]];
-export var AuthorizedTokenIssuer: StaticStructureSchema = [3, n0, _ATI, 0, [_TTIA, _AAu], [0, 64 | 0]];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateAccountAssignmentRequest: StaticStructureSchema = [
+export var AuthorizationCodeGrant$: StaticStructureSchema = [3, n0, _ACG, 0, [_RU], [64 | 0]];
+export var AuthorizedTokenIssuer$: StaticStructureSchema = [3, n0, _ATI, 0, [_TTIA, _AAu], [0, 64 | 0]];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateAccountAssignmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _CAAR,
@@ -508,34 +508,41 @@ export var CreateAccountAssignmentRequest: StaticStructureSchema = [
   [_IA, _TI, _TT, _PSA, _PT, _PI],
   [0, 0, 0, 0, 0, 0],
 ];
-export var CreateAccountAssignmentResponse: StaticStructureSchema = [
+export var CreateAccountAssignmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _CAARr,
   0,
   [_AACS],
-  [() => AccountAssignmentOperationStatus],
+  [() => AccountAssignmentOperationStatus$],
 ];
-export var CreateApplicationAssignmentRequest: StaticStructureSchema = [3, n0, _CAARre, 0, [_AAp, _PI, _PT], [0, 0, 0]];
-export var CreateApplicationAssignmentResponse: StaticStructureSchema = [3, n0, _CAARrea, 0, [], []];
-export var CreateApplicationRequest: StaticStructureSchema = [
+export var CreateApplicationAssignmentRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _CAARre,
+  0,
+  [_AAp, _PI, _PT],
+  [0, 0, 0],
+];
+export var CreateApplicationAssignmentResponse$: StaticStructureSchema = [3, n0, _CAARrea, 0, [], []];
+export var CreateApplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CAR,
   0,
   [_IA, _APA, _N, _D, _PO, _T, _St, _CT],
-  [0, 0, 0, 0, () => PortalOptions, () => TagList, 0, [0, 4]],
+  [0, 0, 0, 0, () => PortalOptions$, () => TagList, 0, [0, 4]],
 ];
-export var CreateApplicationResponse: StaticStructureSchema = [3, n0, _CARr, 0, [_AAp], [0]];
-export var CreateInstanceAccessControlAttributeConfigurationRequest: StaticStructureSchema = [
+export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr, 0, [_AAp], [0]];
+export var CreateInstanceAccessControlAttributeConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CIACACR,
   0,
   [_IA, _IACAC],
-  [0, () => InstanceAccessControlAttributeConfiguration],
+  [0, () => InstanceAccessControlAttributeConfiguration$],
 ];
-export var CreateInstanceAccessControlAttributeConfigurationResponse: StaticStructureSchema = [
+export var CreateInstanceAccessControlAttributeConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _CIACACRr,
@@ -543,9 +550,9 @@ export var CreateInstanceAccessControlAttributeConfigurationResponse: StaticStru
   [],
   [],
 ];
-export var CreateInstanceRequest: StaticStructureSchema = [3, n0, _CIR, 0, [_N, _CT, _T], [0, [0, 4], () => TagList]];
-export var CreateInstanceResponse: StaticStructureSchema = [3, n0, _CIRr, 0, [_IA], [0]];
-export var CreatePermissionSetRequest: StaticStructureSchema = [
+export var CreateInstanceRequest$: StaticStructureSchema = [3, n0, _CIR, 0, [_N, _CT, _T], [0, [0, 4], () => TagList]];
+export var CreateInstanceResponse$: StaticStructureSchema = [3, n0, _CIRr, 0, [_IA], [0]];
+export var CreatePermissionSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPSR,
@@ -553,18 +560,18 @@ export var CreatePermissionSetRequest: StaticStructureSchema = [
   [_N, _D, _IA, _SD, _RS, _T],
   [0, 0, 0, 0, 0, () => TagList],
 ];
-export var CreatePermissionSetResponse: StaticStructureSchema = [3, n0, _CPSRr, 0, [_PS], [() => PermissionSet]];
-export var CreateTrustedTokenIssuerRequest: StaticStructureSchema = [
+export var CreatePermissionSetResponse$: StaticStructureSchema = [3, n0, _CPSRr, 0, [_PS], [() => PermissionSet$]];
+export var CreateTrustedTokenIssuerRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTTIR,
   0,
   [_IA, _N, _TTIT, _TTIC, _CT, _T],
-  [0, 0, 0, () => TrustedTokenIssuerConfiguration, [0, 4], () => TagList],
+  [0, 0, 0, () => TrustedTokenIssuerConfiguration$, [0, 4], () => TagList],
 ];
-export var CreateTrustedTokenIssuerResponse: StaticStructureSchema = [3, n0, _CTTIRr, 0, [_TTIA], [0]];
-export var CustomerManagedPolicyReference: StaticStructureSchema = [3, n0, _CMPR, 0, [_N, _P], [0, 0]];
-export var DeleteAccountAssignmentRequest: StaticStructureSchema = [
+export var CreateTrustedTokenIssuerResponse$: StaticStructureSchema = [3, n0, _CTTIRr, 0, [_TTIA], [0]];
+export var CustomerManagedPolicyReference$: StaticStructureSchema = [3, n0, _CMPR, 0, [_N, _P], [0, 0]];
+export var DeleteAccountAssignmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAAR,
@@ -572,18 +579,25 @@ export var DeleteAccountAssignmentRequest: StaticStructureSchema = [
   [_IA, _TI, _TT, _PSA, _PT, _PI],
   [0, 0, 0, 0, 0, 0],
 ];
-export var DeleteAccountAssignmentResponse: StaticStructureSchema = [
+export var DeleteAccountAssignmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _DAARe,
   0,
   [_AADS],
-  [() => AccountAssignmentOperationStatus],
+  [() => AccountAssignmentOperationStatus$],
 ];
-export var DeleteApplicationAccessScopeRequest: StaticStructureSchema = [3, n0, _DAASR, 0, [_AAp, _Sc], [0, 0]];
-export var DeleteApplicationAssignmentRequest: StaticStructureSchema = [3, n0, _DAARel, 0, [_AAp, _PI, _PT], [0, 0, 0]];
-export var DeleteApplicationAssignmentResponse: StaticStructureSchema = [3, n0, _DAARele, 0, [], []];
-export var DeleteApplicationAuthenticationMethodRequest: StaticStructureSchema = [
+export var DeleteApplicationAccessScopeRequest$: StaticStructureSchema = [3, n0, _DAASR, 0, [_AAp, _Sc], [0, 0]];
+export var DeleteApplicationAssignmentRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _DAARel,
+  0,
+  [_AAp, _PI, _PT],
+  [0, 0, 0],
+];
+export var DeleteApplicationAssignmentResponse$: StaticStructureSchema = [3, n0, _DAARele, 0, [], []];
+export var DeleteApplicationAuthenticationMethodRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAAMR,
@@ -591,10 +605,10 @@ export var DeleteApplicationAuthenticationMethodRequest: StaticStructureSchema =
   [_AAp, _AMT],
   [0, 0],
 ];
-export var DeleteApplicationGrantRequest: StaticStructureSchema = [3, n0, _DAGR, 0, [_AAp, _GT], [0, 0]];
-export var DeleteApplicationRequest: StaticStructureSchema = [3, n0, _DAR, 0, [_AAp], [0]];
-export var DeleteApplicationResponse: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
-export var DeleteInlinePolicyFromPermissionSetRequest: StaticStructureSchema = [
+export var DeleteApplicationGrantRequest$: StaticStructureSchema = [3, n0, _DAGR, 0, [_AAp, _GT], [0, 0]];
+export var DeleteApplicationRequest$: StaticStructureSchema = [3, n0, _DAR, 0, [_AAp], [0]];
+export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
+export var DeleteInlinePolicyFromPermissionSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIPFPSR,
@@ -602,8 +616,8 @@ export var DeleteInlinePolicyFromPermissionSetRequest: StaticStructureSchema = [
   [_IA, _PSA],
   [0, 0],
 ];
-export var DeleteInlinePolicyFromPermissionSetResponse: StaticStructureSchema = [3, n0, _DIPFPSRe, 0, [], []];
-export var DeleteInstanceAccessControlAttributeConfigurationRequest: StaticStructureSchema = [
+export var DeleteInlinePolicyFromPermissionSetResponse$: StaticStructureSchema = [3, n0, _DIPFPSRe, 0, [], []];
+export var DeleteInstanceAccessControlAttributeConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIACACR,
@@ -611,7 +625,7 @@ export var DeleteInstanceAccessControlAttributeConfigurationRequest: StaticStruc
   [_IA],
   [0],
 ];
-export var DeleteInstanceAccessControlAttributeConfigurationResponse: StaticStructureSchema = [
+export var DeleteInstanceAccessControlAttributeConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DIACACRe,
@@ -619,9 +633,9 @@ export var DeleteInstanceAccessControlAttributeConfigurationResponse: StaticStru
   [],
   [],
 ];
-export var DeleteInstanceRequest: StaticStructureSchema = [3, n0, _DIR, 0, [_IA], [0]];
-export var DeleteInstanceResponse: StaticStructureSchema = [3, n0, _DIRe, 0, [], []];
-export var DeletePermissionsBoundaryFromPermissionSetRequest: StaticStructureSchema = [
+export var DeleteInstanceRequest$: StaticStructureSchema = [3, n0, _DIR, 0, [_IA], [0]];
+export var DeleteInstanceResponse$: StaticStructureSchema = [3, n0, _DIRe, 0, [], []];
+export var DeletePermissionsBoundaryFromPermissionSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPBFPSR,
@@ -629,12 +643,12 @@ export var DeletePermissionsBoundaryFromPermissionSetRequest: StaticStructureSch
   [_IA, _PSA],
   [0, 0],
 ];
-export var DeletePermissionsBoundaryFromPermissionSetResponse: StaticStructureSchema = [3, n0, _DPBFPSRe, 0, [], []];
-export var DeletePermissionSetRequest: StaticStructureSchema = [3, n0, _DPSR, 0, [_IA, _PSA], [0, 0]];
-export var DeletePermissionSetResponse: StaticStructureSchema = [3, n0, _DPSRe, 0, [], []];
-export var DeleteTrustedTokenIssuerRequest: StaticStructureSchema = [3, n0, _DTTIR, 0, [_TTIA], [0]];
-export var DeleteTrustedTokenIssuerResponse: StaticStructureSchema = [3, n0, _DTTIRe, 0, [], []];
-export var DescribeAccountAssignmentCreationStatusRequest: StaticStructureSchema = [
+export var DeletePermissionsBoundaryFromPermissionSetResponse$: StaticStructureSchema = [3, n0, _DPBFPSRe, 0, [], []];
+export var DeletePermissionSetRequest$: StaticStructureSchema = [3, n0, _DPSR, 0, [_IA, _PSA], [0, 0]];
+export var DeletePermissionSetResponse$: StaticStructureSchema = [3, n0, _DPSRe, 0, [], []];
+export var DeleteTrustedTokenIssuerRequest$: StaticStructureSchema = [3, n0, _DTTIR, 0, [_TTIA], [0]];
+export var DeleteTrustedTokenIssuerResponse$: StaticStructureSchema = [3, n0, _DTTIRe, 0, [], []];
+export var DescribeAccountAssignmentCreationStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAACSR,
@@ -642,15 +656,15 @@ export var DescribeAccountAssignmentCreationStatusRequest: StaticStructureSchema
   [_IA, _AACRI],
   [0, 0],
 ];
-export var DescribeAccountAssignmentCreationStatusResponse: StaticStructureSchema = [
+export var DescribeAccountAssignmentCreationStatusResponse$: StaticStructureSchema = [
   3,
   n0,
   _DAACSRe,
   0,
   [_AACS],
-  [() => AccountAssignmentOperationStatus],
+  [() => AccountAssignmentOperationStatus$],
 ];
-export var DescribeAccountAssignmentDeletionStatusRequest: StaticStructureSchema = [
+export var DescribeAccountAssignmentDeletionStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAADSR,
@@ -658,15 +672,15 @@ export var DescribeAccountAssignmentDeletionStatusRequest: StaticStructureSchema
   [_IA, _AADRI],
   [0, 0],
 ];
-export var DescribeAccountAssignmentDeletionStatusResponse: StaticStructureSchema = [
+export var DescribeAccountAssignmentDeletionStatusResponse$: StaticStructureSchema = [
   3,
   n0,
   _DAADSRe,
   0,
   [_AADS],
-  [() => AccountAssignmentOperationStatus],
+  [() => AccountAssignmentOperationStatus$],
 ];
-export var DescribeApplicationAssignmentRequest: StaticStructureSchema = [
+export var DescribeApplicationAssignmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAARes,
@@ -674,7 +688,7 @@ export var DescribeApplicationAssignmentRequest: StaticStructureSchema = [
   [_AAp, _PI, _PT],
   [0, 0, 0],
 ];
-export var DescribeApplicationAssignmentResponse: StaticStructureSchema = [
+export var DescribeApplicationAssignmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _DAAResc,
@@ -682,25 +696,25 @@ export var DescribeApplicationAssignmentResponse: StaticStructureSchema = [
   [_PT, _PI, _AAp],
   [0, 0, 0],
 ];
-export var DescribeApplicationProviderRequest: StaticStructureSchema = [3, n0, _DAPR, 0, [_APA], [0]];
-export var DescribeApplicationProviderResponse: StaticStructureSchema = [
+export var DescribeApplicationProviderRequest$: StaticStructureSchema = [3, n0, _DAPR, 0, [_APA], [0]];
+export var DescribeApplicationProviderResponse$: StaticStructureSchema = [
   3,
   n0,
   _DAPRe,
   0,
   [_APA, _FP, _DD, _RSC],
-  [0, 0, () => DisplayData, () => ResourceServerConfig],
+  [0, 0, () => DisplayData$, () => ResourceServerConfig$],
 ];
-export var DescribeApplicationRequest: StaticStructureSchema = [3, n0, _DARes, 0, [_AAp], [0]];
-export var DescribeApplicationResponse: StaticStructureSchema = [
+export var DescribeApplicationRequest$: StaticStructureSchema = [3, n0, _DARes, 0, [_AAp], [0]];
+export var DescribeApplicationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DAResc,
   0,
   [_AAp, _APA, _N, _AApp, _IA, _St, _PO, _D, _CD],
-  [0, 0, 0, 0, 0, 0, () => PortalOptions, 0, 4],
+  [0, 0, 0, 0, 0, 0, () => PortalOptions$, 0, 4],
 ];
-export var DescribeInstanceAccessControlAttributeConfigurationRequest: StaticStructureSchema = [
+export var DescribeInstanceAccessControlAttributeConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIACACRes,
@@ -708,24 +722,24 @@ export var DescribeInstanceAccessControlAttributeConfigurationRequest: StaticStr
   [_IA],
   [0],
 ];
-export var DescribeInstanceAccessControlAttributeConfigurationResponse: StaticStructureSchema = [
+export var DescribeInstanceAccessControlAttributeConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DIACACResc,
   0,
   [_St, _SR, _IACAC],
-  [0, 0, () => InstanceAccessControlAttributeConfiguration],
+  [0, 0, () => InstanceAccessControlAttributeConfiguration$],
 ];
-export var DescribeInstanceRequest: StaticStructureSchema = [3, n0, _DIRes, 0, [_IA], [0]];
-export var DescribeInstanceResponse: StaticStructureSchema = [
+export var DescribeInstanceRequest$: StaticStructureSchema = [3, n0, _DIRes, 0, [_IA], [0]];
+export var DescribeInstanceResponse$: StaticStructureSchema = [
   3,
   n0,
   _DIResc,
   0,
   [_IA, _ISI, _OAI, _N, _CD, _St, _SR, _ECD],
-  [0, 0, 0, 0, 4, 0, 0, () => EncryptionConfigurationDetails],
+  [0, 0, 0, 0, 4, 0, 0, () => EncryptionConfigurationDetails$],
 ];
-export var DescribePermissionSetProvisioningStatusRequest: StaticStructureSchema = [
+export var DescribePermissionSetProvisioningStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPSPSR,
@@ -733,34 +747,34 @@ export var DescribePermissionSetProvisioningStatusRequest: StaticStructureSchema
   [_IA, _PPSRI],
   [0, 0],
 ];
-export var DescribePermissionSetProvisioningStatusResponse: StaticStructureSchema = [
+export var DescribePermissionSetProvisioningStatusResponse$: StaticStructureSchema = [
   3,
   n0,
   _DPSPSRe,
   0,
   [_PSPS],
-  [() => PermissionSetProvisioningStatus],
+  [() => PermissionSetProvisioningStatus$],
 ];
-export var DescribePermissionSetRequest: StaticStructureSchema = [3, n0, _DPSRes, 0, [_IA, _PSA], [0, 0]];
-export var DescribePermissionSetResponse: StaticStructureSchema = [3, n0, _DPSResc, 0, [_PS], [() => PermissionSet]];
-export var DescribeTrustedTokenIssuerRequest: StaticStructureSchema = [3, n0, _DTTIRes, 0, [_TTIA], [0]];
-export var DescribeTrustedTokenIssuerResponse: StaticStructureSchema = [
+export var DescribePermissionSetRequest$: StaticStructureSchema = [3, n0, _DPSRes, 0, [_IA, _PSA], [0, 0]];
+export var DescribePermissionSetResponse$: StaticStructureSchema = [3, n0, _DPSResc, 0, [_PS], [() => PermissionSet$]];
+export var DescribeTrustedTokenIssuerRequest$: StaticStructureSchema = [3, n0, _DTTIRes, 0, [_TTIA], [0]];
+export var DescribeTrustedTokenIssuerResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTTIResc,
   0,
   [_TTIA, _N, _TTIT, _TTIC],
-  [0, 0, 0, () => TrustedTokenIssuerConfiguration],
+  [0, 0, 0, () => TrustedTokenIssuerConfiguration$],
 ];
-export var DetachCustomerManagedPolicyReferenceFromPermissionSetRequest: StaticStructureSchema = [
+export var DetachCustomerManagedPolicyReferenceFromPermissionSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCMPRFPSR,
   0,
   [_IA, _PSA, _CMPR],
-  [0, 0, () => CustomerManagedPolicyReference],
+  [0, 0, () => CustomerManagedPolicyReference$],
 ];
-export var DetachCustomerManagedPolicyReferenceFromPermissionSetResponse: StaticStructureSchema = [
+export var DetachCustomerManagedPolicyReferenceFromPermissionSetResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCMPRFPSRe,
@@ -768,7 +782,7 @@ export var DetachCustomerManagedPolicyReferenceFromPermissionSetResponse: Static
   [],
   [],
 ];
-export var DetachManagedPolicyFromPermissionSetRequest: StaticStructureSchema = [
+export var DetachManagedPolicyFromPermissionSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _DMPFPSR,
@@ -776,10 +790,10 @@ export var DetachManagedPolicyFromPermissionSetRequest: StaticStructureSchema = 
   [_IA, _PSA, _MPA],
   [0, 0, 0],
 ];
-export var DetachManagedPolicyFromPermissionSetResponse: StaticStructureSchema = [3, n0, _DMPFPSRe, 0, [], []];
-export var DisplayData: StaticStructureSchema = [3, n0, _DD, 0, [_DN, _IU, _D], [0, 0, 0]];
-export var EncryptionConfiguration: StaticStructureSchema = [3, n0, _EC, 0, [_KT, _KKA], [0, 0]];
-export var EncryptionConfigurationDetails: StaticStructureSchema = [
+export var DetachManagedPolicyFromPermissionSetResponse$: StaticStructureSchema = [3, n0, _DMPFPSRe, 0, [], []];
+export var DisplayData$: StaticStructureSchema = [3, n0, _DD, 0, [_DN, _IU, _D], [0, 0, 0]];
+export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC, 0, [_KT, _KKA], [0, 0]];
+export var EncryptionConfigurationDetails$: StaticStructureSchema = [
   3,
   n0,
   _ECD,
@@ -787,26 +801,26 @@ export var EncryptionConfigurationDetails: StaticStructureSchema = [
   [_KT, _KKA, _ES, _ESR],
   [0, 0, 0, 0],
 ];
-export var GetApplicationAccessScopeRequest: StaticStructureSchema = [3, n0, _GAASR, 0, [_AAp, _Sc], [0, 0]];
-export var GetApplicationAccessScopeResponse: StaticStructureSchema = [3, n0, _GAASRe, 0, [_Sc, _AT], [0, 64 | 0]];
-export var GetApplicationAssignmentConfigurationRequest: StaticStructureSchema = [3, n0, _GAACR, 0, [_AAp], [0]];
-export var GetApplicationAssignmentConfigurationResponse: StaticStructureSchema = [3, n0, _GAACRe, 0, [_AR], [2]];
-export var GetApplicationAuthenticationMethodRequest: StaticStructureSchema = [3, n0, _GAAMR, 0, [_AAp, _AMT], [0, 0]];
-export var GetApplicationAuthenticationMethodResponse: StaticStructureSchema = [
+export var GetApplicationAccessScopeRequest$: StaticStructureSchema = [3, n0, _GAASR, 0, [_AAp, _Sc], [0, 0]];
+export var GetApplicationAccessScopeResponse$: StaticStructureSchema = [3, n0, _GAASRe, 0, [_Sc, _AT], [0, 64 | 0]];
+export var GetApplicationAssignmentConfigurationRequest$: StaticStructureSchema = [3, n0, _GAACR, 0, [_AAp], [0]];
+export var GetApplicationAssignmentConfigurationResponse$: StaticStructureSchema = [3, n0, _GAACRe, 0, [_AR], [2]];
+export var GetApplicationAuthenticationMethodRequest$: StaticStructureSchema = [3, n0, _GAAMR, 0, [_AAp, _AMT], [0, 0]];
+export var GetApplicationAuthenticationMethodResponse$: StaticStructureSchema = [
   3,
   n0,
   _GAAMRe,
   0,
   [_AM],
-  [() => AuthenticationMethod],
+  [() => AuthenticationMethod$],
 ];
-export var GetApplicationGrantRequest: StaticStructureSchema = [3, n0, _GAGR, 0, [_AAp, _GT], [0, 0]];
-export var GetApplicationGrantResponse: StaticStructureSchema = [3, n0, _GAGRe, 0, [_G], [() => Grant]];
-export var GetApplicationSessionConfigurationRequest: StaticStructureSchema = [3, n0, _GASCR, 0, [_AAp], [0]];
-export var GetApplicationSessionConfigurationResponse: StaticStructureSchema = [3, n0, _GASCRe, 0, [_UBSAS], [0]];
-export var GetInlinePolicyForPermissionSetRequest: StaticStructureSchema = [3, n0, _GIPFPSR, 0, [_IA, _PSA], [0, 0]];
-export var GetInlinePolicyForPermissionSetResponse: StaticStructureSchema = [3, n0, _GIPFPSRe, 0, [_IP], [0]];
-export var GetPermissionsBoundaryForPermissionSetRequest: StaticStructureSchema = [
+export var GetApplicationGrantRequest$: StaticStructureSchema = [3, n0, _GAGR, 0, [_AAp, _GT], [0, 0]];
+export var GetApplicationGrantResponse$: StaticStructureSchema = [3, n0, _GAGRe, 0, [_G], [() => Grant$]];
+export var GetApplicationSessionConfigurationRequest$: StaticStructureSchema = [3, n0, _GASCR, 0, [_AAp], [0]];
+export var GetApplicationSessionConfigurationResponse$: StaticStructureSchema = [3, n0, _GASCRe, 0, [_UBSAS], [0]];
+export var GetInlinePolicyForPermissionSetRequest$: StaticStructureSchema = [3, n0, _GIPFPSR, 0, [_IA, _PSA], [0, 0]];
+export var GetInlinePolicyForPermissionSetResponse$: StaticStructureSchema = [3, n0, _GIPFPSRe, 0, [_IP], [0]];
+export var GetPermissionsBoundaryForPermissionSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _GPBFPSR,
@@ -814,17 +828,17 @@ export var GetPermissionsBoundaryForPermissionSetRequest: StaticStructureSchema 
   [_IA, _PSA],
   [0, 0],
 ];
-export var GetPermissionsBoundaryForPermissionSetResponse: StaticStructureSchema = [
+export var GetPermissionsBoundaryForPermissionSetResponse$: StaticStructureSchema = [
   3,
   n0,
   _GPBFPSRe,
   0,
   [_PB],
-  [() => PermissionsBoundary],
+  [() => PermissionsBoundary$],
 ];
-export var GrantItem: StaticStructureSchema = [3, n0, _GI, 0, [_GT, _G], [0, () => Grant]];
-export var IamAuthenticationMethod: StaticStructureSchema = [3, n0, _IAM, 0, [_APc], [15]];
-export var InstanceAccessControlAttributeConfiguration: StaticStructureSchema = [
+export var GrantItem$: StaticStructureSchema = [3, n0, _GI, 0, [_GT, _G], [0, () => Grant$]];
+export var IamAuthenticationMethod$: StaticStructureSchema = [3, n0, _IAM, 0, [_APc], [15]];
+export var InstanceAccessControlAttributeConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _IACAC,
@@ -832,7 +846,7 @@ export var InstanceAccessControlAttributeConfiguration: StaticStructureSchema = 
   [_ACAc],
   [() => AccessControlAttributeList],
 ];
-export var InstanceMetadata: StaticStructureSchema = [
+export var InstanceMetadata$: StaticStructureSchema = [
   3,
   n0,
   _IM,
@@ -840,18 +854,18 @@ export var InstanceMetadata: StaticStructureSchema = [
   [_IA, _ISI, _OAI, _N, _CD, _St, _SR],
   [0, 0, 0, 0, 4, 0, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var JwtBearerGrant: StaticStructureSchema = [3, n0, _JBG, 0, [_ATIu], [() => AuthorizedTokenIssuers]];
-export var ListAccountAssignmentCreationStatusRequest: StaticStructureSchema = [
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var JwtBearerGrant$: StaticStructureSchema = [3, n0, _JBG, 0, [_ATIu], [() => AuthorizedTokenIssuers]];
+export var ListAccountAssignmentCreationStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAACSR,
   0,
   [_IA, _MR, _NT, _F],
-  [0, 1, 0, () => OperationStatusFilter],
+  [0, 1, 0, () => OperationStatusFilter$],
 ];
-export var ListAccountAssignmentCreationStatusResponse: StaticStructureSchema = [
+export var ListAccountAssignmentCreationStatusResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAACSRi,
@@ -859,15 +873,15 @@ export var ListAccountAssignmentCreationStatusResponse: StaticStructureSchema = 
   [_AACSc, _NT],
   [() => AccountAssignmentOperationStatusList, 0],
 ];
-export var ListAccountAssignmentDeletionStatusRequest: StaticStructureSchema = [
+export var ListAccountAssignmentDeletionStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAADSR,
   0,
   [_IA, _MR, _NT, _F],
-  [0, 1, 0, () => OperationStatusFilter],
+  [0, 1, 0, () => OperationStatusFilter$],
 ];
-export var ListAccountAssignmentDeletionStatusResponse: StaticStructureSchema = [
+export var ListAccountAssignmentDeletionStatusResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAADSRi,
@@ -875,16 +889,16 @@ export var ListAccountAssignmentDeletionStatusResponse: StaticStructureSchema = 
   [_AADSc, _NT],
   [() => AccountAssignmentOperationStatusList, 0],
 ];
-export var ListAccountAssignmentsFilter: StaticStructureSchema = [3, n0, _LAAF, 0, [_AI], [0]];
-export var ListAccountAssignmentsForPrincipalRequest: StaticStructureSchema = [
+export var ListAccountAssignmentsFilter$: StaticStructureSchema = [3, n0, _LAAF, 0, [_AI], [0]];
+export var ListAccountAssignmentsForPrincipalRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAAFPR,
   0,
   [_IA, _PI, _PT, _F, _NT, _MR],
-  [0, 0, 0, () => ListAccountAssignmentsFilter, 0, 1],
+  [0, 0, 0, () => ListAccountAssignmentsFilter$, 0, 1],
 ];
-export var ListAccountAssignmentsForPrincipalResponse: StaticStructureSchema = [
+export var ListAccountAssignmentsForPrincipalResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAAFPRi,
@@ -892,7 +906,7 @@ export var ListAccountAssignmentsForPrincipalResponse: StaticStructureSchema = [
   [_AAc, _NT],
   [() => AccountAssignmentListForPrincipal, 0],
 ];
-export var ListAccountAssignmentsRequest: StaticStructureSchema = [
+export var ListAccountAssignmentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAAR,
@@ -900,7 +914,7 @@ export var ListAccountAssignmentsRequest: StaticStructureSchema = [
   [_IA, _AI, _PSA, _MR, _NT],
   [0, 0, 0, 1, 0],
 ];
-export var ListAccountAssignmentsResponse: StaticStructureSchema = [
+export var ListAccountAssignmentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAARi,
@@ -908,7 +922,7 @@ export var ListAccountAssignmentsResponse: StaticStructureSchema = [
   [_AAc, _NT],
   [() => AccountAssignmentList, 0],
 ];
-export var ListAccountsForProvisionedPermissionSetRequest: StaticStructureSchema = [
+export var ListAccountsForProvisionedPermissionSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAFPPSR,
@@ -916,7 +930,7 @@ export var ListAccountsForProvisionedPermissionSetRequest: StaticStructureSchema
   [_IA, _PSA, _PSr, _MR, _NT],
   [0, 0, 0, 1, 0],
 ];
-export var ListAccountsForProvisionedPermissionSetResponse: StaticStructureSchema = [
+export var ListAccountsForProvisionedPermissionSetResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAFPPSRi,
@@ -924,8 +938,8 @@ export var ListAccountsForProvisionedPermissionSetResponse: StaticStructureSchem
   [_AIc, _NT],
   [64 | 0, 0],
 ];
-export var ListApplicationAccessScopesRequest: StaticStructureSchema = [3, n0, _LAASR, 0, [_AAp, _MR, _NT], [0, 1, 0]];
-export var ListApplicationAccessScopesResponse: StaticStructureSchema = [
+export var ListApplicationAccessScopesRequest$: StaticStructureSchema = [3, n0, _LAASR, 0, [_AAp, _MR, _NT], [0, 1, 0]];
+export var ListApplicationAccessScopesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAASRi,
@@ -933,16 +947,16 @@ export var ListApplicationAccessScopesResponse: StaticStructureSchema = [
   [_Sco, _NT],
   [() => Scopes, 0],
 ];
-export var ListApplicationAssignmentsFilter: StaticStructureSchema = [3, n0, _LAAFi, 0, [_AAp], [0]];
-export var ListApplicationAssignmentsForPrincipalRequest: StaticStructureSchema = [
+export var ListApplicationAssignmentsFilter$: StaticStructureSchema = [3, n0, _LAAFi, 0, [_AAp], [0]];
+export var ListApplicationAssignmentsForPrincipalRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAAFPRis,
   0,
   [_IA, _PI, _PT, _F, _NT, _MR],
-  [0, 0, 0, () => ListApplicationAssignmentsFilter, 0, 1],
+  [0, 0, 0, () => ListApplicationAssignmentsFilter$, 0, 1],
 ];
-export var ListApplicationAssignmentsForPrincipalResponse: StaticStructureSchema = [
+export var ListApplicationAssignmentsForPrincipalResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAAFPRist,
@@ -950,8 +964,8 @@ export var ListApplicationAssignmentsForPrincipalResponse: StaticStructureSchema
   [_AAppli, _NT],
   [() => ApplicationAssignmentListForPrincipal, 0],
 ];
-export var ListApplicationAssignmentsRequest: StaticStructureSchema = [3, n0, _LAARis, 0, [_AAp, _MR, _NT], [0, 1, 0]];
-export var ListApplicationAssignmentsResponse: StaticStructureSchema = [
+export var ListApplicationAssignmentsRequest$: StaticStructureSchema = [3, n0, _LAARis, 0, [_AAp, _MR, _NT], [0, 1, 0]];
+export var ListApplicationAssignmentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAARist,
@@ -959,8 +973,15 @@ export var ListApplicationAssignmentsResponse: StaticStructureSchema = [
   [_AAppli, _NT],
   [() => ApplicationAssignmentsList, 0],
 ];
-export var ListApplicationAuthenticationMethodsRequest: StaticStructureSchema = [3, n0, _LAAMR, 0, [_AAp, _NT], [0, 0]];
-export var ListApplicationAuthenticationMethodsResponse: StaticStructureSchema = [
+export var ListApplicationAuthenticationMethodsRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _LAAMR,
+  0,
+  [_AAp, _NT],
+  [0, 0],
+];
+export var ListApplicationAuthenticationMethodsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAAMRi,
@@ -968,10 +989,10 @@ export var ListApplicationAuthenticationMethodsResponse: StaticStructureSchema =
   [_AMu, _NT],
   [() => AuthenticationMethods, 0],
 ];
-export var ListApplicationGrantsRequest: StaticStructureSchema = [3, n0, _LAGR, 0, [_AAp, _NT], [0, 0]];
-export var ListApplicationGrantsResponse: StaticStructureSchema = [3, n0, _LAGRi, 0, [_Gr, _NT], [() => Grants, 0]];
-export var ListApplicationProvidersRequest: StaticStructureSchema = [3, n0, _LAPR, 0, [_MR, _NT], [1, 0]];
-export var ListApplicationProvidersResponse: StaticStructureSchema = [
+export var ListApplicationGrantsRequest$: StaticStructureSchema = [3, n0, _LAGR, 0, [_AAp, _NT], [0, 0]];
+export var ListApplicationGrantsResponse$: StaticStructureSchema = [3, n0, _LAGRi, 0, [_Gr, _NT], [() => Grants, 0]];
+export var ListApplicationProvidersRequest$: StaticStructureSchema = [3, n0, _LAPR, 0, [_MR, _NT], [1, 0]];
+export var ListApplicationProvidersResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAPRi,
@@ -979,17 +1000,17 @@ export var ListApplicationProvidersResponse: StaticStructureSchema = [
   [_APp, _NT],
   [() => ApplicationProviderList, 0],
 ];
-export var ListApplicationsFilter: StaticStructureSchema = [3, n0, _LAF, 0, [_AApp, _AP], [0, 0]];
-export var ListApplicationsRequest: StaticStructureSchema = [
+export var ListApplicationsFilter$: StaticStructureSchema = [3, n0, _LAF, 0, [_AApp, _AP], [0, 0]];
+export var ListApplicationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAR,
   0,
   [_IA, _MR, _NT, _F],
-  [0, 1, 0, () => ListApplicationsFilter],
+  [0, 1, 0, () => ListApplicationsFilter$],
 ];
-export var ListApplicationsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_Ap, _NT], [() => ApplicationList, 0]];
-export var ListCustomerManagedPolicyReferencesInPermissionSetRequest: StaticStructureSchema = [
+export var ListApplicationsResponse$: StaticStructureSchema = [3, n0, _LARi, 0, [_Ap, _NT], [() => ApplicationList, 0]];
+export var ListCustomerManagedPolicyReferencesInPermissionSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCMPRIPSR,
@@ -997,7 +1018,7 @@ export var ListCustomerManagedPolicyReferencesInPermissionSetRequest: StaticStru
   [_IA, _PSA, _MR, _NT],
   [0, 0, 1, 0],
 ];
-export var ListCustomerManagedPolicyReferencesInPermissionSetResponse: StaticStructureSchema = [
+export var ListCustomerManagedPolicyReferencesInPermissionSetResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCMPRIPSRi,
@@ -1005,9 +1026,9 @@ export var ListCustomerManagedPolicyReferencesInPermissionSetResponse: StaticStr
   [_CMPRu, _NT],
   [() => CustomerManagedPolicyReferenceList, 0],
 ];
-export var ListInstancesRequest: StaticStructureSchema = [3, n0, _LIR, 0, [_MR, _NT], [1, 0]];
-export var ListInstancesResponse: StaticStructureSchema = [3, n0, _LIRi, 0, [_I, _NT], [() => InstanceList, 0]];
-export var ListManagedPoliciesInPermissionSetRequest: StaticStructureSchema = [
+export var ListInstancesRequest$: StaticStructureSchema = [3, n0, _LIR, 0, [_MR, _NT], [1, 0]];
+export var ListInstancesResponse$: StaticStructureSchema = [3, n0, _LIRi, 0, [_I, _NT], [() => InstanceList, 0]];
+export var ListManagedPoliciesInPermissionSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _LMPIPSR,
@@ -1015,7 +1036,7 @@ export var ListManagedPoliciesInPermissionSetRequest: StaticStructureSchema = [
   [_IA, _PSA, _MR, _NT],
   [0, 0, 1, 0],
 ];
-export var ListManagedPoliciesInPermissionSetResponse: StaticStructureSchema = [
+export var ListManagedPoliciesInPermissionSetResponse$: StaticStructureSchema = [
   3,
   n0,
   _LMPIPSRi,
@@ -1023,15 +1044,15 @@ export var ListManagedPoliciesInPermissionSetResponse: StaticStructureSchema = [
   [_AMPt, _NT],
   [() => AttachedManagedPolicyList, 0],
 ];
-export var ListPermissionSetProvisioningStatusRequest: StaticStructureSchema = [
+export var ListPermissionSetProvisioningStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPSPSR,
   0,
   [_IA, _MR, _NT, _F],
-  [0, 1, 0, () => OperationStatusFilter],
+  [0, 1, 0, () => OperationStatusFilter$],
 ];
-export var ListPermissionSetProvisioningStatusResponse: StaticStructureSchema = [
+export var ListPermissionSetProvisioningStatusResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPSPSRi,
@@ -1039,7 +1060,7 @@ export var ListPermissionSetProvisioningStatusResponse: StaticStructureSchema = 
   [_PSPSe, _NT],
   [() => PermissionSetProvisioningStatusList, 0],
 ];
-export var ListPermissionSetsProvisionedToAccountRequest: StaticStructureSchema = [
+export var ListPermissionSetsProvisionedToAccountRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPSPTAR,
@@ -1047,7 +1068,7 @@ export var ListPermissionSetsProvisionedToAccountRequest: StaticStructureSchema 
   [_IA, _AI, _PSr, _MR, _NT],
   [0, 0, 0, 1, 0],
 ];
-export var ListPermissionSetsProvisionedToAccountResponse: StaticStructureSchema = [
+export var ListPermissionSetsProvisionedToAccountResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPSPTARi,
@@ -1055,12 +1076,12 @@ export var ListPermissionSetsProvisionedToAccountResponse: StaticStructureSchema
   [_NT, _PSe],
   [0, 64 | 0],
 ];
-export var ListPermissionSetsRequest: StaticStructureSchema = [3, n0, _LPSR, 0, [_IA, _NT, _MR], [0, 0, 1]];
-export var ListPermissionSetsResponse: StaticStructureSchema = [3, n0, _LPSRi, 0, [_PSe, _NT], [64 | 0, 0]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_IA, _RA, _NT], [0, 0, 0]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T, _NT], [() => TagList, 0]];
-export var ListTrustedTokenIssuersRequest: StaticStructureSchema = [3, n0, _LTTIR, 0, [_IA, _MR, _NT], [0, 1, 0]];
-export var ListTrustedTokenIssuersResponse: StaticStructureSchema = [
+export var ListPermissionSetsRequest$: StaticStructureSchema = [3, n0, _LPSR, 0, [_IA, _NT, _MR], [0, 0, 1]];
+export var ListPermissionSetsResponse$: StaticStructureSchema = [3, n0, _LPSRi, 0, [_PSe, _NT], [64 | 0, 0]];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_IA, _RA, _NT], [0, 0, 0]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T, _NT], [() => TagList, 0]];
+export var ListTrustedTokenIssuersRequest$: StaticStructureSchema = [3, n0, _LTTIR, 0, [_IA, _MR, _NT], [0, 1, 0]];
+export var ListTrustedTokenIssuersResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTTIRi,
@@ -1068,19 +1089,19 @@ export var ListTrustedTokenIssuersResponse: StaticStructureSchema = [
   [_TTI, _NT],
   [() => TrustedTokenIssuerList, 0],
 ];
-export var OidcJwtConfiguration: StaticStructureSchema = [3, n0, _OJC, 0, [_IUs, _CAP, _ISAP, _JRO], [0, 0, 0, 0]];
-export var OidcJwtUpdateConfiguration: StaticStructureSchema = [3, n0, _OJUC, 0, [_CAP, _ISAP, _JRO], [0, 0, 0]];
-export var OperationStatusFilter: StaticStructureSchema = [3, n0, _OSF, 0, [_St], [0]];
-export var PermissionsBoundary: StaticStructureSchema = [
+export var OidcJwtConfiguration$: StaticStructureSchema = [3, n0, _OJC, 0, [_IUs, _CAP, _ISAP, _JRO], [0, 0, 0, 0]];
+export var OidcJwtUpdateConfiguration$: StaticStructureSchema = [3, n0, _OJUC, 0, [_CAP, _ISAP, _JRO], [0, 0, 0]];
+export var OperationStatusFilter$: StaticStructureSchema = [3, n0, _OSF, 0, [_St], [0]];
+export var PermissionsBoundary$: StaticStructureSchema = [
   3,
   n0,
   _PB,
   0,
   [_CMPR, _MPA],
-  [() => CustomerManagedPolicyReference, 0],
+  [() => CustomerManagedPolicyReference$, 0],
 ];
-export var PermissionSet: StaticStructureSchema = [3, n0, _PS, 0, [_N, _PSA, _D, _CD, _SD, _RS], [0, 0, 0, 4, 0, 0]];
-export var PermissionSetProvisioningStatus: StaticStructureSchema = [
+export var PermissionSet$: StaticStructureSchema = [3, n0, _PS, 0, [_N, _PSA, _D, _CD, _SD, _RS], [0, 0, 0, 4, 0, 0]];
+export var PermissionSetProvisioningStatus$: StaticStructureSchema = [
   3,
   n0,
   _PSPS,
@@ -1088,7 +1109,7 @@ export var PermissionSetProvisioningStatus: StaticStructureSchema = [
   [_St, _RI, _AI, _PSA, _FR, _CD],
   [0, 0, 0, 0, 0, 4],
 ];
-export var PermissionSetProvisioningStatusMetadata: StaticStructureSchema = [
+export var PermissionSetProvisioningStatusMetadata$: StaticStructureSchema = [
   3,
   n0,
   _PSPSM,
@@ -1096,8 +1117,8 @@ export var PermissionSetProvisioningStatusMetadata: StaticStructureSchema = [
   [_St, _RI, _CD],
   [0, 0, 4],
 ];
-export var PortalOptions: StaticStructureSchema = [3, n0, _PO, 0, [_SIO, _Vi], [() => SignInOptions, 0]];
-export var ProvisionPermissionSetRequest: StaticStructureSchema = [
+export var PortalOptions$: StaticStructureSchema = [3, n0, _PO, 0, [_SIO, _Vi], [() => SignInOptions$, 0]];
+export var ProvisionPermissionSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _PPSR,
@@ -1105,15 +1126,15 @@ export var ProvisionPermissionSetRequest: StaticStructureSchema = [
   [_IA, _PSA, _TI, _TT],
   [0, 0, 0, 0],
 ];
-export var ProvisionPermissionSetResponse: StaticStructureSchema = [
+export var ProvisionPermissionSetResponse$: StaticStructureSchema = [
   3,
   n0,
   _PPSRr,
   0,
   [_PSPS],
-  [() => PermissionSetProvisioningStatus],
+  [() => PermissionSetProvisioningStatus$],
 ];
-export var PutApplicationAccessScopeRequest: StaticStructureSchema = [
+export var PutApplicationAccessScopeRequest$: StaticStructureSchema = [
   3,
   n0,
   _PAASR,
@@ -1121,7 +1142,7 @@ export var PutApplicationAccessScopeRequest: StaticStructureSchema = [
   [_Sc, _AT, _AAp],
   [0, 64 | 0, 0],
 ];
-export var PutApplicationAssignmentConfigurationRequest: StaticStructureSchema = [
+export var PutApplicationAssignmentConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PAACR,
@@ -1129,17 +1150,24 @@ export var PutApplicationAssignmentConfigurationRequest: StaticStructureSchema =
   [_AAp, _AR],
   [0, 2],
 ];
-export var PutApplicationAssignmentConfigurationResponse: StaticStructureSchema = [3, n0, _PAACRu, 0, [], []];
-export var PutApplicationAuthenticationMethodRequest: StaticStructureSchema = [
+export var PutApplicationAssignmentConfigurationResponse$: StaticStructureSchema = [3, n0, _PAACRu, 0, [], []];
+export var PutApplicationAuthenticationMethodRequest$: StaticStructureSchema = [
   3,
   n0,
   _PAAMR,
   0,
   [_AAp, _AMT, _AM],
-  [0, 0, () => AuthenticationMethod],
+  [0, 0, () => AuthenticationMethod$],
 ];
-export var PutApplicationGrantRequest: StaticStructureSchema = [3, n0, _PAGR, 0, [_AAp, _GT, _G], [0, 0, () => Grant]];
-export var PutApplicationSessionConfigurationRequest: StaticStructureSchema = [
+export var PutApplicationGrantRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _PAGR,
+  0,
+  [_AAp, _GT, _G],
+  [0, 0, () => Grant$],
+];
+export var PutApplicationSessionConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PASCR,
@@ -1147,8 +1175,8 @@ export var PutApplicationSessionConfigurationRequest: StaticStructureSchema = [
   [_AAp, _UBSAS],
   [0, 0],
 ];
-export var PutApplicationSessionConfigurationResponse: StaticStructureSchema = [3, n0, _PASCRu, 0, [], []];
-export var PutInlinePolicyToPermissionSetRequest: StaticStructureSchema = [
+export var PutApplicationSessionConfigurationResponse$: StaticStructureSchema = [3, n0, _PASCRu, 0, [], []];
+export var PutInlinePolicyToPermissionSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _PIPTPSR,
@@ -1156,53 +1184,53 @@ export var PutInlinePolicyToPermissionSetRequest: StaticStructureSchema = [
   [_IA, _PSA, _IP],
   [0, 0, 0],
 ];
-export var PutInlinePolicyToPermissionSetResponse: StaticStructureSchema = [3, n0, _PIPTPSRu, 0, [], []];
-export var PutPermissionsBoundaryToPermissionSetRequest: StaticStructureSchema = [
+export var PutInlinePolicyToPermissionSetResponse$: StaticStructureSchema = [3, n0, _PIPTPSRu, 0, [], []];
+export var PutPermissionsBoundaryToPermissionSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _PPBTPSR,
   0,
   [_IA, _PSA, _PB],
-  [0, 0, () => PermissionsBoundary],
+  [0, 0, () => PermissionsBoundary$],
 ];
-export var PutPermissionsBoundaryToPermissionSetResponse: StaticStructureSchema = [3, n0, _PPBTPSRu, 0, [], []];
-export var RefreshTokenGrant: StaticStructureSchema = [3, n0, _RTG, 0, [], []];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M, _R], [0, 0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ResourceServerConfig: StaticStructureSchema = [3, n0, _RSC, 0, [_Sco], [() => ResourceServerScopes]];
-export var ResourceServerScopeDetails: StaticStructureSchema = [3, n0, _RSSD, 0, [_LD, _DT], [0, 0]];
-export var ScopeDetails: StaticStructureSchema = [3, n0, _SDc, 0, [_Sc, _AT], [0, 64 | 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var SignInOptions: StaticStructureSchema = [3, n0, _SIO, 0, [_O, _AU], [0, 0]];
-export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_IA, _RA, _T], [0, 0, () => TagList]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M, _R], [0, 0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TokenExchangeGrant: StaticStructureSchema = [3, n0, _TEG, 0, [], []];
-export var TrustedTokenIssuerMetadata: StaticStructureSchema = [3, n0, _TTIM, 0, [_TTIA, _N, _TTIT], [0, 0, 0]];
-export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_IA, _RA, _TK], [0, 0, 64 | 0]];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateApplicationPortalOptions: StaticStructureSchema = [3, n0, _UAPO, 0, [_SIO], [() => SignInOptions]];
-export var UpdateApplicationRequest: StaticStructureSchema = [
+export var PutPermissionsBoundaryToPermissionSetResponse$: StaticStructureSchema = [3, n0, _PPBTPSRu, 0, [], []];
+export var RefreshTokenGrant$: StaticStructureSchema = [3, n0, _RTG, 0, [], []];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M, _R], [0, 0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceServerConfig$: StaticStructureSchema = [3, n0, _RSC, 0, [_Sco], [() => ResourceServerScopes]];
+export var ResourceServerScopeDetails$: StaticStructureSchema = [3, n0, _RSSD, 0, [_LD, _DT], [0, 0]];
+export var ScopeDetails$: StaticStructureSchema = [3, n0, _SDc, 0, [_Sc, _AT], [0, 64 | 0]];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SignInOptions$: StaticStructureSchema = [3, n0, _SIO, 0, [_O, _AU], [0, 0]];
+export var Tag$: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_IA, _RA, _T], [0, 0, () => TagList]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M, _R], [0, 0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TokenExchangeGrant$: StaticStructureSchema = [3, n0, _TEG, 0, [], []];
+export var TrustedTokenIssuerMetadata$: StaticStructureSchema = [3, n0, _TTIM, 0, [_TTIA, _N, _TTIT], [0, 0, 0]];
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_IA, _RA, _TK], [0, 0, 64 | 0]];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateApplicationPortalOptions$: StaticStructureSchema = [3, n0, _UAPO, 0, [_SIO], [() => SignInOptions$]];
+export var UpdateApplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UAR,
   0,
   [_AAp, _N, _D, _St, _PO],
-  [0, 0, 0, 0, () => UpdateApplicationPortalOptions],
+  [0, 0, 0, 0, () => UpdateApplicationPortalOptions$],
 ];
-export var UpdateApplicationResponse: StaticStructureSchema = [3, n0, _UARp, 0, [], []];
-export var UpdateInstanceAccessControlAttributeConfigurationRequest: StaticStructureSchema = [
+export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp, 0, [], []];
+export var UpdateInstanceAccessControlAttributeConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UIACACR,
   0,
   [_IA, _IACAC],
-  [0, () => InstanceAccessControlAttributeConfiguration],
+  [0, () => InstanceAccessControlAttributeConfiguration$],
 ];
-export var UpdateInstanceAccessControlAttributeConfigurationResponse: StaticStructureSchema = [
+export var UpdateInstanceAccessControlAttributeConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UIACACRp,
@@ -1210,16 +1238,16 @@ export var UpdateInstanceAccessControlAttributeConfigurationResponse: StaticStru
   [],
   [],
 ];
-export var UpdateInstanceRequest: StaticStructureSchema = [
+export var UpdateInstanceRequest$: StaticStructureSchema = [
   3,
   n0,
   _UIR,
   0,
   [_N, _IA, _EC],
-  [0, 0, () => EncryptionConfiguration],
+  [0, 0, () => EncryptionConfiguration$],
 ];
-export var UpdateInstanceResponse: StaticStructureSchema = [3, n0, _UIRp, 0, [], []];
-export var UpdatePermissionSetRequest: StaticStructureSchema = [
+export var UpdateInstanceResponse$: StaticStructureSchema = [3, n0, _UIRp, 0, [], []];
+export var UpdatePermissionSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPSR,
@@ -1227,692 +1255,680 @@ export var UpdatePermissionSetRequest: StaticStructureSchema = [
   [_IA, _PSA, _D, _SD, _RS],
   [0, 0, 0, 0, 0],
 ];
-export var UpdatePermissionSetResponse: StaticStructureSchema = [3, n0, _UPSRp, 0, [], []];
-export var UpdateTrustedTokenIssuerRequest: StaticStructureSchema = [
+export var UpdatePermissionSetResponse$: StaticStructureSchema = [3, n0, _UPSRp, 0, [], []];
+export var UpdateTrustedTokenIssuerRequest$: StaticStructureSchema = [
   3,
   n0,
   _UTTIR,
   0,
   [_TTIA, _N, _TTIC],
-  [0, 0, () => TrustedTokenIssuerUpdateConfiguration],
+  [0, 0, () => TrustedTokenIssuerUpdateConfiguration$],
 ];
-export var UpdateTrustedTokenIssuerResponse: StaticStructureSchema = [3, n0, _UTTIRp, 0, [], []];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M, _R], [0, 0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var __Unit = "unit" as const;
-export var SSOAdminServiceException: StaticErrorSchema = [-3, _sm, "SSOAdminServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SSOAdminServiceException, __SSOAdminServiceException);
-export var AccessControlAttributeList: StaticListSchema = [1, n0, _ACAL, 0, () => AccessControlAttribute];
-export var AccessControlAttributeValueSourceList = 64 | 0;
-export var AccountAssignmentList: StaticListSchema = [1, n0, _AAL, 0, () => AccountAssignment];
-export var AccountAssignmentListForPrincipal: StaticListSchema = [
-  1,
-  n0,
-  _AALFP,
-  0,
-  () => AccountAssignmentForPrincipal,
-];
-export var AccountAssignmentOperationStatusList: StaticListSchema = [
+export var UpdateTrustedTokenIssuerResponse$: StaticStructureSchema = [3, n0, _UTTIRp, 0, [], []];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M, _R], [0, 0]];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+var __Unit = "unit" as const;
+export var SSOAdminServiceException$: StaticErrorSchema = [-3, _sm, "SSOAdminServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(SSOAdminServiceException$, SSOAdminServiceException);
+var AccessControlAttributeList: StaticListSchema = [1, n0, _ACAL, 0, () => AccessControlAttribute$];
+var AccessControlAttributeValueSourceList = 64 | 0;
+var AccountAssignmentList: StaticListSchema = [1, n0, _AAL, 0, () => AccountAssignment$];
+var AccountAssignmentListForPrincipal: StaticListSchema = [1, n0, _AALFP, 0, () => AccountAssignmentForPrincipal$];
+var AccountAssignmentOperationStatusList: StaticListSchema = [
   1,
   n0,
   _AAOSL,
   0,
-  () => AccountAssignmentOperationStatusMetadata,
+  () => AccountAssignmentOperationStatusMetadata$,
 ];
-export var AccountList = 64 | 0;
-export var ApplicationAssignmentListForPrincipal: StaticListSchema = [
+var AccountList = 64 | 0;
+var ApplicationAssignmentListForPrincipal: StaticListSchema = [
   1,
   n0,
   _AALFPp,
   0,
-  () => ApplicationAssignmentForPrincipal,
+  () => ApplicationAssignmentForPrincipal$,
 ];
-export var ApplicationAssignmentsList: StaticListSchema = [1, n0, _AALp, 0, () => ApplicationAssignment];
-export var ApplicationList: StaticListSchema = [1, n0, _AL, 0, () => Application];
-export var ApplicationProviderList: StaticListSchema = [1, n0, _APL, 0, () => ApplicationProvider];
-export var AttachedManagedPolicyList: StaticListSchema = [1, n0, _AMPL, 0, () => AttachedManagedPolicy];
-export var AuthenticationMethods: StaticListSchema = [1, n0, _AMu, 0, () => AuthenticationMethodItem];
-export var AuthorizedTokenIssuers: StaticListSchema = [1, n0, _ATIu, 0, () => AuthorizedTokenIssuer];
-export var CustomerManagedPolicyReferenceList: StaticListSchema = [
-  1,
-  n0,
-  _CMPRL,
-  0,
-  () => CustomerManagedPolicyReference,
-];
-export var Grants: StaticListSchema = [1, n0, _Gr, 0, () => GrantItem];
-export var InstanceList: StaticListSchema = [1, n0, _IL, 0, () => InstanceMetadata];
-export var PermissionSetList = 64 | 0;
-export var PermissionSetProvisioningStatusList: StaticListSchema = [
+var ApplicationAssignmentsList: StaticListSchema = [1, n0, _AALp, 0, () => ApplicationAssignment$];
+var ApplicationList: StaticListSchema = [1, n0, _AL, 0, () => Application$];
+var ApplicationProviderList: StaticListSchema = [1, n0, _APL, 0, () => ApplicationProvider$];
+var AttachedManagedPolicyList: StaticListSchema = [1, n0, _AMPL, 0, () => AttachedManagedPolicy$];
+var AuthenticationMethods: StaticListSchema = [1, n0, _AMu, 0, () => AuthenticationMethodItem$];
+var AuthorizedTokenIssuers: StaticListSchema = [1, n0, _ATIu, 0, () => AuthorizedTokenIssuer$];
+var CustomerManagedPolicyReferenceList: StaticListSchema = [1, n0, _CMPRL, 0, () => CustomerManagedPolicyReference$];
+var Grants: StaticListSchema = [1, n0, _Gr, 0, () => GrantItem$];
+var InstanceList: StaticListSchema = [1, n0, _IL, 0, () => InstanceMetadata$];
+var PermissionSetList = 64 | 0;
+var PermissionSetProvisioningStatusList: StaticListSchema = [
   1,
   n0,
   _PSPSL,
   0,
-  () => PermissionSetProvisioningStatusMetadata,
+  () => PermissionSetProvisioningStatusMetadata$,
 ];
-export var RedirectUris = 64 | 0;
-export var Scopes: StaticListSchema = [1, n0, _Sco, 0, () => ScopeDetails];
-export var ScopeTargets = 64 | 0;
-export var TagKeyList = 64 | 0;
-export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
-export var TokenIssuerAudiences = 64 | 0;
-export var TrustedTokenIssuerList: StaticListSchema = [1, n0, _TTIL, 0, () => TrustedTokenIssuerMetadata];
-export var ResourceServerScopes: StaticMapSchema = [2, n0, _RSS, 0, 0, () => ResourceServerScopeDetails];
-export var AuthenticationMethod: StaticStructureSchema = [3, n0, _AM, 0, [_Ia], [() => IamAuthenticationMethod]];
-export var Grant: StaticStructureSchema = [
+var RedirectUris = 64 | 0;
+var Scopes: StaticListSchema = [1, n0, _Sco, 0, () => ScopeDetails$];
+var ScopeTargets = 64 | 0;
+var TagKeyList = 64 | 0;
+var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
+var TokenIssuerAudiences = 64 | 0;
+var TrustedTokenIssuerList: StaticListSchema = [1, n0, _TTIL, 0, () => TrustedTokenIssuerMetadata$];
+var ResourceServerScopes: StaticMapSchema = [2, n0, _RSS, 0, 0, () => ResourceServerScopeDetails$];
+export var AuthenticationMethod$: StaticStructureSchema = [3, n0, _AM, 0, [_Ia], [() => IamAuthenticationMethod$]];
+export var Grant$: StaticStructureSchema = [
   3,
   n0,
   _G,
   0,
   [_AC, _JB, _RT, _TEo],
-  [() => AuthorizationCodeGrant, () => JwtBearerGrant, () => RefreshTokenGrant, () => TokenExchangeGrant],
+  [() => AuthorizationCodeGrant$, () => JwtBearerGrant$, () => RefreshTokenGrant$, () => TokenExchangeGrant$],
 ];
-export var TrustedTokenIssuerConfiguration: StaticStructureSchema = [
+export var TrustedTokenIssuerConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _TTIC,
   0,
   [_OJC],
-  [() => OidcJwtConfiguration],
+  [() => OidcJwtConfiguration$],
 ];
-export var TrustedTokenIssuerUpdateConfiguration: StaticStructureSchema = [
+export var TrustedTokenIssuerUpdateConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _TTIUC,
   0,
   [_OJC],
-  [() => OidcJwtUpdateConfiguration],
+  [() => OidcJwtUpdateConfiguration$],
 ];
-export var AttachCustomerManagedPolicyReferenceToPermissionSet: StaticOperationSchema = [
+export var AttachCustomerManagedPolicyReferenceToPermissionSet$: StaticOperationSchema = [
   9,
   n0,
   _ACMPRTPS,
   0,
-  () => AttachCustomerManagedPolicyReferenceToPermissionSetRequest,
-  () => AttachCustomerManagedPolicyReferenceToPermissionSetResponse,
+  () => AttachCustomerManagedPolicyReferenceToPermissionSetRequest$,
+  () => AttachCustomerManagedPolicyReferenceToPermissionSetResponse$,
 ];
-export var AttachManagedPolicyToPermissionSet: StaticOperationSchema = [
+export var AttachManagedPolicyToPermissionSet$: StaticOperationSchema = [
   9,
   n0,
   _AMPTPS,
   0,
-  () => AttachManagedPolicyToPermissionSetRequest,
-  () => AttachManagedPolicyToPermissionSetResponse,
+  () => AttachManagedPolicyToPermissionSetRequest$,
+  () => AttachManagedPolicyToPermissionSetResponse$,
 ];
-export var CreateAccountAssignment: StaticOperationSchema = [
+export var CreateAccountAssignment$: StaticOperationSchema = [
   9,
   n0,
   _CAA,
   0,
-  () => CreateAccountAssignmentRequest,
-  () => CreateAccountAssignmentResponse,
+  () => CreateAccountAssignmentRequest$,
+  () => CreateAccountAssignmentResponse$,
 ];
-export var CreateApplication: StaticOperationSchema = [
+export var CreateApplication$: StaticOperationSchema = [
   9,
   n0,
   _CA,
   0,
-  () => CreateApplicationRequest,
-  () => CreateApplicationResponse,
+  () => CreateApplicationRequest$,
+  () => CreateApplicationResponse$,
 ];
-export var CreateApplicationAssignment: StaticOperationSchema = [
+export var CreateApplicationAssignment$: StaticOperationSchema = [
   9,
   n0,
   _CAAr,
   0,
-  () => CreateApplicationAssignmentRequest,
-  () => CreateApplicationAssignmentResponse,
+  () => CreateApplicationAssignmentRequest$,
+  () => CreateApplicationAssignmentResponse$,
 ];
-export var CreateInstance: StaticOperationSchema = [
+export var CreateInstance$: StaticOperationSchema = [
   9,
   n0,
   _CI,
   0,
-  () => CreateInstanceRequest,
-  () => CreateInstanceResponse,
+  () => CreateInstanceRequest$,
+  () => CreateInstanceResponse$,
 ];
-export var CreateInstanceAccessControlAttributeConfiguration: StaticOperationSchema = [
+export var CreateInstanceAccessControlAttributeConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _CIACAC,
   0,
-  () => CreateInstanceAccessControlAttributeConfigurationRequest,
-  () => CreateInstanceAccessControlAttributeConfigurationResponse,
+  () => CreateInstanceAccessControlAttributeConfigurationRequest$,
+  () => CreateInstanceAccessControlAttributeConfigurationResponse$,
 ];
-export var CreatePermissionSet: StaticOperationSchema = [
+export var CreatePermissionSet$: StaticOperationSchema = [
   9,
   n0,
   _CPS,
   0,
-  () => CreatePermissionSetRequest,
-  () => CreatePermissionSetResponse,
+  () => CreatePermissionSetRequest$,
+  () => CreatePermissionSetResponse$,
 ];
-export var CreateTrustedTokenIssuer: StaticOperationSchema = [
+export var CreateTrustedTokenIssuer$: StaticOperationSchema = [
   9,
   n0,
   _CTTI,
   0,
-  () => CreateTrustedTokenIssuerRequest,
-  () => CreateTrustedTokenIssuerResponse,
+  () => CreateTrustedTokenIssuerRequest$,
+  () => CreateTrustedTokenIssuerResponse$,
 ];
-export var DeleteAccountAssignment: StaticOperationSchema = [
+export var DeleteAccountAssignment$: StaticOperationSchema = [
   9,
   n0,
   _DAA,
   0,
-  () => DeleteAccountAssignmentRequest,
-  () => DeleteAccountAssignmentResponse,
+  () => DeleteAccountAssignmentRequest$,
+  () => DeleteAccountAssignmentResponse$,
 ];
-export var DeleteApplication: StaticOperationSchema = [
+export var DeleteApplication$: StaticOperationSchema = [
   9,
   n0,
   _DA,
   0,
-  () => DeleteApplicationRequest,
-  () => DeleteApplicationResponse,
+  () => DeleteApplicationRequest$,
+  () => DeleteApplicationResponse$,
 ];
-export var DeleteApplicationAccessScope: StaticOperationSchema = [
+export var DeleteApplicationAccessScope$: StaticOperationSchema = [
   9,
   n0,
   _DAAS,
   2,
-  () => DeleteApplicationAccessScopeRequest,
+  () => DeleteApplicationAccessScopeRequest$,
   () => __Unit,
 ];
-export var DeleteApplicationAssignment: StaticOperationSchema = [
+export var DeleteApplicationAssignment$: StaticOperationSchema = [
   9,
   n0,
   _DAAe,
   2,
-  () => DeleteApplicationAssignmentRequest,
-  () => DeleteApplicationAssignmentResponse,
+  () => DeleteApplicationAssignmentRequest$,
+  () => DeleteApplicationAssignmentResponse$,
 ];
-export var DeleteApplicationAuthenticationMethod: StaticOperationSchema = [
+export var DeleteApplicationAuthenticationMethod$: StaticOperationSchema = [
   9,
   n0,
   _DAAM,
   2,
-  () => DeleteApplicationAuthenticationMethodRequest,
+  () => DeleteApplicationAuthenticationMethodRequest$,
   () => __Unit,
 ];
-export var DeleteApplicationGrant: StaticOperationSchema = [
+export var DeleteApplicationGrant$: StaticOperationSchema = [
   9,
   n0,
   _DAG,
   2,
-  () => DeleteApplicationGrantRequest,
+  () => DeleteApplicationGrantRequest$,
   () => __Unit,
 ];
-export var DeleteInlinePolicyFromPermissionSet: StaticOperationSchema = [
+export var DeleteInlinePolicyFromPermissionSet$: StaticOperationSchema = [
   9,
   n0,
   _DIPFPS,
   0,
-  () => DeleteInlinePolicyFromPermissionSetRequest,
-  () => DeleteInlinePolicyFromPermissionSetResponse,
+  () => DeleteInlinePolicyFromPermissionSetRequest$,
+  () => DeleteInlinePolicyFromPermissionSetResponse$,
 ];
-export var DeleteInstance: StaticOperationSchema = [
+export var DeleteInstance$: StaticOperationSchema = [
   9,
   n0,
   _DI,
   0,
-  () => DeleteInstanceRequest,
-  () => DeleteInstanceResponse,
+  () => DeleteInstanceRequest$,
+  () => DeleteInstanceResponse$,
 ];
-export var DeleteInstanceAccessControlAttributeConfiguration: StaticOperationSchema = [
+export var DeleteInstanceAccessControlAttributeConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DIACAC,
   0,
-  () => DeleteInstanceAccessControlAttributeConfigurationRequest,
-  () => DeleteInstanceAccessControlAttributeConfigurationResponse,
+  () => DeleteInstanceAccessControlAttributeConfigurationRequest$,
+  () => DeleteInstanceAccessControlAttributeConfigurationResponse$,
 ];
-export var DeletePermissionsBoundaryFromPermissionSet: StaticOperationSchema = [
+export var DeletePermissionsBoundaryFromPermissionSet$: StaticOperationSchema = [
   9,
   n0,
   _DPBFPS,
   0,
-  () => DeletePermissionsBoundaryFromPermissionSetRequest,
-  () => DeletePermissionsBoundaryFromPermissionSetResponse,
+  () => DeletePermissionsBoundaryFromPermissionSetRequest$,
+  () => DeletePermissionsBoundaryFromPermissionSetResponse$,
 ];
-export var DeletePermissionSet: StaticOperationSchema = [
+export var DeletePermissionSet$: StaticOperationSchema = [
   9,
   n0,
   _DPS,
   0,
-  () => DeletePermissionSetRequest,
-  () => DeletePermissionSetResponse,
+  () => DeletePermissionSetRequest$,
+  () => DeletePermissionSetResponse$,
 ];
-export var DeleteTrustedTokenIssuer: StaticOperationSchema = [
+export var DeleteTrustedTokenIssuer$: StaticOperationSchema = [
   9,
   n0,
   _DTTI,
   0,
-  () => DeleteTrustedTokenIssuerRequest,
-  () => DeleteTrustedTokenIssuerResponse,
+  () => DeleteTrustedTokenIssuerRequest$,
+  () => DeleteTrustedTokenIssuerResponse$,
 ];
-export var DescribeAccountAssignmentCreationStatus: StaticOperationSchema = [
+export var DescribeAccountAssignmentCreationStatus$: StaticOperationSchema = [
   9,
   n0,
   _DAACS,
   0,
-  () => DescribeAccountAssignmentCreationStatusRequest,
-  () => DescribeAccountAssignmentCreationStatusResponse,
+  () => DescribeAccountAssignmentCreationStatusRequest$,
+  () => DescribeAccountAssignmentCreationStatusResponse$,
 ];
-export var DescribeAccountAssignmentDeletionStatus: StaticOperationSchema = [
+export var DescribeAccountAssignmentDeletionStatus$: StaticOperationSchema = [
   9,
   n0,
   _DAADS,
   0,
-  () => DescribeAccountAssignmentDeletionStatusRequest,
-  () => DescribeAccountAssignmentDeletionStatusResponse,
+  () => DescribeAccountAssignmentDeletionStatusRequest$,
+  () => DescribeAccountAssignmentDeletionStatusResponse$,
 ];
-export var DescribeApplication: StaticOperationSchema = [
+export var DescribeApplication$: StaticOperationSchema = [
   9,
   n0,
   _DAe,
   0,
-  () => DescribeApplicationRequest,
-  () => DescribeApplicationResponse,
+  () => DescribeApplicationRequest$,
+  () => DescribeApplicationResponse$,
 ];
-export var DescribeApplicationAssignment: StaticOperationSchema = [
+export var DescribeApplicationAssignment$: StaticOperationSchema = [
   9,
   n0,
   _DAAes,
   0,
-  () => DescribeApplicationAssignmentRequest,
-  () => DescribeApplicationAssignmentResponse,
+  () => DescribeApplicationAssignmentRequest$,
+  () => DescribeApplicationAssignmentResponse$,
 ];
-export var DescribeApplicationProvider: StaticOperationSchema = [
+export var DescribeApplicationProvider$: StaticOperationSchema = [
   9,
   n0,
   _DAP,
   0,
-  () => DescribeApplicationProviderRequest,
-  () => DescribeApplicationProviderResponse,
+  () => DescribeApplicationProviderRequest$,
+  () => DescribeApplicationProviderResponse$,
 ];
-export var DescribeInstance: StaticOperationSchema = [
+export var DescribeInstance$: StaticOperationSchema = [
   9,
   n0,
   _DIe,
   0,
-  () => DescribeInstanceRequest,
-  () => DescribeInstanceResponse,
+  () => DescribeInstanceRequest$,
+  () => DescribeInstanceResponse$,
 ];
-export var DescribeInstanceAccessControlAttributeConfiguration: StaticOperationSchema = [
+export var DescribeInstanceAccessControlAttributeConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DIACACe,
   0,
-  () => DescribeInstanceAccessControlAttributeConfigurationRequest,
-  () => DescribeInstanceAccessControlAttributeConfigurationResponse,
+  () => DescribeInstanceAccessControlAttributeConfigurationRequest$,
+  () => DescribeInstanceAccessControlAttributeConfigurationResponse$,
 ];
-export var DescribePermissionSet: StaticOperationSchema = [
+export var DescribePermissionSet$: StaticOperationSchema = [
   9,
   n0,
   _DPSe,
   0,
-  () => DescribePermissionSetRequest,
-  () => DescribePermissionSetResponse,
+  () => DescribePermissionSetRequest$,
+  () => DescribePermissionSetResponse$,
 ];
-export var DescribePermissionSetProvisioningStatus: StaticOperationSchema = [
+export var DescribePermissionSetProvisioningStatus$: StaticOperationSchema = [
   9,
   n0,
   _DPSPS,
   0,
-  () => DescribePermissionSetProvisioningStatusRequest,
-  () => DescribePermissionSetProvisioningStatusResponse,
+  () => DescribePermissionSetProvisioningStatusRequest$,
+  () => DescribePermissionSetProvisioningStatusResponse$,
 ];
-export var DescribeTrustedTokenIssuer: StaticOperationSchema = [
+export var DescribeTrustedTokenIssuer$: StaticOperationSchema = [
   9,
   n0,
   _DTTIe,
   0,
-  () => DescribeTrustedTokenIssuerRequest,
-  () => DescribeTrustedTokenIssuerResponse,
+  () => DescribeTrustedTokenIssuerRequest$,
+  () => DescribeTrustedTokenIssuerResponse$,
 ];
-export var DetachCustomerManagedPolicyReferenceFromPermissionSet: StaticOperationSchema = [
+export var DetachCustomerManagedPolicyReferenceFromPermissionSet$: StaticOperationSchema = [
   9,
   n0,
   _DCMPRFPS,
   0,
-  () => DetachCustomerManagedPolicyReferenceFromPermissionSetRequest,
-  () => DetachCustomerManagedPolicyReferenceFromPermissionSetResponse,
+  () => DetachCustomerManagedPolicyReferenceFromPermissionSetRequest$,
+  () => DetachCustomerManagedPolicyReferenceFromPermissionSetResponse$,
 ];
-export var DetachManagedPolicyFromPermissionSet: StaticOperationSchema = [
+export var DetachManagedPolicyFromPermissionSet$: StaticOperationSchema = [
   9,
   n0,
   _DMPFPS,
   0,
-  () => DetachManagedPolicyFromPermissionSetRequest,
-  () => DetachManagedPolicyFromPermissionSetResponse,
+  () => DetachManagedPolicyFromPermissionSetRequest$,
+  () => DetachManagedPolicyFromPermissionSetResponse$,
 ];
-export var GetApplicationAccessScope: StaticOperationSchema = [
+export var GetApplicationAccessScope$: StaticOperationSchema = [
   9,
   n0,
   _GAAS,
   0,
-  () => GetApplicationAccessScopeRequest,
-  () => GetApplicationAccessScopeResponse,
+  () => GetApplicationAccessScopeRequest$,
+  () => GetApplicationAccessScopeResponse$,
 ];
-export var GetApplicationAssignmentConfiguration: StaticOperationSchema = [
+export var GetApplicationAssignmentConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GAAC,
   0,
-  () => GetApplicationAssignmentConfigurationRequest,
-  () => GetApplicationAssignmentConfigurationResponse,
+  () => GetApplicationAssignmentConfigurationRequest$,
+  () => GetApplicationAssignmentConfigurationResponse$,
 ];
-export var GetApplicationAuthenticationMethod: StaticOperationSchema = [
+export var GetApplicationAuthenticationMethod$: StaticOperationSchema = [
   9,
   n0,
   _GAAM,
   0,
-  () => GetApplicationAuthenticationMethodRequest,
-  () => GetApplicationAuthenticationMethodResponse,
+  () => GetApplicationAuthenticationMethodRequest$,
+  () => GetApplicationAuthenticationMethodResponse$,
 ];
-export var GetApplicationGrant: StaticOperationSchema = [
+export var GetApplicationGrant$: StaticOperationSchema = [
   9,
   n0,
   _GAG,
   0,
-  () => GetApplicationGrantRequest,
-  () => GetApplicationGrantResponse,
+  () => GetApplicationGrantRequest$,
+  () => GetApplicationGrantResponse$,
 ];
-export var GetApplicationSessionConfiguration: StaticOperationSchema = [
+export var GetApplicationSessionConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GASC,
   0,
-  () => GetApplicationSessionConfigurationRequest,
-  () => GetApplicationSessionConfigurationResponse,
+  () => GetApplicationSessionConfigurationRequest$,
+  () => GetApplicationSessionConfigurationResponse$,
 ];
-export var GetInlinePolicyForPermissionSet: StaticOperationSchema = [
+export var GetInlinePolicyForPermissionSet$: StaticOperationSchema = [
   9,
   n0,
   _GIPFPS,
   0,
-  () => GetInlinePolicyForPermissionSetRequest,
-  () => GetInlinePolicyForPermissionSetResponse,
+  () => GetInlinePolicyForPermissionSetRequest$,
+  () => GetInlinePolicyForPermissionSetResponse$,
 ];
-export var GetPermissionsBoundaryForPermissionSet: StaticOperationSchema = [
+export var GetPermissionsBoundaryForPermissionSet$: StaticOperationSchema = [
   9,
   n0,
   _GPBFPS,
   0,
-  () => GetPermissionsBoundaryForPermissionSetRequest,
-  () => GetPermissionsBoundaryForPermissionSetResponse,
+  () => GetPermissionsBoundaryForPermissionSetRequest$,
+  () => GetPermissionsBoundaryForPermissionSetResponse$,
 ];
-export var ListAccountAssignmentCreationStatus: StaticOperationSchema = [
+export var ListAccountAssignmentCreationStatus$: StaticOperationSchema = [
   9,
   n0,
   _LAACS,
   0,
-  () => ListAccountAssignmentCreationStatusRequest,
-  () => ListAccountAssignmentCreationStatusResponse,
+  () => ListAccountAssignmentCreationStatusRequest$,
+  () => ListAccountAssignmentCreationStatusResponse$,
 ];
-export var ListAccountAssignmentDeletionStatus: StaticOperationSchema = [
+export var ListAccountAssignmentDeletionStatus$: StaticOperationSchema = [
   9,
   n0,
   _LAADS,
   0,
-  () => ListAccountAssignmentDeletionStatusRequest,
-  () => ListAccountAssignmentDeletionStatusResponse,
+  () => ListAccountAssignmentDeletionStatusRequest$,
+  () => ListAccountAssignmentDeletionStatusResponse$,
 ];
-export var ListAccountAssignments: StaticOperationSchema = [
+export var ListAccountAssignments$: StaticOperationSchema = [
   9,
   n0,
   _LAA,
   0,
-  () => ListAccountAssignmentsRequest,
-  () => ListAccountAssignmentsResponse,
+  () => ListAccountAssignmentsRequest$,
+  () => ListAccountAssignmentsResponse$,
 ];
-export var ListAccountAssignmentsForPrincipal: StaticOperationSchema = [
+export var ListAccountAssignmentsForPrincipal$: StaticOperationSchema = [
   9,
   n0,
   _LAAFP,
   0,
-  () => ListAccountAssignmentsForPrincipalRequest,
-  () => ListAccountAssignmentsForPrincipalResponse,
+  () => ListAccountAssignmentsForPrincipalRequest$,
+  () => ListAccountAssignmentsForPrincipalResponse$,
 ];
-export var ListAccountsForProvisionedPermissionSet: StaticOperationSchema = [
+export var ListAccountsForProvisionedPermissionSet$: StaticOperationSchema = [
   9,
   n0,
   _LAFPPS,
   0,
-  () => ListAccountsForProvisionedPermissionSetRequest,
-  () => ListAccountsForProvisionedPermissionSetResponse,
+  () => ListAccountsForProvisionedPermissionSetRequest$,
+  () => ListAccountsForProvisionedPermissionSetResponse$,
 ];
-export var ListApplicationAccessScopes: StaticOperationSchema = [
+export var ListApplicationAccessScopes$: StaticOperationSchema = [
   9,
   n0,
   _LAAS,
   0,
-  () => ListApplicationAccessScopesRequest,
-  () => ListApplicationAccessScopesResponse,
+  () => ListApplicationAccessScopesRequest$,
+  () => ListApplicationAccessScopesResponse$,
 ];
-export var ListApplicationAssignments: StaticOperationSchema = [
+export var ListApplicationAssignments$: StaticOperationSchema = [
   9,
   n0,
   _LAAi,
   0,
-  () => ListApplicationAssignmentsRequest,
-  () => ListApplicationAssignmentsResponse,
+  () => ListApplicationAssignmentsRequest$,
+  () => ListApplicationAssignmentsResponse$,
 ];
-export var ListApplicationAssignmentsForPrincipal: StaticOperationSchema = [
+export var ListApplicationAssignmentsForPrincipal$: StaticOperationSchema = [
   9,
   n0,
   _LAAFPi,
   0,
-  () => ListApplicationAssignmentsForPrincipalRequest,
-  () => ListApplicationAssignmentsForPrincipalResponse,
+  () => ListApplicationAssignmentsForPrincipalRequest$,
+  () => ListApplicationAssignmentsForPrincipalResponse$,
 ];
-export var ListApplicationAuthenticationMethods: StaticOperationSchema = [
+export var ListApplicationAuthenticationMethods$: StaticOperationSchema = [
   9,
   n0,
   _LAAM,
   0,
-  () => ListApplicationAuthenticationMethodsRequest,
-  () => ListApplicationAuthenticationMethodsResponse,
+  () => ListApplicationAuthenticationMethodsRequest$,
+  () => ListApplicationAuthenticationMethodsResponse$,
 ];
-export var ListApplicationGrants: StaticOperationSchema = [
+export var ListApplicationGrants$: StaticOperationSchema = [
   9,
   n0,
   _LAG,
   0,
-  () => ListApplicationGrantsRequest,
-  () => ListApplicationGrantsResponse,
+  () => ListApplicationGrantsRequest$,
+  () => ListApplicationGrantsResponse$,
 ];
-export var ListApplicationProviders: StaticOperationSchema = [
+export var ListApplicationProviders$: StaticOperationSchema = [
   9,
   n0,
   _LAP,
   0,
-  () => ListApplicationProvidersRequest,
-  () => ListApplicationProvidersResponse,
+  () => ListApplicationProvidersRequest$,
+  () => ListApplicationProvidersResponse$,
 ];
-export var ListApplications: StaticOperationSchema = [
+export var ListApplications$: StaticOperationSchema = [
   9,
   n0,
   _LA,
   0,
-  () => ListApplicationsRequest,
-  () => ListApplicationsResponse,
+  () => ListApplicationsRequest$,
+  () => ListApplicationsResponse$,
 ];
-export var ListCustomerManagedPolicyReferencesInPermissionSet: StaticOperationSchema = [
+export var ListCustomerManagedPolicyReferencesInPermissionSet$: StaticOperationSchema = [
   9,
   n0,
   _LCMPRIPS,
   0,
-  () => ListCustomerManagedPolicyReferencesInPermissionSetRequest,
-  () => ListCustomerManagedPolicyReferencesInPermissionSetResponse,
+  () => ListCustomerManagedPolicyReferencesInPermissionSetRequest$,
+  () => ListCustomerManagedPolicyReferencesInPermissionSetResponse$,
 ];
-export var ListInstances: StaticOperationSchema = [
+export var ListInstances$: StaticOperationSchema = [
   9,
   n0,
   _LI,
   0,
-  () => ListInstancesRequest,
-  () => ListInstancesResponse,
+  () => ListInstancesRequest$,
+  () => ListInstancesResponse$,
 ];
-export var ListManagedPoliciesInPermissionSet: StaticOperationSchema = [
+export var ListManagedPoliciesInPermissionSet$: StaticOperationSchema = [
   9,
   n0,
   _LMPIPS,
   0,
-  () => ListManagedPoliciesInPermissionSetRequest,
-  () => ListManagedPoliciesInPermissionSetResponse,
+  () => ListManagedPoliciesInPermissionSetRequest$,
+  () => ListManagedPoliciesInPermissionSetResponse$,
 ];
-export var ListPermissionSetProvisioningStatus: StaticOperationSchema = [
+export var ListPermissionSetProvisioningStatus$: StaticOperationSchema = [
   9,
   n0,
   _LPSPS,
   0,
-  () => ListPermissionSetProvisioningStatusRequest,
-  () => ListPermissionSetProvisioningStatusResponse,
+  () => ListPermissionSetProvisioningStatusRequest$,
+  () => ListPermissionSetProvisioningStatusResponse$,
 ];
-export var ListPermissionSets: StaticOperationSchema = [
+export var ListPermissionSets$: StaticOperationSchema = [
   9,
   n0,
   _LPS,
   0,
-  () => ListPermissionSetsRequest,
-  () => ListPermissionSetsResponse,
+  () => ListPermissionSetsRequest$,
+  () => ListPermissionSetsResponse$,
 ];
-export var ListPermissionSetsProvisionedToAccount: StaticOperationSchema = [
+export var ListPermissionSetsProvisionedToAccount$: StaticOperationSchema = [
   9,
   n0,
   _LPSPTA,
   0,
-  () => ListPermissionSetsProvisionedToAccountRequest,
-  () => ListPermissionSetsProvisionedToAccountResponse,
+  () => ListPermissionSetsProvisionedToAccountRequest$,
+  () => ListPermissionSetsProvisionedToAccountResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   0,
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListTrustedTokenIssuers: StaticOperationSchema = [
+export var ListTrustedTokenIssuers$: StaticOperationSchema = [
   9,
   n0,
   _LTTI,
   0,
-  () => ListTrustedTokenIssuersRequest,
-  () => ListTrustedTokenIssuersResponse,
+  () => ListTrustedTokenIssuersRequest$,
+  () => ListTrustedTokenIssuersResponse$,
 ];
-export var ProvisionPermissionSet: StaticOperationSchema = [
+export var ProvisionPermissionSet$: StaticOperationSchema = [
   9,
   n0,
   _PPS,
   0,
-  () => ProvisionPermissionSetRequest,
-  () => ProvisionPermissionSetResponse,
+  () => ProvisionPermissionSetRequest$,
+  () => ProvisionPermissionSetResponse$,
 ];
-export var PutApplicationAccessScope: StaticOperationSchema = [
+export var PutApplicationAccessScope$: StaticOperationSchema = [
   9,
   n0,
   _PAAS,
   2,
-  () => PutApplicationAccessScopeRequest,
+  () => PutApplicationAccessScopeRequest$,
   () => __Unit,
 ];
-export var PutApplicationAssignmentConfiguration: StaticOperationSchema = [
+export var PutApplicationAssignmentConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PAAC,
   2,
-  () => PutApplicationAssignmentConfigurationRequest,
-  () => PutApplicationAssignmentConfigurationResponse,
+  () => PutApplicationAssignmentConfigurationRequest$,
+  () => PutApplicationAssignmentConfigurationResponse$,
 ];
-export var PutApplicationAuthenticationMethod: StaticOperationSchema = [
+export var PutApplicationAuthenticationMethod$: StaticOperationSchema = [
   9,
   n0,
   _PAAM,
   2,
-  () => PutApplicationAuthenticationMethodRequest,
+  () => PutApplicationAuthenticationMethodRequest$,
   () => __Unit,
 ];
-export var PutApplicationGrant: StaticOperationSchema = [
+export var PutApplicationGrant$: StaticOperationSchema = [
   9,
   n0,
   _PAG,
   2,
-  () => PutApplicationGrantRequest,
+  () => PutApplicationGrantRequest$,
   () => __Unit,
 ];
-export var PutApplicationSessionConfiguration: StaticOperationSchema = [
+export var PutApplicationSessionConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PASC,
   2,
-  () => PutApplicationSessionConfigurationRequest,
-  () => PutApplicationSessionConfigurationResponse,
+  () => PutApplicationSessionConfigurationRequest$,
+  () => PutApplicationSessionConfigurationResponse$,
 ];
-export var PutInlinePolicyToPermissionSet: StaticOperationSchema = [
+export var PutInlinePolicyToPermissionSet$: StaticOperationSchema = [
   9,
   n0,
   _PIPTPS,
   0,
-  () => PutInlinePolicyToPermissionSetRequest,
-  () => PutInlinePolicyToPermissionSetResponse,
+  () => PutInlinePolicyToPermissionSetRequest$,
+  () => PutInlinePolicyToPermissionSetResponse$,
 ];
-export var PutPermissionsBoundaryToPermissionSet: StaticOperationSchema = [
+export var PutPermissionsBoundaryToPermissionSet$: StaticOperationSchema = [
   9,
   n0,
   _PPBTPS,
   0,
-  () => PutPermissionsBoundaryToPermissionSetRequest,
-  () => PutPermissionsBoundaryToPermissionSetResponse,
+  () => PutPermissionsBoundaryToPermissionSetRequest$,
+  () => PutPermissionsBoundaryToPermissionSetResponse$,
 ];
-export var TagResource: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest, () => TagResourceResponse];
-export var UntagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest$, () => TagResourceResponse$];
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   0,
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateApplication: StaticOperationSchema = [
+export var UpdateApplication$: StaticOperationSchema = [
   9,
   n0,
   _UA,
   0,
-  () => UpdateApplicationRequest,
-  () => UpdateApplicationResponse,
+  () => UpdateApplicationRequest$,
+  () => UpdateApplicationResponse$,
 ];
-export var UpdateInstance: StaticOperationSchema = [
+export var UpdateInstance$: StaticOperationSchema = [
   9,
   n0,
   _UI,
   0,
-  () => UpdateInstanceRequest,
-  () => UpdateInstanceResponse,
+  () => UpdateInstanceRequest$,
+  () => UpdateInstanceResponse$,
 ];
-export var UpdateInstanceAccessControlAttributeConfiguration: StaticOperationSchema = [
+export var UpdateInstanceAccessControlAttributeConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UIACAC,
   0,
-  () => UpdateInstanceAccessControlAttributeConfigurationRequest,
-  () => UpdateInstanceAccessControlAttributeConfigurationResponse,
+  () => UpdateInstanceAccessControlAttributeConfigurationRequest$,
+  () => UpdateInstanceAccessControlAttributeConfigurationResponse$,
 ];
-export var UpdatePermissionSet: StaticOperationSchema = [
+export var UpdatePermissionSet$: StaticOperationSchema = [
   9,
   n0,
   _UPS,
   0,
-  () => UpdatePermissionSetRequest,
-  () => UpdatePermissionSetResponse,
+  () => UpdatePermissionSetRequest$,
+  () => UpdatePermissionSetResponse$,
 ];
-export var UpdateTrustedTokenIssuer: StaticOperationSchema = [
+export var UpdateTrustedTokenIssuer$: StaticOperationSchema = [
   9,
   n0,
   _UTTI,
   0,
-  () => UpdateTrustedTokenIssuerRequest,
-  () => UpdateTrustedTokenIssuerResponse,
+  () => UpdateTrustedTokenIssuerRequest$,
+  () => UpdateTrustedTokenIssuerResponse$,
 ];

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MedicalImagingClient";
 import type { ListDICOMImportJobsRequest, ListDICOMImportJobsResponse } from "../models/models_0";
-import { ListDICOMImportJobs } from "../schemas/schemas_0";
+import { ListDICOMImportJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class ListDICOMImportJobsCommand extends $Command
   })
   .s("AHIGatewayService", "ListDICOMImportJobs", {})
   .n("MedicalImagingClient", "ListDICOMImportJobsCommand")
-  .sc(ListDICOMImportJobs)
+  .sc(ListDICOMImportJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateEnvironmentMembershipRequest, CreateEnvironmentMembershipResult } from "../models/models_0";
-import { CreateEnvironmentMembership } from "../schemas/schemas_0";
+import { CreateEnvironmentMembership$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class CreateEnvironmentMembershipCommand extends $Command
   })
   .s("AWSCloud9WorkspaceManagementService", "CreateEnvironmentMembership", {})
   .n("Cloud9Client", "CreateEnvironmentMembershipCommand")
-  .sc(CreateEnvironmentMembership)
+  .sc(CreateEnvironmentMembership$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

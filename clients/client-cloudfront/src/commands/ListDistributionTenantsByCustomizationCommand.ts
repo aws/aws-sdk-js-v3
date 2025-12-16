@@ -9,7 +9,7 @@ import type {
   ListDistributionTenantsByCustomizationRequest,
   ListDistributionTenantsByCustomizationResult,
 } from "../models/models_1";
-import { ListDistributionTenantsByCustomization } from "../schemas/schemas_0";
+import { ListDistributionTenantsByCustomization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class ListDistributionTenantsByCustomizationCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "ListDistributionTenantsByCustomization", {})
   .n("CloudFrontClient", "ListDistributionTenantsByCustomizationCommand")
-  .sc(ListDistributionTenantsByCustomization)
+  .sc(ListDistributionTenantsByCustomization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

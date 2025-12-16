@@ -8,7 +8,7 @@ import type {
   DescribeEffectivePatchesForPatchBaselineRequest,
   DescribeEffectivePatchesForPatchBaselineResult,
 } from "../models/models_0";
-import { DescribeEffectivePatchesForPatchBaseline } from "../schemas/schemas_0";
+import { DescribeEffectivePatchesForPatchBaseline$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -138,7 +138,7 @@ export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command
   })
   .s("AmazonSSM", "DescribeEffectivePatchesForPatchBaseline", {})
   .n("SSMClient", "DescribeEffectivePatchesForPatchBaselineCommand")
-  .sc(DescribeEffectivePatchesForPatchBaseline)
+  .sc(DescribeEffectivePatchesForPatchBaseline$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

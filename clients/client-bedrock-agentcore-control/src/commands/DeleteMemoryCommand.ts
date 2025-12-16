@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteMemoryInput, DeleteMemoryOutput } from "../models/models_0";
-import { DeleteMemory } from "../schemas/schemas_0";
+import { DeleteMemory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DeleteMemoryCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "DeleteMemory", {})
   .n("BedrockAgentCoreControlClient", "DeleteMemoryCommand")
-  .sc(DeleteMemory)
+  .sc(DeleteMemory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

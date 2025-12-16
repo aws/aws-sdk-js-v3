@@ -9,7 +9,7 @@ import type {
   CreateContinuousDeploymentPolicyRequest,
   CreateContinuousDeploymentPolicyResult,
 } from "../models/models_0";
-import { CreateContinuousDeploymentPolicy } from "../schemas/schemas_0";
+import { CreateContinuousDeploymentPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class CreateContinuousDeploymentPolicyCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "CreateContinuousDeploymentPolicy", {})
   .n("CloudFrontClient", "CreateContinuousDeploymentPolicyCommand")
-  .sc(CreateContinuousDeploymentPolicy)
+  .sc(CreateContinuousDeploymentPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

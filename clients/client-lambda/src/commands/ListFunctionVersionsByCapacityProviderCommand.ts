@@ -9,7 +9,7 @@ import type {
   ListFunctionVersionsByCapacityProviderRequest,
   ListFunctionVersionsByCapacityProviderResponse,
 } from "../models/models_0";
-import { ListFunctionVersionsByCapacityProvider } from "../schemas/schemas_0";
+import { ListFunctionVersionsByCapacityProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ListFunctionVersionsByCapacityProviderCommand extends $Command
   })
   .s("AWSGirApiService", "ListFunctionVersionsByCapacityProvider", {})
   .n("LambdaClient", "ListFunctionVersionsByCapacityProviderCommand")
-  .sc(ListFunctionVersionsByCapacityProvider)
+  .sc(ListFunctionVersionsByCapacityProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

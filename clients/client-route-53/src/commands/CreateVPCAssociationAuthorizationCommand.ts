@@ -10,7 +10,7 @@ import type {
   CreateVPCAssociationAuthorizationResponse,
 } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { CreateVPCAssociationAuthorization } from "../schemas/schemas_0";
+import { CreateVPCAssociationAuthorization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class CreateVPCAssociationAuthorizationCommand extends $Command
   })
   .s("AWSDnsV20130401", "CreateVPCAssociationAuthorization", {})
   .n("Route53Client", "CreateVPCAssociationAuthorizationCommand")
-  .sc(CreateVPCAssociationAuthorization)
+  .sc(CreateVPCAssociationAuthorization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

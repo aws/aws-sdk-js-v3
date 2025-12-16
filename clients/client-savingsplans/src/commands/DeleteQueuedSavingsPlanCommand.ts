@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteQueuedSavingsPlanRequest, DeleteQueuedSavingsPlanResponse } from "../models/models_0";
 import type { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
-import { DeleteQueuedSavingsPlan } from "../schemas/schemas_0";
+import { DeleteQueuedSavingsPlan$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class DeleteQueuedSavingsPlanCommand extends $Command
   })
   .s("AWSSavingsPlan", "DeleteQueuedSavingsPlan", {})
   .n("SavingsplansClient", "DeleteQueuedSavingsPlanCommand")
-  .sc(DeleteQueuedSavingsPlan)
+  .sc(DeleteQueuedSavingsPlan$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

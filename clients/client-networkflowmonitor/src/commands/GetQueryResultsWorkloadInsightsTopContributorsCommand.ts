@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFlowMonitorClient";
-import { GetQueryResultsWorkloadInsightsTopContributors } from "../schemas/schemas_0";
+import { GetQueryResultsWorkloadInsightsTopContributors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class GetQueryResultsWorkloadInsightsTopContributorsCommand extends $Comm
   })
   .s("NetworkFlowMonitor", "GetQueryResultsWorkloadInsightsTopContributors", {})
   .n("NetworkFlowMonitorClient", "GetQueryResultsWorkloadInsightsTopContributorsCommand")
-  .sc(GetQueryResultsWorkloadInsightsTopContributors)
+  .sc(GetQueryResultsWorkloadInsightsTopContributors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

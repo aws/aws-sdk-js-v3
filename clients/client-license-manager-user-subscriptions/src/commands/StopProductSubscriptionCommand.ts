@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
 import type { StopProductSubscriptionRequest, StopProductSubscriptionResponse } from "../models/models_0";
-import { StopProductSubscription } from "../schemas/schemas_0";
+import { StopProductSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -162,7 +162,7 @@ export class StopProductSubscriptionCommand extends $Command
   })
   .s("LicenseManagerUserSubscriptions", "StopProductSubscription", {})
   .n("LicenseManagerUserSubscriptionsClient", "StopProductSubscriptionCommand")
-  .sc(StopProductSubscription)
+  .sc(StopProductSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

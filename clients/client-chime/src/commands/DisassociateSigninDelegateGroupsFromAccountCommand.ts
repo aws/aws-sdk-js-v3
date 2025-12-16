@@ -9,7 +9,7 @@ import type {
   DisassociateSigninDelegateGroupsFromAccountRequest,
   DisassociateSigninDelegateGroupsFromAccountResponse,
 } from "../models/models_0";
-import { DisassociateSigninDelegateGroupsFromAccount } from "../schemas/schemas_0";
+import { DisassociateSigninDelegateGroupsFromAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
   })
   .s("UCBuzzConsoleService", "DisassociateSigninDelegateGroupsFromAccount", {})
   .n("ChimeClient", "DisassociateSigninDelegateGroupsFromAccountCommand")
-  .sc(DisassociateSigninDelegateGroupsFromAccount)
+  .sc(DisassociateSigninDelegateGroupsFromAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

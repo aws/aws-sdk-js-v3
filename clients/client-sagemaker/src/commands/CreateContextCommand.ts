@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateContextRequest, CreateContextResponse } from "../models/models_1";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateContext } from "../schemas/schemas_0";
+import { CreateContext$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class CreateContextCommand extends $Command
   })
   .s("SageMaker", "CreateContext", {})
   .n("SageMakerClient", "CreateContextCommand")
-  .sc(CreateContext)
+  .sc(CreateContext$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

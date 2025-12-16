@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { UpdateBillingGroupRequest, UpdateBillingGroupResponse } from "../models/models_2";
-import { UpdateBillingGroup } from "../schemas/schemas_0";
+import { UpdateBillingGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class UpdateBillingGroupCommand extends $Command
   })
   .s("AWSIotService", "UpdateBillingGroup", {})
   .n("IoTClient", "UpdateBillingGroupCommand")
-  .sc(UpdateBillingGroup)
+  .sc(UpdateBillingGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

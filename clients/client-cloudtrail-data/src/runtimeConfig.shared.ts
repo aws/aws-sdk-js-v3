@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: CloudTrailDataClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.cloudtraildata" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.cloudtraildata",
+      version: "2021-08-11",
+      serviceTarget: "CloudTrailDataService",
+    },
     serviceId: config?.serviceId ?? "CloudTrail Data",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

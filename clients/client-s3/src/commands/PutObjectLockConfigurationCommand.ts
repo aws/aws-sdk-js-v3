@@ -8,7 +8,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutObjectLockConfigurationOutput, PutObjectLockConfigurationRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { PutObjectLockConfiguration } from "../schemas/schemas_0";
+import { PutObjectLockConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class PutObjectLockConfigurationCommand extends $Command
   })
   .s("AmazonS3", "PutObjectLockConfiguration", {})
   .n("S3Client", "PutObjectLockConfigurationCommand")
-  .sc(PutObjectLockConfiguration)
+  .sc(PutObjectLockConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

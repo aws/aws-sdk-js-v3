@@ -13,7 +13,7 @@ import type {
   DescribeCustomRoutingAcceleratorAttributesRequest,
   DescribeCustomRoutingAcceleratorAttributesResponse,
 } from "../models/models_0";
-import { DescribeCustomRoutingAcceleratorAttributes } from "../schemas/schemas_0";
+import { DescribeCustomRoutingAcceleratorAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DescribeCustomRoutingAcceleratorAttributesCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "DescribeCustomRoutingAcceleratorAttributes", {})
   .n("GlobalAcceleratorClient", "DescribeCustomRoutingAcceleratorAttributesCommand")
-  .sc(DescribeCustomRoutingAcceleratorAttributes)
+  .sc(DescribeCustomRoutingAcceleratorAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

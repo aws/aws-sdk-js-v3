@@ -1226,74 +1226,74 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { BedrockServiceException as __BedrockServiceException } from "../models/BedrockServiceException";
+import { BedrockServiceException } from "../models/BedrockServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceInUseException as __ResourceInUseException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ServiceUnavailableException as __ServiceUnavailableException,
-  ThrottlingException as __ThrottlingException,
-  TooManyTagsException as __TooManyTagsException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceInUseException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ServiceUnavailableException,
+  ThrottlingException,
+  TooManyTagsException,
+  ValidationException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AutomatedReasoningLogicStatementContent: StaticSimpleSchema = [0, n0, _ARLSC, 8, 0];
-export var AutomatedReasoningNaturalLanguageStatementContent: StaticSimpleSchema = [0, n0, _ARNLSC, 8, 0];
-export var AutomatedReasoningPolicyAnnotationFeedbackNaturalLanguage: StaticSimpleSchema = [0, n0, _ARPAFNL, 8, 0];
-export var AutomatedReasoningPolicyAnnotationIngestContent: StaticSimpleSchema = [0, n0, _ARPAIC, 8, 0];
-export var AutomatedReasoningPolicyAnnotationRuleNaturalLanguage: StaticSimpleSchema = [0, n0, _ARPARNL, 8, 0];
-export var AutomatedReasoningPolicyBuildDocumentBlob: StaticSimpleSchema = [0, n0, _ARPBDB, 8, 21];
-export var AutomatedReasoningPolicyBuildDocumentDescription: StaticSimpleSchema = [0, n0, _ARPBDD, 8, 0];
-export var AutomatedReasoningPolicyBuildDocumentName: StaticSimpleSchema = [0, n0, _ARPBDN, 8, 0];
-export var AutomatedReasoningPolicyDefinitionRuleAlternateExpression: StaticSimpleSchema = [0, n0, _ARPDRAE, 8, 0];
-export var AutomatedReasoningPolicyDefinitionRuleExpression: StaticSimpleSchema = [0, n0, _ARPDRE, 8, 0];
-export var AutomatedReasoningPolicyDefinitionTypeDescription: StaticSimpleSchema = [0, n0, _ARPDTD, 8, 0];
-export var AutomatedReasoningPolicyDefinitionTypeName: StaticSimpleSchema = [0, n0, _ARPDTN, 8, 0];
-export var AutomatedReasoningPolicyDefinitionTypeValueDescription: StaticSimpleSchema = [0, n0, _ARPDTVD, 8, 0];
-export var AutomatedReasoningPolicyDefinitionVariableDescription: StaticSimpleSchema = [0, n0, _ARPDVD, 8, 0];
-export var AutomatedReasoningPolicyDefinitionVariableName: StaticSimpleSchema = [0, n0, _ARPDVN, 8, 0];
-export var AutomatedReasoningPolicyDescription: StaticSimpleSchema = [0, n0, _ARPD, 8, 0];
-export var AutomatedReasoningPolicyName: StaticSimpleSchema = [0, n0, _ARPN, 8, 0];
-export var AutomatedReasoningPolicyScenarioAlternateExpression: StaticSimpleSchema = [0, n0, _ARPSAE, 8, 0];
-export var AutomatedReasoningPolicyScenarioExpression: StaticSimpleSchema = [0, n0, _ARPSE, 8, 0];
-export var AutomatedReasoningPolicyTestGuardContent: StaticSimpleSchema = [0, n0, _ARPTGC, 8, 0];
-export var AutomatedReasoningPolicyTestQueryContent: StaticSimpleSchema = [0, n0, _ARPTQC, 8, 0];
-export var ByteContentBlob: StaticSimpleSchema = [0, n0, _BCB, 8, 21];
-export var EvaluationDatasetName: StaticSimpleSchema = [0, n0, _EDN, 8, 0];
-export var EvaluationJobDescription: StaticSimpleSchema = [0, n0, _EJD, 8, 0];
-export var EvaluationJobIdentifier: StaticSimpleSchema = [0, n0, _EJI, 8, 0];
-export var EvaluationMetricDescription: StaticSimpleSchema = [0, n0, _EMD, 8, 0];
-export var EvaluationMetricName: StaticSimpleSchema = [0, n0, _EMN, 8, 0];
-export var EvaluationModelInferenceParams: StaticSimpleSchema = [0, n0, _EMIP, 8, 0];
-export var GuardrailBlockedMessaging: StaticSimpleSchema = [0, n0, _GBM, 8, 0];
-export var GuardrailContentFilterAction: StaticSimpleSchema = [0, n0, _GCFA, 8, 0];
-export var GuardrailContentFiltersTierName: StaticSimpleSchema = [0, n0, _GCFTN, 8, 0];
-export var GuardrailContextualGroundingAction: StaticSimpleSchema = [0, n0, _GCGA, 8, 0];
-export var GuardrailDescription: StaticSimpleSchema = [0, n0, _GD, 8, 0];
-export var GuardrailFailureRecommendation: StaticSimpleSchema = [0, n0, _GFR, 8, 0];
-export var GuardrailModality: StaticSimpleSchema = [0, n0, _GM, 8, 0];
-export var GuardrailName: StaticSimpleSchema = [0, n0, _GN, 8, 0];
-export var GuardrailStatusReason: StaticSimpleSchema = [0, n0, _GSR, 8, 0];
-export var GuardrailTopicAction: StaticSimpleSchema = [0, n0, _GTA, 8, 0];
-export var GuardrailTopicDefinition: StaticSimpleSchema = [0, n0, _GTD, 8, 0];
-export var GuardrailTopicExample: StaticSimpleSchema = [0, n0, _GTE, 8, 0];
-export var GuardrailTopicName: StaticSimpleSchema = [0, n0, _GTN, 8, 0];
-export var GuardrailTopicsTierName: StaticSimpleSchema = [0, n0, _GTTN, 8, 0];
-export var GuardrailWordAction: StaticSimpleSchema = [0, n0, _GWA, 8, 0];
-export var HumanTaskInstructions: StaticSimpleSchema = [0, n0, _HTI, 8, 0];
-export var Identifier: StaticSimpleSchema = [0, n0, _I, 8, 0];
-export var InferenceProfileDescription: StaticSimpleSchema = [0, n0, _IPD, 8, 0];
-export var Message: StaticSimpleSchema = [0, n0, _M, 8, 0];
-export var MetricName: StaticSimpleSchema = [0, n0, _MN, 8, 0];
-export var PromptRouterDescription: StaticSimpleSchema = [0, n0, _PRD, 8, 0];
-export var TextPromptTemplate: StaticSimpleSchema = [0, n0, _TPT, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AccountEnforcedGuardrailInferenceInputConfiguration: StaticStructureSchema = [
+var AutomatedReasoningLogicStatementContent: StaticSimpleSchema = [0, n0, _ARLSC, 8, 0];
+var AutomatedReasoningNaturalLanguageStatementContent: StaticSimpleSchema = [0, n0, _ARNLSC, 8, 0];
+var AutomatedReasoningPolicyAnnotationFeedbackNaturalLanguage: StaticSimpleSchema = [0, n0, _ARPAFNL, 8, 0];
+var AutomatedReasoningPolicyAnnotationIngestContent: StaticSimpleSchema = [0, n0, _ARPAIC, 8, 0];
+var AutomatedReasoningPolicyAnnotationRuleNaturalLanguage: StaticSimpleSchema = [0, n0, _ARPARNL, 8, 0];
+var AutomatedReasoningPolicyBuildDocumentBlob: StaticSimpleSchema = [0, n0, _ARPBDB, 8, 21];
+var AutomatedReasoningPolicyBuildDocumentDescription: StaticSimpleSchema = [0, n0, _ARPBDD, 8, 0];
+var AutomatedReasoningPolicyBuildDocumentName: StaticSimpleSchema = [0, n0, _ARPBDN, 8, 0];
+var AutomatedReasoningPolicyDefinitionRuleAlternateExpression: StaticSimpleSchema = [0, n0, _ARPDRAE, 8, 0];
+var AutomatedReasoningPolicyDefinitionRuleExpression: StaticSimpleSchema = [0, n0, _ARPDRE, 8, 0];
+var AutomatedReasoningPolicyDefinitionTypeDescription: StaticSimpleSchema = [0, n0, _ARPDTD, 8, 0];
+var AutomatedReasoningPolicyDefinitionTypeName: StaticSimpleSchema = [0, n0, _ARPDTN, 8, 0];
+var AutomatedReasoningPolicyDefinitionTypeValueDescription: StaticSimpleSchema = [0, n0, _ARPDTVD, 8, 0];
+var AutomatedReasoningPolicyDefinitionVariableDescription: StaticSimpleSchema = [0, n0, _ARPDVD, 8, 0];
+var AutomatedReasoningPolicyDefinitionVariableName: StaticSimpleSchema = [0, n0, _ARPDVN, 8, 0];
+var AutomatedReasoningPolicyDescription: StaticSimpleSchema = [0, n0, _ARPD, 8, 0];
+var AutomatedReasoningPolicyName: StaticSimpleSchema = [0, n0, _ARPN, 8, 0];
+var AutomatedReasoningPolicyScenarioAlternateExpression: StaticSimpleSchema = [0, n0, _ARPSAE, 8, 0];
+var AutomatedReasoningPolicyScenarioExpression: StaticSimpleSchema = [0, n0, _ARPSE, 8, 0];
+var AutomatedReasoningPolicyTestGuardContent: StaticSimpleSchema = [0, n0, _ARPTGC, 8, 0];
+var AutomatedReasoningPolicyTestQueryContent: StaticSimpleSchema = [0, n0, _ARPTQC, 8, 0];
+var ByteContentBlob: StaticSimpleSchema = [0, n0, _BCB, 8, 21];
+var EvaluationDatasetName: StaticSimpleSchema = [0, n0, _EDN, 8, 0];
+var EvaluationJobDescription: StaticSimpleSchema = [0, n0, _EJD, 8, 0];
+var EvaluationJobIdentifier: StaticSimpleSchema = [0, n0, _EJI, 8, 0];
+var EvaluationMetricDescription: StaticSimpleSchema = [0, n0, _EMD, 8, 0];
+var EvaluationMetricName: StaticSimpleSchema = [0, n0, _EMN, 8, 0];
+var EvaluationModelInferenceParams: StaticSimpleSchema = [0, n0, _EMIP, 8, 0];
+var GuardrailBlockedMessaging: StaticSimpleSchema = [0, n0, _GBM, 8, 0];
+var GuardrailContentFilterAction: StaticSimpleSchema = [0, n0, _GCFA, 8, 0];
+var GuardrailContentFiltersTierName: StaticSimpleSchema = [0, n0, _GCFTN, 8, 0];
+var GuardrailContextualGroundingAction: StaticSimpleSchema = [0, n0, _GCGA, 8, 0];
+var GuardrailDescription: StaticSimpleSchema = [0, n0, _GD, 8, 0];
+var GuardrailFailureRecommendation: StaticSimpleSchema = [0, n0, _GFR, 8, 0];
+var GuardrailModality: StaticSimpleSchema = [0, n0, _GM, 8, 0];
+var GuardrailName: StaticSimpleSchema = [0, n0, _GN, 8, 0];
+var GuardrailStatusReason: StaticSimpleSchema = [0, n0, _GSR, 8, 0];
+var GuardrailTopicAction: StaticSimpleSchema = [0, n0, _GTA, 8, 0];
+var GuardrailTopicDefinition: StaticSimpleSchema = [0, n0, _GTD, 8, 0];
+var GuardrailTopicExample: StaticSimpleSchema = [0, n0, _GTE, 8, 0];
+var GuardrailTopicName: StaticSimpleSchema = [0, n0, _GTN, 8, 0];
+var GuardrailTopicsTierName: StaticSimpleSchema = [0, n0, _GTTN, 8, 0];
+var GuardrailWordAction: StaticSimpleSchema = [0, n0, _GWA, 8, 0];
+var HumanTaskInstructions: StaticSimpleSchema = [0, n0, _HTI, 8, 0];
+var Identifier: StaticSimpleSchema = [0, n0, _I, 8, 0];
+var InferenceProfileDescription: StaticSimpleSchema = [0, n0, _IPD, 8, 0];
+var Message: StaticSimpleSchema = [0, n0, _M, 8, 0];
+var MetricName: StaticSimpleSchema = [0, n0, _MN, 8, 0];
+var PromptRouterDescription: StaticSimpleSchema = [0, n0, _PRD, 8, 0];
+var TextPromptTemplate: StaticSimpleSchema = [0, n0, _TPT, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AccountEnforcedGuardrailInferenceInputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _AEGIIC,
@@ -1301,7 +1301,7 @@ export var AccountEnforcedGuardrailInferenceInputConfiguration: StaticStructureS
   [_gI, _gV, _iT],
   [0, 0, 0],
 ];
-export var AccountEnforcedGuardrailOutputConfiguration: StaticStructureSchema = [
+export var AccountEnforcedGuardrailOutputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _AEGOC,
@@ -1309,8 +1309,8 @@ export var AccountEnforcedGuardrailOutputConfiguration: StaticStructureSchema = 
   [_cI, _gA, _gIu, _iT, _gV, _cA, _cB, _uA, _uB, _o],
   [0, 0, 0, 0, 0, 5, 0, 5, 0, 0],
 ];
-export var AgreementAvailability: StaticStructureSchema = [3, n0, _AA, 0, [_s, _eM], [0, 0]];
-export var AutomatedEvaluationConfig: StaticStructureSchema = [
+export var AgreementAvailability$: StaticStructureSchema = [3, n0, _AA, 0, [_s, _eM], [0, 0]];
+export var AutomatedEvaluationConfig$: StaticStructureSchema = [
   3,
   n0,
   _AEC,
@@ -1318,31 +1318,31 @@ export var AutomatedEvaluationConfig: StaticStructureSchema = [
   [_dMC, _eMC, _cMC],
   [
     [() => EvaluationDatasetMetricConfigs, 0],
-    () => EvaluatorModelConfig,
-    [() => AutomatedEvaluationCustomMetricConfig, 0],
+    () => EvaluatorModelConfig$,
+    [() => AutomatedEvaluationCustomMetricConfig$, 0],
   ],
 ];
-export var AutomatedEvaluationCustomMetricConfig: StaticStructureSchema = [
+export var AutomatedEvaluationCustomMetricConfig$: StaticStructureSchema = [
   3,
   n0,
   _AECMC,
   0,
   [_cM, _eMC],
-  [[() => AutomatedEvaluationCustomMetrics, 0], () => CustomMetricEvaluatorModelConfig],
+  [[() => AutomatedEvaluationCustomMetrics, 0], () => CustomMetricEvaluatorModelConfig$],
 ];
-export var AutomatedReasoningCheckImpossibleFinding: StaticStructureSchema = [
+export var AutomatedReasoningCheckImpossibleFinding$: StaticStructureSchema = [
   3,
   n0,
   _ARCIF,
   0,
   [_t, _cR, _lW],
   [
-    [() => AutomatedReasoningCheckTranslation, 0],
+    [() => AutomatedReasoningCheckTranslation$, 0],
     () => AutomatedReasoningCheckRuleList,
-    [() => AutomatedReasoningCheckLogicWarning, 0],
+    [() => AutomatedReasoningCheckLogicWarning$, 0],
   ],
 ];
-export var AutomatedReasoningCheckInputTextReference: StaticStructureSchema = [
+export var AutomatedReasoningCheckInputTextReference$: StaticStructureSchema = [
   3,
   n0,
   _ARCITR,
@@ -1350,19 +1350,19 @@ export var AutomatedReasoningCheckInputTextReference: StaticStructureSchema = [
   [_te],
   [[() => AutomatedReasoningNaturalLanguageStatementContent, 0]],
 ];
-export var AutomatedReasoningCheckInvalidFinding: StaticStructureSchema = [
+export var AutomatedReasoningCheckInvalidFinding$: StaticStructureSchema = [
   3,
   n0,
   _ARCIFu,
   0,
   [_t, _cR, _lW],
   [
-    [() => AutomatedReasoningCheckTranslation, 0],
+    [() => AutomatedReasoningCheckTranslation$, 0],
     () => AutomatedReasoningCheckRuleList,
-    [() => AutomatedReasoningCheckLogicWarning, 0],
+    [() => AutomatedReasoningCheckLogicWarning$, 0],
   ],
 ];
-export var AutomatedReasoningCheckLogicWarning: StaticStructureSchema = [
+export var AutomatedReasoningCheckLogicWarning$: StaticStructureSchema = [
   3,
   n0,
   _ARCLW,
@@ -1370,22 +1370,22 @@ export var AutomatedReasoningCheckLogicWarning: StaticStructureSchema = [
   [_ty, _p, _cl],
   [0, [() => AutomatedReasoningLogicStatementList, 0], [() => AutomatedReasoningLogicStatementList, 0]],
 ];
-export var AutomatedReasoningCheckNoTranslationsFinding: StaticStructureSchema = [3, n0, _ARCNTF, 0, [], []];
-export var AutomatedReasoningCheckRule: StaticStructureSchema = [3, n0, _ARCR, 0, [_i, _pVA], [0, 0]];
-export var AutomatedReasoningCheckSatisfiableFinding: StaticStructureSchema = [
+export var AutomatedReasoningCheckNoTranslationsFinding$: StaticStructureSchema = [3, n0, _ARCNTF, 0, [], []];
+export var AutomatedReasoningCheckRule$: StaticStructureSchema = [3, n0, _ARCR, 0, [_i, _pVA], [0, 0]];
+export var AutomatedReasoningCheckSatisfiableFinding$: StaticStructureSchema = [
   3,
   n0,
   _ARCSF,
   0,
   [_t, _cTS, _cFS, _lW],
   [
-    [() => AutomatedReasoningCheckTranslation, 0],
-    [() => AutomatedReasoningCheckScenario, 0],
-    [() => AutomatedReasoningCheckScenario, 0],
-    [() => AutomatedReasoningCheckLogicWarning, 0],
+    [() => AutomatedReasoningCheckTranslation$, 0],
+    [() => AutomatedReasoningCheckScenario$, 0],
+    [() => AutomatedReasoningCheckScenario$, 0],
+    [() => AutomatedReasoningCheckLogicWarning$, 0],
   ],
 ];
-export var AutomatedReasoningCheckScenario: StaticStructureSchema = [
+export var AutomatedReasoningCheckScenario$: StaticStructureSchema = [
   3,
   n0,
   _ARCS,
@@ -1393,8 +1393,8 @@ export var AutomatedReasoningCheckScenario: StaticStructureSchema = [
   [_st],
   [[() => AutomatedReasoningLogicStatementList, 0]],
 ];
-export var AutomatedReasoningCheckTooComplexFinding: StaticStructureSchema = [3, n0, _ARCTCF, 0, [], []];
-export var AutomatedReasoningCheckTranslation: StaticStructureSchema = [
+export var AutomatedReasoningCheckTooComplexFinding$: StaticStructureSchema = [3, n0, _ARCTCF, 0, [], []];
+export var AutomatedReasoningCheckTranslation$: StaticStructureSchema = [
   3,
   n0,
   _ARCT,
@@ -1408,7 +1408,7 @@ export var AutomatedReasoningCheckTranslation: StaticStructureSchema = [
     1,
   ],
 ];
-export var AutomatedReasoningCheckTranslationAmbiguousFinding: StaticStructureSchema = [
+export var AutomatedReasoningCheckTranslationAmbiguousFinding$: StaticStructureSchema = [
   3,
   n0,
   _ARCTAF,
@@ -1419,7 +1419,7 @@ export var AutomatedReasoningCheckTranslationAmbiguousFinding: StaticStructureSc
     [() => AutomatedReasoningCheckDifferenceScenarioList, 0],
   ],
 ];
-export var AutomatedReasoningCheckTranslationOption: StaticStructureSchema = [
+export var AutomatedReasoningCheckTranslationOption$: StaticStructureSchema = [
   3,
   n0,
   _ARCTO,
@@ -1427,20 +1427,20 @@ export var AutomatedReasoningCheckTranslationOption: StaticStructureSchema = [
   [_tr],
   [[() => AutomatedReasoningCheckTranslationList, 0]],
 ];
-export var AutomatedReasoningCheckValidFinding: StaticStructureSchema = [
+export var AutomatedReasoningCheckValidFinding$: StaticStructureSchema = [
   3,
   n0,
   _ARCVF,
   0,
   [_t, _cTS, _sR, _lW],
   [
-    [() => AutomatedReasoningCheckTranslation, 0],
-    [() => AutomatedReasoningCheckScenario, 0],
+    [() => AutomatedReasoningCheckTranslation$, 0],
+    [() => AutomatedReasoningCheckScenario$, 0],
     () => AutomatedReasoningCheckRuleList,
-    [() => AutomatedReasoningCheckLogicWarning, 0],
+    [() => AutomatedReasoningCheckLogicWarning$, 0],
   ],
 ];
-export var AutomatedReasoningLogicStatement: StaticStructureSchema = [
+export var AutomatedReasoningLogicStatement$: StaticStructureSchema = [
   3,
   n0,
   _ARLS,
@@ -1451,7 +1451,7 @@ export var AutomatedReasoningLogicStatement: StaticStructureSchema = [
     [() => AutomatedReasoningNaturalLanguageStatementContent, 0],
   ],
 ];
-export var AutomatedReasoningPolicyAddRuleAnnotation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyAddRuleAnnotation$: StaticStructureSchema = [
   3,
   n0,
   _ARPARA,
@@ -1459,7 +1459,7 @@ export var AutomatedReasoningPolicyAddRuleAnnotation: StaticStructureSchema = [
   [_ex],
   [[() => AutomatedReasoningPolicyDefinitionRuleExpression, 0]],
 ];
-export var AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation$: StaticStructureSchema = [
   3,
   n0,
   _ARPARFNLA,
@@ -1467,15 +1467,15 @@ export var AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation: StaticS
   [_nL],
   [[() => AutomatedReasoningPolicyAnnotationRuleNaturalLanguage, 0]],
 ];
-export var AutomatedReasoningPolicyAddRuleMutation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyAddRuleMutation$: StaticStructureSchema = [
   3,
   n0,
   _ARPARM,
   0,
   [_r],
-  [[() => AutomatedReasoningPolicyDefinitionRule, 0]],
+  [[() => AutomatedReasoningPolicyDefinitionRule$, 0]],
 ];
-export var AutomatedReasoningPolicyAddTypeAnnotation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyAddTypeAnnotation$: StaticStructureSchema = [
   3,
   n0,
   _ARPATA,
@@ -1487,15 +1487,15 @@ export var AutomatedReasoningPolicyAddTypeAnnotation: StaticStructureSchema = [
     [() => AutomatedReasoningPolicyDefinitionTypeValueList, 0],
   ],
 ];
-export var AutomatedReasoningPolicyAddTypeMutation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyAddTypeMutation$: StaticStructureSchema = [
   3,
   n0,
   _ARPATM,
   0,
   [_ty],
-  [[() => AutomatedReasoningPolicyDefinitionType, 0]],
+  [[() => AutomatedReasoningPolicyDefinitionType$, 0]],
 ];
-export var AutomatedReasoningPolicyAddTypeValue: StaticStructureSchema = [
+export var AutomatedReasoningPolicyAddTypeValue$: StaticStructureSchema = [
   3,
   n0,
   _ARPATV,
@@ -1503,7 +1503,7 @@ export var AutomatedReasoningPolicyAddTypeValue: StaticStructureSchema = [
   [_va, _d],
   [0, [() => AutomatedReasoningPolicyDefinitionTypeValueDescription, 0]],
 ];
-export var AutomatedReasoningPolicyAddVariableAnnotation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyAddVariableAnnotation$: StaticStructureSchema = [
   3,
   n0,
   _ARPAVA,
@@ -1515,15 +1515,15 @@ export var AutomatedReasoningPolicyAddVariableAnnotation: StaticStructureSchema 
     [() => AutomatedReasoningPolicyDefinitionVariableDescription, 0],
   ],
 ];
-export var AutomatedReasoningPolicyAddVariableMutation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyAddVariableMutation$: StaticStructureSchema = [
   3,
   n0,
   _ARPAVM,
   0,
   [_var],
-  [[() => AutomatedReasoningPolicyDefinitionVariable, 0]],
+  [[() => AutomatedReasoningPolicyDefinitionVariable$, 0]],
 ];
-export var AutomatedReasoningPolicyBuildLog: StaticStructureSchema = [
+export var AutomatedReasoningPolicyBuildLog$: StaticStructureSchema = [
   3,
   n0,
   _ARPBL,
@@ -1531,28 +1531,28 @@ export var AutomatedReasoningPolicyBuildLog: StaticStructureSchema = [
   [_en],
   [[() => AutomatedReasoningPolicyBuildLogEntryList, 0]],
 ];
-export var AutomatedReasoningPolicyBuildLogEntry: StaticStructureSchema = [
+export var AutomatedReasoningPolicyBuildLogEntry$: StaticStructureSchema = [
   3,
   n0,
   _ARPBLE,
   0,
   [_a, _s, _bS],
-  [[() => AutomatedReasoningPolicyAnnotation, 0], 0, [() => AutomatedReasoningPolicyBuildStepList, 0]],
+  [[() => AutomatedReasoningPolicyAnnotation$, 0], 0, [() => AutomatedReasoningPolicyBuildStepList, 0]],
 ];
-export var AutomatedReasoningPolicyBuildStep: StaticStructureSchema = [
+export var AutomatedReasoningPolicyBuildStep$: StaticStructureSchema = [
   3,
   n0,
   _ARPBS,
   0,
   [_con, _pE, _me],
   [
-    [() => AutomatedReasoningPolicyBuildStepContext, 0],
-    [() => AutomatedReasoningPolicyDefinitionElement, 0],
+    [() => AutomatedReasoningPolicyBuildStepContext$, 0],
+    [() => AutomatedReasoningPolicyDefinitionElement$, 0],
     () => AutomatedReasoningPolicyBuildStepMessageList,
   ],
 ];
-export var AutomatedReasoningPolicyBuildStepMessage: StaticStructureSchema = [3, n0, _ARPBSM, 0, [_m, _mT], [0, 0]];
-export var AutomatedReasoningPolicyBuildWorkflowDocument: StaticStructureSchema = [
+export var AutomatedReasoningPolicyBuildStepMessage$: StaticStructureSchema = [3, n0, _ARPBSM, 0, [_m, _mT], [0, 0]];
+export var AutomatedReasoningPolicyBuildWorkflowDocument$: StaticStructureSchema = [
   3,
   n0,
   _ARPBWD,
@@ -1565,7 +1565,7 @@ export var AutomatedReasoningPolicyBuildWorkflowDocument: StaticStructureSchema 
     [() => AutomatedReasoningPolicyBuildDocumentDescription, 0],
   ],
 ];
-export var AutomatedReasoningPolicyBuildWorkflowRepairContent: StaticStructureSchema = [
+export var AutomatedReasoningPolicyBuildWorkflowRepairContent$: StaticStructureSchema = [
   3,
   n0,
   _ARPBWRC,
@@ -1573,18 +1573,18 @@ export var AutomatedReasoningPolicyBuildWorkflowRepairContent: StaticStructureSc
   [_an],
   [[() => AutomatedReasoningPolicyAnnotationList, 0]],
 ];
-export var AutomatedReasoningPolicyBuildWorkflowSource: StaticStructureSchema = [
+export var AutomatedReasoningPolicyBuildWorkflowSource$: StaticStructureSchema = [
   3,
   n0,
   _ARPBWS,
   0,
   [_pD, _wC],
   [
-    [() => AutomatedReasoningPolicyDefinition, 0],
-    [() => AutomatedReasoningPolicyWorkflowTypeContent, 0],
+    [() => AutomatedReasoningPolicyDefinition$, 0],
+    [() => AutomatedReasoningPolicyWorkflowTypeContent$, 0],
   ],
 ];
-export var AutomatedReasoningPolicyBuildWorkflowSummary: StaticStructureSchema = [
+export var AutomatedReasoningPolicyBuildWorkflowSummary$: StaticStructureSchema = [
   3,
   n0,
   _ARPBWSu,
@@ -1592,7 +1592,7 @@ export var AutomatedReasoningPolicyBuildWorkflowSummary: StaticStructureSchema =
   [_pA, _bWI, _s, _bWT, _cA, _uA],
   [0, 0, 0, 0, 5, 5],
 ];
-export var AutomatedReasoningPolicyDefinition: StaticStructureSchema = [
+export var AutomatedReasoningPolicyDefinition$: StaticStructureSchema = [
   3,
   n0,
   _ARPDu,
@@ -1605,7 +1605,7 @@ export var AutomatedReasoningPolicyDefinition: StaticStructureSchema = [
     [() => AutomatedReasoningPolicyDefinitionVariableList, 0],
   ],
 ];
-export var AutomatedReasoningPolicyDefinitionQualityReport: StaticStructureSchema = [
+export var AutomatedReasoningPolicyDefinitionQualityReport$: StaticStructureSchema = [
   3,
   n0,
   _ARPDQR,
@@ -1622,7 +1622,7 @@ export var AutomatedReasoningPolicyDefinitionQualityReport: StaticStructureSchem
     [() => AutomatedReasoningPolicyDisjointRuleSetList, 0],
   ],
 ];
-export var AutomatedReasoningPolicyDefinitionRule: StaticStructureSchema = [
+export var AutomatedReasoningPolicyDefinitionRule$: StaticStructureSchema = [
   3,
   n0,
   _ARPDR,
@@ -1634,7 +1634,7 @@ export var AutomatedReasoningPolicyDefinitionRule: StaticStructureSchema = [
     [() => AutomatedReasoningPolicyDefinitionRuleAlternateExpression, 0],
   ],
 ];
-export var AutomatedReasoningPolicyDefinitionType: StaticStructureSchema = [
+export var AutomatedReasoningPolicyDefinitionType$: StaticStructureSchema = [
   3,
   n0,
   _ARPDT,
@@ -1646,7 +1646,7 @@ export var AutomatedReasoningPolicyDefinitionType: StaticStructureSchema = [
     [() => AutomatedReasoningPolicyDefinitionTypeValueList, 0],
   ],
 ];
-export var AutomatedReasoningPolicyDefinitionTypeValue: StaticStructureSchema = [
+export var AutomatedReasoningPolicyDefinitionTypeValue$: StaticStructureSchema = [
   3,
   n0,
   _ARPDTV,
@@ -1654,7 +1654,7 @@ export var AutomatedReasoningPolicyDefinitionTypeValue: StaticStructureSchema = 
   [_va, _d],
   [0, [() => AutomatedReasoningPolicyDefinitionTypeValueDescription, 0]],
 ];
-export var AutomatedReasoningPolicyDefinitionTypeValuePair: StaticStructureSchema = [
+export var AutomatedReasoningPolicyDefinitionTypeValuePair$: StaticStructureSchema = [
   3,
   n0,
   _ARPDTVP,
@@ -1662,7 +1662,7 @@ export var AutomatedReasoningPolicyDefinitionTypeValuePair: StaticStructureSchem
   [_tN, _vN],
   [[() => AutomatedReasoningPolicyDefinitionTypeName, 0], 0],
 ];
-export var AutomatedReasoningPolicyDefinitionVariable: StaticStructureSchema = [
+export var AutomatedReasoningPolicyDefinitionVariable$: StaticStructureSchema = [
   3,
   n0,
   _ARPDV,
@@ -1674,9 +1674,9 @@ export var AutomatedReasoningPolicyDefinitionVariable: StaticStructureSchema = [
     [() => AutomatedReasoningPolicyDefinitionVariableDescription, 0],
   ],
 ];
-export var AutomatedReasoningPolicyDeleteRuleAnnotation: StaticStructureSchema = [3, n0, _ARPDRA, 0, [_rI], [0]];
-export var AutomatedReasoningPolicyDeleteRuleMutation: StaticStructureSchema = [3, n0, _ARPDRM, 0, [_i], [0]];
-export var AutomatedReasoningPolicyDeleteTypeAnnotation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyDeleteRuleAnnotation$: StaticStructureSchema = [3, n0, _ARPDRA, 0, [_rI], [0]];
+export var AutomatedReasoningPolicyDeleteRuleMutation$: StaticStructureSchema = [3, n0, _ARPDRM, 0, [_i], [0]];
+export var AutomatedReasoningPolicyDeleteTypeAnnotation$: StaticStructureSchema = [
   3,
   n0,
   _ARPDTA,
@@ -1684,7 +1684,7 @@ export var AutomatedReasoningPolicyDeleteTypeAnnotation: StaticStructureSchema =
   [_n],
   [[() => AutomatedReasoningPolicyDefinitionTypeName, 0]],
 ];
-export var AutomatedReasoningPolicyDeleteTypeMutation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyDeleteTypeMutation$: StaticStructureSchema = [
   3,
   n0,
   _ARPDTM,
@@ -1692,8 +1692,8 @@ export var AutomatedReasoningPolicyDeleteTypeMutation: StaticStructureSchema = [
   [_n],
   [[() => AutomatedReasoningPolicyDefinitionTypeName, 0]],
 ];
-export var AutomatedReasoningPolicyDeleteTypeValue: StaticStructureSchema = [3, n0, _ARPDTVu, 0, [_va], [0]];
-export var AutomatedReasoningPolicyDeleteVariableAnnotation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyDeleteTypeValue$: StaticStructureSchema = [3, n0, _ARPDTVu, 0, [_va], [0]];
+export var AutomatedReasoningPolicyDeleteVariableAnnotation$: StaticStructureSchema = [
   3,
   n0,
   _ARPDVA,
@@ -1701,7 +1701,7 @@ export var AutomatedReasoningPolicyDeleteVariableAnnotation: StaticStructureSche
   [_n],
   [[() => AutomatedReasoningPolicyDefinitionVariableName, 0]],
 ];
-export var AutomatedReasoningPolicyDeleteVariableMutation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyDeleteVariableMutation$: StaticStructureSchema = [
   3,
   n0,
   _ARPDVM,
@@ -1709,7 +1709,7 @@ export var AutomatedReasoningPolicyDeleteVariableMutation: StaticStructureSchema
   [_n],
   [[() => AutomatedReasoningPolicyDefinitionVariableName, 0]],
 ];
-export var AutomatedReasoningPolicyDisjointRuleSet: StaticStructureSchema = [
+export var AutomatedReasoningPolicyDisjointRuleSet$: StaticStructureSchema = [
   3,
   n0,
   _ARPDRS,
@@ -1717,7 +1717,7 @@ export var AutomatedReasoningPolicyDisjointRuleSet: StaticStructureSchema = [
   [_vari, _ru],
   [[() => AutomatedReasoningPolicyDefinitionVariableNameList, 0], 64 | 0],
 ];
-export var AutomatedReasoningPolicyGeneratedTestCase: StaticStructureSchema = [
+export var AutomatedReasoningPolicyGeneratedTestCase$: StaticStructureSchema = [
   3,
   n0,
   _ARPGTC,
@@ -1725,7 +1725,7 @@ export var AutomatedReasoningPolicyGeneratedTestCase: StaticStructureSchema = [
   [_qC, _gC, _eAFR],
   [[() => AutomatedReasoningPolicyTestQueryContent, 0], [() => AutomatedReasoningPolicyTestGuardContent, 0], 0],
 ];
-export var AutomatedReasoningPolicyGeneratedTestCases: StaticStructureSchema = [
+export var AutomatedReasoningPolicyGeneratedTestCases$: StaticStructureSchema = [
   3,
   n0,
   _ARPGTCu,
@@ -1733,7 +1733,7 @@ export var AutomatedReasoningPolicyGeneratedTestCases: StaticStructureSchema = [
   [_gTC],
   [[() => AutomatedReasoningPolicyGeneratedTestCaseList, 0]],
 ];
-export var AutomatedReasoningPolicyIngestContentAnnotation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyIngestContentAnnotation$: StaticStructureSchema = [
   3,
   n0,
   _ARPICA,
@@ -1741,8 +1741,8 @@ export var AutomatedReasoningPolicyIngestContentAnnotation: StaticStructureSchem
   [_cont],
   [[() => AutomatedReasoningPolicyAnnotationIngestContent, 0]],
 ];
-export var AutomatedReasoningPolicyPlanning: StaticStructureSchema = [3, n0, _ARPP, 0, [], []];
-export var AutomatedReasoningPolicyScenario: StaticStructureSchema = [
+export var AutomatedReasoningPolicyPlanning$: StaticStructureSchema = [3, n0, _ARPP, 0, [], []];
+export var AutomatedReasoningPolicyScenario$: StaticStructureSchema = [
   3,
   n0,
   _ARPS,
@@ -1755,7 +1755,7 @@ export var AutomatedReasoningPolicyScenario: StaticStructureSchema = [
     64 | 0,
   ],
 ];
-export var AutomatedReasoningPolicyScenarios: StaticStructureSchema = [
+export var AutomatedReasoningPolicyScenarios$: StaticStructureSchema = [
   3,
   n0,
   _ARPSu,
@@ -1763,7 +1763,7 @@ export var AutomatedReasoningPolicyScenarios: StaticStructureSchema = [
   [_pS],
   [[() => AutomatedReasoningPolicyScenarioList, 0]],
 ];
-export var AutomatedReasoningPolicySummary: StaticStructureSchema = [
+export var AutomatedReasoningPolicySummary$: StaticStructureSchema = [
   3,
   n0,
   _ARPSut,
@@ -1771,7 +1771,7 @@ export var AutomatedReasoningPolicySummary: StaticStructureSchema = [
   [_pA, _n, _d, _ve, _pI, _cA, _uA],
   [0, [() => AutomatedReasoningPolicyName, 0], [() => AutomatedReasoningPolicyDescription, 0], 0, 0, 5, 5],
 ];
-export var AutomatedReasoningPolicyTestCase: StaticStructureSchema = [
+export var AutomatedReasoningPolicyTestCase$: StaticStructureSchema = [
   3,
   n0,
   _ARPTC,
@@ -1787,15 +1787,15 @@ export var AutomatedReasoningPolicyTestCase: StaticStructureSchema = [
     1,
   ],
 ];
-export var AutomatedReasoningPolicyTestResult: StaticStructureSchema = [
+export var AutomatedReasoningPolicyTestResult$: StaticStructureSchema = [
   3,
   n0,
   _ARPTR,
   0,
   [_tCe, _pA, _tRS, _tF, _tRR, _aTFR, _uA],
-  [[() => AutomatedReasoningPolicyTestCase, 0], 0, 0, [() => AutomatedReasoningCheckFindingList, 0], 0, 0, 5],
+  [[() => AutomatedReasoningPolicyTestCase$, 0], 0, 0, [() => AutomatedReasoningCheckFindingList, 0], 0, 0, 5],
 ];
-export var AutomatedReasoningPolicyUpdateFromRuleFeedbackAnnotation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyUpdateFromRuleFeedbackAnnotation$: StaticStructureSchema = [
   3,
   n0,
   _ARPUFRFA,
@@ -1803,7 +1803,7 @@ export var AutomatedReasoningPolicyUpdateFromRuleFeedbackAnnotation: StaticStruc
   [_rIu, _f],
   [64 | 0, [() => AutomatedReasoningPolicyAnnotationFeedbackNaturalLanguage, 0]],
 ];
-export var AutomatedReasoningPolicyUpdateFromScenarioFeedbackAnnotation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyUpdateFromScenarioFeedbackAnnotation$: StaticStructureSchema = [
   3,
   n0,
   _ARPUFSFA,
@@ -1815,7 +1815,7 @@ export var AutomatedReasoningPolicyUpdateFromScenarioFeedbackAnnotation: StaticS
     [() => AutomatedReasoningPolicyAnnotationFeedbackNaturalLanguage, 0],
   ],
 ];
-export var AutomatedReasoningPolicyUpdateRuleAnnotation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyUpdateRuleAnnotation$: StaticStructureSchema = [
   3,
   n0,
   _ARPURA,
@@ -1823,15 +1823,15 @@ export var AutomatedReasoningPolicyUpdateRuleAnnotation: StaticStructureSchema =
   [_rI, _ex],
   [0, [() => AutomatedReasoningPolicyDefinitionRuleExpression, 0]],
 ];
-export var AutomatedReasoningPolicyUpdateRuleMutation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyUpdateRuleMutation$: StaticStructureSchema = [
   3,
   n0,
   _ARPURM,
   0,
   [_r],
-  [[() => AutomatedReasoningPolicyDefinitionRule, 0]],
+  [[() => AutomatedReasoningPolicyDefinitionRule$, 0]],
 ];
-export var AutomatedReasoningPolicyUpdateTypeAnnotation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyUpdateTypeAnnotation$: StaticStructureSchema = [
   3,
   n0,
   _ARPUTA,
@@ -1844,15 +1844,15 @@ export var AutomatedReasoningPolicyUpdateTypeAnnotation: StaticStructureSchema =
     [() => AutomatedReasoningPolicyTypeValueAnnotationList, 0],
   ],
 ];
-export var AutomatedReasoningPolicyUpdateTypeMutation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyUpdateTypeMutation$: StaticStructureSchema = [
   3,
   n0,
   _ARPUTM,
   0,
   [_ty],
-  [[() => AutomatedReasoningPolicyDefinitionType, 0]],
+  [[() => AutomatedReasoningPolicyDefinitionType$, 0]],
 ];
-export var AutomatedReasoningPolicyUpdateTypeValue: StaticStructureSchema = [
+export var AutomatedReasoningPolicyUpdateTypeValue$: StaticStructureSchema = [
   3,
   n0,
   _ARPUTV,
@@ -1860,7 +1860,7 @@ export var AutomatedReasoningPolicyUpdateTypeValue: StaticStructureSchema = [
   [_va, _nV, _d],
   [0, 0, [() => AutomatedReasoningPolicyDefinitionTypeValueDescription, 0]],
 ];
-export var AutomatedReasoningPolicyUpdateVariableAnnotation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyUpdateVariableAnnotation$: StaticStructureSchema = [
   3,
   n0,
   _ARPUVA,
@@ -1872,15 +1872,15 @@ export var AutomatedReasoningPolicyUpdateVariableAnnotation: StaticStructureSche
     [() => AutomatedReasoningPolicyDefinitionVariableDescription, 0],
   ],
 ];
-export var AutomatedReasoningPolicyUpdateVariableMutation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyUpdateVariableMutation$: StaticStructureSchema = [
   3,
   n0,
   _ARPUVM,
   0,
   [_var],
-  [[() => AutomatedReasoningPolicyDefinitionVariable, 0]],
+  [[() => AutomatedReasoningPolicyDefinitionVariable$, 0]],
 ];
-export var BatchDeleteEvaluationJobError: StaticStructureSchema = [
+export var BatchDeleteEvaluationJobError$: StaticStructureSchema = [
   3,
   n0,
   _BDEJE,
@@ -1888,7 +1888,7 @@ export var BatchDeleteEvaluationJobError: StaticStructureSchema = [
   [_jI, _cod, _m],
   [[() => EvaluationJobIdentifier, 0], 0, 0],
 ];
-export var BatchDeleteEvaluationJobItem: StaticStructureSchema = [
+export var BatchDeleteEvaluationJobItem$: StaticStructureSchema = [
   3,
   n0,
   _BDEJI,
@@ -1896,7 +1896,7 @@ export var BatchDeleteEvaluationJobItem: StaticStructureSchema = [
   [_jI, _jS],
   [[() => EvaluationJobIdentifier, 0], 0],
 ];
-export var BatchDeleteEvaluationJobRequest: StaticStructureSchema = [
+export var BatchDeleteEvaluationJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _BDEJR,
@@ -1904,7 +1904,7 @@ export var BatchDeleteEvaluationJobRequest: StaticStructureSchema = [
   [_jIo],
   [[() => EvaluationJobIdentifiers, 0]],
 ];
-export var BatchDeleteEvaluationJobResponse: StaticStructureSchema = [
+export var BatchDeleteEvaluationJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _BDEJRa,
@@ -1915,8 +1915,8 @@ export var BatchDeleteEvaluationJobResponse: StaticStructureSchema = [
     [() => BatchDeleteEvaluationJobItems, 0],
   ],
 ];
-export var BedrockEvaluatorModel: StaticStructureSchema = [3, n0, _BEM, 0, [_mI], [0]];
-export var ByteContentDoc: StaticStructureSchema = [
+export var BedrockEvaluatorModel$: StaticStructureSchema = [3, n0, _BEM, 0, [_mI], [0]];
+export var ByteContentDoc$: StaticStructureSchema = [
   3,
   n0,
   _BCD,
@@ -1924,7 +1924,7 @@ export var ByteContentDoc: StaticStructureSchema = [
   [_id, _cTo, _da],
   [[() => Identifier, 0], 0, [() => ByteContentBlob, 0]],
 ];
-export var CancelAutomatedReasoningPolicyBuildWorkflowRequest: StaticStructureSchema = [
+export var CancelAutomatedReasoningPolicyBuildWorkflowRequest$: StaticStructureSchema = [
   3,
   n0,
   _CARPBWR,
@@ -1935,11 +1935,11 @@ export var CancelAutomatedReasoningPolicyBuildWorkflowRequest: StaticStructureSc
     [0, 1],
   ],
 ];
-export var CancelAutomatedReasoningPolicyBuildWorkflowResponse: StaticStructureSchema = [3, n0, _CARPBWRa, 0, [], []];
-export var CloudWatchConfig: StaticStructureSchema = [3, n0, _CWC, 0, [_lGN, _rA, _lDDSC], [0, 0, () => S3Config]];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateAutomatedReasoningPolicyRequest: StaticStructureSchema = [
+export var CancelAutomatedReasoningPolicyBuildWorkflowResponse$: StaticStructureSchema = [3, n0, _CARPBWRa, 0, [], []];
+export var CloudWatchConfig$: StaticStructureSchema = [3, n0, _CWC, 0, [_lGN, _rA, _lDDSC], [0, 0, () => S3Config$]];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateAutomatedReasoningPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _CARPR,
@@ -1949,12 +1949,12 @@ export var CreateAutomatedReasoningPolicyRequest: StaticStructureSchema = [
     [() => AutomatedReasoningPolicyName, 0],
     [() => AutomatedReasoningPolicyDescription, 0],
     [0, 4],
-    [() => AutomatedReasoningPolicyDefinition, 0],
+    [() => AutomatedReasoningPolicyDefinition$, 0],
     0,
     () => TagList,
   ],
 ];
-export var CreateAutomatedReasoningPolicyResponse: StaticStructureSchema = [
+export var CreateAutomatedReasoningPolicyResponse$: StaticStructureSchema = [
   3,
   n0,
   _CARPRr,
@@ -1962,7 +1962,7 @@ export var CreateAutomatedReasoningPolicyResponse: StaticStructureSchema = [
   [_pA, _ve, _n, _d, _dH, _cA, _uA],
   [0, 0, [() => AutomatedReasoningPolicyName, 0], [() => AutomatedReasoningPolicyDescription, 0], 0, 5, 5],
 ];
-export var CreateAutomatedReasoningPolicyTestCaseRequest: StaticStructureSchema = [
+export var CreateAutomatedReasoningPolicyTestCaseRequest$: StaticStructureSchema = [
   3,
   n0,
   _CARPTCR,
@@ -1977,7 +1977,7 @@ export var CreateAutomatedReasoningPolicyTestCaseRequest: StaticStructureSchema 
     1,
   ],
 ];
-export var CreateAutomatedReasoningPolicyTestCaseResponse: StaticStructureSchema = [
+export var CreateAutomatedReasoningPolicyTestCaseResponse$: StaticStructureSchema = [
   3,
   n0,
   _CARPTCRr,
@@ -1985,7 +1985,7 @@ export var CreateAutomatedReasoningPolicyTestCaseResponse: StaticStructureSchema
   [_pA, _tCI],
   [0, 0],
 ];
-export var CreateAutomatedReasoningPolicyVersionRequest: StaticStructureSchema = [
+export var CreateAutomatedReasoningPolicyVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CARPVR,
@@ -1993,7 +1993,7 @@ export var CreateAutomatedReasoningPolicyVersionRequest: StaticStructureSchema =
   [_pA, _cRT, _lUDH, _ta],
   [[0, 1], [0, 4], 0, () => TagList],
 ];
-export var CreateAutomatedReasoningPolicyVersionResponse: StaticStructureSchema = [
+export var CreateAutomatedReasoningPolicyVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CARPVRr,
@@ -2001,7 +2001,7 @@ export var CreateAutomatedReasoningPolicyVersionResponse: StaticStructureSchema 
   [_pA, _ve, _n, _d, _dH, _cA],
   [0, 0, [() => AutomatedReasoningPolicyName, 0], [() => AutomatedReasoningPolicyDescription, 0], 0, 5],
 ];
-export var CreateCustomModelDeploymentRequest: StaticStructureSchema = [
+export var CreateCustomModelDeploymentRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCMDR,
@@ -2009,17 +2009,17 @@ export var CreateCustomModelDeploymentRequest: StaticStructureSchema = [
   [_mDN, _mA, _d, _ta, _cRT],
   [0, 0, 0, () => TagList, [0, 4]],
 ];
-export var CreateCustomModelDeploymentResponse: StaticStructureSchema = [3, n0, _CCMDRr, 0, [_cMDA], [0]];
-export var CreateCustomModelRequest: StaticStructureSchema = [
+export var CreateCustomModelDeploymentResponse$: StaticStructureSchema = [3, n0, _CCMDRr, 0, [_cMDA], [0]];
+export var CreateCustomModelRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCMR,
   0,
   [_mN, _mSC, _mKKA, _rA, _mTo, _cRT],
-  [0, () => ModelDataSource, 0, 0, () => TagList, [0, 4]],
+  [0, () => ModelDataSource$, 0, 0, () => TagList, [0, 4]],
 ];
-export var CreateCustomModelResponse: StaticStructureSchema = [3, n0, _CCMRr, 0, [_mA], [0]];
-export var CreateEvaluationJobRequest: StaticStructureSchema = [
+export var CreateCustomModelResponse$: StaticStructureSchema = [3, n0, _CCMRr, 0, [_mA], [0]];
+export var CreateEvaluationJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _CEJR,
@@ -2033,15 +2033,15 @@ export var CreateEvaluationJobRequest: StaticStructureSchema = [
     0,
     () => TagList,
     0,
-    [() => EvaluationConfig, 0],
-    [() => EvaluationInferenceConfig, 0],
-    () => EvaluationOutputDataConfig,
+    [() => EvaluationConfig$, 0],
+    [() => EvaluationInferenceConfig$, 0],
+    () => EvaluationOutputDataConfig$,
   ],
 ];
-export var CreateEvaluationJobResponse: StaticStructureSchema = [3, n0, _CEJRr, 0, [_jA], [0]];
-export var CreateFoundationModelAgreementRequest: StaticStructureSchema = [3, n0, _CFMAR, 0, [_oT, _mIo], [0, 0]];
-export var CreateFoundationModelAgreementResponse: StaticStructureSchema = [3, n0, _CFMARr, 0, [_mIo], [0]];
-export var CreateGuardrailRequest: StaticStructureSchema = [
+export var CreateEvaluationJobResponse$: StaticStructureSchema = [3, n0, _CEJRr, 0, [_jA], [0]];
+export var CreateFoundationModelAgreementRequest$: StaticStructureSchema = [3, n0, _CFMAR, 0, [_oT, _mIo], [0, 0]];
+export var CreateFoundationModelAgreementResponse$: StaticStructureSchema = [3, n0, _CFMARr, 0, [_mIo], [0]];
+export var CreateGuardrailRequest$: StaticStructureSchema = [
   3,
   n0,
   _CGR,
@@ -2050,13 +2050,13 @@ export var CreateGuardrailRequest: StaticStructureSchema = [
   [
     [() => GuardrailName, 0],
     [() => GuardrailDescription, 0],
-    [() => GuardrailTopicPolicyConfig, 0],
-    [() => GuardrailContentPolicyConfig, 0],
-    [() => GuardrailWordPolicyConfig, 0],
-    () => GuardrailSensitiveInformationPolicyConfig,
-    [() => GuardrailContextualGroundingPolicyConfig, 0],
-    () => GuardrailAutomatedReasoningPolicyConfig,
-    () => GuardrailCrossRegionConfig,
+    [() => GuardrailTopicPolicyConfig$, 0],
+    [() => GuardrailContentPolicyConfig$, 0],
+    [() => GuardrailWordPolicyConfig$, 0],
+    () => GuardrailSensitiveInformationPolicyConfig$,
+    [() => GuardrailContextualGroundingPolicyConfig$, 0],
+    () => GuardrailAutomatedReasoningPolicyConfig$,
+    () => GuardrailCrossRegionConfig$,
     [() => GuardrailBlockedMessaging, 0],
     [() => GuardrailBlockedMessaging, 0],
     0,
@@ -2064,8 +2064,8 @@ export var CreateGuardrailRequest: StaticStructureSchema = [
     [0, 4],
   ],
 ];
-export var CreateGuardrailResponse: StaticStructureSchema = [3, n0, _CGRr, 0, [_gIu, _gA, _ve, _cA], [0, 0, 0, 5]];
-export var CreateGuardrailVersionRequest: StaticStructureSchema = [
+export var CreateGuardrailResponse$: StaticStructureSchema = [3, n0, _CGRr, 0, [_gIu, _gA, _ve, _cA], [0, 0, 0, 5]];
+export var CreateGuardrailVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CGVR,
@@ -2077,33 +2077,33 @@ export var CreateGuardrailVersionRequest: StaticStructureSchema = [
     [0, 4],
   ],
 ];
-export var CreateGuardrailVersionResponse: StaticStructureSchema = [3, n0, _CGVRr, 0, [_gIu, _ve], [0, 0]];
-export var CreateInferenceProfileRequest: StaticStructureSchema = [
+export var CreateGuardrailVersionResponse$: StaticStructureSchema = [3, n0, _CGVRr, 0, [_gIu, _ve], [0, 0]];
+export var CreateInferenceProfileRequest$: StaticStructureSchema = [
   3,
   n0,
   _CIPR,
   0,
   [_iPN, _d, _cRT, _mS, _ta],
-  [0, [() => InferenceProfileDescription, 0], [0, 4], () => InferenceProfileModelSource, () => TagList],
+  [0, [() => InferenceProfileDescription, 0], [0, 4], () => InferenceProfileModelSource$, () => TagList],
 ];
-export var CreateInferenceProfileResponse: StaticStructureSchema = [3, n0, _CIPRr, 0, [_iPA, _s], [0, 0]];
-export var CreateMarketplaceModelEndpointRequest: StaticStructureSchema = [
+export var CreateInferenceProfileResponse$: StaticStructureSchema = [3, n0, _CIPRr, 0, [_iPA, _s], [0, 0]];
+export var CreateMarketplaceModelEndpointRequest$: StaticStructureSchema = [
   3,
   n0,
   _CMMER,
   0,
   [_mSI, _eCn, _aEc, _eN, _cRT, _ta],
-  [0, () => EndpointConfig, 2, 0, [0, 4], () => TagList],
+  [0, () => EndpointConfig$, 2, 0, [0, 4], () => TagList],
 ];
-export var CreateMarketplaceModelEndpointResponse: StaticStructureSchema = [
+export var CreateMarketplaceModelEndpointResponse$: StaticStructureSchema = [
   3,
   n0,
   _CMMERr,
   0,
   [_mME],
-  [() => MarketplaceModelEndpoint],
+  [() => MarketplaceModelEndpoint$],
 ];
-export var CreateModelCopyJobRequest: StaticStructureSchema = [
+export var CreateModelCopyJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _CMCJR,
@@ -2111,8 +2111,8 @@ export var CreateModelCopyJobRequest: StaticStructureSchema = [
   [_sMA, _tMN, _mKKI, _tMT, _cRT],
   [0, 0, 0, () => TagList, [0, 4]],
 ];
-export var CreateModelCopyJobResponse: StaticStructureSchema = [3, n0, _CMCJRr, 0, [_jA], [0]];
-export var CreateModelCustomizationJobRequest: StaticStructureSchema = [
+export var CreateModelCopyJobResponse$: StaticStructureSchema = [3, n0, _CMCJRr, 0, [_jA], [0]];
+export var CreateModelCustomizationJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _CMCJRre,
@@ -2128,25 +2128,25 @@ export var CreateModelCustomizationJobRequest: StaticStructureSchema = [
     0,
     () => TagList,
     () => TagList,
-    [() => TrainingDataConfig, 0],
-    () => ValidationDataConfig,
-    () => OutputDataConfig,
+    [() => TrainingDataConfig$, 0],
+    () => ValidationDataConfig$,
+    () => OutputDataConfig$,
     128 | 0,
-    () => VpcConfig,
-    () => CustomizationConfig,
+    () => VpcConfig$,
+    () => CustomizationConfig$,
   ],
 ];
-export var CreateModelCustomizationJobResponse: StaticStructureSchema = [3, n0, _CMCJRrea, 0, [_jA], [0]];
-export var CreateModelImportJobRequest: StaticStructureSchema = [
+export var CreateModelCustomizationJobResponse$: StaticStructureSchema = [3, n0, _CMCJRrea, 0, [_jA], [0]];
+export var CreateModelImportJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _CMIJR,
   0,
   [_jN, _iMN, _rA, _mDS, _jT, _iMT, _cRT, _vCp, _iMKKI],
-  [0, 0, 0, () => ModelDataSource, () => TagList, () => TagList, 0, () => VpcConfig, 0],
+  [0, 0, 0, () => ModelDataSource$, () => TagList, () => TagList, 0, () => VpcConfig$, 0],
 ];
-export var CreateModelImportJobResponse: StaticStructureSchema = [3, n0, _CMIJRr, 0, [_jA], [0]];
-export var CreateModelInvocationJobRequest: StaticStructureSchema = [
+export var CreateModelImportJobResponse$: StaticStructureSchema = [3, n0, _CMIJRr, 0, [_jA], [0]];
+export var CreateModelInvocationJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _CMIJRre,
@@ -2157,15 +2157,15 @@ export var CreateModelInvocationJobRequest: StaticStructureSchema = [
     0,
     [0, 4],
     0,
-    () => ModelInvocationJobInputDataConfig,
-    () => ModelInvocationJobOutputDataConfig,
-    () => VpcConfig,
+    () => ModelInvocationJobInputDataConfig$,
+    () => ModelInvocationJobOutputDataConfig$,
+    () => VpcConfig$,
     1,
     () => TagList,
   ],
 ];
-export var CreateModelInvocationJobResponse: StaticStructureSchema = [3, n0, _CMIJRrea, 0, [_jA], [0]];
-export var CreatePromptRouterRequest: StaticStructureSchema = [
+export var CreateModelInvocationJobResponse$: StaticStructureSchema = [3, n0, _CMIJRrea, 0, [_jA], [0]];
+export var CreatePromptRouterRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPRR,
@@ -2176,13 +2176,13 @@ export var CreatePromptRouterRequest: StaticStructureSchema = [
     0,
     () => PromptRouterTargetModels,
     [() => PromptRouterDescription, 0],
-    () => RoutingCriteria,
-    () => PromptRouterTargetModel,
+    () => RoutingCriteria$,
+    () => PromptRouterTargetModel$,
     () => TagList,
   ],
 ];
-export var CreatePromptRouterResponse: StaticStructureSchema = [3, n0, _CPRRr, 0, [_pRA], [0]];
-export var CreateProvisionedModelThroughputRequest: StaticStructureSchema = [
+export var CreatePromptRouterResponse$: StaticStructureSchema = [3, n0, _CPRRr, 0, [_pRA], [0]];
+export var CreateProvisionedModelThroughputRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPMTR,
@@ -2190,9 +2190,9 @@ export var CreateProvisionedModelThroughputRequest: StaticStructureSchema = [
   [_cRT, _mU, _pMN, _mIo, _cD, _ta],
   [[0, 4], 1, 0, 0, 0, () => TagList],
 ];
-export var CreateProvisionedModelThroughputResponse: StaticStructureSchema = [3, n0, _CPMTRr, 0, [_pMA], [0]];
-export var CustomMetricBedrockEvaluatorModel: StaticStructureSchema = [3, n0, _CMBEM, 0, [_mI], [0]];
-export var CustomMetricDefinition: StaticStructureSchema = [
+export var CreateProvisionedModelThroughputResponse$: StaticStructureSchema = [3, n0, _CPMTRr, 0, [_pMA], [0]];
+export var CustomMetricBedrockEvaluatorModel$: StaticStructureSchema = [3, n0, _CMBEM, 0, [_mI], [0]];
+export var CustomMetricDefinition$: StaticStructureSchema = [
   3,
   n0,
   _CMD,
@@ -2200,7 +2200,7 @@ export var CustomMetricDefinition: StaticStructureSchema = [
   [_n, _in, _rS],
   [[() => MetricName, 0], 0, () => RatingScale],
 ];
-export var CustomMetricEvaluatorModelConfig: StaticStructureSchema = [
+export var CustomMetricEvaluatorModelConfig$: StaticStructureSchema = [
   3,
   n0,
   _CMEMC,
@@ -2208,7 +2208,7 @@ export var CustomMetricEvaluatorModelConfig: StaticStructureSchema = [
   [_bEM],
   [() => CustomMetricBedrockEvaluatorModels],
 ];
-export var CustomModelDeploymentSummary: StaticStructureSchema = [
+export var CustomModelDeploymentSummary$: StaticStructureSchema = [
   3,
   n0,
   _CMDS,
@@ -2216,8 +2216,8 @@ export var CustomModelDeploymentSummary: StaticStructureSchema = [
   [_cMDA, _cMDN, _mA, _cA, _s, _lUA, _fMa],
   [0, 0, 0, 5, 0, 5, 0],
 ];
-export var CustomModelDeploymentUpdateDetails: StaticStructureSchema = [3, n0, _CMDUD, 0, [_mA, _uS], [0, 0]];
-export var CustomModelSummary: StaticStructureSchema = [
+export var CustomModelDeploymentUpdateDetails$: StaticStructureSchema = [3, n0, _CMDUD, 0, [_mA, _uS], [0, 0]];
+export var CustomModelSummary$: StaticStructureSchema = [
   3,
   n0,
   _CMS,
@@ -2225,9 +2225,9 @@ export var CustomModelSummary: StaticStructureSchema = [
   [_mA, _mN, _cTr, _bMA, _bMN, _cTu, _oAI, _mSo],
   [0, 0, 5, 0, 0, 0, 0, 0],
 ];
-export var CustomModelUnits: StaticStructureSchema = [3, n0, _CMU, 0, [_cMUPMC, _cMUV], [1, 0]];
-export var DataProcessingDetails: StaticStructureSchema = [3, n0, _DPD, 0, [_s, _cTr, _lMT], [0, 5, 5]];
-export var DeleteAutomatedReasoningPolicyBuildWorkflowRequest: StaticStructureSchema = [
+export var CustomModelUnits$: StaticStructureSchema = [3, n0, _CMU, 0, [_cMUPMC, _cMUV], [1, 0]];
+export var DataProcessingDetails$: StaticStructureSchema = [3, n0, _DPD, 0, [_s, _cTr, _lMT], [0, 5, 5]];
+export var DeleteAutomatedReasoningPolicyBuildWorkflowRequest$: StaticStructureSchema = [
   3,
   n0,
   _DARPBWR,
@@ -2239,8 +2239,8 @@ export var DeleteAutomatedReasoningPolicyBuildWorkflowRequest: StaticStructureSc
     [5, { [_hQ]: _uA }],
   ],
 ];
-export var DeleteAutomatedReasoningPolicyBuildWorkflowResponse: StaticStructureSchema = [3, n0, _DARPBWRe, 0, [], []];
-export var DeleteAutomatedReasoningPolicyRequest: StaticStructureSchema = [
+export var DeleteAutomatedReasoningPolicyBuildWorkflowResponse$: StaticStructureSchema = [3, n0, _DARPBWRe, 0, [], []];
+export var DeleteAutomatedReasoningPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _DARPR,
@@ -2251,8 +2251,8 @@ export var DeleteAutomatedReasoningPolicyRequest: StaticStructureSchema = [
     [2, { [_hQ]: _fo }],
   ],
 ];
-export var DeleteAutomatedReasoningPolicyResponse: StaticStructureSchema = [3, n0, _DARPRe, 0, [], []];
-export var DeleteAutomatedReasoningPolicyTestCaseRequest: StaticStructureSchema = [
+export var DeleteAutomatedReasoningPolicyResponse$: StaticStructureSchema = [3, n0, _DARPRe, 0, [], []];
+export var DeleteAutomatedReasoningPolicyTestCaseRequest$: StaticStructureSchema = [
   3,
   n0,
   _DARPTCR,
@@ -2264,16 +2264,16 @@ export var DeleteAutomatedReasoningPolicyTestCaseRequest: StaticStructureSchema 
     [5, { [_hQ]: _uA }],
   ],
 ];
-export var DeleteAutomatedReasoningPolicyTestCaseResponse: StaticStructureSchema = [3, n0, _DARPTCRe, 0, [], []];
-export var DeleteCustomModelDeploymentRequest: StaticStructureSchema = [3, n0, _DCMDR, 0, [_cMDI], [[0, 1]]];
-export var DeleteCustomModelDeploymentResponse: StaticStructureSchema = [3, n0, _DCMDRe, 0, [], []];
-export var DeleteCustomModelRequest: StaticStructureSchema = [3, n0, _DCMR, 0, [_mI], [[0, 1]]];
-export var DeleteCustomModelResponse: StaticStructureSchema = [3, n0, _DCMRe, 0, [], []];
-export var DeleteEnforcedGuardrailConfigurationRequest: StaticStructureSchema = [3, n0, _DEGCR, 0, [_cI], [[0, 1]]];
-export var DeleteEnforcedGuardrailConfigurationResponse: StaticStructureSchema = [3, n0, _DEGCRe, 0, [], []];
-export var DeleteFoundationModelAgreementRequest: StaticStructureSchema = [3, n0, _DFMAR, 0, [_mIo], [0]];
-export var DeleteFoundationModelAgreementResponse: StaticStructureSchema = [3, n0, _DFMARe, 0, [], []];
-export var DeleteGuardrailRequest: StaticStructureSchema = [
+export var DeleteAutomatedReasoningPolicyTestCaseResponse$: StaticStructureSchema = [3, n0, _DARPTCRe, 0, [], []];
+export var DeleteCustomModelDeploymentRequest$: StaticStructureSchema = [3, n0, _DCMDR, 0, [_cMDI], [[0, 1]]];
+export var DeleteCustomModelDeploymentResponse$: StaticStructureSchema = [3, n0, _DCMDRe, 0, [], []];
+export var DeleteCustomModelRequest$: StaticStructureSchema = [3, n0, _DCMR, 0, [_mI], [[0, 1]]];
+export var DeleteCustomModelResponse$: StaticStructureSchema = [3, n0, _DCMRe, 0, [], []];
+export var DeleteEnforcedGuardrailConfigurationRequest$: StaticStructureSchema = [3, n0, _DEGCR, 0, [_cI], [[0, 1]]];
+export var DeleteEnforcedGuardrailConfigurationResponse$: StaticStructureSchema = [3, n0, _DEGCRe, 0, [], []];
+export var DeleteFoundationModelAgreementRequest$: StaticStructureSchema = [3, n0, _DFMAR, 0, [_mIo], [0]];
+export var DeleteFoundationModelAgreementResponse$: StaticStructureSchema = [3, n0, _DFMARe, 0, [], []];
+export var DeleteGuardrailRequest$: StaticStructureSchema = [
   3,
   n0,
   _DGR,
@@ -2284,59 +2284,59 @@ export var DeleteGuardrailRequest: StaticStructureSchema = [
     [0, { [_hQ]: _gV }],
   ],
 ];
-export var DeleteGuardrailResponse: StaticStructureSchema = [3, n0, _DGRe, 0, [], []];
-export var DeleteImportedModelRequest: StaticStructureSchema = [3, n0, _DIMR, 0, [_mI], [[0, 1]]];
-export var DeleteImportedModelResponse: StaticStructureSchema = [3, n0, _DIMRe, 0, [], []];
-export var DeleteInferenceProfileRequest: StaticStructureSchema = [3, n0, _DIPR, 0, [_iPI], [[0, 1]]];
-export var DeleteInferenceProfileResponse: StaticStructureSchema = [3, n0, _DIPRe, 0, [], []];
-export var DeleteMarketplaceModelEndpointRequest: StaticStructureSchema = [3, n0, _DMMER, 0, [_eA], [[0, 1]]];
-export var DeleteMarketplaceModelEndpointResponse: StaticStructureSchema = [3, n0, _DMMERe, 0, [], []];
-export var DeleteModelInvocationLoggingConfigurationRequest: StaticStructureSchema = [3, n0, _DMILCR, 0, [], []];
-export var DeleteModelInvocationLoggingConfigurationResponse: StaticStructureSchema = [3, n0, _DMILCRe, 0, [], []];
-export var DeletePromptRouterRequest: StaticStructureSchema = [3, n0, _DPRR, 0, [_pRA], [[0, 1]]];
-export var DeletePromptRouterResponse: StaticStructureSchema = [3, n0, _DPRRe, 0, [], []];
-export var DeleteProvisionedModelThroughputRequest: StaticStructureSchema = [3, n0, _DPMTR, 0, [_pMI], [[0, 1]]];
-export var DeleteProvisionedModelThroughputResponse: StaticStructureSchema = [3, n0, _DPMTRe, 0, [], []];
-export var DeregisterMarketplaceModelEndpointRequest: StaticStructureSchema = [3, n0, _DMMERer, 0, [_eA], [[0, 1]]];
-export var DeregisterMarketplaceModelEndpointResponse: StaticStructureSchema = [3, n0, _DMMERere, 0, [], []];
-export var DimensionalPriceRate: StaticStructureSchema = [3, n0, _DPR, 0, [_di, _pr, _d, _u], [0, 0, 0, 0]];
-export var DistillationConfig: StaticStructureSchema = [3, n0, _DC, 0, [_tMC], [() => TeacherModelConfig]];
-export var EvaluationBedrockModel: StaticStructureSchema = [
+export var DeleteGuardrailResponse$: StaticStructureSchema = [3, n0, _DGRe, 0, [], []];
+export var DeleteImportedModelRequest$: StaticStructureSchema = [3, n0, _DIMR, 0, [_mI], [[0, 1]]];
+export var DeleteImportedModelResponse$: StaticStructureSchema = [3, n0, _DIMRe, 0, [], []];
+export var DeleteInferenceProfileRequest$: StaticStructureSchema = [3, n0, _DIPR, 0, [_iPI], [[0, 1]]];
+export var DeleteInferenceProfileResponse$: StaticStructureSchema = [3, n0, _DIPRe, 0, [], []];
+export var DeleteMarketplaceModelEndpointRequest$: StaticStructureSchema = [3, n0, _DMMER, 0, [_eA], [[0, 1]]];
+export var DeleteMarketplaceModelEndpointResponse$: StaticStructureSchema = [3, n0, _DMMERe, 0, [], []];
+export var DeleteModelInvocationLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _DMILCR, 0, [], []];
+export var DeleteModelInvocationLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _DMILCRe, 0, [], []];
+export var DeletePromptRouterRequest$: StaticStructureSchema = [3, n0, _DPRR, 0, [_pRA], [[0, 1]]];
+export var DeletePromptRouterResponse$: StaticStructureSchema = [3, n0, _DPRRe, 0, [], []];
+export var DeleteProvisionedModelThroughputRequest$: StaticStructureSchema = [3, n0, _DPMTR, 0, [_pMI], [[0, 1]]];
+export var DeleteProvisionedModelThroughputResponse$: StaticStructureSchema = [3, n0, _DPMTRe, 0, [], []];
+export var DeregisterMarketplaceModelEndpointRequest$: StaticStructureSchema = [3, n0, _DMMERer, 0, [_eA], [[0, 1]]];
+export var DeregisterMarketplaceModelEndpointResponse$: StaticStructureSchema = [3, n0, _DMMERere, 0, [], []];
+export var DimensionalPriceRate$: StaticStructureSchema = [3, n0, _DPR, 0, [_di, _pr, _d, _u], [0, 0, 0, 0]];
+export var DistillationConfig$: StaticStructureSchema = [3, n0, _DC, 0, [_tMC], [() => TeacherModelConfig$]];
+export var EvaluationBedrockModel$: StaticStructureSchema = [
   3,
   n0,
   _EBM,
   0,
   [_mI, _iP, _pC],
-  [0, [() => EvaluationModelInferenceParams, 0], () => PerformanceConfiguration],
+  [0, [() => EvaluationModelInferenceParams, 0], () => PerformanceConfiguration$],
 ];
-export var EvaluationDataset: StaticStructureSchema = [
+export var EvaluationDataset$: StaticStructureSchema = [
   3,
   n0,
   _ED,
   0,
   [_n, _dL],
-  [[() => EvaluationDatasetName, 0], () => EvaluationDatasetLocation],
+  [[() => EvaluationDatasetName, 0], () => EvaluationDatasetLocation$],
 ];
-export var EvaluationDatasetMetricConfig: StaticStructureSchema = [
+export var EvaluationDatasetMetricConfig$: StaticStructureSchema = [
   3,
   n0,
   _EDMC,
   0,
   [_tT, _dat, _mNe],
-  [0, [() => EvaluationDataset, 0], [() => EvaluationMetricNames, 0]],
+  [0, [() => EvaluationDataset$, 0], [() => EvaluationMetricNames, 0]],
 ];
-export var EvaluationInferenceConfigSummary: StaticStructureSchema = [
+export var EvaluationInferenceConfigSummary$: StaticStructureSchema = [
   3,
   n0,
   _EICS,
   0,
   [_mCS, _rCS],
-  [() => EvaluationModelConfigSummary, () => EvaluationRagConfigSummary],
+  [() => EvaluationModelConfigSummary$, () => EvaluationRagConfigSummary$],
 ];
-export var EvaluationModelConfigSummary: StaticStructureSchema = [3, n0, _EMCS, 0, [_bMIe, _pISI], [64 | 0, 64 | 0]];
-export var EvaluationOutputDataConfig: StaticStructureSchema = [3, n0, _EODC, 0, [_sU], [0]];
-export var EvaluationPrecomputedInferenceSource: StaticStructureSchema = [3, n0, _EPIS, 0, [_iSI], [0]];
-export var EvaluationPrecomputedRetrieveAndGenerateSourceConfig: StaticStructureSchema = [
+export var EvaluationModelConfigSummary$: StaticStructureSchema = [3, n0, _EMCS, 0, [_bMIe, _pISI], [64 | 0, 64 | 0]];
+export var EvaluationOutputDataConfig$: StaticStructureSchema = [3, n0, _EODC, 0, [_sU], [0]];
+export var EvaluationPrecomputedInferenceSource$: StaticStructureSchema = [3, n0, _EPIS, 0, [_iSI], [0]];
+export var EvaluationPrecomputedRetrieveAndGenerateSourceConfig$: StaticStructureSchema = [
   3,
   n0,
   _EPRAGSC,
@@ -2344,77 +2344,77 @@ export var EvaluationPrecomputedRetrieveAndGenerateSourceConfig: StaticStructure
   [_rSI],
   [0],
 ];
-export var EvaluationPrecomputedRetrieveSourceConfig: StaticStructureSchema = [3, n0, _EPRSC, 0, [_rSI], [0]];
-export var EvaluationRagConfigSummary: StaticStructureSchema = [3, n0, _ERCS, 0, [_bKBI, _pRSI], [64 | 0, 64 | 0]];
-export var EvaluationSummary: StaticStructureSchema = [
+export var EvaluationPrecomputedRetrieveSourceConfig$: StaticStructureSchema = [3, n0, _EPRSC, 0, [_rSI], [0]];
+export var EvaluationRagConfigSummary$: StaticStructureSchema = [3, n0, _ERCS, 0, [_bKBI, _pRSI], [64 | 0, 64 | 0]];
+export var EvaluationSummary$: StaticStructureSchema = [
   3,
   n0,
   _ES,
   0,
   [_jA, _jN, _s, _cTr, _jTo, _eTT, _mIod, _rIa, _eMI, _cMEMI, _iCS, _aT],
-  [0, 0, 0, 5, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => EvaluationInferenceConfigSummary, 0],
+  [0, 0, 0, 5, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => EvaluationInferenceConfigSummary$, 0],
 ];
-export var ExportAutomatedReasoningPolicyVersionRequest: StaticStructureSchema = [3, n0, _EARPVR, 0, [_pA], [[0, 1]]];
-export var ExportAutomatedReasoningPolicyVersionResponse: StaticStructureSchema = [
+export var ExportAutomatedReasoningPolicyVersionRequest$: StaticStructureSchema = [3, n0, _EARPVR, 0, [_pA], [[0, 1]]];
+export var ExportAutomatedReasoningPolicyVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _EARPVRx,
   0,
   [_pD],
-  [[() => AutomatedReasoningPolicyDefinition, 16]],
+  [[() => AutomatedReasoningPolicyDefinition$, 16]],
 ];
-export var ExternalSource: StaticStructureSchema = [
+export var ExternalSource$: StaticStructureSchema = [
   3,
   n0,
   _ESx,
   0,
   [_sT, _sL, _bC],
-  [0, () => S3ObjectDoc, [() => ByteContentDoc, 0]],
+  [0, () => S3ObjectDoc$, [() => ByteContentDoc$, 0]],
 ];
-export var ExternalSourcesGenerationConfiguration: StaticStructureSchema = [
+export var ExternalSourcesGenerationConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ESGC,
   0,
   [_pT, _gCu, _kIC, _aMRF],
-  [[() => PromptTemplate, 0], () => GuardrailConfiguration, () => KbInferenceConfig, 128 | 15],
+  [[() => PromptTemplate$, 0], () => GuardrailConfiguration$, () => KbInferenceConfig$, 128 | 15],
 ];
-export var ExternalSourcesRetrieveAndGenerateConfiguration: StaticStructureSchema = [
+export var ExternalSourcesRetrieveAndGenerateConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ESRAGC,
   0,
   [_mA, _so, _gCe],
-  [0, [() => ExternalSources, 0], [() => ExternalSourcesGenerationConfiguration, 0]],
+  [0, [() => ExternalSources, 0], [() => ExternalSourcesGenerationConfiguration$, 0]],
 ];
-export var FieldForReranking: StaticStructureSchema = [3, n0, _FFR, 0, [_fN], [0]];
-export var FilterAttribute: StaticStructureSchema = [3, n0, _FA, 0, [_k, _va], [0, 15]];
-export var FoundationModelDetails: StaticStructureSchema = [
+export var FieldForReranking$: StaticStructureSchema = [3, n0, _FFR, 0, [_fN], [0]];
+export var FilterAttribute$: StaticStructureSchema = [3, n0, _FA, 0, [_k, _va], [0, 15]];
+export var FoundationModelDetails$: StaticStructureSchema = [
   3,
   n0,
   _FMD,
   0,
   [_mA, _mIo, _mN, _pN, _iM, _oM, _rSS, _cS, _iTS, _mL],
-  [0, 0, 0, 0, 64 | 0, 64 | 0, 2, 64 | 0, 64 | 0, () => FoundationModelLifecycle],
+  [0, 0, 0, 0, 64 | 0, 64 | 0, 2, 64 | 0, 64 | 0, () => FoundationModelLifecycle$],
 ];
-export var FoundationModelLifecycle: StaticStructureSchema = [3, n0, _FML, 0, [_s], [0]];
-export var FoundationModelSummary: StaticStructureSchema = [
+export var FoundationModelLifecycle$: StaticStructureSchema = [3, n0, _FML, 0, [_s], [0]];
+export var FoundationModelSummary$: StaticStructureSchema = [
   3,
   n0,
   _FMS,
   0,
   [_mA, _mIo, _mN, _pN, _iM, _oM, _rSS, _cS, _iTS, _mL],
-  [0, 0, 0, 0, 64 | 0, 64 | 0, 2, 64 | 0, 64 | 0, () => FoundationModelLifecycle],
+  [0, 0, 0, 0, 64 | 0, 64 | 0, 2, 64 | 0, 64 | 0, () => FoundationModelLifecycle$],
 ];
-export var GenerationConfiguration: StaticStructureSchema = [
+export var GenerationConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _GC,
   0,
   [_pT, _gCu, _kIC, _aMRF],
-  [[() => PromptTemplate, 0], () => GuardrailConfiguration, () => KbInferenceConfig, 128 | 15],
+  [[() => PromptTemplate$, 0], () => GuardrailConfiguration$, () => KbInferenceConfig$, 128 | 15],
 ];
-export var GetAutomatedReasoningPolicyAnnotationsRequest: StaticStructureSchema = [
+export var GetAutomatedReasoningPolicyAnnotationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GARPAR,
@@ -2425,7 +2425,7 @@ export var GetAutomatedReasoningPolicyAnnotationsRequest: StaticStructureSchema 
     [0, 1],
   ],
 ];
-export var GetAutomatedReasoningPolicyAnnotationsResponse: StaticStructureSchema = [
+export var GetAutomatedReasoningPolicyAnnotationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GARPARe,
@@ -2433,7 +2433,7 @@ export var GetAutomatedReasoningPolicyAnnotationsResponse: StaticStructureSchema
   [_pA, _n, _bWI, _an, _aSH, _uA],
   [0, [() => AutomatedReasoningPolicyName, 0], 0, [() => AutomatedReasoningPolicyAnnotationList, 0], 0, 5],
 ];
-export var GetAutomatedReasoningPolicyBuildWorkflowRequest: StaticStructureSchema = [
+export var GetAutomatedReasoningPolicyBuildWorkflowRequest$: StaticStructureSchema = [
   3,
   n0,
   _GARPBWR,
@@ -2444,7 +2444,7 @@ export var GetAutomatedReasoningPolicyBuildWorkflowRequest: StaticStructureSchem
     [0, 1],
   ],
 ];
-export var GetAutomatedReasoningPolicyBuildWorkflowResponse: StaticStructureSchema = [
+export var GetAutomatedReasoningPolicyBuildWorkflowResponse$: StaticStructureSchema = [
   3,
   n0,
   _GARPBWRe,
@@ -2462,7 +2462,7 @@ export var GetAutomatedReasoningPolicyBuildWorkflowResponse: StaticStructureSche
     5,
   ],
 ];
-export var GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest: StaticStructureSchema = [
+export var GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GARPBWRAR,
@@ -2474,15 +2474,15 @@ export var GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest: StaticSt
     [0, { [_hQ]: _aTs }],
   ],
 ];
-export var GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse: StaticStructureSchema = [
+export var GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GARPBWRARe,
   0,
   [_pA, _bWI, _bWA],
-  [0, 0, [() => AutomatedReasoningPolicyBuildResultAssets, 0]],
+  [0, 0, [() => AutomatedReasoningPolicyBuildResultAssets$, 0]],
 ];
-export var GetAutomatedReasoningPolicyNextScenarioRequest: StaticStructureSchema = [
+export var GetAutomatedReasoningPolicyNextScenarioRequest$: StaticStructureSchema = [
   3,
   n0,
   _GARPNSR,
@@ -2493,16 +2493,16 @@ export var GetAutomatedReasoningPolicyNextScenarioRequest: StaticStructureSchema
     [0, 1],
   ],
 ];
-export var GetAutomatedReasoningPolicyNextScenarioResponse: StaticStructureSchema = [
+export var GetAutomatedReasoningPolicyNextScenarioResponse$: StaticStructureSchema = [
   3,
   n0,
   _GARPNSRe,
   0,
   [_pA, _sc],
-  [0, [() => AutomatedReasoningPolicyScenario, 0]],
+  [0, [() => AutomatedReasoningPolicyScenario$, 0]],
 ];
-export var GetAutomatedReasoningPolicyRequest: StaticStructureSchema = [3, n0, _GARPR, 0, [_pA], [[0, 1]]];
-export var GetAutomatedReasoningPolicyResponse: StaticStructureSchema = [
+export var GetAutomatedReasoningPolicyRequest$: StaticStructureSchema = [3, n0, _GARPR, 0, [_pA], [[0, 1]]];
+export var GetAutomatedReasoningPolicyResponse$: StaticStructureSchema = [
   3,
   n0,
   _GARPRe,
@@ -2510,7 +2510,7 @@ export var GetAutomatedReasoningPolicyResponse: StaticStructureSchema = [
   [_pA, _n, _ve, _pI, _d, _dH, _kKA, _cA, _uA],
   [0, [() => AutomatedReasoningPolicyName, 0], 0, 0, [() => AutomatedReasoningPolicyDescription, 0], 0, 0, 5, 5],
 ];
-export var GetAutomatedReasoningPolicyTestCaseRequest: StaticStructureSchema = [
+export var GetAutomatedReasoningPolicyTestCaseRequest$: StaticStructureSchema = [
   3,
   n0,
   _GARPTCR,
@@ -2521,15 +2521,15 @@ export var GetAutomatedReasoningPolicyTestCaseRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetAutomatedReasoningPolicyTestCaseResponse: StaticStructureSchema = [
+export var GetAutomatedReasoningPolicyTestCaseResponse$: StaticStructureSchema = [
   3,
   n0,
   _GARPTCRe,
   0,
   [_pA, _tCe],
-  [0, [() => AutomatedReasoningPolicyTestCase, 0]],
+  [0, [() => AutomatedReasoningPolicyTestCase$, 0]],
 ];
-export var GetAutomatedReasoningPolicyTestResultRequest: StaticStructureSchema = [
+export var GetAutomatedReasoningPolicyTestResultRequest$: StaticStructureSchema = [
   3,
   n0,
   _GARPTRR,
@@ -2541,25 +2541,25 @@ export var GetAutomatedReasoningPolicyTestResultRequest: StaticStructureSchema =
     [0, 1],
   ],
 ];
-export var GetAutomatedReasoningPolicyTestResultResponse: StaticStructureSchema = [
+export var GetAutomatedReasoningPolicyTestResultResponse$: StaticStructureSchema = [
   3,
   n0,
   _GARPTRRe,
   0,
   [_tR],
-  [[() => AutomatedReasoningPolicyTestResult, 0]],
+  [[() => AutomatedReasoningPolicyTestResult$, 0]],
 ];
-export var GetCustomModelDeploymentRequest: StaticStructureSchema = [3, n0, _GCMDR, 0, [_cMDI], [[0, 1]]];
-export var GetCustomModelDeploymentResponse: StaticStructureSchema = [
+export var GetCustomModelDeploymentRequest$: StaticStructureSchema = [3, n0, _GCMDR, 0, [_cMDI], [[0, 1]]];
+export var GetCustomModelDeploymentResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCMDRe,
   0,
   [_cMDA, _mDN, _mA, _cA, _s, _d, _uD, _fMa, _lUA],
-  [0, 0, 0, 5, 0, 0, () => CustomModelDeploymentUpdateDetails, 0, 5],
+  [0, 0, 0, 5, 0, 0, () => CustomModelDeploymentUpdateDetails$, 0, 5],
 ];
-export var GetCustomModelRequest: StaticStructureSchema = [3, n0, _GCMR, 0, [_mI], [[0, 1]]];
-export var GetCustomModelResponse: StaticStructureSchema = [
+export var GetCustomModelRequest$: StaticStructureSchema = [3, n0, _GCMR, 0, [_mI], [[0, 1]]];
+export var GetCustomModelResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCMRe,
@@ -2574,18 +2574,18 @@ export var GetCustomModelResponse: StaticStructureSchema = [
     0,
     0,
     128 | 0,
-    [() => TrainingDataConfig, 0],
-    () => ValidationDataConfig,
-    () => OutputDataConfig,
-    () => TrainingMetrics,
+    [() => TrainingDataConfig$, 0],
+    () => ValidationDataConfig$,
+    () => OutputDataConfig$,
+    () => TrainingMetrics$,
     () => ValidationMetrics,
     5,
-    () => CustomizationConfig,
+    () => CustomizationConfig$,
     0,
     0,
   ],
 ];
-export var GetEvaluationJobRequest: StaticStructureSchema = [
+export var GetEvaluationJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _GEJR,
@@ -2593,7 +2593,7 @@ export var GetEvaluationJobRequest: StaticStructureSchema = [
   [_jI],
   [[() => EvaluationJobIdentifier, 1]],
 ];
-export var GetEvaluationJobResponse: StaticStructureSchema = [
+export var GetEvaluationJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _GEJRe,
@@ -2608,33 +2608,33 @@ export var GetEvaluationJobResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    [() => EvaluationConfig, 0],
-    [() => EvaluationInferenceConfig, 0],
-    () => EvaluationOutputDataConfig,
+    [() => EvaluationConfig$, 0],
+    [() => EvaluationInferenceConfig$, 0],
+    () => EvaluationOutputDataConfig$,
     5,
     5,
     64 | 0,
   ],
 ];
-export var GetFoundationModelAvailabilityRequest: StaticStructureSchema = [3, n0, _GFMAR, 0, [_mIo], [[0, 1]]];
-export var GetFoundationModelAvailabilityResponse: StaticStructureSchema = [
+export var GetFoundationModelAvailabilityRequest$: StaticStructureSchema = [3, n0, _GFMAR, 0, [_mIo], [[0, 1]]];
+export var GetFoundationModelAvailabilityResponse$: StaticStructureSchema = [
   3,
   n0,
   _GFMARe,
   0,
   [_mIo, _aA, _aS, _eAn, _rAe],
-  [0, () => AgreementAvailability, 0, 0, 0],
+  [0, () => AgreementAvailability$, 0, 0, 0],
 ];
-export var GetFoundationModelRequest: StaticStructureSchema = [3, n0, _GFMR, 0, [_mI], [[0, 1]]];
-export var GetFoundationModelResponse: StaticStructureSchema = [
+export var GetFoundationModelRequest$: StaticStructureSchema = [3, n0, _GFMR, 0, [_mI], [[0, 1]]];
+export var GetFoundationModelResponse$: StaticStructureSchema = [
   3,
   n0,
   _GFMRe,
   0,
   [_mD],
-  [() => FoundationModelDetails],
+  [() => FoundationModelDetails$],
 ];
-export var GetGuardrailRequest: StaticStructureSchema = [
+export var GetGuardrailRequest$: StaticStructureSchema = [
   3,
   n0,
   _GGR,
@@ -2645,7 +2645,7 @@ export var GetGuardrailRequest: StaticStructureSchema = [
     [0, { [_hQ]: _gV }],
   ],
 ];
-export var GetGuardrailResponse: StaticStructureSchema = [
+export var GetGuardrailResponse$: StaticStructureSchema = [
   3,
   n0,
   _GGRe,
@@ -2658,13 +2658,13 @@ export var GetGuardrailResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    [() => GuardrailTopicPolicy, 0],
-    [() => GuardrailContentPolicy, 0],
-    [() => GuardrailWordPolicy, 0],
-    () => GuardrailSensitiveInformationPolicy,
-    [() => GuardrailContextualGroundingPolicy, 0],
-    () => GuardrailAutomatedReasoningPolicy,
-    () => GuardrailCrossRegionDetails,
+    [() => GuardrailTopicPolicy$, 0],
+    [() => GuardrailContentPolicy$, 0],
+    [() => GuardrailWordPolicy$, 0],
+    () => GuardrailSensitiveInformationPolicy$,
+    [() => GuardrailContextualGroundingPolicy$, 0],
+    () => GuardrailAutomatedReasoningPolicy$,
+    () => GuardrailCrossRegionDetails$,
     5,
     5,
     [() => GuardrailStatusReasons, 0],
@@ -2674,17 +2674,17 @@ export var GetGuardrailResponse: StaticStructureSchema = [
     0,
   ],
 ];
-export var GetImportedModelRequest: StaticStructureSchema = [3, n0, _GIMR, 0, [_mI], [[0, 1]]];
-export var GetImportedModelResponse: StaticStructureSchema = [
+export var GetImportedModelRequest$: StaticStructureSchema = [3, n0, _GIMR, 0, [_mI], [[0, 1]]];
+export var GetImportedModelResponse$: StaticStructureSchema = [
   3,
   n0,
   _GIMRe,
   0,
   [_mA, _mN, _jN, _jA, _mDS, _cTr, _mAo, _mKKA, _iS, _cMU],
-  [0, 0, 0, 0, () => ModelDataSource, 5, 0, 0, 2, () => CustomModelUnits],
+  [0, 0, 0, 0, () => ModelDataSource$, 5, 0, 0, 2, () => CustomModelUnits$],
 ];
-export var GetInferenceProfileRequest: StaticStructureSchema = [3, n0, _GIPR, 0, [_iPI], [[0, 1]]];
-export var GetInferenceProfileResponse: StaticStructureSchema = [
+export var GetInferenceProfileRequest$: StaticStructureSchema = [3, n0, _GIPR, 0, [_iPI], [[0, 1]]];
+export var GetInferenceProfileResponse$: StaticStructureSchema = [
   3,
   n0,
   _GIPRe,
@@ -2692,17 +2692,17 @@ export var GetInferenceProfileResponse: StaticStructureSchema = [
   [_iPN, _d, _cA, _uA, _iPA, _mo, _iPIn, _s, _ty],
   [0, [() => InferenceProfileDescription, 0], 5, 5, 0, () => InferenceProfileModels, 0, 0, 0],
 ];
-export var GetMarketplaceModelEndpointRequest: StaticStructureSchema = [3, n0, _GMMER, 0, [_eA], [[0, 1]]];
-export var GetMarketplaceModelEndpointResponse: StaticStructureSchema = [
+export var GetMarketplaceModelEndpointRequest$: StaticStructureSchema = [3, n0, _GMMER, 0, [_eA], [[0, 1]]];
+export var GetMarketplaceModelEndpointResponse$: StaticStructureSchema = [
   3,
   n0,
   _GMMERe,
   0,
   [_mME],
-  [() => MarketplaceModelEndpoint],
+  [() => MarketplaceModelEndpoint$],
 ];
-export var GetModelCopyJobRequest: StaticStructureSchema = [3, n0, _GMCJR, 0, [_jA], [[0, 1]]];
-export var GetModelCopyJobResponse: StaticStructureSchema = [
+export var GetModelCopyJobRequest$: StaticStructureSchema = [3, n0, _GMCJR, 0, [_jA], [[0, 1]]];
+export var GetModelCopyJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _GMCJRe,
@@ -2710,8 +2710,8 @@ export var GetModelCopyJobResponse: StaticStructureSchema = [
   [_jA, _s, _cTr, _tMA, _tMN, _sAI, _sMA, _tMKKA, _tMT, _fMa, _sMN],
   [0, 0, 5, 0, 0, 0, 0, 0, () => TagList, 0, 0],
 ];
-export var GetModelCustomizationJobRequest: StaticStructureSchema = [3, n0, _GMCJRet, 0, [_jI], [[0, 1]]];
-export var GetModelCustomizationJobResponse: StaticStructureSchema = [
+export var GetModelCustomizationJobRequest$: StaticStructureSchema = [3, n0, _GMCJRet, 0, [_jI], [[0, 1]]];
+export var GetModelCustomizationJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _GMCJReto,
@@ -2749,35 +2749,35 @@ export var GetModelCustomizationJobResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    () => StatusDetails,
+    () => StatusDetails$,
     0,
     5,
     5,
     5,
     0,
     128 | 0,
-    [() => TrainingDataConfig, 0],
-    () => ValidationDataConfig,
-    () => OutputDataConfig,
+    [() => TrainingDataConfig$, 0],
+    () => ValidationDataConfig$,
+    () => OutputDataConfig$,
     0,
     0,
-    () => TrainingMetrics,
+    () => TrainingMetrics$,
     () => ValidationMetrics,
-    () => VpcConfig,
-    () => CustomizationConfig,
+    () => VpcConfig$,
+    () => CustomizationConfig$,
   ],
 ];
-export var GetModelImportJobRequest: StaticStructureSchema = [3, n0, _GMIJR, 0, [_jI], [[0, 1]]];
-export var GetModelImportJobResponse: StaticStructureSchema = [
+export var GetModelImportJobRequest$: StaticStructureSchema = [3, n0, _GMIJR, 0, [_jI], [[0, 1]]];
+export var GetModelImportJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _GMIJRe,
   0,
   [_jA, _jN, _iMN, _iMA, _rA, _mDS, _s, _fMa, _cTr, _lMT, _eT, _vCp, _iMKKA],
-  [0, 0, 0, 0, 0, () => ModelDataSource, 0, 0, 5, 5, 5, () => VpcConfig, 0],
+  [0, 0, 0, 0, 0, () => ModelDataSource$, 0, 0, 5, 5, 5, () => VpcConfig$, 0],
 ];
-export var GetModelInvocationJobRequest: StaticStructureSchema = [3, n0, _GMIJRet, 0, [_jI], [[0, 1]]];
-export var GetModelInvocationJobResponse: StaticStructureSchema = [
+export var GetModelInvocationJobRequest$: StaticStructureSchema = [3, n0, _GMIJRet, 0, [_jI], [[0, 1]]];
+export var GetModelInvocationJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _GMIJReto,
@@ -2794,24 +2794,24 @@ export var GetModelInvocationJobResponse: StaticStructureSchema = [
     5,
     5,
     5,
-    () => ModelInvocationJobInputDataConfig,
-    () => ModelInvocationJobOutputDataConfig,
-    () => VpcConfig,
+    () => ModelInvocationJobInputDataConfig$,
+    () => ModelInvocationJobOutputDataConfig$,
+    () => VpcConfig$,
     1,
     5,
   ],
 ];
-export var GetModelInvocationLoggingConfigurationRequest: StaticStructureSchema = [3, n0, _GMILCR, 0, [], []];
-export var GetModelInvocationLoggingConfigurationResponse: StaticStructureSchema = [
+export var GetModelInvocationLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _GMILCR, 0, [], []];
+export var GetModelInvocationLoggingConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GMILCRe,
   0,
   [_lC],
-  [() => LoggingConfig],
+  [() => LoggingConfig$],
 ];
-export var GetPromptRouterRequest: StaticStructureSchema = [3, n0, _GPRR, 0, [_pRA], [[0, 1]]];
-export var GetPromptRouterResponse: StaticStructureSchema = [
+export var GetPromptRouterRequest$: StaticStructureSchema = [3, n0, _GPRR, 0, [_pRA], [[0, 1]]];
+export var GetPromptRouterResponse$: StaticStructureSchema = [
   3,
   n0,
   _GPRRe,
@@ -2819,19 +2819,19 @@ export var GetPromptRouterResponse: StaticStructureSchema = [
   [_pRN, _rCo, _d, _cA, _uA, _pRA, _mo, _fM, _s, _ty],
   [
     0,
-    () => RoutingCriteria,
+    () => RoutingCriteria$,
     [() => PromptRouterDescription, 0],
     5,
     5,
     0,
     () => PromptRouterTargetModels,
-    () => PromptRouterTargetModel,
+    () => PromptRouterTargetModel$,
     0,
     0,
   ],
 ];
-export var GetProvisionedModelThroughputRequest: StaticStructureSchema = [3, n0, _GPMTR, 0, [_pMI], [[0, 1]]];
-export var GetProvisionedModelThroughputResponse: StaticStructureSchema = [
+export var GetProvisionedModelThroughputRequest$: StaticStructureSchema = [3, n0, _GPMTR, 0, [_pMI], [[0, 1]]];
+export var GetProvisionedModelThroughputResponse$: StaticStructureSchema = [
   3,
   n0,
   _GPMTRe,
@@ -2839,12 +2839,19 @@ export var GetProvisionedModelThroughputResponse: StaticStructureSchema = [
   [_mU, _dMU, _pMN, _pMA, _mA, _dMA, _fMA, _s, _cTr, _lMT, _fMa, _cD, _cET],
   [1, 1, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 5],
 ];
-export var GetUseCaseForModelAccessRequest: StaticStructureSchema = [3, n0, _GUCFMAR, 0, [], []];
-export var GetUseCaseForModelAccessResponse: StaticStructureSchema = [3, n0, _GUCFMARe, 0, [_fD], [21]];
-export var GuardrailAutomatedReasoningPolicy: StaticStructureSchema = [3, n0, _GARP, 0, [_po, _cT], [64 | 0, 1]];
-export var GuardrailAutomatedReasoningPolicyConfig: StaticStructureSchema = [3, n0, _GARPC, 0, [_po, _cT], [64 | 0, 1]];
-export var GuardrailConfiguration: StaticStructureSchema = [3, n0, _GCu, 0, [_gIu, _gV], [0, 0]];
-export var GuardrailContentFilter: StaticStructureSchema = [
+export var GetUseCaseForModelAccessRequest$: StaticStructureSchema = [3, n0, _GUCFMAR, 0, [], []];
+export var GetUseCaseForModelAccessResponse$: StaticStructureSchema = [3, n0, _GUCFMARe, 0, [_fD], [21]];
+export var GuardrailAutomatedReasoningPolicy$: StaticStructureSchema = [3, n0, _GARP, 0, [_po, _cT], [64 | 0, 1]];
+export var GuardrailAutomatedReasoningPolicyConfig$: StaticStructureSchema = [
+  3,
+  n0,
+  _GARPC,
+  0,
+  [_po, _cT],
+  [64 | 0, 1],
+];
+export var GuardrailConfiguration$: StaticStructureSchema = [3, n0, _GCu, 0, [_gIu, _gV], [0, 0]];
+export var GuardrailContentFilter$: StaticStructureSchema = [
   3,
   n0,
   _GCF,
@@ -2862,7 +2869,7 @@ export var GuardrailContentFilter: StaticStructureSchema = [
     2,
   ],
 ];
-export var GuardrailContentFilterConfig: StaticStructureSchema = [
+export var GuardrailContentFilterConfig$: StaticStructureSchema = [
   3,
   n0,
   _GCFC,
@@ -2880,7 +2887,7 @@ export var GuardrailContentFilterConfig: StaticStructureSchema = [
     2,
   ],
 ];
-export var GuardrailContentFiltersTier: StaticStructureSchema = [
+export var GuardrailContentFiltersTier$: StaticStructureSchema = [
   3,
   n0,
   _GCFT,
@@ -2888,7 +2895,7 @@ export var GuardrailContentFiltersTier: StaticStructureSchema = [
   [_tNi],
   [[() => GuardrailContentFiltersTierName, 0]],
 ];
-export var GuardrailContentFiltersTierConfig: StaticStructureSchema = [
+export var GuardrailContentFiltersTierConfig$: StaticStructureSchema = [
   3,
   n0,
   _GCFTC,
@@ -2896,7 +2903,7 @@ export var GuardrailContentFiltersTierConfig: StaticStructureSchema = [
   [_tNi],
   [[() => GuardrailContentFiltersTierName, 0]],
 ];
-export var GuardrailContentPolicy: StaticStructureSchema = [
+export var GuardrailContentPolicy$: StaticStructureSchema = [
   3,
   n0,
   _GCP,
@@ -2904,10 +2911,10 @@ export var GuardrailContentPolicy: StaticStructureSchema = [
   [_fi, _ti],
   [
     [() => GuardrailContentFilters, 0],
-    [() => GuardrailContentFiltersTier, 0],
+    [() => GuardrailContentFiltersTier$, 0],
   ],
 ];
-export var GuardrailContentPolicyConfig: StaticStructureSchema = [
+export var GuardrailContentPolicyConfig$: StaticStructureSchema = [
   3,
   n0,
   _GCPC,
@@ -2915,10 +2922,10 @@ export var GuardrailContentPolicyConfig: StaticStructureSchema = [
   [_fC, _tCi],
   [
     [() => GuardrailContentFiltersConfig, 0],
-    [() => GuardrailContentFiltersTierConfig, 0],
+    [() => GuardrailContentFiltersTierConfig$, 0],
   ],
 ];
-export var GuardrailContextualGroundingFilter: StaticStructureSchema = [
+export var GuardrailContextualGroundingFilter$: StaticStructureSchema = [
   3,
   n0,
   _GCGF,
@@ -2926,7 +2933,7 @@ export var GuardrailContextualGroundingFilter: StaticStructureSchema = [
   [_ty, _th, _ac, _ena],
   [0, 1, [() => GuardrailContextualGroundingAction, 0], 2],
 ];
-export var GuardrailContextualGroundingFilterConfig: StaticStructureSchema = [
+export var GuardrailContextualGroundingFilterConfig$: StaticStructureSchema = [
   3,
   n0,
   _GCGFC,
@@ -2934,7 +2941,7 @@ export var GuardrailContextualGroundingFilterConfig: StaticStructureSchema = [
   [_ty, _th, _ac, _ena],
   [0, 1, [() => GuardrailContextualGroundingAction, 0], 2],
 ];
-export var GuardrailContextualGroundingPolicy: StaticStructureSchema = [
+export var GuardrailContextualGroundingPolicy$: StaticStructureSchema = [
   3,
   n0,
   _GCGP,
@@ -2942,7 +2949,7 @@ export var GuardrailContextualGroundingPolicy: StaticStructureSchema = [
   [_fi],
   [[() => GuardrailContextualGroundingFilters, 0]],
 ];
-export var GuardrailContextualGroundingPolicyConfig: StaticStructureSchema = [
+export var GuardrailContextualGroundingPolicyConfig$: StaticStructureSchema = [
   3,
   n0,
   _GCGPC,
@@ -2950,9 +2957,9 @@ export var GuardrailContextualGroundingPolicyConfig: StaticStructureSchema = [
   [_fC],
   [[() => GuardrailContextualGroundingFiltersConfig, 0]],
 ];
-export var GuardrailCrossRegionConfig: StaticStructureSchema = [3, n0, _GCRC, 0, [_gPI], [0]];
-export var GuardrailCrossRegionDetails: StaticStructureSchema = [3, n0, _GCRD, 0, [_gPIu, _gPA], [0, 0]];
-export var GuardrailManagedWords: StaticStructureSchema = [
+export var GuardrailCrossRegionConfig$: StaticStructureSchema = [3, n0, _GCRC, 0, [_gPI], [0]];
+export var GuardrailCrossRegionDetails$: StaticStructureSchema = [3, n0, _GCRD, 0, [_gPIu, _gPA], [0, 0]];
+export var GuardrailManagedWords$: StaticStructureSchema = [
   3,
   n0,
   _GMW,
@@ -2960,7 +2967,7 @@ export var GuardrailManagedWords: StaticStructureSchema = [
   [_ty, _iA, _oA, _iE, _oE],
   [0, [() => GuardrailWordAction, 0], [() => GuardrailWordAction, 0], 2, 2],
 ];
-export var GuardrailManagedWordsConfig: StaticStructureSchema = [
+export var GuardrailManagedWordsConfig$: StaticStructureSchema = [
   3,
   n0,
   _GMWC,
@@ -2968,7 +2975,7 @@ export var GuardrailManagedWordsConfig: StaticStructureSchema = [
   [_ty, _iA, _oA, _iE, _oE],
   [0, [() => GuardrailWordAction, 0], [() => GuardrailWordAction, 0], 2, 2],
 ];
-export var GuardrailPiiEntity: StaticStructureSchema = [
+export var GuardrailPiiEntity$: StaticStructureSchema = [
   3,
   n0,
   _GPE,
@@ -2976,7 +2983,7 @@ export var GuardrailPiiEntity: StaticStructureSchema = [
   [_ty, _ac, _iA, _oA, _iE, _oE],
   [0, 0, 0, 0, 2, 2],
 ];
-export var GuardrailPiiEntityConfig: StaticStructureSchema = [
+export var GuardrailPiiEntityConfig$: StaticStructureSchema = [
   3,
   n0,
   _GPEC,
@@ -2984,7 +2991,7 @@ export var GuardrailPiiEntityConfig: StaticStructureSchema = [
   [_ty, _ac, _iA, _oA, _iE, _oE],
   [0, 0, 0, 0, 2, 2],
 ];
-export var GuardrailRegex: StaticStructureSchema = [
+export var GuardrailRegex$: StaticStructureSchema = [
   3,
   n0,
   _GR,
@@ -2992,7 +2999,7 @@ export var GuardrailRegex: StaticStructureSchema = [
   [_n, _d, _pa, _ac, _iA, _oA, _iE, _oE],
   [0, 0, 0, 0, 0, 0, 2, 2],
 ];
-export var GuardrailRegexConfig: StaticStructureSchema = [
+export var GuardrailRegexConfig$: StaticStructureSchema = [
   3,
   n0,
   _GRC,
@@ -3000,7 +3007,7 @@ export var GuardrailRegexConfig: StaticStructureSchema = [
   [_n, _d, _pa, _ac, _iA, _oA, _iE, _oE],
   [0, 0, 0, 0, 0, 0, 2, 2],
 ];
-export var GuardrailSensitiveInformationPolicy: StaticStructureSchema = [
+export var GuardrailSensitiveInformationPolicy$: StaticStructureSchema = [
   3,
   n0,
   _GSIP,
@@ -3008,7 +3015,7 @@ export var GuardrailSensitiveInformationPolicy: StaticStructureSchema = [
   [_pEi, _re],
   [() => GuardrailPiiEntities, () => GuardrailRegexes],
 ];
-export var GuardrailSensitiveInformationPolicyConfig: StaticStructureSchema = [
+export var GuardrailSensitiveInformationPolicyConfig$: StaticStructureSchema = [
   3,
   n0,
   _GSIPC,
@@ -3016,15 +3023,15 @@ export var GuardrailSensitiveInformationPolicyConfig: StaticStructureSchema = [
   [_pEC, _rCe],
   [() => GuardrailPiiEntitiesConfig, () => GuardrailRegexesConfig],
 ];
-export var GuardrailSummary: StaticStructureSchema = [
+export var GuardrailSummary$: StaticStructureSchema = [
   3,
   n0,
   _GS,
   0,
   [_i, _ar, _s, _n, _d, _ve, _cA, _uA, _cRD],
-  [0, 0, 0, [() => GuardrailName, 0], [() => GuardrailDescription, 0], 0, 5, 5, () => GuardrailCrossRegionDetails],
+  [0, 0, 0, [() => GuardrailName, 0], [() => GuardrailDescription, 0], 0, 5, 5, () => GuardrailCrossRegionDetails$],
 ];
-export var GuardrailTopic: StaticStructureSchema = [
+export var GuardrailTopic$: StaticStructureSchema = [
   3,
   n0,
   _GT,
@@ -3041,7 +3048,7 @@ export var GuardrailTopic: StaticStructureSchema = [
     2,
   ],
 ];
-export var GuardrailTopicConfig: StaticStructureSchema = [
+export var GuardrailTopicConfig$: StaticStructureSchema = [
   3,
   n0,
   _GTC,
@@ -3058,7 +3065,7 @@ export var GuardrailTopicConfig: StaticStructureSchema = [
     2,
   ],
 ];
-export var GuardrailTopicPolicy: StaticStructureSchema = [
+export var GuardrailTopicPolicy$: StaticStructureSchema = [
   3,
   n0,
   _GTP,
@@ -3066,10 +3073,10 @@ export var GuardrailTopicPolicy: StaticStructureSchema = [
   [_to, _ti],
   [
     [() => GuardrailTopics, 0],
-    [() => GuardrailTopicsTier, 0],
+    [() => GuardrailTopicsTier$, 0],
   ],
 ];
-export var GuardrailTopicPolicyConfig: StaticStructureSchema = [
+export var GuardrailTopicPolicyConfig$: StaticStructureSchema = [
   3,
   n0,
   _GTPC,
@@ -3077,11 +3084,11 @@ export var GuardrailTopicPolicyConfig: StaticStructureSchema = [
   [_tCo, _tCi],
   [
     [() => GuardrailTopicsConfig, 0],
-    [() => GuardrailTopicsTierConfig, 0],
+    [() => GuardrailTopicsTierConfig$, 0],
   ],
 ];
-export var GuardrailTopicsTier: StaticStructureSchema = [3, n0, _GTT, 0, [_tNi], [[() => GuardrailTopicsTierName, 0]]];
-export var GuardrailTopicsTierConfig: StaticStructureSchema = [
+export var GuardrailTopicsTier$: StaticStructureSchema = [3, n0, _GTT, 0, [_tNi], [[() => GuardrailTopicsTierName, 0]]];
+export var GuardrailTopicsTierConfig$: StaticStructureSchema = [
   3,
   n0,
   _GTTC,
@@ -3089,7 +3096,7 @@ export var GuardrailTopicsTierConfig: StaticStructureSchema = [
   [_tNi],
   [[() => GuardrailTopicsTierName, 0]],
 ];
-export var GuardrailWord: StaticStructureSchema = [
+export var GuardrailWord$: StaticStructureSchema = [
   3,
   n0,
   _GW,
@@ -3097,7 +3104,7 @@ export var GuardrailWord: StaticStructureSchema = [
   [_te, _iA, _oA, _iE, _oE],
   [0, [() => GuardrailWordAction, 0], [() => GuardrailWordAction, 0], 2, 2],
 ];
-export var GuardrailWordConfig: StaticStructureSchema = [
+export var GuardrailWordConfig$: StaticStructureSchema = [
   3,
   n0,
   _GWC,
@@ -3105,7 +3112,7 @@ export var GuardrailWordConfig: StaticStructureSchema = [
   [_te, _iA, _oA, _iE, _oE],
   [0, [() => GuardrailWordAction, 0], [() => GuardrailWordAction, 0], 2, 2],
 ];
-export var GuardrailWordPolicy: StaticStructureSchema = [
+export var GuardrailWordPolicy$: StaticStructureSchema = [
   3,
   n0,
   _GWP,
@@ -3116,7 +3123,7 @@ export var GuardrailWordPolicy: StaticStructureSchema = [
     [() => GuardrailManagedWordLists, 0],
   ],
 ];
-export var GuardrailWordPolicyConfig: StaticStructureSchema = [
+export var GuardrailWordPolicyConfig$: StaticStructureSchema = [
   3,
   n0,
   _GWPC,
@@ -3127,19 +3134,19 @@ export var GuardrailWordPolicyConfig: StaticStructureSchema = [
     [() => GuardrailManagedWordListsConfig, 0],
   ],
 ];
-export var HumanEvaluationConfig: StaticStructureSchema = [
+export var HumanEvaluationConfig$: StaticStructureSchema = [
   3,
   n0,
   _HEC,
   0,
   [_hWC, _cM, _dMC],
   [
-    [() => HumanWorkflowConfig, 0],
+    [() => HumanWorkflowConfig$, 0],
     [() => HumanEvaluationCustomMetrics, 0],
     [() => EvaluationDatasetMetricConfigs, 0],
   ],
 ];
-export var HumanEvaluationCustomMetric: StaticStructureSchema = [
+export var HumanEvaluationCustomMetric$: StaticStructureSchema = [
   3,
   n0,
   _HECM,
@@ -3147,7 +3154,7 @@ export var HumanEvaluationCustomMetric: StaticStructureSchema = [
   [_n, _d, _rM],
   [[() => EvaluationMetricName, 0], [() => EvaluationMetricDescription, 0], 0],
 ];
-export var HumanWorkflowConfig: StaticStructureSchema = [
+export var HumanWorkflowConfig$: StaticStructureSchema = [
   3,
   n0,
   _HWC,
@@ -3155,7 +3162,7 @@ export var HumanWorkflowConfig: StaticStructureSchema = [
   [_fDA, _in],
   [0, [() => HumanTaskInstructions, 0]],
 ];
-export var ImplicitFilterConfiguration: StaticStructureSchema = [
+export var ImplicitFilterConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _IFC,
@@ -3163,9 +3170,16 @@ export var ImplicitFilterConfiguration: StaticStructureSchema = [
   [_mAe, _mA],
   [[() => MetadataAttributeSchemaList, 0], 0],
 ];
-export var ImportedModelSummary: StaticStructureSchema = [3, n0, _IMS, 0, [_mA, _mN, _cTr, _iS, _mAo], [0, 0, 5, 2, 0]];
-export var InferenceProfileModel: StaticStructureSchema = [3, n0, _IPM, 0, [_mA], [0]];
-export var InferenceProfileSummary: StaticStructureSchema = [
+export var ImportedModelSummary$: StaticStructureSchema = [
+  3,
+  n0,
+  _IMS,
+  0,
+  [_mA, _mN, _cTr, _iS, _mAo],
+  [0, 0, 5, 2, 0],
+];
+export var InferenceProfileModel$: StaticStructureSchema = [3, n0, _IPM, 0, [_mA], [0]];
+export var InferenceProfileSummary$: StaticStructureSchema = [
   3,
   n0,
   _IPS,
@@ -3173,26 +3187,26 @@ export var InferenceProfileSummary: StaticStructureSchema = [
   [_iPN, _d, _cA, _uA, _iPA, _mo, _iPIn, _s, _ty],
   [0, [() => InferenceProfileDescription, 0], 5, 5, 0, () => InferenceProfileModels, 0, 0, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var InvocationLogsConfig: StaticStructureSchema = [
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var InvocationLogsConfig$: StaticStructureSchema = [
   3,
   n0,
   _ILC,
   0,
   [_uPR, _iLS, _rMF],
-  [2, () => InvocationLogSource, [() => RequestMetadataFilters, 0]],
+  [2, () => InvocationLogSource$, [() => RequestMetadataFilters$, 0]],
 ];
-export var KbInferenceConfig: StaticStructureSchema = [3, n0, _KIC, 0, [_tIC], [() => TextInferenceConfig]];
-export var KnowledgeBaseRetrievalConfiguration: StaticStructureSchema = [
+export var KbInferenceConfig$: StaticStructureSchema = [3, n0, _KIC, 0, [_tIC], [() => TextInferenceConfig$]];
+export var KnowledgeBaseRetrievalConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _KBRC,
   0,
   [_vSC],
-  [[() => KnowledgeBaseVectorSearchConfiguration, 0]],
+  [[() => KnowledgeBaseVectorSearchConfiguration$, 0]],
 ];
-export var KnowledgeBaseRetrieveAndGenerateConfiguration: StaticStructureSchema = [
+export var KnowledgeBaseRetrieveAndGenerateConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _KBRAGC,
@@ -3201,12 +3215,12 @@ export var KnowledgeBaseRetrieveAndGenerateConfiguration: StaticStructureSchema 
   [
     0,
     0,
-    [() => KnowledgeBaseRetrievalConfiguration, 0],
-    [() => GenerationConfiguration, 0],
-    () => OrchestrationConfiguration,
+    [() => KnowledgeBaseRetrievalConfiguration$, 0],
+    [() => GenerationConfiguration$, 0],
+    () => OrchestrationConfiguration$,
   ],
 ];
-export var KnowledgeBaseVectorSearchConfiguration: StaticStructureSchema = [
+export var KnowledgeBaseVectorSearchConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _KBVSC,
@@ -3215,14 +3229,14 @@ export var KnowledgeBaseVectorSearchConfiguration: StaticStructureSchema = [
   [
     1,
     0,
-    [() => RetrievalFilter, 0],
-    [() => ImplicitFilterConfiguration, 0],
-    [() => VectorSearchRerankingConfiguration, 0],
+    [() => RetrievalFilter$, 0],
+    [() => ImplicitFilterConfiguration$, 0],
+    [() => VectorSearchRerankingConfiguration$, 0],
   ],
 ];
-export var LambdaGraderConfig: StaticStructureSchema = [3, n0, _LGC, 0, [_lA], [0]];
-export var LegalTerm: StaticStructureSchema = [3, n0, _LT, 0, [_ur], [0]];
-export var ListAutomatedReasoningPoliciesRequest: StaticStructureSchema = [
+export var LambdaGraderConfig$: StaticStructureSchema = [3, n0, _LGC, 0, [_lA], [0]];
+export var LegalTerm$: StaticStructureSchema = [3, n0, _LT, 0, [_ur], [0]];
+export var ListAutomatedReasoningPoliciesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LARPR,
@@ -3234,7 +3248,7 @@ export var ListAutomatedReasoningPoliciesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListAutomatedReasoningPoliciesResponse: StaticStructureSchema = [
+export var ListAutomatedReasoningPoliciesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LARPRi,
@@ -3242,7 +3256,7 @@ export var ListAutomatedReasoningPoliciesResponse: StaticStructureSchema = [
   [_aRPS, _nT],
   [[() => AutomatedReasoningPolicySummaries, 0], 0],
 ];
-export var ListAutomatedReasoningPolicyBuildWorkflowsRequest: StaticStructureSchema = [
+export var ListAutomatedReasoningPolicyBuildWorkflowsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LARPBWR,
@@ -3254,7 +3268,7 @@ export var ListAutomatedReasoningPolicyBuildWorkflowsRequest: StaticStructureSch
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListAutomatedReasoningPolicyBuildWorkflowsResponse: StaticStructureSchema = [
+export var ListAutomatedReasoningPolicyBuildWorkflowsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LARPBWRi,
@@ -3262,7 +3276,7 @@ export var ListAutomatedReasoningPolicyBuildWorkflowsResponse: StaticStructureSc
   [_aRPBWS, _nT],
   [() => AutomatedReasoningPolicyBuildWorkflowSummaries, 0],
 ];
-export var ListAutomatedReasoningPolicyTestCasesRequest: StaticStructureSchema = [
+export var ListAutomatedReasoningPolicyTestCasesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LARPTCR,
@@ -3274,7 +3288,7 @@ export var ListAutomatedReasoningPolicyTestCasesRequest: StaticStructureSchema =
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListAutomatedReasoningPolicyTestCasesResponse: StaticStructureSchema = [
+export var ListAutomatedReasoningPolicyTestCasesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LARPTCRi,
@@ -3282,7 +3296,7 @@ export var ListAutomatedReasoningPolicyTestCasesResponse: StaticStructureSchema 
   [_tCes, _nT],
   [[() => AutomatedReasoningPolicyTestCaseList, 0], 0],
 ];
-export var ListAutomatedReasoningPolicyTestResultsRequest: StaticStructureSchema = [
+export var ListAutomatedReasoningPolicyTestResultsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LARPTRR,
@@ -3295,7 +3309,7 @@ export var ListAutomatedReasoningPolicyTestResultsRequest: StaticStructureSchema
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListAutomatedReasoningPolicyTestResultsResponse: StaticStructureSchema = [
+export var ListAutomatedReasoningPolicyTestResultsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LARPTRRi,
@@ -3303,7 +3317,7 @@ export var ListAutomatedReasoningPolicyTestResultsResponse: StaticStructureSchem
   [_tRe, _nT],
   [[() => AutomatedReasoningPolicyTestList, 0], 0],
 ];
-export var ListCustomModelDeploymentsRequest: StaticStructureSchema = [
+export var ListCustomModelDeploymentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCMDR,
@@ -3321,7 +3335,7 @@ export var ListCustomModelDeploymentsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _mAE }],
   ],
 ];
-export var ListCustomModelDeploymentsResponse: StaticStructureSchema = [
+export var ListCustomModelDeploymentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCMDRi,
@@ -3329,7 +3343,7 @@ export var ListCustomModelDeploymentsResponse: StaticStructureSchema = [
   [_nT, _mDSo],
   [0, () => CustomModelDeploymentSummaryList],
 ];
-export var ListCustomModelsRequest: StaticStructureSchema = [
+export var ListCustomModelsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCMR,
@@ -3349,7 +3363,7 @@ export var ListCustomModelsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _mSo }],
   ],
 ];
-export var ListCustomModelsResponse: StaticStructureSchema = [
+export var ListCustomModelsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCMRi,
@@ -3357,7 +3371,7 @@ export var ListCustomModelsResponse: StaticStructureSchema = [
   [_nT, _mSod],
   [0, () => CustomModelSummaryList],
 ];
-export var ListEnforcedGuardrailsConfigurationRequest: StaticStructureSchema = [
+export var ListEnforcedGuardrailsConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _LEGCR,
@@ -3365,7 +3379,7 @@ export var ListEnforcedGuardrailsConfigurationRequest: StaticStructureSchema = [
   [_nT],
   [[0, { [_hQ]: _nT }]],
 ];
-export var ListEnforcedGuardrailsConfigurationResponse: StaticStructureSchema = [
+export var ListEnforcedGuardrailsConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _LEGCRi,
@@ -3373,7 +3387,7 @@ export var ListEnforcedGuardrailsConfigurationResponse: StaticStructureSchema = 
   [_gCua, _nT],
   [() => AccountEnforcedGuardrailsOutputConfiguration, 0],
 ];
-export var ListEvaluationJobsRequest: StaticStructureSchema = [
+export var ListEvaluationJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LEJR,
@@ -3391,7 +3405,7 @@ export var ListEvaluationJobsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sO }],
   ],
 ];
-export var ListEvaluationJobsResponse: StaticStructureSchema = [
+export var ListEvaluationJobsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LEJRi,
@@ -3399,7 +3413,7 @@ export var ListEvaluationJobsResponse: StaticStructureSchema = [
   [_nT, _jSo],
   [0, () => EvaluationSummaries],
 ];
-export var ListFoundationModelAgreementOffersRequest: StaticStructureSchema = [
+export var ListFoundationModelAgreementOffersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LFMAOR,
@@ -3410,7 +3424,7 @@ export var ListFoundationModelAgreementOffersRequest: StaticStructureSchema = [
     [0, { [_hQ]: _oTf }],
   ],
 ];
-export var ListFoundationModelAgreementOffersResponse: StaticStructureSchema = [
+export var ListFoundationModelAgreementOffersResponse$: StaticStructureSchema = [
   3,
   n0,
   _LFMAORi,
@@ -3418,7 +3432,7 @@ export var ListFoundationModelAgreementOffersResponse: StaticStructureSchema = [
   [_mIo, _of],
   [0, () => Offers],
 ];
-export var ListFoundationModelsRequest: StaticStructureSchema = [
+export var ListFoundationModelsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LFMR,
@@ -3431,7 +3445,7 @@ export var ListFoundationModelsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _bIT }],
   ],
 ];
-export var ListFoundationModelsResponse: StaticStructureSchema = [
+export var ListFoundationModelsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LFMRi,
@@ -3439,7 +3453,7 @@ export var ListFoundationModelsResponse: StaticStructureSchema = [
   [_mSod],
   [() => FoundationModelSummaryList],
 ];
-export var ListGuardrailsRequest: StaticStructureSchema = [
+export var ListGuardrailsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LGR,
@@ -3451,7 +3465,7 @@ export var ListGuardrailsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListGuardrailsResponse: StaticStructureSchema = [
+export var ListGuardrailsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LGRi,
@@ -3459,7 +3473,7 @@ export var ListGuardrailsResponse: StaticStructureSchema = [
   [_g, _nT],
   [[() => GuardrailSummaries, 0], 0],
 ];
-export var ListImportedModelsRequest: StaticStructureSchema = [
+export var ListImportedModelsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIMR,
@@ -3475,7 +3489,7 @@ export var ListImportedModelsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sO }],
   ],
 ];
-export var ListImportedModelsResponse: StaticStructureSchema = [
+export var ListImportedModelsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LIMRi,
@@ -3483,7 +3497,7 @@ export var ListImportedModelsResponse: StaticStructureSchema = [
   [_nT, _mSod],
   [0, () => ImportedModelSummaryList],
 ];
-export var ListInferenceProfilesRequest: StaticStructureSchema = [
+export var ListInferenceProfilesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIPR,
@@ -3495,7 +3509,7 @@ export var ListInferenceProfilesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _ty }],
   ],
 ];
-export var ListInferenceProfilesResponse: StaticStructureSchema = [
+export var ListInferenceProfilesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LIPRi,
@@ -3503,7 +3517,7 @@ export var ListInferenceProfilesResponse: StaticStructureSchema = [
   [_iPS, _nT],
   [[() => InferenceProfileSummaries, 0], 0],
 ];
-export var ListMarketplaceModelEndpointsRequest: StaticStructureSchema = [
+export var ListMarketplaceModelEndpointsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LMMER,
@@ -3515,7 +3529,7 @@ export var ListMarketplaceModelEndpointsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _mSI }],
   ],
 ];
-export var ListMarketplaceModelEndpointsResponse: StaticStructureSchema = [
+export var ListMarketplaceModelEndpointsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LMMERi,
@@ -3523,7 +3537,7 @@ export var ListMarketplaceModelEndpointsResponse: StaticStructureSchema = [
   [_mMEa, _nT],
   [() => MarketplaceModelEndpointSummaries, 0],
 ];
-export var ListModelCopyJobsRequest: StaticStructureSchema = [
+export var ListModelCopyJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LMCJR,
@@ -3542,7 +3556,7 @@ export var ListModelCopyJobsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sO }],
   ],
 ];
-export var ListModelCopyJobsResponse: StaticStructureSchema = [
+export var ListModelCopyJobsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LMCJRi,
@@ -3550,7 +3564,7 @@ export var ListModelCopyJobsResponse: StaticStructureSchema = [
   [_nT, _mCJS],
   [0, () => ModelCopyJobSummaries],
 ];
-export var ListModelCustomizationJobsRequest: StaticStructureSchema = [
+export var ListModelCustomizationJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LMCJRis,
@@ -3567,7 +3581,7 @@ export var ListModelCustomizationJobsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sO }],
   ],
 ];
-export var ListModelCustomizationJobsResponse: StaticStructureSchema = [
+export var ListModelCustomizationJobsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LMCJRist,
@@ -3575,7 +3589,7 @@ export var ListModelCustomizationJobsResponse: StaticStructureSchema = [
   [_nT, _mCJSo],
   [0, () => ModelCustomizationJobSummaries],
 ];
-export var ListModelImportJobsRequest: StaticStructureSchema = [
+export var ListModelImportJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LMIJR,
@@ -3592,7 +3606,7 @@ export var ListModelImportJobsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sO }],
   ],
 ];
-export var ListModelImportJobsResponse: StaticStructureSchema = [
+export var ListModelImportJobsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LMIJRi,
@@ -3600,7 +3614,7 @@ export var ListModelImportJobsResponse: StaticStructureSchema = [
   [_nT, _mIJS],
   [0, () => ModelImportJobSummaries],
 ];
-export var ListModelInvocationJobsRequest: StaticStructureSchema = [
+export var ListModelInvocationJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LMIJRis,
@@ -3617,7 +3631,7 @@ export var ListModelInvocationJobsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sO }],
   ],
 ];
-export var ListModelInvocationJobsResponse: StaticStructureSchema = [
+export var ListModelInvocationJobsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LMIJRist,
@@ -3625,7 +3639,7 @@ export var ListModelInvocationJobsResponse: StaticStructureSchema = [
   [_nT, _iJS],
   [0, [() => ModelInvocationJobSummaries, 0]],
 ];
-export var ListPromptRoutersRequest: StaticStructureSchema = [
+export var ListPromptRoutersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPRR,
@@ -3637,7 +3651,7 @@ export var ListPromptRoutersRequest: StaticStructureSchema = [
     [0, { [_hQ]: _ty }],
   ],
 ];
-export var ListPromptRoutersResponse: StaticStructureSchema = [
+export var ListPromptRoutersResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPRRi,
@@ -3645,7 +3659,7 @@ export var ListPromptRoutersResponse: StaticStructureSchema = [
   [_pRS, _nT],
   [[() => PromptRouterSummaries, 0], 0],
 ];
-export var ListProvisionedModelThroughputsRequest: StaticStructureSchema = [
+export var ListProvisionedModelThroughputsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPMTR,
@@ -3663,7 +3677,7 @@ export var ListProvisionedModelThroughputsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sO }],
   ],
 ];
-export var ListProvisionedModelThroughputsResponse: StaticStructureSchema = [
+export var ListProvisionedModelThroughputsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPMTRi,
@@ -3671,25 +3685,25 @@ export var ListProvisionedModelThroughputsResponse: StaticStructureSchema = [
   [_nT, _pMS],
   [0, () => ProvisionedModelSummaries],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rARN], [0]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [() => TagList]];
-export var LoggingConfig: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rARN], [0]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [() => TagList]];
+export var LoggingConfig$: StaticStructureSchema = [
   3,
   n0,
   _LC,
   0,
   [_cWC, _sC, _tDDE, _iDDE, _eDDE, _vDDE, _aDDE],
-  [() => CloudWatchConfig, () => S3Config, 2, 2, 2, 2, 2],
+  [() => CloudWatchConfig$, () => S3Config$, 2, 2, 2, 2, 2],
 ];
-export var MarketplaceModelEndpoint: StaticStructureSchema = [
+export var MarketplaceModelEndpoint$: StaticStructureSchema = [
   3,
   n0,
   _MME,
   0,
   [_eA, _mSI, _s, _sM, _cA, _uA, _eCn, _eS, _eSM],
-  [0, 0, 0, 0, 5, 5, () => EndpointConfig, 0, 0],
+  [0, 0, 0, 0, 5, 5, () => EndpointConfig$, 0, 0],
 ];
-export var MarketplaceModelEndpointSummary: StaticStructureSchema = [
+export var MarketplaceModelEndpointSummary$: StaticStructureSchema = [
   3,
   n0,
   _MMES,
@@ -3697,16 +3711,16 @@ export var MarketplaceModelEndpointSummary: StaticStructureSchema = [
   [_eA, _mSI, _s, _sM, _cA, _uA],
   [0, 0, 0, 0, 5, 5],
 ];
-export var MetadataAttributeSchema: StaticStructureSchema = [3, n0, _MAS, 8, [_k, _ty, _d], [0, 0, 0]];
-export var MetadataConfigurationForReranking: StaticStructureSchema = [
+export var MetadataAttributeSchema$: StaticStructureSchema = [3, n0, _MAS, 8, [_k, _ty, _d], [0, 0, 0]];
+export var MetadataConfigurationForReranking$: StaticStructureSchema = [
   3,
   n0,
   _MCFR,
   0,
   [_sMe, _sMC],
-  [0, [() => RerankingMetadataSelectiveModeConfiguration, 0]],
+  [0, [() => RerankingMetadataSelectiveModeConfiguration$, 0]],
 ];
-export var ModelCopyJobSummary: StaticStructureSchema = [
+export var ModelCopyJobSummary$: StaticStructureSchema = [
   3,
   n0,
   _MCJS,
@@ -3714,15 +3728,15 @@ export var ModelCopyJobSummary: StaticStructureSchema = [
   [_jA, _s, _cTr, _tMA, _tMN, _sAI, _sMA, _tMKKA, _tMT, _fMa, _sMN],
   [0, 0, 5, 0, 0, 0, 0, 0, () => TagList, 0, 0],
 ];
-export var ModelCustomizationJobSummary: StaticStructureSchema = [
+export var ModelCustomizationJobSummary$: StaticStructureSchema = [
   3,
   n0,
   _MCJSo,
   0,
   [_jA, _bMA, _jN, _s, _sD, _lMT, _cTr, _eT, _cMA, _cMN, _cTu],
-  [0, 0, 0, 0, () => StatusDetails, 5, 5, 5, 0, 0, 0],
+  [0, 0, 0, 0, () => StatusDetails$, 5, 5, 5, 0, 0, 0],
 ];
-export var ModelImportJobSummary: StaticStructureSchema = [
+export var ModelImportJobSummary$: StaticStructureSchema = [
   3,
   n0,
   _MIJS,
@@ -3730,7 +3744,7 @@ export var ModelImportJobSummary: StaticStructureSchema = [
   [_jA, _jN, _s, _lMT, _cTr, _eT, _iMA, _iMN],
   [0, 0, 0, 5, 5, 5, 0, 0],
 ];
-export var ModelInvocationJobS3InputDataConfig: StaticStructureSchema = [
+export var ModelInvocationJobS3InputDataConfig$: StaticStructureSchema = [
   3,
   n0,
   _MIJSIDC,
@@ -3738,7 +3752,7 @@ export var ModelInvocationJobS3InputDataConfig: StaticStructureSchema = [
   [_sIF, _sU, _sBO],
   [0, 0, 0],
 ];
-export var ModelInvocationJobS3OutputDataConfig: StaticStructureSchema = [
+export var ModelInvocationJobS3OutputDataConfig$: StaticStructureSchema = [
   3,
   n0,
   _MIJSODC,
@@ -3746,7 +3760,7 @@ export var ModelInvocationJobS3OutputDataConfig: StaticStructureSchema = [
   [_sU, _sEKI, _sBO],
   [0, 0, 0],
 ];
-export var ModelInvocationJobSummary: StaticStructureSchema = [
+export var ModelInvocationJobSummary$: StaticStructureSchema = [
   3,
   n0,
   _MIJSo,
@@ -3763,26 +3777,26 @@ export var ModelInvocationJobSummary: StaticStructureSchema = [
     5,
     5,
     5,
-    () => ModelInvocationJobInputDataConfig,
-    () => ModelInvocationJobOutputDataConfig,
-    () => VpcConfig,
+    () => ModelInvocationJobInputDataConfig$,
+    () => ModelInvocationJobOutputDataConfig$,
+    () => VpcConfig$,
     1,
     5,
   ],
 ];
-export var Offer: StaticStructureSchema = [3, n0, _O, 0, [_oI, _oT, _tD], [0, 0, () => TermDetails]];
-export var OrchestrationConfiguration: StaticStructureSchema = [
+export var Offer$: StaticStructureSchema = [3, n0, _O, 0, [_oI, _oT, _tD], [0, 0, () => TermDetails$]];
+export var OrchestrationConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _OC,
   0,
   [_qTC],
-  [() => QueryTransformationConfiguration],
+  [() => QueryTransformationConfiguration$],
 ];
-export var OutputDataConfig: StaticStructureSchema = [3, n0, _ODC, 0, [_sU], [0]];
-export var PerformanceConfiguration: StaticStructureSchema = [3, n0, _PC, 0, [_la], [0]];
-export var PricingTerm: StaticStructureSchema = [3, n0, _PT, 0, [_rCa], [() => RateCard]];
-export var PromptRouterSummary: StaticStructureSchema = [
+export var OutputDataConfig$: StaticStructureSchema = [3, n0, _ODC, 0, [_sU], [0]];
+export var PerformanceConfiguration$: StaticStructureSchema = [3, n0, _PC, 0, [_la], [0]];
+export var PricingTerm$: StaticStructureSchema = [3, n0, _PT, 0, [_rCa], [() => RateCard]];
+export var PromptRouterSummary$: StaticStructureSchema = [
   3,
   n0,
   _PRS,
@@ -3790,20 +3804,20 @@ export var PromptRouterSummary: StaticStructureSchema = [
   [_pRN, _rCo, _d, _cA, _uA, _pRA, _mo, _fM, _s, _ty],
   [
     0,
-    () => RoutingCriteria,
+    () => RoutingCriteria$,
     [() => PromptRouterDescription, 0],
     5,
     5,
     0,
     () => PromptRouterTargetModels,
-    () => PromptRouterTargetModel,
+    () => PromptRouterTargetModel$,
     0,
     0,
   ],
 ];
-export var PromptRouterTargetModel: StaticStructureSchema = [3, n0, _PRTM, 0, [_mA], [0]];
-export var PromptTemplate: StaticStructureSchema = [3, n0, _PTr, 0, [_tPT], [[() => TextPromptTemplate, 0]]];
-export var ProvisionedModelSummary: StaticStructureSchema = [
+export var PromptRouterTargetModel$: StaticStructureSchema = [3, n0, _PRTM, 0, [_mA], [0]];
+export var PromptTemplate$: StaticStructureSchema = [3, n0, _PTr, 0, [_tPT], [[() => TextPromptTemplate, 0]]];
+export var ProvisionedModelSummary$: StaticStructureSchema = [
   3,
   n0,
   _PMS,
@@ -3811,15 +3825,15 @@ export var ProvisionedModelSummary: StaticStructureSchema = [
   [_pMN, _pMA, _mA, _dMA, _fMA, _mU, _dMU, _s, _cD, _cET, _cTr, _lMT],
   [0, 0, 0, 0, 0, 1, 1, 0, 0, 5, 5, 5],
 ];
-export var PutEnforcedGuardrailConfigurationRequest: StaticStructureSchema = [
+export var PutEnforcedGuardrailConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PEGCR,
   0,
   [_cI, _gIC],
-  [0, () => AccountEnforcedGuardrailInferenceInputConfiguration],
+  [0, () => AccountEnforcedGuardrailInferenceInputConfiguration$],
 ];
-export var PutEnforcedGuardrailConfigurationResponse: StaticStructureSchema = [
+export var PutEnforcedGuardrailConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _PEGCRu,
@@ -3827,20 +3841,20 @@ export var PutEnforcedGuardrailConfigurationResponse: StaticStructureSchema = [
   [_cI, _uA, _uB],
   [0, 5, 0],
 ];
-export var PutModelInvocationLoggingConfigurationRequest: StaticStructureSchema = [
+export var PutModelInvocationLoggingConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PMILCR,
   0,
   [_lC],
-  [() => LoggingConfig],
+  [() => LoggingConfig$],
 ];
-export var PutModelInvocationLoggingConfigurationResponse: StaticStructureSchema = [3, n0, _PMILCRu, 0, [], []];
-export var PutUseCaseForModelAccessRequest: StaticStructureSchema = [3, n0, _PUCFMAR, 0, [_fD], [21]];
-export var PutUseCaseForModelAccessResponse: StaticStructureSchema = [3, n0, _PUCFMARu, 0, [], []];
-export var QueryTransformationConfiguration: StaticStructureSchema = [3, n0, _QTC, 0, [_ty], [0]];
-export var RatingScaleItem: StaticStructureSchema = [3, n0, _RSI, 0, [_de, _va], [0, () => RatingScaleItemValue]];
-export var RegisterMarketplaceModelEndpointRequest: StaticStructureSchema = [
+export var PutModelInvocationLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _PMILCRu, 0, [], []];
+export var PutUseCaseForModelAccessRequest$: StaticStructureSchema = [3, n0, _PUCFMAR, 0, [_fD], [21]];
+export var PutUseCaseForModelAccessResponse$: StaticStructureSchema = [3, n0, _PUCFMARu, 0, [], []];
+export var QueryTransformationConfiguration$: StaticStructureSchema = [3, n0, _QTC, 0, [_ty], [0]];
+export var RatingScaleItem$: StaticStructureSchema = [3, n0, _RSI, 0, [_de, _va], [0, () => RatingScaleItemValue$]];
+export var RegisterMarketplaceModelEndpointRequest$: StaticStructureSchema = [
   3,
   n0,
   _RMMER,
@@ -3848,15 +3862,15 @@ export var RegisterMarketplaceModelEndpointRequest: StaticStructureSchema = [
   [_eI, _mSI],
   [[0, 1], 0],
 ];
-export var RegisterMarketplaceModelEndpointResponse: StaticStructureSchema = [
+export var RegisterMarketplaceModelEndpointResponse$: StaticStructureSchema = [
   3,
   n0,
   _RMMERe,
   0,
   [_mME],
-  [() => MarketplaceModelEndpoint],
+  [() => MarketplaceModelEndpoint$],
 ];
-export var RequestMetadataBaseFilters: StaticStructureSchema = [
+export var RequestMetadataBaseFilters$: StaticStructureSchema = [
   3,
   n0,
   _RMBF,
@@ -3867,11 +3881,11 @@ export var RequestMetadataBaseFilters: StaticStructureSchema = [
     [() => RequestMetadataMap, 0],
   ],
 ];
-export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var RetrieveAndGenerateConfiguration: StaticStructureSchema = [
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var RetrieveAndGenerateConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RAGC,
@@ -3879,27 +3893,27 @@ export var RetrieveAndGenerateConfiguration: StaticStructureSchema = [
   [_ty, _kBC, _eSC],
   [
     0,
-    [() => KnowledgeBaseRetrieveAndGenerateConfiguration, 0],
-    [() => ExternalSourcesRetrieveAndGenerateConfiguration, 0],
+    [() => KnowledgeBaseRetrieveAndGenerateConfiguration$, 0],
+    [() => ExternalSourcesRetrieveAndGenerateConfiguration$, 0],
   ],
 ];
-export var RetrieveConfig: StaticStructureSchema = [
+export var RetrieveConfig$: StaticStructureSchema = [
   3,
   n0,
   _RC,
   0,
   [_kBI, _kBRC],
-  [0, [() => KnowledgeBaseRetrievalConfiguration, 0]],
+  [0, [() => KnowledgeBaseRetrievalConfiguration$, 0]],
 ];
-export var RFTConfig: StaticStructureSchema = [
+export var RFTConfig$: StaticStructureSchema = [
   3,
   n0,
   _RFTC,
   0,
   [_gCr, _hP],
-  [() => GraderConfig, () => RFTHyperParameters],
+  [() => GraderConfig$, () => RFTHyperParameters$],
 ];
-export var RFTHyperParameters: StaticStructureSchema = [
+export var RFTHyperParameters$: StaticStructureSchema = [
   3,
   n0,
   _RFTHP,
@@ -3907,23 +3921,23 @@ export var RFTHyperParameters: StaticStructureSchema = [
   [_eCp, _bSa, _lR, _mPL, _tSPP, _iMTn, _rE, _eIv],
   [1, 1, 1, 1, 1, 1, 0, 1],
 ];
-export var RoutingCriteria: StaticStructureSchema = [3, n0, _RCo, 0, [_rQD], [1]];
-export var S3Config: StaticStructureSchema = [3, n0, _SC, 0, [_bN, _kP], [0, 0]];
-export var S3DataSource: StaticStructureSchema = [3, n0, _SDS, 0, [_sU], [0]];
-export var S3ObjectDoc: StaticStructureSchema = [3, n0, _SOD, 0, [_uri], [0]];
-export var SageMakerEndpoint: StaticStructureSchema = [
+export var RoutingCriteria$: StaticStructureSchema = [3, n0, _RCo, 0, [_rQD], [1]];
+export var S3Config$: StaticStructureSchema = [3, n0, _SC, 0, [_bN, _kP], [0, 0]];
+export var S3DataSource$: StaticStructureSchema = [3, n0, _SDS, 0, [_sU], [0]];
+export var S3ObjectDoc$: StaticStructureSchema = [3, n0, _SOD, 0, [_uri], [0]];
+export var SageMakerEndpoint$: StaticStructureSchema = [
   3,
   n0,
   _SME,
   0,
   [_iIC, _iTn, _eRx, _kEK, _vp],
-  [1, 0, 0, 0, () => VpcConfig],
+  [1, 0, 0, 0, () => VpcConfig$],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-export var StartAutomatedReasoningPolicyBuildWorkflowRequest: StaticStructureSchema = [
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var StartAutomatedReasoningPolicyBuildWorkflowRequest$: StaticStructureSchema = [
   3,
   n0,
   _SARPBWR,
@@ -3933,10 +3947,10 @@ export var StartAutomatedReasoningPolicyBuildWorkflowRequest: StaticStructureSch
     [0, 1],
     [0, 1],
     [0, { [_hH]: _xact, [_iTd]: 1 }],
-    [() => AutomatedReasoningPolicyBuildWorkflowSource, 16],
+    [() => AutomatedReasoningPolicyBuildWorkflowSource$, 16],
   ],
 ];
-export var StartAutomatedReasoningPolicyBuildWorkflowResponse: StaticStructureSchema = [
+export var StartAutomatedReasoningPolicyBuildWorkflowResponse$: StaticStructureSchema = [
   3,
   n0,
   _SARPBWRt,
@@ -3944,7 +3958,7 @@ export var StartAutomatedReasoningPolicyBuildWorkflowResponse: StaticStructureSc
   [_pA, _bWI],
   [0, 0],
 ];
-export var StartAutomatedReasoningPolicyTestWorkflowRequest: StaticStructureSchema = [
+export var StartAutomatedReasoningPolicyTestWorkflowRequest$: StaticStructureSchema = [
   3,
   n0,
   _SARPTWR,
@@ -3952,16 +3966,23 @@ export var StartAutomatedReasoningPolicyTestWorkflowRequest: StaticStructureSche
   [_pA, _bWI, _tCIe, _cRT],
   [[0, 1], [0, 1], 64 | 0, [0, 4]],
 ];
-export var StartAutomatedReasoningPolicyTestWorkflowResponse: StaticStructureSchema = [3, n0, _SARPTWRt, 0, [_pA], [0]];
-export var StatusDetails: StaticStructureSchema = [
+export var StartAutomatedReasoningPolicyTestWorkflowResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _SARPTWRt,
+  0,
+  [_pA],
+  [0],
+];
+export var StatusDetails$: StaticStructureSchema = [
   3,
   n0,
   _SD,
   0,
   [_vD, _dPD, _tDr],
-  [() => ValidationDetails, () => DataProcessingDetails, () => TrainingDetails],
+  [() => ValidationDetails$, () => DataProcessingDetails$, () => TrainingDetails$],
 ];
-export var StopEvaluationJobRequest: StaticStructureSchema = [
+export var StopEvaluationJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _SEJR,
@@ -3969,42 +3990,42 @@ export var StopEvaluationJobRequest: StaticStructureSchema = [
   [_jI],
   [[() => EvaluationJobIdentifier, 1]],
 ];
-export var StopEvaluationJobResponse: StaticStructureSchema = [3, n0, _SEJRt, 0, [], []];
-export var StopModelCustomizationJobRequest: StaticStructureSchema = [3, n0, _SMCJR, 0, [_jI], [[0, 1]]];
-export var StopModelCustomizationJobResponse: StaticStructureSchema = [3, n0, _SMCJRt, 0, [], []];
-export var StopModelInvocationJobRequest: StaticStructureSchema = [3, n0, _SMIJR, 0, [_jI], [[0, 1]]];
-export var StopModelInvocationJobResponse: StaticStructureSchema = [3, n0, _SMIJRt, 0, [], []];
-export var SupportTerm: StaticStructureSchema = [3, n0, _ST, 0, [_rPD], [0]];
-export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _va], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rARN, _ta], [0, () => TagList]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TeacherModelConfig: StaticStructureSchema = [3, n0, _TMC, 0, [_tMI, _mRLFI], [0, 1]];
-export var TermDetails: StaticStructureSchema = [
+export var StopEvaluationJobResponse$: StaticStructureSchema = [3, n0, _SEJRt, 0, [], []];
+export var StopModelCustomizationJobRequest$: StaticStructureSchema = [3, n0, _SMCJR, 0, [_jI], [[0, 1]]];
+export var StopModelCustomizationJobResponse$: StaticStructureSchema = [3, n0, _SMCJRt, 0, [], []];
+export var StopModelInvocationJobRequest$: StaticStructureSchema = [3, n0, _SMIJR, 0, [_jI], [[0, 1]]];
+export var StopModelInvocationJobResponse$: StaticStructureSchema = [3, n0, _SMIJRt, 0, [], []];
+export var SupportTerm$: StaticStructureSchema = [3, n0, _ST, 0, [_rPD], [0]];
+export var Tag$: StaticStructureSchema = [3, n0, _T, 0, [_k, _va], [0, 0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rARN, _ta], [0, () => TagList]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var TeacherModelConfig$: StaticStructureSchema = [3, n0, _TMC, 0, [_tMI, _mRLFI], [0, 1]];
+export var TermDetails$: StaticStructureSchema = [
   3,
   n0,
   _TD,
   0,
   [_uBPT, _lT, _sTup, _vT],
-  [() => PricingTerm, () => LegalTerm, () => SupportTerm, () => ValidityTerm],
+  [() => PricingTerm$, () => LegalTerm$, () => SupportTerm$, () => ValidityTerm$],
 ];
-export var TextInferenceConfig: StaticStructureSchema = [3, n0, _TIC, 0, [_tem, _tPo, _mTa, _sS], [1, 1, 1, 64 | 0]];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_m, _rN], [0, 0]];
-TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-export var TrainingDataConfig: StaticStructureSchema = [
+export var TextInferenceConfig$: StaticStructureSchema = [3, n0, _TIC, 0, [_tem, _tPo, _mTa, _sS], [1, 1, 1, 64 | 0]];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_m, _rN], [0, 0]];
+TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
+export var TrainingDataConfig$: StaticStructureSchema = [
   3,
   n0,
   _TDC,
   0,
   [_sU, _iLC],
-  [0, [() => InvocationLogsConfig, 0]],
+  [0, [() => InvocationLogsConfig$, 0]],
 ];
-export var TrainingDetails: StaticStructureSchema = [3, n0, _TDr, 0, [_s, _cTr, _lMT], [0, 5, 5]];
-export var TrainingMetrics: StaticStructureSchema = [3, n0, _TM, 0, [_tL], [1]];
-export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rARN, _tK], [0, 64 | 0]];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateAutomatedReasoningPolicyAnnotationsRequest: StaticStructureSchema = [
+export var TrainingDetails$: StaticStructureSchema = [3, n0, _TDr, 0, [_s, _cTr, _lMT], [0, 5, 5]];
+export var TrainingMetrics$: StaticStructureSchema = [3, n0, _TM, 0, [_tL], [1]];
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_rARN, _tK], [0, 64 | 0]];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateAutomatedReasoningPolicyAnnotationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UARPAR,
@@ -4012,7 +4033,7 @@ export var UpdateAutomatedReasoningPolicyAnnotationsRequest: StaticStructureSche
   [_pA, _bWI, _an, _lUASH],
   [[0, 1], [0, 1], [() => AutomatedReasoningPolicyAnnotationList, 0], 0],
 ];
-export var UpdateAutomatedReasoningPolicyAnnotationsResponse: StaticStructureSchema = [
+export var UpdateAutomatedReasoningPolicyAnnotationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _UARPARp,
@@ -4020,7 +4041,7 @@ export var UpdateAutomatedReasoningPolicyAnnotationsResponse: StaticStructureSch
   [_pA, _bWI, _aSH, _uA],
   [0, 0, 0, 5],
 ];
-export var UpdateAutomatedReasoningPolicyRequest: StaticStructureSchema = [
+export var UpdateAutomatedReasoningPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _UARPR,
@@ -4028,12 +4049,12 @@ export var UpdateAutomatedReasoningPolicyRequest: StaticStructureSchema = [
   [_pA, _pD, _n, _d],
   [
     [0, 1],
-    [() => AutomatedReasoningPolicyDefinition, 0],
+    [() => AutomatedReasoningPolicyDefinition$, 0],
     [() => AutomatedReasoningPolicyName, 0],
     [() => AutomatedReasoningPolicyDescription, 0],
   ],
 ];
-export var UpdateAutomatedReasoningPolicyResponse: StaticStructureSchema = [
+export var UpdateAutomatedReasoningPolicyResponse$: StaticStructureSchema = [
   3,
   n0,
   _UARPRp,
@@ -4041,7 +4062,7 @@ export var UpdateAutomatedReasoningPolicyResponse: StaticStructureSchema = [
   [_pA, _n, _dH, _uA],
   [0, [() => AutomatedReasoningPolicyName, 0], 0, 5],
 ];
-export var UpdateAutomatedReasoningPolicyTestCaseRequest: StaticStructureSchema = [
+export var UpdateAutomatedReasoningPolicyTestCaseRequest$: StaticStructureSchema = [
   3,
   n0,
   _UARPTCR,
@@ -4058,7 +4079,7 @@ export var UpdateAutomatedReasoningPolicyTestCaseRequest: StaticStructureSchema 
     [0, 4],
   ],
 ];
-export var UpdateAutomatedReasoningPolicyTestCaseResponse: StaticStructureSchema = [
+export var UpdateAutomatedReasoningPolicyTestCaseResponse$: StaticStructureSchema = [
   3,
   n0,
   _UARPTCRp,
@@ -4066,9 +4087,9 @@ export var UpdateAutomatedReasoningPolicyTestCaseResponse: StaticStructureSchema
   [_pA, _tCI],
   [0, 0],
 ];
-export var UpdateCustomModelDeploymentRequest: StaticStructureSchema = [3, n0, _UCMDR, 0, [_mA, _cMDI], [0, [0, 1]]];
-export var UpdateCustomModelDeploymentResponse: StaticStructureSchema = [3, n0, _UCMDRp, 0, [_cMDA], [0]];
-export var UpdateGuardrailRequest: StaticStructureSchema = [
+export var UpdateCustomModelDeploymentRequest$: StaticStructureSchema = [3, n0, _UCMDR, 0, [_mA, _cMDI], [0, [0, 1]]];
+export var UpdateCustomModelDeploymentResponse$: StaticStructureSchema = [3, n0, _UCMDRp, 0, [_cMDA], [0]];
+export var UpdateGuardrailRequest$: StaticStructureSchema = [
   3,
   n0,
   _UGR,
@@ -4078,36 +4099,36 @@ export var UpdateGuardrailRequest: StaticStructureSchema = [
     [0, 1],
     [() => GuardrailName, 0],
     [() => GuardrailDescription, 0],
-    [() => GuardrailTopicPolicyConfig, 0],
-    [() => GuardrailContentPolicyConfig, 0],
-    [() => GuardrailWordPolicyConfig, 0],
-    () => GuardrailSensitiveInformationPolicyConfig,
-    [() => GuardrailContextualGroundingPolicyConfig, 0],
-    () => GuardrailAutomatedReasoningPolicyConfig,
-    () => GuardrailCrossRegionConfig,
+    [() => GuardrailTopicPolicyConfig$, 0],
+    [() => GuardrailContentPolicyConfig$, 0],
+    [() => GuardrailWordPolicyConfig$, 0],
+    () => GuardrailSensitiveInformationPolicyConfig$,
+    [() => GuardrailContextualGroundingPolicyConfig$, 0],
+    () => GuardrailAutomatedReasoningPolicyConfig$,
+    () => GuardrailCrossRegionConfig$,
     [() => GuardrailBlockedMessaging, 0],
     [() => GuardrailBlockedMessaging, 0],
     0,
   ],
 ];
-export var UpdateGuardrailResponse: StaticStructureSchema = [3, n0, _UGRp, 0, [_gIu, _gA, _ve, _uA], [0, 0, 0, 5]];
-export var UpdateMarketplaceModelEndpointRequest: StaticStructureSchema = [
+export var UpdateGuardrailResponse$: StaticStructureSchema = [3, n0, _UGRp, 0, [_gIu, _gA, _ve, _uA], [0, 0, 0, 5]];
+export var UpdateMarketplaceModelEndpointRequest$: StaticStructureSchema = [
   3,
   n0,
   _UMMER,
   0,
   [_eA, _eCn, _cRT],
-  [[0, 1], () => EndpointConfig, [0, 4]],
+  [[0, 1], () => EndpointConfig$, [0, 4]],
 ];
-export var UpdateMarketplaceModelEndpointResponse: StaticStructureSchema = [
+export var UpdateMarketplaceModelEndpointResponse$: StaticStructureSchema = [
   3,
   n0,
   _UMMERp,
   0,
   [_mME],
-  [() => MarketplaceModelEndpoint],
+  [() => MarketplaceModelEndpoint$],
 ];
-export var UpdateProvisionedModelThroughputRequest: StaticStructureSchema = [
+export var UpdateProvisionedModelThroughputRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPMTR,
@@ -4115,23 +4136,23 @@ export var UpdateProvisionedModelThroughputRequest: StaticStructureSchema = [
   [_pMI, _dPMN, _dMI],
   [[0, 1], 0, 0],
 ];
-export var UpdateProvisionedModelThroughputResponse: StaticStructureSchema = [3, n0, _UPMTRp, 0, [], []];
-export var ValidationDataConfig: StaticStructureSchema = [3, n0, _VDC, 0, [_val], [() => Validators]];
-export var ValidationDetails: StaticStructureSchema = [3, n0, _VD, 0, [_s, _cTr, _lMT], [0, 5, 5]];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var Validator: StaticStructureSchema = [3, n0, _V, 0, [_sU], [0]];
-export var ValidatorMetric: StaticStructureSchema = [3, n0, _VM, 0, [_vL], [1]];
-export var ValidityTerm: StaticStructureSchema = [3, n0, _VT, 0, [_aD], [0]];
-export var VectorSearchBedrockRerankingConfiguration: StaticStructureSchema = [
+export var UpdateProvisionedModelThroughputResponse$: StaticStructureSchema = [3, n0, _UPMTRp, 0, [], []];
+export var ValidationDataConfig$: StaticStructureSchema = [3, n0, _VDC, 0, [_val], [() => Validators]];
+export var ValidationDetails$: StaticStructureSchema = [3, n0, _VD, 0, [_s, _cTr, _lMT], [0, 5, 5]];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var Validator$: StaticStructureSchema = [3, n0, _V, 0, [_sU], [0]];
+export var ValidatorMetric$: StaticStructureSchema = [3, n0, _VM, 0, [_vL], [1]];
+export var ValidityTerm$: StaticStructureSchema = [3, n0, _VT, 0, [_aD], [0]];
+export var VectorSearchBedrockRerankingConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _VSBRC,
   0,
   [_mC, _nORR, _mCe],
-  [() => VectorSearchBedrockRerankingModelConfiguration, 1, [() => MetadataConfigurationForReranking, 0]],
+  [() => VectorSearchBedrockRerankingModelConfiguration$, 1, [() => MetadataConfigurationForReranking$, 0]],
 ];
-export var VectorSearchBedrockRerankingModelConfiguration: StaticStructureSchema = [
+export var VectorSearchBedrockRerankingModelConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _VSBRMC,
@@ -4139,462 +4160,420 @@ export var VectorSearchBedrockRerankingModelConfiguration: StaticStructureSchema
   [_mA, _aMRF],
   [0, 128 | 15],
 ];
-export var VectorSearchRerankingConfiguration: StaticStructureSchema = [
+export var VectorSearchRerankingConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _VSRC,
   0,
   [_ty, _bRC],
-  [0, [() => VectorSearchBedrockRerankingConfiguration, 0]],
+  [0, [() => VectorSearchBedrockRerankingConfiguration$, 0]],
 ];
-export var VpcConfig: StaticStructureSchema = [3, n0, _VC, 0, [_sI, _sGI], [64 | 0, 64 | 0]];
-export var BedrockServiceException: StaticErrorSchema = [-3, _sm, "BedrockServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BedrockServiceException, __BedrockServiceException);
-export var AccountEnforcedGuardrailsOutputConfiguration: StaticListSchema = [
+export var VpcConfig$: StaticStructureSchema = [3, n0, _VC, 0, [_sI, _sGI], [64 | 0, 64 | 0]];
+export var BedrockServiceException$: StaticErrorSchema = [-3, _sm, "BedrockServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(BedrockServiceException$, BedrockServiceException);
+var AccountEnforcedGuardrailsOutputConfiguration: StaticListSchema = [
   1,
   n0,
   _AEGOCc,
   0,
-  () => AccountEnforcedGuardrailOutputConfiguration,
+  () => AccountEnforcedGuardrailOutputConfiguration$,
 ];
-export var AutomatedEvaluationCustomMetrics: StaticListSchema = [
+var AutomatedEvaluationCustomMetrics: StaticListSchema = [
   1,
   n0,
   _AECM,
   0,
-  [() => AutomatedEvaluationCustomMetricSource, 0],
+  [() => AutomatedEvaluationCustomMetricSource$, 0],
 ];
-export var AutomatedReasoningCheckDifferenceScenarioList: StaticListSchema = [
+var AutomatedReasoningCheckDifferenceScenarioList: StaticListSchema = [
   1,
   n0,
   _ARCDSL,
   0,
-  [() => AutomatedReasoningCheckScenario, 0],
+  [() => AutomatedReasoningCheckScenario$, 0],
 ];
-export var AutomatedReasoningCheckFindingList: StaticListSchema = [
+var AutomatedReasoningCheckFindingList: StaticListSchema = [
   1,
   n0,
   _ARCFL,
   0,
-  [() => AutomatedReasoningCheckFinding, 0],
+  [() => AutomatedReasoningCheckFinding$, 0],
 ];
-export var AutomatedReasoningCheckInputTextReferenceList: StaticListSchema = [
+var AutomatedReasoningCheckInputTextReferenceList: StaticListSchema = [
   1,
   n0,
   _ARCITRL,
   0,
-  [() => AutomatedReasoningCheckInputTextReference, 0],
+  [() => AutomatedReasoningCheckInputTextReference$, 0],
 ];
-export var AutomatedReasoningCheckRuleList: StaticListSchema = [1, n0, _ARCRL, 0, () => AutomatedReasoningCheckRule];
-export var AutomatedReasoningCheckTranslationList: StaticListSchema = [
+var AutomatedReasoningCheckRuleList: StaticListSchema = [1, n0, _ARCRL, 0, () => AutomatedReasoningCheckRule$];
+var AutomatedReasoningCheckTranslationList: StaticListSchema = [
   1,
   n0,
   _ARCTL,
   0,
-  [() => AutomatedReasoningCheckTranslation, 0],
+  [() => AutomatedReasoningCheckTranslation$, 0],
 ];
-export var AutomatedReasoningCheckTranslationOptionList: StaticListSchema = [
+var AutomatedReasoningCheckTranslationOptionList: StaticListSchema = [
   1,
   n0,
   _ARCTOL,
   0,
-  [() => AutomatedReasoningCheckTranslationOption, 0],
+  [() => AutomatedReasoningCheckTranslationOption$, 0],
 ];
-export var AutomatedReasoningLogicStatementList: StaticListSchema = [
+var AutomatedReasoningLogicStatementList: StaticListSchema = [
   1,
   n0,
   _ARLSL,
   0,
-  [() => AutomatedReasoningLogicStatement, 0],
+  [() => AutomatedReasoningLogicStatement$, 0],
 ];
-export var AutomatedReasoningPolicyAnnotationList: StaticListSchema = [
+var AutomatedReasoningPolicyAnnotationList: StaticListSchema = [
   1,
   n0,
   _ARPAL,
   0,
-  [() => AutomatedReasoningPolicyAnnotation, 0],
+  [() => AutomatedReasoningPolicyAnnotation$, 0],
 ];
-export var AutomatedReasoningPolicyArnList = 64 | 0;
-export var AutomatedReasoningPolicyBuildLogEntryList: StaticListSchema = [
+var AutomatedReasoningPolicyArnList = 64 | 0;
+var AutomatedReasoningPolicyBuildLogEntryList: StaticListSchema = [
   1,
   n0,
   _ARPBLEL,
   0,
-  [() => AutomatedReasoningPolicyBuildLogEntry, 0],
+  [() => AutomatedReasoningPolicyBuildLogEntry$, 0],
 ];
-export var AutomatedReasoningPolicyBuildStepList: StaticListSchema = [
+var AutomatedReasoningPolicyBuildStepList: StaticListSchema = [
   1,
   n0,
   _ARPBSL,
   0,
-  [() => AutomatedReasoningPolicyBuildStep, 0],
+  [() => AutomatedReasoningPolicyBuildStep$, 0],
 ];
-export var AutomatedReasoningPolicyBuildStepMessageList: StaticListSchema = [
+var AutomatedReasoningPolicyBuildStepMessageList: StaticListSchema = [
   1,
   n0,
   _ARPBSML,
   0,
-  () => AutomatedReasoningPolicyBuildStepMessage,
+  () => AutomatedReasoningPolicyBuildStepMessage$,
 ];
-export var AutomatedReasoningPolicyBuildWorkflowDocumentList: StaticListSchema = [
+var AutomatedReasoningPolicyBuildWorkflowDocumentList: StaticListSchema = [
   1,
   n0,
   _ARPBWDL,
   0,
-  [() => AutomatedReasoningPolicyBuildWorkflowDocument, 0],
+  [() => AutomatedReasoningPolicyBuildWorkflowDocument$, 0],
 ];
-export var AutomatedReasoningPolicyBuildWorkflowSummaries: StaticListSchema = [
+var AutomatedReasoningPolicyBuildWorkflowSummaries: StaticListSchema = [
   1,
   n0,
   _ARPBWSut,
   0,
-  () => AutomatedReasoningPolicyBuildWorkflowSummary,
+  () => AutomatedReasoningPolicyBuildWorkflowSummary$,
 ];
-export var AutomatedReasoningPolicyConflictedRuleIdList = 64 | 0;
-export var AutomatedReasoningPolicyDefinitionRuleIdList = 64 | 0;
-export var AutomatedReasoningPolicyDefinitionRuleList: StaticListSchema = [
+var AutomatedReasoningPolicyConflictedRuleIdList = 64 | 0;
+var AutomatedReasoningPolicyDefinitionRuleIdList = 64 | 0;
+var AutomatedReasoningPolicyDefinitionRuleList: StaticListSchema = [
   1,
   n0,
   _ARPDRL,
   0,
-  [() => AutomatedReasoningPolicyDefinitionRule, 0],
+  [() => AutomatedReasoningPolicyDefinitionRule$, 0],
 ];
-export var AutomatedReasoningPolicyDefinitionTypeList: StaticListSchema = [
+var AutomatedReasoningPolicyDefinitionTypeList: StaticListSchema = [
   1,
   n0,
   _ARPDTL,
   0,
-  [() => AutomatedReasoningPolicyDefinitionType, 0],
+  [() => AutomatedReasoningPolicyDefinitionType$, 0],
 ];
-export var AutomatedReasoningPolicyDefinitionTypeNameList: StaticListSchema = [
+var AutomatedReasoningPolicyDefinitionTypeNameList: StaticListSchema = [
   1,
   n0,
   _ARPDTNL,
   0,
   [() => AutomatedReasoningPolicyDefinitionTypeName, 0],
 ];
-export var AutomatedReasoningPolicyDefinitionTypeValueList: StaticListSchema = [
+var AutomatedReasoningPolicyDefinitionTypeValueList: StaticListSchema = [
   1,
   n0,
   _ARPDTVL,
   0,
-  [() => AutomatedReasoningPolicyDefinitionTypeValue, 0],
+  [() => AutomatedReasoningPolicyDefinitionTypeValue$, 0],
 ];
-export var AutomatedReasoningPolicyDefinitionTypeValuePairList: StaticListSchema = [
+var AutomatedReasoningPolicyDefinitionTypeValuePairList: StaticListSchema = [
   1,
   n0,
   _ARPDTVPL,
   0,
-  [() => AutomatedReasoningPolicyDefinitionTypeValuePair, 0],
+  [() => AutomatedReasoningPolicyDefinitionTypeValuePair$, 0],
 ];
-export var AutomatedReasoningPolicyDefinitionVariableList: StaticListSchema = [
+var AutomatedReasoningPolicyDefinitionVariableList: StaticListSchema = [
   1,
   n0,
   _ARPDVL,
   0,
-  [() => AutomatedReasoningPolicyDefinitionVariable, 0],
+  [() => AutomatedReasoningPolicyDefinitionVariable$, 0],
 ];
-export var AutomatedReasoningPolicyDefinitionVariableNameList: StaticListSchema = [
+var AutomatedReasoningPolicyDefinitionVariableNameList: StaticListSchema = [
   1,
   n0,
   _ARPDVNL,
   0,
   [() => AutomatedReasoningPolicyDefinitionVariableName, 0],
 ];
-export var AutomatedReasoningPolicyDisjointedRuleIdList = 64 | 0;
-export var AutomatedReasoningPolicyDisjointRuleSetList: StaticListSchema = [
+var AutomatedReasoningPolicyDisjointedRuleIdList = 64 | 0;
+var AutomatedReasoningPolicyDisjointRuleSetList: StaticListSchema = [
   1,
   n0,
   _ARPDRSL,
   0,
-  [() => AutomatedReasoningPolicyDisjointRuleSet, 0],
+  [() => AutomatedReasoningPolicyDisjointRuleSet$, 0],
 ];
-export var AutomatedReasoningPolicyGeneratedTestCaseList: StaticListSchema = [
+var AutomatedReasoningPolicyGeneratedTestCaseList: StaticListSchema = [
   1,
   n0,
   _ARPGTCL,
   0,
-  [() => AutomatedReasoningPolicyGeneratedTestCase, 0],
+  [() => AutomatedReasoningPolicyGeneratedTestCase$, 0],
 ];
-export var AutomatedReasoningPolicyScenarioList: StaticListSchema = [
+var AutomatedReasoningPolicyScenarioList: StaticListSchema = [
   1,
   n0,
   _ARPSL,
   0,
-  [() => AutomatedReasoningPolicyScenario, 0],
+  [() => AutomatedReasoningPolicyScenario$, 0],
 ];
-export var AutomatedReasoningPolicySummaries: StaticListSchema = [
+var AutomatedReasoningPolicySummaries: StaticListSchema = [
   1,
   n0,
   _ARPSuto,
   0,
-  [() => AutomatedReasoningPolicySummary, 0],
+  [() => AutomatedReasoningPolicySummary$, 0],
 ];
-export var AutomatedReasoningPolicyTestCaseIdList = 64 | 0;
-export var AutomatedReasoningPolicyTestCaseList: StaticListSchema = [
+var AutomatedReasoningPolicyTestCaseIdList = 64 | 0;
+var AutomatedReasoningPolicyTestCaseList: StaticListSchema = [
   1,
   n0,
   _ARPTCL,
   0,
-  [() => AutomatedReasoningPolicyTestCase, 0],
+  [() => AutomatedReasoningPolicyTestCase$, 0],
 ];
-export var AutomatedReasoningPolicyTestList: StaticListSchema = [
+var AutomatedReasoningPolicyTestList: StaticListSchema = [
   1,
   n0,
   _ARPTL,
   0,
-  [() => AutomatedReasoningPolicyTestResult, 0],
+  [() => AutomatedReasoningPolicyTestResult$, 0],
 ];
-export var AutomatedReasoningPolicyTypeValueAnnotationList: StaticListSchema = [
+var AutomatedReasoningPolicyTypeValueAnnotationList: StaticListSchema = [
   1,
   n0,
   _ARPTVAL,
   0,
-  [() => AutomatedReasoningPolicyTypeValueAnnotation, 0],
+  [() => AutomatedReasoningPolicyTypeValueAnnotation$, 0],
 ];
-export var BatchDeleteEvaluationJobErrors: StaticListSchema = [
-  1,
-  n0,
-  _BDEJEa,
-  0,
-  [() => BatchDeleteEvaluationJobError, 0],
-];
-export var BatchDeleteEvaluationJobItems: StaticListSchema = [
-  1,
-  n0,
-  _BDEJIa,
-  0,
-  [() => BatchDeleteEvaluationJobItem, 0],
-];
-export var BedrockEvaluatorModels: StaticListSchema = [1, n0, _BEMe, 0, () => BedrockEvaluatorModel];
-export var CustomMetricBedrockEvaluatorModels: StaticListSchema = [
+var BatchDeleteEvaluationJobErrors: StaticListSchema = [1, n0, _BDEJEa, 0, [() => BatchDeleteEvaluationJobError$, 0]];
+var BatchDeleteEvaluationJobItems: StaticListSchema = [1, n0, _BDEJIa, 0, [() => BatchDeleteEvaluationJobItem$, 0]];
+var BedrockEvaluatorModels: StaticListSchema = [1, n0, _BEMe, 0, () => BedrockEvaluatorModel$];
+var CustomMetricBedrockEvaluatorModels: StaticListSchema = [
   1,
   n0,
   _CMBEMu,
   0,
-  () => CustomMetricBedrockEvaluatorModel,
+  () => CustomMetricBedrockEvaluatorModel$,
 ];
-export var CustomModelDeploymentSummaryList: StaticListSchema = [1, n0, _CMDSL, 0, () => CustomModelDeploymentSummary];
-export var CustomModelSummaryList: StaticListSchema = [1, n0, _CMSL, 0, () => CustomModelSummary];
-export var ErrorMessages = 64 | 0;
-export var EvaluationBedrockKnowledgeBaseIdentifiers = 64 | 0;
-export var EvaluationBedrockModelIdentifiers = 64 | 0;
-export var EvaluationDatasetMetricConfigs: StaticListSchema = [
-  1,
-  n0,
-  _EDMCv,
-  0,
-  [() => EvaluationDatasetMetricConfig, 0],
-];
-export var EvaluationJobIdentifiers: StaticListSchema = [1, n0, _EJIv, 0, [() => EvaluationJobIdentifier, 0]];
-export var EvaluationMetricNames: StaticListSchema = [1, n0, _EMNv, 0, [() => EvaluationMetricName, 0]];
-export var EvaluationModelConfigs: StaticListSchema = [1, n0, _EMC, 0, [() => EvaluationModelConfig, 0]];
-export var EvaluationPrecomputedInferenceSourceIdentifiers = 64 | 0;
-export var EvaluationPrecomputedRagSourceIdentifiers = 64 | 0;
-export var EvaluationSummaries: StaticListSchema = [1, n0, _ESv, 0, () => EvaluationSummary];
-export var EvaluationTaskTypes = 64 | 0;
-export var EvaluatorModelIdentifiers = 64 | 0;
-export var ExternalSources: StaticListSchema = [1, n0, _ESxt, 0, [() => ExternalSource, 0]];
-export var FieldsForReranking: StaticListSchema = [1, n0, _FFRi, 8, () => FieldForReranking];
-export var FoundationModelSummaryList: StaticListSchema = [1, n0, _FMSL, 0, () => FoundationModelSummary];
-export var GuardrailContentFilters: StaticListSchema = [1, n0, _GCFu, 0, [() => GuardrailContentFilter, 0]];
-export var GuardrailContentFiltersConfig: StaticListSchema = [
-  1,
-  n0,
-  _GCFCu,
-  0,
-  [() => GuardrailContentFilterConfig, 0],
-];
-export var GuardrailContextualGroundingFilters: StaticListSchema = [
+var CustomModelDeploymentSummaryList: StaticListSchema = [1, n0, _CMDSL, 0, () => CustomModelDeploymentSummary$];
+var CustomModelSummaryList: StaticListSchema = [1, n0, _CMSL, 0, () => CustomModelSummary$];
+var ErrorMessages = 64 | 0;
+var EvaluationBedrockKnowledgeBaseIdentifiers = 64 | 0;
+var EvaluationBedrockModelIdentifiers = 64 | 0;
+var EvaluationDatasetMetricConfigs: StaticListSchema = [1, n0, _EDMCv, 0, [() => EvaluationDatasetMetricConfig$, 0]];
+var EvaluationJobIdentifiers: StaticListSchema = [1, n0, _EJIv, 0, [() => EvaluationJobIdentifier, 0]];
+var EvaluationMetricNames: StaticListSchema = [1, n0, _EMNv, 0, [() => EvaluationMetricName, 0]];
+var EvaluationModelConfigs: StaticListSchema = [1, n0, _EMC, 0, [() => EvaluationModelConfig$, 0]];
+var EvaluationPrecomputedInferenceSourceIdentifiers = 64 | 0;
+var EvaluationPrecomputedRagSourceIdentifiers = 64 | 0;
+var EvaluationSummaries: StaticListSchema = [1, n0, _ESv, 0, () => EvaluationSummary$];
+var EvaluationTaskTypes = 64 | 0;
+var EvaluatorModelIdentifiers = 64 | 0;
+var ExternalSources: StaticListSchema = [1, n0, _ESxt, 0, [() => ExternalSource$, 0]];
+var FieldsForReranking: StaticListSchema = [1, n0, _FFRi, 8, () => FieldForReranking$];
+var FoundationModelSummaryList: StaticListSchema = [1, n0, _FMSL, 0, () => FoundationModelSummary$];
+var GuardrailContentFilters: StaticListSchema = [1, n0, _GCFu, 0, [() => GuardrailContentFilter$, 0]];
+var GuardrailContentFiltersConfig: StaticListSchema = [1, n0, _GCFCu, 0, [() => GuardrailContentFilterConfig$, 0]];
+var GuardrailContextualGroundingFilters: StaticListSchema = [
   1,
   n0,
   _GCGFu,
   0,
-  [() => GuardrailContextualGroundingFilter, 0],
+  [() => GuardrailContextualGroundingFilter$, 0],
 ];
-export var GuardrailContextualGroundingFiltersConfig: StaticListSchema = [
+var GuardrailContextualGroundingFiltersConfig: StaticListSchema = [
   1,
   n0,
   _GCGFCu,
   0,
-  [() => GuardrailContextualGroundingFilterConfig, 0],
+  [() => GuardrailContextualGroundingFilterConfig$, 0],
 ];
-export var GuardrailFailureRecommendations: StaticListSchema = [
-  1,
-  n0,
-  _GFRu,
-  0,
-  [() => GuardrailFailureRecommendation, 0],
-];
-export var GuardrailManagedWordLists: StaticListSchema = [1, n0, _GMWL, 0, [() => GuardrailManagedWords, 0]];
-export var GuardrailManagedWordListsConfig: StaticListSchema = [
-  1,
-  n0,
-  _GMWLC,
-  0,
-  [() => GuardrailManagedWordsConfig, 0],
-];
-export var GuardrailModalities: StaticListSchema = [1, n0, _GMu, 0, [() => GuardrailModality, 0]];
-export var GuardrailPiiEntities: StaticListSchema = [1, n0, _GPEu, 0, () => GuardrailPiiEntity];
-export var GuardrailPiiEntitiesConfig: StaticListSchema = [1, n0, _GPECu, 0, () => GuardrailPiiEntityConfig];
-export var GuardrailRegexes: StaticListSchema = [1, n0, _GRu, 0, () => GuardrailRegex];
-export var GuardrailRegexesConfig: StaticListSchema = [1, n0, _GRCu, 0, () => GuardrailRegexConfig];
-export var GuardrailStatusReasons: StaticListSchema = [1, n0, _GSRu, 0, [() => GuardrailStatusReason, 0]];
-export var GuardrailSummaries: StaticListSchema = [1, n0, _GSu, 0, [() => GuardrailSummary, 0]];
-export var GuardrailTopicExamples: StaticListSchema = [1, n0, _GTEu, 0, [() => GuardrailTopicExample, 0]];
-export var GuardrailTopics: StaticListSchema = [1, n0, _GTu, 0, [() => GuardrailTopic, 0]];
-export var GuardrailTopicsConfig: StaticListSchema = [1, n0, _GTCu, 0, [() => GuardrailTopicConfig, 0]];
-export var GuardrailWords: StaticListSchema = [1, n0, _GWu, 0, [() => GuardrailWord, 0]];
-export var GuardrailWordsConfig: StaticListSchema = [1, n0, _GWCu, 0, [() => GuardrailWordConfig, 0]];
-export var HumanEvaluationCustomMetrics: StaticListSchema = [1, n0, _HECMu, 0, [() => HumanEvaluationCustomMetric, 0]];
-export var ImportedModelSummaryList: StaticListSchema = [1, n0, _IMSL, 0, () => ImportedModelSummary];
-export var InferenceProfileModels: StaticListSchema = [1, n0, _IPMn, 0, () => InferenceProfileModel];
-export var InferenceProfileSummaries: StaticListSchema = [1, n0, _IPSn, 0, [() => InferenceProfileSummary, 0]];
-export var InferenceTypeList = 64 | 0;
-export var MarketplaceModelEndpointSummaries: StaticListSchema = [
-  1,
-  n0,
-  _MMESa,
-  0,
-  () => MarketplaceModelEndpointSummary,
-];
-export var MetadataAttributeSchemaList: StaticListSchema = [1, n0, _MASL, 0, [() => MetadataAttributeSchema, 0]];
-export var ModelCopyJobSummaries: StaticListSchema = [1, n0, _MCJSod, 0, () => ModelCopyJobSummary];
-export var ModelCustomizationJobSummaries: StaticListSchema = [1, n0, _MCJSode, 0, () => ModelCustomizationJobSummary];
-export var ModelCustomizationList = 64 | 0;
-export var ModelImportJobSummaries: StaticListSchema = [1, n0, _MIJSod, 0, () => ModelImportJobSummary];
-export var ModelInvocationJobSummaries: StaticListSchema = [1, n0, _MIJSode, 0, [() => ModelInvocationJobSummary, 0]];
-export var ModelModalityList = 64 | 0;
-export var Offers: StaticListSchema = [1, n0, _Of, 0, () => Offer];
-export var PromptRouterSummaries: StaticListSchema = [1, n0, _PRSr, 0, [() => PromptRouterSummary, 0]];
-export var PromptRouterTargetModels: StaticListSchema = [1, n0, _PRTMr, 0, () => PromptRouterTargetModel];
-export var ProvisionedModelSummaries: StaticListSchema = [1, n0, _PMSr, 0, () => ProvisionedModelSummary];
-export var RagConfigs: StaticListSchema = [1, n0, _RCa, 0, [() => RAGConfig, 0]];
-export var RAGStopSequences = 64 | 0;
-export var RateCard: StaticListSchema = [1, n0, _RCat, 0, () => DimensionalPriceRate];
-export var RatingScale: StaticListSchema = [1, n0, _RS, 0, () => RatingScaleItem];
-export var RequestMetadataFiltersList: StaticListSchema = [1, n0, _RMFL, 0, [() => RequestMetadataBaseFilters, 0]];
-export var RetrievalFilterList: StaticListSchema = [1, n0, _RFL, 0, [() => RetrievalFilter, 0]];
-export var SecurityGroupIds = 64 | 0;
-export var SubnetIds = 64 | 0;
-export var TagKeyList = 64 | 0;
-export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
-export var ValidationMetrics: StaticListSchema = [1, n0, _VMa, 0, () => ValidatorMetric];
-export var Validators: StaticListSchema = [1, n0, _Va, 0, () => Validator];
-export var AdditionalModelRequestFields = 128 | 15;
-export var ModelCustomizationHyperParameters = 128 | 0;
-export var RequestMetadataMap: StaticMapSchema = [2, n0, _RMM, 8, 0, 0];
-export var AutomatedEvaluationCustomMetricSource: StaticStructureSchema = [
+var GuardrailFailureRecommendations: StaticListSchema = [1, n0, _GFRu, 0, [() => GuardrailFailureRecommendation, 0]];
+var GuardrailManagedWordLists: StaticListSchema = [1, n0, _GMWL, 0, [() => GuardrailManagedWords$, 0]];
+var GuardrailManagedWordListsConfig: StaticListSchema = [1, n0, _GMWLC, 0, [() => GuardrailManagedWordsConfig$, 0]];
+var GuardrailModalities: StaticListSchema = [1, n0, _GMu, 0, [() => GuardrailModality, 0]];
+var GuardrailPiiEntities: StaticListSchema = [1, n0, _GPEu, 0, () => GuardrailPiiEntity$];
+var GuardrailPiiEntitiesConfig: StaticListSchema = [1, n0, _GPECu, 0, () => GuardrailPiiEntityConfig$];
+var GuardrailRegexes: StaticListSchema = [1, n0, _GRu, 0, () => GuardrailRegex$];
+var GuardrailRegexesConfig: StaticListSchema = [1, n0, _GRCu, 0, () => GuardrailRegexConfig$];
+var GuardrailStatusReasons: StaticListSchema = [1, n0, _GSRu, 0, [() => GuardrailStatusReason, 0]];
+var GuardrailSummaries: StaticListSchema = [1, n0, _GSu, 0, [() => GuardrailSummary$, 0]];
+var GuardrailTopicExamples: StaticListSchema = [1, n0, _GTEu, 0, [() => GuardrailTopicExample, 0]];
+var GuardrailTopics: StaticListSchema = [1, n0, _GTu, 0, [() => GuardrailTopic$, 0]];
+var GuardrailTopicsConfig: StaticListSchema = [1, n0, _GTCu, 0, [() => GuardrailTopicConfig$, 0]];
+var GuardrailWords: StaticListSchema = [1, n0, _GWu, 0, [() => GuardrailWord$, 0]];
+var GuardrailWordsConfig: StaticListSchema = [1, n0, _GWCu, 0, [() => GuardrailWordConfig$, 0]];
+var HumanEvaluationCustomMetrics: StaticListSchema = [1, n0, _HECMu, 0, [() => HumanEvaluationCustomMetric$, 0]];
+var ImportedModelSummaryList: StaticListSchema = [1, n0, _IMSL, 0, () => ImportedModelSummary$];
+var InferenceProfileModels: StaticListSchema = [1, n0, _IPMn, 0, () => InferenceProfileModel$];
+var InferenceProfileSummaries: StaticListSchema = [1, n0, _IPSn, 0, [() => InferenceProfileSummary$, 0]];
+var InferenceTypeList = 64 | 0;
+var MarketplaceModelEndpointSummaries: StaticListSchema = [1, n0, _MMESa, 0, () => MarketplaceModelEndpointSummary$];
+var MetadataAttributeSchemaList: StaticListSchema = [1, n0, _MASL, 0, [() => MetadataAttributeSchema$, 0]];
+var ModelCopyJobSummaries: StaticListSchema = [1, n0, _MCJSod, 0, () => ModelCopyJobSummary$];
+var ModelCustomizationJobSummaries: StaticListSchema = [1, n0, _MCJSode, 0, () => ModelCustomizationJobSummary$];
+var ModelCustomizationList = 64 | 0;
+var ModelImportJobSummaries: StaticListSchema = [1, n0, _MIJSod, 0, () => ModelImportJobSummary$];
+var ModelInvocationJobSummaries: StaticListSchema = [1, n0, _MIJSode, 0, [() => ModelInvocationJobSummary$, 0]];
+var ModelModalityList = 64 | 0;
+var Offers: StaticListSchema = [1, n0, _Of, 0, () => Offer$];
+var PromptRouterSummaries: StaticListSchema = [1, n0, _PRSr, 0, [() => PromptRouterSummary$, 0]];
+var PromptRouterTargetModels: StaticListSchema = [1, n0, _PRTMr, 0, () => PromptRouterTargetModel$];
+var ProvisionedModelSummaries: StaticListSchema = [1, n0, _PMSr, 0, () => ProvisionedModelSummary$];
+var RagConfigs: StaticListSchema = [1, n0, _RCa, 0, [() => RAGConfig$, 0]];
+var RAGStopSequences = 64 | 0;
+var RateCard: StaticListSchema = [1, n0, _RCat, 0, () => DimensionalPriceRate$];
+var RatingScale: StaticListSchema = [1, n0, _RS, 0, () => RatingScaleItem$];
+var RequestMetadataFiltersList: StaticListSchema = [1, n0, _RMFL, 0, [() => RequestMetadataBaseFilters$, 0]];
+var RetrievalFilterList: StaticListSchema = [1, n0, _RFL, 0, [() => RetrievalFilter$, 0]];
+var SecurityGroupIds = 64 | 0;
+var SubnetIds = 64 | 0;
+var TagKeyList = 64 | 0;
+var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
+var ValidationMetrics: StaticListSchema = [1, n0, _VMa, 0, () => ValidatorMetric$];
+var Validators: StaticListSchema = [1, n0, _Va, 0, () => Validator$];
+var AdditionalModelRequestFields = 128 | 15;
+var ModelCustomizationHyperParameters = 128 | 0;
+var RequestMetadataMap: StaticMapSchema = [2, n0, _RMM, 8, 0, 0];
+export var AutomatedEvaluationCustomMetricSource$: StaticStructureSchema = [
   3,
   n0,
   _AECMS,
   0,
   [_cMD],
-  [[() => CustomMetricDefinition, 0]],
+  [[() => CustomMetricDefinition$, 0]],
 ];
-export var AutomatedReasoningCheckFinding: StaticStructureSchema = [
+export var AutomatedReasoningCheckFinding$: StaticStructureSchema = [
   3,
   n0,
   _ARCF,
   0,
   [_vali, _inv, _sa, _im, _tA, _tCoo, _nTo],
   [
-    [() => AutomatedReasoningCheckValidFinding, 0],
-    [() => AutomatedReasoningCheckInvalidFinding, 0],
-    [() => AutomatedReasoningCheckSatisfiableFinding, 0],
-    [() => AutomatedReasoningCheckImpossibleFinding, 0],
-    [() => AutomatedReasoningCheckTranslationAmbiguousFinding, 0],
-    () => AutomatedReasoningCheckTooComplexFinding,
-    () => AutomatedReasoningCheckNoTranslationsFinding,
+    [() => AutomatedReasoningCheckValidFinding$, 0],
+    [() => AutomatedReasoningCheckInvalidFinding$, 0],
+    [() => AutomatedReasoningCheckSatisfiableFinding$, 0],
+    [() => AutomatedReasoningCheckImpossibleFinding$, 0],
+    [() => AutomatedReasoningCheckTranslationAmbiguousFinding$, 0],
+    () => AutomatedReasoningCheckTooComplexFinding$,
+    () => AutomatedReasoningCheckNoTranslationsFinding$,
   ],
 ];
-export var AutomatedReasoningPolicyAnnotation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyAnnotation$: StaticStructureSchema = [
   3,
   n0,
   _ARPA,
   0,
   [_aTd, _uTp, _dT, _aV, _uVp, _dV, _aR, _uR, _dR, _aRFNL, _uFRF, _uFSF, _iCn],
   [
-    [() => AutomatedReasoningPolicyAddTypeAnnotation, 0],
-    [() => AutomatedReasoningPolicyUpdateTypeAnnotation, 0],
-    [() => AutomatedReasoningPolicyDeleteTypeAnnotation, 0],
-    [() => AutomatedReasoningPolicyAddVariableAnnotation, 0],
-    [() => AutomatedReasoningPolicyUpdateVariableAnnotation, 0],
-    [() => AutomatedReasoningPolicyDeleteVariableAnnotation, 0],
-    [() => AutomatedReasoningPolicyAddRuleAnnotation, 0],
-    [() => AutomatedReasoningPolicyUpdateRuleAnnotation, 0],
-    () => AutomatedReasoningPolicyDeleteRuleAnnotation,
-    [() => AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation, 0],
-    [() => AutomatedReasoningPolicyUpdateFromRuleFeedbackAnnotation, 0],
-    [() => AutomatedReasoningPolicyUpdateFromScenarioFeedbackAnnotation, 0],
-    [() => AutomatedReasoningPolicyIngestContentAnnotation, 0],
+    [() => AutomatedReasoningPolicyAddTypeAnnotation$, 0],
+    [() => AutomatedReasoningPolicyUpdateTypeAnnotation$, 0],
+    [() => AutomatedReasoningPolicyDeleteTypeAnnotation$, 0],
+    [() => AutomatedReasoningPolicyAddVariableAnnotation$, 0],
+    [() => AutomatedReasoningPolicyUpdateVariableAnnotation$, 0],
+    [() => AutomatedReasoningPolicyDeleteVariableAnnotation$, 0],
+    [() => AutomatedReasoningPolicyAddRuleAnnotation$, 0],
+    [() => AutomatedReasoningPolicyUpdateRuleAnnotation$, 0],
+    () => AutomatedReasoningPolicyDeleteRuleAnnotation$,
+    [() => AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation$, 0],
+    [() => AutomatedReasoningPolicyUpdateFromRuleFeedbackAnnotation$, 0],
+    [() => AutomatedReasoningPolicyUpdateFromScenarioFeedbackAnnotation$, 0],
+    [() => AutomatedReasoningPolicyIngestContentAnnotation$, 0],
   ],
 ];
-export var AutomatedReasoningPolicyBuildResultAssets: StaticStructureSchema = [
+export var AutomatedReasoningPolicyBuildResultAssets$: StaticStructureSchema = [
   3,
   n0,
   _ARPBRA,
   0,
   [_pD, _qR, _bL, _gTC, _pS],
   [
-    [() => AutomatedReasoningPolicyDefinition, 0],
-    [() => AutomatedReasoningPolicyDefinitionQualityReport, 0],
-    [() => AutomatedReasoningPolicyBuildLog, 0],
-    [() => AutomatedReasoningPolicyGeneratedTestCases, 0],
-    [() => AutomatedReasoningPolicyScenarios, 0],
+    [() => AutomatedReasoningPolicyDefinition$, 0],
+    [() => AutomatedReasoningPolicyDefinitionQualityReport$, 0],
+    [() => AutomatedReasoningPolicyBuildLog$, 0],
+    [() => AutomatedReasoningPolicyGeneratedTestCases$, 0],
+    [() => AutomatedReasoningPolicyScenarios$, 0],
   ],
 ];
-export var AutomatedReasoningPolicyBuildStepContext: StaticStructureSchema = [
+export var AutomatedReasoningPolicyBuildStepContext$: StaticStructureSchema = [
   3,
   n0,
   _ARPBSC,
   0,
   [_pl, _mu],
-  [() => AutomatedReasoningPolicyPlanning, [() => AutomatedReasoningPolicyMutation, 0]],
+  [() => AutomatedReasoningPolicyPlanning$, [() => AutomatedReasoningPolicyMutation$, 0]],
 ];
-export var AutomatedReasoningPolicyDefinitionElement: StaticStructureSchema = [
+export var AutomatedReasoningPolicyDefinitionElement$: StaticStructureSchema = [
   3,
   n0,
   _ARPDE,
   0,
   [_pDV, _pDT, _pDR],
   [
-    [() => AutomatedReasoningPolicyDefinitionVariable, 0],
-    [() => AutomatedReasoningPolicyDefinitionType, 0],
-    [() => AutomatedReasoningPolicyDefinitionRule, 0],
+    [() => AutomatedReasoningPolicyDefinitionVariable$, 0],
+    [() => AutomatedReasoningPolicyDefinitionType$, 0],
+    [() => AutomatedReasoningPolicyDefinitionRule$, 0],
   ],
 ];
-export var AutomatedReasoningPolicyMutation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyMutation$: StaticStructureSchema = [
   3,
   n0,
   _ARPM,
   0,
   [_aTd, _uTp, _dT, _aV, _uVp, _dV, _aR, _uR, _dR],
   [
-    [() => AutomatedReasoningPolicyAddTypeMutation, 0],
-    [() => AutomatedReasoningPolicyUpdateTypeMutation, 0],
-    [() => AutomatedReasoningPolicyDeleteTypeMutation, 0],
-    [() => AutomatedReasoningPolicyAddVariableMutation, 0],
-    [() => AutomatedReasoningPolicyUpdateVariableMutation, 0],
-    [() => AutomatedReasoningPolicyDeleteVariableMutation, 0],
-    [() => AutomatedReasoningPolicyAddRuleMutation, 0],
-    [() => AutomatedReasoningPolicyUpdateRuleMutation, 0],
-    () => AutomatedReasoningPolicyDeleteRuleMutation,
+    [() => AutomatedReasoningPolicyAddTypeMutation$, 0],
+    [() => AutomatedReasoningPolicyUpdateTypeMutation$, 0],
+    [() => AutomatedReasoningPolicyDeleteTypeMutation$, 0],
+    [() => AutomatedReasoningPolicyAddVariableMutation$, 0],
+    [() => AutomatedReasoningPolicyUpdateVariableMutation$, 0],
+    [() => AutomatedReasoningPolicyDeleteVariableMutation$, 0],
+    [() => AutomatedReasoningPolicyAddRuleMutation$, 0],
+    [() => AutomatedReasoningPolicyUpdateRuleMutation$, 0],
+    () => AutomatedReasoningPolicyDeleteRuleMutation$,
   ],
 ];
-export var AutomatedReasoningPolicyTypeValueAnnotation: StaticStructureSchema = [
+export var AutomatedReasoningPolicyTypeValueAnnotation$: StaticStructureSchema = [
   3,
   n0,
   _ARPTVA,
   0,
   [_aTV, _uTVp, _dTV],
   [
-    [() => AutomatedReasoningPolicyAddTypeValue, 0],
-    [() => AutomatedReasoningPolicyUpdateTypeValue, 0],
-    () => AutomatedReasoningPolicyDeleteTypeValue,
+    [() => AutomatedReasoningPolicyAddTypeValue$, 0],
+    [() => AutomatedReasoningPolicyUpdateTypeValue$, 0],
+    () => AutomatedReasoningPolicyDeleteTypeValue$,
   ],
 ];
-export var AutomatedReasoningPolicyWorkflowTypeContent: StaticStructureSchema = [
+export var AutomatedReasoningPolicyWorkflowTypeContent$: StaticStructureSchema = [
   3,
   n0,
   _ARPWTC,
@@ -4602,31 +4581,31 @@ export var AutomatedReasoningPolicyWorkflowTypeContent: StaticStructureSchema = 
   [_doc, _pRAo],
   [
     [() => AutomatedReasoningPolicyBuildWorkflowDocumentList, 0],
-    [() => AutomatedReasoningPolicyBuildWorkflowRepairContent, 0],
+    [() => AutomatedReasoningPolicyBuildWorkflowRepairContent$, 0],
   ],
 ];
-export var CustomizationConfig: StaticStructureSchema = [
+export var CustomizationConfig$: StaticStructureSchema = [
   3,
   n0,
   _CC,
   0,
   [_dC, _rCf],
-  [() => DistillationConfig, () => RFTConfig],
+  [() => DistillationConfig$, () => RFTConfig$],
 ];
-export var EndpointConfig: StaticStructureSchema = [3, n0, _EC, 0, [_sMa], [() => SageMakerEndpoint]];
-export var EvaluationConfig: StaticStructureSchema = [
+export var EndpointConfig$: StaticStructureSchema = [3, n0, _EC, 0, [_sMa], [() => SageMakerEndpoint$]];
+export var EvaluationConfig$: StaticStructureSchema = [
   3,
   n0,
   _ECv,
   0,
   [_au, _h],
   [
-    [() => AutomatedEvaluationConfig, 0],
-    [() => HumanEvaluationConfig, 0],
+    [() => AutomatedEvaluationConfig$, 0],
+    [() => HumanEvaluationConfig$, 0],
   ],
 ];
-export var EvaluationDatasetLocation: StaticStructureSchema = [3, n0, _EDL, 0, [_sU], [0]];
-export var EvaluationInferenceConfig: StaticStructureSchema = [
+export var EvaluationDatasetLocation$: StaticStructureSchema = [3, n0, _EDL, 0, [_sU], [0]];
+export var EvaluationInferenceConfig$: StaticStructureSchema = [
   3,
   n0,
   _EIC,
@@ -4637,64 +4616,64 @@ export var EvaluationInferenceConfig: StaticStructureSchema = [
     [() => RagConfigs, 0],
   ],
 ];
-export var EvaluationModelConfig: StaticStructureSchema = [
+export var EvaluationModelConfig$: StaticStructureSchema = [
   3,
   n0,
   _EMCv,
   0,
   [_bM, _pIS],
-  [[() => EvaluationBedrockModel, 0], () => EvaluationPrecomputedInferenceSource],
+  [[() => EvaluationBedrockModel$, 0], () => EvaluationPrecomputedInferenceSource$],
 ];
-export var EvaluationPrecomputedRagSourceConfig: StaticStructureSchema = [
+export var EvaluationPrecomputedRagSourceConfig$: StaticStructureSchema = [
   3,
   n0,
   _EPRSCv,
   0,
   [_rSC, _rAGSC],
-  [() => EvaluationPrecomputedRetrieveSourceConfig, () => EvaluationPrecomputedRetrieveAndGenerateSourceConfig],
+  [() => EvaluationPrecomputedRetrieveSourceConfig$, () => EvaluationPrecomputedRetrieveAndGenerateSourceConfig$],
 ];
-export var EvaluatorModelConfig: StaticStructureSchema = [3, n0, _EMCva, 0, [_bEM], [() => BedrockEvaluatorModels]];
-export var GraderConfig: StaticStructureSchema = [3, n0, _GCr, 0, [_lG], [() => LambdaGraderConfig]];
-export var InferenceProfileModelSource: StaticStructureSchema = [3, n0, _IPMS, 0, [_cF], [0]];
-export var InvocationLogSource: StaticStructureSchema = [3, n0, _ILS, 0, [_sU], [0]];
-export var KnowledgeBaseConfig: StaticStructureSchema = [
+export var EvaluatorModelConfig$: StaticStructureSchema = [3, n0, _EMCva, 0, [_bEM], [() => BedrockEvaluatorModels]];
+export var GraderConfig$: StaticStructureSchema = [3, n0, _GCr, 0, [_lG], [() => LambdaGraderConfig$]];
+export var InferenceProfileModelSource$: StaticStructureSchema = [3, n0, _IPMS, 0, [_cF], [0]];
+export var InvocationLogSource$: StaticStructureSchema = [3, n0, _ILS, 0, [_sU], [0]];
+export var KnowledgeBaseConfig$: StaticStructureSchema = [
   3,
   n0,
   _KBC,
   0,
   [_rCetr, _rAGC],
   [
-    [() => RetrieveConfig, 0],
-    [() => RetrieveAndGenerateConfiguration, 0],
+    [() => RetrieveConfig$, 0],
+    [() => RetrieveAndGenerateConfiguration$, 0],
   ],
 ];
-export var ModelDataSource: StaticStructureSchema = [3, n0, _MDS, 0, [_sDS], [() => S3DataSource]];
-export var ModelInvocationJobInputDataConfig: StaticStructureSchema = [
+export var ModelDataSource$: StaticStructureSchema = [3, n0, _MDS, 0, [_sDS], [() => S3DataSource$]];
+export var ModelInvocationJobInputDataConfig$: StaticStructureSchema = [
   3,
   n0,
   _MIJIDC,
   0,
   [_sIDC],
-  [() => ModelInvocationJobS3InputDataConfig],
+  [() => ModelInvocationJobS3InputDataConfig$],
 ];
-export var ModelInvocationJobOutputDataConfig: StaticStructureSchema = [
+export var ModelInvocationJobOutputDataConfig$: StaticStructureSchema = [
   3,
   n0,
   _MIJODC,
   0,
   [_sODC],
-  [() => ModelInvocationJobS3OutputDataConfig],
+  [() => ModelInvocationJobS3OutputDataConfig$],
 ];
-export var RAGConfig: StaticStructureSchema = [
+export var RAGConfig$: StaticStructureSchema = [
   3,
   n0,
   _RAGCo,
   0,
   [_kBCn, _pRSC],
-  [[() => KnowledgeBaseConfig, 0], () => EvaluationPrecomputedRagSourceConfig],
+  [[() => KnowledgeBaseConfig$, 0], () => EvaluationPrecomputedRagSourceConfig$],
 ];
-export var RatingScaleItemValue: StaticStructureSchema = [3, n0, _RSIV, 0, [_sV, _fV], [0, 1]];
-export var RequestMetadataFilters: StaticStructureSchema = [
+export var RatingScaleItemValue$: StaticStructureSchema = [3, n0, _RSIV, 0, [_sV, _fV], [0, 1]];
+export var RequestMetadataFilters$: StaticStructureSchema = [
   3,
   n0,
   _RMF,
@@ -4707,7 +4686,7 @@ export var RequestMetadataFilters: StaticStructureSchema = [
     [() => RequestMetadataFiltersList, 0],
   ],
 ];
-export var RerankingMetadataSelectiveModeConfiguration: StaticStructureSchema = [
+export var RerankingMetadataSelectiveModeConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RMSMC,
@@ -4718,357 +4697,357 @@ export var RerankingMetadataSelectiveModeConfiguration: StaticStructureSchema = 
     [() => FieldsForReranking, 0],
   ],
 ];
-export var RetrievalFilter: StaticStructureSchema = [
+export var RetrievalFilter$: StaticStructureSchema = [
   3,
   n0,
   _RF,
   8,
   [_eq, _nE, _gT, _gTOE, _lTe, _lTOE, _in_, _nI, _sW, _lCi, _sCt, _aAn, _oAr],
   [
-    () => FilterAttribute,
-    () => FilterAttribute,
-    () => FilterAttribute,
-    () => FilterAttribute,
-    () => FilterAttribute,
-    () => FilterAttribute,
-    () => FilterAttribute,
-    () => FilterAttribute,
-    () => FilterAttribute,
-    () => FilterAttribute,
-    () => FilterAttribute,
+    () => FilterAttribute$,
+    () => FilterAttribute$,
+    () => FilterAttribute$,
+    () => FilterAttribute$,
+    () => FilterAttribute$,
+    () => FilterAttribute$,
+    () => FilterAttribute$,
+    () => FilterAttribute$,
+    () => FilterAttribute$,
+    () => FilterAttribute$,
+    () => FilterAttribute$,
     [() => RetrievalFilterList, 0],
     [() => RetrievalFilterList, 0],
   ],
 ];
-export var BatchDeleteEvaluationJob: StaticOperationSchema = [
+export var BatchDeleteEvaluationJob$: StaticOperationSchema = [
   9,
   n0,
   _BDEJ,
   { [_ht]: ["POST", "/evaluation-jobs/batch-delete", 202] },
-  () => BatchDeleteEvaluationJobRequest,
-  () => BatchDeleteEvaluationJobResponse,
+  () => BatchDeleteEvaluationJobRequest$,
+  () => BatchDeleteEvaluationJobResponse$,
 ];
-export var CancelAutomatedReasoningPolicyBuildWorkflow: StaticOperationSchema = [
+export var CancelAutomatedReasoningPolicyBuildWorkflow$: StaticOperationSchema = [
   9,
   n0,
   _CARPBW,
   { [_ht]: ["POST", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/cancel", 202] },
-  () => CancelAutomatedReasoningPolicyBuildWorkflowRequest,
-  () => CancelAutomatedReasoningPolicyBuildWorkflowResponse,
+  () => CancelAutomatedReasoningPolicyBuildWorkflowRequest$,
+  () => CancelAutomatedReasoningPolicyBuildWorkflowResponse$,
 ];
-export var CreateAutomatedReasoningPolicy: StaticOperationSchema = [
+export var CreateAutomatedReasoningPolicy$: StaticOperationSchema = [
   9,
   n0,
   _CARP,
   { [_ht]: ["POST", "/automated-reasoning-policies", 200] },
-  () => CreateAutomatedReasoningPolicyRequest,
-  () => CreateAutomatedReasoningPolicyResponse,
+  () => CreateAutomatedReasoningPolicyRequest$,
+  () => CreateAutomatedReasoningPolicyResponse$,
 ];
-export var CreateAutomatedReasoningPolicyTestCase: StaticOperationSchema = [
+export var CreateAutomatedReasoningPolicyTestCase$: StaticOperationSchema = [
   9,
   n0,
   _CARPTC,
   { [_ht]: ["POST", "/automated-reasoning-policies/{policyArn}/test-cases", 200] },
-  () => CreateAutomatedReasoningPolicyTestCaseRequest,
-  () => CreateAutomatedReasoningPolicyTestCaseResponse,
+  () => CreateAutomatedReasoningPolicyTestCaseRequest$,
+  () => CreateAutomatedReasoningPolicyTestCaseResponse$,
 ];
-export var CreateAutomatedReasoningPolicyVersion: StaticOperationSchema = [
+export var CreateAutomatedReasoningPolicyVersion$: StaticOperationSchema = [
   9,
   n0,
   _CARPV,
   { [_ht]: ["POST", "/automated-reasoning-policies/{policyArn}/versions", 200] },
-  () => CreateAutomatedReasoningPolicyVersionRequest,
-  () => CreateAutomatedReasoningPolicyVersionResponse,
+  () => CreateAutomatedReasoningPolicyVersionRequest$,
+  () => CreateAutomatedReasoningPolicyVersionResponse$,
 ];
-export var CreateCustomModel: StaticOperationSchema = [
+export var CreateCustomModel$: StaticOperationSchema = [
   9,
   n0,
   _CCM,
   { [_ht]: ["POST", "/custom-models/create-custom-model", 202] },
-  () => CreateCustomModelRequest,
-  () => CreateCustomModelResponse,
+  () => CreateCustomModelRequest$,
+  () => CreateCustomModelResponse$,
 ];
-export var CreateCustomModelDeployment: StaticOperationSchema = [
+export var CreateCustomModelDeployment$: StaticOperationSchema = [
   9,
   n0,
   _CCMD,
   { [_ht]: ["POST", "/model-customization/custom-model-deployments", 202] },
-  () => CreateCustomModelDeploymentRequest,
-  () => CreateCustomModelDeploymentResponse,
+  () => CreateCustomModelDeploymentRequest$,
+  () => CreateCustomModelDeploymentResponse$,
 ];
-export var CreateEvaluationJob: StaticOperationSchema = [
+export var CreateEvaluationJob$: StaticOperationSchema = [
   9,
   n0,
   _CEJ,
   { [_ht]: ["POST", "/evaluation-jobs", 202] },
-  () => CreateEvaluationJobRequest,
-  () => CreateEvaluationJobResponse,
+  () => CreateEvaluationJobRequest$,
+  () => CreateEvaluationJobResponse$,
 ];
-export var CreateFoundationModelAgreement: StaticOperationSchema = [
+export var CreateFoundationModelAgreement$: StaticOperationSchema = [
   9,
   n0,
   _CFMA,
   { [_ht]: ["POST", "/create-foundation-model-agreement", 202] },
-  () => CreateFoundationModelAgreementRequest,
-  () => CreateFoundationModelAgreementResponse,
+  () => CreateFoundationModelAgreementRequest$,
+  () => CreateFoundationModelAgreementResponse$,
 ];
-export var CreateGuardrail: StaticOperationSchema = [
+export var CreateGuardrail$: StaticOperationSchema = [
   9,
   n0,
   _CG,
   { [_ht]: ["POST", "/guardrails", 202] },
-  () => CreateGuardrailRequest,
-  () => CreateGuardrailResponse,
+  () => CreateGuardrailRequest$,
+  () => CreateGuardrailResponse$,
 ];
-export var CreateGuardrailVersion: StaticOperationSchema = [
+export var CreateGuardrailVersion$: StaticOperationSchema = [
   9,
   n0,
   _CGV,
   { [_ht]: ["POST", "/guardrails/{guardrailIdentifier}", 202] },
-  () => CreateGuardrailVersionRequest,
-  () => CreateGuardrailVersionResponse,
+  () => CreateGuardrailVersionRequest$,
+  () => CreateGuardrailVersionResponse$,
 ];
-export var CreateInferenceProfile: StaticOperationSchema = [
+export var CreateInferenceProfile$: StaticOperationSchema = [
   9,
   n0,
   _CIP,
   { [_ht]: ["POST", "/inference-profiles", 201] },
-  () => CreateInferenceProfileRequest,
-  () => CreateInferenceProfileResponse,
+  () => CreateInferenceProfileRequest$,
+  () => CreateInferenceProfileResponse$,
 ];
-export var CreateMarketplaceModelEndpoint: StaticOperationSchema = [
+export var CreateMarketplaceModelEndpoint$: StaticOperationSchema = [
   9,
   n0,
   _CMME,
   { [_ht]: ["POST", "/marketplace-model/endpoints", 200] },
-  () => CreateMarketplaceModelEndpointRequest,
-  () => CreateMarketplaceModelEndpointResponse,
+  () => CreateMarketplaceModelEndpointRequest$,
+  () => CreateMarketplaceModelEndpointResponse$,
 ];
-export var CreateModelCopyJob: StaticOperationSchema = [
+export var CreateModelCopyJob$: StaticOperationSchema = [
   9,
   n0,
   _CMCJ,
   { [_ht]: ["POST", "/model-copy-jobs", 201] },
-  () => CreateModelCopyJobRequest,
-  () => CreateModelCopyJobResponse,
+  () => CreateModelCopyJobRequest$,
+  () => CreateModelCopyJobResponse$,
 ];
-export var CreateModelCustomizationJob: StaticOperationSchema = [
+export var CreateModelCustomizationJob$: StaticOperationSchema = [
   9,
   n0,
   _CMCJr,
   { [_ht]: ["POST", "/model-customization-jobs", 201] },
-  () => CreateModelCustomizationJobRequest,
-  () => CreateModelCustomizationJobResponse,
+  () => CreateModelCustomizationJobRequest$,
+  () => CreateModelCustomizationJobResponse$,
 ];
-export var CreateModelImportJob: StaticOperationSchema = [
+export var CreateModelImportJob$: StaticOperationSchema = [
   9,
   n0,
   _CMIJ,
   { [_ht]: ["POST", "/model-import-jobs", 201] },
-  () => CreateModelImportJobRequest,
-  () => CreateModelImportJobResponse,
+  () => CreateModelImportJobRequest$,
+  () => CreateModelImportJobResponse$,
 ];
-export var CreateModelInvocationJob: StaticOperationSchema = [
+export var CreateModelInvocationJob$: StaticOperationSchema = [
   9,
   n0,
   _CMIJr,
   { [_ht]: ["POST", "/model-invocation-job", 200] },
-  () => CreateModelInvocationJobRequest,
-  () => CreateModelInvocationJobResponse,
+  () => CreateModelInvocationJobRequest$,
+  () => CreateModelInvocationJobResponse$,
 ];
-export var CreatePromptRouter: StaticOperationSchema = [
+export var CreatePromptRouter$: StaticOperationSchema = [
   9,
   n0,
   _CPR,
   { [_ht]: ["POST", "/prompt-routers", 200] },
-  () => CreatePromptRouterRequest,
-  () => CreatePromptRouterResponse,
+  () => CreatePromptRouterRequest$,
+  () => CreatePromptRouterResponse$,
 ];
-export var CreateProvisionedModelThroughput: StaticOperationSchema = [
+export var CreateProvisionedModelThroughput$: StaticOperationSchema = [
   9,
   n0,
   _CPMT,
   { [_ht]: ["POST", "/provisioned-model-throughput", 201] },
-  () => CreateProvisionedModelThroughputRequest,
-  () => CreateProvisionedModelThroughputResponse,
+  () => CreateProvisionedModelThroughputRequest$,
+  () => CreateProvisionedModelThroughputResponse$,
 ];
-export var DeleteAutomatedReasoningPolicy: StaticOperationSchema = [
+export var DeleteAutomatedReasoningPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DARP,
   { [_ht]: ["DELETE", "/automated-reasoning-policies/{policyArn}", 202] },
-  () => DeleteAutomatedReasoningPolicyRequest,
-  () => DeleteAutomatedReasoningPolicyResponse,
+  () => DeleteAutomatedReasoningPolicyRequest$,
+  () => DeleteAutomatedReasoningPolicyResponse$,
 ];
-export var DeleteAutomatedReasoningPolicyBuildWorkflow: StaticOperationSchema = [
+export var DeleteAutomatedReasoningPolicyBuildWorkflow$: StaticOperationSchema = [
   9,
   n0,
   _DARPBW,
   { [_ht]: ["DELETE", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}", 202] },
-  () => DeleteAutomatedReasoningPolicyBuildWorkflowRequest,
-  () => DeleteAutomatedReasoningPolicyBuildWorkflowResponse,
+  () => DeleteAutomatedReasoningPolicyBuildWorkflowRequest$,
+  () => DeleteAutomatedReasoningPolicyBuildWorkflowResponse$,
 ];
-export var DeleteAutomatedReasoningPolicyTestCase: StaticOperationSchema = [
+export var DeleteAutomatedReasoningPolicyTestCase$: StaticOperationSchema = [
   9,
   n0,
   _DARPTC,
   { [_ht]: ["DELETE", "/automated-reasoning-policies/{policyArn}/test-cases/{testCaseId}", 202] },
-  () => DeleteAutomatedReasoningPolicyTestCaseRequest,
-  () => DeleteAutomatedReasoningPolicyTestCaseResponse,
+  () => DeleteAutomatedReasoningPolicyTestCaseRequest$,
+  () => DeleteAutomatedReasoningPolicyTestCaseResponse$,
 ];
-export var DeleteCustomModel: StaticOperationSchema = [
+export var DeleteCustomModel$: StaticOperationSchema = [
   9,
   n0,
   _DCM,
   { [_ht]: ["DELETE", "/custom-models/{modelIdentifier}", 200] },
-  () => DeleteCustomModelRequest,
-  () => DeleteCustomModelResponse,
+  () => DeleteCustomModelRequest$,
+  () => DeleteCustomModelResponse$,
 ];
-export var DeleteCustomModelDeployment: StaticOperationSchema = [
+export var DeleteCustomModelDeployment$: StaticOperationSchema = [
   9,
   n0,
   _DCMD,
   { [_ht]: ["DELETE", "/model-customization/custom-model-deployments/{customModelDeploymentIdentifier}", 200] },
-  () => DeleteCustomModelDeploymentRequest,
-  () => DeleteCustomModelDeploymentResponse,
+  () => DeleteCustomModelDeploymentRequest$,
+  () => DeleteCustomModelDeploymentResponse$,
 ];
-export var DeleteEnforcedGuardrailConfiguration: StaticOperationSchema = [
+export var DeleteEnforcedGuardrailConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DEGC,
   { [_ht]: ["DELETE", "/enforcedGuardrailsConfiguration/{configId}", 200] },
-  () => DeleteEnforcedGuardrailConfigurationRequest,
-  () => DeleteEnforcedGuardrailConfigurationResponse,
+  () => DeleteEnforcedGuardrailConfigurationRequest$,
+  () => DeleteEnforcedGuardrailConfigurationResponse$,
 ];
-export var DeleteFoundationModelAgreement: StaticOperationSchema = [
+export var DeleteFoundationModelAgreement$: StaticOperationSchema = [
   9,
   n0,
   _DFMA,
   { [_ht]: ["POST", "/delete-foundation-model-agreement", 202] },
-  () => DeleteFoundationModelAgreementRequest,
-  () => DeleteFoundationModelAgreementResponse,
+  () => DeleteFoundationModelAgreementRequest$,
+  () => DeleteFoundationModelAgreementResponse$,
 ];
-export var DeleteGuardrail: StaticOperationSchema = [
+export var DeleteGuardrail$: StaticOperationSchema = [
   9,
   n0,
   _DG,
   { [_ht]: ["DELETE", "/guardrails/{guardrailIdentifier}", 202] },
-  () => DeleteGuardrailRequest,
-  () => DeleteGuardrailResponse,
+  () => DeleteGuardrailRequest$,
+  () => DeleteGuardrailResponse$,
 ];
-export var DeleteImportedModel: StaticOperationSchema = [
+export var DeleteImportedModel$: StaticOperationSchema = [
   9,
   n0,
   _DIM,
   { [_ht]: ["DELETE", "/imported-models/{modelIdentifier}", 200] },
-  () => DeleteImportedModelRequest,
-  () => DeleteImportedModelResponse,
+  () => DeleteImportedModelRequest$,
+  () => DeleteImportedModelResponse$,
 ];
-export var DeleteInferenceProfile: StaticOperationSchema = [
+export var DeleteInferenceProfile$: StaticOperationSchema = [
   9,
   n0,
   _DIP,
   { [_ht]: ["DELETE", "/inference-profiles/{inferenceProfileIdentifier}", 200] },
-  () => DeleteInferenceProfileRequest,
-  () => DeleteInferenceProfileResponse,
+  () => DeleteInferenceProfileRequest$,
+  () => DeleteInferenceProfileResponse$,
 ];
-export var DeleteMarketplaceModelEndpoint: StaticOperationSchema = [
+export var DeleteMarketplaceModelEndpoint$: StaticOperationSchema = [
   9,
   n0,
   _DMME,
   { [_ht]: ["DELETE", "/marketplace-model/endpoints/{endpointArn}", 200] },
-  () => DeleteMarketplaceModelEndpointRequest,
-  () => DeleteMarketplaceModelEndpointResponse,
+  () => DeleteMarketplaceModelEndpointRequest$,
+  () => DeleteMarketplaceModelEndpointResponse$,
 ];
-export var DeleteModelInvocationLoggingConfiguration: StaticOperationSchema = [
+export var DeleteModelInvocationLoggingConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DMILC,
   { [_ht]: ["DELETE", "/logging/modelinvocations", 200] },
-  () => DeleteModelInvocationLoggingConfigurationRequest,
-  () => DeleteModelInvocationLoggingConfigurationResponse,
+  () => DeleteModelInvocationLoggingConfigurationRequest$,
+  () => DeleteModelInvocationLoggingConfigurationResponse$,
 ];
-export var DeletePromptRouter: StaticOperationSchema = [
+export var DeletePromptRouter$: StaticOperationSchema = [
   9,
   n0,
   _DPRe,
   { [_ht]: ["DELETE", "/prompt-routers/{promptRouterArn}", 200] },
-  () => DeletePromptRouterRequest,
-  () => DeletePromptRouterResponse,
+  () => DeletePromptRouterRequest$,
+  () => DeletePromptRouterResponse$,
 ];
-export var DeleteProvisionedModelThroughput: StaticOperationSchema = [
+export var DeleteProvisionedModelThroughput$: StaticOperationSchema = [
   9,
   n0,
   _DPMT,
   { [_ht]: ["DELETE", "/provisioned-model-throughput/{provisionedModelId}", 200] },
-  () => DeleteProvisionedModelThroughputRequest,
-  () => DeleteProvisionedModelThroughputResponse,
+  () => DeleteProvisionedModelThroughputRequest$,
+  () => DeleteProvisionedModelThroughputResponse$,
 ];
-export var DeregisterMarketplaceModelEndpoint: StaticOperationSchema = [
+export var DeregisterMarketplaceModelEndpoint$: StaticOperationSchema = [
   9,
   n0,
   _DMMEe,
   { [_ht]: ["DELETE", "/marketplace-model/endpoints/{endpointArn}/registration", 200] },
-  () => DeregisterMarketplaceModelEndpointRequest,
-  () => DeregisterMarketplaceModelEndpointResponse,
+  () => DeregisterMarketplaceModelEndpointRequest$,
+  () => DeregisterMarketplaceModelEndpointResponse$,
 ];
-export var ExportAutomatedReasoningPolicyVersion: StaticOperationSchema = [
+export var ExportAutomatedReasoningPolicyVersion$: StaticOperationSchema = [
   9,
   n0,
   _EARPV,
   { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/export", 200] },
-  () => ExportAutomatedReasoningPolicyVersionRequest,
-  () => ExportAutomatedReasoningPolicyVersionResponse,
+  () => ExportAutomatedReasoningPolicyVersionRequest$,
+  () => ExportAutomatedReasoningPolicyVersionResponse$,
 ];
-export var GetAutomatedReasoningPolicy: StaticOperationSchema = [
+export var GetAutomatedReasoningPolicy$: StaticOperationSchema = [
   9,
   n0,
   _GARPe,
   { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}", 200] },
-  () => GetAutomatedReasoningPolicyRequest,
-  () => GetAutomatedReasoningPolicyResponse,
+  () => GetAutomatedReasoningPolicyRequest$,
+  () => GetAutomatedReasoningPolicyResponse$,
 ];
-export var GetAutomatedReasoningPolicyAnnotations: StaticOperationSchema = [
+export var GetAutomatedReasoningPolicyAnnotations$: StaticOperationSchema = [
   9,
   n0,
   _GARPA,
   { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/annotations", 200] },
-  () => GetAutomatedReasoningPolicyAnnotationsRequest,
-  () => GetAutomatedReasoningPolicyAnnotationsResponse,
+  () => GetAutomatedReasoningPolicyAnnotationsRequest$,
+  () => GetAutomatedReasoningPolicyAnnotationsResponse$,
 ];
-export var GetAutomatedReasoningPolicyBuildWorkflow: StaticOperationSchema = [
+export var GetAutomatedReasoningPolicyBuildWorkflow$: StaticOperationSchema = [
   9,
   n0,
   _GARPBW,
   { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}", 200] },
-  () => GetAutomatedReasoningPolicyBuildWorkflowRequest,
-  () => GetAutomatedReasoningPolicyBuildWorkflowResponse,
+  () => GetAutomatedReasoningPolicyBuildWorkflowRequest$,
+  () => GetAutomatedReasoningPolicyBuildWorkflowResponse$,
 ];
-export var GetAutomatedReasoningPolicyBuildWorkflowResultAssets: StaticOperationSchema = [
+export var GetAutomatedReasoningPolicyBuildWorkflowResultAssets$: StaticOperationSchema = [
   9,
   n0,
   _GARPBWRA,
   { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/result-assets", 200] },
-  () => GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest,
-  () => GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse,
+  () => GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest$,
+  () => GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse$,
 ];
-export var GetAutomatedReasoningPolicyNextScenario: StaticOperationSchema = [
+export var GetAutomatedReasoningPolicyNextScenario$: StaticOperationSchema = [
   9,
   n0,
   _GARPNS,
   { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/scenarios", 200] },
-  () => GetAutomatedReasoningPolicyNextScenarioRequest,
-  () => GetAutomatedReasoningPolicyNextScenarioResponse,
+  () => GetAutomatedReasoningPolicyNextScenarioRequest$,
+  () => GetAutomatedReasoningPolicyNextScenarioResponse$,
 ];
-export var GetAutomatedReasoningPolicyTestCase: StaticOperationSchema = [
+export var GetAutomatedReasoningPolicyTestCase$: StaticOperationSchema = [
   9,
   n0,
   _GARPTC,
   { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/test-cases/{testCaseId}", 200] },
-  () => GetAutomatedReasoningPolicyTestCaseRequest,
-  () => GetAutomatedReasoningPolicyTestCaseResponse,
+  () => GetAutomatedReasoningPolicyTestCaseRequest$,
+  () => GetAutomatedReasoningPolicyTestCaseResponse$,
 ];
-export var GetAutomatedReasoningPolicyTestResult: StaticOperationSchema = [
+export var GetAutomatedReasoningPolicyTestResult$: StaticOperationSchema = [
   9,
   n0,
   _GARPTR,
@@ -5079,456 +5058,456 @@ export var GetAutomatedReasoningPolicyTestResult: StaticOperationSchema = [
       200,
     ],
   },
-  () => GetAutomatedReasoningPolicyTestResultRequest,
-  () => GetAutomatedReasoningPolicyTestResultResponse,
+  () => GetAutomatedReasoningPolicyTestResultRequest$,
+  () => GetAutomatedReasoningPolicyTestResultResponse$,
 ];
-export var GetCustomModel: StaticOperationSchema = [
+export var GetCustomModel$: StaticOperationSchema = [
   9,
   n0,
   _GCM,
   { [_ht]: ["GET", "/custom-models/{modelIdentifier}", 200] },
-  () => GetCustomModelRequest,
-  () => GetCustomModelResponse,
+  () => GetCustomModelRequest$,
+  () => GetCustomModelResponse$,
 ];
-export var GetCustomModelDeployment: StaticOperationSchema = [
+export var GetCustomModelDeployment$: StaticOperationSchema = [
   9,
   n0,
   _GCMD,
   { [_ht]: ["GET", "/model-customization/custom-model-deployments/{customModelDeploymentIdentifier}", 200] },
-  () => GetCustomModelDeploymentRequest,
-  () => GetCustomModelDeploymentResponse,
+  () => GetCustomModelDeploymentRequest$,
+  () => GetCustomModelDeploymentResponse$,
 ];
-export var GetEvaluationJob: StaticOperationSchema = [
+export var GetEvaluationJob$: StaticOperationSchema = [
   9,
   n0,
   _GEJ,
   { [_ht]: ["GET", "/evaluation-jobs/{jobIdentifier}", 200] },
-  () => GetEvaluationJobRequest,
-  () => GetEvaluationJobResponse,
+  () => GetEvaluationJobRequest$,
+  () => GetEvaluationJobResponse$,
 ];
-export var GetFoundationModel: StaticOperationSchema = [
+export var GetFoundationModel$: StaticOperationSchema = [
   9,
   n0,
   _GFM,
   { [_ht]: ["GET", "/foundation-models/{modelIdentifier}", 200] },
-  () => GetFoundationModelRequest,
-  () => GetFoundationModelResponse,
+  () => GetFoundationModelRequest$,
+  () => GetFoundationModelResponse$,
 ];
-export var GetFoundationModelAvailability: StaticOperationSchema = [
+export var GetFoundationModelAvailability$: StaticOperationSchema = [
   9,
   n0,
   _GFMA,
   { [_ht]: ["GET", "/foundation-model-availability/{modelId}", 200] },
-  () => GetFoundationModelAvailabilityRequest,
-  () => GetFoundationModelAvailabilityResponse,
+  () => GetFoundationModelAvailabilityRequest$,
+  () => GetFoundationModelAvailabilityResponse$,
 ];
-export var GetGuardrail: StaticOperationSchema = [
+export var GetGuardrail$: StaticOperationSchema = [
   9,
   n0,
   _GG,
   { [_ht]: ["GET", "/guardrails/{guardrailIdentifier}", 200] },
-  () => GetGuardrailRequest,
-  () => GetGuardrailResponse,
+  () => GetGuardrailRequest$,
+  () => GetGuardrailResponse$,
 ];
-export var GetImportedModel: StaticOperationSchema = [
+export var GetImportedModel$: StaticOperationSchema = [
   9,
   n0,
   _GIM,
   { [_ht]: ["GET", "/imported-models/{modelIdentifier}", 200] },
-  () => GetImportedModelRequest,
-  () => GetImportedModelResponse,
+  () => GetImportedModelRequest$,
+  () => GetImportedModelResponse$,
 ];
-export var GetInferenceProfile: StaticOperationSchema = [
+export var GetInferenceProfile$: StaticOperationSchema = [
   9,
   n0,
   _GIP,
   { [_ht]: ["GET", "/inference-profiles/{inferenceProfileIdentifier}", 200] },
-  () => GetInferenceProfileRequest,
-  () => GetInferenceProfileResponse,
+  () => GetInferenceProfileRequest$,
+  () => GetInferenceProfileResponse$,
 ];
-export var GetMarketplaceModelEndpoint: StaticOperationSchema = [
+export var GetMarketplaceModelEndpoint$: StaticOperationSchema = [
   9,
   n0,
   _GMME,
   { [_ht]: ["GET", "/marketplace-model/endpoints/{endpointArn}", 200] },
-  () => GetMarketplaceModelEndpointRequest,
-  () => GetMarketplaceModelEndpointResponse,
+  () => GetMarketplaceModelEndpointRequest$,
+  () => GetMarketplaceModelEndpointResponse$,
 ];
-export var GetModelCopyJob: StaticOperationSchema = [
+export var GetModelCopyJob$: StaticOperationSchema = [
   9,
   n0,
   _GMCJ,
   { [_ht]: ["GET", "/model-copy-jobs/{jobArn}", 200] },
-  () => GetModelCopyJobRequest,
-  () => GetModelCopyJobResponse,
+  () => GetModelCopyJobRequest$,
+  () => GetModelCopyJobResponse$,
 ];
-export var GetModelCustomizationJob: StaticOperationSchema = [
+export var GetModelCustomizationJob$: StaticOperationSchema = [
   9,
   n0,
   _GMCJe,
   { [_ht]: ["GET", "/model-customization-jobs/{jobIdentifier}", 200] },
-  () => GetModelCustomizationJobRequest,
-  () => GetModelCustomizationJobResponse,
+  () => GetModelCustomizationJobRequest$,
+  () => GetModelCustomizationJobResponse$,
 ];
-export var GetModelImportJob: StaticOperationSchema = [
+export var GetModelImportJob$: StaticOperationSchema = [
   9,
   n0,
   _GMIJ,
   { [_ht]: ["GET", "/model-import-jobs/{jobIdentifier}", 200] },
-  () => GetModelImportJobRequest,
-  () => GetModelImportJobResponse,
+  () => GetModelImportJobRequest$,
+  () => GetModelImportJobResponse$,
 ];
-export var GetModelInvocationJob: StaticOperationSchema = [
+export var GetModelInvocationJob$: StaticOperationSchema = [
   9,
   n0,
   _GMIJe,
   { [_ht]: ["GET", "/model-invocation-job/{jobIdentifier}", 200] },
-  () => GetModelInvocationJobRequest,
-  () => GetModelInvocationJobResponse,
+  () => GetModelInvocationJobRequest$,
+  () => GetModelInvocationJobResponse$,
 ];
-export var GetModelInvocationLoggingConfiguration: StaticOperationSchema = [
+export var GetModelInvocationLoggingConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GMILC,
   { [_ht]: ["GET", "/logging/modelinvocations", 200] },
-  () => GetModelInvocationLoggingConfigurationRequest,
-  () => GetModelInvocationLoggingConfigurationResponse,
+  () => GetModelInvocationLoggingConfigurationRequest$,
+  () => GetModelInvocationLoggingConfigurationResponse$,
 ];
-export var GetPromptRouter: StaticOperationSchema = [
+export var GetPromptRouter$: StaticOperationSchema = [
   9,
   n0,
   _GPR,
   { [_ht]: ["GET", "/prompt-routers/{promptRouterArn}", 200] },
-  () => GetPromptRouterRequest,
-  () => GetPromptRouterResponse,
+  () => GetPromptRouterRequest$,
+  () => GetPromptRouterResponse$,
 ];
-export var GetProvisionedModelThroughput: StaticOperationSchema = [
+export var GetProvisionedModelThroughput$: StaticOperationSchema = [
   9,
   n0,
   _GPMT,
   { [_ht]: ["GET", "/provisioned-model-throughput/{provisionedModelId}", 200] },
-  () => GetProvisionedModelThroughputRequest,
-  () => GetProvisionedModelThroughputResponse,
+  () => GetProvisionedModelThroughputRequest$,
+  () => GetProvisionedModelThroughputResponse$,
 ];
-export var GetUseCaseForModelAccess: StaticOperationSchema = [
+export var GetUseCaseForModelAccess$: StaticOperationSchema = [
   9,
   n0,
   _GUCFMA,
   { [_ht]: ["GET", "/use-case-for-model-access", 200] },
-  () => GetUseCaseForModelAccessRequest,
-  () => GetUseCaseForModelAccessResponse,
+  () => GetUseCaseForModelAccessRequest$,
+  () => GetUseCaseForModelAccessResponse$,
 ];
-export var ListAutomatedReasoningPolicies: StaticOperationSchema = [
+export var ListAutomatedReasoningPolicies$: StaticOperationSchema = [
   9,
   n0,
   _LARP,
   { [_ht]: ["GET", "/automated-reasoning-policies", 200] },
-  () => ListAutomatedReasoningPoliciesRequest,
-  () => ListAutomatedReasoningPoliciesResponse,
+  () => ListAutomatedReasoningPoliciesRequest$,
+  () => ListAutomatedReasoningPoliciesResponse$,
 ];
-export var ListAutomatedReasoningPolicyBuildWorkflows: StaticOperationSchema = [
+export var ListAutomatedReasoningPolicyBuildWorkflows$: StaticOperationSchema = [
   9,
   n0,
   _LARPBW,
   { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/build-workflows", 200] },
-  () => ListAutomatedReasoningPolicyBuildWorkflowsRequest,
-  () => ListAutomatedReasoningPolicyBuildWorkflowsResponse,
+  () => ListAutomatedReasoningPolicyBuildWorkflowsRequest$,
+  () => ListAutomatedReasoningPolicyBuildWorkflowsResponse$,
 ];
-export var ListAutomatedReasoningPolicyTestCases: StaticOperationSchema = [
+export var ListAutomatedReasoningPolicyTestCases$: StaticOperationSchema = [
   9,
   n0,
   _LARPTC,
   { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/test-cases", 200] },
-  () => ListAutomatedReasoningPolicyTestCasesRequest,
-  () => ListAutomatedReasoningPolicyTestCasesResponse,
+  () => ListAutomatedReasoningPolicyTestCasesRequest$,
+  () => ListAutomatedReasoningPolicyTestCasesResponse$,
 ];
-export var ListAutomatedReasoningPolicyTestResults: StaticOperationSchema = [
+export var ListAutomatedReasoningPolicyTestResults$: StaticOperationSchema = [
   9,
   n0,
   _LARPTR,
   { [_ht]: ["GET", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/test-results", 200] },
-  () => ListAutomatedReasoningPolicyTestResultsRequest,
-  () => ListAutomatedReasoningPolicyTestResultsResponse,
+  () => ListAutomatedReasoningPolicyTestResultsRequest$,
+  () => ListAutomatedReasoningPolicyTestResultsResponse$,
 ];
-export var ListCustomModelDeployments: StaticOperationSchema = [
+export var ListCustomModelDeployments$: StaticOperationSchema = [
   9,
   n0,
   _LCMD,
   { [_ht]: ["GET", "/model-customization/custom-model-deployments", 200] },
-  () => ListCustomModelDeploymentsRequest,
-  () => ListCustomModelDeploymentsResponse,
+  () => ListCustomModelDeploymentsRequest$,
+  () => ListCustomModelDeploymentsResponse$,
 ];
-export var ListCustomModels: StaticOperationSchema = [
+export var ListCustomModels$: StaticOperationSchema = [
   9,
   n0,
   _LCM,
   { [_ht]: ["GET", "/custom-models", 200] },
-  () => ListCustomModelsRequest,
-  () => ListCustomModelsResponse,
+  () => ListCustomModelsRequest$,
+  () => ListCustomModelsResponse$,
 ];
-export var ListEnforcedGuardrailsConfiguration: StaticOperationSchema = [
+export var ListEnforcedGuardrailsConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _LEGC,
   { [_ht]: ["GET", "/enforcedGuardrailsConfiguration", 200] },
-  () => ListEnforcedGuardrailsConfigurationRequest,
-  () => ListEnforcedGuardrailsConfigurationResponse,
+  () => ListEnforcedGuardrailsConfigurationRequest$,
+  () => ListEnforcedGuardrailsConfigurationResponse$,
 ];
-export var ListEvaluationJobs: StaticOperationSchema = [
+export var ListEvaluationJobs$: StaticOperationSchema = [
   9,
   n0,
   _LEJ,
   { [_ht]: ["GET", "/evaluation-jobs", 200] },
-  () => ListEvaluationJobsRequest,
-  () => ListEvaluationJobsResponse,
+  () => ListEvaluationJobsRequest$,
+  () => ListEvaluationJobsResponse$,
 ];
-export var ListFoundationModelAgreementOffers: StaticOperationSchema = [
+export var ListFoundationModelAgreementOffers$: StaticOperationSchema = [
   9,
   n0,
   _LFMAO,
   { [_ht]: ["GET", "/list-foundation-model-agreement-offers/{modelId}", 200] },
-  () => ListFoundationModelAgreementOffersRequest,
-  () => ListFoundationModelAgreementOffersResponse,
+  () => ListFoundationModelAgreementOffersRequest$,
+  () => ListFoundationModelAgreementOffersResponse$,
 ];
-export var ListFoundationModels: StaticOperationSchema = [
+export var ListFoundationModels$: StaticOperationSchema = [
   9,
   n0,
   _LFM,
   { [_ht]: ["GET", "/foundation-models", 200] },
-  () => ListFoundationModelsRequest,
-  () => ListFoundationModelsResponse,
+  () => ListFoundationModelsRequest$,
+  () => ListFoundationModelsResponse$,
 ];
-export var ListGuardrails: StaticOperationSchema = [
+export var ListGuardrails$: StaticOperationSchema = [
   9,
   n0,
   _LG,
   { [_ht]: ["GET", "/guardrails", 200] },
-  () => ListGuardrailsRequest,
-  () => ListGuardrailsResponse,
+  () => ListGuardrailsRequest$,
+  () => ListGuardrailsResponse$,
 ];
-export var ListImportedModels: StaticOperationSchema = [
+export var ListImportedModels$: StaticOperationSchema = [
   9,
   n0,
   _LIM,
   { [_ht]: ["GET", "/imported-models", 200] },
-  () => ListImportedModelsRequest,
-  () => ListImportedModelsResponse,
+  () => ListImportedModelsRequest$,
+  () => ListImportedModelsResponse$,
 ];
-export var ListInferenceProfiles: StaticOperationSchema = [
+export var ListInferenceProfiles$: StaticOperationSchema = [
   9,
   n0,
   _LIP,
   { [_ht]: ["GET", "/inference-profiles", 200] },
-  () => ListInferenceProfilesRequest,
-  () => ListInferenceProfilesResponse,
+  () => ListInferenceProfilesRequest$,
+  () => ListInferenceProfilesResponse$,
 ];
-export var ListMarketplaceModelEndpoints: StaticOperationSchema = [
+export var ListMarketplaceModelEndpoints$: StaticOperationSchema = [
   9,
   n0,
   _LMME,
   { [_ht]: ["GET", "/marketplace-model/endpoints", 200] },
-  () => ListMarketplaceModelEndpointsRequest,
-  () => ListMarketplaceModelEndpointsResponse,
+  () => ListMarketplaceModelEndpointsRequest$,
+  () => ListMarketplaceModelEndpointsResponse$,
 ];
-export var ListModelCopyJobs: StaticOperationSchema = [
+export var ListModelCopyJobs$: StaticOperationSchema = [
   9,
   n0,
   _LMCJ,
   { [_ht]: ["GET", "/model-copy-jobs", 200] },
-  () => ListModelCopyJobsRequest,
-  () => ListModelCopyJobsResponse,
+  () => ListModelCopyJobsRequest$,
+  () => ListModelCopyJobsResponse$,
 ];
-export var ListModelCustomizationJobs: StaticOperationSchema = [
+export var ListModelCustomizationJobs$: StaticOperationSchema = [
   9,
   n0,
   _LMCJi,
   { [_ht]: ["GET", "/model-customization-jobs", 200] },
-  () => ListModelCustomizationJobsRequest,
-  () => ListModelCustomizationJobsResponse,
+  () => ListModelCustomizationJobsRequest$,
+  () => ListModelCustomizationJobsResponse$,
 ];
-export var ListModelImportJobs: StaticOperationSchema = [
+export var ListModelImportJobs$: StaticOperationSchema = [
   9,
   n0,
   _LMIJ,
   { [_ht]: ["GET", "/model-import-jobs", 200] },
-  () => ListModelImportJobsRequest,
-  () => ListModelImportJobsResponse,
+  () => ListModelImportJobsRequest$,
+  () => ListModelImportJobsResponse$,
 ];
-export var ListModelInvocationJobs: StaticOperationSchema = [
+export var ListModelInvocationJobs$: StaticOperationSchema = [
   9,
   n0,
   _LMIJi,
   { [_ht]: ["GET", "/model-invocation-jobs", 200] },
-  () => ListModelInvocationJobsRequest,
-  () => ListModelInvocationJobsResponse,
+  () => ListModelInvocationJobsRequest$,
+  () => ListModelInvocationJobsResponse$,
 ];
-export var ListPromptRouters: StaticOperationSchema = [
+export var ListPromptRouters$: StaticOperationSchema = [
   9,
   n0,
   _LPR,
   { [_ht]: ["GET", "/prompt-routers", 200] },
-  () => ListPromptRoutersRequest,
-  () => ListPromptRoutersResponse,
+  () => ListPromptRoutersRequest$,
+  () => ListPromptRoutersResponse$,
 ];
-export var ListProvisionedModelThroughputs: StaticOperationSchema = [
+export var ListProvisionedModelThroughputs$: StaticOperationSchema = [
   9,
   n0,
   _LPMT,
   { [_ht]: ["GET", "/provisioned-model-throughputs", 200] },
-  () => ListProvisionedModelThroughputsRequest,
-  () => ListProvisionedModelThroughputsResponse,
+  () => ListProvisionedModelThroughputsRequest$,
+  () => ListProvisionedModelThroughputsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_ht]: ["POST", "/listTagsForResource", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var PutEnforcedGuardrailConfiguration: StaticOperationSchema = [
+export var PutEnforcedGuardrailConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PEGC,
   { [_ht]: ["PUT", "/enforcedGuardrailsConfiguration", 200] },
-  () => PutEnforcedGuardrailConfigurationRequest,
-  () => PutEnforcedGuardrailConfigurationResponse,
+  () => PutEnforcedGuardrailConfigurationRequest$,
+  () => PutEnforcedGuardrailConfigurationResponse$,
 ];
-export var PutModelInvocationLoggingConfiguration: StaticOperationSchema = [
+export var PutModelInvocationLoggingConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PMILC,
   { [_ht]: ["PUT", "/logging/modelinvocations", 200] },
-  () => PutModelInvocationLoggingConfigurationRequest,
-  () => PutModelInvocationLoggingConfigurationResponse,
+  () => PutModelInvocationLoggingConfigurationRequest$,
+  () => PutModelInvocationLoggingConfigurationResponse$,
 ];
-export var PutUseCaseForModelAccess: StaticOperationSchema = [
+export var PutUseCaseForModelAccess$: StaticOperationSchema = [
   9,
   n0,
   _PUCFMA,
   { [_ht]: ["POST", "/use-case-for-model-access", 201] },
-  () => PutUseCaseForModelAccessRequest,
-  () => PutUseCaseForModelAccessResponse,
+  () => PutUseCaseForModelAccessRequest$,
+  () => PutUseCaseForModelAccessResponse$,
 ];
-export var RegisterMarketplaceModelEndpoint: StaticOperationSchema = [
+export var RegisterMarketplaceModelEndpoint$: StaticOperationSchema = [
   9,
   n0,
   _RMME,
   { [_ht]: ["POST", "/marketplace-model/endpoints/{endpointIdentifier}/registration", 200] },
-  () => RegisterMarketplaceModelEndpointRequest,
-  () => RegisterMarketplaceModelEndpointResponse,
+  () => RegisterMarketplaceModelEndpointRequest$,
+  () => RegisterMarketplaceModelEndpointResponse$,
 ];
-export var StartAutomatedReasoningPolicyBuildWorkflow: StaticOperationSchema = [
+export var StartAutomatedReasoningPolicyBuildWorkflow$: StaticOperationSchema = [
   9,
   n0,
   _SARPBW,
   { [_ht]: ["POST", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowType}/start", 200] },
-  () => StartAutomatedReasoningPolicyBuildWorkflowRequest,
-  () => StartAutomatedReasoningPolicyBuildWorkflowResponse,
+  () => StartAutomatedReasoningPolicyBuildWorkflowRequest$,
+  () => StartAutomatedReasoningPolicyBuildWorkflowResponse$,
 ];
-export var StartAutomatedReasoningPolicyTestWorkflow: StaticOperationSchema = [
+export var StartAutomatedReasoningPolicyTestWorkflow$: StaticOperationSchema = [
   9,
   n0,
   _SARPTW,
   {
     [_ht]: ["POST", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/test-workflows", 200],
   },
-  () => StartAutomatedReasoningPolicyTestWorkflowRequest,
-  () => StartAutomatedReasoningPolicyTestWorkflowResponse,
+  () => StartAutomatedReasoningPolicyTestWorkflowRequest$,
+  () => StartAutomatedReasoningPolicyTestWorkflowResponse$,
 ];
-export var StopEvaluationJob: StaticOperationSchema = [
+export var StopEvaluationJob$: StaticOperationSchema = [
   9,
   n0,
   _SEJ,
   { [_ht]: ["POST", "/evaluation-job/{jobIdentifier}/stop", 200] },
-  () => StopEvaluationJobRequest,
-  () => StopEvaluationJobResponse,
+  () => StopEvaluationJobRequest$,
+  () => StopEvaluationJobResponse$,
 ];
-export var StopModelCustomizationJob: StaticOperationSchema = [
+export var StopModelCustomizationJob$: StaticOperationSchema = [
   9,
   n0,
   _SMCJ,
   { [_ht]: ["POST", "/model-customization-jobs/{jobIdentifier}/stop", 200] },
-  () => StopModelCustomizationJobRequest,
-  () => StopModelCustomizationJobResponse,
+  () => StopModelCustomizationJobRequest$,
+  () => StopModelCustomizationJobResponse$,
 ];
-export var StopModelInvocationJob: StaticOperationSchema = [
+export var StopModelInvocationJob$: StaticOperationSchema = [
   9,
   n0,
   _SMIJ,
   { [_ht]: ["POST", "/model-invocation-job/{jobIdentifier}/stop", 200] },
-  () => StopModelInvocationJobRequest,
-  () => StopModelInvocationJobResponse,
+  () => StopModelInvocationJobRequest$,
+  () => StopModelInvocationJobResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_ht]: ["POST", "/tagResource", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_ht]: ["POST", "/untagResource", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateAutomatedReasoningPolicy: StaticOperationSchema = [
+export var UpdateAutomatedReasoningPolicy$: StaticOperationSchema = [
   9,
   n0,
   _UARP,
   { [_ht]: ["PATCH", "/automated-reasoning-policies/{policyArn}", 200] },
-  () => UpdateAutomatedReasoningPolicyRequest,
-  () => UpdateAutomatedReasoningPolicyResponse,
+  () => UpdateAutomatedReasoningPolicyRequest$,
+  () => UpdateAutomatedReasoningPolicyResponse$,
 ];
-export var UpdateAutomatedReasoningPolicyAnnotations: StaticOperationSchema = [
+export var UpdateAutomatedReasoningPolicyAnnotations$: StaticOperationSchema = [
   9,
   n0,
   _UARPA,
   { [_ht]: ["PATCH", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/annotations", 200] },
-  () => UpdateAutomatedReasoningPolicyAnnotationsRequest,
-  () => UpdateAutomatedReasoningPolicyAnnotationsResponse,
+  () => UpdateAutomatedReasoningPolicyAnnotationsRequest$,
+  () => UpdateAutomatedReasoningPolicyAnnotationsResponse$,
 ];
-export var UpdateAutomatedReasoningPolicyTestCase: StaticOperationSchema = [
+export var UpdateAutomatedReasoningPolicyTestCase$: StaticOperationSchema = [
   9,
   n0,
   _UARPTC,
   { [_ht]: ["PATCH", "/automated-reasoning-policies/{policyArn}/test-cases/{testCaseId}", 200] },
-  () => UpdateAutomatedReasoningPolicyTestCaseRequest,
-  () => UpdateAutomatedReasoningPolicyTestCaseResponse,
+  () => UpdateAutomatedReasoningPolicyTestCaseRequest$,
+  () => UpdateAutomatedReasoningPolicyTestCaseResponse$,
 ];
-export var UpdateCustomModelDeployment: StaticOperationSchema = [
+export var UpdateCustomModelDeployment$: StaticOperationSchema = [
   9,
   n0,
   _UCMD,
   { [_ht]: ["PATCH", "/model-customization/custom-model-deployments/{customModelDeploymentIdentifier}", 202] },
-  () => UpdateCustomModelDeploymentRequest,
-  () => UpdateCustomModelDeploymentResponse,
+  () => UpdateCustomModelDeploymentRequest$,
+  () => UpdateCustomModelDeploymentResponse$,
 ];
-export var UpdateGuardrail: StaticOperationSchema = [
+export var UpdateGuardrail$: StaticOperationSchema = [
   9,
   n0,
   _UG,
   { [_ht]: ["PUT", "/guardrails/{guardrailIdentifier}", 202] },
-  () => UpdateGuardrailRequest,
-  () => UpdateGuardrailResponse,
+  () => UpdateGuardrailRequest$,
+  () => UpdateGuardrailResponse$,
 ];
-export var UpdateMarketplaceModelEndpoint: StaticOperationSchema = [
+export var UpdateMarketplaceModelEndpoint$: StaticOperationSchema = [
   9,
   n0,
   _UMME,
   { [_ht]: ["PATCH", "/marketplace-model/endpoints/{endpointArn}", 200] },
-  () => UpdateMarketplaceModelEndpointRequest,
-  () => UpdateMarketplaceModelEndpointResponse,
+  () => UpdateMarketplaceModelEndpointRequest$,
+  () => UpdateMarketplaceModelEndpointResponse$,
 ];
-export var UpdateProvisionedModelThroughput: StaticOperationSchema = [
+export var UpdateProvisionedModelThroughput$: StaticOperationSchema = [
   9,
   n0,
   _UPMT,
   { [_ht]: ["PATCH", "/provisioned-model-throughput/{provisionedModelId}", 200] },
-  () => UpdateProvisionedModelThroughputRequest,
-  () => UpdateProvisionedModelThroughputResponse,
+  () => UpdateProvisionedModelThroughputRequest$,
+  () => UpdateProvisionedModelThroughputResponse$,
 ];

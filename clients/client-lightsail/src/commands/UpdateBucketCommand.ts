@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { UpdateBucketRequest, UpdateBucketResult } from "../models/models_1";
-import { UpdateBucket } from "../schemas/schemas_0";
+import { UpdateBucket$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -216,7 +216,7 @@ export class UpdateBucketCommand extends $Command
   })
   .s("Lightsail_20161128", "UpdateBucket", {})
   .n("LightsailClient", "UpdateBucketCommand")
-  .sc(UpdateBucket)
+  .sc(UpdateBucket$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

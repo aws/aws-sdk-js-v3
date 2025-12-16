@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchUpdateRuleRequest, BatchUpdateRuleResponse } from "../models/models_0";
-import { BatchUpdateRule } from "../schemas/schemas_0";
+import { BatchUpdateRule$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -185,7 +185,7 @@ export class BatchUpdateRuleCommand extends $Command
   })
   .s("MercuryControlPlane", "BatchUpdateRule", {})
   .n("VPCLatticeClient", "BatchUpdateRuleCommand")
-  .sc(BatchUpdateRule)
+  .sc(BatchUpdateRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

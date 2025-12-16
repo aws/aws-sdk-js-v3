@@ -9,7 +9,7 @@ import type {
   CreateDirectConnectGatewayAssociationRequest,
   CreateDirectConnectGatewayAssociationResult,
 } from "../models/models_0";
-import { CreateDirectConnectGatewayAssociation } from "../schemas/schemas_0";
+import { CreateDirectConnectGatewayAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class CreateDirectConnectGatewayAssociationCommand extends $Command
   })
   .s("OvertureService", "CreateDirectConnectGatewayAssociation", {})
   .n("DirectConnectClient", "CreateDirectConnectGatewayAssociationCommand")
-  .sc(CreateDirectConnectGatewayAssociation)
+  .sc(CreateDirectConnectGatewayAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

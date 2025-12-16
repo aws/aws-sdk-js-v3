@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import type { TerminateTargetInstancesRequest, TerminateTargetInstancesResponse } from "../models/models_0";
-import { TerminateTargetInstances } from "../schemas/schemas_0";
+import { TerminateTargetInstances$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -136,7 +136,7 @@ export class TerminateTargetInstancesCommand extends $Command
   })
   .s("ApplicationMigrationService", "TerminateTargetInstances", {})
   .n("MgnClient", "TerminateTargetInstancesCommand")
-  .sc(TerminateTargetInstances)
+  .sc(TerminateTargetInstances$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

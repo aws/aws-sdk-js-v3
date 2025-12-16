@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteWorkflowRequest, DeleteWorkflowResponse } from "../models/models_0";
-import { DeleteWorkflow } from "../schemas/schemas_0";
+import { DeleteWorkflow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DeleteWorkflowCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "DeleteWorkflow", {})
   .n("CustomerProfilesClient", "DeleteWorkflowCommand")
-  .sc(DeleteWorkflow)
+  .sc(DeleteWorkflow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

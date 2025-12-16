@@ -13,7 +13,7 @@ import type {
   ListCalculatedAttributeDefinitionsRequest,
   ListCalculatedAttributeDefinitionsResponse,
 } from "../models/models_0";
-import { ListCalculatedAttributeDefinitions } from "../schemas/schemas_0";
+import { ListCalculatedAttributeDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class ListCalculatedAttributeDefinitionsCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "ListCalculatedAttributeDefinitions", {})
   .n("CustomerProfilesClient", "ListCalculatedAttributeDefinitionsCommand")
-  .sc(ListCalculatedAttributeDefinitions)
+  .sc(ListCalculatedAttributeDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   GetOpenIdTokenForDeveloperIdentityInput,
   GetOpenIdTokenForDeveloperIdentityResponse,
 } from "../models/models_0";
-import { GetOpenIdTokenForDeveloperIdentity } from "../schemas/schemas_0";
+import { GetOpenIdTokenForDeveloperIdentity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command
   })
   .s("AWSCognitoIdentityService", "GetOpenIdTokenForDeveloperIdentity", {})
   .n("CognitoIdentityClient", "GetOpenIdTokenForDeveloperIdentityCommand")
-  .sc(GetOpenIdTokenForDeveloperIdentity)
+  .sc(GetOpenIdTokenForDeveloperIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

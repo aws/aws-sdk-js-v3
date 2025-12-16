@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ApplyPendingMaintenanceActionMessage, ApplyPendingMaintenanceActionResponse } from "../models/models_0";
-import { ApplyPendingMaintenanceAction } from "../schemas/schemas_0";
+import { ApplyPendingMaintenanceAction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class ApplyPendingMaintenanceActionCommand extends $Command
   })
   .s("AmazonDMSv20160101", "ApplyPendingMaintenanceAction", {})
   .n("DatabaseMigrationServiceClient", "ApplyPendingMaintenanceActionCommand")
-  .sc(ApplyPendingMaintenanceAction)
+  .sc(ApplyPendingMaintenanceAction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

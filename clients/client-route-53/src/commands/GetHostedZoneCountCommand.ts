@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetHostedZoneCountRequest, GetHostedZoneCountResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { GetHostedZoneCount } from "../schemas/schemas_0";
+import { GetHostedZoneCount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -74,7 +74,7 @@ export class GetHostedZoneCountCommand extends $Command
   })
   .s("AWSDnsV20130401", "GetHostedZoneCount", {})
   .n("Route53Client", "GetHostedZoneCountCommand")
-  .sc(GetHostedZoneCount)
+  .sc(GetHostedZoneCount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

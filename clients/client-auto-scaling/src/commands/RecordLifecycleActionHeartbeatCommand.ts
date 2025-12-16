@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RecordLifecycleActionHeartbeatAnswer, RecordLifecycleActionHeartbeatType } from "../models/models_0";
-import { RecordLifecycleActionHeartbeat } from "../schemas/schemas_0";
+import { RecordLifecycleActionHeartbeat$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class RecordLifecycleActionHeartbeatCommand extends $Command
   })
   .s("AutoScaling_2011_01_01", "RecordLifecycleActionHeartbeat", {})
   .n("AutoScalingClient", "RecordLifecycleActionHeartbeatCommand")
-  .sc(RecordLifecycleActionHeartbeat)
+  .sc(RecordLifecycleActionHeartbeat$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

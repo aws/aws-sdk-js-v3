@@ -9,7 +9,7 @@ import type {
   RejectCapacityReservationBillingOwnershipRequest,
   RejectCapacityReservationBillingOwnershipResult,
 } from "../models/models_7";
-import { RejectCapacityReservationBillingOwnership } from "../schemas/schemas_0";
+import { RejectCapacityReservationBillingOwnership$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class RejectCapacityReservationBillingOwnershipCommand extends $Command
   })
   .s("AmazonEC2", "RejectCapacityReservationBillingOwnership", {})
   .n("EC2Client", "RejectCapacityReservationBillingOwnershipCommand")
-  .sc(RejectCapacityReservationBillingOwnership)
+  .sc(RejectCapacityReservationBillingOwnership$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

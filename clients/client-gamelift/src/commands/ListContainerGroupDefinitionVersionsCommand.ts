@@ -9,7 +9,7 @@ import type {
   ListContainerGroupDefinitionVersionsInput,
   ListContainerGroupDefinitionVersionsOutput,
 } from "../models/models_0";
-import { ListContainerGroupDefinitionVersions } from "../schemas/schemas_0";
+import { ListContainerGroupDefinitionVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -225,7 +225,7 @@ export class ListContainerGroupDefinitionVersionsCommand extends $Command
   })
   .s("GameLift", "ListContainerGroupDefinitionVersions", {})
   .n("GameLiftClient", "ListContainerGroupDefinitionVersionsCommand")
-  .sc(ListContainerGroupDefinitionVersions)
+  .sc(ListContainerGroupDefinitionVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

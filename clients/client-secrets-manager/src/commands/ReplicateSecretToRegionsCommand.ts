@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ReplicateSecretToRegionsRequest, ReplicateSecretToRegionsResponse } from "../models/models_0";
-import { ReplicateSecretToRegions } from "../schemas/schemas_0";
+import { ReplicateSecretToRegions$ } from "../schemas/schemas_0";
 import type {
   SecretsManagerClientResolvedConfig,
   ServiceInputTypes,
@@ -160,7 +160,7 @@ export class ReplicateSecretToRegionsCommand extends $Command
   })
   .s("secretsmanager", "ReplicateSecretToRegions", {})
   .n("SecretsManagerClient", "ReplicateSecretToRegionsCommand")
-  .sc(ReplicateSecretToRegions)
+  .sc(ReplicateSecretToRegions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
 import type { StopAccessLoggingInput, StopAccessLoggingOutput } from "../models/models_0";
-import { StopAccessLogging } from "../schemas/schemas_0";
+import { StopAccessLogging$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,7 +81,7 @@ export class StopAccessLoggingCommand extends $Command
   })
   .s("MediaStore_20170901", "StopAccessLogging", {})
   .n("MediaStoreClient", "StopAccessLoggingCommand")
-  .sc(StopAccessLogging)
+  .sc(StopAccessLogging$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

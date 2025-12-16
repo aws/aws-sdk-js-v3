@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KeyspacesStreamsClient";
 import type { GetShardIteratorInput, GetShardIteratorOutput } from "../models/models_0";
-import { GetShardIterator } from "../schemas/schemas_0";
+import { GetShardIterator$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class GetShardIteratorCommand extends $Command
   })
   .s("KeyspacesStreams", "GetShardIterator", {})
   .n("KeyspacesStreamsClient", "GetShardIteratorCommand")
-  .sc(GetShardIterator)
+  .sc(GetShardIterator$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

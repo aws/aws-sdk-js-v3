@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateDBProxyRequest, CreateDBProxyResponse } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { CreateDBProxy } from "../schemas/schemas_0";
+import { CreateDBProxy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -144,7 +144,7 @@ export class CreateDBProxyCommand extends $Command
   })
   .s("AmazonRDSv19", "CreateDBProxy", {})
   .n("RDSClient", "CreateDBProxyCommand")
-  .sc(CreateDBProxy)
+  .sc(CreateDBProxy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

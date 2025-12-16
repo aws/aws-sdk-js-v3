@@ -14,6 +14,7 @@ export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { MarketplaceDeploymentExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
+export * from "./schemas/schemas_0";
 
 export * from "./models/errors";
 export type * from "./models/models_0";

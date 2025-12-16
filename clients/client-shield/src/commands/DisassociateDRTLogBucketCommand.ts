@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateDRTLogBucketRequest, DisassociateDRTLogBucketResponse } from "../models/models_0";
-import { DisassociateDRTLogBucket } from "../schemas/schemas_0";
+import { DisassociateDRTLogBucket$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -90,7 +90,7 @@ export class DisassociateDRTLogBucketCommand extends $Command
   })
   .s("AWSShield_20160616", "DisassociateDRTLogBucket", {})
   .n("ShieldClient", "DisassociateDRTLogBucketCommand")
-  .sc(DisassociateDRTLogBucket)
+  .sc(DisassociateDRTLogBucket$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

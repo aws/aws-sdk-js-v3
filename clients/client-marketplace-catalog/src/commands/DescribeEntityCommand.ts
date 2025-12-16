@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
 import type { DescribeEntityRequest, DescribeEntityResponse } from "../models/models_0";
-import { DescribeEntity } from "../schemas/schemas_0";
+import { DescribeEntity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class DescribeEntityCommand extends $Command
   })
   .s("AWSMPSeymour", "DescribeEntity", {})
   .n("MarketplaceCatalogClient", "DescribeEntityCommand")
-  .sc(DescribeEntity)
+  .sc(DescribeEntity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

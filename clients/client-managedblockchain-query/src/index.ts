@@ -17,6 +17,7 @@ export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ManagedBlockchainQueryExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
+export * from "./schemas/schemas_0";
 export * from "./pagination";
 
 export * from "./models/enums";

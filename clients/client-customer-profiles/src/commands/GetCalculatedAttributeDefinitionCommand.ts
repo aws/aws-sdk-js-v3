@@ -13,7 +13,7 @@ import type {
   GetCalculatedAttributeDefinitionRequest,
   GetCalculatedAttributeDefinitionResponse,
 } from "../models/models_0";
-import { GetCalculatedAttributeDefinition } from "../schemas/schemas_0";
+import { GetCalculatedAttributeDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -158,7 +158,7 @@ export class GetCalculatedAttributeDefinitionCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "GetCalculatedAttributeDefinition", {})
   .n("CustomerProfilesClient", "GetCalculatedAttributeDefinitionCommand")
-  .sc(GetCalculatedAttributeDefinition)
+  .sc(GetCalculatedAttributeDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

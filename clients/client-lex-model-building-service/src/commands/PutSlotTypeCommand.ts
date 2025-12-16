@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import type { PutSlotTypeRequest, PutSlotTypeResponse } from "../models/models_0";
-import { PutSlotType } from "../schemas/schemas_0";
+import { PutSlotType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -191,7 +191,7 @@ export class PutSlotTypeCommand extends $Command
   })
   .s("AWSDeepSenseModelBuildingService", "PutSlotType", {})
   .n("LexModelBuildingServiceClient", "PutSlotTypeCommand")
-  .sc(PutSlotType)
+  .sc(PutSlotType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

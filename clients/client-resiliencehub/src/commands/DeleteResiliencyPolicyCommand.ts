@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteResiliencyPolicyRequest, DeleteResiliencyPolicyResponse } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { DeleteResiliencyPolicy } from "../schemas/schemas_0";
+import { DeleteResiliencyPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DeleteResiliencyPolicyCommand extends $Command
   })
   .s("AwsResilienceHub", "DeleteResiliencyPolicy", {})
   .n("ResiliencehubClient", "DeleteResiliencyPolicyCommand")
-  .sc(DeleteResiliencyPolicy)
+  .sc(DeleteResiliencyPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

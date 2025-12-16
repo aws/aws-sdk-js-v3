@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { GetContactReachabilityStatus } from "../schemas/schemas_0";
+import { GetContactReachabilityStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class GetContactReachabilityStatusCommand extends $Command
   })
   .s("Route53Domains_v20140515", "GetContactReachabilityStatus", {})
   .n("Route53DomainsClient", "GetContactReachabilityStatusCommand")
-  .sc(GetContactReachabilityStatus)
+  .sc(GetContactReachabilityStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

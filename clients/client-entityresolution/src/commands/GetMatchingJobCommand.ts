@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../EntityResolutionClient";
 import type { GetMatchingJobInput, GetMatchingJobOutput } from "../models/models_0";
-import { GetMatchingJob } from "../schemas/schemas_0";
+import { GetMatchingJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class GetMatchingJobCommand extends $Command
   })
   .s("AWSVeniceService", "GetMatchingJob", {})
   .n("EntityResolutionClient", "GetMatchingJobCommand")
-  .sc(GetMatchingJob)
+  .sc(GetMatchingJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

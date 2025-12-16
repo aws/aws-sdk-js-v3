@@ -9,7 +9,7 @@ import type {
   AcceptTransitGatewayPeeringAttachmentRequest,
   AcceptTransitGatewayPeeringAttachmentResult,
 } from "../models/models_0";
-import { AcceptTransitGatewayPeeringAttachment } from "../schemas/schemas_0";
+import { AcceptTransitGatewayPeeringAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class AcceptTransitGatewayPeeringAttachmentCommand extends $Command
   })
   .s("AmazonEC2", "AcceptTransitGatewayPeeringAttachment", {})
   .n("EC2Client", "AcceptTransitGatewayPeeringAttachmentCommand")
-  .sc(AcceptTransitGatewayPeeringAttachment)
+  .sc(AcceptTransitGatewayPeeringAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

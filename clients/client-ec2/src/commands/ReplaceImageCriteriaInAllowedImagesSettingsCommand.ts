@@ -9,7 +9,7 @@ import type {
   ReplaceImageCriteriaInAllowedImagesSettingsRequest,
   ReplaceImageCriteriaInAllowedImagesSettingsResult,
 } from "../models/models_7";
-import { ReplaceImageCriteriaInAllowedImagesSettings } from "../schemas/schemas_0";
+import { ReplaceImageCriteriaInAllowedImagesSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class ReplaceImageCriteriaInAllowedImagesSettingsCommand extends $Command
   })
   .s("AmazonEC2", "ReplaceImageCriteriaInAllowedImagesSettings", {})
   .n("EC2Client", "ReplaceImageCriteriaInAllowedImagesSettingsCommand")
-  .sc(ReplaceImageCriteriaInAllowedImagesSettings)
+  .sc(ReplaceImageCriteriaInAllowedImagesSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

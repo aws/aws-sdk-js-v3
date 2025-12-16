@@ -9,7 +9,7 @@ import type {
   ListDistributionsByOwnedResourceRequest,
   ListDistributionsByOwnedResourceResult,
 } from "../models/models_1";
-import { ListDistributionsByOwnedResource } from "../schemas/schemas_0";
+import { ListDistributionsByOwnedResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class ListDistributionsByOwnedResourceCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "ListDistributionsByOwnedResource", {})
   .n("CloudFrontClient", "ListDistributionsByOwnedResourceCommand")
-  .sc(ListDistributionsByOwnedResource)
+  .sc(ListDistributionsByOwnedResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

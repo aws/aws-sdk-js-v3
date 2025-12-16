@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetInstanceMetadataDefaultsRequest, GetInstanceMetadataDefaultsResult } from "../models/models_5";
-import { GetInstanceMetadataDefaults } from "../schemas/schemas_0";
+import { GetInstanceMetadataDefaults$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class GetInstanceMetadataDefaultsCommand extends $Command
   })
   .s("AmazonEC2", "GetInstanceMetadataDefaults", {})
   .n("EC2Client", "GetInstanceMetadataDefaultsCommand")
-  .sc(GetInstanceMetadataDefaults)
+  .sc(GetInstanceMetadataDefaults$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import type { ImportDecoderManifestRequest, ImportDecoderManifestResponse } from "../models/models_0";
-import { ImportDecoderManifest } from "../schemas/schemas_0";
+import { ImportDecoderManifest$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class ImportDecoderManifestCommand extends $Command
   })
   .s("IoTAutobahnControlPlane", "ImportDecoderManifest", {})
   .n("IoTFleetWiseClient", "ImportDecoderManifestCommand")
-  .sc(ImportDecoderManifest)
+  .sc(ImportDecoderManifest$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

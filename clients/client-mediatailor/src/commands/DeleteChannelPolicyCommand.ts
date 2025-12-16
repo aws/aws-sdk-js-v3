@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import type { DeleteChannelPolicyRequest, DeleteChannelPolicyResponse } from "../models/models_0";
-import { DeleteChannelPolicy } from "../schemas/schemas_0";
+import { DeleteChannelPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -71,7 +71,7 @@ export class DeleteChannelPolicyCommand extends $Command
   })
   .s("MediaTailor", "DeleteChannelPolicy", {})
   .n("MediaTailorClient", "DeleteChannelPolicyCommand")
-  .sc(DeleteChannelPolicy)
+  .sc(DeleteChannelPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

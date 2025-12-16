@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CrlDetailResponse, ImportCrlRequest } from "../models/models_0";
 import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
-import { ImportCrl } from "../schemas/schemas_0";
+import { ImportCrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class ImportCrlCommand extends $Command
   })
   .s("RolesAnywhere", "ImportCrl", {})
   .n("RolesAnywhereClient", "ImportCrlCommand")
-  .sc(ImportCrl)
+  .sc(ImportCrl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

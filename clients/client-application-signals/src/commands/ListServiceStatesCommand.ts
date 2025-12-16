@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationSignalsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListServiceStatesInput, ListServiceStatesOutput } from "../models/models_0";
-import { ListServiceStates } from "../schemas/schemas_0";
+import { ListServiceStates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class ListServiceStatesCommand extends $Command
   })
   .s("ApplicationSignals", "ListServiceStates", {})
   .n("ApplicationSignalsClient", "ListServiceStatesCommand")
-  .sc(ListServiceStates)
+  .sc(ListServiceStates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

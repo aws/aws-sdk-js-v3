@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RebootCacheClusterMessage, RebootCacheClusterResult } from "../models/models_0";
-import { RebootCacheCluster } from "../schemas/schemas_0";
+import { RebootCacheCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -251,7 +251,7 @@ export class RebootCacheClusterCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "RebootCacheCluster", {})
   .n("ElastiCacheClient", "RebootCacheClusterCommand")
-  .sc(RebootCacheCluster)
+  .sc(RebootCacheCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateResourceConfigurationRequest, CreateResourceConfigurationResponse } from "../models/models_0";
-import { CreateResourceConfiguration } from "../schemas/schemas_0";
+import { CreateResourceConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -152,7 +152,7 @@ export class CreateResourceConfigurationCommand extends $Command
   })
   .s("MercuryControlPlane", "CreateResourceConfiguration", {})
   .n("VPCLatticeClient", "CreateResourceConfigurationCommand")
-  .sc(CreateResourceConfiguration)
+  .sc(CreateResourceConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   GetProvisionedConcurrencyConfigRequest,
   GetProvisionedConcurrencyConfigResponse,
 } from "../models/models_0";
-import { GetProvisionedConcurrencyConfig } from "../schemas/schemas_0";
+import { GetProvisionedConcurrencyConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class GetProvisionedConcurrencyConfigCommand extends $Command
   })
   .s("AWSGirApiService", "GetProvisionedConcurrencyConfig", {})
   .n("LambdaClient", "GetProvisionedConcurrencyConfigCommand")
-  .sc(GetProvisionedConcurrencyConfig)
+  .sc(GetProvisionedConcurrencyConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

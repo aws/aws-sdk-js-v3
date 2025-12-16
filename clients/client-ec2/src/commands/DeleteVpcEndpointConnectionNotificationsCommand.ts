@@ -9,7 +9,7 @@ import type {
   DeleteVpcEndpointConnectionNotificationsRequest,
   DeleteVpcEndpointConnectionNotificationsResult,
 } from "../models/models_3";
-import { DeleteVpcEndpointConnectionNotifications } from "../schemas/schemas_0";
+import { DeleteVpcEndpointConnectionNotifications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command
   })
   .s("AmazonEC2", "DeleteVpcEndpointConnectionNotifications", {})
   .n("EC2Client", "DeleteVpcEndpointConnectionNotificationsCommand")
-  .sc(DeleteVpcEndpointConnectionNotifications)
+  .sc(DeleteVpcEndpointConnectionNotifications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

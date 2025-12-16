@@ -8,7 +8,7 @@ import type {
   DeleteTenantResourceAssociationRequest,
   DeleteTenantResourceAssociationResponse,
 } from "../models/models_0";
-import { DeleteTenantResourceAssociation } from "../schemas/schemas_0";
+import { DeleteTenantResourceAssociation$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -89,7 +89,7 @@ export class DeleteTenantResourceAssociationCommand extends $Command
   })
   .s("SimpleEmailService_v2", "DeleteTenantResourceAssociation", {})
   .n("SESv2Client", "DeleteTenantResourceAssociationCommand")
-  .sc(DeleteTenantResourceAssociation)
+  .sc(DeleteTenantResourceAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

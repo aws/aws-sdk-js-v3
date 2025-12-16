@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchGroupProfilesInput, SearchGroupProfilesOutput } from "../models/models_1";
-import { SearchGroupProfiles } from "../schemas/schemas_0";
+import { SearchGroupProfiles$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class SearchGroupProfilesCommand extends $Command
   })
   .s("DataZone", "SearchGroupProfiles", {})
   .n("DataZoneClient", "SearchGroupProfilesCommand")
-  .sc(SearchGroupProfiles)
+  .sc(SearchGroupProfiles$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

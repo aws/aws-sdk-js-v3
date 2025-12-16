@@ -10,7 +10,7 @@ import type {
 } from "../ElasticTranscoderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListJobsByPipelineRequest, ListJobsByPipelineResponse } from "../models/models_0";
-import { ListJobsByPipeline } from "../schemas/schemas_0";
+import { ListJobsByPipeline$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -346,7 +346,7 @@ export class ListJobsByPipelineCommand extends $Command
   })
   .s("EtsCustomerService", "ListJobsByPipeline", {})
   .n("ElasticTranscoderClient", "ListJobsByPipelineCommand")
-  .sc(ListJobsByPipeline)
+  .sc(ListJobsByPipeline$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

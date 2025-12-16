@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchEventsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListEventSourcesRequest, ListEventSourcesResponse } from "../models/models_0";
-import { ListEventSources } from "../schemas/schemas_0";
+import { ListEventSources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class ListEventSourcesCommand extends $Command
   })
   .s("AWSEvents", "ListEventSources", {})
   .n("CloudWatchEventsClient", "ListEventSourcesCommand")
-  .sc(ListEventSources)
+  .sc(ListEventSources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

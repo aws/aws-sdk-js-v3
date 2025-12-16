@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateUseCaseRequest, CreateUseCaseResponse } from "../models/models_0";
-import { CreateUseCase } from "../schemas/schemas_0";
+import { CreateUseCase$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class CreateUseCaseCommand extends $Command
   })
   .s("AmazonConnectService", "CreateUseCase", {})
   .n("ConnectClient", "CreateUseCaseCommand")
-  .sc(CreateUseCase)
+  .sc(CreateUseCase$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AttachTypedLinkRequest, AttachTypedLinkResponse } from "../models/models_0";
-import { AttachTypedLink } from "../schemas/schemas_0";
+import { AttachTypedLink$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -207,7 +207,7 @@ export class AttachTypedLinkCommand extends $Command
   })
   .s("AmazonCloudDirectory_20170111", "AttachTypedLink", {})
   .n("CloudDirectoryClient", "AttachTypedLinkCommand")
-  .sc(AttachTypedLink)
+  .sc(AttachTypedLink$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

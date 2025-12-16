@@ -9,7 +9,7 @@ import type {
   ListComputationModelResolveToResourcesRequest,
   ListComputationModelResolveToResourcesResponse,
 } from "../models/models_0";
-import { ListComputationModelResolveToResources } from "../schemas/schemas_0";
+import { ListComputationModelResolveToResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class ListComputationModelResolveToResourcesCommand extends $Command
   })
   .s("AWSIoTSiteWise", "ListComputationModelResolveToResources", {})
   .n("IoTSiteWiseClient", "ListComputationModelResolveToResourcesCommand")
-  .sc(ListComputationModelResolveToResources)
+  .sc(ListComputationModelResolveToResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

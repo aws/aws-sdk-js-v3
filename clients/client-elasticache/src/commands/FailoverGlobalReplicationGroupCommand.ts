@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FailoverGlobalReplicationGroupMessage, FailoverGlobalReplicationGroupResult } from "../models/models_0";
-import { FailoverGlobalReplicationGroup } from "../schemas/schemas_0";
+import { FailoverGlobalReplicationGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class FailoverGlobalReplicationGroupCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "FailoverGlobalReplicationGroup", {})
   .n("ElastiCacheClient", "FailoverGlobalReplicationGroupCommand")
-  .sc(FailoverGlobalReplicationGroup)
+  .sc(FailoverGlobalReplicationGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

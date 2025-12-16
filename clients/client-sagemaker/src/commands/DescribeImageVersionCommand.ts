@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeImageVersionRequest, DescribeImageVersionResponse } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DescribeImageVersion } from "../schemas/schemas_0";
+import { DescribeImageVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DescribeImageVersionCommand extends $Command
   })
   .s("SageMaker", "DescribeImageVersion", {})
   .n("SageMakerClient", "DescribeImageVersionCommand")
-  .sc(DescribeImageVersion)
+  .sc(DescribeImageVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

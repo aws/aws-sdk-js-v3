@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteFolderRequest } from "../models/models_0";
-import { DeleteFolder } from "../schemas/schemas_0";
+import { DeleteFolder$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -101,7 +101,7 @@ export class DeleteFolderCommand extends $Command
   })
   .s("AWSGorillaBoyService", "DeleteFolder", {})
   .n("WorkDocsClient", "DeleteFolderCommand")
-  .sc(DeleteFolder)
+  .sc(DeleteFolder$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

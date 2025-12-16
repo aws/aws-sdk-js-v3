@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
-import { DeleteSafetyRule } from "../schemas/schemas_0";
+import { DeleteSafetyRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DeleteSafetyRuleCommand extends $Command
   })
   .s("Route53RecoveryControlConfig", "DeleteSafetyRule", {})
   .n("Route53RecoveryControlConfigClient", "DeleteSafetyRuleCommand")
-  .sc(DeleteSafetyRule)
+  .sc(DeleteSafetyRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

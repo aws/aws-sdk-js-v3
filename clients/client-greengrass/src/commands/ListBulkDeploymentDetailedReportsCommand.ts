@@ -9,7 +9,7 @@ import type {
   ListBulkDeploymentDetailedReportsRequest,
   ListBulkDeploymentDetailedReportsResponse,
 } from "../models/models_0";
-import { ListBulkDeploymentDetailedReports } from "../schemas/schemas_0";
+import { ListBulkDeploymentDetailedReports$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ListBulkDeploymentDetailedReportsCommand extends $Command
   })
   .s("Greengrass", "ListBulkDeploymentDetailedReports", {})
   .n("GreengrassClient", "ListBulkDeploymentDetailedReportsCommand")
-  .sc(ListBulkDeploymentDetailedReports)
+  .sc(ListBulkDeploymentDetailedReports$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

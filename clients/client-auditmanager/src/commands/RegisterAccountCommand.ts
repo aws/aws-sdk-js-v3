@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RegisterAccountRequest, RegisterAccountResponse } from "../models/models_0";
-import { RegisterAccount } from "../schemas/schemas_0";
+import { RegisterAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class RegisterAccountCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "RegisterAccount", {})
   .n("AuditManagerClient", "RegisterAccountCommand")
-  .sc(RegisterAccount)
+  .sc(RegisterAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

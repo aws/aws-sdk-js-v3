@@ -9,7 +9,7 @@ import type {
   IncreaseNodeGroupsInGlobalReplicationGroupMessage,
   IncreaseNodeGroupsInGlobalReplicationGroupResult,
 } from "../models/models_0";
-import { IncreaseNodeGroupsInGlobalReplicationGroup } from "../schemas/schemas_0";
+import { IncreaseNodeGroupsInGlobalReplicationGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "IncreaseNodeGroupsInGlobalReplicationGroup", {})
   .n("ElastiCacheClient", "IncreaseNodeGroupsInGlobalReplicationGroupCommand")
-  .sc(IncreaseNodeGroupsInGlobalReplicationGroup)
+  .sc(IncreaseNodeGroupsInGlobalReplicationGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

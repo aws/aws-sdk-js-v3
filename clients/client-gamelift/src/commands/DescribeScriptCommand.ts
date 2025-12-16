@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import type { DescribeScriptInput, DescribeScriptOutput } from "../models/models_0";
-import { DescribeScript } from "../schemas/schemas_0";
+import { DescribeScript$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class DescribeScriptCommand extends $Command
   })
   .s("GameLift", "DescribeScript", {})
   .n("GameLiftClient", "DescribeScriptCommand")
-  .sc(DescribeScript)
+  .sc(DescribeScript$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   GetIdentityVerificationAttributesRequest,
   GetIdentityVerificationAttributesResponse,
 } from "../models/models_0";
-import { GetIdentityVerificationAttributes } from "../schemas/schemas_0";
+import { GetIdentityVerificationAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -122,7 +122,7 @@ export class GetIdentityVerificationAttributesCommand extends $Command
   })
   .s("SimpleEmailService", "GetIdentityVerificationAttributes", {})
   .n("SESClient", "GetIdentityVerificationAttributesCommand")
-  .sc(GetIdentityVerificationAttributes)
+  .sc(GetIdentityVerificationAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

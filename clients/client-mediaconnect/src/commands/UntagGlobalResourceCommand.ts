@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import type { UntagGlobalResourceRequest } from "../models/models_1";
-import { UntagGlobalResource } from "../schemas/schemas_0";
+import { UntagGlobalResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class UntagGlobalResourceCommand extends $Command
   })
   .s("MediaConnect", "UntagGlobalResource", {})
   .n("MediaConnectClient", "UntagGlobalResourceCommand")
-  .sc(UntagGlobalResource)
+  .sc(UntagGlobalResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

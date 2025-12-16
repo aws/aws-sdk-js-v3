@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteNetworkInsightsPathRequest, DeleteNetworkInsightsPathResult } from "../models/models_2";
-import { DeleteNetworkInsightsPath } from "../schemas/schemas_0";
+import { DeleteNetworkInsightsPath$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -74,7 +74,7 @@ export class DeleteNetworkInsightsPathCommand extends $Command
   })
   .s("AmazonEC2", "DeleteNetworkInsightsPath", {})
   .n("EC2Client", "DeleteNetworkInsightsPathCommand")
-  .sc(DeleteNetworkInsightsPath)
+  .sc(DeleteNetworkInsightsPath$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

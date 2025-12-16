@@ -10,7 +10,7 @@ import type {
 } from "../AmplifyBackendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CloneBackendRequest, CloneBackendResponse } from "../models/models_0";
-import { CloneBackend } from "../schemas/schemas_0";
+import { CloneBackend$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class CloneBackendCommand extends $Command
   })
   .s("AmplifyBackend", "CloneBackend", {})
   .n("AmplifyBackendClient", "CloneBackendCommand")
-  .sc(CloneBackend)
+  .sc(CloneBackend$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

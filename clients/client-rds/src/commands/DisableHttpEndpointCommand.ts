@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisableHttpEndpointRequest, DisableHttpEndpointResponse } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DisableHttpEndpoint } from "../schemas/schemas_0";
+import { DisableHttpEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class DisableHttpEndpointCommand extends $Command
   })
   .s("AmazonRDSv19", "DisableHttpEndpoint", {})
   .n("RDSClient", "DisableHttpEndpointCommand")
-  .sc(DisableHttpEndpoint)
+  .sc(DisableHttpEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

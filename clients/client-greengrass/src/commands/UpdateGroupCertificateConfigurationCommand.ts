@@ -9,7 +9,7 @@ import type {
   UpdateGroupCertificateConfigurationRequest,
   UpdateGroupCertificateConfigurationResponse,
 } from "../models/models_0";
-import { UpdateGroupCertificateConfiguration } from "../schemas/schemas_0";
+import { UpdateGroupCertificateConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class UpdateGroupCertificateConfigurationCommand extends $Command
   })
   .s("Greengrass", "UpdateGroupCertificateConfiguration", {})
   .n("GreengrassClient", "UpdateGroupCertificateConfigurationCommand")
-  .sc(UpdateGroupCertificateConfiguration)
+  .sc(UpdateGroupCertificateConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

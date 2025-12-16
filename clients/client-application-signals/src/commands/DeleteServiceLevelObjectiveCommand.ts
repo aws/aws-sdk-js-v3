@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationSignalsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteServiceLevelObjectiveInput, DeleteServiceLevelObjectiveOutput } from "../models/models_0";
-import { DeleteServiceLevelObjective } from "../schemas/schemas_0";
+import { DeleteServiceLevelObjective$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DeleteServiceLevelObjectiveCommand extends $Command
   })
   .s("ApplicationSignals", "DeleteServiceLevelObjective", {})
   .n("ApplicationSignalsClient", "DeleteServiceLevelObjectiveCommand")
-  .sc(DeleteServiceLevelObjective)
+  .sc(DeleteServiceLevelObjective$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

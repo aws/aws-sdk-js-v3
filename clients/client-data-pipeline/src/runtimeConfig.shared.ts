@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: DataPipelineClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.datapipeline",
-        serviceTarget: "DataPipeline",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.datapipeline",
+      xmlNamespace: "http://datapipeline.amazonaws.com/doc/2012-10-29/",
+      version: "2012-10-29",
+      serviceTarget: "DataPipeline",
+    },
     serviceId: config?.serviceId ?? "Data Pipeline",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

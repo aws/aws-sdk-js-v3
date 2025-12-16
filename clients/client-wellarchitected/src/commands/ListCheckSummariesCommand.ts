@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListCheckSummariesInput, ListCheckSummariesOutput } from "../models/models_0";
-import { ListCheckSummaries } from "../schemas/schemas_0";
+import { ListCheckSummaries$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -115,7 +115,7 @@ export class ListCheckSummariesCommand extends $Command
   })
   .s("WellArchitectedApiServiceLambda", "ListCheckSummaries", {})
   .n("WellArchitectedClient", "ListCheckSummariesCommand")
-  .sc(ListCheckSummaries)
+  .sc(ListCheckSummaries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

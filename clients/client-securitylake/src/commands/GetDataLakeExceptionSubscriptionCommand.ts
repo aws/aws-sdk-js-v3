@@ -8,7 +8,7 @@ import type {
   GetDataLakeExceptionSubscriptionRequest,
   GetDataLakeExceptionSubscriptionResponse,
 } from "../models/models_0";
-import { GetDataLakeExceptionSubscription } from "../schemas/schemas_0";
+import { GetDataLakeExceptionSubscription$ } from "../schemas/schemas_0";
 import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -103,7 +103,7 @@ export class GetDataLakeExceptionSubscriptionCommand extends $Command
   })
   .s("SecurityLake", "GetDataLakeExceptionSubscription", {})
   .n("SecurityLakeClient", "GetDataLakeExceptionSubscriptionCommand")
-  .sc(GetDataLakeExceptionSubscription)
+  .sc(GetDataLakeExceptionSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

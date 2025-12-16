@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SetPrincipalTagAttributeMapInput, SetPrincipalTagAttributeMapResponse } from "../models/models_0";
-import { SetPrincipalTagAttributeMap } from "../schemas/schemas_0";
+import { SetPrincipalTagAttributeMap$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class SetPrincipalTagAttributeMapCommand extends $Command
   })
   .s("AWSCognitoIdentityService", "SetPrincipalTagAttributeMap", {})
   .n("CognitoIdentityClient", "SetPrincipalTagAttributeMapCommand")
-  .sc(SetPrincipalTagAttributeMap)
+  .sc(SetPrincipalTagAttributeMap$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

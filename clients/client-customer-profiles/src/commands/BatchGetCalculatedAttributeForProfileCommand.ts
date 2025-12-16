@@ -13,7 +13,7 @@ import type {
   BatchGetCalculatedAttributeForProfileRequest,
   BatchGetCalculatedAttributeForProfileResponse,
 } from "../models/models_0";
-import { BatchGetCalculatedAttributeForProfile } from "../schemas/schemas_0";
+import { BatchGetCalculatedAttributeForProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class BatchGetCalculatedAttributeForProfileCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "BatchGetCalculatedAttributeForProfile", {})
   .n("CustomerProfilesClient", "BatchGetCalculatedAttributeForProfileCommand")
-  .sc(BatchGetCalculatedAttributeForProfile)
+  .sc(BatchGetCalculatedAttributeForProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

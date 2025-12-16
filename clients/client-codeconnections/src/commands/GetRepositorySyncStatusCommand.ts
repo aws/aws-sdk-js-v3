@@ -10,7 +10,7 @@ import type {
 } from "../CodeConnectionsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRepositorySyncStatusInput, GetRepositorySyncStatusOutput } from "../models/models_0";
-import { GetRepositorySyncStatus } from "../schemas/schemas_0";
+import { GetRepositorySyncStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class GetRepositorySyncStatusCommand extends $Command
   })
   .s("CodeConnections_20231201", "GetRepositorySyncStatus", {})
   .n("CodeConnectionsClient", "GetRepositorySyncStatusCommand")
-  .sc(GetRepositorySyncStatus)
+  .sc(GetRepositorySyncStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

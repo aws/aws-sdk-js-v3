@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetBrowserSettingsRequest, GetBrowserSettingsResponse } from "../models/models_0";
-import { GetBrowserSettings } from "../schemas/schemas_0";
+import { GetBrowserSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -109,7 +109,7 @@ export class GetBrowserSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "GetBrowserSettings", {})
   .n("WorkSpacesWebClient", "GetBrowserSettingsCommand")
-  .sc(GetBrowserSettings)
+  .sc(GetBrowserSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

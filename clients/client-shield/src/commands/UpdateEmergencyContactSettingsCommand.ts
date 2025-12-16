@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateEmergencyContactSettingsRequest, UpdateEmergencyContactSettingsResponse } from "../models/models_0";
-import { UpdateEmergencyContactSettings } from "../schemas/schemas_0";
+import { UpdateEmergencyContactSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -92,7 +92,7 @@ export class UpdateEmergencyContactSettingsCommand extends $Command
   })
   .s("AWSShield_20160616", "UpdateEmergencyContactSettings", {})
   .n("ShieldClient", "UpdateEmergencyContactSettingsCommand")
-  .sc(UpdateEmergencyContactSettings)
+  .sc(UpdateEmergencyContactSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

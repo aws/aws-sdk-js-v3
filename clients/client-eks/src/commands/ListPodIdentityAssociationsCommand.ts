@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListPodIdentityAssociationsRequest, ListPodIdentityAssociationsResponse } from "../models/models_0";
-import { ListPodIdentityAssociations } from "../schemas/schemas_0";
+import { ListPodIdentityAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class ListPodIdentityAssociationsCommand extends $Command
   })
   .s("AWSWesleyFrontend", "ListPodIdentityAssociations", {})
   .n("EKSClient", "ListPodIdentityAssociationsCommand")
-  .sc(ListPodIdentityAssociations)
+  .sc(ListPodIdentityAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../ElasticsearchServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelDomainConfigChangeRequest, CancelDomainConfigChangeResponse } from "../models/models_0";
-import { CancelDomainConfigChange } from "../schemas/schemas_0";
+import { CancelDomainConfigChange$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class CancelDomainConfigChangeCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "CancelDomainConfigChange", {})
   .n("ElasticsearchServiceClient", "CancelDomainConfigChangeCommand")
-  .sc(CancelDomainConfigChange)
+  .sc(CancelDomainConfigChange$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

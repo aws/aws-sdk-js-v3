@@ -10,7 +10,7 @@ import type {
 } from "../ElasticsearchServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeDomainAutoTunesRequest, DescribeDomainAutoTunesResponse } from "../models/models_0";
-import { DescribeDomainAutoTunes } from "../schemas/schemas_0";
+import { DescribeDomainAutoTunes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DescribeDomainAutoTunesCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "DescribeDomainAutoTunes", {})
   .n("ElasticsearchServiceClient", "DescribeDomainAutoTunesCommand")
-  .sc(DescribeDomainAutoTunes)
+  .sc(DescribeDomainAutoTunes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

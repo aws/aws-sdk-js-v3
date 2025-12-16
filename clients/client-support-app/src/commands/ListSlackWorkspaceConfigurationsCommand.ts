@@ -8,7 +8,7 @@ import type {
   ListSlackWorkspaceConfigurationsRequest,
   ListSlackWorkspaceConfigurationsResult,
 } from "../models/models_0";
-import { ListSlackWorkspaceConfigurations } from "../schemas/schemas_0";
+import { ListSlackWorkspaceConfigurations$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
@@ -91,7 +91,7 @@ export class ListSlackWorkspaceConfigurationsCommand extends $Command
   })
   .s("SupportApp", "ListSlackWorkspaceConfigurations", {})
   .n("SupportAppClient", "ListSlackWorkspaceConfigurationsCommand")
-  .sc(ListSlackWorkspaceConfigurations)
+  .sc(ListSlackWorkspaceConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

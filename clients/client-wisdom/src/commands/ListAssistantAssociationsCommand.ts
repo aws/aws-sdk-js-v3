@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAssistantAssociationsRequest, ListAssistantAssociationsResponse } from "../models/models_0";
-import { ListAssistantAssociations } from "../schemas/schemas_0";
+import { ListAssistantAssociations$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -102,7 +102,7 @@ export class ListAssistantAssociationsCommand extends $Command
   })
   .s("WisdomService", "ListAssistantAssociations", {})
   .n("WisdomClient", "ListAssistantAssociationsCommand")
-  .sc(ListAssistantAssociations)
+  .sc(ListAssistantAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

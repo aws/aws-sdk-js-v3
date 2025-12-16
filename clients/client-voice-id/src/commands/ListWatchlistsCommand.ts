@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListWatchlistsRequest, ListWatchlistsResponse } from "../models/models_0";
-import { ListWatchlists } from "../schemas/schemas_0";
+import { ListWatchlists$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -107,7 +107,7 @@ export class ListWatchlistsCommand extends $Command
   })
   .s("VoiceID", "ListWatchlists", {})
   .n("VoiceIDClient", "ListWatchlistsCommand")
-  .sc(ListWatchlists)
+  .sc(ListWatchlists$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListTrainingDatasetsRequest, ListTrainingDatasetsResponse } from "../models/models_0";
-import { ListTrainingDatasets } from "../schemas/schemas_0";
+import { ListTrainingDatasets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class ListTrainingDatasetsCommand extends $Command
   })
   .s("AWSStarkControlService", "ListTrainingDatasets", {})
   .n("CleanRoomsMLClient", "ListTrainingDatasetsCommand")
-  .sc(ListTrainingDatasets)
+  .sc(ListTrainingDatasets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

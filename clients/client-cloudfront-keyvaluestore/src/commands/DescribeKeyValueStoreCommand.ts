@@ -10,7 +10,7 @@ import type {
 } from "../CloudFrontKeyValueStoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeKeyValueStoreRequest, DescribeKeyValueStoreResponse } from "../models/models_0";
-import { DescribeKeyValueStore } from "../schemas/schemas_0";
+import { DescribeKeyValueStore$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -142,7 +142,7 @@ export class DescribeKeyValueStoreCommand extends $Command
   })
   .s("CloudFrontKeyValueStore", "DescribeKeyValueStore", {})
   .n("CloudFrontKeyValueStoreClient", "DescribeKeyValueStoreCommand")
-  .sc(DescribeKeyValueStore)
+  .sc(DescribeKeyValueStore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

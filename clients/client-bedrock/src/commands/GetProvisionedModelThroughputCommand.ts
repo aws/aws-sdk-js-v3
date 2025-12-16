@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetProvisionedModelThroughputRequest, GetProvisionedModelThroughputResponse } from "../models/models_1";
-import { GetProvisionedModelThroughput } from "../schemas/schemas_0";
+import { GetProvisionedModelThroughput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class GetProvisionedModelThroughputCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "GetProvisionedModelThroughput", {})
   .n("BedrockClient", "GetProvisionedModelThroughputCommand")
-  .sc(GetProvisionedModelThroughput)
+  .sc(GetProvisionedModelThroughput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RegisterApplicationInput, RegisterApplicationOutput } from "../models/models_0";
-import { RegisterApplication } from "../schemas/schemas_0";
+import { RegisterApplication$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -125,7 +125,7 @@ export class RegisterApplicationCommand extends $Command
   })
   .s("SsmSap", "RegisterApplication", {})
   .n("SsmSapClient", "RegisterApplicationCommand")
-  .sc(RegisterApplication)
+  .sc(RegisterApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

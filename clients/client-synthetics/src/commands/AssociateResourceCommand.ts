@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateResourceRequest, AssociateResourceResponse } from "../models/models_0";
-import { AssociateResource } from "../schemas/schemas_0";
+import { AssociateResource$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
@@ -90,7 +90,7 @@ export class AssociateResourceCommand extends $Command
   })
   .s("Synthetics", "AssociateResource", {})
   .n("SyntheticsClient", "AssociateResourceCommand")
-  .sc(AssociateResource)
+  .sc(AssociateResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

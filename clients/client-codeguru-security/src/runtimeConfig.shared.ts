@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: CodeGuruSecurityClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.codegurusecurity" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.codegurusecurity",
+      version: "2018-05-10",
+      serviceTarget: "AwsCodeGuruSecurity",
+    },
     serviceId: config?.serviceId ?? "CodeGuru Security",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

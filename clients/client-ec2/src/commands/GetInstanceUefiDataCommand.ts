@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetInstanceUefiDataRequest, GetInstanceUefiDataResult } from "../models/models_5";
-import { GetInstanceUefiData } from "../schemas/schemas_0";
+import { GetInstanceUefiData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class GetInstanceUefiDataCommand extends $Command
   })
   .s("AmazonEC2", "GetInstanceUefiData", {})
   .n("EC2Client", "GetInstanceUefiDataCommand")
-  .sc(GetInstanceUefiData)
+  .sc(GetInstanceUefiData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

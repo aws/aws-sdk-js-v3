@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteVerifiedAccessGroupRequest, DeleteVerifiedAccessGroupResult } from "../models/models_3";
-import { DeleteVerifiedAccessGroup } from "../schemas/schemas_0";
+import { DeleteVerifiedAccessGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteVerifiedAccessGroupCommand extends $Command
   })
   .s("AmazonEC2", "DeleteVerifiedAccessGroup", {})
   .n("EC2Client", "DeleteVerifiedAccessGroupCommand")
-  .sc(DeleteVerifiedAccessGroup)
+  .sc(DeleteVerifiedAccessGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

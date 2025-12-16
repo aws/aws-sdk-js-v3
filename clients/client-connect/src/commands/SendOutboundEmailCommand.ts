@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SendOutboundEmailRequest, SendOutboundEmailResponse } from "../models/models_2";
-import { SendOutboundEmail } from "../schemas/schemas_0";
+import { SendOutboundEmail$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -137,7 +137,7 @@ export class SendOutboundEmailCommand extends $Command
   })
   .s("AmazonConnectService", "SendOutboundEmail", {})
   .n("ConnectClient", "SendOutboundEmailCommand")
-  .sc(SendOutboundEmail)
+  .sc(SendOutboundEmail$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

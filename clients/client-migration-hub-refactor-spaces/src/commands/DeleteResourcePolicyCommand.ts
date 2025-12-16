@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
 import type { DeleteResourcePolicyRequest, DeleteResourcePolicyResponse } from "../models/models_0";
-import { DeleteResourcePolicy } from "../schemas/schemas_0";
+import { DeleteResourcePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteResourcePolicyCommand extends $Command
   })
   .s("RefactorSpaces", "DeleteResourcePolicy", {})
   .n("MigrationHubRefactorSpacesClient", "DeleteResourcePolicyCommand")
-  .sc(DeleteResourcePolicy)
+  .sc(DeleteResourcePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

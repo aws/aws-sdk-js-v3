@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: MediaTailorClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.mediatailor" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.mediatailor",
+      version: "2018-04-23",
+      serviceTarget: "MediaTailor",
+    },
     serviceId: config?.serviceId ?? "MediaTailor",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

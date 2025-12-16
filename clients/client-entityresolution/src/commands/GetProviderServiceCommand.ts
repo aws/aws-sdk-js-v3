@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../EntityResolutionClient";
 import type { GetProviderServiceInput, GetProviderServiceOutput } from "../models/models_0";
-import { GetProviderService } from "../schemas/schemas_0";
+import { GetProviderService$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -137,7 +137,7 @@ export class GetProviderServiceCommand extends $Command
   })
   .s("AWSVeniceService", "GetProviderService", {})
   .n("EntityResolutionClient", "GetProviderServiceCommand")
-  .sc(GetProviderService)
+  .sc(GetProviderService$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetTableStorageClassRequest, GetTableStorageClassResponse } from "../models/models_0";
 import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
-import { GetTableStorageClass } from "../schemas/schemas_0";
+import { GetTableStorageClass$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class GetTableStorageClassCommand extends $Command
   })
   .s("S3TableBuckets", "GetTableStorageClass", {})
   .n("S3TablesClient", "GetTableStorageClassCommand")
-  .sc(GetTableStorageClass)
+  .sc(GetTableStorageClass$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

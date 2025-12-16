@@ -9,7 +9,7 @@ import type {
   BatchDeleteDevicePositionHistoryRequest,
   BatchDeleteDevicePositionHistoryResponse,
 } from "../models/models_0";
-import { BatchDeleteDevicePositionHistory } from "../schemas/schemas_0";
+import { BatchDeleteDevicePositionHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class BatchDeleteDevicePositionHistoryCommand extends $Command
   })
   .s("LocationService", "BatchDeleteDevicePositionHistory", {})
   .n("LocationClient", "BatchDeleteDevicePositionHistoryCommand")
-  .sc(BatchDeleteDevicePositionHistory)
+  .sc(BatchDeleteDevicePositionHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import type { SearchAssociatedTranscriptsRequest, SearchAssociatedTranscriptsResponse } from "../models/models_1";
-import { SearchAssociatedTranscripts } from "../schemas/schemas_0";
+import { SearchAssociatedTranscripts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class SearchAssociatedTranscriptsCommand extends $Command
   })
   .s("LexModelBuildingServiceV2", "SearchAssociatedTranscripts", {})
   .n("LexModelsV2Client", "SearchAssociatedTranscriptsCommand")
-  .sc(SearchAssociatedTranscripts)
+  .sc(SearchAssociatedTranscripts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

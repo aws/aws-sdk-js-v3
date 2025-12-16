@@ -9,7 +9,7 @@ import type {
   ModifyInstanceCapacityReservationAttributesRequest,
   ModifyInstanceCapacityReservationAttributesResult,
 } from "../models/models_6";
-import { ModifyInstanceCapacityReservationAttributes } from "../schemas/schemas_0";
+import { ModifyInstanceCapacityReservationAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class ModifyInstanceCapacityReservationAttributesCommand extends $Command
   })
   .s("AmazonEC2", "ModifyInstanceCapacityReservationAttributes", {})
   .n("EC2Client", "ModifyInstanceCapacityReservationAttributesCommand")
-  .sc(ModifyInstanceCapacityReservationAttributes)
+  .sc(ModifyInstanceCapacityReservationAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

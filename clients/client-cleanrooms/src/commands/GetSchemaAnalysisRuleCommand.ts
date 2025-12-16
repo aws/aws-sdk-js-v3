@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSchemaAnalysisRuleInput, GetSchemaAnalysisRuleOutput } from "../models/models_0";
-import { GetSchemaAnalysisRule } from "../schemas/schemas_0";
+import { GetSchemaAnalysisRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -271,7 +271,7 @@ export class GetSchemaAnalysisRuleCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "GetSchemaAnalysisRule", {})
   .n("CleanRoomsClient", "GetSchemaAnalysisRuleCommand")
-  .sc(GetSchemaAnalysisRule)
+  .sc(GetSchemaAnalysisRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

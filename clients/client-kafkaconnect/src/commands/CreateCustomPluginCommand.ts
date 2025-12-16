@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
 import type { CreateCustomPluginRequest, CreateCustomPluginResponse } from "../models/models_0";
-import { CreateCustomPlugin } from "../schemas/schemas_0";
+import { CreateCustomPlugin$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class CreateCustomPluginCommand extends $Command
   })
   .s("KafkaConnect", "CreateCustomPlugin", {})
   .n("KafkaConnectClient", "CreateCustomPluginCommand")
-  .sc(CreateCustomPlugin)
+  .sc(CreateCustomPlugin$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

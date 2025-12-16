@@ -9,7 +9,7 @@ import type {
   DescribeDocumentClassificationJobRequest,
   DescribeDocumentClassificationJobResponse,
 } from "../models/models_0";
-import { DescribeDocumentClassificationJob } from "../schemas/schemas_0";
+import { DescribeDocumentClassificationJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class DescribeDocumentClassificationJobCommand extends $Command
   })
   .s("Comprehend_20171127", "DescribeDocumentClassificationJob", {})
   .n("ComprehendClient", "DescribeDocumentClassificationJobCommand")
-  .sc(DescribeDocumentClassificationJob)
+  .sc(DescribeDocumentClassificationJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../ConnectParticipantClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeViewRequest, DescribeViewResponse } from "../models/models_0";
-import { DescribeView } from "../schemas/schemas_0";
+import { DescribeView$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class DescribeViewCommand extends $Command
   })
   .s("AmazonConnectParticipantServiceLambda", "DescribeView", {})
   .n("ConnectParticipantClient", "DescribeViewCommand")
-  .sc(DescribeView)
+  .sc(DescribeView$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

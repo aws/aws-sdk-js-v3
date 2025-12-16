@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type UploadReadSetPartResponse, UploadReadSetPartRequest } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { UploadReadSetPart } from "../schemas/schemas_0";
+import { UploadReadSetPart$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class UploadReadSetPartCommand extends $Command
   })
   .s("Omics", "UploadReadSetPart", {})
   .n("OmicsClient", "UploadReadSetPartCommand")
-  .sc(UploadReadSetPart)
+  .sc(UploadReadSetPart$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

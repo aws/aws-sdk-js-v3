@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyHapgRequest, ModifyHapgResponse } from "../models/models_0";
-import { ModifyHapg } from "../schemas/schemas_0";
+import { ModifyHapg$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class ModifyHapgCommand extends $Command
   })
   .s("CloudHsmFrontendService", "ModifyHapg", {})
   .n("CloudHSMClient", "ModifyHapgCommand")
-  .sc(ModifyHapg)
+  .sc(ModifyHapg$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

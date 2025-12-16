@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { ConstantQueryString } from "../schemas/schemas_0";
+import { ConstantQueryString$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -78,7 +78,7 @@ export class ConstantQueryStringCommand extends $Command
   })
   .s("RestJson", "ConstantQueryString", {})
   .n("RestJsonProtocolClient", "ConstantQueryStringCommand")
-  .sc(ConstantQueryString)
+  .sc(ConstantQueryString$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

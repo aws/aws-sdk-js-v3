@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRetrievedTracesGraphRequest, GetRetrievedTracesGraphResult } from "../models/models_0";
-import { GetRetrievedTracesGraph } from "../schemas/schemas_0";
+import { GetRetrievedTracesGraph$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -187,7 +187,7 @@ export class GetRetrievedTracesGraphCommand extends $Command
   })
   .s("AWSXRay", "GetRetrievedTracesGraph", {})
   .n("XRayClient", "GetRetrievedTracesGraphCommand")
-  .sc(GetRetrievedTracesGraph)
+  .sc(GetRetrievedTracesGraph$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

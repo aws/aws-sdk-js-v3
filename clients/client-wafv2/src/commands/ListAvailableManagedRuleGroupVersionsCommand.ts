@@ -8,7 +8,7 @@ import type {
   ListAvailableManagedRuleGroupVersionsRequest,
   ListAvailableManagedRuleGroupVersionsResponse,
 } from "../models/models_0";
-import { ListAvailableManagedRuleGroupVersions } from "../schemas/schemas_0";
+import { ListAvailableManagedRuleGroupVersions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -124,7 +124,7 @@ export class ListAvailableManagedRuleGroupVersionsCommand extends $Command
   })
   .s("AWSWAF_20190729", "ListAvailableManagedRuleGroupVersions", {})
   .n("WAFV2Client", "ListAvailableManagedRuleGroupVersionsCommand")
-  .sc(ListAvailableManagedRuleGroupVersions)
+  .sc(ListAvailableManagedRuleGroupVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

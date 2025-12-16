@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateSecurityKeyRequest } from "../models/models_1";
-import { DisassociateSecurityKey } from "../schemas/schemas_0";
+import { DisassociateSecurityKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DisassociateSecurityKeyCommand extends $Command
   })
   .s("AmazonConnectService", "DisassociateSecurityKey", {})
   .n("ConnectClient", "DisassociateSecurityKeyCommand")
-  .sc(DisassociateSecurityKey)
+  .sc(DisassociateSecurityKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

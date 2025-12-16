@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteBucketMetadataTableConfigurationRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { DeleteBucketMetadataTableConfiguration } from "../schemas/schemas_0";
+import { DeleteBucketMetadataTableConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class DeleteBucketMetadataTableConfigurationCommand extends $Command
   })
   .s("AmazonS3", "DeleteBucketMetadataTableConfiguration", {})
   .n("S3Client", "DeleteBucketMetadataTableConfigurationCommand")
-  .sc(DeleteBucketMetadataTableConfiguration)
+  .sc(DeleteBucketMetadataTableConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

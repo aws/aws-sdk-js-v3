@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import type { ListWirelessDeviceImportTasksRequest, ListWirelessDeviceImportTasksResponse } from "../models/models_0";
-import { ListWirelessDeviceImportTasks } from "../schemas/schemas_0";
+import { ListWirelessDeviceImportTasks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class ListWirelessDeviceImportTasksCommand extends $Command
   })
   .s("iotwireless", "ListWirelessDeviceImportTasks", {})
   .n("IoTWirelessClient", "ListWirelessDeviceImportTasksCommand")
-  .sc(ListWirelessDeviceImportTasks)
+  .sc(ListWirelessDeviceImportTasks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DLMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DLMClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetLifecyclePolicyRequest, GetLifecyclePolicyResponse } from "../models/models_0";
-import { GetLifecyclePolicy } from "../schemas/schemas_0";
+import { GetLifecyclePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -257,7 +257,7 @@ export class GetLifecyclePolicyCommand extends $Command
   })
   .s("dlm_20180112", "GetLifecyclePolicy", {})
   .n("DLMClient", "GetLifecyclePolicyCommand")
-  .sc(GetLifecyclePolicy)
+  .sc(GetLifecyclePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

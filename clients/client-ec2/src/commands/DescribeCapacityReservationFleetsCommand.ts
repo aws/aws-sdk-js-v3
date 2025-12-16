@@ -9,7 +9,7 @@ import type {
   DescribeCapacityReservationFleetsRequest,
   DescribeCapacityReservationFleetsResult,
 } from "../models/models_3";
-import { DescribeCapacityReservationFleets } from "../schemas/schemas_0";
+import { DescribeCapacityReservationFleets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class DescribeCapacityReservationFleetsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeCapacityReservationFleets", {})
   .n("EC2Client", "DescribeCapacityReservationFleetsCommand")
-  .sc(DescribeCapacityReservationFleets)
+  .sc(DescribeCapacityReservationFleets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DisassociateManagedNotificationAdditionalChannelResponse,
 } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { DisassociateManagedNotificationAdditionalChannel } from "../schemas/schemas_0";
+import { DisassociateManagedNotificationAdditionalChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DisassociateManagedNotificationAdditionalChannelCommand extends $Co
   })
   .s("Notifications", "DisassociateManagedNotificationAdditionalChannel", {})
   .n("NotificationsClient", "DisassociateManagedNotificationAdditionalChannelCommand")
-  .sc(DisassociateManagedNotificationAdditionalChannel)
+  .sc(DisassociateManagedNotificationAdditionalChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

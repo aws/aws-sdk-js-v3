@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
 import type { GetFeatureRequest, GetFeatureResponse } from "../models/models_0";
-import { GetFeature } from "../schemas/schemas_0";
+import { GetFeature$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class GetFeatureCommand extends $Command
   })
   .s("Evidently", "GetFeature", {})
   .n("EvidentlyClient", "GetFeatureCommand")
-  .sc(GetFeature)
+  .sc(GetFeature$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

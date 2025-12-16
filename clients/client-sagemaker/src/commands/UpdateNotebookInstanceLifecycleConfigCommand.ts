@@ -9,7 +9,7 @@ import type {
   UpdateNotebookInstanceLifecycleConfigOutput,
 } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { UpdateNotebookInstanceLifecycleConfig } from "../schemas/schemas_0";
+import { UpdateNotebookInstanceLifecycleConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class UpdateNotebookInstanceLifecycleConfigCommand extends $Command
   })
   .s("SageMaker", "UpdateNotebookInstanceLifecycleConfig", {})
   .n("SageMakerClient", "UpdateNotebookInstanceLifecycleConfigCommand")
-  .sc(UpdateNotebookInstanceLifecycleConfig)
+  .sc(UpdateNotebookInstanceLifecycleConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

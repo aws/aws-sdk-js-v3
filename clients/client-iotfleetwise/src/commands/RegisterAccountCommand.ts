@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import type { RegisterAccountRequest, RegisterAccountResponse } from "../models/models_0";
-import { RegisterAccount } from "../schemas/schemas_0";
+import { RegisterAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class RegisterAccountCommand extends $Command
   })
   .s("IoTAutobahnControlPlane", "RegisterAccount", {})
   .n("IoTFleetWiseClient", "RegisterAccountCommand")
-  .sc(RegisterAccount)
+  .sc(RegisterAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

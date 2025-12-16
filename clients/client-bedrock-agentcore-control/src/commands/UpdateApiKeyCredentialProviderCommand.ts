@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateApiKeyCredentialProviderRequest, UpdateApiKeyCredentialProviderResponse } from "../models/models_0";
-import { UpdateApiKeyCredentialProvider } from "../schemas/schemas_0";
+import { UpdateApiKeyCredentialProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class UpdateApiKeyCredentialProviderCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "UpdateApiKeyCredentialProvider", {})
   .n("BedrockAgentCoreControlClient", "UpdateApiKeyCredentialProviderCommand")
-  .sc(UpdateApiKeyCredentialProvider)
+  .sc(UpdateApiKeyCredentialProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

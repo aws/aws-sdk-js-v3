@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import type { CreateBatchImportJobRequest, CreateBatchImportJobResult } from "../models/models_0";
-import { CreateBatchImportJob } from "../schemas/schemas_0";
+import { CreateBatchImportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class CreateBatchImportJobCommand extends $Command
   })
   .s("AWSHawksNestServiceFacade", "CreateBatchImportJob", {})
   .n("FraudDetectorClient", "CreateBatchImportJobCommand")
-  .sc(CreateBatchImportJob)
+  .sc(CreateBatchImportJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import { GetPoliciesStats } from "../schemas/schemas_0";
+import { GetPoliciesStats$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class GetPoliciesStatsCommand extends $Command
   })
   .s("OpenSearchServerless", "GetPoliciesStats", {})
   .n("OpenSearchServerlessClient", "GetPoliciesStatsCommand")
-  .sc(GetPoliciesStats)
+  .sc(GetPoliciesStats$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

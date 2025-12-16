@@ -10,7 +10,7 @@ import type {
 } from "../ConnectCampaignsV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteCampaignCommunicationLimitsRequest } from "../models/models_0";
-import { DeleteCampaignCommunicationLimits } from "../schemas/schemas_0";
+import { DeleteCampaignCommunicationLimits$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteCampaignCommunicationLimitsCommand extends $Command
   })
   .s("AmazonConnectCampaignServiceV2", "DeleteCampaignCommunicationLimits", {})
   .n("ConnectCampaignsV2Client", "DeleteCampaignCommunicationLimitsCommand")
-  .sc(DeleteCampaignCommunicationLimits)
+  .sc(DeleteCampaignCommunicationLimits$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

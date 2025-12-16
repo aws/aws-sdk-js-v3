@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { DetachGroupPolicyRequest } from "../models/models_0";
-import { DetachGroupPolicy } from "../schemas/schemas_0";
+import { DetachGroupPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DetachGroupPolicyCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "DetachGroupPolicy", {})
   .n("IAMClient", "DetachGroupPolicyCommand")
-  .sc(DetachGroupPolicy)
+  .sc(DetachGroupPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

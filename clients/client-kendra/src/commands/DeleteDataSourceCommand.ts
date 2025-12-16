@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import type { DeleteDataSourceRequest } from "../models/models_0";
-import { DeleteDataSource } from "../schemas/schemas_0";
+import { DeleteDataSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class DeleteDataSourceCommand extends $Command
   })
   .s("AWSKendraFrontendService", "DeleteDataSource", {})
   .n("KendraClient", "DeleteDataSourceCommand")
-  .sc(DeleteDataSource)
+  .sc(DeleteDataSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

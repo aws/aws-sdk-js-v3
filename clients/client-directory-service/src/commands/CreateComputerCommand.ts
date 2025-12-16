@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateComputerRequest, CreateComputerResult } from "../models/models_0";
-import { CreateComputer } from "../schemas/schemas_0";
+import { CreateComputer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -156,7 +156,7 @@ export class CreateComputerCommand extends $Command
   })
   .s("DirectoryService_20150416", "CreateComputer", {})
   .n("DirectoryServiceClient", "CreateComputerCommand")
-  .sc(CreateComputer)
+  .sc(CreateComputer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

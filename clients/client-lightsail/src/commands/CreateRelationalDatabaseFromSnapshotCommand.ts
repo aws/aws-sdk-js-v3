@@ -9,7 +9,7 @@ import type {
   CreateRelationalDatabaseFromSnapshotRequest,
   CreateRelationalDatabaseFromSnapshotResult,
 } from "../models/models_0";
-import { CreateRelationalDatabaseFromSnapshot } from "../schemas/schemas_0";
+import { CreateRelationalDatabaseFromSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -149,7 +149,7 @@ export class CreateRelationalDatabaseFromSnapshotCommand extends $Command
   })
   .s("Lightsail_20161128", "CreateRelationalDatabaseFromSnapshot", {})
   .n("LightsailClient", "CreateRelationalDatabaseFromSnapshotCommand")
-  .sc(CreateRelationalDatabaseFromSnapshot)
+  .sc(CreateRelationalDatabaseFromSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

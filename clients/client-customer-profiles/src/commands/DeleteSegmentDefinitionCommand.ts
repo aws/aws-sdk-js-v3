@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSegmentDefinitionRequest, DeleteSegmentDefinitionResponse } from "../models/models_0";
-import { DeleteSegmentDefinition } from "../schemas/schemas_0";
+import { DeleteSegmentDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteSegmentDefinitionCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "DeleteSegmentDefinition", {})
   .n("CustomerProfilesClient", "DeleteSegmentDefinitionCommand")
-  .sc(DeleteSegmentDefinition)
+  .sc(DeleteSegmentDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

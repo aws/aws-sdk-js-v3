@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: MailManagerClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.mailmanager",
-        serviceTarget: "MailManagerSvc",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.mailmanager",
+      version: "2023-10-17",
+      serviceTarget: "MailManagerSvc",
+    },
     serviceId: config?.serviceId ?? "MailManager",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

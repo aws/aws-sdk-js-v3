@@ -9,7 +9,7 @@ import type {
   DescribeEntityAggregatesForOrganizationRequest,
   DescribeEntityAggregatesForOrganizationResponse,
 } from "../models/models_0";
-import { DescribeEntityAggregatesForOrganization } from "../schemas/schemas_0";
+import { DescribeEntityAggregatesForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DescribeEntityAggregatesForOrganizationCommand extends $Command
   })
   .s("AWSHealth_20160804", "DescribeEntityAggregatesForOrganization", {})
   .n("HealthClient", "DescribeEntityAggregatesForOrganizationCommand")
-  .sc(DescribeEntityAggregatesForOrganization)
+  .sc(DescribeEntityAggregatesForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

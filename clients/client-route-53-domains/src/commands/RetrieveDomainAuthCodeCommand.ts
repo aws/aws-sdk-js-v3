@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { RetrieveDomainAuthCode } from "../schemas/schemas_0";
+import { RetrieveDomainAuthCode$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class RetrieveDomainAuthCodeCommand extends $Command
   })
   .s("Route53Domains_v20140515", "RetrieveDomainAuthCode", {})
   .n("Route53DomainsClient", "RetrieveDomainAuthCodeCommand")
-  .sc(RetrieveDomainAuthCode)
+  .sc(RetrieveDomainAuthCode$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

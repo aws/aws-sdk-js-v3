@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSolNetworkInstanceInput } from "../models/models_0";
-import { DeleteSolNetworkInstance } from "../schemas/schemas_0";
+import { DeleteSolNetworkInstance$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -103,7 +103,7 @@ export class DeleteSolNetworkInstanceCommand extends $Command
   })
   .s("TNB", "DeleteSolNetworkInstance", {})
   .n("TnbClient", "DeleteSolNetworkInstanceCommand")
-  .sc(DeleteSolNetworkInstance)
+  .sc(DeleteSolNetworkInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

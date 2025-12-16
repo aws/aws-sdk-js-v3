@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopDiscovererRequest, StopDiscovererResponse } from "../models/models_0";
-import { StopDiscoverer } from "../schemas/schemas_0";
+import { StopDiscoverer$ } from "../schemas/schemas_0";
 import type { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
@@ -86,7 +86,7 @@ export class StopDiscovererCommand extends $Command
   })
   .s("schemas", "StopDiscoverer", {})
   .n("SchemasClient", "StopDiscovererCommand")
-  .sc(StopDiscoverer)
+  .sc(StopDiscoverer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

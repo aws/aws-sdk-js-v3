@@ -9,7 +9,7 @@ import type {
   DisassociateApplicationFromEntitlementRequest,
   DisassociateApplicationFromEntitlementResult,
 } from "../models/models_0";
-import { DisassociateApplicationFromEntitlement } from "../schemas/schemas_0";
+import { DisassociateApplicationFromEntitlement$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DisassociateApplicationFromEntitlementCommand extends $Command
   })
   .s("PhotonAdminProxyService", "DisassociateApplicationFromEntitlement", {})
   .n("AppStreamClient", "DisassociateApplicationFromEntitlementCommand")
-  .sc(DisassociateApplicationFromEntitlement)
+  .sc(DisassociateApplicationFromEntitlement$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

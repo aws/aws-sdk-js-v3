@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RejectPredictionsInput, RejectPredictionsOutput } from "../models/models_1";
-import { RejectPredictions } from "../schemas/schemas_0";
+import { RejectPredictions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class RejectPredictionsCommand extends $Command
   })
   .s("DataZone", "RejectPredictions", {})
   .n("DataZoneClient", "RejectPredictionsCommand")
-  .sc(RejectPredictions)
+  .sc(RejectPredictions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

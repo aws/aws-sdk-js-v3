@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { GetUnfilteredTableMetadataRequest } from "../models/models_2";
 import type { GetUnfilteredTableMetadataResponse } from "../models/models_3";
-import { GetUnfilteredTableMetadata } from "../schemas/schemas_0";
+import { GetUnfilteredTableMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -419,7 +419,7 @@ export class GetUnfilteredTableMetadataCommand extends $Command
   })
   .s("AWSGlue", "GetUnfilteredTableMetadata", {})
   .n("GlueClient", "GetUnfilteredTableMetadataCommand")
-  .sc(GetUnfilteredTableMetadata)
+  .sc(GetUnfilteredTableMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

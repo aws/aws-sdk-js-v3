@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PostWhatsAppMessageMediaInput, PostWhatsAppMessageMediaOutput } from "../models/models_0";
-import { PostWhatsAppMessageMedia } from "../schemas/schemas_0";
+import { PostWhatsAppMessageMedia$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -116,7 +116,7 @@ export class PostWhatsAppMessageMediaCommand extends $Command
   })
   .s("SocialMessaging", "PostWhatsAppMessageMedia", {})
   .n("SocialMessagingClient", "PostWhatsAppMessageMediaCommand")
-  .sc(PostWhatsAppMessageMedia)
+  .sc(PostWhatsAppMessageMedia$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

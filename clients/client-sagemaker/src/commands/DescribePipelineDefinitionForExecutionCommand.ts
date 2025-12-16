@@ -9,7 +9,7 @@ import type {
   DescribePipelineDefinitionForExecutionResponse,
 } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DescribePipelineDefinitionForExecution } from "../schemas/schemas_0";
+import { DescribePipelineDefinitionForExecution$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class DescribePipelineDefinitionForExecutionCommand extends $Command
   })
   .s("SageMaker", "DescribePipelineDefinitionForExecution", {})
   .n("SageMakerClient", "DescribePipelineDefinitionForExecutionCommand")
-  .sc(DescribePipelineDefinitionForExecution)
+  .sc(DescribePipelineDefinitionForExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

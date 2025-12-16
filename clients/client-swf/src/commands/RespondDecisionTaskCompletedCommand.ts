@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RespondDecisionTaskCompletedInput } from "../models/models_0";
-import { RespondDecisionTaskCompleted } from "../schemas/schemas_0";
+import { RespondDecisionTaskCompleted$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -199,7 +199,7 @@ export class RespondDecisionTaskCompletedCommand extends $Command
   })
   .s("SimpleWorkflowService", "RespondDecisionTaskCompleted", {})
   .n("SWFClient", "RespondDecisionTaskCompletedCommand")
-  .sc(RespondDecisionTaskCompleted)
+  .sc(RespondDecisionTaskCompleted$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

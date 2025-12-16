@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RegisterOnPremisesInstanceInput } from "../models/models_0";
-import { RegisterOnPremisesInstance } from "../schemas/schemas_0";
+import { RegisterOnPremisesInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class RegisterOnPremisesInstanceCommand extends $Command
   })
   .s("CodeDeploy_20141006", "RegisterOnPremisesInstance", {})
   .n("CodeDeployClient", "RegisterOnPremisesInstanceCommand")
-  .sc(RegisterOnPremisesInstance)
+  .sc(RegisterOnPremisesInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

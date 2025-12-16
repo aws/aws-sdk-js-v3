@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListResolversByFunctionRequest, ListResolversByFunctionResponse } from "../models/models_0";
-import { ListResolversByFunction } from "../schemas/schemas_0";
+import { ListResolversByFunction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class ListResolversByFunctionCommand extends $Command
   })
   .s("AWSDeepdishControlPlaneService", "ListResolversByFunction", {})
   .n("AppSyncClient", "ListResolversByFunctionCommand")
-  .sc(ListResolversByFunction)
+  .sc(ListResolversByFunction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

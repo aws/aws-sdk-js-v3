@@ -10,7 +10,7 @@ import type {
 } from "../ConnectCampaignsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopCampaignRequest } from "../models/models_0";
-import { StopCampaign } from "../schemas/schemas_0";
+import { StopCampaign$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class StopCampaignCommand extends $Command
   })
   .s("AmazonConnectCampaignService", "StopCampaign", {})
   .n("ConnectCampaignsClient", "StopCampaignCommand")
-  .sc(StopCampaign)
+  .sc(StopCampaign$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

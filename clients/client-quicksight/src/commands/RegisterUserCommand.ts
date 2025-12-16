@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RegisterUserRequest, RegisterUserResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { RegisterUser } from "../schemas/schemas_0";
+import { RegisterUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -135,7 +135,7 @@ export class RegisterUserCommand extends $Command
   })
   .s("QuickSight_20180401", "RegisterUser", {})
   .n("QuickSightClient", "RegisterUserCommand")
-  .sc(RegisterUser)
+  .sc(RegisterUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListResourcePoliciesRequest, ListResourcePoliciesResult } from "../models/models_0";
-import { ListResourcePolicies } from "../schemas/schemas_0";
+import { ListResourcePolicies$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -87,7 +87,7 @@ export class ListResourcePoliciesCommand extends $Command
   })
   .s("AWSXRay", "ListResourcePolicies", {})
   .n("XRayClient", "ListResourcePoliciesCommand")
-  .sc(ListResourcePolicies)
+  .sc(ListResourcePolicies$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeOrganizationsAccessInput, DescribeOrganizationsAccessOutput } from "../models/models_0";
-import { DescribeOrganizationsAccess } from "../schemas/schemas_0";
+import { DescribeOrganizationsAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class DescribeOrganizationsAccessCommand extends $Command
   })
   .s("CloudFormation", "DescribeOrganizationsAccess", {})
   .n("CloudFormationClient", "DescribeOrganizationsAccessCommand")
-  .sc(DescribeOrganizationsAccess)
+  .sc(DescribeOrganizationsAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

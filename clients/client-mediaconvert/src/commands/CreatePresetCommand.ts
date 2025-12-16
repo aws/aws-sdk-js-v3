@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
 import type { CreatePresetRequest, CreatePresetResponse } from "../models/models_0";
-import { CreatePreset } from "../schemas/schemas_0";
+import { CreatePreset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -1827,7 +1827,7 @@ export class CreatePresetCommand extends $Command
   })
   .s("MediaConvert", "CreatePreset", {})
   .n("MediaConvertClient", "CreatePresetCommand")
-  .sc(CreatePreset)
+  .sc(CreatePreset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

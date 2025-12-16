@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { UpdateWorkgroup } from "../schemas/schemas_0";
+import { UpdateWorkgroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -176,7 +176,7 @@ export class UpdateWorkgroupCommand extends $Command
   })
   .s("RedshiftServerless", "UpdateWorkgroup", {})
   .n("RedshiftServerlessClient", "UpdateWorkgroupCommand")
-  .sc(UpdateWorkgroup)
+  .sc(UpdateWorkgroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

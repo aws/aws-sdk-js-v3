@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PcaConnectorAdClient";
-import { GetServicePrincipalName } from "../schemas/schemas_0";
+import { GetServicePrincipalName$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class GetServicePrincipalNameCommand extends $Command
   })
   .s("PcaConnectorAd", "GetServicePrincipalName", {})
   .n("PcaConnectorAdClient", "GetServicePrincipalNameCommand")
-  .sc(GetServicePrincipalName)
+  .sc(GetServicePrincipalName$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

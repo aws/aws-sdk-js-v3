@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: SecurityHubClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.securityhub" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.securityhub",
+      version: "2018-10-26",
+      serviceTarget: "SecurityHubAPIService",
+    },
     serviceId: config?.serviceId ?? "SecurityHub",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

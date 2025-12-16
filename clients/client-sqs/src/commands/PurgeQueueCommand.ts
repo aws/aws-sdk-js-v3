@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PurgeQueueRequest } from "../models/models_0";
-import { PurgeQueue } from "../schemas/schemas_0";
+import { PurgeQueue$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -115,7 +115,7 @@ export class PurgeQueueCommand extends $Command
   })
   .s("AmazonSQS", "PurgeQueue", {})
   .n("SQSClient", "PurgeQueueCommand")
-  .sc(PurgeQueue)
+  .sc(PurgeQueue$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

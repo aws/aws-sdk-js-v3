@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: CodeCommitClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.codecommit",
-        serviceTarget: "CodeCommit_20150413",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.codecommit",
+      xmlNamespace: "http://codecommit.amazonaws.com/doc/2015-04-13",
+      version: "2015-04-13",
+      serviceTarget: "CodeCommit_20150413",
+    },
     serviceId: config?.serviceId ?? "CodeCommit",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

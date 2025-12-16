@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateSourceGraphqlApiRequest, AssociateSourceGraphqlApiResponse } from "../models/models_0";
-import { AssociateSourceGraphqlApi } from "../schemas/schemas_0";
+import { AssociateSourceGraphqlApi$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class AssociateSourceGraphqlApiCommand extends $Command
   })
   .s("AWSDeepdishControlPlaneService", "AssociateSourceGraphqlApi", {})
   .n("AppSyncClient", "AssociateSourceGraphqlApiCommand")
-  .sc(AssociateSourceGraphqlApi)
+  .sc(AssociateSourceGraphqlApi$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

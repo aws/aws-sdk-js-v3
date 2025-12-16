@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { ListAnalysisReports } from "../schemas/schemas_0";
+import { ListAnalysisReports$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class ListAnalysisReportsCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "ListAnalysisReports", {})
   .n("NetworkFirewallClient", "ListAnalysisReportsCommand")
-  .sc(ListAnalysisReports)
+  .sc(ListAnalysisReports$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { HostedConfigurationVersions, ListHostedConfigurationVersionsRequest } from "../models/models_0";
-import { ListHostedConfigurationVersions } from "../schemas/schemas_0";
+import { ListHostedConfigurationVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class ListHostedConfigurationVersionsCommand extends $Command
   })
   .s("AmazonAppConfig", "ListHostedConfigurationVersions", {})
   .n("AppConfigClient", "ListHostedConfigurationVersionsCommand")
-  .sc(ListHostedConfigurationVersions)
+  .sc(ListHostedConfigurationVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

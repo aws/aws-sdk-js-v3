@@ -13,7 +13,7 @@ import type {
   DescribeChannelMembershipForAppInstanceUserRequest,
   DescribeChannelMembershipForAppInstanceUserResponse,
 } from "../models/models_0";
-import { DescribeChannelMembershipForAppInstanceUser } from "../schemas/schemas_0";
+import { DescribeChannelMembershipForAppInstanceUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command
   })
   .s("ChimeMessagingService", "DescribeChannelMembershipForAppInstanceUser", {})
   .n("ChimeSDKMessagingClient", "DescribeChannelMembershipForAppInstanceUserCommand")
-  .sc(DescribeChannelMembershipForAppInstanceUser)
+  .sc(DescribeChannelMembershipForAppInstanceUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

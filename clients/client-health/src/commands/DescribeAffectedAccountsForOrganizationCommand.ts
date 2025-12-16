@@ -9,7 +9,7 @@ import type {
   DescribeAffectedAccountsForOrganizationRequest,
   DescribeAffectedAccountsForOrganizationResponse,
 } from "../models/models_0";
-import { DescribeAffectedAccountsForOrganization } from "../schemas/schemas_0";
+import { DescribeAffectedAccountsForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DescribeAffectedAccountsForOrganizationCommand extends $Command
   })
   .s("AWSHealth_20160804", "DescribeAffectedAccountsForOrganization", {})
   .n("HealthClient", "DescribeAffectedAccountsForOrganizationCommand")
-  .sc(DescribeAffectedAccountsForOrganization)
+  .sc(DescribeAffectedAccountsForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

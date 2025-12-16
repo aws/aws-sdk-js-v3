@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RefreshSchemasMessage, RefreshSchemasResponse } from "../models/models_1";
-import { RefreshSchemas } from "../schemas/schemas_0";
+import { RefreshSchemas$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class RefreshSchemasCommand extends $Command
   })
   .s("AmazonDMSv20160101", "RefreshSchemas", {})
   .n("DatabaseMigrationServiceClient", "RefreshSchemasCommand")
-  .sc(RefreshSchemas)
+  .sc(RefreshSchemas$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

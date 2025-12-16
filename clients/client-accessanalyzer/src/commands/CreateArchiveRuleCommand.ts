@@ -10,7 +10,7 @@ import type {
 } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateArchiveRuleRequest } from "../models/models_0";
-import { CreateArchiveRule } from "../schemas/schemas_0";
+import { CreateArchiveRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class CreateArchiveRuleCommand extends $Command
   })
   .s("AccessAnalyzer", "CreateArchiveRule", {})
   .n("AccessAnalyzerClient", "CreateArchiveRuleCommand")
-  .sc(CreateArchiveRule)
+  .sc(CreateArchiveRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateVariantStoreRequest, UpdateVariantStoreResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { UpdateVariantStore } from "../schemas/schemas_0";
+import { UpdateVariantStore$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class UpdateVariantStoreCommand extends $Command
   })
   .s("Omics", "UpdateVariantStore", {})
   .n("OmicsClient", "UpdateVariantStoreCommand")
-  .sc(UpdateVariantStore)
+  .sc(UpdateVariantStore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

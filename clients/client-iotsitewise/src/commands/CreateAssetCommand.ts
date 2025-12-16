@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import type { CreateAssetRequest, CreateAssetResponse } from "../models/models_0";
-import { CreateAsset } from "../schemas/schemas_0";
+import { CreateAsset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class CreateAssetCommand extends $Command
   })
   .s("AWSIoTSiteWise", "CreateAsset", {})
   .n("IoTSiteWiseClient", "CreateAssetCommand")
-  .sc(CreateAsset)
+  .sc(CreateAsset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

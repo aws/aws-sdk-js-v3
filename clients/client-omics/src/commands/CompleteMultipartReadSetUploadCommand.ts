@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CompleteMultipartReadSetUploadRequest, CompleteMultipartReadSetUploadResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { CompleteMultipartReadSetUpload } from "../schemas/schemas_0";
+import { CompleteMultipartReadSetUpload$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class CompleteMultipartReadSetUploadCommand extends $Command
   })
   .s("Omics", "CompleteMultipartReadSetUpload", {})
   .n("OmicsClient", "CompleteMultipartReadSetUploadCommand")
-  .sc(CompleteMultipartReadSetUpload)
+  .sc(CompleteMultipartReadSetUpload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

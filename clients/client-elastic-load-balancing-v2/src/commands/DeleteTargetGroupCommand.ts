@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTargetGroupInput, DeleteTargetGroupOutput } from "../models/models_0";
-import { DeleteTargetGroup } from "../schemas/schemas_0";
+import { DeleteTargetGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeleteTargetGroupCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "DeleteTargetGroup", {})
   .n("ElasticLoadBalancingV2Client", "DeleteTargetGroupCommand")
-  .sc(DeleteTargetGroup)
+  .sc(DeleteTargetGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

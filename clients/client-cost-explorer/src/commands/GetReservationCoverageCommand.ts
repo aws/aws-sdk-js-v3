@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetReservationCoverageRequest, GetReservationCoverageResponse } from "../models/models_0";
-import { GetReservationCoverage } from "../schemas/schemas_0";
+import { GetReservationCoverage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -263,7 +263,7 @@ export class GetReservationCoverageCommand extends $Command
   })
   .s("AWSInsightsIndexService", "GetReservationCoverage", {})
   .n("CostExplorerClient", "GetReservationCoverageCommand")
-  .sc(GetReservationCoverage)
+  .sc(GetReservationCoverage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

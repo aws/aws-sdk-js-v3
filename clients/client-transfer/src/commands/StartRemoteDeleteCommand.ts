@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartRemoteDeleteRequest, StartRemoteDeleteResponse } from "../models/models_0";
-import { StartRemoteDelete } from "../schemas/schemas_0";
+import { StartRemoteDelete$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -89,7 +89,7 @@ export class StartRemoteDeleteCommand extends $Command
   })
   .s("TransferService", "StartRemoteDelete", {})
   .n("TransferClient", "StartRemoteDeleteCommand")
-  .sc(StartRemoteDelete)
+  .sc(StartRemoteDelete$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

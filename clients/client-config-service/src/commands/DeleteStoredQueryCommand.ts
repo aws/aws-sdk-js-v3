@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteStoredQueryRequest, DeleteStoredQueryResponse } from "../models/models_0";
-import { DeleteStoredQuery } from "../schemas/schemas_0";
+import { DeleteStoredQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class DeleteStoredQueryCommand extends $Command
   })
   .s("StarlingDoveService", "DeleteStoredQuery", {})
   .n("ConfigServiceClient", "DeleteStoredQueryCommand")
-  .sc(DeleteStoredQuery)
+  .sc(DeleteStoredQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

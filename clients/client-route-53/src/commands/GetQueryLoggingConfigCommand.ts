@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetQueryLoggingConfigRequest, GetQueryLoggingConfigResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { GetQueryLoggingConfig } from "../schemas/schemas_0";
+import { GetQueryLoggingConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class GetQueryLoggingConfigCommand extends $Command
   })
   .s("AWSDnsV20130401", "GetQueryLoggingConfig", {})
   .n("Route53Client", "GetQueryLoggingConfigCommand")
-  .sc(GetQueryLoggingConfig)
+  .sc(GetQueryLoggingConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

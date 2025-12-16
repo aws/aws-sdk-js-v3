@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeScheduledActionsType, ScheduledActionsType } from "../models/models_0";
-import { DescribeScheduledActions } from "../schemas/schemas_0";
+import { DescribeScheduledActions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class DescribeScheduledActionsCommand extends $Command
   })
   .s("AutoScaling_2011_01_01", "DescribeScheduledActions", {})
   .n("AutoScalingClient", "DescribeScheduledActionsCommand")
-  .sc(DescribeScheduledActions)
+  .sc(DescribeScheduledActions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

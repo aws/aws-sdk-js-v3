@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteHostKeyRequest } from "../models/models_0";
-import { DeleteHostKey } from "../schemas/schemas_0";
+import { DeleteHostKey$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -87,7 +87,7 @@ export class DeleteHostKeyCommand extends $Command
   })
   .s("TransferService", "DeleteHostKey", {})
   .n("TransferClient", "DeleteHostKeyCommand")
-  .sc(DeleteHostKey)
+  .sc(DeleteHostKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: CloudWatchLogsClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.cloudwatchlogs",
-        serviceTarget: "Logs_20140328",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.cloudwatchlogs",
+      xmlNamespace: "http://monitoring.amazonaws.com/doc/2014-03-28/",
+      version: "2014-03-28",
+      serviceTarget: "Logs_20140328",
+    },
     serviceId: config?.serviceId ?? "CloudWatch Logs",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -9,7 +9,7 @@ import type {
   ListDistributionsByAnycastIpListIdRequest,
   ListDistributionsByAnycastIpListIdResult,
 } from "../models/models_1";
-import { ListDistributionsByAnycastIpListId } from "../schemas/schemas_0";
+import { ListDistributionsByAnycastIpListId$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -419,7 +419,7 @@ export class ListDistributionsByAnycastIpListIdCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "ListDistributionsByAnycastIpListId", {})
   .n("CloudFrontClient", "ListDistributionsByAnycastIpListIdCommand")
-  .sc(ListDistributionsByAnycastIpListId)
+  .sc(ListDistributionsByAnycastIpListId$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

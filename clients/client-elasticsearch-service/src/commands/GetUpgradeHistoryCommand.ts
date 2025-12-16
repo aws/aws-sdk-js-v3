@@ -10,7 +10,7 @@ import type {
 } from "../ElasticsearchServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetUpgradeHistoryRequest, GetUpgradeHistoryResponse } from "../models/models_0";
-import { GetUpgradeHistory } from "../schemas/schemas_0";
+import { GetUpgradeHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class GetUpgradeHistoryCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "GetUpgradeHistory", {})
   .n("ElasticsearchServiceClient", "GetUpgradeHistoryCommand")
-  .sc(GetUpgradeHistory)
+  .sc(GetUpgradeHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

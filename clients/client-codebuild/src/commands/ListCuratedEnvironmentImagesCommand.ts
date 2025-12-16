@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListCuratedEnvironmentImagesInput, ListCuratedEnvironmentImagesOutput } from "../models/models_0";
-import { ListCuratedEnvironmentImages } from "../schemas/schemas_0";
+import { ListCuratedEnvironmentImages$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class ListCuratedEnvironmentImagesCommand extends $Command
   })
   .s("CodeBuild_20161006", "ListCuratedEnvironmentImages", {})
   .n("CodeBuildClient", "ListCuratedEnvironmentImagesCommand")
-  .sc(ListCuratedEnvironmentImages)
+  .sc(ListCuratedEnvironmentImages$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsClient";
-import { UpdateAccountSettings } from "../schemas/schemas_0";
+import { UpdateAccountSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class UpdateAccountSettingsCommand extends $Command
   })
   .s("Ardi", "UpdateAccountSettings", {})
   .n("ResourceGroupsClient", "UpdateAccountSettingsCommand")
-  .sc(UpdateAccountSettings)
+  .sc(UpdateAccountSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: EC2InstanceConnectClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.ec2instanceconnect",
-        serviceTarget: "AWSEC2InstanceConnectService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.ec2instanceconnect",
+      version: "2018-04-02",
+      serviceTarget: "AWSEC2InstanceConnectService",
+    },
     serviceId: config?.serviceId ?? "EC2 Instance Connect",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

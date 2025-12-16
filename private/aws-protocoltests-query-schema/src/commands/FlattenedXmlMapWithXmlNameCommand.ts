@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FlattenedXmlMapWithXmlNameOutput } from "../models/models_0";
 import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { FlattenedXmlMapWithXmlName } from "../schemas/schemas_0";
+import { FlattenedXmlMapWithXmlName$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -73,7 +73,7 @@ export class FlattenedXmlMapWithXmlNameCommand extends $Command
   })
   .s("AwsQuery", "FlattenedXmlMapWithXmlName", {})
   .n("QueryProtocolClient", "FlattenedXmlMapWithXmlNameCommand")
-  .sc(FlattenedXmlMapWithXmlName)
+  .sc(FlattenedXmlMapWithXmlName$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

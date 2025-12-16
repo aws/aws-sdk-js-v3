@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTThingsGraphClient";
 import type { UpdateFlowTemplateRequest, UpdateFlowTemplateResponse } from "../models/models_0";
-import { UpdateFlowTemplate } from "../schemas/schemas_0";
+import { UpdateFlowTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class UpdateFlowTemplateCommand extends $Command
   })
   .s("IotThingsGraphFrontEndService", "UpdateFlowTemplate", {})
   .n("IoTThingsGraphClient", "UpdateFlowTemplateCommand")
-  .sc(UpdateFlowTemplate)
+  .sc(UpdateFlowTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

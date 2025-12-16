@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import type { GetUsageStatisticsRequest, GetUsageStatisticsResponse } from "../models/models_1";
-import { GetUsageStatistics } from "../schemas/schemas_0";
+import { GetUsageStatistics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -158,7 +158,7 @@ export class GetUsageStatisticsCommand extends $Command
   })
   .s("GuardDutyAPIService", "GetUsageStatistics", {})
   .n("GuardDutyClient", "GetUsageStatisticsCommand")
-  .sc(GetUsageStatistics)
+  .sc(GetUsageStatistics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import type { DeleteLayerVersionRequest } from "../models/models_0";
-import { DeleteLayerVersion } from "../schemas/schemas_0";
+import { DeleteLayerVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DeleteLayerVersionCommand extends $Command
   })
   .s("AWSGirApiService", "DeleteLayerVersion", {})
   .n("LambdaClient", "DeleteLayerVersionCommand")
-  .sc(DeleteLayerVersion)
+  .sc(DeleteLayerVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

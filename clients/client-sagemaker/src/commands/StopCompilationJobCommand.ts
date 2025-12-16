@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopCompilationJobRequest } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { StopCompilationJob } from "../schemas/schemas_0";
+import { StopCompilationJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -74,7 +74,7 @@ export class StopCompilationJobCommand extends $Command
   })
   .s("SageMaker", "StopCompilationJob", {})
   .n("SageMakerClient", "StopCompilationJobCommand")
-  .sc(StopCompilationJob)
+  .sc(StopCompilationJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

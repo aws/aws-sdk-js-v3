@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeRegionsRequest, DescribeRegionsResult } from "../models/models_0";
-import { DescribeRegions } from "../schemas/schemas_0";
+import { DescribeRegions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class DescribeRegionsCommand extends $Command
   })
   .s("DirectoryService_20150416", "DescribeRegions", {})
   .n("DirectoryServiceClient", "DescribeRegionsCommand")
-  .sc(DescribeRegions)
+  .sc(DescribeRegions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

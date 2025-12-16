@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateBandwidthRateLimitScheduleInput, UpdateBandwidthRateLimitScheduleOutput } from "../models/models_0";
-import { UpdateBandwidthRateLimitSchedule } from "../schemas/schemas_0";
+import { UpdateBandwidthRateLimitSchedule$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -105,7 +105,7 @@ export class UpdateBandwidthRateLimitScheduleCommand extends $Command
   })
   .s("StorageGateway_20130630", "UpdateBandwidthRateLimitSchedule", {})
   .n("StorageGatewayClient", "UpdateBandwidthRateLimitScheduleCommand")
-  .sc(UpdateBandwidthRateLimitSchedule)
+  .sc(UpdateBandwidthRateLimitSchedule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

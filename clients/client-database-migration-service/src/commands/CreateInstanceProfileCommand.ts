@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateInstanceProfileMessage, CreateInstanceProfileResponse } from "../models/models_0";
-import { CreateInstanceProfile } from "../schemas/schemas_0";
+import { CreateInstanceProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -171,7 +171,7 @@ export class CreateInstanceProfileCommand extends $Command
   })
   .s("AmazonDMSv20160101", "CreateInstanceProfile", {})
   .n("DatabaseMigrationServiceClient", "CreateInstanceProfileCommand")
-  .sc(CreateInstanceProfile)
+  .sc(CreateInstanceProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

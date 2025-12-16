@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTThingsGraphClient";
 import type { SearchFlowExecutionsRequest, SearchFlowExecutionsResponse } from "../models/models_0";
-import { SearchFlowExecutions } from "../schemas/schemas_0";
+import { SearchFlowExecutions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class SearchFlowExecutionsCommand extends $Command
   })
   .s("IotThingsGraphFrontEndService", "SearchFlowExecutions", {})
   .n("IoTThingsGraphClient", "SearchFlowExecutionsCommand")
-  .sc(SearchFlowExecutions)
+  .sc(SearchFlowExecutions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

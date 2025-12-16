@@ -9,7 +9,7 @@ import type {
   StartNetworkInsightsAccessScopeAnalysisRequest,
   StartNetworkInsightsAccessScopeAnalysisResult,
 } from "../models/models_7";
-import { StartNetworkInsightsAccessScopeAnalysis } from "../schemas/schemas_0";
+import { StartNetworkInsightsAccessScopeAnalysis$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class StartNetworkInsightsAccessScopeAnalysisCommand extends $Command
   })
   .s("AmazonEC2", "StartNetworkInsightsAccessScopeAnalysis", {})
   .n("EC2Client", "StartNetworkInsightsAccessScopeAnalysisCommand")
-  .sc(StartNetworkInsightsAccessScopeAnalysis)
+  .sc(StartNetworkInsightsAccessScopeAnalysis$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

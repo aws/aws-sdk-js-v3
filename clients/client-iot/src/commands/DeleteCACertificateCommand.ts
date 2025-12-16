@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { DeleteCACertificateRequest, DeleteCACertificateResponse } from "../models/models_0";
-import { DeleteCACertificate } from "../schemas/schemas_0";
+import { DeleteCACertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteCACertificateCommand extends $Command
   })
   .s("AWSIotService", "DeleteCACertificate", {})
   .n("IoTClient", "DeleteCACertificateCommand")
-  .sc(DeleteCACertificate)
+  .sc(DeleteCACertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

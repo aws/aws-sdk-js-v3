@@ -9,7 +9,7 @@ import type {
   ReplaceIamInstanceProfileAssociationRequest,
   ReplaceIamInstanceProfileAssociationResult,
 } from "../models/models_7";
-import { ReplaceIamInstanceProfileAssociation } from "../schemas/schemas_0";
+import { ReplaceIamInstanceProfileAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class ReplaceIamInstanceProfileAssociationCommand extends $Command
   })
   .s("AmazonEC2", "ReplaceIamInstanceProfileAssociation", {})
   .n("EC2Client", "ReplaceIamInstanceProfileAssociationCommand")
-  .sc(ReplaceIamInstanceProfileAssociation)
+  .sc(ReplaceIamInstanceProfileAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

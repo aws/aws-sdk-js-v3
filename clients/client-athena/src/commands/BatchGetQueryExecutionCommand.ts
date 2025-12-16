@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchGetQueryExecutionInput, BatchGetQueryExecutionOutput } from "../models/models_0";
-import { BatchGetQueryExecution } from "../schemas/schemas_0";
+import { BatchGetQueryExecution$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -168,7 +168,7 @@ export class BatchGetQueryExecutionCommand extends $Command
   })
   .s("AmazonAthena", "BatchGetQueryExecution", {})
   .n("AthenaClient", "BatchGetQueryExecutionCommand")
-  .sc(BatchGetQueryExecution)
+  .sc(BatchGetQueryExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

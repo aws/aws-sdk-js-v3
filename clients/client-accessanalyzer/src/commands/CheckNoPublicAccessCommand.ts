@@ -10,7 +10,7 @@ import type {
 } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CheckNoPublicAccessRequest, CheckNoPublicAccessResponse } from "../models/models_0";
-import { CheckNoPublicAccess } from "../schemas/schemas_0";
+import { CheckNoPublicAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -145,7 +145,7 @@ export class CheckNoPublicAccessCommand extends $Command
   })
   .s("AccessAnalyzer", "CheckNoPublicAccess", {})
   .n("AccessAnalyzerClient", "CheckNoPublicAccessCommand")
-  .sc(CheckNoPublicAccess)
+  .sc(CheckNoPublicAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

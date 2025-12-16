@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreatePublicDnsNamespaceRequest, CreatePublicDnsNamespaceResponse } from "../models/models_0";
-import { CreatePublicDnsNamespace } from "../schemas/schemas_0";
+import { CreatePublicDnsNamespace$ } from "../schemas/schemas_0";
 import type {
   ServiceDiscoveryClientResolvedConfig,
   ServiceInputTypes,
@@ -137,7 +137,7 @@ export class CreatePublicDnsNamespaceCommand extends $Command
   })
   .s("Route53AutoNaming_v20170314", "CreatePublicDnsNamespace", {})
   .n("ServiceDiscoveryClient", "CreatePublicDnsNamespaceCommand")
-  .sc(CreatePublicDnsNamespace)
+  .sc(CreatePublicDnsNamespace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

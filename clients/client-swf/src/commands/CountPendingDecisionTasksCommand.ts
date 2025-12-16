@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CountPendingDecisionTasksInput, PendingTaskCount } from "../models/models_0";
-import { CountPendingDecisionTasks } from "../schemas/schemas_0";
+import { CountPendingDecisionTasks$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -110,7 +110,7 @@ export class CountPendingDecisionTasksCommand extends $Command
   })
   .s("SimpleWorkflowService", "CountPendingDecisionTasks", {})
   .n("SWFClient", "CountPendingDecisionTasksCommand")
-  .sc(CountPendingDecisionTasks)
+  .sc(CountPendingDecisionTasks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

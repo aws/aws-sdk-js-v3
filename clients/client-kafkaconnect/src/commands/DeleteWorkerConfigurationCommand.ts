@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
 import type { DeleteWorkerConfigurationRequest, DeleteWorkerConfigurationResponse } from "../models/models_0";
-import { DeleteWorkerConfiguration } from "../schemas/schemas_0";
+import { DeleteWorkerConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DeleteWorkerConfigurationCommand extends $Command
   })
   .s("KafkaConnect", "DeleteWorkerConfiguration", {})
   .n("KafkaConnectClient", "DeleteWorkerConfigurationCommand")
-  .sc(DeleteWorkerConfiguration)
+  .sc(DeleteWorkerConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

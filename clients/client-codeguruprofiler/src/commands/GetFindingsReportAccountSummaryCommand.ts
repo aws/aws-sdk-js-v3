@@ -13,7 +13,7 @@ import type {
   GetFindingsReportAccountSummaryRequest,
   GetFindingsReportAccountSummaryResponse,
 } from "../models/models_0";
-import { GetFindingsReportAccountSummary } from "../schemas/schemas_0";
+import { GetFindingsReportAccountSummary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class GetFindingsReportAccountSummaryCommand extends $Command
   })
   .s("CodeGuruProfiler", "GetFindingsReportAccountSummary", {})
   .n("CodeGuruProfilerClient", "GetFindingsReportAccountSummaryCommand")
-  .sc(GetFindingsReportAccountSummary)
+  .sc(GetFindingsReportAccountSummary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

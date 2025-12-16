@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDataLakeNamespaceRequest, DeleteDataLakeNamespaceResponse } from "../models/models_0";
-import { DeleteDataLakeNamespace } from "../schemas/schemas_0";
+import { DeleteDataLakeNamespace$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
@@ -113,7 +113,7 @@ export class DeleteDataLakeNamespaceCommand extends $Command
   })
   .s("GalaxyPublicAPIGateway", "DeleteDataLakeNamespace", {})
   .n("SupplyChainClient", "DeleteDataLakeNamespaceCommand")
-  .sc(DeleteDataLakeNamespace)
+  .sc(DeleteDataLakeNamespace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

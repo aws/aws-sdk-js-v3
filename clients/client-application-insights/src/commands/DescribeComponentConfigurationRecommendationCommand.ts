@@ -13,7 +13,7 @@ import type {
   DescribeComponentConfigurationRecommendationRequest,
   DescribeComponentConfigurationRecommendationResponse,
 } from "../models/models_0";
-import { DescribeComponentConfigurationRecommendation } from "../schemas/schemas_0";
+import { DescribeComponentConfigurationRecommendation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
   })
   .s("EC2WindowsBarleyService", "DescribeComponentConfigurationRecommendation", {})
   .n("ApplicationInsightsClient", "DescribeComponentConfigurationRecommendationCommand")
-  .sc(DescribeComponentConfigurationRecommendation)
+  .sc(DescribeComponentConfigurationRecommendation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

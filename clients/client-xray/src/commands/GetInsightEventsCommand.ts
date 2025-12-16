@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetInsightEventsRequest, GetInsightEventsResult } from "../models/models_0";
-import { GetInsightEvents } from "../schemas/schemas_0";
+import { GetInsightEvents$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
@@ -111,7 +111,7 @@ export class GetInsightEventsCommand extends $Command
   })
   .s("AWSXRay", "GetInsightEvents", {})
   .n("XRayClient", "GetInsightEventsCommand")
-  .sc(GetInsightEvents)
+  .sc(GetInsightEvents$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

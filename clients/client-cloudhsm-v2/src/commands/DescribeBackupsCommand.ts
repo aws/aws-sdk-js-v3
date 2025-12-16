@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeBackupsRequest, DescribeBackupsResponse } from "../models/models_0";
-import { DescribeBackups } from "../schemas/schemas_0";
+import { DescribeBackups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class DescribeBackupsCommand extends $Command
   })
   .s("BaldrApiService", "DescribeBackups", {})
   .n("CloudHSMV2Client", "DescribeBackupsCommand")
-  .sc(DescribeBackups)
+  .sc(DescribeBackups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

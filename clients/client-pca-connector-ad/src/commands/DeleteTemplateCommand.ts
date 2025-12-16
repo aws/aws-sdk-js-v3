@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PcaConnectorAdClient";
-import { DeleteTemplate } from "../schemas/schemas_0";
+import { DeleteTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class DeleteTemplateCommand extends $Command
   })
   .s("PcaConnectorAd", "DeleteTemplate", {})
   .n("PcaConnectorAdClient", "DeleteTemplateCommand")
-  .sc(DeleteTemplate)
+  .sc(DeleteTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

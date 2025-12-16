@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
 import type { CreateContainerInput, CreateContainerOutput } from "../models/models_0";
-import { CreateContainer } from "../schemas/schemas_0";
+import { CreateContainer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class CreateContainerCommand extends $Command
   })
   .s("MediaStore_20170901", "CreateContainer", {})
   .n("MediaStoreClient", "CreateContainerCommand")
-  .sc(CreateContainer)
+  .sc(CreateContainer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

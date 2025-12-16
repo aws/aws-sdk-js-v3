@@ -8,7 +8,7 @@ import type {
   DescribeNotificationSubscriptionsRequest,
   DescribeNotificationSubscriptionsResponse,
 } from "../models/models_0";
-import { DescribeNotificationSubscriptions } from "../schemas/schemas_0";
+import { DescribeNotificationSubscriptions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -96,7 +96,7 @@ export class DescribeNotificationSubscriptionsCommand extends $Command
   })
   .s("AWSGorillaBoyService", "DescribeNotificationSubscriptions", {})
   .n("WorkDocsClient", "DescribeNotificationSubscriptionsCommand")
-  .sc(DescribeNotificationSubscriptions)
+  .sc(DescribeNotificationSubscriptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

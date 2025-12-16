@@ -9,7 +9,7 @@ import type {
   ListCodeSecurityScanConfigurationAssociationsRequest,
   ListCodeSecurityScanConfigurationAssociationsResponse,
 } from "../models/models_0";
-import { ListCodeSecurityScanConfigurationAssociations } from "../schemas/schemas_0";
+import { ListCodeSecurityScanConfigurationAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class ListCodeSecurityScanConfigurationAssociationsCommand extends $Comma
   })
   .s("Inspector2", "ListCodeSecurityScanConfigurationAssociations", {})
   .n("Inspector2Client", "ListCodeSecurityScanConfigurationAssociationsCommand")
-  .sc(ListCodeSecurityScanConfigurationAssociations)
+  .sc(ListCodeSecurityScanConfigurationAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
-import { GetAccountLevelServiceConfiguration } from "../schemas/schemas_0";
+import { GetAccountLevelServiceConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class GetAccountLevelServiceConfigurationCommand extends $Command
   })
   .s("ResourceExplorer", "GetAccountLevelServiceConfiguration", {})
   .n("ResourceExplorer2Client", "GetAccountLevelServiceConfigurationCommand")
-  .sc(GetAccountLevelServiceConfiguration)
+  .sc(GetAccountLevelServiceConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

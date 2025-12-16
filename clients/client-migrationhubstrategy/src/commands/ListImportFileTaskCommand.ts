@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import type { ListImportFileTaskRequest, ListImportFileTaskResponse } from "../models/models_0";
-import { ListImportFileTask } from "../schemas/schemas_0";
+import { ListImportFileTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class ListImportFileTaskCommand extends $Command
   })
   .s("AWSMigrationHubStrategyRecommendation", "ListImportFileTask", {})
   .n("MigrationHubStrategyClient", "ListImportFileTaskCommand")
-  .sc(ListImportFileTask)
+  .sc(ListImportFileTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeleteVpcEndpointServiceConfigurationsRequest,
   DeleteVpcEndpointServiceConfigurationsResult,
 } from "../models/models_3";
-import { DeleteVpcEndpointServiceConfigurations } from "../schemas/schemas_0";
+import { DeleteVpcEndpointServiceConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command
   })
   .s("AmazonEC2", "DeleteVpcEndpointServiceConfigurations", {})
   .n("EC2Client", "DeleteVpcEndpointServiceConfigurationsCommand")
-  .sc(DeleteVpcEndpointServiceConfigurations)
+  .sc(DeleteVpcEndpointServiceConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

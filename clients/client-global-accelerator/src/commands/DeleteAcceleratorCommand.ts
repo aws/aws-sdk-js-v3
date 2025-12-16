@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { DeleteAcceleratorRequest } from "../models/models_0";
-import { DeleteAccelerator } from "../schemas/schemas_0";
+import { DeleteAccelerator$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class DeleteAcceleratorCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "DeleteAccelerator", {})
   .n("GlobalAcceleratorClient", "DeleteAcceleratorCommand")
-  .sc(DeleteAccelerator)
+  .sc(DeleteAccelerator$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

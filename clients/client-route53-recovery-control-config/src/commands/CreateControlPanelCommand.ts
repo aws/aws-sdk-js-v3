@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
-import { CreateControlPanel } from "../schemas/schemas_0";
+import { CreateControlPanel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class CreateControlPanelCommand extends $Command
   })
   .s("Route53RecoveryControlConfig", "CreateControlPanel", {})
   .n("Route53RecoveryControlConfigClient", "CreateControlPanelCommand")
-  .sc(CreateControlPanel)
+  .sc(CreateControlPanel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

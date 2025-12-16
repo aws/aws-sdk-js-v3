@@ -9,7 +9,7 @@ import type {
   AssociateWirelessGatewayWithCertificateRequest,
   AssociateWirelessGatewayWithCertificateResponse,
 } from "../models/models_0";
-import { AssociateWirelessGatewayWithCertificate } from "../schemas/schemas_0";
+import { AssociateWirelessGatewayWithCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class AssociateWirelessGatewayWithCertificateCommand extends $Command
   })
   .s("iotwireless", "AssociateWirelessGatewayWithCertificate", {})
   .n("IoTWirelessClient", "AssociateWirelessGatewayWithCertificateCommand")
-  .sc(AssociateWirelessGatewayWithCertificate)
+  .sc(AssociateWirelessGatewayWithCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

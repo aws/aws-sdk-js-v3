@@ -9,7 +9,7 @@ import type {
   ListCollaborationPrivacyBudgetTemplatesInput,
   ListCollaborationPrivacyBudgetTemplatesOutput,
 } from "../models/models_0";
-import { ListCollaborationPrivacyBudgetTemplates } from "../schemas/schemas_0";
+import { ListCollaborationPrivacyBudgetTemplates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class ListCollaborationPrivacyBudgetTemplatesCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "ListCollaborationPrivacyBudgetTemplates", {})
   .n("CleanRoomsClient", "ListCollaborationPrivacyBudgetTemplatesCommand")
-  .sc(ListCollaborationPrivacyBudgetTemplates)
+  .sc(ListCollaborationPrivacyBudgetTemplates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

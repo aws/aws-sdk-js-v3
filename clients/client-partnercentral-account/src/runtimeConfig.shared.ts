@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: PartnerCentralAccountClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.partnercentralaccount",
-        serviceTarget: "PartnerCentralAccount",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.partnercentralaccount",
+      version: "2025-04-04",
+      serviceTarget: "PartnerCentralAccount",
+    },
     serviceId: config?.serviceId ?? "PartnerCentral Account",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

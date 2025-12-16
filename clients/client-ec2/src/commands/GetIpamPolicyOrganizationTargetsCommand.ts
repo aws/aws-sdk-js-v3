@@ -9,7 +9,7 @@ import type {
   GetIpamPolicyOrganizationTargetsRequest,
   GetIpamPolicyOrganizationTargetsResult,
 } from "../models/models_6";
-import { GetIpamPolicyOrganizationTargets } from "../schemas/schemas_0";
+import { GetIpamPolicyOrganizationTargets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class GetIpamPolicyOrganizationTargetsCommand extends $Command
   })
   .s("AmazonEC2", "GetIpamPolicyOrganizationTargets", {})
   .n("EC2Client", "GetIpamPolicyOrganizationTargetsCommand")
-  .sc(GetIpamPolicyOrganizationTargets)
+  .sc(GetIpamPolicyOrganizationTargets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateRepositoryRequest, CreateRepositoryResponse } from "../models/models_0";
-import { CreateRepository } from "../schemas/schemas_0";
+import { CreateRepository$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -160,7 +160,7 @@ export class CreateRepositoryCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "CreateRepository", {})
   .n("ECRClient", "CreateRepositoryCommand")
-  .sc(CreateRepository)
+  .sc(CreateRepository$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

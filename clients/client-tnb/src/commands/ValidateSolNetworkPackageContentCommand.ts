@@ -5,7 +5,7 @@ import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type ValidateSolNetworkPackageContentOutput, ValidateSolNetworkPackageContentInput } from "../models/models_0";
-import { ValidateSolNetworkPackageContent } from "../schemas/schemas_0";
+import { ValidateSolNetworkPackageContent$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
@@ -158,7 +158,7 @@ export class ValidateSolNetworkPackageContentCommand extends $Command
   })
   .s("TNB", "ValidateSolNetworkPackageContent", {})
   .n("TnbClient", "ValidateSolNetworkPackageContentCommand")
-  .sc(ValidateSolNetworkPackageContent)
+  .sc(ValidateSolNetworkPackageContent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

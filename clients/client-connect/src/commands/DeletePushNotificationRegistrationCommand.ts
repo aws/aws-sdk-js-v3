@@ -9,7 +9,7 @@ import type {
   DeletePushNotificationRegistrationRequest,
   DeletePushNotificationRegistrationResponse,
 } from "../models/models_1";
-import { DeletePushNotificationRegistration } from "../schemas/schemas_0";
+import { DeletePushNotificationRegistration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeletePushNotificationRegistrationCommand extends $Command
   })
   .s("AmazonConnectService", "DeletePushNotificationRegistration", {})
   .n("ConnectClient", "DeletePushNotificationRegistrationCommand")
-  .sc(DeletePushNotificationRegistration)
+  .sc(DeletePushNotificationRegistration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

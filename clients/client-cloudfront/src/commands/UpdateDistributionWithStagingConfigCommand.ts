@@ -9,7 +9,7 @@ import type {
   UpdateDistributionWithStagingConfigRequest,
   UpdateDistributionWithStagingConfigResult,
 } from "../models/models_1";
-import { UpdateDistributionWithStagingConfig } from "../schemas/schemas_0";
+import { UpdateDistributionWithStagingConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -640,7 +640,7 @@ export class UpdateDistributionWithStagingConfigCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "UpdateDistributionWithStagingConfig", {})
   .n("CloudFrontClient", "UpdateDistributionWithStagingConfigCommand")
-  .sc(UpdateDistributionWithStagingConfig)
+  .sc(UpdateDistributionWithStagingConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

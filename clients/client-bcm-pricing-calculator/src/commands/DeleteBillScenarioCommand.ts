@@ -10,7 +10,7 @@ import type {
 } from "../BCMPricingCalculatorClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteBillScenarioRequest, DeleteBillScenarioResponse } from "../models/models_0";
-import { DeleteBillScenario } from "../schemas/schemas_0";
+import { DeleteBillScenario$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteBillScenarioCommand extends $Command
   })
   .s("AWSBCMPricingCalculator", "DeleteBillScenario", {})
   .n("BCMPricingCalculatorClient", "DeleteBillScenarioCommand")
-  .sc(DeleteBillScenario)
+  .sc(DeleteBillScenario$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

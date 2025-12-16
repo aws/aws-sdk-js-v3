@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeRulesInput, DescribeRulesOutput } from "../models/models_0";
-import { DescribeRules } from "../schemas/schemas_0";
+import { DescribeRules$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -274,7 +274,7 @@ export class DescribeRulesCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "DescribeRules", {})
   .n("ElasticLoadBalancingV2Client", "DescribeRulesCommand")
-  .sc(DescribeRules)
+  .sc(DescribeRules$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

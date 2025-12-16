@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartImageScanRequest, StartImageScanResponse } from "../models/models_0";
-import { StartImageScan } from "../schemas/schemas_0";
+import { StartImageScan$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class StartImageScanCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "StartImageScan", {})
   .n("ECRClient", "StartImageScanCommand")
-  .sc(StartImageScan)
+  .sc(StartImageScan$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

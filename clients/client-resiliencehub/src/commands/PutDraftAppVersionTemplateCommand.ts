@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutDraftAppVersionTemplateRequest, PutDraftAppVersionTemplateResponse } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { PutDraftAppVersionTemplate } from "../schemas/schemas_0";
+import { PutDraftAppVersionTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class PutDraftAppVersionTemplateCommand extends $Command
   })
   .s("AwsResilienceHub", "PutDraftAppVersionTemplate", {})
   .n("ResiliencehubClient", "PutDraftAppVersionTemplateCommand")
-  .sc(PutDraftAppVersionTemplate)
+  .sc(PutDraftAppVersionTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

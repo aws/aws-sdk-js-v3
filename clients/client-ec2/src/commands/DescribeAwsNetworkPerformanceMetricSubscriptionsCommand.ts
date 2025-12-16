@@ -9,7 +9,7 @@ import type {
   DescribeAwsNetworkPerformanceMetricSubscriptionsRequest,
   DescribeAwsNetworkPerformanceMetricSubscriptionsResult,
 } from "../models/models_3";
-import { DescribeAwsNetworkPerformanceMetricSubscriptions } from "../schemas/schemas_0";
+import { DescribeAwsNetworkPerformanceMetricSubscriptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DescribeAwsNetworkPerformanceMetricSubscriptionsCommand extends $Co
   })
   .s("AmazonEC2", "DescribeAwsNetworkPerformanceMetricSubscriptions", {})
   .n("EC2Client", "DescribeAwsNetworkPerformanceMetricSubscriptionsCommand")
-  .sc(DescribeAwsNetworkPerformanceMetricSubscriptions)
+  .sc(DescribeAwsNetworkPerformanceMetricSubscriptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

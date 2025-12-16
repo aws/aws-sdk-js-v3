@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAlarmsInput } from "../models/models_0";
-import { DeleteAlarms } from "../schemas/schemas_0";
+import { DeleteAlarms$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeleteAlarmsCommand extends $Command
   })
   .s("GraniteServiceVersion20100801", "DeleteAlarms", {})
   .n("CloudWatchClient", "DeleteAlarmsCommand")
-  .sc(DeleteAlarms)
+  .sc(DeleteAlarms$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

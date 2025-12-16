@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { RegisterContainerImageRequest, RegisterContainerImageResult } from "../models/models_1";
-import { RegisterContainerImage } from "../schemas/schemas_0";
+import { RegisterContainerImage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class RegisterContainerImageCommand extends $Command
   })
   .s("Lightsail_20161128", "RegisterContainerImage", {})
   .n("LightsailClient", "RegisterContainerImageCommand")
-  .sc(RegisterContainerImage)
+  .sc(RegisterContainerImage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

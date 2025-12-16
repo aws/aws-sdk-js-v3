@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { ListCentralizationRulesForOrganization } from "../schemas/schemas_0";
+import { ListCentralizationRulesForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class ListCentralizationRulesForOrganizationCommand extends $Command
   })
   .s("ObservabilityAdmin", "ListCentralizationRulesForOrganization", {})
   .n("ObservabilityAdminClient", "ListCentralizationRulesForOrganizationCommand")
-  .sc(ListCentralizationRulesForOrganization)
+  .sc(ListCentralizationRulesForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

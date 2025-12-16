@@ -9,7 +9,7 @@ import type {
   AssociateTransitGatewayRouteTableRequest,
   AssociateTransitGatewayRouteTableResult,
 } from "../models/models_0";
-import { AssociateTransitGatewayRouteTable } from "../schemas/schemas_0";
+import { AssociateTransitGatewayRouteTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class AssociateTransitGatewayRouteTableCommand extends $Command
   })
   .s("AmazonEC2", "AssociateTransitGatewayRouteTable", {})
   .n("EC2Client", "AssociateTransitGatewayRouteTableCommand")
-  .sc(AssociateTransitGatewayRouteTable)
+  .sc(AssociateTransitGatewayRouteTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

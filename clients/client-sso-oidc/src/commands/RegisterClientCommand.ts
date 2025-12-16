@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RegisterClientRequest, RegisterClientResponse } from "../models/models_0";
-import { RegisterClient } from "../schemas/schemas_0";
+import { RegisterClient$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
 /**
@@ -150,7 +150,7 @@ export class RegisterClientCommand extends $Command
   })
   .s("AWSSSOOIDCService", "RegisterClient", {})
   .n("SSOOIDCClient", "RegisterClientCommand")
-  .sc(RegisterClient)
+  .sc(RegisterClient$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

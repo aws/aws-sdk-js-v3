@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeSlackWorkspacesRequest, DescribeSlackWorkspacesResult } from "../models/models_0";
-import { DescribeSlackWorkspaces } from "../schemas/schemas_0";
+import { DescribeSlackWorkspaces$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DescribeSlackWorkspacesCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "DescribeSlackWorkspaces", {})
   .n("ChatbotClient", "DescribeSlackWorkspacesCommand")
-  .sc(DescribeSlackWorkspaces)
+  .sc(DescribeSlackWorkspaces$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

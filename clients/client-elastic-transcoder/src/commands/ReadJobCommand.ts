@@ -10,7 +10,7 @@ import type {
 } from "../ElasticTranscoderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ReadJobRequest, ReadJobResponse } from "../models/models_0";
-import { ReadJob } from "../schemas/schemas_0";
+import { ReadJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -339,7 +339,7 @@ export class ReadJobCommand extends $Command
   })
   .s("EtsCustomerService", "ReadJob", {})
   .n("ElasticTranscoderClient", "ReadJobCommand")
-  .sc(ReadJob)
+  .sc(ReadJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

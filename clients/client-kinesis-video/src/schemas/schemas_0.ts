@@ -223,29 +223,29 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  AccountChannelLimitExceededException as __AccountChannelLimitExceededException,
-  AccountStreamLimitExceededException as __AccountStreamLimitExceededException,
-  ClientLimitExceededException as __ClientLimitExceededException,
-  DeviceStreamLimitExceededException as __DeviceStreamLimitExceededException,
-  InvalidArgumentException as __InvalidArgumentException,
-  InvalidDeviceException as __InvalidDeviceException,
-  InvalidResourceFormatException as __InvalidResourceFormatException,
-  NoDataRetentionException as __NoDataRetentionException,
-  NotAuthorizedException as __NotAuthorizedException,
-  ResourceInUseException as __ResourceInUseException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  StreamEdgeConfigurationNotFoundException as __StreamEdgeConfigurationNotFoundException,
-  TagsPerResourceExceededLimitException as __TagsPerResourceExceededLimitException,
-  VersionMismatchException as __VersionMismatchException,
+  AccessDeniedException,
+  AccountChannelLimitExceededException,
+  AccountStreamLimitExceededException,
+  ClientLimitExceededException,
+  DeviceStreamLimitExceededException,
+  InvalidArgumentException,
+  InvalidDeviceException,
+  InvalidResourceFormatException,
+  NoDataRetentionException,
+  NotAuthorizedException,
+  ResourceInUseException,
+  ResourceNotFoundException,
+  StreamEdgeConfigurationNotFoundException,
+  TagsPerResourceExceededLimitException,
+  VersionMismatchException,
 } from "../models/errors";
-import { KinesisVideoServiceException as __KinesisVideoServiceException } from "../models/KinesisVideoServiceException";
+import { KinesisVideoServiceException } from "../models/KinesisVideoServiceException";
 
 /* eslint no-var: 0 */
-export var MediaUriSecretArn: StaticSimpleSchema = [0, n0, _MUSA, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 401 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AccountChannelLimitExceededException: StaticErrorSchema = [
+var MediaUriSecretArn: StaticSimpleSchema = [0, n0, _MUSA, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 401 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AccountChannelLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _ACLEE,
@@ -253,8 +253,8 @@ export var AccountChannelLimitExceededException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(AccountChannelLimitExceededException, __AccountChannelLimitExceededException);
-export var AccountStreamLimitExceededException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(AccountChannelLimitExceededException$, AccountChannelLimitExceededException);
+export var AccountStreamLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _ASLEE,
@@ -262,62 +262,69 @@ export var AccountStreamLimitExceededException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(AccountStreamLimitExceededException, __AccountStreamLimitExceededException);
-export var ChannelInfo: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(AccountStreamLimitExceededException$, AccountStreamLimitExceededException);
+export var ChannelInfo$: StaticStructureSchema = [
   3,
   n0,
   _CI,
   0,
   [_CN, _CARN, _CT, _CS, _CTr, _SMC, _V],
-  [0, 0, 0, 0, 4, () => SingleMasterConfiguration, 0],
+  [0, 0, 0, 0, 4, () => SingleMasterConfiguration$, 0],
 ];
-export var ChannelNameCondition: StaticStructureSchema = [3, n0, _CNC, 0, [_CO, _CV], [0, 0]];
-export var ClientLimitExceededException: StaticErrorSchema = [-3, n0, _CLEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ClientLimitExceededException, __ClientLimitExceededException);
-export var CreateSignalingChannelInput: StaticStructureSchema = [
+export var ChannelNameCondition$: StaticStructureSchema = [3, n0, _CNC, 0, [_CO, _CV], [0, 0]];
+export var ClientLimitExceededException$: StaticErrorSchema = [-3, n0, _CLEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ClientLimitExceededException$, ClientLimitExceededException);
+export var CreateSignalingChannelInput$: StaticStructureSchema = [
   3,
   n0,
   _CSCI,
   0,
   [_CN, _CT, _SMC, _T],
-  [0, 0, () => SingleMasterConfiguration, () => TagOnCreateList],
+  [0, 0, () => SingleMasterConfiguration$, () => TagOnCreateList],
 ];
-export var CreateSignalingChannelOutput: StaticStructureSchema = [3, n0, _CSCO, 0, [_CARN], [0]];
-export var CreateStreamInput: StaticStructureSchema = [
+export var CreateSignalingChannelOutput$: StaticStructureSchema = [3, n0, _CSCO, 0, [_CARN], [0]];
+export var CreateStreamInput$: StaticStructureSchema = [
   3,
   n0,
   _CSI,
   0,
   [_DN, _SN, _MT, _KKI, _DRIH, _T, _SSC],
-  [0, 0, 0, 0, 1, 128 | 0, () => StreamStorageConfiguration],
+  [0, 0, 0, 0, 1, 128 | 0, () => StreamStorageConfiguration$],
 ];
-export var CreateStreamOutput: StaticStructureSchema = [3, n0, _CSO, 0, [_SARN], [0]];
-export var DeleteEdgeConfigurationInput: StaticStructureSchema = [3, n0, _DECI, 0, [_SN, _SARN], [0, 0]];
-export var DeleteEdgeConfigurationOutput: StaticStructureSchema = [3, n0, _DECO, 0, [], []];
-export var DeleteSignalingChannelInput: StaticStructureSchema = [3, n0, _DSCI, 0, [_CARN, _CVu], [0, 0]];
-export var DeleteSignalingChannelOutput: StaticStructureSchema = [3, n0, _DSCO, 0, [], []];
-export var DeleteStreamInput: StaticStructureSchema = [3, n0, _DSI, 0, [_SARN, _CVu], [0, 0]];
-export var DeleteStreamOutput: StaticStructureSchema = [3, n0, _DSO, 0, [], []];
-export var DeletionConfig: StaticStructureSchema = [3, n0, _DC, 0, [_ERIH, _LSC, _DAU], [1, () => LocalSizeConfig, 2]];
-export var DescribeEdgeConfigurationInput: StaticStructureSchema = [3, n0, _DECIe, 0, [_SN, _SARN], [0, 0]];
-export var DescribeEdgeConfigurationOutput: StaticStructureSchema = [
+export var CreateStreamOutput$: StaticStructureSchema = [3, n0, _CSO, 0, [_SARN], [0]];
+export var DeleteEdgeConfigurationInput$: StaticStructureSchema = [3, n0, _DECI, 0, [_SN, _SARN], [0, 0]];
+export var DeleteEdgeConfigurationOutput$: StaticStructureSchema = [3, n0, _DECO, 0, [], []];
+export var DeleteSignalingChannelInput$: StaticStructureSchema = [3, n0, _DSCI, 0, [_CARN, _CVu], [0, 0]];
+export var DeleteSignalingChannelOutput$: StaticStructureSchema = [3, n0, _DSCO, 0, [], []];
+export var DeleteStreamInput$: StaticStructureSchema = [3, n0, _DSI, 0, [_SARN, _CVu], [0, 0]];
+export var DeleteStreamOutput$: StaticStructureSchema = [3, n0, _DSO, 0, [], []];
+export var DeletionConfig$: StaticStructureSchema = [
+  3,
+  n0,
+  _DC,
+  0,
+  [_ERIH, _LSC, _DAU],
+  [1, () => LocalSizeConfig$, 2],
+];
+export var DescribeEdgeConfigurationInput$: StaticStructureSchema = [3, n0, _DECIe, 0, [_SN, _SARN], [0, 0]];
+export var DescribeEdgeConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _DECOe,
   0,
   [_SN, _SARN, _CTr, _LUT, _SS, _FSD, _EC, _EAS],
-  [0, 0, 4, 4, 0, 0, [() => EdgeConfig, 0], () => EdgeAgentStatus],
+  [0, 0, 4, 4, 0, 0, [() => EdgeConfig$, 0], () => EdgeAgentStatus$],
 ];
-export var DescribeImageGenerationConfigurationInput: StaticStructureSchema = [3, n0, _DIGCI, 0, [_SN, _SARN], [0, 0]];
-export var DescribeImageGenerationConfigurationOutput: StaticStructureSchema = [
+export var DescribeImageGenerationConfigurationInput$: StaticStructureSchema = [3, n0, _DIGCI, 0, [_SN, _SARN], [0, 0]];
+export var DescribeImageGenerationConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _DIGCO,
   0,
   [_IGC],
-  [() => ImageGenerationConfiguration],
+  [() => ImageGenerationConfiguration$],
 ];
-export var DescribeMappedResourceConfigurationInput: StaticStructureSchema = [
+export var DescribeMappedResourceConfigurationInput$: StaticStructureSchema = [
   3,
   n0,
   _DMRCI,
@@ -325,7 +332,7 @@ export var DescribeMappedResourceConfigurationInput: StaticStructureSchema = [
   [_SN, _SARN, _MR, _NT],
   [0, 0, 1, 0],
 ];
-export var DescribeMappedResourceConfigurationOutput: StaticStructureSchema = [
+export var DescribeMappedResourceConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _DMRCO,
@@ -333,38 +340,38 @@ export var DescribeMappedResourceConfigurationOutput: StaticStructureSchema = [
   [_MRCL, _NT],
   [() => MappedResourceConfigurationList, 0],
 ];
-export var DescribeMediaStorageConfigurationInput: StaticStructureSchema = [3, n0, _DMSCI, 0, [_CN, _CARN], [0, 0]];
-export var DescribeMediaStorageConfigurationOutput: StaticStructureSchema = [
+export var DescribeMediaStorageConfigurationInput$: StaticStructureSchema = [3, n0, _DMSCI, 0, [_CN, _CARN], [0, 0]];
+export var DescribeMediaStorageConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _DMSCO,
   0,
   [_MSC],
-  [() => MediaStorageConfiguration],
+  [() => MediaStorageConfiguration$],
 ];
-export var DescribeNotificationConfigurationInput: StaticStructureSchema = [3, n0, _DNCI, 0, [_SN, _SARN], [0, 0]];
-export var DescribeNotificationConfigurationOutput: StaticStructureSchema = [
+export var DescribeNotificationConfigurationInput$: StaticStructureSchema = [3, n0, _DNCI, 0, [_SN, _SARN], [0, 0]];
+export var DescribeNotificationConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _DNCO,
   0,
   [_NC],
-  [() => NotificationConfiguration],
+  [() => NotificationConfiguration$],
 ];
-export var DescribeSignalingChannelInput: StaticStructureSchema = [3, n0, _DSCIe, 0, [_CN, _CARN], [0, 0]];
-export var DescribeSignalingChannelOutput: StaticStructureSchema = [3, n0, _DSCOe, 0, [_CI], [() => ChannelInfo]];
-export var DescribeStreamInput: StaticStructureSchema = [3, n0, _DSIe, 0, [_SN, _SARN], [0, 0]];
-export var DescribeStreamOutput: StaticStructureSchema = [3, n0, _DSOe, 0, [_SI], [() => StreamInfo]];
-export var DescribeStreamStorageConfigurationInput: StaticStructureSchema = [3, n0, _DSSCI, 0, [_SN, _SARN], [0, 0]];
-export var DescribeStreamStorageConfigurationOutput: StaticStructureSchema = [
+export var DescribeSignalingChannelInput$: StaticStructureSchema = [3, n0, _DSCIe, 0, [_CN, _CARN], [0, 0]];
+export var DescribeSignalingChannelOutput$: StaticStructureSchema = [3, n0, _DSCOe, 0, [_CI], [() => ChannelInfo$]];
+export var DescribeStreamInput$: StaticStructureSchema = [3, n0, _DSIe, 0, [_SN, _SARN], [0, 0]];
+export var DescribeStreamOutput$: StaticStructureSchema = [3, n0, _DSOe, 0, [_SI], [() => StreamInfo$]];
+export var DescribeStreamStorageConfigurationInput$: StaticStructureSchema = [3, n0, _DSSCI, 0, [_SN, _SARN], [0, 0]];
+export var DescribeStreamStorageConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _DSSCO,
   0,
   [_SN, _SARN, _SSC],
-  [0, 0, () => StreamStorageConfiguration],
+  [0, 0, () => StreamStorageConfiguration$],
 ];
-export var DeviceStreamLimitExceededException: StaticErrorSchema = [
+export var DeviceStreamLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _DSLEE,
@@ -372,34 +379,34 @@ export var DeviceStreamLimitExceededException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(DeviceStreamLimitExceededException, __DeviceStreamLimitExceededException);
-export var EdgeAgentStatus: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(DeviceStreamLimitExceededException$, DeviceStreamLimitExceededException);
+export var EdgeAgentStatus$: StaticStructureSchema = [
   3,
   n0,
   _EAS,
   0,
   [_LRS, _LUS],
-  [() => LastRecorderStatus, () => LastUploaderStatus],
+  [() => LastRecorderStatus$, () => LastUploaderStatus$],
 ];
-export var EdgeConfig: StaticStructureSchema = [
+export var EdgeConfig$: StaticStructureSchema = [
   3,
   n0,
   _EC,
   0,
   [_HDA, _RC, _UC, _DC],
-  [0, [() => RecorderConfig, 0], () => UploaderConfig, () => DeletionConfig],
+  [0, [() => RecorderConfig$, 0], () => UploaderConfig$, () => DeletionConfig$],
 ];
-export var GetDataEndpointInput: StaticStructureSchema = [3, n0, _GDEI, 0, [_SN, _SARN, _APIN], [0, 0, 0]];
-export var GetDataEndpointOutput: StaticStructureSchema = [3, n0, _GDEO, 0, [_DE], [0]];
-export var GetSignalingChannelEndpointInput: StaticStructureSchema = [
+export var GetDataEndpointInput$: StaticStructureSchema = [3, n0, _GDEI, 0, [_SN, _SARN, _APIN], [0, 0, 0]];
+export var GetDataEndpointOutput$: StaticStructureSchema = [3, n0, _GDEO, 0, [_DE], [0]];
+export var GetSignalingChannelEndpointInput$: StaticStructureSchema = [
   3,
   n0,
   _GSCEI,
   0,
   [_CARN, _SMCEC],
-  [0, () => SingleMasterChannelEndpointConfiguration],
+  [0, () => SingleMasterChannelEndpointConfiguration$],
 ];
-export var GetSignalingChannelEndpointOutput: StaticStructureSchema = [
+export var GetSignalingChannelEndpointOutput$: StaticStructureSchema = [
   3,
   n0,
   _GSCEO,
@@ -407,33 +414,33 @@ export var GetSignalingChannelEndpointOutput: StaticStructureSchema = [
   [_REL],
   [() => ResourceEndpointList],
 ];
-export var ImageGenerationConfiguration: StaticStructureSchema = [
+export var ImageGenerationConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _IGC,
   0,
   [_S, _IST, _DCe, _SIa, _F, _FC, _WP, _HP],
-  [0, 0, () => ImageGenerationDestinationConfig, 1, 0, 128 | 0, 1, 1],
+  [0, 0, () => ImageGenerationDestinationConfig$, 1, 0, 128 | 0, 1, 1],
 ];
-export var ImageGenerationDestinationConfig: StaticStructureSchema = [3, n0, _IGDC, 0, [_U, _DR], [0, 0]];
-export var InvalidArgumentException: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidArgumentException, __InvalidArgumentException);
-export var InvalidDeviceException: StaticErrorSchema = [-3, n0, _IDE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidDeviceException, __InvalidDeviceException);
-export var InvalidResourceFormatException: StaticErrorSchema = [-3, n0, _IRFE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidResourceFormatException, __InvalidResourceFormatException);
-export var LastRecorderStatus: StaticStructureSchema = [3, n0, _LRS, 0, [_JSD, _LCT, _LUT, _RS], [0, 4, 4, 0]];
-export var LastUploaderStatus: StaticStructureSchema = [3, n0, _LUS, 0, [_JSD, _LCT, _LUT, _US], [0, 4, 4, 0]];
-export var ListEdgeAgentConfigurationsEdgeConfig: StaticStructureSchema = [
+export var ImageGenerationDestinationConfig$: StaticStructureSchema = [3, n0, _IGDC, 0, [_U, _DR], [0, 0]];
+export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidArgumentException$, InvalidArgumentException);
+export var InvalidDeviceException$: StaticErrorSchema = [-3, n0, _IDE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidDeviceException$, InvalidDeviceException);
+export var InvalidResourceFormatException$: StaticErrorSchema = [-3, n0, _IRFE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidResourceFormatException$, InvalidResourceFormatException);
+export var LastRecorderStatus$: StaticStructureSchema = [3, n0, _LRS, 0, [_JSD, _LCT, _LUT, _RS], [0, 4, 4, 0]];
+export var LastUploaderStatus$: StaticStructureSchema = [3, n0, _LUS, 0, [_JSD, _LCT, _LUT, _US], [0, 4, 4, 0]];
+export var ListEdgeAgentConfigurationsEdgeConfig$: StaticStructureSchema = [
   3,
   n0,
   _LEACEC,
   0,
   [_SN, _SARN, _CTr, _LUT, _SS, _FSD, _EC],
-  [0, 0, 4, 4, 0, 0, [() => EdgeConfig, 0]],
+  [0, 0, 4, 4, 0, 0, [() => EdgeConfig$, 0]],
 ];
-export var ListEdgeAgentConfigurationsInput: StaticStructureSchema = [3, n0, _LEACI, 0, [_HDA, _MR, _NT], [0, 1, 0]];
-export var ListEdgeAgentConfigurationsOutput: StaticStructureSchema = [
+export var ListEdgeAgentConfigurationsInput$: StaticStructureSchema = [3, n0, _LEACI, 0, [_HDA, _MR, _NT], [0, 1, 0]];
+export var ListEdgeAgentConfigurationsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LEACO,
@@ -441,15 +448,15 @@ export var ListEdgeAgentConfigurationsOutput: StaticStructureSchema = [
   [_ECd, _NT],
   [[() => ListEdgeAgentConfigurationsEdgeConfigList, 0], 0],
 ];
-export var ListSignalingChannelsInput: StaticStructureSchema = [
+export var ListSignalingChannelsInput$: StaticStructureSchema = [
   3,
   n0,
   _LSCI,
   0,
   [_MR, _NT, _CNC],
-  [1, 0, () => ChannelNameCondition],
+  [1, 0, () => ChannelNameCondition$],
 ];
-export var ListSignalingChannelsOutput: StaticStructureSchema = [
+export var ListSignalingChannelsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LSCO,
@@ -457,22 +464,22 @@ export var ListSignalingChannelsOutput: StaticStructureSchema = [
   [_CIL, _NT],
   [() => ChannelInfoList, 0],
 ];
-export var ListStreamsInput: StaticStructureSchema = [
+export var ListStreamsInput$: StaticStructureSchema = [
   3,
   n0,
   _LSI,
   0,
   [_MR, _NT, _SNC],
-  [1, 0, () => StreamNameCondition],
+  [1, 0, () => StreamNameCondition$],
 ];
-export var ListStreamsOutput: StaticStructureSchema = [3, n0, _LSO, 0, [_SIL, _NT], [() => StreamInfoList, 0]];
-export var ListTagsForResourceInput: StaticStructureSchema = [3, n0, _LTFRI, 0, [_NT, _RARN], [0, 0]];
-export var ListTagsForResourceOutput: StaticStructureSchema = [3, n0, _LTFRO, 0, [_NT, _T], [0, 128 | 0]];
-export var ListTagsForStreamInput: StaticStructureSchema = [3, n0, _LTFSI, 0, [_NT, _SARN, _SN], [0, 0, 0]];
-export var ListTagsForStreamOutput: StaticStructureSchema = [3, n0, _LTFSO, 0, [_NT, _T], [0, 128 | 0]];
-export var LocalSizeConfig: StaticStructureSchema = [3, n0, _LSC, 0, [_MLMSIMB, _SOFS], [1, 0]];
-export var MappedResourceConfigurationListItem: StaticStructureSchema = [3, n0, _MRCLI, 0, [_Ty, _ARN], [0, 0]];
-export var MediaSourceConfig: StaticStructureSchema = [
+export var ListStreamsOutput$: StaticStructureSchema = [3, n0, _LSO, 0, [_SIL, _NT], [() => StreamInfoList, 0]];
+export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI, 0, [_NT, _RARN], [0, 0]];
+export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO, 0, [_NT, _T], [0, 128 | 0]];
+export var ListTagsForStreamInput$: StaticStructureSchema = [3, n0, _LTFSI, 0, [_NT, _SARN, _SN], [0, 0, 0]];
+export var ListTagsForStreamOutput$: StaticStructureSchema = [3, n0, _LTFSO, 0, [_NT, _T], [0, 128 | 0]];
+export var LocalSizeConfig$: StaticStructureSchema = [3, n0, _LSC, 0, [_MLMSIMB, _SOFS], [1, 0]];
+export var MappedResourceConfigurationListItem$: StaticStructureSchema = [3, n0, _MRCLI, 0, [_Ty, _ARN], [0, 0]];
+export var MediaSourceConfig$: StaticStructureSchema = [
   3,
   n0,
   _MSCe,
@@ -480,53 +487,60 @@ export var MediaSourceConfig: StaticStructureSchema = [
   [_MUSA, _MUT],
   [[() => MediaUriSecretArn, 0], 0],
 ];
-export var MediaStorageConfiguration: StaticStructureSchema = [3, n0, _MSC, 0, [_SARN, _S], [0, 0]];
-export var NoDataRetentionException: StaticErrorSchema = [-3, n0, _NDRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NoDataRetentionException, __NoDataRetentionException);
-export var NotAuthorizedException: StaticErrorSchema = [-3, n0, _NAE, { [_e]: _c, [_hE]: 401 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NotAuthorizedException, __NotAuthorizedException);
-export var NotificationConfiguration: StaticStructureSchema = [
+export var MediaStorageConfiguration$: StaticStructureSchema = [3, n0, _MSC, 0, [_SARN, _S], [0, 0]];
+export var NoDataRetentionException$: StaticErrorSchema = [-3, n0, _NDRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(NoDataRetentionException$, NoDataRetentionException);
+export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE, { [_e]: _c, [_hE]: 401 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(NotAuthorizedException$, NotAuthorizedException);
+export var NotificationConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _NC,
   0,
   [_S, _DCe],
-  [0, () => NotificationDestinationConfig],
+  [0, () => NotificationDestinationConfig$],
 ];
-export var NotificationDestinationConfig: StaticStructureSchema = [3, n0, _NDC, 0, [_U], [0]];
-export var RecorderConfig: StaticStructureSchema = [
+export var NotificationDestinationConfig$: StaticStructureSchema = [3, n0, _NDC, 0, [_U], [0]];
+export var RecorderConfig$: StaticStructureSchema = [
   3,
   n0,
   _RC,
   0,
   [_MSCe, _SC],
-  [[() => MediaSourceConfig, 0], () => ScheduleConfig],
+  [[() => MediaSourceConfig$, 0], () => ScheduleConfig$],
 ];
-export var ResourceEndpointListItem: StaticStructureSchema = [3, n0, _RELI, 0, [_P, _RE], [0, 0]];
-export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ScheduleConfig: StaticStructureSchema = [3, n0, _SC, 0, [_SE, _DIS], [0, 1]];
-export var SingleMasterChannelEndpointConfiguration: StaticStructureSchema = [3, n0, _SMCEC, 0, [_Pr, _R], [64 | 0, 0]];
-export var SingleMasterConfiguration: StaticStructureSchema = [3, n0, _SMC, 0, [_MTS], [1]];
-export var StartEdgeConfigurationUpdateInput: StaticStructureSchema = [
+export var ResourceEndpointListItem$: StaticStructureSchema = [3, n0, _RELI, 0, [_P, _RE], [0, 0]];
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ScheduleConfig$: StaticStructureSchema = [3, n0, _SC, 0, [_SE, _DIS], [0, 1]];
+export var SingleMasterChannelEndpointConfiguration$: StaticStructureSchema = [
+  3,
+  n0,
+  _SMCEC,
+  0,
+  [_Pr, _R],
+  [64 | 0, 0],
+];
+export var SingleMasterConfiguration$: StaticStructureSchema = [3, n0, _SMC, 0, [_MTS], [1]];
+export var StartEdgeConfigurationUpdateInput$: StaticStructureSchema = [
   3,
   n0,
   _SECUI,
   0,
   [_SN, _SARN, _EC],
-  [0, 0, [() => EdgeConfig, 0]],
+  [0, 0, [() => EdgeConfig$, 0]],
 ];
-export var StartEdgeConfigurationUpdateOutput: StaticStructureSchema = [
+export var StartEdgeConfigurationUpdateOutput$: StaticStructureSchema = [
   3,
   n0,
   _SECUO,
   0,
   [_SN, _SARN, _CTr, _LUT, _SS, _FSD, _EC],
-  [0, 0, 4, 4, 0, 0, [() => EdgeConfig, 0]],
+  [0, 0, 4, 4, 0, 0, [() => EdgeConfig$, 0]],
 ];
-export var StreamEdgeConfigurationNotFoundException: StaticErrorSchema = [
+export var StreamEdgeConfigurationNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _SECNFE,
@@ -534,11 +548,8 @@ export var StreamEdgeConfigurationNotFoundException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(
-  StreamEdgeConfigurationNotFoundException,
-  __StreamEdgeConfigurationNotFoundException
-);
-export var StreamInfo: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(StreamEdgeConfigurationNotFoundException$, StreamEdgeConfigurationNotFoundException);
+export var StreamInfo$: StaticStructureSchema = [
   3,
   n0,
   _SI,
@@ -546,12 +557,12 @@ export var StreamInfo: StaticStructureSchema = [
   [_DN, _SN, _SARN, _MT, _KKI, _V, _S, _CTr, _DRIH],
   [0, 0, 0, 0, 0, 0, 0, 4, 1],
 ];
-export var StreamNameCondition: StaticStructureSchema = [3, n0, _SNC, 0, [_CO, _CV], [0, 0]];
-export var StreamStorageConfiguration: StaticStructureSchema = [3, n0, _SSC, 0, [_DST], [0]];
-export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _Va], [0, 0]];
-export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_RARN, _T], [0, () => TagList]];
-export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
-export var TagsPerResourceExceededLimitException: StaticErrorSchema = [
+export var StreamNameCondition$: StaticStructureSchema = [3, n0, _SNC, 0, [_CO, _CV], [0, 0]];
+export var StreamStorageConfiguration$: StaticStructureSchema = [3, n0, _SSC, 0, [_DST], [0]];
+export var Tag$: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _Va], [0, 0]];
+export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI, 0, [_RARN, _T], [0, () => TagList]];
+export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
+export var TagsPerResourceExceededLimitException$: StaticErrorSchema = [
   -3,
   n0,
   _TPRELE,
@@ -559,14 +570,14 @@ export var TagsPerResourceExceededLimitException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(TagsPerResourceExceededLimitException, __TagsPerResourceExceededLimitException);
-export var TagStreamInput: StaticStructureSchema = [3, n0, _TSI, 0, [_SARN, _SN, _T], [0, 0, 128 | 0]];
-export var TagStreamOutput: StaticStructureSchema = [3, n0, _TSO, 0, [], []];
-export var UntagResourceInput: StaticStructureSchema = [3, n0, _URI, 0, [_RARN, _TKL], [0, 64 | 0]];
-export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
-export var UntagStreamInput: StaticStructureSchema = [3, n0, _USI, 0, [_SARN, _SN, _TKL], [0, 0, 64 | 0]];
-export var UntagStreamOutput: StaticStructureSchema = [3, n0, _USO, 0, [], []];
-export var UpdateDataRetentionInput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(TagsPerResourceExceededLimitException$, TagsPerResourceExceededLimitException);
+export var TagStreamInput$: StaticStructureSchema = [3, n0, _TSI, 0, [_SARN, _SN, _T], [0, 0, 128 | 0]];
+export var TagStreamOutput$: StaticStructureSchema = [3, n0, _TSO, 0, [], []];
+export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI, 0, [_RARN, _TKL], [0, 64 | 0]];
+export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO, 0, [], []];
+export var UntagStreamInput$: StaticStructureSchema = [3, n0, _USI, 0, [_SARN, _SN, _TKL], [0, 0, 64 | 0]];
+export var UntagStreamOutput$: StaticStructureSchema = [3, n0, _USO, 0, [], []];
+export var UpdateDataRetentionInput$: StaticStructureSchema = [
   3,
   n0,
   _UDRI,
@@ -574,335 +585,329 @@ export var UpdateDataRetentionInput: StaticStructureSchema = [
   [_SN, _SARN, _CVu, _O, _DRCIH],
   [0, 0, 0, 0, 1],
 ];
-export var UpdateDataRetentionOutput: StaticStructureSchema = [3, n0, _UDRO, 0, [], []];
-export var UpdateImageGenerationConfigurationInput: StaticStructureSchema = [
+export var UpdateDataRetentionOutput$: StaticStructureSchema = [3, n0, _UDRO, 0, [], []];
+export var UpdateImageGenerationConfigurationInput$: StaticStructureSchema = [
   3,
   n0,
   _UIGCI,
   0,
   [_SN, _SARN, _IGC],
-  [0, 0, () => ImageGenerationConfiguration],
+  [0, 0, () => ImageGenerationConfiguration$],
 ];
-export var UpdateImageGenerationConfigurationOutput: StaticStructureSchema = [3, n0, _UIGCO, 0, [], []];
-export var UpdateMediaStorageConfigurationInput: StaticStructureSchema = [
+export var UpdateImageGenerationConfigurationOutput$: StaticStructureSchema = [3, n0, _UIGCO, 0, [], []];
+export var UpdateMediaStorageConfigurationInput$: StaticStructureSchema = [
   3,
   n0,
   _UMSCI,
   0,
   [_CARN, _MSC],
-  [0, () => MediaStorageConfiguration],
+  [0, () => MediaStorageConfiguration$],
 ];
-export var UpdateMediaStorageConfigurationOutput: StaticStructureSchema = [3, n0, _UMSCO, 0, [], []];
-export var UpdateNotificationConfigurationInput: StaticStructureSchema = [
+export var UpdateMediaStorageConfigurationOutput$: StaticStructureSchema = [3, n0, _UMSCO, 0, [], []];
+export var UpdateNotificationConfigurationInput$: StaticStructureSchema = [
   3,
   n0,
   _UNCI,
   0,
   [_SN, _SARN, _NC],
-  [0, 0, () => NotificationConfiguration],
+  [0, 0, () => NotificationConfiguration$],
 ];
-export var UpdateNotificationConfigurationOutput: StaticStructureSchema = [3, n0, _UNCO, 0, [], []];
-export var UpdateSignalingChannelInput: StaticStructureSchema = [
+export var UpdateNotificationConfigurationOutput$: StaticStructureSchema = [3, n0, _UNCO, 0, [], []];
+export var UpdateSignalingChannelInput$: StaticStructureSchema = [
   3,
   n0,
   _USCI,
   0,
   [_CARN, _CVu, _SMC],
-  [0, 0, () => SingleMasterConfiguration],
+  [0, 0, () => SingleMasterConfiguration$],
 ];
-export var UpdateSignalingChannelOutput: StaticStructureSchema = [3, n0, _USCO, 0, [], []];
-export var UpdateStreamInput: StaticStructureSchema = [3, n0, _USIp, 0, [_SN, _SARN, _CVu, _DN, _MT], [0, 0, 0, 0, 0]];
-export var UpdateStreamOutput: StaticStructureSchema = [3, n0, _USOp, 0, [], []];
-export var UpdateStreamStorageConfigurationInput: StaticStructureSchema = [
+export var UpdateSignalingChannelOutput$: StaticStructureSchema = [3, n0, _USCO, 0, [], []];
+export var UpdateStreamInput$: StaticStructureSchema = [3, n0, _USIp, 0, [_SN, _SARN, _CVu, _DN, _MT], [0, 0, 0, 0, 0]];
+export var UpdateStreamOutput$: StaticStructureSchema = [3, n0, _USOp, 0, [], []];
+export var UpdateStreamStorageConfigurationInput$: StaticStructureSchema = [
   3,
   n0,
   _USSCI,
   0,
   [_SN, _SARN, _CVu, _SSC],
-  [0, 0, 0, () => StreamStorageConfiguration],
+  [0, 0, 0, () => StreamStorageConfiguration$],
 ];
-export var UpdateStreamStorageConfigurationOutput: StaticStructureSchema = [3, n0, _USSCO, 0, [], []];
-export var UploaderConfig: StaticStructureSchema = [3, n0, _UC, 0, [_SC], [() => ScheduleConfig]];
-export var VersionMismatchException: StaticErrorSchema = [-3, n0, _VME, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(VersionMismatchException, __VersionMismatchException);
-export var KinesisVideoServiceException: StaticErrorSchema = [-3, _s, "KinesisVideoServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(KinesisVideoServiceException, __KinesisVideoServiceException);
-export var ChannelInfoList: StaticListSchema = [1, n0, _CIL, 0, () => ChannelInfo];
-export var ListEdgeAgentConfigurationsEdgeConfigList: StaticListSchema = [
+export var UpdateStreamStorageConfigurationOutput$: StaticStructureSchema = [3, n0, _USSCO, 0, [], []];
+export var UploaderConfig$: StaticStructureSchema = [3, n0, _UC, 0, [_SC], [() => ScheduleConfig$]];
+export var VersionMismatchException$: StaticErrorSchema = [-3, n0, _VME, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(VersionMismatchException$, VersionMismatchException);
+export var KinesisVideoServiceException$: StaticErrorSchema = [-3, _s, "KinesisVideoServiceException", 0, [], []];
+TypeRegistry.for(_s).registerError(KinesisVideoServiceException$, KinesisVideoServiceException);
+var ChannelInfoList: StaticListSchema = [1, n0, _CIL, 0, () => ChannelInfo$];
+var ListEdgeAgentConfigurationsEdgeConfigList: StaticListSchema = [
   1,
   n0,
   _LEACECL,
   0,
-  [() => ListEdgeAgentConfigurationsEdgeConfig, 0],
+  [() => ListEdgeAgentConfigurationsEdgeConfig$, 0],
 ];
-export var ListOfProtocols = 64 | 0;
-export var MappedResourceConfigurationList: StaticListSchema = [
-  1,
-  n0,
-  _MRCL,
-  0,
-  () => MappedResourceConfigurationListItem,
-];
-export var ResourceEndpointList: StaticListSchema = [1, n0, _REL, 0, () => ResourceEndpointListItem];
-export var StreamInfoList: StaticListSchema = [1, n0, _SIL, 0, () => StreamInfo];
-export var TagKeyList = 64 | 0;
-export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
-export var TagOnCreateList: StaticListSchema = [1, n0, _TOCL, 0, () => Tag];
-export var FormatConfig = 128 | 0;
-export var ResourceTags = 128 | 0;
-export var CreateSignalingChannel: StaticOperationSchema = [
+var ListOfProtocols = 64 | 0;
+var MappedResourceConfigurationList: StaticListSchema = [1, n0, _MRCL, 0, () => MappedResourceConfigurationListItem$];
+var ResourceEndpointList: StaticListSchema = [1, n0, _REL, 0, () => ResourceEndpointListItem$];
+var StreamInfoList: StaticListSchema = [1, n0, _SIL, 0, () => StreamInfo$];
+var TagKeyList = 64 | 0;
+var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
+var TagOnCreateList: StaticListSchema = [1, n0, _TOCL, 0, () => Tag$];
+var FormatConfig = 128 | 0;
+var ResourceTags = 128 | 0;
+export var CreateSignalingChannel$: StaticOperationSchema = [
   9,
   n0,
   _CSC,
   { [_h]: ["POST", "/createSignalingChannel", 200] },
-  () => CreateSignalingChannelInput,
-  () => CreateSignalingChannelOutput,
+  () => CreateSignalingChannelInput$,
+  () => CreateSignalingChannelOutput$,
 ];
-export var CreateStream: StaticOperationSchema = [
+export var CreateStream$: StaticOperationSchema = [
   9,
   n0,
   _CSr,
   { [_h]: ["POST", "/createStream", 200] },
-  () => CreateStreamInput,
-  () => CreateStreamOutput,
+  () => CreateStreamInput$,
+  () => CreateStreamOutput$,
 ];
-export var DeleteEdgeConfiguration: StaticOperationSchema = [
+export var DeleteEdgeConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DEC,
   { [_h]: ["POST", "/deleteEdgeConfiguration", 200] },
-  () => DeleteEdgeConfigurationInput,
-  () => DeleteEdgeConfigurationOutput,
+  () => DeleteEdgeConfigurationInput$,
+  () => DeleteEdgeConfigurationOutput$,
 ];
-export var DeleteSignalingChannel: StaticOperationSchema = [
+export var DeleteSignalingChannel$: StaticOperationSchema = [
   9,
   n0,
   _DSC,
   { [_h]: ["POST", "/deleteSignalingChannel", 200] },
-  () => DeleteSignalingChannelInput,
-  () => DeleteSignalingChannelOutput,
+  () => DeleteSignalingChannelInput$,
+  () => DeleteSignalingChannelOutput$,
 ];
-export var DeleteStream: StaticOperationSchema = [
+export var DeleteStream$: StaticOperationSchema = [
   9,
   n0,
   _DS,
   { [_h]: ["POST", "/deleteStream", 200] },
-  () => DeleteStreamInput,
-  () => DeleteStreamOutput,
+  () => DeleteStreamInput$,
+  () => DeleteStreamOutput$,
 ];
-export var DescribeEdgeConfiguration: StaticOperationSchema = [
+export var DescribeEdgeConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DECe,
   { [_h]: ["POST", "/describeEdgeConfiguration", 200] },
-  () => DescribeEdgeConfigurationInput,
-  () => DescribeEdgeConfigurationOutput,
+  () => DescribeEdgeConfigurationInput$,
+  () => DescribeEdgeConfigurationOutput$,
 ];
-export var DescribeImageGenerationConfiguration: StaticOperationSchema = [
+export var DescribeImageGenerationConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DIGC,
   { [_h]: ["POST", "/describeImageGenerationConfiguration", 200] },
-  () => DescribeImageGenerationConfigurationInput,
-  () => DescribeImageGenerationConfigurationOutput,
+  () => DescribeImageGenerationConfigurationInput$,
+  () => DescribeImageGenerationConfigurationOutput$,
 ];
-export var DescribeMappedResourceConfiguration: StaticOperationSchema = [
+export var DescribeMappedResourceConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DMRC,
   { [_h]: ["POST", "/describeMappedResourceConfiguration", 200] },
-  () => DescribeMappedResourceConfigurationInput,
-  () => DescribeMappedResourceConfigurationOutput,
+  () => DescribeMappedResourceConfigurationInput$,
+  () => DescribeMappedResourceConfigurationOutput$,
 ];
-export var DescribeMediaStorageConfiguration: StaticOperationSchema = [
+export var DescribeMediaStorageConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DMSC,
   { [_h]: ["POST", "/describeMediaStorageConfiguration", 200] },
-  () => DescribeMediaStorageConfigurationInput,
-  () => DescribeMediaStorageConfigurationOutput,
+  () => DescribeMediaStorageConfigurationInput$,
+  () => DescribeMediaStorageConfigurationOutput$,
 ];
-export var DescribeNotificationConfiguration: StaticOperationSchema = [
+export var DescribeNotificationConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DNC,
   { [_h]: ["POST", "/describeNotificationConfiguration", 200] },
-  () => DescribeNotificationConfigurationInput,
-  () => DescribeNotificationConfigurationOutput,
+  () => DescribeNotificationConfigurationInput$,
+  () => DescribeNotificationConfigurationOutput$,
 ];
-export var DescribeSignalingChannel: StaticOperationSchema = [
+export var DescribeSignalingChannel$: StaticOperationSchema = [
   9,
   n0,
   _DSCe,
   { [_h]: ["POST", "/describeSignalingChannel", 200] },
-  () => DescribeSignalingChannelInput,
-  () => DescribeSignalingChannelOutput,
+  () => DescribeSignalingChannelInput$,
+  () => DescribeSignalingChannelOutput$,
 ];
-export var DescribeStream: StaticOperationSchema = [
+export var DescribeStream$: StaticOperationSchema = [
   9,
   n0,
   _DSe,
   { [_h]: ["POST", "/describeStream", 200] },
-  () => DescribeStreamInput,
-  () => DescribeStreamOutput,
+  () => DescribeStreamInput$,
+  () => DescribeStreamOutput$,
 ];
-export var DescribeStreamStorageConfiguration: StaticOperationSchema = [
+export var DescribeStreamStorageConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DSSC,
   { [_h]: ["POST", "/describeStreamStorageConfiguration", 200] },
-  () => DescribeStreamStorageConfigurationInput,
-  () => DescribeStreamStorageConfigurationOutput,
+  () => DescribeStreamStorageConfigurationInput$,
+  () => DescribeStreamStorageConfigurationOutput$,
 ];
-export var GetDataEndpoint: StaticOperationSchema = [
+export var GetDataEndpoint$: StaticOperationSchema = [
   9,
   n0,
   _GDE,
   { [_h]: ["POST", "/getDataEndpoint", 200] },
-  () => GetDataEndpointInput,
-  () => GetDataEndpointOutput,
+  () => GetDataEndpointInput$,
+  () => GetDataEndpointOutput$,
 ];
-export var GetSignalingChannelEndpoint: StaticOperationSchema = [
+export var GetSignalingChannelEndpoint$: StaticOperationSchema = [
   9,
   n0,
   _GSCE,
   { [_h]: ["POST", "/getSignalingChannelEndpoint", 200] },
-  () => GetSignalingChannelEndpointInput,
-  () => GetSignalingChannelEndpointOutput,
+  () => GetSignalingChannelEndpointInput$,
+  () => GetSignalingChannelEndpointOutput$,
 ];
-export var ListEdgeAgentConfigurations: StaticOperationSchema = [
+export var ListEdgeAgentConfigurations$: StaticOperationSchema = [
   9,
   n0,
   _LEAC,
   { [_h]: ["POST", "/listEdgeAgentConfigurations", 200] },
-  () => ListEdgeAgentConfigurationsInput,
-  () => ListEdgeAgentConfigurationsOutput,
+  () => ListEdgeAgentConfigurationsInput$,
+  () => ListEdgeAgentConfigurationsOutput$,
 ];
-export var ListSignalingChannels: StaticOperationSchema = [
+export var ListSignalingChannels$: StaticOperationSchema = [
   9,
   n0,
   _LSCi,
   { [_h]: ["POST", "/listSignalingChannels", 200] },
-  () => ListSignalingChannelsInput,
-  () => ListSignalingChannelsOutput,
+  () => ListSignalingChannelsInput$,
+  () => ListSignalingChannelsOutput$,
 ];
-export var ListStreams: StaticOperationSchema = [
+export var ListStreams$: StaticOperationSchema = [
   9,
   n0,
   _LS,
   { [_h]: ["POST", "/listStreams", 200] },
-  () => ListStreamsInput,
-  () => ListStreamsOutput,
+  () => ListStreamsInput$,
+  () => ListStreamsOutput$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["POST", "/ListTagsForResource", 200] },
-  () => ListTagsForResourceInput,
-  () => ListTagsForResourceOutput,
+  () => ListTagsForResourceInput$,
+  () => ListTagsForResourceOutput$,
 ];
-export var ListTagsForStream: StaticOperationSchema = [
+export var ListTagsForStream$: StaticOperationSchema = [
   9,
   n0,
   _LTFS,
   { [_h]: ["POST", "/listTagsForStream", 200] },
-  () => ListTagsForStreamInput,
-  () => ListTagsForStreamOutput,
+  () => ListTagsForStreamInput$,
+  () => ListTagsForStreamOutput$,
 ];
-export var StartEdgeConfigurationUpdate: StaticOperationSchema = [
+export var StartEdgeConfigurationUpdate$: StaticOperationSchema = [
   9,
   n0,
   _SECU,
   { [_h]: ["POST", "/startEdgeConfigurationUpdate", 200] },
-  () => StartEdgeConfigurationUpdateInput,
-  () => StartEdgeConfigurationUpdateOutput,
+  () => StartEdgeConfigurationUpdateInput$,
+  () => StartEdgeConfigurationUpdateOutput$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/TagResource", 200] },
-  () => TagResourceInput,
-  () => TagResourceOutput,
+  () => TagResourceInput$,
+  () => TagResourceOutput$,
 ];
-export var TagStream: StaticOperationSchema = [
+export var TagStream$: StaticOperationSchema = [
   9,
   n0,
   _TS,
   { [_h]: ["POST", "/tagStream", 200] },
-  () => TagStreamInput,
-  () => TagStreamOutput,
+  () => TagStreamInput$,
+  () => TagStreamOutput$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["POST", "/UntagResource", 200] },
-  () => UntagResourceInput,
-  () => UntagResourceOutput,
+  () => UntagResourceInput$,
+  () => UntagResourceOutput$,
 ];
-export var UntagStream: StaticOperationSchema = [
+export var UntagStream$: StaticOperationSchema = [
   9,
   n0,
   _USn,
   { [_h]: ["POST", "/untagStream", 200] },
-  () => UntagStreamInput,
-  () => UntagStreamOutput,
+  () => UntagStreamInput$,
+  () => UntagStreamOutput$,
 ];
-export var UpdateDataRetention: StaticOperationSchema = [
+export var UpdateDataRetention$: StaticOperationSchema = [
   9,
   n0,
   _UDR,
   { [_h]: ["POST", "/updateDataRetention", 200] },
-  () => UpdateDataRetentionInput,
-  () => UpdateDataRetentionOutput,
+  () => UpdateDataRetentionInput$,
+  () => UpdateDataRetentionOutput$,
 ];
-export var UpdateImageGenerationConfiguration: StaticOperationSchema = [
+export var UpdateImageGenerationConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UIGC,
   { [_h]: ["POST", "/updateImageGenerationConfiguration", 200] },
-  () => UpdateImageGenerationConfigurationInput,
-  () => UpdateImageGenerationConfigurationOutput,
+  () => UpdateImageGenerationConfigurationInput$,
+  () => UpdateImageGenerationConfigurationOutput$,
 ];
-export var UpdateMediaStorageConfiguration: StaticOperationSchema = [
+export var UpdateMediaStorageConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UMSC,
   { [_h]: ["POST", "/updateMediaStorageConfiguration", 200] },
-  () => UpdateMediaStorageConfigurationInput,
-  () => UpdateMediaStorageConfigurationOutput,
+  () => UpdateMediaStorageConfigurationInput$,
+  () => UpdateMediaStorageConfigurationOutput$,
 ];
-export var UpdateNotificationConfiguration: StaticOperationSchema = [
+export var UpdateNotificationConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UNC,
   { [_h]: ["POST", "/updateNotificationConfiguration", 200] },
-  () => UpdateNotificationConfigurationInput,
-  () => UpdateNotificationConfigurationOutput,
+  () => UpdateNotificationConfigurationInput$,
+  () => UpdateNotificationConfigurationOutput$,
 ];
-export var UpdateSignalingChannel: StaticOperationSchema = [
+export var UpdateSignalingChannel$: StaticOperationSchema = [
   9,
   n0,
   _USC,
   { [_h]: ["POST", "/updateSignalingChannel", 200] },
-  () => UpdateSignalingChannelInput,
-  () => UpdateSignalingChannelOutput,
+  () => UpdateSignalingChannelInput$,
+  () => UpdateSignalingChannelOutput$,
 ];
-export var UpdateStream: StaticOperationSchema = [
+export var UpdateStream$: StaticOperationSchema = [
   9,
   n0,
   _USp,
   { [_h]: ["POST", "/updateStream", 200] },
-  () => UpdateStreamInput,
-  () => UpdateStreamOutput,
+  () => UpdateStreamInput$,
+  () => UpdateStreamOutput$,
 ];
-export var UpdateStreamStorageConfiguration: StaticOperationSchema = [
+export var UpdateStreamStorageConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _USSC,
   { [_h]: ["POST", "/updateStreamStorageConfiguration", 200] },
-  () => UpdateStreamStorageConfigurationInput,
-  () => UpdateStreamStorageConfigurationOutput,
+  () => UpdateStreamStorageConfigurationInput$,
+  () => UpdateStreamStorageConfigurationOutput$,
 ];

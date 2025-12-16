@@ -94,21 +94,21 @@ import { TypeRegistry } from "@smithy/core/schema";
 import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  InternalServerException as __InternalServerException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ServiceUnavailableException as __ServiceUnavailableException,
-  SessionNotFoundException as __SessionNotFoundException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  InternalServerException,
+  ServiceQuotaExceededException,
+  ServiceUnavailableException,
+  SessionNotFoundException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { RekognitionStreamingServiceException as __RekognitionStreamingServiceException } from "../models/RekognitionStreamingServiceException";
+import { RekognitionStreamingServiceException } from "../models/RekognitionStreamingServiceException";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M, _C], [0, 0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var BoundingBox: StaticStructureSchema = [3, n0, _BB, 0, [_W, _H, _L, _T], [1, 1, 1, 1]];
-export var ChallengeConfig: StaticStructureSchema = [
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M, _C], [0, 0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var BoundingBox$: StaticStructureSchema = [3, n0, _BB, 0, [_W, _H, _L, _T], [1, 1, 1, 1]];
+export var ChallengeConfig$: StaticStructureSchema = [
   3,
   n0,
   _CC,
@@ -116,57 +116,64 @@ export var ChallengeConfig: StaticStructureSchema = [
   [_BFDT, _FDTM, _FDT, _FDTMa, _OIT, _OHWR, _OIWT, _OIHT, _FIWT, _FIHT, _OFT],
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 ];
-export var ChallengeEvent: StaticStructureSchema = [3, n0, _CE, 0, [_V, _Ty], [0, 0]];
-export var ClientSessionInformationEvent: StaticStructureSchema = [3, n0, _CSIE, 0, [_Ch], [() => ClientChallenge]];
-export var ColorDisplayed: StaticStructureSchema = [
+export var ChallengeEvent$: StaticStructureSchema = [3, n0, _CE, 0, [_V, _Ty], [0, 0]];
+export var ClientSessionInformationEvent$: StaticStructureSchema = [3, n0, _CSIE, 0, [_Ch], [() => ClientChallenge$]];
+export var ColorDisplayed$: StaticStructureSchema = [
   3,
   n0,
   _CD,
   0,
   [_CCu, _PC, _SN, _CCST],
-  [() => FreshnessColor, () => FreshnessColor, 1, 1],
+  [() => FreshnessColor$, () => FreshnessColor$, 1, 1],
 ];
-export var ColorSequence: StaticStructureSchema = [3, n0, _CS, 0, [_FC, _DD, _FDD], [() => FreshnessColor, 1, 1]];
-export var DisconnectionEvent: StaticStructureSchema = [3, n0, _DE, 0, [_TM], [1]];
-export var FaceMovementAndLightClientChallenge: StaticStructureSchema = [
+export var ColorSequence$: StaticStructureSchema = [3, n0, _CS, 0, [_FC, _DD, _FDD], [() => FreshnessColor$, 1, 1]];
+export var DisconnectionEvent$: StaticStructureSchema = [3, n0, _DE, 0, [_TM], [1]];
+export var FaceMovementAndLightClientChallenge$: StaticStructureSchema = [
   3,
   n0,
   _FMALCC,
   0,
   [_CI, _VST, _VET, _IF, _TF, _CD],
-  [0, 1, 1, () => InitialFace, () => TargetFace, () => ColorDisplayed],
+  [0, 1, 1, () => InitialFace$, () => TargetFace$, () => ColorDisplayed$],
 ];
-export var FaceMovementAndLightServerChallenge: StaticStructureSchema = [
+export var FaceMovementAndLightServerChallenge$: StaticStructureSchema = [
   3,
   n0,
   _FMALSC,
   0,
   [_OP, _LCT, _CC, _CSo],
-  [() => OvalParameters, 0, () => ChallengeConfig, () => ColorSequences],
+  [() => OvalParameters$, 0, () => ChallengeConfig$, () => ColorSequences],
 ];
-export var FaceMovementClientChallenge: StaticStructureSchema = [
+export var FaceMovementClientChallenge$: StaticStructureSchema = [
   3,
   n0,
   _FMCC,
   0,
   [_CI, _VST, _VET, _IF, _TF],
-  [0, 1, 1, () => InitialFace, () => TargetFace],
+  [0, 1, 1, () => InitialFace$, () => TargetFace$],
 ];
-export var FaceMovementServerChallenge: StaticStructureSchema = [
+export var FaceMovementServerChallenge$: StaticStructureSchema = [
   3,
   n0,
   _FMSC,
   0,
   [_OP, _CC],
-  [() => OvalParameters, () => ChallengeConfig],
+  [() => OvalParameters$, () => ChallengeConfig$],
 ];
-export var FreshnessColor: StaticStructureSchema = [3, n0, _FC, 0, [_RGB], [64 | 1]];
-export var InitialFace: StaticStructureSchema = [3, n0, _IF, 0, [_BB, _IFDT], [() => BoundingBox, 1]];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M, _C], [0, 0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var OvalParameters: StaticStructureSchema = [3, n0, _OP, 0, [_W, _H, _CX, _CY], [1, 1, 1, 1]];
-export var ServerSessionInformationEvent: StaticStructureSchema = [3, n0, _SSIE, 0, [_SI], [() => SessionInformation]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
+export var FreshnessColor$: StaticStructureSchema = [3, n0, _FC, 0, [_RGB], [64 | 1]];
+export var InitialFace$: StaticStructureSchema = [3, n0, _IF, 0, [_BB, _IFDT], [() => BoundingBox$, 1]];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M, _C], [0, 0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var OvalParameters$: StaticStructureSchema = [3, n0, _OP, 0, [_W, _H, _CX, _CY], [1, 1, 1, 1]];
+export var ServerSessionInformationEvent$: StaticStructureSchema = [
+  3,
+  n0,
+  _SSIE,
+  0,
+  [_SI],
+  [() => SessionInformation$],
+];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
@@ -174,13 +181,13 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   [_M, _C],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _s, [_hE]: 503 }, [_M, _C], [0, 0]];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-export var SessionInformation: StaticStructureSchema = [3, n0, _SI, 0, [_Ch], [() => ServerChallenge]];
-export var SessionNotFoundException: StaticErrorSchema = [-3, n0, _SNFE, { [_e]: _c, [_hE]: 400 }, [_M, _C], [0, 0]];
-TypeRegistry.for(n0).registerError(SessionNotFoundException, __SessionNotFoundException);
-export var StartFaceLivenessSessionRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _s, [_hE]: 503 }, [_M, _C], [0, 0]];
+TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var SessionInformation$: StaticStructureSchema = [3, n0, _SI, 0, [_Ch], [() => ServerChallenge$]];
+export var SessionNotFoundException$: StaticErrorSchema = [-3, n0, _SNFE, { [_e]: _c, [_hE]: 400 }, [_M, _C], [0, 0]];
+TypeRegistry.for(n0).registerError(SessionNotFoundException$, SessionNotFoundException);
+export var StartFaceLivenessSessionRequest$: StaticStructureSchema = [
   3,
   n0,
   _SFLSR,
@@ -191,10 +198,10 @@ export var StartFaceLivenessSessionRequest: StaticStructureSchema = [
     [0, { [_hH]: _xarslvw }],
     [0, { [_hH]: _xarslvh }],
     [0, { [_hH]: _xarslcv }],
-    [() => LivenessRequestStream, 16],
+    [() => LivenessRequestStream$, 16],
   ],
 ];
-export var StartFaceLivenessSessionResponse: StaticStructureSchema = [
+export var StartFaceLivenessSessionResponse$: StaticStructureSchema = [
   3,
   n0,
   _SFLSRt,
@@ -202,16 +209,16 @@ export var StartFaceLivenessSessionResponse: StaticStructureSchema = [
   [_SIe, _LRSi],
   [
     [0, { [_hH]: _xarslsi }],
-    [() => LivenessResponseStream, 16],
+    [() => LivenessResponseStream$, 16],
   ],
 ];
-export var TargetFace: StaticStructureSchema = [3, n0, _TF, 0, [_BB, _FDITPST, _FDITPET], [() => BoundingBox, 1, 1]];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M, _C], [0, 0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M, _C], [0, 0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var VideoEvent: StaticStructureSchema = [3, n0, _VEi, 0, [_VC, _TM], [21, 1]];
-export var RekognitionStreamingServiceException: StaticErrorSchema = [
+export var TargetFace$: StaticStructureSchema = [3, n0, _TF, 0, [_BB, _FDITPST, _FDITPET], [() => BoundingBox$, 1, 1]];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M, _C], [0, 0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M, _C], [0, 0]];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var VideoEvent$: StaticStructureSchema = [3, n0, _VEi, 0, [_VC, _TM], [21, 1]];
+export var RekognitionStreamingServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "RekognitionStreamingServiceException",
@@ -219,55 +226,55 @@ export var RekognitionStreamingServiceException: StaticErrorSchema = [
   [],
   [],
 ];
-TypeRegistry.for(_sm).registerError(RekognitionStreamingServiceException, __RekognitionStreamingServiceException);
-export var ColorComponentList = 64 | 1;
-export var ColorSequences: StaticListSchema = [1, n0, _CSo, 0, () => ColorSequence];
-export var ClientChallenge: StaticStructureSchema = [
+TypeRegistry.for(_sm).registerError(RekognitionStreamingServiceException$, RekognitionStreamingServiceException);
+var ColorComponentList = 64 | 1;
+var ColorSequences: StaticListSchema = [1, n0, _CSo, 0, () => ColorSequence$];
+export var ClientChallenge$: StaticStructureSchema = [
   3,
   n0,
   _CCl,
   0,
   [_FMALC, _FMC],
-  [() => FaceMovementAndLightClientChallenge, () => FaceMovementClientChallenge],
+  [() => FaceMovementAndLightClientChallenge$, () => FaceMovementClientChallenge$],
 ];
-export var LivenessRequestStream: StaticStructureSchema = [
+export var LivenessRequestStream$: StaticStructureSchema = [
   3,
   n0,
   _LRS,
   { [_st]: 1 },
   [_VEi, _CSIE],
-  [() => VideoEvent, () => ClientSessionInformationEvent],
+  [() => VideoEvent$, () => ClientSessionInformationEvent$],
 ];
-export var LivenessResponseStream: StaticStructureSchema = [
+export var LivenessResponseStream$: StaticStructureSchema = [
   3,
   n0,
   _LRSi,
   { [_st]: 1 },
   [_SSIE, _DE, _CE, _VE, _ISE, _TE, _SQEE, _SUE],
   [
-    () => ServerSessionInformationEvent,
-    () => DisconnectionEvent,
-    () => ChallengeEvent,
-    [() => ValidationException, 0],
-    [() => InternalServerException, 0],
-    [() => ThrottlingException, 0],
-    [() => ServiceQuotaExceededException, 0],
-    [() => ServiceUnavailableException, 0],
+    () => ServerSessionInformationEvent$,
+    () => DisconnectionEvent$,
+    () => ChallengeEvent$,
+    [() => ValidationException$, 0],
+    [() => InternalServerException$, 0],
+    [() => ThrottlingException$, 0],
+    [() => ServiceQuotaExceededException$, 0],
+    [() => ServiceUnavailableException$, 0],
   ],
 ];
-export var ServerChallenge: StaticStructureSchema = [
+export var ServerChallenge$: StaticStructureSchema = [
   3,
   n0,
   _SC,
   0,
   [_FMALC, _FMC],
-  [() => FaceMovementAndLightServerChallenge, () => FaceMovementServerChallenge],
+  [() => FaceMovementAndLightServerChallenge$, () => FaceMovementServerChallenge$],
 ];
-export var StartFaceLivenessSession: StaticOperationSchema = [
+export var StartFaceLivenessSession$: StaticOperationSchema = [
   9,
   n0,
   _SFLS,
   { [_h]: ["POST", "/start-face-liveness-session", 200] },
-  () => StartFaceLivenessSessionRequest,
-  () => StartFaceLivenessSessionResponse,
+  () => StartFaceLivenessSessionRequest$,
+  () => StartFaceLivenessSessionResponse$,
 ];

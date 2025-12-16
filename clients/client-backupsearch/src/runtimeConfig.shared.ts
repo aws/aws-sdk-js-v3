@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: BackupSearchClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.backupsearch" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.backupsearch",
+      version: "2018-05-10",
+      serviceTarget: "CryoBackupSearchService",
+    },
     serviceId: config?.serviceId ?? "BackupSearch",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

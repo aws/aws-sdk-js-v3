@@ -9,7 +9,7 @@ import type {
   SendDurableExecutionCallbackFailureRequest,
   SendDurableExecutionCallbackFailureResponse,
 } from "../models/models_0";
-import { SendDurableExecutionCallbackFailure } from "../schemas/schemas_0";
+import { SendDurableExecutionCallbackFailure$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class SendDurableExecutionCallbackFailureCommand extends $Command
   })
   .s("AWSGirApiService", "SendDurableExecutionCallbackFailure", {})
   .n("LambdaClient", "SendDurableExecutionCallbackFailureCommand")
-  .sc(SendDurableExecutionCallbackFailure)
+  .sc(SendDurableExecutionCallbackFailure$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

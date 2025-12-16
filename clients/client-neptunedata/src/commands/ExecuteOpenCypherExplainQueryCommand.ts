@@ -7,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type ExecuteOpenCypherExplainQueryInput, ExecuteOpenCypherExplainQueryOutput } from "../models/models_0";
 import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
-import { ExecuteOpenCypherExplainQuery } from "../schemas/schemas_0";
+import { ExecuteOpenCypherExplainQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -148,7 +148,7 @@ export class ExecuteOpenCypherExplainQueryCommand extends $Command
   })
   .s("AmazonNeptuneDataplane", "ExecuteOpenCypherExplainQuery", {})
   .n("NeptunedataClient", "ExecuteOpenCypherExplainQueryCommand")
-  .sc(ExecuteOpenCypherExplainQuery)
+  .sc(ExecuteOpenCypherExplainQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

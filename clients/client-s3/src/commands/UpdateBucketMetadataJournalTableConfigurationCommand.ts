@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateBucketMetadataJournalTableConfigurationRequest } from "../models/models_1";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { UpdateBucketMetadataJournalTableConfiguration } from "../schemas/schemas_0";
+import { UpdateBucketMetadataJournalTableConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class UpdateBucketMetadataJournalTableConfigurationCommand extends $Comma
   })
   .s("AmazonS3", "UpdateBucketMetadataJournalTableConfiguration", {})
   .n("S3Client", "UpdateBucketMetadataJournalTableConfigurationCommand")
-  .sc(UpdateBucketMetadataJournalTableConfiguration)
+  .sc(UpdateBucketMetadataJournalTableConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

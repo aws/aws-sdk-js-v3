@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import type { DescribeAccountSettingsInput, DescribeAccountSettingsOutput } from "../models/models_0";
-import { DescribeAccountSettings } from "../schemas/schemas_0";
+import { DescribeAccountSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,7 +81,7 @@ export class DescribeAccountSettingsCommand extends $Command
   })
   .s("Kinesis_20131202", "DescribeAccountSettings", {})
   .n("KinesisClient", "DescribeAccountSettingsCommand")
-  .sc(DescribeAccountSettings)
+  .sc(DescribeAccountSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

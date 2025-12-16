@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetIamPortalLoginUrlInput, GetIamPortalLoginUrlOutput } from "../models/models_1";
-import { GetIamPortalLoginUrl } from "../schemas/schemas_0";
+import { GetIamPortalLoginUrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class GetIamPortalLoginUrlCommand extends $Command
   })
   .s("DataZone", "GetIamPortalLoginUrl", {})
   .n("DataZoneClient", "GetIamPortalLoginUrlCommand")
-  .sc(GetIamPortalLoginUrl)
+  .sc(GetIamPortalLoginUrl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

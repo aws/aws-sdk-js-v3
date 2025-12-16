@@ -9,7 +9,7 @@ import type {
   DescribeEksAnywhereSubscriptionRequest,
   DescribeEksAnywhereSubscriptionResponse,
 } from "../models/models_0";
-import { DescribeEksAnywhereSubscription } from "../schemas/schemas_0";
+import { DescribeEksAnywhereSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class DescribeEksAnywhereSubscriptionCommand extends $Command
   })
   .s("AWSWesleyFrontend", "DescribeEksAnywhereSubscription", {})
   .n("EKSClient", "DescribeEksAnywhereSubscriptionCommand")
-  .sc(DescribeEksAnywhereSubscription)
+  .sc(DescribeEksAnywhereSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import type { DeleteExplainabilityRequest } from "../models/models_0";
-import { DeleteExplainability } from "../schemas/schemas_0";
+import { DeleteExplainability$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DeleteExplainabilityCommand extends $Command
   })
   .s("AmazonForecast", "DeleteExplainability", {})
   .n("ForecastClient", "DeleteExplainabilityCommand")
-  .sc(DeleteExplainability)
+  .sc(DeleteExplainability$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

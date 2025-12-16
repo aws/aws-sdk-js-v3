@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeRuntimeClient";
-import { GetPersonalizedRanking } from "../schemas/schemas_0";
+import { GetPersonalizedRanking$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class GetPersonalizedRankingCommand extends $Command
   })
   .s("AmazonPersonalizeRuntime", "GetPersonalizedRanking", {})
   .n("PersonalizeRuntimeClient", "GetPersonalizedRankingCommand")
-  .sc(GetPersonalizedRanking)
+  .sc(GetPersonalizedRanking$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

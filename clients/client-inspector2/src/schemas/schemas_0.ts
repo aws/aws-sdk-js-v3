@@ -992,65 +992,65 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  BadRequestException as __BadRequestException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  BadRequestException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { Inspector2ServiceException as __Inspector2ServiceException } from "../models/Inspector2ServiceException";
+import { Inspector2ServiceException } from "../models/Inspector2ServiceException";
 
 /* eslint no-var: 0 */
-export var AuthorizationUrl: StaticSimpleSchema = [0, n0, _AU, 8, 0];
-export var GitHubAuthCode: StaticSimpleSchema = [0, n0, _GHAC, 8, 0];
-export var GitLabAccessToken: StaticSimpleSchema = [0, n0, _GLAT, 8, 0];
-export var GitLabAuthCode: StaticSimpleSchema = [0, n0, _GLAC, 8, 0];
-export var InstanceUrl: StaticSimpleSchema = [0, n0, _IU, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var Account: StaticStructureSchema = [3, n0, _A, 0, [_aI, _s, _rS], [0, 0, () => ResourceStatus]];
-export var AccountAggregation: StaticStructureSchema = [3, n0, _AA, 0, [_fT, _rT, _sO, _sB], [0, 0, 0, 0]];
-export var AccountAggregationResponse: StaticStructureSchema = [
+var AuthorizationUrl: StaticSimpleSchema = [0, n0, _AU, 8, 0];
+var GitHubAuthCode: StaticSimpleSchema = [0, n0, _GHAC, 8, 0];
+var GitLabAccessToken: StaticSimpleSchema = [0, n0, _GLAT, 8, 0];
+var GitLabAuthCode: StaticSimpleSchema = [0, n0, _GLAC, 8, 0];
+var InstanceUrl: StaticSimpleSchema = [0, n0, _IU, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var Account$: StaticStructureSchema = [3, n0, _A, 0, [_aI, _s, _rS], [0, 0, () => ResourceStatus$]];
+export var AccountAggregation$: StaticStructureSchema = [3, n0, _AA, 0, [_fT, _rT, _sO, _sB], [0, 0, 0, 0]];
+export var AccountAggregationResponse$: StaticStructureSchema = [
   3,
   n0,
   _AAR,
   0,
   [_aI, _sC, _eAC, _fAC],
-  [0, () => SeverityCounts, 1, 1],
+  [0, () => SeverityCounts$, 1, 1],
 ];
-export var AccountState: StaticStructureSchema = [
+export var AccountState$: StaticStructureSchema = [
   3,
   n0,
   _AS,
   0,
   [_aI, _st, _rSe],
-  [0, () => State, () => ResourceState],
+  [0, () => State$, () => ResourceState$],
 ];
-export var AmiAggregation: StaticStructureSchema = [3, n0, _AAm, 0, [_a, _sO, _sB], [() => StringFilterList, 0, 0]];
-export var AmiAggregationResponse: StaticStructureSchema = [
+export var AmiAggregation$: StaticStructureSchema = [3, n0, _AAm, 0, [_a, _sO, _sB], [() => StringFilterList, 0, 0]];
+export var AmiAggregationResponse$: StaticStructureSchema = [
   3,
   n0,
   _AARm,
   0,
   [_am, _aI, _sC, _aIf],
-  [0, 0, () => SeverityCounts, 1],
+  [0, 0, () => SeverityCounts$, 1],
 ];
-export var AssociateConfigurationRequest: StaticStructureSchema = [
+export var AssociateConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _ACR,
   0,
   [_sCA, _r],
-  [0, () => CodeSecurityResource],
+  [0, () => CodeSecurityResource$],
 ];
-export var AssociateMemberRequest: StaticStructureSchema = [3, n0, _AMR, 0, [_aI], [0]];
-export var AssociateMemberResponse: StaticStructureSchema = [3, n0, _AMRs, 0, [_aI], [0]];
-export var AtigData: StaticStructureSchema = [3, n0, _AD, 0, [_fS, _lS, _t, _tt], [4, 4, 64 | 0, 64 | 0]];
-export var AutoEnable: StaticStructureSchema = [3, n0, _AE, 0, [_ec, _ecr, _l, _lC, _cR], [2, 2, 2, 2, 2]];
-export var AwsEc2InstanceDetails: StaticStructureSchema = [
+export var AssociateMemberRequest$: StaticStructureSchema = [3, n0, _AMR, 0, [_aI], [0]];
+export var AssociateMemberResponse$: StaticStructureSchema = [3, n0, _AMRs, 0, [_aI], [0]];
+export var AtigData$: StaticStructureSchema = [3, n0, _AD, 0, [_fS, _lS, _t, _tt], [4, 4, 64 | 0, 64 | 0]];
+export var AutoEnable$: StaticStructureSchema = [3, n0, _AE, 0, [_ec, _ecr, _l, _lC, _cR], [2, 2, 2, 2, 2]];
+export var AwsEc2InstanceDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEID,
@@ -1058,7 +1058,7 @@ export var AwsEc2InstanceDetails: StaticStructureSchema = [
   [_ty, _iI, _iVA, _iVAp, _kN, _iIPA, _vI, _sI, _lA, _p],
   [0, 0, 64 | 0, 64 | 0, 0, 0, 0, 0, 4, 0],
 ];
-export var AwsEcrContainerAggregation: StaticStructureSchema = [
+export var AwsEcrContainerAggregation$: StaticStructureSchema = [
   3,
   n0,
   _AECA,
@@ -1076,15 +1076,15 @@ export var AwsEcrContainerAggregation: StaticStructureSchema = [
     () => NumberFilterList,
   ],
 ];
-export var AwsEcrContainerAggregationResponse: StaticStructureSchema = [
+export var AwsEcrContainerAggregationResponse$: StaticStructureSchema = [
   3,
   n0,
   _AECAR,
   0,
   [_rIe, _iSm, _rep, _arc, _iT, _aI, _sC, _lIUA, _iUC],
-  [0, 0, 0, 0, 64 | 0, 0, () => SeverityCounts, 4, 1],
+  [0, 0, 0, 0, 64 | 0, 0, () => SeverityCounts$, 4, 1],
 ];
-export var AwsEcrContainerImageDetails: StaticStructureSchema = [
+export var AwsEcrContainerImageDetails$: StaticStructureSchema = [
   3,
   n0,
   _AECID,
@@ -1092,8 +1092,8 @@ export var AwsEcrContainerImageDetails: StaticStructureSchema = [
   [_rN, _iT, _pA, _au, _arc, _iH, _reg, _p, _lIUA, _iUC],
   [0, 64 | 0, 4, 0, 0, 0, 0, 0, 4, 1],
 ];
-export var AwsEcsMetadataDetails: StaticStructureSchema = [3, n0, _AEMD, 0, [_dG, _tDA], [0, 0]];
-export var AwsEksMetadataDetails: StaticStructureSchema = [
+export var AwsEcsMetadataDetails$: StaticStructureSchema = [3, n0, _AEMD, 0, [_dG, _tDA], [0, 0]];
+export var AwsEksMetadataDetails$: StaticStructureSchema = [
   3,
   n0,
   _AEMDw,
@@ -1101,18 +1101,18 @@ export var AwsEksMetadataDetails: StaticStructureSchema = [
   [_n, _wIL],
   [0, () => AwsEksWorkloadInfoList],
 ];
-export var AwsEksWorkloadInfo: StaticStructureSchema = [3, n0, _AEWI, 0, [_na, _ty], [0, 0]];
-export var AwsLambdaFunctionDetails: StaticStructureSchema = [
+export var AwsEksWorkloadInfo$: StaticStructureSchema = [3, n0, _AEWI, 0, [_na, _ty], [0, 0]];
+export var AwsLambdaFunctionDetails$: StaticStructureSchema = [
   3,
   n0,
   _ALFD,
   0,
   [_fN, _ru, _cS, _v, _eRA, _la, _vC, _pT, _ar, _lMA],
-  [0, 0, 0, 0, 0, 64 | 0, () => LambdaVpcConfig, 0, 64 | 0, 4],
+  [0, 0, 0, 0, 0, 64 | 0, () => LambdaVpcConfig$, 0, 64 | 0, 4],
 ];
-export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-export var BatchAssociateCodeSecurityScanConfigurationRequest: StaticStructureSchema = [
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+export var BatchAssociateCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _BACSSCR,
@@ -1120,7 +1120,7 @@ export var BatchAssociateCodeSecurityScanConfigurationRequest: StaticStructureSc
   [_aCR],
   [() => AssociateConfigurationRequestList],
 ];
-export var BatchAssociateCodeSecurityScanConfigurationResponse: StaticStructureSchema = [
+export var BatchAssociateCodeSecurityScanConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _BACSSCRa,
@@ -1128,7 +1128,7 @@ export var BatchAssociateCodeSecurityScanConfigurationResponse: StaticStructureS
   [_fA, _sA],
   [() => FailedAssociationResultList, () => SuccessfulAssociationResultList],
 ];
-export var BatchDisassociateCodeSecurityScanConfigurationRequest: StaticStructureSchema = [
+export var BatchDisassociateCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _BDCSSCR,
@@ -1136,7 +1136,7 @@ export var BatchDisassociateCodeSecurityScanConfigurationRequest: StaticStructur
   [_dCR],
   [() => DisassociateConfigurationRequestList],
 ];
-export var BatchDisassociateCodeSecurityScanConfigurationResponse: StaticStructureSchema = [
+export var BatchDisassociateCodeSecurityScanConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _BDCSSCRa,
@@ -1144,8 +1144,8 @@ export var BatchDisassociateCodeSecurityScanConfigurationResponse: StaticStructu
   [_fA, _sA],
   [() => FailedAssociationResultList, () => SuccessfulAssociationResultList],
 ];
-export var BatchGetAccountStatusRequest: StaticStructureSchema = [3, n0, _BGASR, 0, [_aIc], [64 | 0]];
-export var BatchGetAccountStatusResponse: StaticStructureSchema = [
+export var BatchGetAccountStatusRequest$: StaticStructureSchema = [3, n0, _BGASR, 0, [_aIc], [64 | 0]];
+export var BatchGetAccountStatusResponse$: StaticStructureSchema = [
   3,
   n0,
   _BGASRa,
@@ -1153,8 +1153,8 @@ export var BatchGetAccountStatusResponse: StaticStructureSchema = [
   [_ac, _fAa],
   [() => AccountStateList, () => FailedAccountList],
 ];
-export var BatchGetCodeSnippetRequest: StaticStructureSchema = [3, n0, _BGCSR, 0, [_fAi], [64 | 0]];
-export var BatchGetCodeSnippetResponse: StaticStructureSchema = [
+export var BatchGetCodeSnippetRequest$: StaticStructureSchema = [3, n0, _BGCSR, 0, [_fAi], [64 | 0]];
+export var BatchGetCodeSnippetResponse$: StaticStructureSchema = [
   3,
   n0,
   _BGCSRa,
@@ -1162,8 +1162,8 @@ export var BatchGetCodeSnippetResponse: StaticStructureSchema = [
   [_cSR, _er],
   [() => CodeSnippetResultList, () => CodeSnippetErrorList],
 ];
-export var BatchGetFindingDetailsRequest: StaticStructureSchema = [3, n0, _BGFDR, 0, [_fAi], [64 | 0]];
-export var BatchGetFindingDetailsResponse: StaticStructureSchema = [
+export var BatchGetFindingDetailsRequest$: StaticStructureSchema = [3, n0, _BGFDR, 0, [_fAi], [64 | 0]];
+export var BatchGetFindingDetailsResponse$: StaticStructureSchema = [
   3,
   n0,
   _BGFDRa,
@@ -1171,8 +1171,8 @@ export var BatchGetFindingDetailsResponse: StaticStructureSchema = [
   [_fD, _er],
   [() => FindingDetails, () => FindingDetailsErrorList],
 ];
-export var BatchGetFreeTrialInfoRequest: StaticStructureSchema = [3, n0, _BGFTIR, 0, [_aIc], [64 | 0]];
-export var BatchGetFreeTrialInfoResponse: StaticStructureSchema = [
+export var BatchGetFreeTrialInfoRequest$: StaticStructureSchema = [3, n0, _BGFTIR, 0, [_aIc], [64 | 0]];
+export var BatchGetFreeTrialInfoResponse$: StaticStructureSchema = [
   3,
   n0,
   _BGFTIRa,
@@ -1180,7 +1180,7 @@ export var BatchGetFreeTrialInfoResponse: StaticStructureSchema = [
   [_ac, _fAa],
   [() => FreeTrialAccountInfoList, () => FreeTrialInfoErrorList],
 ];
-export var BatchGetMemberEc2DeepInspectionStatusRequest: StaticStructureSchema = [
+export var BatchGetMemberEc2DeepInspectionStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _BGMEDISR,
@@ -1188,7 +1188,7 @@ export var BatchGetMemberEc2DeepInspectionStatusRequest: StaticStructureSchema =
   [_aIc],
   [64 | 0],
 ];
-export var BatchGetMemberEc2DeepInspectionStatusResponse: StaticStructureSchema = [
+export var BatchGetMemberEc2DeepInspectionStatusResponse$: StaticStructureSchema = [
   3,
   n0,
   _BGMEDISRa,
@@ -1196,7 +1196,7 @@ export var BatchGetMemberEc2DeepInspectionStatusResponse: StaticStructureSchema 
   [_aIc, _fAI],
   [() => MemberAccountEc2DeepInspectionStatusStateList, () => FailedMemberAccountEc2DeepInspectionStatusStateList],
 ];
-export var BatchUpdateMemberEc2DeepInspectionStatusRequest: StaticStructureSchema = [
+export var BatchUpdateMemberEc2DeepInspectionStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _BUMEDISR,
@@ -1204,7 +1204,7 @@ export var BatchUpdateMemberEc2DeepInspectionStatusRequest: StaticStructureSchem
   [_aIc],
   [() => MemberAccountEc2DeepInspectionStatusList],
 ];
-export var BatchUpdateMemberEc2DeepInspectionStatusResponse: StaticStructureSchema = [
+export var BatchUpdateMemberEc2DeepInspectionStatusResponse$: StaticStructureSchema = [
   3,
   n0,
   _BUMEDISRa,
@@ -1212,40 +1212,40 @@ export var BatchUpdateMemberEc2DeepInspectionStatusResponse: StaticStructureSche
   [_aIc, _fAI],
   [() => MemberAccountEc2DeepInspectionStatusStateList, () => FailedMemberAccountEc2DeepInspectionStatusStateList],
 ];
-export var CancelFindingsReportRequest: StaticStructureSchema = [3, n0, _CFRR, 0, [_rIep], [0]];
-export var CancelFindingsReportResponse: StaticStructureSchema = [3, n0, _CFRRa, 0, [_rIep], [0]];
-export var CancelSbomExportRequest: StaticStructureSchema = [3, n0, _CSER, 0, [_rIep], [0]];
-export var CancelSbomExportResponse: StaticStructureSchema = [3, n0, _CSERa, 0, [_rIep], [0]];
-export var CisaData: StaticStructureSchema = [3, n0, _CD, 0, [_dA, _dD, _act], [4, 4, 0]];
-export var CisCheckAggregation: StaticStructureSchema = [
+export var CancelFindingsReportRequest$: StaticStructureSchema = [3, n0, _CFRR, 0, [_rIep], [0]];
+export var CancelFindingsReportResponse$: StaticStructureSchema = [3, n0, _CFRRa, 0, [_rIep], [0]];
+export var CancelSbomExportRequest$: StaticStructureSchema = [3, n0, _CSER, 0, [_rIep], [0]];
+export var CancelSbomExportResponse$: StaticStructureSchema = [3, n0, _CSERa, 0, [_rIep], [0]];
+export var CisaData$: StaticStructureSchema = [3, n0, _CD, 0, [_dA, _dD, _act], [4, 4, 0]];
+export var CisCheckAggregation$: StaticStructureSchema = [
   3,
   n0,
   _CCA,
   0,
   [_sAc, _cI, _ti, _cD, _le, _aI, _sCt, _p],
-  [0, 0, 0, 0, 0, 0, () => StatusCounts, 0],
+  [0, 0, 0, 0, 0, 0, () => StatusCounts$, 0],
 ];
-export var CisDateFilter: StaticStructureSchema = [3, n0, _CDF, 0, [_eSST, _lSST], [4, 4]];
-export var CisFindingStatusFilter: StaticStructureSchema = [3, n0, _CFSF, 0, [_co, _va], [0, 0]];
-export var CisNumberFilter: StaticStructureSchema = [3, n0, _CNF, 0, [_uI, _lI], [1, 1]];
-export var CisResultStatusFilter: StaticStructureSchema = [3, n0, _CRSF, 0, [_co, _va], [0, 0]];
-export var CisScan: StaticStructureSchema = [
+export var CisDateFilter$: StaticStructureSchema = [3, n0, _CDF, 0, [_eSST, _lSST], [4, 4]];
+export var CisFindingStatusFilter$: StaticStructureSchema = [3, n0, _CFSF, 0, [_co, _va], [0, 0]];
+export var CisNumberFilter$: StaticStructureSchema = [3, n0, _CNF, 0, [_uI, _lI], [1, 1]];
+export var CisResultStatusFilter$: StaticStructureSchema = [3, n0, _CRSF, 0, [_co, _va], [0, 0]];
+export var CisScan$: StaticStructureSchema = [
   3,
   n0,
   _CS,
   0,
   [_sAc, _sCA, _s, _sN, _sD, _fC, _tC, _t, _sBc, _sL],
-  [0, 0, 0, 0, 4, 1, 1, () => CisTargets, 0, 0],
+  [0, 0, 0, 0, 4, 1, 1, () => CisTargets$, 0, 0],
 ];
-export var CisScanConfiguration: StaticStructureSchema = [
+export var CisScanConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CSC,
   0,
   [_sCA, _oI, _sN, _sL, _sc, _t, _ta],
-  [0, 0, 0, 0, () => Schedule, () => CisTargets, 128 | 0],
+  [0, 0, 0, 0, () => Schedule$, () => CisTargets$, 128 | 0],
 ];
-export var CisScanResultDetails: StaticStructureSchema = [
+export var CisScanResultDetails$: StaticStructureSchema = [
   3,
   n0,
   _CSRD,
@@ -1253,7 +1253,7 @@ export var CisScanResultDetails: StaticStructureSchema = [
   [_sAc, _aI, _tRI, _p, _s, _sR, _cI, _ti, _cD, _rem, _le, _fAin],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var CisScanResultDetailsFilterCriteria: StaticStructureSchema = [
+export var CisScanResultDetailsFilterCriteria$: StaticStructureSchema = [
   3,
   n0,
   _CSRDFC,
@@ -1267,7 +1267,7 @@ export var CisScanResultDetailsFilterCriteria: StaticStructureSchema = [
     () => CisFindingArnFilterList,
   ],
 ];
-export var CisScanResultsAggregatedByChecksFilterCriteria: StaticStructureSchema = [
+export var CisScanResultsAggregatedByChecksFilterCriteria$: StaticStructureSchema = [
   3,
   n0,
   _CSRABCFC,
@@ -1282,7 +1282,7 @@ export var CisScanResultsAggregatedByChecksFilterCriteria: StaticStructureSchema
     () => CisSecurityLevelFilterList,
   ],
 ];
-export var CisScanResultsAggregatedByTargetResourceFilterCriteria: StaticStructureSchema = [
+export var CisScanResultsAggregatedByTargetResourceFilterCriteria$: StaticStructureSchema = [
   3,
   n0,
   _CSRABTRFC,
@@ -1300,34 +1300,34 @@ export var CisScanResultsAggregatedByTargetResourceFilterCriteria: StaticStructu
     () => CisNumberFilterList,
   ],
 ];
-export var CisScanStatusFilter: StaticStructureSchema = [3, n0, _CSSF, 0, [_co, _va], [0, 0]];
-export var CisSecurityLevelFilter: StaticStructureSchema = [3, n0, _CSLF, 0, [_co, _va], [0, 0]];
-export var CisSessionMessage: StaticStructureSchema = [3, n0, _CSM, 0, [_rIu, _s, _cRD], [0, 0, 21]];
-export var CisStringFilter: StaticStructureSchema = [3, n0, _CSF, 0, [_co, _va], [0, 0]];
-export var CisTargetResourceAggregation: StaticStructureSchema = [
+export var CisScanStatusFilter$: StaticStructureSchema = [3, n0, _CSSF, 0, [_co, _va], [0, 0]];
+export var CisSecurityLevelFilter$: StaticStructureSchema = [3, n0, _CSLF, 0, [_co, _va], [0, 0]];
+export var CisSessionMessage$: StaticStructureSchema = [3, n0, _CSM, 0, [_rIu, _s, _cRD], [0, 0, 21]];
+export var CisStringFilter$: StaticStructureSchema = [3, n0, _CSF, 0, [_co, _va], [0, 0]];
+export var CisTargetResourceAggregation$: StaticStructureSchema = [
   3,
   n0,
   _CTRA,
   0,
   [_sAc, _tRI, _aI, _tRT, _sCt, _p, _tS, _tSR],
-  [0, 0, 0, [2, n0, _TRT, 0, 0, 64 | 0], () => StatusCounts, 0, 0, 0],
+  [0, 0, 0, [2, n0, _TRT, 0, 0, 64 | 0], () => StatusCounts$, 0, 0, 0],
 ];
-export var CisTargets: StaticStructureSchema = [3, n0, _CT, 0, [_aIc, _tRT], [64 | 0, [2, n0, _TRT, 0, 0, 64 | 0]]];
-export var CisTargetStatusFilter: StaticStructureSchema = [3, n0, _CTSF, 0, [_co, _va], [0, 0]];
-export var CisTargetStatusReasonFilter: StaticStructureSchema = [3, n0, _CTSRF, 0, [_co, _va], [0, 0]];
-export var ClusterDetails: StaticStructureSchema = [
+export var CisTargets$: StaticStructureSchema = [3, n0, _CT, 0, [_aIc, _tRT], [64 | 0, [2, n0, _TRT, 0, 0, 64 | 0]]];
+export var CisTargetStatusFilter$: StaticStructureSchema = [3, n0, _CTSF, 0, [_co, _va], [0, 0]];
+export var CisTargetStatusReasonFilter$: StaticStructureSchema = [3, n0, _CTSRF, 0, [_co, _va], [0, 0]];
+export var ClusterDetails$: StaticStructureSchema = [
   3,
   n0,
   _CDl,
   0,
   [_lIU, _rUC, _sUC, _cM],
-  [4, 1, 1, () => ClusterMetadata],
+  [4, 1, 1, () => ClusterMetadata$],
 ];
-export var ClusterForImageFilterCriteria: StaticStructureSchema = [3, n0, _CFIFC, 0, [_rIe], [0]];
-export var ClusterInformation: StaticStructureSchema = [3, n0, _CI, 0, [_cA, _cDl], [0, () => ClusterDetailsList]];
-export var CodeFilePath: StaticStructureSchema = [3, n0, _CFP, 0, [_fNi, _fP, _sLt, _eL], [0, 0, 1, 1]];
-export var CodeLine: StaticStructureSchema = [3, n0, _CL, 0, [_con, _lN], [0, 1]];
-export var CodeRepositoryAggregation: StaticStructureSchema = [
+export var ClusterForImageFilterCriteria$: StaticStructureSchema = [3, n0, _CFIFC, 0, [_rIe], [0]];
+export var ClusterInformation$: StaticStructureSchema = [3, n0, _CI, 0, [_cA, _cDl], [0, () => ClusterDetailsList]];
+export var CodeFilePath$: StaticStructureSchema = [3, n0, _CFP, 0, [_fNi, _fP, _sLt, _eL], [0, 0, 1, 1]];
+export var CodeLine$: StaticStructureSchema = [3, n0, _CL, 0, [_con, _lN], [0, 1]];
+export var CodeRepositoryAggregation$: StaticStructureSchema = [
   3,
   n0,
   _CRA,
@@ -1335,32 +1335,32 @@ export var CodeRepositoryAggregation: StaticStructureSchema = [
   [_pN, _pTr, _sO, _sB, _rI],
   [() => StringFilterList, () => StringFilterList, 0, 0, () => StringFilterList],
 ];
-export var CodeRepositoryAggregationResponse: StaticStructureSchema = [
+export var CodeRepositoryAggregationResponse$: StaticStructureSchema = [
   3,
   n0,
   _CRAR,
   0,
   [_pN, _pTro, _sC, _eAAFC, _fAAFC, _aI, _rIe],
-  [0, 0, () => SeverityCounts, 1, 1, 0, 0],
+  [0, 0, () => SeverityCounts$, 1, 1, 0, 0],
 ];
-export var CodeRepositoryDetails: StaticStructureSchema = [3, n0, _CRD, 0, [_pNr, _iA, _pTro], [0, 0, 0]];
-export var CodeRepositoryMetadata: StaticStructureSchema = [
+export var CodeRepositoryDetails$: StaticStructureSchema = [3, n0, _CRD, 0, [_pNr, _iA, _pTro], [0, 0, 0]];
+export var CodeRepositoryMetadata$: StaticStructureSchema = [
   3,
   n0,
   _CRM,
   0,
   [_pNr, _iA, _pTro, _pTV, _lSCI, _sCc, _oDS],
-  [0, 0, 0, 0, 0, () => ProjectCodeSecurityScanConfiguration, () => CodeRepositoryOnDemandScan],
+  [0, 0, 0, 0, 0, () => ProjectCodeSecurityScanConfiguration$, () => CodeRepositoryOnDemandScan$],
 ];
-export var CodeRepositoryOnDemandScan: StaticStructureSchema = [
+export var CodeRepositoryOnDemandScan$: StaticStructureSchema = [
   3,
   n0,
   _CRODS,
   0,
   [_lSCI, _lSA, _sS],
-  [0, 4, () => ScanStatus],
+  [0, 4, () => ScanStatus$],
 ];
-export var CodeSecurityIntegrationSummary: StaticStructureSchema = [
+export var CodeSecurityIntegrationSummary$: StaticStructureSchema = [
   3,
   n0,
   _CSIS,
@@ -1368,32 +1368,32 @@ export var CodeSecurityIntegrationSummary: StaticStructureSchema = [
   [_iA, _na, _ty, _s, _sR, _cO, _lUO, _ta],
   [0, 0, 0, 0, 0, 4, 4, 128 | 0],
 ];
-export var CodeSecurityScanConfiguration: StaticStructureSchema = [
+export var CodeSecurityScanConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _CSSC,
   0,
   [_pSC, _cISC, _rSC],
-  [() => PeriodicScanConfiguration, () => ContinuousIntegrationScanConfiguration, 64 | 0],
+  [() => PeriodicScanConfiguration$, () => ContinuousIntegrationScanConfiguration$, 64 | 0],
 ];
-export var CodeSecurityScanConfigurationAssociationSummary: StaticStructureSchema = [
+export var CodeSecurityScanConfigurationAssociationSummary$: StaticStructureSchema = [
   3,
   n0,
   _CSSCAS,
   0,
   [_r],
-  [() => CodeSecurityResource],
+  [() => CodeSecurityResource$],
 ];
-export var CodeSecurityScanConfigurationSummary: StaticStructureSchema = [
+export var CodeSecurityScanConfigurationSummary$: StaticStructureSchema = [
   3,
   n0,
   _CSSCS,
   0,
   [_sCA, _na, _oAI, _pSF, _fE, _cISSE, _rSC, _sSc, _ta],
-  [0, 0, 0, 0, 0, 64 | 0, 64 | 0, () => ScopeSettings, 128 | 0],
+  [0, 0, 0, 0, 0, 64 | 0, 64 | 0, () => ScopeSettings$, 128 | 0],
 ];
-export var CodeSnippetError: StaticStructureSchema = [3, n0, _CSE, 0, [_fAin, _eC, _eM], [0, 0, 0]];
-export var CodeSnippetResult: StaticStructureSchema = [
+export var CodeSnippetError$: StaticStructureSchema = [3, n0, _CSE, 0, [_fAin, _eC, _eM], [0, 0, 0]];
+export var CodeSnippetResult$: StaticStructureSchema = [
   3,
   n0,
   _CSR,
@@ -1401,21 +1401,21 @@ export var CodeSnippetResult: StaticStructureSchema = [
   [_fAin, _sLt, _eL, _cSo, _sFu],
   [0, 1, 1, () => CodeLineList, () => SuggestedFixes],
 ];
-export var CodeVulnerabilityDetails: StaticStructureSchema = [
+export var CodeVulnerabilityDetails$: StaticStructureSchema = [
   3,
   n0,
   _CVD,
   0,
   [_fP, _dT, _rU, _rIu, _sLLA, _dI, _dN, _cw],
-  [() => CodeFilePath, 64 | 0, 64 | 0, 0, 0, 0, 0, 64 | 0],
+  [() => CodeFilePath$, 64 | 0, 64 | 0, 0, 0, 0, 0, 64 | 0],
 ];
-export var ComputePlatform: StaticStructureSchema = [3, n0, _CP, 0, [_ve, _pr, _v], [0, 0, 0]];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rIe, _rT], [0, 0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var ContinuousIntegrationScanConfiguration: StaticStructureSchema = [3, n0, _CISC, 0, [_sE], [64 | 0]];
-export var Counts: StaticStructureSchema = [3, n0, _C, 0, [_cou, _gK], [1, 0]];
-export var CoverageDateFilter: StaticStructureSchema = [3, n0, _CDFo, 0, [_sIt, _eI], [4, 4]];
-export var CoverageFilterCriteria: StaticStructureSchema = [
+export var ComputePlatform$: StaticStructureSchema = [3, n0, _CP, 0, [_ve, _pr, _v], [0, 0, 0]];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rIe, _rT], [0, 0, 0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var ContinuousIntegrationScanConfiguration$: StaticStructureSchema = [3, n0, _CISC, 0, [_sE], [64 | 0]];
+export var Counts$: StaticStructureSchema = [3, n0, _C, 0, [_cou, _gK], [1, 0]];
+export var CoverageDateFilter$: StaticStructureSchema = [3, n0, _CDFo, 0, [_sIt, _eI], [4, 4]];
+export var CoverageFilterCriteria$: StaticStructureSchema = [
   3,
   n0,
   _CFC,
@@ -1467,27 +1467,27 @@ export var CoverageFilterCriteria: StaticStructureSchema = [
     () => CoverageStringFilterList,
   ],
 ];
-export var CoverageMapFilter: StaticStructureSchema = [3, n0, _CMF, 0, [_co, _k, _va], [0, 0, 0]];
-export var CoverageNumberFilter: StaticStructureSchema = [3, n0, _CNFo, 0, [_uI, _lI], [1, 1]];
-export var CoverageStringFilter: StaticStructureSchema = [3, n0, _CSFo, 0, [_co, _va], [0, 0]];
-export var CoveredResource: StaticStructureSchema = [
+export var CoverageMapFilter$: StaticStructureSchema = [3, n0, _CMF, 0, [_co, _k, _va], [0, 0, 0]];
+export var CoverageNumberFilter$: StaticStructureSchema = [3, n0, _CNFo, 0, [_uI, _lI], [1, 1]];
+export var CoverageStringFilter$: StaticStructureSchema = [3, n0, _CSFo, 0, [_co, _va], [0, 0]];
+export var CoveredResource$: StaticStructureSchema = [
   3,
   n0,
   _CR,
   0,
   [_rT, _rIe, _aI, _sT, _sS, _rM, _lSAa, _sM],
-  [0, 0, 0, 0, () => ScanStatus, () => ResourceScanMetadata, 4, 0],
+  [0, 0, 0, 0, () => ScanStatus$, () => ResourceScanMetadata$, 4, 0],
 ];
-export var CreateCisScanConfigurationRequest: StaticStructureSchema = [
+export var CreateCisScanConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCSCR,
   0,
   [_sN, _sL, _sc, _t, _ta],
-  [0, 0, () => Schedule, () => CreateCisTargets, 128 | 0],
+  [0, 0, () => Schedule$, () => CreateCisTargets$, 128 | 0],
 ];
-export var CreateCisScanConfigurationResponse: StaticStructureSchema = [3, n0, _CCSCRr, 0, [_sCA], [0]];
-export var CreateCisTargets: StaticStructureSchema = [
+export var CreateCisScanConfigurationResponse$: StaticStructureSchema = [3, n0, _CCSCRr, 0, [_sCA], [0]];
+export var CreateCisTargets$: StaticStructureSchema = [
   3,
   n0,
   _CCT,
@@ -1495,15 +1495,15 @@ export var CreateCisTargets: StaticStructureSchema = [
   [_aIc, _tRT],
   [64 | 0, [2, n0, _TRT, 0, 0, 64 | 0]],
 ];
-export var CreateCodeSecurityIntegrationRequest: StaticStructureSchema = [
+export var CreateCodeSecurityIntegrationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCSIR,
   0,
   [_na, _ty, _d, _ta],
-  [0, 0, [() => CreateIntegrationDetail, 0], 128 | 0],
+  [0, 0, [() => CreateIntegrationDetail$, 0], 128 | 0],
 ];
-export var CreateCodeSecurityIntegrationResponse: StaticStructureSchema = [
+export var CreateCodeSecurityIntegrationResponse$: StaticStructureSchema = [
   3,
   n0,
   _CCSIRr,
@@ -1511,34 +1511,34 @@ export var CreateCodeSecurityIntegrationResponse: StaticStructureSchema = [
   [_iA, _s, _aU],
   [0, 0, [() => AuthorizationUrl, 0]],
 ];
-export var CreateCodeSecurityScanConfigurationRequest: StaticStructureSchema = [
+export var CreateCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCSSCR,
   0,
   [_na, _le, _conf, _sSc, _ta],
-  [0, 0, () => CodeSecurityScanConfiguration, () => ScopeSettings, 128 | 0],
+  [0, 0, () => CodeSecurityScanConfiguration$, () => ScopeSettings$, 128 | 0],
 ];
-export var CreateCodeSecurityScanConfigurationResponse: StaticStructureSchema = [3, n0, _CCSSCRr, 0, [_sCA], [0]];
-export var CreateFilterRequest: StaticStructureSchema = [
+export var CreateCodeSecurityScanConfigurationResponse$: StaticStructureSchema = [3, n0, _CCSSCRr, 0, [_sCA], [0]];
+export var CreateFilterRequest$: StaticStructureSchema = [
   3,
   n0,
   _CFR,
   0,
   [_act, _de, _fCi, _na, _ta, _rea],
-  [0, 0, () => FilterCriteria, 0, 128 | 0, 0],
+  [0, 0, () => FilterCriteria$, 0, 128 | 0, 0],
 ];
-export var CreateFilterResponse: StaticStructureSchema = [3, n0, _CFRr, 0, [_arn], [0]];
-export var CreateFindingsReportRequest: StaticStructureSchema = [
+export var CreateFilterResponse$: StaticStructureSchema = [3, n0, _CFRr, 0, [_arn], [0]];
+export var CreateFindingsReportRequest$: StaticStructureSchema = [
   3,
   n0,
   _CFRRr,
   0,
   [_fCi, _rF, _sDe],
-  [() => FilterCriteria, 0, () => Destination],
+  [() => FilterCriteria$, 0, () => Destination$],
 ];
-export var CreateFindingsReportResponse: StaticStructureSchema = [3, n0, _CFRRre, 0, [_rIep], [0]];
-export var CreateGitLabSelfManagedIntegrationDetail: StaticStructureSchema = [
+export var CreateFindingsReportResponse$: StaticStructureSchema = [3, n0, _CFRRre, 0, [_rIep], [0]];
+export var CreateGitLabSelfManagedIntegrationDetail$: StaticStructureSchema = [
   3,
   n0,
   _CGLSMID,
@@ -1549,21 +1549,21 @@ export var CreateGitLabSelfManagedIntegrationDetail: StaticStructureSchema = [
     [() => GitLabAccessToken, 0],
   ],
 ];
-export var CreateSbomExportRequest: StaticStructureSchema = [
+export var CreateSbomExportRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSERr,
   0,
   [_rFC, _rF, _sDe],
-  [() => ResourceFilterCriteria, 0, () => Destination],
+  [() => ResourceFilterCriteria$, 0, () => Destination$],
 ];
-export var CreateSbomExportResponse: StaticStructureSchema = [3, n0, _CSERre, 0, [_rIep], [0]];
-export var Cvss2: StaticStructureSchema = [3, n0, _Cv, 0, [_bS, _sV], [1, 0]];
-export var Cvss3: StaticStructureSchema = [3, n0, _Cvs, 0, [_bS, _sV], [1, 0]];
-export var Cvss4: StaticStructureSchema = [3, n0, _Cvss, 0, [_bS, _sV], [1, 0]];
-export var CvssScore: StaticStructureSchema = [3, n0, _CSv, 0, [_bS, _sV, _v, _so], [1, 0, 0, 0]];
-export var CvssScoreAdjustment: StaticStructureSchema = [3, n0, _CSA, 0, [_me, _rea], [0, 0]];
-export var CvssScoreDetails: StaticStructureSchema = [
+export var CreateSbomExportResponse$: StaticStructureSchema = [3, n0, _CSERre, 0, [_rIep], [0]];
+export var Cvss2$: StaticStructureSchema = [3, n0, _Cv, 0, [_bS, _sV], [1, 0]];
+export var Cvss3$: StaticStructureSchema = [3, n0, _Cvs, 0, [_bS, _sV], [1, 0]];
+export var Cvss4$: StaticStructureSchema = [3, n0, _Cvss, 0, [_bS, _sV], [1, 0]];
+export var CvssScore$: StaticStructureSchema = [3, n0, _CSv, 0, [_bS, _sV, _v, _so], [1, 0, 0, 0]];
+export var CvssScoreAdjustment$: StaticStructureSchema = [3, n0, _CSA, 0, [_me, _rea], [0, 0]];
+export var CvssScoreDetails$: StaticStructureSchema = [
   3,
   n0,
   _CSD,
@@ -1571,32 +1571,32 @@ export var CvssScoreDetails: StaticStructureSchema = [
   [_sSco, _cSv, _v, _sco, _sV, _ad],
   [0, 0, 0, 1, 0, () => CvssScoreAdjustmentList],
 ];
-export var DailySchedule: StaticStructureSchema = [3, n0, _DS, 0, [_sTt], [() => Time]];
-export var DateFilter: StaticStructureSchema = [3, n0, _DF, 0, [_sIt, _eI], [4, 4]];
-export var DelegatedAdmin: StaticStructureSchema = [3, n0, _DA, 0, [_aI, _rSel], [0, 0]];
-export var DelegatedAdminAccount: StaticStructureSchema = [3, n0, _DAA, 0, [_aI, _s], [0, 0]];
-export var DeleteCisScanConfigurationRequest: StaticStructureSchema = [3, n0, _DCSCR, 0, [_sCA], [0]];
-export var DeleteCisScanConfigurationResponse: StaticStructureSchema = [3, n0, _DCSCRe, 0, [_sCA], [0]];
-export var DeleteCodeSecurityIntegrationRequest: StaticStructureSchema = [3, n0, _DCSIR, 0, [_iA], [0]];
-export var DeleteCodeSecurityIntegrationResponse: StaticStructureSchema = [3, n0, _DCSIRe, 0, [_iA], [0]];
-export var DeleteCodeSecurityScanConfigurationRequest: StaticStructureSchema = [3, n0, _DCSSCR, 0, [_sCA], [0]];
-export var DeleteCodeSecurityScanConfigurationResponse: StaticStructureSchema = [3, n0, _DCSSCRe, 0, [_sCA], [0]];
-export var DeleteFilterRequest: StaticStructureSchema = [3, n0, _DFR, 0, [_arn], [0]];
-export var DeleteFilterResponse: StaticStructureSchema = [3, n0, _DFRe, 0, [_arn], [0]];
-export var DescribeOrganizationConfigurationRequest: StaticStructureSchema = [3, n0, _DOCR, 0, [], []];
-export var DescribeOrganizationConfigurationResponse: StaticStructureSchema = [
+export var DailySchedule$: StaticStructureSchema = [3, n0, _DS, 0, [_sTt], [() => Time$]];
+export var DateFilter$: StaticStructureSchema = [3, n0, _DF, 0, [_sIt, _eI], [4, 4]];
+export var DelegatedAdmin$: StaticStructureSchema = [3, n0, _DA, 0, [_aI, _rSel], [0, 0]];
+export var DelegatedAdminAccount$: StaticStructureSchema = [3, n0, _DAA, 0, [_aI, _s], [0, 0]];
+export var DeleteCisScanConfigurationRequest$: StaticStructureSchema = [3, n0, _DCSCR, 0, [_sCA], [0]];
+export var DeleteCisScanConfigurationResponse$: StaticStructureSchema = [3, n0, _DCSCRe, 0, [_sCA], [0]];
+export var DeleteCodeSecurityIntegrationRequest$: StaticStructureSchema = [3, n0, _DCSIR, 0, [_iA], [0]];
+export var DeleteCodeSecurityIntegrationResponse$: StaticStructureSchema = [3, n0, _DCSIRe, 0, [_iA], [0]];
+export var DeleteCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [3, n0, _DCSSCR, 0, [_sCA], [0]];
+export var DeleteCodeSecurityScanConfigurationResponse$: StaticStructureSchema = [3, n0, _DCSSCRe, 0, [_sCA], [0]];
+export var DeleteFilterRequest$: StaticStructureSchema = [3, n0, _DFR, 0, [_arn], [0]];
+export var DeleteFilterResponse$: StaticStructureSchema = [3, n0, _DFRe, 0, [_arn], [0]];
+export var DescribeOrganizationConfigurationRequest$: StaticStructureSchema = [3, n0, _DOCR, 0, [], []];
+export var DescribeOrganizationConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DOCRe,
   0,
   [_aE, _mALR],
-  [() => AutoEnable, 2],
+  [() => AutoEnable$, 2],
 ];
-export var Destination: StaticStructureSchema = [3, n0, _D, 0, [_bN, _kP, _kKA], [0, 0, 0]];
-export var DisableDelegatedAdminAccountRequest: StaticStructureSchema = [3, n0, _DDAAR, 0, [_dAAI], [0]];
-export var DisableDelegatedAdminAccountResponse: StaticStructureSchema = [3, n0, _DDAARi, 0, [_dAAI], [0]];
-export var DisableRequest: StaticStructureSchema = [3, n0, _DR, 0, [_aIc, _rTe], [64 | 0, 64 | 0]];
-export var DisableResponse: StaticStructureSchema = [
+export var Destination$: StaticStructureSchema = [3, n0, _D, 0, [_bN, _kP, _kKA], [0, 0, 0]];
+export var DisableDelegatedAdminAccountRequest$: StaticStructureSchema = [3, n0, _DDAAR, 0, [_dAAI], [0]];
+export var DisableDelegatedAdminAccountResponse$: StaticStructureSchema = [3, n0, _DDAARi, 0, [_dAAI], [0]];
+export var DisableRequest$: StaticStructureSchema = [3, n0, _DR, 0, [_aIc, _rTe], [64 | 0, 64 | 0]];
+export var DisableResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRi,
@@ -1604,19 +1604,19 @@ export var DisableResponse: StaticStructureSchema = [
   [_ac, _fAa],
   [() => AccountList, () => FailedAccountList],
 ];
-export var DisassociateConfigurationRequest: StaticStructureSchema = [
+export var DisassociateConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCR,
   0,
   [_sCA, _r],
-  [0, () => CodeSecurityResource],
+  [0, () => CodeSecurityResource$],
 ];
-export var DisassociateMemberRequest: StaticStructureSchema = [3, n0, _DMR, 0, [_aI], [0]];
-export var DisassociateMemberResponse: StaticStructureSchema = [3, n0, _DMRi, 0, [_aI], [0]];
-export var Ec2Configuration: StaticStructureSchema = [3, n0, _EC, 0, [_sM], [0]];
-export var Ec2ConfigurationState: StaticStructureSchema = [3, n0, _ECS, 0, [_sMS], [() => Ec2ScanModeState]];
-export var Ec2InstanceAggregation: StaticStructureSchema = [
+export var DisassociateMemberRequest$: StaticStructureSchema = [3, n0, _DMR, 0, [_aI], [0]];
+export var DisassociateMemberResponse$: StaticStructureSchema = [3, n0, _DMRi, 0, [_aI], [0]];
+export var Ec2Configuration$: StaticStructureSchema = [3, n0, _EC, 0, [_sM], [0]];
+export var Ec2ConfigurationState$: StaticStructureSchema = [3, n0, _ECS, 0, [_sMS], [() => Ec2ScanModeState$]];
+export var Ec2InstanceAggregation$: StaticStructureSchema = [
   3,
   n0,
   _EIA,
@@ -1624,19 +1624,19 @@ export var Ec2InstanceAggregation: StaticStructureSchema = [
   [_a, _oS, _iIn, _iTn, _sO, _sB],
   [() => StringFilterList, () => StringFilterList, () => StringFilterList, () => MapFilterList, 0, 0],
 ];
-export var Ec2InstanceAggregationResponse: StaticStructureSchema = [
+export var Ec2InstanceAggregationResponse$: StaticStructureSchema = [
   3,
   n0,
   _EIAR,
   0,
   [_iIns, _am, _oSp, _iTn, _aI, _sC, _nF],
-  [0, 0, 0, 128 | 0, 0, () => SeverityCounts, 1],
+  [0, 0, 0, 128 | 0, 0, () => SeverityCounts$, 1],
 ];
-export var Ec2Metadata: StaticStructureSchema = [3, n0, _EM, 0, [_ta, _aIm, _p], [128 | 0, 0, 0]];
-export var Ec2ScanModeState: StaticStructureSchema = [3, n0, _ESMS, 0, [_sM, _sMSc], [0, 0]];
-export var EcrConfiguration: StaticStructureSchema = [3, n0, _ECc, 0, [_rD, _pDRD, _pDRM], [0, 0, 0]];
-export var EcrConfigurationState: StaticStructureSchema = [3, n0, _ECSc, 0, [_rDS], [() => EcrRescanDurationState]];
-export var EcrContainerImageMetadata: StaticStructureSchema = [
+export var Ec2Metadata$: StaticStructureSchema = [3, n0, _EM, 0, [_ta, _aIm, _p], [128 | 0, 0, 0]];
+export var Ec2ScanModeState$: StaticStructureSchema = [3, n0, _ESMS, 0, [_sM, _sMSc], [0, 0]];
+export var EcrConfiguration$: StaticStructureSchema = [3, n0, _ECc, 0, [_rD, _pDRD, _pDRM], [0, 0, 0]];
+export var EcrConfigurationState$: StaticStructureSchema = [3, n0, _ECSc, 0, [_rDS], [() => EcrRescanDurationState$]];
+export var EcrContainerImageMetadata$: StaticStructureSchema = [
   3,
   n0,
   _ECIM,
@@ -1644,8 +1644,8 @@ export var EcrContainerImageMetadata: StaticStructureSchema = [
   [_ta, _iPA, _lIUA, _iUC],
   [64 | 0, 4, 4, 1],
 ];
-export var EcrRepositoryMetadata: StaticStructureSchema = [3, n0, _ERM, 0, [_na, _sFc], [0, 0]];
-export var EcrRescanDurationState: StaticStructureSchema = [
+export var EcrRepositoryMetadata$: StaticStructureSchema = [3, n0, _ERM, 0, [_na, _sFc], [0, 0]];
+export var EcrRescanDurationState$: StaticStructureSchema = [
   3,
   n0,
   _ERDS,
@@ -1653,10 +1653,10 @@ export var EcrRescanDurationState: StaticStructureSchema = [
   [_rD, _s, _uA, _pDRD, _pDRM],
   [0, 0, 4, 0, 0],
 ];
-export var EnableDelegatedAdminAccountRequest: StaticStructureSchema = [3, n0, _EDAAR, 0, [_dAAI, _cT], [0, [0, 4]]];
-export var EnableDelegatedAdminAccountResponse: StaticStructureSchema = [3, n0, _EDAARn, 0, [_dAAI], [0]];
-export var EnableRequest: StaticStructureSchema = [3, n0, _ER, 0, [_aIc, _rTe, _cT], [64 | 0, 64 | 0, [0, 4]]];
-export var EnableResponse: StaticStructureSchema = [
+export var EnableDelegatedAdminAccountRequest$: StaticStructureSchema = [3, n0, _EDAAR, 0, [_dAAI, _cT], [0, [0, 4]]];
+export var EnableDelegatedAdminAccountResponse$: StaticStructureSchema = [3, n0, _EDAARn, 0, [_dAAI], [0]];
+export var EnableRequest$: StaticStructureSchema = [3, n0, _ER, 0, [_aIc, _rTe, _cT], [64 | 0, 64 | 0, [0, 4]]];
+export var EnableResponse$: StaticStructureSchema = [
   3,
   n0,
   _ERn,
@@ -1664,28 +1664,28 @@ export var EnableResponse: StaticStructureSchema = [
   [_ac, _fAa],
   [() => AccountList, () => FailedAccountList],
 ];
-export var Epss: StaticStructureSchema = [3, n0, _E, 0, [_sco], [1]];
-export var EpssDetails: StaticStructureSchema = [3, n0, _ED, 0, [_sco], [1]];
-export var Evidence: StaticStructureSchema = [3, n0, _Ev, 0, [_eR, _eD, _se], [0, 0, 0]];
-export var ExploitabilityDetails: StaticStructureSchema = [3, n0, _EDx, 0, [_lKEA], [4]];
-export var ExploitObserved: StaticStructureSchema = [3, n0, _EO, 0, [_lS, _fS], [4, 4]];
-export var FailedAccount: StaticStructureSchema = [
+export var Epss$: StaticStructureSchema = [3, n0, _E, 0, [_sco], [1]];
+export var EpssDetails$: StaticStructureSchema = [3, n0, _ED, 0, [_sco], [1]];
+export var Evidence$: StaticStructureSchema = [3, n0, _Ev, 0, [_eR, _eD, _se], [0, 0, 0]];
+export var ExploitabilityDetails$: StaticStructureSchema = [3, n0, _EDx, 0, [_lKEA], [4]];
+export var ExploitObserved$: StaticStructureSchema = [3, n0, _EO, 0, [_lS, _fS], [4, 4]];
+export var FailedAccount$: StaticStructureSchema = [
   3,
   n0,
   _FA,
   0,
   [_aI, _s, _rS, _eC, _eM],
-  [0, 0, () => ResourceStatus, 0, 0],
+  [0, 0, () => ResourceStatus$, 0, 0],
 ];
-export var FailedAssociationResult: StaticStructureSchema = [
+export var FailedAssociationResult$: StaticStructureSchema = [
   3,
   n0,
   _FAR,
   0,
   [_sCA, _r, _sCta, _sMt],
-  [0, () => CodeSecurityResource, 0, 0],
+  [0, () => CodeSecurityResource$, 0, 0],
 ];
-export var FailedMemberAccountEc2DeepInspectionStatusState: StaticStructureSchema = [
+export var FailedMemberAccountEc2DeepInspectionStatusState$: StaticStructureSchema = [
   3,
   n0,
   _FMAEDISS,
@@ -1693,15 +1693,15 @@ export var FailedMemberAccountEc2DeepInspectionStatusState: StaticStructureSchem
   [_aI, _eSS, _eM],
   [0, 0, 0],
 ];
-export var Filter: StaticStructureSchema = [
+export var Filter$: StaticStructureSchema = [
   3,
   n0,
   _F,
   0,
   [_arn, _oI, _na, _cr, _act, _cAr, _uA, _de, _rea, _ta],
-  [0, 0, 0, () => FilterCriteria, 0, 4, 4, 0, 0, 128 | 0],
+  [0, 0, 0, () => FilterCriteria$, 0, 4, 4, 0, 0, 128 | 0],
 ];
-export var FilterCriteria: StaticStructureSchema = [
+export var FilterCriteria$: StaticStructureSchema = [
   3,
   n0,
   _FC,
@@ -1803,7 +1803,7 @@ export var FilterCriteria: StaticStructureSchema = [
     () => StringFilterList,
   ],
 ];
-export var Finding: StaticStructureSchema = [
+export var Finding$: StaticStructureSchema = [
   3,
   n0,
   _Fi,
@@ -1837,7 +1837,7 @@ export var Finding: StaticStructureSchema = [
     0,
     0,
     0,
-    () => Remediation,
+    () => Remediation$,
     0,
     4,
     4,
@@ -1845,48 +1845,48 @@ export var Finding: StaticStructureSchema = [
     0,
     () => ResourceList,
     1,
-    () => InspectorScoreDetails,
-    () => NetworkReachabilityDetails,
-    () => PackageVulnerabilityDetails,
+    () => InspectorScoreDetails$,
+    () => NetworkReachabilityDetails$,
+    () => PackageVulnerabilityDetails$,
     0,
     0,
-    () => ExploitabilityDetails,
-    () => CodeVulnerabilityDetails,
-    () => EpssDetails,
+    () => ExploitabilityDetails$,
+    () => CodeVulnerabilityDetails$,
+    () => EpssDetails$,
   ],
 ];
-export var FindingDetail: StaticStructureSchema = [
+export var FindingDetail$: StaticStructureSchema = [
   3,
   n0,
   _FD,
   0,
   [_fAin, _cDi, _rSi, _ev, _tt, _to, _eO, _rU, _cw, _eS],
-  [0, () => CisaData, 1, () => EvidenceList, 64 | 0, 64 | 0, () => ExploitObserved, 64 | 0, 64 | 0, 1],
+  [0, () => CisaData$, 1, () => EvidenceList, 64 | 0, 64 | 0, () => ExploitObserved$, 64 | 0, 64 | 0, 1],
 ];
-export var FindingDetailsError: StaticStructureSchema = [3, n0, _FDE, 0, [_fAin, _eC, _eM], [0, 0, 0]];
-export var FindingTypeAggregation: StaticStructureSchema = [3, n0, _FTA, 0, [_fT, _rT, _sO, _sB], [0, 0, 0, 0]];
-export var FindingTypeAggregationResponse: StaticStructureSchema = [
+export var FindingDetailsError$: StaticStructureSchema = [3, n0, _FDE, 0, [_fAin, _eC, _eM], [0, 0, 0]];
+export var FindingTypeAggregation$: StaticStructureSchema = [3, n0, _FTA, 0, [_fT, _rT, _sO, _sB], [0, 0, 0, 0]];
+export var FindingTypeAggregationResponse$: StaticStructureSchema = [
   3,
   n0,
   _FTAR,
   0,
   [_aI, _sC, _eAC, _fAC],
-  [0, () => SeverityCounts, 1, 1],
+  [0, () => SeverityCounts$, 1, 1],
 ];
-export var FreeTrialAccountInfo: StaticStructureSchema = [3, n0, _FTAI, 0, [_aI, _fTI], [0, () => FreeTrialInfoList]];
-export var FreeTrialInfo: StaticStructureSchema = [3, n0, _FTI, 0, [_ty, _sta, _en, _s], [0, 4, 4, 0]];
-export var FreeTrialInfoError: StaticStructureSchema = [3, n0, _FTIE, 0, [_aI, _cod, _m], [0, 0, 0]];
-export var GetCisScanReportRequest: StaticStructureSchema = [3, n0, _GCSRR, 0, [_sAc, _tA, _rF], [0, 64 | 0, 0]];
-export var GetCisScanReportResponse: StaticStructureSchema = [3, n0, _GCSRRe, 0, [_u, _s], [0, 0]];
-export var GetCisScanResultDetailsRequest: StaticStructureSchema = [
+export var FreeTrialAccountInfo$: StaticStructureSchema = [3, n0, _FTAI, 0, [_aI, _fTI], [0, () => FreeTrialInfoList]];
+export var FreeTrialInfo$: StaticStructureSchema = [3, n0, _FTI, 0, [_ty, _sta, _en, _s], [0, 4, 4, 0]];
+export var FreeTrialInfoError$: StaticStructureSchema = [3, n0, _FTIE, 0, [_aI, _cod, _m], [0, 0, 0]];
+export var GetCisScanReportRequest$: StaticStructureSchema = [3, n0, _GCSRR, 0, [_sAc, _tA, _rF], [0, 64 | 0, 0]];
+export var GetCisScanReportResponse$: StaticStructureSchema = [3, n0, _GCSRRe, 0, [_u, _s], [0, 0]];
+export var GetCisScanResultDetailsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCSRDR,
   0,
   [_sAc, _tRI, _aI, _fCi, _sB, _sO, _nT, _mR],
-  [0, 0, 0, () => CisScanResultDetailsFilterCriteria, 0, 0, 0, 1],
+  [0, 0, 0, () => CisScanResultDetailsFilterCriteria$, 0, 0, 0, 1],
 ];
-export var GetCisScanResultDetailsResponse: StaticStructureSchema = [
+export var GetCisScanResultDetailsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCSRDRe,
@@ -1894,15 +1894,15 @@ export var GetCisScanResultDetailsResponse: StaticStructureSchema = [
   [_sRD, _nT],
   [() => CisScanResultDetailsList, 0],
 ];
-export var GetClustersForImageRequest: StaticStructureSchema = [
+export var GetClustersForImageRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCFIR,
   0,
   [_f, _mR, _nT],
-  [() => ClusterForImageFilterCriteria, 1, 0],
+  [() => ClusterForImageFilterCriteria$, 1, 0],
 ];
-export var GetClustersForImageResponse: StaticStructureSchema = [
+export var GetClustersForImageResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCFIRe,
@@ -1910,8 +1910,8 @@ export var GetClustersForImageResponse: StaticStructureSchema = [
   [_cl, _nT],
   [() => ClusterInformationList, 0],
 ];
-export var GetCodeSecurityIntegrationRequest: StaticStructureSchema = [3, n0, _GCSIR, 0, [_iA, _ta], [0, 128 | 0]];
-export var GetCodeSecurityIntegrationResponse: StaticStructureSchema = [
+export var GetCodeSecurityIntegrationRequest$: StaticStructureSchema = [3, n0, _GCSIR, 0, [_iA, _ta], [0, 128 | 0]];
+export var GetCodeSecurityIntegrationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCSIRe,
@@ -1919,51 +1919,51 @@ export var GetCodeSecurityIntegrationResponse: StaticStructureSchema = [
   [_iA, _na, _ty, _s, _sR, _cO, _lUO, _ta, _aU],
   [0, 0, 0, 0, 0, 4, 4, 128 | 0, [() => AuthorizationUrl, 0]],
 ];
-export var GetCodeSecurityScanConfigurationRequest: StaticStructureSchema = [3, n0, _GCSSCR, 0, [_sCA], [0]];
-export var GetCodeSecurityScanConfigurationResponse: StaticStructureSchema = [
+export var GetCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [3, n0, _GCSSCR, 0, [_sCA], [0]];
+export var GetCodeSecurityScanConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCSSCRe,
   0,
   [_sCA, _na, _conf, _le, _sSc, _cAr, _lUA, _ta],
-  [0, 0, () => CodeSecurityScanConfiguration, 0, () => ScopeSettings, 4, 4, 128 | 0],
+  [0, 0, () => CodeSecurityScanConfiguration$, 0, () => ScopeSettings$, 4, 4, 128 | 0],
 ];
-export var GetCodeSecurityScanRequest: StaticStructureSchema = [
+export var GetCodeSecurityScanRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCSSR,
   0,
   [_r, _sIc],
-  [() => CodeSecurityResource, 0],
+  [() => CodeSecurityResource$, 0],
 ];
-export var GetCodeSecurityScanResponse: StaticStructureSchema = [
+export var GetCodeSecurityScanResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCSSRe,
   0,
   [_sIc, _r, _aI, _s, _sR, _cAr, _uA, _lCI],
-  [0, () => CodeSecurityResource, 0, 0, 0, 4, 4, 0],
+  [0, () => CodeSecurityResource$, 0, 0, 0, 4, 4, 0],
 ];
-export var GetConfigurationRequest: StaticStructureSchema = [3, n0, _GCR, 0, [], []];
-export var GetConfigurationResponse: StaticStructureSchema = [
+export var GetConfigurationRequest$: StaticStructureSchema = [3, n0, _GCR, 0, [], []];
+export var GetConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCRe,
   0,
   [_eCc, _eCco],
-  [() => EcrConfigurationState, () => Ec2ConfigurationState],
+  [() => EcrConfigurationState$, () => Ec2ConfigurationState$],
 ];
-export var GetDelegatedAdminAccountRequest: StaticStructureSchema = [3, n0, _GDAAR, 0, [], []];
-export var GetDelegatedAdminAccountResponse: StaticStructureSchema = [
+export var GetDelegatedAdminAccountRequest$: StaticStructureSchema = [3, n0, _GDAAR, 0, [], []];
+export var GetDelegatedAdminAccountResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDAARe,
   0,
   [_dAe],
-  [() => DelegatedAdmin],
+  [() => DelegatedAdmin$],
 ];
-export var GetEc2DeepInspectionConfigurationRequest: StaticStructureSchema = [3, n0, _GEDICR, 0, [], []];
-export var GetEc2DeepInspectionConfigurationResponse: StaticStructureSchema = [
+export var GetEc2DeepInspectionConfigurationRequest$: StaticStructureSchema = [3, n0, _GEDICR, 0, [], []];
+export var GetEc2DeepInspectionConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GEDICRe,
@@ -1971,7 +1971,7 @@ export var GetEc2DeepInspectionConfigurationResponse: StaticStructureSchema = [
   [_pP, _oPP, _s, _eM],
   [64 | 0, 64 | 0, 0, 0],
 ];
-export var GetEncryptionKeyRequest: StaticStructureSchema = [
+export var GetEncryptionKeyRequest$: StaticStructureSchema = [
   3,
   n0,
   _GEKR,
@@ -1982,28 +1982,28 @@ export var GetEncryptionKeyRequest: StaticStructureSchema = [
     [0, { [_hQ]: _rT }],
   ],
 ];
-export var GetEncryptionKeyResponse: StaticStructureSchema = [3, n0, _GEKRe, 0, [_kKI], [0]];
-export var GetFindingsReportStatusRequest: StaticStructureSchema = [3, n0, _GFRSR, 0, [_rIep], [0]];
-export var GetFindingsReportStatusResponse: StaticStructureSchema = [
+export var GetEncryptionKeyResponse$: StaticStructureSchema = [3, n0, _GEKRe, 0, [_kKI], [0]];
+export var GetFindingsReportStatusRequest$: StaticStructureSchema = [3, n0, _GFRSR, 0, [_rIep], [0]];
+export var GetFindingsReportStatusResponse$: StaticStructureSchema = [
   3,
   n0,
   _GFRSRe,
   0,
   [_rIep, _s, _eC, _eM, _des, _fCi],
-  [0, 0, 0, 0, () => Destination, () => FilterCriteria],
+  [0, 0, 0, 0, () => Destination$, () => FilterCriteria$],
 ];
-export var GetMemberRequest: StaticStructureSchema = [3, n0, _GMR, 0, [_aI], [0]];
-export var GetMemberResponse: StaticStructureSchema = [3, n0, _GMRe, 0, [_mem], [() => Member]];
-export var GetSbomExportRequest: StaticStructureSchema = [3, n0, _GSER, 0, [_rIep], [0]];
-export var GetSbomExportResponse: StaticStructureSchema = [
+export var GetMemberRequest$: StaticStructureSchema = [3, n0, _GMR, 0, [_aI], [0]];
+export var GetMemberResponse$: StaticStructureSchema = [3, n0, _GMRe, 0, [_mem], [() => Member$]];
+export var GetSbomExportRequest$: StaticStructureSchema = [3, n0, _GSER, 0, [_rIep], [0]];
+export var GetSbomExportResponse$: StaticStructureSchema = [
   3,
   n0,
   _GSERe,
   0,
   [_rIep, _fo, _s, _eC, _eM, _sDe, _fCi],
-  [0, 0, 0, 0, 0, () => Destination, () => ResourceFilterCriteria],
+  [0, 0, 0, 0, 0, () => Destination$, () => ResourceFilterCriteria$],
 ];
-export var ImageLayerAggregation: StaticStructureSchema = [
+export var ImageLayerAggregation$: StaticStructureSchema = [
   3,
   n0,
   _ILA,
@@ -2011,16 +2011,16 @@ export var ImageLayerAggregation: StaticStructureSchema = [
   [_re, _rI, _lH, _sO, _sB],
   [() => StringFilterList, () => StringFilterList, () => StringFilterList, 0, 0],
 ];
-export var ImageLayerAggregationResponse: StaticStructureSchema = [
+export var ImageLayerAggregationResponse$: StaticStructureSchema = [
   3,
   n0,
   _ILAR,
   0,
   [_rep, _rIe, _lHa, _aI, _sC],
-  [0, 0, 0, 0, () => SeverityCounts],
+  [0, 0, 0, 0, () => SeverityCounts$],
 ];
-export var InspectorScoreDetails: StaticStructureSchema = [3, n0, _ISD, 0, [_aC], [() => CvssScoreDetails]];
-export var InternalServerException: StaticErrorSchema = [
+export var InspectorScoreDetails$: StaticStructureSchema = [3, n0, _ISD, 0, [_aC], [() => CvssScoreDetails$]];
+export var InternalServerException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
@@ -2028,8 +2028,8 @@ export var InternalServerException: StaticErrorSchema = [
   [_m, _rAS],
   [0, [1, { [_hH]: _RA }]],
 ];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var LambdaFunctionAggregation: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var LambdaFunctionAggregation$: StaticStructureSchema = [
   3,
   n0,
   _LFA,
@@ -2037,15 +2037,15 @@ export var LambdaFunctionAggregation: StaticStructureSchema = [
   [_rI, _fNu, _run, _fTu, _sO, _sB],
   [() => StringFilterList, () => StringFilterList, () => StringFilterList, () => MapFilterList, 0, 0],
 ];
-export var LambdaFunctionAggregationResponse: StaticStructureSchema = [
+export var LambdaFunctionAggregationResponse$: StaticStructureSchema = [
   3,
   n0,
   _LFAR,
   0,
   [_rIe, _fN, _ru, _lT, _aI, _sC, _lMA],
-  [0, 0, 0, 128 | 0, 0, () => SeverityCounts, 4],
+  [0, 0, 0, 128 | 0, 0, () => SeverityCounts$, 4],
 ];
-export var LambdaFunctionMetadata: StaticStructureSchema = [
+export var LambdaFunctionMetadata$: StaticStructureSchema = [
   3,
   n0,
   _LFM,
@@ -2053,7 +2053,7 @@ export var LambdaFunctionMetadata: StaticStructureSchema = [
   [_fTu, _la, _fN, _ru],
   [128 | 0, 64 | 0, 0, 0],
 ];
-export var LambdaLayerAggregation: StaticStructureSchema = [
+export var LambdaLayerAggregation$: StaticStructureSchema = [
   3,
   n0,
   _LLA,
@@ -2061,17 +2061,17 @@ export var LambdaLayerAggregation: StaticStructureSchema = [
   [_fNu, _rI, _lAa, _sO, _sB],
   [() => StringFilterList, () => StringFilterList, () => StringFilterList, 0, 0],
 ];
-export var LambdaLayerAggregationResponse: StaticStructureSchema = [
+export var LambdaLayerAggregationResponse$: StaticStructureSchema = [
   3,
   n0,
   _LLAR,
   0,
   [_fN, _rIe, _lAay, _aI, _sC],
-  [0, 0, 0, 0, () => SeverityCounts],
+  [0, 0, 0, 0, () => SeverityCounts$],
 ];
-export var LambdaVpcConfig: StaticStructureSchema = [3, n0, _LVC, 0, [_sIu, _sGI, _vI], [64 | 0, 64 | 0, 0]];
-export var ListAccountPermissionsRequest: StaticStructureSchema = [3, n0, _LAPR, 0, [_serv, _mR, _nT], [0, 1, 0]];
-export var ListAccountPermissionsResponse: StaticStructureSchema = [
+export var LambdaVpcConfig$: StaticStructureSchema = [3, n0, _LVC, 0, [_sIu, _sGI, _vI], [64 | 0, 64 | 0, 0]];
+export var ListAccountPermissionsRequest$: StaticStructureSchema = [3, n0, _LAPR, 0, [_serv, _mR, _nT], [0, 1, 0]];
+export var ListAccountPermissionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAPRi,
@@ -2079,7 +2079,7 @@ export var ListAccountPermissionsResponse: StaticStructureSchema = [
   [_pe, _nT],
   [() => Permissions, 0],
 ];
-export var ListCisScanConfigurationsFilterCriteria: StaticStructureSchema = [
+export var ListCisScanConfigurationsFilterCriteria$: StaticStructureSchema = [
   3,
   n0,
   _LCSCFC,
@@ -2087,15 +2087,15 @@ export var ListCisScanConfigurationsFilterCriteria: StaticStructureSchema = [
   [_sNF, _tRTF, _sCAF],
   [() => CisScanNameFilterList, () => ResourceTagFilterList, () => CisScanConfigurationArnFilterList],
 ];
-export var ListCisScanConfigurationsRequest: StaticStructureSchema = [
+export var ListCisScanConfigurationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCSCR,
   0,
   [_fCi, _sB, _sO, _nT, _mR],
-  [() => ListCisScanConfigurationsFilterCriteria, 0, 0, 0, 1],
+  [() => ListCisScanConfigurationsFilterCriteria$, 0, 0, 0, 1],
 ];
-export var ListCisScanConfigurationsResponse: StaticStructureSchema = [
+export var ListCisScanConfigurationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCSCRi,
@@ -2103,15 +2103,15 @@ export var ListCisScanConfigurationsResponse: StaticStructureSchema = [
   [_sCca, _nT],
   [() => CisScanConfigurationList, 0],
 ];
-export var ListCisScanResultsAggregatedByChecksRequest: StaticStructureSchema = [
+export var ListCisScanResultsAggregatedByChecksRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCSRABCR,
   0,
   [_sAc, _fCi, _sB, _sO, _nT, _mR],
-  [0, () => CisScanResultsAggregatedByChecksFilterCriteria, 0, 0, 0, 1],
+  [0, () => CisScanResultsAggregatedByChecksFilterCriteria$, 0, 0, 0, 1],
 ];
-export var ListCisScanResultsAggregatedByChecksResponse: StaticStructureSchema = [
+export var ListCisScanResultsAggregatedByChecksResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCSRABCRi,
@@ -2119,15 +2119,15 @@ export var ListCisScanResultsAggregatedByChecksResponse: StaticStructureSchema =
   [_cAh, _nT],
   [() => CisCheckAggregationList, 0],
 ];
-export var ListCisScanResultsAggregatedByTargetResourceRequest: StaticStructureSchema = [
+export var ListCisScanResultsAggregatedByTargetResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCSRABTRR,
   0,
   [_sAc, _fCi, _sB, _sO, _nT, _mR],
-  [0, () => CisScanResultsAggregatedByTargetResourceFilterCriteria, 0, 0, 0, 1],
+  [0, () => CisScanResultsAggregatedByTargetResourceFilterCriteria$, 0, 0, 0, 1],
 ];
-export var ListCisScanResultsAggregatedByTargetResourceResponse: StaticStructureSchema = [
+export var ListCisScanResultsAggregatedByTargetResourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCSRABTRRi,
@@ -2135,7 +2135,7 @@ export var ListCisScanResultsAggregatedByTargetResourceResponse: StaticStructure
   [_tRA, _nT],
   [() => CisTargetResourceAggregationList, 0],
 ];
-export var ListCisScansFilterCriteria: StaticStructureSchema = [
+export var ListCisScansFilterCriteria$: StaticStructureSchema = [
   3,
   n0,
   _LCSFC,
@@ -2154,16 +2154,16 @@ export var ListCisScansFilterCriteria: StaticStructureSchema = [
     () => AccountIdFilterList,
   ],
 ];
-export var ListCisScansRequest: StaticStructureSchema = [
+export var ListCisScansRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCSR,
   0,
   [_fCi, _dL, _sB, _sO, _nT, _mR],
-  [() => ListCisScansFilterCriteria, 0, 0, 0, 0, 1],
+  [() => ListCisScansFilterCriteria$, 0, 0, 0, 0, 1],
 ];
-export var ListCisScansResponse: StaticStructureSchema = [3, n0, _LCSRi, 0, [_sca, _nT], [() => CisScanList, 0]];
-export var ListCodeSecurityIntegrationsRequest: StaticStructureSchema = [
+export var ListCisScansResponse$: StaticStructureSchema = [3, n0, _LCSRi, 0, [_sca, _nT], [() => CisScanList, 0]];
+export var ListCodeSecurityIntegrationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCSIR,
@@ -2174,7 +2174,7 @@ export var ListCodeSecurityIntegrationsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListCodeSecurityIntegrationsResponse: StaticStructureSchema = [
+export var ListCodeSecurityIntegrationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCSIRi,
@@ -2182,7 +2182,7 @@ export var ListCodeSecurityIntegrationsResponse: StaticStructureSchema = [
   [_i, _nT],
   [() => IntegrationSummaries, 0],
 ];
-export var ListCodeSecurityScanConfigurationAssociationsRequest: StaticStructureSchema = [
+export var ListCodeSecurityScanConfigurationAssociationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCSSCAR,
@@ -2190,7 +2190,7 @@ export var ListCodeSecurityScanConfigurationAssociationsRequest: StaticStructure
   [_sCA, _nT, _mR],
   [0, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]],
 ];
-export var ListCodeSecurityScanConfigurationAssociationsResponse: StaticStructureSchema = [
+export var ListCodeSecurityScanConfigurationAssociationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCSSCARi,
@@ -2198,7 +2198,7 @@ export var ListCodeSecurityScanConfigurationAssociationsResponse: StaticStructur
   [_as, _nT],
   [() => CodeSecurityScanConfigurationAssociationSummaries, 0],
 ];
-export var ListCodeSecurityScanConfigurationsRequest: StaticStructureSchema = [
+export var ListCodeSecurityScanConfigurationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCSSCR,
@@ -2209,7 +2209,7 @@ export var ListCodeSecurityScanConfigurationsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListCodeSecurityScanConfigurationsResponse: StaticStructureSchema = [
+export var ListCodeSecurityScanConfigurationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCSSCRi,
@@ -2217,24 +2217,24 @@ export var ListCodeSecurityScanConfigurationsResponse: StaticStructureSchema = [
   [_confi, _nT],
   [() => CodeSecurityScanConfigurationSummaries, 0],
 ];
-export var ListCoverageRequest: StaticStructureSchema = [
+export var ListCoverageRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCR,
   0,
   [_mR, _nT, _fCi],
-  [1, 0, () => CoverageFilterCriteria],
+  [1, 0, () => CoverageFilterCriteria$],
 ];
-export var ListCoverageResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_nT, _cRo], [0, () => CoveredResources]];
-export var ListCoverageStatisticsRequest: StaticStructureSchema = [
+export var ListCoverageResponse$: StaticStructureSchema = [3, n0, _LCRi, 0, [_nT, _cRo], [0, () => CoveredResources]];
+export var ListCoverageStatisticsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCSRis,
   0,
   [_fCi, _gB, _nT],
-  [() => CoverageFilterCriteria, 0, 0],
+  [() => CoverageFilterCriteria$, 0, 0],
 ];
-export var ListCoverageStatisticsResponse: StaticStructureSchema = [
+export var ListCoverageStatisticsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCSRist,
@@ -2242,8 +2242,8 @@ export var ListCoverageStatisticsResponse: StaticStructureSchema = [
   [_cBG, _tCo, _nT],
   [() => CountsList, 1, 0],
 ];
-export var ListDelegatedAdminAccountsRequest: StaticStructureSchema = [3, n0, _LDAAR, 0, [_mR, _nT], [1, 0]];
-export var ListDelegatedAdminAccountsResponse: StaticStructureSchema = [
+export var ListDelegatedAdminAccountsRequest$: StaticStructureSchema = [3, n0, _LDAAR, 0, [_mR, _nT], [1, 0]];
+export var ListDelegatedAdminAccountsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDAARi,
@@ -2251,17 +2251,17 @@ export var ListDelegatedAdminAccountsResponse: StaticStructureSchema = [
   [_dAA, _nT],
   [() => DelegatedAdminAccountList, 0],
 ];
-export var ListFiltersRequest: StaticStructureSchema = [3, n0, _LFR, 0, [_arns, _act, _nT, _mR], [64 | 0, 0, 0, 1]];
-export var ListFiltersResponse: StaticStructureSchema = [3, n0, _LFRi, 0, [_fi, _nT], [() => FilterList, 0]];
-export var ListFindingAggregationsRequest: StaticStructureSchema = [
+export var ListFiltersRequest$: StaticStructureSchema = [3, n0, _LFR, 0, [_arns, _act, _nT, _mR], [64 | 0, 0, 0, 1]];
+export var ListFiltersResponse$: StaticStructureSchema = [3, n0, _LFRi, 0, [_fi, _nT], [() => FilterList, 0]];
+export var ListFindingAggregationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LFARi,
   0,
   [_aTg, _nT, _mR, _aIc, _aR],
-  [0, 0, 1, () => StringFilterList, () => AggregationRequest],
+  [0, 0, 1, () => StringFilterList, () => AggregationRequest$],
 ];
-export var ListFindingAggregationsResponse: StaticStructureSchema = [
+export var ListFindingAggregationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LFARis,
@@ -2269,25 +2269,25 @@ export var ListFindingAggregationsResponse: StaticStructureSchema = [
   [_aTg, _resp, _nT],
   [0, () => AggregationResponseList, 0],
 ];
-export var ListFindingsRequest: StaticStructureSchema = [
+export var ListFindingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LFRis,
   0,
   [_mR, _nT, _fCi, _sCo],
-  [1, 0, () => FilterCriteria, () => SortCriteria],
+  [1, 0, () => FilterCriteria$, () => SortCriteria$],
 ];
-export var ListFindingsResponse: StaticStructureSchema = [3, n0, _LFRist, 0, [_nT, _fin], [0, () => FindingList]];
-export var ListMembersRequest: StaticStructureSchema = [3, n0, _LMR, 0, [_oA, _mR, _nT], [2, 1, 0]];
-export var ListMembersResponse: StaticStructureSchema = [3, n0, _LMRi, 0, [_memb, _nT], [() => MemberList, 0]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [128 | 0]];
-export var ListUsageTotalsRequest: StaticStructureSchema = [3, n0, _LUTR, 0, [_mR, _nT, _aIc], [1, 0, 64 | 0]];
-export var ListUsageTotalsResponse: StaticStructureSchema = [3, n0, _LUTRi, 0, [_nT, _tot], [0, () => UsageTotalList]];
-export var MapFilter: StaticStructureSchema = [3, n0, _MF, 0, [_co, _k, _va], [0, 0, 0]];
-export var Member: StaticStructureSchema = [3, n0, _M, 0, [_aI, _rSel, _dAAI, _uA], [0, 0, 0, 4]];
-export var MemberAccountEc2DeepInspectionStatus: StaticStructureSchema = [3, n0, _MAEDIS, 0, [_aI, _aDI], [0, 2]];
-export var MemberAccountEc2DeepInspectionStatusState: StaticStructureSchema = [
+export var ListFindingsResponse$: StaticStructureSchema = [3, n0, _LFRist, 0, [_nT, _fin], [0, () => FindingList]];
+export var ListMembersRequest$: StaticStructureSchema = [3, n0, _LMR, 0, [_oA, _mR, _nT], [2, 1, 0]];
+export var ListMembersResponse$: StaticStructureSchema = [3, n0, _LMRi, 0, [_memb, _nT], [() => MemberList, 0]];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [128 | 0]];
+export var ListUsageTotalsRequest$: StaticStructureSchema = [3, n0, _LUTR, 0, [_mR, _nT, _aIc], [1, 0, 64 | 0]];
+export var ListUsageTotalsResponse$: StaticStructureSchema = [3, n0, _LUTRi, 0, [_nT, _tot], [0, () => UsageTotalList]];
+export var MapFilter$: StaticStructureSchema = [3, n0, _MF, 0, [_co, _k, _va], [0, 0, 0]];
+export var Member$: StaticStructureSchema = [3, n0, _M, 0, [_aI, _rSel, _dAAI, _uA], [0, 0, 0, 4]];
+export var MemberAccountEc2DeepInspectionStatus$: StaticStructureSchema = [3, n0, _MAEDIS, 0, [_aI, _aDI], [0, 2]];
+export var MemberAccountEc2DeepInspectionStatusState$: StaticStructureSchema = [
   3,
   n0,
   _MAEDISS,
@@ -2295,19 +2295,19 @@ export var MemberAccountEc2DeepInspectionStatusState: StaticStructureSchema = [
   [_aI, _s, _eM],
   [0, 0, 0],
 ];
-export var MonthlySchedule: StaticStructureSchema = [3, n0, _MS, 0, [_sTt, _da], [() => Time, 0]];
-export var NetworkPath: StaticStructureSchema = [3, n0, _NP, 0, [_ste], [() => StepList]];
-export var NetworkReachabilityDetails: StaticStructureSchema = [
+export var MonthlySchedule$: StaticStructureSchema = [3, n0, _MS, 0, [_sTt, _da], [() => Time$, 0]];
+export var NetworkPath$: StaticStructureSchema = [3, n0, _NP, 0, [_ste], [() => StepList]];
+export var NetworkReachabilityDetails$: StaticStructureSchema = [
   3,
   n0,
   _NRD,
   0,
   [_oPR, _pro, _nPe],
-  [() => PortRange, 0, () => NetworkPath],
+  [() => PortRange$, 0, () => NetworkPath$],
 ];
-export var NumberFilter: StaticStructureSchema = [3, n0, _NF, 0, [_uI, _lI], [1, 1]];
-export var OneTimeSchedule: StaticStructureSchema = [3, n0, _OTS, 0, [], []];
-export var PackageAggregation: StaticStructureSchema = [
+export var NumberFilter$: StaticStructureSchema = [3, n0, _NF, 0, [_uI, _lI], [1, 1]];
+export var OneTimeSchedule$: StaticStructureSchema = [3, n0, _OTS, 0, [], []];
+export var PackageAggregation$: StaticStructureSchema = [
   3,
   n0,
   _PA,
@@ -2315,32 +2315,32 @@ export var PackageAggregation: StaticStructureSchema = [
   [_pNa, _sO, _sB],
   [() => StringFilterList, 0, 0],
 ];
-export var PackageAggregationResponse: StaticStructureSchema = [
+export var PackageAggregationResponse$: StaticStructureSchema = [
   3,
   n0,
   _PAR,
   0,
   [_pNac, _aI, _sC],
-  [0, 0, () => SeverityCounts],
+  [0, 0, () => SeverityCounts$],
 ];
-export var PackageFilter: StaticStructureSchema = [
+export var PackageFilter$: StaticStructureSchema = [
   3,
   n0,
   _PF,
   0,
   [_na, _v, _epo, _rel, _arc, _sLH, _sLLA, _fP],
   [
-    () => StringFilter,
-    () => StringFilter,
-    () => NumberFilter,
-    () => StringFilter,
-    () => StringFilter,
-    () => StringFilter,
-    () => StringFilter,
-    () => StringFilter,
+    () => StringFilter$,
+    () => StringFilter$,
+    () => NumberFilter$,
+    () => StringFilter$,
+    () => StringFilter$,
+    () => StringFilter$,
+    () => StringFilter$,
+    () => StringFilter$,
   ],
 ];
-export var PackageVulnerabilityDetails: StaticStructureSchema = [
+export var PackageVulnerabilityDetails$: StaticStructureSchema = [
   3,
   n0,
   _PVD,
@@ -2348,11 +2348,11 @@ export var PackageVulnerabilityDetails: StaticStructureSchema = [
   [_vIu, _vP, _so, _cv, _rV, _sU, _vSe, _vCA, _vUA, _rU],
   [0, () => VulnerablePackageList, 0, () => CvssScoreList, 64 | 0, 0, 0, 4, 4, 64 | 0],
 ];
-export var PeriodicScanConfiguration: StaticStructureSchema = [3, n0, _PSC, 0, [_fr, _fE], [0, 0]];
-export var Permission: StaticStructureSchema = [3, n0, _P, 0, [_serv, _o], [0, 0]];
-export var PortRange: StaticStructureSchema = [3, n0, _PR, 0, [_b, _en], [1, 1]];
-export var PortRangeFilter: StaticStructureSchema = [3, n0, _PRF, 0, [_bI, _eI], [1, 1]];
-export var ProjectCodeSecurityScanConfiguration: StaticStructureSchema = [
+export var PeriodicScanConfiguration$: StaticStructureSchema = [3, n0, _PSC, 0, [_fr, _fE], [0, 0]];
+export var Permission$: StaticStructureSchema = [3, n0, _P, 0, [_serv, _o], [0, 0]];
+export var PortRange$: StaticStructureSchema = [3, n0, _PR, 0, [_b, _en], [1, 1]];
+export var PortRangeFilter$: StaticStructureSchema = [3, n0, _PRF, 0, [_bI, _eI], [1, 1]];
+export var ProjectCodeSecurityScanConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PCSSC,
@@ -2360,7 +2360,7 @@ export var ProjectCodeSecurityScanConfiguration: StaticStructureSchema = [
   [_pSCe, _cISCo],
   [() => ProjectPeriodicScanConfigurationList, () => ProjectContinuousIntegrationScanConfigurationList],
 ];
-export var ProjectContinuousIntegrationScanConfiguration: StaticStructureSchema = [
+export var ProjectContinuousIntegrationScanConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PCISC,
@@ -2368,10 +2368,10 @@ export var ProjectContinuousIntegrationScanConfiguration: StaticStructureSchema 
   [_sEu, _rSC],
   [0, 64 | 0],
 ];
-export var ProjectPeriodicScanConfiguration: StaticStructureSchema = [3, n0, _PPSC, 0, [_fE, _rSC], [0, 64 | 0]];
-export var Recommendation: StaticStructureSchema = [3, n0, _R, 0, [_te, _U], [0, 0]];
-export var Remediation: StaticStructureSchema = [3, n0, _Re, 0, [_rec], [() => Recommendation]];
-export var RepositoryAggregation: StaticStructureSchema = [
+export var ProjectPeriodicScanConfiguration$: StaticStructureSchema = [3, n0, _PPSC, 0, [_fE, _rSC], [0, 64 | 0]];
+export var Recommendation$: StaticStructureSchema = [3, n0, _R, 0, [_te, _U], [0, 0]];
+export var Remediation$: StaticStructureSchema = [3, n0, _Re, 0, [_rec], [() => Recommendation$]];
+export var RepositoryAggregation$: StaticStructureSchema = [
   3,
   n0,
   _RAe,
@@ -2379,38 +2379,38 @@ export var RepositoryAggregation: StaticStructureSchema = [
   [_re, _sO, _sB],
   [() => StringFilterList, 0, 0],
 ];
-export var RepositoryAggregationResponse: StaticStructureSchema = [
+export var RepositoryAggregationResponse$: StaticStructureSchema = [
   3,
   n0,
   _RAR,
   0,
   [_rep, _aI, _sC, _aIff],
-  [0, 0, () => SeverityCounts, 1],
+  [0, 0, () => SeverityCounts$, 1],
 ];
-export var ResetEncryptionKeyRequest: StaticStructureSchema = [3, n0, _REKR, 0, [_sT, _rT], [0, 0]];
-export var ResetEncryptionKeyResponse: StaticStructureSchema = [3, n0, _REKRe, 0, [], []];
-export var Resource: StaticStructureSchema = [
+export var ResetEncryptionKeyRequest$: StaticStructureSchema = [3, n0, _REKR, 0, [_sT, _rT], [0, 0]];
+export var ResetEncryptionKeyResponse$: StaticStructureSchema = [3, n0, _REKRe, 0, [], []];
+export var Resource$: StaticStructureSchema = [
   3,
   n0,
   _Res,
   0,
   [_ty, _id, _pa, _regi, _ta, _d],
-  [0, 0, 0, 0, 128 | 0, () => ResourceDetails],
+  [0, 0, 0, 0, 128 | 0, () => ResourceDetails$],
 ];
-export var ResourceDetails: StaticStructureSchema = [
+export var ResourceDetails$: StaticStructureSchema = [
   3,
   n0,
   _RD,
   0,
   [_aEI, _aECI, _aLF, _cR],
   [
-    () => AwsEc2InstanceDetails,
-    () => AwsEcrContainerImageDetails,
-    () => AwsLambdaFunctionDetails,
-    () => CodeRepositoryDetails,
+    () => AwsEc2InstanceDetails$,
+    () => AwsEcrContainerImageDetails$,
+    () => AwsLambdaFunctionDetails$,
+    () => CodeRepositoryDetails$,
   ],
 ];
-export var ResourceFilterCriteria: StaticStructureSchema = [
+export var ResourceFilterCriteria$: StaticStructureSchema = [
   3,
   n0,
   _RFC,
@@ -2427,45 +2427,45 @@ export var ResourceFilterCriteria: StaticStructureSchema = [
     () => ResourceMapFilterList,
   ],
 ];
-export var ResourceMapFilter: StaticStructureSchema = [3, n0, _RMF, 0, [_co, _k, _va], [0, 0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ResourceScanMetadata: StaticStructureSchema = [
+export var ResourceMapFilter$: StaticStructureSchema = [3, n0, _RMF, 0, [_co, _k, _va], [0, 0, 0]];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceScanMetadata$: StaticStructureSchema = [
   3,
   n0,
   _RSM,
   0,
   [_eRc, _eIc, _ec, _lF, _cR],
   [
-    () => EcrRepositoryMetadata,
-    () => EcrContainerImageMetadata,
-    () => Ec2Metadata,
-    () => LambdaFunctionMetadata,
-    () => CodeRepositoryMetadata,
+    () => EcrRepositoryMetadata$,
+    () => EcrContainerImageMetadata$,
+    () => Ec2Metadata$,
+    () => LambdaFunctionMetadata$,
+    () => CodeRepositoryMetadata$,
   ],
 ];
-export var ResourceState: StaticStructureSchema = [
+export var ResourceState$: StaticStructureSchema = [
   3,
   n0,
   _RS,
   0,
   [_ec, _ecr, _l, _lC, _cR],
-  [() => State, () => State, () => State, () => State, () => State],
+  [() => State$, () => State$, () => State$, () => State$, () => State$],
 ];
-export var ResourceStatus: StaticStructureSchema = [3, n0, _RSe, 0, [_ec, _ecr, _l, _lC, _cR], [0, 0, 0, 0, 0]];
-export var ResourceStringFilter: StaticStructureSchema = [3, n0, _RSF, 0, [_co, _va], [0, 0]];
-export var ScanStatus: StaticStructureSchema = [3, n0, _SS, 0, [_sCta, _rea], [0, 0]];
-export var ScopeSettings: StaticStructureSchema = [3, n0, _SSc, 0, [_pSS], [0]];
-export var SearchVulnerabilitiesFilterCriteria: StaticStructureSchema = [3, n0, _SVFC, 0, [_vIul], [64 | 0]];
-export var SearchVulnerabilitiesRequest: StaticStructureSchema = [
+export var ResourceStatus$: StaticStructureSchema = [3, n0, _RSe, 0, [_ec, _ecr, _l, _lC, _cR], [0, 0, 0, 0, 0]];
+export var ResourceStringFilter$: StaticStructureSchema = [3, n0, _RSF, 0, [_co, _va], [0, 0]];
+export var ScanStatus$: StaticStructureSchema = [3, n0, _SS, 0, [_sCta, _rea], [0, 0]];
+export var ScopeSettings$: StaticStructureSchema = [3, n0, _SSc, 0, [_pSS], [0]];
+export var SearchVulnerabilitiesFilterCriteria$: StaticStructureSchema = [3, n0, _SVFC, 0, [_vIul], [64 | 0]];
+export var SearchVulnerabilitiesRequest$: StaticStructureSchema = [
   3,
   n0,
   _SVR,
   0,
   [_fCi, _nT],
-  [() => SearchVulnerabilitiesFilterCriteria, 0],
+  [() => SearchVulnerabilitiesFilterCriteria$, 0],
 ];
-export var SearchVulnerabilitiesResponse: StaticStructureSchema = [
+export var SearchVulnerabilitiesResponse$: StaticStructureSchema = [
   3,
   n0,
   _SVRe,
@@ -2473,9 +2473,9 @@ export var SearchVulnerabilitiesResponse: StaticStructureSchema = [
   [_vu, _nT],
   [() => Vulnerabilities, 0],
 ];
-export var SendCisSessionHealthRequest: StaticStructureSchema = [3, n0, _SCSHR, 0, [_sJI, _sTe], [0, 0]];
-export var SendCisSessionHealthResponse: StaticStructureSchema = [3, n0, _SCSHRe, 0, [], []];
-export var SendCisSessionTelemetryRequest: StaticStructureSchema = [
+export var SendCisSessionHealthRequest$: StaticStructureSchema = [3, n0, _SCSHR, 0, [_sJI, _sTe], [0, 0]];
+export var SendCisSessionHealthResponse$: StaticStructureSchema = [3, n0, _SCSHRe, 0, [], []];
+export var SendCisSessionTelemetryRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCSTR,
@@ -2483,8 +2483,8 @@ export var SendCisSessionTelemetryRequest: StaticStructureSchema = [
   [_sJI, _sTe, _mes],
   [0, 0, () => CisSessionMessages],
 ];
-export var SendCisSessionTelemetryResponse: StaticStructureSchema = [3, n0, _SCSTRe, 0, [], []];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
+export var SendCisSessionTelemetryResponse$: StaticStructureSchema = [3, n0, _SCSTRe, 0, [], []];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
@@ -2492,32 +2492,32 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   [_m, _rIe],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var SeverityCounts: StaticStructureSchema = [3, n0, _SC, 0, [_al, _med, _h, _cri], [1, 1, 1, 1]];
-export var SortCriteria: StaticStructureSchema = [3, n0, _SCo, 0, [_fie, _sO], [0, 0]];
-export var StartCisSessionMessage: StaticStructureSchema = [3, n0, _SCSM, 0, [_sTe], [0]];
-export var StartCisSessionRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SeverityCounts$: StaticStructureSchema = [3, n0, _SC, 0, [_al, _med, _h, _cri], [1, 1, 1, 1]];
+export var SortCriteria$: StaticStructureSchema = [3, n0, _SCo, 0, [_fie, _sO], [0, 0]];
+export var StartCisSessionMessage$: StaticStructureSchema = [3, n0, _SCSM, 0, [_sTe], [0]];
+export var StartCisSessionRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCSR,
   0,
   [_sJI, _m],
-  [0, () => StartCisSessionMessage],
+  [0, () => StartCisSessionMessage$],
 ];
-export var StartCisSessionResponse: StaticStructureSchema = [3, n0, _SCSRt, 0, [], []];
-export var StartCodeSecurityScanRequest: StaticStructureSchema = [
+export var StartCisSessionResponse$: StaticStructureSchema = [3, n0, _SCSRt, 0, [], []];
+export var StartCodeSecurityScanRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCSSR,
   0,
   [_cT, _r],
-  [[0, 4], () => CodeSecurityResource],
+  [[0, 4], () => CodeSecurityResource$],
 ];
-export var StartCodeSecurityScanResponse: StaticStructureSchema = [3, n0, _SCSSRt, 0, [_sIc, _s], [0, 0]];
-export var State: StaticStructureSchema = [3, n0, _S, 0, [_s, _eC, _eM], [0, 0, 0]];
-export var StatusCounts: StaticStructureSchema = [3, n0, _SCt, 0, [_fa, _sk, _pas], [1, 1, 1]];
-export var Step: StaticStructureSchema = [3, n0, _St, 0, [_cIo, _cTo, _cAo], [0, 0, 0]];
-export var StopCisMessageProgress: StaticStructureSchema = [
+export var StartCodeSecurityScanResponse$: StaticStructureSchema = [3, n0, _SCSSRt, 0, [_sIc, _s], [0, 0]];
+export var State$: StaticStructureSchema = [3, n0, _S, 0, [_s, _eC, _eM], [0, 0, 0]];
+export var StatusCounts$: StaticStructureSchema = [3, n0, _SCt, 0, [_fa, _sk, _pas], [1, 1, 1]];
+export var Step$: StaticStructureSchema = [3, n0, _St, 0, [_cIo, _cTo, _cAo], [0, 0, 0]];
+export var StopCisMessageProgress$: StaticStructureSchema = [
   3,
   n0,
   _SCMP,
@@ -2525,37 +2525,37 @@ export var StopCisMessageProgress: StaticStructureSchema = [
   [_tC, _sCu, _fC, _nEC, _uC, _nAC, _iC, _eCr],
   [1, 1, 1, 1, 1, 1, 1, 1],
 ];
-export var StopCisSessionMessage: StaticStructureSchema = [
+export var StopCisSessionMessage$: StaticStructureSchema = [
   3,
   n0,
   _SCSMt,
   0,
   [_s, _rea, _prog, _cP, _bV, _bP],
-  [0, 0, () => StopCisMessageProgress, () => ComputePlatform, 0, 0],
+  [0, 0, () => StopCisMessageProgress$, () => ComputePlatform$, 0, 0],
 ];
-export var StopCisSessionRequest: StaticStructureSchema = [
+export var StopCisSessionRequest$: StaticStructureSchema = [
   3,
   n0,
   _SCSRto,
   0,
   [_sJI, _sTe, _m],
-  [0, 0, () => StopCisSessionMessage],
+  [0, 0, () => StopCisSessionMessage$],
 ];
-export var StopCisSessionResponse: StaticStructureSchema = [3, n0, _SCSRtop, 0, [], []];
-export var StringFilter: StaticStructureSchema = [3, n0, _SF, 0, [_co, _va], [0, 0]];
-export var SuccessfulAssociationResult: StaticStructureSchema = [
+export var StopCisSessionResponse$: StaticStructureSchema = [3, n0, _SCSRtop, 0, [], []];
+export var StringFilter$: StaticStructureSchema = [3, n0, _SF, 0, [_co, _va], [0, 0]];
+export var SuccessfulAssociationResult$: StaticStructureSchema = [
   3,
   n0,
   _SAR,
   0,
   [_sCA, _r],
-  [0, () => CodeSecurityResource],
+  [0, () => CodeSecurityResource$],
 ];
-export var SuggestedFix: StaticStructureSchema = [3, n0, _SFu, 0, [_de, _cod], [0, 0]];
-export var TagFilter: StaticStructureSchema = [3, n0, _TF, 0, [_co, _k, _va], [0, 0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _ta], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
+export var SuggestedFix$: StaticStructureSchema = [3, n0, _SFu, 0, [_de, _cod], [0, 0]];
+export var TagFilter$: StaticStructureSchema = [3, n0, _TF, 0, [_co, _k, _va], [0, 0, 0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _ta], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
@@ -2563,9 +2563,9 @@ export var ThrottlingException: StaticErrorSchema = [
   [_m, _rAS],
   [0, [1, { [_hH]: _RA }]],
 ];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var Time: StaticStructureSchema = [3, n0, _T, 0, [_tOD, _tim], [0, 0]];
-export var TitleAggregation: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var Time$: StaticStructureSchema = [3, n0, _T, 0, [_tOD, _tim], [0, 0]];
+export var TitleAggregation$: StaticStructureSchema = [
   3,
   n0,
   _TA,
@@ -2573,15 +2573,15 @@ export var TitleAggregation: StaticStructureSchema = [
   [_tit, _vIul, _rT, _sO, _sB, _fT],
   [() => StringFilterList, () => StringFilterList, 0, 0, 0, 0],
 ];
-export var TitleAggregationResponse: StaticStructureSchema = [
+export var TitleAggregationResponse$: StaticStructureSchema = [
   3,
   n0,
   _TAR,
   0,
   [_ti, _vIu, _aI, _sC],
-  [0, 0, 0, () => SeverityCounts],
+  [0, 0, 0, () => SeverityCounts$],
 ];
-export var UntagResourceRequest: StaticStructureSchema = [
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -2592,17 +2592,17 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateCisScanConfigurationRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateCisScanConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCSCR,
   0,
   [_sCA, _sN, _sL, _sc, _t],
-  [0, 0, 0, () => Schedule, () => UpdateCisTargets],
+  [0, 0, 0, () => Schedule$, () => UpdateCisTargets$],
 ];
-export var UpdateCisScanConfigurationResponse: StaticStructureSchema = [3, n0, _UCSCRp, 0, [_sCA], [0]];
-export var UpdateCisTargets: StaticStructureSchema = [
+export var UpdateCisScanConfigurationResponse$: StaticStructureSchema = [3, n0, _UCSCRp, 0, [_sCA], [0]];
+export var UpdateCisTargets$: StaticStructureSchema = [
   3,
   n0,
   _UCT,
@@ -2610,34 +2610,34 @@ export var UpdateCisTargets: StaticStructureSchema = [
   [_aIc, _tRT],
   [64 | 0, [2, n0, _TRT, 0, 0, 64 | 0]],
 ];
-export var UpdateCodeSecurityIntegrationRequest: StaticStructureSchema = [
+export var UpdateCodeSecurityIntegrationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCSIR,
   0,
   [_iA, _d],
-  [0, [() => UpdateIntegrationDetails, 0]],
+  [0, [() => UpdateIntegrationDetails$, 0]],
 ];
-export var UpdateCodeSecurityIntegrationResponse: StaticStructureSchema = [3, n0, _UCSIRp, 0, [_iA, _s], [0, 0]];
-export var UpdateCodeSecurityScanConfigurationRequest: StaticStructureSchema = [
+export var UpdateCodeSecurityIntegrationResponse$: StaticStructureSchema = [3, n0, _UCSIRp, 0, [_iA, _s], [0, 0]];
+export var UpdateCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCSSCR,
   0,
   [_sCA, _conf],
-  [0, () => CodeSecurityScanConfiguration],
+  [0, () => CodeSecurityScanConfiguration$],
 ];
-export var UpdateCodeSecurityScanConfigurationResponse: StaticStructureSchema = [3, n0, _UCSSCRp, 0, [_sCA], [0]];
-export var UpdateConfigurationRequest: StaticStructureSchema = [
+export var UpdateCodeSecurityScanConfigurationResponse$: StaticStructureSchema = [3, n0, _UCSSCRp, 0, [_sCA], [0]];
+export var UpdateConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCR,
   0,
   [_eCc, _eCco],
-  [() => EcrConfiguration, () => Ec2Configuration],
+  [() => EcrConfiguration$, () => Ec2Configuration$],
 ];
-export var UpdateConfigurationResponse: StaticStructureSchema = [3, n0, _UCRp, 0, [], []];
-export var UpdateEc2DeepInspectionConfigurationRequest: StaticStructureSchema = [
+export var UpdateConfigurationResponse$: StaticStructureSchema = [3, n0, _UCRp, 0, [], []];
+export var UpdateEc2DeepInspectionConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UEDICR,
@@ -2645,7 +2645,7 @@ export var UpdateEc2DeepInspectionConfigurationRequest: StaticStructureSchema = 
   [_aDI, _pP],
   [2, 64 | 0],
 ];
-export var UpdateEc2DeepInspectionConfigurationResponse: StaticStructureSchema = [
+export var UpdateEc2DeepInspectionConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UEDICRp,
@@ -2653,18 +2653,18 @@ export var UpdateEc2DeepInspectionConfigurationResponse: StaticStructureSchema =
   [_pP, _oPP, _s, _eM],
   [64 | 0, 64 | 0, 0, 0],
 ];
-export var UpdateEncryptionKeyRequest: StaticStructureSchema = [3, n0, _UEKR, 0, [_kKI, _sT, _rT], [0, 0, 0]];
-export var UpdateEncryptionKeyResponse: StaticStructureSchema = [3, n0, _UEKRp, 0, [], []];
-export var UpdateFilterRequest: StaticStructureSchema = [
+export var UpdateEncryptionKeyRequest$: StaticStructureSchema = [3, n0, _UEKR, 0, [_kKI, _sT, _rT], [0, 0, 0]];
+export var UpdateEncryptionKeyResponse$: StaticStructureSchema = [3, n0, _UEKRp, 0, [], []];
+export var UpdateFilterRequest$: StaticStructureSchema = [
   3,
   n0,
   _UFR,
   0,
   [_act, _de, _fCi, _na, _fAil, _rea],
-  [0, 0, () => FilterCriteria, 0, 0, 0],
+  [0, 0, () => FilterCriteria$, 0, 0, 0],
 ];
-export var UpdateFilterResponse: StaticStructureSchema = [3, n0, _UFRp, 0, [_arn], [0]];
-export var UpdateGitHubIntegrationDetail: StaticStructureSchema = [
+export var UpdateFilterResponse$: StaticStructureSchema = [3, n0, _UFRp, 0, [_arn], [0]];
+export var UpdateGitHubIntegrationDetail$: StaticStructureSchema = [
   3,
   n0,
   _UGHID,
@@ -2672,7 +2672,7 @@ export var UpdateGitHubIntegrationDetail: StaticStructureSchema = [
   [_cod, _iInst],
   [[() => GitHubAuthCode, 0], 0],
 ];
-export var UpdateGitLabSelfManagedIntegrationDetail: StaticStructureSchema = [
+export var UpdateGitLabSelfManagedIntegrationDetail$: StaticStructureSchema = [
   3,
   n0,
   _UGLSMID,
@@ -2680,16 +2680,23 @@ export var UpdateGitLabSelfManagedIntegrationDetail: StaticStructureSchema = [
   [_aCu],
   [[() => GitLabAuthCode, 0]],
 ];
-export var UpdateOrganizationConfigurationRequest: StaticStructureSchema = [3, n0, _UOCR, 0, [_aE], [() => AutoEnable]];
-export var UpdateOrganizationConfigurationResponse: StaticStructureSchema = [
+export var UpdateOrganizationConfigurationRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _UOCR,
+  0,
+  [_aE],
+  [() => AutoEnable$],
+];
+export var UpdateOrganizationConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UOCRp,
   0,
   [_aE],
-  [() => AutoEnable],
+  [() => AutoEnable$],
 ];
-export var UpdateOrgEc2DeepInspectionConfigurationRequest: StaticStructureSchema = [
+export var UpdateOrgEc2DeepInspectionConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UOEDICR,
@@ -2697,10 +2704,10 @@ export var UpdateOrgEc2DeepInspectionConfigurationRequest: StaticStructureSchema
   [_oPP],
   [64 | 0],
 ];
-export var UpdateOrgEc2DeepInspectionConfigurationResponse: StaticStructureSchema = [3, n0, _UOEDICRp, 0, [], []];
-export var Usage: StaticStructureSchema = [3, n0, _Us, 0, [_ty, _tota, _eMC, _cu], [0, 1, 1, 0]];
-export var UsageTotal: StaticStructureSchema = [3, n0, _UT, 0, [_aI, _us], [0, () => UsageList]];
-export var ValidationException: StaticErrorSchema = [
+export var UpdateOrgEc2DeepInspectionConfigurationResponse$: StaticStructureSchema = [3, n0, _UOEDICRp, 0, [], []];
+export var Usage$: StaticStructureSchema = [3, n0, _Us, 0, [_ty, _tota, _eMC, _cu], [0, 1, 1, 0]];
+export var UsageTotal$: StaticStructureSchema = [3, n0, _UT, 0, [_aI, _us], [0, () => UsageList]];
+export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
@@ -2708,9 +2715,9 @@ export var ValidationException: StaticErrorSchema = [
   [_m, _rea, _fiel],
   [0, 0, () => ValidationExceptionFields],
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_na, _m], [0, 0]];
-export var Vulnerability: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF, 0, [_na, _m], [0, 0]];
+export var Vulnerability$: StaticStructureSchema = [
   3,
   n0,
   _V,
@@ -2719,25 +2726,25 @@ export var Vulnerability: StaticStructureSchema = [
   [
     0,
     64 | 0,
-    () => CisaData,
+    () => CisaData$,
     0,
     0,
-    () => AtigData,
+    () => AtigData$,
     0,
-    () => Cvss4,
-    () => Cvss3,
+    () => Cvss4$,
+    () => Cvss3$,
     64 | 0,
-    () => Cvss2,
+    () => Cvss2$,
     4,
     4,
     0,
     64 | 0,
-    () => ExploitObserved,
+    () => ExploitObserved$,
     64 | 0,
-    () => Epss,
+    () => Epss$,
   ],
 ];
-export var VulnerablePackage: StaticStructureSchema = [
+export var VulnerablePackage$: StaticStructureSchema = [
   3,
   n0,
   _VP,
@@ -2745,858 +2752,852 @@ export var VulnerablePackage: StaticStructureSchema = [
   [_na, _v, _sLH, _epo, _rel, _arch, _pM, _fP, _fIV, _rem, _sLLA],
   [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var WeeklySchedule: StaticStructureSchema = [3, n0, _WS, 0, [_sTt, _day], [() => Time, 64 | 0]];
-export var Inspector2ServiceException: StaticErrorSchema = [-3, _sm, "Inspector2ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(Inspector2ServiceException, __Inspector2ServiceException);
-export var AccountIdFilterList: StaticListSchema = [1, n0, _AIFL, 0, () => CisStringFilter];
-export var AccountIdSet = 64 | 0;
-export var AccountList: StaticListSchema = [1, n0, _AL, 0, () => Account];
-export var AccountStateList: StaticListSchema = [1, n0, _ASL, 0, () => AccountState];
-export var AggregationResponseList: StaticListSchema = [1, n0, _ARL, 0, () => AggregationResponse];
-export var ArchitectureList = 64 | 0;
-export var AssociateConfigurationRequestList: StaticListSchema = [1, n0, _ACRL, 0, () => AssociateConfigurationRequest];
-export var AwsEksWorkloadInfoList: StaticListSchema = [1, n0, _AEWIL, 0, () => AwsEksWorkloadInfo];
-export var CheckIdFilterList: StaticListSchema = [1, n0, _CIFL, 0, () => CisStringFilter];
-export var CisAccountIdList = 64 | 0;
-export var CisCheckAggregationList: StaticListSchema = [1, n0, _CCAL, 0, () => CisCheckAggregation];
-export var CisFindingArnFilterList: StaticListSchema = [1, n0, _CFAFL, 0, () => CisStringFilter];
-export var CisFindingStatusFilterList: StaticListSchema = [1, n0, _CFSFL, 0, () => CisFindingStatusFilter];
-export var CisNumberFilterList: StaticListSchema = [1, n0, _CNFL, 0, () => CisNumberFilter];
-export var CisResultStatusFilterList: StaticListSchema = [1, n0, _CRSFL, 0, () => CisResultStatusFilter];
-export var CisScanArnFilterList: StaticListSchema = [1, n0, _CSAFL, 0, () => CisStringFilter];
-export var CisScanConfigurationArnFilterList: StaticListSchema = [1, n0, _CSCAFL, 0, () => CisStringFilter];
-export var CisScanConfigurationList: StaticListSchema = [1, n0, _CSCL, 0, () => CisScanConfiguration];
-export var CisScanDateFilterList: StaticListSchema = [1, n0, _CSDFL, 0, () => CisDateFilter];
-export var CisScanList: StaticListSchema = [1, n0, _CSL, 0, () => CisScan];
-export var CisScanNameFilterList: StaticListSchema = [1, n0, _CSNFL, 0, () => CisStringFilter];
-export var CisScanResultDetailsList: StaticListSchema = [1, n0, _CSRDL, 0, () => CisScanResultDetails];
-export var CisScanStatusFilterList: StaticListSchema = [1, n0, _CSSFL, 0, () => CisScanStatusFilter];
-export var CisScheduledByFilterList: StaticListSchema = [1, n0, _CSBFL, 0, () => CisStringFilter];
-export var CisSecurityLevelFilterList: StaticListSchema = [1, n0, _CSLFL, 0, () => CisSecurityLevelFilter];
-export var CisSessionMessages: StaticListSchema = [1, n0, _CSMi, 0, () => CisSessionMessage];
-export var CisTargetResourceAggregationList: StaticListSchema = [1, n0, _CTRAL, 0, () => CisTargetResourceAggregation];
-export var ClusterDetailsList: StaticListSchema = [1, n0, _CDL, 0, () => ClusterDetails];
-export var ClusterInformationList: StaticListSchema = [1, n0, _CIL, 0, () => ClusterInformation];
-export var CodeLineList: StaticListSchema = [1, n0, _CLL, 0, () => CodeLine];
-export var CodeSecurityScanConfigurationAssociationSummaries: StaticListSchema = [
+export var WeeklySchedule$: StaticStructureSchema = [3, n0, _WS, 0, [_sTt, _day], [() => Time$, 64 | 0]];
+export var Inspector2ServiceException$: StaticErrorSchema = [-3, _sm, "Inspector2ServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(Inspector2ServiceException$, Inspector2ServiceException);
+var AccountIdFilterList: StaticListSchema = [1, n0, _AIFL, 0, () => CisStringFilter$];
+var AccountIdSet = 64 | 0;
+var AccountList: StaticListSchema = [1, n0, _AL, 0, () => Account$];
+var AccountStateList: StaticListSchema = [1, n0, _ASL, 0, () => AccountState$];
+var AggregationResponseList: StaticListSchema = [1, n0, _ARL, 0, () => AggregationResponse$];
+var ArchitectureList = 64 | 0;
+var AssociateConfigurationRequestList: StaticListSchema = [1, n0, _ACRL, 0, () => AssociateConfigurationRequest$];
+var AwsEksWorkloadInfoList: StaticListSchema = [1, n0, _AEWIL, 0, () => AwsEksWorkloadInfo$];
+var CheckIdFilterList: StaticListSchema = [1, n0, _CIFL, 0, () => CisStringFilter$];
+var CisAccountIdList = 64 | 0;
+var CisCheckAggregationList: StaticListSchema = [1, n0, _CCAL, 0, () => CisCheckAggregation$];
+var CisFindingArnFilterList: StaticListSchema = [1, n0, _CFAFL, 0, () => CisStringFilter$];
+var CisFindingStatusFilterList: StaticListSchema = [1, n0, _CFSFL, 0, () => CisFindingStatusFilter$];
+var CisNumberFilterList: StaticListSchema = [1, n0, _CNFL, 0, () => CisNumberFilter$];
+var CisResultStatusFilterList: StaticListSchema = [1, n0, _CRSFL, 0, () => CisResultStatusFilter$];
+var CisScanArnFilterList: StaticListSchema = [1, n0, _CSAFL, 0, () => CisStringFilter$];
+var CisScanConfigurationArnFilterList: StaticListSchema = [1, n0, _CSCAFL, 0, () => CisStringFilter$];
+var CisScanConfigurationList: StaticListSchema = [1, n0, _CSCL, 0, () => CisScanConfiguration$];
+var CisScanDateFilterList: StaticListSchema = [1, n0, _CSDFL, 0, () => CisDateFilter$];
+var CisScanList: StaticListSchema = [1, n0, _CSL, 0, () => CisScan$];
+var CisScanNameFilterList: StaticListSchema = [1, n0, _CSNFL, 0, () => CisStringFilter$];
+var CisScanResultDetailsList: StaticListSchema = [1, n0, _CSRDL, 0, () => CisScanResultDetails$];
+var CisScanStatusFilterList: StaticListSchema = [1, n0, _CSSFL, 0, () => CisScanStatusFilter$];
+var CisScheduledByFilterList: StaticListSchema = [1, n0, _CSBFL, 0, () => CisStringFilter$];
+var CisSecurityLevelFilterList: StaticListSchema = [1, n0, _CSLFL, 0, () => CisSecurityLevelFilter$];
+var CisSessionMessages: StaticListSchema = [1, n0, _CSMi, 0, () => CisSessionMessage$];
+var CisTargetResourceAggregationList: StaticListSchema = [1, n0, _CTRAL, 0, () => CisTargetResourceAggregation$];
+var ClusterDetailsList: StaticListSchema = [1, n0, _CDL, 0, () => ClusterDetails$];
+var ClusterInformationList: StaticListSchema = [1, n0, _CIL, 0, () => ClusterInformation$];
+var CodeLineList: StaticListSchema = [1, n0, _CLL, 0, () => CodeLine$];
+var CodeSecurityScanConfigurationAssociationSummaries: StaticListSchema = [
   1,
   n0,
   _CSSCASo,
   0,
-  () => CodeSecurityScanConfigurationAssociationSummary,
+  () => CodeSecurityScanConfigurationAssociationSummary$,
 ];
-export var CodeSecurityScanConfigurationSummaries: StaticListSchema = [
+var CodeSecurityScanConfigurationSummaries: StaticListSchema = [
   1,
   n0,
   _CSSCSo,
   0,
-  () => CodeSecurityScanConfigurationSummary,
+  () => CodeSecurityScanConfigurationSummary$,
 ];
-export var CodeSnippetErrorList: StaticListSchema = [1, n0, _CSEL, 0, () => CodeSnippetError];
-export var CodeSnippetResultList: StaticListSchema = [1, n0, _CSRL, 0, () => CodeSnippetResult];
-export var ContinuousIntegrationScanSupportedEvents = 64 | 0;
-export var CountsList: StaticListSchema = [1, n0, _CLo, 0, () => Counts];
-export var CoverageDateFilterList: StaticListSchema = [1, n0, _CDFL, 0, () => CoverageDateFilter];
-export var CoverageMapFilterList: StaticListSchema = [1, n0, _CMFL, 0, () => CoverageMapFilter];
-export var CoverageNumberFilterList: StaticListSchema = [1, n0, _CNFLo, 0, () => CoverageNumberFilter];
-export var CoverageStringFilterList: StaticListSchema = [1, n0, _CSFL, 0, () => CoverageStringFilter];
-export var CoveredResources: StaticListSchema = [1, n0, _CRo, 0, () => CoveredResource];
-export var CvssScoreAdjustmentList: StaticListSchema = [1, n0, _CSAL, 0, () => CvssScoreAdjustment];
-export var CvssScoreList: StaticListSchema = [1, n0, _CSLv, 0, () => CvssScore];
-export var CweList = 64 | 0;
-export var Cwes = 64 | 0;
-export var DateFilterList: StaticListSchema = [1, n0, _DFL, 0, () => DateFilter];
-export var DaysList = 64 | 0;
-export var DelegatedAdminAccountList: StaticListSchema = [1, n0, _DAAL, 0, () => DelegatedAdminAccount];
-export var DetectionPlatforms = 64 | 0;
-export var DetectorTagList = 64 | 0;
-export var DisableResourceTypeList = 64 | 0;
-export var DisassociateConfigurationRequestList: StaticListSchema = [
-  1,
-  n0,
-  _DCRL,
-  0,
-  () => DisassociateConfigurationRequest,
-];
-export var EnableResourceTypeList = 64 | 0;
-export var EvidenceList: StaticListSchema = [1, n0, _EL, 0, () => Evidence];
-export var FailedAccountList: StaticListSchema = [1, n0, _FAL, 0, () => FailedAccount];
-export var FailedAssociationResultList: StaticListSchema = [1, n0, _FARL, 0, () => FailedAssociationResult];
-export var FailedMemberAccountEc2DeepInspectionStatusStateList: StaticListSchema = [
+var CodeSnippetErrorList: StaticListSchema = [1, n0, _CSEL, 0, () => CodeSnippetError$];
+var CodeSnippetResultList: StaticListSchema = [1, n0, _CSRL, 0, () => CodeSnippetResult$];
+var ContinuousIntegrationScanSupportedEvents = 64 | 0;
+var CountsList: StaticListSchema = [1, n0, _CLo, 0, () => Counts$];
+var CoverageDateFilterList: StaticListSchema = [1, n0, _CDFL, 0, () => CoverageDateFilter$];
+var CoverageMapFilterList: StaticListSchema = [1, n0, _CMFL, 0, () => CoverageMapFilter$];
+var CoverageNumberFilterList: StaticListSchema = [1, n0, _CNFLo, 0, () => CoverageNumberFilter$];
+var CoverageStringFilterList: StaticListSchema = [1, n0, _CSFL, 0, () => CoverageStringFilter$];
+var CoveredResources: StaticListSchema = [1, n0, _CRo, 0, () => CoveredResource$];
+var CvssScoreAdjustmentList: StaticListSchema = [1, n0, _CSAL, 0, () => CvssScoreAdjustment$];
+var CvssScoreList: StaticListSchema = [1, n0, _CSLv, 0, () => CvssScore$];
+var CweList = 64 | 0;
+var Cwes = 64 | 0;
+var DateFilterList: StaticListSchema = [1, n0, _DFL, 0, () => DateFilter$];
+var DaysList = 64 | 0;
+var DelegatedAdminAccountList: StaticListSchema = [1, n0, _DAAL, 0, () => DelegatedAdminAccount$];
+var DetectionPlatforms = 64 | 0;
+var DetectorTagList = 64 | 0;
+var DisableResourceTypeList = 64 | 0;
+var DisassociateConfigurationRequestList: StaticListSchema = [1, n0, _DCRL, 0, () => DisassociateConfigurationRequest$];
+var EnableResourceTypeList = 64 | 0;
+var EvidenceList: StaticListSchema = [1, n0, _EL, 0, () => Evidence$];
+var FailedAccountList: StaticListSchema = [1, n0, _FAL, 0, () => FailedAccount$];
+var FailedAssociationResultList: StaticListSchema = [1, n0, _FARL, 0, () => FailedAssociationResult$];
+var FailedMemberAccountEc2DeepInspectionStatusStateList: StaticListSchema = [
   1,
   n0,
   _FMAEDISSL,
   0,
-  () => FailedMemberAccountEc2DeepInspectionStatusState,
+  () => FailedMemberAccountEc2DeepInspectionStatusState$,
 ];
-export var FilterArnList = 64 | 0;
-export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
-export var FindingArnList = 64 | 0;
-export var FindingArns = 64 | 0;
-export var FindingDetails: StaticListSchema = [1, n0, _FDi, 0, () => FindingDetail];
-export var FindingDetailsErrorList: StaticListSchema = [1, n0, _FDEL, 0, () => FindingDetailsError];
-export var FindingList: StaticListSchema = [1, n0, _FLi, 0, () => Finding];
-export var FreeTrialAccountInfoList: StaticListSchema = [1, n0, _FTAIL, 0, () => FreeTrialAccountInfo];
-export var FreeTrialInfoErrorList: StaticListSchema = [1, n0, _FTIEL, 0, () => FreeTrialInfoError];
-export var FreeTrialInfoList: StaticListSchema = [1, n0, _FTIL, 0, () => FreeTrialInfo];
-export var ImageTagList = 64 | 0;
-export var IntegrationSummaries: StaticListSchema = [1, n0, _IS, 0, () => CodeSecurityIntegrationSummary];
-export var IpV4AddressList = 64 | 0;
-export var IpV6AddressList = 64 | 0;
-export var LambdaLayerList = 64 | 0;
-export var LayerList = 64 | 0;
-export var MapFilterList: StaticListSchema = [1, n0, _MFL, 0, () => MapFilter];
-export var MemberAccountEc2DeepInspectionStatusList: StaticListSchema = [
+var FilterArnList = 64 | 0;
+var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter$];
+var FindingArnList = 64 | 0;
+var FindingArns = 64 | 0;
+var FindingDetails: StaticListSchema = [1, n0, _FDi, 0, () => FindingDetail$];
+var FindingDetailsErrorList: StaticListSchema = [1, n0, _FDEL, 0, () => FindingDetailsError$];
+var FindingList: StaticListSchema = [1, n0, _FLi, 0, () => Finding$];
+var FreeTrialAccountInfoList: StaticListSchema = [1, n0, _FTAIL, 0, () => FreeTrialAccountInfo$];
+var FreeTrialInfoErrorList: StaticListSchema = [1, n0, _FTIEL, 0, () => FreeTrialInfoError$];
+var FreeTrialInfoList: StaticListSchema = [1, n0, _FTIL, 0, () => FreeTrialInfo$];
+var ImageTagList = 64 | 0;
+var IntegrationSummaries: StaticListSchema = [1, n0, _IS, 0, () => CodeSecurityIntegrationSummary$];
+var IpV4AddressList = 64 | 0;
+var IpV6AddressList = 64 | 0;
+var LambdaLayerList = 64 | 0;
+var LayerList = 64 | 0;
+var MapFilterList: StaticListSchema = [1, n0, _MFL, 0, () => MapFilter$];
+var MemberAccountEc2DeepInspectionStatusList: StaticListSchema = [
   1,
   n0,
   _MAEDISL,
   0,
-  () => MemberAccountEc2DeepInspectionStatus,
+  () => MemberAccountEc2DeepInspectionStatus$,
 ];
-export var MemberAccountEc2DeepInspectionStatusStateList: StaticListSchema = [
+var MemberAccountEc2DeepInspectionStatusStateList: StaticListSchema = [
   1,
   n0,
   _MAEDISSL,
   0,
-  () => MemberAccountEc2DeepInspectionStatusState,
+  () => MemberAccountEc2DeepInspectionStatusState$,
 ];
-export var MemberList: StaticListSchema = [1, n0, _ML, 0, () => Member];
-export var MeteringAccountIdList = 64 | 0;
-export var NonEmptyStringList = 64 | 0;
-export var NumberFilterList: StaticListSchema = [1, n0, _NFL, 0, () => NumberFilter];
-export var OneAccountIdFilterList: StaticListSchema = [1, n0, _OAIFL, 0, () => CisStringFilter];
-export var PackageFilterList: StaticListSchema = [1, n0, _PFL, 0, () => PackageFilter];
-export var PathList = 64 | 0;
-export var Permissions: StaticListSchema = [1, n0, _Pe, 0, () => Permission];
-export var PlatformFilterList: StaticListSchema = [1, n0, _PFLl, 0, () => CisStringFilter];
-export var PortRangeFilterList: StaticListSchema = [1, n0, _PRFL, 0, () => PortRangeFilter];
-export var ProjectContinuousIntegrationScanConfigurationList: StaticListSchema = [
+var MemberList: StaticListSchema = [1, n0, _ML, 0, () => Member$];
+var MeteringAccountIdList = 64 | 0;
+var NonEmptyStringList = 64 | 0;
+var NumberFilterList: StaticListSchema = [1, n0, _NFL, 0, () => NumberFilter$];
+var OneAccountIdFilterList: StaticListSchema = [1, n0, _OAIFL, 0, () => CisStringFilter$];
+var PackageFilterList: StaticListSchema = [1, n0, _PFL, 0, () => PackageFilter$];
+var PathList = 64 | 0;
+var Permissions: StaticListSchema = [1, n0, _Pe, 0, () => Permission$];
+var PlatformFilterList: StaticListSchema = [1, n0, _PFLl, 0, () => CisStringFilter$];
+var PortRangeFilterList: StaticListSchema = [1, n0, _PRFL, 0, () => PortRangeFilter$];
+var ProjectContinuousIntegrationScanConfigurationList: StaticListSchema = [
   1,
   n0,
   _PCISCL,
   0,
-  () => ProjectContinuousIntegrationScanConfiguration,
+  () => ProjectContinuousIntegrationScanConfiguration$,
 ];
-export var ProjectPeriodicScanConfigurationList: StaticListSchema = [
+var ProjectPeriodicScanConfigurationList: StaticListSchema = [
   1,
   n0,
   _PPSCL,
   0,
-  () => ProjectPeriodicScanConfiguration,
+  () => ProjectPeriodicScanConfiguration$,
 ];
-export var ReferenceUrls = 64 | 0;
-export var RelatedVulnerabilities = 64 | 0;
-export var ReportTargetAccounts = 64 | 0;
-export var ResourceIdFilterList: StaticListSchema = [1, n0, _RIFL, 0, () => CisStringFilter];
-export var ResourceList: StaticListSchema = [1, n0, _RL, 0, () => Resource];
-export var ResourceMapFilterList: StaticListSchema = [1, n0, _RMFL, 0, () => ResourceMapFilter];
-export var ResourceStringFilterList: StaticListSchema = [1, n0, _RSFL, 0, () => ResourceStringFilter];
-export var ResourceTagFilterList: StaticListSchema = [1, n0, _RTFL, 0, () => TagFilter];
-export var RuleSetCategories = 64 | 0;
-export var SecurityGroupIdList = 64 | 0;
-export var StepList: StaticListSchema = [1, n0, _SL, 0, () => Step];
-export var StringFilterList: StaticListSchema = [1, n0, _SFL, 0, () => StringFilter];
-export var StringList = 64 | 0;
-export var SubnetIdList = 64 | 0;
-export var SuccessfulAssociationResultList: StaticListSchema = [1, n0, _SARL, 0, () => SuccessfulAssociationResult];
-export var SuggestedFixes: StaticListSchema = [1, n0, _SFug, 0, () => SuggestedFix];
-export var TagKeyList = 64 | 0;
-export var TagList = 64 | 0;
-export var TagValueList = 64 | 0;
-export var TargetAccountList = 64 | 0;
-export var Targets = 64 | 0;
-export var TargetStatusFilterList: StaticListSchema = [1, n0, _TSFL, 0, () => CisTargetStatusFilter];
-export var TargetStatusReasonFilterList: StaticListSchema = [1, n0, _TSRFL, 0, () => CisTargetStatusReasonFilter];
-export var TitleFilterList: StaticListSchema = [1, n0, _TFL, 0, () => CisStringFilter];
-export var Tools = 64 | 0;
-export var Ttps = 64 | 0;
-export var UsageAccountIdList = 64 | 0;
-export var UsageList: StaticListSchema = [1, n0, _UL, 0, () => Usage];
-export var UsageTotalList: StaticListSchema = [1, n0, _UTL, 0, () => UsageTotal];
-export var ValidationExceptionFields: StaticListSchema = [1, n0, _VEFa, 0, () => ValidationExceptionField];
-export var Vulnerabilities: StaticListSchema = [1, n0, _Vu, 0, () => Vulnerability];
-export var VulnerabilityIdList = 64 | 0;
-export var VulnerabilityReferenceUrls = 64 | 0;
-export var VulnerablePackageList: StaticListSchema = [1, n0, _VPL, 0, () => VulnerablePackage];
-export var VulnIdList = 64 | 0;
-export var CisTagMap = 128 | 0;
-export var TagMap = 128 | 0;
-export var TargetResourceTags: StaticMapSchema = [2, n0, _TRT, 0, 0, 64 | 0];
-export var AggregationRequest: StaticStructureSchema = [
+var ReferenceUrls = 64 | 0;
+var RelatedVulnerabilities = 64 | 0;
+var ReportTargetAccounts = 64 | 0;
+var ResourceIdFilterList: StaticListSchema = [1, n0, _RIFL, 0, () => CisStringFilter$];
+var ResourceList: StaticListSchema = [1, n0, _RL, 0, () => Resource$];
+var ResourceMapFilterList: StaticListSchema = [1, n0, _RMFL, 0, () => ResourceMapFilter$];
+var ResourceStringFilterList: StaticListSchema = [1, n0, _RSFL, 0, () => ResourceStringFilter$];
+var ResourceTagFilterList: StaticListSchema = [1, n0, _RTFL, 0, () => TagFilter$];
+var RuleSetCategories = 64 | 0;
+var SecurityGroupIdList = 64 | 0;
+var StepList: StaticListSchema = [1, n0, _SL, 0, () => Step$];
+var StringFilterList: StaticListSchema = [1, n0, _SFL, 0, () => StringFilter$];
+var StringList = 64 | 0;
+var SubnetIdList = 64 | 0;
+var SuccessfulAssociationResultList: StaticListSchema = [1, n0, _SARL, 0, () => SuccessfulAssociationResult$];
+var SuggestedFixes: StaticListSchema = [1, n0, _SFug, 0, () => SuggestedFix$];
+var TagKeyList = 64 | 0;
+var TagList = 64 | 0;
+var TagValueList = 64 | 0;
+var TargetAccountList = 64 | 0;
+var Targets = 64 | 0;
+var TargetStatusFilterList: StaticListSchema = [1, n0, _TSFL, 0, () => CisTargetStatusFilter$];
+var TargetStatusReasonFilterList: StaticListSchema = [1, n0, _TSRFL, 0, () => CisTargetStatusReasonFilter$];
+var TitleFilterList: StaticListSchema = [1, n0, _TFL, 0, () => CisStringFilter$];
+var Tools = 64 | 0;
+var Ttps = 64 | 0;
+var UsageAccountIdList = 64 | 0;
+var UsageList: StaticListSchema = [1, n0, _UL, 0, () => Usage$];
+var UsageTotalList: StaticListSchema = [1, n0, _UTL, 0, () => UsageTotal$];
+var ValidationExceptionFields: StaticListSchema = [1, n0, _VEFa, 0, () => ValidationExceptionField$];
+var Vulnerabilities: StaticListSchema = [1, n0, _Vu, 0, () => Vulnerability$];
+var VulnerabilityIdList = 64 | 0;
+var VulnerabilityReferenceUrls = 64 | 0;
+var VulnerablePackageList: StaticListSchema = [1, n0, _VPL, 0, () => VulnerablePackage$];
+var VulnIdList = 64 | 0;
+var CisTagMap = 128 | 0;
+var TagMap = 128 | 0;
+var TargetResourceTags: StaticMapSchema = [2, n0, _TRT, 0, 0, 64 | 0];
+export var AggregationRequest$: StaticStructureSchema = [
   3,
   n0,
   _AR,
   0,
   [_aA, _aAm, _aECA, _eIAc, _fTA, _iLA, _pAa, _rAe, _tAi, _lLA, _lFA, _cRA],
   [
-    () => AccountAggregation,
-    () => AmiAggregation,
-    () => AwsEcrContainerAggregation,
-    () => Ec2InstanceAggregation,
-    () => FindingTypeAggregation,
-    () => ImageLayerAggregation,
-    () => PackageAggregation,
-    () => RepositoryAggregation,
-    () => TitleAggregation,
-    () => LambdaLayerAggregation,
-    () => LambdaFunctionAggregation,
-    () => CodeRepositoryAggregation,
+    () => AccountAggregation$,
+    () => AmiAggregation$,
+    () => AwsEcrContainerAggregation$,
+    () => Ec2InstanceAggregation$,
+    () => FindingTypeAggregation$,
+    () => ImageLayerAggregation$,
+    () => PackageAggregation$,
+    () => RepositoryAggregation$,
+    () => TitleAggregation$,
+    () => LambdaLayerAggregation$,
+    () => LambdaFunctionAggregation$,
+    () => CodeRepositoryAggregation$,
   ],
 ];
-export var AggregationResponse: StaticStructureSchema = [
+export var AggregationResponse$: StaticStructureSchema = [
   3,
   n0,
   _ARg,
   0,
   [_aA, _aAm, _aECA, _eIAc, _fTA, _iLA, _pAa, _rAe, _tAi, _lLA, _lFA, _cRA],
   [
-    () => AccountAggregationResponse,
-    () => AmiAggregationResponse,
-    () => AwsEcrContainerAggregationResponse,
-    () => Ec2InstanceAggregationResponse,
-    () => FindingTypeAggregationResponse,
-    () => ImageLayerAggregationResponse,
-    () => PackageAggregationResponse,
-    () => RepositoryAggregationResponse,
-    () => TitleAggregationResponse,
-    () => LambdaLayerAggregationResponse,
-    () => LambdaFunctionAggregationResponse,
-    () => CodeRepositoryAggregationResponse,
+    () => AccountAggregationResponse$,
+    () => AmiAggregationResponse$,
+    () => AwsEcrContainerAggregationResponse$,
+    () => Ec2InstanceAggregationResponse$,
+    () => FindingTypeAggregationResponse$,
+    () => ImageLayerAggregationResponse$,
+    () => PackageAggregationResponse$,
+    () => RepositoryAggregationResponse$,
+    () => TitleAggregationResponse$,
+    () => LambdaLayerAggregationResponse$,
+    () => LambdaFunctionAggregationResponse$,
+    () => CodeRepositoryAggregationResponse$,
   ],
 ];
-export var ClusterMetadata: StaticStructureSchema = [
+export var ClusterMetadata$: StaticStructureSchema = [
   3,
   n0,
   _CM,
   0,
   [_aEMD, _aEMDw],
-  [() => AwsEcsMetadataDetails, () => AwsEksMetadataDetails],
+  [() => AwsEcsMetadataDetails$, () => AwsEksMetadataDetails$],
 ];
-export var CodeSecurityResource: StaticStructureSchema = [3, n0, _CSRo, 0, [_pI], [0]];
-export var CreateIntegrationDetail: StaticStructureSchema = [
+export var CodeSecurityResource$: StaticStructureSchema = [3, n0, _CSRo, 0, [_pI], [0]];
+export var CreateIntegrationDetail$: StaticStructureSchema = [
   3,
   n0,
   _CID,
   0,
   [_gSM],
-  [[() => CreateGitLabSelfManagedIntegrationDetail, 0]],
+  [[() => CreateGitLabSelfManagedIntegrationDetail$, 0]],
 ];
-export var Schedule: StaticStructureSchema = [
+export var Schedule$: StaticStructureSchema = [
   3,
   n0,
   _Sc,
   0,
   [_oT, _dai, _w, _mo],
-  [() => OneTimeSchedule, () => DailySchedule, () => WeeklySchedule, () => MonthlySchedule],
+  [() => OneTimeSchedule$, () => DailySchedule$, () => WeeklySchedule$, () => MonthlySchedule$],
 ];
-export var UpdateIntegrationDetails: StaticStructureSchema = [
+export var UpdateIntegrationDetails$: StaticStructureSchema = [
   3,
   n0,
   _UID,
   0,
   [_gSM, _g],
   [
-    [() => UpdateGitLabSelfManagedIntegrationDetail, 0],
-    [() => UpdateGitHubIntegrationDetail, 0],
+    [() => UpdateGitLabSelfManagedIntegrationDetail$, 0],
+    [() => UpdateGitHubIntegrationDetail$, 0],
   ],
 ];
-export var AssociateMember: StaticOperationSchema = [
+export var AssociateMember$: StaticOperationSchema = [
   9,
   n0,
   _AM,
   { [_ht]: ["POST", "/members/associate", 200] },
-  () => AssociateMemberRequest,
-  () => AssociateMemberResponse,
+  () => AssociateMemberRequest$,
+  () => AssociateMemberResponse$,
 ];
-export var BatchAssociateCodeSecurityScanConfiguration: StaticOperationSchema = [
+export var BatchAssociateCodeSecurityScanConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _BACSSC,
   { [_ht]: ["POST", "/codesecurity/scan-configuration/batch/associate", 200] },
-  () => BatchAssociateCodeSecurityScanConfigurationRequest,
-  () => BatchAssociateCodeSecurityScanConfigurationResponse,
+  () => BatchAssociateCodeSecurityScanConfigurationRequest$,
+  () => BatchAssociateCodeSecurityScanConfigurationResponse$,
 ];
-export var BatchDisassociateCodeSecurityScanConfiguration: StaticOperationSchema = [
+export var BatchDisassociateCodeSecurityScanConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _BDCSSC,
   { [_ht]: ["POST", "/codesecurity/scan-configuration/batch/disassociate", 200] },
-  () => BatchDisassociateCodeSecurityScanConfigurationRequest,
-  () => BatchDisassociateCodeSecurityScanConfigurationResponse,
+  () => BatchDisassociateCodeSecurityScanConfigurationRequest$,
+  () => BatchDisassociateCodeSecurityScanConfigurationResponse$,
 ];
-export var BatchGetAccountStatus: StaticOperationSchema = [
+export var BatchGetAccountStatus$: StaticOperationSchema = [
   9,
   n0,
   _BGAS,
   { [_ht]: ["POST", "/status/batch/get", 200] },
-  () => BatchGetAccountStatusRequest,
-  () => BatchGetAccountStatusResponse,
+  () => BatchGetAccountStatusRequest$,
+  () => BatchGetAccountStatusResponse$,
 ];
-export var BatchGetCodeSnippet: StaticOperationSchema = [
+export var BatchGetCodeSnippet$: StaticOperationSchema = [
   9,
   n0,
   _BGCS,
   { [_ht]: ["POST", "/codesnippet/batchget", 200] },
-  () => BatchGetCodeSnippetRequest,
-  () => BatchGetCodeSnippetResponse,
+  () => BatchGetCodeSnippetRequest$,
+  () => BatchGetCodeSnippetResponse$,
 ];
-export var BatchGetFindingDetails: StaticOperationSchema = [
+export var BatchGetFindingDetails$: StaticOperationSchema = [
   9,
   n0,
   _BGFD,
   { [_ht]: ["POST", "/findings/details/batch/get", 200] },
-  () => BatchGetFindingDetailsRequest,
-  () => BatchGetFindingDetailsResponse,
+  () => BatchGetFindingDetailsRequest$,
+  () => BatchGetFindingDetailsResponse$,
 ];
-export var BatchGetFreeTrialInfo: StaticOperationSchema = [
+export var BatchGetFreeTrialInfo$: StaticOperationSchema = [
   9,
   n0,
   _BGFTI,
   { [_ht]: ["POST", "/freetrialinfo/batchget", 200] },
-  () => BatchGetFreeTrialInfoRequest,
-  () => BatchGetFreeTrialInfoResponse,
+  () => BatchGetFreeTrialInfoRequest$,
+  () => BatchGetFreeTrialInfoResponse$,
 ];
-export var BatchGetMemberEc2DeepInspectionStatus: StaticOperationSchema = [
+export var BatchGetMemberEc2DeepInspectionStatus$: StaticOperationSchema = [
   9,
   n0,
   _BGMEDIS,
   { [_ht]: ["POST", "/ec2deepinspectionstatus/member/batch/get", 200] },
-  () => BatchGetMemberEc2DeepInspectionStatusRequest,
-  () => BatchGetMemberEc2DeepInspectionStatusResponse,
+  () => BatchGetMemberEc2DeepInspectionStatusRequest$,
+  () => BatchGetMemberEc2DeepInspectionStatusResponse$,
 ];
-export var BatchUpdateMemberEc2DeepInspectionStatus: StaticOperationSchema = [
+export var BatchUpdateMemberEc2DeepInspectionStatus$: StaticOperationSchema = [
   9,
   n0,
   _BUMEDIS,
   { [_ht]: ["POST", "/ec2deepinspectionstatus/member/batch/update", 200] },
-  () => BatchUpdateMemberEc2DeepInspectionStatusRequest,
-  () => BatchUpdateMemberEc2DeepInspectionStatusResponse,
+  () => BatchUpdateMemberEc2DeepInspectionStatusRequest$,
+  () => BatchUpdateMemberEc2DeepInspectionStatusResponse$,
 ];
-export var CancelFindingsReport: StaticOperationSchema = [
+export var CancelFindingsReport$: StaticOperationSchema = [
   9,
   n0,
   _CFRa,
   { [_ht]: ["POST", "/reporting/cancel", 200] },
-  () => CancelFindingsReportRequest,
-  () => CancelFindingsReportResponse,
+  () => CancelFindingsReportRequest$,
+  () => CancelFindingsReportResponse$,
 ];
-export var CancelSbomExport: StaticOperationSchema = [
+export var CancelSbomExport$: StaticOperationSchema = [
   9,
   n0,
   _CSEa,
   { [_ht]: ["POST", "/sbomexport/cancel", 200] },
-  () => CancelSbomExportRequest,
-  () => CancelSbomExportResponse,
+  () => CancelSbomExportRequest$,
+  () => CancelSbomExportResponse$,
 ];
-export var CreateCisScanConfiguration: StaticOperationSchema = [
+export var CreateCisScanConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _CCSC,
   { [_ht]: ["POST", "/cis/scan-configuration/create", 200] },
-  () => CreateCisScanConfigurationRequest,
-  () => CreateCisScanConfigurationResponse,
+  () => CreateCisScanConfigurationRequest$,
+  () => CreateCisScanConfigurationResponse$,
 ];
-export var CreateCodeSecurityIntegration: StaticOperationSchema = [
+export var CreateCodeSecurityIntegration$: StaticOperationSchema = [
   9,
   n0,
   _CCSI,
   { [_ht]: ["POST", "/codesecurity/integration/create", 200] },
-  () => CreateCodeSecurityIntegrationRequest,
-  () => CreateCodeSecurityIntegrationResponse,
+  () => CreateCodeSecurityIntegrationRequest$,
+  () => CreateCodeSecurityIntegrationResponse$,
 ];
-export var CreateCodeSecurityScanConfiguration: StaticOperationSchema = [
+export var CreateCodeSecurityScanConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _CCSSC,
   { [_ht]: ["POST", "/codesecurity/scan-configuration/create", 200] },
-  () => CreateCodeSecurityScanConfigurationRequest,
-  () => CreateCodeSecurityScanConfigurationResponse,
+  () => CreateCodeSecurityScanConfigurationRequest$,
+  () => CreateCodeSecurityScanConfigurationResponse$,
 ];
-export var CreateFilter: StaticOperationSchema = [
+export var CreateFilter$: StaticOperationSchema = [
   9,
   n0,
   _CF,
   { [_ht]: ["POST", "/filters/create", 200] },
-  () => CreateFilterRequest,
-  () => CreateFilterResponse,
+  () => CreateFilterRequest$,
+  () => CreateFilterResponse$,
 ];
-export var CreateFindingsReport: StaticOperationSchema = [
+export var CreateFindingsReport$: StaticOperationSchema = [
   9,
   n0,
   _CFRre,
   { [_ht]: ["POST", "/reporting/create", 200] },
-  () => CreateFindingsReportRequest,
-  () => CreateFindingsReportResponse,
+  () => CreateFindingsReportRequest$,
+  () => CreateFindingsReportResponse$,
 ];
-export var CreateSbomExport: StaticOperationSchema = [
+export var CreateSbomExport$: StaticOperationSchema = [
   9,
   n0,
   _CSEr,
   { [_ht]: ["POST", "/sbomexport/create", 200] },
-  () => CreateSbomExportRequest,
-  () => CreateSbomExportResponse,
+  () => CreateSbomExportRequest$,
+  () => CreateSbomExportResponse$,
 ];
-export var DeleteCisScanConfiguration: StaticOperationSchema = [
+export var DeleteCisScanConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DCSC,
   { [_ht]: ["POST", "/cis/scan-configuration/delete", 200] },
-  () => DeleteCisScanConfigurationRequest,
-  () => DeleteCisScanConfigurationResponse,
+  () => DeleteCisScanConfigurationRequest$,
+  () => DeleteCisScanConfigurationResponse$,
 ];
-export var DeleteCodeSecurityIntegration: StaticOperationSchema = [
+export var DeleteCodeSecurityIntegration$: StaticOperationSchema = [
   9,
   n0,
   _DCSI,
   { [_ht]: ["POST", "/codesecurity/integration/delete", 200] },
-  () => DeleteCodeSecurityIntegrationRequest,
-  () => DeleteCodeSecurityIntegrationResponse,
+  () => DeleteCodeSecurityIntegrationRequest$,
+  () => DeleteCodeSecurityIntegrationResponse$,
 ];
-export var DeleteCodeSecurityScanConfiguration: StaticOperationSchema = [
+export var DeleteCodeSecurityScanConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DCSSC,
   { [_ht]: ["POST", "/codesecurity/scan-configuration/delete", 200] },
-  () => DeleteCodeSecurityScanConfigurationRequest,
-  () => DeleteCodeSecurityScanConfigurationResponse,
+  () => DeleteCodeSecurityScanConfigurationRequest$,
+  () => DeleteCodeSecurityScanConfigurationResponse$,
 ];
-export var DeleteFilter: StaticOperationSchema = [
+export var DeleteFilter$: StaticOperationSchema = [
   9,
   n0,
   _DFe,
   { [_ht]: ["POST", "/filters/delete", 200] },
-  () => DeleteFilterRequest,
-  () => DeleteFilterResponse,
+  () => DeleteFilterRequest$,
+  () => DeleteFilterResponse$,
 ];
-export var DescribeOrganizationConfiguration: StaticOperationSchema = [
+export var DescribeOrganizationConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DOC,
   { [_ht]: ["POST", "/organizationconfiguration/describe", 200] },
-  () => DescribeOrganizationConfigurationRequest,
-  () => DescribeOrganizationConfigurationResponse,
+  () => DescribeOrganizationConfigurationRequest$,
+  () => DescribeOrganizationConfigurationResponse$,
 ];
-export var Disable: StaticOperationSchema = [
+export var Disable$: StaticOperationSchema = [
   9,
   n0,
   _Di,
   { [_ht]: ["POST", "/disable", 200] },
-  () => DisableRequest,
-  () => DisableResponse,
+  () => DisableRequest$,
+  () => DisableResponse$,
 ];
-export var DisableDelegatedAdminAccount: StaticOperationSchema = [
+export var DisableDelegatedAdminAccount$: StaticOperationSchema = [
   9,
   n0,
   _DDAA,
   { [_ht]: ["POST", "/delegatedadminaccounts/disable", 200] },
-  () => DisableDelegatedAdminAccountRequest,
-  () => DisableDelegatedAdminAccountResponse,
+  () => DisableDelegatedAdminAccountRequest$,
+  () => DisableDelegatedAdminAccountResponse$,
 ];
-export var DisassociateMember: StaticOperationSchema = [
+export var DisassociateMember$: StaticOperationSchema = [
   9,
   n0,
   _DM,
   { [_ht]: ["POST", "/members/disassociate", 200] },
-  () => DisassociateMemberRequest,
-  () => DisassociateMemberResponse,
+  () => DisassociateMemberRequest$,
+  () => DisassociateMemberResponse$,
 ];
-export var Enable: StaticOperationSchema = [
+export var Enable$: StaticOperationSchema = [
   9,
   n0,
   _En,
   { [_ht]: ["POST", "/enable", 200] },
-  () => EnableRequest,
-  () => EnableResponse,
+  () => EnableRequest$,
+  () => EnableResponse$,
 ];
-export var EnableDelegatedAdminAccount: StaticOperationSchema = [
+export var EnableDelegatedAdminAccount$: StaticOperationSchema = [
   9,
   n0,
   _EDAA,
   { [_ht]: ["POST", "/delegatedadminaccounts/enable", 200] },
-  () => EnableDelegatedAdminAccountRequest,
-  () => EnableDelegatedAdminAccountResponse,
+  () => EnableDelegatedAdminAccountRequest$,
+  () => EnableDelegatedAdminAccountResponse$,
 ];
-export var GetCisScanReport: StaticOperationSchema = [
+export var GetCisScanReport$: StaticOperationSchema = [
   9,
   n0,
   _GCSR,
   { [_ht]: ["POST", "/cis/scan/report/get", 200] },
-  () => GetCisScanReportRequest,
-  () => GetCisScanReportResponse,
+  () => GetCisScanReportRequest$,
+  () => GetCisScanReportResponse$,
 ];
-export var GetCisScanResultDetails: StaticOperationSchema = [
+export var GetCisScanResultDetails$: StaticOperationSchema = [
   9,
   n0,
   _GCSRD,
   { [_ht]: ["POST", "/cis/scan-result/details/get", 200] },
-  () => GetCisScanResultDetailsRequest,
-  () => GetCisScanResultDetailsResponse,
+  () => GetCisScanResultDetailsRequest$,
+  () => GetCisScanResultDetailsResponse$,
 ];
-export var GetClustersForImage: StaticOperationSchema = [
+export var GetClustersForImage$: StaticOperationSchema = [
   9,
   n0,
   _GCFI,
   { [_ht]: ["POST", "/cluster/get", 200] },
-  () => GetClustersForImageRequest,
-  () => GetClustersForImageResponse,
+  () => GetClustersForImageRequest$,
+  () => GetClustersForImageResponse$,
 ];
-export var GetCodeSecurityIntegration: StaticOperationSchema = [
+export var GetCodeSecurityIntegration$: StaticOperationSchema = [
   9,
   n0,
   _GCSI,
   { [_ht]: ["POST", "/codesecurity/integration/get", 200] },
-  () => GetCodeSecurityIntegrationRequest,
-  () => GetCodeSecurityIntegrationResponse,
+  () => GetCodeSecurityIntegrationRequest$,
+  () => GetCodeSecurityIntegrationResponse$,
 ];
-export var GetCodeSecurityScan: StaticOperationSchema = [
+export var GetCodeSecurityScan$: StaticOperationSchema = [
   9,
   n0,
   _GCSS,
   { [_ht]: ["POST", "/codesecurity/scan/get", 200] },
-  () => GetCodeSecurityScanRequest,
-  () => GetCodeSecurityScanResponse,
+  () => GetCodeSecurityScanRequest$,
+  () => GetCodeSecurityScanResponse$,
 ];
-export var GetCodeSecurityScanConfiguration: StaticOperationSchema = [
+export var GetCodeSecurityScanConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GCSSC,
   { [_ht]: ["POST", "/codesecurity/scan-configuration/get", 200] },
-  () => GetCodeSecurityScanConfigurationRequest,
-  () => GetCodeSecurityScanConfigurationResponse,
+  () => GetCodeSecurityScanConfigurationRequest$,
+  () => GetCodeSecurityScanConfigurationResponse$,
 ];
-export var GetConfiguration: StaticOperationSchema = [
+export var GetConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GC,
   { [_ht]: ["POST", "/configuration/get", 200] },
-  () => GetConfigurationRequest,
-  () => GetConfigurationResponse,
+  () => GetConfigurationRequest$,
+  () => GetConfigurationResponse$,
 ];
-export var GetDelegatedAdminAccount: StaticOperationSchema = [
+export var GetDelegatedAdminAccount$: StaticOperationSchema = [
   9,
   n0,
   _GDAA,
   { [_ht]: ["POST", "/delegatedadminaccounts/get", 200] },
-  () => GetDelegatedAdminAccountRequest,
-  () => GetDelegatedAdminAccountResponse,
+  () => GetDelegatedAdminAccountRequest$,
+  () => GetDelegatedAdminAccountResponse$,
 ];
-export var GetEc2DeepInspectionConfiguration: StaticOperationSchema = [
+export var GetEc2DeepInspectionConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GEDIC,
   { [_ht]: ["POST", "/ec2deepinspectionconfiguration/get", 200] },
-  () => GetEc2DeepInspectionConfigurationRequest,
-  () => GetEc2DeepInspectionConfigurationResponse,
+  () => GetEc2DeepInspectionConfigurationRequest$,
+  () => GetEc2DeepInspectionConfigurationResponse$,
 ];
-export var GetEncryptionKey: StaticOperationSchema = [
+export var GetEncryptionKey$: StaticOperationSchema = [
   9,
   n0,
   _GEK,
   { [_ht]: ["GET", "/encryptionkey/get", 200] },
-  () => GetEncryptionKeyRequest,
-  () => GetEncryptionKeyResponse,
+  () => GetEncryptionKeyRequest$,
+  () => GetEncryptionKeyResponse$,
 ];
-export var GetFindingsReportStatus: StaticOperationSchema = [
+export var GetFindingsReportStatus$: StaticOperationSchema = [
   9,
   n0,
   _GFRS,
   { [_ht]: ["POST", "/reporting/status/get", 200] },
-  () => GetFindingsReportStatusRequest,
-  () => GetFindingsReportStatusResponse,
+  () => GetFindingsReportStatusRequest$,
+  () => GetFindingsReportStatusResponse$,
 ];
-export var GetMember: StaticOperationSchema = [
+export var GetMember$: StaticOperationSchema = [
   9,
   n0,
   _GM,
   { [_ht]: ["POST", "/members/get", 200] },
-  () => GetMemberRequest,
-  () => GetMemberResponse,
+  () => GetMemberRequest$,
+  () => GetMemberResponse$,
 ];
-export var GetSbomExport: StaticOperationSchema = [
+export var GetSbomExport$: StaticOperationSchema = [
   9,
   n0,
   _GSE,
   { [_ht]: ["POST", "/sbomexport/get", 200] },
-  () => GetSbomExportRequest,
-  () => GetSbomExportResponse,
+  () => GetSbomExportRequest$,
+  () => GetSbomExportResponse$,
 ];
-export var ListAccountPermissions: StaticOperationSchema = [
+export var ListAccountPermissions$: StaticOperationSchema = [
   9,
   n0,
   _LAP,
   { [_ht]: ["POST", "/accountpermissions/list", 200] },
-  () => ListAccountPermissionsRequest,
-  () => ListAccountPermissionsResponse,
+  () => ListAccountPermissionsRequest$,
+  () => ListAccountPermissionsResponse$,
 ];
-export var ListCisScanConfigurations: StaticOperationSchema = [
+export var ListCisScanConfigurations$: StaticOperationSchema = [
   9,
   n0,
   _LCSC,
   { [_ht]: ["POST", "/cis/scan-configuration/list", 200] },
-  () => ListCisScanConfigurationsRequest,
-  () => ListCisScanConfigurationsResponse,
+  () => ListCisScanConfigurationsRequest$,
+  () => ListCisScanConfigurationsResponse$,
 ];
-export var ListCisScanResultsAggregatedByChecks: StaticOperationSchema = [
+export var ListCisScanResultsAggregatedByChecks$: StaticOperationSchema = [
   9,
   n0,
   _LCSRABC,
   { [_ht]: ["POST", "/cis/scan-result/check/list", 200] },
-  () => ListCisScanResultsAggregatedByChecksRequest,
-  () => ListCisScanResultsAggregatedByChecksResponse,
+  () => ListCisScanResultsAggregatedByChecksRequest$,
+  () => ListCisScanResultsAggregatedByChecksResponse$,
 ];
-export var ListCisScanResultsAggregatedByTargetResource: StaticOperationSchema = [
+export var ListCisScanResultsAggregatedByTargetResource$: StaticOperationSchema = [
   9,
   n0,
   _LCSRABTR,
   { [_ht]: ["POST", "/cis/scan-result/resource/list", 200] },
-  () => ListCisScanResultsAggregatedByTargetResourceRequest,
-  () => ListCisScanResultsAggregatedByTargetResourceResponse,
+  () => ListCisScanResultsAggregatedByTargetResourceRequest$,
+  () => ListCisScanResultsAggregatedByTargetResourceResponse$,
 ];
-export var ListCisScans: StaticOperationSchema = [
+export var ListCisScans$: StaticOperationSchema = [
   9,
   n0,
   _LCS,
   { [_ht]: ["POST", "/cis/scan/list", 200] },
-  () => ListCisScansRequest,
-  () => ListCisScansResponse,
+  () => ListCisScansRequest$,
+  () => ListCisScansResponse$,
 ];
-export var ListCodeSecurityIntegrations: StaticOperationSchema = [
+export var ListCodeSecurityIntegrations$: StaticOperationSchema = [
   9,
   n0,
   _LCSI,
   { [_ht]: ["POST", "/codesecurity/integration/list", 200] },
-  () => ListCodeSecurityIntegrationsRequest,
-  () => ListCodeSecurityIntegrationsResponse,
+  () => ListCodeSecurityIntegrationsRequest$,
+  () => ListCodeSecurityIntegrationsResponse$,
 ];
-export var ListCodeSecurityScanConfigurationAssociations: StaticOperationSchema = [
+export var ListCodeSecurityScanConfigurationAssociations$: StaticOperationSchema = [
   9,
   n0,
   _LCSSCA,
   { [_ht]: ["POST", "/codesecurity/scan-configuration/associations/list", 200] },
-  () => ListCodeSecurityScanConfigurationAssociationsRequest,
-  () => ListCodeSecurityScanConfigurationAssociationsResponse,
+  () => ListCodeSecurityScanConfigurationAssociationsRequest$,
+  () => ListCodeSecurityScanConfigurationAssociationsResponse$,
 ];
-export var ListCodeSecurityScanConfigurations: StaticOperationSchema = [
+export var ListCodeSecurityScanConfigurations$: StaticOperationSchema = [
   9,
   n0,
   _LCSSC,
   { [_ht]: ["POST", "/codesecurity/scan-configuration/list", 200] },
-  () => ListCodeSecurityScanConfigurationsRequest,
-  () => ListCodeSecurityScanConfigurationsResponse,
+  () => ListCodeSecurityScanConfigurationsRequest$,
+  () => ListCodeSecurityScanConfigurationsResponse$,
 ];
-export var ListCoverage: StaticOperationSchema = [
+export var ListCoverage$: StaticOperationSchema = [
   9,
   n0,
   _LC,
   { [_ht]: ["POST", "/coverage/list", 200] },
-  () => ListCoverageRequest,
-  () => ListCoverageResponse,
+  () => ListCoverageRequest$,
+  () => ListCoverageResponse$,
 ];
-export var ListCoverageStatistics: StaticOperationSchema = [
+export var ListCoverageStatistics$: StaticOperationSchema = [
   9,
   n0,
   _LCSi,
   { [_ht]: ["POST", "/coverage/statistics/list", 200] },
-  () => ListCoverageStatisticsRequest,
-  () => ListCoverageStatisticsResponse,
+  () => ListCoverageStatisticsRequest$,
+  () => ListCoverageStatisticsResponse$,
 ];
-export var ListDelegatedAdminAccounts: StaticOperationSchema = [
+export var ListDelegatedAdminAccounts$: StaticOperationSchema = [
   9,
   n0,
   _LDAA,
   { [_ht]: ["POST", "/delegatedadminaccounts/list", 200] },
-  () => ListDelegatedAdminAccountsRequest,
-  () => ListDelegatedAdminAccountsResponse,
+  () => ListDelegatedAdminAccountsRequest$,
+  () => ListDelegatedAdminAccountsResponse$,
 ];
-export var ListFilters: StaticOperationSchema = [
+export var ListFilters$: StaticOperationSchema = [
   9,
   n0,
   _LF,
   { [_ht]: ["POST", "/filters/list", 200] },
-  () => ListFiltersRequest,
-  () => ListFiltersResponse,
+  () => ListFiltersRequest$,
+  () => ListFiltersResponse$,
 ];
-export var ListFindingAggregations: StaticOperationSchema = [
+export var ListFindingAggregations$: StaticOperationSchema = [
   9,
   n0,
   _LFAi,
   { [_ht]: ["POST", "/findings/aggregation/list", 200] },
-  () => ListFindingAggregationsRequest,
-  () => ListFindingAggregationsResponse,
+  () => ListFindingAggregationsRequest$,
+  () => ListFindingAggregationsResponse$,
 ];
-export var ListFindings: StaticOperationSchema = [
+export var ListFindings$: StaticOperationSchema = [
   9,
   n0,
   _LFi,
   { [_ht]: ["POST", "/findings/list", 200] },
-  () => ListFindingsRequest,
-  () => ListFindingsResponse,
+  () => ListFindingsRequest$,
+  () => ListFindingsResponse$,
 ];
-export var ListMembers: StaticOperationSchema = [
+export var ListMembers$: StaticOperationSchema = [
   9,
   n0,
   _LM,
   { [_ht]: ["POST", "/members/list", 200] },
-  () => ListMembersRequest,
-  () => ListMembersResponse,
+  () => ListMembersRequest$,
+  () => ListMembersResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_ht]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListUsageTotals: StaticOperationSchema = [
+export var ListUsageTotals$: StaticOperationSchema = [
   9,
   n0,
   _LUT,
   { [_ht]: ["POST", "/usage/list", 200] },
-  () => ListUsageTotalsRequest,
-  () => ListUsageTotalsResponse,
+  () => ListUsageTotalsRequest$,
+  () => ListUsageTotalsResponse$,
 ];
-export var ResetEncryptionKey: StaticOperationSchema = [
+export var ResetEncryptionKey$: StaticOperationSchema = [
   9,
   n0,
   _REK,
   { [_ht]: ["PUT", "/encryptionkey/reset", 200] },
-  () => ResetEncryptionKeyRequest,
-  () => ResetEncryptionKeyResponse,
+  () => ResetEncryptionKeyRequest$,
+  () => ResetEncryptionKeyResponse$,
 ];
-export var SearchVulnerabilities: StaticOperationSchema = [
+export var SearchVulnerabilities$: StaticOperationSchema = [
   9,
   n0,
   _SV,
   { [_ht]: ["POST", "/vulnerabilities/search", 200] },
-  () => SearchVulnerabilitiesRequest,
-  () => SearchVulnerabilitiesResponse,
+  () => SearchVulnerabilitiesRequest$,
+  () => SearchVulnerabilitiesResponse$,
 ];
-export var SendCisSessionHealth: StaticOperationSchema = [
+export var SendCisSessionHealth$: StaticOperationSchema = [
   9,
   n0,
   _SCSH,
   { [_ht]: ["PUT", "/cissession/health/send", 200] },
-  () => SendCisSessionHealthRequest,
-  () => SendCisSessionHealthResponse,
+  () => SendCisSessionHealthRequest$,
+  () => SendCisSessionHealthResponse$,
 ];
-export var SendCisSessionTelemetry: StaticOperationSchema = [
+export var SendCisSessionTelemetry$: StaticOperationSchema = [
   9,
   n0,
   _SCST,
   { [_ht]: ["PUT", "/cissession/telemetry/send", 200] },
-  () => SendCisSessionTelemetryRequest,
-  () => SendCisSessionTelemetryResponse,
+  () => SendCisSessionTelemetryRequest$,
+  () => SendCisSessionTelemetryResponse$,
 ];
-export var StartCisSession: StaticOperationSchema = [
+export var StartCisSession$: StaticOperationSchema = [
   9,
   n0,
   _SCS,
   { [_ht]: ["PUT", "/cissession/start", 200] },
-  () => StartCisSessionRequest,
-  () => StartCisSessionResponse,
+  () => StartCisSessionRequest$,
+  () => StartCisSessionResponse$,
 ];
-export var StartCodeSecurityScan: StaticOperationSchema = [
+export var StartCodeSecurityScan$: StaticOperationSchema = [
   9,
   n0,
   _SCSS,
   { [_ht]: ["POST", "/codesecurity/scan/start", 200] },
-  () => StartCodeSecurityScanRequest,
-  () => StartCodeSecurityScanResponse,
+  () => StartCodeSecurityScanRequest$,
+  () => StartCodeSecurityScanResponse$,
 ];
-export var StopCisSession: StaticOperationSchema = [
+export var StopCisSession$: StaticOperationSchema = [
   9,
   n0,
   _SCSt,
   { [_ht]: ["PUT", "/cissession/stop", 200] },
-  () => StopCisSessionRequest,
-  () => StopCisSessionResponse,
+  () => StopCisSessionRequest$,
+  () => StopCisSessionResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_ht]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_ht]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateCisScanConfiguration: StaticOperationSchema = [
+export var UpdateCisScanConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UCSC,
   { [_ht]: ["POST", "/cis/scan-configuration/update", 200] },
-  () => UpdateCisScanConfigurationRequest,
-  () => UpdateCisScanConfigurationResponse,
+  () => UpdateCisScanConfigurationRequest$,
+  () => UpdateCisScanConfigurationResponse$,
 ];
-export var UpdateCodeSecurityIntegration: StaticOperationSchema = [
+export var UpdateCodeSecurityIntegration$: StaticOperationSchema = [
   9,
   n0,
   _UCSI,
   { [_ht]: ["POST", "/codesecurity/integration/update", 200] },
-  () => UpdateCodeSecurityIntegrationRequest,
-  () => UpdateCodeSecurityIntegrationResponse,
+  () => UpdateCodeSecurityIntegrationRequest$,
+  () => UpdateCodeSecurityIntegrationResponse$,
 ];
-export var UpdateCodeSecurityScanConfiguration: StaticOperationSchema = [
+export var UpdateCodeSecurityScanConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UCSSC,
   { [_ht]: ["POST", "/codesecurity/scan-configuration/update", 200] },
-  () => UpdateCodeSecurityScanConfigurationRequest,
-  () => UpdateCodeSecurityScanConfigurationResponse,
+  () => UpdateCodeSecurityScanConfigurationRequest$,
+  () => UpdateCodeSecurityScanConfigurationResponse$,
 ];
-export var UpdateConfiguration: StaticOperationSchema = [
+export var UpdateConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UC,
   { [_ht]: ["POST", "/configuration/update", 200] },
-  () => UpdateConfigurationRequest,
-  () => UpdateConfigurationResponse,
+  () => UpdateConfigurationRequest$,
+  () => UpdateConfigurationResponse$,
 ];
-export var UpdateEc2DeepInspectionConfiguration: StaticOperationSchema = [
+export var UpdateEc2DeepInspectionConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UEDIC,
   { [_ht]: ["POST", "/ec2deepinspectionconfiguration/update", 200] },
-  () => UpdateEc2DeepInspectionConfigurationRequest,
-  () => UpdateEc2DeepInspectionConfigurationResponse,
+  () => UpdateEc2DeepInspectionConfigurationRequest$,
+  () => UpdateEc2DeepInspectionConfigurationResponse$,
 ];
-export var UpdateEncryptionKey: StaticOperationSchema = [
+export var UpdateEncryptionKey$: StaticOperationSchema = [
   9,
   n0,
   _UEK,
   { [_ht]: ["PUT", "/encryptionkey/update", 200] },
-  () => UpdateEncryptionKeyRequest,
-  () => UpdateEncryptionKeyResponse,
+  () => UpdateEncryptionKeyRequest$,
+  () => UpdateEncryptionKeyResponse$,
 ];
-export var UpdateFilter: StaticOperationSchema = [
+export var UpdateFilter$: StaticOperationSchema = [
   9,
   n0,
   _UF,
   { [_ht]: ["POST", "/filters/update", 200] },
-  () => UpdateFilterRequest,
-  () => UpdateFilterResponse,
+  () => UpdateFilterRequest$,
+  () => UpdateFilterResponse$,
 ];
-export var UpdateOrganizationConfiguration: StaticOperationSchema = [
+export var UpdateOrganizationConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UOC,
   { [_ht]: ["POST", "/organizationconfiguration/update", 200] },
-  () => UpdateOrganizationConfigurationRequest,
-  () => UpdateOrganizationConfigurationResponse,
+  () => UpdateOrganizationConfigurationRequest$,
+  () => UpdateOrganizationConfigurationResponse$,
 ];
-export var UpdateOrgEc2DeepInspectionConfiguration: StaticOperationSchema = [
+export var UpdateOrgEc2DeepInspectionConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UOEDIC,
   { [_ht]: ["POST", "/ec2deepinspectionconfiguration/org/update", 200] },
-  () => UpdateOrgEc2DeepInspectionConfigurationRequest,
-  () => UpdateOrgEc2DeepInspectionConfigurationResponse,
+  () => UpdateOrgEc2DeepInspectionConfigurationRequest$,
+  () => UpdateOrgEc2DeepInspectionConfigurationResponse$,
 ];

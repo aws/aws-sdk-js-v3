@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyGlobalClusterMessage, ModifyGlobalClusterResult } from "../models/models_0";
 import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { ModifyGlobalCluster } from "../schemas/schemas_0";
+import { ModifyGlobalCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class ModifyGlobalClusterCommand extends $Command
   })
   .s("AmazonRDSv19", "ModifyGlobalCluster", {})
   .n("NeptuneClient", "ModifyGlobalClusterCommand")
-  .sc(ModifyGlobalCluster)
+  .sc(ModifyGlobalCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

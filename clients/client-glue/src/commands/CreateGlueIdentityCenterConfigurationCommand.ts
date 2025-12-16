@@ -9,7 +9,7 @@ import type {
   CreateGlueIdentityCenterConfigurationRequest,
   CreateGlueIdentityCenterConfigurationResponse,
 } from "../models/models_1";
-import { CreateGlueIdentityCenterConfiguration } from "../schemas/schemas_0";
+import { CreateGlueIdentityCenterConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class CreateGlueIdentityCenterConfigurationCommand extends $Command
   })
   .s("AWSGlue", "CreateGlueIdentityCenterConfiguration", {})
   .n("GlueClient", "CreateGlueIdentityCenterConfigurationCommand")
-  .sc(CreateGlueIdentityCenterConfiguration)
+  .sc(CreateGlueIdentityCenterConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

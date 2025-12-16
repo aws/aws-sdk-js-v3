@@ -8,7 +8,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutMultiRegionAccessPointPolicyRequest, PutMultiRegionAccessPointPolicyResult } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { PutMultiRegionAccessPointPolicy } from "../schemas/schemas_0";
+import { PutMultiRegionAccessPointPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class PutMultiRegionAccessPointPolicyCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "PutMultiRegionAccessPointPolicy", {})
   .n("S3ControlClient", "PutMultiRegionAccessPointPolicyCommand")
-  .sc(PutMultiRegionAccessPointPolicy)
+  .sc(PutMultiRegionAccessPointPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

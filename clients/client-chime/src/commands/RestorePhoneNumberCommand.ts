@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RestorePhoneNumberRequest, RestorePhoneNumberResponse } from "../models/models_0";
-import { RestorePhoneNumber } from "../schemas/schemas_0";
+import { RestorePhoneNumber$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class RestorePhoneNumberCommand extends $Command
   })
   .s("UCBuzzConsoleService", "RestorePhoneNumber", {})
   .n("ChimeClient", "RestorePhoneNumberCommand")
-  .sc(RestorePhoneNumber)
+  .sc(RestorePhoneNumber$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

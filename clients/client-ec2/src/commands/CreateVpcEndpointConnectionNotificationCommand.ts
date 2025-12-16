@@ -9,7 +9,7 @@ import type {
   CreateVpcEndpointConnectionNotificationRequest,
   CreateVpcEndpointConnectionNotificationResult,
 } from "../models/models_2";
-import { CreateVpcEndpointConnectionNotification } from "../schemas/schemas_0";
+import { CreateVpcEndpointConnectionNotification$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class CreateVpcEndpointConnectionNotificationCommand extends $Command
   })
   .s("AmazonEC2", "CreateVpcEndpointConnectionNotification", {})
   .n("EC2Client", "CreateVpcEndpointConnectionNotificationCommand")
-  .sc(CreateVpcEndpointConnectionNotification)
+  .sc(CreateVpcEndpointConnectionNotification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

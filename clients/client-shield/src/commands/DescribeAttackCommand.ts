@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAttackRequest, DescribeAttackResponse } from "../models/models_0";
-import { DescribeAttack } from "../schemas/schemas_0";
+import { DescribeAttack$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -135,7 +135,7 @@ export class DescribeAttackCommand extends $Command
   })
   .s("AWSShield_20160616", "DescribeAttack", {})
   .n("ShieldClient", "DescribeAttackCommand")
-  .sc(DescribeAttack)
+  .sc(DescribeAttack$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

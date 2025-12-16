@@ -9,7 +9,7 @@ import type {
   GetSnapshotBlockPublicAccessStateRequest,
   GetSnapshotBlockPublicAccessStateResult,
 } from "../models/models_6";
-import { GetSnapshotBlockPublicAccessState } from "../schemas/schemas_0";
+import { GetSnapshotBlockPublicAccessState$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class GetSnapshotBlockPublicAccessStateCommand extends $Command
   })
   .s("AmazonEC2", "GetSnapshotBlockPublicAccessState", {})
   .n("EC2Client", "GetSnapshotBlockPublicAccessStateCommand")
-  .sc(GetSnapshotBlockPublicAccessState)
+  .sc(GetSnapshotBlockPublicAccessState$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyClient";
-import { ImportKey } from "../schemas/schemas_0";
+import { ImportKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -239,7 +239,7 @@ export class ImportKeyCommand extends $Command
   })
   .s("PaymentCryptographyControlPlane", "ImportKey", {})
   .n("PaymentCryptographyClient", "ImportKeyCommand")
-  .sc(ImportKey)
+  .sc(ImportKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

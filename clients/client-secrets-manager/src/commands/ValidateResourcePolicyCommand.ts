@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ValidateResourcePolicyRequest, ValidateResourcePolicyResponse } from "../models/models_0";
-import { ValidateResourcePolicy } from "../schemas/schemas_0";
+import { ValidateResourcePolicy$ } from "../schemas/schemas_0";
 import type {
   SecretsManagerClientResolvedConfig,
   ServiceInputTypes,
@@ -164,7 +164,7 @@ export class ValidateResourcePolicyCommand extends $Command
   })
   .s("secretsmanager", "ValidateResourcePolicy", {})
   .n("SecretsManagerClient", "ValidateResourcePolicyCommand")
-  .sc(ValidateResourcePolicy)
+  .sc(ValidateResourcePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DescribeEngineDefaultClusterParametersResult,
 } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DescribeEngineDefaultClusterParameters } from "../schemas/schemas_0";
+import { DescribeEngineDefaultClusterParameters$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -141,7 +141,7 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeEngineDefaultClusterParameters", {})
   .n("RDSClient", "DescribeEngineDefaultClusterParametersCommand")
-  .sc(DescribeEngineDefaultClusterParameters)
+  .sc(DescribeEngineDefaultClusterParameters$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

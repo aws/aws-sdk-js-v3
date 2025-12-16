@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: SSMClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.ssm",
-        serviceTarget: "AmazonSSM",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.ssm",
+      xmlNamespace: "http://ssm.amazonaws.com/doc/2014-11-06/",
+      version: "2014-11-06",
+      serviceTarget: "AmazonSSM",
+    },
     serviceId: config?.serviceId ?? "SSM",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

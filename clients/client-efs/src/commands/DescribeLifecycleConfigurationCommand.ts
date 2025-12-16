@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeLifecycleConfigurationRequest, LifecycleConfigurationDescription } from "../models/models_0";
-import { DescribeLifecycleConfiguration } from "../schemas/schemas_0";
+import { DescribeLifecycleConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class DescribeLifecycleConfigurationCommand extends $Command
   })
   .s("MagnolioAPIService_v20150201", "DescribeLifecycleConfiguration", {})
   .n("EFSClient", "DescribeLifecycleConfigurationCommand")
-  .sc(DescribeLifecycleConfiguration)
+  .sc(DescribeLifecycleConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

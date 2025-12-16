@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationInsightsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteLogPatternRequest, DeleteLogPatternResponse } from "../models/models_0";
-import { DeleteLogPattern } from "../schemas/schemas_0";
+import { DeleteLogPattern$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeleteLogPatternCommand extends $Command
   })
   .s("EC2WindowsBarleyService", "DeleteLogPattern", {})
   .n("ApplicationInsightsClient", "DeleteLogPatternCommand")
-  .sc(DeleteLogPattern)
+  .sc(DeleteLogPattern$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutSchemaInput, PutSchemaOutput } from "../models/models_0";
-import { PutSchema } from "../schemas/schemas_0";
+import { PutSchema$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -134,7 +134,7 @@ export class PutSchemaCommand extends $Command
   })
   .s("VerifiedPermissions", "PutSchema", {})
   .n("VerifiedPermissionsClient", "PutSchemaCommand")
-  .sc(PutSchema)
+  .sc(PutSchema$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

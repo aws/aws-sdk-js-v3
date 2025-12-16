@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateTaskTemplateRequest, CreateTaskTemplateResponse } from "../models/models_0";
-import { CreateTaskTemplate } from "../schemas/schemas_0";
+import { CreateTaskTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -143,7 +143,7 @@ export class CreateTaskTemplateCommand extends $Command
   })
   .s("AmazonConnectService", "CreateTaskTemplate", {})
   .n("ConnectClient", "CreateTaskTemplateCommand")
-  .sc(CreateTaskTemplate)
+  .sc(CreateTaskTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

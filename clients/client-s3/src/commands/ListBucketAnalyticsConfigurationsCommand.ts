@@ -10,7 +10,7 @@ import type {
   ListBucketAnalyticsConfigurationsRequest,
 } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { ListBucketAnalyticsConfigurations } from "../schemas/schemas_0";
+import { ListBucketAnalyticsConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -159,7 +159,7 @@ export class ListBucketAnalyticsConfigurationsCommand extends $Command
   })
   .s("AmazonS3", "ListBucketAnalyticsConfigurations", {})
   .n("S3Client", "ListBucketAnalyticsConfigurationsCommand")
-  .sc(ListBucketAnalyticsConfigurations)
+  .sc(ListBucketAnalyticsConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

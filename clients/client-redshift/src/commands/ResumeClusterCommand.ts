@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { ResumeClusterMessage } from "../models/models_0";
 import type { ResumeClusterResult } from "../models/models_1";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { ResumeCluster } from "../schemas/schemas_0";
+import { ResumeCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -278,7 +278,7 @@ export class ResumeClusterCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "ResumeCluster", {})
   .n("RedshiftClient", "ResumeClusterCommand")
-  .sc(ResumeCluster)
+  .sc(ResumeCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

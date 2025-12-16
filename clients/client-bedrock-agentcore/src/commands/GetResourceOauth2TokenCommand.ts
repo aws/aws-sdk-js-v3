@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetResourceOauth2TokenRequest, GetResourceOauth2TokenResponse } from "../models/models_0";
-import { GetResourceOauth2Token } from "../schemas/schemas_0";
+import { GetResourceOauth2Token$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class GetResourceOauth2TokenCommand extends $Command
   })
   .s("AmazonBedrockAgentCore", "GetResourceOauth2Token", {})
   .n("BedrockAgentCoreClient", "GetResourceOauth2TokenCommand")
-  .sc(GetResourceOauth2Token)
+  .sc(GetResourceOauth2Token$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

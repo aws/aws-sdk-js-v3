@@ -10,7 +10,7 @@ import type {
 } from "../CloudSearchDomainClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchRequest, SearchResponse } from "../models/models_0";
-import { Search } from "../schemas/schemas_0";
+import { Search$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -147,7 +147,7 @@ export class SearchCommand extends $Command
   })
   .s("AmazonCloudSearch2013", "Search", {})
   .n("CloudSearchDomainClient", "SearchCommand")
-  .sc(Search)
+  .sc(Search$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

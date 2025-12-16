@@ -13,7 +13,7 @@ import type {
   ApplySecurityGroupsToLoadBalancerInput,
   ApplySecurityGroupsToLoadBalancerOutput,
 } from "../models/models_0";
-import { ApplySecurityGroupsToLoadBalancer } from "../schemas/schemas_0";
+import { ApplySecurityGroupsToLoadBalancer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class ApplySecurityGroupsToLoadBalancerCommand extends $Command
   })
   .s("ElasticLoadBalancing_v7", "ApplySecurityGroupsToLoadBalancer", {})
   .n("ElasticLoadBalancingClient", "ApplySecurityGroupsToLoadBalancerCommand")
-  .sc(ApplySecurityGroupsToLoadBalancer)
+  .sc(ApplySecurityGroupsToLoadBalancer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

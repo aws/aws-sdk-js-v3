@@ -10,7 +10,7 @@ import type {
 } from "../BillingconductorClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeletePricingPlanInput, DeletePricingPlanOutput } from "../models/models_0";
-import { DeletePricingPlan } from "../schemas/schemas_0";
+import { DeletePricingPlan$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DeletePricingPlanCommand extends $Command
   })
   .s("AWSBillingConductor", "DeletePricingPlan", {})
   .n("BillingconductorClient", "DeletePricingPlanCommand")
-  .sc(DeletePricingPlan)
+  .sc(DeletePricingPlan$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

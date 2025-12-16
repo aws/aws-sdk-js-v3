@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartBgpFailoverTestRequest, StartBgpFailoverTestResponse } from "../models/models_0";
-import { StartBgpFailoverTest } from "../schemas/schemas_0";
+import { StartBgpFailoverTest$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class StartBgpFailoverTestCommand extends $Command
   })
   .s("OvertureService", "StartBgpFailoverTest", {})
   .n("DirectConnectClient", "StartBgpFailoverTestCommand")
-  .sc(StartBgpFailoverTest)
+  .sc(StartBgpFailoverTest$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

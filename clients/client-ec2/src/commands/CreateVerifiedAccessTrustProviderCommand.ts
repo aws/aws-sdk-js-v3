@@ -9,7 +9,7 @@ import type {
   CreateVerifiedAccessTrustProviderRequest,
   CreateVerifiedAccessTrustProviderResult,
 } from "../models/models_2";
-import { CreateVerifiedAccessTrustProvider } from "../schemas/schemas_0";
+import { CreateVerifiedAccessTrustProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -166,7 +166,7 @@ export class CreateVerifiedAccessTrustProviderCommand extends $Command
   })
   .s("AmazonEC2", "CreateVerifiedAccessTrustProvider", {})
   .n("EC2Client", "CreateVerifiedAccessTrustProviderCommand")
-  .sc(CreateVerifiedAccessTrustProvider)
+  .sc(CreateVerifiedAccessTrustProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

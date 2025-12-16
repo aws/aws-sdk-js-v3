@@ -9,7 +9,7 @@ import type {
   StartDashboardSnapshotJobScheduleResponse,
 } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { StartDashboardSnapshotJobSchedule } from "../schemas/schemas_0";
+import { StartDashboardSnapshotJobSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class StartDashboardSnapshotJobScheduleCommand extends $Command
   })
   .s("QuickSight_20180401", "StartDashboardSnapshotJobSchedule", {})
   .n("QuickSightClient", "StartDashboardSnapshotJobScheduleCommand")
-  .sc(StartDashboardSnapshotJobSchedule)
+  .sc(StartDashboardSnapshotJobSchedule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

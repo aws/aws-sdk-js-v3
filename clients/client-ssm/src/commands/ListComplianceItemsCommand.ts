@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListComplianceItemsRequest, ListComplianceItemsResult } from "../models/models_1";
-import { ListComplianceItems } from "../schemas/schemas_0";
+import { ListComplianceItems$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -126,7 +126,7 @@ export class ListComplianceItemsCommand extends $Command
   })
   .s("AmazonSSM", "ListComplianceItems", {})
   .n("SSMClient", "ListComplianceItemsCommand")
-  .sc(ListComplianceItems)
+  .sc(ListComplianceItems$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

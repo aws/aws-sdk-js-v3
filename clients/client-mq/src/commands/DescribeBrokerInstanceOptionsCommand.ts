@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeBrokerInstanceOptionsRequest, DescribeBrokerInstanceOptionsResponse } from "../models/models_0";
 import type { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import { DescribeBrokerInstanceOptions } from "../schemas/schemas_0";
+import { DescribeBrokerInstanceOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class DescribeBrokerInstanceOptionsCommand extends $Command
   })
   .s("mq", "DescribeBrokerInstanceOptions", {})
   .n("MqClient", "DescribeBrokerInstanceOptionsCommand")
-  .sc(DescribeBrokerInstanceOptions)
+  .sc(DescribeBrokerInstanceOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

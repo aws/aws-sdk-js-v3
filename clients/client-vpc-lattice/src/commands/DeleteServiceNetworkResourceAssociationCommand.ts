@@ -8,7 +8,7 @@ import type {
   DeleteServiceNetworkResourceAssociationRequest,
   DeleteServiceNetworkResourceAssociationResponse,
 } from "../models/models_0";
-import { DeleteServiceNetworkResourceAssociation } from "../schemas/schemas_0";
+import { DeleteServiceNetworkResourceAssociation$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -99,7 +99,7 @@ export class DeleteServiceNetworkResourceAssociationCommand extends $Command
   })
   .s("MercuryControlPlane", "DeleteServiceNetworkResourceAssociation", {})
   .n("VPCLatticeClient", "DeleteServiceNetworkResourceAssociationCommand")
-  .sc(DeleteServiceNetworkResourceAssociation)
+  .sc(DeleteServiceNetworkResourceAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

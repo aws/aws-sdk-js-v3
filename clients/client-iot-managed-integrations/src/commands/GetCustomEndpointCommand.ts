@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { GetCustomEndpointRequest, GetCustomEndpointResponse } from "../models/models_0";
-import { GetCustomEndpoint } from "../schemas/schemas_0";
+import { GetCustomEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class GetCustomEndpointCommand extends $Command
   })
   .s("IotManagedIntegrations", "GetCustomEndpoint", {})
   .n("IoTManagedIntegrationsClient", "GetCustomEndpointCommand")
-  .sc(GetCustomEndpoint)
+  .sc(GetCustomEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

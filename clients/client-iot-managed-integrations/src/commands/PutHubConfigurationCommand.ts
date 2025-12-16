@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { PutHubConfigurationRequest, PutHubConfigurationResponse } from "../models/models_0";
-import { PutHubConfiguration } from "../schemas/schemas_0";
+import { PutHubConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class PutHubConfigurationCommand extends $Command
   })
   .s("IotManagedIntegrations", "PutHubConfiguration", {})
   .n("IoTManagedIntegrationsClient", "PutHubConfigurationCommand")
-  .sc(PutHubConfiguration)
+  .sc(PutHubConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

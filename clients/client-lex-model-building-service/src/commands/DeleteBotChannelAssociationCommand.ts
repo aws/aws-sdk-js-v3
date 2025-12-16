@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import type { DeleteBotChannelAssociationRequest } from "../models/models_0";
-import { DeleteBotChannelAssociation } from "../schemas/schemas_0";
+import { DeleteBotChannelAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class DeleteBotChannelAssociationCommand extends $Command
   })
   .s("AWSDeepSenseModelBuildingService", "DeleteBotChannelAssociation", {})
   .n("LexModelBuildingServiceClient", "DeleteBotChannelAssociationCommand")
-  .sc(DeleteBotChannelAssociation)
+  .sc(DeleteBotChannelAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

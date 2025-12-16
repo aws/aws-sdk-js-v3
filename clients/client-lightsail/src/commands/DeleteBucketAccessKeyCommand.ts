@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { DeleteBucketAccessKeyRequest, DeleteBucketAccessKeyResult } from "../models/models_0";
-import { DeleteBucketAccessKey } from "../schemas/schemas_0";
+import { DeleteBucketAccessKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class DeleteBucketAccessKeyCommand extends $Command
   })
   .s("Lightsail_20161128", "DeleteBucketAccessKey", {})
   .n("LightsailClient", "DeleteBucketAccessKeyCommand")
-  .sc(DeleteBucketAccessKey)
+  .sc(DeleteBucketAccessKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

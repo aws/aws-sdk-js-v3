@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import type { DescribeClusterOperationRequest, DescribeClusterOperationResponse } from "../models/models_0";
-import { DescribeClusterOperation } from "../schemas/schemas_0";
+import { DescribeClusterOperation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -331,7 +331,7 @@ export class DescribeClusterOperationCommand extends $Command
   })
   .s("Kafka", "DescribeClusterOperation", {})
   .n("KafkaClient", "DescribeClusterOperationCommand")
-  .sc(DescribeClusterOperation)
+  .sc(DescribeClusterOperation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

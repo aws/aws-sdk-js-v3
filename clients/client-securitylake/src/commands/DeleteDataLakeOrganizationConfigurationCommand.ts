@@ -8,7 +8,7 @@ import type {
   DeleteDataLakeOrganizationConfigurationRequest,
   DeleteDataLakeOrganizationConfigurationResponse,
 } from "../models/models_0";
-import { DeleteDataLakeOrganizationConfiguration } from "../schemas/schemas_0";
+import { DeleteDataLakeOrganizationConfiguration$ } from "../schemas/schemas_0";
 import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -114,7 +114,7 @@ export class DeleteDataLakeOrganizationConfigurationCommand extends $Command
   })
   .s("SecurityLake", "DeleteDataLakeOrganizationConfiguration", {})
   .n("SecurityLakeClient", "DeleteDataLakeOrganizationConfigurationCommand")
-  .sc(DeleteDataLakeOrganizationConfiguration)
+  .sc(DeleteDataLakeOrganizationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

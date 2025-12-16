@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutTableRecordExpirationConfigurationRequest } from "../models/models_0";
 import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
-import { PutTableRecordExpirationConfiguration } from "../schemas/schemas_0";
+import { PutTableRecordExpirationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class PutTableRecordExpirationConfigurationCommand extends $Command
   })
   .s("S3TableBuckets", "PutTableRecordExpirationConfiguration", {})
   .n("S3TablesClient", "PutTableRecordExpirationConfigurationCommand")
-  .sc(PutTableRecordExpirationConfiguration)
+  .sc(PutTableRecordExpirationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAttributeMappingRequest, DeleteAttributeMappingResponse } from "../models/models_0";
 import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
-import { DeleteAttributeMapping } from "../schemas/schemas_0";
+import { DeleteAttributeMapping$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -159,7 +159,7 @@ export class DeleteAttributeMappingCommand extends $Command
   })
   .s("RolesAnywhere", "DeleteAttributeMapping", {})
   .n("RolesAnywhereClient", "DeleteAttributeMappingCommand")
-  .sc(DeleteAttributeMapping)
+  .sc(DeleteAttributeMapping$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

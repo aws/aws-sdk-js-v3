@@ -8,7 +8,7 @@ import type {
   AssociateDataProtectionSettingsRequest,
   AssociateDataProtectionSettingsResponse,
 } from "../models/models_0";
-import { AssociateDataProtectionSettings } from "../schemas/schemas_0";
+import { AssociateDataProtectionSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -98,7 +98,7 @@ export class AssociateDataProtectionSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "AssociateDataProtectionSettings", {})
   .n("WorkSpacesWebClient", "AssociateDataProtectionSettingsCommand")
-  .sc(AssociateDataProtectionSettings)
+  .sc(AssociateDataProtectionSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

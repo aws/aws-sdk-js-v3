@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutSinkPolicyInput, PutSinkPolicyOutput } from "../models/models_0";
 import type { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
-import { PutSinkPolicy } from "../schemas/schemas_0";
+import { PutSinkPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class PutSinkPolicyCommand extends $Command
   })
   .s("oamservice", "PutSinkPolicy", {})
   .n("OAMClient", "PutSinkPolicyCommand")
-  .sc(PutSinkPolicy)
+  .sc(PutSinkPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

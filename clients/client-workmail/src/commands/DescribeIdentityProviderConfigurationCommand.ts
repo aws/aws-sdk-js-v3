@@ -8,7 +8,7 @@ import type {
   DescribeIdentityProviderConfigurationRequest,
   DescribeIdentityProviderConfigurationResponse,
 } from "../models/models_0";
-import { DescribeIdentityProviderConfiguration } from "../schemas/schemas_0";
+import { DescribeIdentityProviderConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -103,7 +103,7 @@ export class DescribeIdentityProviderConfigurationCommand extends $Command
   })
   .s("WorkMailService", "DescribeIdentityProviderConfiguration", {})
   .n("WorkMailClient", "DescribeIdentityProviderConfigurationCommand")
-  .sc(DescribeIdentityProviderConfiguration)
+  .sc(DescribeIdentityProviderConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

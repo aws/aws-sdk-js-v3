@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ExecuteChangeSetInput, ExecuteChangeSetOutput } from "../models/models_0";
-import { ExecuteChangeSet } from "../schemas/schemas_0";
+import { ExecuteChangeSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class ExecuteChangeSetCommand extends $Command
   })
   .s("CloudFormation", "ExecuteChangeSet", {})
   .n("CloudFormationClient", "ExecuteChangeSetCommand")
-  .sc(ExecuteChangeSet)
+  .sc(ExecuteChangeSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

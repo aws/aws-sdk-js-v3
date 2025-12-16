@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
 import type { UpdateEnvironmentRequest, UpdateEnvironmentResponse } from "../models/models_0";
-import { UpdateEnvironment } from "../schemas/schemas_0";
+import { UpdateEnvironment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class UpdateEnvironmentCommand extends $Command
   })
   .s("AwsSupernovaControlPlaneService", "UpdateEnvironment", {})
   .n("M2Client", "UpdateEnvironmentCommand")
-  .sc(UpdateEnvironment)
+  .sc(UpdateEnvironment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

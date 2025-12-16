@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import type { ExecuteQueryRequest, ExecuteQueryResponse } from "../models/models_0";
-import { ExecuteQuery } from "../schemas/schemas_0";
+import { ExecuteQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class ExecuteQueryCommand extends $Command
   })
   .s("AWSIoTTwinMaker", "ExecuteQuery", {})
   .n("IoTTwinMakerClient", "ExecuteQueryCommand")
-  .sc(ExecuteQuery)
+  .sc(ExecuteQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

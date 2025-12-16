@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import type { TerminateGameSessionInput, TerminateGameSessionOutput } from "../models/models_0";
-import { TerminateGameSession } from "../schemas/schemas_0";
+import { TerminateGameSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -173,7 +173,7 @@ export class TerminateGameSessionCommand extends $Command
   })
   .s("GameLift", "TerminateGameSession", {})
   .n("GameLiftClient", "TerminateGameSessionCommand")
-  .sc(TerminateGameSession)
+  .sc(TerminateGameSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CountOpenWorkflowExecutionsInput, WorkflowExecutionCount } from "../models/models_0";
-import { CountOpenWorkflowExecutions } from "../schemas/schemas_0";
+import { CountOpenWorkflowExecutions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -140,7 +140,7 @@ export class CountOpenWorkflowExecutionsCommand extends $Command
   })
   .s("SimpleWorkflowService", "CountOpenWorkflowExecutions", {})
   .n("SWFClient", "CountOpenWorkflowExecutionsCommand")
-  .sc(CountOpenWorkflowExecutions)
+  .sc(CountOpenWorkflowExecutions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

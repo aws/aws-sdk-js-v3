@@ -7,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
 import { type DeleteThingShadowRequest, DeleteThingShadowResponse } from "../models/models_0";
-import { DeleteThingShadow } from "../schemas/schemas_0";
+import { DeleteThingShadow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class DeleteThingShadowCommand extends $Command
   })
   .s("IotMoonrakerService", "DeleteThingShadow", {})
   .n("IoTDataPlaneClient", "DeleteThingShadowCommand")
-  .sc(DeleteThingShadow)
+  .sc(DeleteThingShadow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

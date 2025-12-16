@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateBGPPeerRequest, CreateBGPPeerResponse } from "../models/models_0";
-import { CreateBGPPeer } from "../schemas/schemas_0";
+import { CreateBGPPeer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -153,7 +153,7 @@ export class CreateBGPPeerCommand extends $Command
   })
   .s("OvertureService", "CreateBGPPeer", {})
   .n("DirectConnectClient", "CreateBGPPeerCommand")
-  .sc(CreateBGPPeer)
+  .sc(CreateBGPPeer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

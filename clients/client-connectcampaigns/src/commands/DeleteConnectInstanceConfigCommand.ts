@@ -10,7 +10,7 @@ import type {
 } from "../ConnectCampaignsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteConnectInstanceConfigRequest } from "../models/models_0";
-import { DeleteConnectInstanceConfig } from "../schemas/schemas_0";
+import { DeleteConnectInstanceConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteConnectInstanceConfigCommand extends $Command
   })
   .s("AmazonConnectCampaignService", "DeleteConnectInstanceConfig", {})
   .n("ConnectCampaignsClient", "DeleteConnectInstanceConfigCommand")
-  .sc(DeleteConnectInstanceConfig)
+  .sc(DeleteConnectInstanceConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAuthorizationTokenRequest, GetAuthorizationTokenResponse } from "../models/models_0";
-import { GetAuthorizationToken } from "../schemas/schemas_0";
+import { GetAuthorizationToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class GetAuthorizationTokenCommand extends $Command
   })
   .s("SpencerFrontendService", "GetAuthorizationToken", {})
   .n("ECRPUBLICClient", "GetAuthorizationTokenCommand")
-  .sc(GetAuthorizationToken)
+  .sc(GetAuthorizationToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

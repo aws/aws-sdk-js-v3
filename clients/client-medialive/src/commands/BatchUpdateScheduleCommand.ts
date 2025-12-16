@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { BatchUpdateScheduleRequest, BatchUpdateScheduleResponse } from "../models/models_0";
-import { BatchUpdateSchedule } from "../schemas/schemas_0";
+import { BatchUpdateSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -581,7 +581,7 @@ export class BatchUpdateScheduleCommand extends $Command
   })
   .s("MediaLive", "BatchUpdateSchedule", {})
   .n("MediaLiveClient", "BatchUpdateScheduleCommand")
-  .sc(BatchUpdateSchedule)
+  .sc(BatchUpdateSchedule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

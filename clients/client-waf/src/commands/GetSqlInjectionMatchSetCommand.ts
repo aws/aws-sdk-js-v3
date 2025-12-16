@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSqlInjectionMatchSetRequest, GetSqlInjectionMatchSetResponse } from "../models/models_0";
-import { GetSqlInjectionMatchSet } from "../schemas/schemas_0";
+import { GetSqlInjectionMatchSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -128,7 +128,7 @@ export class GetSqlInjectionMatchSetCommand extends $Command
   })
   .s("AWSWAF_20150824", "GetSqlInjectionMatchSet", {})
   .n("WAFClient", "GetSqlInjectionMatchSetCommand")
-  .sc(GetSqlInjectionMatchSet)
+  .sc(GetSqlInjectionMatchSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

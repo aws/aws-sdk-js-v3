@@ -9,7 +9,7 @@ import type {
   GetEventConfigurationByResourceTypesRequest,
   GetEventConfigurationByResourceTypesResponse,
 } from "../models/models_0";
-import { GetEventConfigurationByResourceTypes } from "../schemas/schemas_0";
+import { GetEventConfigurationByResourceTypes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class GetEventConfigurationByResourceTypesCommand extends $Command
   })
   .s("iotwireless", "GetEventConfigurationByResourceTypes", {})
   .n("IoTWirelessClient", "GetEventConfigurationByResourceTypesCommand")
-  .sc(GetEventConfigurationByResourceTypes)
+  .sc(GetEventConfigurationByResourceTypes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

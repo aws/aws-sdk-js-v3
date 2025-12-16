@@ -8,7 +8,7 @@ import type {
   ListLinkedWhatsAppBusinessAccountsInput,
   ListLinkedWhatsAppBusinessAccountsOutput,
 } from "../models/models_0";
-import { ListLinkedWhatsAppBusinessAccounts } from "../schemas/schemas_0";
+import { ListLinkedWhatsAppBusinessAccounts$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -118,7 +118,7 @@ export class ListLinkedWhatsAppBusinessAccountsCommand extends $Command
   })
   .s("SocialMessaging", "ListLinkedWhatsAppBusinessAccounts", {})
   .n("SocialMessagingClient", "ListLinkedWhatsAppBusinessAccountsCommand")
-  .sc(ListLinkedWhatsAppBusinessAccounts)
+  .sc(ListLinkedWhatsAppBusinessAccounts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

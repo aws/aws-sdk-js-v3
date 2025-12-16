@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: GreengrassClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.greengrass" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.greengrass",
+      version: "2017-06-07",
+      serviceTarget: "Greengrass",
+    },
     serviceId: config?.serviceId ?? "Greengrass",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

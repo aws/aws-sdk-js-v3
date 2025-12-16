@@ -10,7 +10,7 @@ import type {
 } from "../BCMPricingCalculatorClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateBillEstimateRequest, CreateBillEstimateResponse } from "../models/models_0";
-import { CreateBillEstimate } from "../schemas/schemas_0";
+import { CreateBillEstimate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class CreateBillEstimateCommand extends $Command
   })
   .s("AWSBCMPricingCalculator", "CreateBillEstimate", {})
   .n("BCMPricingCalculatorClient", "CreateBillEstimateCommand")
-  .sc(CreateBillEstimate)
+  .sc(CreateBillEstimate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

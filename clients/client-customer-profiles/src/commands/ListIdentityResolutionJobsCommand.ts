@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListIdentityResolutionJobsRequest, ListIdentityResolutionJobsResponse } from "../models/models_0";
-import { ListIdentityResolutionJobs } from "../schemas/schemas_0";
+import { ListIdentityResolutionJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class ListIdentityResolutionJobsCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "ListIdentityResolutionJobs", {})
   .n("CustomerProfilesClient", "ListIdentityResolutionJobsCommand")
-  .sc(ListIdentityResolutionJobs)
+  .sc(ListIdentityResolutionJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

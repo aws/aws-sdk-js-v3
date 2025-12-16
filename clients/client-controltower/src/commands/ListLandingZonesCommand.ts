@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListLandingZonesInput, ListLandingZonesOutput } from "../models/models_0";
-import { ListLandingZones } from "../schemas/schemas_0";
+import { ListLandingZones$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class ListLandingZonesCommand extends $Command
   })
   .s("AWSControlTowerApis", "ListLandingZones", {})
   .n("ControlTowerClient", "ListLandingZonesCommand")
-  .sc(ListLandingZones)
+  .sc(ListLandingZones$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

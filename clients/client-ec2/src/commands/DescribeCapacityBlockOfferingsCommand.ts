@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeCapacityBlockOfferingsRequest, DescribeCapacityBlockOfferingsResult } from "../models/models_3";
-import { DescribeCapacityBlockOfferings } from "../schemas/schemas_0";
+import { DescribeCapacityBlockOfferings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DescribeCapacityBlockOfferingsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeCapacityBlockOfferings", {})
   .n("EC2Client", "DescribeCapacityBlockOfferingsCommand")
-  .sc(DescribeCapacityBlockOfferings)
+  .sc(DescribeCapacityBlockOfferings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

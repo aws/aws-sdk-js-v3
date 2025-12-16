@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
 import type { AssociateCertificateRequest, AssociateCertificateResponse } from "../models/models_0";
-import { AssociateCertificate } from "../schemas/schemas_0";
+import { AssociateCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class AssociateCertificateCommand extends $Command
   })
   .s("MediaConvert", "AssociateCertificate", {})
   .n("MediaConvertClient", "AssociateCertificateCommand")
-  .sc(AssociateCertificate)
+  .sc(AssociateCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

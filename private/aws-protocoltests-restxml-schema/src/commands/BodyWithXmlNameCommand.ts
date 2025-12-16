@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { BodyWithXmlName } from "../schemas/schemas_0";
+import { BodyWithXmlName$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class BodyWithXmlNameCommand extends $Command
   })
   .s("RestXml", "BodyWithXmlName", {})
   .n("RestXmlProtocolClient", "BodyWithXmlNameCommand")
-  .sc(BodyWithXmlName)
+  .sc(BodyWithXmlName$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

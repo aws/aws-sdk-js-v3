@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: SchemasClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.schemas" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.schemas",
+      version: "2019-12-02",
+      serviceTarget: "schemas",
+    },
     serviceId: config?.serviceId ?? "schemas",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

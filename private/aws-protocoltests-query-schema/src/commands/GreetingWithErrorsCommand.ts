@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreetingWithErrorsOutput } from "../models/models_0";
 import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { GreetingWithErrors } from "../schemas/schemas_0";
+import { GreetingWithErrors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class GreetingWithErrorsCommand extends $Command
   })
   .s("AwsQuery", "GreetingWithErrors", {})
   .n("QueryProtocolClient", "GreetingWithErrorsCommand")
-  .sc(GreetingWithErrors)
+  .sc(GreetingWithErrors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

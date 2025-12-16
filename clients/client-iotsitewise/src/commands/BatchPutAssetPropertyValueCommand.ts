@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import type { BatchPutAssetPropertyValueRequest, BatchPutAssetPropertyValueResponse } from "../models/models_0";
-import { BatchPutAssetPropertyValue } from "../schemas/schemas_0";
+import { BatchPutAssetPropertyValue$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -168,7 +168,7 @@ export class BatchPutAssetPropertyValueCommand extends $Command
   })
   .s("AWSIoTSiteWise", "BatchPutAssetPropertyValue", {})
   .n("IoTSiteWiseClient", "BatchPutAssetPropertyValueCommand")
-  .sc(BatchPutAssetPropertyValue)
+  .sc(BatchPutAssetPropertyValue$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

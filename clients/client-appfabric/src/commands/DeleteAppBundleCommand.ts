@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAppBundleRequest, DeleteAppBundleResponse } from "../models/models_0";
-import { DeleteAppBundle } from "../schemas/schemas_0";
+import { DeleteAppBundle$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeleteAppBundleCommand extends $Command
   })
   .s("FabricFrontEndService", "DeleteAppBundle", {})
   .n("AppFabricClient", "DeleteAppBundleCommand")
-  .sc(DeleteAppBundle)
+  .sc(DeleteAppBundle$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

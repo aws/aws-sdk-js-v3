@@ -9,7 +9,7 @@ import type {
   DescribeInstanceSqlHaHistoryStatesRequest,
   DescribeInstanceSqlHaHistoryStatesResult,
 } from "../models/models_4";
-import { DescribeInstanceSqlHaHistoryStates } from "../schemas/schemas_0";
+import { DescribeInstanceSqlHaHistoryStates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class DescribeInstanceSqlHaHistoryStatesCommand extends $Command
   })
   .s("AmazonEC2", "DescribeInstanceSqlHaHistoryStates", {})
   .n("EC2Client", "DescribeInstanceSqlHaHistoryStatesCommand")
-  .sc(DescribeInstanceSqlHaHistoryStates)
+  .sc(DescribeInstanceSqlHaHistoryStates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

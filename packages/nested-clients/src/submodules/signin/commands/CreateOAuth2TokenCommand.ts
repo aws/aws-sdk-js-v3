@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateOAuth2TokenRequest, CreateOAuth2TokenResponse } from "../models/models_0";
-import { CreateOAuth2Token } from "../schemas/schemas_0";
+import { CreateOAuth2Token$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SigninClientResolvedConfig } from "../SigninClient";
 
 /**
@@ -156,7 +156,7 @@ export class CreateOAuth2TokenCommand extends $Command
   })
   .s("Signin", "CreateOAuth2Token", {})
   .n("SigninClient", "CreateOAuth2TokenCommand")
-  .sc(CreateOAuth2Token)
+  .sc(CreateOAuth2Token$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

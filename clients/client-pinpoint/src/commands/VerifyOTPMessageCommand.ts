@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { VerifyOTPMessageRequest, VerifyOTPMessageResponse } from "../models/models_1";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { VerifyOTPMessage } from "../schemas/schemas_0";
+import { VerifyOTPMessage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class VerifyOTPMessageCommand extends $Command
   })
   .s("Pinpoint", "VerifyOTPMessage", {})
   .n("PinpointClient", "VerifyOTPMessageCommand")
-  .sc(VerifyOTPMessage)
+  .sc(VerifyOTPMessage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

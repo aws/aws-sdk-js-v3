@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateLimitRequest, CreateLimitResponse } from "../models/models_0";
-import { CreateLimit } from "../schemas/schemas_0";
+import { CreateLimit$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class CreateLimitCommand extends $Command
   })
   .s("Deadline", "CreateLimit", {})
   .n("DeadlineClient", "CreateLimitCommand")
-  .sc(CreateLimit)
+  .sc(CreateLimit$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: DynamoDBStreamsClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.dynamodbstreams",
-        serviceTarget: "DynamoDBStreams_20120810",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.dynamodbstreams",
+      xmlNamespace: "http://dynamodb.amazonaws.com/doc/2012-08-10/",
+      version: "2012-08-10",
+      serviceTarget: "DynamoDBStreams_20120810",
+    },
     serviceId: config?.serviceId ?? "DynamoDB Streams",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

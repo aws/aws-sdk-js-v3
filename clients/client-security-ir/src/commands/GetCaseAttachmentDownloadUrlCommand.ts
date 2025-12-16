@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCaseAttachmentDownloadUrlRequest, GetCaseAttachmentDownloadUrlResponse } from "../models/models_0";
-import { GetCaseAttachmentDownloadUrl } from "../schemas/schemas_0";
+import { GetCaseAttachmentDownloadUrl$ } from "../schemas/schemas_0";
 import type { SecurityIRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityIRClient";
 
 /**
@@ -119,7 +119,7 @@ export class GetCaseAttachmentDownloadUrlCommand extends $Command
   })
   .s("SecurityIncidentResponse", "GetCaseAttachmentDownloadUrl", {})
   .n("SecurityIRClient", "GetCaseAttachmentDownloadUrlCommand")
-  .sc(GetCaseAttachmentDownloadUrl)
+  .sc(GetCaseAttachmentDownloadUrl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

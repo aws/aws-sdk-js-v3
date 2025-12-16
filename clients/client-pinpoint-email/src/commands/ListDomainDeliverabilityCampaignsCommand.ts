@@ -9,7 +9,7 @@ import type {
   ListDomainDeliverabilityCampaignsResponse,
 } from "../models/models_0";
 import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { ListDomainDeliverabilityCampaigns } from "../schemas/schemas_0";
+import { ListDomainDeliverabilityCampaigns$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class ListDomainDeliverabilityCampaignsCommand extends $Command
   })
   .s("AmazonPinpointEmailService", "ListDomainDeliverabilityCampaigns", {})
   .n("PinpointEmailClient", "ListDomainDeliverabilityCampaignsCommand")
-  .sc(ListDomainDeliverabilityCampaigns)
+  .sc(ListDomainDeliverabilityCampaigns$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

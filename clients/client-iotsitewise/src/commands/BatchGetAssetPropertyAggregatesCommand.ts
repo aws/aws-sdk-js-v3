@@ -9,7 +9,7 @@ import type {
   BatchGetAssetPropertyAggregatesRequest,
   BatchGetAssetPropertyAggregatesResponse,
 } from "../models/models_0";
-import { BatchGetAssetPropertyAggregates } from "../schemas/schemas_0";
+import { BatchGetAssetPropertyAggregates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -151,7 +151,7 @@ export class BatchGetAssetPropertyAggregatesCommand extends $Command
   })
   .s("AWSIoTSiteWise", "BatchGetAssetPropertyAggregates", {})
   .n("IoTSiteWiseClient", "BatchGetAssetPropertyAggregatesCommand")
-  .sc(BatchGetAssetPropertyAggregates)
+  .sc(BatchGetAssetPropertyAggregates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

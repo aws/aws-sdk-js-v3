@@ -267,24 +267,24 @@ import type {
 } from "@smithy/types";
 
 import {
-  ClusterLimitExceededException as __ClusterLimitExceededException,
-  ConflictException as __ConflictException,
-  Ec2RequestFailedException as __Ec2RequestFailedException,
-  InvalidAddressException as __InvalidAddressException,
-  InvalidInputCombinationException as __InvalidInputCombinationException,
-  InvalidJobStateException as __InvalidJobStateException,
-  InvalidNextTokenException as __InvalidNextTokenException,
-  InvalidResourceException as __InvalidResourceException,
-  KMSRequestFailedException as __KMSRequestFailedException,
-  ReturnShippingLabelAlreadyExistsException as __ReturnShippingLabelAlreadyExistsException,
-  UnsupportedAddressException as __UnsupportedAddressException,
+  ClusterLimitExceededException,
+  ConflictException,
+  Ec2RequestFailedException,
+  InvalidAddressException,
+  InvalidInputCombinationException,
+  InvalidJobStateException,
+  InvalidNextTokenException,
+  InvalidResourceException,
+  KMSRequestFailedException,
+  ReturnShippingLabelAlreadyExistsException,
+  UnsupportedAddressException,
 } from "../models/errors";
-import { SnowballServiceException as __SnowballServiceException } from "../models/SnowballServiceException";
+import { SnowballServiceException } from "../models/SnowballServiceException";
 
 /* eslint no-var: 0 */
-export var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
-export var PhoneNumber: StaticSimpleSchema = [0, n0, _PN, 8, 0];
-export var Address: StaticStructureSchema = [
+var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
+var PhoneNumber: StaticSimpleSchema = [0, n0, _PN, 8, 0];
+export var Address$: StaticStructureSchema = [
   3,
   n0,
   _A,
@@ -292,14 +292,14 @@ export var Address: StaticStructureSchema = [
   [_AI, _N, _C, _S, _St, _Str, _Ci, _SOP, _POD, _L, _Co, _PC, _PN, _IR, _T],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0],
 ];
-export var CancelClusterRequest: StaticStructureSchema = [3, n0, _CCR, 0, [_CI], [0]];
-export var CancelClusterResult: StaticStructureSchema = [3, n0, _CCRa, 0, [], []];
-export var CancelJobRequest: StaticStructureSchema = [3, n0, _CJR, 0, [_JI], [0]];
-export var CancelJobResult: StaticStructureSchema = [3, n0, _CJRa, 0, [], []];
-export var ClusterLimitExceededException: StaticErrorSchema = [-3, n0, _CLEE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ClusterLimitExceededException, __ClusterLimitExceededException);
-export var ClusterListEntry: StaticStructureSchema = [3, n0, _CLE, 0, [_CI, _CS, _CD, _D], [0, 0, 4, 0]];
-export var ClusterMetadata: StaticStructureSchema = [
+export var CancelClusterRequest$: StaticStructureSchema = [3, n0, _CCR, 0, [_CI], [0]];
+export var CancelClusterResult$: StaticStructureSchema = [3, n0, _CCRa, 0, [], []];
+export var CancelJobRequest$: StaticStructureSchema = [3, n0, _CJR, 0, [_JI], [0]];
+export var CancelJobResult$: StaticStructureSchema = [3, n0, _CJRa, 0, [], []];
+export var ClusterLimitExceededException$: StaticErrorSchema = [-3, n0, _CLEE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ClusterLimitExceededException$, ClusterLimitExceededException);
+export var ClusterListEntry$: StaticStructureSchema = [3, n0, _CLE, 0, [_CI, _CS, _CD, _D], [0, 0, 4, 0]];
+export var ClusterMetadata$: StaticStructureSchema = [
   3,
   n0,
   _CM,
@@ -314,21 +314,21 @@ export var ClusterMetadata: StaticStructureSchema = [
     0,
     0,
     4,
-    () => JobResource,
+    () => JobResource$,
     0,
     0,
-    () => Notification,
+    () => Notification$,
     0,
-    () => TaxDocuments,
-    () => OnDeviceServiceConfiguration,
+    () => TaxDocuments$,
+    () => OnDeviceServiceConfiguration$,
   ],
 ];
-export var CompatibleImage: StaticStructureSchema = [3, n0, _CIo, 0, [_AIm, _N], [0, 0]];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c }, [_CR, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateAddressRequest: StaticStructureSchema = [3, n0, _CAR, 0, [_A], [() => Address]];
-export var CreateAddressResult: StaticStructureSchema = [3, n0, _CARr, 0, [_AI], [0]];
-export var CreateClusterRequest: StaticStructureSchema = [
+export var CompatibleImage$: StaticStructureSchema = [3, n0, _CIo, 0, [_AIm, _N], [0, 0]];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c }, [_CR, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateAddressRequest$: StaticStructureSchema = [3, n0, _CAR, 0, [_A], [() => Address$]];
+export var CreateAddressResult$: StaticStructureSchema = [3, n0, _CARr, 0, [_AI], [0]];
+export var CreateClusterRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCRr,
@@ -336,17 +336,17 @@ export var CreateClusterRequest: StaticStructureSchema = [
   [_JT, _R, _ODSC, _D, _AI, _KKARN, _RARN, _ST, _SO, _No, _FAI, _TD, _RM, _ICS, _FCJ, _LTPI, _SCP],
   [
     0,
-    () => JobResource,
-    () => OnDeviceServiceConfiguration,
+    () => JobResource$,
+    () => OnDeviceServiceConfiguration$,
     0,
     0,
     0,
     0,
     0,
     0,
-    () => Notification,
+    () => Notification$,
     0,
-    () => TaxDocuments,
+    () => TaxDocuments$,
     0,
     1,
     2,
@@ -354,8 +354,8 @@ export var CreateClusterRequest: StaticStructureSchema = [
     0,
   ],
 ];
-export var CreateClusterResult: StaticStructureSchema = [3, n0, _CCRre, 0, [_CI, _JLE], [0, () => JobListEntryList]];
-export var CreateJobRequest: StaticStructureSchema = [
+export var CreateClusterResult$: StaticStructureSchema = [3, n0, _CCRre, 0, [_CI, _JLE], [0, () => JobListEntryList]];
+export var CreateJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _CJRr,
@@ -363,53 +363,53 @@ export var CreateJobRequest: StaticStructureSchema = [
   [_JT, _R, _ODSC, _D, _AI, _KKARN, _RARN, _SCP, _SO, _No, _CI, _ST, _FAI, _TD, _DC, _RM, _LTPIo, _IL, _PD],
   [
     0,
-    () => JobResource,
-    () => OnDeviceServiceConfiguration,
+    () => JobResource$,
+    () => OnDeviceServiceConfiguration$,
     0,
     0,
     0,
     0,
     0,
     0,
-    () => Notification,
+    () => Notification$,
     0,
     0,
     0,
-    () => TaxDocuments,
-    () => DeviceConfiguration,
+    () => TaxDocuments$,
+    () => DeviceConfiguration$,
     0,
     0,
     0,
-    [() => PickupDetails, 0],
+    [() => PickupDetails$, 0],
   ],
 ];
-export var CreateJobResult: StaticStructureSchema = [3, n0, _CJRre, 0, [_JI], [0]];
-export var CreateLongTermPricingRequest: StaticStructureSchema = [3, n0, _CLTPR, 0, [_LTPT, _ILTPAR, _ST], [0, 2, 0]];
-export var CreateLongTermPricingResult: StaticStructureSchema = [3, n0, _CLTPRr, 0, [_LTPIo], [0]];
-export var CreateReturnShippingLabelRequest: StaticStructureSchema = [3, n0, _CRSLR, 0, [_JI, _SO], [0, 0]];
-export var CreateReturnShippingLabelResult: StaticStructureSchema = [3, n0, _CRSLRr, 0, [_Sta], [0]];
-export var DataTransfer: StaticStructureSchema = [3, n0, _DT, 0, [_BT, _OT, _TB, _TO], [1, 1, 1, 1]];
-export var DependentService: StaticStructureSchema = [3, n0, _DS, 0, [_SN, _SV], [0, () => ServiceVersion]];
-export var DescribeAddressesRequest: StaticStructureSchema = [3, n0, _DAR, 0, [_MR, _NT], [1, 0]];
-export var DescribeAddressesResult: StaticStructureSchema = [3, n0, _DARe, 0, [_Ad, _NT], [() => AddressList, 0]];
-export var DescribeAddressRequest: StaticStructureSchema = [3, n0, _DARes, 0, [_AI], [0]];
-export var DescribeAddressResult: StaticStructureSchema = [3, n0, _DAResc, 0, [_A], [() => Address]];
-export var DescribeClusterRequest: StaticStructureSchema = [3, n0, _DCR, 0, [_CI], [0]];
-export var DescribeClusterResult: StaticStructureSchema = [3, n0, _DCRe, 0, [_CM], [() => ClusterMetadata]];
-export var DescribeJobRequest: StaticStructureSchema = [3, n0, _DJR, 0, [_JI], [0]];
-export var DescribeJobResult: StaticStructureSchema = [
+export var CreateJobResult$: StaticStructureSchema = [3, n0, _CJRre, 0, [_JI], [0]];
+export var CreateLongTermPricingRequest$: StaticStructureSchema = [3, n0, _CLTPR, 0, [_LTPT, _ILTPAR, _ST], [0, 2, 0]];
+export var CreateLongTermPricingResult$: StaticStructureSchema = [3, n0, _CLTPRr, 0, [_LTPIo], [0]];
+export var CreateReturnShippingLabelRequest$: StaticStructureSchema = [3, n0, _CRSLR, 0, [_JI, _SO], [0, 0]];
+export var CreateReturnShippingLabelResult$: StaticStructureSchema = [3, n0, _CRSLRr, 0, [_Sta], [0]];
+export var DataTransfer$: StaticStructureSchema = [3, n0, _DT, 0, [_BT, _OT, _TB, _TO], [1, 1, 1, 1]];
+export var DependentService$: StaticStructureSchema = [3, n0, _DS, 0, [_SN, _SV], [0, () => ServiceVersion$]];
+export var DescribeAddressesRequest$: StaticStructureSchema = [3, n0, _DAR, 0, [_MR, _NT], [1, 0]];
+export var DescribeAddressesResult$: StaticStructureSchema = [3, n0, _DARe, 0, [_Ad, _NT], [() => AddressList, 0]];
+export var DescribeAddressRequest$: StaticStructureSchema = [3, n0, _DARes, 0, [_AI], [0]];
+export var DescribeAddressResult$: StaticStructureSchema = [3, n0, _DAResc, 0, [_A], [() => Address$]];
+export var DescribeClusterRequest$: StaticStructureSchema = [3, n0, _DCR, 0, [_CI], [0]];
+export var DescribeClusterResult$: StaticStructureSchema = [3, n0, _DCRe, 0, [_CM], [() => ClusterMetadata$]];
+export var DescribeJobRequest$: StaticStructureSchema = [3, n0, _DJR, 0, [_JI], [0]];
+export var DescribeJobResult$: StaticStructureSchema = [
   3,
   n0,
   _DJRe,
   0,
   [_JM, _SJM],
   [
-    [() => JobMetadata, 0],
+    [() => JobMetadata$, 0],
     [() => JobMetadataList, 0],
   ],
 ];
-export var DescribeReturnShippingLabelRequest: StaticStructureSchema = [3, n0, _DRSLR, 0, [_JI], [0]];
-export var DescribeReturnShippingLabelResult: StaticStructureSchema = [
+export var DescribeReturnShippingLabelRequest$: StaticStructureSchema = [3, n0, _DRSLR, 0, [_JI], [0]];
+export var DescribeReturnShippingLabelResult$: StaticStructureSchema = [
   3,
   n0,
   _DRSLRe,
@@ -417,32 +417,32 @@ export var DescribeReturnShippingLabelResult: StaticStructureSchema = [
   [_Sta, _ED, _RSLURI],
   [0, 4, 0],
 ];
-export var DeviceConfiguration: StaticStructureSchema = [3, n0, _DC, 0, [_SDC], [() => SnowconeDeviceConfiguration]];
-export var Ec2AmiResource: StaticStructureSchema = [3, n0, _EAR, 0, [_AIm, _SAI], [0, 0]];
-export var Ec2RequestFailedException: StaticErrorSchema = [-3, n0, _ERFE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(Ec2RequestFailedException, __Ec2RequestFailedException);
-export var EKSOnDeviceServiceConfiguration: StaticStructureSchema = [3, n0, _EKSODSC, 0, [_KV, _EKSAV], [0, 0]];
-export var EventTriggerDefinition: StaticStructureSchema = [3, n0, _ETD, 0, [_ERARN], [0]];
-export var GetJobManifestRequest: StaticStructureSchema = [3, n0, _GJMR, 0, [_JI], [0]];
-export var GetJobManifestResult: StaticStructureSchema = [3, n0, _GJMRe, 0, [_MURI], [0]];
-export var GetJobUnlockCodeRequest: StaticStructureSchema = [3, n0, _GJUCR, 0, [_JI], [0]];
-export var GetJobUnlockCodeResult: StaticStructureSchema = [3, n0, _GJUCRe, 0, [_UC], [0]];
-export var GetSnowballUsageRequest: StaticStructureSchema = [3, n0, _GSUR, 0, [], []];
-export var GetSnowballUsageResult: StaticStructureSchema = [3, n0, _GSURe, 0, [_SL, _SIU], [1, 1]];
-export var GetSoftwareUpdatesRequest: StaticStructureSchema = [3, n0, _GSURet, 0, [_JI], [0]];
-export var GetSoftwareUpdatesResult: StaticStructureSchema = [3, n0, _GSUReto, 0, [_UURI], [0]];
-export var INDTaxDocuments: StaticStructureSchema = [3, n0, _INDTD, 0, [_GSTIN], [0]];
-export var InvalidAddressException: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidAddressException, __InvalidAddressException);
-export var InvalidInputCombinationException: StaticErrorSchema = [-3, n0, _IICE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidInputCombinationException, __InvalidInputCombinationException);
-export var InvalidJobStateException: StaticErrorSchema = [-3, n0, _IJSE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidJobStateException, __InvalidJobStateException);
-export var InvalidNextTokenException: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException, __InvalidNextTokenException);
-export var InvalidResourceException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_M, _RT], [0, 0]];
-TypeRegistry.for(n0).registerError(InvalidResourceException, __InvalidResourceException);
-export var JobListEntry: StaticStructureSchema = [
+export var DeviceConfiguration$: StaticStructureSchema = [3, n0, _DC, 0, [_SDC], [() => SnowconeDeviceConfiguration$]];
+export var Ec2AmiResource$: StaticStructureSchema = [3, n0, _EAR, 0, [_AIm, _SAI], [0, 0]];
+export var Ec2RequestFailedException$: StaticErrorSchema = [-3, n0, _ERFE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(Ec2RequestFailedException$, Ec2RequestFailedException);
+export var EKSOnDeviceServiceConfiguration$: StaticStructureSchema = [3, n0, _EKSODSC, 0, [_KV, _EKSAV], [0, 0]];
+export var EventTriggerDefinition$: StaticStructureSchema = [3, n0, _ETD, 0, [_ERARN], [0]];
+export var GetJobManifestRequest$: StaticStructureSchema = [3, n0, _GJMR, 0, [_JI], [0]];
+export var GetJobManifestResult$: StaticStructureSchema = [3, n0, _GJMRe, 0, [_MURI], [0]];
+export var GetJobUnlockCodeRequest$: StaticStructureSchema = [3, n0, _GJUCR, 0, [_JI], [0]];
+export var GetJobUnlockCodeResult$: StaticStructureSchema = [3, n0, _GJUCRe, 0, [_UC], [0]];
+export var GetSnowballUsageRequest$: StaticStructureSchema = [3, n0, _GSUR, 0, [], []];
+export var GetSnowballUsageResult$: StaticStructureSchema = [3, n0, _GSURe, 0, [_SL, _SIU], [1, 1]];
+export var GetSoftwareUpdatesRequest$: StaticStructureSchema = [3, n0, _GSURet, 0, [_JI], [0]];
+export var GetSoftwareUpdatesResult$: StaticStructureSchema = [3, n0, _GSUReto, 0, [_UURI], [0]];
+export var INDTaxDocuments$: StaticStructureSchema = [3, n0, _INDTD, 0, [_GSTIN], [0]];
+export var InvalidAddressException$: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidAddressException$, InvalidAddressException);
+export var InvalidInputCombinationException$: StaticErrorSchema = [-3, n0, _IICE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidInputCombinationException$, InvalidInputCombinationException);
+export var InvalidJobStateException$: StaticErrorSchema = [-3, n0, _IJSE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidJobStateException$, InvalidJobStateException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var InvalidResourceException$: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c }, [_M, _RT], [0, 0]];
+TypeRegistry.for(n0).registerError(InvalidResourceException$, InvalidResourceException);
+export var JobListEntry$: StaticStructureSchema = [
   3,
   n0,
   _JLEo,
@@ -450,8 +450,8 @@ export var JobListEntry: StaticStructureSchema = [
   [_JI, _JS, _IM, _JT, _ST, _CD, _D],
   [0, 0, 2, 0, 0, 4, 0],
 ];
-export var JobLogs: StaticStructureSchema = [3, n0, _JL, 0, [_JCRURI, _JSLURI, _JFLURI], [0, 0, 0]];
-export var JobMetadata: StaticStructureSchema = [
+export var JobLogs$: StaticStructureSchema = [3, n0, _JL, 0, [_JCRURI, _JSLURI, _JFLURI], [0, 0, 0]];
+export var JobMetadata$: StaticStructureSchema = [
   3,
   n0,
   _JM,
@@ -489,29 +489,29 @@ export var JobMetadata: StaticStructureSchema = [
     0,
     0,
     4,
-    () => JobResource,
+    () => JobResource$,
     0,
     0,
     0,
     0,
-    () => ShippingDetails,
+    () => ShippingDetails$,
     0,
-    () => Notification,
-    () => DataTransfer,
-    () => JobLogs,
-    0,
-    0,
-    () => TaxDocuments,
-    () => DeviceConfiguration,
+    () => Notification$,
+    () => DataTransfer$,
+    () => JobLogs$,
     0,
     0,
-    () => OnDeviceServiceConfiguration,
+    () => TaxDocuments$,
+    () => DeviceConfiguration$,
     0,
-    [() => PickupDetails, 0],
+    0,
+    () => OnDeviceServiceConfiguration$,
+    0,
+    [() => PickupDetails$, 0],
     0,
   ],
 ];
-export var JobResource: StaticStructureSchema = [
+export var JobResource$: StaticStructureSchema = [
   3,
   n0,
   _JR,
@@ -519,16 +519,23 @@ export var JobResource: StaticStructureSchema = [
   [_SR, _LR, _EARc],
   [() => S3ResourceList, () => LambdaResourceList, () => Ec2AmiResourceList],
 ];
-export var KeyRange: StaticStructureSchema = [3, n0, _KR, 0, [_BM, _EM], [0, 0]];
-export var KMSRequestFailedException: StaticErrorSchema = [-3, n0, _KMSRFE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(KMSRequestFailedException, __KMSRequestFailedException);
-export var LambdaResource: StaticStructureSchema = [3, n0, _LRa, 0, [_LA, _ET], [0, () => EventTriggerDefinitionList]];
-export var ListClusterJobsRequest: StaticStructureSchema = [3, n0, _LCJR, 0, [_CI, _MR, _NT], [0, 1, 0]];
-export var ListClusterJobsResult: StaticStructureSchema = [3, n0, _LCJRi, 0, [_JLE, _NT], [() => JobListEntryList, 0]];
-export var ListClustersRequest: StaticStructureSchema = [3, n0, _LCR, 0, [_MR, _NT], [1, 0]];
-export var ListClustersResult: StaticStructureSchema = [3, n0, _LCRi, 0, [_CLEl, _NT], [() => ClusterListEntryList, 0]];
-export var ListCompatibleImagesRequest: StaticStructureSchema = [3, n0, _LCIR, 0, [_MR, _NT], [1, 0]];
-export var ListCompatibleImagesResult: StaticStructureSchema = [
+export var KeyRange$: StaticStructureSchema = [3, n0, _KR, 0, [_BM, _EM], [0, 0]];
+export var KMSRequestFailedException$: StaticErrorSchema = [-3, n0, _KMSRFE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(KMSRequestFailedException$, KMSRequestFailedException);
+export var LambdaResource$: StaticStructureSchema = [3, n0, _LRa, 0, [_LA, _ET], [0, () => EventTriggerDefinitionList]];
+export var ListClusterJobsRequest$: StaticStructureSchema = [3, n0, _LCJR, 0, [_CI, _MR, _NT], [0, 1, 0]];
+export var ListClusterJobsResult$: StaticStructureSchema = [3, n0, _LCJRi, 0, [_JLE, _NT], [() => JobListEntryList, 0]];
+export var ListClustersRequest$: StaticStructureSchema = [3, n0, _LCR, 0, [_MR, _NT], [1, 0]];
+export var ListClustersResult$: StaticStructureSchema = [
+  3,
+  n0,
+  _LCRi,
+  0,
+  [_CLEl, _NT],
+  [() => ClusterListEntryList, 0],
+];
+export var ListCompatibleImagesRequest$: StaticStructureSchema = [3, n0, _LCIR, 0, [_MR, _NT], [1, 0]];
+export var ListCompatibleImagesResult$: StaticStructureSchema = [
   3,
   n0,
   _LCIRi,
@@ -536,10 +543,10 @@ export var ListCompatibleImagesResult: StaticStructureSchema = [
   [_CIom, _NT],
   [() => CompatibleImageList, 0],
 ];
-export var ListJobsRequest: StaticStructureSchema = [3, n0, _LJR, 0, [_MR, _NT], [1, 0]];
-export var ListJobsResult: StaticStructureSchema = [3, n0, _LJRi, 0, [_JLE, _NT], [() => JobListEntryList, 0]];
-export var ListLongTermPricingRequest: StaticStructureSchema = [3, n0, _LLTPR, 0, [_MR, _NT], [1, 0]];
-export var ListLongTermPricingResult: StaticStructureSchema = [
+export var ListJobsRequest$: StaticStructureSchema = [3, n0, _LJR, 0, [_MR, _NT], [1, 0]];
+export var ListJobsResult$: StaticStructureSchema = [3, n0, _LJRi, 0, [_JLE, _NT], [() => JobListEntryList, 0]];
+export var ListLongTermPricingRequest$: StaticStructureSchema = [3, n0, _LLTPR, 0, [_MR, _NT], [1, 0]];
+export var ListLongTermPricingResult$: StaticStructureSchema = [
   3,
   n0,
   _LLTPRi,
@@ -547,9 +554,9 @@ export var ListLongTermPricingResult: StaticStructureSchema = [
   [_LTPE, _NT],
   [() => LongTermPricingEntryList, 0],
 ];
-export var ListPickupLocationsRequest: StaticStructureSchema = [3, n0, _LPLR, 0, [_MR, _NT], [1, 0]];
-export var ListPickupLocationsResult: StaticStructureSchema = [3, n0, _LPLRi, 0, [_Ad, _NT], [() => AddressList, 0]];
-export var ListServiceVersionsRequest: StaticStructureSchema = [
+export var ListPickupLocationsRequest$: StaticStructureSchema = [3, n0, _LPLR, 0, [_MR, _NT], [1, 0]];
+export var ListPickupLocationsResult$: StaticStructureSchema = [3, n0, _LPLRi, 0, [_Ad, _NT], [() => AddressList, 0]];
+export var ListServiceVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSVR,
@@ -557,7 +564,7 @@ export var ListServiceVersionsRequest: StaticStructureSchema = [
   [_SN, _DSe, _MR, _NT],
   [0, () => DependentServiceList, 1, 0],
 ];
-export var ListServiceVersionsResult: StaticStructureSchema = [
+export var ListServiceVersionsResult$: StaticStructureSchema = [
   3,
   n0,
   _LSVRi,
@@ -565,7 +572,7 @@ export var ListServiceVersionsResult: StaticStructureSchema = [
   [_SVe, _SN, _DSe, _NT],
   [() => ServiceVersionList, 0, () => DependentServiceList, 0],
 ];
-export var LongTermPricingListEntry: StaticStructureSchema = [
+export var LongTermPricingListEntry$: StaticStructureSchema = [
   3,
   n0,
   _LTPLE,
@@ -573,22 +580,22 @@ export var LongTermPricingListEntry: StaticStructureSchema = [
   [_LTPIo, _LTPED, _LTPSD, _LTPT, _CAJ, _RJ, _ILTPAR, _LTPS, _ST, _JIo],
   [0, 4, 4, 0, 0, 0, 2, 0, 0, 64 | 0],
 ];
-export var NFSOnDeviceServiceConfiguration: StaticStructureSchema = [3, n0, _NFSODSC, 0, [_SLt, _SU], [1, 0]];
-export var Notification: StaticStructureSchema = [3, n0, _No, 0, [_STARN, _JSTN, _NA, _DPSTARN], [0, 64 | 0, 2, 0]];
-export var OnDeviceServiceConfiguration: StaticStructureSchema = [
+export var NFSOnDeviceServiceConfiguration$: StaticStructureSchema = [3, n0, _NFSODSC, 0, [_SLt, _SU], [1, 0]];
+export var Notification$: StaticStructureSchema = [3, n0, _No, 0, [_STARN, _JSTN, _NA, _DPSTARN], [0, 64 | 0, 2, 0]];
+export var OnDeviceServiceConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ODSC,
   0,
   [_NFSODS, _TGWODS, _EKSODS, _SODS],
   [
-    () => NFSOnDeviceServiceConfiguration,
-    () => TGWOnDeviceServiceConfiguration,
-    () => EKSOnDeviceServiceConfiguration,
-    () => S3OnDeviceServiceConfiguration,
+    () => NFSOnDeviceServiceConfiguration$,
+    () => TGWOnDeviceServiceConfiguration$,
+    () => EKSOnDeviceServiceConfiguration$,
+    () => S3OnDeviceServiceConfiguration$,
   ],
 ];
-export var PickupDetails: StaticStructureSchema = [
+export var PickupDetails$: StaticStructureSchema = [
   3,
   n0,
   _PD,
@@ -596,12 +603,12 @@ export var PickupDetails: StaticStructureSchema = [
   [_N, _PN, _E, _IN, _IED, _IIO, _DPI],
   [0, [() => PhoneNumber, 0], [() => Email, 0], 0, 4, 0, 0],
 ];
-export var ReturnShippingLabelAlreadyExistsException: StaticErrorSchema = [-3, n0, _RSLAEE, { [_e]: _c }, [_M], [0]];
+export var ReturnShippingLabelAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RSLAEE, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(
-  ReturnShippingLabelAlreadyExistsException,
-  __ReturnShippingLabelAlreadyExistsException
+  ReturnShippingLabelAlreadyExistsException$,
+  ReturnShippingLabelAlreadyExistsException
 );
-export var S3OnDeviceServiceConfiguration: StaticStructureSchema = [
+export var S3OnDeviceServiceConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SODSC,
@@ -609,40 +616,40 @@ export var S3OnDeviceServiceConfiguration: StaticStructureSchema = [
   [_SLt, _SU, _SS, _FT],
   [1, 0, 1, 1],
 ];
-export var S3Resource: StaticStructureSchema = [
+export var S3Resource$: StaticStructureSchema = [
   3,
   n0,
   _SRe,
   0,
   [_BA, _KR, _TODS],
-  [0, () => KeyRange, () => TargetOnDeviceServiceList],
+  [0, () => KeyRange$, () => TargetOnDeviceServiceList],
 ];
-export var ServiceVersion: StaticStructureSchema = [3, n0, _SV, 0, [_V], [0]];
-export var Shipment: StaticStructureSchema = [3, n0, _Sh, 0, [_Sta, _TN], [0, 0]];
-export var ShippingDetails: StaticStructureSchema = [
+export var ServiceVersion$: StaticStructureSchema = [3, n0, _SV, 0, [_V], [0]];
+export var Shipment$: StaticStructureSchema = [3, n0, _Sh, 0, [_Sta, _TN], [0, 0]];
+export var ShippingDetails$: StaticStructureSchema = [
   3,
   n0,
   _SD,
   0,
   [_SO, _IS, _OS],
-  [0, () => Shipment, () => Shipment],
+  [0, () => Shipment$, () => Shipment$],
 ];
-export var SnowconeDeviceConfiguration: StaticStructureSchema = [3, n0, _SDC, 0, [_WC], [() => WirelessConnection]];
-export var TargetOnDeviceService: StaticStructureSchema = [3, n0, _TODSa, 0, [_SN, _TOr], [0, 0]];
-export var TaxDocuments: StaticStructureSchema = [3, n0, _TD, 0, [_IND], [() => INDTaxDocuments]];
-export var TGWOnDeviceServiceConfiguration: StaticStructureSchema = [3, n0, _TGWODSC, 0, [_SLt, _SU], [1, 0]];
-export var UnsupportedAddressException: StaticErrorSchema = [-3, n0, _UAE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(UnsupportedAddressException, __UnsupportedAddressException);
-export var UpdateClusterRequest: StaticStructureSchema = [
+export var SnowconeDeviceConfiguration$: StaticStructureSchema = [3, n0, _SDC, 0, [_WC], [() => WirelessConnection$]];
+export var TargetOnDeviceService$: StaticStructureSchema = [3, n0, _TODSa, 0, [_SN, _TOr], [0, 0]];
+export var TaxDocuments$: StaticStructureSchema = [3, n0, _TD, 0, [_IND], [() => INDTaxDocuments$]];
+export var TGWOnDeviceServiceConfiguration$: StaticStructureSchema = [3, n0, _TGWODSC, 0, [_SLt, _SU], [1, 0]];
+export var UnsupportedAddressException$: StaticErrorSchema = [-3, n0, _UAE, { [_e]: _c }, [_M], [0]];
+TypeRegistry.for(n0).registerError(UnsupportedAddressException$, UnsupportedAddressException);
+export var UpdateClusterRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCR,
   0,
   [_CI, _RARN, _D, _R, _ODSC, _AI, _SO, _No, _FAI],
-  [0, 0, 0, () => JobResource, () => OnDeviceServiceConfiguration, 0, 0, () => Notification, 0],
+  [0, 0, 0, () => JobResource$, () => OnDeviceServiceConfiguration$, 0, 0, () => Notification$, 0],
 ];
-export var UpdateClusterResult: StaticStructureSchema = [3, n0, _UCRp, 0, [], []];
-export var UpdateJobRequest: StaticStructureSchema = [
+export var UpdateClusterResult$: StaticStructureSchema = [3, n0, _UCRp, 0, [], []];
+export var UpdateJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _UJR,
@@ -651,212 +658,219 @@ export var UpdateJobRequest: StaticStructureSchema = [
   [
     0,
     0,
-    () => Notification,
-    () => JobResource,
-    () => OnDeviceServiceConfiguration,
+    () => Notification$,
+    () => JobResource$,
+    () => OnDeviceServiceConfiguration$,
     0,
     0,
     0,
     0,
     0,
-    [() => PickupDetails, 0],
+    [() => PickupDetails$, 0],
   ],
 ];
-export var UpdateJobResult: StaticStructureSchema = [3, n0, _UJRp, 0, [], []];
-export var UpdateJobShipmentStateRequest: StaticStructureSchema = [3, n0, _UJSSR, 0, [_JI, _SSh], [0, 0]];
-export var UpdateJobShipmentStateResult: StaticStructureSchema = [3, n0, _UJSSRp, 0, [], []];
-export var UpdateLongTermPricingRequest: StaticStructureSchema = [3, n0, _ULTPR, 0, [_LTPIo, _RJ, _ILTPAR], [0, 0, 2]];
-export var UpdateLongTermPricingResult: StaticStructureSchema = [3, n0, _ULTPRp, 0, [], []];
-export var WirelessConnection: StaticStructureSchema = [3, n0, _WC, 0, [_IWE], [2]];
-export var SnowballServiceException: StaticErrorSchema = [-3, _s, "SnowballServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(SnowballServiceException, __SnowballServiceException);
-export var AddressList: StaticListSchema = [1, n0, _AL, 0, () => Address];
-export var ClusterListEntryList: StaticListSchema = [1, n0, _CLEL, 0, () => ClusterListEntry];
-export var CompatibleImageList: StaticListSchema = [1, n0, _CIL, 0, () => CompatibleImage];
-export var DependentServiceList: StaticListSchema = [1, n0, _DSL, 0, () => DependentService];
-export var Ec2AmiResourceList: StaticListSchema = [1, n0, _EARL, 0, () => Ec2AmiResource];
-export var EventTriggerDefinitionList: StaticListSchema = [1, n0, _ETDL, 0, () => EventTriggerDefinition];
-export var JobListEntryList: StaticListSchema = [1, n0, _JLEL, 0, () => JobListEntry];
-export var JobMetadataList: StaticListSchema = [1, n0, _JML, 0, [() => JobMetadata, 0]];
-export var JobStateList = 64 | 0;
-export var LambdaResourceList: StaticListSchema = [1, n0, _LRL, 0, () => LambdaResource];
-export var LongTermPricingAssociatedJobIdList = 64 | 0;
-export var LongTermPricingEntryList: StaticListSchema = [1, n0, _LTPEL, 0, () => LongTermPricingListEntry];
-export var LongTermPricingIdList = 64 | 0;
-export var S3ResourceList: StaticListSchema = [1, n0, _SRL, 0, () => S3Resource];
-export var ServiceVersionList: StaticListSchema = [1, n0, _SVL, 0, () => ServiceVersion];
-export var TargetOnDeviceServiceList: StaticListSchema = [1, n0, _TODSL, 0, () => TargetOnDeviceService];
-export var CancelCluster: StaticOperationSchema = [
+export var UpdateJobResult$: StaticStructureSchema = [3, n0, _UJRp, 0, [], []];
+export var UpdateJobShipmentStateRequest$: StaticStructureSchema = [3, n0, _UJSSR, 0, [_JI, _SSh], [0, 0]];
+export var UpdateJobShipmentStateResult$: StaticStructureSchema = [3, n0, _UJSSRp, 0, [], []];
+export var UpdateLongTermPricingRequest$: StaticStructureSchema = [3, n0, _ULTPR, 0, [_LTPIo, _RJ, _ILTPAR], [0, 0, 2]];
+export var UpdateLongTermPricingResult$: StaticStructureSchema = [3, n0, _ULTPRp, 0, [], []];
+export var WirelessConnection$: StaticStructureSchema = [3, n0, _WC, 0, [_IWE], [2]];
+export var SnowballServiceException$: StaticErrorSchema = [-3, _s, "SnowballServiceException", 0, [], []];
+TypeRegistry.for(_s).registerError(SnowballServiceException$, SnowballServiceException);
+var AddressList: StaticListSchema = [1, n0, _AL, 0, () => Address$];
+var ClusterListEntryList: StaticListSchema = [1, n0, _CLEL, 0, () => ClusterListEntry$];
+var CompatibleImageList: StaticListSchema = [1, n0, _CIL, 0, () => CompatibleImage$];
+var DependentServiceList: StaticListSchema = [1, n0, _DSL, 0, () => DependentService$];
+var Ec2AmiResourceList: StaticListSchema = [1, n0, _EARL, 0, () => Ec2AmiResource$];
+var EventTriggerDefinitionList: StaticListSchema = [1, n0, _ETDL, 0, () => EventTriggerDefinition$];
+var JobListEntryList: StaticListSchema = [1, n0, _JLEL, 0, () => JobListEntry$];
+var JobMetadataList: StaticListSchema = [1, n0, _JML, 0, [() => JobMetadata$, 0]];
+var JobStateList = 64 | 0;
+var LambdaResourceList: StaticListSchema = [1, n0, _LRL, 0, () => LambdaResource$];
+var LongTermPricingAssociatedJobIdList = 64 | 0;
+var LongTermPricingEntryList: StaticListSchema = [1, n0, _LTPEL, 0, () => LongTermPricingListEntry$];
+var LongTermPricingIdList = 64 | 0;
+var S3ResourceList: StaticListSchema = [1, n0, _SRL, 0, () => S3Resource$];
+var ServiceVersionList: StaticListSchema = [1, n0, _SVL, 0, () => ServiceVersion$];
+var TargetOnDeviceServiceList: StaticListSchema = [1, n0, _TODSL, 0, () => TargetOnDeviceService$];
+export var CancelCluster$: StaticOperationSchema = [
   9,
   n0,
   _CC,
   0,
-  () => CancelClusterRequest,
-  () => CancelClusterResult,
+  () => CancelClusterRequest$,
+  () => CancelClusterResult$,
 ];
-export var CancelJob: StaticOperationSchema = [9, n0, _CJ, 0, () => CancelJobRequest, () => CancelJobResult];
-export var CreateAddress: StaticOperationSchema = [
+export var CancelJob$: StaticOperationSchema = [9, n0, _CJ, 0, () => CancelJobRequest$, () => CancelJobResult$];
+export var CreateAddress$: StaticOperationSchema = [
   9,
   n0,
   _CA,
   0,
-  () => CreateAddressRequest,
-  () => CreateAddressResult,
+  () => CreateAddressRequest$,
+  () => CreateAddressResult$,
 ];
-export var CreateCluster: StaticOperationSchema = [
+export var CreateCluster$: StaticOperationSchema = [
   9,
   n0,
   _CCr,
   0,
-  () => CreateClusterRequest,
-  () => CreateClusterResult,
+  () => CreateClusterRequest$,
+  () => CreateClusterResult$,
 ];
-export var CreateJob: StaticOperationSchema = [9, n0, _CJr, 0, () => CreateJobRequest, () => CreateJobResult];
-export var CreateLongTermPricing: StaticOperationSchema = [
+export var CreateJob$: StaticOperationSchema = [9, n0, _CJr, 0, () => CreateJobRequest$, () => CreateJobResult$];
+export var CreateLongTermPricing$: StaticOperationSchema = [
   9,
   n0,
   _CLTP,
   0,
-  () => CreateLongTermPricingRequest,
-  () => CreateLongTermPricingResult,
+  () => CreateLongTermPricingRequest$,
+  () => CreateLongTermPricingResult$,
 ];
-export var CreateReturnShippingLabel: StaticOperationSchema = [
+export var CreateReturnShippingLabel$: StaticOperationSchema = [
   9,
   n0,
   _CRSL,
   0,
-  () => CreateReturnShippingLabelRequest,
-  () => CreateReturnShippingLabelResult,
+  () => CreateReturnShippingLabelRequest$,
+  () => CreateReturnShippingLabelResult$,
 ];
-export var DescribeAddress: StaticOperationSchema = [
+export var DescribeAddress$: StaticOperationSchema = [
   9,
   n0,
   _DA,
   0,
-  () => DescribeAddressRequest,
-  () => DescribeAddressResult,
+  () => DescribeAddressRequest$,
+  () => DescribeAddressResult$,
 ];
-export var DescribeAddresses: StaticOperationSchema = [
+export var DescribeAddresses$: StaticOperationSchema = [
   9,
   n0,
   _DAe,
   0,
-  () => DescribeAddressesRequest,
-  () => DescribeAddressesResult,
+  () => DescribeAddressesRequest$,
+  () => DescribeAddressesResult$,
 ];
-export var DescribeCluster: StaticOperationSchema = [
+export var DescribeCluster$: StaticOperationSchema = [
   9,
   n0,
   _DCe,
   0,
-  () => DescribeClusterRequest,
-  () => DescribeClusterResult,
+  () => DescribeClusterRequest$,
+  () => DescribeClusterResult$,
 ];
-export var DescribeJob: StaticOperationSchema = [9, n0, _DJ, 0, () => DescribeJobRequest, () => DescribeJobResult];
-export var DescribeReturnShippingLabel: StaticOperationSchema = [
+export var DescribeJob$: StaticOperationSchema = [9, n0, _DJ, 0, () => DescribeJobRequest$, () => DescribeJobResult$];
+export var DescribeReturnShippingLabel$: StaticOperationSchema = [
   9,
   n0,
   _DRSL,
   0,
-  () => DescribeReturnShippingLabelRequest,
-  () => DescribeReturnShippingLabelResult,
+  () => DescribeReturnShippingLabelRequest$,
+  () => DescribeReturnShippingLabelResult$,
 ];
-export var GetJobManifest: StaticOperationSchema = [
+export var GetJobManifest$: StaticOperationSchema = [
   9,
   n0,
   _GJM,
   0,
-  () => GetJobManifestRequest,
-  () => GetJobManifestResult,
+  () => GetJobManifestRequest$,
+  () => GetJobManifestResult$,
 ];
-export var GetJobUnlockCode: StaticOperationSchema = [
+export var GetJobUnlockCode$: StaticOperationSchema = [
   9,
   n0,
   _GJUC,
   0,
-  () => GetJobUnlockCodeRequest,
-  () => GetJobUnlockCodeResult,
+  () => GetJobUnlockCodeRequest$,
+  () => GetJobUnlockCodeResult$,
 ];
-export var GetSnowballUsage: StaticOperationSchema = [
+export var GetSnowballUsage$: StaticOperationSchema = [
   9,
   n0,
   _GSU,
   0,
-  () => GetSnowballUsageRequest,
-  () => GetSnowballUsageResult,
+  () => GetSnowballUsageRequest$,
+  () => GetSnowballUsageResult$,
 ];
-export var GetSoftwareUpdates: StaticOperationSchema = [
+export var GetSoftwareUpdates$: StaticOperationSchema = [
   9,
   n0,
   _GSUe,
   0,
-  () => GetSoftwareUpdatesRequest,
-  () => GetSoftwareUpdatesResult,
+  () => GetSoftwareUpdatesRequest$,
+  () => GetSoftwareUpdatesResult$,
 ];
-export var ListClusterJobs: StaticOperationSchema = [
+export var ListClusterJobs$: StaticOperationSchema = [
   9,
   n0,
   _LCJ,
   0,
-  () => ListClusterJobsRequest,
-  () => ListClusterJobsResult,
+  () => ListClusterJobsRequest$,
+  () => ListClusterJobsResult$,
 ];
-export var ListClusters: StaticOperationSchema = [9, n0, _LC, 0, () => ListClustersRequest, () => ListClustersResult];
-export var ListCompatibleImages: StaticOperationSchema = [
+export var ListClusters$: StaticOperationSchema = [
+  9,
+  n0,
+  _LC,
+  0,
+  () => ListClustersRequest$,
+  () => ListClustersResult$,
+];
+export var ListCompatibleImages$: StaticOperationSchema = [
   9,
   n0,
   _LCI,
   0,
-  () => ListCompatibleImagesRequest,
-  () => ListCompatibleImagesResult,
+  () => ListCompatibleImagesRequest$,
+  () => ListCompatibleImagesResult$,
 ];
-export var ListJobs: StaticOperationSchema = [9, n0, _LJ, 0, () => ListJobsRequest, () => ListJobsResult];
-export var ListLongTermPricing: StaticOperationSchema = [
+export var ListJobs$: StaticOperationSchema = [9, n0, _LJ, 0, () => ListJobsRequest$, () => ListJobsResult$];
+export var ListLongTermPricing$: StaticOperationSchema = [
   9,
   n0,
   _LLTP,
   0,
-  () => ListLongTermPricingRequest,
-  () => ListLongTermPricingResult,
+  () => ListLongTermPricingRequest$,
+  () => ListLongTermPricingResult$,
 ];
-export var ListPickupLocations: StaticOperationSchema = [
+export var ListPickupLocations$: StaticOperationSchema = [
   9,
   n0,
   _LPL,
   0,
-  () => ListPickupLocationsRequest,
-  () => ListPickupLocationsResult,
+  () => ListPickupLocationsRequest$,
+  () => ListPickupLocationsResult$,
 ];
-export var ListServiceVersions: StaticOperationSchema = [
+export var ListServiceVersions$: StaticOperationSchema = [
   9,
   n0,
   _LSV,
   0,
-  () => ListServiceVersionsRequest,
-  () => ListServiceVersionsResult,
+  () => ListServiceVersionsRequest$,
+  () => ListServiceVersionsResult$,
 ];
-export var UpdateCluster: StaticOperationSchema = [
+export var UpdateCluster$: StaticOperationSchema = [
   9,
   n0,
   _UCp,
   0,
-  () => UpdateClusterRequest,
-  () => UpdateClusterResult,
+  () => UpdateClusterRequest$,
+  () => UpdateClusterResult$,
 ];
-export var UpdateJob: StaticOperationSchema = [9, n0, _UJ, 0, () => UpdateJobRequest, () => UpdateJobResult];
-export var UpdateJobShipmentState: StaticOperationSchema = [
+export var UpdateJob$: StaticOperationSchema = [9, n0, _UJ, 0, () => UpdateJobRequest$, () => UpdateJobResult$];
+export var UpdateJobShipmentState$: StaticOperationSchema = [
   9,
   n0,
   _UJSS,
   0,
-  () => UpdateJobShipmentStateRequest,
-  () => UpdateJobShipmentStateResult,
+  () => UpdateJobShipmentStateRequest$,
+  () => UpdateJobShipmentStateResult$,
 ];
-export var UpdateLongTermPricing: StaticOperationSchema = [
+export var UpdateLongTermPricing$: StaticOperationSchema = [
   9,
   n0,
   _ULTP,
   0,
-  () => UpdateLongTermPricingRequest,
-  () => UpdateLongTermPricingResult,
+  () => UpdateLongTermPricingRequest$,
+  () => UpdateLongTermPricingResult$,
 ];

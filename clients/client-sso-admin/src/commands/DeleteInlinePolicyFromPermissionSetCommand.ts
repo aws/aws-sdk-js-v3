@@ -8,7 +8,7 @@ import type {
   DeleteInlinePolicyFromPermissionSetRequest,
   DeleteInlinePolicyFromPermissionSetResponse,
 } from "../models/models_0";
-import { DeleteInlinePolicyFromPermissionSet } from "../schemas/schemas_0";
+import { DeleteInlinePolicyFromPermissionSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -95,7 +95,7 @@ export class DeleteInlinePolicyFromPermissionSetCommand extends $Command
   })
   .s("SWBExternalService", "DeleteInlinePolicyFromPermissionSet", {})
   .n("SSOAdminClient", "DeleteInlinePolicyFromPermissionSetCommand")
-  .sc(DeleteInlinePolicyFromPermissionSet)
+  .sc(DeleteInlinePolicyFromPermissionSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

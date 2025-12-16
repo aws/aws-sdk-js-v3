@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { HttpRequestWithGreedyLabelInPath } from "../schemas/schemas_0";
+import { HttpRequestWithGreedyLabelInPath$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -76,7 +76,7 @@ export class HttpRequestWithGreedyLabelInPathCommand extends $Command
   })
   .s("RestJson", "HttpRequestWithGreedyLabelInPath", {})
   .n("RestJsonProtocolClient", "HttpRequestWithGreedyLabelInPathCommand")
-  .sc(HttpRequestWithGreedyLabelInPath)
+  .sc(HttpRequestWithGreedyLabelInPath$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

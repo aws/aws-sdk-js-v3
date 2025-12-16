@@ -9,7 +9,7 @@ import type {
   GetBehaviorModelTrainingSummariesRequest,
   GetBehaviorModelTrainingSummariesResponse,
 } from "../models/models_1";
-import { GetBehaviorModelTrainingSummaries } from "../schemas/schemas_0";
+import { GetBehaviorModelTrainingSummaries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class GetBehaviorModelTrainingSummariesCommand extends $Command
   })
   .s("AWSIotService", "GetBehaviorModelTrainingSummaries", {})
   .n("IoTClient", "GetBehaviorModelTrainingSummariesCommand")
-  .sc(GetBehaviorModelTrainingSummaries)
+  .sc(GetBehaviorModelTrainingSummaries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

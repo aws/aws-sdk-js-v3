@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDeviceRequest, GetDeviceResponse } from "../models/models_0";
-import { GetDevice } from "../schemas/schemas_0";
+import { GetDevice$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -114,7 +114,7 @@ export class GetDeviceCommand extends $Command
   })
   .s("ThinClient", "GetDevice", {})
   .n("WorkSpacesThinClientClient", "GetDeviceCommand")
-  .sc(GetDevice)
+  .sc(GetDevice$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

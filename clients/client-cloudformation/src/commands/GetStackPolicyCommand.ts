@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetStackPolicyInput, GetStackPolicyOutput } from "../models/models_0";
-import { GetStackPolicy } from "../schemas/schemas_0";
+import { GetStackPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -78,7 +78,7 @@ export class GetStackPolicyCommand extends $Command
   })
   .s("CloudFormation", "GetStackPolicy", {})
   .n("CloudFormationClient", "GetStackPolicyCommand")
-  .sc(GetStackPolicy)
+  .sc(GetStackPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

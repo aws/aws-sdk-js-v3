@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListRegionsRequest, ListRegionsResponse } from "../models/models_0";
-import { ListRegions } from "../schemas/schemas_0";
+import { ListRegions$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -95,7 +95,7 @@ export class ListRegionsCommand extends $Command
   })
   .s("EUCMIFrontendAPIService", "ListRegions", {})
   .n("WorkspacesInstancesClient", "ListRegionsCommand")
-  .sc(ListRegions)
+  .sc(ListRegions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   ListWorkspaceServiceAccountTokensRequest,
   ListWorkspaceServiceAccountTokensResponse,
 } from "../models/models_0";
-import { ListWorkspaceServiceAccountTokens } from "../schemas/schemas_0";
+import { ListWorkspaceServiceAccountTokens$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class ListWorkspaceServiceAccountTokensCommand extends $Command
   })
   .s("AWSGrafanaControlPlane", "ListWorkspaceServiceAccountTokens", {})
   .n("GrafanaClient", "ListWorkspaceServiceAccountTokensCommand")
-  .sc(ListWorkspaceServiceAccountTokens)
+  .sc(ListWorkspaceServiceAccountTokens$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

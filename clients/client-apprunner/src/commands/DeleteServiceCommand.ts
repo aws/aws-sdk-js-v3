@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteServiceRequest, DeleteServiceResponse } from "../models/models_0";
-import { DeleteService } from "../schemas/schemas_0";
+import { DeleteService$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -184,7 +184,7 @@ export class DeleteServiceCommand extends $Command
   })
   .s("AppRunner", "DeleteService", {})
   .n("AppRunnerClient", "DeleteServiceCommand")
-  .sc(DeleteService)
+  .sc(DeleteService$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

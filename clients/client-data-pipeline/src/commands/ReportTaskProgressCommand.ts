@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ReportTaskProgressInput, ReportTaskProgressOutput } from "../models/models_0";
-import { ReportTaskProgress } from "../schemas/schemas_0";
+import { ReportTaskProgress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class ReportTaskProgressCommand extends $Command
   })
   .s("DataPipeline", "ReportTaskProgress", {})
   .n("DataPipelineClient", "ReportTaskProgressCommand")
-  .sc(ReportTaskProgress)
+  .sc(ReportTaskProgress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

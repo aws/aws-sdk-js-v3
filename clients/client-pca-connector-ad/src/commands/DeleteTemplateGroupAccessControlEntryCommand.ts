@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PcaConnectorAdClient";
-import { DeleteTemplateGroupAccessControlEntry } from "../schemas/schemas_0";
+import { DeleteTemplateGroupAccessControlEntry$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class DeleteTemplateGroupAccessControlEntryCommand extends $Command
   })
   .s("PcaConnectorAd", "DeleteTemplateGroupAccessControlEntry", {})
   .n("PcaConnectorAdClient", "DeleteTemplateGroupAccessControlEntryCommand")
-  .sc(DeleteTemplateGroupAccessControlEntry)
+  .sc(DeleteTemplateGroupAccessControlEntry$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

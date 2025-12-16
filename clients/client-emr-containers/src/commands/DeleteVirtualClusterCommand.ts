@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteVirtualClusterRequest, DeleteVirtualClusterResponse } from "../models/models_0";
-import { DeleteVirtualCluster } from "../schemas/schemas_0";
+import { DeleteVirtualCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class DeleteVirtualClusterCommand extends $Command
   })
   .s("AwsChicagoWebService", "DeleteVirtualCluster", {})
   .n("EMRContainersClient", "DeleteVirtualClusterCommand")
-  .sc(DeleteVirtualCluster)
+  .sc(DeleteVirtualCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

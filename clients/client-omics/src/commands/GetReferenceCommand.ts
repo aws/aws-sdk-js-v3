@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputType
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type GetReferenceRequest, GetReferenceResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { GetReference } from "../schemas/schemas_0";
+import { GetReference$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class GetReferenceCommand extends $Command
   })
   .s("Omics", "GetReference", {})
   .n("OmicsClient", "GetReferenceCommand")
-  .sc(GetReference)
+  .sc(GetReference$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

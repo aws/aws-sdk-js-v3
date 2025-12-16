@@ -189,55 +189,55 @@ import type {
 } from "@smithy/types";
 
 import {
-  ConcurrentModificationException as __ConcurrentModificationException,
-  ConflictException as __ConflictException,
-  DetectedLanguageLowConfidenceException as __DetectedLanguageLowConfidenceException,
-  InternalServerException as __InternalServerException,
-  InvalidFilterException as __InvalidFilterException,
-  InvalidParameterValueException as __InvalidParameterValueException,
-  InvalidRequestException as __InvalidRequestException,
-  LimitExceededException as __LimitExceededException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceUnavailableException as __ServiceUnavailableException,
-  TextSizeLimitExceededException as __TextSizeLimitExceededException,
-  TooManyRequestsException as __TooManyRequestsException,
-  TooManyTagsException as __TooManyTagsException,
-  UnsupportedDisplayLanguageCodeException as __UnsupportedDisplayLanguageCodeException,
-  UnsupportedLanguagePairException as __UnsupportedLanguagePairException,
+  ConcurrentModificationException,
+  ConflictException,
+  DetectedLanguageLowConfidenceException,
+  InternalServerException,
+  InvalidFilterException,
+  InvalidParameterValueException,
+  InvalidRequestException,
+  LimitExceededException,
+  ResourceNotFoundException,
+  ServiceUnavailableException,
+  TextSizeLimitExceededException,
+  TooManyRequestsException,
+  TooManyTagsException,
+  UnsupportedDisplayLanguageCodeException,
+  UnsupportedLanguagePairException,
 } from "../models/errors";
-import { TranslateServiceException as __TranslateServiceException } from "../models/TranslateServiceException";
+import { TranslateServiceException } from "../models/TranslateServiceException";
 
 /* eslint no-var: 0 */
-export var DocumentContent: StaticSimpleSchema = [0, n0, _DC, 8, 21];
-export var TerminologyFile: StaticSimpleSchema = [0, n0, _TF, 8, 21];
-export var TranslatedDocumentContent: StaticSimpleSchema = [0, n0, _TDC, 8, 21];
-export var AppliedTerminology: StaticStructureSchema = [3, n0, _AT, 0, [_N, _T], [0, () => TermList]];
-export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateParallelDataRequest: StaticStructureSchema = [
+var DocumentContent: StaticSimpleSchema = [0, n0, _DC, 8, 21];
+var TerminologyFile: StaticSimpleSchema = [0, n0, _TF, 8, 21];
+var TranslatedDocumentContent: StaticSimpleSchema = [0, n0, _TDC, 8, 21];
+export var AppliedTerminology$: StaticStructureSchema = [3, n0, _AT, 0, [_N, _T], [0, () => TermList]];
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateParallelDataRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPDR,
   0,
   [_N, _D, _PDC, _EK, _CT, _Ta],
-  [0, 0, () => ParallelDataConfig, () => EncryptionKey, [0, 4], () => TagList],
+  [0, 0, () => ParallelDataConfig$, () => EncryptionKey$, [0, 4], () => TagList],
 ];
-export var CreateParallelDataResponse: StaticStructureSchema = [3, n0, _CPDRr, 0, [_N, _S], [0, 0]];
-export var DeleteParallelDataRequest: StaticStructureSchema = [3, n0, _DPDR, 0, [_N], [0]];
-export var DeleteParallelDataResponse: StaticStructureSchema = [3, n0, _DPDRe, 0, [_N, _S], [0, 0]];
-export var DeleteTerminologyRequest: StaticStructureSchema = [3, n0, _DTR, 0, [_N], [0]];
-export var DescribeTextTranslationJobRequest: StaticStructureSchema = [3, n0, _DTTJR, 0, [_JI], [0]];
-export var DescribeTextTranslationJobResponse: StaticStructureSchema = [
+export var CreateParallelDataResponse$: StaticStructureSchema = [3, n0, _CPDRr, 0, [_N, _S], [0, 0]];
+export var DeleteParallelDataRequest$: StaticStructureSchema = [3, n0, _DPDR, 0, [_N], [0]];
+export var DeleteParallelDataResponse$: StaticStructureSchema = [3, n0, _DPDRe, 0, [_N, _S], [0, 0]];
+export var DeleteTerminologyRequest$: StaticStructureSchema = [3, n0, _DTR, 0, [_N], [0]];
+export var DescribeTextTranslationJobRequest$: StaticStructureSchema = [3, n0, _DTTJR, 0, [_JI], [0]];
+export var DescribeTextTranslationJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _DTTJRe,
   0,
   [_TTJP],
-  [() => TextTranslationJobProperties],
+  [() => TextTranslationJobProperties$],
 ];
-export var DetectedLanguageLowConfidenceException: StaticErrorSchema = [
+export var DetectedLanguageLowConfidenceException$: StaticErrorSchema = [
   -3,
   n0,
   _DLLCE,
@@ -245,63 +245,63 @@ export var DetectedLanguageLowConfidenceException: StaticErrorSchema = [
   [_M, _DLC],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(DetectedLanguageLowConfidenceException, __DetectedLanguageLowConfidenceException);
-export var Document: StaticStructureSchema = [3, n0, _Do, 0, [_C, _CTo], [[() => DocumentContent, 0], 0]];
-export var EncryptionKey: StaticStructureSchema = [3, n0, _EK, 0, [_Ty, _I], [0, 0]];
-export var GetParallelDataRequest: StaticStructureSchema = [3, n0, _GPDR, 0, [_N], [0]];
-export var GetParallelDataResponse: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(DetectedLanguageLowConfidenceException$, DetectedLanguageLowConfidenceException);
+export var Document$: StaticStructureSchema = [3, n0, _Do, 0, [_C, _CTo], [[() => DocumentContent, 0], 0]];
+export var EncryptionKey$: StaticStructureSchema = [3, n0, _EK, 0, [_Ty, _I], [0, 0]];
+export var GetParallelDataRequest$: StaticStructureSchema = [3, n0, _GPDR, 0, [_N], [0]];
+export var GetParallelDataResponse$: StaticStructureSchema = [
   3,
   n0,
   _GPDRe,
   0,
   [_PDP, _DL, _ADL, _LUAADL],
   [
-    () => ParallelDataProperties,
-    () => ParallelDataDataLocation,
-    () => ParallelDataDataLocation,
-    () => ParallelDataDataLocation,
+    () => ParallelDataProperties$,
+    () => ParallelDataDataLocation$,
+    () => ParallelDataDataLocation$,
+    () => ParallelDataDataLocation$,
   ],
 ];
-export var GetTerminologyRequest: StaticStructureSchema = [3, n0, _GTR, 0, [_N, _TDF], [0, 0]];
-export var GetTerminologyResponse: StaticStructureSchema = [
+export var GetTerminologyRequest$: StaticStructureSchema = [3, n0, _GTR, 0, [_N, _TDF], [0, 0]];
+export var GetTerminologyResponse$: StaticStructureSchema = [
   3,
   n0,
   _GTRe,
   0,
   [_TP, _TDL, _ADL],
-  [() => TerminologyProperties, () => TerminologyDataLocation, () => TerminologyDataLocation],
+  [() => TerminologyProperties$, () => TerminologyDataLocation$, () => TerminologyDataLocation$],
 ];
-export var ImportTerminologyRequest: StaticStructureSchema = [
+export var ImportTerminologyRequest$: StaticStructureSchema = [
   3,
   n0,
   _ITR,
   0,
   [_N, _MS, _D, _TD, _EK, _Ta],
-  [0, 0, 0, [() => TerminologyData, 0], () => EncryptionKey, () => TagList],
+  [0, 0, 0, [() => TerminologyData$, 0], () => EncryptionKey$, () => TagList],
 ];
-export var ImportTerminologyResponse: StaticStructureSchema = [
+export var ImportTerminologyResponse$: StaticStructureSchema = [
   3,
   n0,
   _ITRm,
   0,
   [_TP, _ADL],
-  [() => TerminologyProperties, () => TerminologyDataLocation],
+  [() => TerminologyProperties$, () => TerminologyDataLocation$],
 ];
-export var InputDataConfig: StaticStructureSchema = [3, n0, _IDC, 0, [_SU, _CTo], [0, 0]];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var InvalidFilterException: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidFilterException, __InvalidFilterException);
-export var InvalidParameterValueException: StaticErrorSchema = [-3, n0, _IPVE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
-export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-export var JobDetails: StaticStructureSchema = [3, n0, _JD, 0, [_TDCr, _DWEC, _IDCn], [1, 1, 1]];
-export var Language: StaticStructureSchema = [3, n0, _L, 0, [_LN, _LC], [0, 0]];
-export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-export var ListLanguagesRequest: StaticStructureSchema = [3, n0, _LLR, 0, [_DLCi, _NT, _MR], [0, 0, 1]];
-export var ListLanguagesResponse: StaticStructureSchema = [
+export var InputDataConfig$: StaticStructureSchema = [3, n0, _IDC, 0, [_SU, _CTo], [0, 0]];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var InvalidFilterException$: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidFilterException$, InvalidFilterException);
+export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidParameterValueException$, InvalidParameterValueException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
+export var JobDetails$: StaticStructureSchema = [3, n0, _JD, 0, [_TDCr, _DWEC, _IDCn], [1, 1, 1]];
+export var Language$: StaticStructureSchema = [3, n0, _L, 0, [_LN, _LC], [0, 0]];
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var ListLanguagesRequest$: StaticStructureSchema = [3, n0, _LLR, 0, [_DLCi, _NT, _MR], [0, 0, 1]];
+export var ListLanguagesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LLRi,
@@ -309,8 +309,8 @@ export var ListLanguagesResponse: StaticStructureSchema = [
   [_La, _DLCi, _NT],
   [() => LanguagesList, 0, 0],
 ];
-export var ListParallelDataRequest: StaticStructureSchema = [3, n0, _LPDR, 0, [_NT, _MR], [0, 1]];
-export var ListParallelDataResponse: StaticStructureSchema = [
+export var ListParallelDataRequest$: StaticStructureSchema = [3, n0, _LPDR, 0, [_NT, _MR], [0, 1]];
+export var ListParallelDataResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPDRi,
@@ -318,10 +318,10 @@ export var ListParallelDataResponse: StaticStructureSchema = [
   [_PDPL, _NT],
   [() => ParallelDataPropertiesList, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [0]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [() => TagList]];
-export var ListTerminologiesRequest: StaticStructureSchema = [3, n0, _LTR, 0, [_NT, _MR], [0, 1]];
-export var ListTerminologiesResponse: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [0]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [() => TagList]];
+export var ListTerminologiesRequest$: StaticStructureSchema = [3, n0, _LTR, 0, [_NT, _MR], [0, 1]];
+export var ListTerminologiesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTRi,
@@ -329,15 +329,15 @@ export var ListTerminologiesResponse: StaticStructureSchema = [
   [_TPL, _NT],
   [() => TerminologyPropertiesList, 0],
 ];
-export var ListTextTranslationJobsRequest: StaticStructureSchema = [
+export var ListTextTranslationJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTTJR,
   0,
   [_F, _NT, _MR],
-  [() => TextTranslationJobFilter, 0, 1],
+  [() => TextTranslationJobFilter$, 0, 1],
 ];
-export var ListTextTranslationJobsResponse: StaticStructureSchema = [
+export var ListTextTranslationJobsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTTJRi,
@@ -345,37 +345,48 @@ export var ListTextTranslationJobsResponse: StaticStructureSchema = [
   [_TTJPL, _NT],
   [() => TextTranslationJobPropertiesList, 0],
 ];
-export var OutputDataConfig: StaticStructureSchema = [3, n0, _ODC, 0, [_SU, _EK], [0, () => EncryptionKey]];
-export var ParallelDataConfig: StaticStructureSchema = [3, n0, _PDC, 0, [_SU, _Fo], [0, 0]];
-export var ParallelDataDataLocation: StaticStructureSchema = [3, n0, _PDDL, 0, [_RT, _Lo], [0, 0]];
-export var ParallelDataProperties: StaticStructureSchema = [
+export var OutputDataConfig$: StaticStructureSchema = [3, n0, _ODC, 0, [_SU, _EK], [0, () => EncryptionKey$]];
+export var ParallelDataConfig$: StaticStructureSchema = [3, n0, _PDC, 0, [_SU, _Fo], [0, 0]];
+export var ParallelDataDataLocation$: StaticStructureSchema = [3, n0, _PDDL, 0, [_RT, _Lo], [0, 0]];
+export var ParallelDataProperties$: StaticStructureSchema = [
   3,
   n0,
   _PDP,
   0,
   [_N, _A, _D, _S, _SLC, _TLC, _PDC, _M, _IDS, _IRC, _FRC, _SRC, _EK, _CA, _LUA, _LUAS, _LUAA],
-  [0, 0, 0, 0, 0, 64 | 0, () => ParallelDataConfig, 0, 1, 1, 1, 1, () => EncryptionKey, 4, 4, 0, 4],
+  [0, 0, 0, 0, 0, 64 | 0, () => ParallelDataConfig$, 0, 1, 1, 1, 1, () => EncryptionKey$, 4, 4, 0, 4],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _s, [_hE]: 503 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-export var StartTextTranslationJobRequest: StaticStructureSchema = [
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _s, [_hE]: 503 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var StartTextTranslationJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _STTJR,
   0,
   [_JN, _IDC, _ODC, _DARA, _SLC, _TLC, _TN, _PDN, _CT, _Se],
-  [0, () => InputDataConfig, () => OutputDataConfig, 0, 0, 64 | 0, 64 | 0, 64 | 0, [0, 4], () => TranslationSettings],
+  [
+    0,
+    () => InputDataConfig$,
+    () => OutputDataConfig$,
+    0,
+    0,
+    64 | 0,
+    64 | 0,
+    64 | 0,
+    [0, 4],
+    () => TranslationSettings$,
+  ],
 ];
-export var StartTextTranslationJobResponse: StaticStructureSchema = [3, n0, _STTJRt, 0, [_JI, _JS], [0, 0]];
-export var StopTextTranslationJobRequest: StaticStructureSchema = [3, n0, _STTJRto, 0, [_JI], [0]];
-export var StopTextTranslationJobResponse: StaticStructureSchema = [3, n0, _STTJRtop, 0, [_JI, _JS], [0, 0]];
-export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _Ta], [0, () => TagList]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var Term: StaticStructureSchema = [3, n0, _Te, 0, [_ST, _TT], [0, 0]];
-export var TerminologyData: StaticStructureSchema = [
+export var StartTextTranslationJobResponse$: StaticStructureSchema = [3, n0, _STTJRt, 0, [_JI, _JS], [0, 0]];
+export var StopTextTranslationJobRequest$: StaticStructureSchema = [3, n0, _STTJRto, 0, [_JI], [0]];
+export var StopTextTranslationJobResponse$: StaticStructureSchema = [3, n0, _STTJRtop, 0, [_JI, _JS], [0, 0]];
+export var Tag$: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _Ta], [0, () => TagList]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var Term$: StaticStructureSchema = [3, n0, _Te, 0, [_ST, _TT], [0, 0]];
+export var TerminologyData$: StaticStructureSchema = [
   3,
   n0,
   _TD,
@@ -383,19 +394,19 @@ export var TerminologyData: StaticStructureSchema = [
   [_Fi, _Fo, _Di],
   [[() => TerminologyFile, 0], 0, 0],
 ];
-export var TerminologyDataLocation: StaticStructureSchema = [3, n0, _TDL, 0, [_RT, _Lo], [0, 0]];
-export var TerminologyProperties: StaticStructureSchema = [
+export var TerminologyDataLocation$: StaticStructureSchema = [3, n0, _TDL, 0, [_RT, _Lo], [0, 0]];
+export var TerminologyProperties$: StaticStructureSchema = [
   3,
   n0,
   _TP,
   0,
   [_N, _D, _A, _SLC, _TLC, _EK, _SB, _TC, _CA, _LUA, _Di, _M, _STC, _Fo],
-  [0, 0, 0, 0, 64 | 0, () => EncryptionKey, 1, 1, 4, 4, 0, 0, 1, 0],
+  [0, 0, 0, 0, 64 | 0, () => EncryptionKey$, 1, 1, 4, 4, 0, 0, 1, 0],
 ];
-export var TextSizeLimitExceededException: StaticErrorSchema = [-3, n0, _TSLEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TextSizeLimitExceededException, __TextSizeLimitExceededException);
-export var TextTranslationJobFilter: StaticStructureSchema = [3, n0, _TTJF, 0, [_JN, _JS, _SBT, _SAT], [0, 0, 4, 4]];
-export var TextTranslationJobProperties: StaticStructureSchema = [
+export var TextSizeLimitExceededException$: StaticErrorSchema = [-3, n0, _TSLEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(TextSizeLimitExceededException$, TextSizeLimitExceededException);
+export var TextTranslationJobFilter$: StaticStructureSchema = [3, n0, _TTJF, 0, [_JN, _JS, _SBT, _SAT], [0, 0, 4, 4]];
+export var TextTranslationJobProperties$: StaticStructureSchema = [
   3,
   n0,
   _TTJP,
@@ -405,7 +416,7 @@ export var TextTranslationJobProperties: StaticStructureSchema = [
     0,
     0,
     0,
-    () => JobDetails,
+    () => JobDetails$,
     0,
     64 | 0,
     64 | 0,
@@ -413,51 +424,51 @@ export var TextTranslationJobProperties: StaticStructureSchema = [
     0,
     4,
     4,
-    () => InputDataConfig,
-    () => OutputDataConfig,
+    () => InputDataConfig$,
+    () => OutputDataConfig$,
     0,
-    () => TranslationSettings,
+    () => TranslationSettings$,
   ],
 ];
-export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_m, _RA], [0, 0]];
-TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-export var TranslatedDocument: StaticStructureSchema = [3, n0, _TDr, 0, [_C], [[() => TranslatedDocumentContent, 0]]];
-export var TranslateDocumentRequest: StaticStructureSchema = [
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_m, _RA], [0, 0]];
+TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
+export var TranslatedDocument$: StaticStructureSchema = [3, n0, _TDr, 0, [_C], [[() => TranslatedDocumentContent, 0]]];
+export var TranslateDocumentRequest$: StaticStructureSchema = [
   3,
   n0,
   _TDR,
   0,
   [_Do, _TN, _SLC, _TLCa, _Se],
-  [[() => Document, 0], 64 | 0, 0, 0, () => TranslationSettings],
+  [[() => Document$, 0], 64 | 0, 0, 0, () => TranslationSettings$],
 ];
-export var TranslateDocumentResponse: StaticStructureSchema = [
+export var TranslateDocumentResponse$: StaticStructureSchema = [
   3,
   n0,
   _TDRr,
   0,
   [_TDr, _SLC, _TLCa, _ATp, _AS],
-  [[() => TranslatedDocument, 0], 0, 0, () => AppliedTerminologyList, () => TranslationSettings],
+  [[() => TranslatedDocument$, 0], 0, 0, () => AppliedTerminologyList, () => TranslationSettings$],
 ];
-export var TranslateTextRequest: StaticStructureSchema = [
+export var TranslateTextRequest$: StaticStructureSchema = [
   3,
   n0,
   _TTR,
   0,
   [_Tex, _TN, _SLC, _TLCa, _Se],
-  [0, 64 | 0, 0, 0, () => TranslationSettings],
+  [0, 64 | 0, 0, 0, () => TranslationSettings$],
 ];
-export var TranslateTextResponse: StaticStructureSchema = [
+export var TranslateTextResponse$: StaticStructureSchema = [
   3,
   n0,
   _TTRr,
   0,
   [_TTr, _SLC, _TLCa, _ATp, _AS],
-  [0, 0, 0, () => AppliedTerminologyList, () => TranslationSettings],
+  [0, 0, 0, () => AppliedTerminologyList, () => TranslationSettings$],
 ];
-export var TranslationSettings: StaticStructureSchema = [3, n0, _TS, 0, [_For, _P, _B], [0, 0, 0]];
-export var UnsupportedDisplayLanguageCodeException: StaticErrorSchema = [
+export var TranslationSettings$: StaticStructureSchema = [3, n0, _TS, 0, [_For, _P, _B], [0, 0, 0]];
+export var UnsupportedDisplayLanguageCodeException$: StaticErrorSchema = [
   -3,
   n0,
   _UDLCE,
@@ -465,8 +476,8 @@ export var UnsupportedDisplayLanguageCodeException: StaticErrorSchema = [
   [_M, _DLCi],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(UnsupportedDisplayLanguageCodeException, __UnsupportedDisplayLanguageCodeException);
-export var UnsupportedLanguagePairException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(UnsupportedDisplayLanguageCodeException$, UnsupportedDisplayLanguageCodeException);
+export var UnsupportedLanguagePairException$: StaticErrorSchema = [
   -3,
   n0,
   _ULPE,
@@ -474,167 +485,174 @@ export var UnsupportedLanguagePairException: StaticErrorSchema = [
   [_M, _SLC, _TLCa],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(UnsupportedLanguagePairException, __UnsupportedLanguagePairException);
-export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateParallelDataRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(UnsupportedLanguagePairException$, UnsupportedLanguagePairException);
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateParallelDataRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPDR,
   0,
   [_N, _D, _PDC, _CT],
-  [0, 0, () => ParallelDataConfig, [0, 4]],
+  [0, 0, () => ParallelDataConfig$, [0, 4]],
 ];
-export var UpdateParallelDataResponse: StaticStructureSchema = [3, n0, _UPDRp, 0, [_N, _S, _LUAS, _LUAA], [0, 0, 0, 4]];
-export var __Unit = "unit" as const;
-export var TranslateServiceException: StaticErrorSchema = [-3, _sm, "TranslateServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(TranslateServiceException, __TranslateServiceException);
-export var AppliedTerminologyList: StaticListSchema = [1, n0, _ATL, 0, () => AppliedTerminology];
-export var LanguageCodeStringList = 64 | 0;
-export var LanguagesList: StaticListSchema = [1, n0, _LL, 0, () => Language];
-export var ParallelDataPropertiesList: StaticListSchema = [1, n0, _PDPL, 0, () => ParallelDataProperties];
-export var ResourceNameList = 64 | 0;
-export var TagKeyList = 64 | 0;
-export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
-export var TargetLanguageCodeStringList = 64 | 0;
-export var TerminologyPropertiesList: StaticListSchema = [1, n0, _TPL, 0, () => TerminologyProperties];
-export var TermList: StaticListSchema = [1, n0, _TLe, 0, () => Term];
-export var TextTranslationJobPropertiesList: StaticListSchema = [1, n0, _TTJPL, 0, () => TextTranslationJobProperties];
-export var CreateParallelData: StaticOperationSchema = [
+export var UpdateParallelDataResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _UPDRp,
+  0,
+  [_N, _S, _LUAS, _LUAA],
+  [0, 0, 0, 4],
+];
+var __Unit = "unit" as const;
+export var TranslateServiceException$: StaticErrorSchema = [-3, _sm, "TranslateServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(TranslateServiceException$, TranslateServiceException);
+var AppliedTerminologyList: StaticListSchema = [1, n0, _ATL, 0, () => AppliedTerminology$];
+var LanguageCodeStringList = 64 | 0;
+var LanguagesList: StaticListSchema = [1, n0, _LL, 0, () => Language$];
+var ParallelDataPropertiesList: StaticListSchema = [1, n0, _PDPL, 0, () => ParallelDataProperties$];
+var ResourceNameList = 64 | 0;
+var TagKeyList = 64 | 0;
+var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
+var TargetLanguageCodeStringList = 64 | 0;
+var TerminologyPropertiesList: StaticListSchema = [1, n0, _TPL, 0, () => TerminologyProperties$];
+var TermList: StaticListSchema = [1, n0, _TLe, 0, () => Term$];
+var TextTranslationJobPropertiesList: StaticListSchema = [1, n0, _TTJPL, 0, () => TextTranslationJobProperties$];
+export var CreateParallelData$: StaticOperationSchema = [
   9,
   n0,
   _CPD,
   0,
-  () => CreateParallelDataRequest,
-  () => CreateParallelDataResponse,
+  () => CreateParallelDataRequest$,
+  () => CreateParallelDataResponse$,
 ];
-export var DeleteParallelData: StaticOperationSchema = [
+export var DeleteParallelData$: StaticOperationSchema = [
   9,
   n0,
   _DPD,
   0,
-  () => DeleteParallelDataRequest,
-  () => DeleteParallelDataResponse,
+  () => DeleteParallelDataRequest$,
+  () => DeleteParallelDataResponse$,
 ];
-export var DeleteTerminology: StaticOperationSchema = [9, n0, _DT, 0, () => DeleteTerminologyRequest, () => __Unit];
-export var DescribeTextTranslationJob: StaticOperationSchema = [
+export var DeleteTerminology$: StaticOperationSchema = [9, n0, _DT, 0, () => DeleteTerminologyRequest$, () => __Unit];
+export var DescribeTextTranslationJob$: StaticOperationSchema = [
   9,
   n0,
   _DTTJ,
   0,
-  () => DescribeTextTranslationJobRequest,
-  () => DescribeTextTranslationJobResponse,
+  () => DescribeTextTranslationJobRequest$,
+  () => DescribeTextTranslationJobResponse$,
 ];
-export var GetParallelData: StaticOperationSchema = [
+export var GetParallelData$: StaticOperationSchema = [
   9,
   n0,
   _GPD,
   0,
-  () => GetParallelDataRequest,
-  () => GetParallelDataResponse,
+  () => GetParallelDataRequest$,
+  () => GetParallelDataResponse$,
 ];
-export var GetTerminology: StaticOperationSchema = [
+export var GetTerminology$: StaticOperationSchema = [
   9,
   n0,
   _GT,
   0,
-  () => GetTerminologyRequest,
-  () => GetTerminologyResponse,
+  () => GetTerminologyRequest$,
+  () => GetTerminologyResponse$,
 ];
-export var ImportTerminology: StaticOperationSchema = [
+export var ImportTerminology$: StaticOperationSchema = [
   9,
   n0,
   _IT,
   0,
-  () => ImportTerminologyRequest,
-  () => ImportTerminologyResponse,
+  () => ImportTerminologyRequest$,
+  () => ImportTerminologyResponse$,
 ];
-export var ListLanguages: StaticOperationSchema = [
+export var ListLanguages$: StaticOperationSchema = [
   9,
   n0,
   _LLi,
   0,
-  () => ListLanguagesRequest,
-  () => ListLanguagesResponse,
+  () => ListLanguagesRequest$,
+  () => ListLanguagesResponse$,
 ];
-export var ListParallelData: StaticOperationSchema = [
+export var ListParallelData$: StaticOperationSchema = [
   9,
   n0,
   _LPD,
   0,
-  () => ListParallelDataRequest,
-  () => ListParallelDataResponse,
+  () => ListParallelDataRequest$,
+  () => ListParallelDataResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   0,
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListTerminologies: StaticOperationSchema = [
+export var ListTerminologies$: StaticOperationSchema = [
   9,
   n0,
   _LT,
   0,
-  () => ListTerminologiesRequest,
-  () => ListTerminologiesResponse,
+  () => ListTerminologiesRequest$,
+  () => ListTerminologiesResponse$,
 ];
-export var ListTextTranslationJobs: StaticOperationSchema = [
+export var ListTextTranslationJobs$: StaticOperationSchema = [
   9,
   n0,
   _LTTJ,
   0,
-  () => ListTextTranslationJobsRequest,
-  () => ListTextTranslationJobsResponse,
+  () => ListTextTranslationJobsRequest$,
+  () => ListTextTranslationJobsResponse$,
 ];
-export var StartTextTranslationJob: StaticOperationSchema = [
+export var StartTextTranslationJob$: StaticOperationSchema = [
   9,
   n0,
   _STTJ,
   0,
-  () => StartTextTranslationJobRequest,
-  () => StartTextTranslationJobResponse,
+  () => StartTextTranslationJobRequest$,
+  () => StartTextTranslationJobResponse$,
 ];
-export var StopTextTranslationJob: StaticOperationSchema = [
+export var StopTextTranslationJob$: StaticOperationSchema = [
   9,
   n0,
   _STTJt,
   0,
-  () => StopTextTranslationJobRequest,
-  () => StopTextTranslationJobResponse,
+  () => StopTextTranslationJobRequest$,
+  () => StopTextTranslationJobResponse$,
 ];
-export var TagResource: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest, () => TagResourceResponse];
-export var TranslateDocument: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest$, () => TagResourceResponse$];
+export var TranslateDocument$: StaticOperationSchema = [
   9,
   n0,
   _TDra,
   0,
-  () => TranslateDocumentRequest,
-  () => TranslateDocumentResponse,
+  () => TranslateDocumentRequest$,
+  () => TranslateDocumentResponse$,
 ];
-export var TranslateText: StaticOperationSchema = [
+export var TranslateText$: StaticOperationSchema = [
   9,
   n0,
   _TTra,
   0,
-  () => TranslateTextRequest,
-  () => TranslateTextResponse,
+  () => TranslateTextRequest$,
+  () => TranslateTextResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   0,
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateParallelData: StaticOperationSchema = [
+export var UpdateParallelData$: StaticOperationSchema = [
   9,
   n0,
   _UPD,
   0,
-  () => UpdateParallelDataRequest,
-  () => UpdateParallelDataResponse,
+  () => UpdateParallelDataRequest$,
+  () => UpdateParallelDataResponse$,
 ];

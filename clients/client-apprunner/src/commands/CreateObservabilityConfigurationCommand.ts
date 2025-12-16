@@ -9,7 +9,7 @@ import type {
   CreateObservabilityConfigurationRequest,
   CreateObservabilityConfigurationResponse,
 } from "../models/models_0";
-import { CreateObservabilityConfiguration } from "../schemas/schemas_0";
+import { CreateObservabilityConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class CreateObservabilityConfigurationCommand extends $Command
   })
   .s("AppRunner", "CreateObservabilityConfiguration", {})
   .n("AppRunnerClient", "CreateObservabilityConfigurationCommand")
-  .sc(CreateObservabilityConfiguration)
+  .sc(CreateObservabilityConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

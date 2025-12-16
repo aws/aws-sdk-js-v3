@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListTagsRequest, ListTagsResponse } from "../models/models_0";
-import { ListTags } from "../schemas/schemas_0";
+import { ListTags$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class ListTagsCommand extends $Command
   })
   .s("BaldrApiService", "ListTags", {})
   .n("CloudHSMV2Client", "ListTagsCommand")
-  .sc(ListTags)
+  .sc(ListTags$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteNamespaceRequest, DeleteNamespaceResponse } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DeleteNamespace } from "../schemas/schemas_0";
+import { DeleteNamespace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DeleteNamespaceCommand extends $Command
   })
   .s("QuickSight_20180401", "DeleteNamespace", {})
   .n("QuickSightClient", "DeleteNamespaceCommand")
-  .sc(DeleteNamespace)
+  .sc(DeleteNamespace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

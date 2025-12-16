@@ -9,7 +9,7 @@ import type {
   DescribeOrganizationConfigurationRequest,
   DescribeOrganizationConfigurationResponse,
 } from "../models/models_0";
-import { DescribeOrganizationConfiguration } from "../schemas/schemas_0";
+import { DescribeOrganizationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DescribeOrganizationConfigurationCommand extends $Command
   })
   .s("Macie2", "DescribeOrganizationConfiguration", {})
   .n("Macie2Client", "DescribeOrganizationConfigurationCommand")
-  .sc(DescribeOrganizationConfiguration)
+  .sc(DescribeOrganizationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

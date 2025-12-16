@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: Route53ProfilesClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.route53profiles" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.route53profiles",
+      version: "2018-05-10",
+      serviceTarget: "Route53Profiles",
+    },
     serviceId: config?.serviceId ?? "Route53Profiles",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

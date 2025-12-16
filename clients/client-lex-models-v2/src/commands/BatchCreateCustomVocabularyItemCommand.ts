@@ -9,7 +9,7 @@ import type {
   BatchCreateCustomVocabularyItemRequest,
   BatchCreateCustomVocabularyItemResponse,
 } from "../models/models_0";
-import { BatchCreateCustomVocabularyItem } from "../schemas/schemas_0";
+import { BatchCreateCustomVocabularyItem$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class BatchCreateCustomVocabularyItemCommand extends $Command
   })
   .s("LexModelBuildingServiceV2", "BatchCreateCustomVocabularyItem", {})
   .n("LexModelsV2Client", "BatchCreateCustomVocabularyItemCommand")
-  .sc(BatchCreateCustomVocabularyItem)
+  .sc(BatchCreateCustomVocabularyItem$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

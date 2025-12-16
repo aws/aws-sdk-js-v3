@@ -8,7 +8,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UploadPartCopyOutput, UploadPartCopyRequest } from "../models/models_1";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { UploadPartCopy } from "../schemas/schemas_0";
+import { UploadPartCopy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -376,7 +376,7 @@ export class UploadPartCopyCommand extends $Command
   })
   .s("AmazonS3", "UploadPartCopy", {})
   .n("S3Client", "UploadPartCopyCommand")
-  .sc(UploadPartCopy)
+  .sc(UploadPartCopy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

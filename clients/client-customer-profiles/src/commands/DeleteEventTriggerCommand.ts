@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteEventTriggerRequest, DeleteEventTriggerResponse } from "../models/models_0";
-import { DeleteEventTrigger } from "../schemas/schemas_0";
+import { DeleteEventTrigger$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DeleteEventTriggerCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "DeleteEventTrigger", {})
   .n("CustomerProfilesClient", "DeleteEventTriggerCommand")
-  .sc(DeleteEventTrigger)
+  .sc(DeleteEventTrigger$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

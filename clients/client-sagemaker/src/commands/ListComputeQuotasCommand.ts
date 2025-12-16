@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListComputeQuotasRequest, ListComputeQuotasResponse } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListComputeQuotas } from "../schemas/schemas_0";
+import { ListComputeQuotas$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class ListComputeQuotasCommand extends $Command
   })
   .s("SageMaker", "ListComputeQuotas", {})
   .n("SageMakerClient", "ListComputeQuotasCommand")
-  .sc(ListComputeQuotas)
+  .sc(ListComputeQuotas$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

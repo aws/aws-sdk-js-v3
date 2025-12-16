@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerA2IRuntimeClient";
-import { StopHumanLoop } from "../schemas/schemas_0";
+import { StopHumanLoop$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class StopHumanLoopCommand extends $Command
   })
   .s("AmazonSageMakerA2IRuntime", "StopHumanLoop", {})
   .n("SageMakerA2IRuntimeClient", "StopHumanLoopCommand")
-  .sc(StopHumanLoop)
+  .sc(StopHumanLoop$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

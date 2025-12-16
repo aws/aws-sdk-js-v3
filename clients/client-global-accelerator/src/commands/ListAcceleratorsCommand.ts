@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { ListAcceleratorsRequest, ListAcceleratorsResponse } from "../models/models_0";
-import { ListAccelerators } from "../schemas/schemas_0";
+import { ListAccelerators$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class ListAcceleratorsCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "ListAccelerators", {})
   .n("GlobalAcceleratorClient", "ListAcceleratorsCommand")
-  .sc(ListAccelerators)
+  .sc(ListAccelerators$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

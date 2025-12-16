@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAttributesRequest, DeleteAttributesResponse } from "../models/models_0";
-import { DeleteAttributes } from "../schemas/schemas_0";
+import { DeleteAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class DeleteAttributesCommand extends $Command
   })
   .s("AmazonEC2ContainerServiceV20141113", "DeleteAttributes", {})
   .n("ECSClient", "DeleteAttributesCommand")
-  .sc(DeleteAttributes)
+  .sc(DeleteAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

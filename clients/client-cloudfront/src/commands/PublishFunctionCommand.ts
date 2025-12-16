@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PublishFunctionRequest, PublishFunctionResult } from "../models/models_1";
-import { PublishFunction } from "../schemas/schemas_0";
+import { PublishFunction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class PublishFunctionCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "PublishFunction", {})
   .n("CloudFrontClient", "PublishFunctionCommand")
-  .sc(PublishFunction)
+  .sc(PublishFunction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: QAppsClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.qapps" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.qapps",
+      version: "2023-11-27",
+      serviceTarget: "QAppsService",
+    },
     serviceId: config?.serviceId ?? "QApps",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

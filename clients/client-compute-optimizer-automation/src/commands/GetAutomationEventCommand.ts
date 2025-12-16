@@ -10,7 +10,7 @@ import type {
 } from "../ComputeOptimizerAutomationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAutomationEventRequest, GetAutomationEventResponse } from "../models/models_0";
-import { GetAutomationEvent } from "../schemas/schemas_0";
+import { GetAutomationEvent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class GetAutomationEventCommand extends $Command
   })
   .s("ComputeOptimizerAutomationService", "GetAutomationEvent", {})
   .n("ComputeOptimizerAutomationClient", "GetAutomationEventCommand")
-  .sc(GetAutomationEvent)
+  .sc(GetAutomationEvent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

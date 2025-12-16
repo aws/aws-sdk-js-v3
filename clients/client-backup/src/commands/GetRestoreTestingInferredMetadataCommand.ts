@@ -9,7 +9,7 @@ import type {
   GetRestoreTestingInferredMetadataInput,
   GetRestoreTestingInferredMetadataOutput,
 } from "../models/models_0";
-import { GetRestoreTestingInferredMetadata } from "../schemas/schemas_0";
+import { GetRestoreTestingInferredMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class GetRestoreTestingInferredMetadataCommand extends $Command
   })
   .s("CryoControllerUserManager", "GetRestoreTestingInferredMetadata", {})
   .n("BackupClient", "GetRestoreTestingInferredMetadataCommand")
-  .sc(GetRestoreTestingInferredMetadata)
+  .sc(GetRestoreTestingInferredMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

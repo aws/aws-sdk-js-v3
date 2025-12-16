@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
 import type { ListKxVolumesRequest, ListKxVolumesResponse } from "../models/models_0";
-import { ListKxVolumes } from "../schemas/schemas_0";
+import { ListKxVolumes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class ListKxVolumesCommand extends $Command
   })
   .s("AWSHabaneroManagementService", "ListKxVolumes", {})
   .n("FinspaceClient", "ListKxVolumesCommand")
-  .sc(ListKxVolumes)
+  .sc(ListKxVolumes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

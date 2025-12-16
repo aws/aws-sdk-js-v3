@@ -10,7 +10,7 @@ import type {
 } from "../ComprehendMedicalClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSNOMEDCTInferenceJobsRequest, ListSNOMEDCTInferenceJobsResponse } from "../models/models_0";
-import { ListSNOMEDCTInferenceJobs } from "../schemas/schemas_0";
+import { ListSNOMEDCTInferenceJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class ListSNOMEDCTInferenceJobsCommand extends $Command
   })
   .s("ComprehendMedical_20181030", "ListSNOMEDCTInferenceJobs", {})
   .n("ComprehendMedicalClient", "ListSNOMEDCTInferenceJobsCommand")
-  .sc(ListSNOMEDCTInferenceJobs)
+  .sc(ListSNOMEDCTInferenceJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

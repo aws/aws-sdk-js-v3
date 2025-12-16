@@ -9,7 +9,7 @@ import type {
   ListAdminAccountsForOrganizationRequest,
   ListAdminAccountsForOrganizationResponse,
 } from "../models/models_0";
-import { ListAdminAccountsForOrganization } from "../schemas/schemas_0";
+import { ListAdminAccountsForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class ListAdminAccountsForOrganizationCommand extends $Command
   })
   .s("AWSFMS_20180101", "ListAdminAccountsForOrganization", {})
   .n("FMSClient", "ListAdminAccountsForOrganizationCommand")
-  .sc(ListAdminAccountsForOrganization)
+  .sc(ListAdminAccountsForOrganization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

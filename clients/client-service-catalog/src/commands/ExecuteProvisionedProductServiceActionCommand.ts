@@ -8,7 +8,7 @@ import type {
   ExecuteProvisionedProductServiceActionInput,
   ExecuteProvisionedProductServiceActionOutput,
 } from "../models/models_0";
-import { ExecuteProvisionedProductServiceAction } from "../schemas/schemas_0";
+import { ExecuteProvisionedProductServiceAction$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -126,7 +126,7 @@ export class ExecuteProvisionedProductServiceActionCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "ExecuteProvisionedProductServiceAction", {})
   .n("ServiceCatalogClient", "ExecuteProvisionedProductServiceActionCommand")
-  .sc(ExecuteProvisionedProductServiceAction)
+  .sc(ExecuteProvisionedProductServiceAction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

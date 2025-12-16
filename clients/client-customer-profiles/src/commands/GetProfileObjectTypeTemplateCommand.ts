@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetProfileObjectTypeTemplateRequest, GetProfileObjectTypeTemplateResponse } from "../models/models_0";
-import { GetProfileObjectTypeTemplate } from "../schemas/schemas_0";
+import { GetProfileObjectTypeTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class GetProfileObjectTypeTemplateCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "GetProfileObjectTypeTemplate", {})
   .n("CustomerProfilesClient", "GetProfileObjectTypeTemplateCommand")
-  .sc(GetProfileObjectTypeTemplate)
+  .sc(GetProfileObjectTypeTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

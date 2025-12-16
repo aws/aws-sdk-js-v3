@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetResourceMetricsRequest, GetResourceMetricsResponse } from "../models/models_0";
 import type { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
-import { GetResourceMetrics } from "../schemas/schemas_0";
+import { GetResourceMetrics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class GetResourceMetricsCommand extends $Command
   })
   .s("PerformanceInsightsv20180227", "GetResourceMetrics", {})
   .n("PIClient", "GetResourceMetricsCommand")
-  .sc(GetResourceMetrics)
+  .sc(GetResourceMetrics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

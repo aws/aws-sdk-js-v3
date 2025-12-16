@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
 import type { ListFragmentsInput, ListFragmentsOutput } from "../models/models_0";
-import { ListFragments } from "../schemas/schemas_0";
+import { ListFragments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -154,7 +154,7 @@ export class ListFragmentsCommand extends $Command
   })
   .s("AWSAcuityReader", "ListFragments", {})
   .n("KinesisVideoArchivedMediaClient", "ListFragmentsCommand")
-  .sc(ListFragments)
+  .sc(ListFragments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteCallAnalyticsCategoryRequest, DeleteCallAnalyticsCategoryResponse } from "../models/models_0";
-import { DeleteCallAnalyticsCategory } from "../schemas/schemas_0";
+import { DeleteCallAnalyticsCategory$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
@@ -93,7 +93,7 @@ export class DeleteCallAnalyticsCategoryCommand extends $Command
   })
   .s("Transcribe", "DeleteCallAnalyticsCategory", {})
   .n("TranscribeClient", "DeleteCallAnalyticsCategoryCommand")
-  .sc(DeleteCallAnalyticsCategory)
+  .sc(DeleteCallAnalyticsCategory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

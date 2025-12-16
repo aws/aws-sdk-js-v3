@@ -8,7 +8,7 @@ import type {
   DescribeMaintenanceWindowScheduleRequest,
   DescribeMaintenanceWindowScheduleResult,
 } from "../models/models_0";
-import { DescribeMaintenanceWindowSchedule } from "../schemas/schemas_0";
+import { DescribeMaintenanceWindowSchedule$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -113,7 +113,7 @@ export class DescribeMaintenanceWindowScheduleCommand extends $Command
   })
   .s("AmazonSSM", "DescribeMaintenanceWindowSchedule", {})
   .n("SSMClient", "DescribeMaintenanceWindowScheduleCommand")
-  .sc(DescribeMaintenanceWindowSchedule)
+  .sc(DescribeMaintenanceWindowSchedule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

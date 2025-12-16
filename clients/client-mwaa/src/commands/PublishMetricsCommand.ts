@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PublishMetricsInput, PublishMetricsOutput } from "../models/models_0";
 import type { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
-import { PublishMetrics } from "../schemas/schemas_0";
+import { PublishMetrics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class PublishMetricsCommand extends $Command
   })
   .s("AmazonMWAA", "PublishMetrics", {})
   .n("MWAAClient", "PublishMetricsCommand")
-  .sc(PublishMetrics)
+  .sc(PublishMetrics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

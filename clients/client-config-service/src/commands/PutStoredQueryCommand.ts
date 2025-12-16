@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutStoredQueryRequest, PutStoredQueryResponse } from "../models/models_0";
-import { PutStoredQuery } from "../schemas/schemas_0";
+import { PutStoredQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class PutStoredQueryCommand extends $Command
   })
   .s("StarlingDoveService", "PutStoredQuery", {})
   .n("ConfigServiceClient", "PutStoredQueryCommand")
-  .sc(PutStoredQuery)
+  .sc(PutStoredQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

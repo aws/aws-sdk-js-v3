@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSpacesInput, ListSpacesOutput } from "../models/models_0";
 import type { RepostspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RepostspaceClient";
-import { ListSpaces } from "../schemas/schemas_0";
+import { ListSpaces$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class ListSpacesCommand extends $Command
   })
   .s("RepostSpace", "ListSpaces", {})
   .n("RepostspaceClient", "ListSpacesCommand")
-  .sc(ListSpaces)
+  .sc(ListSpaces$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

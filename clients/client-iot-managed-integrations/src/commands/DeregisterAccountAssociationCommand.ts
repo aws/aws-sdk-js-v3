@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { DeregisterAccountAssociationRequest } from "../models/models_0";
-import { DeregisterAccountAssociation } from "../schemas/schemas_0";
+import { DeregisterAccountAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeregisterAccountAssociationCommand extends $Command
   })
   .s("IotManagedIntegrations", "DeregisterAccountAssociation", {})
   .n("IoTManagedIntegrationsClient", "DeregisterAccountAssociationCommand")
-  .sc(DeregisterAccountAssociation)
+  .sc(DeregisterAccountAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

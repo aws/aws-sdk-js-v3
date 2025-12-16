@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDeploymentRequest, UpdateDeploymentResponse } from "../models/models_0";
-import { UpdateDeployment } from "../schemas/schemas_0";
+import { UpdateDeployment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class UpdateDeploymentCommand extends $Command
   })
   .s("ApiGatewayV2", "UpdateDeployment", {})
   .n("ApiGatewayV2Client", "UpdateDeploymentCommand")
-  .sc(UpdateDeployment)
+  .sc(UpdateDeployment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

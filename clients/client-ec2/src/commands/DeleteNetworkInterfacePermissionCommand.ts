@@ -9,7 +9,7 @@ import type {
   DeleteNetworkInterfacePermissionRequest,
   DeleteNetworkInterfacePermissionResult,
 } from "../models/models_2";
-import { DeleteNetworkInterfacePermission } from "../schemas/schemas_0";
+import { DeleteNetworkInterfacePermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command
   })
   .s("AmazonEC2", "DeleteNetworkInterfacePermission", {})
   .n("EC2Client", "DeleteNetworkInterfacePermissionCommand")
-  .sc(DeleteNetworkInterfacePermission)
+  .sc(DeleteNetworkInterfacePermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateEventActionRequest, UpdateEventActionResponse } from "../models/models_0";
-import { UpdateEventAction } from "../schemas/schemas_0";
+import { UpdateEventAction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class UpdateEventActionCommand extends $Command
   })
   .s("DataExchange", "UpdateEventAction", {})
   .n("DataExchangeClient", "UpdateEventActionCommand")
-  .sc(UpdateEventAction)
+  .sc(UpdateEventAction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

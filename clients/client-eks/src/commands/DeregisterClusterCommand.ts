@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeregisterClusterRequest, DeregisterClusterResponse } from "../models/models_0";
-import { DeregisterCluster } from "../schemas/schemas_0";
+import { DeregisterCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -225,7 +225,7 @@ export class DeregisterClusterCommand extends $Command
   })
   .s("AWSWesleyFrontend", "DeregisterCluster", {})
   .n("EKSClient", "DeregisterClusterCommand")
-  .sc(DeregisterCluster)
+  .sc(DeregisterCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

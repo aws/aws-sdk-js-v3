@@ -8,7 +8,7 @@ import type {
   GetRateBasedStatementManagedKeysRequest,
   GetRateBasedStatementManagedKeysResponse,
 } from "../models/models_0";
-import { GetRateBasedStatementManagedKeys } from "../schemas/schemas_0";
+import { GetRateBasedStatementManagedKeys$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -147,7 +147,7 @@ export class GetRateBasedStatementManagedKeysCommand extends $Command
   })
   .s("AWSWAF_20190729", "GetRateBasedStatementManagedKeys", {})
   .n("WAFV2Client", "GetRateBasedStatementManagedKeysCommand")
-  .sc(GetRateBasedStatementManagedKeys)
+  .sc(GetRateBasedStatementManagedKeys$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

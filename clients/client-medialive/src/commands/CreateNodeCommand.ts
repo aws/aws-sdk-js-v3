@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { CreateNodeRequest, CreateNodeResponse } from "../models/models_1";
-import { CreateNode } from "../schemas/schemas_0";
+import { CreateNode$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class CreateNodeCommand extends $Command
   })
   .s("MediaLive", "CreateNode", {})
   .n("MediaLiveClient", "CreateNodeCommand")
-  .sc(CreateNode)
+  .sc(CreateNode$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

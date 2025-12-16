@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteWebAppCustomizationRequest } from "../models/models_0";
-import { DeleteWebAppCustomization } from "../schemas/schemas_0";
+import { DeleteWebAppCustomization$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -89,7 +89,7 @@ export class DeleteWebAppCustomizationCommand extends $Command
   })
   .s("TransferService", "DeleteWebAppCustomization", {})
   .n("TransferClient", "DeleteWebAppCustomizationCommand")
-  .sc(DeleteWebAppCustomization)
+  .sc(DeleteWebAppCustomization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

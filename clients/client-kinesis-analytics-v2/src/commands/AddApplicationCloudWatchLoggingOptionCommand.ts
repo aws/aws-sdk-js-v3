@@ -13,7 +13,7 @@ import type {
   AddApplicationCloudWatchLoggingOptionRequest,
   AddApplicationCloudWatchLoggingOptionResponse,
 } from "../models/models_0";
-import { AddApplicationCloudWatchLoggingOption } from "../schemas/schemas_0";
+import { AddApplicationCloudWatchLoggingOption$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command
   })
   .s("KinesisAnalytics_20180523", "AddApplicationCloudWatchLoggingOption", {})
   .n("KinesisAnalyticsV2Client", "AddApplicationCloudWatchLoggingOptionCommand")
-  .sc(AddApplicationCloudWatchLoggingOption)
+  .sc(AddApplicationCloudWatchLoggingOption$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

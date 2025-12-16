@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetConfigurationSetRequest, GetConfigurationSetResponse } from "../models/models_0";
-import { GetConfigurationSet } from "../schemas/schemas_0";
+import { GetConfigurationSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -127,7 +127,7 @@ export class GetConfigurationSetCommand extends $Command
   })
   .s("SimpleEmailService_v2", "GetConfigurationSet", {})
   .n("SESv2Client", "GetConfigurationSetCommand")
-  .sc(GetConfigurationSet)
+  .sc(GetConfigurationSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

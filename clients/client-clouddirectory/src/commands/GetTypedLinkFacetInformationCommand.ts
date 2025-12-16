@@ -10,7 +10,7 @@ import type {
 } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetTypedLinkFacetInformationRequest, GetTypedLinkFacetInformationResponse } from "../models/models_0";
-import { GetTypedLinkFacetInformation } from "../schemas/schemas_0";
+import { GetTypedLinkFacetInformation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class GetTypedLinkFacetInformationCommand extends $Command
   })
   .s("AmazonCloudDirectory_20170111", "GetTypedLinkFacetInformation", {})
   .n("CloudDirectoryClient", "GetTypedLinkFacetInformationCommand")
-  .sc(GetTypedLinkFacetInformation)
+  .sc(GetTypedLinkFacetInformation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

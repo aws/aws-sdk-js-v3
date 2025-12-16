@@ -161,28 +161,28 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { DLMServiceException as __DLMServiceException } from "../models/DLMServiceException";
+import { DLMServiceException } from "../models/DLMServiceException";
 import {
-  InternalServerException as __InternalServerException,
-  InvalidRequestException as __InvalidRequestException,
-  LimitExceededException as __LimitExceededException,
-  ResourceNotFoundException as __ResourceNotFoundException,
+  InternalServerException,
+  InvalidRequestException,
+  LimitExceededException,
+  ResourceNotFoundException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var Action: StaticStructureSchema = [3, n0, _A, 0, [_N, _CRC], [0, () => CrossRegionCopyActionList]];
-export var ArchiveRetainRule: StaticStructureSchema = [3, n0, _ARR, 0, [_RAT], [() => RetentionArchiveTier]];
-export var ArchiveRule: StaticStructureSchema = [3, n0, _AR, 0, [_RR], [() => ArchiveRetainRule]];
-export var CreateLifecyclePolicyRequest: StaticStructureSchema = [
+export var Action$: StaticStructureSchema = [3, n0, _A, 0, [_N, _CRC], [0, () => CrossRegionCopyActionList]];
+export var ArchiveRetainRule$: StaticStructureSchema = [3, n0, _ARR, 0, [_RAT], [() => RetentionArchiveTier$]];
+export var ArchiveRule$: StaticStructureSchema = [3, n0, _AR, 0, [_RR], [() => ArchiveRetainRule$]];
+export var CreateLifecyclePolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _CLPR,
   0,
   [_ERA, _D, _S, _PD, _T, _DP, _CI, _RI, _CT, _ED, _CRCT, _E],
-  [0, 0, 0, () => PolicyDetails, 128 | 0, 0, 1, 1, 2, 2, () => CrossRegionCopyTargetList, () => Exclusions],
+  [0, 0, 0, () => PolicyDetails$, 128 | 0, 0, 1, 1, 2, 2, () => CrossRegionCopyTargetList, () => Exclusions$],
 ];
-export var CreateLifecyclePolicyResponse: StaticStructureSchema = [3, n0, _CLPRr, 0, [_PI], [0]];
-export var CreateRule: StaticStructureSchema = [
+export var CreateLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _CLPRr, 0, [_PI], [0]];
+export var CreateRule$: StaticStructureSchema = [
   3,
   n0,
   _CR,
@@ -190,34 +190,34 @@ export var CreateRule: StaticStructureSchema = [
   [_L, _I, _IU, _Ti, _CE, _Sc],
   [0, 1, 0, 64 | 0, 0, () => ScriptsList],
 ];
-export var CrossRegionCopyAction: StaticStructureSchema = [
+export var CrossRegionCopyAction$: StaticStructureSchema = [
   3,
   n0,
   _CRCA,
   0,
   [_Ta, _EC, _RR],
-  [0, () => EncryptionConfiguration, () => CrossRegionCopyRetainRule],
+  [0, () => EncryptionConfiguration$, () => CrossRegionCopyRetainRule$],
 ];
-export var CrossRegionCopyDeprecateRule: StaticStructureSchema = [3, n0, _CRCDR, 0, [_I, _IU], [1, 0]];
-export var CrossRegionCopyRetainRule: StaticStructureSchema = [3, n0, _CRCRR, 0, [_I, _IU], [1, 0]];
-export var CrossRegionCopyRule: StaticStructureSchema = [
+export var CrossRegionCopyDeprecateRule$: StaticStructureSchema = [3, n0, _CRCDR, 0, [_I, _IU], [1, 0]];
+export var CrossRegionCopyRetainRule$: StaticStructureSchema = [3, n0, _CRCRR, 0, [_I, _IU], [1, 0]];
+export var CrossRegionCopyRule$: StaticStructureSchema = [
   3,
   n0,
   _CRCR,
   0,
   [_TR, _Ta, _En, _CA, _CT, _RR, _DR],
-  [0, 0, 2, 0, 2, () => CrossRegionCopyRetainRule, () => CrossRegionCopyDeprecateRule],
+  [0, 0, 2, 0, 2, () => CrossRegionCopyRetainRule$, () => CrossRegionCopyDeprecateRule$],
 ];
-export var CrossRegionCopyTarget: StaticStructureSchema = [3, n0, _CRCTr, 0, [_TR], [0]];
-export var DeleteLifecyclePolicyRequest: StaticStructureSchema = [3, n0, _DLPR, 0, [_PI], [[0, 1]]];
-export var DeleteLifecyclePolicyResponse: StaticStructureSchema = [3, n0, _DLPRe, 0, [], []];
-export var DeprecateRule: StaticStructureSchema = [3, n0, _DR, 0, [_C, _I, _IU], [1, 1, 0]];
-export var EncryptionConfiguration: StaticStructureSchema = [3, n0, _EC, 0, [_En, _CA], [2, 0]];
-export var EventParameters: StaticStructureSchema = [3, n0, _EP, 0, [_ET, _SO, _DRe], [0, 64 | 0, 0]];
-export var EventSource: StaticStructureSchema = [3, n0, _ES, 0, [_Ty, _P], [0, () => EventParameters]];
-export var Exclusions: StaticStructureSchema = [3, n0, _E, 0, [_EBV, _EVT, _ETx], [2, 64 | 0, () => ExcludeTagsList]];
-export var FastRestoreRule: StaticStructureSchema = [3, n0, _FRR, 0, [_C, _I, _IU, _AZ], [1, 1, 0, 64 | 0]];
-export var GetLifecyclePoliciesRequest: StaticStructureSchema = [
+export var CrossRegionCopyTarget$: StaticStructureSchema = [3, n0, _CRCTr, 0, [_TR], [0]];
+export var DeleteLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _DLPR, 0, [_PI], [[0, 1]]];
+export var DeleteLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _DLPRe, 0, [], []];
+export var DeprecateRule$: StaticStructureSchema = [3, n0, _DR, 0, [_C, _I, _IU], [1, 1, 0]];
+export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC, 0, [_En, _CA], [2, 0]];
+export var EventParameters$: StaticStructureSchema = [3, n0, _EP, 0, [_ET, _SO, _DRe], [0, 64 | 0, 0]];
+export var EventSource$: StaticStructureSchema = [3, n0, _ES, 0, [_Ty, _P], [0, () => EventParameters$]];
+export var Exclusions$: StaticStructureSchema = [3, n0, _E, 0, [_EBV, _EVT, _ETx], [2, 64 | 0, () => ExcludeTagsList]];
+export var FastRestoreRule$: StaticStructureSchema = [3, n0, _FRR, 0, [_C, _I, _IU, _AZ], [1, 1, 0, 64 | 0]];
+export var GetLifecyclePoliciesRequest$: StaticStructureSchema = [
   3,
   n0,
   _GLPR,
@@ -232,7 +232,7 @@ export var GetLifecyclePoliciesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _dPT }],
   ],
 ];
-export var GetLifecyclePoliciesResponse: StaticStructureSchema = [
+export var GetLifecyclePoliciesResponse$: StaticStructureSchema = [
   3,
   n0,
   _GLPRe,
@@ -240,11 +240,11 @@ export var GetLifecyclePoliciesResponse: StaticStructureSchema = [
   [_Po],
   [() => LifecyclePolicySummaryList],
 ];
-export var GetLifecyclePolicyRequest: StaticStructureSchema = [3, n0, _GLPRet, 0, [_PI], [[0, 1]]];
-export var GetLifecyclePolicyResponse: StaticStructureSchema = [3, n0, _GLPReti, 0, [_Pol], [() => LifecyclePolicy]];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_M, _Co], [0, 0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var InvalidRequestException: StaticErrorSchema = [
+export var GetLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _GLPRet, 0, [_PI], [[0, 1]]];
+export var GetLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _GLPReti, 0, [_Pol], [() => LifecyclePolicy$]];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_M, _Co], [0, 0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var InvalidRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _IRE,
@@ -252,16 +252,16 @@ export var InvalidRequestException: StaticErrorSchema = [
   [_M, _Co, _RP, _MEP],
   [0, 0, 64 | 0, 64 | 0],
 ];
-TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-export var LifecyclePolicy: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
+export var LifecyclePolicy$: StaticStructureSchema = [
   3,
   n0,
   _LP,
   0,
   [_PI, _D, _S, _SM, _ERA, _DC, _DM, _PD, _T, _PA, _DP],
-  [0, 0, 0, 0, 0, 5, 5, () => PolicyDetails, 128 | 0, 0, 2],
+  [0, 0, 0, 0, 0, 5, 5, () => PolicyDetails$, 128 | 0, 0, 2],
 ];
-export var LifecyclePolicySummary: StaticStructureSchema = [
+export var LifecyclePolicySummary$: StaticStructureSchema = [
   3,
   n0,
   _LPS,
@@ -269,7 +269,7 @@ export var LifecyclePolicySummary: StaticStructureSchema = [
   [_PI, _D, _S, _T, _PT, _DP],
   [0, 0, 0, 128 | 0, 0, 2],
 ];
-export var LimitExceededException: StaticErrorSchema = [
+export var LimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
@@ -277,10 +277,10 @@ export var LimitExceededException: StaticErrorSchema = [
   [_M, _Co, _RTe],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [128 | 0]];
-export var _Parameters: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [128 | 0]];
+export var _Parameters$: StaticStructureSchema = [
   3,
   n0,
   _P,
@@ -288,7 +288,7 @@ export var _Parameters: StaticStructureSchema = [
   [_EBVx, _NR, _EDVT],
   [2, 2, () => ExcludeDataVolumeTagList],
 ];
-export var PolicyDetails: StaticStructureSchema = [
+export var PolicyDetails$: StaticStructureSchema = [
   3,
   n0,
   _PD,
@@ -300,8 +300,8 @@ export var PolicyDetails: StaticStructureSchema = [
     64 | 0,
     () => TargetTagList,
     () => ScheduleList,
-    () => _Parameters,
-    () => EventSource,
+    () => _Parameters$,
+    () => EventSource$,
     () => ActionList,
     0,
     0,
@@ -310,10 +310,10 @@ export var PolicyDetails: StaticStructureSchema = [
     2,
     () => CrossRegionCopyTargetList,
     2,
-    () => Exclusions,
+    () => Exclusions$,
   ],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -321,10 +321,10 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_M, _Co, _RTe, _RIe],
   [0, 0, 0, 64 | 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var RetainRule: StaticStructureSchema = [3, n0, _RR, 0, [_C, _I, _IU], [1, 1, 0]];
-export var RetentionArchiveTier: StaticStructureSchema = [3, n0, _RAT, 0, [_C, _I, _IU], [1, 1, 0]];
-export var Schedule: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var RetainRule$: StaticStructureSchema = [3, n0, _RR, 0, [_C, _I, _IU], [1, 1, 0]];
+export var RetentionArchiveTier$: StaticStructureSchema = [3, n0, _RAT, 0, [_C, _I, _IU], [1, 1, 0]];
+export var Schedule$: StaticStructureSchema = [
   3,
   n0,
   _Sche,
@@ -335,16 +335,16 @@ export var Schedule: StaticStructureSchema = [
     2,
     () => TagsToAddList,
     () => VariableTagsList,
-    () => CreateRule,
-    () => RetainRule,
-    () => FastRestoreRule,
+    () => CreateRule$,
+    () => RetainRule$,
+    () => FastRestoreRule$,
     () => CrossRegionCopyRules,
     () => ShareRules,
-    () => DeprecateRule,
-    () => ArchiveRule,
+    () => DeprecateRule$,
+    () => ArchiveRule$,
   ],
 ];
-export var Script: StaticStructureSchema = [
+export var Script$: StaticStructureSchema = [
   3,
   n0,
   _Scr,
@@ -352,11 +352,11 @@ export var Script: StaticStructureSchema = [
   [_St, _EHS, _EH, _EOOSF, _ETxe, _MRC],
   [64 | 0, 0, 0, 2, 1, 1],
 ];
-export var ShareRule: StaticStructureSchema = [3, n0, _SRh, 0, [_TA, _UI, _UIU], [64 | 0, 1, 0]];
-export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _T], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var UntagResourceRequest: StaticStructureSchema = [
+export var ShareRule$: StaticStructureSchema = [3, n0, _SRh, 0, [_TA, _UI, _UIU], [64 | 0, 1, 0]];
+export var Tag$: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _T], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -367,106 +367,106 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateLifecyclePolicyRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateLifecyclePolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _ULPR,
   0,
   [_PI, _ERA, _S, _D, _PD, _CI, _RI, _CT, _ED, _CRCT, _E],
-  [[0, 1], 0, 0, 0, () => PolicyDetails, 1, 1, 2, 2, () => CrossRegionCopyTargetList, () => Exclusions],
+  [[0, 1], 0, 0, 0, () => PolicyDetails$, 1, 1, 2, 2, () => CrossRegionCopyTargetList, () => Exclusions$],
 ];
-export var UpdateLifecyclePolicyResponse: StaticStructureSchema = [3, n0, _ULPRp, 0, [], []];
-export var DLMServiceException: StaticErrorSchema = [-3, _sm, "DLMServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DLMServiceException, __DLMServiceException);
-export var ActionList: StaticListSchema = [1, n0, _AL, 0, () => Action];
-export var AvailabilityZoneList = 64 | 0;
-export var CrossRegionCopyActionList: StaticListSchema = [1, n0, _CRCAL, 0, () => CrossRegionCopyAction];
-export var CrossRegionCopyRules: StaticListSchema = [1, n0, _CRCRr, 0, () => CrossRegionCopyRule];
-export var CrossRegionCopyTargetList: StaticListSchema = [1, n0, _CRCTL, 0, () => CrossRegionCopyTarget];
-export var ExcludeDataVolumeTagList: StaticListSchema = [1, n0, _EDVTL, 0, () => Tag];
-export var ExcludeTagsList: StaticListSchema = [1, n0, _ETL, 0, () => Tag];
-export var ExcludeVolumeTypesList = 64 | 0;
-export var LifecyclePolicySummaryList: StaticListSchema = [1, n0, _LPSL, 0, () => LifecyclePolicySummary];
-export var ParameterList = 64 | 0;
-export var PolicyIdList = 64 | 0;
-export var ResourceLocationList = 64 | 0;
-export var ResourceTypeValuesList = 64 | 0;
-export var ScheduleList: StaticListSchema = [1, n0, _SL, 0, () => Schedule];
-export var ScriptsList: StaticListSchema = [1, n0, _SLc, 0, () => Script];
-export var ShareRules: StaticListSchema = [1, n0, _SR, 0, () => ShareRule];
-export var ShareTargetAccountList = 64 | 0;
-export var SnapshotOwnerList = 64 | 0;
-export var StagesList = 64 | 0;
-export var TagKeyList = 64 | 0;
-export var TagsToAddFilterList = 64 | 0;
-export var TagsToAddList: StaticListSchema = [1, n0, _TTAL, 0, () => Tag];
-export var TargetTagList: StaticListSchema = [1, n0, _TTL, 0, () => Tag];
-export var TargetTagsFilterList = 64 | 0;
-export var TimesList = 64 | 0;
-export var VariableTagsList: StaticListSchema = [1, n0, _VTL, 0, () => Tag];
-export var TagMap = 128 | 0;
-export var CreateLifecyclePolicy: StaticOperationSchema = [
+export var UpdateLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _ULPRp, 0, [], []];
+export var DLMServiceException$: StaticErrorSchema = [-3, _sm, "DLMServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(DLMServiceException$, DLMServiceException);
+var ActionList: StaticListSchema = [1, n0, _AL, 0, () => Action$];
+var AvailabilityZoneList = 64 | 0;
+var CrossRegionCopyActionList: StaticListSchema = [1, n0, _CRCAL, 0, () => CrossRegionCopyAction$];
+var CrossRegionCopyRules: StaticListSchema = [1, n0, _CRCRr, 0, () => CrossRegionCopyRule$];
+var CrossRegionCopyTargetList: StaticListSchema = [1, n0, _CRCTL, 0, () => CrossRegionCopyTarget$];
+var ExcludeDataVolumeTagList: StaticListSchema = [1, n0, _EDVTL, 0, () => Tag$];
+var ExcludeTagsList: StaticListSchema = [1, n0, _ETL, 0, () => Tag$];
+var ExcludeVolumeTypesList = 64 | 0;
+var LifecyclePolicySummaryList: StaticListSchema = [1, n0, _LPSL, 0, () => LifecyclePolicySummary$];
+var ParameterList = 64 | 0;
+var PolicyIdList = 64 | 0;
+var ResourceLocationList = 64 | 0;
+var ResourceTypeValuesList = 64 | 0;
+var ScheduleList: StaticListSchema = [1, n0, _SL, 0, () => Schedule$];
+var ScriptsList: StaticListSchema = [1, n0, _SLc, 0, () => Script$];
+var ShareRules: StaticListSchema = [1, n0, _SR, 0, () => ShareRule$];
+var ShareTargetAccountList = 64 | 0;
+var SnapshotOwnerList = 64 | 0;
+var StagesList = 64 | 0;
+var TagKeyList = 64 | 0;
+var TagsToAddFilterList = 64 | 0;
+var TagsToAddList: StaticListSchema = [1, n0, _TTAL, 0, () => Tag$];
+var TargetTagList: StaticListSchema = [1, n0, _TTL, 0, () => Tag$];
+var TargetTagsFilterList = 64 | 0;
+var TimesList = 64 | 0;
+var VariableTagsList: StaticListSchema = [1, n0, _VTL, 0, () => Tag$];
+var TagMap = 128 | 0;
+export var CreateLifecyclePolicy$: StaticOperationSchema = [
   9,
   n0,
   _CLP,
   { [_h]: ["POST", "/policies", 200] },
-  () => CreateLifecyclePolicyRequest,
-  () => CreateLifecyclePolicyResponse,
+  () => CreateLifecyclePolicyRequest$,
+  () => CreateLifecyclePolicyResponse$,
 ];
-export var DeleteLifecyclePolicy: StaticOperationSchema = [
+export var DeleteLifecyclePolicy$: StaticOperationSchema = [
   9,
   n0,
   _DLP,
   { [_h]: ["DELETE", "/policies/{PolicyId}", 200] },
-  () => DeleteLifecyclePolicyRequest,
-  () => DeleteLifecyclePolicyResponse,
+  () => DeleteLifecyclePolicyRequest$,
+  () => DeleteLifecyclePolicyResponse$,
 ];
-export var GetLifecyclePolicies: StaticOperationSchema = [
+export var GetLifecyclePolicies$: StaticOperationSchema = [
   9,
   n0,
   _GLP,
   { [_h]: ["GET", "/policies", 200] },
-  () => GetLifecyclePoliciesRequest,
-  () => GetLifecyclePoliciesResponse,
+  () => GetLifecyclePoliciesRequest$,
+  () => GetLifecyclePoliciesResponse$,
 ];
-export var GetLifecyclePolicy: StaticOperationSchema = [
+export var GetLifecyclePolicy$: StaticOperationSchema = [
   9,
   n0,
   _GLPe,
   { [_h]: ["GET", "/policies/{PolicyId}", 200] },
-  () => GetLifecyclePolicyRequest,
-  () => GetLifecyclePolicyResponse,
+  () => GetLifecyclePolicyRequest$,
+  () => GetLifecyclePolicyResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TRa,
   { [_h]: ["POST", "/tags/{ResourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateLifecyclePolicy: StaticOperationSchema = [
+export var UpdateLifecyclePolicy$: StaticOperationSchema = [
   9,
   n0,
   _ULP,
   { [_h]: ["PATCH", "/policies/{PolicyId}", 200] },
-  () => UpdateLifecyclePolicyRequest,
-  () => UpdateLifecyclePolicyResponse,
+  () => UpdateLifecyclePolicyRequest$,
+  () => UpdateLifecyclePolicyResponse$,
 ];

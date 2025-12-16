@@ -9,7 +9,7 @@ import type {
   DisassociateAssessmentReportEvidenceFolderRequest,
   DisassociateAssessmentReportEvidenceFolderResponse,
 } from "../models/models_0";
-import { DisassociateAssessmentReportEvidenceFolder } from "../schemas/schemas_0";
+import { DisassociateAssessmentReportEvidenceFolder$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DisassociateAssessmentReportEvidenceFolderCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "DisassociateAssessmentReportEvidenceFolder", {})
   .n("AuditManagerClient", "DisassociateAssessmentReportEvidenceFolderCommand")
-  .sc(DisassociateAssessmentReportEvidenceFolder)
+  .sc(DisassociateAssessmentReportEvidenceFolder$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

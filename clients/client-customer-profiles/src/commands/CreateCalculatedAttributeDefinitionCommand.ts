@@ -13,7 +13,7 @@ import type {
   CreateCalculatedAttributeDefinitionRequest,
   CreateCalculatedAttributeDefinitionResponse,
 } from "../models/models_0";
-import { CreateCalculatedAttributeDefinition } from "../schemas/schemas_0";
+import { CreateCalculatedAttributeDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -214,7 +214,7 @@ export class CreateCalculatedAttributeDefinitionCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "CreateCalculatedAttributeDefinition", {})
   .n("CustomerProfilesClient", "CreateCalculatedAttributeDefinitionCommand")
-  .sc(CreateCalculatedAttributeDefinition)
+  .sc(CreateCalculatedAttributeDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

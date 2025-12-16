@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import type { ListEventSourcesRequest, ListEventSourcesResponse } from "../models/models_0";
-import { ListEventSources } from "../schemas/schemas_0";
+import { ListEventSources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class ListEventSourcesCommand extends $Command
   })
   .s("AWSEvents", "ListEventSources", {})
   .n("EventBridgeClient", "ListEventSourcesCommand")
-  .sc(ListEventSources)
+  .sc(ListEventSources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -601,34 +601,34 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { AppStreamServiceException as __AppStreamServiceException } from "../models/AppStreamServiceException";
+import { AppStreamServiceException } from "../models/AppStreamServiceException";
 import {
-  ConcurrentModificationException as __ConcurrentModificationException,
-  DryRunOperationException as __DryRunOperationException,
-  EntitlementAlreadyExistsException as __EntitlementAlreadyExistsException,
-  EntitlementNotFoundException as __EntitlementNotFoundException,
-  IncompatibleImageException as __IncompatibleImageException,
-  InvalidAccountStatusException as __InvalidAccountStatusException,
-  InvalidParameterCombinationException as __InvalidParameterCombinationException,
-  InvalidRoleException as __InvalidRoleException,
-  LimitExceededException as __LimitExceededException,
-  OperationNotPermittedException as __OperationNotPermittedException,
-  RequestLimitExceededException as __RequestLimitExceededException,
-  ResourceAlreadyExistsException as __ResourceAlreadyExistsException,
-  ResourceInUseException as __ResourceInUseException,
-  ResourceNotAvailableException as __ResourceNotAvailableException,
-  ResourceNotFoundException as __ResourceNotFoundException,
+  ConcurrentModificationException,
+  DryRunOperationException,
+  EntitlementAlreadyExistsException,
+  EntitlementNotFoundException,
+  IncompatibleImageException,
+  InvalidAccountStatusException,
+  InvalidParameterCombinationException,
+  InvalidRoleException,
+  LimitExceededException,
+  OperationNotPermittedException,
+  RequestLimitExceededException,
+  ResourceAlreadyExistsException,
+  ResourceInUseException,
+  ResourceNotAvailableException,
+  ResourceNotFoundException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AccountName: StaticSimpleSchema = [0, n0, _AN, 8, 0];
-export var AccountPassword: StaticSimpleSchema = [0, n0, _AP, 8, 0];
-export var FilePath: StaticSimpleSchema = [0, n0, _FP, 8, 0];
-export var LaunchParameters: StaticSimpleSchema = [0, n0, _LP, 8, 0];
-export var UserAttributeValue: StaticSimpleSchema = [0, n0, _UAV, 8, 0];
-export var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
-export var AccessEndpoint: StaticStructureSchema = [3, n0, _AE, 0, [_ET, _VI], [0, 0]];
-export var AdminAppLicenseUsageRecord: StaticStructureSchema = [
+var AccountName: StaticSimpleSchema = [0, n0, _AN, 8, 0];
+var AccountPassword: StaticSimpleSchema = [0, n0, _AP, 8, 0];
+var FilePath: StaticSimpleSchema = [0, n0, _FP, 8, 0];
+var LaunchParameters: StaticSimpleSchema = [0, n0, _LP, 8, 0];
+var UserAttributeValue: StaticSimpleSchema = [0, n0, _UAV, 8, 0];
+var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
+export var AccessEndpoint$: StaticStructureSchema = [3, n0, _AE, 0, [_ET, _VI], [0, 0]];
+export var AdminAppLicenseUsageRecord$: StaticStructureSchema = [
   3,
   n0,
   _AALUR,
@@ -636,15 +636,15 @@ export var AdminAppLicenseUsageRecord: StaticStructureSchema = [
   [_UA, _BP, _OAWSAI, _SFUD, _SLUD, _LT, _UI],
   [0, 0, 0, 4, 4, 0, 0],
 ];
-export var AppBlock: StaticStructureSchema = [
+export var AppBlock$: StaticStructureSchema = [
   3,
   n0,
   _AB,
   0,
   [_N, _A, _D, _DN, _SSL, _SSD, _CT, _PSSD, _PT, _S, _ABE],
-  [0, 0, 0, 0, () => S3Location, () => ScriptDetails, 4, () => ScriptDetails, 0, 0, () => ErrorDetailsList],
+  [0, 0, 0, 0, () => S3Location$, () => ScriptDetails$, 4, () => ScriptDetails$, 0, 0, () => ErrorDetailsList],
 ];
-export var AppBlockBuilder: StaticStructureSchema = [
+export var AppBlockBuilder$: StaticStructureSchema = [
   3,
   n0,
   _ABB,
@@ -659,25 +659,25 @@ export var AppBlockBuilder: StaticStructureSchema = [
     0,
     2,
     0,
-    () => VpcConfig,
+    () => VpcConfig$,
     0,
     4,
     () => ResourceErrors,
-    () => AppBlockBuilderStateChangeReason,
+    () => AppBlockBuilderStateChangeReason$,
     () => AccessEndpointList,
   ],
 ];
-export var AppBlockBuilderAppBlockAssociation: StaticStructureSchema = [3, n0, _ABBABA, 0, [_ABA, _ABBN], [0, 0]];
-export var AppBlockBuilderStateChangeReason: StaticStructureSchema = [3, n0, _ABBSCR, 0, [_C, _M], [0, 0]];
-export var Application: StaticStructureSchema = [
+export var AppBlockBuilderAppBlockAssociation$: StaticStructureSchema = [3, n0, _ABBABA, 0, [_ABA, _ABBN], [0, 0]];
+export var AppBlockBuilderStateChangeReason$: StaticStructureSchema = [3, n0, _ABBSCR, 0, [_C, _M], [0, 0]];
+export var Application$: StaticStructureSchema = [
   3,
   n0,
   _Ap,
   0,
   [_N, _DN, _IURL, _LPa, _LP, _E, _Me, _WD, _D, _A, _ABA, _ISL, _Pl, _IF, _CT],
-  [0, 0, 0, 0, 0, 2, 128 | 0, 0, 0, 0, 0, () => S3Location, 64 | 0, 64 | 0, 4],
+  [0, 0, 0, 0, 0, 2, 128 | 0, 0, 0, 0, 0, () => S3Location$, 64 | 0, 64 | 0, 4],
 ];
-export var ApplicationConfig: StaticStructureSchema = [
+export var ApplicationConfig$: StaticStructureSchema = [
   3,
   n0,
   _AC,
@@ -693,28 +693,35 @@ export var ApplicationConfig: StaticStructureSchema = [
     [() => LaunchParameters, 0],
   ],
 ];
-export var ApplicationFleetAssociation: StaticStructureSchema = [3, n0, _AFA, 0, [_FN, _AA], [0, 0]];
-export var ApplicationSettings: StaticStructureSchema = [3, n0, _AS, 0, [_E, _SG], [2, 0]];
-export var ApplicationSettingsResponse: StaticStructureSchema = [3, n0, _ASR, 0, [_E, _SG, _SBN], [2, 0, 0]];
-export var AssociateAppBlockBuilderAppBlockRequest: StaticStructureSchema = [3, n0, _AABBABR, 0, [_ABA, _ABBN], [0, 0]];
-export var AssociateAppBlockBuilderAppBlockResult: StaticStructureSchema = [
+export var ApplicationFleetAssociation$: StaticStructureSchema = [3, n0, _AFA, 0, [_FN, _AA], [0, 0]];
+export var ApplicationSettings$: StaticStructureSchema = [3, n0, _AS, 0, [_E, _SG], [2, 0]];
+export var ApplicationSettingsResponse$: StaticStructureSchema = [3, n0, _ASR, 0, [_E, _SG, _SBN], [2, 0, 0]];
+export var AssociateAppBlockBuilderAppBlockRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _AABBABR,
+  0,
+  [_ABA, _ABBN],
+  [0, 0],
+];
+export var AssociateAppBlockBuilderAppBlockResult$: StaticStructureSchema = [
   3,
   n0,
   _AABBABRs,
   0,
   [_ABBABA],
-  [() => AppBlockBuilderAppBlockAssociation],
+  [() => AppBlockBuilderAppBlockAssociation$],
 ];
-export var AssociateApplicationFleetRequest: StaticStructureSchema = [3, n0, _AAFR, 0, [_FN, _AA], [0, 0]];
-export var AssociateApplicationFleetResult: StaticStructureSchema = [
+export var AssociateApplicationFleetRequest$: StaticStructureSchema = [3, n0, _AAFR, 0, [_FN, _AA], [0, 0]];
+export var AssociateApplicationFleetResult$: StaticStructureSchema = [
   3,
   n0,
   _AAFRs,
   0,
   [_AFA],
-  [() => ApplicationFleetAssociation],
+  [() => ApplicationFleetAssociation$],
 ];
-export var AssociateApplicationToEntitlementRequest: StaticStructureSchema = [
+export var AssociateApplicationToEntitlementRequest$: StaticStructureSchema = [
   3,
   n0,
   _AATER,
@@ -722,10 +729,10 @@ export var AssociateApplicationToEntitlementRequest: StaticStructureSchema = [
   [_SN, _EN, _AI],
   [0, 0, 0],
 ];
-export var AssociateApplicationToEntitlementResult: StaticStructureSchema = [3, n0, _AATERs, 0, [], []];
-export var AssociateFleetRequest: StaticStructureSchema = [3, n0, _AFR, 0, [_FN, _SN], [0, 0]];
-export var AssociateFleetResult: StaticStructureSchema = [3, n0, _AFRs, 0, [], []];
-export var AssociateSoftwareToImageBuilderRequest: StaticStructureSchema = [
+export var AssociateApplicationToEntitlementResult$: StaticStructureSchema = [3, n0, _AATERs, 0, [], []];
+export var AssociateFleetRequest$: StaticStructureSchema = [3, n0, _AFR, 0, [_FN, _SN], [0, 0]];
+export var AssociateFleetResult$: StaticStructureSchema = [3, n0, _AFRs, 0, [], []];
+export var AssociateSoftwareToImageBuilderRequest$: StaticStructureSchema = [
   3,
   n0,
   _ASTIBR,
@@ -733,8 +740,8 @@ export var AssociateSoftwareToImageBuilderRequest: StaticStructureSchema = [
   [_IBN, _SNo],
   [0, 64 | 0],
 ];
-export var AssociateSoftwareToImageBuilderResult: StaticStructureSchema = [3, n0, _ASTIBRs, 0, [], []];
-export var BatchAssociateUserStackRequest: StaticStructureSchema = [
+export var AssociateSoftwareToImageBuilderResult$: StaticStructureSchema = [3, n0, _ASTIBRs, 0, [], []];
+export var BatchAssociateUserStackRequest$: StaticStructureSchema = [
   3,
   n0,
   _BAUSR,
@@ -742,7 +749,7 @@ export var BatchAssociateUserStackRequest: StaticStructureSchema = [
   [_USA],
   [[() => UserStackAssociationList, 0]],
 ];
-export var BatchAssociateUserStackResult: StaticStructureSchema = [
+export var BatchAssociateUserStackResult$: StaticStructureSchema = [
   3,
   n0,
   _BAUSRa,
@@ -750,7 +757,7 @@ export var BatchAssociateUserStackResult: StaticStructureSchema = [
   [_e],
   [[() => UserStackAssociationErrorList, 0]],
 ];
-export var BatchDisassociateUserStackRequest: StaticStructureSchema = [
+export var BatchDisassociateUserStackRequest$: StaticStructureSchema = [
   3,
   n0,
   _BDUSR,
@@ -758,7 +765,7 @@ export var BatchDisassociateUserStackRequest: StaticStructureSchema = [
   [_USA],
   [[() => UserStackAssociationList, 0]],
 ];
-export var BatchDisassociateUserStackResult: StaticStructureSchema = [
+export var BatchDisassociateUserStackResult$: StaticStructureSchema = [
   3,
   n0,
   _BDUSRa,
@@ -766,9 +773,9 @@ export var BatchDisassociateUserStackResult: StaticStructureSchema = [
   [_e],
   [[() => UserStackAssociationErrorList, 0]],
 ];
-export var CertificateBasedAuthProperties: StaticStructureSchema = [3, n0, _CBAP, 0, [_St, _CAA], [0, 0]];
-export var ComputeCapacity: StaticStructureSchema = [3, n0, _CC, 0, [_DI, _DS], [1, 1]];
-export var ComputeCapacityStatus: StaticStructureSchema = [
+export var CertificateBasedAuthProperties$: StaticStructureSchema = [3, n0, _CBAP, 0, [_St, _CAA], [0, 0]];
+export var ComputeCapacity$: StaticStructureSchema = [3, n0, _CC, 0, [_DI, _DS], [1, 1]];
+export var ComputeCapacityStatus$: StaticStructureSchema = [
   3,
   n0,
   _CCS,
@@ -776,20 +783,20 @@ export var ComputeCapacityStatus: StaticStructureSchema = [
   [_De, _R, _IU, _Av, _DUS, _AUS, _AUSc, _AUSct],
   [1, 1, 1, 1, 1, 1, 1, 1],
 ];
-export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CME, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-export var CopyImageRequest: StaticStructureSchema = [3, n0, _CIR, 0, [_SIN, _DIN, _DR, _DID], [0, 0, 0, 0]];
-export var CopyImageResponse: StaticStructureSchema = [3, n0, _CIRo, 0, [_DIN], [0]];
-export var CreateAppBlockBuilderRequest: StaticStructureSchema = [
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var CopyImageRequest$: StaticStructureSchema = [3, n0, _CIR, 0, [_SIN, _DIN, _DR, _DID], [0, 0, 0, 0]];
+export var CopyImageResponse$: StaticStructureSchema = [3, n0, _CIRo, 0, [_DIN], [0]];
+export var CreateAppBlockBuilderRequest$: StaticStructureSchema = [
   3,
   n0,
   _CABBR,
   0,
   [_N, _D, _DN, _T, _P, _IT, _VC, _EDIA, _IRA, _AEc],
-  [0, 0, 0, 128 | 0, 0, 0, () => VpcConfig, 2, 0, () => AccessEndpointList],
+  [0, 0, 0, 128 | 0, 0, 0, () => VpcConfig$, 2, 0, () => AccessEndpointList],
 ];
-export var CreateAppBlockBuilderResult: StaticStructureSchema = [3, n0, _CABBRr, 0, [_ABB], [() => AppBlockBuilder]];
-export var CreateAppBlockBuilderStreamingURLRequest: StaticStructureSchema = [
+export var CreateAppBlockBuilderResult$: StaticStructureSchema = [3, n0, _CABBRr, 0, [_ABB], [() => AppBlockBuilder$]];
+export var CreateAppBlockBuilderStreamingURLRequest$: StaticStructureSchema = [
   3,
   n0,
   _CABBSURLR,
@@ -797,7 +804,7 @@ export var CreateAppBlockBuilderStreamingURLRequest: StaticStructureSchema = [
   [_ABBN, _V],
   [0, 1],
 ];
-export var CreateAppBlockBuilderStreamingURLResult: StaticStructureSchema = [
+export var CreateAppBlockBuilderStreamingURLResult$: StaticStructureSchema = [
   3,
   n0,
   _CABBSURLRr,
@@ -805,34 +812,41 @@ export var CreateAppBlockBuilderStreamingURLResult: StaticStructureSchema = [
   [_SURL, _Ex],
   [0, 4],
 ];
-export var CreateAppBlockRequest: StaticStructureSchema = [
+export var CreateAppBlockRequest$: StaticStructureSchema = [
   3,
   n0,
   _CABR,
   0,
   [_N, _D, _DN, _SSL, _SSD, _T, _PSSD, _PT],
-  [0, 0, 0, () => S3Location, () => ScriptDetails, 128 | 0, () => ScriptDetails, 0],
+  [0, 0, 0, () => S3Location$, () => ScriptDetails$, 128 | 0, () => ScriptDetails$, 0],
 ];
-export var CreateAppBlockResult: StaticStructureSchema = [3, n0, _CABRr, 0, [_AB], [() => AppBlock]];
-export var CreateApplicationRequest: StaticStructureSchema = [
+export var CreateAppBlockResult$: StaticStructureSchema = [3, n0, _CABRr, 0, [_AB], [() => AppBlock$]];
+export var CreateApplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CAR,
   0,
   [_N, _DN, _D, _ISL, _LPa, _WD, _LP, _Pl, _IF, _ABA, _T],
-  [0, 0, 0, () => S3Location, 0, 0, 0, 64 | 0, 64 | 0, 0, 128 | 0],
+  [0, 0, 0, () => S3Location$, 0, 0, 0, 64 | 0, 64 | 0, 0, 128 | 0],
 ];
-export var CreateApplicationResult: StaticStructureSchema = [3, n0, _CARr, 0, [_Ap], [() => Application]];
-export var CreateDirectoryConfigRequest: StaticStructureSchema = [
+export var CreateApplicationResult$: StaticStructureSchema = [3, n0, _CARr, 0, [_Ap], [() => Application$]];
+export var CreateDirectoryConfigRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDCR,
   0,
   [_DNi, _OUDN, _SAC, _CBAP],
-  [0, 64 | 0, [() => ServiceAccountCredentials, 0], () => CertificateBasedAuthProperties],
+  [0, 64 | 0, [() => ServiceAccountCredentials$, 0], () => CertificateBasedAuthProperties$],
 ];
-export var CreateDirectoryConfigResult: StaticStructureSchema = [3, n0, _CDCRr, 0, [_DC], [[() => DirectoryConfig, 0]]];
-export var CreateEntitlementRequest: StaticStructureSchema = [
+export var CreateDirectoryConfigResult$: StaticStructureSchema = [
+  3,
+  n0,
+  _CDCRr,
+  0,
+  [_DC],
+  [[() => DirectoryConfig$, 0]],
+];
+export var CreateEntitlementRequest$: StaticStructureSchema = [
   3,
   n0,
   _CER,
@@ -840,8 +854,8 @@ export var CreateEntitlementRequest: StaticStructureSchema = [
   [_N, _SN, _D, _AV, _At],
   [0, 0, 0, 0, () => EntitlementAttributeList],
 ];
-export var CreateEntitlementResult: StaticStructureSchema = [3, n0, _CERr, 0, [_En], [() => Entitlement]];
-export var CreateExportImageTaskRequest: StaticStructureSchema = [
+export var CreateEntitlementResult$: StaticStructureSchema = [3, n0, _CERr, 0, [_En], [() => Entitlement$]];
+export var CreateExportImageTaskRequest$: StaticStructureSchema = [
   3,
   n0,
   _CEITR,
@@ -849,8 +863,8 @@ export var CreateExportImageTaskRequest: StaticStructureSchema = [
   [_IN, _ANm, _IRA, _TS, _AD],
   [0, 0, 0, 128 | 0, 0],
 ];
-export var CreateExportImageTaskResult: StaticStructureSchema = [3, n0, _CEITRr, 0, [_EIT], [() => ExportImageTask]];
-export var CreateFleetRequest: StaticStructureSchema = [
+export var CreateExportImageTaskResult$: StaticStructureSchema = [3, n0, _CEITRr, 0, [_EIT], [() => ExportImageTask$]];
+export var CreateFleetRequest$: StaticStructureSchema = [
   3,
   n0,
   _CFR,
@@ -886,14 +900,14 @@ export var CreateFleetRequest: StaticStructureSchema = [
     0,
     0,
     0,
-    () => ComputeCapacity,
-    () => VpcConfig,
+    () => ComputeCapacity$,
+    () => VpcConfig$,
     1,
     1,
     0,
     0,
     2,
-    () => DomainJoinInfo,
+    () => DomainJoinInfo$,
     128 | 0,
     1,
     0,
@@ -901,13 +915,13 @@ export var CreateFleetRequest: StaticStructureSchema = [
     0,
     1,
     64 | 0,
-    () => S3Location,
+    () => S3Location$,
     1,
-    () => VolumeConfig,
+    () => VolumeConfig$,
   ],
 ];
-export var CreateFleetResult: StaticStructureSchema = [3, n0, _CFRr, 0, [_F], [() => Fleet]];
-export var CreateImageBuilderRequest: StaticStructureSchema = [
+export var CreateFleetResult$: StaticStructureSchema = [3, n0, _CFRr, 0, [_F], [() => Fleet$]];
+export var CreateImageBuilderRequest$: StaticStructureSchema = [
   3,
   n0,
   _CIBR,
@@ -920,31 +934,31 @@ export var CreateImageBuilderRequest: StaticStructureSchema = [
     0,
     0,
     0,
-    () => VpcConfig,
+    () => VpcConfig$,
     0,
     2,
-    () => DomainJoinInfo,
+    () => DomainJoinInfo$,
     0,
     128 | 0,
     () => AccessEndpointList,
-    () => VolumeConfig,
+    () => VolumeConfig$,
     64 | 0,
     64 | 0,
   ],
 ];
-export var CreateImageBuilderResult: StaticStructureSchema = [3, n0, _CIBRr, 0, [_IB], [() => ImageBuilder]];
-export var CreateImageBuilderStreamingURLRequest: StaticStructureSchema = [3, n0, _CIBSURLR, 0, [_N, _V], [0, 1]];
-export var CreateImageBuilderStreamingURLResult: StaticStructureSchema = [3, n0, _CIBSURLRr, 0, [_SURL, _Ex], [0, 4]];
-export var CreateImportedImageRequest: StaticStructureSchema = [
+export var CreateImageBuilderResult$: StaticStructureSchema = [3, n0, _CIBRr, 0, [_IB], [() => ImageBuilder$]];
+export var CreateImageBuilderStreamingURLRequest$: StaticStructureSchema = [3, n0, _CIBSURLR, 0, [_N, _V], [0, 1]];
+export var CreateImageBuilderStreamingURLResult$: StaticStructureSchema = [3, n0, _CIBSURLRr, 0, [_SURL, _Ex], [0, 4]];
+export var CreateImportedImageRequest$: StaticStructureSchema = [
   3,
   n0,
   _CIIR,
   0,
   [_N, _SAI, _IRA, _D, _DN, _T, _RVCu, _ASV, _ACC, _DRr],
-  [0, 0, 0, 0, 0, 128 | 0, () => RuntimeValidationConfig, 0, [() => AppCatalogConfig, 0], 2],
+  [0, 0, 0, 0, 0, 128 | 0, () => RuntimeValidationConfig$, 0, [() => AppCatalogConfig, 0], 2],
 ];
-export var CreateImportedImageResult: StaticStructureSchema = [3, n0, _CIIRr, 0, [_I], [() => Image]];
-export var CreateStackRequest: StaticStructureSchema = [
+export var CreateImportedImageResult$: StaticStructureSchema = [3, n0, _CIIRr, 0, [_I], [() => Image$]];
+export var CreateStackRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSR,
@@ -958,15 +972,15 @@ export var CreateStackRequest: StaticStructureSchema = [
     0,
     0,
     () => UserSettingList,
-    () => ApplicationSettings,
+    () => ApplicationSettings$,
     128 | 0,
     () => AccessEndpointList,
     64 | 0,
-    () => StreamingExperienceSettings,
+    () => StreamingExperienceSettings$,
   ],
 ];
-export var CreateStackResult: StaticStructureSchema = [3, n0, _CSRr, 0, [_Sta], [() => Stack]];
-export var CreateStreamingURLRequest: StaticStructureSchema = [
+export var CreateStackResult$: StaticStructureSchema = [3, n0, _CSRr, 0, [_Sta], [() => Stack$]];
+export var CreateStreamingURLRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSURLR,
@@ -974,17 +988,17 @@ export var CreateStreamingURLRequest: StaticStructureSchema = [
   [_SN, _FN, _UI, _AIp, _V, _SCe],
   [0, 0, 0, 0, 1, 0],
 ];
-export var CreateStreamingURLResult: StaticStructureSchema = [3, n0, _CSURLRr, 0, [_SURL, _Ex], [0, 4]];
-export var CreateThemeForStackRequest: StaticStructureSchema = [
+export var CreateStreamingURLResult$: StaticStructureSchema = [3, n0, _CSURLRr, 0, [_SURL, _Ex], [0, 4]];
+export var CreateThemeForStackRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTFSR,
   0,
   [_SN, _FL, _TT, _TSh, _OLSL, _FSL],
-  [0, () => ThemeFooterLinks, 0, 0, () => S3Location, () => S3Location],
+  [0, () => ThemeFooterLinks, 0, 0, () => S3Location$, () => S3Location$],
 ];
-export var CreateThemeForStackResult: StaticStructureSchema = [3, n0, _CTFSRr, 0, [_Th], [() => Theme]];
-export var CreateUpdatedImageRequest: StaticStructureSchema = [
+export var CreateThemeForStackResult$: StaticStructureSchema = [3, n0, _CTFSRr, 0, [_Th], [() => Theme$]];
+export var CreateUpdatedImageRequest$: StaticStructureSchema = [
   3,
   n0,
   _CUIR,
@@ -992,10 +1006,10 @@ export var CreateUpdatedImageRequest: StaticStructureSchema = [
   [_eIN, _nIN, _nID, _nIDN, _nIT, _dR],
   [0, 0, 0, 0, 128 | 0, 2],
 ];
-export var CreateUpdatedImageResult: StaticStructureSchema = [3, n0, _CUIRr, 0, [_i, _cUI], [() => Image, 2]];
-export var CreateUsageReportSubscriptionRequest: StaticStructureSchema = [3, n0, _CURSR, 0, [], []];
-export var CreateUsageReportSubscriptionResult: StaticStructureSchema = [3, n0, _CURSRr, 0, [_SBN, _Sc], [0, 0]];
-export var CreateUserRequest: StaticStructureSchema = [
+export var CreateUpdatedImageResult$: StaticStructureSchema = [3, n0, _CUIRr, 0, [_i, _cUI], [() => Image$, 2]];
+export var CreateUsageReportSubscriptionRequest$: StaticStructureSchema = [3, n0, _CURSR, 0, [], []];
+export var CreateUsageReportSubscriptionResult$: StaticStructureSchema = [3, n0, _CURSRr, 0, [_SBN, _Sc], [0, 0]];
+export var CreateUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _CUR,
@@ -1003,34 +1017,34 @@ export var CreateUserRequest: StaticStructureSchema = [
   [_UN, _MA, _FNi, _LN, _AT],
   [[() => Username, 0], 0, [() => UserAttributeValue, 0], [() => UserAttributeValue, 0], 0],
 ];
-export var CreateUserResult: StaticStructureSchema = [3, n0, _CURr, 0, [], []];
-export var DeleteAppBlockBuilderRequest: StaticStructureSchema = [3, n0, _DABBR, 0, [_N], [0]];
-export var DeleteAppBlockBuilderResult: StaticStructureSchema = [3, n0, _DABBRe, 0, [], []];
-export var DeleteAppBlockRequest: StaticStructureSchema = [3, n0, _DABR, 0, [_N], [0]];
-export var DeleteAppBlockResult: StaticStructureSchema = [3, n0, _DABRe, 0, [], []];
-export var DeleteApplicationRequest: StaticStructureSchema = [3, n0, _DAR, 0, [_N], [0]];
-export var DeleteApplicationResult: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
-export var DeleteDirectoryConfigRequest: StaticStructureSchema = [3, n0, _DDCR, 0, [_DNi], [0]];
-export var DeleteDirectoryConfigResult: StaticStructureSchema = [3, n0, _DDCRe, 0, [], []];
-export var DeleteEntitlementRequest: StaticStructureSchema = [3, n0, _DER, 0, [_N, _SN], [0, 0]];
-export var DeleteEntitlementResult: StaticStructureSchema = [3, n0, _DERe, 0, [], []];
-export var DeleteFleetRequest: StaticStructureSchema = [3, n0, _DFR, 0, [_N], [0]];
-export var DeleteFleetResult: StaticStructureSchema = [3, n0, _DFRe, 0, [], []];
-export var DeleteImageBuilderRequest: StaticStructureSchema = [3, n0, _DIBR, 0, [_N], [0]];
-export var DeleteImageBuilderResult: StaticStructureSchema = [3, n0, _DIBRe, 0, [_IB], [() => ImageBuilder]];
-export var DeleteImagePermissionsRequest: StaticStructureSchema = [3, n0, _DIPR, 0, [_N, _SAIh], [0, 0]];
-export var DeleteImagePermissionsResult: StaticStructureSchema = [3, n0, _DIPRe, 0, [], []];
-export var DeleteImageRequest: StaticStructureSchema = [3, n0, _DIR, 0, [_N], [0]];
-export var DeleteImageResult: StaticStructureSchema = [3, n0, _DIRe, 0, [_I], [() => Image]];
-export var DeleteStackRequest: StaticStructureSchema = [3, n0, _DSR, 0, [_N], [0]];
-export var DeleteStackResult: StaticStructureSchema = [3, n0, _DSRe, 0, [], []];
-export var DeleteThemeForStackRequest: StaticStructureSchema = [3, n0, _DTFSR, 0, [_SN], [0]];
-export var DeleteThemeForStackResult: StaticStructureSchema = [3, n0, _DTFSRe, 0, [], []];
-export var DeleteUsageReportSubscriptionRequest: StaticStructureSchema = [3, n0, _DURSR, 0, [], []];
-export var DeleteUsageReportSubscriptionResult: StaticStructureSchema = [3, n0, _DURSRe, 0, [], []];
-export var DeleteUserRequest: StaticStructureSchema = [3, n0, _DUR, 0, [_UN, _AT], [[() => Username, 0], 0]];
-export var DeleteUserResult: StaticStructureSchema = [3, n0, _DURe, 0, [], []];
-export var DescribeAppBlockBuilderAppBlockAssociationsRequest: StaticStructureSchema = [
+export var CreateUserResult$: StaticStructureSchema = [3, n0, _CURr, 0, [], []];
+export var DeleteAppBlockBuilderRequest$: StaticStructureSchema = [3, n0, _DABBR, 0, [_N], [0]];
+export var DeleteAppBlockBuilderResult$: StaticStructureSchema = [3, n0, _DABBRe, 0, [], []];
+export var DeleteAppBlockRequest$: StaticStructureSchema = [3, n0, _DABR, 0, [_N], [0]];
+export var DeleteAppBlockResult$: StaticStructureSchema = [3, n0, _DABRe, 0, [], []];
+export var DeleteApplicationRequest$: StaticStructureSchema = [3, n0, _DAR, 0, [_N], [0]];
+export var DeleteApplicationResult$: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
+export var DeleteDirectoryConfigRequest$: StaticStructureSchema = [3, n0, _DDCR, 0, [_DNi], [0]];
+export var DeleteDirectoryConfigResult$: StaticStructureSchema = [3, n0, _DDCRe, 0, [], []];
+export var DeleteEntitlementRequest$: StaticStructureSchema = [3, n0, _DER, 0, [_N, _SN], [0, 0]];
+export var DeleteEntitlementResult$: StaticStructureSchema = [3, n0, _DERe, 0, [], []];
+export var DeleteFleetRequest$: StaticStructureSchema = [3, n0, _DFR, 0, [_N], [0]];
+export var DeleteFleetResult$: StaticStructureSchema = [3, n0, _DFRe, 0, [], []];
+export var DeleteImageBuilderRequest$: StaticStructureSchema = [3, n0, _DIBR, 0, [_N], [0]];
+export var DeleteImageBuilderResult$: StaticStructureSchema = [3, n0, _DIBRe, 0, [_IB], [() => ImageBuilder$]];
+export var DeleteImagePermissionsRequest$: StaticStructureSchema = [3, n0, _DIPR, 0, [_N, _SAIh], [0, 0]];
+export var DeleteImagePermissionsResult$: StaticStructureSchema = [3, n0, _DIPRe, 0, [], []];
+export var DeleteImageRequest$: StaticStructureSchema = [3, n0, _DIR, 0, [_N], [0]];
+export var DeleteImageResult$: StaticStructureSchema = [3, n0, _DIRe, 0, [_I], [() => Image$]];
+export var DeleteStackRequest$: StaticStructureSchema = [3, n0, _DSR, 0, [_N], [0]];
+export var DeleteStackResult$: StaticStructureSchema = [3, n0, _DSRe, 0, [], []];
+export var DeleteThemeForStackRequest$: StaticStructureSchema = [3, n0, _DTFSR, 0, [_SN], [0]];
+export var DeleteThemeForStackResult$: StaticStructureSchema = [3, n0, _DTFSRe, 0, [], []];
+export var DeleteUsageReportSubscriptionRequest$: StaticStructureSchema = [3, n0, _DURSR, 0, [], []];
+export var DeleteUsageReportSubscriptionResult$: StaticStructureSchema = [3, n0, _DURSRe, 0, [], []];
+export var DeleteUserRequest$: StaticStructureSchema = [3, n0, _DUR, 0, [_UN, _AT], [[() => Username, 0], 0]];
+export var DeleteUserResult$: StaticStructureSchema = [3, n0, _DURe, 0, [], []];
+export var DescribeAppBlockBuilderAppBlockAssociationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DABBABAR,
@@ -1038,7 +1052,7 @@ export var DescribeAppBlockBuilderAppBlockAssociationsRequest: StaticStructureSc
   [_ABA, _ABBN, _MR, _NT],
   [0, 0, 1, 0],
 ];
-export var DescribeAppBlockBuilderAppBlockAssociationsResult: StaticStructureSchema = [
+export var DescribeAppBlockBuilderAppBlockAssociationsResult$: StaticStructureSchema = [
   3,
   n0,
   _DABBABARe,
@@ -1046,7 +1060,7 @@ export var DescribeAppBlockBuilderAppBlockAssociationsResult: StaticStructureSch
   [_ABBABAp, _NT],
   [() => AppBlockBuilderAppBlockAssociationsList, 0],
 ];
-export var DescribeAppBlockBuildersRequest: StaticStructureSchema = [
+export var DescribeAppBlockBuildersRequest$: StaticStructureSchema = [
   3,
   n0,
   _DABBRes,
@@ -1054,7 +1068,7 @@ export var DescribeAppBlockBuildersRequest: StaticStructureSchema = [
   [_Na, _NT, _MR],
   [64 | 0, 0, 1],
 ];
-export var DescribeAppBlockBuildersResult: StaticStructureSchema = [
+export var DescribeAppBlockBuildersResult$: StaticStructureSchema = [
   3,
   n0,
   _DABBResc,
@@ -1062,9 +1076,9 @@ export var DescribeAppBlockBuildersResult: StaticStructureSchema = [
   [_ABBp, _NT],
   [() => AppBlockBuilderList, 0],
 ];
-export var DescribeAppBlocksRequest: StaticStructureSchema = [3, n0, _DABRes, 0, [_Ar, _NT, _MR], [64 | 0, 0, 1]];
-export var DescribeAppBlocksResult: StaticStructureSchema = [3, n0, _DABResc, 0, [_ABp, _NT], [() => AppBlocks, 0]];
-export var DescribeApplicationFleetAssociationsRequest: StaticStructureSchema = [
+export var DescribeAppBlocksRequest$: StaticStructureSchema = [3, n0, _DABRes, 0, [_Ar, _NT, _MR], [64 | 0, 0, 1]];
+export var DescribeAppBlocksResult$: StaticStructureSchema = [3, n0, _DABResc, 0, [_ABp, _NT], [() => AppBlocks, 0]];
+export var DescribeApplicationFleetAssociationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAFAR,
@@ -1072,7 +1086,7 @@ export var DescribeApplicationFleetAssociationsRequest: StaticStructureSchema = 
   [_FN, _AA, _MR, _NT],
   [0, 0, 1, 0],
 ];
-export var DescribeApplicationFleetAssociationsResult: StaticStructureSchema = [
+export var DescribeApplicationFleetAssociationsResult$: StaticStructureSchema = [
   3,
   n0,
   _DAFARe,
@@ -1080,8 +1094,8 @@ export var DescribeApplicationFleetAssociationsResult: StaticStructureSchema = [
   [_AFAp, _NT],
   [() => ApplicationFleetAssociationList, 0],
 ];
-export var DescribeApplicationsRequest: StaticStructureSchema = [3, n0, _DARes, 0, [_Ar, _NT, _MR], [64 | 0, 0, 1]];
-export var DescribeApplicationsResult: StaticStructureSchema = [
+export var DescribeApplicationsRequest$: StaticStructureSchema = [3, n0, _DARes, 0, [_Ar, _NT, _MR], [64 | 0, 0, 1]];
+export var DescribeApplicationsResult$: StaticStructureSchema = [
   3,
   n0,
   _DAResc,
@@ -1089,8 +1103,8 @@ export var DescribeApplicationsResult: StaticStructureSchema = [
   [_App, _NT],
   [() => Applications, 0],
 ];
-export var DescribeAppLicenseUsageRequest: StaticStructureSchema = [3, n0, _DALUR, 0, [_BP, _MR, _NT], [0, 1, 0]];
-export var DescribeAppLicenseUsageResult: StaticStructureSchema = [
+export var DescribeAppLicenseUsageRequest$: StaticStructureSchema = [3, n0, _DALUR, 0, [_BP, _MR, _NT], [0, 1, 0]];
+export var DescribeAppLicenseUsageResult$: StaticStructureSchema = [
   3,
   n0,
   _DALURe,
@@ -1098,7 +1112,7 @@ export var DescribeAppLicenseUsageResult: StaticStructureSchema = [
   [_ALU, _NT],
   [() => AdminAppLicenseUsageList, 0],
 ];
-export var DescribeDirectoryConfigsRequest: StaticStructureSchema = [
+export var DescribeDirectoryConfigsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDCRes,
@@ -1106,7 +1120,7 @@ export var DescribeDirectoryConfigsRequest: StaticStructureSchema = [
   [_DNir, _MR, _NT],
   [64 | 0, 1, 0],
 ];
-export var DescribeDirectoryConfigsResult: StaticStructureSchema = [
+export var DescribeDirectoryConfigsResult$: StaticStructureSchema = [
   3,
   n0,
   _DDCResc,
@@ -1114,8 +1128,8 @@ export var DescribeDirectoryConfigsResult: StaticStructureSchema = [
   [_DCi, _NT],
   [[() => DirectoryConfigList, 0], 0],
 ];
-export var DescribeEntitlementsRequest: StaticStructureSchema = [3, n0, _DERes, 0, [_N, _SN, _NT, _MR], [0, 0, 0, 1]];
-export var DescribeEntitlementsResult: StaticStructureSchema = [
+export var DescribeEntitlementsRequest$: StaticStructureSchema = [3, n0, _DERes, 0, [_N, _SN, _NT, _MR], [0, 0, 0, 1]];
+export var DescribeEntitlementsResult$: StaticStructureSchema = [
   3,
   n0,
   _DEResc,
@@ -1123,10 +1137,10 @@ export var DescribeEntitlementsResult: StaticStructureSchema = [
   [_Ent, _NT],
   [() => EntitlementList, 0],
 ];
-export var DescribeFleetsRequest: StaticStructureSchema = [3, n0, _DFRes, 0, [_Na, _NT], [64 | 0, 0]];
-export var DescribeFleetsResult: StaticStructureSchema = [3, n0, _DFResc, 0, [_Fl, _NT], [() => FleetList, 0]];
-export var DescribeImageBuildersRequest: StaticStructureSchema = [3, n0, _DIBRes, 0, [_Na, _MR, _NT], [64 | 0, 1, 0]];
-export var DescribeImageBuildersResult: StaticStructureSchema = [
+export var DescribeFleetsRequest$: StaticStructureSchema = [3, n0, _DFRes, 0, [_Na, _NT], [64 | 0, 0]];
+export var DescribeFleetsResult$: StaticStructureSchema = [3, n0, _DFResc, 0, [_Fl, _NT], [() => FleetList, 0]];
+export var DescribeImageBuildersRequest$: StaticStructureSchema = [3, n0, _DIBRes, 0, [_Na, _MR, _NT], [64 | 0, 1, 0]];
+export var DescribeImageBuildersResult$: StaticStructureSchema = [
   3,
   n0,
   _DIBResc,
@@ -1134,7 +1148,7 @@ export var DescribeImageBuildersResult: StaticStructureSchema = [
   [_IBm, _NT],
   [() => ImageBuilderList, 0],
 ];
-export var DescribeImagePermissionsRequest: StaticStructureSchema = [
+export var DescribeImagePermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIPRes,
@@ -1142,7 +1156,7 @@ export var DescribeImagePermissionsRequest: StaticStructureSchema = [
   [_N, _MR, _SAAI, _NT],
   [0, 1, 64 | 0, 0],
 ];
-export var DescribeImagePermissionsResult: StaticStructureSchema = [
+export var DescribeImagePermissionsResult$: StaticStructureSchema = [
   3,
   n0,
   _DIPResc,
@@ -1150,7 +1164,7 @@ export var DescribeImagePermissionsResult: StaticStructureSchema = [
   [_N, _SIPL, _NT],
   [0, () => SharedImagePermissionsList, 0],
 ];
-export var DescribeImagesRequest: StaticStructureSchema = [
+export var DescribeImagesRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIRes,
@@ -1158,8 +1172,8 @@ export var DescribeImagesRequest: StaticStructureSchema = [
   [_Na, _Ar, _Ty, _NT, _MR],
   [64 | 0, 64 | 0, 0, 0, 1],
 ];
-export var DescribeImagesResult: StaticStructureSchema = [3, n0, _DIResc, 0, [_Im, _NT], [() => ImageList, 0]];
-export var DescribeSessionsRequest: StaticStructureSchema = [
+export var DescribeImagesResult$: StaticStructureSchema = [3, n0, _DIResc, 0, [_Im, _NT], [() => ImageList, 0]];
+export var DescribeSessionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DSRes,
@@ -1167,9 +1181,9 @@ export var DescribeSessionsRequest: StaticStructureSchema = [
   [_SN, _FN, _UI, _NT, _L, _AT, _II],
   [0, 0, 0, 0, 1, 0, 0],
 ];
-export var DescribeSessionsResult: StaticStructureSchema = [3, n0, _DSResc, 0, [_Se, _NT], [() => SessionList, 0]];
-export var DescribeSoftwareAssociationsRequest: StaticStructureSchema = [3, n0, _DSAR, 0, [_AR, _MR, _NT], [0, 1, 0]];
-export var DescribeSoftwareAssociationsResult: StaticStructureSchema = [
+export var DescribeSessionsResult$: StaticStructureSchema = [3, n0, _DSResc, 0, [_Se, _NT], [() => SessionList, 0]];
+export var DescribeSoftwareAssociationsRequest$: StaticStructureSchema = [3, n0, _DSAR, 0, [_AR, _MR, _NT], [0, 1, 0]];
+export var DescribeSoftwareAssociationsResult$: StaticStructureSchema = [
   3,
   n0,
   _DSARe,
@@ -1177,12 +1191,12 @@ export var DescribeSoftwareAssociationsResult: StaticStructureSchema = [
   [_AR, _SA, _NT],
   [0, () => SoftwareAssociationsList, 0],
 ];
-export var DescribeStacksRequest: StaticStructureSchema = [3, n0, _DSRescr, 0, [_Na, _NT], [64 | 0, 0]];
-export var DescribeStacksResult: StaticStructureSchema = [3, n0, _DSRescri, 0, [_Stac, _NT], [() => StackList, 0]];
-export var DescribeThemeForStackRequest: StaticStructureSchema = [3, n0, _DTFSRes, 0, [_SN], [0]];
-export var DescribeThemeForStackResult: StaticStructureSchema = [3, n0, _DTFSResc, 0, [_Th], [() => Theme]];
-export var DescribeUsageReportSubscriptionsRequest: StaticStructureSchema = [3, n0, _DURSRes, 0, [_MR, _NT], [1, 0]];
-export var DescribeUsageReportSubscriptionsResult: StaticStructureSchema = [
+export var DescribeStacksRequest$: StaticStructureSchema = [3, n0, _DSRescr, 0, [_Na, _NT], [64 | 0, 0]];
+export var DescribeStacksResult$: StaticStructureSchema = [3, n0, _DSRescri, 0, [_Stac, _NT], [() => StackList, 0]];
+export var DescribeThemeForStackRequest$: StaticStructureSchema = [3, n0, _DTFSRes, 0, [_SN], [0]];
+export var DescribeThemeForStackResult$: StaticStructureSchema = [3, n0, _DTFSResc, 0, [_Th], [() => Theme$]];
+export var DescribeUsageReportSubscriptionsRequest$: StaticStructureSchema = [3, n0, _DURSRes, 0, [_MR, _NT], [1, 0]];
+export var DescribeUsageReportSubscriptionsResult$: StaticStructureSchema = [
   3,
   n0,
   _DURSResc,
@@ -1190,9 +1204,9 @@ export var DescribeUsageReportSubscriptionsResult: StaticStructureSchema = [
   [_URS, _NT],
   [() => UsageReportSubscriptionList, 0],
 ];
-export var DescribeUsersRequest: StaticStructureSchema = [3, n0, _DURes, 0, [_AT, _MR, _NT], [0, 1, 0]];
-export var DescribeUsersResult: StaticStructureSchema = [3, n0, _DUResc, 0, [_Us, _NT], [[() => UserList, 0], 0]];
-export var DescribeUserStackAssociationsRequest: StaticStructureSchema = [
+export var DescribeUsersRequest$: StaticStructureSchema = [3, n0, _DURes, 0, [_AT, _MR, _NT], [0, 1, 0]];
+export var DescribeUsersResult$: StaticStructureSchema = [3, n0, _DUResc, 0, [_Us, _NT], [[() => UserList, 0], 0]];
+export var DescribeUserStackAssociationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DUSAR,
@@ -1200,7 +1214,7 @@ export var DescribeUserStackAssociationsRequest: StaticStructureSchema = [
   [_SN, _UN, _AT, _MR, _NT],
   [0, [() => Username, 0], 0, 1, 0],
 ];
-export var DescribeUserStackAssociationsResult: StaticStructureSchema = [
+export var DescribeUserStackAssociationsResult$: StaticStructureSchema = [
   3,
   n0,
   _DUSARe,
@@ -1208,17 +1222,17 @@ export var DescribeUserStackAssociationsResult: StaticStructureSchema = [
   [_USA, _NT],
   [[() => UserStackAssociationList, 0], 0],
 ];
-export var DirectoryConfig: StaticStructureSchema = [
+export var DirectoryConfig$: StaticStructureSchema = [
   3,
   n0,
   _DC,
   0,
   [_DNi, _OUDN, _SAC, _CT, _CBAP],
-  [0, 64 | 0, [() => ServiceAccountCredentials, 0], 4, () => CertificateBasedAuthProperties],
+  [0, 64 | 0, [() => ServiceAccountCredentials$, 0], 4, () => CertificateBasedAuthProperties$],
 ];
-export var DisableUserRequest: StaticStructureSchema = [3, n0, _DURi, 0, [_UN, _AT], [[() => Username, 0], 0]];
-export var DisableUserResult: StaticStructureSchema = [3, n0, _DURis, 0, [], []];
-export var DisassociateAppBlockBuilderAppBlockRequest: StaticStructureSchema = [
+export var DisableUserRequest$: StaticStructureSchema = [3, n0, _DURi, 0, [_UN, _AT], [[() => Username, 0], 0]];
+export var DisableUserResult$: StaticStructureSchema = [3, n0, _DURis, 0, [], []];
+export var DisassociateAppBlockBuilderAppBlockRequest$: StaticStructureSchema = [
   3,
   n0,
   _DABBABR,
@@ -1226,10 +1240,10 @@ export var DisassociateAppBlockBuilderAppBlockRequest: StaticStructureSchema = [
   [_ABA, _ABBN],
   [0, 0],
 ];
-export var DisassociateAppBlockBuilderAppBlockResult: StaticStructureSchema = [3, n0, _DABBABRi, 0, [], []];
-export var DisassociateApplicationFleetRequest: StaticStructureSchema = [3, n0, _DAFR, 0, [_FN, _AA], [0, 0]];
-export var DisassociateApplicationFleetResult: StaticStructureSchema = [3, n0, _DAFRi, 0, [], []];
-export var DisassociateApplicationFromEntitlementRequest: StaticStructureSchema = [
+export var DisassociateAppBlockBuilderAppBlockResult$: StaticStructureSchema = [3, n0, _DABBABRi, 0, [], []];
+export var DisassociateApplicationFleetRequest$: StaticStructureSchema = [3, n0, _DAFR, 0, [_FN, _AA], [0, 0]];
+export var DisassociateApplicationFleetResult$: StaticStructureSchema = [3, n0, _DAFRi, 0, [], []];
+export var DisassociateApplicationFromEntitlementRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAFER,
@@ -1237,10 +1251,10 @@ export var DisassociateApplicationFromEntitlementRequest: StaticStructureSchema 
   [_SN, _EN, _AI],
   [0, 0, 0],
 ];
-export var DisassociateApplicationFromEntitlementResult: StaticStructureSchema = [3, n0, _DAFERi, 0, [], []];
-export var DisassociateFleetRequest: StaticStructureSchema = [3, n0, _DFRi, 0, [_FN, _SN], [0, 0]];
-export var DisassociateFleetResult: StaticStructureSchema = [3, n0, _DFRis, 0, [], []];
-export var DisassociateSoftwareFromImageBuilderRequest: StaticStructureSchema = [
+export var DisassociateApplicationFromEntitlementResult$: StaticStructureSchema = [3, n0, _DAFERi, 0, [], []];
+export var DisassociateFleetRequest$: StaticStructureSchema = [3, n0, _DFRi, 0, [_FN, _SN], [0, 0]];
+export var DisassociateFleetResult$: StaticStructureSchema = [3, n0, _DFRis, 0, [], []];
+export var DisassociateSoftwareFromImageBuilderRequest$: StaticStructureSchema = [
   3,
   n0,
   _DSFIBR,
@@ -1248,14 +1262,14 @@ export var DisassociateSoftwareFromImageBuilderRequest: StaticStructureSchema = 
   [_IBN, _SNo],
   [0, 64 | 0],
 ];
-export var DisassociateSoftwareFromImageBuilderResult: StaticStructureSchema = [3, n0, _DSFIBRi, 0, [], []];
-export var DomainJoinInfo: StaticStructureSchema = [3, n0, _DJI, 0, [_DNi, _OUDNr], [0, 0]];
-export var DryRunOperationException: StaticErrorSchema = [-3, n0, _DROE, { [_er]: _c, [_hE]: 412 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(DryRunOperationException, __DryRunOperationException);
-export var EnableUserRequest: StaticStructureSchema = [3, n0, _EUR, 0, [_UN, _AT], [[() => Username, 0], 0]];
-export var EnableUserResult: StaticStructureSchema = [3, n0, _EURn, 0, [], []];
-export var EntitledApplication: StaticStructureSchema = [3, n0, _EA, 0, [_AI], [0]];
-export var Entitlement: StaticStructureSchema = [
+export var DisassociateSoftwareFromImageBuilderResult$: StaticStructureSchema = [3, n0, _DSFIBRi, 0, [], []];
+export var DomainJoinInfo$: StaticStructureSchema = [3, n0, _DJI, 0, [_DNi, _OUDNr], [0, 0]];
+export var DryRunOperationException$: StaticErrorSchema = [-3, n0, _DROE, { [_er]: _c, [_hE]: 412 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(DryRunOperationException$, DryRunOperationException);
+export var EnableUserRequest$: StaticStructureSchema = [3, n0, _EUR, 0, [_UN, _AT], [[() => Username, 0], 0]];
+export var EnableUserResult$: StaticStructureSchema = [3, n0, _EURn, 0, [], []];
+export var EntitledApplication$: StaticStructureSchema = [3, n0, _EA, 0, [_AI], [0]];
+export var Entitlement$: StaticStructureSchema = [
   3,
   n0,
   _En,
@@ -1263,15 +1277,22 @@ export var Entitlement: StaticStructureSchema = [
   [_N, _SN, _D, _AV, _At, _CT, _LMT],
   [0, 0, 0, 0, () => EntitlementAttributeList, 4, 4],
 ];
-export var EntitlementAlreadyExistsException: StaticErrorSchema = [-3, n0, _EAEE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(EntitlementAlreadyExistsException, __EntitlementAlreadyExistsException);
-export var EntitlementAttribute: StaticStructureSchema = [3, n0, _EAn, 0, [_N, _Va], [0, 0]];
-export var EntitlementNotFoundException: StaticErrorSchema = [-3, n0, _ENFE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(EntitlementNotFoundException, __EntitlementNotFoundException);
-export var ErrorDetails: StaticStructureSchema = [3, n0, _ED, 0, [_EC, _EM], [0, 0]];
-export var ExpireSessionRequest: StaticStructureSchema = [3, n0, _ESR, 0, [_SI], [0]];
-export var ExpireSessionResult: StaticStructureSchema = [3, n0, _ESRx, 0, [], []];
-export var ExportImageTask: StaticStructureSchema = [
+export var EntitlementAlreadyExistsException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _EAEE,
+  { [_er]: _c, [_hE]: 400 },
+  [_M],
+  [0],
+];
+TypeRegistry.for(n0).registerError(EntitlementAlreadyExistsException$, EntitlementAlreadyExistsException);
+export var EntitlementAttribute$: StaticStructureSchema = [3, n0, _EAn, 0, [_N, _Va], [0, 0]];
+export var EntitlementNotFoundException$: StaticErrorSchema = [-3, n0, _ENFE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(EntitlementNotFoundException$, EntitlementNotFoundException);
+export var ErrorDetails$: StaticStructureSchema = [3, n0, _ED, 0, [_EC, _EM], [0, 0]];
+export var ExpireSessionRequest$: StaticStructureSchema = [3, n0, _ESR, 0, [_SI], [0]];
+export var ExpireSessionResult$: StaticStructureSchema = [3, n0, _ESRx, 0, [], []];
+export var ExportImageTask$: StaticStructureSchema = [
   3,
   n0,
   _EIT,
@@ -1279,8 +1300,8 @@ export var ExportImageTask: StaticStructureSchema = [
   [_TI, _IA, _ANm, _CD, _AD, _S, _AIm, _TS, _ED],
   [0, 0, 0, 4, 0, 0, 0, 128 | 0, () => ErrorDetailsList],
 ];
-export var Filter: StaticStructureSchema = [3, n0, _Fi, 0, [_N, _Val], [0, 64 | 0]];
-export var Fleet: StaticStructureSchema = [
+export var Filter$: StaticStructureSchema = [3, n0, _Fi, 0, [_N, _Val], [0, 64 | 0]];
+export var Fleet$: StaticStructureSchema = [
   3,
   n0,
   _F,
@@ -1322,30 +1343,30 @@ export var Fleet: StaticStructureSchema = [
     0,
     0,
     0,
-    () => ComputeCapacityStatus,
+    () => ComputeCapacityStatus$,
     1,
     1,
     0,
-    () => VpcConfig,
+    () => VpcConfig$,
     4,
     () => FleetErrors,
     2,
-    () => DomainJoinInfo,
+    () => DomainJoinInfo$,
     1,
     0,
     0,
     0,
     1,
     64 | 0,
-    () => S3Location,
+    () => S3Location$,
     1,
-    () => VolumeConfig,
+    () => VolumeConfig$,
   ],
 ];
-export var FleetError: StaticStructureSchema = [3, n0, _FEl, 0, [_EC, _EM], [0, 0]];
-export var GetExportImageTaskRequest: StaticStructureSchema = [3, n0, _GEITR, 0, [_TI], [0]];
-export var GetExportImageTaskResult: StaticStructureSchema = [3, n0, _GEITRe, 0, [_EIT], [() => ExportImageTask]];
-export var Image: StaticStructureSchema = [
+export var FleetError$: StaticStructureSchema = [3, n0, _FEl, 0, [_EC, _EM], [0, 0]];
+export var GetExportImageTaskRequest$: StaticStructureSchema = [3, n0, _GEITR, 0, [_TI], [0]];
+export var GetExportImageTaskResult$: StaticStructureSchema = [3, n0, _GEITRe, 0, [_EIT], [() => ExportImageTask$]];
+export var Image$: StaticStructureSchema = [
   3,
   n0,
   _I,
@@ -1386,12 +1407,12 @@ export var Image: StaticStructureSchema = [
     0,
     0,
     0,
-    () => ImageStateChangeReason,
+    () => ImageStateChangeReason$,
     () => Applications,
     4,
     4,
     0,
-    () => ImagePermissions,
+    () => ImagePermissions$,
     () => ResourceErrors,
     0,
     64 | 0,
@@ -1401,7 +1422,7 @@ export var Image: StaticStructureSchema = [
     0,
   ],
 ];
-export var ImageBuilder: StaticStructureSchema = [
+export var ImageBuilder$: StaticStructureSchema = [
   3,
   n0,
   _IB,
@@ -1413,31 +1434,31 @@ export var ImageBuilder: StaticStructureSchema = [
     0,
     0,
     0,
-    () => VpcConfig,
+    () => VpcConfig$,
     0,
     0,
     0,
     0,
-    () => ImageBuilderStateChangeReason,
+    () => ImageBuilderStateChangeReason$,
     4,
     2,
-    () => DomainJoinInfo,
-    () => NetworkAccessConfiguration,
+    () => DomainJoinInfo$,
+    () => NetworkAccessConfiguration$,
     () => ResourceErrors,
     0,
     () => AccessEndpointList,
-    () => VolumeConfig,
+    () => VolumeConfig$,
     0,
   ],
 ];
-export var ImageBuilderStateChangeReason: StaticStructureSchema = [3, n0, _IBSCR, 0, [_C, _M], [0, 0]];
-export var ImagePermissions: StaticStructureSchema = [3, n0, _IP, 0, [_aF, _aIB], [2, 2]];
-export var ImageStateChangeReason: StaticStructureSchema = [3, n0, _ISCR, 0, [_C, _M], [0, 0]];
-export var IncompatibleImageException: StaticErrorSchema = [-3, n0, _IIE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(IncompatibleImageException, __IncompatibleImageException);
-export var InvalidAccountStatusException: StaticErrorSchema = [-3, n0, _IASE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidAccountStatusException, __InvalidAccountStatusException);
-export var InvalidParameterCombinationException: StaticErrorSchema = [
+export var ImageBuilderStateChangeReason$: StaticStructureSchema = [3, n0, _IBSCR, 0, [_C, _M], [0, 0]];
+export var ImagePermissions$: StaticStructureSchema = [3, n0, _IP, 0, [_aF, _aIB], [2, 2]];
+export var ImageStateChangeReason$: StaticStructureSchema = [3, n0, _ISCR, 0, [_C, _M], [0, 0]];
+export var IncompatibleImageException$: StaticErrorSchema = [-3, n0, _IIE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(IncompatibleImageException$, IncompatibleImageException);
+export var InvalidAccountStatusException$: StaticErrorSchema = [-3, n0, _IASE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidAccountStatusException$, InvalidAccountStatusException);
+export var InvalidParameterCombinationException$: StaticErrorSchema = [
   -3,
   n0,
   _IPCE,
@@ -1445,17 +1466,17 @@ export var InvalidParameterCombinationException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(InvalidParameterCombinationException, __InvalidParameterCombinationException);
-export var InvalidRoleException: StaticErrorSchema = [-3, n0, _IRE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidRoleException, __InvalidRoleException);
-export var LastReportGenerationExecutionError: StaticStructureSchema = [3, n0, _LRGEE, 0, [_EC, _EM], [0, 0]];
-export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-export var ListAssociatedFleetsRequest: StaticStructureSchema = [3, n0, _LAFR, 0, [_SN, _NT], [0, 0]];
-export var ListAssociatedFleetsResult: StaticStructureSchema = [3, n0, _LAFRi, 0, [_Na, _NT], [64 | 0, 0]];
-export var ListAssociatedStacksRequest: StaticStructureSchema = [3, n0, _LASR, 0, [_FN, _NT], [0, 0]];
-export var ListAssociatedStacksResult: StaticStructureSchema = [3, n0, _LASRi, 0, [_Na, _NT], [64 | 0, 0]];
-export var ListEntitledApplicationsRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InvalidParameterCombinationException$, InvalidParameterCombinationException);
+export var InvalidRoleException$: StaticErrorSchema = [-3, n0, _IRE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidRoleException$, InvalidRoleException);
+export var LastReportGenerationExecutionError$: StaticStructureSchema = [3, n0, _LRGEE, 0, [_EC, _EM], [0, 0]];
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var ListAssociatedFleetsRequest$: StaticStructureSchema = [3, n0, _LAFR, 0, [_SN, _NT], [0, 0]];
+export var ListAssociatedFleetsResult$: StaticStructureSchema = [3, n0, _LAFRi, 0, [_Na, _NT], [64 | 0, 0]];
+export var ListAssociatedStacksRequest$: StaticStructureSchema = [3, n0, _LASR, 0, [_FN, _NT], [0, 0]];
+export var ListAssociatedStacksResult$: StaticStructureSchema = [3, n0, _LASRi, 0, [_Na, _NT], [64 | 0, 0]];
+export var ListEntitledApplicationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LEAR,
@@ -1463,7 +1484,7 @@ export var ListEntitledApplicationsRequest: StaticStructureSchema = [
   [_SN, _EN, _NT, _MR],
   [0, 0, 0, 1],
 ];
-export var ListEntitledApplicationsResult: StaticStructureSchema = [
+export var ListEntitledApplicationsResult$: StaticStructureSchema = [
   3,
   n0,
   _LEARi,
@@ -1471,7 +1492,7 @@ export var ListEntitledApplicationsResult: StaticStructureSchema = [
   [_EAnt, _NT],
   [() => EntitledApplicationList, 0],
 ];
-export var ListExportImageTasksRequest: StaticStructureSchema = [
+export var ListExportImageTasksRequest$: StaticStructureSchema = [
   3,
   n0,
   _LEITR,
@@ -1479,7 +1500,7 @@ export var ListExportImageTasksRequest: StaticStructureSchema = [
   [_Fil, _MR, _NT],
   [() => Filters, 1, 0],
 ];
-export var ListExportImageTasksResult: StaticStructureSchema = [
+export var ListExportImageTasksResult$: StaticStructureSchema = [
   3,
   n0,
   _LEITRi,
@@ -1487,33 +1508,33 @@ export var ListExportImageTasksResult: StaticStructureSchema = [
   [_EITx, _NT],
   [() => ExportImageTasks, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [0]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [128 | 0]];
-export var NetworkAccessConfiguration: StaticStructureSchema = [3, n0, _NAC, 0, [_EPIA, _EIA, _EI], [0, 64 | 0, 0]];
-export var OperationNotPermittedException: StaticErrorSchema = [-3, n0, _ONPE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(OperationNotPermittedException, __OperationNotPermittedException);
-export var RequestLimitExceededException: StaticErrorSchema = [-3, n0, _RLEE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(RequestLimitExceededException, __RequestLimitExceededException);
-export var ResourceAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-export var ResourceError: StaticStructureSchema = [3, n0, _RE, 0, [_EC, _EM, _ETr], [0, 0, 4]];
-export var ResourceInUseException: StaticErrorSchema = [-3, n0, _RIUE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceInUseException, __ResourceInUseException);
-export var ResourceNotAvailableException: StaticErrorSchema = [-3, n0, _RNAE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotAvailableException, __ResourceNotAvailableException);
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_er]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var RuntimeValidationConfig: StaticStructureSchema = [3, n0, _RVCu, 0, [_IIT], [0]];
-export var S3Location: StaticStructureSchema = [3, n0, _SL, 0, [_SB, _SK], [0, 0]];
-export var ScriptDetails: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [0]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [128 | 0]];
+export var NetworkAccessConfiguration$: StaticStructureSchema = [3, n0, _NAC, 0, [_EPIA, _EIA, _EI], [0, 64 | 0, 0]];
+export var OperationNotPermittedException$: StaticErrorSchema = [-3, n0, _ONPE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(OperationNotPermittedException$, OperationNotPermittedException);
+export var RequestLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(RequestLimitExceededException$, RequestLimitExceededException);
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceError$: StaticStructureSchema = [3, n0, _RE, 0, [_EC, _EM, _ETr], [0, 0, 4]];
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotAvailableException$: StaticErrorSchema = [-3, n0, _RNAE, { [_er]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotAvailableException$, ResourceNotAvailableException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_er]: _c, [_hE]: 404 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var RuntimeValidationConfig$: StaticStructureSchema = [3, n0, _RVCu, 0, [_IIT], [0]];
+export var S3Location$: StaticStructureSchema = [3, n0, _SL, 0, [_SB, _SK], [0, 0]];
+export var ScriptDetails$: StaticStructureSchema = [
   3,
   n0,
   _SD,
   0,
   [_SSLc, _EP, _EPx, _TIS],
-  [() => S3Location, 0, 0, 1],
+  [() => S3Location$, 0, 0, 1],
 ];
-export var ServiceAccountCredentials: StaticStructureSchema = [
+export var ServiceAccountCredentials$: StaticStructureSchema = [
   3,
   n0,
   _SAC,
@@ -1524,16 +1545,16 @@ export var ServiceAccountCredentials: StaticStructureSchema = [
     [() => AccountPassword, 0],
   ],
 ];
-export var Session: StaticStructureSchema = [
+export var Session$: StaticStructureSchema = [
   3,
   n0,
   _Ses,
   0,
   [_Id, _UI, _SN, _FN, _S, _CS, _ST, _MET, _AT, _NAC, _II],
-  [0, 0, 0, 0, 0, 0, 4, 4, 0, () => NetworkAccessConfiguration, 0],
+  [0, 0, 0, 0, 0, 0, 4, 4, 0, () => NetworkAccessConfiguration$, 0],
 ];
-export var SharedImagePermissions: StaticStructureSchema = [3, n0, _SIP, 0, [_sAI, _iP], [0, () => ImagePermissions]];
-export var SoftwareAssociations: StaticStructureSchema = [
+export var SharedImagePermissions$: StaticStructureSchema = [3, n0, _SIP, 0, [_sAI, _iP], [0, () => ImagePermissions$]];
+export var SoftwareAssociations$: StaticStructureSchema = [
   3,
   n0,
   _SA,
@@ -1541,7 +1562,7 @@ export var SoftwareAssociations: StaticStructureSchema = [
   [_SNof, _St, _DE],
   [0, 0, () => ErrorDetailsList],
 ];
-export var Stack: StaticStructureSchema = [
+export var Stack$: StaticStructureSchema = [
   3,
   n0,
   _Sta,
@@ -1558,20 +1579,20 @@ export var Stack: StaticStructureSchema = [
     0,
     () => StackErrors,
     () => UserSettingList,
-    () => ApplicationSettingsResponse,
+    () => ApplicationSettingsResponse$,
     () => AccessEndpointList,
     64 | 0,
-    () => StreamingExperienceSettings,
+    () => StreamingExperienceSettings$,
   ],
 ];
-export var StackError: StaticStructureSchema = [3, n0, _SEt, 0, [_EC, _EM], [0, 0]];
-export var StartAppBlockBuilderRequest: StaticStructureSchema = [3, n0, _SABBR, 0, [_N], [0]];
-export var StartAppBlockBuilderResult: StaticStructureSchema = [3, n0, _SABBRt, 0, [_ABB], [() => AppBlockBuilder]];
-export var StartFleetRequest: StaticStructureSchema = [3, n0, _SFR, 0, [_N], [0]];
-export var StartFleetResult: StaticStructureSchema = [3, n0, _SFRt, 0, [], []];
-export var StartImageBuilderRequest: StaticStructureSchema = [3, n0, _SIBR, 0, [_N, _AAV], [0, 0]];
-export var StartImageBuilderResult: StaticStructureSchema = [3, n0, _SIBRt, 0, [_IB], [() => ImageBuilder]];
-export var StartSoftwareDeploymentToImageBuilderRequest: StaticStructureSchema = [
+export var StackError$: StaticStructureSchema = [3, n0, _SEt, 0, [_EC, _EM], [0, 0]];
+export var StartAppBlockBuilderRequest$: StaticStructureSchema = [3, n0, _SABBR, 0, [_N], [0]];
+export var StartAppBlockBuilderResult$: StaticStructureSchema = [3, n0, _SABBRt, 0, [_ABB], [() => AppBlockBuilder$]];
+export var StartFleetRequest$: StaticStructureSchema = [3, n0, _SFR, 0, [_N], [0]];
+export var StartFleetResult$: StaticStructureSchema = [3, n0, _SFRt, 0, [], []];
+export var StartImageBuilderRequest$: StaticStructureSchema = [3, n0, _SIBR, 0, [_N, _AAV], [0, 0]];
+export var StartImageBuilderResult$: StaticStructureSchema = [3, n0, _SIBRt, 0, [_IB], [() => ImageBuilder$]];
+export var StartSoftwareDeploymentToImageBuilderRequest$: StaticStructureSchema = [
   3,
   n0,
   _SSDTIBR,
@@ -1579,18 +1600,18 @@ export var StartSoftwareDeploymentToImageBuilderRequest: StaticStructureSchema =
   [_IBN, _RFD],
   [0, 2],
 ];
-export var StartSoftwareDeploymentToImageBuilderResult: StaticStructureSchema = [3, n0, _SSDTIBRt, 0, [], []];
-export var StopAppBlockBuilderRequest: StaticStructureSchema = [3, n0, _SABBRto, 0, [_N], [0]];
-export var StopAppBlockBuilderResult: StaticStructureSchema = [3, n0, _SABBRtop, 0, [_ABB], [() => AppBlockBuilder]];
-export var StopFleetRequest: StaticStructureSchema = [3, n0, _SFRto, 0, [_N], [0]];
-export var StopFleetResult: StaticStructureSchema = [3, n0, _SFRtop, 0, [], []];
-export var StopImageBuilderRequest: StaticStructureSchema = [3, n0, _SIBRto, 0, [_N], [0]];
-export var StopImageBuilderResult: StaticStructureSchema = [3, n0, _SIBRtop, 0, [_IB], [() => ImageBuilder]];
-export var StorageConnector: StaticStructureSchema = [3, n0, _SCt, 0, [_CTo, _RI, _Do, _DRAC], [0, 0, 64 | 0, 64 | 0]];
-export var StreamingExperienceSettings: StaticStructureSchema = [3, n0, _SES, 0, [_PP], [0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _T], [0, 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var Theme: StaticStructureSchema = [
+export var StartSoftwareDeploymentToImageBuilderResult$: StaticStructureSchema = [3, n0, _SSDTIBRt, 0, [], []];
+export var StopAppBlockBuilderRequest$: StaticStructureSchema = [3, n0, _SABBRto, 0, [_N], [0]];
+export var StopAppBlockBuilderResult$: StaticStructureSchema = [3, n0, _SABBRtop, 0, [_ABB], [() => AppBlockBuilder$]];
+export var StopFleetRequest$: StaticStructureSchema = [3, n0, _SFRto, 0, [_N], [0]];
+export var StopFleetResult$: StaticStructureSchema = [3, n0, _SFRtop, 0, [], []];
+export var StopImageBuilderRequest$: StaticStructureSchema = [3, n0, _SIBRto, 0, [_N], [0]];
+export var StopImageBuilderResult$: StaticStructureSchema = [3, n0, _SIBRtop, 0, [_IB], [() => ImageBuilder$]];
+export var StorageConnector$: StaticStructureSchema = [3, n0, _SCt, 0, [_CTo, _RI, _Do, _DRAC], [0, 0, 64 | 0, 64 | 0]];
+export var StreamingExperienceSettings$: StaticStructureSchema = [3, n0, _SES, 0, [_PP], [0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _T], [0, 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var Theme$: StaticStructureSchema = [
   3,
   n0,
   _Th,
@@ -1598,37 +1619,44 @@ export var Theme: StaticStructureSchema = [
   [_SN, _S, _TTT, _TSh, _TFL, _TOLURL, _TFURL, _CT],
   [0, 0, 0, 0, () => ThemeFooterLinks, 0, 0, 4],
 ];
-export var ThemeFooterLink: StaticStructureSchema = [3, n0, _TFLh, 0, [_DN, _FLURL], [0, 0]];
-export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateAppBlockBuilderRequest: StaticStructureSchema = [
+export var ThemeFooterLink$: StaticStructureSchema = [3, n0, _TFLh, 0, [_DN, _FLURL], [0, 0]];
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_RA, _TK], [0, 64 | 0]];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateAppBlockBuilderRequest$: StaticStructureSchema = [
   3,
   n0,
   _UABBR,
   0,
   [_N, _D, _DN, _P, _IT, _VC, _EDIA, _IRA, _AEc, _ATD],
-  [0, 0, 0, 0, 0, () => VpcConfig, 2, 0, () => AccessEndpointList, 64 | 0],
+  [0, 0, 0, 0, 0, () => VpcConfig$, 2, 0, () => AccessEndpointList, 64 | 0],
 ];
-export var UpdateAppBlockBuilderResult: StaticStructureSchema = [3, n0, _UABBRp, 0, [_ABB], [() => AppBlockBuilder]];
-export var UpdateApplicationRequest: StaticStructureSchema = [
+export var UpdateAppBlockBuilderResult$: StaticStructureSchema = [3, n0, _UABBRp, 0, [_ABB], [() => AppBlockBuilder$]];
+export var UpdateApplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UAR,
   0,
   [_N, _DN, _D, _ISL, _LPa, _WD, _LP, _ABA, _ATD],
-  [0, 0, 0, () => S3Location, 0, 0, 0, 0, 64 | 0],
+  [0, 0, 0, () => S3Location$, 0, 0, 0, 0, 64 | 0],
 ];
-export var UpdateApplicationResult: StaticStructureSchema = [3, n0, _UARp, 0, [_Ap], [() => Application]];
-export var UpdateDirectoryConfigRequest: StaticStructureSchema = [
+export var UpdateApplicationResult$: StaticStructureSchema = [3, n0, _UARp, 0, [_Ap], [() => Application$]];
+export var UpdateDirectoryConfigRequest$: StaticStructureSchema = [
   3,
   n0,
   _UDCR,
   0,
   [_DNi, _OUDN, _SAC, _CBAP],
-  [0, 64 | 0, [() => ServiceAccountCredentials, 0], () => CertificateBasedAuthProperties],
+  [0, 64 | 0, [() => ServiceAccountCredentials$, 0], () => CertificateBasedAuthProperties$],
 ];
-export var UpdateDirectoryConfigResult: StaticStructureSchema = [3, n0, _UDCRp, 0, [_DC], [[() => DirectoryConfig, 0]]];
-export var UpdateEntitlementRequest: StaticStructureSchema = [
+export var UpdateDirectoryConfigResult$: StaticStructureSchema = [
+  3,
+  n0,
+  _UDCRp,
+  0,
+  [_DC],
+  [[() => DirectoryConfig$, 0]],
+];
+export var UpdateEntitlementRequest$: StaticStructureSchema = [
   3,
   n0,
   _UER,
@@ -1636,8 +1664,8 @@ export var UpdateEntitlementRequest: StaticStructureSchema = [
   [_N, _SN, _D, _AV, _At],
   [0, 0, 0, 0, () => EntitlementAttributeList],
 ];
-export var UpdateEntitlementResult: StaticStructureSchema = [3, n0, _UERp, 0, [_En], [() => Entitlement]];
-export var UpdateFleetRequest: StaticStructureSchema = [
+export var UpdateEntitlementResult$: StaticStructureSchema = [3, n0, _UERp, 0, [_En], [() => Entitlement$]];
+export var UpdateFleetRequest$: StaticStructureSchema = [
   3,
   n0,
   _UFR,
@@ -1672,15 +1700,15 @@ export var UpdateFleetRequest: StaticStructureSchema = [
     0,
     0,
     0,
-    () => ComputeCapacity,
-    () => VpcConfig,
+    () => ComputeCapacity$,
+    () => VpcConfig$,
     1,
     1,
     2,
     0,
     0,
     2,
-    () => DomainJoinInfo,
+    () => DomainJoinInfo$,
     1,
     64 | 0,
     0,
@@ -1688,22 +1716,22 @@ export var UpdateFleetRequest: StaticStructureSchema = [
     0,
     1,
     64 | 0,
-    () => S3Location,
+    () => S3Location$,
     1,
-    () => VolumeConfig,
+    () => VolumeConfig$,
   ],
 ];
-export var UpdateFleetResult: StaticStructureSchema = [3, n0, _UFRp, 0, [_F], [() => Fleet]];
-export var UpdateImagePermissionsRequest: StaticStructureSchema = [
+export var UpdateFleetResult$: StaticStructureSchema = [3, n0, _UFRp, 0, [_F], [() => Fleet$]];
+export var UpdateImagePermissionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UIPR,
   0,
   [_N, _SAIh, _IP],
-  [0, 0, () => ImagePermissions],
+  [0, 0, () => ImagePermissions$],
 ];
-export var UpdateImagePermissionsResult: StaticStructureSchema = [3, n0, _UIPRp, 0, [], []];
-export var UpdateStackRequest: StaticStructureSchema = [
+export var UpdateImagePermissionsResult$: StaticStructureSchema = [3, n0, _UIPRp, 0, [], []];
+export var UpdateStackRequest$: StaticStructureSchema = [
   3,
   n0,
   _USR,
@@ -1719,23 +1747,23 @@ export var UpdateStackRequest: StaticStructureSchema = [
     0,
     64 | 0,
     () => UserSettingList,
-    () => ApplicationSettings,
+    () => ApplicationSettings$,
     () => AccessEndpointList,
     64 | 0,
-    () => StreamingExperienceSettings,
+    () => StreamingExperienceSettings$,
   ],
 ];
-export var UpdateStackResult: StaticStructureSchema = [3, n0, _USRp, 0, [_Sta], [() => Stack]];
-export var UpdateThemeForStackRequest: StaticStructureSchema = [
+export var UpdateStackResult$: StaticStructureSchema = [3, n0, _USRp, 0, [_Sta], [() => Stack$]];
+export var UpdateThemeForStackRequest$: StaticStructureSchema = [
   3,
   n0,
   _UTFSR,
   0,
   [_SN, _FL, _TT, _TSh, _OLSL, _FSL, _S, _ATD],
-  [0, () => ThemeFooterLinks, 0, 0, () => S3Location, () => S3Location, 0, 64 | 0],
+  [0, () => ThemeFooterLinks, 0, 0, () => S3Location$, () => S3Location$, 0, 64 | 0],
 ];
-export var UpdateThemeForStackResult: StaticStructureSchema = [3, n0, _UTFSRp, 0, [_Th], [() => Theme]];
-export var UsageReportSubscription: StaticStructureSchema = [
+export var UpdateThemeForStackResult$: StaticStructureSchema = [3, n0, _UTFSRp, 0, [_Th], [() => Theme$]];
+export var UsageReportSubscription$: StaticStructureSchema = [
   3,
   n0,
   _URSs,
@@ -1743,7 +1771,7 @@ export var UsageReportSubscription: StaticStructureSchema = [
   [_SBN, _Sc, _LGRD, _SEu],
   [0, 0, 4, () => LastReportGenerationExecutionErrors],
 ];
-export var User: StaticStructureSchema = [
+export var User$: StaticStructureSchema = [
   3,
   n0,
   _Use,
@@ -1751,8 +1779,8 @@ export var User: StaticStructureSchema = [
   [_A, _UN, _E, _St, _FNi, _LN, _CT, _AT],
   [0, [() => Username, 0], 2, 0, [() => UserAttributeValue, 0], [() => UserAttributeValue, 0], 4, 0],
 ];
-export var UserSetting: StaticStructureSchema = [3, n0, _USs, 0, [_Ac, _Pe, _ML], [0, 0, 1]];
-export var UserStackAssociation: StaticStructureSchema = [
+export var UserSetting$: StaticStructureSchema = [3, n0, _USs, 0, [_Ac, _Pe, _ML], [0, 0, 1]];
+export var UserStackAssociation$: StaticStructureSchema = [
   3,
   n0,
   _USAs,
@@ -1760,679 +1788,679 @@ export var UserStackAssociation: StaticStructureSchema = [
   [_SN, _UN, _AT, _SEN],
   [0, [() => Username, 0], 0, 2],
 ];
-export var UserStackAssociationError: StaticStructureSchema = [
+export var UserStackAssociationError$: StaticStructureSchema = [
   3,
   n0,
   _USAE,
   0,
   [_USAs, _EC, _EM],
-  [[() => UserStackAssociation, 0], 0, 0],
+  [[() => UserStackAssociation$, 0], 0, 0],
 ];
-export var VolumeConfig: StaticStructureSchema = [3, n0, _VCo, 0, [_VSIG], [1]];
-export var VpcConfig: StaticStructureSchema = [3, n0, _VC, 0, [_SIu, _SGI], [64 | 0, 64 | 0]];
-export var AppStreamServiceException: StaticErrorSchema = [-3, _s, "AppStreamServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(AppStreamServiceException, __AppStreamServiceException);
-export var AccessEndpointList: StaticListSchema = [1, n0, _AEL, 0, () => AccessEndpoint];
-export var AdminAppLicenseUsageList: StaticListSchema = [1, n0, _AALUL, 0, () => AdminAppLicenseUsageRecord];
-export var AppBlockBuilderAppBlockAssociationsList: StaticListSchema = [
+export var VolumeConfig$: StaticStructureSchema = [3, n0, _VCo, 0, [_VSIG], [1]];
+export var VpcConfig$: StaticStructureSchema = [3, n0, _VC, 0, [_SIu, _SGI], [64 | 0, 64 | 0]];
+export var AppStreamServiceException$: StaticErrorSchema = [-3, _s, "AppStreamServiceException", 0, [], []];
+TypeRegistry.for(_s).registerError(AppStreamServiceException$, AppStreamServiceException);
+var AccessEndpointList: StaticListSchema = [1, n0, _AEL, 0, () => AccessEndpoint$];
+var AdminAppLicenseUsageList: StaticListSchema = [1, n0, _AALUL, 0, () => AdminAppLicenseUsageRecord$];
+var AppBlockBuilderAppBlockAssociationsList: StaticListSchema = [
   1,
   n0,
   _ABBABAL,
   0,
-  () => AppBlockBuilderAppBlockAssociation,
+  () => AppBlockBuilderAppBlockAssociation$,
 ];
-export var AppBlockBuilderAttributes = 64 | 0;
-export var AppBlockBuilderList: StaticListSchema = [1, n0, _ABBL, 0, () => AppBlockBuilder];
-export var AppBlocks: StaticListSchema = [1, n0, _ABp, 0, () => AppBlock];
-export var AppCatalogConfig: StaticListSchema = [1, n0, _ACC, 0, [() => ApplicationConfig, 0]];
-export var ApplicationAttributes = 64 | 0;
-export var ApplicationFleetAssociationList: StaticListSchema = [1, n0, _AFAL, 0, () => ApplicationFleetAssociation];
-export var Applications: StaticListSchema = [1, n0, _App, 0, () => Application];
-export var ArnList = 64 | 0;
-export var AwsAccountIdList = 64 | 0;
-export var DirectoryConfigList: StaticListSchema = [1, n0, _DCL, 0, [() => DirectoryConfig, 0]];
-export var DirectoryNameList = 64 | 0;
-export var DomainList = 64 | 0;
-export var EmbedHostDomains = 64 | 0;
-export var EntitledApplicationList: StaticListSchema = [1, n0, _EAL, 0, () => EntitledApplication];
-export var EntitlementAttributeList: StaticListSchema = [1, n0, _EALn, 0, () => EntitlementAttribute];
-export var EntitlementList: StaticListSchema = [1, n0, _EL, 0, () => Entitlement];
-export var ErrorDetailsList: StaticListSchema = [1, n0, _EDL, 0, () => ErrorDetails];
-export var ExportImageTasks: StaticListSchema = [1, n0, _EITx, 0, () => ExportImageTask];
-export var Filters: StaticListSchema = [1, n0, _Fil, 0, () => Filter];
-export var FilterValues = 64 | 0;
-export var FleetAttributes = 64 | 0;
-export var FleetErrors: StaticListSchema = [1, n0, _FE, 0, () => FleetError];
-export var FleetList: StaticListSchema = [1, n0, _FLl, 0, () => Fleet];
-export var ImageBuilderList: StaticListSchema = [1, n0, _IBL, 0, () => ImageBuilder];
-export var ImageList: StaticListSchema = [1, n0, _IL, 0, () => Image];
-export var LastReportGenerationExecutionErrors: StaticListSchema = [
+var AppBlockBuilderAttributes = 64 | 0;
+var AppBlockBuilderList: StaticListSchema = [1, n0, _ABBL, 0, () => AppBlockBuilder$];
+var AppBlocks: StaticListSchema = [1, n0, _ABp, 0, () => AppBlock$];
+var AppCatalogConfig: StaticListSchema = [1, n0, _ACC, 0, [() => ApplicationConfig$, 0]];
+var ApplicationAttributes = 64 | 0;
+var ApplicationFleetAssociationList: StaticListSchema = [1, n0, _AFAL, 0, () => ApplicationFleetAssociation$];
+var Applications: StaticListSchema = [1, n0, _App, 0, () => Application$];
+var ArnList = 64 | 0;
+var AwsAccountIdList = 64 | 0;
+var DirectoryConfigList: StaticListSchema = [1, n0, _DCL, 0, [() => DirectoryConfig$, 0]];
+var DirectoryNameList = 64 | 0;
+var DomainList = 64 | 0;
+var EmbedHostDomains = 64 | 0;
+var EntitledApplicationList: StaticListSchema = [1, n0, _EAL, 0, () => EntitledApplication$];
+var EntitlementAttributeList: StaticListSchema = [1, n0, _EALn, 0, () => EntitlementAttribute$];
+var EntitlementList: StaticListSchema = [1, n0, _EL, 0, () => Entitlement$];
+var ErrorDetailsList: StaticListSchema = [1, n0, _EDL, 0, () => ErrorDetails$];
+var ExportImageTasks: StaticListSchema = [1, n0, _EITx, 0, () => ExportImageTask$];
+var Filters: StaticListSchema = [1, n0, _Fil, 0, () => Filter$];
+var FilterValues = 64 | 0;
+var FleetAttributes = 64 | 0;
+var FleetErrors: StaticListSchema = [1, n0, _FE, 0, () => FleetError$];
+var FleetList: StaticListSchema = [1, n0, _FLl, 0, () => Fleet$];
+var ImageBuilderList: StaticListSchema = [1, n0, _IBL, 0, () => ImageBuilder$];
+var ImageList: StaticListSchema = [1, n0, _IL, 0, () => Image$];
+var LastReportGenerationExecutionErrors: StaticListSchema = [
   1,
   n0,
   _LRGEEa,
   0,
-  () => LastReportGenerationExecutionError,
+  () => LastReportGenerationExecutionError$,
 ];
-export var OrganizationalUnitDistinguishedNamesList = 64 | 0;
-export var Platforms = 64 | 0;
-export var ResourceErrors: StaticListSchema = [1, n0, _REe, 0, () => ResourceError];
-export var SecurityGroupIdList = 64 | 0;
-export var SessionList: StaticListSchema = [1, n0, _SLe, 0, () => Session];
-export var SharedImagePermissionsList: StaticListSchema = [1, n0, _SIPL, 0, () => SharedImagePermissions];
-export var SoftwareAssociationsList: StaticListSchema = [1, n0, _SAL, 0, () => SoftwareAssociations];
-export var StackAttributes = 64 | 0;
-export var StackErrors: StaticListSchema = [1, n0, _SE, 0, () => StackError];
-export var StackList: StaticListSchema = [1, n0, _SLt, 0, () => Stack];
-export var StorageConnectorList: StaticListSchema = [1, n0, _SCL, 0, () => StorageConnector];
-export var StringList = 64 | 0;
-export var SubnetIdList = 64 | 0;
-export var TagKeyList = 64 | 0;
-export var ThemeAttributes = 64 | 0;
-export var ThemeFooterLinks: StaticListSchema = [1, n0, _TFL, 0, () => ThemeFooterLink];
-export var UsageReportSubscriptionList: StaticListSchema = [1, n0, _URSL, 0, () => UsageReportSubscription];
-export var UsbDeviceFilterStrings = 64 | 0;
-export var UserList: StaticListSchema = [1, n0, _UL, 0, [() => User, 0]];
-export var UserSettingList: StaticListSchema = [1, n0, _USL, 0, () => UserSetting];
-export var UserStackAssociationErrorList: StaticListSchema = [1, n0, _USAEL, 0, [() => UserStackAssociationError, 0]];
-export var UserStackAssociationList: StaticListSchema = [1, n0, _USAL, 0, [() => UserStackAssociation, 0]];
-export var Metadata = 128 | 0;
-export var Tags = 128 | 0;
-export var AssociateAppBlockBuilderAppBlock: StaticOperationSchema = [
+var OrganizationalUnitDistinguishedNamesList = 64 | 0;
+var Platforms = 64 | 0;
+var ResourceErrors: StaticListSchema = [1, n0, _REe, 0, () => ResourceError$];
+var SecurityGroupIdList = 64 | 0;
+var SessionList: StaticListSchema = [1, n0, _SLe, 0, () => Session$];
+var SharedImagePermissionsList: StaticListSchema = [1, n0, _SIPL, 0, () => SharedImagePermissions$];
+var SoftwareAssociationsList: StaticListSchema = [1, n0, _SAL, 0, () => SoftwareAssociations$];
+var StackAttributes = 64 | 0;
+var StackErrors: StaticListSchema = [1, n0, _SE, 0, () => StackError$];
+var StackList: StaticListSchema = [1, n0, _SLt, 0, () => Stack$];
+var StorageConnectorList: StaticListSchema = [1, n0, _SCL, 0, () => StorageConnector$];
+var StringList = 64 | 0;
+var SubnetIdList = 64 | 0;
+var TagKeyList = 64 | 0;
+var ThemeAttributes = 64 | 0;
+var ThemeFooterLinks: StaticListSchema = [1, n0, _TFL, 0, () => ThemeFooterLink$];
+var UsageReportSubscriptionList: StaticListSchema = [1, n0, _URSL, 0, () => UsageReportSubscription$];
+var UsbDeviceFilterStrings = 64 | 0;
+var UserList: StaticListSchema = [1, n0, _UL, 0, [() => User$, 0]];
+var UserSettingList: StaticListSchema = [1, n0, _USL, 0, () => UserSetting$];
+var UserStackAssociationErrorList: StaticListSchema = [1, n0, _USAEL, 0, [() => UserStackAssociationError$, 0]];
+var UserStackAssociationList: StaticListSchema = [1, n0, _USAL, 0, [() => UserStackAssociation$, 0]];
+var Metadata = 128 | 0;
+var Tags = 128 | 0;
+export var AssociateAppBlockBuilderAppBlock$: StaticOperationSchema = [
   9,
   n0,
   _AABBAB,
   0,
-  () => AssociateAppBlockBuilderAppBlockRequest,
-  () => AssociateAppBlockBuilderAppBlockResult,
+  () => AssociateAppBlockBuilderAppBlockRequest$,
+  () => AssociateAppBlockBuilderAppBlockResult$,
 ];
-export var AssociateApplicationFleet: StaticOperationSchema = [
+export var AssociateApplicationFleet$: StaticOperationSchema = [
   9,
   n0,
   _AAF,
   0,
-  () => AssociateApplicationFleetRequest,
-  () => AssociateApplicationFleetResult,
+  () => AssociateApplicationFleetRequest$,
+  () => AssociateApplicationFleetResult$,
 ];
-export var AssociateApplicationToEntitlement: StaticOperationSchema = [
+export var AssociateApplicationToEntitlement$: StaticOperationSchema = [
   9,
   n0,
   _AATE,
   0,
-  () => AssociateApplicationToEntitlementRequest,
-  () => AssociateApplicationToEntitlementResult,
+  () => AssociateApplicationToEntitlementRequest$,
+  () => AssociateApplicationToEntitlementResult$,
 ];
-export var AssociateFleet: StaticOperationSchema = [
+export var AssociateFleet$: StaticOperationSchema = [
   9,
   n0,
   _AF,
   0,
-  () => AssociateFleetRequest,
-  () => AssociateFleetResult,
+  () => AssociateFleetRequest$,
+  () => AssociateFleetResult$,
 ];
-export var AssociateSoftwareToImageBuilder: StaticOperationSchema = [
+export var AssociateSoftwareToImageBuilder$: StaticOperationSchema = [
   9,
   n0,
   _ASTIB,
   0,
-  () => AssociateSoftwareToImageBuilderRequest,
-  () => AssociateSoftwareToImageBuilderResult,
+  () => AssociateSoftwareToImageBuilderRequest$,
+  () => AssociateSoftwareToImageBuilderResult$,
 ];
-export var BatchAssociateUserStack: StaticOperationSchema = [
+export var BatchAssociateUserStack$: StaticOperationSchema = [
   9,
   n0,
   _BAUS,
   0,
-  () => BatchAssociateUserStackRequest,
-  () => BatchAssociateUserStackResult,
+  () => BatchAssociateUserStackRequest$,
+  () => BatchAssociateUserStackResult$,
 ];
-export var BatchDisassociateUserStack: StaticOperationSchema = [
+export var BatchDisassociateUserStack$: StaticOperationSchema = [
   9,
   n0,
   _BDUS,
   0,
-  () => BatchDisassociateUserStackRequest,
-  () => BatchDisassociateUserStackResult,
+  () => BatchDisassociateUserStackRequest$,
+  () => BatchDisassociateUserStackResult$,
 ];
-export var CopyImage: StaticOperationSchema = [9, n0, _CI, 0, () => CopyImageRequest, () => CopyImageResponse];
-export var CreateAppBlock: StaticOperationSchema = [
+export var CopyImage$: StaticOperationSchema = [9, n0, _CI, 0, () => CopyImageRequest$, () => CopyImageResponse$];
+export var CreateAppBlock$: StaticOperationSchema = [
   9,
   n0,
   _CAB,
   0,
-  () => CreateAppBlockRequest,
-  () => CreateAppBlockResult,
+  () => CreateAppBlockRequest$,
+  () => CreateAppBlockResult$,
 ];
-export var CreateAppBlockBuilder: StaticOperationSchema = [
+export var CreateAppBlockBuilder$: StaticOperationSchema = [
   9,
   n0,
   _CABB,
   0,
-  () => CreateAppBlockBuilderRequest,
-  () => CreateAppBlockBuilderResult,
+  () => CreateAppBlockBuilderRequest$,
+  () => CreateAppBlockBuilderResult$,
 ];
-export var CreateAppBlockBuilderStreamingURL: StaticOperationSchema = [
+export var CreateAppBlockBuilderStreamingURL$: StaticOperationSchema = [
   9,
   n0,
   _CABBSURL,
   0,
-  () => CreateAppBlockBuilderStreamingURLRequest,
-  () => CreateAppBlockBuilderStreamingURLResult,
+  () => CreateAppBlockBuilderStreamingURLRequest$,
+  () => CreateAppBlockBuilderStreamingURLResult$,
 ];
-export var CreateApplication: StaticOperationSchema = [
+export var CreateApplication$: StaticOperationSchema = [
   9,
   n0,
   _CA,
   0,
-  () => CreateApplicationRequest,
-  () => CreateApplicationResult,
+  () => CreateApplicationRequest$,
+  () => CreateApplicationResult$,
 ];
-export var CreateDirectoryConfig: StaticOperationSchema = [
+export var CreateDirectoryConfig$: StaticOperationSchema = [
   9,
   n0,
   _CDC,
   0,
-  () => CreateDirectoryConfigRequest,
-  () => CreateDirectoryConfigResult,
+  () => CreateDirectoryConfigRequest$,
+  () => CreateDirectoryConfigResult$,
 ];
-export var CreateEntitlement: StaticOperationSchema = [
+export var CreateEntitlement$: StaticOperationSchema = [
   9,
   n0,
   _CE,
   0,
-  () => CreateEntitlementRequest,
-  () => CreateEntitlementResult,
+  () => CreateEntitlementRequest$,
+  () => CreateEntitlementResult$,
 ];
-export var CreateExportImageTask: StaticOperationSchema = [
+export var CreateExportImageTask$: StaticOperationSchema = [
   9,
   n0,
   _CEIT,
   0,
-  () => CreateExportImageTaskRequest,
-  () => CreateExportImageTaskResult,
+  () => CreateExportImageTaskRequest$,
+  () => CreateExportImageTaskResult$,
 ];
-export var CreateFleet: StaticOperationSchema = [9, n0, _CF, 0, () => CreateFleetRequest, () => CreateFleetResult];
-export var CreateImageBuilder: StaticOperationSchema = [
+export var CreateFleet$: StaticOperationSchema = [9, n0, _CF, 0, () => CreateFleetRequest$, () => CreateFleetResult$];
+export var CreateImageBuilder$: StaticOperationSchema = [
   9,
   n0,
   _CIB,
   0,
-  () => CreateImageBuilderRequest,
-  () => CreateImageBuilderResult,
+  () => CreateImageBuilderRequest$,
+  () => CreateImageBuilderResult$,
 ];
-export var CreateImageBuilderStreamingURL: StaticOperationSchema = [
+export var CreateImageBuilderStreamingURL$: StaticOperationSchema = [
   9,
   n0,
   _CIBSURL,
   0,
-  () => CreateImageBuilderStreamingURLRequest,
-  () => CreateImageBuilderStreamingURLResult,
+  () => CreateImageBuilderStreamingURLRequest$,
+  () => CreateImageBuilderStreamingURLResult$,
 ];
-export var CreateImportedImage: StaticOperationSchema = [
+export var CreateImportedImage$: StaticOperationSchema = [
   9,
   n0,
   _CII,
   0,
-  () => CreateImportedImageRequest,
-  () => CreateImportedImageResult,
+  () => CreateImportedImageRequest$,
+  () => CreateImportedImageResult$,
 ];
-export var CreateStack: StaticOperationSchema = [9, n0, _CSr, 0, () => CreateStackRequest, () => CreateStackResult];
-export var CreateStreamingURL: StaticOperationSchema = [
+export var CreateStack$: StaticOperationSchema = [9, n0, _CSr, 0, () => CreateStackRequest$, () => CreateStackResult$];
+export var CreateStreamingURL$: StaticOperationSchema = [
   9,
   n0,
   _CSURL,
   0,
-  () => CreateStreamingURLRequest,
-  () => CreateStreamingURLResult,
+  () => CreateStreamingURLRequest$,
+  () => CreateStreamingURLResult$,
 ];
-export var CreateThemeForStack: StaticOperationSchema = [
+export var CreateThemeForStack$: StaticOperationSchema = [
   9,
   n0,
   _CTFS,
   0,
-  () => CreateThemeForStackRequest,
-  () => CreateThemeForStackResult,
+  () => CreateThemeForStackRequest$,
+  () => CreateThemeForStackResult$,
 ];
-export var CreateUpdatedImage: StaticOperationSchema = [
+export var CreateUpdatedImage$: StaticOperationSchema = [
   9,
   n0,
   _CUI,
   0,
-  () => CreateUpdatedImageRequest,
-  () => CreateUpdatedImageResult,
+  () => CreateUpdatedImageRequest$,
+  () => CreateUpdatedImageResult$,
 ];
-export var CreateUsageReportSubscription: StaticOperationSchema = [
+export var CreateUsageReportSubscription$: StaticOperationSchema = [
   9,
   n0,
   _CURS,
   0,
-  () => CreateUsageReportSubscriptionRequest,
-  () => CreateUsageReportSubscriptionResult,
+  () => CreateUsageReportSubscriptionRequest$,
+  () => CreateUsageReportSubscriptionResult$,
 ];
-export var CreateUser: StaticOperationSchema = [9, n0, _CU, 0, () => CreateUserRequest, () => CreateUserResult];
-export var DeleteAppBlock: StaticOperationSchema = [
+export var CreateUser$: StaticOperationSchema = [9, n0, _CU, 0, () => CreateUserRequest$, () => CreateUserResult$];
+export var DeleteAppBlock$: StaticOperationSchema = [
   9,
   n0,
   _DAB,
   0,
-  () => DeleteAppBlockRequest,
-  () => DeleteAppBlockResult,
+  () => DeleteAppBlockRequest$,
+  () => DeleteAppBlockResult$,
 ];
-export var DeleteAppBlockBuilder: StaticOperationSchema = [
+export var DeleteAppBlockBuilder$: StaticOperationSchema = [
   9,
   n0,
   _DABB,
   0,
-  () => DeleteAppBlockBuilderRequest,
-  () => DeleteAppBlockBuilderResult,
+  () => DeleteAppBlockBuilderRequest$,
+  () => DeleteAppBlockBuilderResult$,
 ];
-export var DeleteApplication: StaticOperationSchema = [
+export var DeleteApplication$: StaticOperationSchema = [
   9,
   n0,
   _DA,
   0,
-  () => DeleteApplicationRequest,
-  () => DeleteApplicationResult,
+  () => DeleteApplicationRequest$,
+  () => DeleteApplicationResult$,
 ];
-export var DeleteDirectoryConfig: StaticOperationSchema = [
+export var DeleteDirectoryConfig$: StaticOperationSchema = [
   9,
   n0,
   _DDC,
   0,
-  () => DeleteDirectoryConfigRequest,
-  () => DeleteDirectoryConfigResult,
+  () => DeleteDirectoryConfigRequest$,
+  () => DeleteDirectoryConfigResult$,
 ];
-export var DeleteEntitlement: StaticOperationSchema = [
+export var DeleteEntitlement$: StaticOperationSchema = [
   9,
   n0,
   _DEe,
   0,
-  () => DeleteEntitlementRequest,
-  () => DeleteEntitlementResult,
+  () => DeleteEntitlementRequest$,
+  () => DeleteEntitlementResult$,
 ];
-export var DeleteFleet: StaticOperationSchema = [9, n0, _DF, 0, () => DeleteFleetRequest, () => DeleteFleetResult];
-export var DeleteImage: StaticOperationSchema = [9, n0, _DIe, 0, () => DeleteImageRequest, () => DeleteImageResult];
-export var DeleteImageBuilder: StaticOperationSchema = [
+export var DeleteFleet$: StaticOperationSchema = [9, n0, _DF, 0, () => DeleteFleetRequest$, () => DeleteFleetResult$];
+export var DeleteImage$: StaticOperationSchema = [9, n0, _DIe, 0, () => DeleteImageRequest$, () => DeleteImageResult$];
+export var DeleteImageBuilder$: StaticOperationSchema = [
   9,
   n0,
   _DIB,
   0,
-  () => DeleteImageBuilderRequest,
-  () => DeleteImageBuilderResult,
+  () => DeleteImageBuilderRequest$,
+  () => DeleteImageBuilderResult$,
 ];
-export var DeleteImagePermissions: StaticOperationSchema = [
+export var DeleteImagePermissions$: StaticOperationSchema = [
   9,
   n0,
   _DIP,
   0,
-  () => DeleteImagePermissionsRequest,
-  () => DeleteImagePermissionsResult,
+  () => DeleteImagePermissionsRequest$,
+  () => DeleteImagePermissionsResult$,
 ];
-export var DeleteStack: StaticOperationSchema = [9, n0, _DSe, 0, () => DeleteStackRequest, () => DeleteStackResult];
-export var DeleteThemeForStack: StaticOperationSchema = [
+export var DeleteStack$: StaticOperationSchema = [9, n0, _DSe, 0, () => DeleteStackRequest$, () => DeleteStackResult$];
+export var DeleteThemeForStack$: StaticOperationSchema = [
   9,
   n0,
   _DTFS,
   0,
-  () => DeleteThemeForStackRequest,
-  () => DeleteThemeForStackResult,
+  () => DeleteThemeForStackRequest$,
+  () => DeleteThemeForStackResult$,
 ];
-export var DeleteUsageReportSubscription: StaticOperationSchema = [
+export var DeleteUsageReportSubscription$: StaticOperationSchema = [
   9,
   n0,
   _DURS,
   0,
-  () => DeleteUsageReportSubscriptionRequest,
-  () => DeleteUsageReportSubscriptionResult,
+  () => DeleteUsageReportSubscriptionRequest$,
+  () => DeleteUsageReportSubscriptionResult$,
 ];
-export var DeleteUser: StaticOperationSchema = [9, n0, _DU, 0, () => DeleteUserRequest, () => DeleteUserResult];
-export var DescribeAppBlockBuilderAppBlockAssociations: StaticOperationSchema = [
+export var DeleteUser$: StaticOperationSchema = [9, n0, _DU, 0, () => DeleteUserRequest$, () => DeleteUserResult$];
+export var DescribeAppBlockBuilderAppBlockAssociations$: StaticOperationSchema = [
   9,
   n0,
   _DABBABA,
   0,
-  () => DescribeAppBlockBuilderAppBlockAssociationsRequest,
-  () => DescribeAppBlockBuilderAppBlockAssociationsResult,
+  () => DescribeAppBlockBuilderAppBlockAssociationsRequest$,
+  () => DescribeAppBlockBuilderAppBlockAssociationsResult$,
 ];
-export var DescribeAppBlockBuilders: StaticOperationSchema = [
+export var DescribeAppBlockBuilders$: StaticOperationSchema = [
   9,
   n0,
   _DABBe,
   0,
-  () => DescribeAppBlockBuildersRequest,
-  () => DescribeAppBlockBuildersResult,
+  () => DescribeAppBlockBuildersRequest$,
+  () => DescribeAppBlockBuildersResult$,
 ];
-export var DescribeAppBlocks: StaticOperationSchema = [
+export var DescribeAppBlocks$: StaticOperationSchema = [
   9,
   n0,
   _DABe,
   0,
-  () => DescribeAppBlocksRequest,
-  () => DescribeAppBlocksResult,
+  () => DescribeAppBlocksRequest$,
+  () => DescribeAppBlocksResult$,
 ];
-export var DescribeApplicationFleetAssociations: StaticOperationSchema = [
+export var DescribeApplicationFleetAssociations$: StaticOperationSchema = [
   9,
   n0,
   _DAFA,
   0,
-  () => DescribeApplicationFleetAssociationsRequest,
-  () => DescribeApplicationFleetAssociationsResult,
+  () => DescribeApplicationFleetAssociationsRequest$,
+  () => DescribeApplicationFleetAssociationsResult$,
 ];
-export var DescribeApplications: StaticOperationSchema = [
+export var DescribeApplications$: StaticOperationSchema = [
   9,
   n0,
   _DAe,
   0,
-  () => DescribeApplicationsRequest,
-  () => DescribeApplicationsResult,
+  () => DescribeApplicationsRequest$,
+  () => DescribeApplicationsResult$,
 ];
-export var DescribeAppLicenseUsage: StaticOperationSchema = [
+export var DescribeAppLicenseUsage$: StaticOperationSchema = [
   9,
   n0,
   _DALU,
   0,
-  () => DescribeAppLicenseUsageRequest,
-  () => DescribeAppLicenseUsageResult,
+  () => DescribeAppLicenseUsageRequest$,
+  () => DescribeAppLicenseUsageResult$,
 ];
-export var DescribeDirectoryConfigs: StaticOperationSchema = [
+export var DescribeDirectoryConfigs$: StaticOperationSchema = [
   9,
   n0,
   _DDCe,
   0,
-  () => DescribeDirectoryConfigsRequest,
-  () => DescribeDirectoryConfigsResult,
+  () => DescribeDirectoryConfigsRequest$,
+  () => DescribeDirectoryConfigsResult$,
 ];
-export var DescribeEntitlements: StaticOperationSchema = [
+export var DescribeEntitlements$: StaticOperationSchema = [
   9,
   n0,
   _DEes,
   0,
-  () => DescribeEntitlementsRequest,
-  () => DescribeEntitlementsResult,
+  () => DescribeEntitlementsRequest$,
+  () => DescribeEntitlementsResult$,
 ];
-export var DescribeFleets: StaticOperationSchema = [
+export var DescribeFleets$: StaticOperationSchema = [
   9,
   n0,
   _DFe,
   0,
-  () => DescribeFleetsRequest,
-  () => DescribeFleetsResult,
+  () => DescribeFleetsRequest$,
+  () => DescribeFleetsResult$,
 ];
-export var DescribeImageBuilders: StaticOperationSchema = [
+export var DescribeImageBuilders$: StaticOperationSchema = [
   9,
   n0,
   _DIBe,
   0,
-  () => DescribeImageBuildersRequest,
-  () => DescribeImageBuildersResult,
+  () => DescribeImageBuildersRequest$,
+  () => DescribeImageBuildersResult$,
 ];
-export var DescribeImagePermissions: StaticOperationSchema = [
+export var DescribeImagePermissions$: StaticOperationSchema = [
   9,
   n0,
   _DIPe,
   0,
-  () => DescribeImagePermissionsRequest,
-  () => DescribeImagePermissionsResult,
+  () => DescribeImagePermissionsRequest$,
+  () => DescribeImagePermissionsResult$,
 ];
-export var DescribeImages: StaticOperationSchema = [
+export var DescribeImages$: StaticOperationSchema = [
   9,
   n0,
   _DIes,
   0,
-  () => DescribeImagesRequest,
-  () => DescribeImagesResult,
+  () => DescribeImagesRequest$,
+  () => DescribeImagesResult$,
 ];
-export var DescribeSessions: StaticOperationSchema = [
+export var DescribeSessions$: StaticOperationSchema = [
   9,
   n0,
   _DSes,
   0,
-  () => DescribeSessionsRequest,
-  () => DescribeSessionsResult,
+  () => DescribeSessionsRequest$,
+  () => DescribeSessionsResult$,
 ];
-export var DescribeSoftwareAssociations: StaticOperationSchema = [
+export var DescribeSoftwareAssociations$: StaticOperationSchema = [
   9,
   n0,
   _DSA,
   0,
-  () => DescribeSoftwareAssociationsRequest,
-  () => DescribeSoftwareAssociationsResult,
+  () => DescribeSoftwareAssociationsRequest$,
+  () => DescribeSoftwareAssociationsResult$,
 ];
-export var DescribeStacks: StaticOperationSchema = [
+export var DescribeStacks$: StaticOperationSchema = [
   9,
   n0,
   _DSesc,
   0,
-  () => DescribeStacksRequest,
-  () => DescribeStacksResult,
+  () => DescribeStacksRequest$,
+  () => DescribeStacksResult$,
 ];
-export var DescribeThemeForStack: StaticOperationSchema = [
+export var DescribeThemeForStack$: StaticOperationSchema = [
   9,
   n0,
   _DTFSe,
   0,
-  () => DescribeThemeForStackRequest,
-  () => DescribeThemeForStackResult,
+  () => DescribeThemeForStackRequest$,
+  () => DescribeThemeForStackResult$,
 ];
-export var DescribeUsageReportSubscriptions: StaticOperationSchema = [
+export var DescribeUsageReportSubscriptions$: StaticOperationSchema = [
   9,
   n0,
   _DURSe,
   0,
-  () => DescribeUsageReportSubscriptionsRequest,
-  () => DescribeUsageReportSubscriptionsResult,
+  () => DescribeUsageReportSubscriptionsRequest$,
+  () => DescribeUsageReportSubscriptionsResult$,
 ];
-export var DescribeUsers: StaticOperationSchema = [
+export var DescribeUsers$: StaticOperationSchema = [
   9,
   n0,
   _DUe,
   0,
-  () => DescribeUsersRequest,
-  () => DescribeUsersResult,
+  () => DescribeUsersRequest$,
+  () => DescribeUsersResult$,
 ];
-export var DescribeUserStackAssociations: StaticOperationSchema = [
+export var DescribeUserStackAssociations$: StaticOperationSchema = [
   9,
   n0,
   _DUSA,
   0,
-  () => DescribeUserStackAssociationsRequest,
-  () => DescribeUserStackAssociationsResult,
+  () => DescribeUserStackAssociationsRequest$,
+  () => DescribeUserStackAssociationsResult$,
 ];
-export var DisableUser: StaticOperationSchema = [9, n0, _DUi, 0, () => DisableUserRequest, () => DisableUserResult];
-export var DisassociateAppBlockBuilderAppBlock: StaticOperationSchema = [
+export var DisableUser$: StaticOperationSchema = [9, n0, _DUi, 0, () => DisableUserRequest$, () => DisableUserResult$];
+export var DisassociateAppBlockBuilderAppBlock$: StaticOperationSchema = [
   9,
   n0,
   _DABBAB,
   0,
-  () => DisassociateAppBlockBuilderAppBlockRequest,
-  () => DisassociateAppBlockBuilderAppBlockResult,
+  () => DisassociateAppBlockBuilderAppBlockRequest$,
+  () => DisassociateAppBlockBuilderAppBlockResult$,
 ];
-export var DisassociateApplicationFleet: StaticOperationSchema = [
+export var DisassociateApplicationFleet$: StaticOperationSchema = [
   9,
   n0,
   _DAF,
   0,
-  () => DisassociateApplicationFleetRequest,
-  () => DisassociateApplicationFleetResult,
+  () => DisassociateApplicationFleetRequest$,
+  () => DisassociateApplicationFleetResult$,
 ];
-export var DisassociateApplicationFromEntitlement: StaticOperationSchema = [
+export var DisassociateApplicationFromEntitlement$: StaticOperationSchema = [
   9,
   n0,
   _DAFE,
   0,
-  () => DisassociateApplicationFromEntitlementRequest,
-  () => DisassociateApplicationFromEntitlementResult,
+  () => DisassociateApplicationFromEntitlementRequest$,
+  () => DisassociateApplicationFromEntitlementResult$,
 ];
-export var DisassociateFleet: StaticOperationSchema = [
+export var DisassociateFleet$: StaticOperationSchema = [
   9,
   n0,
   _DFi,
   0,
-  () => DisassociateFleetRequest,
-  () => DisassociateFleetResult,
+  () => DisassociateFleetRequest$,
+  () => DisassociateFleetResult$,
 ];
-export var DisassociateSoftwareFromImageBuilder: StaticOperationSchema = [
+export var DisassociateSoftwareFromImageBuilder$: StaticOperationSchema = [
   9,
   n0,
   _DSFIB,
   0,
-  () => DisassociateSoftwareFromImageBuilderRequest,
-  () => DisassociateSoftwareFromImageBuilderResult,
+  () => DisassociateSoftwareFromImageBuilderRequest$,
+  () => DisassociateSoftwareFromImageBuilderResult$,
 ];
-export var EnableUser: StaticOperationSchema = [9, n0, _EU, 0, () => EnableUserRequest, () => EnableUserResult];
-export var ExpireSession: StaticOperationSchema = [
+export var EnableUser$: StaticOperationSchema = [9, n0, _EU, 0, () => EnableUserRequest$, () => EnableUserResult$];
+export var ExpireSession$: StaticOperationSchema = [
   9,
   n0,
   _ES,
   0,
-  () => ExpireSessionRequest,
-  () => ExpireSessionResult,
+  () => ExpireSessionRequest$,
+  () => ExpireSessionResult$,
 ];
-export var GetExportImageTask: StaticOperationSchema = [
+export var GetExportImageTask$: StaticOperationSchema = [
   9,
   n0,
   _GEIT,
   0,
-  () => GetExportImageTaskRequest,
-  () => GetExportImageTaskResult,
+  () => GetExportImageTaskRequest$,
+  () => GetExportImageTaskResult$,
 ];
-export var ListAssociatedFleets: StaticOperationSchema = [
+export var ListAssociatedFleets$: StaticOperationSchema = [
   9,
   n0,
   _LAF,
   0,
-  () => ListAssociatedFleetsRequest,
-  () => ListAssociatedFleetsResult,
+  () => ListAssociatedFleetsRequest$,
+  () => ListAssociatedFleetsResult$,
 ];
-export var ListAssociatedStacks: StaticOperationSchema = [
+export var ListAssociatedStacks$: StaticOperationSchema = [
   9,
   n0,
   _LAS,
   0,
-  () => ListAssociatedStacksRequest,
-  () => ListAssociatedStacksResult,
+  () => ListAssociatedStacksRequest$,
+  () => ListAssociatedStacksResult$,
 ];
-export var ListEntitledApplications: StaticOperationSchema = [
+export var ListEntitledApplications$: StaticOperationSchema = [
   9,
   n0,
   _LEA,
   0,
-  () => ListEntitledApplicationsRequest,
-  () => ListEntitledApplicationsResult,
+  () => ListEntitledApplicationsRequest$,
+  () => ListEntitledApplicationsResult$,
 ];
-export var ListExportImageTasks: StaticOperationSchema = [
+export var ListExportImageTasks$: StaticOperationSchema = [
   9,
   n0,
   _LEIT,
   0,
-  () => ListExportImageTasksRequest,
-  () => ListExportImageTasksResult,
+  () => ListExportImageTasksRequest$,
+  () => ListExportImageTasksResult$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   0,
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var StartAppBlockBuilder: StaticOperationSchema = [
+export var StartAppBlockBuilder$: StaticOperationSchema = [
   9,
   n0,
   _SABB,
   0,
-  () => StartAppBlockBuilderRequest,
-  () => StartAppBlockBuilderResult,
+  () => StartAppBlockBuilderRequest$,
+  () => StartAppBlockBuilderResult$,
 ];
-export var StartFleet: StaticOperationSchema = [9, n0, _SF, 0, () => StartFleetRequest, () => StartFleetResult];
-export var StartImageBuilder: StaticOperationSchema = [
+export var StartFleet$: StaticOperationSchema = [9, n0, _SF, 0, () => StartFleetRequest$, () => StartFleetResult$];
+export var StartImageBuilder$: StaticOperationSchema = [
   9,
   n0,
   _SIB,
   0,
-  () => StartImageBuilderRequest,
-  () => StartImageBuilderResult,
+  () => StartImageBuilderRequest$,
+  () => StartImageBuilderResult$,
 ];
-export var StartSoftwareDeploymentToImageBuilder: StaticOperationSchema = [
+export var StartSoftwareDeploymentToImageBuilder$: StaticOperationSchema = [
   9,
   n0,
   _SSDTIB,
   0,
-  () => StartSoftwareDeploymentToImageBuilderRequest,
-  () => StartSoftwareDeploymentToImageBuilderResult,
+  () => StartSoftwareDeploymentToImageBuilderRequest$,
+  () => StartSoftwareDeploymentToImageBuilderResult$,
 ];
-export var StopAppBlockBuilder: StaticOperationSchema = [
+export var StopAppBlockBuilder$: StaticOperationSchema = [
   9,
   n0,
   _SABBt,
   0,
-  () => StopAppBlockBuilderRequest,
-  () => StopAppBlockBuilderResult,
+  () => StopAppBlockBuilderRequest$,
+  () => StopAppBlockBuilderResult$,
 ];
-export var StopFleet: StaticOperationSchema = [9, n0, _SFt, 0, () => StopFleetRequest, () => StopFleetResult];
-export var StopImageBuilder: StaticOperationSchema = [
+export var StopFleet$: StaticOperationSchema = [9, n0, _SFt, 0, () => StopFleetRequest$, () => StopFleetResult$];
+export var StopImageBuilder$: StaticOperationSchema = [
   9,
   n0,
   _SIBt,
   0,
-  () => StopImageBuilderRequest,
-  () => StopImageBuilderResult,
+  () => StopImageBuilderRequest$,
+  () => StopImageBuilderResult$,
 ];
-export var TagResource: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest, () => TagResourceResponse];
-export var UntagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest$, () => TagResourceResponse$];
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   0,
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateAppBlockBuilder: StaticOperationSchema = [
+export var UpdateAppBlockBuilder$: StaticOperationSchema = [
   9,
   n0,
   _UABB,
   0,
-  () => UpdateAppBlockBuilderRequest,
-  () => UpdateAppBlockBuilderResult,
+  () => UpdateAppBlockBuilderRequest$,
+  () => UpdateAppBlockBuilderResult$,
 ];
-export var UpdateApplication: StaticOperationSchema = [
+export var UpdateApplication$: StaticOperationSchema = [
   9,
   n0,
   _UAp,
   0,
-  () => UpdateApplicationRequest,
-  () => UpdateApplicationResult,
+  () => UpdateApplicationRequest$,
+  () => UpdateApplicationResult$,
 ];
-export var UpdateDirectoryConfig: StaticOperationSchema = [
+export var UpdateDirectoryConfig$: StaticOperationSchema = [
   9,
   n0,
   _UDC,
   0,
-  () => UpdateDirectoryConfigRequest,
-  () => UpdateDirectoryConfigResult,
+  () => UpdateDirectoryConfigRequest$,
+  () => UpdateDirectoryConfigResult$,
 ];
-export var UpdateEntitlement: StaticOperationSchema = [
+export var UpdateEntitlement$: StaticOperationSchema = [
   9,
   n0,
   _UE,
   0,
-  () => UpdateEntitlementRequest,
-  () => UpdateEntitlementResult,
+  () => UpdateEntitlementRequest$,
+  () => UpdateEntitlementResult$,
 ];
-export var UpdateFleet: StaticOperationSchema = [9, n0, _UF, 0, () => UpdateFleetRequest, () => UpdateFleetResult];
-export var UpdateImagePermissions: StaticOperationSchema = [
+export var UpdateFleet$: StaticOperationSchema = [9, n0, _UF, 0, () => UpdateFleetRequest$, () => UpdateFleetResult$];
+export var UpdateImagePermissions$: StaticOperationSchema = [
   9,
   n0,
   _UIP,
   0,
-  () => UpdateImagePermissionsRequest,
-  () => UpdateImagePermissionsResult,
+  () => UpdateImagePermissionsRequest$,
+  () => UpdateImagePermissionsResult$,
 ];
-export var UpdateStack: StaticOperationSchema = [9, n0, _USp, 0, () => UpdateStackRequest, () => UpdateStackResult];
-export var UpdateThemeForStack: StaticOperationSchema = [
+export var UpdateStack$: StaticOperationSchema = [9, n0, _USp, 0, () => UpdateStackRequest$, () => UpdateStackResult$];
+export var UpdateThemeForStack$: StaticOperationSchema = [
   9,
   n0,
   _UTFS,
   0,
-  () => UpdateThemeForStackRequest,
-  () => UpdateThemeForStackResult,
+  () => UpdateThemeForStackRequest$,
+  () => UpdateThemeForStackResult$,
 ];

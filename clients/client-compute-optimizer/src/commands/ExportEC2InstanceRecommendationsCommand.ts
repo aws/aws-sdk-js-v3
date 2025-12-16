@@ -13,7 +13,7 @@ import type {
   ExportEC2InstanceRecommendationsRequest,
   ExportEC2InstanceRecommendationsResponse,
 } from "../models/models_0";
-import { ExportEC2InstanceRecommendations } from "../schemas/schemas_0";
+import { ExportEC2InstanceRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -141,7 +141,7 @@ export class ExportEC2InstanceRecommendationsCommand extends $Command
   })
   .s("ComputeOptimizerService", "ExportEC2InstanceRecommendations", {})
   .n("ComputeOptimizerClient", "ExportEC2InstanceRecommendationsCommand")
-  .sc(ExportEC2InstanceRecommendations)
+  .sc(ExportEC2InstanceRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

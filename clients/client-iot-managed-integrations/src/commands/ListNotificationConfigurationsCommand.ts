@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { ListNotificationConfigurationsRequest, ListNotificationConfigurationsResponse } from "../models/models_0";
-import { ListNotificationConfigurations } from "../schemas/schemas_0";
+import { ListNotificationConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class ListNotificationConfigurationsCommand extends $Command
   })
   .s("IotManagedIntegrations", "ListNotificationConfigurations", {})
   .n("IoTManagedIntegrationsClient", "ListNotificationConfigurationsCommand")
-  .sc(ListNotificationConfigurations)
+  .sc(ListNotificationConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

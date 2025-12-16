@@ -7,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { InvocationRequest, InvocationResponse } from "../models/models_0";
-import { Invoke } from "../schemas/schemas_0";
+import { Invoke$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -238,7 +238,7 @@ export class InvokeCommand extends $Command
   })
   .s("AWSGirApiService", "Invoke", {})
   .n("LambdaClient", "InvokeCommand")
-  .sc(Invoke)
+  .sc(Invoke$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

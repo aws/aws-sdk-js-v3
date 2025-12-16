@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveRoleFromDBClusterMessage } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { RemoveRoleFromDBCluster } from "../schemas/schemas_0";
+import { RemoveRoleFromDBCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class RemoveRoleFromDBClusterCommand extends $Command
   })
   .s("AmazonRDSv19", "RemoveRoleFromDBCluster", {})
   .n("RDSClient", "RemoveRoleFromDBClusterCommand")
-  .sc(RemoveRoleFromDBCluster)
+  .sc(RemoveRoleFromDBCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

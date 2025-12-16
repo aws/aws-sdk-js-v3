@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteServiceEnvironmentRequest, DeleteServiceEnvironmentResponse } from "../models/models_0";
-import { DeleteServiceEnvironment } from "../schemas/schemas_0";
+import { DeleteServiceEnvironment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,7 +79,7 @@ export class DeleteServiceEnvironmentCommand extends $Command
   })
   .s("AWSBatchV20160810", "DeleteServiceEnvironment", {})
   .n("BatchClient", "DeleteServiceEnvironmentCommand")
-  .sc(DeleteServiceEnvironment)
+  .sc(DeleteServiceEnvironment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

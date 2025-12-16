@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeploymentStrategy, UpdateDeploymentStrategyRequest } from "../models/models_0";
-import { UpdateDeploymentStrategy } from "../schemas/schemas_0";
+import { UpdateDeploymentStrategy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class UpdateDeploymentStrategyCommand extends $Command
   })
   .s("AmazonAppConfig", "UpdateDeploymentStrategy", {})
   .n("AppConfigClient", "UpdateDeploymentStrategyCommand")
-  .sc(UpdateDeploymentStrategy)
+  .sc(UpdateDeploymentStrategy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputType
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type GetRawMessageContentRequest, GetRawMessageContentResponse } from "../models/models_0";
-import { GetRawMessageContent } from "../schemas/schemas_0";
+import { GetRawMessageContent$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -89,7 +89,7 @@ export class GetRawMessageContentCommand extends $Command
   })
   .s("GiraffeMessageInTransitService", "GetRawMessageContent", {})
   .n("WorkMailMessageFlowClient", "GetRawMessageContentCommand")
-  .sc(GetRawMessageContent)
+  .sc(GetRawMessageContent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteLibraryItemInput } from "../models/models_0";
 import type { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
-import { DeleteLibraryItem } from "../schemas/schemas_0";
+import { DeleteLibraryItem$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class DeleteLibraryItemCommand extends $Command
   })
   .s("QAppsService", "DeleteLibraryItem", {})
   .n("QAppsClient", "DeleteLibraryItemCommand")
-  .sc(DeleteLibraryItem)
+  .sc(DeleteLibraryItem$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

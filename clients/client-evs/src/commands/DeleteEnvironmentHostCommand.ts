@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvsClient";
 import type { DeleteEnvironmentHostRequest, DeleteEnvironmentHostResponse } from "../models/models_0";
-import { DeleteEnvironmentHost } from "../schemas/schemas_0";
+import { DeleteEnvironmentHost$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class DeleteEnvironmentHostCommand extends $Command
   })
   .s("AmazonElasticVMwareService", "DeleteEnvironmentHost", {})
   .n("EvsClient", "DeleteEnvironmentHostCommand")
-  .sc(DeleteEnvironmentHost)
+  .sc(DeleteEnvironmentHost$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

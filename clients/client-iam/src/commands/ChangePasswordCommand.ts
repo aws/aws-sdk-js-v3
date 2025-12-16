@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { ChangePasswordRequest } from "../models/models_0";
-import { ChangePassword } from "../schemas/schemas_0";
+import { ChangePassword$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class ChangePasswordCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "ChangePassword", {})
   .n("IAMClient", "ChangePasswordCommand")
-  .sc(ChangePassword)
+  .sc(ChangePassword$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

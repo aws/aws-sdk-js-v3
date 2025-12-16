@@ -9,7 +9,7 @@ import type {
   DescribeUsageReportSubscriptionsRequest,
   DescribeUsageReportSubscriptionsResult,
 } from "../models/models_0";
-import { DescribeUsageReportSubscriptions } from "../schemas/schemas_0";
+import { DescribeUsageReportSubscriptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DescribeUsageReportSubscriptionsCommand extends $Command
   })
   .s("PhotonAdminProxyService", "DescribeUsageReportSubscriptions", {})
   .n("AppStreamClient", "DescribeUsageReportSubscriptionsCommand")
-  .sc(DescribeUsageReportSubscriptions)
+  .sc(DescribeUsageReportSubscriptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

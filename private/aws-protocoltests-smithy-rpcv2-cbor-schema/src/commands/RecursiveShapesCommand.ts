@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RecursiveShapesInputOutput } from "../models/models_0";
 import type { RpcV2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RpcV2ProtocolClient";
-import { RecursiveShapes } from "../schemas/schemas_0";
+import { RecursiveShapes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class RecursiveShapesCommand extends $Command
   })
   .s("RpcV2Protocol", "RecursiveShapes", {})
   .n("RpcV2ProtocolClient", "RecursiveShapesCommand")
-  .sc(RecursiveShapes)
+  .sc(RecursiveShapes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

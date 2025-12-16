@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateEnvironmentEC2Request, CreateEnvironmentEC2Result } from "../models/models_0";
-import { CreateEnvironmentEC2 } from "../schemas/schemas_0";
+import { CreateEnvironmentEC2$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -137,7 +137,7 @@ export class CreateEnvironmentEC2Command extends $Command
   })
   .s("AWSCloud9WorkspaceManagementService", "CreateEnvironmentEC2", {})
   .n("Cloud9Client", "CreateEnvironmentEC2Command")
-  .sc(CreateEnvironmentEC2)
+  .sc(CreateEnvironmentEC2$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

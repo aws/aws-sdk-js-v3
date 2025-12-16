@@ -9,7 +9,7 @@ import type {
   CreateRepositoryCreationTemplateRequest,
   CreateRepositoryCreationTemplateResponse,
 } from "../models/models_0";
-import { CreateRepositoryCreationTemplate } from "../schemas/schemas_0";
+import { CreateRepositoryCreationTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -154,7 +154,7 @@ export class CreateRepositoryCreationTemplateCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "CreateRepositoryCreationTemplate", {})
   .n("ECRClient", "CreateRepositoryCreationTemplateCommand")
-  .sc(CreateRepositoryCreationTemplate)
+  .sc(CreateRepositoryCreationTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

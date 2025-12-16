@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopClusterInput, StopClusterOutput } from "../models/models_0";
-import { StopCluster } from "../schemas/schemas_0";
+import { StopCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -155,7 +155,7 @@ export class StopClusterCommand extends $Command
   })
   .s("ChimeraDbLionfishServiceLambda", "StopCluster", {})
   .n("DocDBElasticClient", "StopClusterCommand")
-  .sc(StopCluster)
+  .sc(StopCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import type { UpdateMemberSessionRequest, UpdateMemberSessionResponse } from "../models/models_0";
-import { UpdateMemberSession } from "../schemas/schemas_0";
+import { UpdateMemberSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class UpdateMemberSessionCommand extends $Command
   })
   .s("Macie2", "UpdateMemberSession", {})
   .n("Macie2Client", "UpdateMemberSessionCommand")
-  .sc(UpdateMemberSession)
+  .sc(UpdateMemberSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

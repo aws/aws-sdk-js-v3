@@ -9,7 +9,7 @@ import type {
   ListVoiceConnectorTerminationCredentialsRequest,
   ListVoiceConnectorTerminationCredentialsResponse,
 } from "../models/models_0";
-import { ListVoiceConnectorTerminationCredentials } from "../schemas/schemas_0";
+import { ListVoiceConnectorTerminationCredentials$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "ListVoiceConnectorTerminationCredentials", {})
   .n("ChimeSDKVoiceClient", "ListVoiceConnectorTerminationCredentialsCommand")
-  .sc(ListVoiceConnectorTerminationCredentials)
+  .sc(ListVoiceConnectorTerminationCredentials$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

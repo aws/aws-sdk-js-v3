@@ -13,7 +13,7 @@ import type {
   UpdateCalculatedAttributeDefinitionRequest,
   UpdateCalculatedAttributeDefinitionResponse,
 } from "../models/models_1";
-import { UpdateCalculatedAttributeDefinition } from "../schemas/schemas_0";
+import { UpdateCalculatedAttributeDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -158,7 +158,7 @@ export class UpdateCalculatedAttributeDefinitionCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "UpdateCalculatedAttributeDefinition", {})
   .n("CustomerProfilesClient", "UpdateCalculatedAttributeDefinitionCommand")
-  .sc(UpdateCalculatedAttributeDefinition)
+  .sc(UpdateCalculatedAttributeDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateRateBasedRuleRequest, UpdateRateBasedRuleResponse } from "../models/models_0";
-import { UpdateRateBasedRule } from "../schemas/schemas_0";
+import { UpdateRateBasedRule$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
@@ -248,7 +248,7 @@ export class UpdateRateBasedRuleCommand extends $Command
   })
   .s("AWSWAF_20150824", "UpdateRateBasedRule", {})
   .n("WAFClient", "UpdateRateBasedRuleCommand")
-  .sc(UpdateRateBasedRule)
+  .sc(UpdateRateBasedRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

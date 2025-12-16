@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ResetAuthorizersCacheRequest } from "../models/models_0";
-import { ResetAuthorizersCache } from "../schemas/schemas_0";
+import { ResetAuthorizersCache$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -78,7 +78,7 @@ export class ResetAuthorizersCacheCommand extends $Command
   })
   .s("ApiGatewayV2", "ResetAuthorizersCache", {})
   .n("ApiGatewayV2Client", "ResetAuthorizersCacheCommand")
-  .sc(ResetAuthorizersCache)
+  .sc(ResetAuthorizersCache$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

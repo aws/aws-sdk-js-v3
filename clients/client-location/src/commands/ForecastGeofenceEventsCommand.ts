@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import type { ForecastGeofenceEventsRequest, ForecastGeofenceEventsResponse } from "../models/models_0";
-import { ForecastGeofenceEvents } from "../schemas/schemas_0";
+import { ForecastGeofenceEvents$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class ForecastGeofenceEventsCommand extends $Command
   })
   .s("LocationService", "ForecastGeofenceEvents", {})
   .n("LocationClient", "ForecastGeofenceEventsCommand")
-  .sc(ForecastGeofenceEvents)
+  .sc(ForecastGeofenceEvents$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

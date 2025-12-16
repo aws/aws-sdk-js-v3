@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetInboundExternalLinkRequest, GetInboundExternalLinkResponse } from "../models/models_0";
 import type { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
-import { GetInboundExternalLink } from "../schemas/schemas_0";
+import { GetInboundExternalLink$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -227,7 +227,7 @@ export class GetInboundExternalLinkCommand extends $Command
   })
   .s("RTBFabric", "GetInboundExternalLink", {})
   .n("RTBFabricClient", "GetInboundExternalLinkCommand")
-  .sc(GetInboundExternalLink)
+  .sc(GetInboundExternalLink$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeSharedDirectoriesRequest, DescribeSharedDirectoriesResult } from "../models/models_0";
-import { DescribeSharedDirectories } from "../schemas/schemas_0";
+import { DescribeSharedDirectories$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class DescribeSharedDirectoriesCommand extends $Command
   })
   .s("DirectoryService_20150416", "DescribeSharedDirectories", {})
   .n("DirectoryServiceClient", "DescribeSharedDirectoriesCommand")
-  .sc(DescribeSharedDirectories)
+  .sc(DescribeSharedDirectories$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

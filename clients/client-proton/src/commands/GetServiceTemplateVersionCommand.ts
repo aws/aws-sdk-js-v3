@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetServiceTemplateVersionInput, GetServiceTemplateVersionOutput } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { GetServiceTemplateVersion } from "../schemas/schemas_0";
+import { GetServiceTemplateVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class GetServiceTemplateVersionCommand extends $Command
   })
   .s("AwsProton20200720", "GetServiceTemplateVersion", {})
   .n("ProtonClient", "GetServiceTemplateVersionCommand")
-  .sc(GetServiceTemplateVersion)
+  .sc(GetServiceTemplateVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

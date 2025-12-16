@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifySamlPropertiesRequest, ModifySamlPropertiesResult } from "../models/models_0";
-import { ModifySamlProperties } from "../schemas/schemas_0";
+import { ModifySamlProperties$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -93,7 +93,7 @@ export class ModifySamlPropertiesCommand extends $Command
   })
   .s("WorkspacesService", "ModifySamlProperties", {})
   .n("WorkSpacesClient", "ModifySamlPropertiesCommand")
-  .sc(ModifySamlProperties)
+  .sc(ModifySamlProperties$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

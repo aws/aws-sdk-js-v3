@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: PersonalizeRuntimeClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.personalizeruntime" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.personalizeruntime",
+      version: "2018-05-22",
+      serviceTarget: "AmazonPersonalizeRuntime",
+    },
     serviceId: config?.serviceId ?? "Personalize Runtime",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

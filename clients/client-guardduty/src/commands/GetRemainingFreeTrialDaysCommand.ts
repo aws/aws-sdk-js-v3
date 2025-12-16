@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import type { GetRemainingFreeTrialDaysRequest, GetRemainingFreeTrialDaysResponse } from "../models/models_1";
-import { GetRemainingFreeTrialDays } from "../schemas/schemas_0";
+import { GetRemainingFreeTrialDays$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class GetRemainingFreeTrialDaysCommand extends $Command
   })
   .s("GuardDutyAPIService", "GetRemainingFreeTrialDays", {})
   .n("GuardDutyClient", "GetRemainingFreeTrialDaysCommand")
-  .sc(GetRemainingFreeTrialDays)
+  .sc(GetRemainingFreeTrialDays$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

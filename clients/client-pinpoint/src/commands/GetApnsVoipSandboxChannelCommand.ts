@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetApnsVoipSandboxChannelRequest, GetApnsVoipSandboxChannelResponse } from "../models/models_0";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetApnsVoipSandboxChannel } from "../schemas/schemas_0";
+import { GetApnsVoipSandboxChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class GetApnsVoipSandboxChannelCommand extends $Command
   })
   .s("Pinpoint", "GetApnsVoipSandboxChannel", {})
   .n("PinpointClient", "GetApnsVoipSandboxChannelCommand")
-  .sc(GetApnsVoipSandboxChannel)
+  .sc(GetApnsVoipSandboxChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

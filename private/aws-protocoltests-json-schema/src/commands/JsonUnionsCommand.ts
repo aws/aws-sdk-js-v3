@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import type { UnionInputOutput } from "../models/models_0";
-import { JsonUnions } from "../schemas/schemas_0";
+import { JsonUnions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class JsonUnionsCommand extends $Command
   })
   .s("JsonProtocol", "JsonUnions", {})
   .n("JsonProtocolClient", "JsonUnionsCommand")
-  .sc(JsonUnions)
+  .sc(JsonUnions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

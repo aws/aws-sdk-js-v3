@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyDataClient";
-import { GenerateMacEmvPinChange } from "../schemas/schemas_0";
+import { GenerateMacEmvPinChange$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -155,7 +155,7 @@ export class GenerateMacEmvPinChangeCommand extends $Command
   })
   .s("PaymentCryptographyDataPlane", "GenerateMacEmvPinChange", {})
   .n("PaymentCryptographyDataClient", "GenerateMacEmvPinChangeCommand")
-  .sc(GenerateMacEmvPinChange)
+  .sc(GenerateMacEmvPinChange$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -359,48 +359,48 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { BadRequestException as __BadRequestException } from "../models/errors";
-import { MediaTailorServiceException as __MediaTailorServiceException } from "../models/MediaTailorServiceException";
+import { BadRequestException } from "../models/errors";
+import { MediaTailorServiceException } from "../models/MediaTailorServiceException";
 
 /* eslint no-var: 0 */
-export var AccessConfiguration: StaticStructureSchema = [
+export var AccessConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _AC,
   0,
   [_AT, _SMATC],
-  [0, () => SecretsManagerAccessTokenConfiguration],
+  [0, () => SecretsManagerAccessTokenConfiguration$],
 ];
-export var AdBreak: StaticStructureSchema = [
+export var AdBreak$: StaticStructureSchema = [
   3,
   n0,
   _AB,
   0,
   [_MT, _OM, _S, _SIM, _TSM, _ABM],
-  [0, 1, () => SlateSource, () => SpliceInsertMessage, () => TimeSignalMessage, () => AdBreakMetadataList],
+  [0, 1, () => SlateSource$, () => SpliceInsertMessage$, () => TimeSignalMessage$, () => AdBreakMetadataList],
 ];
-export var AdBreakOpportunity: StaticStructureSchema = [3, n0, _ABO, 0, [_OM], [1]];
-export var AdConditioningConfiguration: StaticStructureSchema = [3, n0, _ACC, 0, [_SMFC], [0]];
-export var AdDecisionServerConfiguration: StaticStructureSchema = [3, n0, _ADSC, 0, [_HR], [() => HttpRequest]];
-export var AdMarkerPassthrough: StaticStructureSchema = [3, n0, _AMP, 0, [_E], [2]];
-export var AdsInteractionLog: StaticStructureSchema = [3, n0, _AIL, 0, [_POIET, _EET], [64 | 0, 64 | 0]];
-export var Alert: StaticStructureSchema = [3, n0, _A, 0, [_ACl, _AM, _LMT, _RRA, _RA, _C], [0, 0, 7, 64 | 0, 0, 0]];
-export var AlternateMedia: StaticStructureSchema = [
+export var AdBreakOpportunity$: StaticStructureSchema = [3, n0, _ABO, 0, [_OM], [1]];
+export var AdConditioningConfiguration$: StaticStructureSchema = [3, n0, _ACC, 0, [_SMFC], [0]];
+export var AdDecisionServerConfiguration$: StaticStructureSchema = [3, n0, _ADSC, 0, [_HR], [() => HttpRequest$]];
+export var AdMarkerPassthrough$: StaticStructureSchema = [3, n0, _AMP, 0, [_E], [2]];
+export var AdsInteractionLog$: StaticStructureSchema = [3, n0, _AIL, 0, [_POIET, _EET], [64 | 0, 64 | 0]];
+export var Alert$: StaticStructureSchema = [3, n0, _A, 0, [_ACl, _AM, _LMT, _RRA, _RA, _C], [0, 0, 7, 64 | 0, 0, 0]];
+export var AlternateMedia$: StaticStructureSchema = [
   3,
   n0,
   _AMl,
   0,
   [_SLN, _LSN, _VSN, _CR, _SSTM, _ABd, _DM],
-  [0, 0, 0, () => ClipRange, 1, () => __listOfAdBreak, 1],
+  [0, 0, 0, () => ClipRange$, 1, () => __listOfAdBreak, 1],
 ];
-export var AudienceMedia: StaticStructureSchema = [3, n0, _AMu, 0, [_Au, _AMl], [0, () => __listOfAlternateMedia]];
-export var AvailMatchingCriteria: StaticStructureSchema = [3, n0, _AMC, 0, [_DV, _O], [0, 0]];
-export var AvailSuppression: StaticStructureSchema = [3, n0, _AS, 0, [_M, _V, _FP], [0, 0, 0]];
-export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_Me], [0]];
-TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-export var Bumper: StaticStructureSchema = [3, n0, _B, 0, [_EU, _SU], [0, 0]];
-export var CdnConfiguration: StaticStructureSchema = [3, n0, _CC, 0, [_ASUP, _CSUP], [0, 0]];
-export var Channel: StaticStructureSchema = [
+export var AudienceMedia$: StaticStructureSchema = [3, n0, _AMu, 0, [_Au, _AMl], [0, () => __listOfAlternateMedia]];
+export var AvailMatchingCriteria$: StaticStructureSchema = [3, n0, _AMC, 0, [_DV, _O], [0, 0]];
+export var AvailSuppression$: StaticStructureSchema = [3, n0, _AS, 0, [_M, _V, _FP], [0, 0, 0]];
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_Me], [0]];
+TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+export var Bumper$: StaticStructureSchema = [3, n0, _B, 0, [_EU, _SU], [0, 0]];
+export var CdnConfiguration$: StaticStructureSchema = [3, n0, _CC, 0, [_ASUP, _CSUP], [0, 0]];
+export var Channel$: StaticStructureSchema = [
   3,
   n0,
   _Ch,
@@ -411,36 +411,36 @@ export var Channel: StaticStructureSchema = [
     0,
     0,
     7,
-    () => SlateSource,
+    () => SlateSource$,
     7,
     () => ResponseOutputs,
     0,
     [128 | 0, { [_jN]: _t }],
     0,
-    () => LogConfigurationForChannel,
+    () => LogConfigurationForChannel$,
     64 | 0,
   ],
 ];
-export var ClipRange: StaticStructureSchema = [3, n0, _CR, 0, [_EOM, _SOM], [1, 1]];
-export var ConfigureLogsForChannelRequest: StaticStructureSchema = [3, n0, _CLFCR, 0, [_CN, _LT], [0, 64 | 0]];
-export var ConfigureLogsForChannelResponse: StaticStructureSchema = [3, n0, _CLFCRo, 0, [_CN, _LT], [0, 64 | 0]];
-export var ConfigureLogsForPlaybackConfigurationRequest: StaticStructureSchema = [
+export var ClipRange$: StaticStructureSchema = [3, n0, _CR, 0, [_EOM, _SOM], [1, 1]];
+export var ConfigureLogsForChannelRequest$: StaticStructureSchema = [3, n0, _CLFCR, 0, [_CN, _LT], [0, 64 | 0]];
+export var ConfigureLogsForChannelResponse$: StaticStructureSchema = [3, n0, _CLFCRo, 0, [_CN, _LT], [0, 64 | 0]];
+export var ConfigureLogsForPlaybackConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CLFPCR,
   0,
   [_PE, _PCN, _ELS, _AIL, _MSIL],
-  [1, 0, 64 | 0, () => AdsInteractionLog, () => ManifestServiceInteractionLog],
+  [1, 0, 64 | 0, () => AdsInteractionLog$, () => ManifestServiceInteractionLog$],
 ];
-export var ConfigureLogsForPlaybackConfigurationResponse: StaticStructureSchema = [
+export var ConfigureLogsForPlaybackConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _CLFPCRo,
   0,
   [_PE, _PCN, _ELS, _AIL, _MSIL],
-  [1, 0, 64 | 0, () => AdsInteractionLog, () => ManifestServiceInteractionLog],
+  [1, 0, 64 | 0, () => AdsInteractionLog$, () => ManifestServiceInteractionLog$],
 ];
-export var CreateChannelRequest: StaticStructureSchema = [
+export var CreateChannelRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCR,
@@ -448,16 +448,16 @@ export var CreateChannelRequest: StaticStructureSchema = [
   [_CN, _FS, _Ou, _PM, _T, _Ti, _TSC, _Aud],
   [
     [0, 1],
-    () => SlateSource,
+    () => SlateSource$,
     () => RequestOutputs,
     0,
     [128 | 0, { [_jN]: _t }],
     0,
-    () => TimeShiftConfiguration,
+    () => TimeShiftConfiguration$,
     64 | 0,
   ],
 ];
-export var CreateChannelResponse: StaticStructureSchema = [
+export var CreateChannelResponse$: StaticStructureSchema = [
   3,
   n0,
   _CCRr,
@@ -468,17 +468,17 @@ export var CreateChannelResponse: StaticStructureSchema = [
     0,
     0,
     7,
-    () => SlateSource,
+    () => SlateSource$,
     7,
     () => ResponseOutputs,
     0,
     [128 | 0, { [_jN]: _t }],
     0,
-    () => TimeShiftConfiguration,
+    () => TimeShiftConfiguration$,
     64 | 0,
   ],
 ];
-export var CreateLiveSourceRequest: StaticStructureSchema = [
+export var CreateLiveSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _CLSR,
@@ -486,7 +486,7 @@ export var CreateLiveSourceRequest: StaticStructureSchema = [
   [_HPC, _LSN, _SLN, _T],
   [() => HttpPackageConfigurations, [0, 1], [0, 1], [128 | 0, { [_jN]: _t }]],
 ];
-export var CreateLiveSourceResponse: StaticStructureSchema = [
+export var CreateLiveSourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _CLSRr,
@@ -494,72 +494,72 @@ export var CreateLiveSourceResponse: StaticStructureSchema = [
   [_Ar, _CT, _HPC, _LMT, _LSN, _SLN, _T],
   [0, 7, () => HttpPackageConfigurations, 7, 0, 0, [128 | 0, { [_jN]: _t }]],
 ];
-export var CreatePrefetchScheduleRequest: StaticStructureSchema = [
+export var CreatePrefetchScheduleRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPSR,
   0,
   [_Co, _N, _PCN, _R, _RPC, _ST, _SI],
-  [() => PrefetchConsumption, [0, 1], [0, 1], () => PrefetchRetrieval, () => RecurringPrefetchConfiguration, 0, 0],
+  [() => PrefetchConsumption$, [0, 1], [0, 1], () => PrefetchRetrieval$, () => RecurringPrefetchConfiguration$, 0, 0],
 ];
-export var CreatePrefetchScheduleResponse: StaticStructureSchema = [
+export var CreatePrefetchScheduleResponse$: StaticStructureSchema = [
   3,
   n0,
   _CPSRr,
   0,
   [_Ar, _Co, _N, _PCN, _R, _RPC, _ST, _SI],
-  [0, () => PrefetchConsumption, 0, 0, () => PrefetchRetrieval, () => RecurringPrefetchConfiguration, 0, 0],
+  [0, () => PrefetchConsumption$, 0, 0, () => PrefetchRetrieval$, () => RecurringPrefetchConfiguration$, 0, 0],
 ];
-export var CreateProgramRequest: StaticStructureSchema = [
+export var CreateProgramRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPR,
   0,
   [_ABd, _CN, _LSN, _PN, _SC, _SLN, _VSN, _AMu],
-  [() => __listOfAdBreak, [0, 1], 0, [0, 1], () => ScheduleConfiguration, 0, 0, () => __listOfAudienceMedia],
+  [() => __listOfAdBreak, [0, 1], 0, [0, 1], () => ScheduleConfiguration$, 0, 0, () => __listOfAudienceMedia],
 ];
-export var CreateProgramResponse: StaticStructureSchema = [
+export var CreateProgramResponse$: StaticStructureSchema = [
   3,
   n0,
   _CPRr,
   0,
   [_ABd, _Ar, _CN, _CT, _LSN, _PN, _SST, _SLN, _VSN, _CR, _DM, _AMu],
-  [() => __listOfAdBreak, 0, 0, 7, 0, 0, 7, 0, 0, () => ClipRange, 1, () => __listOfAudienceMedia],
+  [() => __listOfAdBreak, 0, 0, 7, 0, 0, 7, 0, 0, () => ClipRange$, 1, () => __listOfAudienceMedia],
 ];
-export var CreateSourceLocationRequest: StaticStructureSchema = [
+export var CreateSourceLocationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSLR,
   0,
   [_AC, _DSDC, _HC, _SDC, _SLN, _T],
   [
-    () => AccessConfiguration,
-    () => DefaultSegmentDeliveryConfiguration,
-    () => HttpConfiguration,
+    () => AccessConfiguration$,
+    () => DefaultSegmentDeliveryConfiguration$,
+    () => HttpConfiguration$,
     () => __listOfSegmentDeliveryConfiguration,
     [0, 1],
     [128 | 0, { [_jN]: _t }],
   ],
 ];
-export var CreateSourceLocationResponse: StaticStructureSchema = [
+export var CreateSourceLocationResponse$: StaticStructureSchema = [
   3,
   n0,
   _CSLRr,
   0,
   [_AC, _Ar, _CT, _DSDC, _HC, _LMT, _SDC, _SLN, _T],
   [
-    () => AccessConfiguration,
+    () => AccessConfiguration$,
     0,
     7,
-    () => DefaultSegmentDeliveryConfiguration,
-    () => HttpConfiguration,
+    () => DefaultSegmentDeliveryConfiguration$,
+    () => HttpConfiguration$,
     7,
     () => __listOfSegmentDeliveryConfiguration,
     0,
     [128 | 0, { [_jN]: _t }],
   ],
 ];
-export var CreateVodSourceRequest: StaticStructureSchema = [
+export var CreateVodSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _CVSR,
@@ -567,7 +567,7 @@ export var CreateVodSourceRequest: StaticStructureSchema = [
   [_HPC, _SLN, _T, _VSN],
   [() => HttpPackageConfigurations, [0, 1], [128 | 0, { [_jN]: _t }], [0, 1]],
 ];
-export var CreateVodSourceResponse: StaticStructureSchema = [
+export var CreateVodSourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _CVSRr,
@@ -575,15 +575,15 @@ export var CreateVodSourceResponse: StaticStructureSchema = [
   [_Ar, _CT, _HPC, _LMT, _SLN, _T, _VSN],
   [0, 7, () => HttpPackageConfigurations, 7, 0, [128 | 0, { [_jN]: _t }], 0],
 ];
-export var DashConfiguration: StaticStructureSchema = [3, n0, _DC, 0, [_MEP, _ML, _OMT], [0, 0, 0]];
-export var DashConfigurationForPut: StaticStructureSchema = [3, n0, _DCFP, 0, [_ML, _OMT], [0, 0]];
-export var DashPlaylistSettings: StaticStructureSchema = [3, n0, _DPS, 0, [_MWS, _MBTS, _MUPS, _SPDS], [1, 1, 1, 1]];
-export var DefaultSegmentDeliveryConfiguration: StaticStructureSchema = [3, n0, _DSDC, 0, [_BU], [0]];
-export var DeleteChannelPolicyRequest: StaticStructureSchema = [3, n0, _DCPR, 0, [_CN], [[0, 1]]];
-export var DeleteChannelPolicyResponse: StaticStructureSchema = [3, n0, _DCPRe, 0, [], []];
-export var DeleteChannelRequest: StaticStructureSchema = [3, n0, _DCR, 0, [_CN], [[0, 1]]];
-export var DeleteChannelResponse: StaticStructureSchema = [3, n0, _DCRe, 0, [], []];
-export var DeleteLiveSourceRequest: StaticStructureSchema = [
+export var DashConfiguration$: StaticStructureSchema = [3, n0, _DC, 0, [_MEP, _ML, _OMT], [0, 0, 0]];
+export var DashConfigurationForPut$: StaticStructureSchema = [3, n0, _DCFP, 0, [_ML, _OMT], [0, 0]];
+export var DashPlaylistSettings$: StaticStructureSchema = [3, n0, _DPS, 0, [_MWS, _MBTS, _MUPS, _SPDS], [1, 1, 1, 1]];
+export var DefaultSegmentDeliveryConfiguration$: StaticStructureSchema = [3, n0, _DSDC, 0, [_BU], [0]];
+export var DeleteChannelPolicyRequest$: StaticStructureSchema = [3, n0, _DCPR, 0, [_CN], [[0, 1]]];
+export var DeleteChannelPolicyResponse$: StaticStructureSchema = [3, n0, _DCPRe, 0, [], []];
+export var DeleteChannelRequest$: StaticStructureSchema = [3, n0, _DCR, 0, [_CN], [[0, 1]]];
+export var DeleteChannelResponse$: StaticStructureSchema = [3, n0, _DCRe, 0, [], []];
+export var DeleteLiveSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _DLSR,
@@ -594,10 +594,10 @@ export var DeleteLiveSourceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteLiveSourceResponse: StaticStructureSchema = [3, n0, _DLSRe, 0, [], []];
-export var DeletePlaybackConfigurationRequest: StaticStructureSchema = [3, n0, _DPCR, 0, [_N], [[0, 1]]];
-export var DeletePlaybackConfigurationResponse: StaticStructureSchema = [3, n0, _DPCRe, 0, [], []];
-export var DeletePrefetchScheduleRequest: StaticStructureSchema = [
+export var DeleteLiveSourceResponse$: StaticStructureSchema = [3, n0, _DLSRe, 0, [], []];
+export var DeletePlaybackConfigurationRequest$: StaticStructureSchema = [3, n0, _DPCR, 0, [_N], [[0, 1]]];
+export var DeletePlaybackConfigurationResponse$: StaticStructureSchema = [3, n0, _DPCRe, 0, [], []];
+export var DeletePrefetchScheduleRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPSR,
@@ -608,8 +608,8 @@ export var DeletePrefetchScheduleRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeletePrefetchScheduleResponse: StaticStructureSchema = [3, n0, _DPSRe, 0, [], []];
-export var DeleteProgramRequest: StaticStructureSchema = [
+export var DeletePrefetchScheduleResponse$: StaticStructureSchema = [3, n0, _DPSRe, 0, [], []];
+export var DeleteProgramRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPR,
@@ -620,10 +620,10 @@ export var DeleteProgramRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteProgramResponse: StaticStructureSchema = [3, n0, _DPRe, 0, [], []];
-export var DeleteSourceLocationRequest: StaticStructureSchema = [3, n0, _DSLR, 0, [_SLN], [[0, 1]]];
-export var DeleteSourceLocationResponse: StaticStructureSchema = [3, n0, _DSLRe, 0, [], []];
-export var DeleteVodSourceRequest: StaticStructureSchema = [
+export var DeleteProgramResponse$: StaticStructureSchema = [3, n0, _DPRe, 0, [], []];
+export var DeleteSourceLocationRequest$: StaticStructureSchema = [3, n0, _DSLR, 0, [_SLN], [[0, 1]]];
+export var DeleteSourceLocationResponse$: StaticStructureSchema = [3, n0, _DSLRe, 0, [], []];
+export var DeleteVodSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _DVSR,
@@ -634,9 +634,9 @@ export var DeleteVodSourceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteVodSourceResponse: StaticStructureSchema = [3, n0, _DVSRe, 0, [], []];
-export var DescribeChannelRequest: StaticStructureSchema = [3, n0, _DCRes, 0, [_CN], [[0, 1]]];
-export var DescribeChannelResponse: StaticStructureSchema = [
+export var DeleteVodSourceResponse$: StaticStructureSchema = [3, n0, _DVSRe, 0, [], []];
+export var DescribeChannelRequest$: StaticStructureSchema = [3, n0, _DCRes, 0, [_CN], [[0, 1]]];
+export var DescribeChannelResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCResc,
@@ -647,18 +647,18 @@ export var DescribeChannelResponse: StaticStructureSchema = [
     0,
     0,
     7,
-    () => SlateSource,
+    () => SlateSource$,
     7,
     () => ResponseOutputs,
     0,
     [128 | 0, { [_jN]: _t }],
     0,
-    () => LogConfigurationForChannel,
-    () => TimeShiftConfiguration,
+    () => LogConfigurationForChannel$,
+    () => TimeShiftConfiguration$,
     64 | 0,
   ],
 ];
-export var DescribeLiveSourceRequest: StaticStructureSchema = [
+export var DescribeLiveSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _DLSRes,
@@ -669,7 +669,7 @@ export var DescribeLiveSourceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeLiveSourceResponse: StaticStructureSchema = [
+export var DescribeLiveSourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _DLSResc,
@@ -677,7 +677,7 @@ export var DescribeLiveSourceResponse: StaticStructureSchema = [
   [_Ar, _CT, _HPC, _LMT, _LSN, _SLN, _T],
   [0, 7, () => HttpPackageConfigurations, 7, 0, 0, [128 | 0, { [_jN]: _t }]],
 ];
-export var DescribeProgramRequest: StaticStructureSchema = [
+export var DescribeProgramRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPRes,
@@ -688,34 +688,34 @@ export var DescribeProgramRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeProgramResponse: StaticStructureSchema = [
+export var DescribeProgramResponse$: StaticStructureSchema = [
   3,
   n0,
   _DPResc,
   0,
   [_ABd, _Ar, _CN, _CT, _LSN, _PN, _SST, _SLN, _VSN, _CR, _DM, _AMu],
-  [() => __listOfAdBreak, 0, 0, 7, 0, 0, 7, 0, 0, () => ClipRange, 1, () => __listOfAudienceMedia],
+  [() => __listOfAdBreak, 0, 0, 7, 0, 0, 7, 0, 0, () => ClipRange$, 1, () => __listOfAudienceMedia],
 ];
-export var DescribeSourceLocationRequest: StaticStructureSchema = [3, n0, _DSLRes, 0, [_SLN], [[0, 1]]];
-export var DescribeSourceLocationResponse: StaticStructureSchema = [
+export var DescribeSourceLocationRequest$: StaticStructureSchema = [3, n0, _DSLRes, 0, [_SLN], [[0, 1]]];
+export var DescribeSourceLocationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DSLResc,
   0,
   [_AC, _Ar, _CT, _DSDC, _HC, _LMT, _SDC, _SLN, _T],
   [
-    () => AccessConfiguration,
+    () => AccessConfiguration$,
     0,
     7,
-    () => DefaultSegmentDeliveryConfiguration,
-    () => HttpConfiguration,
+    () => DefaultSegmentDeliveryConfiguration$,
+    () => HttpConfiguration$,
     7,
     () => __listOfSegmentDeliveryConfiguration,
     0,
     [128 | 0, { [_jN]: _t }],
   ],
 ];
-export var DescribeVodSourceRequest: StaticStructureSchema = [
+export var DescribeVodSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _DVSRes,
@@ -726,7 +726,7 @@ export var DescribeVodSourceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeVodSourceResponse: StaticStructureSchema = [
+export var DescribeVodSourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _DVSResc,
@@ -734,9 +734,9 @@ export var DescribeVodSourceResponse: StaticStructureSchema = [
   [_ABOd, _Ar, _CT, _HPC, _LMT, _SLN, _T, _VSN],
   [() => AdBreakOpportunities, 0, 7, () => HttpPackageConfigurations, 7, 0, [128 | 0, { [_jN]: _t }], 0],
 ];
-export var GetChannelPolicyRequest: StaticStructureSchema = [3, n0, _GCPR, 0, [_CN], [[0, 1]]];
-export var GetChannelPolicyResponse: StaticStructureSchema = [3, n0, _GCPRe, 0, [_P], [0]];
-export var GetChannelScheduleRequest: StaticStructureSchema = [
+export var GetChannelPolicyRequest$: StaticStructureSchema = [3, n0, _GCPR, 0, [_CN], [[0, 1]]];
+export var GetChannelPolicyResponse$: StaticStructureSchema = [3, n0, _GCPRe, 0, [_P], [0]];
+export var GetChannelScheduleRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCSR,
@@ -750,7 +750,7 @@ export var GetChannelScheduleRequest: StaticStructureSchema = [
     [0, { [_hQ]: _a }],
   ],
 ];
-export var GetChannelScheduleResponse: StaticStructureSchema = [
+export var GetChannelScheduleResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCSRe,
@@ -758,8 +758,8 @@ export var GetChannelScheduleResponse: StaticStructureSchema = [
   [_I, _NT],
   [() => __listOfScheduleEntry, 0],
 ];
-export var GetPlaybackConfigurationRequest: StaticStructureSchema = [3, n0, _GPCR, 0, [_N], [[0, 1]]];
-export var GetPlaybackConfigurationResponse: StaticStructureSchema = [
+export var GetPlaybackConfigurationRequest$: StaticStructureSchema = [3, n0, _GPCR, 0, [_N], [[0, 1]]];
+export var GetPlaybackConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GPCRe,
@@ -790,16 +790,16 @@ export var GetPlaybackConfigurationResponse: StaticStructureSchema = [
   ],
   [
     0,
-    () => AvailSuppression,
-    () => Bumper,
-    () => CdnConfiguration,
+    () => AvailSuppression$,
+    () => Bumper$,
+    () => CdnConfiguration$,
     [2, n0, _CAR, 0, 0, 128 | 0],
-    () => DashConfiguration,
-    () => HlsConfiguration,
+    () => DashConfiguration$,
+    () => HlsConfiguration$,
     0,
-    () => LivePreRollConfiguration,
-    () => LogConfiguration,
-    () => ManifestProcessingRules,
+    () => LivePreRollConfiguration$,
+    () => LogConfiguration$,
+    () => ManifestProcessingRules$,
     0,
     1,
     0,
@@ -809,11 +809,11 @@ export var GetPlaybackConfigurationResponse: StaticStructureSchema = [
     [128 | 0, { [_jN]: _t }],
     0,
     0,
-    () => AdConditioningConfiguration,
-    () => AdDecisionServerConfiguration,
+    () => AdConditioningConfiguration$,
+    () => AdDecisionServerConfiguration$,
   ],
 ];
-export var GetPrefetchScheduleRequest: StaticStructureSchema = [
+export var GetPrefetchScheduleRequest$: StaticStructureSchema = [
   3,
   n0,
   _GPSR,
@@ -824,21 +824,21 @@ export var GetPrefetchScheduleRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetPrefetchScheduleResponse: StaticStructureSchema = [
+export var GetPrefetchScheduleResponse$: StaticStructureSchema = [
   3,
   n0,
   _GPSRe,
   0,
   [_Ar, _Co, _N, _PCN, _R, _ST, _RPC, _SI],
-  [0, () => PrefetchConsumption, 0, 0, () => PrefetchRetrieval, 0, () => RecurringPrefetchConfiguration, 0],
+  [0, () => PrefetchConsumption$, 0, 0, () => PrefetchRetrieval$, 0, () => RecurringPrefetchConfiguration$, 0],
 ];
-export var HlsConfiguration: StaticStructureSchema = [3, n0, _HCl, 0, [_MEP], [0]];
-export var HlsPlaylistSettings: StaticStructureSchema = [3, n0, _HPS, 0, [_MWS, _AMT], [1, 64 | 0]];
-export var HttpConfiguration: StaticStructureSchema = [3, n0, _HC, 0, [_BU], [0]];
-export var HttpPackageConfiguration: StaticStructureSchema = [3, n0, _HPCt, 0, [_Pa, _SG, _Ty], [0, 0, 0]];
-export var HttpRequest: StaticStructureSchema = [3, n0, _HR, 0, [_Met, _Bo, _H, _CRo], [0, 0, 128 | 0, 0]];
-export var KeyValuePair: StaticStructureSchema = [3, n0, _KVP, 0, [_K, _V], [0, 0]];
-export var ListAlertsRequest: StaticStructureSchema = [
+export var HlsConfiguration$: StaticStructureSchema = [3, n0, _HCl, 0, [_MEP], [0]];
+export var HlsPlaylistSettings$: StaticStructureSchema = [3, n0, _HPS, 0, [_MWS, _AMT], [1, 64 | 0]];
+export var HttpConfiguration$: StaticStructureSchema = [3, n0, _HC, 0, [_BU], [0]];
+export var HttpPackageConfiguration$: StaticStructureSchema = [3, n0, _HPCt, 0, [_Pa, _SG, _Ty], [0, 0, 0]];
+export var HttpRequest$: StaticStructureSchema = [3, n0, _HR, 0, [_Met, _Bo, _H, _CRo], [0, 0, 128 | 0, 0]];
+export var KeyValuePair$: StaticStructureSchema = [3, n0, _KVP, 0, [_K, _V], [0, 0]];
+export var ListAlertsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAR,
@@ -850,8 +850,8 @@ export var ListAlertsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _rA }],
   ],
 ];
-export var ListAlertsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_I, _NT], [() => __listOfAlert, 0]];
-export var ListChannelsRequest: StaticStructureSchema = [
+export var ListAlertsResponse$: StaticStructureSchema = [3, n0, _LARi, 0, [_I, _NT], [() => __listOfAlert, 0]];
+export var ListChannelsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCR,
@@ -862,8 +862,8 @@ export var ListChannelsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListChannelsResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_I, _NT], [[() => __listOfChannel, 0], 0]];
-export var ListLiveSourcesRequest: StaticStructureSchema = [
+export var ListChannelsResponse$: StaticStructureSchema = [3, n0, _LCRi, 0, [_I, _NT], [[() => __listOfChannel, 0], 0]];
+export var ListLiveSourcesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LLSR,
@@ -875,7 +875,7 @@ export var ListLiveSourcesRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ListLiveSourcesResponse: StaticStructureSchema = [
+export var ListLiveSourcesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LLSRi,
@@ -883,7 +883,7 @@ export var ListLiveSourcesResponse: StaticStructureSchema = [
   [_I, _NT],
   [[() => __listOfLiveSource, 0], 0],
 ];
-export var ListPlaybackConfigurationsRequest: StaticStructureSchema = [
+export var ListPlaybackConfigurationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPCR,
@@ -894,7 +894,7 @@ export var ListPlaybackConfigurationsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListPlaybackConfigurationsResponse: StaticStructureSchema = [
+export var ListPlaybackConfigurationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPCRi,
@@ -902,7 +902,7 @@ export var ListPlaybackConfigurationsResponse: StaticStructureSchema = [
   [_I, _NT],
   [[() => __listOfPlaybackConfiguration, 0], 0],
 ];
-export var ListPrefetchSchedulesRequest: StaticStructureSchema = [
+export var ListPrefetchSchedulesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPSR,
@@ -910,7 +910,7 @@ export var ListPrefetchSchedulesRequest: StaticStructureSchema = [
   [_MR, _NT, _PCN, _ST, _SI],
   [1, 0, [0, 1], 0, 0],
 ];
-export var ListPrefetchSchedulesResponse: StaticStructureSchema = [
+export var ListPrefetchSchedulesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPSRi,
@@ -918,7 +918,7 @@ export var ListPrefetchSchedulesResponse: StaticStructureSchema = [
   [_I, _NT],
   [() => __listOfPrefetchSchedule, 0],
 ];
-export var ListSourceLocationsRequest: StaticStructureSchema = [
+export var ListSourceLocationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSLR,
@@ -929,7 +929,7 @@ export var ListSourceLocationsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListSourceLocationsResponse: StaticStructureSchema = [
+export var ListSourceLocationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSLRi,
@@ -937,9 +937,9 @@ export var ListSourceLocationsResponse: StaticStructureSchema = [
   [_I, _NT],
   [[() => __listOfSourceLocation, 0], 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [[128 | 0, { [_jN]: _t }]]];
-export var ListVodSourcesRequest: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [[128 | 0, { [_jN]: _t }]]];
+export var ListVodSourcesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LVSR,
@@ -951,7 +951,7 @@ export var ListVodSourcesRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ListVodSourcesResponse: StaticStructureSchema = [
+export var ListVodSourcesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LVSRi,
@@ -959,8 +959,8 @@ export var ListVodSourcesResponse: StaticStructureSchema = [
   [_I, _NT],
   [[() => __listOfVodSource, 0], 0],
 ];
-export var LivePreRollConfiguration: StaticStructureSchema = [3, n0, _LPRC, 0, [_ADSU, _MDS], [0, 1]];
-export var LiveSource: StaticStructureSchema = [
+export var LivePreRollConfiguration$: StaticStructureSchema = [3, n0, _LPRC, 0, [_ADSU, _MDS], [0, 1]];
+export var LiveSource$: StaticStructureSchema = [
   3,
   n0,
   _LS,
@@ -968,18 +968,18 @@ export var LiveSource: StaticStructureSchema = [
   [_Ar, _CT, _HPC, _LMT, _LSN, _SLN, _T],
   [0, 7, () => HttpPackageConfigurations, 7, 0, 0, [128 | 0, { [_jN]: _t }]],
 ];
-export var LogConfiguration: StaticStructureSchema = [
+export var LogConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _LC,
   0,
   [_PE, _ELS, _AIL, _MSIL],
-  [1, 64 | 0, () => AdsInteractionLog, () => ManifestServiceInteractionLog],
+  [1, 64 | 0, () => AdsInteractionLog$, () => ManifestServiceInteractionLog$],
 ];
-export var LogConfigurationForChannel: StaticStructureSchema = [3, n0, _LCFC, 0, [_LT], [64 | 0]];
-export var ManifestProcessingRules: StaticStructureSchema = [3, n0, _MPR, 0, [_AMP], [() => AdMarkerPassthrough]];
-export var ManifestServiceInteractionLog: StaticStructureSchema = [3, n0, _MSIL, 0, [_EET], [64 | 0]];
-export var PlaybackConfiguration: StaticStructureSchema = [
+export var LogConfigurationForChannel$: StaticStructureSchema = [3, n0, _LCFC, 0, [_LT], [64 | 0]];
+export var ManifestProcessingRules$: StaticStructureSchema = [3, n0, _MPR, 0, [_AMP], [() => AdMarkerPassthrough$]];
+export var ManifestServiceInteractionLog$: StaticStructureSchema = [3, n0, _MSIL, 0, [_EET], [64 | 0]];
+export var PlaybackConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PC,
@@ -1010,16 +1010,16 @@ export var PlaybackConfiguration: StaticStructureSchema = [
   ],
   [
     0,
-    () => AvailSuppression,
-    () => Bumper,
-    () => CdnConfiguration,
+    () => AvailSuppression$,
+    () => Bumper$,
+    () => CdnConfiguration$,
     [2, n0, _CAR, 0, 0, 128 | 0],
-    () => DashConfiguration,
-    () => HlsConfiguration,
+    () => DashConfiguration$,
+    () => HlsConfiguration$,
     0,
-    () => LivePreRollConfiguration,
-    () => LogConfiguration,
-    () => ManifestProcessingRules,
+    () => LivePreRollConfiguration$,
+    () => LogConfiguration$,
+    () => ManifestProcessingRules$,
     0,
     1,
     0,
@@ -1029,11 +1029,11 @@ export var PlaybackConfiguration: StaticStructureSchema = [
     [128 | 0, { [_jN]: _t }],
     0,
     0,
-    () => AdConditioningConfiguration,
-    () => AdDecisionServerConfiguration,
+    () => AdConditioningConfiguration$,
+    () => AdDecisionServerConfiguration$,
   ],
 ];
-export var PrefetchConsumption: StaticStructureSchema = [
+export var PrefetchConsumption$: StaticStructureSchema = [
   3,
   n0,
   _PCr,
@@ -1041,25 +1041,25 @@ export var PrefetchConsumption: StaticStructureSchema = [
   [_AMC, _ET, _STt],
   [() => __listOfAvailMatchingCriteria, 7, 7],
 ];
-export var PrefetchRetrieval: StaticStructureSchema = [
+export var PrefetchRetrieval$: StaticStructureSchema = [
   3,
   n0,
   _PR,
   0,
   [_DVy, _ET, _STt, _TST, _TSRW, _TSTC],
-  [128 | 0, 7, 7, 0, () => TrafficShapingRetrievalWindow, () => TrafficShapingTpsConfiguration],
+  [128 | 0, 7, 7, 0, () => TrafficShapingRetrievalWindow$, () => TrafficShapingTpsConfiguration$],
 ];
-export var PrefetchSchedule: StaticStructureSchema = [
+export var PrefetchSchedule$: StaticStructureSchema = [
   3,
   n0,
   _PS,
   0,
   [_Ar, _Co, _N, _PCN, _R, _ST, _RPC, _SI],
-  [0, () => PrefetchConsumption, 0, 0, () => PrefetchRetrieval, 0, () => RecurringPrefetchConfiguration, 0],
+  [0, () => PrefetchConsumption$, 0, 0, () => PrefetchRetrieval$, 0, () => RecurringPrefetchConfiguration$, 0],
 ];
-export var PutChannelPolicyRequest: StaticStructureSchema = [3, n0, _PCPR, 0, [_CN, _P], [[0, 1], 0]];
-export var PutChannelPolicyResponse: StaticStructureSchema = [3, n0, _PCPRu, 0, [], []];
-export var PutPlaybackConfigurationRequest: StaticStructureSchema = [
+export var PutChannelPolicyRequest$: StaticStructureSchema = [3, n0, _PCPR, 0, [_CN, _P], [[0, 1], 0]];
+export var PutChannelPolicyResponse$: StaticStructureSchema = [3, n0, _PCPRu, 0, [], []];
+export var PutPlaybackConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PPCR,
@@ -1067,25 +1067,25 @@ export var PutPlaybackConfigurationRequest: StaticStructureSchema = [
   [_ADSU, _AS, _B, _CC, _CA, _DC, _IM, _LPRC, _MPR, _N, _PTS, _SAU, _T, _TPN, _VCSU, _ACC, _ADSC],
   [
     0,
-    () => AvailSuppression,
-    () => Bumper,
-    () => CdnConfiguration,
+    () => AvailSuppression$,
+    () => Bumper$,
+    () => CdnConfiguration$,
     [2, n0, _CARo, 0, 0, 128 | 0],
-    () => DashConfigurationForPut,
+    () => DashConfigurationForPut$,
     0,
-    () => LivePreRollConfiguration,
-    () => ManifestProcessingRules,
+    () => LivePreRollConfiguration$,
+    () => ManifestProcessingRules$,
     0,
     1,
     0,
     [128 | 0, { [_jN]: _t }],
     0,
     0,
-    () => AdConditioningConfiguration,
-    () => AdDecisionServerConfiguration,
+    () => AdConditioningConfiguration$,
+    () => AdDecisionServerConfiguration$,
   ],
 ];
-export var PutPlaybackConfigurationResponse: StaticStructureSchema = [
+export var PutPlaybackConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _PPCRu,
@@ -1116,16 +1116,16 @@ export var PutPlaybackConfigurationResponse: StaticStructureSchema = [
   ],
   [
     0,
-    () => AvailSuppression,
-    () => Bumper,
-    () => CdnConfiguration,
+    () => AvailSuppression$,
+    () => Bumper$,
+    () => CdnConfiguration$,
     [2, n0, _CAR, 0, 0, 128 | 0],
-    () => DashConfiguration,
-    () => HlsConfiguration,
+    () => DashConfiguration$,
+    () => HlsConfiguration$,
     0,
-    () => LivePreRollConfiguration,
-    () => LogConfiguration,
-    () => ManifestProcessingRules,
+    () => LivePreRollConfiguration$,
+    () => LogConfiguration$,
+    () => ManifestProcessingRules$,
     0,
     1,
     0,
@@ -1135,11 +1135,11 @@ export var PutPlaybackConfigurationResponse: StaticStructureSchema = [
     [128 | 0, { [_jN]: _t }],
     0,
     0,
-    () => AdConditioningConfiguration,
-    () => AdDecisionServerConfiguration,
+    () => AdConditioningConfiguration$,
+    () => AdDecisionServerConfiguration$,
   ],
 ];
-export var RecurringConsumption: StaticStructureSchema = [
+export var RecurringConsumption$: StaticStructureSchema = [
   3,
   n0,
   _RC,
@@ -1147,48 +1147,48 @@ export var RecurringConsumption: StaticStructureSchema = [
   [_RAES, _AMC],
   [1, () => __listOfAvailMatchingCriteria],
 ];
-export var RecurringPrefetchConfiguration: StaticStructureSchema = [
+export var RecurringPrefetchConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RPC,
   0,
   [_STt, _ET, _RC, _RR],
-  [7, 7, () => RecurringConsumption, () => RecurringRetrieval],
+  [7, 7, () => RecurringConsumption$, () => RecurringRetrieval$],
 ];
-export var RecurringRetrieval: StaticStructureSchema = [
+export var RecurringRetrieval$: StaticStructureSchema = [
   3,
   n0,
   _RR,
   0,
   [_DVy, _DAAES, _TST, _TSRW, _TSTC],
-  [128 | 0, 1, 0, () => TrafficShapingRetrievalWindow, () => TrafficShapingTpsConfiguration],
+  [128 | 0, 1, 0, () => TrafficShapingRetrievalWindow$, () => TrafficShapingTpsConfiguration$],
 ];
-export var RequestOutputItem: StaticStructureSchema = [
+export var RequestOutputItem$: StaticStructureSchema = [
   3,
   n0,
   _ROI,
   0,
   [_DPS, _HPS, _MN, _SG],
-  [() => DashPlaylistSettings, () => HlsPlaylistSettings, 0, 0],
+  [() => DashPlaylistSettings$, () => HlsPlaylistSettings$, 0, 0],
 ];
-export var ResponseOutputItem: StaticStructureSchema = [
+export var ResponseOutputItem$: StaticStructureSchema = [
   3,
   n0,
   _ROIe,
   0,
   [_DPS, _HPS, _MN, _PU, _SG],
-  [() => DashPlaylistSettings, () => HlsPlaylistSettings, 0, 0, 0],
+  [() => DashPlaylistSettings$, () => HlsPlaylistSettings$, 0, 0, 0],
 ];
-export var ScheduleAdBreak: StaticStructureSchema = [3, n0, _SAB, 0, [_ADS, _AST, _SLN, _VSN], [1, 7, 0, 0]];
-export var ScheduleConfiguration: StaticStructureSchema = [
+export var ScheduleAdBreak$: StaticStructureSchema = [3, n0, _SAB, 0, [_ADS, _AST, _SLN, _VSN], [1, 7, 0, 0]];
+export var ScheduleConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SC,
   0,
   [_Tr, _CR],
-  [() => Transition, () => ClipRange],
+  [() => Transition$, () => ClipRange$],
 ];
-export var ScheduleEntry: StaticStructureSchema = [
+export var ScheduleEntry$: StaticStructureSchema = [
   3,
   n0,
   _SE,
@@ -1196,7 +1196,7 @@ export var ScheduleEntry: StaticStructureSchema = [
   [_ADS, _AST, _Ar, _CN, _LSN, _PN, _SABc, _SET, _SLN, _VSN, _Aud],
   [1, 7, 0, 0, 0, 0, () => __listOfScheduleAdBreak, 0, 0, 0, 64 | 0],
 ];
-export var SecretsManagerAccessTokenConfiguration: StaticStructureSchema = [
+export var SecretsManagerAccessTokenConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SMATC,
@@ -1204,7 +1204,7 @@ export var SecretsManagerAccessTokenConfiguration: StaticStructureSchema = [
   [_HN, _SA, _SSK],
   [0, 0, 0],
 ];
-export var SegmentationDescriptor: StaticStructureSchema = [
+export var SegmentationDescriptor$: StaticStructureSchema = [
   3,
   n0,
   _SD,
@@ -1212,32 +1212,32 @@ export var SegmentationDescriptor: StaticStructureSchema = [
   [_SEI, _SUT, _SUe, _STI, _SN, _SEe, _SSN, _SSE],
   [1, 1, 0, 1, 1, 1, 1, 1],
 ];
-export var SegmentDeliveryConfiguration: StaticStructureSchema = [3, n0, _SDCe, 0, [_BU, _N], [0, 0]];
-export var SlateSource: StaticStructureSchema = [3, n0, _SS, 0, [_SLN, _VSN], [0, 0]];
-export var SourceLocation: StaticStructureSchema = [
+export var SegmentDeliveryConfiguration$: StaticStructureSchema = [3, n0, _SDCe, 0, [_BU, _N], [0, 0]];
+export var SlateSource$: StaticStructureSchema = [3, n0, _SS, 0, [_SLN, _VSN], [0, 0]];
+export var SourceLocation$: StaticStructureSchema = [
   3,
   n0,
   _SL,
   0,
   [_AC, _Ar, _CT, _DSDC, _HC, _LMT, _SDC, _SLN, _T],
   [
-    () => AccessConfiguration,
+    () => AccessConfiguration$,
     0,
     7,
-    () => DefaultSegmentDeliveryConfiguration,
-    () => HttpConfiguration,
+    () => DefaultSegmentDeliveryConfiguration$,
+    () => HttpConfiguration$,
     7,
     () => __listOfSegmentDeliveryConfiguration,
     0,
     [128 | 0, { [_jN]: _t }],
   ],
 ];
-export var SpliceInsertMessage: StaticStructureSchema = [3, n0, _SIM, 0, [_AN, _AE, _SEIp, _UPI], [1, 1, 1, 1]];
-export var StartChannelRequest: StaticStructureSchema = [3, n0, _SCR, 0, [_CN], [[0, 1]]];
-export var StartChannelResponse: StaticStructureSchema = [3, n0, _SCRt, 0, [], []];
-export var StopChannelRequest: StaticStructureSchema = [3, n0, _SCRto, 0, [_CN], [[0, 1]]];
-export var StopChannelResponse: StaticStructureSchema = [3, n0, _SCRtop, 0, [], []];
-export var TagResourceRequest: StaticStructureSchema = [
+export var SpliceInsertMessage$: StaticStructureSchema = [3, n0, _SIM, 0, [_AN, _AE, _SEIp, _UPI], [1, 1, 1, 1]];
+export var StartChannelRequest$: StaticStructureSchema = [3, n0, _SCR, 0, [_CN], [[0, 1]]];
+export var StartChannelResponse$: StaticStructureSchema = [3, n0, _SCRt, 0, [], []];
+export var StopChannelRequest$: StaticStructureSchema = [3, n0, _SCRto, 0, [_CN], [[0, 1]]];
+export var StopChannelResponse$: StaticStructureSchema = [3, n0, _SCRtop, 0, [], []];
+export var TagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _TRR,
@@ -1248,12 +1248,12 @@ export var TagResourceRequest: StaticStructureSchema = [
     [128 | 0, { [_jN]: _t }],
   ],
 ];
-export var TimeShiftConfiguration: StaticStructureSchema = [3, n0, _TSC, 0, [_MTDS], [1]];
-export var TimeSignalMessage: StaticStructureSchema = [3, n0, _TSM, 0, [_SDe], [() => SegmentationDescriptorList]];
-export var TrafficShapingRetrievalWindow: StaticStructureSchema = [3, n0, _TSRW, 0, [_RWDS], [1]];
-export var TrafficShapingTpsConfiguration: StaticStructureSchema = [3, n0, _TSTC, 0, [_PT, _PCU], [1, 1]];
-export var Transition: StaticStructureSchema = [3, n0, _Tr, 0, [_DM, _RP, _RPe, _SSTM, _Ty], [1, 0, 0, 1, 0]];
-export var UntagResourceRequest: StaticStructureSchema = [
+export var TimeShiftConfiguration$: StaticStructureSchema = [3, n0, _TSC, 0, [_MTDS], [1]];
+export var TimeSignalMessage$: StaticStructureSchema = [3, n0, _TSM, 0, [_SDe], [() => SegmentationDescriptorList]];
+export var TrafficShapingRetrievalWindow$: StaticStructureSchema = [3, n0, _TSRW, 0, [_RWDS], [1]];
+export var TrafficShapingTpsConfiguration$: StaticStructureSchema = [3, n0, _TSTC, 0, [_PT, _PCU], [1, 1]];
+export var Transition$: StaticStructureSchema = [3, n0, _Tr, 0, [_DM, _RP, _RPe, _SSTM, _Ty], [1, 0, 0, 1, 0]];
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -1264,15 +1264,15 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UpdateChannelRequest: StaticStructureSchema = [
+export var UpdateChannelRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCR,
   0,
   [_CN, _FS, _Ou, _TSC, _Aud],
-  [[0, 1], () => SlateSource, () => RequestOutputs, () => TimeShiftConfiguration, 64 | 0],
+  [[0, 1], () => SlateSource$, () => RequestOutputs, () => TimeShiftConfiguration$, 64 | 0],
 ];
-export var UpdateChannelResponse: StaticStructureSchema = [
+export var UpdateChannelResponse$: StaticStructureSchema = [
   3,
   n0,
   _UCRp,
@@ -1283,17 +1283,17 @@ export var UpdateChannelResponse: StaticStructureSchema = [
     0,
     0,
     7,
-    () => SlateSource,
+    () => SlateSource$,
     7,
     () => ResponseOutputs,
     0,
     [128 | 0, { [_jN]: _t }],
     0,
-    () => TimeShiftConfiguration,
+    () => TimeShiftConfiguration$,
     64 | 0,
   ],
 ];
-export var UpdateLiveSourceRequest: StaticStructureSchema = [
+export var UpdateLiveSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _ULSR,
@@ -1301,7 +1301,7 @@ export var UpdateLiveSourceRequest: StaticStructureSchema = [
   [_HPC, _LSN, _SLN],
   [() => HttpPackageConfigurations, [0, 1], [0, 1]],
 ];
-export var UpdateLiveSourceResponse: StaticStructureSchema = [
+export var UpdateLiveSourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _ULSRp,
@@ -1309,64 +1309,64 @@ export var UpdateLiveSourceResponse: StaticStructureSchema = [
   [_Ar, _CT, _HPC, _LMT, _LSN, _SLN, _T],
   [0, 7, () => HttpPackageConfigurations, 7, 0, 0, [128 | 0, { [_jN]: _t }]],
 ];
-export var UpdateProgramRequest: StaticStructureSchema = [
+export var UpdateProgramRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPR,
   0,
   [_ABd, _CN, _PN, _SC, _AMu],
-  [() => __listOfAdBreak, [0, 1], [0, 1], () => UpdateProgramScheduleConfiguration, () => __listOfAudienceMedia],
+  [() => __listOfAdBreak, [0, 1], [0, 1], () => UpdateProgramScheduleConfiguration$, () => __listOfAudienceMedia],
 ];
-export var UpdateProgramResponse: StaticStructureSchema = [
+export var UpdateProgramResponse$: StaticStructureSchema = [
   3,
   n0,
   _UPRp,
   0,
   [_ABd, _Ar, _CN, _CT, _PN, _SLN, _VSN, _LSN, _CR, _DM, _SST, _AMu],
-  [() => __listOfAdBreak, 0, 0, 7, 0, 0, 0, 0, () => ClipRange, 1, 7, () => __listOfAudienceMedia],
+  [() => __listOfAdBreak, 0, 0, 7, 0, 0, 0, 0, () => ClipRange$, 1, 7, () => __listOfAudienceMedia],
 ];
-export var UpdateProgramScheduleConfiguration: StaticStructureSchema = [
+export var UpdateProgramScheduleConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _UPSC,
   0,
   [_Tr, _CR],
-  [() => UpdateProgramTransition, () => ClipRange],
+  [() => UpdateProgramTransition$, () => ClipRange$],
 ];
-export var UpdateProgramTransition: StaticStructureSchema = [3, n0, _UPT, 0, [_SSTM, _DM], [1, 1]];
-export var UpdateSourceLocationRequest: StaticStructureSchema = [
+export var UpdateProgramTransition$: StaticStructureSchema = [3, n0, _UPT, 0, [_SSTM, _DM], [1, 1]];
+export var UpdateSourceLocationRequest$: StaticStructureSchema = [
   3,
   n0,
   _USLR,
   0,
   [_AC, _DSDC, _HC, _SDC, _SLN],
   [
-    () => AccessConfiguration,
-    () => DefaultSegmentDeliveryConfiguration,
-    () => HttpConfiguration,
+    () => AccessConfiguration$,
+    () => DefaultSegmentDeliveryConfiguration$,
+    () => HttpConfiguration$,
     () => __listOfSegmentDeliveryConfiguration,
     [0, 1],
   ],
 ];
-export var UpdateSourceLocationResponse: StaticStructureSchema = [
+export var UpdateSourceLocationResponse$: StaticStructureSchema = [
   3,
   n0,
   _USLRp,
   0,
   [_AC, _Ar, _CT, _DSDC, _HC, _LMT, _SDC, _SLN, _T],
   [
-    () => AccessConfiguration,
+    () => AccessConfiguration$,
     0,
     7,
-    () => DefaultSegmentDeliveryConfiguration,
-    () => HttpConfiguration,
+    () => DefaultSegmentDeliveryConfiguration$,
+    () => HttpConfiguration$,
     7,
     () => __listOfSegmentDeliveryConfiguration,
     0,
     [128 | 0, { [_jN]: _t }],
   ],
 ];
-export var UpdateVodSourceRequest: StaticStructureSchema = [
+export var UpdateVodSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _UVSR,
@@ -1374,7 +1374,7 @@ export var UpdateVodSourceRequest: StaticStructureSchema = [
   [_HPC, _SLN, _VSN],
   [() => HttpPackageConfigurations, [0, 1], [0, 1]],
 ];
-export var UpdateVodSourceResponse: StaticStructureSchema = [
+export var UpdateVodSourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _UVSRp,
@@ -1382,7 +1382,7 @@ export var UpdateVodSourceResponse: StaticStructureSchema = [
   [_Ar, _CT, _HPC, _LMT, _SLN, _T, _VSN],
   [0, 7, () => HttpPackageConfigurations, 7, 0, [128 | 0, { [_jN]: _t }], 0],
 ];
-export var VodSource: StaticStructureSchema = [
+export var VodSource$: StaticStructureSchema = [
   3,
   n0,
   _VS,
@@ -1390,396 +1390,390 @@ export var VodSource: StaticStructureSchema = [
   [_Ar, _CT, _HPC, _LMT, _SLN, _T, _VSN],
   [0, 7, () => HttpPackageConfigurations, 7, 0, [128 | 0, { [_jN]: _t }], 0],
 ];
-export var __Unit = "unit" as const;
-export var MediaTailorServiceException: StaticErrorSchema = [-3, _s, "MediaTailorServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(MediaTailorServiceException, __MediaTailorServiceException);
-export var __adsInteractionExcludeEventTypesList = 64 | 0;
-export var __adsInteractionPublishOptInEventTypesList = 64 | 0;
-export var __listOf__string = 64 | 0;
-export var __listOfAdBreak: StaticListSchema = [1, n0, _lOAB, 0, () => AdBreak];
-export var __listOfAlert: StaticListSchema = [1, n0, _lOA, 0, () => Alert];
-export var __listOfAlternateMedia: StaticListSchema = [1, n0, _lOAM, 0, () => AlternateMedia];
-export var __listOfAudienceMedia: StaticListSchema = [1, n0, _lOAMi, 0, () => AudienceMedia];
-export var __listOfAvailMatchingCriteria: StaticListSchema = [1, n0, _lOAMC, 0, () => AvailMatchingCriteria];
-export var __listOfChannel: StaticListSchema = [1, n0, _lOC, 0, [() => Channel, 0]];
-export var __listOfLiveSource: StaticListSchema = [1, n0, _lOLS, 0, [() => LiveSource, 0]];
-export var __listOfLoggingStrategies = 64 | 0;
-export var __listOfPlaybackConfiguration: StaticListSchema = [1, n0, _lOPC, 0, [() => PlaybackConfiguration, 0]];
-export var __listOfPrefetchSchedule: StaticListSchema = [1, n0, _lOPS, 0, () => PrefetchSchedule];
-export var __listOfScheduleAdBreak: StaticListSchema = [1, n0, _lOSAB, 0, () => ScheduleAdBreak];
-export var __listOfScheduleEntry: StaticListSchema = [1, n0, _lOSE, 0, () => ScheduleEntry];
-export var __listOfSegmentDeliveryConfiguration: StaticListSchema = [
-  1,
-  n0,
-  _lOSDC,
-  0,
-  () => SegmentDeliveryConfiguration,
-];
-export var __listOfSourceLocation: StaticListSchema = [1, n0, _lOSL, 0, [() => SourceLocation, 0]];
-export var __listOfVodSource: StaticListSchema = [1, n0, _lOVS, 0, [() => VodSource, 0]];
-export var __manifestServiceExcludeEventTypesList = 64 | 0;
-export var AdBreakMetadataList: StaticListSchema = [1, n0, _ABML, 0, () => KeyValuePair];
-export var AdBreakOpportunities: StaticListSchema = [1, n0, _ABOd, 0, () => AdBreakOpportunity];
-export var adMarkupTypes = 64 | 0;
-export var Audiences = 64 | 0;
-export var HttpPackageConfigurations: StaticListSchema = [1, n0, _HPC, 0, () => HttpPackageConfiguration];
-export var LogTypes = 64 | 0;
-export var RequestOutputs: StaticListSchema = [1, n0, _RO, 0, () => RequestOutputItem];
-export var ResponseOutputs: StaticListSchema = [1, n0, _ROe, 0, () => ResponseOutputItem];
-export var SegmentationDescriptorList: StaticListSchema = [1, n0, _SDL, 0, () => SegmentationDescriptor];
-export var __mapOf__string = 128 | 0;
-export var ConfigurationAliasesRequest: StaticMapSchema = [2, n0, _CARo, 0, 0, 128 | 0];
-export var ConfigurationAliasesResponse: StaticMapSchema = [2, n0, _CAR, 0, 0, 128 | 0];
-export var StringMap = 128 | 0;
-export var ConfigureLogsForChannel: StaticOperationSchema = [
+var __Unit = "unit" as const;
+export var MediaTailorServiceException$: StaticErrorSchema = [-3, _s, "MediaTailorServiceException", 0, [], []];
+TypeRegistry.for(_s).registerError(MediaTailorServiceException$, MediaTailorServiceException);
+var __adsInteractionExcludeEventTypesList = 64 | 0;
+var __adsInteractionPublishOptInEventTypesList = 64 | 0;
+var __listOf__string = 64 | 0;
+var __listOfAdBreak: StaticListSchema = [1, n0, _lOAB, 0, () => AdBreak$];
+var __listOfAlert: StaticListSchema = [1, n0, _lOA, 0, () => Alert$];
+var __listOfAlternateMedia: StaticListSchema = [1, n0, _lOAM, 0, () => AlternateMedia$];
+var __listOfAudienceMedia: StaticListSchema = [1, n0, _lOAMi, 0, () => AudienceMedia$];
+var __listOfAvailMatchingCriteria: StaticListSchema = [1, n0, _lOAMC, 0, () => AvailMatchingCriteria$];
+var __listOfChannel: StaticListSchema = [1, n0, _lOC, 0, [() => Channel$, 0]];
+var __listOfLiveSource: StaticListSchema = [1, n0, _lOLS, 0, [() => LiveSource$, 0]];
+var __listOfLoggingStrategies = 64 | 0;
+var __listOfPlaybackConfiguration: StaticListSchema = [1, n0, _lOPC, 0, [() => PlaybackConfiguration$, 0]];
+var __listOfPrefetchSchedule: StaticListSchema = [1, n0, _lOPS, 0, () => PrefetchSchedule$];
+var __listOfScheduleAdBreak: StaticListSchema = [1, n0, _lOSAB, 0, () => ScheduleAdBreak$];
+var __listOfScheduleEntry: StaticListSchema = [1, n0, _lOSE, 0, () => ScheduleEntry$];
+var __listOfSegmentDeliveryConfiguration: StaticListSchema = [1, n0, _lOSDC, 0, () => SegmentDeliveryConfiguration$];
+var __listOfSourceLocation: StaticListSchema = [1, n0, _lOSL, 0, [() => SourceLocation$, 0]];
+var __listOfVodSource: StaticListSchema = [1, n0, _lOVS, 0, [() => VodSource$, 0]];
+var __manifestServiceExcludeEventTypesList = 64 | 0;
+var AdBreakMetadataList: StaticListSchema = [1, n0, _ABML, 0, () => KeyValuePair$];
+var AdBreakOpportunities: StaticListSchema = [1, n0, _ABOd, 0, () => AdBreakOpportunity$];
+var adMarkupTypes = 64 | 0;
+var Audiences = 64 | 0;
+var HttpPackageConfigurations: StaticListSchema = [1, n0, _HPC, 0, () => HttpPackageConfiguration$];
+var LogTypes = 64 | 0;
+var RequestOutputs: StaticListSchema = [1, n0, _RO, 0, () => RequestOutputItem$];
+var ResponseOutputs: StaticListSchema = [1, n0, _ROe, 0, () => ResponseOutputItem$];
+var SegmentationDescriptorList: StaticListSchema = [1, n0, _SDL, 0, () => SegmentationDescriptor$];
+var __mapOf__string = 128 | 0;
+var ConfigurationAliasesRequest: StaticMapSchema = [2, n0, _CARo, 0, 0, 128 | 0];
+var ConfigurationAliasesResponse: StaticMapSchema = [2, n0, _CAR, 0, 0, 128 | 0];
+var StringMap = 128 | 0;
+export var ConfigureLogsForChannel$: StaticOperationSchema = [
   9,
   n0,
   _CLFC,
   { [_h]: ["PUT", "/configureLogs/channel", 200] },
-  () => ConfigureLogsForChannelRequest,
-  () => ConfigureLogsForChannelResponse,
+  () => ConfigureLogsForChannelRequest$,
+  () => ConfigureLogsForChannelResponse$,
 ];
-export var ConfigureLogsForPlaybackConfiguration: StaticOperationSchema = [
+export var ConfigureLogsForPlaybackConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _CLFPC,
   { [_h]: ["PUT", "/configureLogs/playbackConfiguration", 200] },
-  () => ConfigureLogsForPlaybackConfigurationRequest,
-  () => ConfigureLogsForPlaybackConfigurationResponse,
+  () => ConfigureLogsForPlaybackConfigurationRequest$,
+  () => ConfigureLogsForPlaybackConfigurationResponse$,
 ];
-export var CreateChannel: StaticOperationSchema = [
+export var CreateChannel$: StaticOperationSchema = [
   9,
   n0,
   _CCr,
   { [_h]: ["POST", "/channel/{ChannelName}", 200] },
-  () => CreateChannelRequest,
-  () => CreateChannelResponse,
+  () => CreateChannelRequest$,
+  () => CreateChannelResponse$,
 ];
-export var CreateLiveSource: StaticOperationSchema = [
+export var CreateLiveSource$: StaticOperationSchema = [
   9,
   n0,
   _CLS,
   { [_h]: ["POST", "/sourceLocation/{SourceLocationName}/liveSource/{LiveSourceName}", 200] },
-  () => CreateLiveSourceRequest,
-  () => CreateLiveSourceResponse,
+  () => CreateLiveSourceRequest$,
+  () => CreateLiveSourceResponse$,
 ];
-export var CreatePrefetchSchedule: StaticOperationSchema = [
+export var CreatePrefetchSchedule$: StaticOperationSchema = [
   9,
   n0,
   _CPS,
   { [_h]: ["POST", "/prefetchSchedule/{PlaybackConfigurationName}/{Name}", 200] },
-  () => CreatePrefetchScheduleRequest,
-  () => CreatePrefetchScheduleResponse,
+  () => CreatePrefetchScheduleRequest$,
+  () => CreatePrefetchScheduleResponse$,
 ];
-export var CreateProgram: StaticOperationSchema = [
+export var CreateProgram$: StaticOperationSchema = [
   9,
   n0,
   _CP,
   { [_h]: ["POST", "/channel/{ChannelName}/program/{ProgramName}", 200] },
-  () => CreateProgramRequest,
-  () => CreateProgramResponse,
+  () => CreateProgramRequest$,
+  () => CreateProgramResponse$,
 ];
-export var CreateSourceLocation: StaticOperationSchema = [
+export var CreateSourceLocation$: StaticOperationSchema = [
   9,
   n0,
   _CSL,
   { [_h]: ["POST", "/sourceLocation/{SourceLocationName}", 200] },
-  () => CreateSourceLocationRequest,
-  () => CreateSourceLocationResponse,
+  () => CreateSourceLocationRequest$,
+  () => CreateSourceLocationResponse$,
 ];
-export var CreateVodSource: StaticOperationSchema = [
+export var CreateVodSource$: StaticOperationSchema = [
   9,
   n0,
   _CVS,
   { [_h]: ["POST", "/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}", 200] },
-  () => CreateVodSourceRequest,
-  () => CreateVodSourceResponse,
+  () => CreateVodSourceRequest$,
+  () => CreateVodSourceResponse$,
 ];
-export var DeleteChannel: StaticOperationSchema = [
+export var DeleteChannel$: StaticOperationSchema = [
   9,
   n0,
   _DCe,
   { [_h]: ["DELETE", "/channel/{ChannelName}", 200] },
-  () => DeleteChannelRequest,
-  () => DeleteChannelResponse,
+  () => DeleteChannelRequest$,
+  () => DeleteChannelResponse$,
 ];
-export var DeleteChannelPolicy: StaticOperationSchema = [
+export var DeleteChannelPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DCP,
   { [_h]: ["DELETE", "/channel/{ChannelName}/policy", 200] },
-  () => DeleteChannelPolicyRequest,
-  () => DeleteChannelPolicyResponse,
+  () => DeleteChannelPolicyRequest$,
+  () => DeleteChannelPolicyResponse$,
 ];
-export var DeleteLiveSource: StaticOperationSchema = [
+export var DeleteLiveSource$: StaticOperationSchema = [
   9,
   n0,
   _DLS,
   { [_h]: ["DELETE", "/sourceLocation/{SourceLocationName}/liveSource/{LiveSourceName}", 200] },
-  () => DeleteLiveSourceRequest,
-  () => DeleteLiveSourceResponse,
+  () => DeleteLiveSourceRequest$,
+  () => DeleteLiveSourceResponse$,
 ];
-export var DeletePlaybackConfiguration: StaticOperationSchema = [
+export var DeletePlaybackConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DPC,
   { [_h]: ["DELETE", "/playbackConfiguration/{Name}", 204] },
-  () => DeletePlaybackConfigurationRequest,
-  () => DeletePlaybackConfigurationResponse,
+  () => DeletePlaybackConfigurationRequest$,
+  () => DeletePlaybackConfigurationResponse$,
 ];
-export var DeletePrefetchSchedule: StaticOperationSchema = [
+export var DeletePrefetchSchedule$: StaticOperationSchema = [
   9,
   n0,
   _DPSe,
   { [_h]: ["DELETE", "/prefetchSchedule/{PlaybackConfigurationName}/{Name}", 204] },
-  () => DeletePrefetchScheduleRequest,
-  () => DeletePrefetchScheduleResponse,
+  () => DeletePrefetchScheduleRequest$,
+  () => DeletePrefetchScheduleResponse$,
 ];
-export var DeleteProgram: StaticOperationSchema = [
+export var DeleteProgram$: StaticOperationSchema = [
   9,
   n0,
   _DP,
   { [_h]: ["DELETE", "/channel/{ChannelName}/program/{ProgramName}", 200] },
-  () => DeleteProgramRequest,
-  () => DeleteProgramResponse,
+  () => DeleteProgramRequest$,
+  () => DeleteProgramResponse$,
 ];
-export var DeleteSourceLocation: StaticOperationSchema = [
+export var DeleteSourceLocation$: StaticOperationSchema = [
   9,
   n0,
   _DSL,
   { [_h]: ["DELETE", "/sourceLocation/{SourceLocationName}", 200] },
-  () => DeleteSourceLocationRequest,
-  () => DeleteSourceLocationResponse,
+  () => DeleteSourceLocationRequest$,
+  () => DeleteSourceLocationResponse$,
 ];
-export var DeleteVodSource: StaticOperationSchema = [
+export var DeleteVodSource$: StaticOperationSchema = [
   9,
   n0,
   _DVS,
   { [_h]: ["DELETE", "/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}", 200] },
-  () => DeleteVodSourceRequest,
-  () => DeleteVodSourceResponse,
+  () => DeleteVodSourceRequest$,
+  () => DeleteVodSourceResponse$,
 ];
-export var DescribeChannel: StaticOperationSchema = [
+export var DescribeChannel$: StaticOperationSchema = [
   9,
   n0,
   _DCes,
   { [_h]: ["GET", "/channel/{ChannelName}", 200] },
-  () => DescribeChannelRequest,
-  () => DescribeChannelResponse,
+  () => DescribeChannelRequest$,
+  () => DescribeChannelResponse$,
 ];
-export var DescribeLiveSource: StaticOperationSchema = [
+export var DescribeLiveSource$: StaticOperationSchema = [
   9,
   n0,
   _DLSe,
   { [_h]: ["GET", "/sourceLocation/{SourceLocationName}/liveSource/{LiveSourceName}", 200] },
-  () => DescribeLiveSourceRequest,
-  () => DescribeLiveSourceResponse,
+  () => DescribeLiveSourceRequest$,
+  () => DescribeLiveSourceResponse$,
 ];
-export var DescribeProgram: StaticOperationSchema = [
+export var DescribeProgram$: StaticOperationSchema = [
   9,
   n0,
   _DPe,
   { [_h]: ["GET", "/channel/{ChannelName}/program/{ProgramName}", 200] },
-  () => DescribeProgramRequest,
-  () => DescribeProgramResponse,
+  () => DescribeProgramRequest$,
+  () => DescribeProgramResponse$,
 ];
-export var DescribeSourceLocation: StaticOperationSchema = [
+export var DescribeSourceLocation$: StaticOperationSchema = [
   9,
   n0,
   _DSLe,
   { [_h]: ["GET", "/sourceLocation/{SourceLocationName}", 200] },
-  () => DescribeSourceLocationRequest,
-  () => DescribeSourceLocationResponse,
+  () => DescribeSourceLocationRequest$,
+  () => DescribeSourceLocationResponse$,
 ];
-export var DescribeVodSource: StaticOperationSchema = [
+export var DescribeVodSource$: StaticOperationSchema = [
   9,
   n0,
   _DVSe,
   { [_h]: ["GET", "/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}", 200] },
-  () => DescribeVodSourceRequest,
-  () => DescribeVodSourceResponse,
+  () => DescribeVodSourceRequest$,
+  () => DescribeVodSourceResponse$,
 ];
-export var GetChannelPolicy: StaticOperationSchema = [
+export var GetChannelPolicy$: StaticOperationSchema = [
   9,
   n0,
   _GCP,
   { [_h]: ["GET", "/channel/{ChannelName}/policy", 200] },
-  () => GetChannelPolicyRequest,
-  () => GetChannelPolicyResponse,
+  () => GetChannelPolicyRequest$,
+  () => GetChannelPolicyResponse$,
 ];
-export var GetChannelSchedule: StaticOperationSchema = [
+export var GetChannelSchedule$: StaticOperationSchema = [
   9,
   n0,
   _GCS,
   { [_h]: ["GET", "/channel/{ChannelName}/schedule", 200] },
-  () => GetChannelScheduleRequest,
-  () => GetChannelScheduleResponse,
+  () => GetChannelScheduleRequest$,
+  () => GetChannelScheduleResponse$,
 ];
-export var GetPlaybackConfiguration: StaticOperationSchema = [
+export var GetPlaybackConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GPC,
   { [_h]: ["GET", "/playbackConfiguration/{Name}", 200] },
-  () => GetPlaybackConfigurationRequest,
-  () => GetPlaybackConfigurationResponse,
+  () => GetPlaybackConfigurationRequest$,
+  () => GetPlaybackConfigurationResponse$,
 ];
-export var GetPrefetchSchedule: StaticOperationSchema = [
+export var GetPrefetchSchedule$: StaticOperationSchema = [
   9,
   n0,
   _GPS,
   { [_h]: ["GET", "/prefetchSchedule/{PlaybackConfigurationName}/{Name}", 200] },
-  () => GetPrefetchScheduleRequest,
-  () => GetPrefetchScheduleResponse,
+  () => GetPrefetchScheduleRequest$,
+  () => GetPrefetchScheduleResponse$,
 ];
-export var ListAlerts: StaticOperationSchema = [
+export var ListAlerts$: StaticOperationSchema = [
   9,
   n0,
   _LA,
   { [_h]: ["GET", "/alerts", 200] },
-  () => ListAlertsRequest,
-  () => ListAlertsResponse,
+  () => ListAlertsRequest$,
+  () => ListAlertsResponse$,
 ];
-export var ListChannels: StaticOperationSchema = [
+export var ListChannels$: StaticOperationSchema = [
   9,
   n0,
   _LCi,
   { [_h]: ["GET", "/channels", 200] },
-  () => ListChannelsRequest,
-  () => ListChannelsResponse,
+  () => ListChannelsRequest$,
+  () => ListChannelsResponse$,
 ];
-export var ListLiveSources: StaticOperationSchema = [
+export var ListLiveSources$: StaticOperationSchema = [
   9,
   n0,
   _LLS,
   { [_h]: ["GET", "/sourceLocation/{SourceLocationName}/liveSources", 200] },
-  () => ListLiveSourcesRequest,
-  () => ListLiveSourcesResponse,
+  () => ListLiveSourcesRequest$,
+  () => ListLiveSourcesResponse$,
 ];
-export var ListPlaybackConfigurations: StaticOperationSchema = [
+export var ListPlaybackConfigurations$: StaticOperationSchema = [
   9,
   n0,
   _LPC,
   { [_h]: ["GET", "/playbackConfigurations", 200] },
-  () => ListPlaybackConfigurationsRequest,
-  () => ListPlaybackConfigurationsResponse,
+  () => ListPlaybackConfigurationsRequest$,
+  () => ListPlaybackConfigurationsResponse$,
 ];
-export var ListPrefetchSchedules: StaticOperationSchema = [
+export var ListPrefetchSchedules$: StaticOperationSchema = [
   9,
   n0,
   _LPS,
   { [_h]: ["POST", "/prefetchSchedule/{PlaybackConfigurationName}", 200] },
-  () => ListPrefetchSchedulesRequest,
-  () => ListPrefetchSchedulesResponse,
+  () => ListPrefetchSchedulesRequest$,
+  () => ListPrefetchSchedulesResponse$,
 ];
-export var ListSourceLocations: StaticOperationSchema = [
+export var ListSourceLocations$: StaticOperationSchema = [
   9,
   n0,
   _LSL,
   { [_h]: ["GET", "/sourceLocations", 200] },
-  () => ListSourceLocationsRequest,
-  () => ListSourceLocationsResponse,
+  () => ListSourceLocationsRequest$,
+  () => ListSourceLocationsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListVodSources: StaticOperationSchema = [
+export var ListVodSources$: StaticOperationSchema = [
   9,
   n0,
   _LVS,
   { [_h]: ["GET", "/sourceLocation/{SourceLocationName}/vodSources", 200] },
-  () => ListVodSourcesRequest,
-  () => ListVodSourcesResponse,
+  () => ListVodSourcesRequest$,
+  () => ListVodSourcesResponse$,
 ];
-export var PutChannelPolicy: StaticOperationSchema = [
+export var PutChannelPolicy$: StaticOperationSchema = [
   9,
   n0,
   _PCP,
   { [_h]: ["PUT", "/channel/{ChannelName}/policy", 200] },
-  () => PutChannelPolicyRequest,
-  () => PutChannelPolicyResponse,
+  () => PutChannelPolicyRequest$,
+  () => PutChannelPolicyResponse$,
 ];
-export var PutPlaybackConfiguration: StaticOperationSchema = [
+export var PutPlaybackConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PPC,
   { [_h]: ["PUT", "/playbackConfiguration", 200] },
-  () => PutPlaybackConfigurationRequest,
-  () => PutPlaybackConfigurationResponse,
+  () => PutPlaybackConfigurationRequest$,
+  () => PutPlaybackConfigurationResponse$,
 ];
-export var StartChannel: StaticOperationSchema = [
+export var StartChannel$: StaticOperationSchema = [
   9,
   n0,
   _SCt,
   { [_h]: ["PUT", "/channel/{ChannelName}/start", 200] },
-  () => StartChannelRequest,
-  () => StartChannelResponse,
+  () => StartChannelRequest$,
+  () => StartChannelResponse$,
 ];
-export var StopChannel: StaticOperationSchema = [
+export var StopChannel$: StaticOperationSchema = [
   9,
   n0,
   _SCto,
   { [_h]: ["PUT", "/channel/{ChannelName}/stop", 200] },
-  () => StopChannelRequest,
-  () => StopChannelResponse,
+  () => StopChannelRequest$,
+  () => StopChannelResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{ResourceArn}", 204] },
-  () => TagResourceRequest,
+  () => TagResourceRequest$,
   () => __Unit,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{ResourceArn}", 204] },
-  () => UntagResourceRequest,
+  () => UntagResourceRequest$,
   () => __Unit,
 ];
-export var UpdateChannel: StaticOperationSchema = [
+export var UpdateChannel$: StaticOperationSchema = [
   9,
   n0,
   _UC,
   { [_h]: ["PUT", "/channel/{ChannelName}", 200] },
-  () => UpdateChannelRequest,
-  () => UpdateChannelResponse,
+  () => UpdateChannelRequest$,
+  () => UpdateChannelResponse$,
 ];
-export var UpdateLiveSource: StaticOperationSchema = [
+export var UpdateLiveSource$: StaticOperationSchema = [
   9,
   n0,
   _ULS,
   { [_h]: ["PUT", "/sourceLocation/{SourceLocationName}/liveSource/{LiveSourceName}", 200] },
-  () => UpdateLiveSourceRequest,
-  () => UpdateLiveSourceResponse,
+  () => UpdateLiveSourceRequest$,
+  () => UpdateLiveSourceResponse$,
 ];
-export var UpdateProgram: StaticOperationSchema = [
+export var UpdateProgram$: StaticOperationSchema = [
   9,
   n0,
   _UP,
   { [_h]: ["PUT", "/channel/{ChannelName}/program/{ProgramName}", 200] },
-  () => UpdateProgramRequest,
-  () => UpdateProgramResponse,
+  () => UpdateProgramRequest$,
+  () => UpdateProgramResponse$,
 ];
-export var UpdateSourceLocation: StaticOperationSchema = [
+export var UpdateSourceLocation$: StaticOperationSchema = [
   9,
   n0,
   _USL,
   { [_h]: ["PUT", "/sourceLocation/{SourceLocationName}", 200] },
-  () => UpdateSourceLocationRequest,
-  () => UpdateSourceLocationResponse,
+  () => UpdateSourceLocationRequest$,
+  () => UpdateSourceLocationResponse$,
 ];
-export var UpdateVodSource: StaticOperationSchema = [
+export var UpdateVodSource$: StaticOperationSchema = [
   9,
   n0,
   _UVS,
   { [_h]: ["PUT", "/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}", 200] },
-  () => UpdateVodSourceRequest,
-  () => UpdateVodSourceResponse,
+  () => UpdateVodSourceRequest$,
+  () => UpdateVodSourceResponse$,
 ];

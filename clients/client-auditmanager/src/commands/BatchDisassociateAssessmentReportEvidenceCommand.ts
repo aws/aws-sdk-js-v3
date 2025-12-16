@@ -9,7 +9,7 @@ import type {
   BatchDisassociateAssessmentReportEvidenceRequest,
   BatchDisassociateAssessmentReportEvidenceResponse,
 } from "../models/models_0";
-import { BatchDisassociateAssessmentReportEvidence } from "../schemas/schemas_0";
+import { BatchDisassociateAssessmentReportEvidence$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class BatchDisassociateAssessmentReportEvidenceCommand extends $Command
   })
   .s("BedrockAssessmentManagerLambda", "BatchDisassociateAssessmentReportEvidence", {})
   .n("AuditManagerClient", "BatchDisassociateAssessmentReportEvidenceCommand")
-  .sc(BatchDisassociateAssessmentReportEvidence)
+  .sc(BatchDisassociateAssessmentReportEvidence$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -201,22 +201,22 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { NetworkFlowMonitorServiceException as __NetworkFlowMonitorServiceException } from "../models/NetworkFlowMonitorServiceException";
+import { NetworkFlowMonitorServiceException } from "../models/NetworkFlowMonitorServiceException";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateMonitorInput: StaticStructureSchema = [
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateMonitorInput$: StaticStructureSchema = [
   3,
   n0,
   _CMI,
@@ -224,7 +224,7 @@ export var CreateMonitorInput: StaticStructureSchema = [
   [_mN, _lR, _rR, _sA, _cT, _t],
   [0, () => MonitorLocalResources, () => MonitorRemoteResources, 0, [0, 4], 128 | 0],
 ];
-export var CreateMonitorOutput: StaticStructureSchema = [
+export var CreateMonitorOutput$: StaticStructureSchema = [
   3,
   n0,
   _CMO,
@@ -232,7 +232,7 @@ export var CreateMonitorOutput: StaticStructureSchema = [
   [_mA, _mN, _mS, _lR, _rR, _cA, _mAo, _t],
   [0, 0, 0, () => MonitorLocalResources, () => MonitorRemoteResources, 4, 4, 128 | 0],
 ];
-export var CreateScopeInput: StaticStructureSchema = [
+export var CreateScopeInput$: StaticStructureSchema = [
   3,
   n0,
   _CSI,
@@ -240,13 +240,13 @@ export var CreateScopeInput: StaticStructureSchema = [
   [_ta, _cT, _t],
   [() => TargetResourceList, [0, 4], 128 | 0],
 ];
-export var CreateScopeOutput: StaticStructureSchema = [3, n0, _CSO, 0, [_sI, _s, _sA, _t], [0, 0, 0, 128 | 0]];
-export var DeleteMonitorInput: StaticStructureSchema = [3, n0, _DMI, 0, [_mN], [[0, 1]]];
-export var DeleteMonitorOutput: StaticStructureSchema = [3, n0, _DMO, 0, [], []];
-export var DeleteScopeInput: StaticStructureSchema = [3, n0, _DSI, 0, [_sI], [[0, 1]]];
-export var DeleteScopeOutput: StaticStructureSchema = [3, n0, _DSO, 0, [], []];
-export var GetMonitorInput: StaticStructureSchema = [3, n0, _GMI, 0, [_mN], [[0, 1]]];
-export var GetMonitorOutput: StaticStructureSchema = [
+export var CreateScopeOutput$: StaticStructureSchema = [3, n0, _CSO, 0, [_sI, _s, _sA, _t], [0, 0, 0, 128 | 0]];
+export var DeleteMonitorInput$: StaticStructureSchema = [3, n0, _DMI, 0, [_mN], [[0, 1]]];
+export var DeleteMonitorOutput$: StaticStructureSchema = [3, n0, _DMO, 0, [], []];
+export var DeleteScopeInput$: StaticStructureSchema = [3, n0, _DSI, 0, [_sI], [[0, 1]]];
+export var DeleteScopeOutput$: StaticStructureSchema = [3, n0, _DSO, 0, [], []];
+export var GetMonitorInput$: StaticStructureSchema = [3, n0, _GMI, 0, [_mN], [[0, 1]]];
+export var GetMonitorOutput$: StaticStructureSchema = [
   3,
   n0,
   _GMO,
@@ -254,7 +254,7 @@ export var GetMonitorOutput: StaticStructureSchema = [
   [_mA, _mN, _mS, _lR, _rR, _cA, _mAo, _t],
   [0, 0, 0, () => MonitorLocalResources, () => MonitorRemoteResources, 4, 4, 128 | 0],
 ];
-export var GetQueryResultsMonitorTopContributorsInput: StaticStructureSchema = [
+export var GetQueryResultsMonitorTopContributorsInput$: StaticStructureSchema = [
   3,
   n0,
   _GQRMTCI,
@@ -267,7 +267,7 @@ export var GetQueryResultsMonitorTopContributorsInput: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var GetQueryResultsMonitorTopContributorsOutput: StaticStructureSchema = [
+export var GetQueryResultsMonitorTopContributorsOutput$: StaticStructureSchema = [
   3,
   n0,
   _GQRMTCO,
@@ -275,7 +275,7 @@ export var GetQueryResultsMonitorTopContributorsOutput: StaticStructureSchema = 
   [_u, _tC, _nT],
   [0, () => MonitorTopContributorsRowList, 0],
 ];
-export var GetQueryResultsWorkloadInsightsTopContributorsDataInput: StaticStructureSchema = [
+export var GetQueryResultsWorkloadInsightsTopContributorsDataInput$: StaticStructureSchema = [
   3,
   n0,
   _GQRWITCDI,
@@ -288,7 +288,7 @@ export var GetQueryResultsWorkloadInsightsTopContributorsDataInput: StaticStruct
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var GetQueryResultsWorkloadInsightsTopContributorsDataOutput: StaticStructureSchema = [
+export var GetQueryResultsWorkloadInsightsTopContributorsDataOutput$: StaticStructureSchema = [
   3,
   n0,
   _GQRWITCDO,
@@ -296,7 +296,7 @@ export var GetQueryResultsWorkloadInsightsTopContributorsDataOutput: StaticStruc
   [_u, _d, _nT],
   [0, () => WorkloadInsightsTopContributorsDataPoints, 0],
 ];
-export var GetQueryResultsWorkloadInsightsTopContributorsInput: StaticStructureSchema = [
+export var GetQueryResultsWorkloadInsightsTopContributorsInput$: StaticStructureSchema = [
   3,
   n0,
   _GQRWITCI,
@@ -309,7 +309,7 @@ export var GetQueryResultsWorkloadInsightsTopContributorsInput: StaticStructureS
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var GetQueryResultsWorkloadInsightsTopContributorsOutput: StaticStructureSchema = [
+export var GetQueryResultsWorkloadInsightsTopContributorsOutput$: StaticStructureSchema = [
   3,
   n0,
   _GQRWITCO,
@@ -317,7 +317,7 @@ export var GetQueryResultsWorkloadInsightsTopContributorsOutput: StaticStructure
   [_tC, _nT],
   [() => WorkloadInsightsTopContributorsRowList, 0],
 ];
-export var GetQueryStatusMonitorTopContributorsInput: StaticStructureSchema = [
+export var GetQueryStatusMonitorTopContributorsInput$: StaticStructureSchema = [
   3,
   n0,
   _GQSMTCI,
@@ -328,8 +328,8 @@ export var GetQueryStatusMonitorTopContributorsInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetQueryStatusMonitorTopContributorsOutput: StaticStructureSchema = [3, n0, _GQSMTCO, 0, [_s], [0]];
-export var GetQueryStatusWorkloadInsightsTopContributorsDataInput: StaticStructureSchema = [
+export var GetQueryStatusMonitorTopContributorsOutput$: StaticStructureSchema = [3, n0, _GQSMTCO, 0, [_s], [0]];
+export var GetQueryStatusWorkloadInsightsTopContributorsDataInput$: StaticStructureSchema = [
   3,
   n0,
   _GQSWITCDI,
@@ -340,7 +340,7 @@ export var GetQueryStatusWorkloadInsightsTopContributorsDataInput: StaticStructu
     [0, 1],
   ],
 ];
-export var GetQueryStatusWorkloadInsightsTopContributorsDataOutput: StaticStructureSchema = [
+export var GetQueryStatusWorkloadInsightsTopContributorsDataOutput$: StaticStructureSchema = [
   3,
   n0,
   _GQSWITCDO,
@@ -348,7 +348,7 @@ export var GetQueryStatusWorkloadInsightsTopContributorsDataOutput: StaticStruct
   [_s],
   [0],
 ];
-export var GetQueryStatusWorkloadInsightsTopContributorsInput: StaticStructureSchema = [
+export var GetQueryStatusWorkloadInsightsTopContributorsInput$: StaticStructureSchema = [
   3,
   n0,
   _GQSWITCI,
@@ -359,7 +359,7 @@ export var GetQueryStatusWorkloadInsightsTopContributorsInput: StaticStructureSc
     [0, 1],
   ],
 ];
-export var GetQueryStatusWorkloadInsightsTopContributorsOutput: StaticStructureSchema = [
+export var GetQueryStatusWorkloadInsightsTopContributorsOutput$: StaticStructureSchema = [
   3,
   n0,
   _GQSWITCO,
@@ -367,8 +367,8 @@ export var GetQueryStatusWorkloadInsightsTopContributorsOutput: StaticStructureS
   [_s],
   [0],
 ];
-export var GetScopeInput: StaticStructureSchema = [3, n0, _GSI, 0, [_sI], [[0, 1]]];
-export var GetScopeOutput: StaticStructureSchema = [
+export var GetScopeInput$: StaticStructureSchema = [3, n0, _GSI, 0, [_sI], [[0, 1]]];
+export var GetScopeOutput$: StaticStructureSchema = [
   3,
   n0,
   _GSO,
@@ -376,9 +376,9 @@ export var GetScopeOutput: StaticStructureSchema = [
   [_sI, _s, _sA, _ta, _t],
   [0, 0, 0, () => TargetResourceList, 128 | 0],
 ];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var KubernetesMetadata: StaticStructureSchema = [
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var KubernetesMetadata$: StaticStructureSchema = [
   3,
   n0,
   _KM,
@@ -386,7 +386,7 @@ export var KubernetesMetadata: StaticStructureSchema = [
   [_lSN, _lPN, _lPNo, _rSN, _rPN, _rPNe],
   [0, 0, 0, 0, 0, 0],
 ];
-export var ListMonitorsInput: StaticStructureSchema = [
+export var ListMonitorsInput$: StaticStructureSchema = [
   3,
   n0,
   _LMI,
@@ -398,8 +398,8 @@ export var ListMonitorsInput: StaticStructureSchema = [
     [0, { [_hQ]: _mS }],
   ],
 ];
-export var ListMonitorsOutput: StaticStructureSchema = [3, n0, _LMO, 0, [_mo, _nT], [() => MonitorList, 0]];
-export var ListScopesInput: StaticStructureSchema = [
+export var ListMonitorsOutput$: StaticStructureSchema = [3, n0, _LMO, 0, [_mo, _nT], [() => MonitorList, 0]];
+export var ListScopesInput$: StaticStructureSchema = [
   3,
   n0,
   _LSI,
@@ -410,13 +410,13 @@ export var ListScopesInput: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListScopesOutput: StaticStructureSchema = [3, n0, _LSO, 0, [_sc, _nT], [() => ScopeSummaryList, 0]];
-export var ListTagsForResourceInput: StaticStructureSchema = [3, n0, _LTFRI, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceOutput: StaticStructureSchema = [3, n0, _LTFRO, 0, [_t], [128 | 0]];
-export var MonitorLocalResource: StaticStructureSchema = [3, n0, _MLR, 0, [_ty, _i], [0, 0]];
-export var MonitorRemoteResource: StaticStructureSchema = [3, n0, _MRR, 0, [_ty, _i], [0, 0]];
-export var MonitorSummary: StaticStructureSchema = [3, n0, _MS, 0, [_mA, _mN, _mS], [0, 0, 0]];
-export var MonitorTopContributorsRow: StaticStructureSchema = [
+export var ListScopesOutput$: StaticStructureSchema = [3, n0, _LSO, 0, [_sc, _nT], [() => ScopeSummaryList, 0]];
+export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI, 0, [_rA], [[0, 1]]];
+export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO, 0, [_t], [128 | 0]];
+export var MonitorLocalResource$: StaticStructureSchema = [3, n0, _MLR, 0, [_ty, _i], [0, 0]];
+export var MonitorRemoteResource$: StaticStructureSchema = [3, n0, _MRR, 0, [_ty, _i], [0, 0]];
+export var MonitorSummary$: StaticStructureSchema = [3, n0, _MS, 0, [_mA, _mN, _mS], [0, 0, 0]];
+export var MonitorTopContributorsRow$: StaticStructureSchema = [
   3,
   n0,
   _MTCR,
@@ -467,7 +467,7 @@ export var MonitorTopContributorsRow: StaticStructureSchema = [
     0,
     1,
     () => TraversedConstructsList,
-    () => KubernetesMetadata,
+    () => KubernetesMetadata$,
     0,
     0,
     0,
@@ -476,12 +476,12 @@ export var MonitorTopContributorsRow: StaticStructureSchema = [
     0,
   ],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ScopeSummary: StaticStructureSchema = [3, n0, _SS, 0, [_sI, _s, _sA], [0, 0, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var StartQueryMonitorTopContributorsInput: StaticStructureSchema = [
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ScopeSummary$: StaticStructureSchema = [3, n0, _SS, 0, [_sI, _s, _sA], [0, 0, 0]];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var StartQueryMonitorTopContributorsInput$: StaticStructureSchema = [
   3,
   n0,
   _SQMTCI,
@@ -489,8 +489,8 @@ export var StartQueryMonitorTopContributorsInput: StaticStructureSchema = [
   [_mN, _sT, _eT, _mNe, _dC, _l],
   [[0, 1], 5, 5, 0, 0, 1],
 ];
-export var StartQueryMonitorTopContributorsOutput: StaticStructureSchema = [3, n0, _SQMTCO, 0, [_qI], [0]];
-export var StartQueryWorkloadInsightsTopContributorsDataInput: StaticStructureSchema = [
+export var StartQueryMonitorTopContributorsOutput$: StaticStructureSchema = [3, n0, _SQMTCO, 0, [_qI], [0]];
+export var StartQueryWorkloadInsightsTopContributorsDataInput$: StaticStructureSchema = [
   3,
   n0,
   _SQWITCDI,
@@ -498,7 +498,7 @@ export var StartQueryWorkloadInsightsTopContributorsDataInput: StaticStructureSc
   [_sI, _sT, _eT, _mNe, _dC],
   [[0, 1], 5, 5, 0, 0],
 ];
-export var StartQueryWorkloadInsightsTopContributorsDataOutput: StaticStructureSchema = [
+export var StartQueryWorkloadInsightsTopContributorsDataOutput$: StaticStructureSchema = [
   3,
   n0,
   _SQWITCDO,
@@ -506,7 +506,7 @@ export var StartQueryWorkloadInsightsTopContributorsDataOutput: StaticStructureS
   [_qI],
   [0],
 ];
-export var StartQueryWorkloadInsightsTopContributorsInput: StaticStructureSchema = [
+export var StartQueryWorkloadInsightsTopContributorsInput$: StaticStructureSchema = [
   3,
   n0,
   _SQWITCI,
@@ -514,8 +514,8 @@ export var StartQueryWorkloadInsightsTopContributorsInput: StaticStructureSchema
   [_sI, _sT, _eT, _mNe, _dC, _l],
   [[0, 1], 5, 5, 0, 0, 1],
 ];
-export var StartQueryWorkloadInsightsTopContributorsOutput: StaticStructureSchema = [3, n0, _SQWITCO, 0, [_qI], [0]];
-export var StopQueryMonitorTopContributorsInput: StaticStructureSchema = [
+export var StartQueryWorkloadInsightsTopContributorsOutput$: StaticStructureSchema = [3, n0, _SQWITCO, 0, [_qI], [0]];
+export var StopQueryMonitorTopContributorsInput$: StaticStructureSchema = [
   3,
   n0,
   _SQMTCIt,
@@ -526,8 +526,8 @@ export var StopQueryMonitorTopContributorsInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var StopQueryMonitorTopContributorsOutput: StaticStructureSchema = [3, n0, _SQMTCOt, 0, [], []];
-export var StopQueryWorkloadInsightsTopContributorsDataInput: StaticStructureSchema = [
+export var StopQueryMonitorTopContributorsOutput$: StaticStructureSchema = [3, n0, _SQMTCOt, 0, [], []];
+export var StopQueryWorkloadInsightsTopContributorsDataInput$: StaticStructureSchema = [
   3,
   n0,
   _SQWITCDIt,
@@ -538,8 +538,8 @@ export var StopQueryWorkloadInsightsTopContributorsDataInput: StaticStructureSch
     [0, 1],
   ],
 ];
-export var StopQueryWorkloadInsightsTopContributorsDataOutput: StaticStructureSchema = [3, n0, _SQWITCDOt, 0, [], []];
-export var StopQueryWorkloadInsightsTopContributorsInput: StaticStructureSchema = [
+export var StopQueryWorkloadInsightsTopContributorsDataOutput$: StaticStructureSchema = [3, n0, _SQWITCDOt, 0, [], []];
+export var StopQueryWorkloadInsightsTopContributorsInput$: StaticStructureSchema = [
   3,
   n0,
   _SQWITCIt,
@@ -550,15 +550,15 @@ export var StopQueryWorkloadInsightsTopContributorsInput: StaticStructureSchema 
     [0, 1],
   ],
 ];
-export var StopQueryWorkloadInsightsTopContributorsOutput: StaticStructureSchema = [3, n0, _SQWITCOt, 0, [], []];
-export var TagResourceInput: StaticStructureSchema = [3, n0, _TRI, 0, [_rA, _t], [[0, 1], 128 | 0]];
-export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
-export var TargetIdentifier: StaticStructureSchema = [3, n0, _TI, 0, [_tI, _tT], [() => TargetId, 0]];
-export var TargetResource: StaticStructureSchema = [3, n0, _TR, 0, [_tIa, _r], [() => TargetIdentifier, 0]];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TraversedComponent: StaticStructureSchema = [3, n0, _TC, 0, [_cI, _cTo, _cAo, _sN], [0, 0, 0, 0]];
-export var UntagResourceInput: StaticStructureSchema = [
+export var StopQueryWorkloadInsightsTopContributorsOutput$: StaticStructureSchema = [3, n0, _SQWITCOt, 0, [], []];
+export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI, 0, [_rA, _t], [[0, 1], 128 | 0]];
+export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
+export var TargetIdentifier$: StaticStructureSchema = [3, n0, _TI, 0, [_tI, _tT], [() => TargetId$, 0]];
+export var TargetResource$: StaticStructureSchema = [3, n0, _TR, 0, [_tIa, _r], [() => TargetIdentifier$, 0]];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TraversedComponent$: StaticStructureSchema = [3, n0, _TC, 0, [_cI, _cTo, _cAo, _sN], [0, 0, 0, 0]];
+export var UntagResourceInput$: StaticStructureSchema = [
   3,
   n0,
   _URI,
@@ -569,8 +569,8 @@ export var UntagResourceInput: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
-export var UpdateMonitorInput: StaticStructureSchema = [
+export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO, 0, [], []];
+export var UpdateMonitorInput$: StaticStructureSchema = [
   3,
   n0,
   _UMI,
@@ -585,7 +585,7 @@ export var UpdateMonitorInput: StaticStructureSchema = [
     [0, 4],
   ],
 ];
-export var UpdateMonitorOutput: StaticStructureSchema = [
+export var UpdateMonitorOutput$: StaticStructureSchema = [
   3,
   n0,
   _UMO,
@@ -593,7 +593,7 @@ export var UpdateMonitorOutput: StaticStructureSchema = [
   [_mA, _mN, _mS, _lR, _rR, _cA, _mAo, _t],
   [0, 0, 0, () => MonitorLocalResources, () => MonitorRemoteResources, 4, 4, 128 | 0],
 ];
-export var UpdateScopeInput: StaticStructureSchema = [
+export var UpdateScopeInput$: StaticStructureSchema = [
   3,
   n0,
   _USI,
@@ -601,10 +601,10 @@ export var UpdateScopeInput: StaticStructureSchema = [
   [_sI, _rTA, _rTD],
   [[0, 1], () => TargetResourceList, () => TargetResourceList],
 ];
-export var UpdateScopeOutput: StaticStructureSchema = [3, n0, _USO, 0, [_sI, _s, _sA, _t], [0, 0, 0, 128 | 0]];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var WorkloadInsightsTopContributorsDataPoint: StaticStructureSchema = [
+export var UpdateScopeOutput$: StaticStructureSchema = [3, n0, _USO, 0, [_sI, _s, _sA, _t], [0, 0, 0, 128 | 0]];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var WorkloadInsightsTopContributorsDataPoint$: StaticStructureSchema = [
   3,
   n0,
   _WITCDP,
@@ -612,7 +612,7 @@ export var WorkloadInsightsTopContributorsDataPoint: StaticStructureSchema = [
   [_ti, _va, _la],
   [64 | 4, 64 | 1, 0],
 ];
-export var WorkloadInsightsTopContributorsRow: StaticStructureSchema = [
+export var WorkloadInsightsTopContributorsRow$: StaticStructureSchema = [
   3,
   n0,
   _WITCR,
@@ -620,7 +620,7 @@ export var WorkloadInsightsTopContributorsRow: StaticStructureSchema = [
   [_aI, _lSI, _lA, _lVI, _lRo, _rIe, _v, _lSA, _lVA],
   [0, 0, 0, 0, 0, 0, 1, 0, 0],
 ];
-export var NetworkFlowMonitorServiceException: StaticErrorSchema = [
+export var NetworkFlowMonitorServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "NetworkFlowMonitorServiceException",
@@ -628,230 +628,230 @@ export var NetworkFlowMonitorServiceException: StaticErrorSchema = [
   [],
   [],
 ];
-TypeRegistry.for(_sm).registerError(NetworkFlowMonitorServiceException, __NetworkFlowMonitorServiceException);
-export var MonitorList: StaticListSchema = [1, n0, _ML, 0, () => MonitorSummary];
-export var MonitorLocalResources: StaticListSchema = [1, n0, _MLRo, 0, () => MonitorLocalResource];
-export var MonitorRemoteResources: StaticListSchema = [1, n0, _MRRo, 0, () => MonitorRemoteResource];
-export var MonitorTopContributorsRowList: StaticListSchema = [1, n0, _MTCRL, 0, () => MonitorTopContributorsRow];
-export var ScopeSummaryList: StaticListSchema = [1, n0, _SSL, 0, () => ScopeSummary];
-export var TagKeyList = 64 | 0;
-export var TargetResourceList: StaticListSchema = [1, n0, _TRL, 0, () => TargetResource];
-export var TraversedConstructsList: StaticListSchema = [1, n0, _TCL, 0, () => TraversedComponent];
-export var WorkloadInsightsTopContributorsDataPoints: StaticListSchema = [
+TypeRegistry.for(_sm).registerError(NetworkFlowMonitorServiceException$, NetworkFlowMonitorServiceException);
+var MonitorList: StaticListSchema = [1, n0, _ML, 0, () => MonitorSummary$];
+var MonitorLocalResources: StaticListSchema = [1, n0, _MLRo, 0, () => MonitorLocalResource$];
+var MonitorRemoteResources: StaticListSchema = [1, n0, _MRRo, 0, () => MonitorRemoteResource$];
+var MonitorTopContributorsRowList: StaticListSchema = [1, n0, _MTCRL, 0, () => MonitorTopContributorsRow$];
+var ScopeSummaryList: StaticListSchema = [1, n0, _SSL, 0, () => ScopeSummary$];
+var TagKeyList = 64 | 0;
+var TargetResourceList: StaticListSchema = [1, n0, _TRL, 0, () => TargetResource$];
+var TraversedConstructsList: StaticListSchema = [1, n0, _TCL, 0, () => TraversedComponent$];
+var WorkloadInsightsTopContributorsDataPoints: StaticListSchema = [
   1,
   n0,
   _WITCDPo,
   0,
-  () => WorkloadInsightsTopContributorsDataPoint,
+  () => WorkloadInsightsTopContributorsDataPoint$,
 ];
-export var WorkloadInsightsTopContributorsRowList: StaticListSchema = [
+var WorkloadInsightsTopContributorsRowList: StaticListSchema = [
   1,
   n0,
   _WITCRL,
   0,
-  () => WorkloadInsightsTopContributorsRow,
+  () => WorkloadInsightsTopContributorsRow$,
 ];
-export var WorkloadInsightsTopContributorsTimestampsList = 64 | 4;
-export var WorkloadInsightsTopContributorsValuesList = 64 | 1;
-export var TagMap = 128 | 0;
-export var TargetId: StaticStructureSchema = [3, n0, _TIa, 0, [_aI], [0]];
-export var CreateMonitor: StaticOperationSchema = [
+var WorkloadInsightsTopContributorsTimestampsList = 64 | 4;
+var WorkloadInsightsTopContributorsValuesList = 64 | 1;
+var TagMap = 128 | 0;
+export var TargetId$: StaticStructureSchema = [3, n0, _TIa, 0, [_aI], [0]];
+export var CreateMonitor$: StaticOperationSchema = [
   9,
   n0,
   _CM,
   { [_h]: ["POST", "/monitors", 200] },
-  () => CreateMonitorInput,
-  () => CreateMonitorOutput,
+  () => CreateMonitorInput$,
+  () => CreateMonitorOutput$,
 ];
-export var CreateScope: StaticOperationSchema = [
+export var CreateScope$: StaticOperationSchema = [
   9,
   n0,
   _CS,
   { [_h]: ["POST", "/scopes", 200] },
-  () => CreateScopeInput,
-  () => CreateScopeOutput,
+  () => CreateScopeInput$,
+  () => CreateScopeOutput$,
 ];
-export var DeleteMonitor: StaticOperationSchema = [
+export var DeleteMonitor$: StaticOperationSchema = [
   9,
   n0,
   _DM,
   { [_h]: ["DELETE", "/monitors/{monitorName}", 200] },
-  () => DeleteMonitorInput,
-  () => DeleteMonitorOutput,
+  () => DeleteMonitorInput$,
+  () => DeleteMonitorOutput$,
 ];
-export var DeleteScope: StaticOperationSchema = [
+export var DeleteScope$: StaticOperationSchema = [
   9,
   n0,
   _DS,
   { [_h]: ["DELETE", "/scopes/{scopeId}", 200] },
-  () => DeleteScopeInput,
-  () => DeleteScopeOutput,
+  () => DeleteScopeInput$,
+  () => DeleteScopeOutput$,
 ];
-export var GetMonitor: StaticOperationSchema = [
+export var GetMonitor$: StaticOperationSchema = [
   9,
   n0,
   _GM,
   { [_h]: ["GET", "/monitors/{monitorName}", 200] },
-  () => GetMonitorInput,
-  () => GetMonitorOutput,
+  () => GetMonitorInput$,
+  () => GetMonitorOutput$,
 ];
-export var GetQueryResultsMonitorTopContributors: StaticOperationSchema = [
+export var GetQueryResultsMonitorTopContributors$: StaticOperationSchema = [
   9,
   n0,
   _GQRMTC,
   { [_h]: ["GET", "/monitors/{monitorName}/topContributorsQueries/{queryId}/results", 200] },
-  () => GetQueryResultsMonitorTopContributorsInput,
-  () => GetQueryResultsMonitorTopContributorsOutput,
+  () => GetQueryResultsMonitorTopContributorsInput$,
+  () => GetQueryResultsMonitorTopContributorsOutput$,
 ];
-export var GetQueryResultsWorkloadInsightsTopContributors: StaticOperationSchema = [
+export var GetQueryResultsWorkloadInsightsTopContributors$: StaticOperationSchema = [
   9,
   n0,
   _GQRWITC,
   { [_h]: ["GET", "/workloadInsights/{scopeId}/topContributorsQueries/{queryId}/results", 200] },
-  () => GetQueryResultsWorkloadInsightsTopContributorsInput,
-  () => GetQueryResultsWorkloadInsightsTopContributorsOutput,
+  () => GetQueryResultsWorkloadInsightsTopContributorsInput$,
+  () => GetQueryResultsWorkloadInsightsTopContributorsOutput$,
 ];
-export var GetQueryResultsWorkloadInsightsTopContributorsData: StaticOperationSchema = [
+export var GetQueryResultsWorkloadInsightsTopContributorsData$: StaticOperationSchema = [
   9,
   n0,
   _GQRWITCD,
   { [_h]: ["GET", "/workloadInsights/{scopeId}/topContributorsDataQueries/{queryId}/results", 200] },
-  () => GetQueryResultsWorkloadInsightsTopContributorsDataInput,
-  () => GetQueryResultsWorkloadInsightsTopContributorsDataOutput,
+  () => GetQueryResultsWorkloadInsightsTopContributorsDataInput$,
+  () => GetQueryResultsWorkloadInsightsTopContributorsDataOutput$,
 ];
-export var GetQueryStatusMonitorTopContributors: StaticOperationSchema = [
+export var GetQueryStatusMonitorTopContributors$: StaticOperationSchema = [
   9,
   n0,
   _GQSMTC,
   { [_h]: ["GET", "/monitors/{monitorName}/topContributorsQueries/{queryId}/status", 200] },
-  () => GetQueryStatusMonitorTopContributorsInput,
-  () => GetQueryStatusMonitorTopContributorsOutput,
+  () => GetQueryStatusMonitorTopContributorsInput$,
+  () => GetQueryStatusMonitorTopContributorsOutput$,
 ];
-export var GetQueryStatusWorkloadInsightsTopContributors: StaticOperationSchema = [
+export var GetQueryStatusWorkloadInsightsTopContributors$: StaticOperationSchema = [
   9,
   n0,
   _GQSWITC,
   { [_h]: ["GET", "/workloadInsights/{scopeId}/topContributorsQueries/{queryId}/status", 200] },
-  () => GetQueryStatusWorkloadInsightsTopContributorsInput,
-  () => GetQueryStatusWorkloadInsightsTopContributorsOutput,
+  () => GetQueryStatusWorkloadInsightsTopContributorsInput$,
+  () => GetQueryStatusWorkloadInsightsTopContributorsOutput$,
 ];
-export var GetQueryStatusWorkloadInsightsTopContributorsData: StaticOperationSchema = [
+export var GetQueryStatusWorkloadInsightsTopContributorsData$: StaticOperationSchema = [
   9,
   n0,
   _GQSWITCD,
   { [_h]: ["GET", "/workloadInsights/{scopeId}/topContributorsDataQueries/{queryId}/status", 200] },
-  () => GetQueryStatusWorkloadInsightsTopContributorsDataInput,
-  () => GetQueryStatusWorkloadInsightsTopContributorsDataOutput,
+  () => GetQueryStatusWorkloadInsightsTopContributorsDataInput$,
+  () => GetQueryStatusWorkloadInsightsTopContributorsDataOutput$,
 ];
-export var GetScope: StaticOperationSchema = [
+export var GetScope$: StaticOperationSchema = [
   9,
   n0,
   _GS,
   { [_h]: ["GET", "/scopes/{scopeId}", 200] },
-  () => GetScopeInput,
-  () => GetScopeOutput,
+  () => GetScopeInput$,
+  () => GetScopeOutput$,
 ];
-export var ListMonitors: StaticOperationSchema = [
+export var ListMonitors$: StaticOperationSchema = [
   9,
   n0,
   _LM,
   { [_h]: ["GET", "/monitors", 200] },
-  () => ListMonitorsInput,
-  () => ListMonitorsOutput,
+  () => ListMonitorsInput$,
+  () => ListMonitorsOutput$,
 ];
-export var ListScopes: StaticOperationSchema = [
+export var ListScopes$: StaticOperationSchema = [
   9,
   n0,
   _LS,
   { [_h]: ["GET", "/scopes", 200] },
-  () => ListScopesInput,
-  () => ListScopesOutput,
+  () => ListScopesInput$,
+  () => ListScopesOutput$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceInput,
-  () => ListTagsForResourceOutput,
+  () => ListTagsForResourceInput$,
+  () => ListTagsForResourceOutput$,
 ];
-export var StartQueryMonitorTopContributors: StaticOperationSchema = [
+export var StartQueryMonitorTopContributors$: StaticOperationSchema = [
   9,
   n0,
   _SQMTC,
   { [_h]: ["POST", "/monitors/{monitorName}/topContributorsQueries", 200] },
-  () => StartQueryMonitorTopContributorsInput,
-  () => StartQueryMonitorTopContributorsOutput,
+  () => StartQueryMonitorTopContributorsInput$,
+  () => StartQueryMonitorTopContributorsOutput$,
 ];
-export var StartQueryWorkloadInsightsTopContributors: StaticOperationSchema = [
+export var StartQueryWorkloadInsightsTopContributors$: StaticOperationSchema = [
   9,
   n0,
   _SQWITC,
   { [_h]: ["POST", "/workloadInsights/{scopeId}/topContributorsQueries", 200] },
-  () => StartQueryWorkloadInsightsTopContributorsInput,
-  () => StartQueryWorkloadInsightsTopContributorsOutput,
+  () => StartQueryWorkloadInsightsTopContributorsInput$,
+  () => StartQueryWorkloadInsightsTopContributorsOutput$,
 ];
-export var StartQueryWorkloadInsightsTopContributorsData: StaticOperationSchema = [
+export var StartQueryWorkloadInsightsTopContributorsData$: StaticOperationSchema = [
   9,
   n0,
   _SQWITCD,
   { [_h]: ["POST", "/workloadInsights/{scopeId}/topContributorsDataQueries", 200] },
-  () => StartQueryWorkloadInsightsTopContributorsDataInput,
-  () => StartQueryWorkloadInsightsTopContributorsDataOutput,
+  () => StartQueryWorkloadInsightsTopContributorsDataInput$,
+  () => StartQueryWorkloadInsightsTopContributorsDataOutput$,
 ];
-export var StopQueryMonitorTopContributors: StaticOperationSchema = [
+export var StopQueryMonitorTopContributors$: StaticOperationSchema = [
   9,
   n0,
   _SQMTCt,
   { [_h]: ["DELETE", "/monitors/{monitorName}/topContributorsQueries/{queryId}", 200] },
-  () => StopQueryMonitorTopContributorsInput,
-  () => StopQueryMonitorTopContributorsOutput,
+  () => StopQueryMonitorTopContributorsInput$,
+  () => StopQueryMonitorTopContributorsOutput$,
 ];
-export var StopQueryWorkloadInsightsTopContributors: StaticOperationSchema = [
+export var StopQueryWorkloadInsightsTopContributors$: StaticOperationSchema = [
   9,
   n0,
   _SQWITCt,
   { [_h]: ["DELETE", "/workloadInsights/{scopeId}/topContributorsQueries/{queryId}", 200] },
-  () => StopQueryWorkloadInsightsTopContributorsInput,
-  () => StopQueryWorkloadInsightsTopContributorsOutput,
+  () => StopQueryWorkloadInsightsTopContributorsInput$,
+  () => StopQueryWorkloadInsightsTopContributorsOutput$,
 ];
-export var StopQueryWorkloadInsightsTopContributorsData: StaticOperationSchema = [
+export var StopQueryWorkloadInsightsTopContributorsData$: StaticOperationSchema = [
   9,
   n0,
   _SQWITCDt,
   { [_h]: ["DELETE", "/workloadInsights/{scopeId}/topContributorsDataQueries/{queryId}", 200] },
-  () => StopQueryWorkloadInsightsTopContributorsDataInput,
-  () => StopQueryWorkloadInsightsTopContributorsDataOutput,
+  () => StopQueryWorkloadInsightsTopContributorsDataInput$,
+  () => StopQueryWorkloadInsightsTopContributorsDataOutput$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TRa,
   { [_h]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceInput,
-  () => TagResourceOutput,
+  () => TagResourceInput$,
+  () => TagResourceOutput$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceInput,
-  () => UntagResourceOutput,
+  () => UntagResourceInput$,
+  () => UntagResourceOutput$,
 ];
-export var UpdateMonitor: StaticOperationSchema = [
+export var UpdateMonitor$: StaticOperationSchema = [
   9,
   n0,
   _UM,
   { [_h]: ["PATCH", "/monitors/{monitorName}", 200] },
-  () => UpdateMonitorInput,
-  () => UpdateMonitorOutput,
+  () => UpdateMonitorInput$,
+  () => UpdateMonitorOutput$,
 ];
-export var UpdateScope: StaticOperationSchema = [
+export var UpdateScope$: StaticOperationSchema = [
   9,
   n0,
   _US,
   { [_h]: ["PATCH", "/scopes/{scopeId}", 200] },
-  () => UpdateScopeInput,
-  () => UpdateScopeOutput,
+  () => UpdateScopeInput$,
+  () => UpdateScopeOutput$,
 ];

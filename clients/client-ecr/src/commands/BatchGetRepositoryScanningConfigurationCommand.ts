@@ -9,7 +9,7 @@ import type {
   BatchGetRepositoryScanningConfigurationRequest,
   BatchGetRepositoryScanningConfigurationResponse,
 } from "../models/models_0";
-import { BatchGetRepositoryScanningConfiguration } from "../schemas/schemas_0";
+import { BatchGetRepositoryScanningConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class BatchGetRepositoryScanningConfigurationCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "BatchGetRepositoryScanningConfiguration", {})
   .n("ECRClient", "BatchGetRepositoryScanningConfigurationCommand")
-  .sc(BatchGetRepositoryScanningConfiguration)
+  .sc(BatchGetRepositoryScanningConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

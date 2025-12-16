@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveAvailabilityZonesInput, RemoveAvailabilityZonesOutput } from "../models/models_0";
-import { DisableAvailabilityZonesForLoadBalancer } from "../schemas/schemas_0";
+import { DisableAvailabilityZonesForLoadBalancer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command
   })
   .s("ElasticLoadBalancing_v7", "DisableAvailabilityZonesForLoadBalancer", {})
   .n("ElasticLoadBalancingClient", "DisableAvailabilityZonesForLoadBalancerCommand")
-  .sc(DisableAvailabilityZonesForLoadBalancer)
+  .sc(DisableAvailabilityZonesForLoadBalancer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

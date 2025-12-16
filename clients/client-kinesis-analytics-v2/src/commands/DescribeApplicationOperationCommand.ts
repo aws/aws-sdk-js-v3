@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
 import type { DescribeApplicationOperationRequest, DescribeApplicationOperationResponse } from "../models/models_0";
-import { DescribeApplicationOperation } from "../schemas/schemas_0";
+import { DescribeApplicationOperation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class DescribeApplicationOperationCommand extends $Command
   })
   .s("KinesisAnalytics_20180523", "DescribeApplicationOperation", {})
   .n("KinesisAnalyticsV2Client", "DescribeApplicationOperationCommand")
-  .sc(DescribeApplicationOperation)
+  .sc(DescribeApplicationOperation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

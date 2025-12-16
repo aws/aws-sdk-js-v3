@@ -8,7 +8,7 @@ import type {
   DescribeWorkspacesConnectionStatusRequest,
   DescribeWorkspacesConnectionStatusResult,
 } from "../models/models_0";
-import { DescribeWorkspacesConnectionStatus } from "../schemas/schemas_0";
+import { DescribeWorkspacesConnectionStatus$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -92,7 +92,7 @@ export class DescribeWorkspacesConnectionStatusCommand extends $Command
   })
   .s("WorkspacesService", "DescribeWorkspacesConnectionStatus", {})
   .n("WorkSpacesClient", "DescribeWorkspacesConnectionStatusCommand")
-  .sc(DescribeWorkspacesConnectionStatus)
+  .sc(DescribeWorkspacesConnectionStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

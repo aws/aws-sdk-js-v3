@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateSoftwareTokenRequest, AssociateSoftwareTokenResponse } from "../models/models_0";
-import { AssociateSoftwareToken } from "../schemas/schemas_0";
+import { AssociateSoftwareToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class AssociateSoftwareTokenCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "AssociateSoftwareToken", {})
   .n("CognitoIdentityProviderClient", "AssociateSoftwareTokenCommand")
-  .sc(AssociateSoftwareToken)
+  .sc(AssociateSoftwareToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

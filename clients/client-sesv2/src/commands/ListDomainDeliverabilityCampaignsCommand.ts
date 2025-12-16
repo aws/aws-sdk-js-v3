@@ -8,7 +8,7 @@ import type {
   ListDomainDeliverabilityCampaignsRequest,
   ListDomainDeliverabilityCampaignsResponse,
 } from "../models/models_0";
-import { ListDomainDeliverabilityCampaigns } from "../schemas/schemas_0";
+import { ListDomainDeliverabilityCampaigns$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -115,7 +115,7 @@ export class ListDomainDeliverabilityCampaignsCommand extends $Command
   })
   .s("SimpleEmailService_v2", "ListDomainDeliverabilityCampaigns", {})
   .n("SESv2Client", "ListDomainDeliverabilityCampaignsCommand")
-  .sc(ListDomainDeliverabilityCampaigns)
+  .sc(ListDomainDeliverabilityCampaigns$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

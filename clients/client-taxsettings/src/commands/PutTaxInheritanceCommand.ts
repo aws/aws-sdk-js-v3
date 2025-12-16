@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutTaxInheritanceRequest, PutTaxInheritanceResponse } from "../models/models_0";
-import { PutTaxInheritance } from "../schemas/schemas_0";
+import { PutTaxInheritance$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig } from "../TaxSettingsClient";
 
 /**
@@ -85,7 +85,7 @@ export class PutTaxInheritanceCommand extends $Command
   })
   .s("TaxSettings", "PutTaxInheritance", {})
   .n("TaxSettingsClient", "PutTaxInheritanceCommand")
-  .sc(PutTaxInheritance)
+  .sc(PutTaxInheritance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

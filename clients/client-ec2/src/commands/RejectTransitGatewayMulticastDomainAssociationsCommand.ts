@@ -9,7 +9,7 @@ import type {
   RejectTransitGatewayMulticastDomainAssociationsRequest,
   RejectTransitGatewayMulticastDomainAssociationsResult,
 } from "../models/models_7";
-import { RejectTransitGatewayMulticastDomainAssociations } from "../schemas/schemas_0";
+import { RejectTransitGatewayMulticastDomainAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class RejectTransitGatewayMulticastDomainAssociationsCommand extends $Com
   })
   .s("AmazonEC2", "RejectTransitGatewayMulticastDomainAssociations", {})
   .n("EC2Client", "RejectTransitGatewayMulticastDomainAssociationsCommand")
-  .sc(RejectTransitGatewayMulticastDomainAssociations)
+  .sc(RejectTransitGatewayMulticastDomainAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

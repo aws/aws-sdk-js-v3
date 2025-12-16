@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import { ListAccessPolicies } from "../schemas/schemas_0";
+import { ListAccessPolicies$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class ListAccessPoliciesCommand extends $Command
   })
   .s("OpenSearchServerless", "ListAccessPolicies", {})
   .n("OpenSearchServerlessClient", "ListAccessPoliciesCommand")
-  .sc(ListAccessPolicies)
+  .sc(ListAccessPolicies$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

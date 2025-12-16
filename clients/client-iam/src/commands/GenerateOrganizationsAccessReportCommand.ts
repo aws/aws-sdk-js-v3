@@ -9,7 +9,7 @@ import type {
   GenerateOrganizationsAccessReportRequest,
   GenerateOrganizationsAccessReportResponse,
 } from "../models/models_0";
-import { GenerateOrganizationsAccessReport } from "../schemas/schemas_0";
+import { GenerateOrganizationsAccessReport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -228,7 +228,7 @@ export class GenerateOrganizationsAccessReportCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "GenerateOrganizationsAccessReport", {})
   .n("IAMClient", "GenerateOrganizationsAccessReportCommand")
-  .sc(GenerateOrganizationsAccessReport)
+  .sc(GenerateOrganizationsAccessReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

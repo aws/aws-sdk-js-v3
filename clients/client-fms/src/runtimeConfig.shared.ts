@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: FMSClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.fms",
-        serviceTarget: "AWSFMS_20180101",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.fms",
+      version: "2018-01-01",
+      serviceTarget: "AWSFMS_20180101",
+    },
     serviceId: config?.serviceId ?? "FMS",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

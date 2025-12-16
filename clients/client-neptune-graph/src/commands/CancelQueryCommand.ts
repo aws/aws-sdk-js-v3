@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelQueryInput } from "../models/models_0";
 import type { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
-import { CancelQuery } from "../schemas/schemas_0";
+import { CancelQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class CancelQueryCommand extends $Command
   })
   .s("AmazonNeptuneGraph", "CancelQuery", {})
   .n("NeptuneGraphClient", "CancelQueryCommand")
-  .sc(CancelQuery)
+  .sc(CancelQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

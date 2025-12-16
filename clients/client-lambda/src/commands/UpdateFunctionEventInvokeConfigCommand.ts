@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import type { FunctionEventInvokeConfig, UpdateFunctionEventInvokeConfigRequest } from "../models/models_0";
-import { UpdateFunctionEventInvokeConfig } from "../schemas/schemas_0";
+import { UpdateFunctionEventInvokeConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class UpdateFunctionEventInvokeConfigCommand extends $Command
   })
   .s("AWSGirApiService", "UpdateFunctionEventInvokeConfig", {})
   .n("LambdaClient", "UpdateFunctionEventInvokeConfigCommand")
-  .sc(UpdateFunctionEventInvokeConfig)
+  .sc(UpdateFunctionEventInvokeConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

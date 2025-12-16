@@ -31,8 +31,12 @@ export const getRuntimeConfig = (config: Route53RecoveryReadinessClientConfig) =
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.route53recoveryreadiness" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.route53recoveryreadiness",
+      version: "2019-12-02",
+      serviceTarget: "Route53RecoveryReadiness",
+    },
     serviceId: config?.serviceId ?? "Route53 Recovery Readiness",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

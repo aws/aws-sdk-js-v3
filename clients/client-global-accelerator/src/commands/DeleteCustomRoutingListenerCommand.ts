@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { DeleteCustomRoutingListenerRequest } from "../models/models_0";
-import { DeleteCustomRoutingListener } from "../schemas/schemas_0";
+import { DeleteCustomRoutingListener$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeleteCustomRoutingListenerCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "DeleteCustomRoutingListener", {})
   .n("GlobalAcceleratorClient", "DeleteCustomRoutingListenerCommand")
-  .sc(DeleteCustomRoutingListener)
+  .sc(DeleteCustomRoutingListener$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

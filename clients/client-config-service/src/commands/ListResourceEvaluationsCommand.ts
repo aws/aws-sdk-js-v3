@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListResourceEvaluationsRequest, ListResourceEvaluationsResponse } from "../models/models_0";
-import { ListResourceEvaluations } from "../schemas/schemas_0";
+import { ListResourceEvaluations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class ListResourceEvaluationsCommand extends $Command
   })
   .s("StarlingDoveService", "ListResourceEvaluations", {})
   .n("ConfigServiceClient", "ListResourceEvaluationsCommand")
-  .sc(ListResourceEvaluations)
+  .sc(ListResourceEvaluations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

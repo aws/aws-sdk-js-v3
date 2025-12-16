@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnvironmentDescription, UpdateEnvironmentMessage } from "../models/models_0";
-import { UpdateEnvironment } from "../schemas/schemas_0";
+import { UpdateEnvironment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -244,7 +244,7 @@ export class UpdateEnvironmentCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "UpdateEnvironment", {})
   .n("ElasticBeanstalkClient", "UpdateEnvironmentCommand")
-  .sc(UpdateEnvironment)
+  .sc(UpdateEnvironment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

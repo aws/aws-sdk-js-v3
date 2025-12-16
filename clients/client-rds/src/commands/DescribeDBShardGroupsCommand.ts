@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeDBShardGroupsMessage, DescribeDBShardGroupsResponse } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DescribeDBShardGroups } from "../schemas/schemas_0";
+import { DescribeDBShardGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class DescribeDBShardGroupsCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeDBShardGroups", {})
   .n("RDSClient", "DescribeDBShardGroupsCommand")
-  .sc(DescribeDBShardGroups)
+  .sc(DescribeDBShardGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

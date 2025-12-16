@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { UpdateCoreNetwork } from "../schemas/schemas_0";
+import { UpdateCoreNetwork$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class UpdateCoreNetworkCommand extends $Command
   })
   .s("NetworkManager", "UpdateCoreNetwork", {})
   .n("NetworkManagerClient", "UpdateCoreNetworkCommand")
-  .sc(UpdateCoreNetwork)
+  .sc(UpdateCoreNetwork$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

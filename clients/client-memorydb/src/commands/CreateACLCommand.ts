@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import type { CreateACLRequest, CreateACLResponse } from "../models/models_0";
-import { CreateACL } from "../schemas/schemas_0";
+import { CreateACL$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class CreateACLCommand extends $Command
   })
   .s("AmazonMemoryDB", "CreateACL", {})
   .n("MemoryDBClient", "CreateACLCommand")
-  .sc(CreateACL)
+  .sc(CreateACL$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

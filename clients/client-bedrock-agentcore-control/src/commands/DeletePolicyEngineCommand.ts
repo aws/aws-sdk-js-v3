@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeletePolicyEngineRequest, DeletePolicyEngineResponse } from "../models/models_0";
-import { DeletePolicyEngine } from "../schemas/schemas_0";
+import { DeletePolicyEngine$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DeletePolicyEngineCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "DeletePolicyEngine", {})
   .n("BedrockAgentCoreControlClient", "DeletePolicyEngineCommand")
-  .sc(DeletePolicyEngine)
+  .sc(DeletePolicyEngine$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

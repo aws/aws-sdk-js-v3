@@ -8,7 +8,7 @@ import type {
   DisassociatePrincipalFromPortfolioInput,
   DisassociatePrincipalFromPortfolioOutput,
 } from "../models/models_0";
-import { DisassociatePrincipalFromPortfolio } from "../schemas/schemas_0";
+import { DisassociatePrincipalFromPortfolio$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -106,7 +106,7 @@ export class DisassociatePrincipalFromPortfolioCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "DisassociatePrincipalFromPortfolio", {})
   .n("ServiceCatalogClient", "DisassociatePrincipalFromPortfolioCommand")
-  .sc(DisassociatePrincipalFromPortfolio)
+  .sc(DisassociatePrincipalFromPortfolio$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

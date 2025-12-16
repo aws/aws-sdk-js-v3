@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { GetSchemaVersionsDiffInput, GetSchemaVersionsDiffResponse } from "../models/models_2";
-import { GetSchemaVersionsDiff } from "../schemas/schemas_0";
+import { GetSchemaVersionsDiff$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class GetSchemaVersionsDiffCommand extends $Command
   })
   .s("AWSGlue", "GetSchemaVersionsDiff", {})
   .n("GlueClient", "GetSchemaVersionsDiffCommand")
-  .sc(GetSchemaVersionsDiff)
+  .sc(GetSchemaVersionsDiff$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

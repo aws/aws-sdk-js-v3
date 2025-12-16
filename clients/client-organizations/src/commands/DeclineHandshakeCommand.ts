@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeclineHandshakeRequest, DeclineHandshakeResponse } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { DeclineHandshake } from "../schemas/schemas_0";
+import { DeclineHandshake$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -339,7 +339,7 @@ export class DeclineHandshakeCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "DeclineHandshake", {})
   .n("OrganizationsClient", "DeclineHandshakeCommand")
-  .sc(DeclineHandshake)
+  .sc(DeclineHandshake$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

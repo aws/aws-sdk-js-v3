@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AcceptHandshakeRequest, AcceptHandshakeResponse } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { AcceptHandshake } from "../schemas/schemas_0";
+import { AcceptHandshake$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -641,7 +641,7 @@ export class AcceptHandshakeCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "AcceptHandshake", {})
   .n("OrganizationsClient", "AcceptHandshakeCommand")
-  .sc(AcceptHandshake)
+  .sc(AcceptHandshake$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

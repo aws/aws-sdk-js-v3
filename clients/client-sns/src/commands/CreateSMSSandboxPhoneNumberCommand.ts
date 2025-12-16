@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateSMSSandboxPhoneNumberInput, CreateSMSSandboxPhoneNumberResult } from "../models/models_0";
-import { CreateSMSSandboxPhoneNumber } from "../schemas/schemas_0";
+import { CreateSMSSandboxPhoneNumber$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -102,7 +102,7 @@ export class CreateSMSSandboxPhoneNumberCommand extends $Command
   })
   .s("AmazonSimpleNotificationService", "CreateSMSSandboxPhoneNumber", {})
   .n("SNSClient", "CreateSMSSandboxPhoneNumberCommand")
-  .sc(CreateSMSSandboxPhoneNumber)
+  .sc(CreateSMSSandboxPhoneNumber$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

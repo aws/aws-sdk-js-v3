@@ -8,7 +8,7 @@ import type {
   ListConfigurationCheckDefinitionsInput,
   ListConfigurationCheckDefinitionsOutput,
 } from "../models/models_0";
-import { ListConfigurationCheckDefinitions } from "../schemas/schemas_0";
+import { ListConfigurationCheckDefinitions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -95,7 +95,7 @@ export class ListConfigurationCheckDefinitionsCommand extends $Command
   })
   .s("SsmSap", "ListConfigurationCheckDefinitions", {})
   .n("SsmSapClient", "ListConfigurationCheckDefinitionsCommand")
-  .sc(ListConfigurationCheckDefinitions)
+  .sc(ListConfigurationCheckDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

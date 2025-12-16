@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvsClient";
 import type { DisassociateEipFromVlanRequest, DisassociateEipFromVlanResponse } from "../models/models_0";
-import { DisassociateEipFromVlan } from "../schemas/schemas_0";
+import { DisassociateEipFromVlan$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DisassociateEipFromVlanCommand extends $Command
   })
   .s("AmazonElasticVMwareService", "DisassociateEipFromVlan", {})
   .n("EvsClient", "DisassociateEipFromVlanCommand")
-  .sc(DisassociateEipFromVlan)
+  .sc(DisassociateEipFromVlan$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

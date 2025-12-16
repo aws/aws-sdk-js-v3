@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetVerifiedAccessEndpointPolicyRequest, GetVerifiedAccessEndpointPolicyResult } from "../models/models_6";
-import { GetVerifiedAccessEndpointPolicy } from "../schemas/schemas_0";
+import { GetVerifiedAccessEndpointPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class GetVerifiedAccessEndpointPolicyCommand extends $Command
   })
   .s("AmazonEC2", "GetVerifiedAccessEndpointPolicy", {})
   .n("EC2Client", "GetVerifiedAccessEndpointPolicyCommand")
-  .sc(GetVerifiedAccessEndpointPolicy)
+  .sc(GetVerifiedAccessEndpointPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

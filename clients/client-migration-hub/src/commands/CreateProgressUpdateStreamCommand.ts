@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import type { CreateProgressUpdateStreamRequest, CreateProgressUpdateStreamResult } from "../models/models_0";
-import { CreateProgressUpdateStream } from "../schemas/schemas_0";
+import { CreateProgressUpdateStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class CreateProgressUpdateStreamCommand extends $Command
   })
   .s("AWSMigrationHub", "CreateProgressUpdateStream", {})
   .n("MigrationHubClient", "CreateProgressUpdateStreamCommand")
-  .sc(CreateProgressUpdateStream)
+  .sc(CreateProgressUpdateStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

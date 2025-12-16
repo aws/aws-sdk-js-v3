@@ -13,7 +13,7 @@ import type {
   CreateLicenseConversionTaskForResourceRequest,
   CreateLicenseConversionTaskForResourceResponse,
 } from "../models/models_0";
-import { CreateLicenseConversionTaskForResource } from "../schemas/schemas_0";
+import { CreateLicenseConversionTaskForResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class CreateLicenseConversionTaskForResourceCommand extends $Command
   })
   .s("AWSLicenseManager", "CreateLicenseConversionTaskForResource", {})
   .n("LicenseManagerClient", "CreateLicenseConversionTaskForResourceCommand")
-  .sc(CreateLicenseConversionTaskForResource)
+  .sc(CreateLicenseConversionTaskForResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

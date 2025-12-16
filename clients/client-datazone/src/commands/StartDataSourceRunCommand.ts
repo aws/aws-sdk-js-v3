@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartDataSourceRunInput, StartDataSourceRunOutput } from "../models/models_1";
-import { StartDataSourceRun } from "../schemas/schemas_0";
+import { StartDataSourceRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class StartDataSourceRunCommand extends $Command
   })
   .s("DataZone", "StartDataSourceRun", {})
   .n("DataZoneClient", "StartDataSourceRunCommand")
-  .sc(StartDataSourceRun)
+  .sc(StartDataSourceRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DescribeTransitGatewayConnectPeersRequest,
   DescribeTransitGatewayConnectPeersResult,
 } from "../models/models_4";
-import { DescribeTransitGatewayConnectPeers } from "../schemas/schemas_0";
+import { DescribeTransitGatewayConnectPeers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class DescribeTransitGatewayConnectPeersCommand extends $Command
   })
   .s("AmazonEC2", "DescribeTransitGatewayConnectPeers", {})
   .n("EC2Client", "DescribeTransitGatewayConnectPeersCommand")
-  .sc(DescribeTransitGatewayConnectPeers)
+  .sc(DescribeTransitGatewayConnectPeers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

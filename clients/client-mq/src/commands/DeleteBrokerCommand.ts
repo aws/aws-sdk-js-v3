@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteBrokerRequest, DeleteBrokerResponse } from "../models/models_0";
 import type { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import { DeleteBroker } from "../schemas/schemas_0";
+import { DeleteBroker$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DeleteBrokerCommand extends $Command
   })
   .s("mq", "DeleteBroker", {})
   .n("MqClient", "DeleteBrokerCommand")
-  .sc(DeleteBroker)
+  .sc(DeleteBroker$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

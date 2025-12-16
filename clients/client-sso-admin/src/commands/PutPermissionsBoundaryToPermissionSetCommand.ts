@@ -8,7 +8,7 @@ import type {
   PutPermissionsBoundaryToPermissionSetRequest,
   PutPermissionsBoundaryToPermissionSetResponse,
 } from "../models/models_0";
-import { PutPermissionsBoundaryToPermissionSet } from "../schemas/schemas_0";
+import { PutPermissionsBoundaryToPermissionSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -103,7 +103,7 @@ export class PutPermissionsBoundaryToPermissionSetCommand extends $Command
   })
   .s("SWBExternalService", "PutPermissionsBoundaryToPermissionSet", {})
   .n("SSOAdminClient", "PutPermissionsBoundaryToPermissionSetCommand")
-  .sc(PutPermissionsBoundaryToPermissionSet)
+  .sc(PutPermissionsBoundaryToPermissionSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

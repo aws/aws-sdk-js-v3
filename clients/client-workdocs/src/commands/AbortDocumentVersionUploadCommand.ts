@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AbortDocumentVersionUploadRequest } from "../models/models_0";
-import { AbortDocumentVersionUpload } from "../schemas/schemas_0";
+import { AbortDocumentVersionUpload$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -99,7 +99,7 @@ export class AbortDocumentVersionUploadCommand extends $Command
   })
   .s("AWSGorillaBoyService", "AbortDocumentVersionUpload", {})
   .n("WorkDocsClient", "AbortDocumentVersionUploadCommand")
-  .sc(AbortDocumentVersionUpload)
+  .sc(AbortDocumentVersionUpload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

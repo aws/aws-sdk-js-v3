@@ -9,7 +9,7 @@ import type {
   ListConnectorDefinitionVersionsRequest,
   ListConnectorDefinitionVersionsResponse,
 } from "../models/models_0";
-import { ListConnectorDefinitionVersions } from "../schemas/schemas_0";
+import { ListConnectorDefinitionVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class ListConnectorDefinitionVersionsCommand extends $Command
   })
   .s("Greengrass", "ListConnectorDefinitionVersions", {})
   .n("GreengrassClient", "ListConnectorDefinitionVersionsCommand")
-  .sc(ListConnectorDefinitionVersions)
+  .sc(ListConnectorDefinitionVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

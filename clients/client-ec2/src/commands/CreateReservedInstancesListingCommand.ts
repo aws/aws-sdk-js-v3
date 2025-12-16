@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateReservedInstancesListingRequest, CreateReservedInstancesListingResult } from "../models/models_1";
-import { CreateReservedInstancesListing } from "../schemas/schemas_0";
+import { CreateReservedInstancesListing$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class CreateReservedInstancesListingCommand extends $Command
   })
   .s("AmazonEC2", "CreateReservedInstancesListing", {})
   .n("EC2Client", "CreateReservedInstancesListingCommand")
-  .sc(CreateReservedInstancesListing)
+  .sc(CreateReservedInstancesListing$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

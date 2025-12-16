@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { GetManagedThingMetaDataRequest, GetManagedThingMetaDataResponse } from "../models/models_0";
-import { GetManagedThingMetaData } from "../schemas/schemas_0";
+import { GetManagedThingMetaData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class GetManagedThingMetaDataCommand extends $Command
   })
   .s("IotManagedIntegrations", "GetManagedThingMetaData", {})
   .n("IoTManagedIntegrationsClient", "GetManagedThingMetaDataCommand")
-  .sc(GetManagedThingMetaData)
+  .sc(GetManagedThingMetaData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationDiscoveryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTagsRequest, DeleteTagsResponse } from "../models/models_0";
-import { DeleteTags } from "../schemas/schemas_0";
+import { DeleteTags$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class DeleteTagsCommand extends $Command
   })
   .s("AWSPoseidonService_V2015_11_01", "DeleteTags", {})
   .n("ApplicationDiscoveryServiceClient", "DeleteTagsCommand")
-  .sc(DeleteTags)
+  .sc(DeleteTags$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

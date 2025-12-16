@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RestoreTableFromBackupInput, RestoreTableFromBackupOutput } from "../models/models_0";
-import { RestoreTableFromBackup } from "../schemas/schemas_0";
+import { RestoreTableFromBackup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -373,7 +373,7 @@ export class RestoreTableFromBackupCommand extends $Command
   })
   .s("DynamoDB_20120810", "RestoreTableFromBackup", {})
   .n("DynamoDBClient", "RestoreTableFromBackupCommand")
-  .sc(RestoreTableFromBackup)
+  .sc(RestoreTableFromBackup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

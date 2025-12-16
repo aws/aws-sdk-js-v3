@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDomainRequest, UpdateDomainResponse } from "../models/models_1";
-import { UpdateDomain } from "../schemas/schemas_0";
+import { UpdateDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -249,7 +249,7 @@ export class UpdateDomainCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "UpdateDomain", {})
   .n("CustomerProfilesClient", "UpdateDomainCommand")
-  .sc(UpdateDomain)
+  .sc(UpdateDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

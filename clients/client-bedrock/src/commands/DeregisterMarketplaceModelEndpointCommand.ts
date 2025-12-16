@@ -9,7 +9,7 @@ import type {
   DeregisterMarketplaceModelEndpointRequest,
   DeregisterMarketplaceModelEndpointResponse,
 } from "../models/models_0";
-import { DeregisterMarketplaceModelEndpoint } from "../schemas/schemas_0";
+import { DeregisterMarketplaceModelEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeregisterMarketplaceModelEndpointCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "DeregisterMarketplaceModelEndpoint", {})
   .n("BedrockClient", "DeregisterMarketplaceModelEndpointCommand")
-  .sc(DeregisterMarketplaceModelEndpoint)
+  .sc(DeregisterMarketplaceModelEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

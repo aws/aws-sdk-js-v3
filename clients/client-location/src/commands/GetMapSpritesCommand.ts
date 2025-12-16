@@ -7,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { type GetMapSpritesRequest, GetMapSpritesResponse } from "../models/models_0";
-import { GetMapSprites } from "../schemas/schemas_0";
+import { GetMapSprites$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class GetMapSpritesCommand extends $Command
   })
   .s("LocationService", "GetMapSprites", {})
   .n("LocationClient", "GetMapSpritesCommand")
-  .sc(GetMapSprites)
+  .sc(GetMapSprites$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

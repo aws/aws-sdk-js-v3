@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
 import type { VoteOnProposalInput, VoteOnProposalOutput } from "../models/models_0";
-import { VoteOnProposal } from "../schemas/schemas_0";
+import { VoteOnProposal$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class VoteOnProposalCommand extends $Command
   })
   .s("TaigaWebService", "VoteOnProposal", {})
   .n("ManagedBlockchainClient", "VoteOnProposalCommand")
-  .sc(VoteOnProposal)
+  .sc(VoteOnProposal$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

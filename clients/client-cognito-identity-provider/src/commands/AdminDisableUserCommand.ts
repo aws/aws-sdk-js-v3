@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AdminDisableUserRequest, AdminDisableUserResponse } from "../models/models_0";
-import { AdminDisableUser } from "../schemas/schemas_0";
+import { AdminDisableUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class AdminDisableUserCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "AdminDisableUser", {})
   .n("CognitoIdentityProviderClient", "AdminDisableUserCommand")
-  .sc(AdminDisableUser)
+  .sc(AdminDisableUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

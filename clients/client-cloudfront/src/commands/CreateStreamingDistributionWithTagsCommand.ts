@@ -9,7 +9,7 @@ import type {
   CreateStreamingDistributionWithTagsRequest,
   CreateStreamingDistributionWithTagsResult,
 } from "../models/models_0";
-import { CreateStreamingDistributionWithTags } from "../schemas/schemas_0";
+import { CreateStreamingDistributionWithTags$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -208,7 +208,7 @@ export class CreateStreamingDistributionWithTagsCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "CreateStreamingDistributionWithTags", {})
   .n("CloudFrontClient", "CreateStreamingDistributionWithTagsCommand")
-  .sc(CreateStreamingDistributionWithTags)
+  .sc(CreateStreamingDistributionWithTags$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

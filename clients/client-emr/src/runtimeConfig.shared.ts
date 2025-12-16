@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: EMRClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.emr",
-        serviceTarget: "ElasticMapReduce",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.emr",
+      xmlNamespace: "http://elasticmapreduce.amazonaws.com/doc/2009-03-31",
+      version: "2009-03-31",
+      serviceTarget: "ElasticMapReduce",
+    },
     serviceId: config?.serviceId ?? "EMR",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

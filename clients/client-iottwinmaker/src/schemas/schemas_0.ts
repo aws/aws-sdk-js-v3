@@ -453,33 +453,33 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  ConnectorFailureException as __ConnectorFailureException,
-  ConnectorTimeoutException as __ConnectorTimeoutException,
-  InternalServerException as __InternalServerException,
-  QueryTimeoutException as __QueryTimeoutException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  TooManyTagsException as __TooManyTagsException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  ConnectorFailureException,
+  ConnectorTimeoutException,
+  InternalServerException,
+  QueryTimeoutException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  TooManyTagsException,
+  ValidationException,
 } from "../models/errors";
-import { IoTTwinMakerServiceException as __IoTTwinMakerServiceException } from "../models/IoTTwinMakerServiceException";
+import { IoTTwinMakerServiceException } from "../models/IoTTwinMakerServiceException";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var BatchPutPropertyError: StaticStructureSchema = [
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var BatchPutPropertyError$: StaticStructureSchema = [
   3,
   n0,
   _BPPE,
   0,
   [_eC, _eM, _en],
-  [0, 0, () => PropertyValueEntry],
+  [0, 0, () => PropertyValueEntry$],
 ];
-export var BatchPutPropertyErrorEntry: StaticStructureSchema = [3, n0, _BPPEE, 0, [_er], [() => Errors]];
-export var BatchPutPropertyValuesRequest: StaticStructureSchema = [
+export var BatchPutPropertyErrorEntry$: StaticStructureSchema = [3, n0, _BPPEE, 0, [_er], [() => Errors]];
+export var BatchPutPropertyValuesRequest$: StaticStructureSchema = [
   3,
   n0,
   _BPPVR,
@@ -487,21 +487,21 @@ export var BatchPutPropertyValuesRequest: StaticStructureSchema = [
   [_wI, _ent],
   [[0, 1], () => Entries],
 ];
-export var BatchPutPropertyValuesResponse: StaticStructureSchema = [3, n0, _BPPVRa, 0, [_eE], [() => ErrorEntries]];
-export var BundleInformation: StaticStructureSchema = [3, n0, _BI, 0, [_bN, _pT], [64 | 0, 0]];
-export var CancelMetadataTransferJobRequest: StaticStructureSchema = [3, n0, _CMTJR, 0, [_mTJI], [[0, 1]]];
-export var CancelMetadataTransferJobResponse: StaticStructureSchema = [
+export var BatchPutPropertyValuesResponse$: StaticStructureSchema = [3, n0, _BPPVRa, 0, [_eE], [() => ErrorEntries]];
+export var BundleInformation$: StaticStructureSchema = [3, n0, _BI, 0, [_bN, _pT], [64 | 0, 0]];
+export var CancelMetadataTransferJobRequest$: StaticStructureSchema = [3, n0, _CMTJR, 0, [_mTJI], [[0, 1]]];
+export var CancelMetadataTransferJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _CMTJRa,
   0,
   [_mTJI, _a, _uDT, _s, _p],
-  [0, 0, 4, () => MetadataTransferJobStatus, () => MetadataTransferJobProgress],
+  [0, 0, 4, () => MetadataTransferJobStatus$, () => MetadataTransferJobProgress$],
 ];
-export var ColumnDescription: StaticStructureSchema = [3, n0, _CD, 0, [_n, _t], [0, 0]];
-export var ComponentPropertyGroupRequest: StaticStructureSchema = [3, n0, _CPGR, 0, [_gT, _pN, _uT], [0, 64 | 0, 0]];
-export var ComponentPropertyGroupResponse: StaticStructureSchema = [3, n0, _CPGRo, 0, [_gT, _pN, _iI], [0, 64 | 0, 2]];
-export var ComponentRequest: StaticStructureSchema = [
+export var ColumnDescription$: StaticStructureSchema = [3, n0, _CD, 0, [_n, _t], [0, 0]];
+export var ComponentPropertyGroupRequest$: StaticStructureSchema = [3, n0, _CPGR, 0, [_gT, _pN, _uT], [0, 64 | 0, 0]];
+export var ComponentPropertyGroupResponse$: StaticStructureSchema = [3, n0, _CPGRo, 0, [_gT, _pN, _iI], [0, 64 | 0, 2]];
+export var ComponentRequest$: StaticStructureSchema = [
   3,
   n0,
   _CR,
@@ -509,7 +509,7 @@ export var ComponentRequest: StaticStructureSchema = [
   [_d, _cTI, _pr, _pG],
   [0, 0, () => PropertyRequests, () => ComponentPropertyGroupRequests],
 ];
-export var ComponentResponse: StaticStructureSchema = [
+export var ComponentResponse$: StaticStructureSchema = [
   3,
   n0,
   _CRo,
@@ -519,7 +519,7 @@ export var ComponentResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    () => Status,
+    () => Status$,
     0,
     () => PropertyResponses,
     () => ComponentPropertyGroupResponses,
@@ -529,23 +529,23 @@ export var ComponentResponse: StaticStructureSchema = [
     2,
   ],
 ];
-export var ComponentSummary: StaticStructureSchema = [
+export var ComponentSummary$: StaticStructureSchema = [
   3,
   n0,
   _CS,
   0,
   [_cN, _cTI, _dI, _d, _pG, _s, _sS, _cP],
-  [0, 0, 0, 0, () => ComponentPropertyGroupResponses, () => Status, 0, 0],
+  [0, 0, 0, 0, () => ComponentPropertyGroupResponses, () => Status$, 0, 0],
 ];
-export var ComponentTypeSummary: StaticStructureSchema = [
+export var ComponentTypeSummary$: StaticStructureSchema = [
   3,
   n0,
   _CTS,
   0,
   [_a, _cTI, _cDT, _uDT, _d, _s, _cTN],
-  [0, 0, 4, 4, 0, () => Status, 0],
+  [0, 0, 4, 4, 0, () => Status$, 0],
 ];
-export var ComponentUpdateRequest: StaticStructureSchema = [
+export var ComponentUpdateRequest$: StaticStructureSchema = [
   3,
   n0,
   _CUR,
@@ -553,7 +553,7 @@ export var ComponentUpdateRequest: StaticStructureSchema = [
   [_uT, _d, _cTI, _pU, _pGU],
   [0, 0, 0, () => PropertyRequests, () => ComponentPropertyGroupRequests],
 ];
-export var CompositeComponentRequest: StaticStructureSchema = [
+export var CompositeComponentRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCR,
@@ -561,9 +561,9 @@ export var CompositeComponentRequest: StaticStructureSchema = [
   [_d, _pr, _pG],
   [0, () => PropertyRequests, () => ComponentPropertyGroupRequests],
 ];
-export var CompositeComponentTypeRequest: StaticStructureSchema = [3, n0, _CCTR, 0, [_cTI], [0]];
-export var CompositeComponentTypeResponse: StaticStructureSchema = [3, n0, _CCTRo, 0, [_cTI, _iI], [0, 2]];
-export var CompositeComponentUpdateRequest: StaticStructureSchema = [
+export var CompositeComponentTypeRequest$: StaticStructureSchema = [3, n0, _CCTR, 0, [_cTI], [0]];
+export var CompositeComponentTypeResponse$: StaticStructureSchema = [3, n0, _CCTRo, 0, [_cTI, _iI], [0, 2]];
+export var CompositeComponentUpdateRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCUR,
@@ -571,13 +571,13 @@ export var CompositeComponentUpdateRequest: StaticStructureSchema = [
   [_uT, _d, _pU, _pGU],
   [0, 0, () => PropertyRequests, () => ComponentPropertyGroupRequests],
 ];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var ConnectorFailureException: StaticErrorSchema = [-3, n0, _CFE, { [_e]: _c, [_hE]: 424 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ConnectorFailureException, __ConnectorFailureException);
-export var ConnectorTimeoutException: StaticErrorSchema = [-3, n0, _CTE, { [_e]: _c, [_hE]: 424 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ConnectorTimeoutException, __ConnectorTimeoutException);
-export var CreateComponentTypeRequest: StaticStructureSchema = [
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var ConnectorFailureException$: StaticErrorSchema = [-3, n0, _CFE, { [_e]: _c, [_hE]: 424 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ConnectorFailureException$, ConnectorFailureException);
+export var ConnectorTimeoutException$: StaticErrorSchema = [-3, n0, _CTE, { [_e]: _c, [_hE]: 424 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ConnectorTimeoutException$, ConnectorTimeoutException);
+export var CreateComponentTypeRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCTRr,
@@ -597,8 +597,8 @@ export var CreateComponentTypeRequest: StaticStructureSchema = [
     () => CompositeComponentTypesRequest,
   ],
 ];
-export var CreateComponentTypeResponse: StaticStructureSchema = [3, n0, _CCTRre, 0, [_a, _cDT, _st], [0, 4, 0]];
-export var CreateEntityRequest: StaticStructureSchema = [
+export var CreateComponentTypeResponse$: StaticStructureSchema = [3, n0, _CCTRre, 0, [_a, _cDT, _st], [0, 4, 0]];
+export var CreateEntityRequest$: StaticStructureSchema = [
   3,
   n0,
   _CER,
@@ -606,24 +606,24 @@ export var CreateEntityRequest: StaticStructureSchema = [
   [_wI, _eI, _eN, _d, _co, _cC, _pEI, _ta],
   [[0, 1], 0, 0, 0, () => ComponentsMapRequest, () => CompositeComponentsMapRequest, 0, 128 | 0],
 ];
-export var CreateEntityResponse: StaticStructureSchema = [3, n0, _CERr, 0, [_eI, _a, _cDT, _st], [0, 0, 4, 0]];
-export var CreateMetadataTransferJobRequest: StaticStructureSchema = [
+export var CreateEntityResponse$: StaticStructureSchema = [3, n0, _CERr, 0, [_eI, _a, _cDT, _st], [0, 0, 4, 0]];
+export var CreateMetadataTransferJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _CMTJRr,
   0,
   [_mTJI, _d, _so, _de],
-  [0, 0, () => SourceConfigurations, () => DestinationConfiguration],
+  [0, 0, () => SourceConfigurations, () => DestinationConfiguration$],
 ];
-export var CreateMetadataTransferJobResponse: StaticStructureSchema = [
+export var CreateMetadataTransferJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _CMTJRre,
   0,
   [_mTJI, _a, _cDT, _s],
-  [0, 0, 4, () => MetadataTransferJobStatus],
+  [0, 0, 4, () => MetadataTransferJobStatus$],
 ];
-export var CreateSceneRequest: StaticStructureSchema = [
+export var CreateSceneRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSR,
@@ -631,8 +631,8 @@ export var CreateSceneRequest: StaticStructureSchema = [
   [_wI, _sI, _cL, _d, _ca, _ta, _sM],
   [[0, 1], 0, 0, 0, 64 | 0, 128 | 0, 128 | 0],
 ];
-export var CreateSceneResponse: StaticStructureSchema = [3, n0, _CSRr, 0, [_a, _cDT], [0, 4]];
-export var CreateSyncJobRequest: StaticStructureSchema = [
+export var CreateSceneResponse$: StaticStructureSchema = [3, n0, _CSRr, 0, [_a, _cDT], [0, 4]];
+export var CreateSyncJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSJR,
@@ -640,8 +640,8 @@ export var CreateSyncJobRequest: StaticStructureSchema = [
   [_wI, _sS, _sR, _ta],
   [[0, 1], [0, 1], 0, 128 | 0],
 ];
-export var CreateSyncJobResponse: StaticStructureSchema = [3, n0, _CSJRr, 0, [_a, _cDT, _st], [0, 4, 0]];
-export var CreateWorkspaceRequest: StaticStructureSchema = [
+export var CreateSyncJobResponse$: StaticStructureSchema = [3, n0, _CSJRr, 0, [_a, _cDT, _st], [0, 4, 0]];
+export var CreateWorkspaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _CWR,
@@ -649,25 +649,25 @@ export var CreateWorkspaceRequest: StaticStructureSchema = [
   [_wI, _d, _sL, _r, _ta],
   [[0, 1], 0, 0, 0, 128 | 0],
 ];
-export var CreateWorkspaceResponse: StaticStructureSchema = [3, n0, _CWRr, 0, [_a, _cDT], [0, 4]];
-export var DataConnector: StaticStructureSchema = [3, n0, _DC, 0, [_l, _iN], [() => LambdaFunction, 2]];
-export var DataType: StaticStructureSchema = [
+export var CreateWorkspaceResponse$: StaticStructureSchema = [3, n0, _CWRr, 0, [_a, _cDT], [0, 4]];
+export var DataConnector$: StaticStructureSchema = [3, n0, _DC, 0, [_l, _iN], [() => LambdaFunction$, 2]];
+export var DataType$: StaticStructureSchema = [
   3,
   n0,
   _DT,
   0,
   [_t, _nT, _aV, _uOM, _re],
-  [0, () => DataType, () => DataValueList, 0, () => Relationship],
+  [0, () => DataType$, () => DataValueList, 0, () => Relationship$],
 ];
-export var DataValue: StaticStructureSchema = [
+export var DataValue$: StaticStructureSchema = [
   3,
   n0,
   _DV,
   0,
   [_bV, _dV, _iV, _lV, _sV, _lVi, _mV, _rV, _ex],
-  [2, 1, 1, 1, 0, () => DataValueList, () => DataValueMap, () => RelationshipValue, 0],
+  [2, 1, 1, 1, 0, () => DataValueList, () => DataValueMap, () => RelationshipValue$, 0],
 ];
-export var DeleteComponentTypeRequest: StaticStructureSchema = [
+export var DeleteComponentTypeRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCTR,
@@ -678,8 +678,8 @@ export var DeleteComponentTypeRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteComponentTypeResponse: StaticStructureSchema = [3, n0, _DCTRe, 0, [_st], [0]];
-export var DeleteEntityRequest: StaticStructureSchema = [
+export var DeleteComponentTypeResponse$: StaticStructureSchema = [3, n0, _DCTRe, 0, [_st], [0]];
+export var DeleteEntityRequest$: StaticStructureSchema = [
   3,
   n0,
   _DER,
@@ -691,8 +691,8 @@ export var DeleteEntityRequest: StaticStructureSchema = [
     [2, { [_hQ]: _iR }],
   ],
 ];
-export var DeleteEntityResponse: StaticStructureSchema = [3, n0, _DERe, 0, [_st], [0]];
-export var DeleteSceneRequest: StaticStructureSchema = [
+export var DeleteEntityResponse$: StaticStructureSchema = [3, n0, _DERe, 0, [_st], [0]];
+export var DeleteSceneRequest$: StaticStructureSchema = [
   3,
   n0,
   _DSR,
@@ -703,8 +703,8 @@ export var DeleteSceneRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteSceneResponse: StaticStructureSchema = [3, n0, _DSRe, 0, [], []];
-export var DeleteSyncJobRequest: StaticStructureSchema = [
+export var DeleteSceneResponse$: StaticStructureSchema = [3, n0, _DSRe, 0, [], []];
+export var DeleteSyncJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _DSJR,
@@ -715,18 +715,18 @@ export var DeleteSyncJobRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteSyncJobResponse: StaticStructureSchema = [3, n0, _DSJRe, 0, [_st], [0]];
-export var DeleteWorkspaceRequest: StaticStructureSchema = [3, n0, _DWR, 0, [_wI], [[0, 1]]];
-export var DeleteWorkspaceResponse: StaticStructureSchema = [3, n0, _DWRe, 0, [_m], [0]];
-export var DestinationConfiguration: StaticStructureSchema = [
+export var DeleteSyncJobResponse$: StaticStructureSchema = [3, n0, _DSJRe, 0, [_st], [0]];
+export var DeleteWorkspaceRequest$: StaticStructureSchema = [3, n0, _DWR, 0, [_wI], [[0, 1]]];
+export var DeleteWorkspaceResponse$: StaticStructureSchema = [3, n0, _DWRe, 0, [_m], [0]];
+export var DestinationConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DCe,
   0,
   [_t, _sC, _iTMC],
-  [0, () => S3DestinationConfiguration, () => IotTwinMakerDestinationConfiguration],
+  [0, () => S3DestinationConfiguration$, () => IotTwinMakerDestinationConfiguration$],
 ];
-export var EntityPropertyReference: StaticStructureSchema = [
+export var EntityPropertyReference$: StaticStructureSchema = [
   3,
   n0,
   _EPR,
@@ -734,17 +734,17 @@ export var EntityPropertyReference: StaticStructureSchema = [
   [_cN, _cP, _eIP, _eI, _pNr],
   [0, 0, 128 | 0, 0, 0],
 ];
-export var EntitySummary: StaticStructureSchema = [
+export var EntitySummary$: StaticStructureSchema = [
   3,
   n0,
   _ES,
   0,
   [_eI, _eN, _a, _pEI, _s, _d, _hCE, _cDT, _uDT],
-  [0, 0, 0, 0, () => Status, 0, 2, 4, 4],
+  [0, 0, 0, 0, () => Status$, 0, 2, 4, 4],
 ];
-export var ErrorDetails: StaticStructureSchema = [3, n0, _ED, 0, [_cod, _m], [0, 0]];
-export var ExecuteQueryRequest: StaticStructureSchema = [3, n0, _EQR, 0, [_wI, _qS, _mR, _nTe], [0, 0, 1, 0]];
-export var ExecuteQueryResponse: StaticStructureSchema = [
+export var ErrorDetails$: StaticStructureSchema = [3, n0, _ED, 0, [_cod, _m], [0, 0]];
+export var ExecuteQueryRequest$: StaticStructureSchema = [3, n0, _EQR, 0, [_wI, _qS, _mR, _nTe], [0, 0, 1, 0]];
+export var ExecuteQueryResponse$: StaticStructureSchema = [
   3,
   n0,
   _EQRx,
@@ -752,20 +752,27 @@ export var ExecuteQueryResponse: StaticStructureSchema = [
   [_cD, _ro, _nTe],
   [() => ColumnDescriptions, () => Rows, 0],
 ];
-export var FilterByAsset: StaticStructureSchema = [3, n0, _FBA, 0, [_aI, _aEI, _iO, _iAM], [0, 0, 2, 2]];
-export var FilterByAssetModel: StaticStructureSchema = [3, n0, _FBAM, 0, [_aMI, _aMEI, _iO, _iA], [0, 0, 2, 2]];
-export var FilterByComponentType: StaticStructureSchema = [3, n0, _FBCT, 0, [_cTI], [0]];
-export var FilterByEntity: StaticStructureSchema = [3, n0, _FBE, 0, [_eI], [0]];
-export var FunctionRequest: StaticStructureSchema = [3, n0, _FR, 0, [_rP, _sc, _iB], [64 | 0, 0, () => DataConnector]];
-export var FunctionResponse: StaticStructureSchema = [
+export var FilterByAsset$: StaticStructureSchema = [3, n0, _FBA, 0, [_aI, _aEI, _iO, _iAM], [0, 0, 2, 2]];
+export var FilterByAssetModel$: StaticStructureSchema = [3, n0, _FBAM, 0, [_aMI, _aMEI, _iO, _iA], [0, 0, 2, 2]];
+export var FilterByComponentType$: StaticStructureSchema = [3, n0, _FBCT, 0, [_cTI], [0]];
+export var FilterByEntity$: StaticStructureSchema = [3, n0, _FBE, 0, [_eI], [0]];
+export var FunctionRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _FR,
+  0,
+  [_rP, _sc, _iB],
+  [64 | 0, 0, () => DataConnector$],
+];
+export var FunctionResponse$: StaticStructureSchema = [
   3,
   n0,
   _FRu,
   0,
   [_rP, _sc, _iB, _iI],
-  [64 | 0, 0, () => DataConnector, 2],
+  [64 | 0, 0, () => DataConnector$, 2],
 ];
-export var GetComponentTypeRequest: StaticStructureSchema = [
+export var GetComponentTypeRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCTR,
@@ -776,7 +783,7 @@ export var GetComponentTypeRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetComponentTypeResponse: StaticStructureSchema = [
+export var GetComponentTypeResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCTRe,
@@ -795,14 +802,14 @@ export var GetComponentTypeResponse: StaticStructureSchema = [
     0,
     2,
     2,
-    () => Status,
+    () => Status$,
     () => PropertyGroupsResponse,
     0,
     0,
     () => CompositeComponentTypesResponse,
   ],
 ];
-export var GetEntityRequest: StaticStructureSchema = [
+export var GetEntityRequest$: StaticStructureSchema = [
   3,
   n0,
   _GER,
@@ -813,16 +820,16 @@ export var GetEntityRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetEntityResponse: StaticStructureSchema = [
+export var GetEntityResponse$: StaticStructureSchema = [
   3,
   n0,
   _GERe,
   0,
   [_eI, _eN, _a, _s, _wI, _d, _co, _pEI, _hCE, _cDT, _uDT, _sS, _aACR],
-  [0, 0, 0, () => Status, 0, 0, () => ComponentsMap, 0, 2, 4, 4, 0, 2],
+  [0, 0, 0, () => Status$, 0, 0, () => ComponentsMap, 0, 2, 4, 4, 0, 2],
 ];
-export var GetMetadataTransferJobRequest: StaticStructureSchema = [3, n0, _GMTJR, 0, [_mTJI], [[0, 1]]];
-export var GetMetadataTransferJobResponse: StaticStructureSchema = [
+export var GetMetadataTransferJobRequest$: StaticStructureSchema = [3, n0, _GMTJR, 0, [_mTJI], [[0, 1]]];
+export var GetMetadataTransferJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _GMTJRe,
@@ -833,33 +840,33 @@ export var GetMetadataTransferJobResponse: StaticStructureSchema = [
     0,
     0,
     () => SourceConfigurations,
-    () => DestinationConfiguration,
+    () => DestinationConfiguration$,
     0,
     0,
     4,
     4,
-    () => MetadataTransferJobStatus,
-    () => MetadataTransferJobProgress,
+    () => MetadataTransferJobStatus$,
+    () => MetadataTransferJobProgress$,
   ],
 ];
-export var GetPricingPlanRequest: StaticStructureSchema = [3, n0, _GPPR, 0, [], []];
-export var GetPricingPlanResponse: StaticStructureSchema = [
+export var GetPricingPlanRequest$: StaticStructureSchema = [3, n0, _GPPR, 0, [], []];
+export var GetPricingPlanResponse$: StaticStructureSchema = [
   3,
   n0,
   _GPPRe,
   0,
   [_cPP, _pPP],
-  [() => PricingPlan, () => PricingPlan],
+  [() => PricingPlan$, () => PricingPlan$],
 ];
-export var GetPropertyValueHistoryRequest: StaticStructureSchema = [
+export var GetPropertyValueHistoryRequest$: StaticStructureSchema = [
   3,
   n0,
   _GPVHR,
   0,
   [_wI, _eI, _cN, _cP, _cTI, _sP, _pF, _sDT, _eDT, _i, _nTe, _mR, _oBT, _sT, _eT],
-  [[0, 1], 0, 0, 0, 0, 64 | 0, () => PropertyFilters, 4, 4, () => InterpolationParameters, 0, 1, 0, 0, 0],
+  [[0, 1], 0, 0, 0, 0, 64 | 0, () => PropertyFilters, 4, 4, () => InterpolationParameters$, 0, 1, 0, 0, 0],
 ];
-export var GetPropertyValueHistoryResponse: StaticStructureSchema = [
+export var GetPropertyValueHistoryResponse$: StaticStructureSchema = [
   3,
   n0,
   _GPVHRe,
@@ -867,15 +874,15 @@ export var GetPropertyValueHistoryResponse: StaticStructureSchema = [
   [_pV, _nTe],
   [() => PropertyValueList, 0],
 ];
-export var GetPropertyValueRequest: StaticStructureSchema = [
+export var GetPropertyValueRequest$: StaticStructureSchema = [
   3,
   n0,
   _GPVR,
   0,
   [_cN, _cP, _cTI, _eI, _sP, _wI, _mR, _nTe, _pGN, _tC],
-  [0, 0, 0, 0, 64 | 0, [0, 1], 1, 0, 0, () => TabularConditions],
+  [0, 0, 0, 0, 64 | 0, [0, 1], 1, 0, 0, () => TabularConditions$],
 ];
-export var GetPropertyValueResponse: StaticStructureSchema = [
+export var GetPropertyValueResponse$: StaticStructureSchema = [
   3,
   n0,
   _GPVRe,
@@ -883,7 +890,7 @@ export var GetPropertyValueResponse: StaticStructureSchema = [
   [_pV, _nTe, _tPV],
   [() => PropertyLatestValueMap, 0, () => TabularPropertyValues],
 ];
-export var GetSceneRequest: StaticStructureSchema = [
+export var GetSceneRequest$: StaticStructureSchema = [
   3,
   n0,
   _GSR,
@@ -894,15 +901,15 @@ export var GetSceneRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetSceneResponse: StaticStructureSchema = [
+export var GetSceneResponse$: StaticStructureSchema = [
   3,
   n0,
   _GSRe,
   0,
   [_wI, _sI, _cL, _a, _cDT, _uDT, _d, _ca, _sM, _gSM, _e],
-  [0, 0, 0, 0, 4, 4, 0, 64 | 0, 128 | 0, 128 | 0, () => SceneError],
+  [0, 0, 0, 0, 4, 4, 0, 64 | 0, 128 | 0, 128 | 0, () => SceneError$],
 ];
-export var GetSyncJobRequest: StaticStructureSchema = [
+export var GetSyncJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _GSJR,
@@ -913,16 +920,16 @@ export var GetSyncJobRequest: StaticStructureSchema = [
     [0, { [_hQ]: _w }],
   ],
 ];
-export var GetSyncJobResponse: StaticStructureSchema = [
+export var GetSyncJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _GSJRe,
   0,
   [_a, _wI, _sS, _sR, _s, _cDT, _uDT],
-  [0, 0, 0, 0, () => SyncJobStatus, 4, 4],
+  [0, 0, 0, 0, () => SyncJobStatus$, 4, 4],
 ];
-export var GetWorkspaceRequest: StaticStructureSchema = [3, n0, _GWR, 0, [_wI], [[0, 1]]];
-export var GetWorkspaceResponse: StaticStructureSchema = [
+export var GetWorkspaceRequest$: StaticStructureSchema = [3, n0, _GWR, 0, [_wI], [[0, 1]]];
+export var GetWorkspaceResponse$: StaticStructureSchema = [
   3,
   n0,
   _GWRe,
@@ -930,10 +937,10 @@ export var GetWorkspaceResponse: StaticStructureSchema = [
   [_wI, _a, _d, _lS, _sL, _r, _cDT, _uDT],
   [0, 0, 0, 64 | 0, 0, 0, 4, 4],
 ];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var InterpolationParameters: StaticStructureSchema = [3, n0, _IP, 0, [_iT, _iIS], [0, 1]];
-export var IotSiteWiseSourceConfiguration: StaticStructureSchema = [
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var InterpolationParameters$: StaticStructureSchema = [3, n0, _IP, 0, [_iT, _iIS], [0, 1]];
+export var IotSiteWiseSourceConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ISWSC,
@@ -941,8 +948,8 @@ export var IotSiteWiseSourceConfiguration: StaticStructureSchema = [
   [_fi],
   [() => IotSiteWiseSourceConfigurationFilters],
 ];
-export var IotTwinMakerDestinationConfiguration: StaticStructureSchema = [3, n0, _ITMDC, 0, [_w], [0]];
-export var IotTwinMakerSourceConfiguration: StaticStructureSchema = [
+export var IotTwinMakerDestinationConfiguration$: StaticStructureSchema = [3, n0, _ITMDC, 0, [_w], [0]];
+export var IotTwinMakerSourceConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ITMSC,
@@ -950,8 +957,8 @@ export var IotTwinMakerSourceConfiguration: StaticStructureSchema = [
   [_w, _fi],
   [0, () => IotTwinMakerSourceConfigurationFilters],
 ];
-export var LambdaFunction: StaticStructureSchema = [3, n0, _LF, 0, [_a], [0]];
-export var ListComponentsRequest: StaticStructureSchema = [
+export var LambdaFunction$: StaticStructureSchema = [3, n0, _LF, 0, [_a], [0]];
+export var ListComponentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCR,
@@ -959,7 +966,7 @@ export var ListComponentsRequest: StaticStructureSchema = [
   [_wI, _eI, _cP, _mR, _nTe],
   [[0, 1], [0, 1], 0, 1, 0],
 ];
-export var ListComponentsResponse: StaticStructureSchema = [
+export var ListComponentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCRi,
@@ -967,7 +974,7 @@ export var ListComponentsResponse: StaticStructureSchema = [
   [_cS, _nTe],
   [() => ComponentSummaries, 0],
 ];
-export var ListComponentTypesRequest: StaticStructureSchema = [
+export var ListComponentTypesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCTR,
@@ -975,7 +982,7 @@ export var ListComponentTypesRequest: StaticStructureSchema = [
   [_wI, _fi, _nTe, _mR],
   [[0, 1], () => ListComponentTypesFilters, 0, 1],
 ];
-export var ListComponentTypesResponse: StaticStructureSchema = [
+export var ListComponentTypesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCTRi,
@@ -983,7 +990,7 @@ export var ListComponentTypesResponse: StaticStructureSchema = [
   [_wI, _cTS, _nTe, _mR],
   [0, () => ComponentTypeSummaries, 0, 1],
 ];
-export var ListEntitiesRequest: StaticStructureSchema = [
+export var ListEntitiesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LER,
@@ -991,8 +998,8 @@ export var ListEntitiesRequest: StaticStructureSchema = [
   [_wI, _fi, _mR, _nTe],
   [[0, 1], () => ListEntitiesFilters, 1, 0],
 ];
-export var ListEntitiesResponse: StaticStructureSchema = [3, n0, _LERi, 0, [_eS, _nTe], [() => EntitySummaries, 0]];
-export var ListMetadataTransferJobsRequest: StaticStructureSchema = [
+export var ListEntitiesResponse$: StaticStructureSchema = [3, n0, _LERi, 0, [_eS, _nTe], [() => EntitySummaries, 0]];
+export var ListMetadataTransferJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LMTJR,
@@ -1000,7 +1007,7 @@ export var ListMetadataTransferJobsRequest: StaticStructureSchema = [
   [_sTo, _dT, _fi, _nTe, _mR],
   [0, 0, () => ListMetadataTransferJobsFilters, 0, 1],
 ];
-export var ListMetadataTransferJobsResponse: StaticStructureSchema = [
+export var ListMetadataTransferJobsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LMTJRi,
@@ -1008,7 +1015,7 @@ export var ListMetadataTransferJobsResponse: StaticStructureSchema = [
   [_mTJS, _nTe],
   [() => MetadataTransferJobSummaries, 0],
 ];
-export var ListPropertiesRequest: StaticStructureSchema = [
+export var ListPropertiesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPR,
@@ -1016,12 +1023,19 @@ export var ListPropertiesRequest: StaticStructureSchema = [
   [_wI, _cN, _cP, _eI, _mR, _nTe],
   [[0, 1], 0, 0, 0, 1, 0],
 ];
-export var ListPropertiesResponse: StaticStructureSchema = [3, n0, _LPRi, 0, [_pS, _nTe], [() => PropertySummaries, 0]];
-export var ListScenesRequest: StaticStructureSchema = [3, n0, _LSR, 0, [_wI, _mR, _nTe], [[0, 1], 1, 0]];
-export var ListScenesResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_sSc, _nTe], [() => SceneSummaries, 0]];
-export var ListSyncJobsRequest: StaticStructureSchema = [3, n0, _LSJR, 0, [_wI, _mR, _nTe], [[0, 1], 1, 0]];
-export var ListSyncJobsResponse: StaticStructureSchema = [3, n0, _LSJRi, 0, [_sJS, _nTe], [() => SyncJobSummaries, 0]];
-export var ListSyncResourcesRequest: StaticStructureSchema = [
+export var ListPropertiesResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _LPRi,
+  0,
+  [_pS, _nTe],
+  [() => PropertySummaries, 0],
+];
+export var ListScenesRequest$: StaticStructureSchema = [3, n0, _LSR, 0, [_wI, _mR, _nTe], [[0, 1], 1, 0]];
+export var ListScenesResponse$: StaticStructureSchema = [3, n0, _LSRi, 0, [_sSc, _nTe], [() => SceneSummaries, 0]];
+export var ListSyncJobsRequest$: StaticStructureSchema = [3, n0, _LSJR, 0, [_wI, _mR, _nTe], [[0, 1], 1, 0]];
+export var ListSyncJobsResponse$: StaticStructureSchema = [3, n0, _LSJRi, 0, [_sJS, _nTe], [() => SyncJobSummaries, 0]];
+export var ListSyncResourcesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSRR,
@@ -1029,7 +1043,7 @@ export var ListSyncResourcesRequest: StaticStructureSchema = [
   [_wI, _sS, _fi, _mR, _nTe],
   [[0, 1], [0, 1], () => SyncResourceFilters, 1, 0],
 ];
-export var ListSyncResourcesResponse: StaticStructureSchema = [
+export var ListSyncResourcesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSRRi,
@@ -1037,10 +1051,10 @@ export var ListSyncResourcesResponse: StaticStructureSchema = [
   [_sRy, _nTe],
   [() => SyncResourceSummaries, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rARN, _mR, _nTe], [0, 1, 0]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta, _nTe], [128 | 0, 0]];
-export var ListWorkspacesRequest: StaticStructureSchema = [3, n0, _LWR, 0, [_mR, _nTe], [1, 0]];
-export var ListWorkspacesResponse: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rARN, _mR, _nTe], [0, 1, 0]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta, _nTe], [128 | 0, 0]];
+export var ListWorkspacesRequest$: StaticStructureSchema = [3, n0, _LWR, 0, [_mR, _nTe], [1, 0]];
+export var ListWorkspacesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LWRi,
@@ -1048,7 +1062,7 @@ export var ListWorkspacesResponse: StaticStructureSchema = [
   [_wS, _nTe],
   [() => WorkspaceSummaries, 0],
 ];
-export var MetadataTransferJobProgress: StaticStructureSchema = [
+export var MetadataTransferJobProgress$: StaticStructureSchema = [
   3,
   n0,
   _MTJP,
@@ -1056,141 +1070,141 @@ export var MetadataTransferJobProgress: StaticStructureSchema = [
   [_tCo, _sCu, _sCk, _fC],
   [1, 1, 1, 1],
 ];
-export var MetadataTransferJobStatus: StaticStructureSchema = [
+export var MetadataTransferJobStatus$: StaticStructureSchema = [
   3,
   n0,
   _MTJS,
   0,
   [_st, _e, _qP],
-  [0, () => ErrorDetails, 1],
+  [0, () => ErrorDetails$, 1],
 ];
-export var MetadataTransferJobSummary: StaticStructureSchema = [
+export var MetadataTransferJobSummary$: StaticStructureSchema = [
   3,
   n0,
   _MTJSe,
   0,
   [_mTJI, _a, _cDT, _uDT, _s, _p],
-  [0, 0, 4, 4, () => MetadataTransferJobStatus, () => MetadataTransferJobProgress],
+  [0, 0, 4, 4, () => MetadataTransferJobStatus$, () => MetadataTransferJobProgress$],
 ];
-export var OrderBy: StaticStructureSchema = [3, n0, _OB, 0, [_o, _pNr], [0, 0]];
-export var ParentEntityUpdateRequest: StaticStructureSchema = [3, n0, _PEUR, 0, [_uT, _pEI], [0, 0]];
-export var PricingPlan: StaticStructureSchema = [
+export var OrderBy$: StaticStructureSchema = [3, n0, _OB, 0, [_o, _pNr], [0, 0]];
+export var ParentEntityUpdateRequest$: StaticStructureSchema = [3, n0, _PEUR, 0, [_uT, _pEI], [0, 0]];
+export var PricingPlan$: StaticStructureSchema = [
   3,
   n0,
   _PP,
   0,
   [_bEC, _bI, _eDTf, _pM, _uDT, _uR],
-  [1, () => BundleInformation, 4, 0, 4, 0],
+  [1, () => BundleInformation$, 4, 0, 4, 0],
 ];
-export var PropertyDefinitionRequest: StaticStructureSchema = [
+export var PropertyDefinitionRequest$: StaticStructureSchema = [
   3,
   n0,
   _PDR,
   0,
   [_dTa, _iRIE, _iEI, _iSE, _iTS, _dVe, _con, _dN],
-  [() => DataType, 2, 2, 2, 2, () => DataValue, 128 | 0, 0],
+  [() => DataType$, 2, 2, 2, 2, () => DataValue$, 128 | 0, 0],
 ];
-export var PropertyDefinitionResponse: StaticStructureSchema = [
+export var PropertyDefinitionResponse$: StaticStructureSchema = [
   3,
   n0,
   _PDRr,
   0,
   [_dTa, _iTS, _iRIE, _iEI, _iSE, _iIs, _iF, _iI, _dVe, _con, _dN],
-  [() => DataType, 2, 2, 2, 2, 2, 2, 2, () => DataValue, 128 | 0, 0],
+  [() => DataType$, 2, 2, 2, 2, 2, 2, 2, () => DataValue$, 128 | 0, 0],
 ];
-export var PropertyFilter: StaticStructureSchema = [3, n0, _PF, 0, [_pNr, _op, _v], [0, 0, () => DataValue]];
-export var PropertyGroupRequest: StaticStructureSchema = [3, n0, _PGR, 0, [_gT, _pN], [0, 64 | 0]];
-export var PropertyGroupResponse: StaticStructureSchema = [3, n0, _PGRr, 0, [_gT, _pN, _iI], [0, 64 | 0, 2]];
-export var PropertyLatestValue: StaticStructureSchema = [
+export var PropertyFilter$: StaticStructureSchema = [3, n0, _PF, 0, [_pNr, _op, _v], [0, 0, () => DataValue$]];
+export var PropertyGroupRequest$: StaticStructureSchema = [3, n0, _PGR, 0, [_gT, _pN], [0, 64 | 0]];
+export var PropertyGroupResponse$: StaticStructureSchema = [3, n0, _PGRr, 0, [_gT, _pN, _iI], [0, 64 | 0, 2]];
+export var PropertyLatestValue$: StaticStructureSchema = [
   3,
   n0,
   _PLV,
   0,
   [_pR, _pVr],
-  [() => EntityPropertyReference, () => DataValue],
+  [() => EntityPropertyReference$, () => DataValue$],
 ];
-export var PropertyRequest: StaticStructureSchema = [
+export var PropertyRequest$: StaticStructureSchema = [
   3,
   n0,
   _PR,
   0,
   [_def, _v, _uT],
-  [() => PropertyDefinitionRequest, () => DataValue, 0],
+  [() => PropertyDefinitionRequest$, () => DataValue$, 0],
 ];
-export var PropertyResponse: StaticStructureSchema = [
+export var PropertyResponse$: StaticStructureSchema = [
   3,
   n0,
   _PRr,
   0,
   [_def, _v, _aAPVR],
-  [() => PropertyDefinitionResponse, () => DataValue, 2],
+  [() => PropertyDefinitionResponse$, () => DataValue$, 2],
 ];
-export var PropertySummary: StaticStructureSchema = [
+export var PropertySummary$: StaticStructureSchema = [
   3,
   n0,
   _PS,
   0,
   [_def, _pNr, _v, _aAPVR],
-  [() => PropertyDefinitionResponse, 0, () => DataValue, 2],
+  [() => PropertyDefinitionResponse$, 0, () => DataValue$, 2],
 ];
-export var PropertyValue: StaticStructureSchema = [3, n0, _PV, 0, [_ti, _v, _tim], [4, () => DataValue, 0]];
-export var PropertyValueEntry: StaticStructureSchema = [
+export var PropertyValue$: StaticStructureSchema = [3, n0, _PV, 0, [_ti, _v, _tim], [4, () => DataValue$, 0]];
+export var PropertyValueEntry$: StaticStructureSchema = [
   3,
   n0,
   _PVE,
   0,
   [_ePR, _pV],
-  [() => EntityPropertyReference, () => PropertyValues],
+  [() => EntityPropertyReference$, () => PropertyValues],
 ];
-export var PropertyValueHistory: StaticStructureSchema = [
+export var PropertyValueHistory$: StaticStructureSchema = [
   3,
   n0,
   _PVH,
   0,
   [_ePR, _va],
-  [() => EntityPropertyReference, () => Values],
+  [() => EntityPropertyReference$, () => Values],
 ];
-export var QueryTimeoutException: StaticErrorSchema = [-3, n0, _QTE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(QueryTimeoutException, __QueryTimeoutException);
-export var Relationship: StaticStructureSchema = [3, n0, _R, 0, [_tCTI, _rT], [0, 0]];
-export var RelationshipValue: StaticStructureSchema = [3, n0, _RV, 0, [_tEI, _tCN], [0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var Row: StaticStructureSchema = [3, n0, _Ro, 0, [_rD], [64 | 15]];
-export var S3DestinationConfiguration: StaticStructureSchema = [3, n0, _SDC, 0, [_lo], [0]];
-export var S3SourceConfiguration: StaticStructureSchema = [3, n0, _SSC, 0, [_lo], [0]];
-export var SceneError: StaticStructureSchema = [3, n0, _SE, 0, [_cod, _m], [0, 0]];
-export var SceneSummary: StaticStructureSchema = [3, n0, _SS, 0, [_sI, _cL, _a, _cDT, _uDT, _d], [0, 0, 0, 4, 4, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var SourceConfiguration: StaticStructureSchema = [
+export var QueryTimeoutException$: StaticErrorSchema = [-3, n0, _QTE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(QueryTimeoutException$, QueryTimeoutException);
+export var Relationship$: StaticStructureSchema = [3, n0, _R, 0, [_tCTI, _rT], [0, 0]];
+export var RelationshipValue$: StaticStructureSchema = [3, n0, _RV, 0, [_tEI, _tCN], [0, 0]];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var Row$: StaticStructureSchema = [3, n0, _Ro, 0, [_rD], [64 | 15]];
+export var S3DestinationConfiguration$: StaticStructureSchema = [3, n0, _SDC, 0, [_lo], [0]];
+export var S3SourceConfiguration$: StaticStructureSchema = [3, n0, _SSC, 0, [_lo], [0]];
+export var SceneError$: StaticStructureSchema = [3, n0, _SE, 0, [_cod, _m], [0, 0]];
+export var SceneSummary$: StaticStructureSchema = [3, n0, _SS, 0, [_sI, _cL, _a, _cDT, _uDT, _d], [0, 0, 0, 4, 4, 0]];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SourceConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SC,
   0,
   [_t, _sC, _iSWC, _iTMC],
-  [0, () => S3SourceConfiguration, () => IotSiteWiseSourceConfiguration, () => IotTwinMakerSourceConfiguration],
+  [0, () => S3SourceConfiguration$, () => IotSiteWiseSourceConfiguration$, () => IotTwinMakerSourceConfiguration$],
 ];
-export var Status: StaticStructureSchema = [3, n0, _S, 0, [_st, _e], [0, () => ErrorDetails]];
-export var SyncJobStatus: StaticStructureSchema = [3, n0, _SJS, 0, [_st, _e], [0, () => ErrorDetails]];
-export var SyncJobSummary: StaticStructureSchema = [
+export var Status$: StaticStructureSchema = [3, n0, _S, 0, [_st, _e], [0, () => ErrorDetails$]];
+export var SyncJobStatus$: StaticStructureSchema = [3, n0, _SJS, 0, [_st, _e], [0, () => ErrorDetails$]];
+export var SyncJobSummary$: StaticStructureSchema = [
   3,
   n0,
   _SJSy,
   0,
   [_a, _wI, _sS, _s, _cDT, _uDT],
-  [0, 0, 0, () => SyncJobStatus, 4, 4],
+  [0, 0, 0, () => SyncJobStatus$, 4, 4],
 ];
-export var SyncResourceStatus: StaticStructureSchema = [3, n0, _SRS, 0, [_st, _e], [0, () => ErrorDetails]];
-export var SyncResourceSummary: StaticStructureSchema = [
+export var SyncResourceStatus$: StaticStructureSchema = [3, n0, _SRS, 0, [_st, _e], [0, () => ErrorDetails$]];
+export var SyncResourceSummary$: StaticStructureSchema = [
   3,
   n0,
   _SRSy,
   0,
   [_rTe, _eIx, _rI, _s, _uDT],
-  [0, 0, 0, () => SyncResourceStatus, 4],
+  [0, 0, 0, () => SyncResourceStatus$, 4],
 ];
-export var TabularConditions: StaticStructureSchema = [
+export var TabularConditions$: StaticStructureSchema = [
   3,
   n0,
   _TC,
@@ -1198,13 +1212,13 @@ export var TabularConditions: StaticStructureSchema = [
   [_oB, _pF],
   [() => OrderByList, () => PropertyFilters],
 ];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rARN, _ta], [0, 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TooManyTagsException: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-export var UntagResourceRequest: StaticStructureSchema = [
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rARN, _ta], [0, 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -1215,8 +1229,8 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateComponentTypeRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateComponentTypeRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCTR,
@@ -1235,8 +1249,8 @@ export var UpdateComponentTypeRequest: StaticStructureSchema = [
     () => CompositeComponentTypesRequest,
   ],
 ];
-export var UpdateComponentTypeResponse: StaticStructureSchema = [3, n0, _UCTRp, 0, [_wI, _a, _cTI, _st], [0, 0, 0, 0]];
-export var UpdateEntityRequest: StaticStructureSchema = [
+export var UpdateComponentTypeResponse$: StaticStructureSchema = [3, n0, _UCTRp, 0, [_wI, _a, _cTI, _st], [0, 0, 0, 0]];
+export var UpdateEntityRequest$: StaticStructureSchema = [
   3,
   n0,
   _UER,
@@ -1249,20 +1263,20 @@ export var UpdateEntityRequest: StaticStructureSchema = [
     0,
     () => ComponentUpdatesMapRequest,
     () => CompositeComponentUpdatesMapRequest,
-    () => ParentEntityUpdateRequest,
+    () => ParentEntityUpdateRequest$,
   ],
 ];
-export var UpdateEntityResponse: StaticStructureSchema = [3, n0, _UERp, 0, [_uDT, _st], [4, 0]];
-export var UpdatePricingPlanRequest: StaticStructureSchema = [3, n0, _UPPR, 0, [_pM, _bN], [0, 64 | 0]];
-export var UpdatePricingPlanResponse: StaticStructureSchema = [
+export var UpdateEntityResponse$: StaticStructureSchema = [3, n0, _UERp, 0, [_uDT, _st], [4, 0]];
+export var UpdatePricingPlanRequest$: StaticStructureSchema = [3, n0, _UPPR, 0, [_pM, _bN], [0, 64 | 0]];
+export var UpdatePricingPlanResponse$: StaticStructureSchema = [
   3,
   n0,
   _UPPRp,
   0,
   [_cPP, _pPP],
-  [() => PricingPlan, () => PricingPlan],
+  [() => PricingPlan$, () => PricingPlan$],
 ];
-export var UpdateSceneRequest: StaticStructureSchema = [
+export var UpdateSceneRequest$: StaticStructureSchema = [
   3,
   n0,
   _USR,
@@ -1270,12 +1284,12 @@ export var UpdateSceneRequest: StaticStructureSchema = [
   [_wI, _sI, _cL, _d, _ca, _sM],
   [[0, 1], [0, 1], 0, 0, 64 | 0, 128 | 0],
 ];
-export var UpdateSceneResponse: StaticStructureSchema = [3, n0, _USRp, 0, [_uDT], [4]];
-export var UpdateWorkspaceRequest: StaticStructureSchema = [3, n0, _UWR, 0, [_wI, _d, _r, _sL], [[0, 1], 0, 0, 0]];
-export var UpdateWorkspaceResponse: StaticStructureSchema = [3, n0, _UWRp, 0, [_uDT], [4]];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var WorkspaceSummary: StaticStructureSchema = [
+export var UpdateSceneResponse$: StaticStructureSchema = [3, n0, _USRp, 0, [_uDT], [4]];
+export var UpdateWorkspaceRequest$: StaticStructureSchema = [3, n0, _UWR, 0, [_wI, _d, _r, _sL], [[0, 1], 0, 0, 0]];
+export var UpdateWorkspaceResponse$: StaticStructureSchema = [3, n0, _UWRp, 0, [_uDT], [4]];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var WorkspaceSummary$: StaticStructureSchema = [
   3,
   n0,
   _WS,
@@ -1283,456 +1297,428 @@ export var WorkspaceSummary: StaticStructureSchema = [
   [_wI, _a, _d, _lS, _cDT, _uDT],
   [0, 0, 0, 64 | 0, 4, 4],
 ];
-export var IoTTwinMakerServiceException: StaticErrorSchema = [-3, _sm, "IoTTwinMakerServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(IoTTwinMakerServiceException, __IoTTwinMakerServiceException);
-export var ColumnDescriptions: StaticListSchema = [1, n0, _CDo, 0, () => ColumnDescription];
-export var ComponentSummaries: StaticListSchema = [1, n0, _CSo, 0, () => ComponentSummary];
-export var ComponentTypeSummaries: StaticListSchema = [1, n0, _CTSo, 0, () => ComponentTypeSummary];
-export var DataValueList: StaticListSchema = [1, n0, _DVL, 0, () => DataValue];
-export var EntitySummaries: StaticListSchema = [1, n0, _ESn, 0, () => EntitySummary];
-export var Entries: StaticListSchema = [1, n0, _E, 0, () => PropertyValueEntry];
-export var ErrorEntries: StaticListSchema = [1, n0, _EE, 0, () => BatchPutPropertyErrorEntry];
-export var Errors: StaticListSchema = [1, n0, _Er, 0, () => BatchPutPropertyError];
-export var ExtendsFrom = 64 | 0;
-export var IotSiteWiseSourceConfigurationFilters: StaticListSchema = [
+export var IoTTwinMakerServiceException$: StaticErrorSchema = [-3, _sm, "IoTTwinMakerServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(IoTTwinMakerServiceException$, IoTTwinMakerServiceException);
+var ColumnDescriptions: StaticListSchema = [1, n0, _CDo, 0, () => ColumnDescription$];
+var ComponentSummaries: StaticListSchema = [1, n0, _CSo, 0, () => ComponentSummary$];
+var ComponentTypeSummaries: StaticListSchema = [1, n0, _CTSo, 0, () => ComponentTypeSummary$];
+var DataValueList: StaticListSchema = [1, n0, _DVL, 0, () => DataValue$];
+var EntitySummaries: StaticListSchema = [1, n0, _ESn, 0, () => EntitySummary$];
+var Entries: StaticListSchema = [1, n0, _E, 0, () => PropertyValueEntry$];
+var ErrorEntries: StaticListSchema = [1, n0, _EE, 0, () => BatchPutPropertyErrorEntry$];
+var Errors: StaticListSchema = [1, n0, _Er, 0, () => BatchPutPropertyError$];
+var ExtendsFrom = 64 | 0;
+var IotSiteWiseSourceConfigurationFilters: StaticListSchema = [
   1,
   n0,
   _ISWSCF,
   0,
-  () => IotSiteWiseSourceConfigurationFilter,
+  () => IotSiteWiseSourceConfigurationFilter$,
 ];
-export var IotTwinMakerSourceConfigurationFilters: StaticListSchema = [
+var IotTwinMakerSourceConfigurationFilters: StaticListSchema = [
   1,
   n0,
   _ITMSCF,
   0,
-  () => IotTwinMakerSourceConfigurationFilter,
+  () => IotTwinMakerSourceConfigurationFilter$,
 ];
-export var LinkedServices = 64 | 0;
-export var ListComponentTypesFilters: StaticListSchema = [1, n0, _LCTF, 0, () => ListComponentTypesFilter];
-export var ListEntitiesFilters: StaticListSchema = [1, n0, _LEF, 0, () => ListEntitiesFilter];
-export var ListMetadataTransferJobsFilters: StaticListSchema = [1, n0, _LMTJF, 0, () => ListMetadataTransferJobsFilter];
-export var MetadataTransferJobSummaries: StaticListSchema = [1, n0, _MTJSet, 0, () => MetadataTransferJobSummary];
-export var OrderByList: StaticListSchema = [1, n0, _OBL, 0, () => OrderBy];
-export var PricingBundles = 64 | 0;
-export var PropertyFilters: StaticListSchema = [1, n0, _PFr, 0, () => PropertyFilter];
-export var PropertyNames = 64 | 0;
-export var PropertySummaries: StaticListSchema = [1, n0, _PSr, 0, () => PropertySummary];
-export var PropertyValueList: StaticListSchema = [1, n0, _PVL, 0, () => PropertyValueHistory];
-export var PropertyValues: StaticListSchema = [1, n0, _PVr, 0, () => PropertyValue];
-export var RequiredProperties = 64 | 0;
-export var RowData = 64 | 15;
-export var Rows: StaticListSchema = [1, n0, _Row, 0, () => Row];
-export var SceneCapabilities = 64 | 0;
-export var SceneSummaries: StaticListSchema = [1, n0, _SSc, 0, () => SceneSummary];
-export var SelectedPropertyList = 64 | 0;
-export var SourceConfigurations: StaticListSchema = [1, n0, _SCo, 0, () => SourceConfiguration];
-export var SyncJobSummaries: StaticListSchema = [1, n0, _SJSyn, 0, () => SyncJobSummary];
-export var SyncResourceFilters: StaticListSchema = [1, n0, _SRF, 0, () => SyncResourceFilter];
-export var SyncResourceSummaries: StaticListSchema = [1, n0, _SRSyn, 0, () => SyncResourceSummary];
-export var TabularPropertyValue: StaticListSchema = [1, n0, _TPVa, 0, () => PropertyTableValue];
-export var TabularPropertyValues: StaticListSchema = [1, n0, _TPV, 0, () => TabularPropertyValue];
-export var TagKeyList = 64 | 0;
-export var Values: StaticListSchema = [1, n0, _V, 0, () => PropertyValue];
-export var WorkspaceSummaries: StaticListSchema = [1, n0, _WSo, 0, () => WorkspaceSummary];
-export var ComponentPropertyGroupRequests: StaticMapSchema = [
-  2,
-  n0,
-  _CPGRom,
-  0,
-  0,
-  () => ComponentPropertyGroupRequest,
-];
-export var ComponentPropertyGroupResponses: StaticMapSchema = [
-  2,
-  n0,
-  _CPGRomp,
-  0,
-  0,
-  () => ComponentPropertyGroupResponse,
-];
-export var ComponentsMap: StaticMapSchema = [2, n0, _CM, 0, 0, () => ComponentResponse];
-export var ComponentsMapRequest: StaticMapSchema = [2, n0, _CMR, 0, 0, () => ComponentRequest];
-export var ComponentUpdatesMapRequest: StaticMapSchema = [2, n0, _CUMR, 0, 0, () => ComponentUpdateRequest];
-export var CompositeComponentResponse: StaticMapSchema = [2, n0, _CCRo, 0, 0, () => ComponentSummary];
-export var CompositeComponentsMapRequest: StaticMapSchema = [2, n0, _CCMR, 0, 0, () => CompositeComponentRequest];
-export var CompositeComponentTypesRequest: StaticMapSchema = [
-  2,
-  n0,
-  _CCTRom,
-  0,
-  0,
-  () => CompositeComponentTypeRequest,
-];
-export var CompositeComponentTypesResponse: StaticMapSchema = [
-  2,
-  n0,
-  _CCTRomp,
-  0,
-  0,
-  () => CompositeComponentTypeResponse,
-];
-export var CompositeComponentUpdatesMapRequest: StaticMapSchema = [
+var LinkedServices = 64 | 0;
+var ListComponentTypesFilters: StaticListSchema = [1, n0, _LCTF, 0, () => ListComponentTypesFilter$];
+var ListEntitiesFilters: StaticListSchema = [1, n0, _LEF, 0, () => ListEntitiesFilter$];
+var ListMetadataTransferJobsFilters: StaticListSchema = [1, n0, _LMTJF, 0, () => ListMetadataTransferJobsFilter$];
+var MetadataTransferJobSummaries: StaticListSchema = [1, n0, _MTJSet, 0, () => MetadataTransferJobSummary$];
+var OrderByList: StaticListSchema = [1, n0, _OBL, 0, () => OrderBy$];
+var PricingBundles = 64 | 0;
+var PropertyFilters: StaticListSchema = [1, n0, _PFr, 0, () => PropertyFilter$];
+var PropertyNames = 64 | 0;
+var PropertySummaries: StaticListSchema = [1, n0, _PSr, 0, () => PropertySummary$];
+var PropertyValueList: StaticListSchema = [1, n0, _PVL, 0, () => PropertyValueHistory$];
+var PropertyValues: StaticListSchema = [1, n0, _PVr, 0, () => PropertyValue$];
+var RequiredProperties = 64 | 0;
+var RowData = 64 | 15;
+var Rows: StaticListSchema = [1, n0, _Row, 0, () => Row$];
+var SceneCapabilities = 64 | 0;
+var SceneSummaries: StaticListSchema = [1, n0, _SSc, 0, () => SceneSummary$];
+var SelectedPropertyList = 64 | 0;
+var SourceConfigurations: StaticListSchema = [1, n0, _SCo, 0, () => SourceConfiguration$];
+var SyncJobSummaries: StaticListSchema = [1, n0, _SJSyn, 0, () => SyncJobSummary$];
+var SyncResourceFilters: StaticListSchema = [1, n0, _SRF, 0, () => SyncResourceFilter$];
+var SyncResourceSummaries: StaticListSchema = [1, n0, _SRSyn, 0, () => SyncResourceSummary$];
+var TabularPropertyValue: StaticListSchema = [1, n0, _TPVa, 0, () => PropertyTableValue];
+var TabularPropertyValues: StaticListSchema = [1, n0, _TPV, 0, () => TabularPropertyValue];
+var TagKeyList = 64 | 0;
+var Values: StaticListSchema = [1, n0, _V, 0, () => PropertyValue$];
+var WorkspaceSummaries: StaticListSchema = [1, n0, _WSo, 0, () => WorkspaceSummary$];
+var ComponentPropertyGroupRequests: StaticMapSchema = [2, n0, _CPGRom, 0, 0, () => ComponentPropertyGroupRequest$];
+var ComponentPropertyGroupResponses: StaticMapSchema = [2, n0, _CPGRomp, 0, 0, () => ComponentPropertyGroupResponse$];
+var ComponentsMap: StaticMapSchema = [2, n0, _CM, 0, 0, () => ComponentResponse$];
+var ComponentsMapRequest: StaticMapSchema = [2, n0, _CMR, 0, 0, () => ComponentRequest$];
+var ComponentUpdatesMapRequest: StaticMapSchema = [2, n0, _CUMR, 0, 0, () => ComponentUpdateRequest$];
+var CompositeComponentResponse: StaticMapSchema = [2, n0, _CCRo, 0, 0, () => ComponentSummary$];
+var CompositeComponentsMapRequest: StaticMapSchema = [2, n0, _CCMR, 0, 0, () => CompositeComponentRequest$];
+var CompositeComponentTypesRequest: StaticMapSchema = [2, n0, _CCTRom, 0, 0, () => CompositeComponentTypeRequest$];
+var CompositeComponentTypesResponse: StaticMapSchema = [2, n0, _CCTRomp, 0, 0, () => CompositeComponentTypeResponse$];
+var CompositeComponentUpdatesMapRequest: StaticMapSchema = [
   2,
   n0,
   _CCUMR,
   0,
   0,
-  () => CompositeComponentUpdateRequest,
+  () => CompositeComponentUpdateRequest$,
 ];
-export var Configuration = 128 | 0;
-export var DataValueMap: StaticMapSchema = [2, n0, _DVM, 0, 0, () => DataValue];
-export var ExternalIdProperty = 128 | 0;
-export var FunctionsRequest: StaticMapSchema = [2, n0, _FRun, 0, 0, () => FunctionRequest];
-export var FunctionsResponse: StaticMapSchema = [2, n0, _FRunc, 0, 0, () => FunctionResponse];
-export var GeneratedSceneMetadataMap = 128 | 0;
-export var PropertyDefinitionsRequest: StaticMapSchema = [2, n0, _PDRro, 0, 0, () => PropertyDefinitionRequest];
-export var PropertyDefinitionsResponse: StaticMapSchema = [2, n0, _PDRrop, 0, 0, () => PropertyDefinitionResponse];
-export var PropertyGroupsRequest: StaticMapSchema = [2, n0, _PGRro, 0, 0, () => PropertyGroupRequest];
-export var PropertyGroupsResponse: StaticMapSchema = [2, n0, _PGRrop, 0, 0, () => PropertyGroupResponse];
-export var PropertyLatestValueMap: StaticMapSchema = [2, n0, _PLVM, 0, 0, () => PropertyLatestValue];
-export var PropertyRequests: StaticMapSchema = [2, n0, _PRro, 0, 0, () => PropertyRequest];
-export var PropertyResponses: StaticMapSchema = [2, n0, _PRrop, 0, 0, () => PropertyResponse];
-export var PropertyTableValue: StaticMapSchema = [2, n0, _PTV, 0, 0, () => DataValue];
-export var SceneMetadataMap = 128 | 0;
-export var TagMap = 128 | 0;
-export var IotSiteWiseSourceConfigurationFilter: StaticStructureSchema = [
+var Configuration = 128 | 0;
+var DataValueMap: StaticMapSchema = [2, n0, _DVM, 0, 0, () => DataValue$];
+var ExternalIdProperty = 128 | 0;
+var FunctionsRequest: StaticMapSchema = [2, n0, _FRun, 0, 0, () => FunctionRequest$];
+var FunctionsResponse: StaticMapSchema = [2, n0, _FRunc, 0, 0, () => FunctionResponse$];
+var GeneratedSceneMetadataMap = 128 | 0;
+var PropertyDefinitionsRequest: StaticMapSchema = [2, n0, _PDRro, 0, 0, () => PropertyDefinitionRequest$];
+var PropertyDefinitionsResponse: StaticMapSchema = [2, n0, _PDRrop, 0, 0, () => PropertyDefinitionResponse$];
+var PropertyGroupsRequest: StaticMapSchema = [2, n0, _PGRro, 0, 0, () => PropertyGroupRequest$];
+var PropertyGroupsResponse: StaticMapSchema = [2, n0, _PGRrop, 0, 0, () => PropertyGroupResponse$];
+var PropertyLatestValueMap: StaticMapSchema = [2, n0, _PLVM, 0, 0, () => PropertyLatestValue$];
+var PropertyRequests: StaticMapSchema = [2, n0, _PRro, 0, 0, () => PropertyRequest$];
+var PropertyResponses: StaticMapSchema = [2, n0, _PRrop, 0, 0, () => PropertyResponse$];
+var PropertyTableValue: StaticMapSchema = [2, n0, _PTV, 0, 0, () => DataValue$];
+var SceneMetadataMap = 128 | 0;
+var TagMap = 128 | 0;
+export var IotSiteWiseSourceConfigurationFilter$: StaticStructureSchema = [
   3,
   n0,
   _ISWSCFo,
   0,
   [_fBAM, _fBA],
-  [() => FilterByAssetModel, () => FilterByAsset],
+  [() => FilterByAssetModel$, () => FilterByAsset$],
 ];
-export var IotTwinMakerSourceConfigurationFilter: StaticStructureSchema = [
+export var IotTwinMakerSourceConfigurationFilter$: StaticStructureSchema = [
   3,
   n0,
   _ITMSCFo,
   0,
   [_fBCT, _fBE],
-  [() => FilterByComponentType, () => FilterByEntity],
+  [() => FilterByComponentType$, () => FilterByEntity$],
 ];
-export var ListComponentTypesFilter: StaticStructureSchema = [3, n0, _LCTFi, 0, [_eF, _na, _iAs], [0, 0, 2]];
-export var ListEntitiesFilter: StaticStructureSchema = [3, n0, _LEFi, 0, [_pEI, _cTI, _eIx], [0, 0, 0]];
-export var ListMetadataTransferJobsFilter: StaticStructureSchema = [3, n0, _LMTJFi, 0, [_wI, _st], [0, 0]];
-export var SyncResourceFilter: StaticStructureSchema = [3, n0, _SRFy, 0, [_st, _rTe, _rI, _eIx], [0, 0, 0, 0]];
-export var BatchPutPropertyValues: StaticOperationSchema = [
+export var ListComponentTypesFilter$: StaticStructureSchema = [3, n0, _LCTFi, 0, [_eF, _na, _iAs], [0, 0, 2]];
+export var ListEntitiesFilter$: StaticStructureSchema = [3, n0, _LEFi, 0, [_pEI, _cTI, _eIx], [0, 0, 0]];
+export var ListMetadataTransferJobsFilter$: StaticStructureSchema = [3, n0, _LMTJFi, 0, [_wI, _st], [0, 0]];
+export var SyncResourceFilter$: StaticStructureSchema = [3, n0, _SRFy, 0, [_st, _rTe, _rI, _eIx], [0, 0, 0, 0]];
+export var BatchPutPropertyValues$: StaticOperationSchema = [
   9,
   n0,
   _BPPV,
   { [_h]: ["POST", "/workspaces/{workspaceId}/entity-properties", 200], [_end]: ["data."] },
-  () => BatchPutPropertyValuesRequest,
-  () => BatchPutPropertyValuesResponse,
+  () => BatchPutPropertyValuesRequest$,
+  () => BatchPutPropertyValuesResponse$,
 ];
-export var CancelMetadataTransferJob: StaticOperationSchema = [
+export var CancelMetadataTransferJob$: StaticOperationSchema = [
   9,
   n0,
   _CMTJ,
   { [_h]: ["PUT", "/metadata-transfer-jobs/{metadataTransferJobId}/cancel", 200], [_end]: ["api."] },
-  () => CancelMetadataTransferJobRequest,
-  () => CancelMetadataTransferJobResponse,
+  () => CancelMetadataTransferJobRequest$,
+  () => CancelMetadataTransferJobResponse$,
 ];
-export var CreateComponentType: StaticOperationSchema = [
+export var CreateComponentType$: StaticOperationSchema = [
   9,
   n0,
   _CCT,
   { [_h]: ["POST", "/workspaces/{workspaceId}/component-types/{componentTypeId}", 200], [_end]: ["api."] },
-  () => CreateComponentTypeRequest,
-  () => CreateComponentTypeResponse,
+  () => CreateComponentTypeRequest$,
+  () => CreateComponentTypeResponse$,
 ];
-export var CreateEntity: StaticOperationSchema = [
+export var CreateEntity$: StaticOperationSchema = [
   9,
   n0,
   _CEr,
   { [_h]: ["POST", "/workspaces/{workspaceId}/entities", 200], [_end]: ["api."] },
-  () => CreateEntityRequest,
-  () => CreateEntityResponse,
+  () => CreateEntityRequest$,
+  () => CreateEntityResponse$,
 ];
-export var CreateMetadataTransferJob: StaticOperationSchema = [
+export var CreateMetadataTransferJob$: StaticOperationSchema = [
   9,
   n0,
   _CMTJr,
   { [_h]: ["POST", "/metadata-transfer-jobs", 200], [_end]: ["api."] },
-  () => CreateMetadataTransferJobRequest,
-  () => CreateMetadataTransferJobResponse,
+  () => CreateMetadataTransferJobRequest$,
+  () => CreateMetadataTransferJobResponse$,
 ];
-export var CreateScene: StaticOperationSchema = [
+export var CreateScene$: StaticOperationSchema = [
   9,
   n0,
   _CSr,
   { [_h]: ["POST", "/workspaces/{workspaceId}/scenes", 200], [_end]: ["api."] },
-  () => CreateSceneRequest,
-  () => CreateSceneResponse,
+  () => CreateSceneRequest$,
+  () => CreateSceneResponse$,
 ];
-export var CreateSyncJob: StaticOperationSchema = [
+export var CreateSyncJob$: StaticOperationSchema = [
   9,
   n0,
   _CSJ,
   { [_h]: ["POST", "/workspaces/{workspaceId}/sync-jobs/{syncSource}", 200], [_end]: ["api."] },
-  () => CreateSyncJobRequest,
-  () => CreateSyncJobResponse,
+  () => CreateSyncJobRequest$,
+  () => CreateSyncJobResponse$,
 ];
-export var CreateWorkspace: StaticOperationSchema = [
+export var CreateWorkspace$: StaticOperationSchema = [
   9,
   n0,
   _CW,
   { [_h]: ["POST", "/workspaces/{workspaceId}", 200], [_end]: ["api."] },
-  () => CreateWorkspaceRequest,
-  () => CreateWorkspaceResponse,
+  () => CreateWorkspaceRequest$,
+  () => CreateWorkspaceResponse$,
 ];
-export var DeleteComponentType: StaticOperationSchema = [
+export var DeleteComponentType$: StaticOperationSchema = [
   9,
   n0,
   _DCT,
   { [_h]: ["DELETE", "/workspaces/{workspaceId}/component-types/{componentTypeId}", 200], [_end]: ["api."] },
-  () => DeleteComponentTypeRequest,
-  () => DeleteComponentTypeResponse,
+  () => DeleteComponentTypeRequest$,
+  () => DeleteComponentTypeResponse$,
 ];
-export var DeleteEntity: StaticOperationSchema = [
+export var DeleteEntity$: StaticOperationSchema = [
   9,
   n0,
   _DE,
   { [_h]: ["DELETE", "/workspaces/{workspaceId}/entities/{entityId}", 200], [_end]: ["api."] },
-  () => DeleteEntityRequest,
-  () => DeleteEntityResponse,
+  () => DeleteEntityRequest$,
+  () => DeleteEntityResponse$,
 ];
-export var DeleteScene: StaticOperationSchema = [
+export var DeleteScene$: StaticOperationSchema = [
   9,
   n0,
   _DS,
   { [_h]: ["DELETE", "/workspaces/{workspaceId}/scenes/{sceneId}", 200], [_end]: ["api."] },
-  () => DeleteSceneRequest,
-  () => DeleteSceneResponse,
+  () => DeleteSceneRequest$,
+  () => DeleteSceneResponse$,
 ];
-export var DeleteSyncJob: StaticOperationSchema = [
+export var DeleteSyncJob$: StaticOperationSchema = [
   9,
   n0,
   _DSJ,
   { [_h]: ["DELETE", "/workspaces/{workspaceId}/sync-jobs/{syncSource}", 200], [_end]: ["api."] },
-  () => DeleteSyncJobRequest,
-  () => DeleteSyncJobResponse,
+  () => DeleteSyncJobRequest$,
+  () => DeleteSyncJobResponse$,
 ];
-export var DeleteWorkspace: StaticOperationSchema = [
+export var DeleteWorkspace$: StaticOperationSchema = [
   9,
   n0,
   _DW,
   { [_h]: ["DELETE", "/workspaces/{workspaceId}", 200], [_end]: ["api."] },
-  () => DeleteWorkspaceRequest,
-  () => DeleteWorkspaceResponse,
+  () => DeleteWorkspaceRequest$,
+  () => DeleteWorkspaceResponse$,
 ];
-export var ExecuteQuery: StaticOperationSchema = [
+export var ExecuteQuery$: StaticOperationSchema = [
   9,
   n0,
   _EQ,
   { [_h]: ["POST", "/queries/execution", 200], [_end]: ["api."] },
-  () => ExecuteQueryRequest,
-  () => ExecuteQueryResponse,
+  () => ExecuteQueryRequest$,
+  () => ExecuteQueryResponse$,
 ];
-export var GetComponentType: StaticOperationSchema = [
+export var GetComponentType$: StaticOperationSchema = [
   9,
   n0,
   _GCT,
   { [_h]: ["GET", "/workspaces/{workspaceId}/component-types/{componentTypeId}", 200], [_end]: ["api."] },
-  () => GetComponentTypeRequest,
-  () => GetComponentTypeResponse,
+  () => GetComponentTypeRequest$,
+  () => GetComponentTypeResponse$,
 ];
-export var GetEntity: StaticOperationSchema = [
+export var GetEntity$: StaticOperationSchema = [
   9,
   n0,
   _GE,
   { [_h]: ["GET", "/workspaces/{workspaceId}/entities/{entityId}", 200], [_end]: ["api."] },
-  () => GetEntityRequest,
-  () => GetEntityResponse,
+  () => GetEntityRequest$,
+  () => GetEntityResponse$,
 ];
-export var GetMetadataTransferJob: StaticOperationSchema = [
+export var GetMetadataTransferJob$: StaticOperationSchema = [
   9,
   n0,
   _GMTJ,
   { [_h]: ["GET", "/metadata-transfer-jobs/{metadataTransferJobId}", 200], [_end]: ["api."] },
-  () => GetMetadataTransferJobRequest,
-  () => GetMetadataTransferJobResponse,
+  () => GetMetadataTransferJobRequest$,
+  () => GetMetadataTransferJobResponse$,
 ];
-export var GetPricingPlan: StaticOperationSchema = [
+export var GetPricingPlan$: StaticOperationSchema = [
   9,
   n0,
   _GPP,
   { [_h]: ["GET", "/pricingplan", 200], [_end]: ["api."] },
-  () => GetPricingPlanRequest,
-  () => GetPricingPlanResponse,
+  () => GetPricingPlanRequest$,
+  () => GetPricingPlanResponse$,
 ];
-export var GetPropertyValue: StaticOperationSchema = [
+export var GetPropertyValue$: StaticOperationSchema = [
   9,
   n0,
   _GPV,
   { [_h]: ["POST", "/workspaces/{workspaceId}/entity-properties/value", 200], [_end]: ["data."] },
-  () => GetPropertyValueRequest,
-  () => GetPropertyValueResponse,
+  () => GetPropertyValueRequest$,
+  () => GetPropertyValueResponse$,
 ];
-export var GetPropertyValueHistory: StaticOperationSchema = [
+export var GetPropertyValueHistory$: StaticOperationSchema = [
   9,
   n0,
   _GPVH,
   { [_h]: ["POST", "/workspaces/{workspaceId}/entity-properties/history", 200], [_end]: ["data."] },
-  () => GetPropertyValueHistoryRequest,
-  () => GetPropertyValueHistoryResponse,
+  () => GetPropertyValueHistoryRequest$,
+  () => GetPropertyValueHistoryResponse$,
 ];
-export var GetScene: StaticOperationSchema = [
+export var GetScene$: StaticOperationSchema = [
   9,
   n0,
   _GS,
   { [_h]: ["GET", "/workspaces/{workspaceId}/scenes/{sceneId}", 200], [_end]: ["api."] },
-  () => GetSceneRequest,
-  () => GetSceneResponse,
+  () => GetSceneRequest$,
+  () => GetSceneResponse$,
 ];
-export var GetSyncJob: StaticOperationSchema = [
+export var GetSyncJob$: StaticOperationSchema = [
   9,
   n0,
   _GSJ,
   { [_h]: ["GET", "/sync-jobs/{syncSource}", 200], [_end]: ["api."] },
-  () => GetSyncJobRequest,
-  () => GetSyncJobResponse,
+  () => GetSyncJobRequest$,
+  () => GetSyncJobResponse$,
 ];
-export var GetWorkspace: StaticOperationSchema = [
+export var GetWorkspace$: StaticOperationSchema = [
   9,
   n0,
   _GW,
   { [_h]: ["GET", "/workspaces/{workspaceId}", 200], [_end]: ["api."] },
-  () => GetWorkspaceRequest,
-  () => GetWorkspaceResponse,
+  () => GetWorkspaceRequest$,
+  () => GetWorkspaceResponse$,
 ];
-export var ListComponents: StaticOperationSchema = [
+export var ListComponents$: StaticOperationSchema = [
   9,
   n0,
   _LC,
   { [_h]: ["POST", "/workspaces/{workspaceId}/entities/{entityId}/components-list", 200], [_end]: ["api."] },
-  () => ListComponentsRequest,
-  () => ListComponentsResponse,
+  () => ListComponentsRequest$,
+  () => ListComponentsResponse$,
 ];
-export var ListComponentTypes: StaticOperationSchema = [
+export var ListComponentTypes$: StaticOperationSchema = [
   9,
   n0,
   _LCT,
   { [_h]: ["POST", "/workspaces/{workspaceId}/component-types-list", 200], [_end]: ["api."] },
-  () => ListComponentTypesRequest,
-  () => ListComponentTypesResponse,
+  () => ListComponentTypesRequest$,
+  () => ListComponentTypesResponse$,
 ];
-export var ListEntities: StaticOperationSchema = [
+export var ListEntities$: StaticOperationSchema = [
   9,
   n0,
   _LE,
   { [_h]: ["POST", "/workspaces/{workspaceId}/entities-list", 200], [_end]: ["api."] },
-  () => ListEntitiesRequest,
-  () => ListEntitiesResponse,
+  () => ListEntitiesRequest$,
+  () => ListEntitiesResponse$,
 ];
-export var ListMetadataTransferJobs: StaticOperationSchema = [
+export var ListMetadataTransferJobs$: StaticOperationSchema = [
   9,
   n0,
   _LMTJ,
   { [_h]: ["POST", "/metadata-transfer-jobs-list", 200], [_end]: ["api."] },
-  () => ListMetadataTransferJobsRequest,
-  () => ListMetadataTransferJobsResponse,
+  () => ListMetadataTransferJobsRequest$,
+  () => ListMetadataTransferJobsResponse$,
 ];
-export var ListProperties: StaticOperationSchema = [
+export var ListProperties$: StaticOperationSchema = [
   9,
   n0,
   _LP,
   { [_h]: ["POST", "/workspaces/{workspaceId}/properties-list", 200], [_end]: ["api."] },
-  () => ListPropertiesRequest,
-  () => ListPropertiesResponse,
+  () => ListPropertiesRequest$,
+  () => ListPropertiesResponse$,
 ];
-export var ListScenes: StaticOperationSchema = [
+export var ListScenes$: StaticOperationSchema = [
   9,
   n0,
   _LS,
   { [_h]: ["POST", "/workspaces/{workspaceId}/scenes-list", 200], [_end]: ["api."] },
-  () => ListScenesRequest,
-  () => ListScenesResponse,
+  () => ListScenesRequest$,
+  () => ListScenesResponse$,
 ];
-export var ListSyncJobs: StaticOperationSchema = [
+export var ListSyncJobs$: StaticOperationSchema = [
   9,
   n0,
   _LSJ,
   { [_h]: ["POST", "/workspaces/{workspaceId}/sync-jobs-list", 200], [_end]: ["api."] },
-  () => ListSyncJobsRequest,
-  () => ListSyncJobsResponse,
+  () => ListSyncJobsRequest$,
+  () => ListSyncJobsResponse$,
 ];
-export var ListSyncResources: StaticOperationSchema = [
+export var ListSyncResources$: StaticOperationSchema = [
   9,
   n0,
   _LSRis,
   { [_h]: ["POST", "/workspaces/{workspaceId}/sync-jobs/{syncSource}/resources-list", 200], [_end]: ["api."] },
-  () => ListSyncResourcesRequest,
-  () => ListSyncResourcesResponse,
+  () => ListSyncResourcesRequest$,
+  () => ListSyncResourcesResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["POST", "/tags-list", 200], [_end]: ["api."] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListWorkspaces: StaticOperationSchema = [
+export var ListWorkspaces$: StaticOperationSchema = [
   9,
   n0,
   _LW,
   { [_h]: ["POST", "/workspaces-list", 200], [_end]: ["api."] },
-  () => ListWorkspacesRequest,
-  () => ListWorkspacesResponse,
+  () => ListWorkspacesRequest$,
+  () => ListWorkspacesResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags", 200], [_end]: ["api."] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags", 200], [_end]: ["api."] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateComponentType: StaticOperationSchema = [
+export var UpdateComponentType$: StaticOperationSchema = [
   9,
   n0,
   _UCT,
   { [_h]: ["PUT", "/workspaces/{workspaceId}/component-types/{componentTypeId}", 200], [_end]: ["api."] },
-  () => UpdateComponentTypeRequest,
-  () => UpdateComponentTypeResponse,
+  () => UpdateComponentTypeRequest$,
+  () => UpdateComponentTypeResponse$,
 ];
-export var UpdateEntity: StaticOperationSchema = [
+export var UpdateEntity$: StaticOperationSchema = [
   9,
   n0,
   _UE,
   { [_h]: ["PUT", "/workspaces/{workspaceId}/entities/{entityId}", 200], [_end]: ["api."] },
-  () => UpdateEntityRequest,
-  () => UpdateEntityResponse,
+  () => UpdateEntityRequest$,
+  () => UpdateEntityResponse$,
 ];
-export var UpdatePricingPlan: StaticOperationSchema = [
+export var UpdatePricingPlan$: StaticOperationSchema = [
   9,
   n0,
   _UPP,
   { [_h]: ["POST", "/pricingplan", 200], [_end]: ["api."] },
-  () => UpdatePricingPlanRequest,
-  () => UpdatePricingPlanResponse,
+  () => UpdatePricingPlanRequest$,
+  () => UpdatePricingPlanResponse$,
 ];
-export var UpdateScene: StaticOperationSchema = [
+export var UpdateScene$: StaticOperationSchema = [
   9,
   n0,
   _US,
   { [_h]: ["PUT", "/workspaces/{workspaceId}/scenes/{sceneId}", 200], [_end]: ["api."] },
-  () => UpdateSceneRequest,
-  () => UpdateSceneResponse,
+  () => UpdateSceneRequest$,
+  () => UpdateSceneResponse$,
 ];
-export var UpdateWorkspace: StaticOperationSchema = [
+export var UpdateWorkspace$: StaticOperationSchema = [
   9,
   n0,
   _UW,
   { [_h]: ["PUT", "/workspaces/{workspaceId}", 200], [_end]: ["api."] },
-  () => UpdateWorkspaceRequest,
-  () => UpdateWorkspaceResponse,
+  () => UpdateWorkspaceRequest$,
+  () => UpdateWorkspaceResponse$,
 ];

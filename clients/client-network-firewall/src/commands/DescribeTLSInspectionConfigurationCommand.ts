@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { DescribeTLSInspectionConfiguration } from "../schemas/schemas_0";
+import { DescribeTLSInspectionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -187,7 +187,7 @@ export class DescribeTLSInspectionConfigurationCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "DescribeTLSInspectionConfiguration", {})
   .n("NetworkFirewallClient", "DescribeTLSInspectionConfigurationCommand")
-  .sc(DescribeTLSInspectionConfiguration)
+  .sc(DescribeTLSInspectionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

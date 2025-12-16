@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTThingsGraphClient";
 import type { DeprecateFlowTemplateRequest, DeprecateFlowTemplateResponse } from "../models/models_0";
-import { DeprecateFlowTemplate } from "../schemas/schemas_0";
+import { DeprecateFlowTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeprecateFlowTemplateCommand extends $Command
   })
   .s("IotThingsGraphFrontEndService", "DeprecateFlowTemplate", {})
   .n("IoTThingsGraphClient", "DeprecateFlowTemplateCommand")
-  .sc(DeprecateFlowTemplate)
+  .sc(DeprecateFlowTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

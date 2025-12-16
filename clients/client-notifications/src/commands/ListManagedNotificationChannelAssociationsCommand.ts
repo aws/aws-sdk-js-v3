@@ -9,7 +9,7 @@ import type {
   ListManagedNotificationChannelAssociationsResponse,
 } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { ListManagedNotificationChannelAssociations } from "../schemas/schemas_0";
+import { ListManagedNotificationChannelAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class ListManagedNotificationChannelAssociationsCommand extends $Command
   })
   .s("Notifications", "ListManagedNotificationChannelAssociations", {})
   .n("NotificationsClient", "ListManagedNotificationChannelAssociationsCommand")
-  .sc(ListManagedNotificationChannelAssociations)
+  .sc(ListManagedNotificationChannelAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

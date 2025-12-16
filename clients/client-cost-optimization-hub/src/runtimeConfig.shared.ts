@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: CostOptimizationHubClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.costoptimizationhub",
-        serviceTarget: "CostOptimizationHubService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.costoptimizationhub",
+      version: "2022-07-26",
+      serviceTarget: "CostOptimizationHubService",
+    },
     serviceId: config?.serviceId ?? "Cost Optimization Hub",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import type { ListPermissionGroupsRequest, ListPermissionGroupsResponse } from "../models/models_0";
-import { ListPermissionGroups } from "../schemas/schemas_0";
+import { ListPermissionGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class ListPermissionGroupsCommand extends $Command
   })
   .s("AWSHabaneroPublicAPI", "ListPermissionGroups", {})
   .n("FinspaceDataClient", "ListPermissionGroupsCommand")
-  .sc(ListPermissionGroups)
+  .sc(ListPermissionGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteApplicationRequest, DeleteApplicationResult } from "../models/models_0";
-import { DeleteApplication } from "../schemas/schemas_0";
+import { DeleteApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class DeleteApplicationCommand extends $Command
   })
   .s("PhotonAdminProxyService", "DeleteApplication", {})
   .n("AppStreamClient", "DeleteApplicationCommand")
-  .sc(DeleteApplication)
+  .sc(DeleteApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

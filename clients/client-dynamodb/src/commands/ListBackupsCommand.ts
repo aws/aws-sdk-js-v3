@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListBackupsInput, ListBackupsOutput } from "../models/models_0";
-import { ListBackups } from "../schemas/schemas_0";
+import { ListBackups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class ListBackupsCommand extends $Command
   })
   .s("DynamoDB_20120810", "ListBackups", {})
   .n("DynamoDBClient", "ListBackupsCommand")
-  .sc(ListBackups)
+  .sc(ListBackups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeContactFlowModuleAliasRequest, DescribeContactFlowModuleAliasResponse } from "../models/models_1";
-import { DescribeContactFlowModuleAlias } from "../schemas/schemas_0";
+import { DescribeContactFlowModuleAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class DescribeContactFlowModuleAliasCommand extends $Command
   })
   .s("AmazonConnectService", "DescribeContactFlowModuleAlias", {})
   .n("ConnectClient", "DescribeContactFlowModuleAliasCommand")
-  .sc(DescribeContactFlowModuleAlias)
+  .sc(DescribeContactFlowModuleAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

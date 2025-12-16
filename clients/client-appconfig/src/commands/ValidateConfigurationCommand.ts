@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ValidateConfigurationRequest } from "../models/models_0";
-import { ValidateConfiguration } from "../schemas/schemas_0";
+import { ValidateConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class ValidateConfigurationCommand extends $Command
   })
   .s("AmazonAppConfig", "ValidateConfiguration", {})
   .n("AppConfigClient", "ValidateConfigurationCommand")
-  .sc(ValidateConfiguration)
+  .sc(ValidateConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

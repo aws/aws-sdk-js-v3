@@ -9,7 +9,7 @@ import type {
   GetConformancePackComplianceDetailsRequest,
   GetConformancePackComplianceDetailsResponse,
 } from "../models/models_0";
-import { GetConformancePackComplianceDetails } from "../schemas/schemas_0";
+import { GetConformancePackComplianceDetails$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class GetConformancePackComplianceDetailsCommand extends $Command
   })
   .s("StarlingDoveService", "GetConformancePackComplianceDetails", {})
   .n("ConfigServiceClient", "GetConformancePackComplianceDetailsCommand")
-  .sc(GetConformancePackComplianceDetails)
+  .sc(GetConformancePackComplianceDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

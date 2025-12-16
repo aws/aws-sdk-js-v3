@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAnomalyDetectorRequest } from "../models/models_0";
-import { DeleteAnomalyDetector } from "../schemas/schemas_0";
+import { DeleteAnomalyDetector$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteAnomalyDetectorCommand extends $Command
   })
   .s("AmazonPrometheusService", "DeleteAnomalyDetector", {})
   .n("AmpClient", "DeleteAnomalyDetectorCommand")
-  .sc(DeleteAnomalyDetector)
+  .sc(DeleteAnomalyDetector$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

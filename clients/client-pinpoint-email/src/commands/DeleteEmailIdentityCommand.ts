@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteEmailIdentityRequest, DeleteEmailIdentityResponse } from "../models/models_0";
 import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { DeleteEmailIdentity } from "../schemas/schemas_0";
+import { DeleteEmailIdentity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DeleteEmailIdentityCommand extends $Command
   })
   .s("AmazonPinpointEmailService", "DeleteEmailIdentity", {})
   .n("PinpointEmailClient", "DeleteEmailIdentityCommand")
-  .sc(DeleteEmailIdentity)
+  .sc(DeleteEmailIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

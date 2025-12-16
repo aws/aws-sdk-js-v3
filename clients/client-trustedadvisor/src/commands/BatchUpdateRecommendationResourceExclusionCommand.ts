@@ -8,7 +8,7 @@ import type {
   BatchUpdateRecommendationResourceExclusionRequest,
   BatchUpdateRecommendationResourceExclusionResponse,
 } from "../models/models_0";
-import { BatchUpdateRecommendationResourceExclusion } from "../schemas/schemas_0";
+import { BatchUpdateRecommendationResourceExclusion$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -135,7 +135,7 @@ export class BatchUpdateRecommendationResourceExclusionCommand extends $Command
   })
   .s("TrustedAdvisor", "BatchUpdateRecommendationResourceExclusion", {})
   .n("TrustedAdvisorClient", "BatchUpdateRecommendationResourceExclusionCommand")
-  .sc(BatchUpdateRecommendationResourceExclusion)
+  .sc(BatchUpdateRecommendationResourceExclusion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

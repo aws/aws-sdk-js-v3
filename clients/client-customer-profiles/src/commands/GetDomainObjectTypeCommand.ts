@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDomainObjectTypeRequest, GetDomainObjectTypeResponse } from "../models/models_0";
-import { GetDomainObjectType } from "../schemas/schemas_0";
+import { GetDomainObjectType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class GetDomainObjectTypeCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "GetDomainObjectType", {})
   .n("CustomerProfilesClient", "GetDomainObjectTypeCommand")
-  .sc(GetDomainObjectType)
+  .sc(GetDomainObjectType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

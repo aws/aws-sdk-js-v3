@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeVolumeAttributeRequest, DescribeVolumeAttributeResult } from "../models/models_5";
-import { DescribeVolumeAttribute } from "../schemas/schemas_0";
+import { DescribeVolumeAttribute$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class DescribeVolumeAttributeCommand extends $Command
   })
   .s("AmazonEC2", "DescribeVolumeAttribute", {})
   .n("EC2Client", "DescribeVolumeAttributeCommand")
-  .sc(DescribeVolumeAttribute)
+  .sc(DescribeVolumeAttribute$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

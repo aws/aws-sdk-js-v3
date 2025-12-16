@@ -10,7 +10,7 @@ import type {
   GetAccessPointPolicyStatusForObjectLambdaResult,
 } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { GetAccessPointPolicyStatusForObjectLambda } from "../schemas/schemas_0";
+import { GetAccessPointPolicyStatusForObjectLambda$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class GetAccessPointPolicyStatusForObjectLambdaCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "GetAccessPointPolicyStatusForObjectLambda", {})
   .n("S3ControlClient", "GetAccessPointPolicyStatusForObjectLambdaCommand")
-  .sc(GetAccessPointPolicyStatusForObjectLambda)
+  .sc(GetAccessPointPolicyStatusForObjectLambda$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

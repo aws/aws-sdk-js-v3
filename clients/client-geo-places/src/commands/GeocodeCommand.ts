@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GeoPlacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoPlacesClient";
 import type { GeocodeRequest, GeocodeResponse } from "../models/models_0";
-import { Geocode } from "../schemas/schemas_0";
+import { Geocode$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -385,7 +385,7 @@ export class GeocodeCommand extends $Command
   })
   .s("PlacesService", "Geocode", {})
   .n("GeoPlacesClient", "GeocodeCommand")
-  .sc(Geocode)
+  .sc(Geocode$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

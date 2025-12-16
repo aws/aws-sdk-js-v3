@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { XmlTimestampsOutput } from "../models/models_0";
-import { XmlTimestamps } from "../schemas/schemas_0";
+import { XmlTimestamps$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,7 +79,7 @@ export class XmlTimestampsCommand extends $Command
   })
   .s("AwsEc2", "XmlTimestamps", {})
   .n("EC2ProtocolClient", "XmlTimestampsCommand")
-  .sc(XmlTimestamps)
+  .sc(XmlTimestamps$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

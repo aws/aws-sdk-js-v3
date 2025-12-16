@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeResourcePolicyRequest, DescribeResourcePolicyResponse } from "../models/models_0";
-import { DescribeResourcePolicy } from "../schemas/schemas_0";
+import { DescribeResourcePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DescribeResourcePolicyCommand extends $Command
   })
   .s("AmazonPrometheusService", "DescribeResourcePolicy", {})
   .n("AmpClient", "DescribeResourcePolicyCommand")
-  .sc(DescribeResourcePolicy)
+  .sc(DescribeResourcePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

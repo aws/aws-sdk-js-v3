@@ -10,7 +10,7 @@ import type {
 } from "../AmplifyBackendClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetBackendJobRequest, GetBackendJobResponse } from "../models/models_0";
-import { GetBackendJob } from "../schemas/schemas_0";
+import { GetBackendJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class GetBackendJobCommand extends $Command
   })
   .s("AmplifyBackend", "GetBackendJob", {})
   .n("AmplifyBackendClient", "GetBackendJobCommand")
-  .sc(GetBackendJob)
+  .sc(GetBackendJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

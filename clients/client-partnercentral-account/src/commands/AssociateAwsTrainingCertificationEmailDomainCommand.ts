@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralAccountClient";
-import { AssociateAwsTrainingCertificationEmailDomain } from "../schemas/schemas_0";
+import { AssociateAwsTrainingCertificationEmailDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class AssociateAwsTrainingCertificationEmailDomainCommand extends $Comman
   })
   .s("PartnerCentralAccount", "AssociateAwsTrainingCertificationEmailDomain", {})
   .n("PartnerCentralAccountClient", "AssociateAwsTrainingCertificationEmailDomainCommand")
-  .sc(AssociateAwsTrainingCertificationEmailDomain)
+  .sc(AssociateAwsTrainingCertificationEmailDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

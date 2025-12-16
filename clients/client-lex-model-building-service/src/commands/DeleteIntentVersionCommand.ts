@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import type { DeleteIntentVersionRequest } from "../models/models_0";
-import { DeleteIntentVersion } from "../schemas/schemas_0";
+import { DeleteIntentVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class DeleteIntentVersionCommand extends $Command
   })
   .s("AWSDeepSenseModelBuildingService", "DeleteIntentVersion", {})
   .n("LexModelBuildingServiceClient", "DeleteIntentVersionCommand")
-  .sc(DeleteIntentVersion)
+  .sc(DeleteIntentVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

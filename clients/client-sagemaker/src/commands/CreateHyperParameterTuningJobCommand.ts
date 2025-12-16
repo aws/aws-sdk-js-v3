@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateHyperParameterTuningJobRequest, CreateHyperParameterTuningJobResponse } from "../models/models_1";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateHyperParameterTuningJob } from "../schemas/schemas_0";
+import { CreateHyperParameterTuningJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -487,7 +487,7 @@ export class CreateHyperParameterTuningJobCommand extends $Command
   })
   .s("SageMaker", "CreateHyperParameterTuningJob", {})
   .n("SageMakerClient", "CreateHyperParameterTuningJobCommand")
-  .sc(CreateHyperParameterTuningJob)
+  .sc(CreateHyperParameterTuningJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   UpdateIdentityPropagationConfigResponse,
 } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdateIdentityPropagationConfig } from "../schemas/schemas_0";
+import { UpdateIdentityPropagationConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class UpdateIdentityPropagationConfigCommand extends $Command
   })
   .s("QuickSight_20180401", "UpdateIdentityPropagationConfig", {})
   .n("QuickSightClient", "UpdateIdentityPropagationConfigCommand")
-  .sc(UpdateIdentityPropagationConfig)
+  .sc(UpdateIdentityPropagationConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

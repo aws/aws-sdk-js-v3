@@ -9,7 +9,7 @@ import type {
   GetSipMediaApplicationAlexaSkillConfigurationRequest,
   GetSipMediaApplicationAlexaSkillConfigurationResponse,
 } from "../models/models_0";
-import { GetSipMediaApplicationAlexaSkillConfiguration } from "../schemas/schemas_0";
+import { GetSipMediaApplicationAlexaSkillConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class GetSipMediaApplicationAlexaSkillConfigurationCommand extends $Comma
   })
   .s("ChimeSDKTelephonyService", "GetSipMediaApplicationAlexaSkillConfiguration", {})
   .n("ChimeSDKVoiceClient", "GetSipMediaApplicationAlexaSkillConfigurationCommand")
-  .sc(GetSipMediaApplicationAlexaSkillConfiguration)
+  .sc(GetSipMediaApplicationAlexaSkillConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import type { StopBulkDeploymentRequest, StopBulkDeploymentResponse } from "../models/models_0";
-import { StopBulkDeployment } from "../schemas/schemas_0";
+import { StopBulkDeployment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -74,7 +74,7 @@ export class StopBulkDeploymentCommand extends $Command
   })
   .s("Greengrass", "StopBulkDeployment", {})
   .n("GreengrassClient", "StopBulkDeploymentCommand")
-  .sc(StopBulkDeployment)
+  .sc(StopBulkDeployment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import type { RemoveFlowSourceRequest, RemoveFlowSourceResponse } from "../models/models_0";
-import { RemoveFlowSource } from "../schemas/schemas_0";
+import { RemoveFlowSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class RemoveFlowSourceCommand extends $Command
   })
   .s("MediaConnect", "RemoveFlowSource", {})
   .n("MediaConnectClient", "RemoveFlowSourceCommand")
-  .sc(RemoveFlowSource)
+  .sc(RemoveFlowSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

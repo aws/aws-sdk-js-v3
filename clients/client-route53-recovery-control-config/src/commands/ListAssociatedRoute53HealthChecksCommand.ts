@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
-import { ListAssociatedRoute53HealthChecks } from "../schemas/schemas_0";
+import { ListAssociatedRoute53HealthChecks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class ListAssociatedRoute53HealthChecksCommand extends $Command
   })
   .s("Route53RecoveryControlConfig", "ListAssociatedRoute53HealthChecks", {})
   .n("Route53RecoveryControlConfigClient", "ListAssociatedRoute53HealthChecksCommand")
-  .sc(ListAssociatedRoute53HealthChecks)
+  .sc(ListAssociatedRoute53HealthChecks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   CreateTargetAccountConfigurationRequest,
   CreateTargetAccountConfigurationResponse,
 } from "../models/models_0";
-import { CreateTargetAccountConfiguration } from "../schemas/schemas_0";
+import { CreateTargetAccountConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class CreateTargetAccountConfigurationCommand extends $Command
   })
   .s("FaultInjectionSimulator", "CreateTargetAccountConfiguration", {})
   .n("FisClient", "CreateTargetAccountConfigurationCommand")
-  .sc(CreateTargetAccountConfiguration)
+  .sc(CreateTargetAccountConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveTagsFromResourceMessage, RemoveTagsFromResourceResponse } from "../models/models_1";
-import { RemoveTagsFromResource } from "../schemas/schemas_0";
+import { RemoveTagsFromResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class RemoveTagsFromResourceCommand extends $Command
   })
   .s("AmazonDMSv20160101", "RemoveTagsFromResource", {})
   .n("DatabaseMigrationServiceClient", "RemoveTagsFromResourceCommand")
-  .sc(RemoveTagsFromResource)
+  .sc(RemoveTagsFromResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetTargetSelectionRulesMessage, GetTargetSelectionRulesResponse } from "../models/models_0";
-import { GetTargetSelectionRules } from "../schemas/schemas_0";
+import { GetTargetSelectionRules$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class GetTargetSelectionRulesCommand extends $Command
   })
   .s("AmazonDMSv20160101", "GetTargetSelectionRules", {})
   .n("DatabaseMigrationServiceClient", "GetTargetSelectionRulesCommand")
-  .sc(GetTargetSelectionRules)
+  .sc(GetTargetSelectionRules$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

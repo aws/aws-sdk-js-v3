@@ -9,7 +9,7 @@ import type {
   ListDominantLanguageDetectionJobsRequest,
   ListDominantLanguageDetectionJobsResponse,
 } from "../models/models_0";
-import { ListDominantLanguageDetectionJobs } from "../schemas/schemas_0";
+import { ListDominantLanguageDetectionJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -134,7 +134,7 @@ export class ListDominantLanguageDetectionJobsCommand extends $Command
   })
   .s("Comprehend_20171127", "ListDominantLanguageDetectionJobs", {})
   .n("ComprehendClient", "ListDominantLanguageDetectionJobsCommand")
-  .sc(ListDominantLanguageDetectionJobs)
+  .sc(ListDominantLanguageDetectionJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetLexiconInput, GetLexiconOutput } from "../models/models_0";
 import type { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
-import { GetLexicon } from "../schemas/schemas_0";
+import { GetLexicon$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class GetLexiconCommand extends $Command
   })
   .s("Parrot_v1", "GetLexicon", {})
   .n("PollyClient", "GetLexiconCommand")
-  .sc(GetLexicon)
+  .sc(GetLexicon$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

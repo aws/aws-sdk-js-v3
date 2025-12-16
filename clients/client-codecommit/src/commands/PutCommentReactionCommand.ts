@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutCommentReactionInput } from "../models/models_0";
-import { PutCommentReaction } from "../schemas/schemas_0";
+import { PutCommentReaction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class PutCommentReactionCommand extends $Command
   })
   .s("CodeCommit_20150413", "PutCommentReaction", {})
   .n("CodeCommitClient", "PutCommentReactionCommand")
-  .sc(PutCommentReaction)
+  .sc(PutCommentReaction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
 import type { GetPublicKeyRequest, GetPublicKeyResponse } from "../models/models_0";
-import { GetPublicKey } from "../schemas/schemas_0";
+import { GetPublicKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class GetPublicKeyCommand extends $Command
   })
   .s("AmazonInteractiveVideoServiceRealTime", "GetPublicKey", {})
   .n("IVSRealTimeClient", "GetPublicKeyCommand")
-  .sc(GetPublicKey)
+  .sc(GetPublicKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { StopCrawlerScheduleRequest, StopCrawlerScheduleResponse } from "../models/models_2";
-import { StopCrawlerSchedule } from "../schemas/schemas_0";
+import { StopCrawlerSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class StopCrawlerScheduleCommand extends $Command
   })
   .s("AWSGlue", "StopCrawlerSchedule", {})
   .n("GlueClient", "StopCrawlerScheduleCommand")
-  .sc(StopCrawlerSchedule)
+  .sc(StopCrawlerSchedule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetEventActionRequest, GetEventActionResponse } from "../models/models_0";
-import { GetEventAction } from "../schemas/schemas_0";
+import { GetEventAction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class GetEventActionCommand extends $Command
   })
   .s("DataExchange", "GetEventAction", {})
   .n("DataExchangeClient", "GetEventActionCommand")
-  .sc(GetEventAction)
+  .sc(GetEventAction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

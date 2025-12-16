@@ -9,7 +9,7 @@ import type {
   ModifyVpcPeeringConnectionOptionsRequest,
   ModifyVpcPeeringConnectionOptionsResult,
 } from "../models/models_7";
-import { ModifyVpcPeeringConnectionOptions } from "../schemas/schemas_0";
+import { ModifyVpcPeeringConnectionOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class ModifyVpcPeeringConnectionOptionsCommand extends $Command
   })
   .s("AmazonEC2", "ModifyVpcPeeringConnectionOptions", {})
   .n("EC2Client", "ModifyVpcPeeringConnectionOptionsCommand")
-  .sc(ModifyVpcPeeringConnectionOptions)
+  .sc(ModifyVpcPeeringConnectionOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

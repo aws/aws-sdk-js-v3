@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateVPCWithHostedZoneRequest, AssociateVPCWithHostedZoneResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { AssociateVPCWithHostedZone } from "../schemas/schemas_0";
+import { AssociateVPCWithHostedZone$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -199,7 +199,7 @@ export class AssociateVPCWithHostedZoneCommand extends $Command
   })
   .s("AWSDnsV20130401", "AssociateVPCWithHostedZone", {})
   .n("Route53Client", "AssociateVPCWithHostedZoneCommand")
-  .sc(AssociateVPCWithHostedZone)
+  .sc(AssociateVPCWithHostedZone$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

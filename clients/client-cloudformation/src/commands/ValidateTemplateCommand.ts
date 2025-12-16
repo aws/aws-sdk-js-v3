@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ValidateTemplateInput, ValidateTemplateOutput } from "../models/models_0";
-import { ValidateTemplate } from "../schemas/schemas_0";
+import { ValidateTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class ValidateTemplateCommand extends $Command
   })
   .s("CloudFormation", "ValidateTemplate", {})
   .n("CloudFormationClient", "ValidateTemplateCommand")
-  .sc(ValidateTemplate)
+  .sc(ValidateTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

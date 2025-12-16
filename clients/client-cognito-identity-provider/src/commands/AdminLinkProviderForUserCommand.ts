@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AdminLinkProviderForUserRequest, AdminLinkProviderForUserResponse } from "../models/models_0";
-import { AdminLinkProviderForUser } from "../schemas/schemas_0";
+import { AdminLinkProviderForUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -152,7 +152,7 @@ export class AdminLinkProviderForUserCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "AdminLinkProviderForUser", {})
   .n("CognitoIdentityProviderClient", "AdminLinkProviderForUserCommand")
-  .sc(AdminLinkProviderForUser)
+  .sc(AdminLinkProviderForUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

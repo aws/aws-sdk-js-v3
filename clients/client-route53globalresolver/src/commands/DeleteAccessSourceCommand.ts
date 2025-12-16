@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53GlobalResolverClient";
-import { DeleteAccessSource } from "../schemas/schemas_0";
+import { DeleteAccessSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DeleteAccessSourceCommand extends $Command
   })
   .s("EC2DNSGlobalResolverCustomerAPI", "DeleteAccessSource", {})
   .n("Route53GlobalResolverClient", "DeleteAccessSourceCommand")
-  .sc(DeleteAccessSource)
+  .sc(DeleteAccessSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeServiceRequest, DescribeServiceResponse } from "../models/models_0";
-import { DescribeService } from "../schemas/schemas_0";
+import { DescribeService$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -174,7 +174,7 @@ export class DescribeServiceCommand extends $Command
   })
   .s("AppRunner", "DescribeService", {})
   .n("AppRunnerClient", "DescribeServiceCommand")
-  .sc(DescribeService)
+  .sc(DescribeService$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

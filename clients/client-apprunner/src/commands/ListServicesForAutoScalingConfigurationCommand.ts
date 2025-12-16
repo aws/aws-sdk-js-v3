@@ -9,7 +9,7 @@ import type {
   ListServicesForAutoScalingConfigurationRequest,
   ListServicesForAutoScalingConfigurationResponse,
 } from "../models/models_0";
-import { ListServicesForAutoScalingConfiguration } from "../schemas/schemas_0";
+import { ListServicesForAutoScalingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class ListServicesForAutoScalingConfigurationCommand extends $Command
   })
   .s("AppRunner", "ListServicesForAutoScalingConfiguration", {})
   .n("AppRunnerClient", "ListServicesForAutoScalingConfigurationCommand")
-  .sc(ListServicesForAutoScalingConfiguration)
+  .sc(ListServicesForAutoScalingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

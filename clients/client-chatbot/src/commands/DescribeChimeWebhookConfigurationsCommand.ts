@@ -9,7 +9,7 @@ import type {
   DescribeChimeWebhookConfigurationsRequest,
   DescribeChimeWebhookConfigurationsResult,
 } from "../models/models_0";
-import { DescribeChimeWebhookConfigurations } from "../schemas/schemas_0";
+import { DescribeChimeWebhookConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class DescribeChimeWebhookConfigurationsCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "DescribeChimeWebhookConfigurations", {})
   .n("ChatbotClient", "DescribeChimeWebhookConfigurationsCommand")
-  .sc(DescribeChimeWebhookConfigurations)
+  .sc(DescribeChimeWebhookConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

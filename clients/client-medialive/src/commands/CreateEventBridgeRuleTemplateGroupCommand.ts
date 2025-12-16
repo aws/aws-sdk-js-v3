@@ -9,7 +9,7 @@ import type {
   CreateEventBridgeRuleTemplateGroupRequest,
   CreateEventBridgeRuleTemplateGroupResponse,
 } from "../models/models_1";
-import { CreateEventBridgeRuleTemplateGroup } from "../schemas/schemas_0";
+import { CreateEventBridgeRuleTemplateGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class CreateEventBridgeRuleTemplateGroupCommand extends $Command
   })
   .s("MediaLive", "CreateEventBridgeRuleTemplateGroup", {})
   .n("MediaLiveClient", "CreateEventBridgeRuleTemplateGroupCommand")
-  .sc(CreateEventBridgeRuleTemplateGroup)
+  .sc(CreateEventBridgeRuleTemplateGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

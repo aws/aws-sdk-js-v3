@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsClient";
-import { CancelTagSyncTask } from "../schemas/schemas_0";
+import { CancelTagSyncTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class CancelTagSyncTaskCommand extends $Command
   })
   .s("Ardi", "CancelTagSyncTask", {})
   .n("ResourceGroupsClient", "CancelTagSyncTaskCommand")
-  .sc(CancelTagSyncTask)
+  .sc(CancelTagSyncTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

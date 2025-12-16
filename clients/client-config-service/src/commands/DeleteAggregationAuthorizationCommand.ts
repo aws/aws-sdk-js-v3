@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAggregationAuthorizationRequest } from "../models/models_0";
-import { DeleteAggregationAuthorization } from "../schemas/schemas_0";
+import { DeleteAggregationAuthorization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class DeleteAggregationAuthorizationCommand extends $Command
   })
   .s("StarlingDoveService", "DeleteAggregationAuthorization", {})
   .n("ConfigServiceClient", "DeleteAggregationAuthorizationCommand")
-  .sc(DeleteAggregationAuthorization)
+  .sc(DeleteAggregationAuthorization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

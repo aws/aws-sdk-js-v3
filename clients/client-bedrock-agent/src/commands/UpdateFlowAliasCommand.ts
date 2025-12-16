@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateFlowAliasRequest, UpdateFlowAliasResponse } from "../models/models_0";
-import { UpdateFlowAlias } from "../schemas/schemas_0";
+import { UpdateFlowAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class UpdateFlowAliasCommand extends $Command
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "UpdateFlowAlias", {})
   .n("BedrockAgentClient", "UpdateFlowAliasCommand")
-  .sc(UpdateFlowAlias)
+  .sc(UpdateFlowAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

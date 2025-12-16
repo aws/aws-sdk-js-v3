@@ -215,26 +215,26 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  UnauthorizedException as __UnauthorizedException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  UnauthorizedException,
+  ValidationException,
 } from "../models/errors";
-import { ResourceExplorer2ServiceException as __ResourceExplorer2ServiceException } from "../models/ResourceExplorer2ServiceException";
+import { ResourceExplorer2ServiceException } from "../models/ResourceExplorer2ServiceException";
 
 /* eslint no-var: 0 */
-export var QueryString: StaticSimpleSchema = [0, n0, _QS, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AssociateDefaultViewInput: StaticStructureSchema = [3, n0, _ADVI, 0, [_VA], [0]];
-export var AssociateDefaultViewOutput: StaticStructureSchema = [3, n0, _ADVO, 0, [_VA], [0]];
-export var BatchGetViewError: StaticStructureSchema = [3, n0, _BGVE, 0, [_VA, _EM], [0, 0]];
-export var BatchGetViewInput: StaticStructureSchema = [3, n0, _BGVI, 0, [_VAi], [64 | 0]];
-export var BatchGetViewOutput: StaticStructureSchema = [
+var QueryString: StaticSimpleSchema = [0, n0, _QS, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AssociateDefaultViewInput$: StaticStructureSchema = [3, n0, _ADVI, 0, [_VA], [0]];
+export var AssociateDefaultViewOutput$: StaticStructureSchema = [3, n0, _ADVO, 0, [_VA], [0]];
+export var BatchGetViewError$: StaticStructureSchema = [3, n0, _BGVE, 0, [_VA, _EM], [0, 0]];
+export var BatchGetViewInput$: StaticStructureSchema = [3, n0, _BGVI, 0, [_VAi], [64 | 0]];
+export var BatchGetViewOutput$: StaticStructureSchema = [
   3,
   n0,
   _BGVO,
@@ -242,9 +242,9 @@ export var BatchGetViewOutput: StaticStructureSchema = [
   [_V, _E],
   [[() => ViewList, 0], () => BatchGetViewErrors],
 ];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateIndexInput: StaticStructureSchema = [
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateIndexInput$: StaticStructureSchema = [
   3,
   n0,
   _CII,
@@ -255,8 +255,8 @@ export var CreateIndexInput: StaticStructureSchema = [
     [() => TagMap, 0],
   ],
 ];
-export var CreateIndexOutput: StaticStructureSchema = [3, n0, _CIO, 0, [_A, _S, _CA], [0, 0, 5]];
-export var CreateResourceExplorerSetupInput: StaticStructureSchema = [
+export var CreateIndexOutput$: StaticStructureSchema = [3, n0, _CIO, 0, [_A, _S, _CA], [0, 0, 5]];
+export var CreateResourceExplorerSetupInput$: StaticStructureSchema = [
   3,
   n0,
   _CRESI,
@@ -264,33 +264,33 @@ export var CreateResourceExplorerSetupInput: StaticStructureSchema = [
   [_RL, _AR, _VN],
   [64 | 0, 64 | 0, 0],
 ];
-export var CreateResourceExplorerSetupOutput: StaticStructureSchema = [3, n0, _CRESO, 0, [_TI], [0]];
-export var CreateViewInput: StaticStructureSchema = [
+export var CreateResourceExplorerSetupOutput$: StaticStructureSchema = [3, n0, _CRESO, 0, [_TI], [0]];
+export var CreateViewInput$: StaticStructureSchema = [
   3,
   n0,
   _CVI,
   0,
   [_CT, _VN, _IP, _Sc, _F, _T],
-  [[0, 4], 0, () => IncludedPropertyList, 0, [() => SearchFilter, 0], [() => TagMap, 0]],
+  [[0, 4], 0, () => IncludedPropertyList, 0, [() => SearchFilter$, 0], [() => TagMap, 0]],
 ];
-export var CreateViewOutput: StaticStructureSchema = [3, n0, _CVO, 0, [_Vi], [[() => View, 0]]];
-export var DeleteIndexInput: StaticStructureSchema = [3, n0, _DII, 0, [_A], [0]];
-export var DeleteIndexOutput: StaticStructureSchema = [3, n0, _DIO, 0, [_A, _S, _LUA], [0, 0, 5]];
-export var DeleteResourceExplorerSetupInput: StaticStructureSchema = [3, n0, _DRESI, 0, [_RL, _DIAR], [64 | 0, 2]];
-export var DeleteResourceExplorerSetupOutput: StaticStructureSchema = [3, n0, _DRESO, 0, [_TI], [0]];
-export var DeleteViewInput: StaticStructureSchema = [3, n0, _DVI, 0, [_VA], [0]];
-export var DeleteViewOutput: StaticStructureSchema = [3, n0, _DVO, 0, [_VA], [0]];
-export var ErrorDetails: StaticStructureSchema = [3, n0, _ED, 0, [_C, _M], [0, 0]];
-export var GetAccountLevelServiceConfigurationOutput: StaticStructureSchema = [
+export var CreateViewOutput$: StaticStructureSchema = [3, n0, _CVO, 0, [_Vi], [[() => View$, 0]]];
+export var DeleteIndexInput$: StaticStructureSchema = [3, n0, _DII, 0, [_A], [0]];
+export var DeleteIndexOutput$: StaticStructureSchema = [3, n0, _DIO, 0, [_A, _S, _LUA], [0, 0, 5]];
+export var DeleteResourceExplorerSetupInput$: StaticStructureSchema = [3, n0, _DRESI, 0, [_RL, _DIAR], [64 | 0, 2]];
+export var DeleteResourceExplorerSetupOutput$: StaticStructureSchema = [3, n0, _DRESO, 0, [_TI], [0]];
+export var DeleteViewInput$: StaticStructureSchema = [3, n0, _DVI, 0, [_VA], [0]];
+export var DeleteViewOutput$: StaticStructureSchema = [3, n0, _DVO, 0, [_VA], [0]];
+export var ErrorDetails$: StaticStructureSchema = [3, n0, _ED, 0, [_C, _M], [0, 0]];
+export var GetAccountLevelServiceConfigurationOutput$: StaticStructureSchema = [
   3,
   n0,
   _GALSCO,
   0,
   [_OC],
-  [() => OrgConfiguration],
+  [() => OrgConfiguration$],
 ];
-export var GetDefaultViewOutput: StaticStructureSchema = [3, n0, _GDVO, 0, [_VA], [0]];
-export var GetIndexOutput: StaticStructureSchema = [
+export var GetDefaultViewOutput$: StaticStructureSchema = [3, n0, _GDVO, 0, [_VA], [0]];
+export var GetIndexOutput$: StaticStructureSchema = [
   3,
   n0,
   _GIO,
@@ -298,10 +298,10 @@ export var GetIndexOutput: StaticStructureSchema = [
   [_A, _Ty, _S, _RF, _RT, _CA, _LUA, _T],
   [0, 0, 0, 64 | 0, 64 | 0, 5, 5, [() => TagMap, 0]],
 ];
-export var GetManagedViewInput: StaticStructureSchema = [3, n0, _GMVI, 0, [_MVA], [0]];
-export var GetManagedViewOutput: StaticStructureSchema = [3, n0, _GMVO, 0, [_MV], [[() => ManagedView, 0]]];
-export var GetResourceExplorerSetupInput: StaticStructureSchema = [3, n0, _GRESI, 0, [_TI, _MR, _NT], [0, 1, 0]];
-export var GetResourceExplorerSetupOutput: StaticStructureSchema = [
+export var GetManagedViewInput$: StaticStructureSchema = [3, n0, _GMVI, 0, [_MVA], [0]];
+export var GetManagedViewOutput$: StaticStructureSchema = [3, n0, _GMVO, 0, [_MV], [[() => ManagedView$, 0]]];
+export var GetResourceExplorerSetupInput$: StaticStructureSchema = [3, n0, _GRESI, 0, [_TI, _MR, _NT], [0, 1, 0]];
+export var GetResourceExplorerSetupOutput$: StaticStructureSchema = [
   3,
   n0,
   _GRESO,
@@ -309,28 +309,35 @@ export var GetResourceExplorerSetupOutput: StaticStructureSchema = [
   [_R, _NT],
   [[() => RegionStatusList, 0], 0],
 ];
-export var GetServiceIndexOutput: StaticStructureSchema = [3, n0, _GSIO, 0, [_A, _Ty], [0, 0]];
-export var GetServiceViewInput: StaticStructureSchema = [3, n0, _GSVI, 0, [_SVA], [0]];
-export var GetServiceViewOutput: StaticStructureSchema = [3, n0, _GSVO, 0, [_Vi], [[() => ServiceView, 0]]];
-export var GetViewInput: StaticStructureSchema = [3, n0, _GVI, 0, [_VA], [0]];
-export var GetViewOutput: StaticStructureSchema = [
+export var GetServiceIndexOutput$: StaticStructureSchema = [3, n0, _GSIO, 0, [_A, _Ty], [0, 0]];
+export var GetServiceViewInput$: StaticStructureSchema = [3, n0, _GSVI, 0, [_SVA], [0]];
+export var GetServiceViewOutput$: StaticStructureSchema = [3, n0, _GSVO, 0, [_Vi], [[() => ServiceView$, 0]]];
+export var GetViewInput$: StaticStructureSchema = [3, n0, _GVI, 0, [_VA], [0]];
+export var GetViewOutput$: StaticStructureSchema = [
   3,
   n0,
   _GVO,
   0,
   [_Vi, _T],
   [
-    [() => View, 0],
+    [() => View$, 0],
     [() => TagMap, 0],
   ],
 ];
-export var IncludedProperty: StaticStructureSchema = [3, n0, _IPn, 0, [_N], [0]];
-export var Index: StaticStructureSchema = [3, n0, _I, 0, [_Re, _A, _Ty], [0, 0, 0]];
-export var IndexStatus: StaticStructureSchema = [3, n0, _IS, 0, [_St, _I, _ED], [0, () => Index, () => ErrorDetails]];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var ListIndexesForMembersInput: StaticStructureSchema = [3, n0, _LIFMI, 0, [_AIL, _MR, _NT], [64 | 0, 1, 0]];
-export var ListIndexesForMembersOutput: StaticStructureSchema = [
+export var IncludedProperty$: StaticStructureSchema = [3, n0, _IPn, 0, [_N], [0]];
+export var Index$: StaticStructureSchema = [3, n0, _I, 0, [_Re, _A, _Ty], [0, 0, 0]];
+export var IndexStatus$: StaticStructureSchema = [
+  3,
+  n0,
+  _IS,
+  0,
+  [_St, _I, _ED],
+  [0, () => Index$, () => ErrorDetails$],
+];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var ListIndexesForMembersInput$: StaticStructureSchema = [3, n0, _LIFMI, 0, [_AIL, _MR, _NT], [64 | 0, 1, 0]];
+export var ListIndexesForMembersOutput$: StaticStructureSchema = [
   3,
   n0,
   _LIFMO,
@@ -338,25 +345,25 @@ export var ListIndexesForMembersOutput: StaticStructureSchema = [
   [_In, _NT],
   [() => MemberIndexList, 0],
 ];
-export var ListIndexesInput: StaticStructureSchema = [3, n0, _LII, 0, [_Ty, _R, _MR, _NT], [0, 64 | 0, 1, 0]];
-export var ListIndexesOutput: StaticStructureSchema = [3, n0, _LIO, 0, [_In, _NT], [() => IndexList, 0]];
-export var ListManagedViewsInput: StaticStructureSchema = [3, n0, _LMVI, 0, [_MR, _NT, _SP], [1, 0, 0]];
-export var ListManagedViewsOutput: StaticStructureSchema = [3, n0, _LMVO, 0, [_NT, _MVa], [0, 64 | 0]];
-export var ListResourcesInput: StaticStructureSchema = [
+export var ListIndexesInput$: StaticStructureSchema = [3, n0, _LII, 0, [_Ty, _R, _MR, _NT], [0, 64 | 0, 1, 0]];
+export var ListIndexesOutput$: StaticStructureSchema = [3, n0, _LIO, 0, [_In, _NT], [() => IndexList, 0]];
+export var ListManagedViewsInput$: StaticStructureSchema = [3, n0, _LMVI, 0, [_MR, _NT, _SP], [1, 0, 0]];
+export var ListManagedViewsOutput$: StaticStructureSchema = [3, n0, _LMVO, 0, [_NT, _MVa], [0, 64 | 0]];
+export var ListResourcesInput$: StaticStructureSchema = [
   3,
   n0,
   _LRI,
   0,
   [_F, _MR, _VA, _NT],
-  [[() => SearchFilter, 0], 1, 0, 0],
+  [[() => SearchFilter$, 0], 1, 0, 0],
 ];
-export var ListResourcesOutput: StaticStructureSchema = [3, n0, _LRO, 0, [_Res, _NT, _VA], [() => ResourceList, 0, 0]];
-export var ListServiceIndexesInput: StaticStructureSchema = [3, n0, _LSII, 0, [_R, _MR, _NT], [64 | 0, 1, 0]];
-export var ListServiceIndexesOutput: StaticStructureSchema = [3, n0, _LSIO, 0, [_In, _NT], [() => IndexList, 0]];
-export var ListServiceViewsInput: StaticStructureSchema = [3, n0, _LSVI, 0, [_MR, _NT], [1, 0]];
-export var ListServiceViewsOutput: StaticStructureSchema = [3, n0, _LSVO, 0, [_NT, _SV], [0, 64 | 0]];
-export var ListStreamingAccessForServicesInput: StaticStructureSchema = [3, n0, _LSAFSI, 0, [_MR, _NT], [1, 0]];
-export var ListStreamingAccessForServicesOutput: StaticStructureSchema = [
+export var ListResourcesOutput$: StaticStructureSchema = [3, n0, _LRO, 0, [_Res, _NT, _VA], [() => ResourceList, 0, 0]];
+export var ListServiceIndexesInput$: StaticStructureSchema = [3, n0, _LSII, 0, [_R, _MR, _NT], [64 | 0, 1, 0]];
+export var ListServiceIndexesOutput$: StaticStructureSchema = [3, n0, _LSIO, 0, [_In, _NT], [() => IndexList, 0]];
+export var ListServiceViewsInput$: StaticStructureSchema = [3, n0, _LSVI, 0, [_MR, _NT], [1, 0]];
+export var ListServiceViewsOutput$: StaticStructureSchema = [3, n0, _LSVO, 0, [_NT, _SV], [0, 64 | 0]];
+export var ListStreamingAccessForServicesInput$: StaticStructureSchema = [3, n0, _LSAFSI, 0, [_MR, _NT], [1, 0]];
+export var ListStreamingAccessForServicesOutput$: StaticStructureSchema = [
   3,
   n0,
   _LSAFSO,
@@ -364,8 +371,8 @@ export var ListStreamingAccessForServicesOutput: StaticStructureSchema = [
   [_SAFS, _NT],
   [() => StreamingAccessDetailsList, 0],
 ];
-export var ListSupportedResourceTypesInput: StaticStructureSchema = [3, n0, _LSRTI, 0, [_NT, _MR], [0, 1]];
-export var ListSupportedResourceTypesOutput: StaticStructureSchema = [
+export var ListSupportedResourceTypesInput$: StaticStructureSchema = [3, n0, _LSRTI, 0, [_NT, _MR], [0, 1]];
+export var ListSupportedResourceTypesOutput$: StaticStructureSchema = [
   3,
   n0,
   _LSRTO,
@@ -373,29 +380,29 @@ export var ListSupportedResourceTypesOutput: StaticStructureSchema = [
   [_RTe, _NT],
   [() => ResourceTypeList, 0],
 ];
-export var ListTagsForResourceInput: StaticStructureSchema = [3, n0, _LTFRI, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceOutput: StaticStructureSchema = [3, n0, _LTFRO, 0, [_T], [[() => TagMap, 0]]];
-export var ListViewsInput: StaticStructureSchema = [3, n0, _LVI, 0, [_NT, _MR], [0, 1]];
-export var ListViewsOutput: StaticStructureSchema = [3, n0, _LVO, 0, [_V, _NT], [64 | 0, 0]];
-export var ManagedView: StaticStructureSchema = [
+export var ListTagsForResourceInput$: StaticStructureSchema = [3, n0, _LTFRI, 0, [_rA], [[0, 1]]];
+export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO, 0, [_T], [[() => TagMap, 0]]];
+export var ListViewsInput$: StaticStructureSchema = [3, n0, _LVI, 0, [_NT, _MR], [0, 1]];
+export var ListViewsOutput$: StaticStructureSchema = [3, n0, _LVO, 0, [_V, _NT], [64 | 0, 0]];
+export var ManagedView$: StaticStructureSchema = [
   3,
   n0,
   _MV,
   0,
   [_MVA, _MVN, _TS, _LUA, _O, _Sc, _IP, _F, _RP, _Ve],
-  [0, 0, 0, 5, 0, 0, () => IncludedPropertyList, [() => SearchFilter, 0], 0, 0],
+  [0, 0, 0, 5, 0, 0, () => IncludedPropertyList, [() => SearchFilter$, 0], 0, 0],
 ];
-export var MemberIndex: StaticStructureSchema = [3, n0, _MI, 0, [_AI, _Re, _A, _Ty], [0, 0, 0, 0]];
-export var OrgConfiguration: StaticStructureSchema = [3, n0, _OC, 0, [_AWSSAS, _SLR], [0, 0]];
-export var RegionStatus: StaticStructureSchema = [
+export var MemberIndex$: StaticStructureSchema = [3, n0, _MI, 0, [_AI, _Re, _A, _Ty], [0, 0, 0, 0]];
+export var OrgConfiguration$: StaticStructureSchema = [3, n0, _OC, 0, [_AWSSAS, _SLR], [0, 0]];
+export var RegionStatus$: StaticStructureSchema = [
   3,
   n0,
   _RS,
   0,
   [_Re, _I, _Vi],
-  [0, () => IndexStatus, [() => ViewStatus, 0]],
+  [0, () => IndexStatus$, [() => ViewStatus$, 0]],
 ];
-export var Resource: StaticStructureSchema = [
+export var Resource$: StaticStructureSchema = [
   3,
   n0,
   _Reso,
@@ -403,12 +410,12 @@ export var Resource: StaticStructureSchema = [
   [_A, _OAI, _Re, _RTes, _Se, _LRA, _P],
   [0, 0, 0, 0, 0, 5, () => ResourcePropertyList],
 ];
-export var ResourceCount: StaticStructureSchema = [3, n0, _RC, 0, [_TR, _Co], [1, 2]];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ResourceProperty: StaticStructureSchema = [3, n0, _RPe, 0, [_N, _LRA, _D], [0, 5, 15]];
-export var SearchFilter: StaticStructureSchema = [3, n0, _SF, 8, [_FS], [0]];
-export var SearchInput: StaticStructureSchema = [
+export var ResourceCount$: StaticStructureSchema = [3, n0, _RC, 0, [_TR, _Co], [1, 2]];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceProperty$: StaticStructureSchema = [3, n0, _RPe, 0, [_N, _LRA, _D], [0, 5, 15]];
+export var SearchFilter$: StaticStructureSchema = [3, n0, _SF, 8, [_FS], [0]];
+export var SearchInput$: StaticStructureSchema = [
   3,
   n0,
   _SI,
@@ -416,15 +423,15 @@ export var SearchInput: StaticStructureSchema = [
   [_QS, _MR, _VA, _NT],
   [[() => QueryString, 0], 1, 0, 0],
 ];
-export var SearchOutput: StaticStructureSchema = [
+export var SearchOutput$: StaticStructureSchema = [
   3,
   n0,
   _SO,
   0,
   [_Res, _NT, _VA, _Cou],
-  [() => ResourceList, 0, 0, () => ResourceCount],
+  [() => ResourceList, 0, 0, () => ResourceCount$],
 ];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
+export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
@@ -432,18 +439,18 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   [_M, _N, _Va],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var ServiceView: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ServiceView$: StaticStructureSchema = [
   3,
   n0,
   _SVe,
   0,
   [_SVA, _F, _IP, _SAFSt, _ST],
-  [0, [() => SearchFilter, 0], () => IncludedPropertyList, 0, 0],
+  [0, [() => SearchFilter$, 0], () => IncludedPropertyList, 0, 0],
 ];
-export var StreamingAccessDetails: StaticStructureSchema = [3, n0, _SAD, 0, [_SP, _CA], [0, 5]];
-export var SupportedResourceType: StaticStructureSchema = [3, n0, _SRT, 0, [_Se, _RTes], [0, 0]];
-export var TagResourceInput: StaticStructureSchema = [
+export var StreamingAccessDetails$: StaticStructureSchema = [3, n0, _SAD, 0, [_SP, _CA], [0, 5]];
+export var SupportedResourceType$: StaticStructureSchema = [3, n0, _SRT, 0, [_Se, _RTes], [0, 0]];
+export var TagResourceInput$: StaticStructureSchema = [
   3,
   n0,
   _TRI,
@@ -454,12 +461,12 @@ export var TagResourceInput: StaticStructureSchema = [
     [() => TagMap, 0],
   ],
 ];
-export var TagResourceOutput: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var UnauthorizedException: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(UnauthorizedException, __UnauthorizedException);
-export var UntagResourceInput: StaticStructureSchema = [
+export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO, 0, [], []];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
+export var UntagResourceInput$: StaticStructureSchema = [
   3,
   n0,
   _URI,
@@ -470,19 +477,19 @@ export var UntagResourceInput: StaticStructureSchema = [
     [() => StringList, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceOutput: StaticStructureSchema = [3, n0, _URO, 0, [], []];
-export var UpdateIndexTypeInput: StaticStructureSchema = [3, n0, _UITI, 0, [_A, _Ty], [0, 0]];
-export var UpdateIndexTypeOutput: StaticStructureSchema = [3, n0, _UITO, 0, [_A, _Ty, _S, _LUA], [0, 0, 0, 5]];
-export var UpdateViewInput: StaticStructureSchema = [
+export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO, 0, [], []];
+export var UpdateIndexTypeInput$: StaticStructureSchema = [3, n0, _UITI, 0, [_A, _Ty], [0, 0]];
+export var UpdateIndexTypeOutput$: StaticStructureSchema = [3, n0, _UITO, 0, [_A, _Ty, _S, _LUA], [0, 0, 0, 5]];
+export var UpdateViewInput$: StaticStructureSchema = [
   3,
   n0,
   _UVI,
   0,
   [_VA, _IP, _F],
-  [0, () => IncludedPropertyList, [() => SearchFilter, 0]],
+  [0, () => IncludedPropertyList, [() => SearchFilter$, 0]],
 ];
-export var UpdateViewOutput: StaticStructureSchema = [3, n0, _UVO, 0, [_Vi], [[() => View, 0]]];
-export var ValidationException: StaticErrorSchema = [
+export var UpdateViewOutput$: StaticStructureSchema = [3, n0, _UVO, 0, [_Vi], [[() => View$, 0]]];
+export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
@@ -490,26 +497,26 @@ export var ValidationException: StaticErrorSchema = [
   [_M, _FL],
   [0, () => ValidationExceptionFieldList],
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_N, _VI], [0, 0]];
-export var View: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF, 0, [_N, _VI], [0, 0]];
+export var View$: StaticStructureSchema = [
   3,
   n0,
   _Vi,
   0,
   [_VA, _O, _LUA, _Sc, _IP, _F],
-  [0, 0, 5, 0, () => IncludedPropertyList, [() => SearchFilter, 0]],
+  [0, 0, 5, 0, () => IncludedPropertyList, [() => SearchFilter$, 0]],
 ];
-export var ViewStatus: StaticStructureSchema = [
+export var ViewStatus$: StaticStructureSchema = [
   3,
   n0,
   _VS,
   0,
   [_St, _Vi, _ED],
-  [0, [() => View, 0], () => ErrorDetails],
+  [0, [() => View$, 0], () => ErrorDetails$],
 ];
-export var __Unit = "unit" as const;
-export var ResourceExplorer2ServiceException: StaticErrorSchema = [
+var __Unit = "unit" as const;
+export var ResourceExplorer2ServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "ResourceExplorer2ServiceException",
@@ -517,90 +524,90 @@ export var ResourceExplorer2ServiceException: StaticErrorSchema = [
   [],
   [],
 ];
-TypeRegistry.for(_sm).registerError(ResourceExplorer2ServiceException, __ResourceExplorer2ServiceException);
-export var AccountIdList = 64 | 0;
-export var BatchGetViewErrors: StaticListSchema = [1, n0, _BGVEa, 0, () => BatchGetViewError];
-export var IncludedPropertyList: StaticListSchema = [1, n0, _IPL, 0, () => IncludedProperty];
-export var IndexList: StaticListSchema = [1, n0, _IL, 0, () => Index];
-export var ManagedViewArnList = 64 | 0;
-export var MemberIndexList: StaticListSchema = [1, n0, _MIL, 0, () => MemberIndex];
-export var RegionList = 64 | 0;
-export var RegionStatusList: StaticListSchema = [1, n0, _RSL, 0, [() => RegionStatus, 0]];
-export var ResourceList: StaticListSchema = [1, n0, _RLe, 0, () => Resource];
-export var ResourcePropertyList: StaticListSchema = [1, n0, _RPL, 0, () => ResourceProperty];
-export var ResourceTypeList: StaticListSchema = [1, n0, _RTL, 0, () => SupportedResourceType];
-export var ServiceViewArnList = 64 | 0;
-export var StreamingAccessDetailsList: StaticListSchema = [1, n0, _SADL, 0, () => StreamingAccessDetails];
-export var StringList: StaticListSchema = [1, n0, _SL, 8, 0];
-export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
-export var ViewArnList = 64 | 0;
-export var ViewList: StaticListSchema = [1, n0, _VL, 0, [() => View, 0]];
-export var TagMap: StaticMapSchema = [2, n0, _TM, 8, 0, 0];
-export var AssociateDefaultView: StaticOperationSchema = [
+TypeRegistry.for(_sm).registerError(ResourceExplorer2ServiceException$, ResourceExplorer2ServiceException);
+var AccountIdList = 64 | 0;
+var BatchGetViewErrors: StaticListSchema = [1, n0, _BGVEa, 0, () => BatchGetViewError$];
+var IncludedPropertyList: StaticListSchema = [1, n0, _IPL, 0, () => IncludedProperty$];
+var IndexList: StaticListSchema = [1, n0, _IL, 0, () => Index$];
+var ManagedViewArnList = 64 | 0;
+var MemberIndexList: StaticListSchema = [1, n0, _MIL, 0, () => MemberIndex$];
+var RegionList = 64 | 0;
+var RegionStatusList: StaticListSchema = [1, n0, _RSL, 0, [() => RegionStatus$, 0]];
+var ResourceList: StaticListSchema = [1, n0, _RLe, 0, () => Resource$];
+var ResourcePropertyList: StaticListSchema = [1, n0, _RPL, 0, () => ResourceProperty$];
+var ResourceTypeList: StaticListSchema = [1, n0, _RTL, 0, () => SupportedResourceType$];
+var ServiceViewArnList = 64 | 0;
+var StreamingAccessDetailsList: StaticListSchema = [1, n0, _SADL, 0, () => StreamingAccessDetails$];
+var StringList: StaticListSchema = [1, n0, _SL, 8, 0];
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
+var ViewArnList = 64 | 0;
+var ViewList: StaticListSchema = [1, n0, _VL, 0, [() => View$, 0]];
+var TagMap: StaticMapSchema = [2, n0, _TM, 8, 0, 0];
+export var AssociateDefaultView$: StaticOperationSchema = [
   9,
   n0,
   _ADV,
   { [_h]: ["POST", "/AssociateDefaultView", 200] },
-  () => AssociateDefaultViewInput,
-  () => AssociateDefaultViewOutput,
+  () => AssociateDefaultViewInput$,
+  () => AssociateDefaultViewOutput$,
 ];
-export var BatchGetView: StaticOperationSchema = [
+export var BatchGetView$: StaticOperationSchema = [
   9,
   n0,
   _BGV,
   { [_h]: ["POST", "/BatchGetView", 200] },
-  () => BatchGetViewInput,
-  () => BatchGetViewOutput,
+  () => BatchGetViewInput$,
+  () => BatchGetViewOutput$,
 ];
-export var CreateIndex: StaticOperationSchema = [
+export var CreateIndex$: StaticOperationSchema = [
   9,
   n0,
   _CI,
   { [_h]: ["POST", "/CreateIndex", 200] },
-  () => CreateIndexInput,
-  () => CreateIndexOutput,
+  () => CreateIndexInput$,
+  () => CreateIndexOutput$,
 ];
-export var CreateResourceExplorerSetup: StaticOperationSchema = [
+export var CreateResourceExplorerSetup$: StaticOperationSchema = [
   9,
   n0,
   _CRES,
   { [_h]: ["POST", "/CreateResourceExplorerSetup", 200] },
-  () => CreateResourceExplorerSetupInput,
-  () => CreateResourceExplorerSetupOutput,
+  () => CreateResourceExplorerSetupInput$,
+  () => CreateResourceExplorerSetupOutput$,
 ];
-export var CreateView: StaticOperationSchema = [
+export var CreateView$: StaticOperationSchema = [
   9,
   n0,
   _CV,
   { [_h]: ["POST", "/CreateView", 200] },
-  () => CreateViewInput,
-  () => CreateViewOutput,
+  () => CreateViewInput$,
+  () => CreateViewOutput$,
 ];
-export var DeleteIndex: StaticOperationSchema = [
+export var DeleteIndex$: StaticOperationSchema = [
   9,
   n0,
   _DI,
   { [_h]: ["POST", "/DeleteIndex", 200] },
-  () => DeleteIndexInput,
-  () => DeleteIndexOutput,
+  () => DeleteIndexInput$,
+  () => DeleteIndexOutput$,
 ];
-export var DeleteResourceExplorerSetup: StaticOperationSchema = [
+export var DeleteResourceExplorerSetup$: StaticOperationSchema = [
   9,
   n0,
   _DRES,
   { [_h]: ["POST", "/DeleteResourceExplorerSetup", 200] },
-  () => DeleteResourceExplorerSetupInput,
-  () => DeleteResourceExplorerSetupOutput,
+  () => DeleteResourceExplorerSetupInput$,
+  () => DeleteResourceExplorerSetupOutput$,
 ];
-export var DeleteView: StaticOperationSchema = [
+export var DeleteView$: StaticOperationSchema = [
   9,
   n0,
   _DV,
   { [_h]: ["POST", "/DeleteView", 200] },
-  () => DeleteViewInput,
-  () => DeleteViewOutput,
+  () => DeleteViewInput$,
+  () => DeleteViewOutput$,
 ];
-export var DisassociateDefaultView: StaticOperationSchema = [
+export var DisassociateDefaultView$: StaticOperationSchema = [
   9,
   n0,
   _DDV,
@@ -608,187 +615,187 @@ export var DisassociateDefaultView: StaticOperationSchema = [
   () => __Unit,
   () => __Unit,
 ];
-export var GetAccountLevelServiceConfiguration: StaticOperationSchema = [
+export var GetAccountLevelServiceConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GALSC,
   { [_h]: ["POST", "/GetAccountLevelServiceConfiguration", 200] },
   () => __Unit,
-  () => GetAccountLevelServiceConfigurationOutput,
+  () => GetAccountLevelServiceConfigurationOutput$,
 ];
-export var GetDefaultView: StaticOperationSchema = [
+export var GetDefaultView$: StaticOperationSchema = [
   9,
   n0,
   _GDV,
   { [_h]: ["POST", "/GetDefaultView", 200] },
   () => __Unit,
-  () => GetDefaultViewOutput,
+  () => GetDefaultViewOutput$,
 ];
-export var GetIndex: StaticOperationSchema = [
+export var GetIndex$: StaticOperationSchema = [
   9,
   n0,
   _GI,
   { [_h]: ["POST", "/GetIndex", 200] },
   () => __Unit,
-  () => GetIndexOutput,
+  () => GetIndexOutput$,
 ];
-export var GetManagedView: StaticOperationSchema = [
+export var GetManagedView$: StaticOperationSchema = [
   9,
   n0,
   _GMV,
   { [_h]: ["POST", "/GetManagedView", 200] },
-  () => GetManagedViewInput,
-  () => GetManagedViewOutput,
+  () => GetManagedViewInput$,
+  () => GetManagedViewOutput$,
 ];
-export var GetResourceExplorerSetup: StaticOperationSchema = [
+export var GetResourceExplorerSetup$: StaticOperationSchema = [
   9,
   n0,
   _GRES,
   { [_h]: ["POST", "/GetResourceExplorerSetup", 200] },
-  () => GetResourceExplorerSetupInput,
-  () => GetResourceExplorerSetupOutput,
+  () => GetResourceExplorerSetupInput$,
+  () => GetResourceExplorerSetupOutput$,
 ];
-export var GetServiceIndex: StaticOperationSchema = [
+export var GetServiceIndex$: StaticOperationSchema = [
   9,
   n0,
   _GSI,
   { [_h]: ["POST", "/GetServiceIndex", 200] },
   () => __Unit,
-  () => GetServiceIndexOutput,
+  () => GetServiceIndexOutput$,
 ];
-export var GetServiceView: StaticOperationSchema = [
+export var GetServiceView$: StaticOperationSchema = [
   9,
   n0,
   _GSV,
   { [_h]: ["POST", "/GetServiceView", 200] },
-  () => GetServiceViewInput,
-  () => GetServiceViewOutput,
+  () => GetServiceViewInput$,
+  () => GetServiceViewOutput$,
 ];
-export var GetView: StaticOperationSchema = [
+export var GetView$: StaticOperationSchema = [
   9,
   n0,
   _GV,
   { [_h]: ["POST", "/GetView", 200] },
-  () => GetViewInput,
-  () => GetViewOutput,
+  () => GetViewInput$,
+  () => GetViewOutput$,
 ];
-export var ListIndexes: StaticOperationSchema = [
+export var ListIndexes$: StaticOperationSchema = [
   9,
   n0,
   _LI,
   { [_h]: ["POST", "/ListIndexes", 200] },
-  () => ListIndexesInput,
-  () => ListIndexesOutput,
+  () => ListIndexesInput$,
+  () => ListIndexesOutput$,
 ];
-export var ListIndexesForMembers: StaticOperationSchema = [
+export var ListIndexesForMembers$: StaticOperationSchema = [
   9,
   n0,
   _LIFM,
   { [_h]: ["POST", "/ListIndexesForMembers", 200] },
-  () => ListIndexesForMembersInput,
-  () => ListIndexesForMembersOutput,
+  () => ListIndexesForMembersInput$,
+  () => ListIndexesForMembersOutput$,
 ];
-export var ListManagedViews: StaticOperationSchema = [
+export var ListManagedViews$: StaticOperationSchema = [
   9,
   n0,
   _LMV,
   { [_h]: ["POST", "/ListManagedViews", 200] },
-  () => ListManagedViewsInput,
-  () => ListManagedViewsOutput,
+  () => ListManagedViewsInput$,
+  () => ListManagedViewsOutput$,
 ];
-export var ListResources: StaticOperationSchema = [
+export var ListResources$: StaticOperationSchema = [
   9,
   n0,
   _LR,
   { [_h]: ["POST", "/ListResources", 200] },
-  () => ListResourcesInput,
-  () => ListResourcesOutput,
+  () => ListResourcesInput$,
+  () => ListResourcesOutput$,
 ];
-export var ListServiceIndexes: StaticOperationSchema = [
+export var ListServiceIndexes$: StaticOperationSchema = [
   9,
   n0,
   _LSI,
   { [_h]: ["POST", "/ListServiceIndexes", 200] },
-  () => ListServiceIndexesInput,
-  () => ListServiceIndexesOutput,
+  () => ListServiceIndexesInput$,
+  () => ListServiceIndexesOutput$,
 ];
-export var ListServiceViews: StaticOperationSchema = [
+export var ListServiceViews$: StaticOperationSchema = [
   9,
   n0,
   _LSV,
   { [_h]: ["POST", "/ListServiceViews", 200] },
-  () => ListServiceViewsInput,
-  () => ListServiceViewsOutput,
+  () => ListServiceViewsInput$,
+  () => ListServiceViewsOutput$,
 ];
-export var ListStreamingAccessForServices: StaticOperationSchema = [
+export var ListStreamingAccessForServices$: StaticOperationSchema = [
   9,
   n0,
   _LSAFS,
   { [_h]: ["POST", "/ListStreamingAccessForServices", 200] },
-  () => ListStreamingAccessForServicesInput,
-  () => ListStreamingAccessForServicesOutput,
+  () => ListStreamingAccessForServicesInput$,
+  () => ListStreamingAccessForServicesOutput$,
 ];
-export var ListSupportedResourceTypes: StaticOperationSchema = [
+export var ListSupportedResourceTypes$: StaticOperationSchema = [
   9,
   n0,
   _LSRT,
   { [_h]: ["POST", "/ListSupportedResourceTypes", 200] },
-  () => ListSupportedResourceTypesInput,
-  () => ListSupportedResourceTypesOutput,
+  () => ListSupportedResourceTypesInput$,
+  () => ListSupportedResourceTypesOutput$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceInput,
-  () => ListTagsForResourceOutput,
+  () => ListTagsForResourceInput$,
+  () => ListTagsForResourceOutput$,
 ];
-export var ListViews: StaticOperationSchema = [
+export var ListViews$: StaticOperationSchema = [
   9,
   n0,
   _LV,
   { [_h]: ["POST", "/ListViews", 200] },
-  () => ListViewsInput,
-  () => ListViewsOutput,
+  () => ListViewsInput$,
+  () => ListViewsOutput$,
 ];
-export var Search: StaticOperationSchema = [
+export var Search$: StaticOperationSchema = [
   9,
   n0,
   _Sea,
   { [_h]: ["POST", "/Search", 200] },
-  () => SearchInput,
-  () => SearchOutput,
+  () => SearchInput$,
+  () => SearchOutput$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TRa,
   { [_h]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceInput,
-  () => TagResourceOutput,
+  () => TagResourceInput$,
+  () => TagResourceOutput$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceInput,
-  () => UntagResourceOutput,
+  () => UntagResourceInput$,
+  () => UntagResourceOutput$,
 ];
-export var UpdateIndexType: StaticOperationSchema = [
+export var UpdateIndexType$: StaticOperationSchema = [
   9,
   n0,
   _UIT,
   { [_h]: ["POST", "/UpdateIndexType", 200] },
-  () => UpdateIndexTypeInput,
-  () => UpdateIndexTypeOutput,
+  () => UpdateIndexTypeInput$,
+  () => UpdateIndexTypeOutput$,
 ];
-export var UpdateView: StaticOperationSchema = [
+export var UpdateView$: StaticOperationSchema = [
   9,
   n0,
   _UV,
   { [_h]: ["POST", "/UpdateView", 200] },
-  () => UpdateViewInput,
-  () => UpdateViewOutput,
+  () => UpdateViewInput$,
+  () => UpdateViewOutput$,
 ];

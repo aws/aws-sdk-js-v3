@@ -9,7 +9,7 @@ import type {
   GetServiceLastAccessedDetailsWithEntitiesRequest,
   GetServiceLastAccessedDetailsWithEntitiesResponse,
 } from "../models/models_0";
-import { GetServiceLastAccessedDetailsWithEntities } from "../schemas/schemas_0";
+import { GetServiceLastAccessedDetailsWithEntities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -175,7 +175,7 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "GetServiceLastAccessedDetailsWithEntities", {})
   .n("IAMClient", "GetServiceLastAccessedDetailsWithEntitiesCommand")
-  .sc(GetServiceLastAccessedDetailsWithEntities)
+  .sc(GetServiceLastAccessedDetailsWithEntities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

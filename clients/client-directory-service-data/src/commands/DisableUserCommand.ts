@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceDataClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisableUserRequest, DisableUserResult } from "../models/models_0";
-import { DisableUser } from "../schemas/schemas_0";
+import { DisableUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class DisableUserCommand extends $Command
   })
   .s("DirectoryServiceData", "DisableUser", {})
   .n("DirectoryServiceDataClient", "DisableUserCommand")
-  .sc(DisableUser)
+  .sc(DisableUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

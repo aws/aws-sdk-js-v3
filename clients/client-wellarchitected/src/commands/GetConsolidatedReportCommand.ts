@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetConsolidatedReportInput, GetConsolidatedReportOutput } from "../models/models_0";
-import { GetConsolidatedReport } from "../schemas/schemas_0";
+import { GetConsolidatedReport$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -136,7 +136,7 @@ export class GetConsolidatedReportCommand extends $Command
   })
   .s("WellArchitectedApiServiceLambda", "GetConsolidatedReport", {})
   .n("WellArchitectedClient", "GetConsolidatedReportCommand")
-  .sc(GetConsolidatedReport)
+  .sc(GetConsolidatedReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

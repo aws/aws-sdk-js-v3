@@ -10,7 +10,7 @@ import type {
 } from "../ElasticTranscoderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TestRoleRequest, TestRoleResponse } from "../models/models_0";
-import { TestRole } from "../schemas/schemas_0";
+import { TestRole$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class TestRoleCommand extends $Command
   })
   .s("EtsCustomerService", "TestRole", {})
   .n("ElasticTranscoderClient", "TestRoleCommand")
-  .sc(TestRole)
+  .sc(TestRole$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

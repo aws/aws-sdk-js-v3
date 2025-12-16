@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyInstanceCpuOptionsRequest, ModifyInstanceCpuOptionsResult } from "../models/models_6";
-import { ModifyInstanceCpuOptions } from "../schemas/schemas_0";
+import { ModifyInstanceCpuOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class ModifyInstanceCpuOptionsCommand extends $Command
   })
   .s("AmazonEC2", "ModifyInstanceCpuOptions", {})
   .n("EC2Client", "ModifyInstanceCpuOptionsCommand")
-  .sc(ModifyInstanceCpuOptions)
+  .sc(ModifyInstanceCpuOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

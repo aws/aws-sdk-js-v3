@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import type { ConfigureLogsForChannelRequest, ConfigureLogsForChannelResponse } from "../models/models_0";
-import { ConfigureLogsForChannel } from "../schemas/schemas_0";
+import { ConfigureLogsForChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,7 +79,7 @@ export class ConfigureLogsForChannelCommand extends $Command
   })
   .s("MediaTailor", "ConfigureLogsForChannel", {})
   .n("MediaTailorClient", "ConfigureLogsForChannelCommand")
-  .sc(ConfigureLogsForChannel)
+  .sc(ConfigureLogsForChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

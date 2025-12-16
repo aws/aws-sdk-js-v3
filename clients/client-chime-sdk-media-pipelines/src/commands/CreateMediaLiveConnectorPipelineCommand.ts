@@ -13,7 +13,7 @@ import type {
   CreateMediaLiveConnectorPipelineRequest,
   CreateMediaLiveConnectorPipelineResponse,
 } from "../models/models_0";
-import { CreateMediaLiveConnectorPipeline } from "../schemas/schemas_0";
+import { CreateMediaLiveConnectorPipeline$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -237,7 +237,7 @@ export class CreateMediaLiveConnectorPipelineCommand extends $Command
   })
   .s("ChimeSDKMediaPipelinesService", "CreateMediaLiveConnectorPipeline", {})
   .n("ChimeSDKMediaPipelinesClient", "CreateMediaLiveConnectorPipelineCommand")
-  .sc(CreateMediaLiveConnectorPipeline)
+  .sc(CreateMediaLiveConnectorPipeline$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

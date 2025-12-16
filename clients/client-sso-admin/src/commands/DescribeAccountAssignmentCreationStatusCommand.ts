@@ -8,7 +8,7 @@ import type {
   DescribeAccountAssignmentCreationStatusRequest,
   DescribeAccountAssignmentCreationStatusResponse,
 } from "../models/models_0";
-import { DescribeAccountAssignmentCreationStatus } from "../schemas/schemas_0";
+import { DescribeAccountAssignmentCreationStatus$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -105,7 +105,7 @@ export class DescribeAccountAssignmentCreationStatusCommand extends $Command
   })
   .s("SWBExternalService", "DescribeAccountAssignmentCreationStatus", {})
   .n("SSOAdminClient", "DescribeAccountAssignmentCreationStatusCommand")
-  .sc(DescribeAccountAssignmentCreationStatus)
+  .sc(DescribeAccountAssignmentCreationStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

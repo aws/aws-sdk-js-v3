@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAccountLimitsInput, DescribeAccountLimitsOutput } from "../models/models_0";
-import { DescribeAccountLimits } from "../schemas/schemas_0";
+import { DescribeAccountLimits$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class DescribeAccountLimitsCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "DescribeAccountLimits", {})
   .n("ElasticLoadBalancingV2Client", "DescribeAccountLimitsCommand")
-  .sc(DescribeAccountLimits)
+  .sc(DescribeAccountLimits$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

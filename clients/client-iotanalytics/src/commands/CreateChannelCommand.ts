@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
 import type { CreateChannelRequest, CreateChannelResponse } from "../models/models_0";
-import { CreateChannel } from "../schemas/schemas_0";
+import { CreateChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class CreateChannelCommand extends $Command
   })
   .s("AWSIoTAnalytics", "CreateChannel", {})
   .n("IoTAnalyticsClient", "CreateChannelCommand")
-  .sc(CreateChannel)
+  .sc(CreateChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

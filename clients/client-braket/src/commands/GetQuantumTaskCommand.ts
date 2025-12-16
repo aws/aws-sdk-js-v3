@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetQuantumTaskRequest, GetQuantumTaskResponse } from "../models/models_0";
-import { GetQuantumTask } from "../schemas/schemas_0";
+import { GetQuantumTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class GetQuantumTaskCommand extends $Command
   })
   .s("Braket", "GetQuantumTask", {})
   .n("BraketClient", "GetQuantumTaskCommand")
-  .sc(GetQuantumTask)
+  .sc(GetQuantumTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

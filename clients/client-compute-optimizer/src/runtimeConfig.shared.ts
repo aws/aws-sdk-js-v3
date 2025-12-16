@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: ComputeOptimizerClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.computeoptimizer",
-        serviceTarget: "ComputeOptimizerService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.computeoptimizer",
+      version: "2019-11-01",
+      serviceTarget: "ComputeOptimizerService",
+    },
     serviceId: config?.serviceId ?? "Compute Optimizer",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

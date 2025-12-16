@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeVPCConnectionRequest, DescribeVPCConnectionResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeVPCConnection } from "../schemas/schemas_0";
+import { DescribeVPCConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class DescribeVPCConnectionCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeVPCConnection", {})
   .n("QuickSightClient", "DescribeVPCConnectionCommand")
-  .sc(DescribeVPCConnection)
+  .sc(DescribeVPCConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

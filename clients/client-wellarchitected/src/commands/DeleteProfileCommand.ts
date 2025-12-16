@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteProfileInput } from "../models/models_0";
-import { DeleteProfile } from "../schemas/schemas_0";
+import { DeleteProfile$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -105,7 +105,7 @@ export class DeleteProfileCommand extends $Command
   })
   .s("WellArchitectedApiServiceLambda", "DeleteProfile", {})
   .n("WellArchitectedClient", "DeleteProfileCommand")
-  .sc(DeleteProfile)
+  .sc(DeleteProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

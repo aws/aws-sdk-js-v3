@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: ChimeSDKMeetingsClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.chimesdkmeetings" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.chimesdkmeetings",
+      version: "2021-07-15",
+      serviceTarget: "ChimeMeetingsSDKService",
+    },
     serviceId: config?.serviceId ?? "Chime SDK Meetings",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

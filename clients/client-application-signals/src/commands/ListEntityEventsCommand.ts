@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationSignalsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListEntityEventsInput, ListEntityEventsOutput } from "../models/models_0";
-import { ListEntityEvents } from "../schemas/schemas_0";
+import { ListEntityEvents$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class ListEntityEventsCommand extends $Command
   })
   .s("ApplicationSignals", "ListEntityEvents", {})
   .n("ApplicationSignalsClient", "ListEntityEventsCommand")
-  .sc(ListEntityEvents)
+  .sc(ListEntityEvents$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

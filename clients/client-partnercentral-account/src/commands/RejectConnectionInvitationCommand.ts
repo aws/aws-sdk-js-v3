@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralAccountClient";
-import { RejectConnectionInvitation } from "../schemas/schemas_0";
+import { RejectConnectionInvitation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class RejectConnectionInvitationCommand extends $Command
   })
   .s("PartnerCentralAccount", "RejectConnectionInvitation", {})
   .n("PartnerCentralAccountClient", "RejectConnectionInvitationCommand")
-  .sc(RejectConnectionInvitation)
+  .sc(RejectConnectionInvitation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

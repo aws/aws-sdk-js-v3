@@ -9,7 +9,7 @@ import type {
   GetTableMaintenanceConfigurationResponse,
 } from "../models/models_0";
 import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
-import { GetTableMaintenanceConfiguration } from "../schemas/schemas_0";
+import { GetTableMaintenanceConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class GetTableMaintenanceConfigurationCommand extends $Command
   })
   .s("S3TableBuckets", "GetTableMaintenanceConfiguration", {})
   .n("S3TablesClient", "GetTableMaintenanceConfigurationCommand")
-  .sc(GetTableMaintenanceConfiguration)
+  .sc(GetTableMaintenanceConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

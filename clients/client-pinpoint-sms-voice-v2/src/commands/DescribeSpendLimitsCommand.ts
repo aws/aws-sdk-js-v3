@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DescribeSpendLimits } from "../schemas/schemas_0";
+import { DescribeSpendLimits$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DescribeSpendLimitsCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DescribeSpendLimits", {})
   .n("PinpointSMSVoiceV2Client", "DescribeSpendLimitsCommand")
-  .sc(DescribeSpendLimits)
+  .sc(DescribeSpendLimits$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeleteIpamPrefixListResolverTargetRequest,
   DeleteIpamPrefixListResolverTargetResult,
 } from "../models/models_2";
-import { DeleteIpamPrefixListResolverTarget } from "../schemas/schemas_0";
+import { DeleteIpamPrefixListResolverTarget$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DeleteIpamPrefixListResolverTargetCommand extends $Command
   })
   .s("AmazonEC2", "DeleteIpamPrefixListResolverTarget", {})
   .n("EC2Client", "DeleteIpamPrefixListResolverTargetCommand")
-  .sc(DeleteIpamPrefixListResolverTarget)
+  .sc(DeleteIpamPrefixListResolverTarget$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

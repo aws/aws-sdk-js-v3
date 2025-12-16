@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutExternalEvaluationRequest, PutExternalEvaluationResponse } from "../models/models_0";
-import { PutExternalEvaluation } from "../schemas/schemas_0";
+import { PutExternalEvaluation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class PutExternalEvaluationCommand extends $Command
   })
   .s("StarlingDoveService", "PutExternalEvaluation", {})
   .n("ConfigServiceClient", "PutExternalEvaluationCommand")
-  .sc(PutExternalEvaluation)
+  .sc(PutExternalEvaluation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

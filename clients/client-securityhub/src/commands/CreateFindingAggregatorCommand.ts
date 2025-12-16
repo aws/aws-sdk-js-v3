@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateFindingAggregatorRequest, CreateFindingAggregatorResponse } from "../models/models_2";
-import { CreateFindingAggregator } from "../schemas/schemas_0";
+import { CreateFindingAggregator$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -128,7 +128,7 @@ export class CreateFindingAggregatorCommand extends $Command
   })
   .s("SecurityHubAPIService", "CreateFindingAggregator", {})
   .n("SecurityHubClient", "CreateFindingAggregatorCommand")
-  .sc(CreateFindingAggregator)
+  .sc(CreateFindingAggregator$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

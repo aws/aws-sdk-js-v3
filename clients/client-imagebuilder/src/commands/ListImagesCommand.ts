@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import type { ListImagesRequest, ListImagesResponse } from "../models/models_0";
-import { ListImages } from "../schemas/schemas_0";
+import { ListImages$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class ListImagesCommand extends $Command
   })
   .s("imagebuilder", "ListImages", {})
   .n("ImagebuilderClient", "ListImagesCommand")
-  .sc(ListImages)
+  .sc(ListImages$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

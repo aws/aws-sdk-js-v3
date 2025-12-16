@@ -13,7 +13,7 @@ import type {
   ListChannelsModeratedByAppInstanceUserRequest,
   ListChannelsModeratedByAppInstanceUserResponse,
 } from "../models/models_0";
-import { ListChannelsModeratedByAppInstanceUser } from "../schemas/schemas_0";
+import { ListChannelsModeratedByAppInstanceUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class ListChannelsModeratedByAppInstanceUserCommand extends $Command
   })
   .s("ChimeMessagingService", "ListChannelsModeratedByAppInstanceUser", {})
   .n("ChimeSDKMessagingClient", "ListChannelsModeratedByAppInstanceUserCommand")
-  .sc(ListChannelsModeratedByAppInstanceUser)
+  .sc(ListChannelsModeratedByAppInstanceUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   GetConfigurationPolicyAssociationRequest,
   GetConfigurationPolicyAssociationResponse,
 } from "../models/models_2";
-import { GetConfigurationPolicyAssociation } from "../schemas/schemas_0";
+import { GetConfigurationPolicyAssociation$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -135,7 +135,7 @@ export class GetConfigurationPolicyAssociationCommand extends $Command
   })
   .s("SecurityHubAPIService", "GetConfigurationPolicyAssociation", {})
   .n("SecurityHubClient", "GetConfigurationPolicyAssociationCommand")
-  .sc(GetConfigurationPolicyAssociation)
+  .sc(GetConfigurationPolicyAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

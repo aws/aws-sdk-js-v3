@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetTextDetectionRequest, GetTextDetectionResponse } from "../models/models_0";
 import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { GetTextDetection } from "../schemas/schemas_0";
+import { GetTextDetection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -163,7 +163,7 @@ export class GetTextDetectionCommand extends $Command
   })
   .s("RekognitionService", "GetTextDetection", {})
   .n("RekognitionClient", "GetTextDetectionCommand")
-  .sc(GetTextDetection)
+  .sc(GetTextDetection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

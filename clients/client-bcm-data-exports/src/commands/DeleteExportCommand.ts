@@ -10,7 +10,7 @@ import type {
 } from "../BCMDataExportsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteExportRequest, DeleteExportResponse } from "../models/models_0";
-import { DeleteExport } from "../schemas/schemas_0";
+import { DeleteExport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteExportCommand extends $Command
   })
   .s("AWSBillingAndCostManagementDataExports", "DeleteExport", {})
   .n("BCMDataExportsClient", "DeleteExportCommand")
-  .sc(DeleteExport)
+  .sc(DeleteExport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import type { GetMulticastGroupSessionRequest, GetMulticastGroupSessionResponse } from "../models/models_0";
-import { GetMulticastGroupSession } from "../schemas/schemas_0";
+import { GetMulticastGroupSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class GetMulticastGroupSessionCommand extends $Command
   })
   .s("iotwireless", "GetMulticastGroupSession", {})
   .n("IoTWirelessClient", "GetMulticastGroupSessionCommand")
-  .sc(GetMulticastGroupSession)
+  .sc(GetMulticastGroupSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

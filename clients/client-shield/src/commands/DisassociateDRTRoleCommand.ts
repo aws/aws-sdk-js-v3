@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateDRTRoleRequest, DisassociateDRTRoleResponse } from "../models/models_0";
-import { DisassociateDRTRole } from "../schemas/schemas_0";
+import { DisassociateDRTRole$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -82,7 +82,7 @@ export class DisassociateDRTRoleCommand extends $Command
   })
   .s("AWSShield_20160616", "DisassociateDRTRole", {})
   .n("ShieldClient", "DisassociateDRTRoleCommand")
-  .sc(DisassociateDRTRole)
+  .sc(DisassociateDRTRole$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

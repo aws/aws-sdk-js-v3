@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import type { BatchDeleteDocumentRequest, BatchDeleteDocumentResponse } from "../models/models_0";
-import { BatchDeleteDocument } from "../schemas/schemas_0";
+import { BatchDeleteDocument$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class BatchDeleteDocumentCommand extends $Command
   })
   .s("AWSKendraFrontendService", "BatchDeleteDocument", {})
   .n("KendraClient", "BatchDeleteDocumentCommand")
-  .sc(BatchDeleteDocument)
+  .sc(BatchDeleteDocument$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

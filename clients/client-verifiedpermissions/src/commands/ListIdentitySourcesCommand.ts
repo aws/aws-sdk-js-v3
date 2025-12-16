@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListIdentitySourcesInput, ListIdentitySourcesOutput } from "../models/models_0";
-import { ListIdentitySources } from "../schemas/schemas_0";
+import { ListIdentitySources$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -179,7 +179,7 @@ export class ListIdentitySourcesCommand extends $Command
   })
   .s("VerifiedPermissions", "ListIdentitySources", {})
   .n("VerifiedPermissionsClient", "ListIdentitySourcesCommand")
-  .sc(ListIdentitySources)
+  .sc(ListIdentitySources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

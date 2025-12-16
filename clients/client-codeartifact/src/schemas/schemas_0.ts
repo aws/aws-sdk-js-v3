@@ -351,24 +351,24 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { CodeartifactServiceException as __CodeartifactServiceException } from "../models/CodeartifactServiceException";
+import { CodeartifactServiceException } from "../models/CodeartifactServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var Asset: StaticSimpleSchema = [0, n0, _A, { [_s]: 1 }, 42];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AssetSummary: StaticStructureSchema = [3, n0, _AS, 0, [_n, _si, _h], [0, 1, 128 | 0]];
-export var AssociatedPackage: StaticStructureSchema = [3, n0, _AP, 0, [_f, _na, _p, _aT], [0, 0, 0, 0]];
-export var AssociateExternalConnectionRequest: StaticStructureSchema = [
+var Asset: StaticSimpleSchema = [0, n0, _A, { [_s]: 1 }, 42];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AssetSummary$: StaticStructureSchema = [3, n0, _AS, 0, [_n, _si, _h], [0, 1, 128 | 0]];
+export var AssociatedPackage$: StaticStructureSchema = [3, n0, _AP, 0, [_f, _na, _p, _aT], [0, 0, 0, 0]];
+export var AssociateExternalConnectionRequest$: StaticStructureSchema = [
   3,
   n0,
   _AECR,
@@ -381,17 +381,17 @@ export var AssociateExternalConnectionRequest: StaticStructureSchema = [
     [0, { [_hQ]: _ec }],
   ],
 ];
-export var AssociateExternalConnectionResult: StaticStructureSchema = [
+export var AssociateExternalConnectionResult$: StaticStructureSchema = [
   3,
   n0,
   _AECRs,
   0,
   [_r],
-  [() => RepositoryDescription],
+  [() => RepositoryDescription$],
 ];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CopyPackageVersionsRequest: StaticStructureSchema = [
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CopyPackageVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPVR,
@@ -411,7 +411,7 @@ export var CopyPackageVersionsRequest: StaticStructureSchema = [
     2,
   ],
 ];
-export var CopyPackageVersionsResult: StaticStructureSchema = [
+export var CopyPackageVersionsResult$: StaticStructureSchema = [
   3,
   n0,
   _CPVRo,
@@ -419,7 +419,7 @@ export var CopyPackageVersionsResult: StaticStructureSchema = [
   [_sV, _fV],
   [() => SuccessfulPackageVersionInfoMap, () => PackageVersionErrorMap],
 ];
-export var CreateDomainRequest: StaticStructureSchema = [
+export var CreateDomainRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDR,
@@ -427,8 +427,8 @@ export var CreateDomainRequest: StaticStructureSchema = [
   [_d, _eK, _t],
   [[0, { [_hQ]: _d }], 0, () => TagList],
 ];
-export var CreateDomainResult: StaticStructureSchema = [3, n0, _CDRr, 0, [_d], [() => DomainDescription]];
-export var CreatePackageGroupRequest: StaticStructureSchema = [
+export var CreateDomainResult$: StaticStructureSchema = [3, n0, _CDRr, 0, [_d], [() => DomainDescription$]];
+export var CreatePackageGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPGR,
@@ -436,8 +436,15 @@ export var CreatePackageGroupRequest: StaticStructureSchema = [
   [_d, _dO, _pG, _cI, _de, _t],
   [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], 0, 0, 0, () => TagList],
 ];
-export var CreatePackageGroupResult: StaticStructureSchema = [3, n0, _CPGRr, 0, [_pG], [() => PackageGroupDescription]];
-export var CreateRepositoryRequest: StaticStructureSchema = [
+export var CreatePackageGroupResult$: StaticStructureSchema = [
+  3,
+  n0,
+  _CPGRr,
+  0,
+  [_pG],
+  [() => PackageGroupDescription$],
+];
+export var CreateRepositoryRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRR,
@@ -445,8 +452,8 @@ export var CreateRepositoryRequest: StaticStructureSchema = [
   [_d, _dO, _r, _de, _u, _t],
   [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], 0, () => UpstreamRepositoryList, () => TagList],
 ];
-export var CreateRepositoryResult: StaticStructureSchema = [3, n0, _CRRr, 0, [_r], [() => RepositoryDescription]];
-export var DeleteDomainPermissionsPolicyRequest: StaticStructureSchema = [
+export var CreateRepositoryResult$: StaticStructureSchema = [3, n0, _CRRr, 0, [_r], [() => RepositoryDescription$]];
+export var DeleteDomainPermissionsPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDPPR,
@@ -458,15 +465,15 @@ export var DeleteDomainPermissionsPolicyRequest: StaticStructureSchema = [
     [0, { [_hQ]: _pr }],
   ],
 ];
-export var DeleteDomainPermissionsPolicyResult: StaticStructureSchema = [
+export var DeleteDomainPermissionsPolicyResult$: StaticStructureSchema = [
   3,
   n0,
   _DDPPRe,
   0,
   [_po],
-  [() => ResourcePolicy],
+  [() => ResourcePolicy$],
 ];
-export var DeleteDomainRequest: StaticStructureSchema = [
+export var DeleteDomainRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDR,
@@ -477,8 +484,8 @@ export var DeleteDomainRequest: StaticStructureSchema = [
     [0, { [_hQ]: _do }],
   ],
 ];
-export var DeleteDomainResult: StaticStructureSchema = [3, n0, _DDRe, 0, [_d], [() => DomainDescription]];
-export var DeletePackageGroupRequest: StaticStructureSchema = [
+export var DeleteDomainResult$: StaticStructureSchema = [3, n0, _DDRe, 0, [_d], [() => DomainDescription$]];
+export var DeletePackageGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPGR,
@@ -490,8 +497,15 @@ export var DeletePackageGroupRequest: StaticStructureSchema = [
     [0, { [_hQ]: _pg }],
   ],
 ];
-export var DeletePackageGroupResult: StaticStructureSchema = [3, n0, _DPGRe, 0, [_pG], [() => PackageGroupDescription]];
-export var DeletePackageRequest: StaticStructureSchema = [
+export var DeletePackageGroupResult$: StaticStructureSchema = [
+  3,
+  n0,
+  _DPGRe,
+  0,
+  [_pG],
+  [() => PackageGroupDescription$],
+];
+export var DeletePackageRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPR,
@@ -506,8 +520,8 @@ export var DeletePackageRequest: StaticStructureSchema = [
     [0, { [_hQ]: _p }],
   ],
 ];
-export var DeletePackageResult: StaticStructureSchema = [3, n0, _DPRe, 0, [_dP], [() => PackageSummary]];
-export var DeletePackageVersionsRequest: StaticStructureSchema = [
+export var DeletePackageResult$: StaticStructureSchema = [3, n0, _DPRe, 0, [_dP], [() => PackageSummary$]];
+export var DeletePackageVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPVR,
@@ -524,7 +538,7 @@ export var DeletePackageVersionsRequest: StaticStructureSchema = [
     0,
   ],
 ];
-export var DeletePackageVersionsResult: StaticStructureSchema = [
+export var DeletePackageVersionsResult$: StaticStructureSchema = [
   3,
   n0,
   _DPVRe,
@@ -532,7 +546,7 @@ export var DeletePackageVersionsResult: StaticStructureSchema = [
   [_sV, _fV],
   [() => SuccessfulPackageVersionInfoMap, () => PackageVersionErrorMap],
 ];
-export var DeleteRepositoryPermissionsPolicyRequest: StaticStructureSchema = [
+export var DeleteRepositoryPermissionsPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRPPR,
@@ -545,15 +559,15 @@ export var DeleteRepositoryPermissionsPolicyRequest: StaticStructureSchema = [
     [0, { [_hQ]: _pr }],
   ],
 ];
-export var DeleteRepositoryPermissionsPolicyResult: StaticStructureSchema = [
+export var DeleteRepositoryPermissionsPolicyResult$: StaticStructureSchema = [
   3,
   n0,
   _DRPPRe,
   0,
   [_po],
-  [() => ResourcePolicy],
+  [() => ResourcePolicy$],
 ];
-export var DeleteRepositoryRequest: StaticStructureSchema = [
+export var DeleteRepositoryRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRR,
@@ -565,8 +579,8 @@ export var DeleteRepositoryRequest: StaticStructureSchema = [
     [0, { [_hQ]: _r }],
   ],
 ];
-export var DeleteRepositoryResult: StaticStructureSchema = [3, n0, _DRRe, 0, [_r], [() => RepositoryDescription]];
-export var DescribeDomainRequest: StaticStructureSchema = [
+export var DeleteRepositoryResult$: StaticStructureSchema = [3, n0, _DRRe, 0, [_r], [() => RepositoryDescription$]];
+export var DescribeDomainRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDRes,
@@ -577,8 +591,8 @@ export var DescribeDomainRequest: StaticStructureSchema = [
     [0, { [_hQ]: _do }],
   ],
 ];
-export var DescribeDomainResult: StaticStructureSchema = [3, n0, _DDResc, 0, [_d], [() => DomainDescription]];
-export var DescribePackageGroupRequest: StaticStructureSchema = [
+export var DescribeDomainResult$: StaticStructureSchema = [3, n0, _DDResc, 0, [_d], [() => DomainDescription$]];
+export var DescribePackageGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPGRes,
@@ -590,15 +604,15 @@ export var DescribePackageGroupRequest: StaticStructureSchema = [
     [0, { [_hQ]: _pg }],
   ],
 ];
-export var DescribePackageGroupResult: StaticStructureSchema = [
+export var DescribePackageGroupResult$: StaticStructureSchema = [
   3,
   n0,
   _DPGResc,
   0,
   [_pG],
-  [() => PackageGroupDescription],
+  [() => PackageGroupDescription$],
 ];
-export var DescribePackageRequest: StaticStructureSchema = [
+export var DescribePackageRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPRes,
@@ -613,8 +627,8 @@ export var DescribePackageRequest: StaticStructureSchema = [
     [0, { [_hQ]: _p }],
   ],
 ];
-export var DescribePackageResult: StaticStructureSchema = [3, n0, _DPResc, 0, [_p], [() => PackageDescription]];
-export var DescribePackageVersionRequest: StaticStructureSchema = [
+export var DescribePackageResult$: StaticStructureSchema = [3, n0, _DPResc, 0, [_p], [() => PackageDescription$]];
+export var DescribePackageVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPVRes,
@@ -630,15 +644,15 @@ export var DescribePackageVersionRequest: StaticStructureSchema = [
     [0, { [_hQ]: _ve }],
   ],
 ];
-export var DescribePackageVersionResult: StaticStructureSchema = [
+export var DescribePackageVersionResult$: StaticStructureSchema = [
   3,
   n0,
   _DPVResc,
   0,
   [_pV],
-  [() => PackageVersionDescription],
+  [() => PackageVersionDescription$],
 ];
-export var DescribeRepositoryRequest: StaticStructureSchema = [
+export var DescribeRepositoryRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRRes,
@@ -650,8 +664,8 @@ export var DescribeRepositoryRequest: StaticStructureSchema = [
     [0, { [_hQ]: _r }],
   ],
 ];
-export var DescribeRepositoryResult: StaticStructureSchema = [3, n0, _DRResc, 0, [_r], [() => RepositoryDescription]];
-export var DisassociateExternalConnectionRequest: StaticStructureSchema = [
+export var DescribeRepositoryResult$: StaticStructureSchema = [3, n0, _DRResc, 0, [_r], [() => RepositoryDescription$]];
+export var DisassociateExternalConnectionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DECR,
@@ -664,15 +678,15 @@ export var DisassociateExternalConnectionRequest: StaticStructureSchema = [
     [0, { [_hQ]: _ec }],
   ],
 ];
-export var DisassociateExternalConnectionResult: StaticStructureSchema = [
+export var DisassociateExternalConnectionResult$: StaticStructureSchema = [
   3,
   n0,
   _DECRi,
   0,
   [_r],
-  [() => RepositoryDescription],
+  [() => RepositoryDescription$],
 ];
-export var DisposePackageVersionsRequest: StaticStructureSchema = [
+export var DisposePackageVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPVRi,
@@ -690,7 +704,7 @@ export var DisposePackageVersionsRequest: StaticStructureSchema = [
     0,
   ],
 ];
-export var DisposePackageVersionsResult: StaticStructureSchema = [
+export var DisposePackageVersionsResult$: StaticStructureSchema = [
   3,
   n0,
   _DPVRis,
@@ -698,7 +712,7 @@ export var DisposePackageVersionsResult: StaticStructureSchema = [
   [_sV, _fV],
   [() => SuccessfulPackageVersionInfoMap, () => PackageVersionErrorMap],
 ];
-export var DomainDescription: StaticStructureSchema = [
+export var DomainDescription$: StaticStructureSchema = [
   3,
   n0,
   _DD,
@@ -706,9 +720,9 @@ export var DomainDescription: StaticStructureSchema = [
   [_n, _o, _a, _st, _cT, _eK, _rC, _aSB, _sBA],
   [0, 0, 0, 0, 4, 0, 1, 1, 0],
 ];
-export var DomainEntryPoint: StaticStructureSchema = [3, n0, _DEP, 0, [_rN, _eCN], [0, 0]];
-export var DomainSummary: StaticStructureSchema = [3, n0, _DS, 0, [_n, _o, _a, _st, _cT, _eK], [0, 0, 0, 0, 4, 0]];
-export var GetAssociatedPackageGroupRequest: StaticStructureSchema = [
+export var DomainEntryPoint$: StaticStructureSchema = [3, n0, _DEP, 0, [_rN, _eCN], [0, 0]];
+export var DomainSummary$: StaticStructureSchema = [3, n0, _DS, 0, [_n, _o, _a, _st, _cT, _eK], [0, 0, 0, 0, 4, 0]];
+export var GetAssociatedPackageGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _GAPGR,
@@ -722,15 +736,15 @@ export var GetAssociatedPackageGroupRequest: StaticStructureSchema = [
     [0, { [_hQ]: _p }],
   ],
 ];
-export var GetAssociatedPackageGroupResult: StaticStructureSchema = [
+export var GetAssociatedPackageGroupResult$: StaticStructureSchema = [
   3,
   n0,
   _GAPGRe,
   0,
   [_pG, _aT],
-  [() => PackageGroupDescription, 0],
+  [() => PackageGroupDescription$, 0],
 ];
-export var GetAuthorizationTokenRequest: StaticStructureSchema = [
+export var GetAuthorizationTokenRequest$: StaticStructureSchema = [
   3,
   n0,
   _GATR,
@@ -742,8 +756,8 @@ export var GetAuthorizationTokenRequest: StaticStructureSchema = [
     [1, { [_hQ]: _du }],
   ],
 ];
-export var GetAuthorizationTokenResult: StaticStructureSchema = [3, n0, _GATRe, 8, [_aTu, _ex], [0, 4]];
-export var GetDomainPermissionsPolicyRequest: StaticStructureSchema = [
+export var GetAuthorizationTokenResult$: StaticStructureSchema = [3, n0, _GATRe, 8, [_aTu, _ex], [0, 4]];
+export var GetDomainPermissionsPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDPPR,
@@ -754,8 +768,15 @@ export var GetDomainPermissionsPolicyRequest: StaticStructureSchema = [
     [0, { [_hQ]: _do }],
   ],
 ];
-export var GetDomainPermissionsPolicyResult: StaticStructureSchema = [3, n0, _GDPPRe, 0, [_po], [() => ResourcePolicy]];
-export var GetPackageVersionAssetRequest: StaticStructureSchema = [
+export var GetDomainPermissionsPolicyResult$: StaticStructureSchema = [
+  3,
+  n0,
+  _GDPPRe,
+  0,
+  [_po],
+  [() => ResourcePolicy$],
+];
+export var GetPackageVersionAssetRequest$: StaticStructureSchema = [
   3,
   n0,
   _GPVAR,
@@ -773,7 +794,7 @@ export var GetPackageVersionAssetRequest: StaticStructureSchema = [
     [0, { [_hQ]: _re }],
   ],
 ];
-export var GetPackageVersionAssetResult: StaticStructureSchema = [
+export var GetPackageVersionAssetResult$: StaticStructureSchema = [
   3,
   n0,
   _GPVARe,
@@ -786,7 +807,7 @@ export var GetPackageVersionAssetResult: StaticStructureSchema = [
     [0, { [_hH]: _XP_ }],
   ],
 ];
-export var GetPackageVersionReadmeRequest: StaticStructureSchema = [
+export var GetPackageVersionReadmeRequest$: StaticStructureSchema = [
   3,
   n0,
   _GPVRR,
@@ -802,7 +823,7 @@ export var GetPackageVersionReadmeRequest: StaticStructureSchema = [
     [0, { [_hQ]: _ve }],
   ],
 ];
-export var GetPackageVersionReadmeResult: StaticStructureSchema = [
+export var GetPackageVersionReadmeResult$: StaticStructureSchema = [
   3,
   n0,
   _GPVRRe,
@@ -810,7 +831,7 @@ export var GetPackageVersionReadmeResult: StaticStructureSchema = [
   [_f, _na, _p, _ve, _vRe, _rea],
   [0, 0, 0, 0, 0, 0],
 ];
-export var GetRepositoryEndpointRequest: StaticStructureSchema = [
+export var GetRepositoryEndpointRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRER,
@@ -824,8 +845,8 @@ export var GetRepositoryEndpointRequest: StaticStructureSchema = [
     [0, { [_hQ]: _eT }],
   ],
 ];
-export var GetRepositoryEndpointResult: StaticStructureSchema = [3, n0, _GRERe, 0, [_rE], [0]];
-export var GetRepositoryPermissionsPolicyRequest: StaticStructureSchema = [
+export var GetRepositoryEndpointResult$: StaticStructureSchema = [3, n0, _GRERe, 0, [_rE], [0]];
+export var GetRepositoryPermissionsPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRPPR,
@@ -837,18 +858,18 @@ export var GetRepositoryPermissionsPolicyRequest: StaticStructureSchema = [
     [0, { [_hQ]: _r }],
   ],
 ];
-export var GetRepositoryPermissionsPolicyResult: StaticStructureSchema = [
+export var GetRepositoryPermissionsPolicyResult$: StaticStructureSchema = [
   3,
   n0,
   _GRPPRe,
   0,
   [_po],
-  [() => ResourcePolicy],
+  [() => ResourcePolicy$],
 ];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var LicenseInfo: StaticStructureSchema = [3, n0, _LI, 0, [_n, _ur], [0, 0]];
-export var ListAllowedRepositoriesForGroupRequest: StaticStructureSchema = [
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var LicenseInfo$: StaticStructureSchema = [3, n0, _LI, 0, [_n, _ur], [0, 0]];
+export var ListAllowedRepositoriesForGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _LARFGR,
@@ -863,8 +884,15 @@ export var ListAllowedRepositoriesForGroupRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nt }],
   ],
 ];
-export var ListAllowedRepositoriesForGroupResult: StaticStructureSchema = [3, n0, _LARFGRi, 0, [_aR, _nT], [64 | 0, 0]];
-export var ListAssociatedPackagesRequest: StaticStructureSchema = [
+export var ListAllowedRepositoriesForGroupResult$: StaticStructureSchema = [
+  3,
+  n0,
+  _LARFGRi,
+  0,
+  [_aR, _nT],
+  [64 | 0, 0],
+];
+export var ListAssociatedPackagesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAPR,
@@ -879,7 +907,7 @@ export var ListAssociatedPackagesRequest: StaticStructureSchema = [
     [2, { [_hQ]: _pre }],
   ],
 ];
-export var ListAssociatedPackagesResult: StaticStructureSchema = [
+export var ListAssociatedPackagesResult$: StaticStructureSchema = [
   3,
   n0,
   _LAPRi,
@@ -887,9 +915,9 @@ export var ListAssociatedPackagesResult: StaticStructureSchema = [
   [_pa, _nT],
   [() => AssociatedPackageList, 0],
 ];
-export var ListDomainsRequest: StaticStructureSchema = [3, n0, _LDR, 0, [_mR, _nT], [1, 0]];
-export var ListDomainsResult: StaticStructureSchema = [3, n0, _LDRi, 0, [_dom, _nT], [() => DomainSummaryList, 0]];
-export var ListPackageGroupsRequest: StaticStructureSchema = [
+export var ListDomainsRequest$: StaticStructureSchema = [3, n0, _LDR, 0, [_mR, _nT], [1, 0]];
+export var ListDomainsResult$: StaticStructureSchema = [3, n0, _LDRi, 0, [_dom, _nT], [() => DomainSummaryList, 0]];
+export var ListPackageGroupsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPGR,
@@ -903,7 +931,7 @@ export var ListPackageGroupsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _pref }],
   ],
 ];
-export var ListPackageGroupsResult: StaticStructureSchema = [
+export var ListPackageGroupsResult$: StaticStructureSchema = [
   3,
   n0,
   _LPGRi,
@@ -911,7 +939,7 @@ export var ListPackageGroupsResult: StaticStructureSchema = [
   [_pGa, _nT],
   [() => PackageGroupSummaryList, 0],
 ];
-export var ListPackagesRequest: StaticStructureSchema = [
+export var ListPackagesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPR,
@@ -930,8 +958,8 @@ export var ListPackagesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _up }],
   ],
 ];
-export var ListPackagesResult: StaticStructureSchema = [3, n0, _LPRi, 0, [_pa, _nT], [() => PackageSummaryList, 0]];
-export var ListPackageVersionAssetsRequest: StaticStructureSchema = [
+export var ListPackagesResult$: StaticStructureSchema = [3, n0, _LPRi, 0, [_pa, _nT], [() => PackageSummaryList, 0]];
+export var ListPackageVersionAssetsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPVAR,
@@ -949,7 +977,7 @@ export var ListPackageVersionAssetsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nt }],
   ],
 ];
-export var ListPackageVersionAssetsResult: StaticStructureSchema = [
+export var ListPackageVersionAssetsResult$: StaticStructureSchema = [
   3,
   n0,
   _LPVARi,
@@ -957,7 +985,7 @@ export var ListPackageVersionAssetsResult: StaticStructureSchema = [
   [_f, _na, _p, _ve, _vRe, _nT, _ass],
   [0, 0, 0, 0, 0, 0, () => AssetSummaryList],
 ];
-export var ListPackageVersionDependenciesRequest: StaticStructureSchema = [
+export var ListPackageVersionDependenciesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPVDR,
@@ -974,7 +1002,7 @@ export var ListPackageVersionDependenciesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nt }],
   ],
 ];
-export var ListPackageVersionDependenciesResult: StaticStructureSchema = [
+export var ListPackageVersionDependenciesResult$: StaticStructureSchema = [
   3,
   n0,
   _LPVDRi,
@@ -982,7 +1010,7 @@ export var ListPackageVersionDependenciesResult: StaticStructureSchema = [
   [_f, _na, _p, _ve, _vRe, _nT, _dep],
   [0, 0, 0, 0, 0, 0, () => PackageDependencyList],
 ];
-export var ListPackageVersionsRequest: StaticStructureSchema = [
+export var ListPackageVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPVR,
@@ -1002,7 +1030,7 @@ export var ListPackageVersionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _oT }],
   ],
 ];
-export var ListPackageVersionsResult: StaticStructureSchema = [
+export var ListPackageVersionsResult$: StaticStructureSchema = [
   3,
   n0,
   _LPVRi,
@@ -1010,7 +1038,7 @@ export var ListPackageVersionsResult: StaticStructureSchema = [
   [_dDV, _f, _na, _p, _v, _nT],
   [0, 0, 0, 0, () => PackageVersionSummaryList, 0],
 ];
-export var ListRepositoriesInDomainRequest: StaticStructureSchema = [
+export var ListRepositoriesInDomainRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRIDR,
@@ -1025,7 +1053,7 @@ export var ListRepositoriesInDomainRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nt }],
   ],
 ];
-export var ListRepositoriesInDomainResult: StaticStructureSchema = [
+export var ListRepositoriesInDomainResult$: StaticStructureSchema = [
   3,
   n0,
   _LRIDRi,
@@ -1033,7 +1061,7 @@ export var ListRepositoriesInDomainResult: StaticStructureSchema = [
   [_rep, _nT],
   [() => RepositorySummaryList, 0],
 ];
-export var ListRepositoriesRequest: StaticStructureSchema = [
+export var ListRepositoriesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRR,
@@ -1045,7 +1073,7 @@ export var ListRepositoriesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nt }],
   ],
 ];
-export var ListRepositoriesResult: StaticStructureSchema = [
+export var ListRepositoriesResult$: StaticStructureSchema = [
   3,
   n0,
   _LRRi,
@@ -1053,7 +1081,7 @@ export var ListRepositoriesResult: StaticStructureSchema = [
   [_rep, _nT],
   [() => RepositorySummaryList, 0],
 ];
-export var ListSubPackageGroupsRequest: StaticStructureSchema = [
+export var ListSubPackageGroupsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSPGR,
@@ -1067,7 +1095,7 @@ export var ListSubPackageGroupsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nt }],
   ],
 ];
-export var ListSubPackageGroupsResult: StaticStructureSchema = [
+export var ListSubPackageGroupsResult$: StaticStructureSchema = [
   3,
   n0,
   _LSPGRi,
@@ -1075,27 +1103,27 @@ export var ListSubPackageGroupsResult: StaticStructureSchema = [
   [_pGa, _nT],
   [() => PackageGroupSummaryList, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, { [_hQ]: _rA }]]];
-export var ListTagsForResourceResult: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [() => TagList]];
-export var PackageDependency: StaticStructureSchema = [3, n0, _PD, 0, [_na, _p, _dT, _vRer], [0, 0, 0, 0]];
-export var PackageDescription: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, { [_hQ]: _rA }]]];
+export var ListTagsForResourceResult$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [() => TagList]];
+export var PackageDependency$: StaticStructureSchema = [3, n0, _PD, 0, [_na, _p, _dT, _vRer], [0, 0, 0, 0]];
+export var PackageDescription$: StaticStructureSchema = [
   3,
   n0,
   _PDa,
   0,
   [_f, _na, _n, _oC],
-  [0, 0, 0, () => PackageOriginConfiguration],
+  [0, 0, 0, () => PackageOriginConfiguration$],
 ];
-export var PackageGroupAllowedRepository: StaticStructureSchema = [3, n0, _PGAR, 0, [_rN, _oRT], [0, 0]];
-export var PackageGroupDescription: StaticStructureSchema = [
+export var PackageGroupAllowedRepository$: StaticStructureSchema = [3, n0, _PGAR, 0, [_rN, _oRT], [0, 0]];
+export var PackageGroupDescription$: StaticStructureSchema = [
   3,
   n0,
   _PGD,
   0,
   [_a, _pat, _dN, _dO, _cT, _cI, _de, _oC, _par],
-  [0, 0, 0, 0, 4, 0, 0, () => PackageGroupOriginConfiguration, () => PackageGroupReference],
+  [0, 0, 0, 0, 4, 0, 0, () => PackageGroupOriginConfiguration$, () => PackageGroupReference$],
 ];
-export var PackageGroupOriginConfiguration: StaticStructureSchema = [
+export var PackageGroupOriginConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PGOC,
@@ -1103,59 +1131,59 @@ export var PackageGroupOriginConfiguration: StaticStructureSchema = [
   [_res],
   [() => PackageGroupOriginRestrictions],
 ];
-export var PackageGroupOriginRestriction: StaticStructureSchema = [
+export var PackageGroupOriginRestriction$: StaticStructureSchema = [
   3,
   n0,
   _PGOR,
   0,
   [_mo, _eM, _iF, _rCe],
-  [0, 0, () => PackageGroupReference, 1],
+  [0, 0, () => PackageGroupReference$, 1],
 ];
-export var PackageGroupReference: StaticStructureSchema = [3, n0, _PGR, 0, [_a, _pat], [0, 0]];
-export var PackageGroupSummary: StaticStructureSchema = [
+export var PackageGroupReference$: StaticStructureSchema = [3, n0, _PGR, 0, [_a, _pat], [0, 0]];
+export var PackageGroupSummary$: StaticStructureSchema = [
   3,
   n0,
   _PGS,
   0,
   [_a, _pat, _dN, _dO, _cT, _cI, _de, _oC, _par],
-  [0, 0, 0, 0, 4, 0, 0, () => PackageGroupOriginConfiguration, () => PackageGroupReference],
+  [0, 0, 0, 0, 4, 0, 0, () => PackageGroupOriginConfiguration$, () => PackageGroupReference$],
 ];
-export var PackageOriginConfiguration: StaticStructureSchema = [
+export var PackageOriginConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _POC,
   0,
   [_res],
-  [() => PackageOriginRestrictions],
+  [() => PackageOriginRestrictions$],
 ];
-export var PackageOriginRestrictions: StaticStructureSchema = [3, n0, _POR, 0, [_pu, _up], [0, 0]];
-export var PackageSummary: StaticStructureSchema = [
+export var PackageOriginRestrictions$: StaticStructureSchema = [3, n0, _POR, 0, [_pu, _up], [0, 0]];
+export var PackageSummary$: StaticStructureSchema = [
   3,
   n0,
   _PS,
   0,
   [_f, _na, _p, _oC],
-  [0, 0, 0, () => PackageOriginConfiguration],
+  [0, 0, 0, () => PackageOriginConfiguration$],
 ];
-export var PackageVersionDescription: StaticStructureSchema = [
+export var PackageVersionDescription$: StaticStructureSchema = [
   3,
   n0,
   _PVD,
   0,
   [_f, _na, _pN, _dNi, _ve, _su, _hP, _sCR, _pT, _l, _re, _st, _or],
-  [0, 0, 0, 0, 0, 0, 0, 0, 4, () => LicenseInfoList, 0, 0, () => PackageVersionOrigin],
+  [0, 0, 0, 0, 0, 0, 0, 0, 4, () => LicenseInfoList, 0, 0, () => PackageVersionOrigin$],
 ];
-export var PackageVersionError: StaticStructureSchema = [3, n0, _PVE, 0, [_eCr, _eMr], [0, 0]];
-export var PackageVersionOrigin: StaticStructureSchema = [3, n0, _PVO, 0, [_dEP, _oT], [() => DomainEntryPoint, 0]];
-export var PackageVersionSummary: StaticStructureSchema = [
+export var PackageVersionError$: StaticStructureSchema = [3, n0, _PVE, 0, [_eCr, _eMr], [0, 0]];
+export var PackageVersionOrigin$: StaticStructureSchema = [3, n0, _PVO, 0, [_dEP, _oT], [() => DomainEntryPoint$, 0]];
+export var PackageVersionSummary$: StaticStructureSchema = [
   3,
   n0,
   _PVS,
   0,
   [_ve, _re, _st, _or],
-  [0, 0, 0, () => PackageVersionOrigin],
+  [0, 0, 0, () => PackageVersionOrigin$],
 ];
-export var PublishPackageVersionRequest: StaticStructureSchema = [
+export var PublishPackageVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _PPVR,
@@ -1175,15 +1203,15 @@ export var PublishPackageVersionRequest: StaticStructureSchema = [
     [2, { [_hQ]: _un }],
   ],
 ];
-export var PublishPackageVersionResult: StaticStructureSchema = [
+export var PublishPackageVersionResult$: StaticStructureSchema = [
   3,
   n0,
   _PPVRu,
   0,
   [_f, _na, _p, _ve, _vRe, _st, _as],
-  [0, 0, 0, 0, 0, 0, () => AssetSummary],
+  [0, 0, 0, 0, 0, 0, () => AssetSummary$],
 ];
-export var PutDomainPermissionsPolicyRequest: StaticStructureSchema = [
+export var PutDomainPermissionsPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _PDPPR,
@@ -1191,8 +1219,15 @@ export var PutDomainPermissionsPolicyRequest: StaticStructureSchema = [
   [_d, _dO, _pR, _pD],
   [0, 0, 0, 0],
 ];
-export var PutDomainPermissionsPolicyResult: StaticStructureSchema = [3, n0, _PDPPRu, 0, [_po], [() => ResourcePolicy]];
-export var PutPackageOriginConfigurationRequest: StaticStructureSchema = [
+export var PutDomainPermissionsPolicyResult$: StaticStructureSchema = [
+  3,
+  n0,
+  _PDPPRu,
+  0,
+  [_po],
+  [() => ResourcePolicy$],
+];
+export var PutPackageOriginConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PPOCR,
@@ -1205,18 +1240,18 @@ export var PutPackageOriginConfigurationRequest: StaticStructureSchema = [
     [0, { [_hQ]: _f }],
     [0, { [_hQ]: _na }],
     [0, { [_hQ]: _p }],
-    () => PackageOriginRestrictions,
+    () => PackageOriginRestrictions$,
   ],
 ];
-export var PutPackageOriginConfigurationResult: StaticStructureSchema = [
+export var PutPackageOriginConfigurationResult$: StaticStructureSchema = [
   3,
   n0,
   _PPOCRu,
   0,
   [_oC],
-  [() => PackageOriginConfiguration],
+  [() => PackageOriginConfiguration$],
 ];
-export var PutRepositoryPermissionsPolicyRequest: StaticStructureSchema = [
+export var PutRepositoryPermissionsPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _PRPPR,
@@ -1224,15 +1259,15 @@ export var PutRepositoryPermissionsPolicyRequest: StaticStructureSchema = [
   [_d, _dO, _r, _pR, _pD],
   [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], 0, 0],
 ];
-export var PutRepositoryPermissionsPolicyResult: StaticStructureSchema = [
+export var PutRepositoryPermissionsPolicyResult$: StaticStructureSchema = [
   3,
   n0,
   _PRPPRu,
   0,
   [_po],
-  [() => ResourcePolicy],
+  [() => ResourcePolicy$],
 ];
-export var RepositoryDescription: StaticStructureSchema = [
+export var RepositoryDescription$: StaticStructureSchema = [
   3,
   n0,
   _RD,
@@ -1240,8 +1275,8 @@ export var RepositoryDescription: StaticStructureSchema = [
   [_n, _aA, _dN, _dO, _a, _de, _u, _eCx, _cT],
   [0, 0, 0, 0, 0, 0, () => UpstreamRepositoryInfoList, () => RepositoryExternalConnectionInfoList, 4],
 ];
-export var RepositoryExternalConnectionInfo: StaticStructureSchema = [3, n0, _RECI, 0, [_eCN, _pF, _st], [0, 0, 0]];
-export var RepositorySummary: StaticStructureSchema = [
+export var RepositoryExternalConnectionInfo$: StaticStructureSchema = [3, n0, _RECI, 0, [_eCN, _pF, _st], [0, 0, 0]];
+export var RepositorySummary$: StaticStructureSchema = [
   3,
   n0,
   _RS,
@@ -1249,7 +1284,7 @@ export var RepositorySummary: StaticStructureSchema = [
   [_n, _aA, _dN, _dO, _a, _de, _cT],
   [0, 0, 0, 0, 0, 0, 4],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -1257,9 +1292,9 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ResourcePolicy: StaticStructureSchema = [3, n0, _RP, 0, [_rA, _re, _doc], [0, 0, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourcePolicy$: StaticStructureSchema = [3, n0, _RP, 0, [_rA, _re, _doc], [0, 0, 0]];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
@@ -1267,10 +1302,10 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var SuccessfulPackageVersionInfo: StaticStructureSchema = [3, n0, _SPVI, 0, [_re, _st], [0, 0]];
-export var Tag: StaticStructureSchema = [3, n0, _T, 0, [_k, _va], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SuccessfulPackageVersionInfo$: StaticStructureSchema = [3, n0, _SPVI, 0, [_re, _st], [0, 0]];
+export var Tag$: StaticStructureSchema = [3, n0, _T, 0, [_k, _va], [0, 0]];
+export var TagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _TRR,
@@ -1278,8 +1313,8 @@ export var TagResourceRequest: StaticStructureSchema = [
   [_rA, _t],
   [[0, { [_hQ]: _rA }], () => TagList],
 ];
-export var TagResourceResult: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
+export var TagResourceResult$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
@@ -1287,10 +1322,10 @@ export var ThrottlingException: StaticErrorSchema = [
   [_m, _rAS],
   [0, [1, { [_hH]: _RA }]],
 ];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [[0, { [_hQ]: _rA }], 64 | 0]];
-export var UntagResourceResult: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdatePackageGroupOriginConfigurationRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [[0, { [_hQ]: _rA }], 64 | 0]];
+export var UntagResourceResult$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdatePackageGroupOriginConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPGOCR,
@@ -1305,15 +1340,15 @@ export var UpdatePackageGroupOriginConfigurationRequest: StaticStructureSchema =
     () => PackageGroupAllowedRepositoryList,
   ],
 ];
-export var UpdatePackageGroupOriginConfigurationResult: StaticStructureSchema = [
+export var UpdatePackageGroupOriginConfigurationResult$: StaticStructureSchema = [
   3,
   n0,
   _UPGOCRp,
   0,
   [_pG, _aRU],
-  [() => PackageGroupDescription, [2, n0, _PGARU, 0, 0, [2, n0, _PGARUa, 0, 0, 64 | 0]]],
+  [() => PackageGroupDescription$, [2, n0, _PGARU, 0, 0, [2, n0, _PGARUa, 0, 0, 64 | 0]]],
 ];
-export var UpdatePackageGroupRequest: StaticStructureSchema = [
+export var UpdatePackageGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPGR,
@@ -1321,8 +1356,15 @@ export var UpdatePackageGroupRequest: StaticStructureSchema = [
   [_d, _dO, _pG, _cI, _de],
   [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], 0, 0, 0],
 ];
-export var UpdatePackageGroupResult: StaticStructureSchema = [3, n0, _UPGRp, 0, [_pG], [() => PackageGroupDescription]];
-export var UpdatePackageVersionsStatusRequest: StaticStructureSchema = [
+export var UpdatePackageGroupResult$: StaticStructureSchema = [
+  3,
+  n0,
+  _UPGRp,
+  0,
+  [_pG],
+  [() => PackageGroupDescription$],
+];
+export var UpdatePackageVersionsStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPVSR,
@@ -1341,7 +1383,7 @@ export var UpdatePackageVersionsStatusRequest: StaticStructureSchema = [
     0,
   ],
 ];
-export var UpdatePackageVersionsStatusResult: StaticStructureSchema = [
+export var UpdatePackageVersionsStatusResult$: StaticStructureSchema = [
   3,
   n0,
   _UPVSRp,
@@ -1349,7 +1391,7 @@ export var UpdatePackageVersionsStatusResult: StaticStructureSchema = [
   [_sV, _fV],
   [() => SuccessfulPackageVersionInfoMap, () => PackageVersionErrorMap],
 ];
-export var UpdateRepositoryRequest: StaticStructureSchema = [
+export var UpdateRepositoryRequest$: StaticStructureSchema = [
   3,
   n0,
   _URRp,
@@ -1357,438 +1399,425 @@ export var UpdateRepositoryRequest: StaticStructureSchema = [
   [_d, _dO, _r, _de, _u],
   [[0, { [_hQ]: _d }], [0, { [_hQ]: _do }], [0, { [_hQ]: _r }], 0, () => UpstreamRepositoryList],
 ];
-export var UpdateRepositoryResult: StaticStructureSchema = [3, n0, _URRpd, 0, [_r], [() => RepositoryDescription]];
-export var UpstreamRepository: StaticStructureSchema = [3, n0, _UR, 0, [_rN], [0]];
-export var UpstreamRepositoryInfo: StaticStructureSchema = [3, n0, _URI, 0, [_rN], [0]];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m, _reas], [0, 0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var CodeartifactServiceException: StaticErrorSchema = [-3, _sm, "CodeartifactServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CodeartifactServiceException, __CodeartifactServiceException);
-export var AssetSummaryList: StaticListSchema = [1, n0, _ASL, 0, () => AssetSummary];
-export var AssociatedPackageList: StaticListSchema = [1, n0, _APL, 0, () => AssociatedPackage];
-export var DomainSummaryList: StaticListSchema = [1, n0, _DSL, 0, () => DomainSummary];
-export var LicenseInfoList: StaticListSchema = [1, n0, _LIL, 0, () => LicenseInfo];
-export var PackageDependencyList: StaticListSchema = [1, n0, _PDL, 0, () => PackageDependency];
-export var PackageGroupAllowedRepositoryList: StaticListSchema = [
-  1,
-  n0,
-  _PGARL,
-  0,
-  () => PackageGroupAllowedRepository,
-];
-export var PackageGroupSummaryList: StaticListSchema = [1, n0, _PGSL, 0, () => PackageGroupSummary];
-export var PackageSummaryList: StaticListSchema = [1, n0, _PSL, 0, () => PackageSummary];
-export var PackageVersionList = 64 | 0;
-export var PackageVersionSummaryList: StaticListSchema = [1, n0, _PVSL, 0, () => PackageVersionSummary];
-export var RepositoryExternalConnectionInfoList: StaticListSchema = [
+export var UpdateRepositoryResult$: StaticStructureSchema = [3, n0, _URRpd, 0, [_r], [() => RepositoryDescription$]];
+export var UpstreamRepository$: StaticStructureSchema = [3, n0, _UR, 0, [_rN], [0]];
+export var UpstreamRepositoryInfo$: StaticStructureSchema = [3, n0, _URI, 0, [_rN], [0]];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m, _reas], [0, 0]];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var CodeartifactServiceException$: StaticErrorSchema = [-3, _sm, "CodeartifactServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(CodeartifactServiceException$, CodeartifactServiceException);
+var AssetSummaryList: StaticListSchema = [1, n0, _ASL, 0, () => AssetSummary$];
+var AssociatedPackageList: StaticListSchema = [1, n0, _APL, 0, () => AssociatedPackage$];
+var DomainSummaryList: StaticListSchema = [1, n0, _DSL, 0, () => DomainSummary$];
+var LicenseInfoList: StaticListSchema = [1, n0, _LIL, 0, () => LicenseInfo$];
+var PackageDependencyList: StaticListSchema = [1, n0, _PDL, 0, () => PackageDependency$];
+var PackageGroupAllowedRepositoryList: StaticListSchema = [1, n0, _PGARL, 0, () => PackageGroupAllowedRepository$];
+var PackageGroupSummaryList: StaticListSchema = [1, n0, _PGSL, 0, () => PackageGroupSummary$];
+var PackageSummaryList: StaticListSchema = [1, n0, _PSL, 0, () => PackageSummary$];
+var PackageVersionList = 64 | 0;
+var PackageVersionSummaryList: StaticListSchema = [1, n0, _PVSL, 0, () => PackageVersionSummary$];
+var RepositoryExternalConnectionInfoList: StaticListSchema = [
   1,
   n0,
   _RECIL,
   0,
-  () => RepositoryExternalConnectionInfo,
+  () => RepositoryExternalConnectionInfo$,
 ];
-export var RepositoryNameList = 64 | 0;
-export var RepositorySummaryList: StaticListSchema = [1, n0, _RSL, 0, () => RepositorySummary];
-export var TagKeyList = 64 | 0;
-export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
-export var UpstreamRepositoryInfoList: StaticListSchema = [1, n0, _URIL, 0, () => UpstreamRepositoryInfo];
-export var UpstreamRepositoryList: StaticListSchema = [1, n0, _URL, 0, () => UpstreamRepository];
-export var AssetHashes = 128 | 0;
-export var OriginRestrictions = 128 | 0;
-export var PackageGroupAllowedRepositoryUpdate: StaticMapSchema = [2, n0, _PGARUa, 0, 0, 64 | 0];
-export var PackageGroupAllowedRepositoryUpdates: StaticMapSchema = [
-  2,
-  n0,
-  _PGARU,
-  0,
-  0,
-  [2, n0, _PGARUa, 0, 0, 64 | 0],
-];
-export var PackageGroupOriginRestrictions: StaticMapSchema = [2, n0, _PGORa, 0, 0, () => PackageGroupOriginRestriction];
-export var PackageVersionErrorMap: StaticMapSchema = [2, n0, _PVEM, 0, 0, () => PackageVersionError];
-export var PackageVersionRevisionMap = 128 | 0;
-export var SuccessfulPackageVersionInfoMap: StaticMapSchema = [2, n0, _SPVIM, 0, 0, () => SuccessfulPackageVersionInfo];
-export var AssociateExternalConnection: StaticOperationSchema = [
+var RepositoryNameList = 64 | 0;
+var RepositorySummaryList: StaticListSchema = [1, n0, _RSL, 0, () => RepositorySummary$];
+var TagKeyList = 64 | 0;
+var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
+var UpstreamRepositoryInfoList: StaticListSchema = [1, n0, _URIL, 0, () => UpstreamRepositoryInfo$];
+var UpstreamRepositoryList: StaticListSchema = [1, n0, _URL, 0, () => UpstreamRepository$];
+var AssetHashes = 128 | 0;
+var OriginRestrictions = 128 | 0;
+var PackageGroupAllowedRepositoryUpdate: StaticMapSchema = [2, n0, _PGARUa, 0, 0, 64 | 0];
+var PackageGroupAllowedRepositoryUpdates: StaticMapSchema = [2, n0, _PGARU, 0, 0, [2, n0, _PGARUa, 0, 0, 64 | 0]];
+var PackageGroupOriginRestrictions: StaticMapSchema = [2, n0, _PGORa, 0, 0, () => PackageGroupOriginRestriction$];
+var PackageVersionErrorMap: StaticMapSchema = [2, n0, _PVEM, 0, 0, () => PackageVersionError$];
+var PackageVersionRevisionMap = 128 | 0;
+var SuccessfulPackageVersionInfoMap: StaticMapSchema = [2, n0, _SPVIM, 0, 0, () => SuccessfulPackageVersionInfo$];
+export var AssociateExternalConnection$: StaticOperationSchema = [
   9,
   n0,
   _AEC,
   { [_ht]: ["POST", "/v1/repository/external-connection", 200] },
-  () => AssociateExternalConnectionRequest,
-  () => AssociateExternalConnectionResult,
+  () => AssociateExternalConnectionRequest$,
+  () => AssociateExternalConnectionResult$,
 ];
-export var CopyPackageVersions: StaticOperationSchema = [
+export var CopyPackageVersions$: StaticOperationSchema = [
   9,
   n0,
   _CPV,
   { [_ht]: ["POST", "/v1/package/versions/copy", 200] },
-  () => CopyPackageVersionsRequest,
-  () => CopyPackageVersionsResult,
+  () => CopyPackageVersionsRequest$,
+  () => CopyPackageVersionsResult$,
 ];
-export var CreateDomain: StaticOperationSchema = [
+export var CreateDomain$: StaticOperationSchema = [
   9,
   n0,
   _CD,
   { [_ht]: ["POST", "/v1/domain", 200] },
-  () => CreateDomainRequest,
-  () => CreateDomainResult,
+  () => CreateDomainRequest$,
+  () => CreateDomainResult$,
 ];
-export var CreatePackageGroup: StaticOperationSchema = [
+export var CreatePackageGroup$: StaticOperationSchema = [
   9,
   n0,
   _CPG,
   { [_ht]: ["POST", "/v1/package-group", 200] },
-  () => CreatePackageGroupRequest,
-  () => CreatePackageGroupResult,
+  () => CreatePackageGroupRequest$,
+  () => CreatePackageGroupResult$,
 ];
-export var CreateRepository: StaticOperationSchema = [
+export var CreateRepository$: StaticOperationSchema = [
   9,
   n0,
   _CR,
   { [_ht]: ["POST", "/v1/repository", 200] },
-  () => CreateRepositoryRequest,
-  () => CreateRepositoryResult,
+  () => CreateRepositoryRequest$,
+  () => CreateRepositoryResult$,
 ];
-export var DeleteDomain: StaticOperationSchema = [
+export var DeleteDomain$: StaticOperationSchema = [
   9,
   n0,
   _DDe,
   { [_ht]: ["DELETE", "/v1/domain", 200] },
-  () => DeleteDomainRequest,
-  () => DeleteDomainResult,
+  () => DeleteDomainRequest$,
+  () => DeleteDomainResult$,
 ];
-export var DeleteDomainPermissionsPolicy: StaticOperationSchema = [
+export var DeleteDomainPermissionsPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DDPP,
   { [_ht]: ["DELETE", "/v1/domain/permissions/policy", 200] },
-  () => DeleteDomainPermissionsPolicyRequest,
-  () => DeleteDomainPermissionsPolicyResult,
+  () => DeleteDomainPermissionsPolicyRequest$,
+  () => DeleteDomainPermissionsPolicyResult$,
 ];
-export var DeletePackage: StaticOperationSchema = [
+export var DeletePackage$: StaticOperationSchema = [
   9,
   n0,
   _DP,
   { [_ht]: ["DELETE", "/v1/package", 200] },
-  () => DeletePackageRequest,
-  () => DeletePackageResult,
+  () => DeletePackageRequest$,
+  () => DeletePackageResult$,
 ];
-export var DeletePackageGroup: StaticOperationSchema = [
+export var DeletePackageGroup$: StaticOperationSchema = [
   9,
   n0,
   _DPG,
   { [_ht]: ["DELETE", "/v1/package-group", 200] },
-  () => DeletePackageGroupRequest,
-  () => DeletePackageGroupResult,
+  () => DeletePackageGroupRequest$,
+  () => DeletePackageGroupResult$,
 ];
-export var DeletePackageVersions: StaticOperationSchema = [
+export var DeletePackageVersions$: StaticOperationSchema = [
   9,
   n0,
   _DPV,
   { [_ht]: ["POST", "/v1/package/versions/delete", 200] },
-  () => DeletePackageVersionsRequest,
-  () => DeletePackageVersionsResult,
+  () => DeletePackageVersionsRequest$,
+  () => DeletePackageVersionsResult$,
 ];
-export var DeleteRepository: StaticOperationSchema = [
+export var DeleteRepository$: StaticOperationSchema = [
   9,
   n0,
   _DR,
   { [_ht]: ["DELETE", "/v1/repository", 200] },
-  () => DeleteRepositoryRequest,
-  () => DeleteRepositoryResult,
+  () => DeleteRepositoryRequest$,
+  () => DeleteRepositoryResult$,
 ];
-export var DeleteRepositoryPermissionsPolicy: StaticOperationSchema = [
+export var DeleteRepositoryPermissionsPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DRPP,
   { [_ht]: ["DELETE", "/v1/repository/permissions/policies", 200] },
-  () => DeleteRepositoryPermissionsPolicyRequest,
-  () => DeleteRepositoryPermissionsPolicyResult,
+  () => DeleteRepositoryPermissionsPolicyRequest$,
+  () => DeleteRepositoryPermissionsPolicyResult$,
 ];
-export var DescribeDomain: StaticOperationSchema = [
+export var DescribeDomain$: StaticOperationSchema = [
   9,
   n0,
   _DDes,
   { [_ht]: ["GET", "/v1/domain", 200] },
-  () => DescribeDomainRequest,
-  () => DescribeDomainResult,
+  () => DescribeDomainRequest$,
+  () => DescribeDomainResult$,
 ];
-export var DescribePackage: StaticOperationSchema = [
+export var DescribePackage$: StaticOperationSchema = [
   9,
   n0,
   _DPe,
   { [_ht]: ["GET", "/v1/package", 200] },
-  () => DescribePackageRequest,
-  () => DescribePackageResult,
+  () => DescribePackageRequest$,
+  () => DescribePackageResult$,
 ];
-export var DescribePackageGroup: StaticOperationSchema = [
+export var DescribePackageGroup$: StaticOperationSchema = [
   9,
   n0,
   _DPGe,
   { [_ht]: ["GET", "/v1/package-group", 200] },
-  () => DescribePackageGroupRequest,
-  () => DescribePackageGroupResult,
+  () => DescribePackageGroupRequest$,
+  () => DescribePackageGroupResult$,
 ];
-export var DescribePackageVersion: StaticOperationSchema = [
+export var DescribePackageVersion$: StaticOperationSchema = [
   9,
   n0,
   _DPVe,
   { [_ht]: ["GET", "/v1/package/version", 200] },
-  () => DescribePackageVersionRequest,
-  () => DescribePackageVersionResult,
+  () => DescribePackageVersionRequest$,
+  () => DescribePackageVersionResult$,
 ];
-export var DescribeRepository: StaticOperationSchema = [
+export var DescribeRepository$: StaticOperationSchema = [
   9,
   n0,
   _DRe,
   { [_ht]: ["GET", "/v1/repository", 200] },
-  () => DescribeRepositoryRequest,
-  () => DescribeRepositoryResult,
+  () => DescribeRepositoryRequest$,
+  () => DescribeRepositoryResult$,
 ];
-export var DisassociateExternalConnection: StaticOperationSchema = [
+export var DisassociateExternalConnection$: StaticOperationSchema = [
   9,
   n0,
   _DEC,
   { [_ht]: ["DELETE", "/v1/repository/external-connection", 200] },
-  () => DisassociateExternalConnectionRequest,
-  () => DisassociateExternalConnectionResult,
+  () => DisassociateExternalConnectionRequest$,
+  () => DisassociateExternalConnectionResult$,
 ];
-export var DisposePackageVersions: StaticOperationSchema = [
+export var DisposePackageVersions$: StaticOperationSchema = [
   9,
   n0,
   _DPVi,
   { [_ht]: ["POST", "/v1/package/versions/dispose", 200] },
-  () => DisposePackageVersionsRequest,
-  () => DisposePackageVersionsResult,
+  () => DisposePackageVersionsRequest$,
+  () => DisposePackageVersionsResult$,
 ];
-export var GetAssociatedPackageGroup: StaticOperationSchema = [
+export var GetAssociatedPackageGroup$: StaticOperationSchema = [
   9,
   n0,
   _GAPG,
   { [_ht]: ["GET", "/v1/get-associated-package-group", 200] },
-  () => GetAssociatedPackageGroupRequest,
-  () => GetAssociatedPackageGroupResult,
+  () => GetAssociatedPackageGroupRequest$,
+  () => GetAssociatedPackageGroupResult$,
 ];
-export var GetAuthorizationToken: StaticOperationSchema = [
+export var GetAuthorizationToken$: StaticOperationSchema = [
   9,
   n0,
   _GAT,
   { [_ht]: ["POST", "/v1/authorization-token", 200] },
-  () => GetAuthorizationTokenRequest,
-  () => GetAuthorizationTokenResult,
+  () => GetAuthorizationTokenRequest$,
+  () => GetAuthorizationTokenResult$,
 ];
-export var GetDomainPermissionsPolicy: StaticOperationSchema = [
+export var GetDomainPermissionsPolicy$: StaticOperationSchema = [
   9,
   n0,
   _GDPP,
   { [_ht]: ["GET", "/v1/domain/permissions/policy", 200] },
-  () => GetDomainPermissionsPolicyRequest,
-  () => GetDomainPermissionsPolicyResult,
+  () => GetDomainPermissionsPolicyRequest$,
+  () => GetDomainPermissionsPolicyResult$,
 ];
-export var GetPackageVersionAsset: StaticOperationSchema = [
+export var GetPackageVersionAsset$: StaticOperationSchema = [
   9,
   n0,
   _GPVA,
   { [_ht]: ["GET", "/v1/package/version/asset", 200] },
-  () => GetPackageVersionAssetRequest,
-  () => GetPackageVersionAssetResult,
+  () => GetPackageVersionAssetRequest$,
+  () => GetPackageVersionAssetResult$,
 ];
-export var GetPackageVersionReadme: StaticOperationSchema = [
+export var GetPackageVersionReadme$: StaticOperationSchema = [
   9,
   n0,
   _GPVR,
   { [_ht]: ["GET", "/v1/package/version/readme", 200] },
-  () => GetPackageVersionReadmeRequest,
-  () => GetPackageVersionReadmeResult,
+  () => GetPackageVersionReadmeRequest$,
+  () => GetPackageVersionReadmeResult$,
 ];
-export var GetRepositoryEndpoint: StaticOperationSchema = [
+export var GetRepositoryEndpoint$: StaticOperationSchema = [
   9,
   n0,
   _GRE,
   { [_ht]: ["GET", "/v1/repository/endpoint", 200] },
-  () => GetRepositoryEndpointRequest,
-  () => GetRepositoryEndpointResult,
+  () => GetRepositoryEndpointRequest$,
+  () => GetRepositoryEndpointResult$,
 ];
-export var GetRepositoryPermissionsPolicy: StaticOperationSchema = [
+export var GetRepositoryPermissionsPolicy$: StaticOperationSchema = [
   9,
   n0,
   _GRPP,
   { [_ht]: ["GET", "/v1/repository/permissions/policy", 200] },
-  () => GetRepositoryPermissionsPolicyRequest,
-  () => GetRepositoryPermissionsPolicyResult,
+  () => GetRepositoryPermissionsPolicyRequest$,
+  () => GetRepositoryPermissionsPolicyResult$,
 ];
-export var ListAllowedRepositoriesForGroup: StaticOperationSchema = [
+export var ListAllowedRepositoriesForGroup$: StaticOperationSchema = [
   9,
   n0,
   _LARFG,
   { [_ht]: ["GET", "/v1/package-group-allowed-repositories", 200] },
-  () => ListAllowedRepositoriesForGroupRequest,
-  () => ListAllowedRepositoriesForGroupResult,
+  () => ListAllowedRepositoriesForGroupRequest$,
+  () => ListAllowedRepositoriesForGroupResult$,
 ];
-export var ListAssociatedPackages: StaticOperationSchema = [
+export var ListAssociatedPackages$: StaticOperationSchema = [
   9,
   n0,
   _LAP,
   { [_ht]: ["GET", "/v1/list-associated-packages", 200] },
-  () => ListAssociatedPackagesRequest,
-  () => ListAssociatedPackagesResult,
+  () => ListAssociatedPackagesRequest$,
+  () => ListAssociatedPackagesResult$,
 ];
-export var ListDomains: StaticOperationSchema = [
+export var ListDomains$: StaticOperationSchema = [
   9,
   n0,
   _LD,
   { [_ht]: ["POST", "/v1/domains", 200] },
-  () => ListDomainsRequest,
-  () => ListDomainsResult,
+  () => ListDomainsRequest$,
+  () => ListDomainsResult$,
 ];
-export var ListPackageGroups: StaticOperationSchema = [
+export var ListPackageGroups$: StaticOperationSchema = [
   9,
   n0,
   _LPG,
   { [_ht]: ["POST", "/v1/package-groups", 200] },
-  () => ListPackageGroupsRequest,
-  () => ListPackageGroupsResult,
+  () => ListPackageGroupsRequest$,
+  () => ListPackageGroupsResult$,
 ];
-export var ListPackages: StaticOperationSchema = [
+export var ListPackages$: StaticOperationSchema = [
   9,
   n0,
   _LP,
   { [_ht]: ["POST", "/v1/packages", 200] },
-  () => ListPackagesRequest,
-  () => ListPackagesResult,
+  () => ListPackagesRequest$,
+  () => ListPackagesResult$,
 ];
-export var ListPackageVersionAssets: StaticOperationSchema = [
+export var ListPackageVersionAssets$: StaticOperationSchema = [
   9,
   n0,
   _LPVA,
   { [_ht]: ["POST", "/v1/package/version/assets", 200] },
-  () => ListPackageVersionAssetsRequest,
-  () => ListPackageVersionAssetsResult,
+  () => ListPackageVersionAssetsRequest$,
+  () => ListPackageVersionAssetsResult$,
 ];
-export var ListPackageVersionDependencies: StaticOperationSchema = [
+export var ListPackageVersionDependencies$: StaticOperationSchema = [
   9,
   n0,
   _LPVD,
   { [_ht]: ["POST", "/v1/package/version/dependencies", 200] },
-  () => ListPackageVersionDependenciesRequest,
-  () => ListPackageVersionDependenciesResult,
+  () => ListPackageVersionDependenciesRequest$,
+  () => ListPackageVersionDependenciesResult$,
 ];
-export var ListPackageVersions: StaticOperationSchema = [
+export var ListPackageVersions$: StaticOperationSchema = [
   9,
   n0,
   _LPV,
   { [_ht]: ["POST", "/v1/package/versions", 200] },
-  () => ListPackageVersionsRequest,
-  () => ListPackageVersionsResult,
+  () => ListPackageVersionsRequest$,
+  () => ListPackageVersionsResult$,
 ];
-export var ListRepositories: StaticOperationSchema = [
+export var ListRepositories$: StaticOperationSchema = [
   9,
   n0,
   _LR,
   { [_ht]: ["POST", "/v1/repositories", 200] },
-  () => ListRepositoriesRequest,
-  () => ListRepositoriesResult,
+  () => ListRepositoriesRequest$,
+  () => ListRepositoriesResult$,
 ];
-export var ListRepositoriesInDomain: StaticOperationSchema = [
+export var ListRepositoriesInDomain$: StaticOperationSchema = [
   9,
   n0,
   _LRID,
   { [_ht]: ["POST", "/v1/domain/repositories", 200] },
-  () => ListRepositoriesInDomainRequest,
-  () => ListRepositoriesInDomainResult,
+  () => ListRepositoriesInDomainRequest$,
+  () => ListRepositoriesInDomainResult$,
 ];
-export var ListSubPackageGroups: StaticOperationSchema = [
+export var ListSubPackageGroups$: StaticOperationSchema = [
   9,
   n0,
   _LSPG,
   { [_ht]: ["POST", "/v1/package-groups/sub-groups", 200] },
-  () => ListSubPackageGroupsRequest,
-  () => ListSubPackageGroupsResult,
+  () => ListSubPackageGroupsRequest$,
+  () => ListSubPackageGroupsResult$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_ht]: ["POST", "/v1/tags", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResult,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResult$,
 ];
-export var PublishPackageVersion: StaticOperationSchema = [
+export var PublishPackageVersion$: StaticOperationSchema = [
   9,
   n0,
   _PPV,
   { [_ht]: ["POST", "/v1/package/version/publish", 200] },
-  () => PublishPackageVersionRequest,
-  () => PublishPackageVersionResult,
+  () => PublishPackageVersionRequest$,
+  () => PublishPackageVersionResult$,
 ];
-export var PutDomainPermissionsPolicy: StaticOperationSchema = [
+export var PutDomainPermissionsPolicy$: StaticOperationSchema = [
   9,
   n0,
   _PDPP,
   { [_ht]: ["PUT", "/v1/domain/permissions/policy", 200] },
-  () => PutDomainPermissionsPolicyRequest,
-  () => PutDomainPermissionsPolicyResult,
+  () => PutDomainPermissionsPolicyRequest$,
+  () => PutDomainPermissionsPolicyResult$,
 ];
-export var PutPackageOriginConfiguration: StaticOperationSchema = [
+export var PutPackageOriginConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PPOC,
   { [_ht]: ["POST", "/v1/package", 200] },
-  () => PutPackageOriginConfigurationRequest,
-  () => PutPackageOriginConfigurationResult,
+  () => PutPackageOriginConfigurationRequest$,
+  () => PutPackageOriginConfigurationResult$,
 ];
-export var PutRepositoryPermissionsPolicy: StaticOperationSchema = [
+export var PutRepositoryPermissionsPolicy$: StaticOperationSchema = [
   9,
   n0,
   _PRPP,
   { [_ht]: ["PUT", "/v1/repository/permissions/policy", 200] },
-  () => PutRepositoryPermissionsPolicyRequest,
-  () => PutRepositoryPermissionsPolicyResult,
+  () => PutRepositoryPermissionsPolicyRequest$,
+  () => PutRepositoryPermissionsPolicyResult$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_ht]: ["POST", "/v1/tag", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResult,
+  () => TagResourceRequest$,
+  () => TagResourceResult$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _URn,
   { [_ht]: ["POST", "/v1/untag", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResult,
+  () => UntagResourceRequest$,
+  () => UntagResourceResult$,
 ];
-export var UpdatePackageGroup: StaticOperationSchema = [
+export var UpdatePackageGroup$: StaticOperationSchema = [
   9,
   n0,
   _UPG,
   { [_ht]: ["PUT", "/v1/package-group", 200] },
-  () => UpdatePackageGroupRequest,
-  () => UpdatePackageGroupResult,
+  () => UpdatePackageGroupRequest$,
+  () => UpdatePackageGroupResult$,
 ];
-export var UpdatePackageGroupOriginConfiguration: StaticOperationSchema = [
+export var UpdatePackageGroupOriginConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UPGOC,
   { [_ht]: ["PUT", "/v1/package-group-origin-configuration", 200] },
-  () => UpdatePackageGroupOriginConfigurationRequest,
-  () => UpdatePackageGroupOriginConfigurationResult,
+  () => UpdatePackageGroupOriginConfigurationRequest$,
+  () => UpdatePackageGroupOriginConfigurationResult$,
 ];
-export var UpdatePackageVersionsStatus: StaticOperationSchema = [
+export var UpdatePackageVersionsStatus$: StaticOperationSchema = [
   9,
   n0,
   _UPVS,
   { [_ht]: ["POST", "/v1/package/versions/update_status", 200] },
-  () => UpdatePackageVersionsStatusRequest,
-  () => UpdatePackageVersionsStatusResult,
+  () => UpdatePackageVersionsStatusRequest$,
+  () => UpdatePackageVersionsStatusResult$,
 ];
-export var UpdateRepository: StaticOperationSchema = [
+export var UpdateRepository$: StaticOperationSchema = [
   9,
   n0,
   _URp,
   { [_ht]: ["PUT", "/v1/repository", 200] },
-  () => UpdateRepositoryRequest,
-  () => UpdateRepositoryResult,
+  () => UpdateRepositoryRequest$,
+  () => UpdateRepositoryResult$,
 ];

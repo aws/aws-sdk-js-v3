@@ -9,7 +9,7 @@ import type {
   RejectTransitGatewayPeeringAttachmentRequest,
   RejectTransitGatewayPeeringAttachmentResult,
 } from "../models/models_7";
-import { RejectTransitGatewayPeeringAttachment } from "../schemas/schemas_0";
+import { RejectTransitGatewayPeeringAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class RejectTransitGatewayPeeringAttachmentCommand extends $Command
   })
   .s("AmazonEC2", "RejectTransitGatewayPeeringAttachment", {})
   .n("EC2Client", "RejectTransitGatewayPeeringAttachmentCommand")
-  .sc(RejectTransitGatewayPeeringAttachment)
+  .sc(RejectTransitGatewayPeeringAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

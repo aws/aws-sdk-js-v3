@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartAttachedFileUploadRequest, StartAttachedFileUploadResponse } from "../models/models_2";
-import { StartAttachedFileUpload } from "../schemas/schemas_0";
+import { StartAttachedFileUpload$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class StartAttachedFileUploadCommand extends $Command
   })
   .s("AmazonConnectService", "StartAttachedFileUpload", {})
   .n("ConnectClient", "StartAttachedFileUploadCommand")
-  .sc(StartAttachedFileUpload)
+  .sc(StartAttachedFileUpload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

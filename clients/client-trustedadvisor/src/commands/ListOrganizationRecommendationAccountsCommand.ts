@@ -8,7 +8,7 @@ import type {
   ListOrganizationRecommendationAccountsRequest,
   ListOrganizationRecommendationAccountsResponse,
 } from "../models/models_0";
-import { ListOrganizationRecommendationAccounts } from "../schemas/schemas_0";
+import { ListOrganizationRecommendationAccounts$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -140,7 +140,7 @@ export class ListOrganizationRecommendationAccountsCommand extends $Command
   })
   .s("TrustedAdvisor", "ListOrganizationRecommendationAccounts", {})
   .n("TrustedAdvisorClient", "ListOrganizationRecommendationAccountsCommand")
-  .sc(ListOrganizationRecommendationAccounts)
+  .sc(ListOrganizationRecommendationAccounts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

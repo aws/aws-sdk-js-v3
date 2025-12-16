@@ -10,7 +10,7 @@ import type {
 } from "../ComprehendMedicalClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InferRxNormRequest, InferRxNormResponse } from "../models/models_0";
-import { InferRxNorm } from "../schemas/schemas_0";
+import { InferRxNorm$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -145,7 +145,7 @@ export class InferRxNormCommand extends $Command
   })
   .s("ComprehendMedical_20181030", "InferRxNorm", {})
   .n("ComprehendMedicalClient", "InferRxNormCommand")
-  .sc(InferRxNorm)
+  .sc(InferRxNorm$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

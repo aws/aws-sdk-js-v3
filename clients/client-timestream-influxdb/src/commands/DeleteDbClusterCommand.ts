@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDbClusterInput, DeleteDbClusterOutput } from "../models/models_0";
-import { DeleteDbCluster } from "../schemas/schemas_0";
+import { DeleteDbCluster$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -95,7 +95,7 @@ export class DeleteDbClusterCommand extends $Command
   })
   .s("AmazonTimestreamInfluxDB", "DeleteDbCluster", {})
   .n("TimestreamInfluxDBClient", "DeleteDbClusterCommand")
-  .sc(DeleteDbCluster)
+  .sc(DeleteDbCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

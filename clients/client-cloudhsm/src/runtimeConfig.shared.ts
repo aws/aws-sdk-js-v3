@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: CloudHSMClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.cloudhsm",
-        serviceTarget: "CloudHsmFrontendService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.cloudhsm",
+      version: "2014-05-30",
+      serviceTarget: "CloudHsmFrontendService",
+    },
     serviceId: config?.serviceId ?? "CloudHSM",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

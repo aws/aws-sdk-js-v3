@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutFileInput, PutFileOutput } from "../models/models_0";
-import { PutFile } from "../schemas/schemas_0";
+import { PutFile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -191,7 +191,7 @@ export class PutFileCommand extends $Command
   })
   .s("CodeCommit_20150413", "PutFile", {})
   .n("CodeCommitClient", "PutFileCommand")
-  .sc(PutFile)
+  .sc(PutFile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

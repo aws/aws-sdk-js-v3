@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BillingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetBillingViewRequest, GetBillingViewResponse } from "../models/models_0";
-import { GetBillingView } from "../schemas/schemas_0";
+import { GetBillingView$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -153,7 +153,7 @@ export class GetBillingViewCommand extends $Command
   })
   .s("AWSBilling", "GetBillingView", {})
   .n("BillingClient", "GetBillingViewCommand")
-  .sc(GetBillingView)
+  .sc(GetBillingView$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

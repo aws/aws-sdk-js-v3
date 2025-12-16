@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTeamsChannelConfigurationRequest, DeleteTeamsChannelConfigurationResult } from "../models/models_0";
-import { DeleteMicrosoftTeamsChannelConfiguration } from "../schemas/schemas_0";
+import { DeleteMicrosoftTeamsChannelConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DeleteMicrosoftTeamsChannelConfigurationCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "DeleteMicrosoftTeamsChannelConfiguration", {})
   .n("ChatbotClient", "DeleteMicrosoftTeamsChannelConfigurationCommand")
-  .sc(DeleteMicrosoftTeamsChannelConfiguration)
+  .sc(DeleteMicrosoftTeamsChannelConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

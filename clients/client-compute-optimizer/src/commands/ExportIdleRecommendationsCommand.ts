@@ -10,7 +10,7 @@ import type {
 } from "../ComputeOptimizerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ExportIdleRecommendationsRequest, ExportIdleRecommendationsResponse } from "../models/models_0";
-import { ExportIdleRecommendations } from "../schemas/schemas_0";
+import { ExportIdleRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,7 +133,7 @@ export class ExportIdleRecommendationsCommand extends $Command
   })
   .s("ComputeOptimizerService", "ExportIdleRecommendations", {})
   .n("ComputeOptimizerClient", "ExportIdleRecommendationsCommand")
-  .sc(ExportIdleRecommendations)
+  .sc(ExportIdleRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

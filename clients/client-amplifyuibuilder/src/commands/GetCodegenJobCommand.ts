@@ -10,7 +10,7 @@ import type {
 } from "../AmplifyUIBuilderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCodegenJobRequest, GetCodegenJobResponse } from "../models/models_0";
-import { GetCodegenJob } from "../schemas/schemas_0";
+import { GetCodegenJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -211,7 +211,7 @@ export class GetCodegenJobCommand extends $Command
   })
   .s("AmplifyUIBuilder", "GetCodegenJob", {})
   .n("AmplifyUIBuilderClient", "GetCodegenJobCommand")
-  .sc(GetCodegenJob)
+  .sc(GetCodegenJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

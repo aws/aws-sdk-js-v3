@@ -9,7 +9,7 @@ import type {
   PutClassificationExportConfigurationRequest,
   PutClassificationExportConfigurationResponse,
 } from "../models/models_0";
-import { PutClassificationExportConfiguration } from "../schemas/schemas_0";
+import { PutClassificationExportConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class PutClassificationExportConfigurationCommand extends $Command
   })
   .s("Macie2", "PutClassificationExportConfiguration", {})
   .n("Macie2Client", "PutClassificationExportConfigurationCommand")
-  .sc(PutClassificationExportConfiguration)
+  .sc(PutClassificationExportConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   GetCalculatedAttributeForProfileRequest,
   GetCalculatedAttributeForProfileResponse,
 } from "../models/models_0";
-import { GetCalculatedAttributeForProfile } from "../schemas/schemas_0";
+import { GetCalculatedAttributeForProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class GetCalculatedAttributeForProfileCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "GetCalculatedAttributeForProfile", {})
   .n("CustomerProfilesClient", "GetCalculatedAttributeForProfileCommand")
-  .sc(GetCalculatedAttributeForProfile)
+  .sc(GetCalculatedAttributeForProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

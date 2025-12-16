@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKMessagingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateChannelBanRequest, CreateChannelBanResponse } from "../models/models_0";
-import { CreateChannelBan } from "../schemas/schemas_0";
+import { CreateChannelBan$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class CreateChannelBanCommand extends $Command
   })
   .s("ChimeMessagingService", "CreateChannelBan", {})
   .n("ChimeSDKMessagingClient", "CreateChannelBanCommand")
-  .sc(CreateChannelBan)
+  .sc(CreateChannelBan$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

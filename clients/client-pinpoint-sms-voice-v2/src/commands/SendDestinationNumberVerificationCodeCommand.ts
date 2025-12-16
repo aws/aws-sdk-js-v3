@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { SendDestinationNumberVerificationCode } from "../schemas/schemas_0";
+import { SendDestinationNumberVerificationCode$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class SendDestinationNumberVerificationCodeCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "SendDestinationNumberVerificationCode", {})
   .n("PinpointSMSVoiceV2Client", "SendDestinationNumberVerificationCodeCommand")
-  .sc(SendDestinationNumberVerificationCode)
+  .sc(SendDestinationNumberVerificationCode$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

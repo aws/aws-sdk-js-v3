@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteWebhookInput, DeleteWebhookOutput } from "../models/models_0";
-import { DeleteWebhook } from "../schemas/schemas_0";
+import { DeleteWebhook$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class DeleteWebhookCommand extends $Command
   })
   .s("CodeBuild_20161006", "DeleteWebhook", {})
   .n("CodeBuildClient", "DeleteWebhookCommand")
-  .sc(DeleteWebhook)
+  .sc(DeleteWebhook$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

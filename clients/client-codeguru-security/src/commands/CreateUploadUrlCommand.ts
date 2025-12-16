@@ -10,7 +10,7 @@ import type {
 } from "../CodeGuruSecurityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateUploadUrlRequest, CreateUploadUrlResponse } from "../models/models_0";
-import { CreateUploadUrl } from "../schemas/schemas_0";
+import { CreateUploadUrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class CreateUploadUrlCommand extends $Command
   })
   .s("AwsCodeGuruSecurity", "CreateUploadUrl", {})
   .n("CodeGuruSecurityClient", "CreateUploadUrlCommand")
-  .sc(CreateUploadUrl)
+  .sc(CreateUploadUrl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

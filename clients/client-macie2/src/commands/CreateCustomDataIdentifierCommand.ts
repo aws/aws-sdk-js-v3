@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import type { CreateCustomDataIdentifierRequest, CreateCustomDataIdentifierResponse } from "../models/models_0";
-import { CreateCustomDataIdentifier } from "../schemas/schemas_0";
+import { CreateCustomDataIdentifier$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class CreateCustomDataIdentifierCommand extends $Command
   })
   .s("Macie2", "CreateCustomDataIdentifier", {})
   .n("Macie2Client", "CreateCustomDataIdentifierCommand")
-  .sc(CreateCustomDataIdentifier)
+  .sc(CreateCustomDataIdentifier$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

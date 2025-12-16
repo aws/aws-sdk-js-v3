@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestXmlProtocolClient";
-import { XmlUnions } from "../schemas/schemas_0";
+import { XmlUnions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -157,7 +157,7 @@ export class XmlUnionsCommand extends $Command
   })
   .s("RestXml", "XmlUnions", {})
   .n("RestXmlProtocolClient", "XmlUnionsCommand")
-  .sc(XmlUnions)
+  .sc(XmlUnions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

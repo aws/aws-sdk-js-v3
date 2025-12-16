@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteCertificateAuthorityRequest } from "../models/models_0";
-import { DeleteCertificateAuthority } from "../schemas/schemas_0";
+import { DeleteCertificateAuthority$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DeleteCertificateAuthorityCommand extends $Command
   })
   .s("ACMPrivateCA", "DeleteCertificateAuthority", {})
   .n("ACMPCAClient", "DeleteCertificateAuthorityCommand")
-  .sc(DeleteCertificateAuthority)
+  .sc(DeleteCertificateAuthority$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

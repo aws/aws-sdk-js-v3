@@ -10,7 +10,7 @@ import type {
 } from "../BedrockRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartAsyncInvokeRequest, StartAsyncInvokeResponse } from "../models/models_0";
-import { StartAsyncInvoke } from "../schemas/schemas_0";
+import { StartAsyncInvoke$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class StartAsyncInvokeCommand extends $Command
   })
   .s("AmazonBedrockFrontendService", "StartAsyncInvoke", {})
   .n("BedrockRuntimeClient", "StartAsyncInvokeCommand")
-  .sc(StartAsyncInvoke)
+  .sc(StartAsyncInvoke$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

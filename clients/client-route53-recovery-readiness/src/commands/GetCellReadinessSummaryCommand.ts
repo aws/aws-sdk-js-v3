@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
-import { GetCellReadinessSummary } from "../schemas/schemas_0";
+import { GetCellReadinessSummary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class GetCellReadinessSummaryCommand extends $Command
   })
   .s("Route53RecoveryReadiness", "GetCellReadinessSummary", {})
   .n("Route53RecoveryReadinessClient", "GetCellReadinessSummaryCommand")
-  .sc(GetCellReadinessSummary)
+  .sc(GetCellReadinessSummary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

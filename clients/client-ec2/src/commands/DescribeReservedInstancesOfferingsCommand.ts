@@ -9,7 +9,7 @@ import type {
   DescribeReservedInstancesOfferingsRequest,
   DescribeReservedInstancesOfferingsResult,
 } from "../models/models_4";
-import { DescribeReservedInstancesOfferings } from "../schemas/schemas_0";
+import { DescribeReservedInstancesOfferings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -144,7 +144,7 @@ export class DescribeReservedInstancesOfferingsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeReservedInstancesOfferings", {})
   .n("EC2Client", "DescribeReservedInstancesOfferingsCommand")
-  .sc(DescribeReservedInstancesOfferings)
+  .sc(DescribeReservedInstancesOfferings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

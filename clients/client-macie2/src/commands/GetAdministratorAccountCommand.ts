@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import type { GetAdministratorAccountRequest, GetAdministratorAccountResponse } from "../models/models_0";
-import { GetAdministratorAccount } from "../schemas/schemas_0";
+import { GetAdministratorAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class GetAdministratorAccountCommand extends $Command
   })
   .s("Macie2", "GetAdministratorAccount", {})
   .n("Macie2Client", "GetAdministratorAccountCommand")
-  .sc(GetAdministratorAccount)
+  .sc(GetAdministratorAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

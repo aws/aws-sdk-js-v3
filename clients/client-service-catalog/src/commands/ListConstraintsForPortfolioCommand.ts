@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListConstraintsForPortfolioInput, ListConstraintsForPortfolioOutput } from "../models/models_0";
-import { ListConstraintsForPortfolio } from "../schemas/schemas_0";
+import { ListConstraintsForPortfolio$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -97,7 +97,7 @@ export class ListConstraintsForPortfolioCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "ListConstraintsForPortfolio", {})
   .n("ServiceCatalogClient", "ListConstraintsForPortfolioCommand")
-  .sc(ListConstraintsForPortfolio)
+  .sc(ListConstraintsForPortfolio$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

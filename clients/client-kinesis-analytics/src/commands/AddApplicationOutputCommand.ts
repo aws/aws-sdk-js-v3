@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsClient";
 import type { AddApplicationOutputRequest, AddApplicationOutputResponse } from "../models/models_0";
-import { AddApplicationOutput } from "../schemas/schemas_0";
+import { AddApplicationOutput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class AddApplicationOutputCommand extends $Command
   })
   .s("KinesisAnalytics_20150814", "AddApplicationOutput", {})
   .n("KinesisAnalyticsClient", "AddApplicationOutputCommand")
-  .sc(AddApplicationOutput)
+  .sc(AddApplicationOutput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

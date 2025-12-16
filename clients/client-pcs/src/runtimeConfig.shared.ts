@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: PCSClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.pcs",
-        serviceTarget: "AWSParallelComputingService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.pcs",
+      version: "2023-02-10",
+      serviceTarget: "AWSParallelComputingService",
+    },
     serviceId: config?.serviceId ?? "PCS",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PollForTaskInput, PollForTaskOutput } from "../models/models_0";
-import { PollForTask } from "../schemas/schemas_0";
+import { PollForTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -182,7 +182,7 @@ export class PollForTaskCommand extends $Command
   })
   .s("DataPipeline", "PollForTask", {})
   .n("DataPipelineClient", "PollForTaskCommand")
-  .sc(PollForTask)
+  .sc(PollForTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

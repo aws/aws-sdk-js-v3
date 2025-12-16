@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import type { DeleteSignalCatalogRequest, DeleteSignalCatalogResponse } from "../models/models_0";
-import { DeleteSignalCatalog } from "../schemas/schemas_0";
+import { DeleteSignalCatalog$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteSignalCatalogCommand extends $Command
   })
   .s("IoTAutobahnControlPlane", "DeleteSignalCatalog", {})
   .n("IoTFleetWiseClient", "DeleteSignalCatalogCommand")
-  .sc(DeleteSignalCatalog)
+  .sc(DeleteSignalCatalog$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

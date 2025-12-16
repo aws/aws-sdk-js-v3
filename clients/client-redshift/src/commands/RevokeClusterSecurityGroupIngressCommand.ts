@@ -9,7 +9,7 @@ import type {
   RevokeClusterSecurityGroupIngressResult,
 } from "../models/models_1";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { RevokeClusterSecurityGroupIngress } from "../schemas/schemas_0";
+import { RevokeClusterSecurityGroupIngress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class RevokeClusterSecurityGroupIngressCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "RevokeClusterSecurityGroupIngress", {})
   .n("RedshiftClient", "RevokeClusterSecurityGroupIngressCommand")
-  .sc(RevokeClusterSecurityGroupIngress)
+  .sc(RevokeClusterSecurityGroupIngress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

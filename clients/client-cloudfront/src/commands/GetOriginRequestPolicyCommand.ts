@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetOriginRequestPolicyRequest, GetOriginRequestPolicyResult } from "../models/models_1";
-import { GetOriginRequestPolicy } from "../schemas/schemas_0";
+import { GetOriginRequestPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class GetOriginRequestPolicyCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "GetOriginRequestPolicy", {})
   .n("CloudFrontClient", "GetOriginRequestPolicyCommand")
-  .sc(GetOriginRequestPolicy)
+  .sc(GetOriginRequestPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

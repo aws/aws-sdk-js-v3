@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetQuickResponseRequest, GetQuickResponseResponse } from "../models/models_1";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { GetQuickResponse } from "../schemas/schemas_0";
+import { GetQuickResponse$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class GetQuickResponseCommand extends $Command
   })
   .s("WisdomService", "GetQuickResponse", {})
   .n("QConnectClient", "GetQuickResponseCommand")
-  .sc(GetQuickResponse)
+  .sc(GetQuickResponse$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   ModifyCertificateBasedAuthPropertiesRequest,
   ModifyCertificateBasedAuthPropertiesResult,
 } from "../models/models_0";
-import { ModifyCertificateBasedAuthProperties } from "../schemas/schemas_0";
+import { ModifyCertificateBasedAuthProperties$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -96,7 +96,7 @@ export class ModifyCertificateBasedAuthPropertiesCommand extends $Command
   })
   .s("WorkspacesService", "ModifyCertificateBasedAuthProperties", {})
   .n("WorkSpacesClient", "ModifyCertificateBasedAuthPropertiesCommand")
-  .sc(ModifyCertificateBasedAuthProperties)
+  .sc(ModifyCertificateBasedAuthProperties$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   ListBlockingInstancesForCapacityTaskOutput,
 } from "../models/models_0";
 import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import { ListBlockingInstancesForCapacityTask } from "../schemas/schemas_0";
+import { ListBlockingInstancesForCapacityTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class ListBlockingInstancesForCapacityTaskCommand extends $Command
   })
   .s("OutpostsOlafService", "ListBlockingInstancesForCapacityTask", {})
   .n("OutpostsClient", "ListBlockingInstancesForCapacityTaskCommand")
-  .sc(ListBlockingInstancesForCapacityTask)
+  .sc(ListBlockingInstancesForCapacityTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

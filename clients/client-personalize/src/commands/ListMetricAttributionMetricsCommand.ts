@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListMetricAttributionMetricsRequest, ListMetricAttributionMetricsResponse } from "../models/models_0";
 import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { ListMetricAttributionMetrics } from "../schemas/schemas_0";
+import { ListMetricAttributionMetrics$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class ListMetricAttributionMetricsCommand extends $Command
   })
   .s("AmazonPersonalize", "ListMetricAttributionMetrics", {})
   .n("PersonalizeClient", "ListMetricAttributionMetricsCommand")
-  .sc(ListMetricAttributionMetrics)
+  .sc(ListMetricAttributionMetrics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

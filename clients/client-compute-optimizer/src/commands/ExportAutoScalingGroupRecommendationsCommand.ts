@@ -13,7 +13,7 @@ import type {
   ExportAutoScalingGroupRecommendationsRequest,
   ExportAutoScalingGroupRecommendationsResponse,
 } from "../models/models_0";
-import { ExportAutoScalingGroupRecommendations } from "../schemas/schemas_0";
+import { ExportAutoScalingGroupRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -142,7 +142,7 @@ export class ExportAutoScalingGroupRecommendationsCommand extends $Command
   })
   .s("ComputeOptimizerService", "ExportAutoScalingGroupRecommendations", {})
   .n("ComputeOptimizerClient", "ExportAutoScalingGroupRecommendationsCommand")
-  .sc(ExportAutoScalingGroupRecommendations)
+  .sc(ExportAutoScalingGroupRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

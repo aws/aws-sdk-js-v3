@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../EntityResolutionClient";
 import type { GetIdMappingWorkflowInput, GetIdMappingWorkflowOutput } from "../models/models_0";
-import { GetIdMappingWorkflow } from "../schemas/schemas_0";
+import { GetIdMappingWorkflow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class GetIdMappingWorkflowCommand extends $Command
   })
   .s("AWSVeniceService", "GetIdMappingWorkflow", {})
   .n("EntityResolutionClient", "GetIdMappingWorkflowCommand")
-  .sc(GetIdMappingWorkflow)
+  .sc(GetIdMappingWorkflow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

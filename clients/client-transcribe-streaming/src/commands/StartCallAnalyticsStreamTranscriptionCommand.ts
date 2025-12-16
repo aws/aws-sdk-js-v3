@@ -11,7 +11,7 @@ import type {
   StartCallAnalyticsStreamTranscriptionRequest,
   StartCallAnalyticsStreamTranscriptionResponse,
 } from "../models/models_0";
-import { StartCallAnalyticsStreamTranscription } from "../schemas/schemas_0";
+import { StartCallAnalyticsStreamTranscription$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -273,7 +273,7 @@ export class StartCallAnalyticsStreamTranscriptionCommand extends $Command
     },
   })
   .n("TranscribeStreamingClient", "StartCallAnalyticsStreamTranscriptionCommand")
-  .sc(StartCallAnalyticsStreamTranscription)
+  .sc(StartCallAnalyticsStreamTranscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: CloudDirectoryClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.clouddirectory" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.clouddirectory",
+      version: "2017-01-11",
+      serviceTarget: "AmazonCloudDirectory_20170111",
+    },
     serviceId: config?.serviceId ?? "CloudDirectory",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

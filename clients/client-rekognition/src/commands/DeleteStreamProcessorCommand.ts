@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteStreamProcessorRequest, DeleteStreamProcessorResponse } from "../models/models_0";
 import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { DeleteStreamProcessor } from "../schemas/schemas_0";
+import { DeleteStreamProcessor$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeleteStreamProcessorCommand extends $Command
   })
   .s("RekognitionService", "DeleteStreamProcessor", {})
   .n("RekognitionClient", "DeleteStreamProcessorCommand")
-  .sc(DeleteStreamProcessor)
+  .sc(DeleteStreamProcessor$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

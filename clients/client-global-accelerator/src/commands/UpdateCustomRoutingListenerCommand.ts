@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { UpdateCustomRoutingListenerRequest, UpdateCustomRoutingListenerResponse } from "../models/models_0";
-import { UpdateCustomRoutingListener } from "../schemas/schemas_0";
+import { UpdateCustomRoutingListener$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class UpdateCustomRoutingListenerCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "UpdateCustomRoutingListener", {})
   .n("GlobalAcceleratorClient", "UpdateCustomRoutingListenerCommand")
-  .sc(UpdateCustomRoutingListener)
+  .sc(UpdateCustomRoutingListener$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

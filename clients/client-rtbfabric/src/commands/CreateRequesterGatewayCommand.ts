@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateRequesterGatewayRequest, CreateRequesterGatewayResponse } from "../models/models_0";
 import type { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
-import { CreateRequesterGateway } from "../schemas/schemas_0";
+import { CreateRequesterGateway$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class CreateRequesterGatewayCommand extends $Command
   })
   .s("RTBFabric", "CreateRequesterGateway", {})
   .n("RTBFabricClient", "CreateRequesterGatewayCommand")
-  .sc(CreateRequesterGateway)
+  .sc(CreateRequesterGateway$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

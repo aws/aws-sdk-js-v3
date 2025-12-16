@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import type { StopDurableExecutionRequest, StopDurableExecutionResponse } from "../models/models_0";
-import { StopDurableExecution } from "../schemas/schemas_0";
+import { StopDurableExecution$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class StopDurableExecutionCommand extends $Command
   })
   .s("AWSGirApiService", "StopDurableExecution", {})
   .n("LambdaClient", "StopDurableExecutionCommand")
-  .sc(StopDurableExecution)
+  .sc(StopDurableExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

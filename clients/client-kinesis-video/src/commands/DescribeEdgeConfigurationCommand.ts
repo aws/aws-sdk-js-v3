@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import type { DescribeEdgeConfigurationInput, DescribeEdgeConfigurationOutput } from "../models/models_0";
-import { DescribeEdgeConfiguration } from "../schemas/schemas_0";
+import { DescribeEdgeConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -141,7 +141,7 @@ export class DescribeEdgeConfigurationCommand extends $Command
   })
   .s("KinesisVideo_20170930", "DescribeEdgeConfiguration", {})
   .n("KinesisVideoClient", "DescribeEdgeConfigurationCommand")
-  .sc(DescribeEdgeConfiguration)
+  .sc(DescribeEdgeConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

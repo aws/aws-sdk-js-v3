@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: QueryProtocolClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsQueryProtocol({
-        defaultNamespace: "aws.protocoltests.query",
-        xmlNamespace: "https://example.com/",
-        version: "2020-01-08",
-      }),
+    protocol: config?.protocol ?? AwsQueryProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "aws.protocoltests.query",
+      xmlNamespace: "https://example.com/",
+      version: "2020-01-08",
+      serviceTarget: "AwsQuery",
+    },
     serviceId: config?.serviceId ?? "Query Protocol",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

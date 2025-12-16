@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateSubnetCidrBlockRequest, AssociateSubnetCidrBlockResult } from "../models/models_0";
-import { AssociateSubnetCidrBlock } from "../schemas/schemas_0";
+import { AssociateSubnetCidrBlock$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class AssociateSubnetCidrBlockCommand extends $Command
   })
   .s("AmazonEC2", "AssociateSubnetCidrBlock", {})
   .n("EC2Client", "AssociateSubnetCidrBlockCommand")
-  .sc(AssociateSubnetCidrBlock)
+  .sc(AssociateSubnetCidrBlock$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

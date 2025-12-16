@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdatePullRequestDescriptionInput, UpdatePullRequestDescriptionOutput } from "../models/models_0";
-import { UpdatePullRequestDescription } from "../schemas/schemas_0";
+import { UpdatePullRequestDescription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,7 +133,7 @@ export class UpdatePullRequestDescriptionCommand extends $Command
   })
   .s("CodeCommit_20150413", "UpdatePullRequestDescription", {})
   .n("CodeCommitClient", "UpdatePullRequestDescriptionCommand")
-  .sc(UpdatePullRequestDescription)
+  .sc(UpdatePullRequestDescription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelIngestionRequest, CancelIngestionResponse } from "../models/models_2";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { CancelIngestion } from "../schemas/schemas_0";
+import { CancelIngestion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class CancelIngestionCommand extends $Command
   })
   .s("QuickSight_20180401", "CancelIngestion", {})
   .n("QuickSightClient", "CancelIngestionCommand")
-  .sc(CancelIngestion)
+  .sc(CancelIngestion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

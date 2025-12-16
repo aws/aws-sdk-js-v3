@@ -156,16 +156,12 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import {
-  InternalServiceError as __InternalServiceError,
-  InvalidArgumentException as __InvalidArgumentException,
-  NotAuthorizedException as __NotAuthorizedException,
-} from "../models/errors";
-import { PIServiceException as __PIServiceException } from "../models/PIServiceException";
+import { InternalServiceError, InvalidArgumentException, NotAuthorizedException } from "../models/errors";
+import { PIServiceException } from "../models/PIServiceException";
 
 /* eslint no-var: 0 */
-export var MarkdownString: StaticSimpleSchema = [0, n0, _MS, 8, 0];
-export var AnalysisReport: StaticStructureSchema = [
+var MarkdownString: StaticSimpleSchema = [0, n0, _MS, 8, 0];
+export var AnalysisReport$: StaticStructureSchema = [
   3,
   n0,
   _AR,
@@ -173,7 +169,7 @@ export var AnalysisReport: StaticStructureSchema = [
   [_ARI, _I, _ST, _CT, _STt, _ET, _S, _In],
   [0, 0, 0, 4, 4, 4, 0, [() => InsightList, 0]],
 ];
-export var AnalysisReportSummary: StaticStructureSchema = [
+export var AnalysisReportSummary$: StaticStructureSchema = [
   3,
   n0,
   _ARS,
@@ -181,7 +177,7 @@ export var AnalysisReportSummary: StaticStructureSchema = [
   [_ARI, _CT, _STt, _ET, _S, _T],
   [0, 4, 4, 4, 0, () => TagList],
 ];
-export var CreatePerformanceAnalysisReportRequest: StaticStructureSchema = [
+export var CreatePerformanceAnalysisReportRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPARR,
@@ -189,10 +185,10 @@ export var CreatePerformanceAnalysisReportRequest: StaticStructureSchema = [
   [_ST, _I, _STt, _ET, _T],
   [0, 0, 4, 4, () => TagList],
 ];
-export var CreatePerformanceAnalysisReportResponse: StaticStructureSchema = [3, n0, _CPARRr, 0, [_ARI], [0]];
-export var Data: StaticStructureSchema = [3, n0, _D, 0, [_PIM], [() => PerformanceInsightsMetric]];
-export var DataPoint: StaticStructureSchema = [3, n0, _DP, 0, [_Ti, _V], [4, 1]];
-export var DeletePerformanceAnalysisReportRequest: StaticStructureSchema = [
+export var CreatePerformanceAnalysisReportResponse$: StaticStructureSchema = [3, n0, _CPARRr, 0, [_ARI], [0]];
+export var Data$: StaticStructureSchema = [3, n0, _D, 0, [_PIM], [() => PerformanceInsightsMetric$]];
+export var DataPoint$: StaticStructureSchema = [3, n0, _DP, 0, [_Ti, _V], [4, 1]];
+export var DeletePerformanceAnalysisReportRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPARR,
@@ -200,16 +196,16 @@ export var DeletePerformanceAnalysisReportRequest: StaticStructureSchema = [
   [_ST, _I, _ARI],
   [0, 0, 0],
 ];
-export var DeletePerformanceAnalysisReportResponse: StaticStructureSchema = [3, n0, _DPARRe, 0, [], []];
-export var DescribeDimensionKeysRequest: StaticStructureSchema = [
+export var DeletePerformanceAnalysisReportResponse$: StaticStructureSchema = [3, n0, _DPARRe, 0, [], []];
+export var DescribeDimensionKeysRequest$: StaticStructureSchema = [
   3,
   n0,
   _DDKR,
   0,
   [_ST, _I, _STt, _ET, _M, _PIS, _GB, _AM, _PB, _F, _MR, _NT],
-  [0, 0, 4, 4, 0, 1, () => DimensionGroup, 64 | 0, () => DimensionGroup, 128 | 0, 1, 0],
+  [0, 0, 4, 4, 0, 1, () => DimensionGroup$, 64 | 0, () => DimensionGroup$, 128 | 0, 1, 0],
 ];
-export var DescribeDimensionKeysResponse: StaticStructureSchema = [
+export var DescribeDimensionKeysResponse$: StaticStructureSchema = [
   3,
   n0,
   _DDKRe,
@@ -217,10 +213,10 @@ export var DescribeDimensionKeysResponse: StaticStructureSchema = [
   [_AST, _AET, _PK, _K, _NT],
   [4, 4, () => ResponsePartitionKeyList, () => DimensionKeyDescriptionList, 0],
 ];
-export var DimensionDetail: StaticStructureSchema = [3, n0, _DD, 0, [_I], [0]];
-export var DimensionGroup: StaticStructureSchema = [3, n0, _DG, 0, [_G, _Di, _L], [0, 64 | 0, 1]];
-export var DimensionGroupDetail: StaticStructureSchema = [3, n0, _DGD, 0, [_G, _Di], [0, () => DimensionDetailList]];
-export var DimensionKeyDescription: StaticStructureSchema = [
+export var DimensionDetail$: StaticStructureSchema = [3, n0, _DD, 0, [_I], [0]];
+export var DimensionGroup$: StaticStructureSchema = [3, n0, _DG, 0, [_G, _Di, _L], [0, 64 | 0, 1]];
+export var DimensionGroupDetail$: StaticStructureSchema = [3, n0, _DGD, 0, [_G, _Di], [0, () => DimensionDetailList]];
+export var DimensionKeyDescription$: StaticStructureSchema = [
   3,
   n0,
   _DKD,
@@ -228,9 +224,9 @@ export var DimensionKeyDescription: StaticStructureSchema = [
   [_Di, _To, _AM, _P],
   [128 | 0, 1, 128 | 1, 64 | 1],
 ];
-export var DimensionKeyDetail: StaticStructureSchema = [3, n0, _DKDi, 0, [_V, _Dim, _S], [0, 0, 0]];
-export var FeatureMetadata: StaticStructureSchema = [3, n0, _FM, 0, [_S], [0]];
-export var GetDimensionKeyDetailsRequest: StaticStructureSchema = [
+export var DimensionKeyDetail$: StaticStructureSchema = [3, n0, _DKDi, 0, [_V, _Dim, _S], [0, 0, 0]];
+export var FeatureMetadata$: StaticStructureSchema = [3, n0, _FM, 0, [_S], [0]];
+export var GetDimensionKeyDetailsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDKDR,
@@ -238,7 +234,7 @@ export var GetDimensionKeyDetailsRequest: StaticStructureSchema = [
   [_ST, _I, _G, _GI, _RD],
   [0, 0, 0, 0, 64 | 0],
 ];
-export var GetDimensionKeyDetailsResponse: StaticStructureSchema = [
+export var GetDimensionKeyDetailsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDKDRe,
@@ -246,7 +242,7 @@ export var GetDimensionKeyDetailsResponse: StaticStructureSchema = [
   [_Di],
   [() => DimensionKeyDetailList],
 ];
-export var GetPerformanceAnalysisReportRequest: StaticStructureSchema = [
+export var GetPerformanceAnalysisReportRequest$: StaticStructureSchema = [
   3,
   n0,
   _GPARR,
@@ -254,16 +250,16 @@ export var GetPerformanceAnalysisReportRequest: StaticStructureSchema = [
   [_ST, _I, _ARI, _TF, _AL],
   [0, 0, 0, 0, 0],
 ];
-export var GetPerformanceAnalysisReportResponse: StaticStructureSchema = [
+export var GetPerformanceAnalysisReportResponse$: StaticStructureSchema = [
   3,
   n0,
   _GPARRe,
   0,
   [_AR],
-  [[() => AnalysisReport, 0]],
+  [[() => AnalysisReport$, 0]],
 ];
-export var GetResourceMetadataRequest: StaticStructureSchema = [3, n0, _GRMR, 0, [_ST, _I], [0, 0]];
-export var GetResourceMetadataResponse: StaticStructureSchema = [
+export var GetResourceMetadataRequest$: StaticStructureSchema = [3, n0, _GRMR, 0, [_ST, _I], [0, 0]];
+export var GetResourceMetadataResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRMRe,
@@ -271,7 +267,7 @@ export var GetResourceMetadataResponse: StaticStructureSchema = [
   [_I, _Fe],
   [0, () => FeatureMetadataMap],
 ];
-export var GetResourceMetricsRequest: StaticStructureSchema = [
+export var GetResourceMetricsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRMRet,
@@ -279,7 +275,7 @@ export var GetResourceMetricsRequest: StaticStructureSchema = [
   [_ST, _I, _MQ, _STt, _ET, _PIS, _MR, _NT, _PA],
   [0, 0, () => MetricQueryList, 4, 4, 1, 1, 0, 0],
 ];
-export var GetResourceMetricsResponse: StaticStructureSchema = [
+export var GetResourceMetricsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRMRete,
@@ -287,7 +283,7 @@ export var GetResourceMetricsResponse: StaticStructureSchema = [
   [_AST, _AET, _I, _ML, _NT],
   [4, 4, 0, () => MetricKeyDataPointsList, 0],
 ];
-export var Insight: StaticStructureSchema = [
+export var Insight$: StaticStructureSchema = [
   3,
   n0,
   _Ins,
@@ -307,11 +303,11 @@ export var Insight: StaticStructureSchema = [
     () => DataList,
   ],
 ];
-export var InternalServiceError: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_Me], [0]];
-TypeRegistry.for(n0).registerError(InternalServiceError, __InternalServiceError);
-export var InvalidArgumentException: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c }, [_Me], [0]];
-TypeRegistry.for(n0).registerError(InvalidArgumentException, __InvalidArgumentException);
-export var ListAvailableResourceDimensionsRequest: StaticStructureSchema = [
+export var InternalServiceError$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_Me], [0]];
+TypeRegistry.for(n0).registerError(InternalServiceError$, InternalServiceError);
+export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c }, [_Me], [0]];
+TypeRegistry.for(n0).registerError(InvalidArgumentException$, InvalidArgumentException);
+export var ListAvailableResourceDimensionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LARDR,
@@ -319,7 +315,7 @@ export var ListAvailableResourceDimensionsRequest: StaticStructureSchema = [
   [_ST, _I, _Met, _MR, _NT, _AA],
   [0, 0, 64 | 0, 1, 0, 64 | 0],
 ];
-export var ListAvailableResourceDimensionsResponse: StaticStructureSchema = [
+export var ListAvailableResourceDimensionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LARDRi,
@@ -327,7 +323,7 @@ export var ListAvailableResourceDimensionsResponse: StaticStructureSchema = [
   [_MD, _NT],
   [() => MetricDimensionsList, 0],
 ];
-export var ListAvailableResourceMetricsRequest: StaticStructureSchema = [
+export var ListAvailableResourceMetricsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LARMR,
@@ -335,7 +331,7 @@ export var ListAvailableResourceMetricsRequest: StaticStructureSchema = [
   [_ST, _I, _MT, _NT, _MR],
   [0, 0, 64 | 0, 0, 1],
 ];
-export var ListAvailableResourceMetricsResponse: StaticStructureSchema = [
+export var ListAvailableResourceMetricsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LARMRi,
@@ -343,7 +339,7 @@ export var ListAvailableResourceMetricsResponse: StaticStructureSchema = [
   [_Met, _NT],
   [() => ResponseResourceMetricList, 0],
 ];
-export var ListPerformanceAnalysisReportsRequest: StaticStructureSchema = [
+export var ListPerformanceAnalysisReportsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPARR,
@@ -351,7 +347,7 @@ export var ListPerformanceAnalysisReportsRequest: StaticStructureSchema = [
   [_ST, _I, _NT, _MR, _LT],
   [0, 0, 0, 1, 2],
 ];
-export var ListPerformanceAnalysisReportsResponse: StaticStructureSchema = [
+export var ListPerformanceAnalysisReportsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPARRi,
@@ -359,9 +355,9 @@ export var ListPerformanceAnalysisReportsResponse: StaticStructureSchema = [
   [_ARn, _NT],
   [() => AnalysisReportSummaryList, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_ST, _RARN], [0, 0]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [() => TagList]];
-export var MetricDimensionGroups: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_ST, _RARN], [0, 0]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [() => TagList]];
+export var MetricDimensionGroups$: StaticStructureSchema = [
   3,
   n0,
   _MDG,
@@ -369,18 +365,18 @@ export var MetricDimensionGroups: StaticStructureSchema = [
   [_M, _Gr],
   [0, () => DimensionGroupDetailList],
 ];
-export var MetricKeyDataPoints: StaticStructureSchema = [
+export var MetricKeyDataPoints$: StaticStructureSchema = [
   3,
   n0,
   _MKDP,
   0,
   [_Ke, _DPa],
-  [() => ResponseResourceMetricKey, () => DataPointsList],
+  [() => ResponseResourceMetricKey$, () => DataPointsList],
 ];
-export var MetricQuery: StaticStructureSchema = [3, n0, _MQe, 0, [_M, _GB, _F], [0, () => DimensionGroup, 128 | 0]];
-export var NotAuthorizedException: StaticErrorSchema = [-3, n0, _NAE, { [_e]: _c }, [_Me], [0]];
-TypeRegistry.for(n0).registerError(NotAuthorizedException, __NotAuthorizedException);
-export var PerformanceInsightsMetric: StaticStructureSchema = [
+export var MetricQuery$: StaticStructureSchema = [3, n0, _MQe, 0, [_M, _GB, _F], [0, () => DimensionGroup$, 128 | 0]];
+export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE, { [_e]: _c }, [_Me], [0]];
+TypeRegistry.for(n0).registerError(NotAuthorizedException$, NotAuthorizedException);
+export var PerformanceInsightsMetric$: StaticStructureSchema = [
   3,
   n0,
   _PIM,
@@ -388,139 +384,139 @@ export var PerformanceInsightsMetric: StaticStructureSchema = [
   [_M, _DN, _Di, _F, _V],
   [0, 0, 128 | 0, 128 | 0, 1],
 ];
-export var Recommendation: StaticStructureSchema = [3, n0, _Re, 0, [_RI, _RDe], [0, [() => MarkdownString, 0]]];
-export var ResponsePartitionKey: StaticStructureSchema = [3, n0, _RPK, 0, [_Di], [128 | 0]];
-export var ResponseResourceMetric: StaticStructureSchema = [3, n0, _RRM, 0, [_M, _De, _U], [0, 0, 0]];
-export var ResponseResourceMetricKey: StaticStructureSchema = [3, n0, _RRMK, 0, [_M, _Di], [0, 128 | 0]];
-export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_Ke, _V], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_ST, _RARN, _T], [0, 0, () => TagList]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_ST, _RARN, _TK], [0, 0, 64 | 0]];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var PIServiceException: StaticErrorSchema = [-3, _sm, "PIServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(PIServiceException, __PIServiceException);
-export var AdditionalMetricsList = 64 | 0;
-export var AnalysisReportSummaryList: StaticListSchema = [1, n0, _ARSL, 0, () => AnalysisReportSummary];
-export var AuthorizedActionsList = 64 | 0;
-export var DataList: StaticListSchema = [1, n0, _DL, 0, () => Data];
-export var DataPointsList: StaticListSchema = [1, n0, _DPL, 0, () => DataPoint];
-export var DimensionDetailList: StaticListSchema = [1, n0, _DDL, 0, () => DimensionDetail];
-export var DimensionGroupDetailList: StaticListSchema = [1, n0, _DGDL, 0, () => DimensionGroupDetail];
-export var DimensionKeyDescriptionList: StaticListSchema = [1, n0, _DKDL, 0, () => DimensionKeyDescription];
-export var DimensionKeyDetailList: StaticListSchema = [1, n0, _DKDLi, 0, () => DimensionKeyDetail];
-export var DimensionsMetricList = 64 | 0;
-export var InsightList: StaticListSchema = [1, n0, _IL, 0, [() => Insight, 0]];
-export var MetricDimensionsList: StaticListSchema = [1, n0, _MDL, 0, () => MetricDimensionGroups];
-export var MetricKeyDataPointsList: StaticListSchema = [1, n0, _MKDPL, 0, () => MetricKeyDataPoints];
-export var MetricQueryList: StaticListSchema = [1, n0, _MQL, 0, () => MetricQuery];
-export var MetricTypeList = 64 | 0;
-export var MetricValuesList = 64 | 1;
-export var RecommendationList: StaticListSchema = [1, n0, _RL, 0, [() => Recommendation, 0]];
-export var RequestedDimensionList = 64 | 0;
-export var ResponsePartitionKeyList: StaticListSchema = [1, n0, _RPKL, 0, () => ResponsePartitionKey];
-export var ResponseResourceMetricList: StaticListSchema = [1, n0, _RRML, 0, () => ResponseResourceMetric];
-export var SanitizedStringList = 64 | 0;
-export var TagKeyList = 64 | 0;
-export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
-export var AdditionalMetricsMap = 128 | 1;
-export var DescriptiveMap = 128 | 0;
-export var DimensionMap = 128 | 0;
-export var FeatureMetadataMap: StaticMapSchema = [2, n0, _FMM, 0, 0, () => FeatureMetadata];
-export var MetricQueryFilterMap = 128 | 0;
-export var CreatePerformanceAnalysisReport: StaticOperationSchema = [
+export var Recommendation$: StaticStructureSchema = [3, n0, _Re, 0, [_RI, _RDe], [0, [() => MarkdownString, 0]]];
+export var ResponsePartitionKey$: StaticStructureSchema = [3, n0, _RPK, 0, [_Di], [128 | 0]];
+export var ResponseResourceMetric$: StaticStructureSchema = [3, n0, _RRM, 0, [_M, _De, _U], [0, 0, 0]];
+export var ResponseResourceMetricKey$: StaticStructureSchema = [3, n0, _RRMK, 0, [_M, _Di], [0, 128 | 0]];
+export var Tag$: StaticStructureSchema = [3, n0, _Ta, 0, [_Ke, _V], [0, 0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_ST, _RARN, _T], [0, 0, () => TagList]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_ST, _RARN, _TK], [0, 0, 64 | 0]];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var PIServiceException$: StaticErrorSchema = [-3, _sm, "PIServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(PIServiceException$, PIServiceException);
+var AdditionalMetricsList = 64 | 0;
+var AnalysisReportSummaryList: StaticListSchema = [1, n0, _ARSL, 0, () => AnalysisReportSummary$];
+var AuthorizedActionsList = 64 | 0;
+var DataList: StaticListSchema = [1, n0, _DL, 0, () => Data$];
+var DataPointsList: StaticListSchema = [1, n0, _DPL, 0, () => DataPoint$];
+var DimensionDetailList: StaticListSchema = [1, n0, _DDL, 0, () => DimensionDetail$];
+var DimensionGroupDetailList: StaticListSchema = [1, n0, _DGDL, 0, () => DimensionGroupDetail$];
+var DimensionKeyDescriptionList: StaticListSchema = [1, n0, _DKDL, 0, () => DimensionKeyDescription$];
+var DimensionKeyDetailList: StaticListSchema = [1, n0, _DKDLi, 0, () => DimensionKeyDetail$];
+var DimensionsMetricList = 64 | 0;
+var InsightList: StaticListSchema = [1, n0, _IL, 0, [() => Insight$, 0]];
+var MetricDimensionsList: StaticListSchema = [1, n0, _MDL, 0, () => MetricDimensionGroups$];
+var MetricKeyDataPointsList: StaticListSchema = [1, n0, _MKDPL, 0, () => MetricKeyDataPoints$];
+var MetricQueryList: StaticListSchema = [1, n0, _MQL, 0, () => MetricQuery$];
+var MetricTypeList = 64 | 0;
+var MetricValuesList = 64 | 1;
+var RecommendationList: StaticListSchema = [1, n0, _RL, 0, [() => Recommendation$, 0]];
+var RequestedDimensionList = 64 | 0;
+var ResponsePartitionKeyList: StaticListSchema = [1, n0, _RPKL, 0, () => ResponsePartitionKey$];
+var ResponseResourceMetricList: StaticListSchema = [1, n0, _RRML, 0, () => ResponseResourceMetric$];
+var SanitizedStringList = 64 | 0;
+var TagKeyList = 64 | 0;
+var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
+var AdditionalMetricsMap = 128 | 1;
+var DescriptiveMap = 128 | 0;
+var DimensionMap = 128 | 0;
+var FeatureMetadataMap: StaticMapSchema = [2, n0, _FMM, 0, 0, () => FeatureMetadata$];
+var MetricQueryFilterMap = 128 | 0;
+export var CreatePerformanceAnalysisReport$: StaticOperationSchema = [
   9,
   n0,
   _CPAR,
   0,
-  () => CreatePerformanceAnalysisReportRequest,
-  () => CreatePerformanceAnalysisReportResponse,
+  () => CreatePerformanceAnalysisReportRequest$,
+  () => CreatePerformanceAnalysisReportResponse$,
 ];
-export var DeletePerformanceAnalysisReport: StaticOperationSchema = [
+export var DeletePerformanceAnalysisReport$: StaticOperationSchema = [
   9,
   n0,
   _DPAR,
   0,
-  () => DeletePerformanceAnalysisReportRequest,
-  () => DeletePerformanceAnalysisReportResponse,
+  () => DeletePerformanceAnalysisReportRequest$,
+  () => DeletePerformanceAnalysisReportResponse$,
 ];
-export var DescribeDimensionKeys: StaticOperationSchema = [
+export var DescribeDimensionKeys$: StaticOperationSchema = [
   9,
   n0,
   _DDK,
   0,
-  () => DescribeDimensionKeysRequest,
-  () => DescribeDimensionKeysResponse,
+  () => DescribeDimensionKeysRequest$,
+  () => DescribeDimensionKeysResponse$,
 ];
-export var GetDimensionKeyDetails: StaticOperationSchema = [
+export var GetDimensionKeyDetails$: StaticOperationSchema = [
   9,
   n0,
   _GDKD,
   0,
-  () => GetDimensionKeyDetailsRequest,
-  () => GetDimensionKeyDetailsResponse,
+  () => GetDimensionKeyDetailsRequest$,
+  () => GetDimensionKeyDetailsResponse$,
 ];
-export var GetPerformanceAnalysisReport: StaticOperationSchema = [
+export var GetPerformanceAnalysisReport$: StaticOperationSchema = [
   9,
   n0,
   _GPAR,
   0,
-  () => GetPerformanceAnalysisReportRequest,
-  () => GetPerformanceAnalysisReportResponse,
+  () => GetPerformanceAnalysisReportRequest$,
+  () => GetPerformanceAnalysisReportResponse$,
 ];
-export var GetResourceMetadata: StaticOperationSchema = [
+export var GetResourceMetadata$: StaticOperationSchema = [
   9,
   n0,
   _GRM,
   0,
-  () => GetResourceMetadataRequest,
-  () => GetResourceMetadataResponse,
+  () => GetResourceMetadataRequest$,
+  () => GetResourceMetadataResponse$,
 ];
-export var GetResourceMetrics: StaticOperationSchema = [
+export var GetResourceMetrics$: StaticOperationSchema = [
   9,
   n0,
   _GRMe,
   0,
-  () => GetResourceMetricsRequest,
-  () => GetResourceMetricsResponse,
+  () => GetResourceMetricsRequest$,
+  () => GetResourceMetricsResponse$,
 ];
-export var ListAvailableResourceDimensions: StaticOperationSchema = [
+export var ListAvailableResourceDimensions$: StaticOperationSchema = [
   9,
   n0,
   _LARD,
   0,
-  () => ListAvailableResourceDimensionsRequest,
-  () => ListAvailableResourceDimensionsResponse,
+  () => ListAvailableResourceDimensionsRequest$,
+  () => ListAvailableResourceDimensionsResponse$,
 ];
-export var ListAvailableResourceMetrics: StaticOperationSchema = [
+export var ListAvailableResourceMetrics$: StaticOperationSchema = [
   9,
   n0,
   _LARM,
   0,
-  () => ListAvailableResourceMetricsRequest,
-  () => ListAvailableResourceMetricsResponse,
+  () => ListAvailableResourceMetricsRequest$,
+  () => ListAvailableResourceMetricsResponse$,
 ];
-export var ListPerformanceAnalysisReports: StaticOperationSchema = [
+export var ListPerformanceAnalysisReports$: StaticOperationSchema = [
   9,
   n0,
   _LPAR,
   0,
-  () => ListPerformanceAnalysisReportsRequest,
-  () => ListPerformanceAnalysisReportsResponse,
+  () => ListPerformanceAnalysisReportsRequest$,
+  () => ListPerformanceAnalysisReportsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   0,
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var TagResource: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest, () => TagResourceResponse];
-export var UntagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest$, () => TagResourceResponse$];
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   0,
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];

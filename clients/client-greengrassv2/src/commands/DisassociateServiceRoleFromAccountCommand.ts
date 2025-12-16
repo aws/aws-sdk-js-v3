@@ -9,7 +9,7 @@ import type {
   DisassociateServiceRoleFromAccountRequest,
   DisassociateServiceRoleFromAccountResponse,
 } from "../models/models_0";
-import { DisassociateServiceRoleFromAccount } from "../schemas/schemas_0";
+import { DisassociateServiceRoleFromAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command
   })
   .s("GreengrassV2", "DisassociateServiceRoleFromAccount", {})
   .n("GreengrassV2Client", "DisassociateServiceRoleFromAccountCommand")
-  .sc(DisassociateServiceRoleFromAccount)
+  .sc(DisassociateServiceRoleFromAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   DescribePermissionSetProvisioningStatusRequest,
   DescribePermissionSetProvisioningStatusResponse,
 } from "../models/models_0";
-import { DescribePermissionSetProvisioningStatus } from "../schemas/schemas_0";
+import { DescribePermissionSetProvisioningStatus$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -102,7 +102,7 @@ export class DescribePermissionSetProvisioningStatusCommand extends $Command
   })
   .s("SWBExternalService", "DescribePermissionSetProvisioningStatus", {})
   .n("SSOAdminClient", "DescribePermissionSetProvisioningStatusCommand")
-  .sc(DescribePermissionSetProvisioningStatus)
+  .sc(DescribePermissionSetProvisioningStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import type { DeleteVaultNotificationsInput } from "../models/models_0";
-import { DeleteVaultNotifications } from "../schemas/schemas_0";
+import { DeleteVaultNotifications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class DeleteVaultNotificationsCommand extends $Command
   })
   .s("Glacier", "DeleteVaultNotifications", {})
   .n("GlacierClient", "DeleteVaultNotificationsCommand")
-  .sc(DeleteVaultNotifications)
+  .sc(DeleteVaultNotifications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
 import type { DeleteInputRequest, DeleteInputResponse } from "../models/models_0";
-import { DeleteInput } from "../schemas/schemas_0";
+import { DeleteInput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeleteInputCommand extends $Command
   })
   .s("IotColumboService", "DeleteInput", {})
   .n("IoTEventsClient", "DeleteInputCommand")
-  .sc(DeleteInput)
+  .sc(DeleteInput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

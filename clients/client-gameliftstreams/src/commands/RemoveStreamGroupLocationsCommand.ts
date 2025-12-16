@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GameLiftStreamsClient";
 import type { RemoveStreamGroupLocationsInput } from "../models/models_0";
-import { RemoveStreamGroupLocations } from "../schemas/schemas_0";
+import { RemoveStreamGroupLocations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class RemoveStreamGroupLocationsCommand extends $Command
   })
   .s("GameLiftStreams", "RemoveStreamGroupLocations", {})
   .n("GameLiftStreamsClient", "RemoveStreamGroupLocationsCommand")
-  .sc(RemoveStreamGroupLocations)
+  .sc(RemoveStreamGroupLocations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

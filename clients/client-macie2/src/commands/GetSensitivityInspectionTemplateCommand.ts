@@ -9,7 +9,7 @@ import type {
   GetSensitivityInspectionTemplateRequest,
   GetSensitivityInspectionTemplateResponse,
 } from "../models/models_0";
-import { GetSensitivityInspectionTemplate } from "../schemas/schemas_0";
+import { GetSensitivityInspectionTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class GetSensitivityInspectionTemplateCommand extends $Command
   })
   .s("Macie2", "GetSensitivityInspectionTemplate", {})
   .n("Macie2Client", "GetSensitivityInspectionTemplateCommand")
-  .sc(GetSensitivityInspectionTemplate)
+  .sc(GetSensitivityInspectionTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

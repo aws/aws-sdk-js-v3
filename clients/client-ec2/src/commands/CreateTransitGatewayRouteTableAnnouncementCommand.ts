@@ -9,7 +9,7 @@ import type {
   CreateTransitGatewayRouteTableAnnouncementRequest,
   CreateTransitGatewayRouteTableAnnouncementResult,
 } from "../models/models_2";
-import { CreateTransitGatewayRouteTableAnnouncement } from "../schemas/schemas_0";
+import { CreateTransitGatewayRouteTableAnnouncement$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class CreateTransitGatewayRouteTableAnnouncementCommand extends $Command
   })
   .s("AmazonEC2", "CreateTransitGatewayRouteTableAnnouncement", {})
   .n("EC2Client", "CreateTransitGatewayRouteTableAnnouncementCommand")
-  .sc(CreateTransitGatewayRouteTableAnnouncement)
+  .sc(CreateTransitGatewayRouteTableAnnouncement$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

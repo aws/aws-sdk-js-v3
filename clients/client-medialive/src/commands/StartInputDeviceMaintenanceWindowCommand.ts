@@ -9,7 +9,7 @@ import type {
   StartInputDeviceMaintenanceWindowRequest,
   StartInputDeviceMaintenanceWindowResponse,
 } from "../models/models_1";
-import { StartInputDeviceMaintenanceWindow } from "../schemas/schemas_0";
+import { StartInputDeviceMaintenanceWindow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class StartInputDeviceMaintenanceWindowCommand extends $Command
   })
   .s("MediaLive", "StartInputDeviceMaintenanceWindow", {})
   .n("MediaLiveClient", "StartInputDeviceMaintenanceWindowCommand")
-  .sc(StartInputDeviceMaintenanceWindow)
+  .sc(StartInputDeviceMaintenanceWindow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

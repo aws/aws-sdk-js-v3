@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelReservedInstancesListingRequest, CancelReservedInstancesListingResult } from "../models/models_0";
-import { CancelReservedInstancesListing } from "../schemas/schemas_0";
+import { CancelReservedInstancesListing$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class CancelReservedInstancesListingCommand extends $Command
   })
   .s("AmazonEC2", "CancelReservedInstancesListing", {})
   .n("EC2Client", "CancelReservedInstancesListingCommand")
-  .sc(CancelReservedInstancesListing)
+  .sc(CancelReservedInstancesListing$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

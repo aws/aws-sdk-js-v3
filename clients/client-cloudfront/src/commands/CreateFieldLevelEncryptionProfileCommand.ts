@@ -9,7 +9,7 @@ import type {
   CreateFieldLevelEncryptionProfileRequest,
   CreateFieldLevelEncryptionProfileResult,
 } from "../models/models_0";
-import { CreateFieldLevelEncryptionProfile } from "../schemas/schemas_0";
+import { CreateFieldLevelEncryptionProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class CreateFieldLevelEncryptionProfileCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "CreateFieldLevelEncryptionProfile", {})
   .n("CloudFrontClient", "CreateFieldLevelEncryptionProfileCommand")
-  .sc(CreateFieldLevelEncryptionProfile)
+  .sc(CreateFieldLevelEncryptionProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

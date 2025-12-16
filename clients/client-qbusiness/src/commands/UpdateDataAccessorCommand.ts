@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDataAccessorResponse } from "../models/models_0";
 import type { UpdateDataAccessorRequest } from "../models/models_1";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { UpdateDataAccessor } from "../schemas/schemas_0";
+import { UpdateDataAccessor$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -191,7 +191,7 @@ export class UpdateDataAccessorCommand extends $Command
   })
   .s("ExpertQ", "UpdateDataAccessor", {})
   .n("QBusinessClient", "UpdateDataAccessorCommand")
-  .sc(UpdateDataAccessor)
+  .sc(UpdateDataAccessor$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetIndexInput, GetIndexOutput } from "../models/models_0";
 import type { S3VectorsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3VectorsClient";
-import { GetIndex } from "../schemas/schemas_0";
+import { GetIndex$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class GetIndexCommand extends $Command
   })
   .s("S3Vectors", "GetIndex", {})
   .n("S3VectorsClient", "GetIndexCommand")
-  .sc(GetIndex)
+  .sc(GetIndex$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

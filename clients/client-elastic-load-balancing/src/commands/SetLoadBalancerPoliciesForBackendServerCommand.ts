@@ -13,7 +13,7 @@ import type {
   SetLoadBalancerPoliciesForBackendServerInput,
   SetLoadBalancerPoliciesForBackendServerOutput,
 } from "../models/models_0";
-import { SetLoadBalancerPoliciesForBackendServer } from "../schemas/schemas_0";
+import { SetLoadBalancerPoliciesForBackendServer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command
   })
   .s("ElasticLoadBalancing_v7", "SetLoadBalancerPoliciesForBackendServer", {})
   .n("ElasticLoadBalancingClient", "SetLoadBalancerPoliciesForBackendServerCommand")
-  .sc(SetLoadBalancerPoliciesForBackendServer)
+  .sc(SetLoadBalancerPoliciesForBackendServer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveTagsFromResourceInput, RemoveTagsFromResourceOutput } from "../models/models_0";
-import { RemoveTagsFromResource } from "../schemas/schemas_0";
+import { RemoveTagsFromResource$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -108,7 +108,7 @@ export class RemoveTagsFromResourceCommand extends $Command
   })
   .s("StorageGateway_20130630", "RemoveTagsFromResource", {})
   .n("StorageGatewayClient", "RemoveTagsFromResourceCommand")
-  .sc(RemoveTagsFromResource)
+  .sc(RemoveTagsFromResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

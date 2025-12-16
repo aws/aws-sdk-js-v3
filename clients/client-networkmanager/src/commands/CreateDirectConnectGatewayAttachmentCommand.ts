@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { CreateDirectConnectGatewayAttachment } from "../schemas/schemas_0";
+import { CreateDirectConnectGatewayAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -167,7 +167,7 @@ export class CreateDirectConnectGatewayAttachmentCommand extends $Command
   })
   .s("NetworkManager", "CreateDirectConnectGatewayAttachment", {})
   .n("NetworkManagerClient", "CreateDirectConnectGatewayAttachmentCommand")
-  .sc(CreateDirectConnectGatewayAttachment)
+  .sc(CreateDirectConnectGatewayAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

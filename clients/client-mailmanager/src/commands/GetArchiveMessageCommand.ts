@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
 import type { GetArchiveMessageRequest, GetArchiveMessageResponse } from "../models/models_0";
-import { GetArchiveMessage } from "../schemas/schemas_0";
+import { GetArchiveMessage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class GetArchiveMessageCommand extends $Command
   })
   .s("MailManagerSvc", "GetArchiveMessage", {})
   .n("MailManagerClient", "GetArchiveMessageCommand")
-  .sc(GetArchiveMessage)
+  .sc(GetArchiveMessage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

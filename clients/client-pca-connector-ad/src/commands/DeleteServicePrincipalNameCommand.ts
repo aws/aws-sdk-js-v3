@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PcaConnectorAdClient";
-import { DeleteServicePrincipalName } from "../schemas/schemas_0";
+import { DeleteServicePrincipalName$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class DeleteServicePrincipalNameCommand extends $Command
   })
   .s("PcaConnectorAd", "DeleteServicePrincipalName", {})
   .n("PcaConnectorAdClient", "DeleteServicePrincipalNameCommand")
-  .sc(DeleteServicePrincipalName)
+  .sc(DeleteServicePrincipalName$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

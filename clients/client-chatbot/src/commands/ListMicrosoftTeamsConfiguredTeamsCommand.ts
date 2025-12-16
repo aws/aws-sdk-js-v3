@@ -9,7 +9,7 @@ import type {
   ListMicrosoftTeamsConfiguredTeamsRequest,
   ListMicrosoftTeamsConfiguredTeamsResult,
 } from "../models/models_0";
-import { ListMicrosoftTeamsConfiguredTeams } from "../schemas/schemas_0";
+import { ListMicrosoftTeamsConfiguredTeams$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class ListMicrosoftTeamsConfiguredTeamsCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "ListMicrosoftTeamsConfiguredTeams", {})
   .n("ChatbotClient", "ListMicrosoftTeamsConfiguredTeamsCommand")
-  .sc(ListMicrosoftTeamsConfiguredTeams)
+  .sc(ListMicrosoftTeamsConfiguredTeams$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

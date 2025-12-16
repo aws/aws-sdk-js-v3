@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FileSystemDescription, UpdateFileSystemRequest } from "../models/models_0";
-import { UpdateFileSystem } from "../schemas/schemas_0";
+import { UpdateFileSystem$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -135,7 +135,7 @@ export class UpdateFileSystemCommand extends $Command
   })
   .s("MagnolioAPIService_v20150201", "UpdateFileSystem", {})
   .n("EFSClient", "UpdateFileSystemCommand")
-  .sc(UpdateFileSystem)
+  .sc(UpdateFileSystem$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

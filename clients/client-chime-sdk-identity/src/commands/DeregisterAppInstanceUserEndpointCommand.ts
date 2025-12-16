@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeregisterAppInstanceUserEndpointRequest } from "../models/models_0";
-import { DeregisterAppInstanceUserEndpoint } from "../schemas/schemas_0";
+import { DeregisterAppInstanceUserEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeregisterAppInstanceUserEndpointCommand extends $Command
   })
   .s("ChimeIdentityService", "DeregisterAppInstanceUserEndpoint", {})
   .n("ChimeSDKIdentityClient", "DeregisterAppInstanceUserEndpointCommand")
-  .sc(DeregisterAppInstanceUserEndpoint)
+  .sc(DeregisterAppInstanceUserEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

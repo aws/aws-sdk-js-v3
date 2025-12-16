@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeContributorInsightsInput, DescribeContributorInsightsOutput } from "../models/models_0";
-import { DescribeContributorInsights } from "../schemas/schemas_0";
+import { DescribeContributorInsights$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DescribeContributorInsightsCommand extends $Command
   })
   .s("DynamoDB_20120810", "DescribeContributorInsights", {})
   .n("DynamoDBClient", "DescribeContributorInsightsCommand")
-  .sc(DescribeContributorInsights)
+  .sc(DescribeContributorInsights$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

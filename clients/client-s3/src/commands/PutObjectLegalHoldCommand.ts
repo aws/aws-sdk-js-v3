@@ -8,7 +8,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutObjectLegalHoldOutput, PutObjectLegalHoldRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { PutObjectLegalHold } from "../schemas/schemas_0";
+import { PutObjectLegalHold$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class PutObjectLegalHoldCommand extends $Command
   })
   .s("AmazonS3", "PutObjectLegalHold", {})
   .n("S3Client", "PutObjectLegalHoldCommand")
-  .sc(PutObjectLegalHold)
+  .sc(PutObjectLegalHold$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

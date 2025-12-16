@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AIOpsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AIOpsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateInvestigationGroupInput, CreateInvestigationGroupOutput } from "../models/models_0";
-import { CreateInvestigationGroup } from "../schemas/schemas_0";
+import { CreateInvestigationGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class CreateInvestigationGroupCommand extends $Command
   })
   .s("AIOps", "CreateInvestigationGroup", {})
   .n("AIOpsClient", "CreateInvestigationGroupCommand")
-  .sc(CreateInvestigationGroup)
+  .sc(CreateInvestigationGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

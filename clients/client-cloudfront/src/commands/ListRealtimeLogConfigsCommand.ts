@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListRealtimeLogConfigsRequest, ListRealtimeLogConfigsResult } from "../models/models_1";
-import { ListRealtimeLogConfigs } from "../schemas/schemas_0";
+import { ListRealtimeLogConfigs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class ListRealtimeLogConfigsCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "ListRealtimeLogConfigs", {})
   .n("CloudFrontClient", "ListRealtimeLogConfigsCommand")
-  .sc(ListRealtimeLogConfigs)
+  .sc(ListRealtimeLogConfigs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

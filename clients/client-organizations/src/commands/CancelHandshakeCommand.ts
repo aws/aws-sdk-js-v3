@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelHandshakeRequest, CancelHandshakeResponse } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { CancelHandshake } from "../schemas/schemas_0";
+import { CancelHandshake$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -283,7 +283,7 @@ export class CancelHandshakeCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "CancelHandshake", {})
   .n("OrganizationsClient", "CancelHandshakeCommand")
-  .sc(CancelHandshake)
+  .sc(CancelHandshake$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

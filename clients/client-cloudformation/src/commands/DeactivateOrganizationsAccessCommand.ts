@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeactivateOrganizationsAccessInput, DeactivateOrganizationsAccessOutput } from "../models/models_0";
-import { DeactivateOrganizationsAccess } from "../schemas/schemas_0";
+import { DeactivateOrganizationsAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class DeactivateOrganizationsAccessCommand extends $Command
   })
   .s("CloudFormation", "DeactivateOrganizationsAccess", {})
   .n("CloudFormationClient", "DeactivateOrganizationsAccessCommand")
-  .sc(DeactivateOrganizationsAccess)
+  .sc(DeactivateOrganizationsAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

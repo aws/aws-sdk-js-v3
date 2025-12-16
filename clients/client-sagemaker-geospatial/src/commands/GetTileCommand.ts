@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerGeospatialClient";
-import { GetTile } from "../schemas/schemas_0";
+import { GetTile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class GetTileCommand extends $Command
   })
   .s("SageMakerGeospatial", "GetTile", {})
   .n("SageMakerGeospatialClient", "GetTileCommand")
-  .sc(GetTile)
+  .sc(GetTile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSchemaRequest, DeleteSchemaResponse } from "../models/models_0";
-import { DeleteSchema } from "../schemas/schemas_0";
+import { DeleteSchema$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class DeleteSchemaCommand extends $Command
   })
   .s("AmazonCloudDirectory_20170111", "DeleteSchema", {})
   .n("CloudDirectoryClient", "DeleteSchemaCommand")
-  .sc(DeleteSchema)
+  .sc(DeleteSchema$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   ListLicenseManagerReportGeneratorsRequest,
   ListLicenseManagerReportGeneratorsResponse,
 } from "../models/models_0";
-import { ListLicenseManagerReportGenerators } from "../schemas/schemas_0";
+import { ListLicenseManagerReportGenerators$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -155,7 +155,7 @@ export class ListLicenseManagerReportGeneratorsCommand extends $Command
   })
   .s("AWSLicenseManager", "ListLicenseManagerReportGenerators", {})
   .n("LicenseManagerClient", "ListLicenseManagerReportGeneratorsCommand")
-  .sc(ListLicenseManagerReportGenerators)
+  .sc(ListLicenseManagerReportGenerators$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

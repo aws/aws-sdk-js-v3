@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartDeviceAuthorizationRequest, StartDeviceAuthorizationResponse } from "../models/models_0";
-import { StartDeviceAuthorization } from "../schemas/schemas_0";
+import { StartDeviceAuthorization$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
 /**
@@ -124,7 +124,7 @@ export class StartDeviceAuthorizationCommand extends $Command
   })
   .s("AWSSSOOIDCService", "StartDeviceAuthorization", {})
   .n("SSOOIDCClient", "StartDeviceAuthorizationCommand")
-  .sc(StartDeviceAuthorization)
+  .sc(StartDeviceAuthorization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

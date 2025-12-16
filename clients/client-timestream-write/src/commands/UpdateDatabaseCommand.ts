@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDatabaseRequest, UpdateDatabaseResponse } from "../models/models_0";
-import { UpdateDatabase } from "../schemas/schemas_0";
+import { UpdateDatabase$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -122,7 +122,7 @@ export class UpdateDatabaseCommand extends $Command
   })
   .s("Timestream_20181101", "UpdateDatabase", {})
   .n("TimestreamWriteClient", "UpdateDatabaseCommand")
-  .sc(UpdateDatabase)
+  .sc(UpdateDatabase$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

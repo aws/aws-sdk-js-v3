@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
 import type { GetSafetyLeverRequest, GetSafetyLeverResponse } from "../models/models_0";
-import { GetSafetyLever } from "../schemas/schemas_0";
+import { GetSafetyLever$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class GetSafetyLeverCommand extends $Command
   })
   .s("FaultInjectionSimulator", "GetSafetyLever", {})
   .n("FisClient", "GetSafetyLeverCommand")
-  .sc(GetSafetyLever)
+  .sc(GetSafetyLever$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

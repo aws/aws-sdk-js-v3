@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: SyntheticsClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.synthetics" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.synthetics",
+      version: "2017-10-11",
+      serviceTarget: "Synthetics",
+    },
     serviceId: config?.serviceId ?? "synthetics",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

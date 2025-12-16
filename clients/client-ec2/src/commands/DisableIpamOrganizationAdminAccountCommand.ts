@@ -9,7 +9,7 @@ import type {
   DisableIpamOrganizationAdminAccountRequest,
   DisableIpamOrganizationAdminAccountResult,
 } from "../models/models_5";
-import { DisableIpamOrganizationAdminAccount } from "../schemas/schemas_0";
+import { DisableIpamOrganizationAdminAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -80,7 +80,7 @@ export class DisableIpamOrganizationAdminAccountCommand extends $Command
   })
   .s("AmazonEC2", "DisableIpamOrganizationAdminAccount", {})
   .n("EC2Client", "DisableIpamOrganizationAdminAccountCommand")
-  .sc(DisableIpamOrganizationAdminAccount)
+  .sc(DisableIpamOrganizationAdminAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

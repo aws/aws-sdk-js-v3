@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateCustomActionTypeInput, CreateCustomActionTypeOutput } from "../models/models_0";
-import { CreateCustomActionType } from "../schemas/schemas_0";
+import { CreateCustomActionType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -161,7 +161,7 @@ export class CreateCustomActionTypeCommand extends $Command
   })
   .s("CodePipeline_20150709", "CreateCustomActionType", {})
   .n("CodePipelineClient", "CreateCustomActionTypeCommand")
-  .sc(CreateCustomActionType)
+  .sc(CreateCustomActionType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutJobTaggingRequest, PutJobTaggingResult } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { PutJobTagging } from "../schemas/schemas_0";
+import { PutJobTagging$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -163,7 +163,7 @@ export class PutJobTaggingCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "PutJobTagging", {})
   .n("S3ControlClient", "PutJobTaggingCommand")
-  .sc(PutJobTagging)
+  .sc(PutJobTagging$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

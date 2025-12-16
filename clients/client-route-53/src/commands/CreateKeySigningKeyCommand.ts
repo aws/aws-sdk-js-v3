@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateKeySigningKeyRequest, CreateKeySigningKeyResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { CreateKeySigningKey } from "../schemas/schemas_0";
+import { CreateKeySigningKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,7 +138,7 @@ export class CreateKeySigningKeyCommand extends $Command
   })
   .s("AWSDnsV20130401", "CreateKeySigningKey", {})
   .n("Route53Client", "CreateKeySigningKeyCommand")
-  .sc(CreateKeySigningKey)
+  .sc(CreateKeySigningKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

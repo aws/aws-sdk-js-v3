@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetTokenVaultRequest, GetTokenVaultResponse } from "../models/models_0";
-import { GetTokenVault } from "../schemas/schemas_0";
+import { GetTokenVault$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class GetTokenVaultCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "GetTokenVault", {})
   .n("BedrockAgentCoreControlClient", "GetTokenVaultCommand")
-  .sc(GetTokenVault)
+  .sc(GetTokenVault$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

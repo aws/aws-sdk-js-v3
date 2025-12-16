@@ -9,7 +9,7 @@ import type {
   DeleteLakeFormationIdentityCenterConfigurationRequest,
   DeleteLakeFormationIdentityCenterConfigurationResponse,
 } from "../models/models_0";
-import { DeleteLakeFormationIdentityCenterConfiguration } from "../schemas/schemas_0";
+import { DeleteLakeFormationIdentityCenterConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeleteLakeFormationIdentityCenterConfigurationCommand extends $Comm
   })
   .s("AWSLakeFormation", "DeleteLakeFormationIdentityCenterConfiguration", {})
   .n("LakeFormationClient", "DeleteLakeFormationIdentityCenterConfigurationCommand")
-  .sc(DeleteLakeFormationIdentityCenterConfiguration)
+  .sc(DeleteLakeFormationIdentityCenterConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

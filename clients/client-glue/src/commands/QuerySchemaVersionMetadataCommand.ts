@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { QuerySchemaVersionMetadataInput, QuerySchemaVersionMetadataResponse } from "../models/models_2";
-import { QuerySchemaVersionMetadata } from "../schemas/schemas_0";
+import { QuerySchemaVersionMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class QuerySchemaVersionMetadataCommand extends $Command
   })
   .s("AWSGlue", "QuerySchemaVersionMetadata", {})
   .n("GlueClient", "QuerySchemaVersionMetadataCommand")
-  .sc(QuerySchemaVersionMetadata)
+  .sc(QuerySchemaVersionMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

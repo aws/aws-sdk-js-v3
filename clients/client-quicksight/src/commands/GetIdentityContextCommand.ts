@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetIdentityContextRequest, GetIdentityContextResponse } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { GetIdentityContext } from "../schemas/schemas_0";
+import { GetIdentityContext$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -142,7 +142,7 @@ export class GetIdentityContextCommand extends $Command
   })
   .s("QuickSight_20180401", "GetIdentityContext", {})
   .n("QuickSightClient", "GetIdentityContextCommand")
-  .sc(GetIdentityContext)
+  .sc(GetIdentityContext$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

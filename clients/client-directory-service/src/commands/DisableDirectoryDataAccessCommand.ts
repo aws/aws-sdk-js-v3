@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisableDirectoryDataAccessRequest, DisableDirectoryDataAccessResult } from "../models/models_0";
-import { DisableDirectoryDataAccess } from "../schemas/schemas_0";
+import { DisableDirectoryDataAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DisableDirectoryDataAccessCommand extends $Command
   })
   .s("DirectoryService_20150416", "DisableDirectoryDataAccess", {})
   .n("DirectoryServiceClient", "DisableDirectoryDataAccessCommand")
-  .sc(DisableDirectoryDataAccess)
+  .sc(DisableDirectoryDataAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

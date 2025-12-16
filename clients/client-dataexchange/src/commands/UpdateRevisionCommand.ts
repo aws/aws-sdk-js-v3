@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateRevisionRequest, UpdateRevisionResponse } from "../models/models_0";
-import { UpdateRevision } from "../schemas/schemas_0";
+import { UpdateRevision$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class UpdateRevisionCommand extends $Command
   })
   .s("DataExchange", "UpdateRevision", {})
   .n("DataExchangeClient", "UpdateRevisionCommand")
-  .sc(UpdateRevision)
+  .sc(UpdateRevision$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

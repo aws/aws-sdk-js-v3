@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteGraphInput, DeleteGraphOutput } from "../models/models_0";
 import type { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
-import { DeleteGraph } from "../schemas/schemas_0";
+import { DeleteGraph$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class DeleteGraphCommand extends $Command
   })
   .s("AmazonNeptuneGraph", "DeleteGraph", {})
   .n("NeptuneGraphClient", "DeleteGraphCommand")
-  .sc(DeleteGraph)
+  .sc(DeleteGraph$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

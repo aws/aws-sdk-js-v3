@@ -9,7 +9,7 @@ import type {
   UnassignPrivateNatGatewayAddressRequest,
   UnassignPrivateNatGatewayAddressResult,
 } from "../models/models_7";
-import { UnassignPrivateNatGatewayAddress } from "../schemas/schemas_0";
+import { UnassignPrivateNatGatewayAddress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class UnassignPrivateNatGatewayAddressCommand extends $Command
   })
   .s("AmazonEC2", "UnassignPrivateNatGatewayAddress", {})
   .n("EC2Client", "UnassignPrivateNatGatewayAddressCommand")
-  .sc(UnassignPrivateNatGatewayAddress)
+  .sc(UnassignPrivateNatGatewayAddress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

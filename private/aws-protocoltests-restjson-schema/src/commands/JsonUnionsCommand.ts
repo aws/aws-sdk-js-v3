@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { JsonUnions } from "../schemas/schemas_0";
+import { JsonUnions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class JsonUnionsCommand extends $Command
   })
   .s("RestJson", "JsonUnions", {})
   .n("RestJsonProtocolClient", "JsonUnionsCommand")
-  .sc(JsonUnions)
+  .sc(JsonUnions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

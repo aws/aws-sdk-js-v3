@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import type { DescribeLimitsInput, DescribeLimitsOutput } from "../models/models_0";
-import { DescribeLimits } from "../schemas/schemas_0";
+import { DescribeLimits$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,7 +81,7 @@ export class DescribeLimitsCommand extends $Command
   })
   .s("Kinesis_20131202", "DescribeLimits", {})
   .n("KinesisClient", "DescribeLimitsCommand")
-  .sc(DescribeLimits)
+  .sc(DescribeLimits$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

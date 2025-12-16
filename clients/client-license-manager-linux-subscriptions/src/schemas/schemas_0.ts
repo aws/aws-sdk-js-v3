@@ -108,19 +108,19 @@ import type {
 } from "@smithy/types";
 
 import {
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { LicenseManagerLinuxSubscriptionsServiceException as __LicenseManagerLinuxSubscriptionsServiceException } from "../models/LicenseManagerLinuxSubscriptionsServiceException";
+import { LicenseManagerLinuxSubscriptionsServiceException } from "../models/LicenseManagerLinuxSubscriptionsServiceException";
 
 /* eslint no-var: 0 */
-export var DeregisterSubscriptionProviderRequest: StaticStructureSchema = [3, n0, _DSPR, 0, [_SPA], [0]];
-export var DeregisterSubscriptionProviderResponse: StaticStructureSchema = [3, n0, _DSPRe, 0, [], []];
-export var Filter: StaticStructureSchema = [3, n0, _F, 0, [_N, _V, _O], [0, 64 | 0, 0]];
-export var GetRegisteredSubscriptionProviderRequest: StaticStructureSchema = [3, n0, _GRSPR, 0, [_SPA], [0]];
-export var GetRegisteredSubscriptionProviderResponse: StaticStructureSchema = [
+export var DeregisterSubscriptionProviderRequest$: StaticStructureSchema = [3, n0, _DSPR, 0, [_SPA], [0]];
+export var DeregisterSubscriptionProviderResponse$: StaticStructureSchema = [3, n0, _DSPRe, 0, [], []];
+export var Filter$: StaticStructureSchema = [3, n0, _F, 0, [_N, _V, _O], [0, 64 | 0, 0]];
+export var GetRegisteredSubscriptionProviderRequest$: StaticStructureSchema = [3, n0, _GRSPR, 0, [_SPA], [0]];
+export var GetRegisteredSubscriptionProviderResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRSPRe,
@@ -128,16 +128,16 @@ export var GetRegisteredSubscriptionProviderResponse: StaticStructureSchema = [
   [_SPA, _SPS, _SA, _SPSu, _SPSM, _LSDRT],
   [0, 0, 0, 0, 0, 0],
 ];
-export var GetServiceSettingsRequest: StaticStructureSchema = [3, n0, _GSSR, 0, [], []];
-export var GetServiceSettingsResponse: StaticStructureSchema = [
+export var GetServiceSettingsRequest$: StaticStructureSchema = [3, n0, _GSSR, 0, [], []];
+export var GetServiceSettingsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GSSRe,
   0,
   [_LSD, _LSDS, _S, _SM, _HR],
-  [0, () => LinuxSubscriptionsDiscoverySettings, 0, 128 | 0, 64 | 0],
+  [0, () => LinuxSubscriptionsDiscoverySettings$, 0, 128 | 0, 64 | 0],
 ];
-export var Instance: StaticStructureSchema = [
+export var Instance$: StaticStructureSchema = [
   3,
   n0,
   _I,
@@ -145,10 +145,10 @@ export var Instance: StaticStructureSchema = [
   [_AI, _IID, _IT, _AID, _S, _R, _UO, _PC, _LUT, _SN, _OV, _SPCT, _SPUT, _DS, _RWSP],
   [0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var LinuxSubscriptionsDiscoverySettings: StaticStructureSchema = [3, n0, _LSDS, 0, [_SR, _OI], [64 | 0, 0]];
-export var ListLinuxSubscriptionInstancesRequest: StaticStructureSchema = [
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var LinuxSubscriptionsDiscoverySettings$: StaticStructureSchema = [3, n0, _LSDS, 0, [_SR, _OI], [64 | 0, 0]];
+export var ListLinuxSubscriptionInstancesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LLSIR,
@@ -156,7 +156,7 @@ export var ListLinuxSubscriptionInstancesRequest: StaticStructureSchema = [
   [_Fi, _MR, _NT],
   [() => FilterList, 1, 0],
 ];
-export var ListLinuxSubscriptionInstancesResponse: StaticStructureSchema = [
+export var ListLinuxSubscriptionInstancesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LLSIRi,
@@ -164,7 +164,7 @@ export var ListLinuxSubscriptionInstancesResponse: StaticStructureSchema = [
   [_In, _NT],
   [() => InstanceList, 0],
 ];
-export var ListLinuxSubscriptionsRequest: StaticStructureSchema = [
+export var ListLinuxSubscriptionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LLSR,
@@ -172,7 +172,7 @@ export var ListLinuxSubscriptionsRequest: StaticStructureSchema = [
   [_Fi, _MR, _NT],
   [() => FilterList, 1, 0],
 ];
-export var ListLinuxSubscriptionsResponse: StaticStructureSchema = [
+export var ListLinuxSubscriptionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LLSRi,
@@ -180,7 +180,7 @@ export var ListLinuxSubscriptionsResponse: StaticStructureSchema = [
   [_Su, _NT],
   [() => SubscriptionList, 0],
 ];
-export var ListRegisteredSubscriptionProvidersRequest: StaticStructureSchema = [
+export var ListRegisteredSubscriptionProvidersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRSPR,
@@ -188,7 +188,7 @@ export var ListRegisteredSubscriptionProvidersRequest: StaticStructureSchema = [
   [_SPSub, _MR, _NT],
   [64 | 0, 1, 0],
 ];
-export var ListRegisteredSubscriptionProvidersResponse: StaticStructureSchema = [
+export var ListRegisteredSubscriptionProvidersResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRSPRi,
@@ -196,9 +196,9 @@ export var ListRegisteredSubscriptionProvidersResponse: StaticStructureSchema = 
   [_RSP, _NT],
   [() => RegisteredSubscriptionProviderList, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [[() => Tags, 0]]];
-export var RegisteredSubscriptionProvider: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [[() => Tags, 0]]];
+export var RegisteredSubscriptionProvider$: StaticStructureSchema = [
   3,
   n0,
   _RSPe,
@@ -206,7 +206,7 @@ export var RegisteredSubscriptionProvider: StaticStructureSchema = [
   [_SPA, _SPS, _SA, _SPSu, _SPSM, _LSDRT],
   [0, 0, 0, 0, 0, 0],
 ];
-export var RegisterSubscriptionProviderRequest: StaticStructureSchema = [
+export var RegisterSubscriptionProviderRequest$: StaticStructureSchema = [
   3,
   n0,
   _RSPR,
@@ -214,7 +214,7 @@ export var RegisterSubscriptionProviderRequest: StaticStructureSchema = [
   [_SPS, _SA, _T],
   [0, 0, [() => Tags, 0]],
 ];
-export var RegisterSubscriptionProviderResponse: StaticStructureSchema = [
+export var RegisterSubscriptionProviderResponse$: StaticStructureSchema = [
   3,
   n0,
   _RSPRe,
@@ -222,10 +222,10 @@ export var RegisterSubscriptionProviderResponse: StaticStructureSchema = [
   [_SPS, _SPA, _SPSu],
   [0, 0, 0],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var Subscription: StaticStructureSchema = [3, n0, _Sub, 0, [_N, _Ty, _IC], [0, 0, 1]];
-export var TagResourceRequest: StaticStructureSchema = [
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var Subscription$: StaticStructureSchema = [3, n0, _Sub, 0, [_N, _Ty, _IC], [0, 0, 1]];
+export var TagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _TRR,
@@ -236,10 +236,10 @@ export var TagResourceRequest: StaticStructureSchema = [
     [() => Tags, 0],
   ],
 ];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var UntagResourceRequest: StaticStructureSchema = [
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -250,26 +250,26 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [() => TagKeyList, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateServiceSettingsRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateServiceSettingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _USSR,
   0,
   [_LSD, _LSDS, _AU],
-  [0, () => LinuxSubscriptionsDiscoverySettings, 2],
+  [0, () => LinuxSubscriptionsDiscoverySettings$, 2],
 ];
-export var UpdateServiceSettingsResponse: StaticStructureSchema = [
+export var UpdateServiceSettingsResponse$: StaticStructureSchema = [
   3,
   n0,
   _USSRp,
   0,
   [_LSD, _LSDS, _S, _SM, _HR],
-  [0, () => LinuxSubscriptionsDiscoverySettings, 0, 128 | 0, 64 | 0],
+  [0, () => LinuxSubscriptionsDiscoverySettings$, 0, 128 | 0, 64 | 0],
 ];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var LicenseManagerLinuxSubscriptionsServiceException: StaticErrorSchema = [
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var LicenseManagerLinuxSubscriptionsServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "LicenseManagerLinuxSubscriptionsServiceException",
@@ -278,110 +278,104 @@ export var LicenseManagerLinuxSubscriptionsServiceException: StaticErrorSchema =
   [],
 ];
 TypeRegistry.for(_sm).registerError(
-  LicenseManagerLinuxSubscriptionsServiceException,
-  __LicenseManagerLinuxSubscriptionsServiceException
+  LicenseManagerLinuxSubscriptionsServiceException$,
+  LicenseManagerLinuxSubscriptionsServiceException
 );
-export var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter];
-export var InstanceList: StaticListSchema = [1, n0, _IL, 0, () => Instance];
-export var ProductCodeList = 64 | 0;
-export var RegisteredSubscriptionProviderList: StaticListSchema = [
-  1,
-  n0,
-  _RSPL,
-  0,
-  () => RegisteredSubscriptionProvider,
-];
-export var StringList = 64 | 0;
-export var SubscriptionList: StaticListSchema = [1, n0, _SL, 0, () => Subscription];
-export var SubscriptionProviderSourceList = 64 | 0;
-export var TagKeyList: StaticListSchema = [1, n0, _TKL, 8, 0];
-export var StringMap = 128 | 0;
-export var Tags: StaticMapSchema = [2, n0, _T, 8, 0, 0];
-export var DeregisterSubscriptionProvider: StaticOperationSchema = [
+var FilterList: StaticListSchema = [1, n0, _FL, 0, () => Filter$];
+var InstanceList: StaticListSchema = [1, n0, _IL, 0, () => Instance$];
+var ProductCodeList = 64 | 0;
+var RegisteredSubscriptionProviderList: StaticListSchema = [1, n0, _RSPL, 0, () => RegisteredSubscriptionProvider$];
+var StringList = 64 | 0;
+var SubscriptionList: StaticListSchema = [1, n0, _SL, 0, () => Subscription$];
+var SubscriptionProviderSourceList = 64 | 0;
+var TagKeyList: StaticListSchema = [1, n0, _TKL, 8, 0];
+var StringMap = 128 | 0;
+var Tags: StaticMapSchema = [2, n0, _T, 8, 0, 0];
+export var DeregisterSubscriptionProvider$: StaticOperationSchema = [
   9,
   n0,
   _DSP,
   { [_h]: ["POST", "/subscription/DeregisterSubscriptionProvider", 200] },
-  () => DeregisterSubscriptionProviderRequest,
-  () => DeregisterSubscriptionProviderResponse,
+  () => DeregisterSubscriptionProviderRequest$,
+  () => DeregisterSubscriptionProviderResponse$,
 ];
-export var GetRegisteredSubscriptionProvider: StaticOperationSchema = [
+export var GetRegisteredSubscriptionProvider$: StaticOperationSchema = [
   9,
   n0,
   _GRSP,
   { [_h]: ["POST", "/subscription/GetRegisteredSubscriptionProvider", 200] },
-  () => GetRegisteredSubscriptionProviderRequest,
-  () => GetRegisteredSubscriptionProviderResponse,
+  () => GetRegisteredSubscriptionProviderRequest$,
+  () => GetRegisteredSubscriptionProviderResponse$,
 ];
-export var GetServiceSettings: StaticOperationSchema = [
+export var GetServiceSettings$: StaticOperationSchema = [
   9,
   n0,
   _GSS,
   { [_h]: ["POST", "/subscription/GetServiceSettings", 200] },
-  () => GetServiceSettingsRequest,
-  () => GetServiceSettingsResponse,
+  () => GetServiceSettingsRequest$,
+  () => GetServiceSettingsResponse$,
 ];
-export var ListLinuxSubscriptionInstances: StaticOperationSchema = [
+export var ListLinuxSubscriptionInstances$: StaticOperationSchema = [
   9,
   n0,
   _LLSI,
   { [_h]: ["POST", "/subscription/ListLinuxSubscriptionInstances", 200] },
-  () => ListLinuxSubscriptionInstancesRequest,
-  () => ListLinuxSubscriptionInstancesResponse,
+  () => ListLinuxSubscriptionInstancesRequest$,
+  () => ListLinuxSubscriptionInstancesResponse$,
 ];
-export var ListLinuxSubscriptions: StaticOperationSchema = [
+export var ListLinuxSubscriptions$: StaticOperationSchema = [
   9,
   n0,
   _LLS,
   { [_h]: ["POST", "/subscription/ListLinuxSubscriptions", 200] },
-  () => ListLinuxSubscriptionsRequest,
-  () => ListLinuxSubscriptionsResponse,
+  () => ListLinuxSubscriptionsRequest$,
+  () => ListLinuxSubscriptionsResponse$,
 ];
-export var ListRegisteredSubscriptionProviders: StaticOperationSchema = [
+export var ListRegisteredSubscriptionProviders$: StaticOperationSchema = [
   9,
   n0,
   _LRSP,
   { [_h]: ["POST", "/subscription/ListRegisteredSubscriptionProviders", 200] },
-  () => ListRegisteredSubscriptionProvidersRequest,
-  () => ListRegisteredSubscriptionProvidersResponse,
+  () => ListRegisteredSubscriptionProvidersRequest$,
+  () => ListRegisteredSubscriptionProvidersResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var RegisterSubscriptionProvider: StaticOperationSchema = [
+export var RegisterSubscriptionProvider$: StaticOperationSchema = [
   9,
   n0,
   _RSPeg,
   { [_h]: ["POST", "/subscription/RegisterSubscriptionProvider", 200] },
-  () => RegisterSubscriptionProviderRequest,
-  () => RegisterSubscriptionProviderResponse,
+  () => RegisterSubscriptionProviderRequest$,
+  () => RegisterSubscriptionProviderResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["PUT", "/tags/{resourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateServiceSettings: StaticOperationSchema = [
+export var UpdateServiceSettings$: StaticOperationSchema = [
   9,
   n0,
   _USS,
   { [_h]: ["POST", "/subscription/UpdateServiceSettings", 200] },
-  () => UpdateServiceSettingsRequest,
-  () => UpdateServiceSettingsResponse,
+  () => UpdateServiceSettingsRequest$,
+  () => UpdateServiceSettingsResponse$,
 ];

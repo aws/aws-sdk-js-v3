@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { PostPlayerAction } from "../schemas/schemas_0";
+import { PostPlayerAction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,7 +81,7 @@ export class PostPlayerActionCommand extends $Command
   })
   .s("RestJson", "PostPlayerAction", {})
   .n("RestJsonProtocolClient", "PostPlayerActionCommand")
-  .sc(PostPlayerAction)
+  .sc(PostPlayerAction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateAutoScalingConfigurationRequest, CreateAutoScalingConfigurationResponse } from "../models/models_0";
-import { CreateAutoScalingConfiguration } from "../schemas/schemas_0";
+import { CreateAutoScalingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class CreateAutoScalingConfigurationCommand extends $Command
   })
   .s("AppRunner", "CreateAutoScalingConfiguration", {})
   .n("AppRunnerClient", "CreateAutoScalingConfigurationCommand")
-  .sc(CreateAutoScalingConfiguration)
+  .sc(CreateAutoScalingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

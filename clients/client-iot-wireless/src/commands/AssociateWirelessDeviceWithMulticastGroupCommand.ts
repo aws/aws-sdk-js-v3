@@ -9,7 +9,7 @@ import type {
   AssociateWirelessDeviceWithMulticastGroupRequest,
   AssociateWirelessDeviceWithMulticastGroupResponse,
 } from "../models/models_0";
-import { AssociateWirelessDeviceWithMulticastGroup } from "../schemas/schemas_0";
+import { AssociateWirelessDeviceWithMulticastGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class AssociateWirelessDeviceWithMulticastGroupCommand extends $Command
   })
   .s("iotwireless", "AssociateWirelessDeviceWithMulticastGroup", {})
   .n("IoTWirelessClient", "AssociateWirelessDeviceWithMulticastGroupCommand")
-  .sc(AssociateWirelessDeviceWithMulticastGroup)
+  .sc(AssociateWirelessDeviceWithMulticastGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

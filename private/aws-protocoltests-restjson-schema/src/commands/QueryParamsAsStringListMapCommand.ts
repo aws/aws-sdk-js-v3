@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { QueryParamsAsStringListMap } from "../schemas/schemas_0";
+import { QueryParamsAsStringListMap$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -80,7 +80,7 @@ export class QueryParamsAsStringListMapCommand extends $Command
   })
   .s("RestJson", "QueryParamsAsStringListMap", {})
   .n("RestJsonProtocolClient", "QueryParamsAsStringListMapCommand")
-  .sc(QueryParamsAsStringListMap)
+  .sc(QueryParamsAsStringListMap$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

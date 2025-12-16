@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetGeoLocationRequest, GetGeoLocationResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { GetGeoLocation } from "../schemas/schemas_0";
+import { GetGeoLocation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class GetGeoLocationCommand extends $Command
   })
   .s("AWSDnsV20130401", "GetGeoLocation", {})
   .n("Route53Client", "GetGeoLocationCommand")
-  .sc(GetGeoLocation)
+  .sc(GetGeoLocation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

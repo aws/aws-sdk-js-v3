@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: CloudTrailClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.cloudtrail",
-        serviceTarget: "CloudTrail_20131101",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.cloudtrail",
+      xmlNamespace: "http://cloudtrail.amazonaws.com/doc/2013-11-01/",
+      version: "2013-11-01",
+      serviceTarget: "CloudTrail_20131101",
+    },
     serviceId: config?.serviceId ?? "CloudTrail",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

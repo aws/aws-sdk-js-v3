@@ -9,7 +9,7 @@ import type {
   GetEnvironmentBlueprintConfigurationInput,
   GetEnvironmentBlueprintConfigurationOutput,
 } from "../models/models_1";
-import { GetEnvironmentBlueprintConfiguration } from "../schemas/schemas_0";
+import { GetEnvironmentBlueprintConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class GetEnvironmentBlueprintConfigurationCommand extends $Command
   })
   .s("DataZone", "GetEnvironmentBlueprintConfiguration", {})
   .n("DataZoneClient", "GetEnvironmentBlueprintConfigurationCommand")
-  .sc(GetEnvironmentBlueprintConfiguration)
+  .sc(GetEnvironmentBlueprintConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

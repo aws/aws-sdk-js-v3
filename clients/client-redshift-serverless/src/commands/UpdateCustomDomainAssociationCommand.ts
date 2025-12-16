@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { UpdateCustomDomainAssociation } from "../schemas/schemas_0";
+import { UpdateCustomDomainAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class UpdateCustomDomainAssociationCommand extends $Command
   })
   .s("RedshiftServerless", "UpdateCustomDomainAssociation", {})
   .n("RedshiftServerlessClient", "UpdateCustomDomainAssociationCommand")
-  .sc(UpdateCustomDomainAssociation)
+  .sc(UpdateCustomDomainAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

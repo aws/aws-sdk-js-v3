@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCampaignVersionRequest, GetCampaignVersionResponse } from "../models/models_0";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetCampaignVersion } from "../schemas/schemas_0";
+import { GetCampaignVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -489,7 +489,7 @@ export class GetCampaignVersionCommand extends $Command
   })
   .s("Pinpoint", "GetCampaignVersion", {})
   .n("PinpointClient", "GetCampaignVersionCommand")
-  .sc(GetCampaignVersion)
+  .sc(GetCampaignVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { GetTransitGatewayRouteTableAttachment } from "../schemas/schemas_0";
+import { GetTransitGatewayRouteTableAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -153,7 +153,7 @@ export class GetTransitGatewayRouteTableAttachmentCommand extends $Command
   })
   .s("NetworkManager", "GetTransitGatewayRouteTableAttachment", {})
   .n("NetworkManagerClient", "GetTransitGatewayRouteTableAttachmentCommand")
-  .sc(GetTransitGatewayRouteTableAttachment)
+  .sc(GetTransitGatewayRouteTableAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

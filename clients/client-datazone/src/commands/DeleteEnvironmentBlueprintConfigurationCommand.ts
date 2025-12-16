@@ -9,7 +9,7 @@ import type {
   DeleteEnvironmentBlueprintConfigurationInput,
   DeleteEnvironmentBlueprintConfigurationOutput,
 } from "../models/models_1";
-import { DeleteEnvironmentBlueprintConfiguration } from "../schemas/schemas_0";
+import { DeleteEnvironmentBlueprintConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteEnvironmentBlueprintConfigurationCommand extends $Command
   })
   .s("DataZone", "DeleteEnvironmentBlueprintConfiguration", {})
   .n("DataZoneClient", "DeleteEnvironmentBlueprintConfigurationCommand")
-  .sc(DeleteEnvironmentBlueprintConfiguration)
+  .sc(DeleteEnvironmentBlueprintConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

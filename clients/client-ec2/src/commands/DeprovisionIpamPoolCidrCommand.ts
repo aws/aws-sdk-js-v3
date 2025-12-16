@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeprovisionIpamPoolCidrRequest, DeprovisionIpamPoolCidrResult } from "../models/models_3";
-import { DeprovisionIpamPoolCidr } from "../schemas/schemas_0";
+import { DeprovisionIpamPoolCidr$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DeprovisionIpamPoolCidrCommand extends $Command
   })
   .s("AmazonEC2", "DeprovisionIpamPoolCidr", {})
   .n("EC2Client", "DeprovisionIpamPoolCidrCommand")
-  .sc(DeprovisionIpamPoolCidr)
+  .sc(DeprovisionIpamPoolCidr$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

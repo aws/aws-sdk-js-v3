@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateFromMasterAccountRequest, DisassociateFromMasterAccountResponse } from "../models/models_2";
-import { DisassociateFromMasterAccount } from "../schemas/schemas_0";
+import { DisassociateFromMasterAccount$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -96,7 +96,7 @@ export class DisassociateFromMasterAccountCommand extends $Command
   })
   .s("SecurityHubAPIService", "DisassociateFromMasterAccount", {})
   .n("SecurityHubClient", "DisassociateFromMasterAccountCommand")
-  .sc(DisassociateFromMasterAccount)
+  .sc(DisassociateFromMasterAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

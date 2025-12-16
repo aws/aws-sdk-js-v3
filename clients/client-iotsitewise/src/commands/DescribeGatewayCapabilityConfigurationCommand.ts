@@ -9,7 +9,7 @@ import type {
   DescribeGatewayCapabilityConfigurationRequest,
   DescribeGatewayCapabilityConfigurationResponse,
 } from "../models/models_0";
-import { DescribeGatewayCapabilityConfiguration } from "../schemas/schemas_0";
+import { DescribeGatewayCapabilityConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class DescribeGatewayCapabilityConfigurationCommand extends $Command
   })
   .s("AWSIoTSiteWise", "DescribeGatewayCapabilityConfiguration", {})
   .n("IoTSiteWiseClient", "DescribeGatewayCapabilityConfigurationCommand")
-  .sc(DescribeGatewayCapabilityConfiguration)
+  .sc(DescribeGatewayCapabilityConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../CodeGuruProfilerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListProfileTimesRequest, ListProfileTimesResponse } from "../models/models_0";
-import { ListProfileTimes } from "../schemas/schemas_0";
+import { ListProfileTimes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class ListProfileTimesCommand extends $Command
   })
   .s("CodeGuruProfiler", "ListProfileTimes", {})
   .n("CodeGuruProfilerClient", "ListProfileTimesCommand")
-  .sc(ListProfileTimes)
+  .sc(ListProfileTimes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

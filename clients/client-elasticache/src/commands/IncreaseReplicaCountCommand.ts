@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IncreaseReplicaCountMessage, IncreaseReplicaCountResult } from "../models/models_0";
-import { IncreaseReplicaCount } from "../schemas/schemas_0";
+import { IncreaseReplicaCount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -250,7 +250,7 @@ export class IncreaseReplicaCountCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "IncreaseReplicaCount", {})
   .n("ElastiCacheClient", "IncreaseReplicaCountCommand")
-  .sc(IncreaseReplicaCount)
+  .sc(IncreaseReplicaCount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

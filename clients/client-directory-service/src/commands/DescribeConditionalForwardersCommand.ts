@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeConditionalForwardersRequest, DescribeConditionalForwardersResult } from "../models/models_0";
-import { DescribeConditionalForwarders } from "../schemas/schemas_0";
+import { DescribeConditionalForwarders$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class DescribeConditionalForwardersCommand extends $Command
   })
   .s("DirectoryService_20150416", "DescribeConditionalForwarders", {})
   .n("DirectoryServiceClient", "DescribeConditionalForwardersCommand")
-  .sc(DescribeConditionalForwarders)
+  .sc(DescribeConditionalForwarders$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

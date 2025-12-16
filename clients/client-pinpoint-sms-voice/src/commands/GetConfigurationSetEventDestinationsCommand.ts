@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceClient";
-import { GetConfigurationSetEventDestinations } from "../schemas/schemas_0";
+import { GetConfigurationSetEventDestinations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command
   })
   .s("PinpointSMSVoice", "GetConfigurationSetEventDestinations", {})
   .n("PinpointSMSVoiceClient", "GetConfigurationSetEventDestinationsCommand")
-  .sc(GetConfigurationSetEventDestinations)
+  .sc(GetConfigurationSetEventDestinations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

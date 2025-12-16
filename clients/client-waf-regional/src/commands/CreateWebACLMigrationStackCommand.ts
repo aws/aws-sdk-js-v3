@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateWebACLMigrationStackRequest, CreateWebACLMigrationStackResponse } from "../models/models_0";
-import { CreateWebACLMigrationStack } from "../schemas/schemas_0";
+import { CreateWebACLMigrationStack$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -184,7 +184,7 @@ export class CreateWebACLMigrationStackCommand extends $Command
   })
   .s("AWSWAF_Regional_20161128", "CreateWebACLMigrationStack", {})
   .n("WAFRegionalClient", "CreateWebACLMigrationStackCommand")
-  .sc(CreateWebACLMigrationStack)
+  .sc(CreateWebACLMigrationStack$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

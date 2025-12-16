@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListCidrCollectionsRequest, ListCidrCollectionsResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { ListCidrCollections } from "../schemas/schemas_0";
+import { ListCidrCollections$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class ListCidrCollectionsCommand extends $Command
   })
   .s("AWSDnsV20130401", "ListCidrCollections", {})
   .n("Route53Client", "ListCidrCollectionsCommand")
-  .sc(ListCidrCollections)
+  .sc(ListCidrCollections$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

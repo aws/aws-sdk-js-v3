@@ -9,7 +9,7 @@ import type {
   DescribeWorkspaceAuthenticationRequest,
   DescribeWorkspaceAuthenticationResponse,
 } from "../models/models_0";
-import { DescribeWorkspaceAuthentication } from "../schemas/schemas_0";
+import { DescribeWorkspaceAuthentication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,7 +133,7 @@ export class DescribeWorkspaceAuthenticationCommand extends $Command
   })
   .s("AWSGrafanaControlPlane", "DescribeWorkspaceAuthentication", {})
   .n("GrafanaClient", "DescribeWorkspaceAuthenticationCommand")
-  .sc(DescribeWorkspaceAuthentication)
+  .sc(DescribeWorkspaceAuthentication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: B2biClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.b2bi",
-        serviceTarget: "B2BI",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.b2bi",
+      version: "2022-06-23",
+      serviceTarget: "B2BI",
+    },
     serviceId: config?.serviceId ?? "b2bi",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

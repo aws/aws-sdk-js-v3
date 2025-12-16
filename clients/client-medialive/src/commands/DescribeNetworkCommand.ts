@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { DescribeNetworkRequest, DescribeNetworkResponse } from "../models/models_1";
-import { DescribeNetwork } from "../schemas/schemas_0";
+import { DescribeNetwork$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class DescribeNetworkCommand extends $Command
   })
   .s("MediaLive", "DescribeNetwork", {})
   .n("MediaLiveClient", "DescribeNetworkCommand")
-  .sc(DescribeNetwork)
+  .sc(DescribeNetwork$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

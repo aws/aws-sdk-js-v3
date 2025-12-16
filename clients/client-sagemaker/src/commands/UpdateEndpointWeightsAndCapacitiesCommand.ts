@@ -9,7 +9,7 @@ import type {
   UpdateEndpointWeightsAndCapacitiesOutput,
 } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { UpdateEndpointWeightsAndCapacities } from "../schemas/schemas_0";
+import { UpdateEndpointWeightsAndCapacities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command
   })
   .s("SageMaker", "UpdateEndpointWeightsAndCapacities", {})
   .n("SageMakerClient", "UpdateEndpointWeightsAndCapacitiesCommand")
-  .sc(UpdateEndpointWeightsAndCapacities)
+  .sc(UpdateEndpointWeightsAndCapacities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

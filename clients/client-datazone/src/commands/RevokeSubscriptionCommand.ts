@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RevokeSubscriptionInput, RevokeSubscriptionOutput } from "../models/models_1";
-import { RevokeSubscription } from "../schemas/schemas_0";
+import { RevokeSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -182,7 +182,7 @@ export class RevokeSubscriptionCommand extends $Command
   })
   .s("DataZone", "RevokeSubscription", {})
   .n("DataZoneClient", "RevokeSubscriptionCommand")
-  .sc(RevokeSubscription)
+  .sc(RevokeSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

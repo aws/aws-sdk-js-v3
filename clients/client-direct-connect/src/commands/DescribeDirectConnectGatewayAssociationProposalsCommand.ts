@@ -9,7 +9,7 @@ import type {
   DescribeDirectConnectGatewayAssociationProposalsRequest,
   DescribeDirectConnectGatewayAssociationProposalsResult,
 } from "../models/models_0";
-import { DescribeDirectConnectGatewayAssociationProposals } from "../schemas/schemas_0";
+import { DescribeDirectConnectGatewayAssociationProposals$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Co
   })
   .s("OvertureService", "DescribeDirectConnectGatewayAssociationProposals", {})
   .n("DirectConnectClient", "DescribeDirectConnectGatewayAssociationProposalsCommand")
-  .sc(DescribeDirectConnectGatewayAssociationProposals)
+  .sc(DescribeDirectConnectGatewayAssociationProposals$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

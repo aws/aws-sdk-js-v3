@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateWhatsAppBusinessAccountInput, AssociateWhatsAppBusinessAccountOutput } from "../models/models_0";
-import { AssociateWhatsAppBusinessAccount } from "../schemas/schemas_0";
+import { AssociateWhatsAppBusinessAccount$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -154,7 +154,7 @@ export class AssociateWhatsAppBusinessAccountCommand extends $Command
   })
   .s("SocialMessaging", "AssociateWhatsAppBusinessAccount", {})
   .n("SocialMessagingClient", "AssociateWhatsAppBusinessAccountCommand")
-  .sc(AssociateWhatsAppBusinessAccount)
+  .sc(AssociateWhatsAppBusinessAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

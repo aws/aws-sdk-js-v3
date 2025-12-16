@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BCMDashboardsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BCMDashboardsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDashboardRequest, UpdateDashboardResponse } from "../models/models_0";
-import { UpdateDashboard } from "../schemas/schemas_0";
+import { UpdateDashboard$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -325,7 +325,7 @@ export class UpdateDashboardCommand extends $Command
   })
   .s("AWSBCMDashboardsService", "UpdateDashboard", {})
   .n("BCMDashboardsClient", "UpdateDashboardCommand")
-  .sc(UpdateDashboard)
+  .sc(UpdateDashboard$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

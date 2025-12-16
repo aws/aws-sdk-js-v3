@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SyncResourceRequest, SyncResourceResponse } from "../models/models_0";
-import { SyncResource } from "../schemas/schemas_0";
+import { SyncResource$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -101,7 +101,7 @@ export class SyncResourceCommand extends $Command
   })
   .s("AWS242AppRegistry", "SyncResource", {})
   .n("ServiceCatalogAppRegistryClient", "SyncResourceCommand")
-  .sc(SyncResource)
+  .sc(SyncResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

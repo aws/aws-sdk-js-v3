@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetFederationTokenRequest, GetFederationTokenResponse } from "../models/models_1";
-import { GetFederationToken } from "../schemas/schemas_0";
+import { GetFederationToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class GetFederationTokenCommand extends $Command
   })
   .s("AmazonConnectService", "GetFederationToken", {})
   .n("ConnectClient", "GetFederationTokenCommand")
-  .sc(GetFederationToken)
+  .sc(GetFederationToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

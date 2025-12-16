@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateGuardrailVersionRequest, CreateGuardrailVersionResponse } from "../models/models_0";
-import { CreateGuardrailVersion } from "../schemas/schemas_0";
+import { CreateGuardrailVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class CreateGuardrailVersionCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "CreateGuardrailVersion", {})
   .n("BedrockClient", "CreateGuardrailVersionCommand")
-  .sc(CreateGuardrailVersion)
+  .sc(CreateGuardrailVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import type { GetAgentTaskResponseUrlRequest, GetAgentTaskResponseUrlResponse } from "../models/models_0";
-import { GetAgentTaskResponseUrl } from "../schemas/schemas_0";
+import { GetAgentTaskResponseUrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class GetAgentTaskResponseUrlCommand extends $Command
   })
   .s("GroundStation", "GetAgentTaskResponseUrl", {})
   .n("GroundStationClient", "GetAgentTaskResponseUrlCommand")
-  .sc(GetAgentTaskResponseUrl)
+  .sc(GetAgentTaskResponseUrl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

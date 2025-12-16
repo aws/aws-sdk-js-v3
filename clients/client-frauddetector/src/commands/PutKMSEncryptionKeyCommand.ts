@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import type { PutKMSEncryptionKeyRequest, PutKMSEncryptionKeyResult } from "../models/models_0";
-import { PutKMSEncryptionKey } from "../schemas/schemas_0";
+import { PutKMSEncryptionKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class PutKMSEncryptionKeyCommand extends $Command
   })
   .s("AWSHawksNestServiceFacade", "PutKMSEncryptionKey", {})
   .n("FraudDetectorClient", "PutKMSEncryptionKeyCommand")
-  .sc(PutKMSEncryptionKey)
+  .sc(PutKMSEncryptionKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

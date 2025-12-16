@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import type { UpdateSnapshotRequest, UpdateSnapshotResponse } from "../models/models_0";
-import { UpdateSnapshot } from "../schemas/schemas_0";
+import { UpdateSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -694,7 +694,7 @@ export class UpdateSnapshotCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "UpdateSnapshot", {})
   .n("FSxClient", "UpdateSnapshotCommand")
-  .sc(UpdateSnapshot)
+  .sc(UpdateSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

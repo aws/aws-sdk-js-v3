@@ -9,7 +9,7 @@ import type {
   UpdatePullRequestApprovalRuleContentInput,
   UpdatePullRequestApprovalRuleContentOutput,
 } from "../models/models_0";
-import { UpdatePullRequestApprovalRuleContent } from "../schemas/schemas_0";
+import { UpdatePullRequestApprovalRuleContent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -143,7 +143,7 @@ export class UpdatePullRequestApprovalRuleContentCommand extends $Command
   })
   .s("CodeCommit_20150413", "UpdatePullRequestApprovalRuleContent", {})
   .n("CodeCommitClient", "UpdatePullRequestApprovalRuleContentCommand")
-  .sc(UpdatePullRequestApprovalRuleContent)
+  .sc(UpdatePullRequestApprovalRuleContent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

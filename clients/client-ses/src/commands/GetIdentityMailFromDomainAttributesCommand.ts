@@ -8,7 +8,7 @@ import type {
   GetIdentityMailFromDomainAttributesRequest,
   GetIdentityMailFromDomainAttributesResponse,
 } from "../models/models_0";
-import { GetIdentityMailFromDomainAttributes } from "../schemas/schemas_0";
+import { GetIdentityMailFromDomainAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -112,7 +112,7 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command
   })
   .s("SimpleEmailService", "GetIdentityMailFromDomainAttributes", {})
   .n("SESClient", "GetIdentityMailFromDomainAttributesCommand")
-  .sc(GetIdentityMailFromDomainAttributes)
+  .sc(GetIdentityMailFromDomainAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

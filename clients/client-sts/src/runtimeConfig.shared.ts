@@ -38,13 +38,13 @@ export const getRuntimeConfig = (config: STSClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsQueryProtocol({
-        defaultNamespace: "com.amazonaws.sts",
-        xmlNamespace: "https://sts.amazonaws.com/doc/2011-06-15/",
-        version: "2011-06-15",
-      }),
+    protocol: config?.protocol ?? AwsQueryProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.sts",
+      xmlNamespace: "https://sts.amazonaws.com/doc/2011-06-15/",
+      version: "2011-06-15",
+      serviceTarget: "AWSSecurityTokenServiceV20110615",
+    },
     serviceId: config?.serviceId ?? "STS",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSimulationInput, DeleteSimulationOutput } from "../models/models_0";
-import { DeleteSimulation } from "../schemas/schemas_0";
+import { DeleteSimulation$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -94,7 +94,7 @@ export class DeleteSimulationCommand extends $Command
   })
   .s("SimSpaceWeaver", "DeleteSimulation", {})
   .n("SimSpaceWeaverClient", "DeleteSimulationCommand")
-  .sc(DeleteSimulation)
+  .sc(DeleteSimulation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

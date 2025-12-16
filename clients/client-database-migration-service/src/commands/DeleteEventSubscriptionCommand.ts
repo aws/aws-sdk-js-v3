@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteEventSubscriptionMessage, DeleteEventSubscriptionResponse } from "../models/models_0";
-import { DeleteEventSubscription } from "../schemas/schemas_0";
+import { DeleteEventSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DeleteEventSubscriptionCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DeleteEventSubscription", {})
   .n("DatabaseMigrationServiceClient", "DeleteEventSubscriptionCommand")
-  .sc(DeleteEventSubscription)
+  .sc(DeleteEventSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

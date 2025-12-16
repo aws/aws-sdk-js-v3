@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateHubContentPresignedUrlsRequest, CreateHubContentPresignedUrlsResponse } from "../models/models_1";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateHubContentPresignedUrls } from "../schemas/schemas_0";
+import { CreateHubContentPresignedUrls$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class CreateHubContentPresignedUrlsCommand extends $Command
   })
   .s("SageMaker", "CreateHubContentPresignedUrls", {})
   .n("SageMakerClient", "CreateHubContentPresignedUrlsCommand")
-  .sc(CreateHubContentPresignedUrls)
+  .sc(CreateHubContentPresignedUrls$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

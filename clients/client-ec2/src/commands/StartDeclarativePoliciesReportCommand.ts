@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartDeclarativePoliciesReportRequest, StartDeclarativePoliciesReportResult } from "../models/models_7";
-import { StartDeclarativePoliciesReport } from "../schemas/schemas_0";
+import { StartDeclarativePoliciesReport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class StartDeclarativePoliciesReportCommand extends $Command
   })
   .s("AmazonEC2", "StartDeclarativePoliciesReport", {})
   .n("EC2Client", "StartDeclarativePoliciesReportCommand")
-  .sc(StartDeclarativePoliciesReport)
+  .sc(StartDeclarativePoliciesReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

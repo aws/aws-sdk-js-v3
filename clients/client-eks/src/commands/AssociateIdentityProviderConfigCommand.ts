@@ -9,7 +9,7 @@ import type {
   AssociateIdentityProviderConfigRequest,
   AssociateIdentityProviderConfigResponse,
 } from "../models/models_0";
-import { AssociateIdentityProviderConfig } from "../schemas/schemas_0";
+import { AssociateIdentityProviderConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -153,7 +153,7 @@ export class AssociateIdentityProviderConfigCommand extends $Command
   })
   .s("AWSWesleyFrontend", "AssociateIdentityProviderConfig", {})
   .n("EKSClient", "AssociateIdentityProviderConfigCommand")
-  .sc(AssociateIdentityProviderConfig)
+  .sc(AssociateIdentityProviderConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

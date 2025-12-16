@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import type { EphemerisIdResponse, UpdateEphemerisRequest } from "../models/models_0";
-import { UpdateEphemeris } from "../schemas/schemas_0";
+import { UpdateEphemeris$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class UpdateEphemerisCommand extends $Command
   })
   .s("GroundStation", "UpdateEphemeris", {})
   .n("GroundStationClient", "UpdateEphemerisCommand")
-  .sc(UpdateEphemeris)
+  .sc(UpdateEphemeris$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

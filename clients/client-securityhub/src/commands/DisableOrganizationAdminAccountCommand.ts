@@ -8,7 +8,7 @@ import type {
   DisableOrganizationAdminAccountRequest,
   DisableOrganizationAdminAccountResponse,
 } from "../models/models_2";
-import { DisableOrganizationAdminAccount } from "../schemas/schemas_0";
+import { DisableOrganizationAdminAccount$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -108,7 +108,7 @@ export class DisableOrganizationAdminAccountCommand extends $Command
   })
   .s("SecurityHubAPIService", "DisableOrganizationAdminAccount", {})
   .n("SecurityHubClient", "DisableOrganizationAdminAccountCommand")
-  .sc(DisableOrganizationAdminAccount)
+  .sc(DisableOrganizationAdminAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

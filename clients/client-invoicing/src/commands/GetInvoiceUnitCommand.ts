@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InvoicingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InvoicingClient";
 import type { GetInvoiceUnitRequest, GetInvoiceUnitResponse } from "../models/models_0";
-import { GetInvoiceUnit } from "../schemas/schemas_0";
+import { GetInvoiceUnit$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -153,7 +153,7 @@ export class GetInvoiceUnitCommand extends $Command
   })
   .s("Invoicing", "GetInvoiceUnit", {})
   .n("InvoicingClient", "GetInvoiceUnitCommand")
-  .sc(GetInvoiceUnit)
+  .sc(GetInvoiceUnit$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

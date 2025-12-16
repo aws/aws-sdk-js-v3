@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CopyImageRequest, CopyImageResponse } from "../models/models_0";
-import { CopyImage } from "../schemas/schemas_0";
+import { CopyImage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class CopyImageCommand extends $Command
   })
   .s("PhotonAdminProxyService", "CopyImage", {})
   .n("AppStreamClient", "CopyImageCommand")
-  .sc(CopyImage)
+  .sc(CopyImage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

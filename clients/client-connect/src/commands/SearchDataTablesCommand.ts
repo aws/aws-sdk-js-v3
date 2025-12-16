@@ -7,7 +7,7 @@ import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchDataTablesResponse } from "../models/models_2";
 import type { SearchDataTablesRequest } from "../models/models_3";
-import { SearchDataTables } from "../schemas/schemas_0";
+import { SearchDataTables$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -167,7 +167,7 @@ export class SearchDataTablesCommand extends $Command
   })
   .s("AmazonConnectService", "SearchDataTables", {})
   .n("ConnectClient", "SearchDataTablesCommand")
-  .sc(SearchDataTables)
+  .sc(SearchDataTables$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

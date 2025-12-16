@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateTrustRequest, UpdateTrustResult } from "../models/models_0";
-import { UpdateTrust } from "../schemas/schemas_0";
+import { UpdateTrust$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class UpdateTrustCommand extends $Command
   })
   .s("DirectoryService_20150416", "UpdateTrust", {})
   .n("DirectoryServiceClient", "UpdateTrustCommand")
-  .sc(UpdateTrust)
+  .sc(UpdateTrust$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

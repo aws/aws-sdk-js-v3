@@ -9,7 +9,7 @@ import type {
   CreateConfiguredModelAlgorithmAssociationRequest,
   CreateConfiguredModelAlgorithmAssociationResponse,
 } from "../models/models_0";
-import { CreateConfiguredModelAlgorithmAssociation } from "../schemas/schemas_0";
+import { CreateConfiguredModelAlgorithmAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -169,7 +169,7 @@ export class CreateConfiguredModelAlgorithmAssociationCommand extends $Command
   })
   .s("AWSStarkControlService", "CreateConfiguredModelAlgorithmAssociation", {})
   .n("CleanRoomsMLClient", "CreateConfiguredModelAlgorithmAssociationCommand")
-  .sc(CreateConfiguredModelAlgorithmAssociation)
+  .sc(CreateConfiguredModelAlgorithmAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

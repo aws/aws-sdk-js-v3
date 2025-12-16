@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateActionTypeInput } from "../models/models_0";
-import { UpdateActionType } from "../schemas/schemas_0";
+import { UpdateActionType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,7 +138,7 @@ export class UpdateActionTypeCommand extends $Command
   })
   .s("CodePipeline_20150709", "UpdateActionType", {})
   .n("CodePipelineClient", "UpdateActionTypeCommand")
-  .sc(UpdateActionType)
+  .sc(UpdateActionType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

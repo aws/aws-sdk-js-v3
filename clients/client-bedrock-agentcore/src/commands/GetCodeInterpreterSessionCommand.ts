@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCodeInterpreterSessionRequest, GetCodeInterpreterSessionResponse } from "../models/models_0";
-import { GetCodeInterpreterSession } from "../schemas/schemas_0";
+import { GetCodeInterpreterSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class GetCodeInterpreterSessionCommand extends $Command
   })
   .s("AmazonBedrockAgentCore", "GetCodeInterpreterSession", {})
   .n("BedrockAgentCoreClient", "GetCodeInterpreterSessionCommand")
-  .sc(GetCodeInterpreterSession)
+  .sc(GetCodeInterpreterSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

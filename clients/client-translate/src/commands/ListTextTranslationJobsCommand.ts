@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListTextTranslationJobsRequest, ListTextTranslationJobsResponse } from "../models/models_0";
-import { ListTextTranslationJobs } from "../schemas/schemas_0";
+import { ListTextTranslationJobs$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
@@ -136,7 +136,7 @@ export class ListTextTranslationJobsCommand extends $Command
   })
   .s("AWSShineFrontendService_20170701", "ListTextTranslationJobs", {})
   .n("TranslateClient", "ListTextTranslationJobsCommand")
-  .sc(ListTextTranslationJobs)
+  .sc(ListTextTranslationJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

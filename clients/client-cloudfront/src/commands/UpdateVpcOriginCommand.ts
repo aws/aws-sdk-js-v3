@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateVpcOriginRequest, UpdateVpcOriginResult } from "../models/models_1";
-import { UpdateVpcOrigin } from "../schemas/schemas_0";
+import { UpdateVpcOrigin$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -192,7 +192,7 @@ export class UpdateVpcOriginCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "UpdateVpcOrigin", {})
   .n("CloudFrontClient", "UpdateVpcOriginCommand")
-  .sc(UpdateVpcOrigin)
+  .sc(UpdateVpcOrigin$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

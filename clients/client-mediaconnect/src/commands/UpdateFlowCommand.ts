@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import type { UpdateFlowRequest, UpdateFlowResponse } from "../models/models_0";
-import { UpdateFlow } from "../schemas/schemas_0";
+import { UpdateFlow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -495,7 +495,7 @@ export class UpdateFlowCommand extends $Command
   })
   .s("MediaConnect", "UpdateFlow", {})
   .n("MediaConnectClient", "UpdateFlowCommand")
-  .sc(UpdateFlow)
+  .sc(UpdateFlow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

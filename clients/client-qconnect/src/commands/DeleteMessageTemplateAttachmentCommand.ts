@@ -9,7 +9,7 @@ import type {
   DeleteMessageTemplateAttachmentResponse,
 } from "../models/models_1";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { DeleteMessageTemplateAttachment } from "../schemas/schemas_0";
+import { DeleteMessageTemplateAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteMessageTemplateAttachmentCommand extends $Command
   })
   .s("WisdomService", "DeleteMessageTemplateAttachment", {})
   .n("QConnectClient", "DeleteMessageTemplateAttachmentCommand")
-  .sc(DeleteMessageTemplateAttachment)
+  .sc(DeleteMessageTemplateAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

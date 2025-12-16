@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { DeleteNetworkFirewallTransitGatewayAttachment } from "../schemas/schemas_0";
+import { DeleteNetworkFirewallTransitGatewayAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class DeleteNetworkFirewallTransitGatewayAttachmentCommand extends $Comma
   })
   .s("NetworkFirewall_20201112", "DeleteNetworkFirewallTransitGatewayAttachment", {})
   .n("NetworkFirewallClient", "DeleteNetworkFirewallTransitGatewayAttachmentCommand")
-  .sc(DeleteNetworkFirewallTransitGatewayAttachment)
+  .sc(DeleteNetworkFirewallTransitGatewayAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   BatchAssociateResourcesToCustomLineItemInput,
   BatchAssociateResourcesToCustomLineItemOutput,
 } from "../models/models_0";
-import { BatchAssociateResourcesToCustomLineItem } from "../schemas/schemas_0";
+import { BatchAssociateResourcesToCustomLineItem$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class BatchAssociateResourcesToCustomLineItemCommand extends $Command
   })
   .s("AWSBillingConductor", "BatchAssociateResourcesToCustomLineItem", {})
   .n("BillingconductorClient", "BatchAssociateResourcesToCustomLineItemCommand")
-  .sc(BatchAssociateResourcesToCustomLineItem)
+  .sc(BatchAssociateResourcesToCustomLineItem$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

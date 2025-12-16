@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopEventDataStoreIngestionRequest, StopEventDataStoreIngestionResponse } from "../models/models_0";
-import { StopEventDataStoreIngestion } from "../schemas/schemas_0";
+import { StopEventDataStoreIngestion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class StopEventDataStoreIngestionCommand extends $Command
   })
   .s("CloudTrail_20131101", "StopEventDataStoreIngestion", {})
   .n("CloudTrailClient", "StopEventDataStoreIngestionCommand")
-  .sc(StopEventDataStoreIngestion)
+  .sc(StopEventDataStoreIngestion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

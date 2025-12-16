@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryReadinessClient";
-import { CreateResourceSet } from "../schemas/schemas_0";
+import { CreateResourceSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -149,7 +149,7 @@ export class CreateResourceSetCommand extends $Command
   })
   .s("Route53RecoveryReadiness", "CreateResourceSet", {})
   .n("Route53RecoveryReadinessClient", "CreateResourceSetCommand")
-  .sc(CreateResourceSet)
+  .sc(CreateResourceSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

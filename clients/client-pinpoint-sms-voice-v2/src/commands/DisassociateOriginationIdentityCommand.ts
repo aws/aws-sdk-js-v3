@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DisassociateOriginationIdentity } from "../schemas/schemas_0";
+import { DisassociateOriginationIdentity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DisassociateOriginationIdentityCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DisassociateOriginationIdentity", {})
   .n("PinpointSMSVoiceV2Client", "DisassociateOriginationIdentityCommand")
-  .sc(DisassociateOriginationIdentity)
+  .sc(DisassociateOriginationIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

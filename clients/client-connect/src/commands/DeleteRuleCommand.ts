@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteRuleRequest } from "../models/models_1";
-import { DeleteRule } from "../schemas/schemas_0";
+import { DeleteRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteRuleCommand extends $Command
   })
   .s("AmazonConnectService", "DeleteRule", {})
   .n("ConnectClient", "DeleteRuleCommand")
-  .sc(DeleteRule)
+  .sc(DeleteRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

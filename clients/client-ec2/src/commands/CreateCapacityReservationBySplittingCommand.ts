@@ -9,7 +9,7 @@ import type {
   CreateCapacityReservationBySplittingRequest,
   CreateCapacityReservationBySplittingResult,
 } from "../models/models_0";
-import { CreateCapacityReservationBySplitting } from "../schemas/schemas_0";
+import { CreateCapacityReservationBySplitting$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -205,7 +205,7 @@ export class CreateCapacityReservationBySplittingCommand extends $Command
   })
   .s("AmazonEC2", "CreateCapacityReservationBySplitting", {})
   .n("EC2Client", "CreateCapacityReservationBySplittingCommand")
-  .sc(CreateCapacityReservationBySplitting)
+  .sc(CreateCapacityReservationBySplitting$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateSpaceRequest, UpdateSpaceResponse } from "../models/models_0";
-import { UpdateSpace } from "../schemas/schemas_0";
+import { UpdateSpace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class UpdateSpaceCommand extends $Command
   })
   .s("CodeCatalyst", "UpdateSpace", {})
   .n("CodeCatalystClient", "UpdateSpaceCommand")
-  .sc(UpdateSpace)
+  .sc(UpdateSpace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

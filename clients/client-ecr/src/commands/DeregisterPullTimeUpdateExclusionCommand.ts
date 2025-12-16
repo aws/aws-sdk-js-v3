@@ -9,7 +9,7 @@ import type {
   DeregisterPullTimeUpdateExclusionRequest,
   DeregisterPullTimeUpdateExclusionResponse,
 } from "../models/models_0";
-import { DeregisterPullTimeUpdateExclusion } from "../schemas/schemas_0";
+import { DeregisterPullTimeUpdateExclusion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class DeregisterPullTimeUpdateExclusionCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "DeregisterPullTimeUpdateExclusion", {})
   .n("ECRClient", "DeregisterPullTimeUpdateExclusionCommand")
-  .sc(DeregisterPullTimeUpdateExclusion)
+  .sc(DeregisterPullTimeUpdateExclusion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

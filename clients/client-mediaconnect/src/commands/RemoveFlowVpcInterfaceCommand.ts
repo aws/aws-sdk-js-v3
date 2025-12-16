@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
 import type { RemoveFlowVpcInterfaceRequest, RemoveFlowVpcInterfaceResponse } from "../models/models_0";
-import { RemoveFlowVpcInterface } from "../schemas/schemas_0";
+import { RemoveFlowVpcInterface$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class RemoveFlowVpcInterfaceCommand extends $Command
   })
   .s("MediaConnect", "RemoveFlowVpcInterface", {})
   .n("MediaConnectClient", "RemoveFlowVpcInterfaceCommand")
-  .sc(RemoveFlowVpcInterface)
+  .sc(RemoveFlowVpcInterface$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

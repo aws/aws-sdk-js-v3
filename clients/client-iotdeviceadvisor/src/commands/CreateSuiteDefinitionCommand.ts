@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IotDeviceAdvisorClient";
 import type { CreateSuiteDefinitionRequest, CreateSuiteDefinitionResponse } from "../models/models_0";
-import { CreateSuiteDefinition } from "../schemas/schemas_0";
+import { CreateSuiteDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class CreateSuiteDefinitionCommand extends $Command
   })
   .s("IotSenateService", "CreateSuiteDefinition", {})
   .n("IotDeviceAdvisorClient", "CreateSuiteDefinitionCommand")
-  .sc(CreateSuiteDefinition)
+  .sc(CreateSuiteDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

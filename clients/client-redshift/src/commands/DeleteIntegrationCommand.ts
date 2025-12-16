@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteIntegrationMessage, Integration } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DeleteIntegration } from "../schemas/schemas_0";
+import { DeleteIntegration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class DeleteIntegrationCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DeleteIntegration", {})
   .n("RedshiftClient", "DeleteIntegrationCommand")
-  .sc(DeleteIntegration)
+  .sc(DeleteIntegration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteFacesRequest, DeleteFacesResponse } from "../models/models_0";
 import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { DeleteFaces } from "../schemas/schemas_0";
+import { DeleteFaces$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class DeleteFacesCommand extends $Command
   })
   .s("RekognitionService", "DeleteFaces", {})
   .n("RekognitionClient", "DeleteFacesCommand")
-  .sc(DeleteFaces)
+  .sc(DeleteFaces$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

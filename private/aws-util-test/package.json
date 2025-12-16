@@ -24,9 +24,9 @@
     "@aws-sdk/client-s3": "*",
     "@aws-sdk/client-s3-control": "*",
     "@aws-sdk/client-sts": "*",
-    "@smithy/protocol-http": "^5.3.5",
-    "@smithy/shared-ini-file-loader": "^4.4.0",
-    "@smithy/types": "^4.9.0",
+    "@smithy/protocol-http": "^5.3.6",
+    "@smithy/shared-ini-file-loader": "^4.4.1",
+    "@smithy/types": "^4.10.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

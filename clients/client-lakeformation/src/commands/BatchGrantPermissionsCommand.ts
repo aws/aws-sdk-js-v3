@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import type { BatchGrantPermissionsRequest, BatchGrantPermissionsResponse } from "../models/models_0";
-import { BatchGrantPermissions } from "../schemas/schemas_0";
+import { BatchGrantPermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -242,7 +242,7 @@ export class BatchGrantPermissionsCommand extends $Command
   })
   .s("AWSLakeFormation", "BatchGrantPermissions", {})
   .n("LakeFormationClient", "BatchGrantPermissionsCommand")
-  .sc(BatchGrantPermissions)
+  .sc(BatchGrantPermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   DescribeBatchDeleteConfigurationTaskRequest,
   DescribeBatchDeleteConfigurationTaskResponse,
 } from "../models/models_0";
-import { DescribeBatchDeleteConfigurationTask } from "../schemas/schemas_0";
+import { DescribeBatchDeleteConfigurationTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class DescribeBatchDeleteConfigurationTaskCommand extends $Command
   })
   .s("AWSPoseidonService_V2015_11_01", "DescribeBatchDeleteConfigurationTask", {})
   .n("ApplicationDiscoveryServiceClient", "DescribeBatchDeleteConfigurationTaskCommand")
-  .sc(DescribeBatchDeleteConfigurationTask)
+  .sc(DescribeBatchDeleteConfigurationTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

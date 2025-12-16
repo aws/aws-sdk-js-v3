@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationAutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteScheduledActionRequest, DeleteScheduledActionResponse } from "../models/models_0";
-import { DeleteScheduledAction } from "../schemas/schemas_0";
+import { DeleteScheduledAction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class DeleteScheduledActionCommand extends $Command
   })
   .s("AnyScaleFrontendService", "DeleteScheduledAction", {})
   .n("ApplicationAutoScalingClient", "DeleteScheduledActionCommand")
-  .sc(DeleteScheduledAction)
+  .sc(DeleteScheduledAction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

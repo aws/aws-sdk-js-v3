@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
 import type { GetResourcePolicyRequest, GetResourcePolicyResponse } from "../models/models_0";
-import { GetResourcePolicy } from "../schemas/schemas_0";
+import { GetResourcePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class GetResourcePolicyCommand extends $Command
   })
   .s("RefactorSpaces", "GetResourcePolicy", {})
   .n("MigrationHubRefactorSpacesClient", "GetResourcePolicyCommand")
-  .sc(GetResourcePolicy)
+  .sc(GetResourcePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

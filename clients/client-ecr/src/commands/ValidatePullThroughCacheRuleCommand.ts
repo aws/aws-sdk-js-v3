@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ValidatePullThroughCacheRuleRequest, ValidatePullThroughCacheRuleResponse } from "../models/models_0";
-import { ValidatePullThroughCacheRule } from "../schemas/schemas_0";
+import { ValidatePullThroughCacheRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ValidatePullThroughCacheRuleCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "ValidatePullThroughCacheRule", {})
   .n("ECRClient", "ValidatePullThroughCacheRuleCommand")
-  .sc(ValidatePullThroughCacheRule)
+  .sc(ValidatePullThroughCacheRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

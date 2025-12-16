@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeDomainControllersRequest, DescribeDomainControllersResult } from "../models/models_0";
-import { DescribeDomainControllers } from "../schemas/schemas_0";
+import { DescribeDomainControllers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class DescribeDomainControllersCommand extends $Command
   })
   .s("DirectoryService_20150416", "DescribeDomainControllers", {})
   .n("DirectoryServiceClient", "DescribeDomainControllersCommand")
-  .sc(DescribeDomainControllers)
+  .sc(DescribeDomainControllers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

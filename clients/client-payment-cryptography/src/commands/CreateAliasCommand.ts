@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyClient";
-import { CreateAlias } from "../schemas/schemas_0";
+import { CreateAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class CreateAliasCommand extends $Command
   })
   .s("PaymentCryptographyControlPlane", "CreateAlias", {})
   .n("PaymentCryptographyClient", "CreateAliasCommand")
-  .sc(CreateAlias)
+  .sc(CreateAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

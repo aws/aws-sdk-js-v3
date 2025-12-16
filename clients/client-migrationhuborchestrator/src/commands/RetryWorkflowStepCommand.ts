@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
 import type { RetryWorkflowStepRequest, RetryWorkflowStepResponse } from "../models/models_0";
-import { RetryWorkflowStep } from "../schemas/schemas_0";
+import { RetryWorkflowStep$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class RetryWorkflowStepCommand extends $Command
   })
   .s("AWSMigrationHubOrchestrator", "RetryWorkflowStep", {})
   .n("MigrationHubOrchestratorClient", "RetryWorkflowStepCommand")
-  .sc(RetryWorkflowStep)
+  .sc(RetryWorkflowStep$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

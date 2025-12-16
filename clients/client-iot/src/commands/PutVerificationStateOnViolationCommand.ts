@@ -9,7 +9,7 @@ import type {
   PutVerificationStateOnViolationRequest,
   PutVerificationStateOnViolationResponse,
 } from "../models/models_2";
-import { PutVerificationStateOnViolation } from "../schemas/schemas_0";
+import { PutVerificationStateOnViolation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class PutVerificationStateOnViolationCommand extends $Command
   })
   .s("AWSIotService", "PutVerificationStateOnViolation", {})
   .n("IoTClient", "PutVerificationStateOnViolationCommand")
-  .sc(PutVerificationStateOnViolation)
+  .sc(PutVerificationStateOnViolation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

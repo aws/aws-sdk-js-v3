@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: TimestreamInfluxDBClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.timestreaminfluxdb",
-        serviceTarget: "AmazonTimestreamInfluxDB",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.timestreaminfluxdb",
+      version: "2023-01-27",
+      serviceTarget: "AmazonTimestreamInfluxDB",
+    },
     serviceId: config?.serviceId ?? "Timestream InfluxDB",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

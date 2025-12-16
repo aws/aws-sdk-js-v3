@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateSnapshotScheduleMessage, SnapshotSchedule } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { CreateSnapshotSchedule } from "../schemas/schemas_0";
+import { CreateSnapshotSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class CreateSnapshotScheduleCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "CreateSnapshotSchedule", {})
   .n("RedshiftClient", "CreateSnapshotScheduleCommand")
-  .sc(CreateSnapshotSchedule)
+  .sc(CreateSnapshotSchedule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

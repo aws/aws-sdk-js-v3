@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeCustomDomainsRequest, DescribeCustomDomainsResponse } from "../models/models_0";
-import { DescribeCustomDomains } from "../schemas/schemas_0";
+import { DescribeCustomDomains$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class DescribeCustomDomainsCommand extends $Command
   })
   .s("AppRunner", "DescribeCustomDomains", {})
   .n("AppRunnerClient", "DescribeCustomDomainsCommand")
-  .sc(DescribeCustomDomains)
+  .sc(DescribeCustomDomains$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

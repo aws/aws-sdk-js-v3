@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: ConnectCasesClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.connectcases" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.connectcases",
+      version: "2022-10-03",
+      serviceTarget: "AmazonConnectCases",
+    },
     serviceId: config?.serviceId ?? "ConnectCases",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

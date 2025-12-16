@@ -495,18 +495,15 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import {
-  BadRequestException as __BadRequestException,
-  InternalServerErrorException as __InternalServerErrorException,
-} from "../models/errors";
-import { GreengrassServiceException as __GreengrassServiceException } from "../models/GreengrassServiceException";
+import { BadRequestException, InternalServerErrorException } from "../models/errors";
+import { GreengrassServiceException } from "../models/GreengrassServiceException";
 
 /* eslint no-var: 0 */
-export var AssociateRoleToGroupRequest: StaticStructureSchema = [3, n0, _ARTGR, 0, [_GI, _RA], [[0, 1], 0]];
-export var AssociateRoleToGroupResponse: StaticStructureSchema = [3, n0, _ARTGRs, 0, [_AA], [0]];
-export var AssociateServiceRoleToAccountRequest: StaticStructureSchema = [3, n0, _ASRTAR, 0, [_RA], [0]];
-export var AssociateServiceRoleToAccountResponse: StaticStructureSchema = [3, n0, _ASRTARs, 0, [_AA], [0]];
-export var BadRequestException: StaticErrorSchema = [
+export var AssociateRoleToGroupRequest$: StaticStructureSchema = [3, n0, _ARTGR, 0, [_GI, _RA], [[0, 1], 0]];
+export var AssociateRoleToGroupResponse$: StaticStructureSchema = [3, n0, _ARTGRs, 0, [_AA], [0]];
+export var AssociateServiceRoleToAccountRequest$: StaticStructureSchema = [3, n0, _ASRTAR, 0, [_RA], [0]];
+export var AssociateServiceRoleToAccountResponse$: StaticStructureSchema = [3, n0, _ASRTARs, 0, [_AA], [0]];
+export var BadRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _BRE,
@@ -514,10 +511,10 @@ export var BadRequestException: StaticErrorSchema = [
   [_ED, _M],
   [() => ErrorDetails, 0],
 ];
-TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-export var BulkDeployment: StaticStructureSchema = [3, n0, _BD, 0, [_BDA, _BDI, _CA], [0, 0, 0]];
-export var BulkDeploymentMetrics: StaticStructureSchema = [3, n0, _BDM, 0, [_IIR, _RP, _RAe], [1, 1, 1]];
-export var BulkDeploymentResult: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+export var BulkDeployment$: StaticStructureSchema = [3, n0, _BD, 0, [_BDA, _BDI, _CA], [0, 0, 0]];
+export var BulkDeploymentMetrics$: StaticStructureSchema = [3, n0, _BDM, 0, [_IIR, _RP, _RAe], [1, 1, 1]];
+export var BulkDeploymentResult$: StaticStructureSchema = [
   3,
   n0,
   _BDR,
@@ -525,20 +522,20 @@ export var BulkDeploymentResult: StaticStructureSchema = [
   [_CA, _DA, _DI, _DS, _DT, _ED, _EM, _GA],
   [0, 0, 0, 0, 0, () => ErrorDetails, 0, 0],
 ];
-export var ConnectivityInfo: StaticStructureSchema = [3, n0, _CI, 0, [_HA, _I, _Me, _PN], [0, 0, 0, 1]];
-export var Connector: StaticStructureSchema = [3, n0, _C, 0, [_CAo, _I, _P], [0, 0, 128 | 0]];
-export var ConnectorDefinitionVersion: StaticStructureSchema = [3, n0, _CDV, 0, [_Co], [() => __listOfConnector]];
-export var Core: StaticStructureSchema = [3, n0, _Cor, 0, [_CAe, _I, _SS, _TA], [0, 0, 2, 0]];
-export var CoreDefinitionVersion: StaticStructureSchema = [3, n0, _CDVo, 0, [_Core], [() => __listOfCore]];
-export var CreateConnectorDefinitionRequest: StaticStructureSchema = [
+export var ConnectivityInfo$: StaticStructureSchema = [3, n0, _CI, 0, [_HA, _I, _Me, _PN], [0, 0, 0, 1]];
+export var Connector$: StaticStructureSchema = [3, n0, _C, 0, [_CAo, _I, _P], [0, 0, 128 | 0]];
+export var ConnectorDefinitionVersion$: StaticStructureSchema = [3, n0, _CDV, 0, [_Co], [() => __listOfConnector]];
+export var Core$: StaticStructureSchema = [3, n0, _Cor, 0, [_CAe, _I, _SS, _TA], [0, 0, 2, 0]];
+export var CoreDefinitionVersion$: StaticStructureSchema = [3, n0, _CDVo, 0, [_Core], [() => __listOfCore]];
+export var CreateConnectorDefinitionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCDR,
   0,
   [_ACT, _IV, _N, _t],
-  [[0, { [_hH]: _XACT }], () => ConnectorDefinitionVersion, 0, 128 | 0],
+  [[0, { [_hH]: _XACT }], () => ConnectorDefinitionVersion$, 0, 128 | 0],
 ];
-export var CreateConnectorDefinitionResponse: StaticStructureSchema = [
+export var CreateConnectorDefinitionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CCDRr,
@@ -546,7 +543,7 @@ export var CreateConnectorDefinitionResponse: StaticStructureSchema = [
   [_A, _CT, _I, _LUT, _LV, _LVA, _N],
   [0, 0, 0, 0, 0, 0, 0],
 ];
-export var CreateConnectorDefinitionVersionRequest: StaticStructureSchema = [
+export var CreateConnectorDefinitionVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCDVR,
@@ -554,7 +551,7 @@ export var CreateConnectorDefinitionVersionRequest: StaticStructureSchema = [
   [_ACT, _CDI, _Co],
   [[0, { [_hH]: _XACT }], [0, 1], () => __listOfConnector],
 ];
-export var CreateConnectorDefinitionVersionResponse: StaticStructureSchema = [
+export var CreateConnectorDefinitionVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CCDVRr,
@@ -562,15 +559,15 @@ export var CreateConnectorDefinitionVersionResponse: StaticStructureSchema = [
   [_A, _CT, _I, _V],
   [0, 0, 0, 0],
 ];
-export var CreateCoreDefinitionRequest: StaticStructureSchema = [
+export var CreateCoreDefinitionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCDRre,
   0,
   [_ACT, _IV, _N, _t],
-  [[0, { [_hH]: _XACT }], () => CoreDefinitionVersion, 0, 128 | 0],
+  [[0, { [_hH]: _XACT }], () => CoreDefinitionVersion$, 0, 128 | 0],
 ];
-export var CreateCoreDefinitionResponse: StaticStructureSchema = [
+export var CreateCoreDefinitionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CCDRrea,
@@ -578,7 +575,7 @@ export var CreateCoreDefinitionResponse: StaticStructureSchema = [
   [_A, _CT, _I, _LUT, _LV, _LVA, _N],
   [0, 0, 0, 0, 0, 0, 0],
 ];
-export var CreateCoreDefinitionVersionRequest: StaticStructureSchema = [
+export var CreateCoreDefinitionVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCDVRre,
@@ -586,7 +583,7 @@ export var CreateCoreDefinitionVersionRequest: StaticStructureSchema = [
   [_ACT, _CDIo, _Core],
   [[0, { [_hH]: _XACT }], [0, 1], () => __listOfCore],
 ];
-export var CreateCoreDefinitionVersionResponse: StaticStructureSchema = [
+export var CreateCoreDefinitionVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CCDVRrea,
@@ -594,7 +591,7 @@ export var CreateCoreDefinitionVersionResponse: StaticStructureSchema = [
   [_A, _CT, _I, _V],
   [0, 0, 0, 0],
 ];
-export var CreateDeploymentRequest: StaticStructureSchema = [
+export var CreateDeploymentRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDR,
@@ -602,16 +599,16 @@ export var CreateDeploymentRequest: StaticStructureSchema = [
   [_ACT, _DI, _DT, _GI, _GVI],
   [[0, { [_hH]: _XACT }], 0, 0, [0, 1], 0],
 ];
-export var CreateDeploymentResponse: StaticStructureSchema = [3, n0, _CDRr, 0, [_DA, _DI], [0, 0]];
-export var CreateDeviceDefinitionRequest: StaticStructureSchema = [
+export var CreateDeploymentResponse$: StaticStructureSchema = [3, n0, _CDRr, 0, [_DA, _DI], [0, 0]];
+export var CreateDeviceDefinitionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDDR,
   0,
   [_ACT, _IV, _N, _t],
-  [[0, { [_hH]: _XACT }], () => DeviceDefinitionVersion, 0, 128 | 0],
+  [[0, { [_hH]: _XACT }], () => DeviceDefinitionVersion$, 0, 128 | 0],
 ];
-export var CreateDeviceDefinitionResponse: StaticStructureSchema = [
+export var CreateDeviceDefinitionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CDDRr,
@@ -619,7 +616,7 @@ export var CreateDeviceDefinitionResponse: StaticStructureSchema = [
   [_A, _CT, _I, _LUT, _LV, _LVA, _N],
   [0, 0, 0, 0, 0, 0, 0],
 ];
-export var CreateDeviceDefinitionVersionRequest: StaticStructureSchema = [
+export var CreateDeviceDefinitionVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDDVR,
@@ -627,7 +624,7 @@ export var CreateDeviceDefinitionVersionRequest: StaticStructureSchema = [
   [_ACT, _DDI, _D],
   [[0, { [_hH]: _XACT }], [0, 1], () => __listOfDevice],
 ];
-export var CreateDeviceDefinitionVersionResponse: StaticStructureSchema = [
+export var CreateDeviceDefinitionVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CDDVRr,
@@ -635,15 +632,15 @@ export var CreateDeviceDefinitionVersionResponse: StaticStructureSchema = [
   [_A, _CT, _I, _V],
   [0, 0, 0, 0],
 ];
-export var CreateFunctionDefinitionRequest: StaticStructureSchema = [
+export var CreateFunctionDefinitionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CFDR,
   0,
   [_ACT, _IV, _N, _t],
-  [[0, { [_hH]: _XACT }], () => FunctionDefinitionVersion, 0, 128 | 0],
+  [[0, { [_hH]: _XACT }], () => FunctionDefinitionVersion$, 0, 128 | 0],
 ];
-export var CreateFunctionDefinitionResponse: StaticStructureSchema = [
+export var CreateFunctionDefinitionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CFDRr,
@@ -651,15 +648,15 @@ export var CreateFunctionDefinitionResponse: StaticStructureSchema = [
   [_A, _CT, _I, _LUT, _LV, _LVA, _N],
   [0, 0, 0, 0, 0, 0, 0],
 ];
-export var CreateFunctionDefinitionVersionRequest: StaticStructureSchema = [
+export var CreateFunctionDefinitionVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CFDVR,
   0,
   [_ACT, _DC, _FDI, _F],
-  [[0, { [_hH]: _XACT }], () => FunctionDefaultConfig, [0, 1], () => __listOfFunction],
+  [[0, { [_hH]: _XACT }], () => FunctionDefaultConfig$, [0, 1], () => __listOfFunction],
 ];
-export var CreateFunctionDefinitionVersionResponse: StaticStructureSchema = [
+export var CreateFunctionDefinitionVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CFDVRr,
@@ -667,7 +664,7 @@ export var CreateFunctionDefinitionVersionResponse: StaticStructureSchema = [
   [_A, _CT, _I, _V],
   [0, 0, 0, 0],
 ];
-export var CreateGroupCertificateAuthorityRequest: StaticStructureSchema = [
+export var CreateGroupCertificateAuthorityRequest$: StaticStructureSchema = [
   3,
   n0,
   _CGCAR,
@@ -678,16 +675,16 @@ export var CreateGroupCertificateAuthorityRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var CreateGroupCertificateAuthorityResponse: StaticStructureSchema = [3, n0, _CGCARr, 0, [_GCAA], [0]];
-export var CreateGroupRequest: StaticStructureSchema = [
+export var CreateGroupCertificateAuthorityResponse$: StaticStructureSchema = [3, n0, _CGCARr, 0, [_GCAA], [0]];
+export var CreateGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _CGR,
   0,
   [_ACT, _IV, _N, _t],
-  [[0, { [_hH]: _XACT }], () => GroupVersion, 0, 128 | 0],
+  [[0, { [_hH]: _XACT }], () => GroupVersion$, 0, 128 | 0],
 ];
-export var CreateGroupResponse: StaticStructureSchema = [
+export var CreateGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _CGRr,
@@ -695,7 +692,7 @@ export var CreateGroupResponse: StaticStructureSchema = [
   [_A, _CT, _I, _LUT, _LV, _LVA, _N],
   [0, 0, 0, 0, 0, 0, 0],
 ];
-export var CreateGroupVersionRequest: StaticStructureSchema = [
+export var CreateGroupVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CGVR,
@@ -703,16 +700,16 @@ export var CreateGroupVersionRequest: StaticStructureSchema = [
   [_ACT, _CDVA, _CDVAo, _DDVA, _FDVA, _GI, _LDVA, _RDVA, _SDVA],
   [[0, { [_hH]: _XACT }], 0, 0, 0, 0, [0, 1], 0, 0, 0],
 ];
-export var CreateGroupVersionResponse: StaticStructureSchema = [3, n0, _CGVRr, 0, [_A, _CT, _I, _V], [0, 0, 0, 0]];
-export var CreateLoggerDefinitionRequest: StaticStructureSchema = [
+export var CreateGroupVersionResponse$: StaticStructureSchema = [3, n0, _CGVRr, 0, [_A, _CT, _I, _V], [0, 0, 0, 0]];
+export var CreateLoggerDefinitionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CLDR,
   0,
   [_ACT, _IV, _N, _t],
-  [[0, { [_hH]: _XACT }], () => LoggerDefinitionVersion, 0, 128 | 0],
+  [[0, { [_hH]: _XACT }], () => LoggerDefinitionVersion$, 0, 128 | 0],
 ];
-export var CreateLoggerDefinitionResponse: StaticStructureSchema = [
+export var CreateLoggerDefinitionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CLDRr,
@@ -720,7 +717,7 @@ export var CreateLoggerDefinitionResponse: StaticStructureSchema = [
   [_A, _CT, _I, _LUT, _LV, _LVA, _N],
   [0, 0, 0, 0, 0, 0, 0],
 ];
-export var CreateLoggerDefinitionVersionRequest: StaticStructureSchema = [
+export var CreateLoggerDefinitionVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CLDVR,
@@ -728,7 +725,7 @@ export var CreateLoggerDefinitionVersionRequest: StaticStructureSchema = [
   [_ACT, _LDI, _L],
   [[0, { [_hH]: _XACT }], [0, 1], () => __listOfLogger],
 ];
-export var CreateLoggerDefinitionVersionResponse: StaticStructureSchema = [
+export var CreateLoggerDefinitionVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CLDVRr,
@@ -736,15 +733,15 @@ export var CreateLoggerDefinitionVersionResponse: StaticStructureSchema = [
   [_A, _CT, _I, _V],
   [0, 0, 0, 0],
 ];
-export var CreateResourceDefinitionRequest: StaticStructureSchema = [
+export var CreateResourceDefinitionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRDR,
   0,
   [_ACT, _IV, _N, _t],
-  [[0, { [_hH]: _XACT }], () => ResourceDefinitionVersion, 0, 128 | 0],
+  [[0, { [_hH]: _XACT }], () => ResourceDefinitionVersion$, 0, 128 | 0],
 ];
-export var CreateResourceDefinitionResponse: StaticStructureSchema = [
+export var CreateResourceDefinitionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CRDRr,
@@ -752,7 +749,7 @@ export var CreateResourceDefinitionResponse: StaticStructureSchema = [
   [_A, _CT, _I, _LUT, _LV, _LVA, _N],
   [0, 0, 0, 0, 0, 0, 0],
 ];
-export var CreateResourceDefinitionVersionRequest: StaticStructureSchema = [
+export var CreateResourceDefinitionVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRDVR,
@@ -760,7 +757,7 @@ export var CreateResourceDefinitionVersionRequest: StaticStructureSchema = [
   [_ACT, _RDI, _R],
   [[0, { [_hH]: _XACT }], [0, 1], () => __listOfResource],
 ];
-export var CreateResourceDefinitionVersionResponse: StaticStructureSchema = [
+export var CreateResourceDefinitionVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CRDVRr,
@@ -768,7 +765,7 @@ export var CreateResourceDefinitionVersionResponse: StaticStructureSchema = [
   [_A, _CT, _I, _V],
   [0, 0, 0, 0],
 ];
-export var CreateSoftwareUpdateJobRequest: StaticStructureSchema = [
+export var CreateSoftwareUpdateJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSUJR,
@@ -776,16 +773,16 @@ export var CreateSoftwareUpdateJobRequest: StaticStructureSchema = [
   [_ACT, _SUSR, _STU, _UALL, _UT, _UTA, _UTOS],
   [[0, { [_hH]: _XACT }], 0, 0, 0, 64 | 0, 0, 0],
 ];
-export var CreateSoftwareUpdateJobResponse: StaticStructureSchema = [3, n0, _CSUJRr, 0, [_IJA, _IJI, _PSV], [0, 0, 0]];
-export var CreateSubscriptionDefinitionRequest: StaticStructureSchema = [
+export var CreateSoftwareUpdateJobResponse$: StaticStructureSchema = [3, n0, _CSUJRr, 0, [_IJA, _IJI, _PSV], [0, 0, 0]];
+export var CreateSubscriptionDefinitionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSDR,
   0,
   [_ACT, _IV, _N, _t],
-  [[0, { [_hH]: _XACT }], () => SubscriptionDefinitionVersion, 0, 128 | 0],
+  [[0, { [_hH]: _XACT }], () => SubscriptionDefinitionVersion$, 0, 128 | 0],
 ];
-export var CreateSubscriptionDefinitionResponse: StaticStructureSchema = [
+export var CreateSubscriptionDefinitionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CSDRr,
@@ -793,7 +790,7 @@ export var CreateSubscriptionDefinitionResponse: StaticStructureSchema = [
   [_A, _CT, _I, _LUT, _LV, _LVA, _N],
   [0, 0, 0, 0, 0, 0, 0],
 ];
-export var CreateSubscriptionDefinitionVersionRequest: StaticStructureSchema = [
+export var CreateSubscriptionDefinitionVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSDVR,
@@ -801,7 +798,7 @@ export var CreateSubscriptionDefinitionVersionRequest: StaticStructureSchema = [
   [_ACT, _SDI, _S],
   [[0, { [_hH]: _XACT }], [0, 1], () => __listOfSubscription],
 ];
-export var CreateSubscriptionDefinitionVersionResponse: StaticStructureSchema = [
+export var CreateSubscriptionDefinitionVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CSDVRr,
@@ -809,7 +806,7 @@ export var CreateSubscriptionDefinitionVersionResponse: StaticStructureSchema = 
   [_A, _CT, _I, _V],
   [0, 0, 0, 0],
 ];
-export var DefinitionInformation: StaticStructureSchema = [
+export var DefinitionInformation$: StaticStructureSchema = [
   3,
   n0,
   _DIe,
@@ -817,93 +814,93 @@ export var DefinitionInformation: StaticStructureSchema = [
   [_A, _CT, _I, _LUT, _LV, _LVA, _N, _T],
   [0, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }]],
 ];
-export var DeleteConnectorDefinitionRequest: StaticStructureSchema = [3, n0, _DCDR, 0, [_CDI], [[0, 1]]];
-export var DeleteConnectorDefinitionResponse: StaticStructureSchema = [3, n0, _DCDRe, 0, [], []];
-export var DeleteCoreDefinitionRequest: StaticStructureSchema = [3, n0, _DCDRel, 0, [_CDIo], [[0, 1]]];
-export var DeleteCoreDefinitionResponse: StaticStructureSchema = [3, n0, _DCDRele, 0, [], []];
-export var DeleteDeviceDefinitionRequest: StaticStructureSchema = [3, n0, _DDDR, 0, [_DDI], [[0, 1]]];
-export var DeleteDeviceDefinitionResponse: StaticStructureSchema = [3, n0, _DDDRe, 0, [], []];
-export var DeleteFunctionDefinitionRequest: StaticStructureSchema = [3, n0, _DFDR, 0, [_FDI], [[0, 1]]];
-export var DeleteFunctionDefinitionResponse: StaticStructureSchema = [3, n0, _DFDRe, 0, [], []];
-export var DeleteGroupRequest: StaticStructureSchema = [3, n0, _DGR, 0, [_GI], [[0, 1]]];
-export var DeleteGroupResponse: StaticStructureSchema = [3, n0, _DGRe, 0, [], []];
-export var DeleteLoggerDefinitionRequest: StaticStructureSchema = [3, n0, _DLDR, 0, [_LDI], [[0, 1]]];
-export var DeleteLoggerDefinitionResponse: StaticStructureSchema = [3, n0, _DLDRe, 0, [], []];
-export var DeleteResourceDefinitionRequest: StaticStructureSchema = [3, n0, _DRDR, 0, [_RDI], [[0, 1]]];
-export var DeleteResourceDefinitionResponse: StaticStructureSchema = [3, n0, _DRDRe, 0, [], []];
-export var DeleteSubscriptionDefinitionRequest: StaticStructureSchema = [3, n0, _DSDR, 0, [_SDI], [[0, 1]]];
-export var DeleteSubscriptionDefinitionResponse: StaticStructureSchema = [3, n0, _DSDRe, 0, [], []];
-export var Deployment: StaticStructureSchema = [3, n0, _De, 0, [_CA, _DA, _DI, _DT, _GA], [0, 0, 0, 0, 0]];
-export var Device: StaticStructureSchema = [3, n0, _Dev, 0, [_CAe, _I, _SS, _TA], [0, 0, 2, 0]];
-export var DeviceDefinitionVersion: StaticStructureSchema = [3, n0, _DDV, 0, [_D], [() => __listOfDevice]];
-export var DisassociateRoleFromGroupRequest: StaticStructureSchema = [3, n0, _DRFGR, 0, [_GI], [[0, 1]]];
-export var DisassociateRoleFromGroupResponse: StaticStructureSchema = [3, n0, _DRFGRi, 0, [_DAi], [0]];
-export var DisassociateServiceRoleFromAccountRequest: StaticStructureSchema = [3, n0, _DSRFAR, 0, [], []];
-export var DisassociateServiceRoleFromAccountResponse: StaticStructureSchema = [3, n0, _DSRFARi, 0, [_DAi], [0]];
-export var ErrorDetail: StaticStructureSchema = [3, n0, _EDr, 0, [_DEC, _DEM], [0, 0]];
-export var Function: StaticStructureSchema = [3, n0, _Fu, 0, [_FA, _FC, _I], [0, () => FunctionConfiguration, 0]];
-export var FunctionConfiguration: StaticStructureSchema = [
+export var DeleteConnectorDefinitionRequest$: StaticStructureSchema = [3, n0, _DCDR, 0, [_CDI], [[0, 1]]];
+export var DeleteConnectorDefinitionResponse$: StaticStructureSchema = [3, n0, _DCDRe, 0, [], []];
+export var DeleteCoreDefinitionRequest$: StaticStructureSchema = [3, n0, _DCDRel, 0, [_CDIo], [[0, 1]]];
+export var DeleteCoreDefinitionResponse$: StaticStructureSchema = [3, n0, _DCDRele, 0, [], []];
+export var DeleteDeviceDefinitionRequest$: StaticStructureSchema = [3, n0, _DDDR, 0, [_DDI], [[0, 1]]];
+export var DeleteDeviceDefinitionResponse$: StaticStructureSchema = [3, n0, _DDDRe, 0, [], []];
+export var DeleteFunctionDefinitionRequest$: StaticStructureSchema = [3, n0, _DFDR, 0, [_FDI], [[0, 1]]];
+export var DeleteFunctionDefinitionResponse$: StaticStructureSchema = [3, n0, _DFDRe, 0, [], []];
+export var DeleteGroupRequest$: StaticStructureSchema = [3, n0, _DGR, 0, [_GI], [[0, 1]]];
+export var DeleteGroupResponse$: StaticStructureSchema = [3, n0, _DGRe, 0, [], []];
+export var DeleteLoggerDefinitionRequest$: StaticStructureSchema = [3, n0, _DLDR, 0, [_LDI], [[0, 1]]];
+export var DeleteLoggerDefinitionResponse$: StaticStructureSchema = [3, n0, _DLDRe, 0, [], []];
+export var DeleteResourceDefinitionRequest$: StaticStructureSchema = [3, n0, _DRDR, 0, [_RDI], [[0, 1]]];
+export var DeleteResourceDefinitionResponse$: StaticStructureSchema = [3, n0, _DRDRe, 0, [], []];
+export var DeleteSubscriptionDefinitionRequest$: StaticStructureSchema = [3, n0, _DSDR, 0, [_SDI], [[0, 1]]];
+export var DeleteSubscriptionDefinitionResponse$: StaticStructureSchema = [3, n0, _DSDRe, 0, [], []];
+export var Deployment$: StaticStructureSchema = [3, n0, _De, 0, [_CA, _DA, _DI, _DT, _GA], [0, 0, 0, 0, 0]];
+export var Device$: StaticStructureSchema = [3, n0, _Dev, 0, [_CAe, _I, _SS, _TA], [0, 0, 2, 0]];
+export var DeviceDefinitionVersion$: StaticStructureSchema = [3, n0, _DDV, 0, [_D], [() => __listOfDevice]];
+export var DisassociateRoleFromGroupRequest$: StaticStructureSchema = [3, n0, _DRFGR, 0, [_GI], [[0, 1]]];
+export var DisassociateRoleFromGroupResponse$: StaticStructureSchema = [3, n0, _DRFGRi, 0, [_DAi], [0]];
+export var DisassociateServiceRoleFromAccountRequest$: StaticStructureSchema = [3, n0, _DSRFAR, 0, [], []];
+export var DisassociateServiceRoleFromAccountResponse$: StaticStructureSchema = [3, n0, _DSRFARi, 0, [_DAi], [0]];
+export var ErrorDetail$: StaticStructureSchema = [3, n0, _EDr, 0, [_DEC, _DEM], [0, 0]];
+export var Function$: StaticStructureSchema = [3, n0, _Fu, 0, [_FA, _FC, _I], [0, () => FunctionConfiguration$, 0]];
+export var FunctionConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _FC,
   0,
   [_ET, _E, _EA, _Ex, _MS, _Pi, _Ti, _FRO],
-  [0, () => FunctionConfigurationEnvironment, 0, 0, 1, 2, 1, 0],
+  [0, () => FunctionConfigurationEnvironment$, 0, 0, 1, 2, 1, 0],
 ];
-export var FunctionConfigurationEnvironment: StaticStructureSchema = [
+export var FunctionConfigurationEnvironment$: StaticStructureSchema = [
   3,
   n0,
   _FCE,
   0,
   [_AS, _Exe, _RAP, _Va],
-  [2, () => FunctionExecutionConfig, () => __listOfResourceAccessPolicy, 128 | 0],
+  [2, () => FunctionExecutionConfig$, () => __listOfResourceAccessPolicy, 128 | 0],
 ];
-export var FunctionDefaultConfig: StaticStructureSchema = [
+export var FunctionDefaultConfig$: StaticStructureSchema = [
   3,
   n0,
   _FDC,
   0,
   [_Exe],
-  [() => FunctionDefaultExecutionConfig],
+  [() => FunctionDefaultExecutionConfig$],
 ];
-export var FunctionDefaultExecutionConfig: StaticStructureSchema = [
+export var FunctionDefaultExecutionConfig$: StaticStructureSchema = [
   3,
   n0,
   _FDEC,
   0,
   [_IM, _RAu],
-  [0, () => FunctionRunAsConfig],
+  [0, () => FunctionRunAsConfig$],
 ];
-export var FunctionDefinitionVersion: StaticStructureSchema = [
+export var FunctionDefinitionVersion$: StaticStructureSchema = [
   3,
   n0,
   _FDV,
   0,
   [_DC, _F],
-  [() => FunctionDefaultConfig, () => __listOfFunction],
+  [() => FunctionDefaultConfig$, () => __listOfFunction],
 ];
-export var FunctionExecutionConfig: StaticStructureSchema = [
+export var FunctionExecutionConfig$: StaticStructureSchema = [
   3,
   n0,
   _FEC,
   0,
   [_IM, _RAu],
-  [0, () => FunctionRunAsConfig],
+  [0, () => FunctionRunAsConfig$],
 ];
-export var FunctionRunAsConfig: StaticStructureSchema = [3, n0, _FRAC, 0, [_G, _U], [1, 1]];
-export var GetAssociatedRoleRequest: StaticStructureSchema = [3, n0, _GARR, 0, [_GI], [[0, 1]]];
-export var GetAssociatedRoleResponse: StaticStructureSchema = [3, n0, _GARRe, 0, [_AA, _RA], [0, 0]];
-export var GetBulkDeploymentStatusRequest: StaticStructureSchema = [3, n0, _GBDSR, 0, [_BDI], [[0, 1]]];
-export var GetBulkDeploymentStatusResponse: StaticStructureSchema = [
+export var FunctionRunAsConfig$: StaticStructureSchema = [3, n0, _FRAC, 0, [_G, _U], [1, 1]];
+export var GetAssociatedRoleRequest$: StaticStructureSchema = [3, n0, _GARR, 0, [_GI], [[0, 1]]];
+export var GetAssociatedRoleResponse$: StaticStructureSchema = [3, n0, _GARRe, 0, [_AA, _RA], [0, 0]];
+export var GetBulkDeploymentStatusRequest$: StaticStructureSchema = [3, n0, _GBDSR, 0, [_BDI], [[0, 1]]];
+export var GetBulkDeploymentStatusResponse$: StaticStructureSchema = [
   3,
   n0,
   _GBDSRe,
   0,
   [_BDM, _BDS, _CA, _ED, _EM, _t],
-  [() => BulkDeploymentMetrics, 0, 0, () => ErrorDetails, 0, 128 | 0],
+  [() => BulkDeploymentMetrics$, 0, 0, () => ErrorDetails, 0, 128 | 0],
 ];
-export var GetConnectivityInfoRequest: StaticStructureSchema = [3, n0, _GCIR, 0, [_TN], [[0, 1]]];
-export var GetConnectivityInfoResponse: StaticStructureSchema = [
+export var GetConnectivityInfoRequest$: StaticStructureSchema = [3, n0, _GCIR, 0, [_TN], [[0, 1]]];
+export var GetConnectivityInfoResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCIRe,
@@ -911,8 +908,8 @@ export var GetConnectivityInfoResponse: StaticStructureSchema = [
   [_CI, _M],
   [() => __listOfConnectivityInfo, [0, { [_jN]: _m }]],
 ];
-export var GetConnectorDefinitionRequest: StaticStructureSchema = [3, n0, _GCDR, 0, [_CDI], [[0, 1]]];
-export var GetConnectorDefinitionResponse: StaticStructureSchema = [
+export var GetConnectorDefinitionRequest$: StaticStructureSchema = [3, n0, _GCDR, 0, [_CDI], [[0, 1]]];
+export var GetConnectorDefinitionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCDRe,
@@ -920,7 +917,7 @@ export var GetConnectorDefinitionResponse: StaticStructureSchema = [
   [_A, _CT, _I, _LUT, _LV, _LVA, _N, _t],
   [0, 0, 0, 0, 0, 0, 0, 128 | 0],
 ];
-export var GetConnectorDefinitionVersionRequest: StaticStructureSchema = [
+export var GetConnectorDefinitionVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCDVR,
@@ -932,16 +929,16 @@ export var GetConnectorDefinitionVersionRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var GetConnectorDefinitionVersionResponse: StaticStructureSchema = [
+export var GetConnectorDefinitionVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCDVRe,
   0,
   [_A, _CT, _Def, _I, _NT, _V],
-  [0, 0, () => ConnectorDefinitionVersion, 0, 0, 0],
+  [0, 0, () => ConnectorDefinitionVersion$, 0, 0, 0],
 ];
-export var GetCoreDefinitionRequest: StaticStructureSchema = [3, n0, _GCDRet, 0, [_CDIo], [[0, 1]]];
-export var GetCoreDefinitionResponse: StaticStructureSchema = [
+export var GetCoreDefinitionRequest$: StaticStructureSchema = [3, n0, _GCDRet, 0, [_CDIo], [[0, 1]]];
+export var GetCoreDefinitionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCDReto,
@@ -949,7 +946,7 @@ export var GetCoreDefinitionResponse: StaticStructureSchema = [
   [_A, _CT, _I, _LUT, _LV, _LVA, _N, _t],
   [0, 0, 0, 0, 0, 0, 0, 128 | 0],
 ];
-export var GetCoreDefinitionVersionRequest: StaticStructureSchema = [
+export var GetCoreDefinitionVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCDVRet,
@@ -960,15 +957,15 @@ export var GetCoreDefinitionVersionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetCoreDefinitionVersionResponse: StaticStructureSchema = [
+export var GetCoreDefinitionVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCDVReto,
   0,
   [_A, _CT, _Def, _I, _NT, _V],
-  [0, 0, () => CoreDefinitionVersion, 0, 0, 0],
+  [0, 0, () => CoreDefinitionVersion$, 0, 0, 0],
 ];
-export var GetDeploymentStatusRequest: StaticStructureSchema = [
+export var GetDeploymentStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDSR,
@@ -979,7 +976,7 @@ export var GetDeploymentStatusRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetDeploymentStatusResponse: StaticStructureSchema = [
+export var GetDeploymentStatusResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDSRe,
@@ -987,8 +984,8 @@ export var GetDeploymentStatusResponse: StaticStructureSchema = [
   [_DS, _DT, _ED, _EM, _UA],
   [0, 0, () => ErrorDetails, 0, 0],
 ];
-export var GetDeviceDefinitionRequest: StaticStructureSchema = [3, n0, _GDDR, 0, [_DDI], [[0, 1]]];
-export var GetDeviceDefinitionResponse: StaticStructureSchema = [
+export var GetDeviceDefinitionRequest$: StaticStructureSchema = [3, n0, _GDDR, 0, [_DDI], [[0, 1]]];
+export var GetDeviceDefinitionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDDRe,
@@ -996,7 +993,7 @@ export var GetDeviceDefinitionResponse: StaticStructureSchema = [
   [_A, _CT, _I, _LUT, _LV, _LVA, _N, _t],
   [0, 0, 0, 0, 0, 0, 0, 128 | 0],
 ];
-export var GetDeviceDefinitionVersionRequest: StaticStructureSchema = [
+export var GetDeviceDefinitionVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDDVR,
@@ -1008,16 +1005,16 @@ export var GetDeviceDefinitionVersionRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var GetDeviceDefinitionVersionResponse: StaticStructureSchema = [
+export var GetDeviceDefinitionVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDDVRe,
   0,
   [_A, _CT, _Def, _I, _NT, _V],
-  [0, 0, () => DeviceDefinitionVersion, 0, 0, 0],
+  [0, 0, () => DeviceDefinitionVersion$, 0, 0, 0],
 ];
-export var GetFunctionDefinitionRequest: StaticStructureSchema = [3, n0, _GFDR, 0, [_FDI], [[0, 1]]];
-export var GetFunctionDefinitionResponse: StaticStructureSchema = [
+export var GetFunctionDefinitionRequest$: StaticStructureSchema = [3, n0, _GFDR, 0, [_FDI], [[0, 1]]];
+export var GetFunctionDefinitionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GFDRe,
@@ -1025,7 +1022,7 @@ export var GetFunctionDefinitionResponse: StaticStructureSchema = [
   [_A, _CT, _I, _LUT, _LV, _LVA, _N, _t],
   [0, 0, 0, 0, 0, 0, 0, 128 | 0],
 ];
-export var GetFunctionDefinitionVersionRequest: StaticStructureSchema = [
+export var GetFunctionDefinitionVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GFDVR,
@@ -1037,15 +1034,15 @@ export var GetFunctionDefinitionVersionRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var GetFunctionDefinitionVersionResponse: StaticStructureSchema = [
+export var GetFunctionDefinitionVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GFDVRe,
   0,
   [_A, _CT, _Def, _I, _NT, _V],
-  [0, 0, () => FunctionDefinitionVersion, 0, 0, 0],
+  [0, 0, () => FunctionDefinitionVersion$, 0, 0, 0],
 ];
-export var GetGroupCertificateAuthorityRequest: StaticStructureSchema = [
+export var GetGroupCertificateAuthorityRequest$: StaticStructureSchema = [
   3,
   n0,
   _GGCAR,
@@ -1056,7 +1053,7 @@ export var GetGroupCertificateAuthorityRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetGroupCertificateAuthorityResponse: StaticStructureSchema = [
+export var GetGroupCertificateAuthorityResponse$: StaticStructureSchema = [
   3,
   n0,
   _GGCARe,
@@ -1064,8 +1061,8 @@ export var GetGroupCertificateAuthorityResponse: StaticStructureSchema = [
   [_GCAA, _GCAI, _PEC],
   [0, 0, 0],
 ];
-export var GetGroupCertificateConfigurationRequest: StaticStructureSchema = [3, n0, _GGCCR, 0, [_GI], [[0, 1]]];
-export var GetGroupCertificateConfigurationResponse: StaticStructureSchema = [
+export var GetGroupCertificateConfigurationRequest$: StaticStructureSchema = [3, n0, _GGCCR, 0, [_GI], [[0, 1]]];
+export var GetGroupCertificateConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GGCCRe,
@@ -1073,8 +1070,8 @@ export var GetGroupCertificateConfigurationResponse: StaticStructureSchema = [
   [_CAEIM, _CEIM, _GI],
   [0, 0, 0],
 ];
-export var GetGroupRequest: StaticStructureSchema = [3, n0, _GGR, 0, [_GI], [[0, 1]]];
-export var GetGroupResponse: StaticStructureSchema = [
+export var GetGroupRequest$: StaticStructureSchema = [3, n0, _GGR, 0, [_GI], [[0, 1]]];
+export var GetGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _GGRe,
@@ -1082,7 +1079,7 @@ export var GetGroupResponse: StaticStructureSchema = [
   [_A, _CT, _I, _LUT, _LV, _LVA, _N, _t],
   [0, 0, 0, 0, 0, 0, 0, 128 | 0],
 ];
-export var GetGroupVersionRequest: StaticStructureSchema = [
+export var GetGroupVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GGVR,
@@ -1093,16 +1090,16 @@ export var GetGroupVersionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetGroupVersionResponse: StaticStructureSchema = [
+export var GetGroupVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GGVRe,
   0,
   [_A, _CT, _Def, _I, _V],
-  [0, 0, () => GroupVersion, 0, 0],
+  [0, 0, () => GroupVersion$, 0, 0],
 ];
-export var GetLoggerDefinitionRequest: StaticStructureSchema = [3, n0, _GLDR, 0, [_LDI], [[0, 1]]];
-export var GetLoggerDefinitionResponse: StaticStructureSchema = [
+export var GetLoggerDefinitionRequest$: StaticStructureSchema = [3, n0, _GLDR, 0, [_LDI], [[0, 1]]];
+export var GetLoggerDefinitionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GLDRe,
@@ -1110,7 +1107,7 @@ export var GetLoggerDefinitionResponse: StaticStructureSchema = [
   [_A, _CT, _I, _LUT, _LV, _LVA, _N, _t],
   [0, 0, 0, 0, 0, 0, 0, 128 | 0],
 ];
-export var GetLoggerDefinitionVersionRequest: StaticStructureSchema = [
+export var GetLoggerDefinitionVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GLDVR,
@@ -1122,16 +1119,16 @@ export var GetLoggerDefinitionVersionRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var GetLoggerDefinitionVersionResponse: StaticStructureSchema = [
+export var GetLoggerDefinitionVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GLDVRe,
   0,
   [_A, _CT, _Def, _I, _V],
-  [0, 0, () => LoggerDefinitionVersion, 0, 0],
+  [0, 0, () => LoggerDefinitionVersion$, 0, 0],
 ];
-export var GetResourceDefinitionRequest: StaticStructureSchema = [3, n0, _GRDR, 0, [_RDI], [[0, 1]]];
-export var GetResourceDefinitionResponse: StaticStructureSchema = [
+export var GetResourceDefinitionRequest$: StaticStructureSchema = [3, n0, _GRDR, 0, [_RDI], [[0, 1]]];
+export var GetResourceDefinitionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRDRe,
@@ -1139,7 +1136,7 @@ export var GetResourceDefinitionResponse: StaticStructureSchema = [
   [_A, _CT, _I, _LUT, _LV, _LVA, _N, _t],
   [0, 0, 0, 0, 0, 0, 0, 128 | 0],
 ];
-export var GetResourceDefinitionVersionRequest: StaticStructureSchema = [
+export var GetResourceDefinitionVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRDVR,
@@ -1150,18 +1147,18 @@ export var GetResourceDefinitionVersionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetResourceDefinitionVersionResponse: StaticStructureSchema = [
+export var GetResourceDefinitionVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRDVRe,
   0,
   [_A, _CT, _Def, _I, _V],
-  [0, 0, () => ResourceDefinitionVersion, 0, 0],
+  [0, 0, () => ResourceDefinitionVersion$, 0, 0],
 ];
-export var GetServiceRoleForAccountRequest: StaticStructureSchema = [3, n0, _GSRFAR, 0, [], []];
-export var GetServiceRoleForAccountResponse: StaticStructureSchema = [3, n0, _GSRFARe, 0, [_AA, _RA], [0, 0]];
-export var GetSubscriptionDefinitionRequest: StaticStructureSchema = [3, n0, _GSDR, 0, [_SDI], [[0, 1]]];
-export var GetSubscriptionDefinitionResponse: StaticStructureSchema = [
+export var GetServiceRoleForAccountRequest$: StaticStructureSchema = [3, n0, _GSRFAR, 0, [], []];
+export var GetServiceRoleForAccountResponse$: StaticStructureSchema = [3, n0, _GSRFARe, 0, [_AA, _RA], [0, 0]];
+export var GetSubscriptionDefinitionRequest$: StaticStructureSchema = [3, n0, _GSDR, 0, [_SDI], [[0, 1]]];
+export var GetSubscriptionDefinitionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GSDRe,
@@ -1169,7 +1166,7 @@ export var GetSubscriptionDefinitionResponse: StaticStructureSchema = [
   [_A, _CT, _I, _LUT, _LV, _LVA, _N, _t],
   [0, 0, 0, 0, 0, 0, 0, 128 | 0],
 ];
-export var GetSubscriptionDefinitionVersionRequest: StaticStructureSchema = [
+export var GetSubscriptionDefinitionVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GSDVR,
@@ -1181,25 +1178,25 @@ export var GetSubscriptionDefinitionVersionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetSubscriptionDefinitionVersionResponse: StaticStructureSchema = [
+export var GetSubscriptionDefinitionVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GSDVRe,
   0,
   [_A, _CT, _Def, _I, _NT, _V],
-  [0, 0, () => SubscriptionDefinitionVersion, 0, 0, 0],
+  [0, 0, () => SubscriptionDefinitionVersion$, 0, 0, 0],
 ];
-export var GetThingRuntimeConfigurationRequest: StaticStructureSchema = [3, n0, _GTRCR, 0, [_TN], [[0, 1]]];
-export var GetThingRuntimeConfigurationResponse: StaticStructureSchema = [
+export var GetThingRuntimeConfigurationRequest$: StaticStructureSchema = [3, n0, _GTRCR, 0, [_TN], [[0, 1]]];
+export var GetThingRuntimeConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GTRCRe,
   0,
   [_RC],
-  [() => RuntimeConfiguration],
+  [() => RuntimeConfiguration$],
 ];
-export var GroupCertificateAuthorityProperties: StaticStructureSchema = [3, n0, _GCAP, 0, [_GCAA, _GCAI], [0, 0]];
-export var GroupInformation: StaticStructureSchema = [
+export var GroupCertificateAuthorityProperties$: StaticStructureSchema = [3, n0, _GCAP, 0, [_GCAA, _GCAI], [0, 0]];
+export var GroupInformation$: StaticStructureSchema = [
   3,
   n0,
   _GIr,
@@ -1207,8 +1204,8 @@ export var GroupInformation: StaticStructureSchema = [
   [_A, _CT, _I, _LUT, _LV, _LVA, _N],
   [0, 0, 0, 0, 0, 0, 0],
 ];
-export var GroupOwnerSetting: StaticStructureSchema = [3, n0, _GOS, 0, [_AAGO, _GO], [2, 0]];
-export var GroupVersion: StaticStructureSchema = [
+export var GroupOwnerSetting$: StaticStructureSchema = [3, n0, _GOS, 0, [_AAGO, _GO], [2, 0]];
+export var GroupVersion$: StaticStructureSchema = [
   3,
   n0,
   _GV,
@@ -1216,7 +1213,7 @@ export var GroupVersion: StaticStructureSchema = [
   [_CDVA, _CDVAo, _DDVA, _FDVA, _LDVA, _RDVA, _SDVA],
   [0, 0, 0, 0, 0, 0, 0],
 ];
-export var InternalServerErrorException: StaticErrorSchema = [
+export var InternalServerErrorException$: StaticErrorSchema = [
   -3,
   n0,
   _ISEE,
@@ -1224,8 +1221,8 @@ export var InternalServerErrorException: StaticErrorSchema = [
   [_ED, _M],
   [() => ErrorDetails, 0],
 ];
-TypeRegistry.for(n0).registerError(InternalServerErrorException, __InternalServerErrorException);
-export var ListBulkDeploymentDetailedReportsRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
+export var ListBulkDeploymentDetailedReportsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBDDRR,
@@ -1237,7 +1234,7 @@ export var ListBulkDeploymentDetailedReportsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListBulkDeploymentDetailedReportsResponse: StaticStructureSchema = [
+export var ListBulkDeploymentDetailedReportsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LBDDRRi,
@@ -1245,7 +1242,7 @@ export var ListBulkDeploymentDetailedReportsResponse: StaticStructureSchema = [
   [_Dep, _NT],
   [() => BulkDeploymentResults, 0],
 ];
-export var ListBulkDeploymentsRequest: StaticStructureSchema = [
+export var ListBulkDeploymentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBDR,
@@ -1256,7 +1253,7 @@ export var ListBulkDeploymentsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListBulkDeploymentsResponse: StaticStructureSchema = [
+export var ListBulkDeploymentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LBDRi,
@@ -1264,7 +1261,7 @@ export var ListBulkDeploymentsResponse: StaticStructureSchema = [
   [_BDu, _NT],
   [() => BulkDeployments, 0],
 ];
-export var ListConnectorDefinitionsRequest: StaticStructureSchema = [
+export var ListConnectorDefinitionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCDR,
@@ -1275,7 +1272,7 @@ export var ListConnectorDefinitionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListConnectorDefinitionsResponse: StaticStructureSchema = [
+export var ListConnectorDefinitionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCDRi,
@@ -1283,7 +1280,7 @@ export var ListConnectorDefinitionsResponse: StaticStructureSchema = [
   [_Defi, _NT],
   [[() => __listOfDefinitionInformation, 0], 0],
 ];
-export var ListConnectorDefinitionVersionsRequest: StaticStructureSchema = [
+export var ListConnectorDefinitionVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCDVR,
@@ -1295,7 +1292,7 @@ export var ListConnectorDefinitionVersionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListConnectorDefinitionVersionsResponse: StaticStructureSchema = [
+export var ListConnectorDefinitionVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCDVRi,
@@ -1303,7 +1300,7 @@ export var ListConnectorDefinitionVersionsResponse: StaticStructureSchema = [
   [_NT, _Ve],
   [0, () => __listOfVersionInformation],
 ];
-export var ListCoreDefinitionsRequest: StaticStructureSchema = [
+export var ListCoreDefinitionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCDRis,
@@ -1314,7 +1311,7 @@ export var ListCoreDefinitionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListCoreDefinitionsResponse: StaticStructureSchema = [
+export var ListCoreDefinitionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCDRist,
@@ -1322,7 +1319,7 @@ export var ListCoreDefinitionsResponse: StaticStructureSchema = [
   [_Defi, _NT],
   [[() => __listOfDefinitionInformation, 0], 0],
 ];
-export var ListCoreDefinitionVersionsRequest: StaticStructureSchema = [
+export var ListCoreDefinitionVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCDVRis,
@@ -1334,7 +1331,7 @@ export var ListCoreDefinitionVersionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListCoreDefinitionVersionsResponse: StaticStructureSchema = [
+export var ListCoreDefinitionVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCDVRist,
@@ -1342,7 +1339,7 @@ export var ListCoreDefinitionVersionsResponse: StaticStructureSchema = [
   [_NT, _Ve],
   [0, () => __listOfVersionInformation],
 ];
-export var ListDeploymentsRequest: StaticStructureSchema = [
+export var ListDeploymentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDR,
@@ -1354,8 +1351,8 @@ export var ListDeploymentsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListDeploymentsResponse: StaticStructureSchema = [3, n0, _LDRi, 0, [_Dep, _NT], [() => Deployments, 0]];
-export var ListDeviceDefinitionsRequest: StaticStructureSchema = [
+export var ListDeploymentsResponse$: StaticStructureSchema = [3, n0, _LDRi, 0, [_Dep, _NT], [() => Deployments, 0]];
+export var ListDeviceDefinitionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDDR,
@@ -1366,7 +1363,7 @@ export var ListDeviceDefinitionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListDeviceDefinitionsResponse: StaticStructureSchema = [
+export var ListDeviceDefinitionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDDRi,
@@ -1374,7 +1371,7 @@ export var ListDeviceDefinitionsResponse: StaticStructureSchema = [
   [_Defi, _NT],
   [[() => __listOfDefinitionInformation, 0], 0],
 ];
-export var ListDeviceDefinitionVersionsRequest: StaticStructureSchema = [
+export var ListDeviceDefinitionVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDDVR,
@@ -1386,7 +1383,7 @@ export var ListDeviceDefinitionVersionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListDeviceDefinitionVersionsResponse: StaticStructureSchema = [
+export var ListDeviceDefinitionVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDDVRi,
@@ -1394,7 +1391,7 @@ export var ListDeviceDefinitionVersionsResponse: StaticStructureSchema = [
   [_NT, _Ve],
   [0, () => __listOfVersionInformation],
 ];
-export var ListFunctionDefinitionsRequest: StaticStructureSchema = [
+export var ListFunctionDefinitionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LFDR,
@@ -1405,7 +1402,7 @@ export var ListFunctionDefinitionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListFunctionDefinitionsResponse: StaticStructureSchema = [
+export var ListFunctionDefinitionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LFDRi,
@@ -1413,7 +1410,7 @@ export var ListFunctionDefinitionsResponse: StaticStructureSchema = [
   [_Defi, _NT],
   [[() => __listOfDefinitionInformation, 0], 0],
 ];
-export var ListFunctionDefinitionVersionsRequest: StaticStructureSchema = [
+export var ListFunctionDefinitionVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LFDVR,
@@ -1425,7 +1422,7 @@ export var ListFunctionDefinitionVersionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListFunctionDefinitionVersionsResponse: StaticStructureSchema = [
+export var ListFunctionDefinitionVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LFDVRi,
@@ -1433,8 +1430,8 @@ export var ListFunctionDefinitionVersionsResponse: StaticStructureSchema = [
   [_NT, _Ve],
   [0, () => __listOfVersionInformation],
 ];
-export var ListGroupCertificateAuthoritiesRequest: StaticStructureSchema = [3, n0, _LGCAR, 0, [_GI], [[0, 1]]];
-export var ListGroupCertificateAuthoritiesResponse: StaticStructureSchema = [
+export var ListGroupCertificateAuthoritiesRequest$: StaticStructureSchema = [3, n0, _LGCAR, 0, [_GI], [[0, 1]]];
+export var ListGroupCertificateAuthoritiesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LGCARi,
@@ -1442,7 +1439,7 @@ export var ListGroupCertificateAuthoritiesResponse: StaticStructureSchema = [
   [_GCA],
   [() => __listOfGroupCertificateAuthorityProperties],
 ];
-export var ListGroupsRequest: StaticStructureSchema = [
+export var ListGroupsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LGR,
@@ -1453,7 +1450,7 @@ export var ListGroupsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListGroupsResponse: StaticStructureSchema = [
+export var ListGroupsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LGRi,
@@ -1461,7 +1458,7 @@ export var ListGroupsResponse: StaticStructureSchema = [
   [_Gr, _NT],
   [() => __listOfGroupInformation, 0],
 ];
-export var ListGroupVersionsRequest: StaticStructureSchema = [
+export var ListGroupVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LGVR,
@@ -1473,7 +1470,7 @@ export var ListGroupVersionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListGroupVersionsResponse: StaticStructureSchema = [
+export var ListGroupVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LGVRi,
@@ -1481,7 +1478,7 @@ export var ListGroupVersionsResponse: StaticStructureSchema = [
   [_NT, _Ve],
   [0, () => __listOfVersionInformation],
 ];
-export var ListLoggerDefinitionsRequest: StaticStructureSchema = [
+export var ListLoggerDefinitionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LLDR,
@@ -1492,7 +1489,7 @@ export var ListLoggerDefinitionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListLoggerDefinitionsResponse: StaticStructureSchema = [
+export var ListLoggerDefinitionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LLDRi,
@@ -1500,7 +1497,7 @@ export var ListLoggerDefinitionsResponse: StaticStructureSchema = [
   [_Defi, _NT],
   [[() => __listOfDefinitionInformation, 0], 0],
 ];
-export var ListLoggerDefinitionVersionsRequest: StaticStructureSchema = [
+export var ListLoggerDefinitionVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LLDVR,
@@ -1512,7 +1509,7 @@ export var ListLoggerDefinitionVersionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListLoggerDefinitionVersionsResponse: StaticStructureSchema = [
+export var ListLoggerDefinitionVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LLDVRi,
@@ -1520,7 +1517,7 @@ export var ListLoggerDefinitionVersionsResponse: StaticStructureSchema = [
   [_NT, _Ve],
   [0, () => __listOfVersionInformation],
 ];
-export var ListResourceDefinitionsRequest: StaticStructureSchema = [
+export var ListResourceDefinitionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRDR,
@@ -1531,7 +1528,7 @@ export var ListResourceDefinitionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListResourceDefinitionsResponse: StaticStructureSchema = [
+export var ListResourceDefinitionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRDRi,
@@ -1539,7 +1536,7 @@ export var ListResourceDefinitionsResponse: StaticStructureSchema = [
   [_Defi, _NT],
   [[() => __listOfDefinitionInformation, 0], 0],
 ];
-export var ListResourceDefinitionVersionsRequest: StaticStructureSchema = [
+export var ListResourceDefinitionVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRDVR,
@@ -1551,7 +1548,7 @@ export var ListResourceDefinitionVersionsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ListResourceDefinitionVersionsResponse: StaticStructureSchema = [
+export var ListResourceDefinitionVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRDVRi,
@@ -1559,7 +1556,7 @@ export var ListResourceDefinitionVersionsResponse: StaticStructureSchema = [
   [_NT, _Ve],
   [0, () => __listOfVersionInformation],
 ];
-export var ListSubscriptionDefinitionsRequest: StaticStructureSchema = [
+export var ListSubscriptionDefinitionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSDR,
@@ -1570,7 +1567,7 @@ export var ListSubscriptionDefinitionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListSubscriptionDefinitionsResponse: StaticStructureSchema = [
+export var ListSubscriptionDefinitionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSDRi,
@@ -1578,7 +1575,7 @@ export var ListSubscriptionDefinitionsResponse: StaticStructureSchema = [
   [_Defi, _NT],
   [[() => __listOfDefinitionInformation, 0], 0],
 ];
-export var ListSubscriptionDefinitionVersionsRequest: StaticStructureSchema = [
+export var ListSubscriptionDefinitionVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSDVR,
@@ -1590,7 +1587,7 @@ export var ListSubscriptionDefinitionVersionsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ListSubscriptionDefinitionVersionsResponse: StaticStructureSchema = [
+export var ListSubscriptionDefinitionVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSDVRi,
@@ -1598,27 +1595,27 @@ export var ListSubscriptionDefinitionVersionsResponse: StaticStructureSchema = [
   [_NT, _Ve],
   [0, () => __listOfVersionInformation],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAes], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
-export var LocalDeviceResourceData: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAes], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
+export var LocalDeviceResourceData$: StaticStructureSchema = [
   3,
   n0,
   _LDRD,
   0,
   [_GOS, _SP],
-  [() => GroupOwnerSetting, 0],
+  [() => GroupOwnerSetting$, 0],
 ];
-export var LocalVolumeResourceData: StaticStructureSchema = [
+export var LocalVolumeResourceData$: StaticStructureSchema = [
   3,
   n0,
   _LVRD,
   0,
   [_DP, _GOS, _SP],
-  [0, () => GroupOwnerSetting, 0],
+  [0, () => GroupOwnerSetting$, 0],
 ];
-export var Logger: StaticStructureSchema = [3, n0, _Lo, 0, [_Com, _I, _Le, _Sp, _Ty], [0, 0, 0, 1, 0]];
-export var LoggerDefinitionVersion: StaticStructureSchema = [3, n0, _LDV, 0, [_L], [() => __listOfLogger]];
-export var ResetDeploymentsRequest: StaticStructureSchema = [
+export var Logger$: StaticStructureSchema = [3, n0, _Lo, 0, [_Com, _I, _Le, _Sp, _Ty], [0, 0, 0, 1, 0]];
+export var LoggerDefinitionVersion$: StaticStructureSchema = [3, n0, _LDV, 0, [_L], [() => __listOfLogger]];
+export var ResetDeploymentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _RDR,
@@ -1626,44 +1623,44 @@ export var ResetDeploymentsRequest: StaticStructureSchema = [
   [_ACT, _Fo, _GI],
   [[0, { [_hH]: _XACT }], 2, [0, 1]],
 ];
-export var ResetDeploymentsResponse: StaticStructureSchema = [3, n0, _RDRe, 0, [_DA, _DI], [0, 0]];
-export var Resource: StaticStructureSchema = [3, n0, _Re, 0, [_I, _N, _RDC], [0, 0, () => ResourceDataContainer]];
-export var ResourceAccessPolicy: StaticStructureSchema = [3, n0, _RAPe, 0, [_Pe, _RI], [0, 0]];
-export var ResourceDataContainer: StaticStructureSchema = [
+export var ResetDeploymentsResponse$: StaticStructureSchema = [3, n0, _RDRe, 0, [_DA, _DI], [0, 0]];
+export var Resource$: StaticStructureSchema = [3, n0, _Re, 0, [_I, _N, _RDC], [0, 0, () => ResourceDataContainer$]];
+export var ResourceAccessPolicy$: StaticStructureSchema = [3, n0, _RAPe, 0, [_Pe, _RI], [0, 0]];
+export var ResourceDataContainer$: StaticStructureSchema = [
   3,
   n0,
   _RDC,
   0,
   [_LDRD, _LVRD, _SMLMRD, _SMMLMRD, _SMSRD],
   [
-    () => LocalDeviceResourceData,
-    () => LocalVolumeResourceData,
-    () => S3MachineLearningModelResourceData,
-    () => SageMakerMachineLearningModelResourceData,
-    () => SecretsManagerSecretResourceData,
+    () => LocalDeviceResourceData$,
+    () => LocalVolumeResourceData$,
+    () => S3MachineLearningModelResourceData$,
+    () => SageMakerMachineLearningModelResourceData$,
+    () => SecretsManagerSecretResourceData$,
   ],
 ];
-export var ResourceDefinitionVersion: StaticStructureSchema = [3, n0, _RDV, 0, [_R], [() => __listOfResource]];
-export var ResourceDownloadOwnerSetting: StaticStructureSchema = [3, n0, _RDOS, 0, [_GO, _GP], [0, 0]];
-export var RuntimeConfiguration: StaticStructureSchema = [3, n0, _RC, 0, [_TC], [() => TelemetryConfiguration]];
-export var S3MachineLearningModelResourceData: StaticStructureSchema = [
+export var ResourceDefinitionVersion$: StaticStructureSchema = [3, n0, _RDV, 0, [_R], [() => __listOfResource]];
+export var ResourceDownloadOwnerSetting$: StaticStructureSchema = [3, n0, _RDOS, 0, [_GO, _GP], [0, 0]];
+export var RuntimeConfiguration$: StaticStructureSchema = [3, n0, _RC, 0, [_TC], [() => TelemetryConfiguration$]];
+export var S3MachineLearningModelResourceData$: StaticStructureSchema = [
   3,
   n0,
   _SMLMRD,
   0,
   [_DP, _OS, _SU],
-  [0, () => ResourceDownloadOwnerSetting, 0],
+  [0, () => ResourceDownloadOwnerSetting$, 0],
 ];
-export var SageMakerMachineLearningModelResourceData: StaticStructureSchema = [
+export var SageMakerMachineLearningModelResourceData$: StaticStructureSchema = [
   3,
   n0,
   _SMMLMRD,
   0,
   [_DP, _OS, _SMJA],
-  [0, () => ResourceDownloadOwnerSetting, 0],
+  [0, () => ResourceDownloadOwnerSetting$, 0],
 ];
-export var SecretsManagerSecretResourceData: StaticStructureSchema = [3, n0, _SMSRD, 0, [_ARN, _ASLTD], [0, 64 | 0]];
-export var StartBulkDeploymentRequest: StaticStructureSchema = [
+export var SecretsManagerSecretResourceData$: StaticStructureSchema = [3, n0, _SMSRD, 0, [_ARN, _ASLTD], [0, 64 | 0]];
+export var StartBulkDeploymentRequest$: StaticStructureSchema = [
   3,
   n0,
   _SBDR,
@@ -1671,15 +1668,15 @@ export var StartBulkDeploymentRequest: StaticStructureSchema = [
   [_ACT, _ERA, _IFU, _t],
   [[0, { [_hH]: _XACT }], 0, 0, 128 | 0],
 ];
-export var StartBulkDeploymentResponse: StaticStructureSchema = [3, n0, _SBDRt, 0, [_BDA, _BDI], [0, 0]];
-export var StopBulkDeploymentRequest: StaticStructureSchema = [3, n0, _SBDRto, 0, [_BDI], [[0, 1]]];
-export var StopBulkDeploymentResponse: StaticStructureSchema = [3, n0, _SBDRtop, 0, [], []];
-export var Subscription: StaticStructureSchema = [3, n0, _Su, 0, [_I, _So, _Sub, _Ta], [0, 0, 0, 0]];
-export var SubscriptionDefinitionVersion: StaticStructureSchema = [3, n0, _SDV, 0, [_S], [() => __listOfSubscription]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RAes, _t], [[0, 1], 128 | 0]];
-export var TelemetryConfiguration: StaticStructureSchema = [3, n0, _TC, 0, [_CSS, _Te], [0, 0]];
-export var TelemetryConfigurationUpdate: StaticStructureSchema = [3, n0, _TCU, 0, [_Te], [0]];
-export var UntagResourceRequest: StaticStructureSchema = [
+export var StartBulkDeploymentResponse$: StaticStructureSchema = [3, n0, _SBDRt, 0, [_BDA, _BDI], [0, 0]];
+export var StopBulkDeploymentRequest$: StaticStructureSchema = [3, n0, _SBDRto, 0, [_BDI], [[0, 1]]];
+export var StopBulkDeploymentResponse$: StaticStructureSchema = [3, n0, _SBDRtop, 0, [], []];
+export var Subscription$: StaticStructureSchema = [3, n0, _Su, 0, [_I, _So, _Sub, _Ta], [0, 0, 0, 0]];
+export var SubscriptionDefinitionVersion$: StaticStructureSchema = [3, n0, _SDV, 0, [_S], [() => __listOfSubscription]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RAes, _t], [[0, 1], 128 | 0]];
+export var TelemetryConfiguration$: StaticStructureSchema = [3, n0, _TC, 0, [_CSS, _Te], [0, 0]];
+export var TelemetryConfigurationUpdate$: StaticStructureSchema = [3, n0, _TCU, 0, [_Te], [0]];
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -1690,7 +1687,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UpdateConnectivityInfoRequest: StaticStructureSchema = [
+export var UpdateConnectivityInfoRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCIR,
@@ -1698,7 +1695,7 @@ export var UpdateConnectivityInfoRequest: StaticStructureSchema = [
   [_CI, _TN],
   [() => __listOfConnectivityInfo, [0, 1]],
 ];
-export var UpdateConnectivityInfoResponse: StaticStructureSchema = [
+export var UpdateConnectivityInfoResponse$: StaticStructureSchema = [
   3,
   n0,
   _UCIRp,
@@ -1706,15 +1703,15 @@ export var UpdateConnectivityInfoResponse: StaticStructureSchema = [
   [_M, _V],
   [[0, { [_jN]: _m }], 0],
 ];
-export var UpdateConnectorDefinitionRequest: StaticStructureSchema = [3, n0, _UCDR, 0, [_CDI, _N], [[0, 1], 0]];
-export var UpdateConnectorDefinitionResponse: StaticStructureSchema = [3, n0, _UCDRp, 0, [], []];
-export var UpdateCoreDefinitionRequest: StaticStructureSchema = [3, n0, _UCDRpd, 0, [_CDIo, _N], [[0, 1], 0]];
-export var UpdateCoreDefinitionResponse: StaticStructureSchema = [3, n0, _UCDRpda, 0, [], []];
-export var UpdateDeviceDefinitionRequest: StaticStructureSchema = [3, n0, _UDDR, 0, [_DDI, _N], [[0, 1], 0]];
-export var UpdateDeviceDefinitionResponse: StaticStructureSchema = [3, n0, _UDDRp, 0, [], []];
-export var UpdateFunctionDefinitionRequest: StaticStructureSchema = [3, n0, _UFDR, 0, [_FDI, _N], [[0, 1], 0]];
-export var UpdateFunctionDefinitionResponse: StaticStructureSchema = [3, n0, _UFDRp, 0, [], []];
-export var UpdateGroupCertificateConfigurationRequest: StaticStructureSchema = [
+export var UpdateConnectorDefinitionRequest$: StaticStructureSchema = [3, n0, _UCDR, 0, [_CDI, _N], [[0, 1], 0]];
+export var UpdateConnectorDefinitionResponse$: StaticStructureSchema = [3, n0, _UCDRp, 0, [], []];
+export var UpdateCoreDefinitionRequest$: StaticStructureSchema = [3, n0, _UCDRpd, 0, [_CDIo, _N], [[0, 1], 0]];
+export var UpdateCoreDefinitionResponse$: StaticStructureSchema = [3, n0, _UCDRpda, 0, [], []];
+export var UpdateDeviceDefinitionRequest$: StaticStructureSchema = [3, n0, _UDDR, 0, [_DDI, _N], [[0, 1], 0]];
+export var UpdateDeviceDefinitionResponse$: StaticStructureSchema = [3, n0, _UDDRp, 0, [], []];
+export var UpdateFunctionDefinitionRequest$: StaticStructureSchema = [3, n0, _UFDR, 0, [_FDI, _N], [[0, 1], 0]];
+export var UpdateFunctionDefinitionResponse$: StaticStructureSchema = [3, n0, _UFDRp, 0, [], []];
+export var UpdateGroupCertificateConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UGCCR,
@@ -1722,7 +1719,7 @@ export var UpdateGroupCertificateConfigurationRequest: StaticStructureSchema = [
   [_CEIM, _GI],
   [0, [0, 1]],
 ];
-export var UpdateGroupCertificateConfigurationResponse: StaticStructureSchema = [
+export var UpdateGroupCertificateConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UGCCRp,
@@ -1730,335 +1727,335 @@ export var UpdateGroupCertificateConfigurationResponse: StaticStructureSchema = 
   [_CAEIM, _CEIM, _GI],
   [0, 0, 0],
 ];
-export var UpdateGroupRequest: StaticStructureSchema = [3, n0, _UGR, 0, [_GI, _N], [[0, 1], 0]];
-export var UpdateGroupResponse: StaticStructureSchema = [3, n0, _UGRp, 0, [], []];
-export var UpdateLoggerDefinitionRequest: StaticStructureSchema = [3, n0, _ULDR, 0, [_LDI, _N], [[0, 1], 0]];
-export var UpdateLoggerDefinitionResponse: StaticStructureSchema = [3, n0, _ULDRp, 0, [], []];
-export var UpdateResourceDefinitionRequest: StaticStructureSchema = [3, n0, _URDR, 0, [_N, _RDI], [0, [0, 1]]];
-export var UpdateResourceDefinitionResponse: StaticStructureSchema = [3, n0, _URDRp, 0, [], []];
-export var UpdateSubscriptionDefinitionRequest: StaticStructureSchema = [3, n0, _USDR, 0, [_N, _SDI], [0, [0, 1]]];
-export var UpdateSubscriptionDefinitionResponse: StaticStructureSchema = [3, n0, _USDRp, 0, [], []];
-export var UpdateThingRuntimeConfigurationRequest: StaticStructureSchema = [
+export var UpdateGroupRequest$: StaticStructureSchema = [3, n0, _UGR, 0, [_GI, _N], [[0, 1], 0]];
+export var UpdateGroupResponse$: StaticStructureSchema = [3, n0, _UGRp, 0, [], []];
+export var UpdateLoggerDefinitionRequest$: StaticStructureSchema = [3, n0, _ULDR, 0, [_LDI, _N], [[0, 1], 0]];
+export var UpdateLoggerDefinitionResponse$: StaticStructureSchema = [3, n0, _ULDRp, 0, [], []];
+export var UpdateResourceDefinitionRequest$: StaticStructureSchema = [3, n0, _URDR, 0, [_N, _RDI], [0, [0, 1]]];
+export var UpdateResourceDefinitionResponse$: StaticStructureSchema = [3, n0, _URDRp, 0, [], []];
+export var UpdateSubscriptionDefinitionRequest$: StaticStructureSchema = [3, n0, _USDR, 0, [_N, _SDI], [0, [0, 1]]];
+export var UpdateSubscriptionDefinitionResponse$: StaticStructureSchema = [3, n0, _USDRp, 0, [], []];
+export var UpdateThingRuntimeConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UTRCR,
   0,
   [_TC, _TN],
-  [() => TelemetryConfigurationUpdate, [0, 1]],
+  [() => TelemetryConfigurationUpdate$, [0, 1]],
 ];
-export var UpdateThingRuntimeConfigurationResponse: StaticStructureSchema = [3, n0, _UTRCRp, 0, [], []];
-export var VersionInformation: StaticStructureSchema = [3, n0, _VI, 0, [_A, _CT, _I, _V], [0, 0, 0, 0]];
-export var __Unit = "unit" as const;
-export var GreengrassServiceException: StaticErrorSchema = [-3, _sm, "GreengrassServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(GreengrassServiceException, __GreengrassServiceException);
-export var __listOf__string = 64 | 0;
-export var __listOfConnectivityInfo: StaticListSchema = [1, n0, _lOCI, 0, () => ConnectivityInfo];
-export var __listOfConnector: StaticListSchema = [1, n0, _lOC, 0, () => Connector];
-export var __listOfCore: StaticListSchema = [1, n0, _lOCi, 0, () => Core];
-export var __listOfDefinitionInformation: StaticListSchema = [1, n0, _lODI, 0, [() => DefinitionInformation, 0]];
-export var __listOfDevice: StaticListSchema = [1, n0, _lOD, 0, () => Device];
-export var __listOfFunction: StaticListSchema = [1, n0, _lOF, 0, () => Function];
-export var __listOfGroupCertificateAuthorityProperties: StaticListSchema = [
+export var UpdateThingRuntimeConfigurationResponse$: StaticStructureSchema = [3, n0, _UTRCRp, 0, [], []];
+export var VersionInformation$: StaticStructureSchema = [3, n0, _VI, 0, [_A, _CT, _I, _V], [0, 0, 0, 0]];
+var __Unit = "unit" as const;
+export var GreengrassServiceException$: StaticErrorSchema = [-3, _sm, "GreengrassServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(GreengrassServiceException$, GreengrassServiceException);
+var __listOf__string = 64 | 0;
+var __listOfConnectivityInfo: StaticListSchema = [1, n0, _lOCI, 0, () => ConnectivityInfo$];
+var __listOfConnector: StaticListSchema = [1, n0, _lOC, 0, () => Connector$];
+var __listOfCore: StaticListSchema = [1, n0, _lOCi, 0, () => Core$];
+var __listOfDefinitionInformation: StaticListSchema = [1, n0, _lODI, 0, [() => DefinitionInformation$, 0]];
+var __listOfDevice: StaticListSchema = [1, n0, _lOD, 0, () => Device$];
+var __listOfFunction: StaticListSchema = [1, n0, _lOF, 0, () => Function$];
+var __listOfGroupCertificateAuthorityProperties: StaticListSchema = [
   1,
   n0,
   _lOGCAP,
   0,
-  () => GroupCertificateAuthorityProperties,
+  () => GroupCertificateAuthorityProperties$,
 ];
-export var __listOfGroupInformation: StaticListSchema = [1, n0, _lOGI, 0, () => GroupInformation];
-export var __listOfLogger: StaticListSchema = [1, n0, _lOL, 0, () => Logger];
-export var __listOfResource: StaticListSchema = [1, n0, _lOR, 0, () => Resource];
-export var __listOfResourceAccessPolicy: StaticListSchema = [1, n0, _lORAP, 0, () => ResourceAccessPolicy];
-export var __listOfSubscription: StaticListSchema = [1, n0, _lOS, 0, () => Subscription];
-export var __listOfVersionInformation: StaticListSchema = [1, n0, _lOVI, 0, () => VersionInformation];
-export var BulkDeploymentResults: StaticListSchema = [1, n0, _BDRu, 0, () => BulkDeploymentResult];
-export var BulkDeployments: StaticListSchema = [1, n0, _BDu, 0, () => BulkDeployment];
-export var Deployments: StaticListSchema = [1, n0, _Dep, 0, () => Deployment];
-export var ErrorDetails: StaticListSchema = [1, n0, _ED, 0, () => ErrorDetail];
-export var UpdateTargets = 64 | 0;
-export var __mapOf__string = 128 | 0;
-export var Tags = 128 | 0;
-export var AssociateRoleToGroup: StaticOperationSchema = [
+var __listOfGroupInformation: StaticListSchema = [1, n0, _lOGI, 0, () => GroupInformation$];
+var __listOfLogger: StaticListSchema = [1, n0, _lOL, 0, () => Logger$];
+var __listOfResource: StaticListSchema = [1, n0, _lOR, 0, () => Resource$];
+var __listOfResourceAccessPolicy: StaticListSchema = [1, n0, _lORAP, 0, () => ResourceAccessPolicy$];
+var __listOfSubscription: StaticListSchema = [1, n0, _lOS, 0, () => Subscription$];
+var __listOfVersionInformation: StaticListSchema = [1, n0, _lOVI, 0, () => VersionInformation$];
+var BulkDeploymentResults: StaticListSchema = [1, n0, _BDRu, 0, () => BulkDeploymentResult$];
+var BulkDeployments: StaticListSchema = [1, n0, _BDu, 0, () => BulkDeployment$];
+var Deployments: StaticListSchema = [1, n0, _Dep, 0, () => Deployment$];
+var ErrorDetails: StaticListSchema = [1, n0, _ED, 0, () => ErrorDetail$];
+var UpdateTargets = 64 | 0;
+var __mapOf__string = 128 | 0;
+var Tags = 128 | 0;
+export var AssociateRoleToGroup$: StaticOperationSchema = [
   9,
   n0,
   _ARTG,
   { [_h]: ["PUT", "/greengrass/groups/{GroupId}/role", 200] },
-  () => AssociateRoleToGroupRequest,
-  () => AssociateRoleToGroupResponse,
+  () => AssociateRoleToGroupRequest$,
+  () => AssociateRoleToGroupResponse$,
 ];
-export var AssociateServiceRoleToAccount: StaticOperationSchema = [
+export var AssociateServiceRoleToAccount$: StaticOperationSchema = [
   9,
   n0,
   _ASRTA,
   { [_h]: ["PUT", "/greengrass/servicerole", 200] },
-  () => AssociateServiceRoleToAccountRequest,
-  () => AssociateServiceRoleToAccountResponse,
+  () => AssociateServiceRoleToAccountRequest$,
+  () => AssociateServiceRoleToAccountResponse$,
 ];
-export var CreateConnectorDefinition: StaticOperationSchema = [
+export var CreateConnectorDefinition$: StaticOperationSchema = [
   9,
   n0,
   _CCD,
   { [_h]: ["POST", "/greengrass/definition/connectors", 200] },
-  () => CreateConnectorDefinitionRequest,
-  () => CreateConnectorDefinitionResponse,
+  () => CreateConnectorDefinitionRequest$,
+  () => CreateConnectorDefinitionResponse$,
 ];
-export var CreateConnectorDefinitionVersion: StaticOperationSchema = [
+export var CreateConnectorDefinitionVersion$: StaticOperationSchema = [
   9,
   n0,
   _CCDV,
   { [_h]: ["POST", "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions", 200] },
-  () => CreateConnectorDefinitionVersionRequest,
-  () => CreateConnectorDefinitionVersionResponse,
+  () => CreateConnectorDefinitionVersionRequest$,
+  () => CreateConnectorDefinitionVersionResponse$,
 ];
-export var CreateCoreDefinition: StaticOperationSchema = [
+export var CreateCoreDefinition$: StaticOperationSchema = [
   9,
   n0,
   _CCDr,
   { [_h]: ["POST", "/greengrass/definition/cores", 200] },
-  () => CreateCoreDefinitionRequest,
-  () => CreateCoreDefinitionResponse,
+  () => CreateCoreDefinitionRequest$,
+  () => CreateCoreDefinitionResponse$,
 ];
-export var CreateCoreDefinitionVersion: StaticOperationSchema = [
+export var CreateCoreDefinitionVersion$: StaticOperationSchema = [
   9,
   n0,
   _CCDVr,
   { [_h]: ["POST", "/greengrass/definition/cores/{CoreDefinitionId}/versions", 200] },
-  () => CreateCoreDefinitionVersionRequest,
-  () => CreateCoreDefinitionVersionResponse,
+  () => CreateCoreDefinitionVersionRequest$,
+  () => CreateCoreDefinitionVersionResponse$,
 ];
-export var CreateDeployment: StaticOperationSchema = [
+export var CreateDeployment$: StaticOperationSchema = [
   9,
   n0,
   _CD,
   { [_h]: ["POST", "/greengrass/groups/{GroupId}/deployments", 200] },
-  () => CreateDeploymentRequest,
-  () => CreateDeploymentResponse,
+  () => CreateDeploymentRequest$,
+  () => CreateDeploymentResponse$,
 ];
-export var CreateDeviceDefinition: StaticOperationSchema = [
+export var CreateDeviceDefinition$: StaticOperationSchema = [
   9,
   n0,
   _CDD,
   { [_h]: ["POST", "/greengrass/definition/devices", 200] },
-  () => CreateDeviceDefinitionRequest,
-  () => CreateDeviceDefinitionResponse,
+  () => CreateDeviceDefinitionRequest$,
+  () => CreateDeviceDefinitionResponse$,
 ];
-export var CreateDeviceDefinitionVersion: StaticOperationSchema = [
+export var CreateDeviceDefinitionVersion$: StaticOperationSchema = [
   9,
   n0,
   _CDDV,
   { [_h]: ["POST", "/greengrass/definition/devices/{DeviceDefinitionId}/versions", 200] },
-  () => CreateDeviceDefinitionVersionRequest,
-  () => CreateDeviceDefinitionVersionResponse,
+  () => CreateDeviceDefinitionVersionRequest$,
+  () => CreateDeviceDefinitionVersionResponse$,
 ];
-export var CreateFunctionDefinition: StaticOperationSchema = [
+export var CreateFunctionDefinition$: StaticOperationSchema = [
   9,
   n0,
   _CFD,
   { [_h]: ["POST", "/greengrass/definition/functions", 200] },
-  () => CreateFunctionDefinitionRequest,
-  () => CreateFunctionDefinitionResponse,
+  () => CreateFunctionDefinitionRequest$,
+  () => CreateFunctionDefinitionResponse$,
 ];
-export var CreateFunctionDefinitionVersion: StaticOperationSchema = [
+export var CreateFunctionDefinitionVersion$: StaticOperationSchema = [
   9,
   n0,
   _CFDV,
   { [_h]: ["POST", "/greengrass/definition/functions/{FunctionDefinitionId}/versions", 200] },
-  () => CreateFunctionDefinitionVersionRequest,
-  () => CreateFunctionDefinitionVersionResponse,
+  () => CreateFunctionDefinitionVersionRequest$,
+  () => CreateFunctionDefinitionVersionResponse$,
 ];
-export var CreateGroup: StaticOperationSchema = [
+export var CreateGroup$: StaticOperationSchema = [
   9,
   n0,
   _CG,
   { [_h]: ["POST", "/greengrass/groups", 200] },
-  () => CreateGroupRequest,
-  () => CreateGroupResponse,
+  () => CreateGroupRequest$,
+  () => CreateGroupResponse$,
 ];
-export var CreateGroupCertificateAuthority: StaticOperationSchema = [
+export var CreateGroupCertificateAuthority$: StaticOperationSchema = [
   9,
   n0,
   _CGCA,
   { [_h]: ["POST", "/greengrass/groups/{GroupId}/certificateauthorities", 200] },
-  () => CreateGroupCertificateAuthorityRequest,
-  () => CreateGroupCertificateAuthorityResponse,
+  () => CreateGroupCertificateAuthorityRequest$,
+  () => CreateGroupCertificateAuthorityResponse$,
 ];
-export var CreateGroupVersion: StaticOperationSchema = [
+export var CreateGroupVersion$: StaticOperationSchema = [
   9,
   n0,
   _CGV,
   { [_h]: ["POST", "/greengrass/groups/{GroupId}/versions", 200] },
-  () => CreateGroupVersionRequest,
-  () => CreateGroupVersionResponse,
+  () => CreateGroupVersionRequest$,
+  () => CreateGroupVersionResponse$,
 ];
-export var CreateLoggerDefinition: StaticOperationSchema = [
+export var CreateLoggerDefinition$: StaticOperationSchema = [
   9,
   n0,
   _CLD,
   { [_h]: ["POST", "/greengrass/definition/loggers", 200] },
-  () => CreateLoggerDefinitionRequest,
-  () => CreateLoggerDefinitionResponse,
+  () => CreateLoggerDefinitionRequest$,
+  () => CreateLoggerDefinitionResponse$,
 ];
-export var CreateLoggerDefinitionVersion: StaticOperationSchema = [
+export var CreateLoggerDefinitionVersion$: StaticOperationSchema = [
   9,
   n0,
   _CLDV,
   { [_h]: ["POST", "/greengrass/definition/loggers/{LoggerDefinitionId}/versions", 200] },
-  () => CreateLoggerDefinitionVersionRequest,
-  () => CreateLoggerDefinitionVersionResponse,
+  () => CreateLoggerDefinitionVersionRequest$,
+  () => CreateLoggerDefinitionVersionResponse$,
 ];
-export var CreateResourceDefinition: StaticOperationSchema = [
+export var CreateResourceDefinition$: StaticOperationSchema = [
   9,
   n0,
   _CRD,
   { [_h]: ["POST", "/greengrass/definition/resources", 200] },
-  () => CreateResourceDefinitionRequest,
-  () => CreateResourceDefinitionResponse,
+  () => CreateResourceDefinitionRequest$,
+  () => CreateResourceDefinitionResponse$,
 ];
-export var CreateResourceDefinitionVersion: StaticOperationSchema = [
+export var CreateResourceDefinitionVersion$: StaticOperationSchema = [
   9,
   n0,
   _CRDV,
   { [_h]: ["POST", "/greengrass/definition/resources/{ResourceDefinitionId}/versions", 200] },
-  () => CreateResourceDefinitionVersionRequest,
-  () => CreateResourceDefinitionVersionResponse,
+  () => CreateResourceDefinitionVersionRequest$,
+  () => CreateResourceDefinitionVersionResponse$,
 ];
-export var CreateSoftwareUpdateJob: StaticOperationSchema = [
+export var CreateSoftwareUpdateJob$: StaticOperationSchema = [
   9,
   n0,
   _CSUJ,
   { [_h]: ["POST", "/greengrass/updates", 200] },
-  () => CreateSoftwareUpdateJobRequest,
-  () => CreateSoftwareUpdateJobResponse,
+  () => CreateSoftwareUpdateJobRequest$,
+  () => CreateSoftwareUpdateJobResponse$,
 ];
-export var CreateSubscriptionDefinition: StaticOperationSchema = [
+export var CreateSubscriptionDefinition$: StaticOperationSchema = [
   9,
   n0,
   _CSD,
   { [_h]: ["POST", "/greengrass/definition/subscriptions", 200] },
-  () => CreateSubscriptionDefinitionRequest,
-  () => CreateSubscriptionDefinitionResponse,
+  () => CreateSubscriptionDefinitionRequest$,
+  () => CreateSubscriptionDefinitionResponse$,
 ];
-export var CreateSubscriptionDefinitionVersion: StaticOperationSchema = [
+export var CreateSubscriptionDefinitionVersion$: StaticOperationSchema = [
   9,
   n0,
   _CSDV,
   { [_h]: ["POST", "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions", 200] },
-  () => CreateSubscriptionDefinitionVersionRequest,
-  () => CreateSubscriptionDefinitionVersionResponse,
+  () => CreateSubscriptionDefinitionVersionRequest$,
+  () => CreateSubscriptionDefinitionVersionResponse$,
 ];
-export var DeleteConnectorDefinition: StaticOperationSchema = [
+export var DeleteConnectorDefinition$: StaticOperationSchema = [
   9,
   n0,
   _DCD,
   { [_h]: ["DELETE", "/greengrass/definition/connectors/{ConnectorDefinitionId}", 200] },
-  () => DeleteConnectorDefinitionRequest,
-  () => DeleteConnectorDefinitionResponse,
+  () => DeleteConnectorDefinitionRequest$,
+  () => DeleteConnectorDefinitionResponse$,
 ];
-export var DeleteCoreDefinition: StaticOperationSchema = [
+export var DeleteCoreDefinition$: StaticOperationSchema = [
   9,
   n0,
   _DCDe,
   { [_h]: ["DELETE", "/greengrass/definition/cores/{CoreDefinitionId}", 200] },
-  () => DeleteCoreDefinitionRequest,
-  () => DeleteCoreDefinitionResponse,
+  () => DeleteCoreDefinitionRequest$,
+  () => DeleteCoreDefinitionResponse$,
 ];
-export var DeleteDeviceDefinition: StaticOperationSchema = [
+export var DeleteDeviceDefinition$: StaticOperationSchema = [
   9,
   n0,
   _DDD,
   { [_h]: ["DELETE", "/greengrass/definition/devices/{DeviceDefinitionId}", 200] },
-  () => DeleteDeviceDefinitionRequest,
-  () => DeleteDeviceDefinitionResponse,
+  () => DeleteDeviceDefinitionRequest$,
+  () => DeleteDeviceDefinitionResponse$,
 ];
-export var DeleteFunctionDefinition: StaticOperationSchema = [
+export var DeleteFunctionDefinition$: StaticOperationSchema = [
   9,
   n0,
   _DFD,
   { [_h]: ["DELETE", "/greengrass/definition/functions/{FunctionDefinitionId}", 200] },
-  () => DeleteFunctionDefinitionRequest,
-  () => DeleteFunctionDefinitionResponse,
+  () => DeleteFunctionDefinitionRequest$,
+  () => DeleteFunctionDefinitionResponse$,
 ];
-export var DeleteGroup: StaticOperationSchema = [
+export var DeleteGroup$: StaticOperationSchema = [
   9,
   n0,
   _DG,
   { [_h]: ["DELETE", "/greengrass/groups/{GroupId}", 200] },
-  () => DeleteGroupRequest,
-  () => DeleteGroupResponse,
+  () => DeleteGroupRequest$,
+  () => DeleteGroupResponse$,
 ];
-export var DeleteLoggerDefinition: StaticOperationSchema = [
+export var DeleteLoggerDefinition$: StaticOperationSchema = [
   9,
   n0,
   _DLD,
   { [_h]: ["DELETE", "/greengrass/definition/loggers/{LoggerDefinitionId}", 200] },
-  () => DeleteLoggerDefinitionRequest,
-  () => DeleteLoggerDefinitionResponse,
+  () => DeleteLoggerDefinitionRequest$,
+  () => DeleteLoggerDefinitionResponse$,
 ];
-export var DeleteResourceDefinition: StaticOperationSchema = [
+export var DeleteResourceDefinition$: StaticOperationSchema = [
   9,
   n0,
   _DRD,
   { [_h]: ["DELETE", "/greengrass/definition/resources/{ResourceDefinitionId}", 200] },
-  () => DeleteResourceDefinitionRequest,
-  () => DeleteResourceDefinitionResponse,
+  () => DeleteResourceDefinitionRequest$,
+  () => DeleteResourceDefinitionResponse$,
 ];
-export var DeleteSubscriptionDefinition: StaticOperationSchema = [
+export var DeleteSubscriptionDefinition$: StaticOperationSchema = [
   9,
   n0,
   _DSD,
   { [_h]: ["DELETE", "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}", 200] },
-  () => DeleteSubscriptionDefinitionRequest,
-  () => DeleteSubscriptionDefinitionResponse,
+  () => DeleteSubscriptionDefinitionRequest$,
+  () => DeleteSubscriptionDefinitionResponse$,
 ];
-export var DisassociateRoleFromGroup: StaticOperationSchema = [
+export var DisassociateRoleFromGroup$: StaticOperationSchema = [
   9,
   n0,
   _DRFG,
   { [_h]: ["DELETE", "/greengrass/groups/{GroupId}/role", 200] },
-  () => DisassociateRoleFromGroupRequest,
-  () => DisassociateRoleFromGroupResponse,
+  () => DisassociateRoleFromGroupRequest$,
+  () => DisassociateRoleFromGroupResponse$,
 ];
-export var DisassociateServiceRoleFromAccount: StaticOperationSchema = [
+export var DisassociateServiceRoleFromAccount$: StaticOperationSchema = [
   9,
   n0,
   _DSRFA,
   { [_h]: ["DELETE", "/greengrass/servicerole", 200] },
-  () => DisassociateServiceRoleFromAccountRequest,
-  () => DisassociateServiceRoleFromAccountResponse,
+  () => DisassociateServiceRoleFromAccountRequest$,
+  () => DisassociateServiceRoleFromAccountResponse$,
 ];
-export var GetAssociatedRole: StaticOperationSchema = [
+export var GetAssociatedRole$: StaticOperationSchema = [
   9,
   n0,
   _GAR,
   { [_h]: ["GET", "/greengrass/groups/{GroupId}/role", 200] },
-  () => GetAssociatedRoleRequest,
-  () => GetAssociatedRoleResponse,
+  () => GetAssociatedRoleRequest$,
+  () => GetAssociatedRoleResponse$,
 ];
-export var GetBulkDeploymentStatus: StaticOperationSchema = [
+export var GetBulkDeploymentStatus$: StaticOperationSchema = [
   9,
   n0,
   _GBDS,
   { [_h]: ["GET", "/greengrass/bulk/deployments/{BulkDeploymentId}/status", 200] },
-  () => GetBulkDeploymentStatusRequest,
-  () => GetBulkDeploymentStatusResponse,
+  () => GetBulkDeploymentStatusRequest$,
+  () => GetBulkDeploymentStatusResponse$,
 ];
-export var GetConnectivityInfo: StaticOperationSchema = [
+export var GetConnectivityInfo$: StaticOperationSchema = [
   9,
   n0,
   _GCI,
   { [_h]: ["GET", "/greengrass/things/{ThingName}/connectivityInfo", 200] },
-  () => GetConnectivityInfoRequest,
-  () => GetConnectivityInfoResponse,
+  () => GetConnectivityInfoRequest$,
+  () => GetConnectivityInfoResponse$,
 ];
-export var GetConnectorDefinition: StaticOperationSchema = [
+export var GetConnectorDefinition$: StaticOperationSchema = [
   9,
   n0,
   _GCD,
   { [_h]: ["GET", "/greengrass/definition/connectors/{ConnectorDefinitionId}", 200] },
-  () => GetConnectorDefinitionRequest,
-  () => GetConnectorDefinitionResponse,
+  () => GetConnectorDefinitionRequest$,
+  () => GetConnectorDefinitionResponse$,
 ];
-export var GetConnectorDefinitionVersion: StaticOperationSchema = [
+export var GetConnectorDefinitionVersion$: StaticOperationSchema = [
   9,
   n0,
   _GCDV,
@@ -2069,58 +2066,58 @@ export var GetConnectorDefinitionVersion: StaticOperationSchema = [
       200,
     ],
   },
-  () => GetConnectorDefinitionVersionRequest,
-  () => GetConnectorDefinitionVersionResponse,
+  () => GetConnectorDefinitionVersionRequest$,
+  () => GetConnectorDefinitionVersionResponse$,
 ];
-export var GetCoreDefinition: StaticOperationSchema = [
+export var GetCoreDefinition$: StaticOperationSchema = [
   9,
   n0,
   _GCDe,
   { [_h]: ["GET", "/greengrass/definition/cores/{CoreDefinitionId}", 200] },
-  () => GetCoreDefinitionRequest,
-  () => GetCoreDefinitionResponse,
+  () => GetCoreDefinitionRequest$,
+  () => GetCoreDefinitionResponse$,
 ];
-export var GetCoreDefinitionVersion: StaticOperationSchema = [
+export var GetCoreDefinitionVersion$: StaticOperationSchema = [
   9,
   n0,
   _GCDVe,
   { [_h]: ["GET", "/greengrass/definition/cores/{CoreDefinitionId}/versions/{CoreDefinitionVersionId}", 200] },
-  () => GetCoreDefinitionVersionRequest,
-  () => GetCoreDefinitionVersionResponse,
+  () => GetCoreDefinitionVersionRequest$,
+  () => GetCoreDefinitionVersionResponse$,
 ];
-export var GetDeploymentStatus: StaticOperationSchema = [
+export var GetDeploymentStatus$: StaticOperationSchema = [
   9,
   n0,
   _GDS,
   { [_h]: ["GET", "/greengrass/groups/{GroupId}/deployments/{DeploymentId}/status", 200] },
-  () => GetDeploymentStatusRequest,
-  () => GetDeploymentStatusResponse,
+  () => GetDeploymentStatusRequest$,
+  () => GetDeploymentStatusResponse$,
 ];
-export var GetDeviceDefinition: StaticOperationSchema = [
+export var GetDeviceDefinition$: StaticOperationSchema = [
   9,
   n0,
   _GDD,
   { [_h]: ["GET", "/greengrass/definition/devices/{DeviceDefinitionId}", 200] },
-  () => GetDeviceDefinitionRequest,
-  () => GetDeviceDefinitionResponse,
+  () => GetDeviceDefinitionRequest$,
+  () => GetDeviceDefinitionResponse$,
 ];
-export var GetDeviceDefinitionVersion: StaticOperationSchema = [
+export var GetDeviceDefinitionVersion$: StaticOperationSchema = [
   9,
   n0,
   _GDDV,
   { [_h]: ["GET", "/greengrass/definition/devices/{DeviceDefinitionId}/versions/{DeviceDefinitionVersionId}", 200] },
-  () => GetDeviceDefinitionVersionRequest,
-  () => GetDeviceDefinitionVersionResponse,
+  () => GetDeviceDefinitionVersionRequest$,
+  () => GetDeviceDefinitionVersionResponse$,
 ];
-export var GetFunctionDefinition: StaticOperationSchema = [
+export var GetFunctionDefinition$: StaticOperationSchema = [
   9,
   n0,
   _GFD,
   { [_h]: ["GET", "/greengrass/definition/functions/{FunctionDefinitionId}", 200] },
-  () => GetFunctionDefinitionRequest,
-  () => GetFunctionDefinitionResponse,
+  () => GetFunctionDefinitionRequest$,
+  () => GetFunctionDefinitionResponse$,
 ];
-export var GetFunctionDefinitionVersion: StaticOperationSchema = [
+export var GetFunctionDefinitionVersion$: StaticOperationSchema = [
   9,
   n0,
   _GFDV,
@@ -2131,66 +2128,66 @@ export var GetFunctionDefinitionVersion: StaticOperationSchema = [
       200,
     ],
   },
-  () => GetFunctionDefinitionVersionRequest,
-  () => GetFunctionDefinitionVersionResponse,
+  () => GetFunctionDefinitionVersionRequest$,
+  () => GetFunctionDefinitionVersionResponse$,
 ];
-export var GetGroup: StaticOperationSchema = [
+export var GetGroup$: StaticOperationSchema = [
   9,
   n0,
   _GG,
   { [_h]: ["GET", "/greengrass/groups/{GroupId}", 200] },
-  () => GetGroupRequest,
-  () => GetGroupResponse,
+  () => GetGroupRequest$,
+  () => GetGroupResponse$,
 ];
-export var GetGroupCertificateAuthority: StaticOperationSchema = [
+export var GetGroupCertificateAuthority$: StaticOperationSchema = [
   9,
   n0,
   _GGCA,
   { [_h]: ["GET", "/greengrass/groups/{GroupId}/certificateauthorities/{CertificateAuthorityId}", 200] },
-  () => GetGroupCertificateAuthorityRequest,
-  () => GetGroupCertificateAuthorityResponse,
+  () => GetGroupCertificateAuthorityRequest$,
+  () => GetGroupCertificateAuthorityResponse$,
 ];
-export var GetGroupCertificateConfiguration: StaticOperationSchema = [
+export var GetGroupCertificateConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GGCC,
   { [_h]: ["GET", "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry", 200] },
-  () => GetGroupCertificateConfigurationRequest,
-  () => GetGroupCertificateConfigurationResponse,
+  () => GetGroupCertificateConfigurationRequest$,
+  () => GetGroupCertificateConfigurationResponse$,
 ];
-export var GetGroupVersion: StaticOperationSchema = [
+export var GetGroupVersion$: StaticOperationSchema = [
   9,
   n0,
   _GGV,
   { [_h]: ["GET", "/greengrass/groups/{GroupId}/versions/{GroupVersionId}", 200] },
-  () => GetGroupVersionRequest,
-  () => GetGroupVersionResponse,
+  () => GetGroupVersionRequest$,
+  () => GetGroupVersionResponse$,
 ];
-export var GetLoggerDefinition: StaticOperationSchema = [
+export var GetLoggerDefinition$: StaticOperationSchema = [
   9,
   n0,
   _GLD,
   { [_h]: ["GET", "/greengrass/definition/loggers/{LoggerDefinitionId}", 200] },
-  () => GetLoggerDefinitionRequest,
-  () => GetLoggerDefinitionResponse,
+  () => GetLoggerDefinitionRequest$,
+  () => GetLoggerDefinitionResponse$,
 ];
-export var GetLoggerDefinitionVersion: StaticOperationSchema = [
+export var GetLoggerDefinitionVersion$: StaticOperationSchema = [
   9,
   n0,
   _GLDV,
   { [_h]: ["GET", "/greengrass/definition/loggers/{LoggerDefinitionId}/versions/{LoggerDefinitionVersionId}", 200] },
-  () => GetLoggerDefinitionVersionRequest,
-  () => GetLoggerDefinitionVersionResponse,
+  () => GetLoggerDefinitionVersionRequest$,
+  () => GetLoggerDefinitionVersionResponse$,
 ];
-export var GetResourceDefinition: StaticOperationSchema = [
+export var GetResourceDefinition$: StaticOperationSchema = [
   9,
   n0,
   _GRD,
   { [_h]: ["GET", "/greengrass/definition/resources/{ResourceDefinitionId}", 200] },
-  () => GetResourceDefinitionRequest,
-  () => GetResourceDefinitionResponse,
+  () => GetResourceDefinitionRequest$,
+  () => GetResourceDefinitionResponse$,
 ];
-export var GetResourceDefinitionVersion: StaticOperationSchema = [
+export var GetResourceDefinitionVersion$: StaticOperationSchema = [
   9,
   n0,
   _GRDV,
@@ -2201,26 +2198,26 @@ export var GetResourceDefinitionVersion: StaticOperationSchema = [
       200,
     ],
   },
-  () => GetResourceDefinitionVersionRequest,
-  () => GetResourceDefinitionVersionResponse,
+  () => GetResourceDefinitionVersionRequest$,
+  () => GetResourceDefinitionVersionResponse$,
 ];
-export var GetServiceRoleForAccount: StaticOperationSchema = [
+export var GetServiceRoleForAccount$: StaticOperationSchema = [
   9,
   n0,
   _GSRFA,
   { [_h]: ["GET", "/greengrass/servicerole", 200] },
-  () => GetServiceRoleForAccountRequest,
-  () => GetServiceRoleForAccountResponse,
+  () => GetServiceRoleForAccountRequest$,
+  () => GetServiceRoleForAccountResponse$,
 ];
-export var GetSubscriptionDefinition: StaticOperationSchema = [
+export var GetSubscriptionDefinition$: StaticOperationSchema = [
   9,
   n0,
   _GSD,
   { [_h]: ["GET", "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}", 200] },
-  () => GetSubscriptionDefinitionRequest,
-  () => GetSubscriptionDefinitionResponse,
+  () => GetSubscriptionDefinitionRequest$,
+  () => GetSubscriptionDefinitionResponse$,
 ];
-export var GetSubscriptionDefinitionVersion: StaticOperationSchema = [
+export var GetSubscriptionDefinitionVersion$: StaticOperationSchema = [
   9,
   n0,
   _GSDV,
@@ -2231,310 +2228,310 @@ export var GetSubscriptionDefinitionVersion: StaticOperationSchema = [
       200,
     ],
   },
-  () => GetSubscriptionDefinitionVersionRequest,
-  () => GetSubscriptionDefinitionVersionResponse,
+  () => GetSubscriptionDefinitionVersionRequest$,
+  () => GetSubscriptionDefinitionVersionResponse$,
 ];
-export var GetThingRuntimeConfiguration: StaticOperationSchema = [
+export var GetThingRuntimeConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GTRC,
   { [_h]: ["GET", "/greengrass/things/{ThingName}/runtimeconfig", 200] },
-  () => GetThingRuntimeConfigurationRequest,
-  () => GetThingRuntimeConfigurationResponse,
+  () => GetThingRuntimeConfigurationRequest$,
+  () => GetThingRuntimeConfigurationResponse$,
 ];
-export var ListBulkDeploymentDetailedReports: StaticOperationSchema = [
+export var ListBulkDeploymentDetailedReports$: StaticOperationSchema = [
   9,
   n0,
   _LBDDR,
   { [_h]: ["GET", "/greengrass/bulk/deployments/{BulkDeploymentId}/detailed-reports", 200] },
-  () => ListBulkDeploymentDetailedReportsRequest,
-  () => ListBulkDeploymentDetailedReportsResponse,
+  () => ListBulkDeploymentDetailedReportsRequest$,
+  () => ListBulkDeploymentDetailedReportsResponse$,
 ];
-export var ListBulkDeployments: StaticOperationSchema = [
+export var ListBulkDeployments$: StaticOperationSchema = [
   9,
   n0,
   _LBD,
   { [_h]: ["GET", "/greengrass/bulk/deployments", 200] },
-  () => ListBulkDeploymentsRequest,
-  () => ListBulkDeploymentsResponse,
+  () => ListBulkDeploymentsRequest$,
+  () => ListBulkDeploymentsResponse$,
 ];
-export var ListConnectorDefinitions: StaticOperationSchema = [
+export var ListConnectorDefinitions$: StaticOperationSchema = [
   9,
   n0,
   _LCD,
   { [_h]: ["GET", "/greengrass/definition/connectors", 200] },
-  () => ListConnectorDefinitionsRequest,
-  () => ListConnectorDefinitionsResponse,
+  () => ListConnectorDefinitionsRequest$,
+  () => ListConnectorDefinitionsResponse$,
 ];
-export var ListConnectorDefinitionVersions: StaticOperationSchema = [
+export var ListConnectorDefinitionVersions$: StaticOperationSchema = [
   9,
   n0,
   _LCDV,
   { [_h]: ["GET", "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions", 200] },
-  () => ListConnectorDefinitionVersionsRequest,
-  () => ListConnectorDefinitionVersionsResponse,
+  () => ListConnectorDefinitionVersionsRequest$,
+  () => ListConnectorDefinitionVersionsResponse$,
 ];
-export var ListCoreDefinitions: StaticOperationSchema = [
+export var ListCoreDefinitions$: StaticOperationSchema = [
   9,
   n0,
   _LCDi,
   { [_h]: ["GET", "/greengrass/definition/cores", 200] },
-  () => ListCoreDefinitionsRequest,
-  () => ListCoreDefinitionsResponse,
+  () => ListCoreDefinitionsRequest$,
+  () => ListCoreDefinitionsResponse$,
 ];
-export var ListCoreDefinitionVersions: StaticOperationSchema = [
+export var ListCoreDefinitionVersions$: StaticOperationSchema = [
   9,
   n0,
   _LCDVi,
   { [_h]: ["GET", "/greengrass/definition/cores/{CoreDefinitionId}/versions", 200] },
-  () => ListCoreDefinitionVersionsRequest,
-  () => ListCoreDefinitionVersionsResponse,
+  () => ListCoreDefinitionVersionsRequest$,
+  () => ListCoreDefinitionVersionsResponse$,
 ];
-export var ListDeployments: StaticOperationSchema = [
+export var ListDeployments$: StaticOperationSchema = [
   9,
   n0,
   _LD,
   { [_h]: ["GET", "/greengrass/groups/{GroupId}/deployments", 200] },
-  () => ListDeploymentsRequest,
-  () => ListDeploymentsResponse,
+  () => ListDeploymentsRequest$,
+  () => ListDeploymentsResponse$,
 ];
-export var ListDeviceDefinitions: StaticOperationSchema = [
+export var ListDeviceDefinitions$: StaticOperationSchema = [
   9,
   n0,
   _LDD,
   { [_h]: ["GET", "/greengrass/definition/devices", 200] },
-  () => ListDeviceDefinitionsRequest,
-  () => ListDeviceDefinitionsResponse,
+  () => ListDeviceDefinitionsRequest$,
+  () => ListDeviceDefinitionsResponse$,
 ];
-export var ListDeviceDefinitionVersions: StaticOperationSchema = [
+export var ListDeviceDefinitionVersions$: StaticOperationSchema = [
   9,
   n0,
   _LDDV,
   { [_h]: ["GET", "/greengrass/definition/devices/{DeviceDefinitionId}/versions", 200] },
-  () => ListDeviceDefinitionVersionsRequest,
-  () => ListDeviceDefinitionVersionsResponse,
+  () => ListDeviceDefinitionVersionsRequest$,
+  () => ListDeviceDefinitionVersionsResponse$,
 ];
-export var ListFunctionDefinitions: StaticOperationSchema = [
+export var ListFunctionDefinitions$: StaticOperationSchema = [
   9,
   n0,
   _LFD,
   { [_h]: ["GET", "/greengrass/definition/functions", 200] },
-  () => ListFunctionDefinitionsRequest,
-  () => ListFunctionDefinitionsResponse,
+  () => ListFunctionDefinitionsRequest$,
+  () => ListFunctionDefinitionsResponse$,
 ];
-export var ListFunctionDefinitionVersions: StaticOperationSchema = [
+export var ListFunctionDefinitionVersions$: StaticOperationSchema = [
   9,
   n0,
   _LFDV,
   { [_h]: ["GET", "/greengrass/definition/functions/{FunctionDefinitionId}/versions", 200] },
-  () => ListFunctionDefinitionVersionsRequest,
-  () => ListFunctionDefinitionVersionsResponse,
+  () => ListFunctionDefinitionVersionsRequest$,
+  () => ListFunctionDefinitionVersionsResponse$,
 ];
-export var ListGroupCertificateAuthorities: StaticOperationSchema = [
+export var ListGroupCertificateAuthorities$: StaticOperationSchema = [
   9,
   n0,
   _LGCA,
   { [_h]: ["GET", "/greengrass/groups/{GroupId}/certificateauthorities", 200] },
-  () => ListGroupCertificateAuthoritiesRequest,
-  () => ListGroupCertificateAuthoritiesResponse,
+  () => ListGroupCertificateAuthoritiesRequest$,
+  () => ListGroupCertificateAuthoritiesResponse$,
 ];
-export var ListGroups: StaticOperationSchema = [
+export var ListGroups$: StaticOperationSchema = [
   9,
   n0,
   _LG,
   { [_h]: ["GET", "/greengrass/groups", 200] },
-  () => ListGroupsRequest,
-  () => ListGroupsResponse,
+  () => ListGroupsRequest$,
+  () => ListGroupsResponse$,
 ];
-export var ListGroupVersions: StaticOperationSchema = [
+export var ListGroupVersions$: StaticOperationSchema = [
   9,
   n0,
   _LGV,
   { [_h]: ["GET", "/greengrass/groups/{GroupId}/versions", 200] },
-  () => ListGroupVersionsRequest,
-  () => ListGroupVersionsResponse,
+  () => ListGroupVersionsRequest$,
+  () => ListGroupVersionsResponse$,
 ];
-export var ListLoggerDefinitions: StaticOperationSchema = [
+export var ListLoggerDefinitions$: StaticOperationSchema = [
   9,
   n0,
   _LLD,
   { [_h]: ["GET", "/greengrass/definition/loggers", 200] },
-  () => ListLoggerDefinitionsRequest,
-  () => ListLoggerDefinitionsResponse,
+  () => ListLoggerDefinitionsRequest$,
+  () => ListLoggerDefinitionsResponse$,
 ];
-export var ListLoggerDefinitionVersions: StaticOperationSchema = [
+export var ListLoggerDefinitionVersions$: StaticOperationSchema = [
   9,
   n0,
   _LLDV,
   { [_h]: ["GET", "/greengrass/definition/loggers/{LoggerDefinitionId}/versions", 200] },
-  () => ListLoggerDefinitionVersionsRequest,
-  () => ListLoggerDefinitionVersionsResponse,
+  () => ListLoggerDefinitionVersionsRequest$,
+  () => ListLoggerDefinitionVersionsResponse$,
 ];
-export var ListResourceDefinitions: StaticOperationSchema = [
+export var ListResourceDefinitions$: StaticOperationSchema = [
   9,
   n0,
   _LRD,
   { [_h]: ["GET", "/greengrass/definition/resources", 200] },
-  () => ListResourceDefinitionsRequest,
-  () => ListResourceDefinitionsResponse,
+  () => ListResourceDefinitionsRequest$,
+  () => ListResourceDefinitionsResponse$,
 ];
-export var ListResourceDefinitionVersions: StaticOperationSchema = [
+export var ListResourceDefinitionVersions$: StaticOperationSchema = [
   9,
   n0,
   _LRDV,
   { [_h]: ["GET", "/greengrass/definition/resources/{ResourceDefinitionId}/versions", 200] },
-  () => ListResourceDefinitionVersionsRequest,
-  () => ListResourceDefinitionVersionsResponse,
+  () => ListResourceDefinitionVersionsRequest$,
+  () => ListResourceDefinitionVersionsResponse$,
 ];
-export var ListSubscriptionDefinitions: StaticOperationSchema = [
+export var ListSubscriptionDefinitions$: StaticOperationSchema = [
   9,
   n0,
   _LSD,
   { [_h]: ["GET", "/greengrass/definition/subscriptions", 200] },
-  () => ListSubscriptionDefinitionsRequest,
-  () => ListSubscriptionDefinitionsResponse,
+  () => ListSubscriptionDefinitionsRequest$,
+  () => ListSubscriptionDefinitionsResponse$,
 ];
-export var ListSubscriptionDefinitionVersions: StaticOperationSchema = [
+export var ListSubscriptionDefinitionVersions$: StaticOperationSchema = [
   9,
   n0,
   _LSDV,
   { [_h]: ["GET", "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions", 200] },
-  () => ListSubscriptionDefinitionVersionsRequest,
-  () => ListSubscriptionDefinitionVersionsResponse,
+  () => ListSubscriptionDefinitionVersionsRequest$,
+  () => ListSubscriptionDefinitionVersionsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ResetDeployments: StaticOperationSchema = [
+export var ResetDeployments$: StaticOperationSchema = [
   9,
   n0,
   _RD,
   { [_h]: ["POST", "/greengrass/groups/{GroupId}/deployments/$reset", 200] },
-  () => ResetDeploymentsRequest,
-  () => ResetDeploymentsResponse,
+  () => ResetDeploymentsRequest$,
+  () => ResetDeploymentsResponse$,
 ];
-export var StartBulkDeployment: StaticOperationSchema = [
+export var StartBulkDeployment$: StaticOperationSchema = [
   9,
   n0,
   _SBD,
   { [_h]: ["POST", "/greengrass/bulk/deployments", 200] },
-  () => StartBulkDeploymentRequest,
-  () => StartBulkDeploymentResponse,
+  () => StartBulkDeploymentRequest$,
+  () => StartBulkDeploymentResponse$,
 ];
-export var StopBulkDeployment: StaticOperationSchema = [
+export var StopBulkDeployment$: StaticOperationSchema = [
   9,
   n0,
   _SBDt,
   { [_h]: ["PUT", "/greengrass/bulk/deployments/{BulkDeploymentId}/$stop", 200] },
-  () => StopBulkDeploymentRequest,
-  () => StopBulkDeploymentResponse,
+  () => StopBulkDeploymentRequest$,
+  () => StopBulkDeploymentResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{ResourceArn}", 204] },
-  () => TagResourceRequest,
+  () => TagResourceRequest$,
   () => __Unit,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{ResourceArn}", 204] },
-  () => UntagResourceRequest,
+  () => UntagResourceRequest$,
   () => __Unit,
 ];
-export var UpdateConnectivityInfo: StaticOperationSchema = [
+export var UpdateConnectivityInfo$: StaticOperationSchema = [
   9,
   n0,
   _UCI,
   { [_h]: ["PUT", "/greengrass/things/{ThingName}/connectivityInfo", 200] },
-  () => UpdateConnectivityInfoRequest,
-  () => UpdateConnectivityInfoResponse,
+  () => UpdateConnectivityInfoRequest$,
+  () => UpdateConnectivityInfoResponse$,
 ];
-export var UpdateConnectorDefinition: StaticOperationSchema = [
+export var UpdateConnectorDefinition$: StaticOperationSchema = [
   9,
   n0,
   _UCD,
   { [_h]: ["PUT", "/greengrass/definition/connectors/{ConnectorDefinitionId}", 200] },
-  () => UpdateConnectorDefinitionRequest,
-  () => UpdateConnectorDefinitionResponse,
+  () => UpdateConnectorDefinitionRequest$,
+  () => UpdateConnectorDefinitionResponse$,
 ];
-export var UpdateCoreDefinition: StaticOperationSchema = [
+export var UpdateCoreDefinition$: StaticOperationSchema = [
   9,
   n0,
   _UCDp,
   { [_h]: ["PUT", "/greengrass/definition/cores/{CoreDefinitionId}", 200] },
-  () => UpdateCoreDefinitionRequest,
-  () => UpdateCoreDefinitionResponse,
+  () => UpdateCoreDefinitionRequest$,
+  () => UpdateCoreDefinitionResponse$,
 ];
-export var UpdateDeviceDefinition: StaticOperationSchema = [
+export var UpdateDeviceDefinition$: StaticOperationSchema = [
   9,
   n0,
   _UDD,
   { [_h]: ["PUT", "/greengrass/definition/devices/{DeviceDefinitionId}", 200] },
-  () => UpdateDeviceDefinitionRequest,
-  () => UpdateDeviceDefinitionResponse,
+  () => UpdateDeviceDefinitionRequest$,
+  () => UpdateDeviceDefinitionResponse$,
 ];
-export var UpdateFunctionDefinition: StaticOperationSchema = [
+export var UpdateFunctionDefinition$: StaticOperationSchema = [
   9,
   n0,
   _UFD,
   { [_h]: ["PUT", "/greengrass/definition/functions/{FunctionDefinitionId}", 200] },
-  () => UpdateFunctionDefinitionRequest,
-  () => UpdateFunctionDefinitionResponse,
+  () => UpdateFunctionDefinitionRequest$,
+  () => UpdateFunctionDefinitionResponse$,
 ];
-export var UpdateGroup: StaticOperationSchema = [
+export var UpdateGroup$: StaticOperationSchema = [
   9,
   n0,
   _UG,
   { [_h]: ["PUT", "/greengrass/groups/{GroupId}", 200] },
-  () => UpdateGroupRequest,
-  () => UpdateGroupResponse,
+  () => UpdateGroupRequest$,
+  () => UpdateGroupResponse$,
 ];
-export var UpdateGroupCertificateConfiguration: StaticOperationSchema = [
+export var UpdateGroupCertificateConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UGCC,
   { [_h]: ["PUT", "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry", 200] },
-  () => UpdateGroupCertificateConfigurationRequest,
-  () => UpdateGroupCertificateConfigurationResponse,
+  () => UpdateGroupCertificateConfigurationRequest$,
+  () => UpdateGroupCertificateConfigurationResponse$,
 ];
-export var UpdateLoggerDefinition: StaticOperationSchema = [
+export var UpdateLoggerDefinition$: StaticOperationSchema = [
   9,
   n0,
   _ULD,
   { [_h]: ["PUT", "/greengrass/definition/loggers/{LoggerDefinitionId}", 200] },
-  () => UpdateLoggerDefinitionRequest,
-  () => UpdateLoggerDefinitionResponse,
+  () => UpdateLoggerDefinitionRequest$,
+  () => UpdateLoggerDefinitionResponse$,
 ];
-export var UpdateResourceDefinition: StaticOperationSchema = [
+export var UpdateResourceDefinition$: StaticOperationSchema = [
   9,
   n0,
   _URD,
   { [_h]: ["PUT", "/greengrass/definition/resources/{ResourceDefinitionId}", 200] },
-  () => UpdateResourceDefinitionRequest,
-  () => UpdateResourceDefinitionResponse,
+  () => UpdateResourceDefinitionRequest$,
+  () => UpdateResourceDefinitionResponse$,
 ];
-export var UpdateSubscriptionDefinition: StaticOperationSchema = [
+export var UpdateSubscriptionDefinition$: StaticOperationSchema = [
   9,
   n0,
   _USD,
   { [_h]: ["PUT", "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}", 200] },
-  () => UpdateSubscriptionDefinitionRequest,
-  () => UpdateSubscriptionDefinitionResponse,
+  () => UpdateSubscriptionDefinitionRequest$,
+  () => UpdateSubscriptionDefinitionResponse$,
 ];
-export var UpdateThingRuntimeConfiguration: StaticOperationSchema = [
+export var UpdateThingRuntimeConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UTRC,
   { [_h]: ["PUT", "/greengrass/things/{ThingName}/runtimeconfig", 200] },
-  () => UpdateThingRuntimeConfigurationRequest,
-  () => UpdateThingRuntimeConfigurationResponse,
+  () => UpdateThingRuntimeConfigurationRequest$,
+  () => UpdateThingRuntimeConfigurationResponse$,
 ];

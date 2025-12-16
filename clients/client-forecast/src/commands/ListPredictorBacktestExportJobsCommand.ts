@@ -9,7 +9,7 @@ import type {
   ListPredictorBacktestExportJobsRequest,
   ListPredictorBacktestExportJobsResponse,
 } from "../models/models_0";
-import { ListPredictorBacktestExportJobs } from "../schemas/schemas_0";
+import { ListPredictorBacktestExportJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class ListPredictorBacktestExportJobsCommand extends $Command
   })
   .s("AmazonForecast", "ListPredictorBacktestExportJobs", {})
   .n("ForecastClient", "ListPredictorBacktestExportJobsCommand")
-  .sc(ListPredictorBacktestExportJobs)
+  .sc(ListPredictorBacktestExportJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

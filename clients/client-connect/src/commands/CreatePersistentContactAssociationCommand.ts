@@ -9,7 +9,7 @@ import type {
   CreatePersistentContactAssociationRequest,
   CreatePersistentContactAssociationResponse,
 } from "../models/models_0";
-import { CreatePersistentContactAssociation } from "../schemas/schemas_0";
+import { CreatePersistentContactAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class CreatePersistentContactAssociationCommand extends $Command
   })
   .s("AmazonConnectService", "CreatePersistentContactAssociation", {})
   .n("ConnectClient", "CreatePersistentContactAssociationCommand")
-  .sc(CreatePersistentContactAssociation)
+  .sc(CreatePersistentContactAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

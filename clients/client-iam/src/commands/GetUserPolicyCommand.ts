@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { GetUserPolicyRequest, GetUserPolicyResponse } from "../models/models_0";
-import { GetUserPolicy } from "../schemas/schemas_0";
+import { GetUserPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class GetUserPolicyCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "GetUserPolicy", {})
   .n("IAMClient", "GetUserPolicyCommand")
-  .sc(GetUserPolicy)
+  .sc(GetUserPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

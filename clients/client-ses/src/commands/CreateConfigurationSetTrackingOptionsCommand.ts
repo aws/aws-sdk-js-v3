@@ -8,7 +8,7 @@ import type {
   CreateConfigurationSetTrackingOptionsRequest,
   CreateConfigurationSetTrackingOptionsResponse,
 } from "../models/models_0";
-import { CreateConfigurationSetTrackingOptions } from "../schemas/schemas_0";
+import { CreateConfigurationSetTrackingOptions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -104,7 +104,7 @@ export class CreateConfigurationSetTrackingOptionsCommand extends $Command
   })
   .s("SimpleEmailService", "CreateConfigurationSetTrackingOptions", {})
   .n("SESClient", "CreateConfigurationSetTrackingOptionsCommand")
-  .sc(CreateConfigurationSetTrackingOptions)
+  .sc(CreateConfigurationSetTrackingOptions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

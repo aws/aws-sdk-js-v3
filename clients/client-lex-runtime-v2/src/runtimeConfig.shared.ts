@@ -32,7 +32,12 @@ export const getRuntimeConfig = (config: LexRuntimeV2ClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.lexruntimev2" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.lexruntimev2",
+      version: "2020-08-07",
+      serviceTarget: "AWSDeepSenseRunTimeServiceApi2_0",
+    },
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "Lex Runtime V2",
     urlParser: config?.urlParser ?? parseUrl,

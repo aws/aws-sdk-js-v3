@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetJourneyRequest } from "../models/models_0";
 import type { GetJourneyResponse } from "../models/models_1";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { GetJourney } from "../schemas/schemas_0";
+import { GetJourney$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -481,7 +481,7 @@ export class GetJourneyCommand extends $Command
   })
   .s("Pinpoint", "GetJourney", {})
   .n("PinpointClient", "GetJourneyCommand")
-  .sc(GetJourney)
+  .sc(GetJourney$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

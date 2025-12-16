@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AddUploadBufferInput, AddUploadBufferOutput } from "../models/models_0";
-import { AddUploadBuffer } from "../schemas/schemas_0";
+import { AddUploadBuffer$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -112,7 +112,7 @@ export class AddUploadBufferCommand extends $Command
   })
   .s("StorageGateway_20130630", "AddUploadBuffer", {})
   .n("StorageGatewayClient", "AddUploadBufferCommand")
-  .sc(AddUploadBuffer)
+  .sc(AddUploadBuffer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   GetBlockPublicAccessConfigurationInput,
   GetBlockPublicAccessConfigurationOutput,
 } from "../models/models_0";
-import { GetBlockPublicAccessConfiguration } from "../schemas/schemas_0";
+import { GetBlockPublicAccessConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class GetBlockPublicAccessConfigurationCommand extends $Command
   })
   .s("ElasticMapReduce", "GetBlockPublicAccessConfiguration", {})
   .n("EMRClient", "GetBlockPublicAccessConfigurationCommand")
-  .sc(GetBlockPublicAccessConfiguration)
+  .sc(GetBlockPublicAccessConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

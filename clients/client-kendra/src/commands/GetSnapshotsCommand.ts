@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import type { GetSnapshotsRequest, GetSnapshotsResponse } from "../models/models_0";
-import { GetSnapshots } from "../schemas/schemas_0";
+import { GetSnapshots$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class GetSnapshotsCommand extends $Command
   })
   .s("AWSKendraFrontendService", "GetSnapshots", {})
   .n("KendraClient", "GetSnapshotsCommand")
-  .sc(GetSnapshots)
+  .sc(GetSnapshots$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

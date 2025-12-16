@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: KinesisAnalyticsClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.kinesisanalytics",
-        serviceTarget: "KinesisAnalytics_20150814",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.kinesisanalytics",
+      xmlNamespace: "http://analytics.kinesis.amazonaws.com/doc/2015-08-14",
+      version: "2015-08-14",
+      serviceTarget: "KinesisAnalytics_20150814",
+    },
     serviceId: config?.serviceId ?? "Kinesis Analytics",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

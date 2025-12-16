@@ -13,7 +13,7 @@ import type {
   AddApplicationInputProcessingConfigurationRequest,
   AddApplicationInputProcessingConfigurationResponse,
 } from "../models/models_0";
-import { AddApplicationInputProcessingConfiguration } from "../schemas/schemas_0";
+import { AddApplicationInputProcessingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command
   })
   .s("KinesisAnalytics_20180523", "AddApplicationInputProcessingConfiguration", {})
   .n("KinesisAnalyticsV2Client", "AddApplicationInputProcessingConfigurationCommand")
-  .sc(AddApplicationInputProcessingConfiguration)
+  .sc(AddApplicationInputProcessingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

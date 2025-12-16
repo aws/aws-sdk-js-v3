@@ -13,7 +13,7 @@ import type {
   DescribeStackDriftDetectionStatusInput,
   DescribeStackDriftDetectionStatusOutput,
 } from "../models/models_0";
-import { DescribeStackDriftDetectionStatus } from "../schemas/schemas_0";
+import { DescribeStackDriftDetectionStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class DescribeStackDriftDetectionStatusCommand extends $Command
   })
   .s("CloudFormation", "DescribeStackDriftDetectionStatus", {})
   .n("CloudFormationClient", "DescribeStackDriftDetectionStatusCommand")
-  .sc(DescribeStackDriftDetectionStatus)
+  .sc(DescribeStackDriftDetectionStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

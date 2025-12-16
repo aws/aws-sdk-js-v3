@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
-import { ListStreamingAccessForServices } from "../schemas/schemas_0";
+import { ListStreamingAccessForServices$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class ListStreamingAccessForServicesCommand extends $Command
   })
   .s("ResourceExplorer", "ListStreamingAccessForServices", {})
   .n("ResourceExplorer2Client", "ListStreamingAccessForServicesCommand")
-  .sc(ListStreamingAccessForServices)
+  .sc(ListStreamingAccessForServices$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

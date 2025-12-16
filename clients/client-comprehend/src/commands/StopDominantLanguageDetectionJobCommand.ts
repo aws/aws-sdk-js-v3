@@ -9,7 +9,7 @@ import type {
   StopDominantLanguageDetectionJobRequest,
   StopDominantLanguageDetectionJobResponse,
 } from "../models/models_0";
-import { StopDominantLanguageDetectionJob } from "../schemas/schemas_0";
+import { StopDominantLanguageDetectionJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class StopDominantLanguageDetectionJobCommand extends $Command
   })
   .s("Comprehend_20171127", "StopDominantLanguageDetectionJob", {})
   .n("ComprehendClient", "StopDominantLanguageDetectionJobCommand")
-  .sc(StopDominantLanguageDetectionJob)
+  .sc(StopDominantLanguageDetectionJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

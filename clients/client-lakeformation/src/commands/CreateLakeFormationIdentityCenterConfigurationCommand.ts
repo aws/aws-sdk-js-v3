@@ -9,7 +9,7 @@ import type {
   CreateLakeFormationIdentityCenterConfigurationRequest,
   CreateLakeFormationIdentityCenterConfigurationResponse,
 } from "../models/models_0";
-import { CreateLakeFormationIdentityCenterConfiguration } from "../schemas/schemas_0";
+import { CreateLakeFormationIdentityCenterConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class CreateLakeFormationIdentityCenterConfigurationCommand extends $Comm
   })
   .s("AWSLakeFormation", "CreateLakeFormationIdentityCenterConfiguration", {})
   .n("LakeFormationClient", "CreateLakeFormationIdentityCenterConfigurationCommand")
-  .sc(CreateLakeFormationIdentityCenterConfiguration)
+  .sc(CreateLakeFormationIdentityCenterConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

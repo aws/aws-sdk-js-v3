@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListKnowledgeBasesRequest, ListKnowledgeBasesResponse } from "../models/models_1";
-import { ListKnowledgeBases } from "../schemas/schemas_0";
+import { ListKnowledgeBases$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class ListKnowledgeBasesCommand extends $Command
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "ListKnowledgeBases", {})
   .n("BedrockAgentClient", "ListKnowledgeBasesCommand")
-  .sc(ListKnowledgeBases)
+  .sc(ListKnowledgeBases$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   UpdateAccountAuditConfigurationRequest,
   UpdateAccountAuditConfigurationResponse,
 } from "../models/models_2";
-import { UpdateAccountAuditConfiguration } from "../schemas/schemas_0";
+import { UpdateAccountAuditConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class UpdateAccountAuditConfigurationCommand extends $Command
   })
   .s("AWSIotService", "UpdateAccountAuditConfiguration", {})
   .n("IoTClient", "UpdateAccountAuditConfigurationCommand")
-  .sc(UpdateAccountAuditConfiguration)
+  .sc(UpdateAccountAuditConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

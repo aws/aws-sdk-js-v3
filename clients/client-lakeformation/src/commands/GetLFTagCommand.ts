@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import type { GetLFTagRequest, GetLFTagResponse } from "../models/models_0";
-import { GetLFTag } from "../schemas/schemas_0";
+import { GetLFTag$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class GetLFTagCommand extends $Command
   })
   .s("AWSLakeFormation", "GetLFTag", {})
   .n("LakeFormationClient", "GetLFTagCommand")
-  .sc(GetLFTag)
+  .sc(GetLFTag$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

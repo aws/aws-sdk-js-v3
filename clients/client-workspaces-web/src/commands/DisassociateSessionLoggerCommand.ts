@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateSessionLoggerRequest, DisassociateSessionLoggerResponse } from "../models/models_0";
-import { DisassociateSessionLogger } from "../schemas/schemas_0";
+import { DisassociateSessionLogger$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -99,7 +99,7 @@ export class DisassociateSessionLoggerCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "DisassociateSessionLogger", {})
   .n("WorkSpacesWebClient", "DisassociateSessionLoggerCommand")
-  .sc(DisassociateSessionLogger)
+  .sc(DisassociateSessionLogger$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

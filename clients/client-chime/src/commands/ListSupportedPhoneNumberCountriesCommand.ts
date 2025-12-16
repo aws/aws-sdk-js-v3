@@ -9,7 +9,7 @@ import type {
   ListSupportedPhoneNumberCountriesRequest,
   ListSupportedPhoneNumberCountriesResponse,
 } from "../models/models_0";
-import { ListSupportedPhoneNumberCountries } from "../schemas/schemas_0";
+import { ListSupportedPhoneNumberCountries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class ListSupportedPhoneNumberCountriesCommand extends $Command
   })
   .s("UCBuzzConsoleService", "ListSupportedPhoneNumberCountries", {})
   .n("ChimeClient", "ListSupportedPhoneNumberCountriesCommand")
-  .sc(ListSupportedPhoneNumberCountries)
+  .sc(ListSupportedPhoneNumberCountries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   ListResourceEndpointAssociationsRequest,
   ListResourceEndpointAssociationsResponse,
 } from "../models/models_0";
-import { ListResourceEndpointAssociations } from "../schemas/schemas_0";
+import { ListResourceEndpointAssociations$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -108,7 +108,7 @@ export class ListResourceEndpointAssociationsCommand extends $Command
   })
   .s("MercuryControlPlane", "ListResourceEndpointAssociations", {})
   .n("VPCLatticeClient", "ListResourceEndpointAssociationsCommand")
-  .sc(ListResourceEndpointAssociations)
+  .sc(ListResourceEndpointAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

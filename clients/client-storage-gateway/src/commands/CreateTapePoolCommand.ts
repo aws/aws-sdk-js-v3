@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateTapePoolInput, CreateTapePoolOutput } from "../models/models_0";
-import { CreateTapePool } from "../schemas/schemas_0";
+import { CreateTapePool$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -95,7 +95,7 @@ export class CreateTapePoolCommand extends $Command
   })
   .s("StorageGateway_20130630", "CreateTapePool", {})
   .n("StorageGatewayClient", "CreateTapePoolCommand")
-  .sc(CreateTapePool)
+  .sc(CreateTapePool$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

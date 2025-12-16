@@ -9,7 +9,7 @@ import type {
   DisassociateSbomFromPackageVersionRequest,
   DisassociateSbomFromPackageVersionResponse,
 } from "../models/models_1";
-import { DisassociateSbomFromPackageVersion } from "../schemas/schemas_0";
+import { DisassociateSbomFromPackageVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DisassociateSbomFromPackageVersionCommand extends $Command
   })
   .s("AWSIotService", "DisassociateSbomFromPackageVersion", {})
   .n("IoTClient", "DisassociateSbomFromPackageVersionCommand")
-  .sc(DisassociateSbomFromPackageVersion)
+  .sc(DisassociateSbomFromPackageVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

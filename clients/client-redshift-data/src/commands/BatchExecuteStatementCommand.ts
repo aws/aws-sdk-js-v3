@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchExecuteStatementInput, BatchExecuteStatementOutput } from "../models/models_0";
 import type { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
-import { BatchExecuteStatement } from "../schemas/schemas_0";
+import { BatchExecuteStatement$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class BatchExecuteStatementCommand extends $Command
   })
   .s("RedshiftData", "BatchExecuteStatement", {})
   .n("RedshiftDataClient", "BatchExecuteStatementCommand")
-  .sc(BatchExecuteStatement)
+  .sc(BatchExecuteStatement$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

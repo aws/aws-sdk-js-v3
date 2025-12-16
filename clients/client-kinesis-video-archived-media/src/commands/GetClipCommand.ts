@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
 import { type GetClipInput, GetClipOutput } from "../models/models_0";
-import { GetClip } from "../schemas/schemas_0";
+import { GetClip$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -176,7 +176,7 @@ export class GetClipCommand extends $Command
   })
   .s("AWSAcuityReader", "GetClip", {})
   .n("KinesisVideoArchivedMediaClient", "GetClipCommand")
-  .sc(GetClip)
+  .sc(GetClip$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

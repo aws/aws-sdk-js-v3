@@ -10,7 +10,7 @@ import type {
 } from "../BedrockRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ConverseStreamRequest, ConverseStreamResponse } from "../models/models_0";
-import { ConverseStream } from "../schemas/schemas_0";
+import { ConverseStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -971,7 +971,7 @@ export class ConverseStreamCommand extends $Command
     },
   })
   .n("BedrockRuntimeClient", "ConverseStreamCommand")
-  .sc(ConverseStream)
+  .sc(ConverseStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

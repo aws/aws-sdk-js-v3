@@ -9,7 +9,7 @@ import type {
   ListOutboundResponsibilityTransfersResponse,
 } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { ListOutboundResponsibilityTransfers } from "../schemas/schemas_0";
+import { ListOutboundResponsibilityTransfers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -525,7 +525,7 @@ export class ListOutboundResponsibilityTransfersCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "ListOutboundResponsibilityTransfers", {})
   .n("OrganizationsClient", "ListOutboundResponsibilityTransfersCommand")
-  .sc(ListOutboundResponsibilityTransfers)
+  .sc(ListOutboundResponsibilityTransfers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

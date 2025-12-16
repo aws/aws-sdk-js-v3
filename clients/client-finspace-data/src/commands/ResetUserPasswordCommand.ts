@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import type { ResetUserPasswordRequest, ResetUserPasswordResponse } from "../models/models_0";
-import { ResetUserPassword } from "../schemas/schemas_0";
+import { ResetUserPassword$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class ResetUserPasswordCommand extends $Command
   })
   .s("AWSHabaneroPublicAPI", "ResetUserPassword", {})
   .n("FinspaceDataClient", "ResetUserPasswordCommand")
-  .sc(ResetUserPassword)
+  .sc(ResetUserPassword$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

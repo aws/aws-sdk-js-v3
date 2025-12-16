@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutAggregationAuthorizationRequest, PutAggregationAuthorizationResponse } from "../models/models_0";
-import { PutAggregationAuthorization } from "../schemas/schemas_0";
+import { PutAggregationAuthorization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class PutAggregationAuthorizationCommand extends $Command
   })
   .s("StarlingDoveService", "PutAggregationAuthorization", {})
   .n("ConfigServiceClient", "PutAggregationAuthorizationCommand")
-  .sc(PutAggregationAuthorization)
+  .sc(PutAggregationAuthorization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

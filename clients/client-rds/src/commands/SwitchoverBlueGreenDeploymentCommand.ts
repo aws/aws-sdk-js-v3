@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SwitchoverBlueGreenDeploymentRequest, SwitchoverBlueGreenDeploymentResponse } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { SwitchoverBlueGreenDeployment } from "../schemas/schemas_0";
+import { SwitchoverBlueGreenDeployment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class SwitchoverBlueGreenDeploymentCommand extends $Command
   })
   .s("AmazonRDSv19", "SwitchoverBlueGreenDeployment", {})
   .n("RDSClient", "SwitchoverBlueGreenDeploymentCommand")
-  .sc(SwitchoverBlueGreenDeployment)
+  .sc(SwitchoverBlueGreenDeployment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

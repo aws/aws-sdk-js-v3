@@ -9,7 +9,7 @@ import type {
   ListCollaborationConfiguredAudienceModelAssociationsInput,
   ListCollaborationConfiguredAudienceModelAssociationsOutput,
 } from "../models/models_0";
-import { ListCollaborationConfiguredAudienceModelAssociations } from "../schemas/schemas_0";
+import { ListCollaborationConfiguredAudienceModelAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class ListCollaborationConfiguredAudienceModelAssociationsCommand extends
   })
   .s("AWSBastionControlPlaneServiceLambda", "ListCollaborationConfiguredAudienceModelAssociations", {})
   .n("CleanRoomsClient", "ListCollaborationConfiguredAudienceModelAssociationsCommand")
-  .sc(ListCollaborationConfiguredAudienceModelAssociations)
+  .sc(ListCollaborationConfiguredAudienceModelAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

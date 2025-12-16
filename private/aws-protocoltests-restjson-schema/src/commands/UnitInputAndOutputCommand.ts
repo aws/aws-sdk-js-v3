@@ -9,7 +9,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { UnitInputAndOutput } from "../schemas/schemas_0";
+import { UnitInputAndOutput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -72,7 +72,7 @@ export class UnitInputAndOutputCommand extends $Command
   })
   .s("RestJson", "UnitInputAndOutput", {})
   .n("RestJsonProtocolClient", "UnitInputAndOutputCommand")
-  .sc(UnitInputAndOutput)
+  .sc(UnitInputAndOutput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

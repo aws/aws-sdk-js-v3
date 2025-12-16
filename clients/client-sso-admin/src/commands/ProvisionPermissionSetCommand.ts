@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ProvisionPermissionSetRequest, ProvisionPermissionSetResponse } from "../models/models_0";
-import { ProvisionPermissionSet } from "../schemas/schemas_0";
+import { ProvisionPermissionSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -101,7 +101,7 @@ export class ProvisionPermissionSetCommand extends $Command
   })
   .s("SWBExternalService", "ProvisionPermissionSet", {})
   .n("SSOAdminClient", "ProvisionPermissionSetCommand")
-  .sc(ProvisionPermissionSet)
+  .sc(ProvisionPermissionSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

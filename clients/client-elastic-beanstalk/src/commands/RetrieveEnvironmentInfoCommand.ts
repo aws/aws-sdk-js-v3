@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RetrieveEnvironmentInfoMessage, RetrieveEnvironmentInfoResultMessage } from "../models/models_0";
-import { RetrieveEnvironmentInfo } from "../schemas/schemas_0";
+import { RetrieveEnvironmentInfo$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class RetrieveEnvironmentInfoCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "RetrieveEnvironmentInfo", {})
   .n("ElasticBeanstalkClient", "RetrieveEnvironmentInfoCommand")
-  .sc(RetrieveEnvironmentInfo)
+  .sc(RetrieveEnvironmentInfo$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: NeptunedataClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.neptunedata" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.neptunedata",
+      version: "2023-08-01",
+      serviceTarget: "AmazonNeptuneDataplane",
+    },
     serviceId: config?.serviceId ?? "neptunedata",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -9,7 +9,7 @@ import type {
   DescribeDashboardsQAConfigurationResponse,
 } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeDashboardsQAConfiguration } from "../schemas/schemas_0";
+import { DescribeDashboardsQAConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DescribeDashboardsQAConfigurationCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeDashboardsQAConfiguration", {})
   .n("QuickSightClient", "DescribeDashboardsQAConfigurationCommand")
-  .sc(DescribeDashboardsQAConfiguration)
+  .sc(DescribeDashboardsQAConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

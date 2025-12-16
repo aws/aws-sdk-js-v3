@@ -9,7 +9,7 @@ import type {
   ListRoutingProfileManualAssignmentQueuesRequest,
   ListRoutingProfileManualAssignmentQueuesResponse,
 } from "../models/models_2";
-import { ListRoutingProfileManualAssignmentQueues } from "../schemas/schemas_0";
+import { ListRoutingProfileManualAssignmentQueues$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class ListRoutingProfileManualAssignmentQueuesCommand extends $Command
   })
   .s("AmazonConnectService", "ListRoutingProfileManualAssignmentQueues", {})
   .n("ConnectClient", "ListRoutingProfileManualAssignmentQueuesCommand")
-  .sc(ListRoutingProfileManualAssignmentQueues)
+  .sc(ListRoutingProfileManualAssignmentQueues$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

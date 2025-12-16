@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAccountIntegrationsRequest, ListAccountIntegrationsResponse } from "../models/models_0";
-import { ListAccountIntegrations } from "../schemas/schemas_0";
+import { ListAccountIntegrations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class ListAccountIntegrationsCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "ListAccountIntegrations", {})
   .n("CustomerProfilesClient", "ListAccountIntegrationsCommand")
-  .sc(ListAccountIntegrations)
+  .sc(ListAccountIntegrations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import type { PutPositionConfigurationRequest, PutPositionConfigurationResponse } from "../models/models_0";
-import { PutPositionConfiguration } from "../schemas/schemas_0";
+import { PutPositionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class PutPositionConfigurationCommand extends $Command
   })
   .s("iotwireless", "PutPositionConfiguration", {})
   .n("IoTWirelessClient", "PutPositionConfigurationCommand")
-  .sc(PutPositionConfiguration)
+  .sc(PutPositionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

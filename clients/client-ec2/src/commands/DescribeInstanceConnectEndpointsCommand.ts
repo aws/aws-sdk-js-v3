@@ -9,7 +9,7 @@ import type {
   DescribeInstanceConnectEndpointsRequest,
   DescribeInstanceConnectEndpointsResult,
 } from "../models/models_3";
-import { DescribeInstanceConnectEndpoints } from "../schemas/schemas_0";
+import { DescribeInstanceConnectEndpoints$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class DescribeInstanceConnectEndpointsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeInstanceConnectEndpoints", {})
   .n("EC2Client", "DescribeInstanceConnectEndpointsCommand")
-  .sc(DescribeInstanceConnectEndpoints)
+  .sc(DescribeInstanceConnectEndpoints$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

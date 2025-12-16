@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UnlinkIdentityInput } from "../models/models_0";
-import { UnlinkIdentity } from "../schemas/schemas_0";
+import { UnlinkIdentity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class UnlinkIdentityCommand extends $Command
   })
   .s("AWSCognitoIdentityService", "UnlinkIdentity", {})
   .n("CognitoIdentityClient", "UnlinkIdentityCommand")
-  .sc(UnlinkIdentity)
+  .sc(UnlinkIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

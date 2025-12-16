@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListRateBasedRulesRequest, ListRateBasedRulesResponse } from "../models/models_0";
-import { ListRateBasedRules } from "../schemas/schemas_0";
+import { ListRateBasedRules$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -94,7 +94,7 @@ export class ListRateBasedRulesCommand extends $Command
   })
   .s("AWSWAF_Regional_20161128", "ListRateBasedRules", {})
   .n("WAFRegionalClient", "ListRateBasedRulesCommand")
-  .sc(ListRateBasedRules)
+  .sc(ListRateBasedRules$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

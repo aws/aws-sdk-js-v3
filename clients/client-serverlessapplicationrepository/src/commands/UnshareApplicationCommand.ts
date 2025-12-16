@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UnshareApplicationRequest } from "../models/models_0";
-import { UnshareApplication } from "../schemas/schemas_0";
+import { UnshareApplication$ } from "../schemas/schemas_0";
 import type {
   ServerlessApplicationRepositoryClientResolvedConfig,
   ServiceInputTypes,
@@ -91,7 +91,7 @@ export class UnshareApplicationCommand extends $Command
   })
   .s("ServerlessApplicationRepository", "UnshareApplication", {})
   .n("ServerlessApplicationRepositoryClient", "UnshareApplicationCommand")
-  .sc(UnshareApplication)
+  .sc(UnshareApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

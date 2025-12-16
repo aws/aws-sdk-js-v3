@@ -7,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type ExecuteGremlinProfileQueryInput, ExecuteGremlinProfileQueryOutput } from "../models/models_0";
 import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
-import { ExecuteGremlinProfileQuery } from "../schemas/schemas_0";
+import { ExecuteGremlinProfileQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -147,7 +147,7 @@ export class ExecuteGremlinProfileQueryCommand extends $Command
   })
   .s("AmazonNeptuneDataplane", "ExecuteGremlinProfileQuery", {})
   .n("NeptunedataClient", "ExecuteGremlinProfileQueryCommand")
-  .sc(ExecuteGremlinProfileQuery)
+  .sc(ExecuteGremlinProfileQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

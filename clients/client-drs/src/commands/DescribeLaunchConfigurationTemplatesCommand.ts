@@ -9,7 +9,7 @@ import type {
   DescribeLaunchConfigurationTemplatesRequest,
   DescribeLaunchConfigurationTemplatesResponse,
 } from "../models/models_0";
-import { DescribeLaunchConfigurationTemplates } from "../schemas/schemas_0";
+import { DescribeLaunchConfigurationTemplates$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class DescribeLaunchConfigurationTemplatesCommand extends $Command
   })
   .s("ElasticDisasterRecoveryService", "DescribeLaunchConfigurationTemplates", {})
   .n("DrsClient", "DescribeLaunchConfigurationTemplatesCommand")
-  .sc(DescribeLaunchConfigurationTemplates)
+  .sc(DescribeLaunchConfigurationTemplates$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

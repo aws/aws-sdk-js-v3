@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { JsonEnums } from "../schemas/schemas_0";
+import { JsonEnums$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class JsonEnumsCommand extends $Command
   })
   .s("RestJson", "JsonEnums", {})
   .n("RestJsonProtocolClient", "JsonEnumsCommand")
-  .sc(JsonEnums)
+  .sc(JsonEnums$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

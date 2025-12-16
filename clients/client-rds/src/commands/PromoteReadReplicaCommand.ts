@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PromoteReadReplicaMessage, PromoteReadReplicaResult } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { PromoteReadReplica } from "../schemas/schemas_0";
+import { PromoteReadReplica$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -377,7 +377,7 @@ export class PromoteReadReplicaCommand extends $Command
   })
   .s("AmazonRDSv19", "PromoteReadReplica", {})
   .n("RDSClient", "PromoteReadReplicaCommand")
-  .sc(PromoteReadReplica)
+  .sc(PromoteReadReplica$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

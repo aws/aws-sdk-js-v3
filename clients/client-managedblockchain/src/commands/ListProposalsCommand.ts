@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
 import type { ListProposalsInput, ListProposalsOutput } from "../models/models_0";
-import { ListProposals } from "../schemas/schemas_0";
+import { ListProposals$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class ListProposalsCommand extends $Command
   })
   .s("TaigaWebService", "ListProposals", {})
   .n("ManagedBlockchainClient", "ListProposalsCommand")
-  .sc(ListProposals)
+  .sc(ListProposals$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

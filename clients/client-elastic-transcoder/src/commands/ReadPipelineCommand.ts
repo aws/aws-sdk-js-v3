@@ -10,7 +10,7 @@ import type {
 } from "../ElasticTranscoderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ReadPipelineRequest, ReadPipelineResponse } from "../models/models_0";
-import { ReadPipeline } from "../schemas/schemas_0";
+import { ReadPipeline$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class ReadPipelineCommand extends $Command
   })
   .s("EtsCustomerService", "ReadPipeline", {})
   .n("ElasticTranscoderClient", "ReadPipelineCommand")
-  .sc(ReadPipeline)
+  .sc(ReadPipeline$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

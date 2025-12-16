@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateMergedGraphqlApiRequest, DisassociateMergedGraphqlApiResponse } from "../models/models_0";
-import { DisassociateMergedGraphqlApi } from "../schemas/schemas_0";
+import { DisassociateMergedGraphqlApi$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DisassociateMergedGraphqlApiCommand extends $Command
   })
   .s("AWSDeepdishControlPlaneService", "DisassociateMergedGraphqlApi", {})
   .n("AppSyncClient", "DisassociateMergedGraphqlApiCommand")
-  .sc(DisassociateMergedGraphqlApi)
+  .sc(DisassociateMergedGraphqlApi$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

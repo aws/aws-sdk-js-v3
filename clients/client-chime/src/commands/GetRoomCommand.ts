@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRoomRequest, GetRoomResponse } from "../models/models_0";
-import { GetRoom } from "../schemas/schemas_0";
+import { GetRoom$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class GetRoomCommand extends $Command
   })
   .s("UCBuzzConsoleService", "GetRoom", {})
   .n("ChimeClient", "GetRoomCommand")
-  .sc(GetRoom)
+  .sc(GetRoom$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

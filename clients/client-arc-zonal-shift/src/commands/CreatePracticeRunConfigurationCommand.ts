@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreatePracticeRunConfigurationRequest, CreatePracticeRunConfigurationResponse } from "../models/models_0";
-import { CreatePracticeRunConfiguration } from "../schemas/schemas_0";
+import { CreatePracticeRunConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class CreatePracticeRunConfigurationCommand extends $Command
   })
   .s("PercDataPlane", "CreatePracticeRunConfiguration", {})
   .n("ARCZonalShiftClient", "CreatePracticeRunConfigurationCommand")
-  .sc(CreatePracticeRunConfiguration)
+  .sc(CreatePracticeRunConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

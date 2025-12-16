@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeAttackStatisticsRequest, DescribeAttackStatisticsResponse } from "../models/models_0";
-import { DescribeAttackStatistics } from "../schemas/schemas_0";
+import { DescribeAttackStatistics$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -95,7 +95,7 @@ export class DescribeAttackStatisticsCommand extends $Command
   })
   .s("AWSShield_20160616", "DescribeAttackStatistics", {})
   .n("ShieldClient", "DescribeAttackStatisticsCommand")
-  .sc(DescribeAttackStatistics)
+  .sc(DescribeAttackStatistics$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

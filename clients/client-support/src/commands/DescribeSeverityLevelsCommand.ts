@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeSeverityLevelsRequest, DescribeSeverityLevelsResponse } from "../models/models_0";
-import { DescribeSeverityLevels } from "../schemas/schemas_0";
+import { DescribeSeverityLevels$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
@@ -97,7 +97,7 @@ export class DescribeSeverityLevelsCommand extends $Command
   })
   .s("AWSSupport_20130415", "DescribeSeverityLevels", {})
   .n("SupportClient", "DescribeSeverityLevelsCommand")
-  .sc(DescribeSeverityLevels)
+  .sc(DescribeSeverityLevels$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

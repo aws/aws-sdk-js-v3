@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateRecipeRequest, UpdateRecipeResponse } from "../models/models_0";
-import { UpdateRecipe } from "../schemas/schemas_0";
+import { UpdateRecipe$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class UpdateRecipeCommand extends $Command
   })
   .s("AWSGlueDataBrew", "UpdateRecipe", {})
   .n("DataBrewClient", "UpdateRecipeCommand")
-  .sc(UpdateRecipe)
+  .sc(UpdateRecipe$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

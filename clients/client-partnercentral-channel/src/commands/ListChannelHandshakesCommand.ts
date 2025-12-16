@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralChannelClient";
-import { ListChannelHandshakes } from "../schemas/schemas_0";
+import { ListChannelHandshakes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -363,7 +363,7 @@ export class ListChannelHandshakesCommand extends $Command
   })
   .s("PartnerCentralChannel", "ListChannelHandshakes", {})
   .n("PartnerCentralChannelClient", "ListChannelHandshakesCommand")
-  .sc(ListChannelHandshakes)
+  .sc(ListChannelHandshakes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

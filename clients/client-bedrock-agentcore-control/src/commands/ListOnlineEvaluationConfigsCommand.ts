@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListOnlineEvaluationConfigsRequest, ListOnlineEvaluationConfigsResponse } from "../models/models_0";
-import { ListOnlineEvaluationConfigs } from "../schemas/schemas_0";
+import { ListOnlineEvaluationConfigs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class ListOnlineEvaluationConfigsCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "ListOnlineEvaluationConfigs", {})
   .n("BedrockAgentCoreControlClient", "ListOnlineEvaluationConfigsCommand")
-  .sc(ListOnlineEvaluationConfigs)
+  .sc(ListOnlineEvaluationConfigs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

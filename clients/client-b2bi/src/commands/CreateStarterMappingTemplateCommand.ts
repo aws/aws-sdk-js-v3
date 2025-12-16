@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateStarterMappingTemplateRequest, CreateStarterMappingTemplateResponse } from "../models/models_0";
-import { CreateStarterMappingTemplate } from "../schemas/schemas_0";
+import { CreateStarterMappingTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class CreateStarterMappingTemplateCommand extends $Command
   })
   .s("B2BI", "CreateStarterMappingTemplate", {})
   .n("B2biClient", "CreateStarterMappingTemplateCommand")
-  .sc(CreateStarterMappingTemplate)
+  .sc(CreateStarterMappingTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

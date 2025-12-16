@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKMediaPipelinesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopVoiceToneAnalysisTaskRequest } from "../models/models_0";
-import { StopVoiceToneAnalysisTask } from "../schemas/schemas_0";
+import { StopVoiceToneAnalysisTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class StopVoiceToneAnalysisTaskCommand extends $Command
   })
   .s("ChimeSDKMediaPipelinesService", "StopVoiceToneAnalysisTask", {})
   .n("ChimeSDKMediaPipelinesClient", "StopVoiceToneAnalysisTaskCommand")
-  .sc(StopVoiceToneAnalysisTask)
+  .sc(StopVoiceToneAnalysisTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

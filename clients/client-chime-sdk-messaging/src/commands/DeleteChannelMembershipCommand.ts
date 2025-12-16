@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKMessagingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteChannelMembershipRequest } from "../models/models_0";
-import { DeleteChannelMembership } from "../schemas/schemas_0";
+import { DeleteChannelMembership$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class DeleteChannelMembershipCommand extends $Command
   })
   .s("ChimeMessagingService", "DeleteChannelMembership", {})
   .n("ChimeSDKMessagingClient", "DeleteChannelMembershipCommand")
-  .sc(DeleteChannelMembership)
+  .sc(DeleteChannelMembership$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

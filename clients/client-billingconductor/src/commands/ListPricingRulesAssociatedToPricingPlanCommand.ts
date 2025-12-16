@@ -13,7 +13,7 @@ import type {
   ListPricingRulesAssociatedToPricingPlanInput,
   ListPricingRulesAssociatedToPricingPlanOutput,
 } from "../models/models_0";
-import { ListPricingRulesAssociatedToPricingPlan } from "../schemas/schemas_0";
+import { ListPricingRulesAssociatedToPricingPlan$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class ListPricingRulesAssociatedToPricingPlanCommand extends $Command
   })
   .s("AWSBillingConductor", "ListPricingRulesAssociatedToPricingPlan", {})
   .n("BillingconductorClient", "ListPricingRulesAssociatedToPricingPlanCommand")
-  .sc(ListPricingRulesAssociatedToPricingPlan)
+  .sc(ListPricingRulesAssociatedToPricingPlan$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

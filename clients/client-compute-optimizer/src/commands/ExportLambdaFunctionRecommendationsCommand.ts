@@ -13,7 +13,7 @@ import type {
   ExportLambdaFunctionRecommendationsRequest,
   ExportLambdaFunctionRecommendationsResponse,
 } from "../models/models_0";
-import { ExportLambdaFunctionRecommendations } from "../schemas/schemas_0";
+import { ExportLambdaFunctionRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -136,7 +136,7 @@ export class ExportLambdaFunctionRecommendationsCommand extends $Command
   })
   .s("ComputeOptimizerService", "ExportLambdaFunctionRecommendations", {})
   .n("ComputeOptimizerClient", "ExportLambdaFunctionRecommendationsCommand")
-  .sc(ExportLambdaFunctionRecommendations)
+  .sc(ExportLambdaFunctionRecommendations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

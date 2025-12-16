@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: DirectConnectClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.directconnect",
-        serviceTarget: "OvertureService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.directconnect",
+      xmlNamespace: "http://directconnect.amazonaws.com/doc/2012-10-25/",
+      version: "2012-10-25",
+      serviceTarget: "OvertureService",
+    },
     serviceId: config?.serviceId ?? "Direct Connect",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

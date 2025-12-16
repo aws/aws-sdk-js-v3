@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsClient";
-import { StartTagSyncTask } from "../schemas/schemas_0";
+import { StartTagSyncTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,7 +140,7 @@ export class StartTagSyncTaskCommand extends $Command
   })
   .s("Ardi", "StartTagSyncTask", {})
   .n("ResourceGroupsClient", "StartTagSyncTaskCommand")
-  .sc(StartTagSyncTask)
+  .sc(StartTagSyncTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

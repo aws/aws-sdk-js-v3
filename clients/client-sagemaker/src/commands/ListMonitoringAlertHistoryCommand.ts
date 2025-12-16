@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListMonitoringAlertHistoryRequest, ListMonitoringAlertHistoryResponse } from "../models/models_3";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { ListMonitoringAlertHistory } from "../schemas/schemas_0";
+import { ListMonitoringAlertHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class ListMonitoringAlertHistoryCommand extends $Command
   })
   .s("SageMaker", "ListMonitoringAlertHistory", {})
   .n("SageMakerClient", "ListMonitoringAlertHistoryCommand")
-  .sc(ListMonitoringAlertHistory)
+  .sc(ListMonitoringAlertHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UnlabelParameterVersionRequest, UnlabelParameterVersionResult } from "../models/models_1";
-import { UnlabelParameterVersion } from "../schemas/schemas_0";
+import { UnlabelParameterVersion$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -103,7 +103,7 @@ export class UnlabelParameterVersionCommand extends $Command
   })
   .s("AmazonSSM", "UnlabelParameterVersion", {})
   .n("SSMClient", "UnlabelParameterVersionCommand")
-  .sc(UnlabelParameterVersion)
+  .sc(UnlabelParameterVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

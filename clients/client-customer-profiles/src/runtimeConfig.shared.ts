@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: CustomerProfilesClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.customerprofiles" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.customerprofiles",
+      version: "2020-08-15",
+      serviceTarget: "CustomerProfiles_20200815",
+    },
     serviceId: config?.serviceId ?? "Customer Profiles",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

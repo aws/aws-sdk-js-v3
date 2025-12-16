@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import type { ListEdgeAgentConfigurationsInput, ListEdgeAgentConfigurationsOutput } from "../models/models_0";
-import { ListEdgeAgentConfigurations } from "../schemas/schemas_0";
+import { ListEdgeAgentConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class ListEdgeAgentConfigurationsCommand extends $Command
   })
   .s("KinesisVideo_20170930", "ListEdgeAgentConfigurations", {})
   .n("KinesisVideoClient", "ListEdgeAgentConfigurationsCommand")
-  .sc(ListEdgeAgentConfigurations)
+  .sc(ListEdgeAgentConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

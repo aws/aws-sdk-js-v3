@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageV2Client";
 import type { UpdateChannelRequest, UpdateChannelResponse } from "../models/models_0";
-import { UpdateChannel } from "../schemas/schemas_0";
+import { UpdateChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -166,7 +166,7 @@ export class UpdateChannelCommand extends $Command
   })
   .s("mediapackagev2", "UpdateChannel", {})
   .n("MediaPackageV2Client", "UpdateChannelCommand")
-  .sc(UpdateChannel)
+  .sc(UpdateChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

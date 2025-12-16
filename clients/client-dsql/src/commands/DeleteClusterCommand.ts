@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DSQLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DSQLClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteClusterInput, DeleteClusterOutput } from "../models/models_0";
-import { DeleteCluster } from "../schemas/schemas_0";
+import { DeleteCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class DeleteClusterCommand extends $Command
   })
   .s("DSQL", "DeleteCluster", {})
   .n("DSQLClient", "DeleteClusterCommand")
-  .sc(DeleteCluster)
+  .sc(DeleteCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

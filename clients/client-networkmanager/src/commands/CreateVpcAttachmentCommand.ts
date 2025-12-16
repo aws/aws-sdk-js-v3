@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { CreateVpcAttachment } from "../schemas/schemas_0";
+import { CreateVpcAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -176,7 +176,7 @@ export class CreateVpcAttachmentCommand extends $Command
   })
   .s("NetworkManager", "CreateVpcAttachment", {})
   .n("NetworkManagerClient", "CreateVpcAttachmentCommand")
-  .sc(CreateVpcAttachment)
+  .sc(CreateVpcAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: SSMGuiConnectClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.ssmguiconnect" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.ssmguiconnect",
+      version: "2021-05-01",
+      serviceTarget: "SSMGuiConnect",
+    },
     serviceId: config?.serviceId ?? "SSM GuiConnect",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

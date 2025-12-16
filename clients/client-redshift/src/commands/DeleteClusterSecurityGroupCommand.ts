@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteClusterSecurityGroupMessage } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DeleteClusterSecurityGroup } from "../schemas/schemas_0";
+import { DeleteClusterSecurityGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class DeleteClusterSecurityGroupCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DeleteClusterSecurityGroup", {})
   .n("RedshiftClient", "DeleteClusterSecurityGroupCommand")
-  .sc(DeleteClusterSecurityGroup)
+  .sc(DeleteClusterSecurityGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

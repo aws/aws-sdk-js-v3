@@ -13,7 +13,7 @@ import type {
   DescribeRecommendationExportJobsRequest,
   DescribeRecommendationExportJobsResponse,
 } from "../models/models_0";
-import { DescribeRecommendationExportJobs } from "../schemas/schemas_0";
+import { DescribeRecommendationExportJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class DescribeRecommendationExportJobsCommand extends $Command
   })
   .s("ComputeOptimizerService", "DescribeRecommendationExportJobs", {})
   .n("ComputeOptimizerClient", "DescribeRecommendationExportJobsCommand")
-  .sc(DescribeRecommendationExportJobs)
+  .sc(DescribeRecommendationExportJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

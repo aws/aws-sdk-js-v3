@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateDeletionProtectionInput, UpdateDeletionProtectionOutput } from "../models/models_0";
-import { UpdateDeletionProtection } from "../schemas/schemas_0";
+import { UpdateDeletionProtection$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
@@ -91,7 +91,7 @@ export class UpdateDeletionProtectionCommand extends $Command
   })
   .s("SSMIncidents", "UpdateDeletionProtection", {})
   .n("SSMIncidentsClient", "UpdateDeletionProtectionCommand")
-  .sc(UpdateDeletionProtection)
+  .sc(UpdateDeletionProtection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

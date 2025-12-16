@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ClusterExtendedCredentials, GetClusterCredentialsWithIAMMessage } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { GetClusterCredentialsWithIAM } from "../schemas/schemas_0";
+import { GetClusterCredentialsWithIAM$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class GetClusterCredentialsWithIAMCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "GetClusterCredentialsWithIAM", {})
   .n("RedshiftClient", "GetClusterCredentialsWithIAMCommand")
-  .sc(GetClusterCredentialsWithIAM)
+  .sc(GetClusterCredentialsWithIAM$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

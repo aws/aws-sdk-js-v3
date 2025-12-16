@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateStorageProfileRequest, CreateStorageProfileResponse } from "../models/models_0";
-import { CreateStorageProfile } from "../schemas/schemas_0";
+import { CreateStorageProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class CreateStorageProfileCommand extends $Command
   })
   .s("Deadline", "CreateStorageProfile", {})
   .n("DeadlineClient", "CreateStorageProfileCommand")
-  .sc(CreateStorageProfile)
+  .sc(CreateStorageProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

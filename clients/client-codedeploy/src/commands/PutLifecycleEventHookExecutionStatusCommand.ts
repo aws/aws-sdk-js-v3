@@ -9,7 +9,7 @@ import type {
   PutLifecycleEventHookExecutionStatusInput,
   PutLifecycleEventHookExecutionStatusOutput,
 } from "../models/models_0";
-import { PutLifecycleEventHookExecutionStatus } from "../schemas/schemas_0";
+import { PutLifecycleEventHookExecutionStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class PutLifecycleEventHookExecutionStatusCommand extends $Command
   })
   .s("CodeDeploy_20141006", "PutLifecycleEventHookExecutionStatus", {})
   .n("CodeDeployClient", "PutLifecycleEventHookExecutionStatusCommand")
-  .sc(PutLifecycleEventHookExecutionStatus)
+  .sc(PutLifecycleEventHookExecutionStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteKnowledgeBaseDocumentsRequest, DeleteKnowledgeBaseDocumentsResponse } from "../models/models_0";
-import { DeleteKnowledgeBaseDocuments } from "../schemas/schemas_0";
+import { DeleteKnowledgeBaseDocuments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class DeleteKnowledgeBaseDocumentsCommand extends $Command
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "DeleteKnowledgeBaseDocuments", {})
   .n("BedrockAgentClient", "DeleteKnowledgeBaseDocumentsCommand")
-  .sc(DeleteKnowledgeBaseDocuments)
+  .sc(DeleteKnowledgeBaseDocuments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

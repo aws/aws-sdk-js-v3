@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyStreamingPropertiesRequest, ModifyStreamingPropertiesResult } from "../models/models_0";
-import { ModifyStreamingProperties } from "../schemas/schemas_0";
+import { ModifyStreamingProperties$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -103,7 +103,7 @@ export class ModifyStreamingPropertiesCommand extends $Command
   })
   .s("WorkspacesService", "ModifyStreamingProperties", {})
   .n("WorkSpacesClient", "ModifyStreamingPropertiesCommand")
-  .sc(ModifyStreamingProperties)
+  .sc(ModifyStreamingProperties$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

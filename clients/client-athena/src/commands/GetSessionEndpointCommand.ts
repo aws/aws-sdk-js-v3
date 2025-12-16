@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSessionEndpointRequest, GetSessionEndpointResponse } from "../models/models_0";
-import { GetSessionEndpoint } from "../schemas/schemas_0";
+import { GetSessionEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class GetSessionEndpointCommand extends $Command
   })
   .s("AmazonAthena", "GetSessionEndpoint", {})
   .n("AthenaClient", "GetSessionEndpointCommand")
-  .sc(GetSessionEndpoint)
+  .sc(GetSessionEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

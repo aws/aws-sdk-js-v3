@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PreviewPortalRequest, PreviewPortalResponse } from "../models/models_0";
-import { PreviewPortal } from "../schemas/schemas_0";
+import { PreviewPortal$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class PreviewPortalCommand extends $Command
   })
   .s("ApiGatewayV2", "PreviewPortal", {})
   .n("ApiGatewayV2Client", "PreviewPortalCommand")
-  .sc(PreviewPortal)
+  .sc(PreviewPortal$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

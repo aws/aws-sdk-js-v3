@@ -9,7 +9,7 @@ import type {
   GetVpcResourcesBlockingEncryptionEnforcementRequest,
   GetVpcResourcesBlockingEncryptionEnforcementResult,
 } from "../models/models_6";
-import { GetVpcResourcesBlockingEncryptionEnforcement } from "../schemas/schemas_0";
+import { GetVpcResourcesBlockingEncryptionEnforcement$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class GetVpcResourcesBlockingEncryptionEnforcementCommand extends $Comman
   })
   .s("AmazonEC2", "GetVpcResourcesBlockingEncryptionEnforcement", {})
   .n("EC2Client", "GetVpcResourcesBlockingEncryptionEnforcementCommand")
-  .sc(GetVpcResourcesBlockingEncryptionEnforcement)
+  .sc(GetVpcResourcesBlockingEncryptionEnforcement$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

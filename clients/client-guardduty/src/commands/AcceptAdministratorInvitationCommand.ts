@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import type { AcceptAdministratorInvitationRequest, AcceptAdministratorInvitationResponse } from "../models/models_0";
-import { AcceptAdministratorInvitation } from "../schemas/schemas_0";
+import { AcceptAdministratorInvitation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class AcceptAdministratorInvitationCommand extends $Command
   })
   .s("GuardDutyAPIService", "AcceptAdministratorInvitation", {})
   .n("GuardDutyClient", "AcceptAdministratorInvitationCommand")
-  .sc(AcceptAdministratorInvitation)
+  .sc(AcceptAdministratorInvitation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

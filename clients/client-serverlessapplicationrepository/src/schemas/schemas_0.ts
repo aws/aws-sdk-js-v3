@@ -207,17 +207,17 @@ import { TypeRegistry } from "@smithy/core/schema";
 import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
 import {
-  BadRequestException as __BadRequestException,
-  ConflictException as __ConflictException,
-  ForbiddenException as __ForbiddenException,
-  InternalServerErrorException as __InternalServerErrorException,
-  NotFoundException as __NotFoundException,
-  TooManyRequestsException as __TooManyRequestsException,
+  BadRequestException,
+  ConflictException,
+  ForbiddenException,
+  InternalServerErrorException,
+  NotFoundException,
+  TooManyRequestsException,
 } from "../models/errors";
-import { ServerlessApplicationRepositoryServiceException as __ServerlessApplicationRepositoryServiceException } from "../models/ServerlessApplicationRepositoryServiceException";
+import { ServerlessApplicationRepositoryServiceException } from "../models/ServerlessApplicationRepositoryServiceException";
 
 /* eslint no-var: 0 */
-export var ApplicationDependencySummary: StaticStructureSchema = [
+export var ApplicationDependencySummary$: StaticStructureSchema = [
   3,
   n0,
   _ADS,
@@ -228,7 +228,7 @@ export var ApplicationDependencySummary: StaticStructureSchema = [
     [0, { [_jN]: _sV }],
   ],
 ];
-export var ApplicationPolicyStatement: StaticStructureSchema = [
+export var ApplicationPolicyStatement$: StaticStructureSchema = [
   3,
   n0,
   _APS,
@@ -241,7 +241,7 @@ export var ApplicationPolicyStatement: StaticStructureSchema = [
     [0, { [_jN]: _sI }],
   ],
 ];
-export var ApplicationSummary: StaticStructureSchema = [
+export var ApplicationSummary$: StaticStructureSchema = [
   3,
   n0,
   _AS,
@@ -258,7 +258,7 @@ export var ApplicationSummary: StaticStructureSchema = [
     [0, { [_jN]: _sLI }],
   ],
 ];
-export var BadRequestException: StaticErrorSchema = [
+export var BadRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _BRE,
@@ -269,8 +269,8 @@ export var BadRequestException: StaticErrorSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-export var ConflictException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [
   -3,
   n0,
   _CE,
@@ -281,8 +281,8 @@ export var ConflictException: StaticErrorSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateApplicationRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateApplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CAR,
@@ -306,7 +306,7 @@ export var CreateApplicationRequest: StaticStructureSchema = [
     [0, { [_jN]: _tU }],
   ],
 ];
-export var CreateApplicationResponse: StaticStructureSchema = [
+export var CreateApplicationResponse$: StaticStructureSchema = [
   3,
   n0,
   _CARr,
@@ -325,10 +325,10 @@ export var CreateApplicationResponse: StaticStructureSchema = [
     [0, { [_jN]: _rU }],
     [0, { [_jN]: _sLI }],
     [0, { [_jN]: _vAU }],
-    [() => Version, { [_jN]: _v }],
+    [() => Version$, { [_jN]: _v }],
   ],
 ];
-export var CreateApplicationVersionRequest: StaticStructureSchema = [
+export var CreateApplicationVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CAVR,
@@ -343,7 +343,7 @@ export var CreateApplicationVersionRequest: StaticStructureSchema = [
     [0, { [_jN]: _tU }],
   ],
 ];
-export var CreateApplicationVersionResponse: StaticStructureSchema = [
+export var CreateApplicationVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CAVRr,
@@ -361,7 +361,7 @@ export var CreateApplicationVersionResponse: StaticStructureSchema = [
     [0, { [_jN]: _tU }],
   ],
 ];
-export var CreateCloudFormationChangeSetRequest: StaticStructureSchema = [
+export var CreateCloudFormationChangeSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCFCSR,
@@ -376,14 +376,14 @@ export var CreateCloudFormationChangeSetRequest: StaticStructureSchema = [
     [64 | 0, { [_jN]: _nA }],
     [() => __listOfParameterValue, { [_jN]: _pO }],
     [64 | 0, { [_jN]: _rT }],
-    [() => RollbackConfiguration, { [_jN]: _rCo }],
+    [() => RollbackConfiguration$, { [_jN]: _rCo }],
     [0, { [_jN]: _sV }],
     [0, { [_jN]: _sN }],
     [() => __listOfTag, { [_jN]: _t }],
     [0, { [_jN]: _tI }],
   ],
 ];
-export var CreateCloudFormationChangeSetResponse: StaticStructureSchema = [
+export var CreateCloudFormationChangeSetResponse$: StaticStructureSchema = [
   3,
   n0,
   _CCFCSRr,
@@ -396,7 +396,7 @@ export var CreateCloudFormationChangeSetResponse: StaticStructureSchema = [
     [0, { [_jN]: _sIt }],
   ],
 ];
-export var CreateCloudFormationTemplateRequest: StaticStructureSchema = [
+export var CreateCloudFormationTemplateRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCFTR,
@@ -407,7 +407,7 @@ export var CreateCloudFormationTemplateRequest: StaticStructureSchema = [
     [0, { [_jN]: _sV }],
   ],
 ];
-export var CreateCloudFormationTemplateResponse: StaticStructureSchema = [
+export var CreateCloudFormationTemplateResponse$: StaticStructureSchema = [
   3,
   n0,
   _CCFTRr,
@@ -423,8 +423,8 @@ export var CreateCloudFormationTemplateResponse: StaticStructureSchema = [
     [0, { [_jN]: _tU }],
   ],
 ];
-export var DeleteApplicationRequest: StaticStructureSchema = [3, n0, _DAR, 0, [_AI], [[0, 1]]];
-export var ForbiddenException: StaticErrorSchema = [
+export var DeleteApplicationRequest$: StaticStructureSchema = [3, n0, _DAR, 0, [_AI], [[0, 1]]];
+export var ForbiddenException$: StaticErrorSchema = [
   -3,
   n0,
   _FE,
@@ -435,9 +435,9 @@ export var ForbiddenException: StaticErrorSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-export var GetApplicationPolicyRequest: StaticStructureSchema = [3, n0, _GAPR, 0, [_AI], [[0, 1]]];
-export var GetApplicationPolicyResponse: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
+export var GetApplicationPolicyRequest$: StaticStructureSchema = [3, n0, _GAPR, 0, [_AI], [[0, 1]]];
+export var GetApplicationPolicyResponse$: StaticStructureSchema = [
   3,
   n0,
   _GAPRe,
@@ -445,7 +445,7 @@ export var GetApplicationPolicyResponse: StaticStructureSchema = [
   [_St],
   [[() => __listOfApplicationPolicyStatement, { [_jN]: _st }]],
 ];
-export var GetApplicationRequest: StaticStructureSchema = [
+export var GetApplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GAR,
@@ -456,7 +456,7 @@ export var GetApplicationRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sV }],
   ],
 ];
-export var GetApplicationResponse: StaticStructureSchema = [
+export var GetApplicationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GARe,
@@ -475,10 +475,10 @@ export var GetApplicationResponse: StaticStructureSchema = [
     [0, { [_jN]: _rU }],
     [0, { [_jN]: _sLI }],
     [0, { [_jN]: _vAU }],
-    [() => Version, { [_jN]: _v }],
+    [() => Version$, { [_jN]: _v }],
   ],
 ];
-export var GetCloudFormationTemplateRequest: StaticStructureSchema = [
+export var GetCloudFormationTemplateRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCFTR,
@@ -489,7 +489,7 @@ export var GetCloudFormationTemplateRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetCloudFormationTemplateResponse: StaticStructureSchema = [
+export var GetCloudFormationTemplateResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCFTRe,
@@ -505,7 +505,7 @@ export var GetCloudFormationTemplateResponse: StaticStructureSchema = [
     [0, { [_jN]: _tU }],
   ],
 ];
-export var InternalServerErrorException: StaticErrorSchema = [
+export var InternalServerErrorException$: StaticErrorSchema = [
   -3,
   n0,
   _ISEE,
@@ -516,8 +516,8 @@ export var InternalServerErrorException: StaticErrorSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-TypeRegistry.for(n0).registerError(InternalServerErrorException, __InternalServerErrorException);
-export var ListApplicationDependenciesRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
+export var ListApplicationDependenciesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LADR,
@@ -530,7 +530,7 @@ export var ListApplicationDependenciesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sV }],
   ],
 ];
-export var ListApplicationDependenciesResponse: StaticStructureSchema = [
+export var ListApplicationDependenciesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LADRi,
@@ -541,7 +541,7 @@ export var ListApplicationDependenciesResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListApplicationsRequest: StaticStructureSchema = [
+export var ListApplicationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAR,
@@ -552,7 +552,7 @@ export var ListApplicationsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListApplicationsResponse: StaticStructureSchema = [
+export var ListApplicationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LARi,
@@ -563,7 +563,7 @@ export var ListApplicationsResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListApplicationVersionsRequest: StaticStructureSchema = [
+export var ListApplicationVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAVR,
@@ -575,7 +575,7 @@ export var ListApplicationVersionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListApplicationVersionsResponse: StaticStructureSchema = [
+export var ListApplicationVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAVRi,
@@ -586,7 +586,7 @@ export var ListApplicationVersionsResponse: StaticStructureSchema = [
     [() => __listOfVersionSummary, { [_jN]: _ve }],
   ],
 ];
-export var NotFoundException: StaticErrorSchema = [
+export var NotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _NFE,
@@ -597,8 +597,8 @@ export var NotFoundException: StaticErrorSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-export var ParameterDefinition: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
+export var ParameterDefinition$: StaticStructureSchema = [
   3,
   n0,
   _PDa,
@@ -620,7 +620,7 @@ export var ParameterDefinition: StaticStructureSchema = [
     [0, { [_jN]: _ty }],
   ],
 ];
-export var ParameterValue: StaticStructureSchema = [
+export var ParameterValue$: StaticStructureSchema = [
   3,
   n0,
   _PV,
@@ -631,7 +631,7 @@ export var ParameterValue: StaticStructureSchema = [
     [0, { [_jN]: _va }],
   ],
 ];
-export var PutApplicationPolicyRequest: StaticStructureSchema = [
+export var PutApplicationPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _PAPR,
@@ -642,7 +642,7 @@ export var PutApplicationPolicyRequest: StaticStructureSchema = [
     [() => __listOfApplicationPolicyStatement, { [_jN]: _st }],
   ],
 ];
-export var PutApplicationPolicyResponse: StaticStructureSchema = [
+export var PutApplicationPolicyResponse$: StaticStructureSchema = [
   3,
   n0,
   _PAPRu,
@@ -650,7 +650,7 @@ export var PutApplicationPolicyResponse: StaticStructureSchema = [
   [_St],
   [[() => __listOfApplicationPolicyStatement, { [_jN]: _st }]],
 ];
-export var RollbackConfiguration: StaticStructureSchema = [
+export var RollbackConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RCo,
@@ -661,7 +661,7 @@ export var RollbackConfiguration: StaticStructureSchema = [
     [() => __listOfRollbackTrigger, { [_jN]: _rTo }],
   ],
 ];
-export var RollbackTrigger: StaticStructureSchema = [
+export var RollbackTrigger$: StaticStructureSchema = [
   3,
   n0,
   _RTol,
@@ -672,7 +672,7 @@ export var RollbackTrigger: StaticStructureSchema = [
     [0, { [_jN]: _ty }],
   ],
 ];
-export var Tag: StaticStructureSchema = [
+export var Tag$: StaticStructureSchema = [
   3,
   n0,
   _Ta,
@@ -683,7 +683,7 @@ export var Tag: StaticStructureSchema = [
     [0, { [_jN]: _va }],
   ],
 ];
-export var TooManyRequestsException: StaticErrorSchema = [
+export var TooManyRequestsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMRE,
@@ -694,8 +694,8 @@ export var TooManyRequestsException: StaticErrorSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-export var UnshareApplicationRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
+export var UnshareApplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UAR,
@@ -706,7 +706,7 @@ export var UnshareApplicationRequest: StaticStructureSchema = [
     [0, { [_jN]: _oI }],
   ],
 ];
-export var UpdateApplicationRequest: StaticStructureSchema = [
+export var UpdateApplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UARp,
@@ -722,7 +722,7 @@ export var UpdateApplicationRequest: StaticStructureSchema = [
     [0, { [_jN]: _rU }],
   ],
 ];
-export var UpdateApplicationResponse: StaticStructureSchema = [
+export var UpdateApplicationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UARpd,
@@ -741,10 +741,10 @@ export var UpdateApplicationResponse: StaticStructureSchema = [
     [0, { [_jN]: _rU }],
     [0, { [_jN]: _sLI }],
     [0, { [_jN]: _vAU }],
-    [() => Version, { [_jN]: _v }],
+    [() => Version$, { [_jN]: _v }],
   ],
 ];
-export var Version: StaticStructureSchema = [
+export var Version$: StaticStructureSchema = [
   3,
   n0,
   _V,
@@ -762,7 +762,7 @@ export var Version: StaticStructureSchema = [
     [0, { [_jN]: _tU }],
   ],
 ];
-export var VersionSummary: StaticStructureSchema = [
+export var VersionSummary$: StaticStructureSchema = [
   3,
   n0,
   _VS,
@@ -775,8 +775,8 @@ export var VersionSummary: StaticStructureSchema = [
     [0, { [_jN]: _sCU }],
   ],
 ];
-export var __Unit = "unit" as const;
-export var ServerlessApplicationRepositoryServiceException: StaticErrorSchema = [
+var __Unit = "unit" as const;
+export var ServerlessApplicationRepositoryServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "ServerlessApplicationRepositoryServiceException",
@@ -785,140 +785,134 @@ export var ServerlessApplicationRepositoryServiceException: StaticErrorSchema = 
   [],
 ];
 TypeRegistry.for(_sm).registerError(
-  ServerlessApplicationRepositoryServiceException,
-  __ServerlessApplicationRepositoryServiceException
+  ServerlessApplicationRepositoryServiceException$,
+  ServerlessApplicationRepositoryServiceException
 );
-export var __listOf__string = 64 | 0;
-export var __listOfApplicationDependencySummary: StaticListSchema = [
+var __listOf__string = 64 | 0;
+var __listOfApplicationDependencySummary: StaticListSchema = [
   1,
   n0,
   _lOADS,
   0,
-  [() => ApplicationDependencySummary, 0],
+  [() => ApplicationDependencySummary$, 0],
 ];
-export var __listOfApplicationPolicyStatement: StaticListSchema = [
-  1,
-  n0,
-  _lOAPS,
-  0,
-  [() => ApplicationPolicyStatement, 0],
-];
-export var __listOfApplicationSummary: StaticListSchema = [1, n0, _lOAS, 0, [() => ApplicationSummary, 0]];
-export var __listOfCapability = 64 | 0;
-export var __listOfParameterDefinition: StaticListSchema = [1, n0, _lOPD, 0, [() => ParameterDefinition, 0]];
-export var __listOfParameterValue: StaticListSchema = [1, n0, _lOPV, 0, [() => ParameterValue, 0]];
-export var __listOfRollbackTrigger: StaticListSchema = [1, n0, _lORT, 0, [() => RollbackTrigger, 0]];
-export var __listOfTag: StaticListSchema = [1, n0, _lOT, 0, [() => Tag, 0]];
-export var __listOfVersionSummary: StaticListSchema = [1, n0, _lOVS, 0, [() => VersionSummary, 0]];
-export var CreateApplication: StaticOperationSchema = [
+var __listOfApplicationPolicyStatement: StaticListSchema = [1, n0, _lOAPS, 0, [() => ApplicationPolicyStatement$, 0]];
+var __listOfApplicationSummary: StaticListSchema = [1, n0, _lOAS, 0, [() => ApplicationSummary$, 0]];
+var __listOfCapability = 64 | 0;
+var __listOfParameterDefinition: StaticListSchema = [1, n0, _lOPD, 0, [() => ParameterDefinition$, 0]];
+var __listOfParameterValue: StaticListSchema = [1, n0, _lOPV, 0, [() => ParameterValue$, 0]];
+var __listOfRollbackTrigger: StaticListSchema = [1, n0, _lORT, 0, [() => RollbackTrigger$, 0]];
+var __listOfTag: StaticListSchema = [1, n0, _lOT, 0, [() => Tag$, 0]];
+var __listOfVersionSummary: StaticListSchema = [1, n0, _lOVS, 0, [() => VersionSummary$, 0]];
+export var CreateApplication$: StaticOperationSchema = [
   9,
   n0,
   _CA,
   { [_h]: ["POST", "/applications", 201] },
-  () => CreateApplicationRequest,
-  () => CreateApplicationResponse,
+  () => CreateApplicationRequest$,
+  () => CreateApplicationResponse$,
 ];
-export var CreateApplicationVersion: StaticOperationSchema = [
+export var CreateApplicationVersion$: StaticOperationSchema = [
   9,
   n0,
   _CAV,
   { [_h]: ["PUT", "/applications/{ApplicationId}/versions/{SemanticVersion}", 201] },
-  () => CreateApplicationVersionRequest,
-  () => CreateApplicationVersionResponse,
+  () => CreateApplicationVersionRequest$,
+  () => CreateApplicationVersionResponse$,
 ];
-export var CreateCloudFormationChangeSet: StaticOperationSchema = [
+export var CreateCloudFormationChangeSet$: StaticOperationSchema = [
   9,
   n0,
   _CCFCS,
   { [_h]: ["POST", "/applications/{ApplicationId}/changesets", 201] },
-  () => CreateCloudFormationChangeSetRequest,
-  () => CreateCloudFormationChangeSetResponse,
+  () => CreateCloudFormationChangeSetRequest$,
+  () => CreateCloudFormationChangeSetResponse$,
 ];
-export var CreateCloudFormationTemplate: StaticOperationSchema = [
+export var CreateCloudFormationTemplate$: StaticOperationSchema = [
   9,
   n0,
   _CCFT,
   { [_h]: ["POST", "/applications/{ApplicationId}/templates", 201] },
-  () => CreateCloudFormationTemplateRequest,
-  () => CreateCloudFormationTemplateResponse,
+  () => CreateCloudFormationTemplateRequest$,
+  () => CreateCloudFormationTemplateResponse$,
 ];
-export var DeleteApplication: StaticOperationSchema = [
+export var DeleteApplication$: StaticOperationSchema = [
   9,
   n0,
   _DA,
   { [_h]: ["DELETE", "/applications/{ApplicationId}", 204] },
-  () => DeleteApplicationRequest,
+  () => DeleteApplicationRequest$,
   () => __Unit,
 ];
-export var GetApplication: StaticOperationSchema = [
+export var GetApplication$: StaticOperationSchema = [
   9,
   n0,
   _GA,
   { [_h]: ["GET", "/applications/{ApplicationId}", 200] },
-  () => GetApplicationRequest,
-  () => GetApplicationResponse,
+  () => GetApplicationRequest$,
+  () => GetApplicationResponse$,
 ];
-export var GetApplicationPolicy: StaticOperationSchema = [
+export var GetApplicationPolicy$: StaticOperationSchema = [
   9,
   n0,
   _GAP,
   { [_h]: ["GET", "/applications/{ApplicationId}/policy", 200] },
-  () => GetApplicationPolicyRequest,
-  () => GetApplicationPolicyResponse,
+  () => GetApplicationPolicyRequest$,
+  () => GetApplicationPolicyResponse$,
 ];
-export var GetCloudFormationTemplate: StaticOperationSchema = [
+export var GetCloudFormationTemplate$: StaticOperationSchema = [
   9,
   n0,
   _GCFT,
   { [_h]: ["GET", "/applications/{ApplicationId}/templates/{TemplateId}", 200] },
-  () => GetCloudFormationTemplateRequest,
-  () => GetCloudFormationTemplateResponse,
+  () => GetCloudFormationTemplateRequest$,
+  () => GetCloudFormationTemplateResponse$,
 ];
-export var ListApplicationDependencies: StaticOperationSchema = [
+export var ListApplicationDependencies$: StaticOperationSchema = [
   9,
   n0,
   _LAD,
   { [_h]: ["GET", "/applications/{ApplicationId}/dependencies", 200] },
-  () => ListApplicationDependenciesRequest,
-  () => ListApplicationDependenciesResponse,
+  () => ListApplicationDependenciesRequest$,
+  () => ListApplicationDependenciesResponse$,
 ];
-export var ListApplications: StaticOperationSchema = [
+export var ListApplications$: StaticOperationSchema = [
   9,
   n0,
   _LA,
   { [_h]: ["GET", "/applications", 200] },
-  () => ListApplicationsRequest,
-  () => ListApplicationsResponse,
+  () => ListApplicationsRequest$,
+  () => ListApplicationsResponse$,
 ];
-export var ListApplicationVersions: StaticOperationSchema = [
+export var ListApplicationVersions$: StaticOperationSchema = [
   9,
   n0,
   _LAV,
   { [_h]: ["GET", "/applications/{ApplicationId}/versions", 200] },
-  () => ListApplicationVersionsRequest,
-  () => ListApplicationVersionsResponse,
+  () => ListApplicationVersionsRequest$,
+  () => ListApplicationVersionsResponse$,
 ];
-export var PutApplicationPolicy: StaticOperationSchema = [
+export var PutApplicationPolicy$: StaticOperationSchema = [
   9,
   n0,
   _PAP,
   { [_h]: ["PUT", "/applications/{ApplicationId}/policy", 200] },
-  () => PutApplicationPolicyRequest,
-  () => PutApplicationPolicyResponse,
+  () => PutApplicationPolicyRequest$,
+  () => PutApplicationPolicyResponse$,
 ];
-export var UnshareApplication: StaticOperationSchema = [
+export var UnshareApplication$: StaticOperationSchema = [
   9,
   n0,
   _UA,
   { [_h]: ["POST", "/applications/{ApplicationId}/unshare", 204] },
-  () => UnshareApplicationRequest,
+  () => UnshareApplicationRequest$,
   () => __Unit,
 ];
-export var UpdateApplication: StaticOperationSchema = [
+export var UpdateApplication$: StaticOperationSchema = [
   9,
   n0,
   _UAp,
   { [_h]: ["PATCH", "/applications/{ApplicationId}", 200] },
-  () => UpdateApplicationRequest,
-  () => UpdateApplicationResponse,
+  () => UpdateApplicationRequest$,
+  () => UpdateApplicationResponse$,
 ];

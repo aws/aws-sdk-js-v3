@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListGremlinQueriesInput, ListGremlinQueriesOutput } from "../models/models_0";
 import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
-import { ListGremlinQueries } from "../schemas/schemas_0";
+import { ListGremlinQueries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -134,7 +134,7 @@ export class ListGremlinQueriesCommand extends $Command
   })
   .s("AmazonNeptuneDataplane", "ListGremlinQueries", {})
   .n("NeptunedataClient", "ListGremlinQueriesCommand")
-  .sc(ListGremlinQueries)
+  .sc(ListGremlinQueries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

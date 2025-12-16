@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCachePolicyRequest, GetCachePolicyResult } from "../models/models_0";
-import { GetCachePolicy } from "../schemas/schemas_0";
+import { GetCachePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class GetCachePolicyCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "GetCachePolicy", {})
   .n("CloudFrontClient", "GetCachePolicyCommand")
-  .sc(GetCachePolicy)
+  .sc(GetCachePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

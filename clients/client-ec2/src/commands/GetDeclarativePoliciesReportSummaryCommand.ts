@@ -9,7 +9,7 @@ import type {
   GetDeclarativePoliciesReportSummaryRequest,
   GetDeclarativePoliciesReportSummaryResult,
 } from "../models/models_5";
-import { GetDeclarativePoliciesReportSummary } from "../schemas/schemas_0";
+import { GetDeclarativePoliciesReportSummary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class GetDeclarativePoliciesReportSummaryCommand extends $Command
   })
   .s("AmazonEC2", "GetDeclarativePoliciesReportSummary", {})
   .n("EC2Client", "GetDeclarativePoliciesReportSummaryCommand")
-  .sc(GetDeclarativePoliciesReportSummary)
+  .sc(GetDeclarativePoliciesReportSummary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

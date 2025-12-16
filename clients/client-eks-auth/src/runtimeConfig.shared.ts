@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: EKSAuthClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.eksauth" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.eksauth",
+      version: "2023-11-26",
+      serviceTarget: "EKSAuthFrontend",
+    },
     serviceId: config?.serviceId ?? "EKS Auth",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -8,7 +8,7 @@ import type {
   DescribeBandwidthRateLimitScheduleInput,
   DescribeBandwidthRateLimitScheduleOutput,
 } from "../models/models_0";
-import { DescribeBandwidthRateLimitSchedule } from "../schemas/schemas_0";
+import { DescribeBandwidthRateLimitSchedule$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -116,7 +116,7 @@ export class DescribeBandwidthRateLimitScheduleCommand extends $Command
   })
   .s("StorageGateway_20130630", "DescribeBandwidthRateLimitSchedule", {})
   .n("StorageGatewayClient", "DescribeBandwidthRateLimitScheduleCommand")
-  .sc(DescribeBandwidthRateLimitSchedule)
+  .sc(DescribeBandwidthRateLimitSchedule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

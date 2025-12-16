@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DownloadDBLogFilePortionDetails, DownloadDBLogFilePortionMessage } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DownloadDBLogFilePortion } from "../schemas/schemas_0";
+import { DownloadDBLogFilePortion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class DownloadDBLogFilePortionCommand extends $Command
   })
   .s("AmazonRDSv19", "DownloadDBLogFilePortion", {})
   .n("RDSClient", "DownloadDBLogFilePortionCommand")
-  .sc(DownloadDBLogFilePortion)
+  .sc(DownloadDBLogFilePortion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

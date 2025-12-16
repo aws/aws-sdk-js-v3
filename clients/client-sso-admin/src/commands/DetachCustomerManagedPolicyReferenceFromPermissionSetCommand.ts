@@ -8,7 +8,7 @@ import type {
   DetachCustomerManagedPolicyReferenceFromPermissionSetRequest,
   DetachCustomerManagedPolicyReferenceFromPermissionSetResponse,
 } from "../models/models_0";
-import { DetachCustomerManagedPolicyReferenceFromPermissionSet } from "../schemas/schemas_0";
+import { DetachCustomerManagedPolicyReferenceFromPermissionSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -100,7 +100,7 @@ export class DetachCustomerManagedPolicyReferenceFromPermissionSetCommand extend
   })
   .s("SWBExternalService", "DetachCustomerManagedPolicyReferenceFromPermissionSet", {})
   .n("SSOAdminClient", "DetachCustomerManagedPolicyReferenceFromPermissionSetCommand")
-  .sc(DetachCustomerManagedPolicyReferenceFromPermissionSet)
+  .sc(DetachCustomerManagedPolicyReferenceFromPermissionSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

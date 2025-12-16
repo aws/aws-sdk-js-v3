@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveAllResourcePermissionsRequest } from "../models/models_0";
-import { RemoveAllResourcePermissions } from "../schemas/schemas_0";
+import { RemoveAllResourcePermissions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -86,7 +86,7 @@ export class RemoveAllResourcePermissionsCommand extends $Command
   })
   .s("AWSGorillaBoyService", "RemoveAllResourcePermissions", {})
   .n("WorkDocsClient", "RemoveAllResourcePermissionsCommand")
-  .sc(RemoveAllResourcePermissions)
+  .sc(RemoveAllResourcePermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

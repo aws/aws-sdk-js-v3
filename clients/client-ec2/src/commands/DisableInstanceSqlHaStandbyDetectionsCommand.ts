@@ -9,7 +9,7 @@ import type {
   DisableInstanceSqlHaStandbyDetectionsRequest,
   DisableInstanceSqlHaStandbyDetectionsResult,
 } from "../models/models_5";
-import { DisableInstanceSqlHaStandbyDetections } from "../schemas/schemas_0";
+import { DisableInstanceSqlHaStandbyDetections$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class DisableInstanceSqlHaStandbyDetectionsCommand extends $Command
   })
   .s("AmazonEC2", "DisableInstanceSqlHaStandbyDetections", {})
   .n("EC2Client", "DisableInstanceSqlHaStandbyDetectionsCommand")
-  .sc(DisableInstanceSqlHaStandbyDetections)
+  .sc(DisableInstanceSqlHaStandbyDetections$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

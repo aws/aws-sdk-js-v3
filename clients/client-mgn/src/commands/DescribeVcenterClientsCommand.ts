@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import type { DescribeVcenterClientsRequest, DescribeVcenterClientsResponse } from "../models/models_0";
-import { DescribeVcenterClients } from "../schemas/schemas_0";
+import { DescribeVcenterClients$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class DescribeVcenterClientsCommand extends $Command
   })
   .s("ApplicationMigrationService", "DescribeVcenterClients", {})
   .n("MgnClient", "DescribeVcenterClientsCommand")
-  .sc(DescribeVcenterClients)
+  .sc(DescribeVcenterClients$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

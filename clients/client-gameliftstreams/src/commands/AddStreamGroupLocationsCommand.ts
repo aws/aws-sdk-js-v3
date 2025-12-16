@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GameLiftStreamsClient";
 import type { AddStreamGroupLocationsInput, AddStreamGroupLocationsOutput } from "../models/models_0";
-import { AddStreamGroupLocations } from "../schemas/schemas_0";
+import { AddStreamGroupLocations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class AddStreamGroupLocationsCommand extends $Command
   })
   .s("GameLiftStreams", "AddStreamGroupLocations", {})
   .n("GameLiftStreamsClient", "AddStreamGroupLocationsCommand")
-  .sc(AddStreamGroupLocations)
+  .sc(AddStreamGroupLocations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

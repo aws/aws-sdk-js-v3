@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartMLDataProcessingJobInput, StartMLDataProcessingJobOutput } from "../models/models_0";
 import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
-import { StartMLDataProcessingJob } from "../schemas/schemas_0";
+import { StartMLDataProcessingJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class StartMLDataProcessingJobCommand extends $Command
   })
   .s("AmazonNeptuneDataplane", "StartMLDataProcessingJob", {})
   .n("NeptunedataClient", "StartMLDataProcessingJobCommand")
-  .sc(StartMLDataProcessingJob)
+  .sc(StartMLDataProcessingJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

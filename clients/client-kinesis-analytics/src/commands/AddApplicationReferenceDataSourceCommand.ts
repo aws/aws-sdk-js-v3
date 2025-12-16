@@ -13,7 +13,7 @@ import type {
   AddApplicationReferenceDataSourceRequest,
   AddApplicationReferenceDataSourceResponse,
 } from "../models/models_0";
-import { AddApplicationReferenceDataSource } from "../schemas/schemas_0";
+import { AddApplicationReferenceDataSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class AddApplicationReferenceDataSourceCommand extends $Command
   })
   .s("KinesisAnalytics_20150814", "AddApplicationReferenceDataSource", {})
   .n("KinesisAnalyticsClient", "AddApplicationReferenceDataSourceCommand")
-  .sc(AddApplicationReferenceDataSource)
+  .sc(AddApplicationReferenceDataSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

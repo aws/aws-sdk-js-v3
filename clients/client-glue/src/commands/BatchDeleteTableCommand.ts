@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { BatchDeleteTableRequest, BatchDeleteTableResponse } from "../models/models_0";
-import { BatchDeleteTable } from "../schemas/schemas_0";
+import { BatchDeleteTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class BatchDeleteTableCommand extends $Command
   })
   .s("AWSGlue", "BatchDeleteTable", {})
   .n("GlueClient", "BatchDeleteTableCommand")
-  .sc(BatchDeleteTable)
+  .sc(BatchDeleteTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

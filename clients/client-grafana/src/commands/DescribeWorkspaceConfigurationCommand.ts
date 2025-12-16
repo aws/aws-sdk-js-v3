@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import type { DescribeWorkspaceConfigurationRequest, DescribeWorkspaceConfigurationResponse } from "../models/models_0";
-import { DescribeWorkspaceConfiguration } from "../schemas/schemas_0";
+import { DescribeWorkspaceConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DescribeWorkspaceConfigurationCommand extends $Command
   })
   .s("AWSGrafanaControlPlane", "DescribeWorkspaceConfiguration", {})
   .n("GrafanaClient", "DescribeWorkspaceConfigurationCommand")
-  .sc(DescribeWorkspaceConfiguration)
+  .sc(DescribeWorkspaceConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   GetConfiguredAudienceModelPolicyRequest,
   GetConfiguredAudienceModelPolicyResponse,
 } from "../models/models_0";
-import { GetConfiguredAudienceModelPolicy } from "../schemas/schemas_0";
+import { GetConfiguredAudienceModelPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class GetConfiguredAudienceModelPolicyCommand extends $Command
   })
   .s("AWSStarkControlService", "GetConfiguredAudienceModelPolicy", {})
   .n("CleanRoomsMLClient", "GetConfiguredAudienceModelPolicyCommand")
-  .sc(GetConfiguredAudienceModelPolicy)
+  .sc(GetConfiguredAudienceModelPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

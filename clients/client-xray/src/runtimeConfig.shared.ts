@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: XRayClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.xray" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.xray",
+      version: "2016-04-12",
+      serviceTarget: "AWSXRay",
+    },
     serviceId: config?.serviceId ?? "XRay",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

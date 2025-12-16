@@ -9,7 +9,7 @@ import type {
   ListThirdPartyFirewallFirewallPoliciesRequest,
   ListThirdPartyFirewallFirewallPoliciesResponse,
 } from "../models/models_0";
-import { ListThirdPartyFirewallFirewallPolicies } from "../schemas/schemas_0";
+import { ListThirdPartyFirewallFirewallPolicies$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class ListThirdPartyFirewallFirewallPoliciesCommand extends $Command
   })
   .s("AWSFMS_20180101", "ListThirdPartyFirewallFirewallPolicies", {})
   .n("FMSClient", "ListThirdPartyFirewallFirewallPoliciesCommand")
-  .sc(ListThirdPartyFirewallFirewallPolicies)
+  .sc(ListThirdPartyFirewallFirewallPolicies$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

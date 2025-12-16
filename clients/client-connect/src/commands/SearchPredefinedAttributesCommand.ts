@@ -7,7 +7,7 @@ import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchPredefinedAttributesResponse } from "../models/models_2";
 import type { SearchPredefinedAttributesRequest } from "../models/models_3";
-import { SearchPredefinedAttributes } from "../schemas/schemas_0";
+import { SearchPredefinedAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -152,7 +152,7 @@ export class SearchPredefinedAttributesCommand extends $Command
   })
   .s("AmazonConnectService", "SearchPredefinedAttributes", {})
   .n("ConnectClient", "SearchPredefinedAttributesCommand")
-  .sc(SearchPredefinedAttributes)
+  .sc(SearchPredefinedAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

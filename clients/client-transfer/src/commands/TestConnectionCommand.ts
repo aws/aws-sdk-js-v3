@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TestConnectionRequest, TestConnectionResponse } from "../models/models_0";
-import { TestConnection } from "../schemas/schemas_0";
+import { TestConnection$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -90,7 +90,7 @@ export class TestConnectionCommand extends $Command
   })
   .s("TransferService", "TestConnection", {})
   .n("TransferClient", "TestConnectionCommand")
-  .sc(TestConnection)
+  .sc(TestConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteRouteTableRequest } from "../models/models_2";
-import { DeleteRouteTable } from "../schemas/schemas_0";
+import { DeleteRouteTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DeleteRouteTableCommand extends $Command
   })
   .s("AmazonEC2", "DeleteRouteTable", {})
   .n("EC2Client", "DeleteRouteTableCommand")
-  .sc(DeleteRouteTable)
+  .sc(DeleteRouteTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

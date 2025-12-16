@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BillingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateSourceViewsRequest, DisassociateSourceViewsResponse } from "../models/models_0";
-import { DisassociateSourceViews } from "../schemas/schemas_0";
+import { DisassociateSourceViews$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class DisassociateSourceViewsCommand extends $Command
   })
   .s("AWSBilling", "DisassociateSourceViews", {})
   .n("BillingClient", "DisassociateSourceViewsCommand")
-  .sc(DisassociateSourceViews)
+  .sc(DisassociateSourceViews$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

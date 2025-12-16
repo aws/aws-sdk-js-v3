@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: Route53ResolverClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.route53resolver",
-        serviceTarget: "Route53Resolver",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.route53resolver",
+      version: "2018-04-01",
+      serviceTarget: "Route53Resolver",
+    },
     serviceId: config?.serviceId ?? "Route53Resolver",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
 import type { DescribeAlarmRequest, DescribeAlarmResponse } from "../models/models_0";
-import { DescribeAlarm } from "../schemas/schemas_0";
+import { DescribeAlarm$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class DescribeAlarmCommand extends $Command
   })
   .s("IotColumboDataService", "DescribeAlarm", {})
   .n("IoTEventsDataClient", "DescribeAlarmCommand")
-  .sc(DescribeAlarm)
+  .sc(DescribeAlarm$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

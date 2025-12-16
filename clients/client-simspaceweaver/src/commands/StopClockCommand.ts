@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopClockInput, StopClockOutput } from "../models/models_0";
-import { StopClock } from "../schemas/schemas_0";
+import { StopClock$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -90,7 +90,7 @@ export class StopClockCommand extends $Command
   })
   .s("SimSpaceWeaver", "StopClock", {})
   .n("SimSpaceWeaverClient", "StopClockCommand")
-  .sc(StopClock)
+  .sc(StopClock$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

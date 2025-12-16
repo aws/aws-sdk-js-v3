@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CopyDistributionRequest, CopyDistributionResult } from "../models/models_0";
-import { CopyDistribution } from "../schemas/schemas_0";
+import { CopyDistribution$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -644,7 +644,7 @@ export class CopyDistributionCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "CopyDistribution", {})
   .n("CloudFrontClient", "CopyDistributionCommand")
-  .sc(CopyDistribution)
+  .sc(CopyDistribution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

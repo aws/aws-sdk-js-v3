@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteHsmRequest, DeleteHsmResponse } from "../models/models_0";
-import { DeleteHsm } from "../schemas/schemas_0";
+import { DeleteHsm$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DeleteHsmCommand extends $Command
   })
   .s("BaldrApiService", "DeleteHsm", {})
   .n("CloudHSMV2Client", "DeleteHsmCommand")
-  .sc(DeleteHsm)
+  .sc(DeleteHsm$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

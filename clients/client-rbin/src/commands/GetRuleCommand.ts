@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRuleRequest, GetRuleResponse } from "../models/models_0";
 import type { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
-import { GetRule } from "../schemas/schemas_0";
+import { GetRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class GetRuleCommand extends $Command
   })
   .s("AmazonRecycleBin", "GetRule", {})
   .n("RbinClient", "GetRuleCommand")
-  .sc(GetRule)
+  .sc(GetRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

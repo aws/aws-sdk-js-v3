@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateTagOptionInput, CreateTagOptionOutput } from "../models/models_0";
-import { CreateTagOption } from "../schemas/schemas_0";
+import { CreateTagOption$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -96,7 +96,7 @@ export class CreateTagOptionCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "CreateTagOption", {})
   .n("ServiceCatalogClient", "CreateTagOptionCommand")
-  .sc(CreateTagOption)
+  .sc(CreateTagOption$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

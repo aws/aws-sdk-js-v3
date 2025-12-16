@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetLensReviewReportInput, GetLensReviewReportOutput } from "../models/models_0";
-import { GetLensReviewReport } from "../schemas/schemas_0";
+import { GetLensReviewReport$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -100,7 +100,7 @@ export class GetLensReviewReportCommand extends $Command
   })
   .s("WellArchitectedApiServiceLambda", "GetLensReviewReport", {})
   .n("WellArchitectedClient", "GetLensReviewReportCommand")
-  .sc(GetLensReviewReport)
+  .sc(GetLensReviewReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

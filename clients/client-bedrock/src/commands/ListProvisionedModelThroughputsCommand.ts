@@ -9,7 +9,7 @@ import type {
   ListProvisionedModelThroughputsRequest,
   ListProvisionedModelThroughputsResponse,
 } from "../models/models_1";
-import { ListProvisionedModelThroughputs } from "../schemas/schemas_0";
+import { ListProvisionedModelThroughputs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class ListProvisionedModelThroughputsCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "ListProvisionedModelThroughputs", {})
   .n("BedrockClient", "ListProvisionedModelThroughputsCommand")
-  .sc(ListProvisionedModelThroughputs)
+  .sc(ListProvisionedModelThroughputs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

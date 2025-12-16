@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetWebhookRequest, GetWebhookResult } from "../models/models_0";
-import { GetWebhook } from "../schemas/schemas_0";
+import { GetWebhook$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class GetWebhookCommand extends $Command
   })
   .s("Amplify", "GetWebhook", {})
   .n("AmplifyClient", "GetWebhookCommand")
-  .sc(GetWebhook)
+  .sc(GetWebhook$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

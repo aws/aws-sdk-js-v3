@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateWorkspaceRequest, CreateWorkspaceResponse } from "../models/models_0";
-import { CreateWorkspace } from "../schemas/schemas_0";
+import { CreateWorkspace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class CreateWorkspaceCommand extends $Command
   })
   .s("AmazonPrometheusService", "CreateWorkspace", {})
   .n("AmpClient", "CreateWorkspaceCommand")
-  .sc(CreateWorkspace)
+  .sc(CreateWorkspace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

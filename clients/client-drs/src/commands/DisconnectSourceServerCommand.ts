@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisconnectSourceServerRequest, SourceServer } from "../models/models_0";
-import { DisconnectSourceServer } from "../schemas/schemas_0";
+import { DisconnectSourceServer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -191,7 +191,7 @@ export class DisconnectSourceServerCommand extends $Command
   })
   .s("ElasticDisasterRecoveryService", "DisconnectSourceServer", {})
   .n("DrsClient", "DisconnectSourceServerCommand")
-  .sc(DisconnectSourceServer)
+  .sc(DisconnectSourceServer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

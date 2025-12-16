@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
 import type { DeregisterIdentityProviderRequest, DeregisterIdentityProviderResponse } from "../models/models_0";
-import { DeregisterIdentityProvider } from "../schemas/schemas_0";
+import { DeregisterIdentityProvider$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -163,7 +163,7 @@ export class DeregisterIdentityProviderCommand extends $Command
   })
   .s("LicenseManagerUserSubscriptions", "DeregisterIdentityProvider", {})
   .n("LicenseManagerUserSubscriptionsClient", "DeregisterIdentityProviderCommand")
-  .sc(DeregisterIdentityProvider)
+  .sc(DeregisterIdentityProvider$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

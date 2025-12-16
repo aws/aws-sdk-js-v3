@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ChangeResourceRecordSetsRequest, ChangeResourceRecordSetsResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { ChangeResourceRecordSets } from "../schemas/schemas_0";
+import { ChangeResourceRecordSets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -827,7 +827,7 @@ export class ChangeResourceRecordSetsCommand extends $Command
   })
   .s("AWSDnsV20130401", "ChangeResourceRecordSets", {})
   .n("Route53Client", "ChangeResourceRecordSetsCommand")
-  .sc(ChangeResourceRecordSets)
+  .sc(ChangeResourceRecordSets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

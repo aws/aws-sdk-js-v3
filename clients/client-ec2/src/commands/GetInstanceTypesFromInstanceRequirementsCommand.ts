@@ -9,7 +9,7 @@ import type {
   GetInstanceTypesFromInstanceRequirementsRequest,
   GetInstanceTypesFromInstanceRequirementsResult,
 } from "../models/models_5";
-import { GetInstanceTypesFromInstanceRequirements } from "../schemas/schemas_0";
+import { GetInstanceTypesFromInstanceRequirements$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -181,7 +181,7 @@ export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command
   })
   .s("AmazonEC2", "GetInstanceTypesFromInstanceRequirements", {})
   .n("EC2Client", "GetInstanceTypesFromInstanceRequirementsCommand")
-  .sc(GetInstanceTypesFromInstanceRequirements)
+  .sc(GetInstanceTypesFromInstanceRequirements$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

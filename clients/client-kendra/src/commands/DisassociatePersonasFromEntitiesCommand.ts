@@ -9,7 +9,7 @@ import type {
   DisassociatePersonasFromEntitiesRequest,
   DisassociatePersonasFromEntitiesResponse,
 } from "../models/models_0";
-import { DisassociatePersonasFromEntities } from "../schemas/schemas_0";
+import { DisassociatePersonasFromEntities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class DisassociatePersonasFromEntitiesCommand extends $Command
   })
   .s("AWSKendraFrontendService", "DisassociatePersonasFromEntities", {})
   .n("KendraClient", "DisassociatePersonasFromEntitiesCommand")
-  .sc(DisassociatePersonasFromEntities)
+  .sc(DisassociatePersonasFromEntities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

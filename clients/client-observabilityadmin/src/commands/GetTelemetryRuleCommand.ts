@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { GetTelemetryRule } from "../schemas/schemas_0";
+import { GetTelemetryRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -183,7 +183,7 @@ export class GetTelemetryRuleCommand extends $Command
   })
   .s("ObservabilityAdmin", "GetTelemetryRule", {})
   .n("ObservabilityAdminClient", "GetTelemetryRuleCommand")
-  .sc(GetTelemetryRule)
+  .sc(GetTelemetryRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

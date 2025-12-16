@@ -9,7 +9,7 @@ import type {
   DisassociateTrafficDistributionGroupUserRequest,
   DisassociateTrafficDistributionGroupUserResponse,
 } from "../models/models_1";
-import { DisassociateTrafficDistributionGroupUser } from "../schemas/schemas_0";
+import { DisassociateTrafficDistributionGroupUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DisassociateTrafficDistributionGroupUserCommand extends $Command
   })
   .s("AmazonConnectService", "DisassociateTrafficDistributionGroupUser", {})
   .n("ConnectClient", "DisassociateTrafficDistributionGroupUserCommand")
-  .sc(DisassociateTrafficDistributionGroupUser)
+  .sc(DisassociateTrafficDistributionGroupUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

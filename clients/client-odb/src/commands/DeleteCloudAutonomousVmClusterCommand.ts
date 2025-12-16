@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteCloudAutonomousVmClusterInput, DeleteCloudAutonomousVmClusterOutput } from "../models/models_0";
 import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { DeleteCloudAutonomousVmCluster } from "../schemas/schemas_0";
+import { DeleteCloudAutonomousVmCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeleteCloudAutonomousVmClusterCommand extends $Command
   })
   .s("Odb", "DeleteCloudAutonomousVmCluster", {})
   .n("OdbClient", "DeleteCloudAutonomousVmClusterCommand")
-  .sc(DeleteCloudAutonomousVmCluster)
+  .sc(DeleteCloudAutonomousVmCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

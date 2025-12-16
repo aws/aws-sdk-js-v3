@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TransactGetItemsInput, TransactGetItemsOutput } from "../models/models_0";
-import { TransactGetItems } from "../schemas/schemas_0";
+import { TransactGetItems$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -502,7 +502,7 @@ export class TransactGetItemsCommand extends $Command
   })
   .s("DynamoDB_20120810", "TransactGetItems", {})
   .n("DynamoDBClient", "TransactGetItemsCommand")
-  .sc(TransactGetItems)
+  .sc(TransactGetItems$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

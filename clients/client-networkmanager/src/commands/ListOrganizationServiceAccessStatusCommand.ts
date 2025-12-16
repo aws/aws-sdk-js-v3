@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { ListOrganizationServiceAccessStatus } from "../schemas/schemas_0";
+import { ListOrganizationServiceAccessStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class ListOrganizationServiceAccessStatusCommand extends $Command
   })
   .s("NetworkManager", "ListOrganizationServiceAccessStatus", {})
   .n("NetworkManagerClient", "ListOrganizationServiceAccessStatusCommand")
-  .sc(ListOrganizationServiceAccessStatus)
+  .sc(ListOrganizationServiceAccessStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

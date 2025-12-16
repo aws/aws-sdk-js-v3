@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: CodeGuruReviewerClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.codegurureviewer" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.codegurureviewer",
+      version: "2019-09-19",
+      serviceTarget: "AWSGuruFrontendService",
+    },
     serviceId: config?.serviceId ?? "CodeGuru Reviewer",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

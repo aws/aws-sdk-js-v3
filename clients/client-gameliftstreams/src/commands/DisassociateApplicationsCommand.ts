@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GameLiftStreamsClient";
 import type { DisassociateApplicationsInput, DisassociateApplicationsOutput } from "../models/models_0";
-import { DisassociateApplications } from "../schemas/schemas_0";
+import { DisassociateApplications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DisassociateApplicationsCommand extends $Command
   })
   .s("GameLiftStreams", "DisassociateApplications", {})
   .n("GameLiftStreamsClient", "DisassociateApplicationsCommand")
-  .sc(DisassociateApplications)
+  .sc(DisassociateApplications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

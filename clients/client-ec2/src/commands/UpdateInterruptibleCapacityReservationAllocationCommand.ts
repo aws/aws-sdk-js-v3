@@ -9,7 +9,7 @@ import type {
   UpdateInterruptibleCapacityReservationAllocationRequest,
   UpdateInterruptibleCapacityReservationAllocationResult,
 } from "../models/models_7";
-import { UpdateInterruptibleCapacityReservationAllocation } from "../schemas/schemas_0";
+import { UpdateInterruptibleCapacityReservationAllocation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class UpdateInterruptibleCapacityReservationAllocationCommand extends $Co
   })
   .s("AmazonEC2", "UpdateInterruptibleCapacityReservationAllocation", {})
   .n("EC2Client", "UpdateInterruptibleCapacityReservationAllocationCommand")
-  .sc(UpdateInterruptibleCapacityReservationAllocation)
+  .sc(UpdateInterruptibleCapacityReservationAllocation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

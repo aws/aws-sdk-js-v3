@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
 import type { GetSessionRequest, GetSessionResponse } from "../models/models_0";
-import { GetSession } from "../schemas/schemas_0";
+import { GetSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -228,7 +228,7 @@ export class GetSessionCommand extends $Command
   })
   .s("AWSDeepSenseRunTimeServiceApi2_0", "GetSession", {})
   .n("LexRuntimeV2Client", "GetSessionCommand")
-  .sc(GetSession)
+  .sc(GetSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

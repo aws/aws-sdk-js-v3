@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: WorkSpacesWebClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.workspacesweb" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.workspacesweb",
+      version: "2020-07-08",
+      serviceTarget: "AWSErmineControlPlaneService",
+    },
     serviceId: config?.serviceId ?? "WorkSpaces Web",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

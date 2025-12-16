@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchRequest, SearchResponse } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { Search } from "../schemas/schemas_0";
+import { Search$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -2307,7 +2307,7 @@ export class SearchCommand extends $Command
   })
   .s("SageMaker", "Search", {})
   .n("SageMakerClient", "SearchCommand")
-  .sc(Search)
+  .sc(Search$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

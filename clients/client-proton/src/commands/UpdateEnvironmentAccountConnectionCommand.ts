@@ -9,7 +9,7 @@ import type {
   UpdateEnvironmentAccountConnectionOutput,
 } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { UpdateEnvironmentAccountConnection } from "../schemas/schemas_0";
+import { UpdateEnvironmentAccountConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class UpdateEnvironmentAccountConnectionCommand extends $Command
   })
   .s("AwsProton20200720", "UpdateEnvironmentAccountConnection", {})
   .n("ProtonClient", "UpdateEnvironmentAccountConnectionCommand")
-  .sc(UpdateEnvironmentAccountConnection)
+  .sc(UpdateEnvironmentAccountConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

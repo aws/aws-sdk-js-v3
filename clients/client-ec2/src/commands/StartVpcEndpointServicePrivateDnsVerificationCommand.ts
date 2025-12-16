@@ -9,7 +9,7 @@ import type {
   StartVpcEndpointServicePrivateDnsVerificationRequest,
   StartVpcEndpointServicePrivateDnsVerificationResult,
 } from "../models/models_7";
-import { StartVpcEndpointServicePrivateDnsVerification } from "../schemas/schemas_0";
+import { StartVpcEndpointServicePrivateDnsVerification$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
   })
   .s("AmazonEC2", "StartVpcEndpointServicePrivateDnsVerification", {})
   .n("EC2Client", "StartVpcEndpointServicePrivateDnsVerificationCommand")
-  .sc(StartVpcEndpointServicePrivateDnsVerification)
+  .sc(StartVpcEndpointServicePrivateDnsVerification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

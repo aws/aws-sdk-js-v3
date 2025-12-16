@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AcknowledgeThirdPartyJobInput, AcknowledgeThirdPartyJobOutput } from "../models/models_0";
-import { AcknowledgeThirdPartyJob } from "../schemas/schemas_0";
+import { AcknowledgeThirdPartyJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class AcknowledgeThirdPartyJobCommand extends $Command
   })
   .s("CodePipeline_20150709", "AcknowledgeThirdPartyJob", {})
   .n("CodePipelineClient", "AcknowledgeThirdPartyJobCommand")
-  .sc(AcknowledgeThirdPartyJob)
+  .sc(AcknowledgeThirdPartyJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

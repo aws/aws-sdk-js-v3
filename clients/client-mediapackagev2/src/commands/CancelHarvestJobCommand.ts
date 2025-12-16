@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageV2Client";
 import type { CancelHarvestJobRequest, CancelHarvestJobResponse } from "../models/models_0";
-import { CancelHarvestJob } from "../schemas/schemas_0";
+import { CancelHarvestJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class CancelHarvestJobCommand extends $Command
   })
   .s("mediapackagev2", "CancelHarvestJob", {})
   .n("MediaPackageV2Client", "CancelHarvestJobCommand")
-  .sc(CancelHarvestJob)
+  .sc(CancelHarvestJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

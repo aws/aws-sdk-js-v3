@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: OrganizationsClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.organizations",
-        serviceTarget: "AWSOrganizationsV20161128",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.organizations",
+      xmlNamespace: "http://organizations.amazonaws.com/doc/2016-11-28/",
+      version: "2016-11-28",
+      serviceTarget: "AWSOrganizationsV20161128",
+    },
     serviceId: config?.serviceId ?? "Organizations",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -8,7 +8,7 @@ import type {
   UpdateServiceNetworkVpcAssociationRequest,
   UpdateServiceNetworkVpcAssociationResponse,
 } from "../models/models_0";
-import { UpdateServiceNetworkVpcAssociation } from "../schemas/schemas_0";
+import { UpdateServiceNetworkVpcAssociation$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -105,7 +105,7 @@ export class UpdateServiceNetworkVpcAssociationCommand extends $Command
   })
   .s("MercuryControlPlane", "UpdateServiceNetworkVpcAssociation", {})
   .n("VPCLatticeClient", "UpdateServiceNetworkVpcAssociationCommand")
-  .sc(UpdateServiceNetworkVpcAssociation)
+  .sc(UpdateServiceNetworkVpcAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateProductRestEndpointPageRequest, CreateProductRestEndpointPageResponse } from "../models/models_0";
-import { CreateProductRestEndpointPage } from "../schemas/schemas_0";
+import { CreateProductRestEndpointPage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class CreateProductRestEndpointPageCommand extends $Command
   })
   .s("ApiGatewayV2", "CreateProductRestEndpointPage", {})
   .n("ApiGatewayV2Client", "CreateProductRestEndpointPageCommand")
-  .sc(CreateProductRestEndpointPage)
+  .sc(CreateProductRestEndpointPage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

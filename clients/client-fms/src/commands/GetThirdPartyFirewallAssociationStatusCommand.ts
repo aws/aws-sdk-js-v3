@@ -9,7 +9,7 @@ import type {
   GetThirdPartyFirewallAssociationStatusRequest,
   GetThirdPartyFirewallAssociationStatusResponse,
 } from "../models/models_0";
-import { GetThirdPartyFirewallAssociationStatus } from "../schemas/schemas_0";
+import { GetThirdPartyFirewallAssociationStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class GetThirdPartyFirewallAssociationStatusCommand extends $Command
   })
   .s("AWSFMS_20180101", "GetThirdPartyFirewallAssociationStatus", {})
   .n("FMSClient", "GetThirdPartyFirewallAssociationStatusCommand")
-  .sc(GetThirdPartyFirewallAssociationStatus)
+  .sc(GetThirdPartyFirewallAssociationStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

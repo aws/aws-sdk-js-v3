@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MedicalImagingClient";
 import type { SearchImageSetsRequest, SearchImageSetsResponse } from "../models/models_0";
-import { SearchImageSets } from "../schemas/schemas_0";
+import { SearchImageSets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -157,7 +157,7 @@ export class SearchImageSetsCommand extends $Command
   })
   .s("AHIGatewayService", "SearchImageSets", {})
   .n("MedicalImagingClient", "SearchImageSetsCommand")
-  .sc(SearchImageSets)
+  .sc(SearchImageSets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

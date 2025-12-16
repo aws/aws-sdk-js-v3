@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: GreengrassV2ClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.greengrassv2" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.greengrassv2",
+      version: "2020-11-30",
+      serviceTarget: "GreengrassV2",
+    },
     serviceId: config?.serviceId ?? "GreengrassV2",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

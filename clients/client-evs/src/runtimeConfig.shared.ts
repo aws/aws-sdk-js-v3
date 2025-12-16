@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: EvsClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.evs",
-        serviceTarget: "AmazonElasticVMwareService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.evs",
+      version: "2023-07-27",
+      serviceTarget: "AmazonElasticVMwareService",
+    },
     serviceId: config?.serviceId ?? "evs",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

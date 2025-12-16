@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchDeleteMemoryRecordsInput, BatchDeleteMemoryRecordsOutput } from "../models/models_0";
-import { BatchDeleteMemoryRecords } from "../schemas/schemas_0";
+import { BatchDeleteMemoryRecords$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class BatchDeleteMemoryRecordsCommand extends $Command
   })
   .s("AmazonBedrockAgentCore", "BatchDeleteMemoryRecords", {})
   .n("BedrockAgentCoreClient", "BatchDeleteMemoryRecordsCommand")
-  .sc(BatchDeleteMemoryRecords)
+  .sc(BatchDeleteMemoryRecords$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListCampaignsRequest, ListCampaignsResponse } from "../models/models_0";
 import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import { ListCampaigns } from "../schemas/schemas_0";
+import { ListCampaigns$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class ListCampaignsCommand extends $Command
   })
   .s("AmazonPersonalize", "ListCampaigns", {})
   .n("PersonalizeClient", "ListCampaignsCommand")
-  .sc(ListCampaigns)
+  .sc(ListCampaigns$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

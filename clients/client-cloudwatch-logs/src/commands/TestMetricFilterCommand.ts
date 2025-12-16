@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TestMetricFilterRequest, TestMetricFilterResponse } from "../models/models_0";
-import { TestMetricFilter } from "../schemas/schemas_0";
+import { TestMetricFilter$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class TestMetricFilterCommand extends $Command
   })
   .s("Logs_20140328", "TestMetricFilter", {})
   .n("CloudWatchLogsClient", "TestMetricFilterCommand")
-  .sc(TestMetricFilter)
+  .sc(TestMetricFilter$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

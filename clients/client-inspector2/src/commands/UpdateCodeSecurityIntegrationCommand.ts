@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import type { UpdateCodeSecurityIntegrationRequest, UpdateCodeSecurityIntegrationResponse } from "../models/models_1";
-import { UpdateCodeSecurityIntegration } from "../schemas/schemas_0";
+import { UpdateCodeSecurityIntegration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class UpdateCodeSecurityIntegrationCommand extends $Command
   })
   .s("Inspector2", "UpdateCodeSecurityIntegration", {})
   .n("Inspector2Client", "UpdateCodeSecurityIntegrationCommand")
-  .sc(UpdateCodeSecurityIntegration)
+  .sc(UpdateCodeSecurityIntegration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

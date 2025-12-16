@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutRegistryPolicyRequest, PutRegistryPolicyResponse } from "../models/models_0";
-import { PutRegistryPolicy } from "../schemas/schemas_0";
+import { PutRegistryPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class PutRegistryPolicyCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "PutRegistryPolicy", {})
   .n("ECRClient", "PutRegistryPolicyCommand")
-  .sc(PutRegistryPolicy)
+  .sc(PutRegistryPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

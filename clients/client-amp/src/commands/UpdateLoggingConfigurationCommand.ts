@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateLoggingConfigurationRequest, UpdateLoggingConfigurationResponse } from "../models/models_0";
-import { UpdateLoggingConfiguration } from "../schemas/schemas_0";
+import { UpdateLoggingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class UpdateLoggingConfigurationCommand extends $Command
   })
   .s("AmazonPrometheusService", "UpdateLoggingConfiguration", {})
   .n("AmpClient", "UpdateLoggingConfigurationCommand")
-  .sc(UpdateLoggingConfiguration)
+  .sc(UpdateLoggingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

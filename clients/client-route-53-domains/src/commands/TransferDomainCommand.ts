@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { TransferDomain } from "../schemas/schemas_0";
+import { TransferDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -236,7 +236,7 @@ export class TransferDomainCommand extends $Command
   })
   .s("Route53Domains_v20140515", "TransferDomain", {})
   .n("Route53DomainsClient", "TransferDomainCommand")
-  .sc(TransferDomain)
+  .sc(TransferDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

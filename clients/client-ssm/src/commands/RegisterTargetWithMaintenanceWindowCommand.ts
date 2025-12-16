@@ -8,7 +8,7 @@ import type {
   RegisterTargetWithMaintenanceWindowRequest,
   RegisterTargetWithMaintenanceWindowResult,
 } from "../models/models_1";
-import { RegisterTargetWithMaintenanceWindow } from "../schemas/schemas_0";
+import { RegisterTargetWithMaintenanceWindow$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -110,7 +110,7 @@ export class RegisterTargetWithMaintenanceWindowCommand extends $Command
   })
   .s("AmazonSSM", "RegisterTargetWithMaintenanceWindow", {})
   .n("SSMClient", "RegisterTargetWithMaintenanceWindowCommand")
-  .sc(RegisterTargetWithMaintenanceWindow)
+  .sc(RegisterTargetWithMaintenanceWindow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

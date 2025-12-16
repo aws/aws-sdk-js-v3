@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: ResourceExplorer2ClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.resourceexplorer2" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.resourceexplorer2",
+      version: "2022-07-28",
+      serviceTarget: "ResourceExplorer",
+    },
     serviceId: config?.serviceId ?? "Resource Explorer 2",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

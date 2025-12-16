@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { ListCoreNetworkPrefixListAssociations } from "../schemas/schemas_0";
+import { ListCoreNetworkPrefixListAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class ListCoreNetworkPrefixListAssociationsCommand extends $Command
   })
   .s("NetworkManager", "ListCoreNetworkPrefixListAssociations", {})
   .n("NetworkManagerClient", "ListCoreNetworkPrefixListAssociationsCommand")
-  .sc(ListCoreNetworkPrefixListAssociations)
+  .sc(ListCoreNetworkPrefixListAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

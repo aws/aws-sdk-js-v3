@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import type { ListClassificationScopesRequest, ListClassificationScopesResponse } from "../models/models_0";
-import { ListClassificationScopes } from "../schemas/schemas_0";
+import { ListClassificationScopes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class ListClassificationScopesCommand extends $Command
   })
   .s("Macie2", "ListClassificationScopes", {})
   .n("Macie2Client", "ListClassificationScopesCommand")
-  .sc(ListClassificationScopes)
+  .sc(ListClassificationScopes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

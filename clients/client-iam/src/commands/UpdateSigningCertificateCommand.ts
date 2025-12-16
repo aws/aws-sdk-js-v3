@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { UpdateSigningCertificateRequest } from "../models/models_1";
-import { UpdateSigningCertificate } from "../schemas/schemas_0";
+import { UpdateSigningCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class UpdateSigningCertificateCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "UpdateSigningCertificate", {})
   .n("IAMClient", "UpdateSigningCertificateCommand")
-  .sc(UpdateSigningCertificate)
+  .sc(UpdateSigningCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

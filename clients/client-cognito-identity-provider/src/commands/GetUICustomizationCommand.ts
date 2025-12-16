@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetUICustomizationRequest, GetUICustomizationResponse } from "../models/models_0";
-import { GetUICustomization } from "../schemas/schemas_0";
+import { GetUICustomization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class GetUICustomizationCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "GetUICustomization", {})
   .n("CognitoIdentityProviderClient", "GetUICustomizationCommand")
-  .sc(GetUICustomization)
+  .sc(GetUICustomization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

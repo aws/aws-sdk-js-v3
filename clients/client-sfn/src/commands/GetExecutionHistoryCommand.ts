@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetExecutionHistoryInput, GetExecutionHistoryOutput } from "../models/models_0";
-import { GetExecutionHistory } from "../schemas/schemas_0";
+import { GetExecutionHistory$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -302,7 +302,7 @@ export class GetExecutionHistoryCommand extends $Command
   })
   .s("AWSStepFunctions", "GetExecutionHistory", {})
   .n("SFNClient", "GetExecutionHistoryCommand")
-  .sc(GetExecutionHistory)
+  .sc(GetExecutionHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteRegexMatchSetRequest, DeleteRegexMatchSetResponse } from "../models/models_0";
-import { DeleteRegexMatchSet } from "../schemas/schemas_0";
+import { DeleteRegexMatchSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -138,7 +138,7 @@ export class DeleteRegexMatchSetCommand extends $Command
   })
   .s("AWSWAF_Regional_20161128", "DeleteRegexMatchSet", {})
   .n("WAFRegionalClient", "DeleteRegexMatchSetCommand")
-  .sc(DeleteRegexMatchSet)
+  .sc(DeleteRegexMatchSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

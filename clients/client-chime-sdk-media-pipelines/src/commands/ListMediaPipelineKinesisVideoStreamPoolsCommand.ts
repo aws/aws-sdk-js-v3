@@ -13,7 +13,7 @@ import type {
   ListMediaPipelineKinesisVideoStreamPoolsRequest,
   ListMediaPipelineKinesisVideoStreamPoolsResponse,
 } from "../models/models_0";
-import { ListMediaPipelineKinesisVideoStreamPools } from "../schemas/schemas_0";
+import { ListMediaPipelineKinesisVideoStreamPools$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class ListMediaPipelineKinesisVideoStreamPoolsCommand extends $Command
   })
   .s("ChimeSDKMediaPipelinesService", "ListMediaPipelineKinesisVideoStreamPools", {})
   .n("ChimeSDKMediaPipelinesClient", "ListMediaPipelineKinesisVideoStreamPoolsCommand")
-  .sc(ListMediaPipelineKinesisVideoStreamPools)
+  .sc(ListMediaPipelineKinesisVideoStreamPools$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

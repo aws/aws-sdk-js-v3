@@ -7,7 +7,7 @@ import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTransitGatewayPolicyTableRequest } from "../models/models_2";
 import type { DeleteTransitGatewayPolicyTableResult } from "../models/models_3";
-import { DeleteTransitGatewayPolicyTable } from "../schemas/schemas_0";
+import { DeleteTransitGatewayPolicyTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeleteTransitGatewayPolicyTableCommand extends $Command
   })
   .s("AmazonEC2", "DeleteTransitGatewayPolicyTable", {})
   .n("EC2Client", "DeleteTransitGatewayPolicyTableCommand")
-  .sc(DeleteTransitGatewayPolicyTable)
+  .sc(DeleteTransitGatewayPolicyTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

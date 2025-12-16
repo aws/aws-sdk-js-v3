@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetRuleRequest, GetRuleResponse } from "../models/models_0";
-import { GetRule } from "../schemas/schemas_0";
+import { GetRule$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -127,7 +127,7 @@ export class GetRuleCommand extends $Command
   })
   .s("AWSWAF_Regional_20161128", "GetRule", {})
   .n("WAFRegionalClient", "GetRuleCommand")
-  .sc(GetRule)
+  .sc(GetRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

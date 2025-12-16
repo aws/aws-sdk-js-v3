@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TagContactRequest, TagContactResponse } from "../models/models_3";
-import { TagContact } from "../schemas/schemas_0";
+import { TagContact$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class TagContactCommand extends $Command
   })
   .s("AmazonConnectService", "TagContact", {})
   .n("ConnectClient", "TagContactCommand")
-  .sc(TagContact)
+  .sc(TagContact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

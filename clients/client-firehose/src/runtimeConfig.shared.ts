@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: FirehoseClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.firehose",
-        serviceTarget: "Firehose_20150804",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.firehose",
+      xmlNamespace: "http://firehose.amazonaws.com/doc/2015-08-04",
+      version: "2015-08-04",
+      serviceTarget: "Firehose_20150804",
+    },
     serviceId: config?.serviceId ?? "Firehose",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { XmlMapsXmlNameOutput } from "../models/models_0";
 import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { XmlMapsXmlName } from "../schemas/schemas_0";
+import { XmlMapsXmlName$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -75,7 +75,7 @@ export class XmlMapsXmlNameCommand extends $Command
   })
   .s("AwsQuery", "XmlMapsXmlName", {})
   .n("QueryProtocolClient", "XmlMapsXmlNameCommand")
-  .sc(XmlMapsXmlName)
+  .sc(XmlMapsXmlName$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

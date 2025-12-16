@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteContextRequest, DeleteContextResponse } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DeleteContext } from "../schemas/schemas_0";
+import { DeleteContext$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -76,7 +76,7 @@ export class DeleteContextCommand extends $Command
   })
   .s("SageMaker", "DeleteContext", {})
   .n("SageMakerClient", "DeleteContextCommand")
-  .sc(DeleteContext)
+  .sc(DeleteContext$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

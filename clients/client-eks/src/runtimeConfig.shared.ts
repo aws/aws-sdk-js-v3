@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: EKSClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.eks" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.eks",
+      version: "2017-11-01",
+      serviceTarget: "AWSWesleyFrontend",
+    },
     serviceId: config?.serviceId ?? "EKS",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

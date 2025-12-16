@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BacktrackDBClusterMessage, DBClusterBacktrack } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { BacktrackDBCluster } from "../schemas/schemas_0";
+import { BacktrackDBCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class BacktrackDBClusterCommand extends $Command
   })
   .s("AmazonRDSv19", "BacktrackDBCluster", {})
   .n("RDSClient", "BacktrackDBClusterCommand")
-  .sc(BacktrackDBCluster)
+  .sc(BacktrackDBCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

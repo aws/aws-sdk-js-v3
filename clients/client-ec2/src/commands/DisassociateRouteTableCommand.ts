@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateRouteTableRequest } from "../models/models_5";
-import { DisassociateRouteTable } from "../schemas/schemas_0";
+import { DisassociateRouteTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DisassociateRouteTableCommand extends $Command
   })
   .s("AmazonEC2", "DisassociateRouteTable", {})
   .n("EC2Client", "DisassociateRouteTableCommand")
-  .sc(DisassociateRouteTable)
+  .sc(DisassociateRouteTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

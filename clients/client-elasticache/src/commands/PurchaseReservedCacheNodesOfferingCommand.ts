@@ -9,7 +9,7 @@ import type {
   PurchaseReservedCacheNodesOfferingMessage,
   PurchaseReservedCacheNodesOfferingResult,
 } from "../models/models_0";
-import { PurchaseReservedCacheNodesOffering } from "../schemas/schemas_0";
+import { PurchaseReservedCacheNodesOffering$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,7 +140,7 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "PurchaseReservedCacheNodesOffering", {})
   .n("ElastiCacheClient", "PurchaseReservedCacheNodesOfferingCommand")
-  .sc(PurchaseReservedCacheNodesOffering)
+  .sc(PurchaseReservedCacheNodesOffering$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

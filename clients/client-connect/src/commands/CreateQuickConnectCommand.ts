@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateQuickConnectRequest, CreateQuickConnectResponse } from "../models/models_0";
-import { CreateQuickConnect } from "../schemas/schemas_0";
+import { CreateQuickConnect$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class CreateQuickConnectCommand extends $Command
   })
   .s("AmazonConnectService", "CreateQuickConnect", {})
   .n("ConnectClient", "CreateQuickConnectCommand")
-  .sc(CreateQuickConnect)
+  .sc(CreateQuickConnect$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

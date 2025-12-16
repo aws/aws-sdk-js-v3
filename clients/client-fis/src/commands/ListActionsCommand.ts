@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
 import type { ListActionsRequest, ListActionsResponse } from "../models/models_0";
-import { ListActions } from "../schemas/schemas_0";
+import { ListActions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class ListActionsCommand extends $Command
   })
   .s("FaultInjectionSimulator", "ListActions", {})
   .n("FisClient", "ListActionsCommand")
-  .sc(ListActions)
+  .sc(ListActions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListChangedBlocksRequest, ListChangedBlocksResponse } from "../models/models_0";
-import { ListChangedBlocks } from "../schemas/schemas_0";
+import { ListChangedBlocks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class ListChangedBlocksCommand extends $Command
   })
   .s("Ebs", "ListChangedBlocks", {})
   .n("EBSClient", "ListChangedBlocksCommand")
-  .sc(ListChangedBlocks)
+  .sc(ListChangedBlocks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

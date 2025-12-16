@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateRegexPatternSetRequest, CreateRegexPatternSetResponse } from "../models/models_0";
-import { CreateRegexPatternSet } from "../schemas/schemas_0";
+import { CreateRegexPatternSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -143,7 +143,7 @@ export class CreateRegexPatternSetCommand extends $Command
   })
   .s("AWSWAF_20190729", "CreateRegexPatternSet", {})
   .n("WAFV2Client", "CreateRegexPatternSetCommand")
-  .sc(CreateRegexPatternSet)
+  .sc(CreateRegexPatternSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

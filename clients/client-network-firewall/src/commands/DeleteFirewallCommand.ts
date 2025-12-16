@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { DeleteFirewall } from "../schemas/schemas_0";
+import { DeleteFirewall$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -195,7 +195,7 @@ export class DeleteFirewallCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "DeleteFirewall", {})
   .n("NetworkFirewallClient", "DeleteFirewallCommand")
-  .sc(DeleteFirewall)
+  .sc(DeleteFirewall$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

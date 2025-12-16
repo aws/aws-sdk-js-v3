@@ -9,7 +9,7 @@ import type {
   AddDraftAppVersionResourceMappingsResponse,
 } from "../models/models_0";
 import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
-import { AddDraftAppVersionResourceMappings } from "../schemas/schemas_0";
+import { AddDraftAppVersionResourceMappings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class AddDraftAppVersionResourceMappingsCommand extends $Command
   })
   .s("AwsResilienceHub", "AddDraftAppVersionResourceMappings", {})
   .n("ResiliencehubClient", "AddDraftAppVersionResourceMappingsCommand")
-  .sc(AddDraftAppVersionResourceMappings)
+  .sc(AddDraftAppVersionResourceMappings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeactivateTypeInput, DeactivateTypeOutput } from "../models/models_0";
-import { DeactivateType } from "../schemas/schemas_0";
+import { DeactivateType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeactivateTypeCommand extends $Command
   })
   .s("CloudFormation", "DeactivateType", {})
   .n("CloudFormationClient", "DeactivateTypeCommand")
-  .sc(DeactivateType)
+  .sc(DeactivateType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   GetDefaultEncryptionConfigurationRequest,
   GetDefaultEncryptionConfigurationResponse,
 } from "../models/models_0";
-import { GetDefaultEncryptionConfiguration } from "../schemas/schemas_0";
+import { GetDefaultEncryptionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class GetDefaultEncryptionConfigurationCommand extends $Command
   })
   .s("IotManagedIntegrations", "GetDefaultEncryptionConfiguration", {})
   .n("IoTManagedIntegrationsClient", "GetDefaultEncryptionConfigurationCommand")
-  .sc(GetDefaultEncryptionConfiguration)
+  .sc(GetDefaultEncryptionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

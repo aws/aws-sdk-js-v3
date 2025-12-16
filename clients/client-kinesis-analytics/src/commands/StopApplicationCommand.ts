@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsClient";
 import type { StopApplicationRequest, StopApplicationResponse } from "../models/models_0";
-import { StopApplication } from "../schemas/schemas_0";
+import { StopApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class StopApplicationCommand extends $Command
   })
   .s("KinesisAnalytics_20150814", "StopApplication", {})
   .n("KinesisAnalyticsClient", "StopApplicationCommand")
-  .sc(StopApplication)
+  .sc(StopApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: ArtifactClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.artifact" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.artifact",
+      version: "2018-05-10",
+      serviceTarget: "Artifact",
+    },
     serviceId: config?.serviceId ?? "Artifact",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

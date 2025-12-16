@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyTenantDatabaseMessage, ModifyTenantDatabaseResult } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { ModifyTenantDatabase } from "../schemas/schemas_0";
+import { ModifyTenantDatabase$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class ModifyTenantDatabaseCommand extends $Command
   })
   .s("AmazonRDSv19", "ModifyTenantDatabase", {})
   .n("RDSClient", "ModifyTenantDatabaseCommand")
-  .sc(ModifyTenantDatabase)
+  .sc(ModifyTenantDatabase$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

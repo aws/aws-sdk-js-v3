@@ -8,7 +8,7 @@ import type {
   PutDedicatedIpPoolScalingAttributesRequest,
   PutDedicatedIpPoolScalingAttributesResponse,
 } from "../models/models_0";
-import { PutDedicatedIpPoolScalingAttributes } from "../schemas/schemas_0";
+import { PutDedicatedIpPoolScalingAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -107,7 +107,7 @@ export class PutDedicatedIpPoolScalingAttributesCommand extends $Command
   })
   .s("SimpleEmailService_v2", "PutDedicatedIpPoolScalingAttributes", {})
   .n("SESv2Client", "PutDedicatedIpPoolScalingAttributesCommand")
-  .sc(PutDedicatedIpPoolScalingAttributes)
+  .sc(PutDedicatedIpPoolScalingAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ProfileDetailResponse, ScalarProfileRequest } from "../models/models_0";
 import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
-import { DisableProfile } from "../schemas/schemas_0";
+import { DisableProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class DisableProfileCommand extends $Command
   })
   .s("RolesAnywhere", "DisableProfile", {})
   .n("RolesAnywhereClient", "DisableProfileCommand")
-  .sc(DisableProfile)
+  .sc(DisableProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

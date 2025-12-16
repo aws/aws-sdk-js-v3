@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopIngestionJobRequest, StopIngestionJobResponse } from "../models/models_0";
-import { StopIngestionJob } from "../schemas/schemas_0";
+import { StopIngestionJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class StopIngestionJobCommand extends $Command
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "StopIngestionJob", {})
   .n("BedrockAgentClient", "StopIngestionJobCommand")
-  .sc(StopIngestionJob)
+  .sc(StopIngestionJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

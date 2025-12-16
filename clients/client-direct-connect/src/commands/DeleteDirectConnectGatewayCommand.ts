@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDirectConnectGatewayRequest, DeleteDirectConnectGatewayResult } from "../models/models_0";
-import { DeleteDirectConnectGateway } from "../schemas/schemas_0";
+import { DeleteDirectConnectGateway$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteDirectConnectGatewayCommand extends $Command
   })
   .s("OvertureService", "DeleteDirectConnectGateway", {})
   .n("DirectConnectClient", "DeleteDirectConnectGatewayCommand")
-  .sc(DeleteDirectConnectGateway)
+  .sc(DeleteDirectConnectGateway$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

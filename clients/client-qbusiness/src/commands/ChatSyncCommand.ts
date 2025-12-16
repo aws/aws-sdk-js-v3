@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { ChatSyncOutput } from "../models/models_0";
 import type { ChatSyncInput } from "../models/models_1";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { ChatSync } from "../schemas/schemas_0";
+import { ChatSync$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -303,7 +303,7 @@ export class ChatSyncCommand extends $Command
   })
   .s("ExpertQ", "ChatSync", {})
   .n("QBusinessClient", "ChatSyncCommand")
-  .sc(ChatSync)
+  .sc(ChatSync$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

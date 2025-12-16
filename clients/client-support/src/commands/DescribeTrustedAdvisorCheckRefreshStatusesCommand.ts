@@ -8,7 +8,7 @@ import type {
   DescribeTrustedAdvisorCheckRefreshStatusesRequest,
   DescribeTrustedAdvisorCheckRefreshStatusesResponse,
 } from "../models/models_0";
-import { DescribeTrustedAdvisorCheckRefreshStatuses } from "../schemas/schemas_0";
+import { DescribeTrustedAdvisorCheckRefreshStatuses$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
@@ -118,7 +118,7 @@ export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command
   })
   .s("AWSSupport_20130415", "DescribeTrustedAdvisorCheckRefreshStatuses", {})
   .n("SupportClient", "DescribeTrustedAdvisorCheckRefreshStatusesCommand")
-  .sc(DescribeTrustedAdvisorCheckRefreshStatuses)
+  .sc(DescribeTrustedAdvisorCheckRefreshStatuses$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

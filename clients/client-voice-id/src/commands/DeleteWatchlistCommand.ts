@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteWatchlistRequest } from "../models/models_0";
-import { DeleteWatchlist } from "../schemas/schemas_0";
+import { DeleteWatchlist$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
@@ -99,7 +99,7 @@ export class DeleteWatchlistCommand extends $Command
   })
   .s("VoiceID", "DeleteWatchlist", {})
   .n("VoiceIDClient", "DeleteWatchlistCommand")
-  .sc(DeleteWatchlist)
+  .sc(DeleteWatchlist$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

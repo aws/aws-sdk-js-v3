@@ -9,7 +9,7 @@ import type {
   RotateIngestEndpointCredentialsRequest,
   RotateIngestEndpointCredentialsResponse,
 } from "../models/models_0";
-import { RotateIngestEndpointCredentials } from "../schemas/schemas_0";
+import { RotateIngestEndpointCredentials$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class RotateIngestEndpointCredentialsCommand extends $Command
   })
   .s("MediaPackage", "RotateIngestEndpointCredentials", {})
   .n("MediaPackageClient", "RotateIngestEndpointCredentialsCommand")
-  .sc(RotateIngestEndpointCredentials)
+  .sc(RotateIngestEndpointCredentials$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

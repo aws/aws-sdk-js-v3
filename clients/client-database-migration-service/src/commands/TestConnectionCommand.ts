@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { TestConnectionMessage, TestConnectionResponse } from "../models/models_1";
-import { TestConnection } from "../schemas/schemas_0";
+import { TestConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class TestConnectionCommand extends $Command
   })
   .s("AmazonDMSv20160101", "TestConnection", {})
   .n("DatabaseMigrationServiceClient", "TestConnectionCommand")
-  .sc(TestConnection)
+  .sc(TestConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

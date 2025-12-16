@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import type { GetWorkingLocationRequest, GetWorkingLocationResponse } from "../models/models_0";
-import { GetWorkingLocation } from "../schemas/schemas_0";
+import { GetWorkingLocation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class GetWorkingLocationCommand extends $Command
   })
   .s("AWSHabaneroPublicAPI", "GetWorkingLocation", {})
   .n("FinspaceDataClient", "GetWorkingLocationCommand")
-  .sc(GetWorkingLocation)
+  .sc(GetWorkingLocation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

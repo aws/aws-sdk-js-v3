@@ -9,7 +9,7 @@ import type {
   ListAccountsWithInvalidEffectivePolicyResponse,
 } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { ListAccountsWithInvalidEffectivePolicy } from "../schemas/schemas_0";
+import { ListAccountsWithInvalidEffectivePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -558,7 +558,7 @@ export class ListAccountsWithInvalidEffectivePolicyCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "ListAccountsWithInvalidEffectivePolicy", {})
   .n("OrganizationsClient", "ListAccountsWithInvalidEffectivePolicyCommand")
-  .sc(ListAccountsWithInvalidEffectivePolicy)
+  .sc(ListAccountsWithInvalidEffectivePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

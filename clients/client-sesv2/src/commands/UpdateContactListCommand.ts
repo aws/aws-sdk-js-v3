@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateContactListRequest, UpdateContactListResponse } from "../models/models_1";
-import { UpdateContactList } from "../schemas/schemas_0";
+import { UpdateContactList$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -92,7 +92,7 @@ export class UpdateContactListCommand extends $Command
   })
   .s("SimpleEmailService_v2", "UpdateContactList", {})
   .n("SESv2Client", "UpdateContactListCommand")
-  .sc(UpdateContactList)
+  .sc(UpdateContactList$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

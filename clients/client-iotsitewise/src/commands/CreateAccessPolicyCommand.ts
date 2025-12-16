@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import type { CreateAccessPolicyRequest, CreateAccessPolicyResponse } from "../models/models_0";
-import { CreateAccessPolicy } from "../schemas/schemas_0";
+import { CreateAccessPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class CreateAccessPolicyCommand extends $Command
   })
   .s("AWSIoTSiteWise", "CreateAccessPolicy", {})
   .n("IoTSiteWiseClient", "CreateAccessPolicyCommand")
-  .sc(CreateAccessPolicy)
+  .sc(CreateAccessPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

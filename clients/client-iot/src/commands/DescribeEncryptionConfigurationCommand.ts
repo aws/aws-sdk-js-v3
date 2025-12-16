@@ -9,7 +9,7 @@ import type {
   DescribeEncryptionConfigurationRequest,
   DescribeEncryptionConfigurationResponse,
 } from "../models/models_1";
-import { DescribeEncryptionConfiguration } from "../schemas/schemas_0";
+import { DescribeEncryptionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DescribeEncryptionConfigurationCommand extends $Command
   })
   .s("AWSIotService", "DescribeEncryptionConfiguration", {})
   .n("IoTClient", "DescribeEncryptionConfigurationCommand")
-  .sc(DescribeEncryptionConfiguration)
+  .sc(DescribeEncryptionConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

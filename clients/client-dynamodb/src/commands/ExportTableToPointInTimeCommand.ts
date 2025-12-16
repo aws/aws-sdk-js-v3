@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ExportTableToPointInTimeInput, ExportTableToPointInTimeOutput } from "../models/models_0";
-import { ExportTableToPointInTime } from "../schemas/schemas_0";
+import { ExportTableToPointInTime$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -154,7 +154,7 @@ export class ExportTableToPointInTimeCommand extends $Command
   })
   .s("DynamoDB_20120810", "ExportTableToPointInTime", {})
   .n("DynamoDBClient", "ExportTableToPointInTimeCommand")
-  .sc(ExportTableToPointInTime)
+  .sc(ExportTableToPointInTime$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

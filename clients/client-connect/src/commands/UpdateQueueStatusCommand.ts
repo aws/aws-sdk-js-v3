@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateQueueStatusRequest } from "../models/models_3";
-import { UpdateQueueStatus } from "../schemas/schemas_0";
+import { UpdateQueueStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class UpdateQueueStatusCommand extends $Command
   })
   .s("AmazonConnectService", "UpdateQueueStatus", {})
   .n("ConnectClient", "UpdateQueueStatusCommand")
-  .sc(UpdateQueueStatus)
+  .sc(UpdateQueueStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

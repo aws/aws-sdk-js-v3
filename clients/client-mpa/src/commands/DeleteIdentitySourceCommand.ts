@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteIdentitySourceRequest } from "../models/models_0";
 import type { MPAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MPAClient";
-import { DeleteIdentitySource } from "../schemas/schemas_0";
+import { DeleteIdentitySource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class DeleteIdentitySourceCommand extends $Command
   })
   .s("AWSFluffyCoreService", "DeleteIdentitySource", {})
   .n("MPAClient", "DeleteIdentitySourceCommand")
-  .sc(DeleteIdentitySource)
+  .sc(DeleteIdentitySource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

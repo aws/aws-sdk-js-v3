@@ -9,7 +9,7 @@ import type {
   NotifyResourceDeploymentStatusChangeOutput,
 } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { NotifyResourceDeploymentStatusChange } from "../schemas/schemas_0";
+import { NotifyResourceDeploymentStatusChange$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class NotifyResourceDeploymentStatusChangeCommand extends $Command
   })
   .s("AwsProton20200720", "NotifyResourceDeploymentStatusChange", {})
   .n("ProtonClient", "NotifyResourceDeploymentStatusChangeCommand")
-  .sc(NotifyResourceDeploymentStatusChange)
+  .sc(NotifyResourceDeploymentStatusChange$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

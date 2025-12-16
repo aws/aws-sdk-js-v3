@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { DeleteCrossAccountAttachmentRequest } from "../models/models_0";
-import { DeleteCrossAccountAttachment } from "../schemas/schemas_0";
+import { DeleteCrossAccountAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeleteCrossAccountAttachmentCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "DeleteCrossAccountAttachment", {})
   .n("GlobalAcceleratorClient", "DeleteCrossAccountAttachmentCommand")
-  .sc(DeleteCrossAccountAttachment)
+  .sc(DeleteCrossAccountAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

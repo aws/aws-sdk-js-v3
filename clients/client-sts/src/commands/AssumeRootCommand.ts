@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssumeRootRequest, AssumeRootResponse } from "../models/models_0";
-import { AssumeRoot } from "../schemas/schemas_0";
+import { AssumeRoot$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
@@ -136,7 +136,7 @@ export class AssumeRootCommand extends $Command
   })
   .s("AWSSecurityTokenServiceV20110615", "AssumeRoot", {})
   .n("STSClient", "AssumeRootCommand")
-  .sc(AssumeRoot)
+  .sc(AssumeRoot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

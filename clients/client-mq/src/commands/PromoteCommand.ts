@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PromoteRequest, PromoteResponse } from "../models/models_0";
 import type { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import { Promote } from "../schemas/schemas_0";
+import { Promote$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class PromoteCommand extends $Command
   })
   .s("mq", "Promote", {})
   .n("MqClient", "PromoteCommand")
-  .sc(Promote)
+  .sc(Promote$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListRunsRequest, ListRunsResult } from "../models/models_0";
-import { ListRuns } from "../schemas/schemas_0";
+import { ListRuns$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -196,7 +196,7 @@ export class ListRunsCommand extends $Command
   })
   .s("DeviceFarm_20150623", "ListRuns", {})
   .n("DeviceFarmClient", "ListRunsCommand")
-  .sc(ListRuns)
+  .sc(ListRuns$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeleteProvisioningTemplateVersionRequest,
   DeleteProvisioningTemplateVersionResponse,
 } from "../models/models_0";
-import { DeleteProvisioningTemplateVersion } from "../schemas/schemas_0";
+import { DeleteProvisioningTemplateVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DeleteProvisioningTemplateVersionCommand extends $Command
   })
   .s("AWSIotService", "DeleteProvisioningTemplateVersion", {})
   .n("IoTClient", "DeleteProvisioningTemplateVersionCommand")
-  .sc(DeleteProvisioningTemplateVersion)
+  .sc(DeleteProvisioningTemplateVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

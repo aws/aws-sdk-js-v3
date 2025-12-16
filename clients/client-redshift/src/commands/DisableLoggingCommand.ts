@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisableLoggingMessage, LoggingStatus } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DisableLogging } from "../schemas/schemas_0";
+import { DisableLogging$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DisableLoggingCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DisableLogging", {})
   .n("RedshiftClient", "DisableLoggingCommand")
-  .sc(DisableLogging)
+  .sc(DisableLogging$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { VerifyDomainIdentityRequest, VerifyDomainIdentityResponse } from "../models/models_0";
-import { VerifyDomainIdentity } from "../schemas/schemas_0";
+import { VerifyDomainIdentity$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -93,7 +93,7 @@ export class VerifyDomainIdentityCommand extends $Command
   })
   .s("SimpleEmailService", "VerifyDomainIdentity", {})
   .n("SESClient", "VerifyDomainIdentityCommand")
-  .sc(VerifyDomainIdentity)
+  .sc(VerifyDomainIdentity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

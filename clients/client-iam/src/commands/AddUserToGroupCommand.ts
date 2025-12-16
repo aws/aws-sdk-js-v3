@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { AddUserToGroupRequest } from "../models/models_0";
-import { AddUserToGroup } from "../schemas/schemas_0";
+import { AddUserToGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class AddUserToGroupCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "AddUserToGroup", {})
   .n("IAMClient", "AddUserToGroupCommand")
-  .sc(AddUserToGroup)
+  .sc(AddUserToGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

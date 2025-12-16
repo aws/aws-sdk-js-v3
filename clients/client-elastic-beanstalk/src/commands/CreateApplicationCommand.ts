@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ApplicationDescriptionMessage, CreateApplicationMessage } from "../models/models_0";
-import { CreateApplication } from "../schemas/schemas_0";
+import { CreateApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -152,7 +152,7 @@ export class CreateApplicationCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "CreateApplication", {})
   .n("ElasticBeanstalkClient", "CreateApplicationCommand")
-  .sc(CreateApplication)
+  .sc(CreateApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import type { GetAssessmentRequest, GetAssessmentResponse } from "../models/models_0";
-import { GetAssessment } from "../schemas/schemas_0";
+import { GetAssessment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class GetAssessmentCommand extends $Command
   })
   .s("AWSMigrationHubStrategyRecommendation", "GetAssessment", {})
   .n("MigrationHubStrategyClient", "GetAssessmentCommand")
-  .sc(GetAssessment)
+  .sc(GetAssessment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

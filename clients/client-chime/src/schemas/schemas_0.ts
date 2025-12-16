@@ -392,31 +392,31 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { ChimeServiceException as __ChimeServiceException } from "../models/ChimeServiceException";
+import { ChimeServiceException } from "../models/ChimeServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  BadRequestException as __BadRequestException,
-  ConflictException as __ConflictException,
-  ForbiddenException as __ForbiddenException,
-  NotFoundException as __NotFoundException,
-  ResourceLimitExceededException as __ResourceLimitExceededException,
-  ServiceFailureException as __ServiceFailureException,
-  ServiceUnavailableException as __ServiceUnavailableException,
-  ThrottledClientException as __ThrottledClientException,
-  UnauthorizedClientException as __UnauthorizedClientException,
-  UnprocessableEntityException as __UnprocessableEntityException,
+  AccessDeniedException,
+  BadRequestException,
+  ConflictException,
+  ForbiddenException,
+  NotFoundException,
+  ResourceLimitExceededException,
+  ServiceFailureException,
+  ServiceUnavailableException,
+  ThrottledClientException,
+  UnauthorizedClientException,
+  UnprocessableEntityException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var CallingName: StaticSimpleSchema = [0, n0, _CN, 8, 0];
-export var ClientRequestToken: StaticSimpleSchema = [0, n0, _CRT, 8, 0];
-export var E164PhoneNumber: StaticSimpleSchema = [0, n0, _EPN, 8, 0];
-export var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
-export var JoinTokenString: StaticSimpleSchema = [0, n0, _JTS, 8, 0];
-export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_C, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var Account: StaticStructureSchema = [
+var CallingName: StaticSimpleSchema = [0, n0, _CN, 8, 0];
+var ClientRequestToken: StaticSimpleSchema = [0, n0, _CRT, 8, 0];
+var E164PhoneNumber: StaticSimpleSchema = [0, n0, _EPN, 8, 0];
+var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
+var JoinTokenString: StaticSimpleSchema = [0, n0, _JTS, 8, 0];
+var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_C, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var Account$: StaticStructureSchema = [
   3,
   n0,
   _A,
@@ -424,8 +424,8 @@ export var Account: StaticStructureSchema = [
   [_AAI, _AI, _N, _AT, _CT, _DL, _SL, _AS, _SDG],
   [0, 0, 0, 0, 5, 0, 64 | 0, 0, () => SigninDelegateGroupList],
 ];
-export var AccountSettings: StaticStructureSchema = [3, n0, _ASc, 0, [_DRC, _EDO], [2, 2]];
-export var AlexaForBusinessMetadata: StaticStructureSchema = [
+export var AccountSettings$: StaticStructureSchema = [3, n0, _ASc, 0, [_DRC, _EDO], [2, 2]];
+export var AlexaForBusinessMetadata$: StaticStructureSchema = [
   3,
   n0,
   _AFBM,
@@ -433,7 +433,7 @@ export var AlexaForBusinessMetadata: StaticStructureSchema = [
   [_IAFBE, _AFBRA],
   [2, [() => SensitiveString, 0]],
 ];
-export var AssociatePhoneNumberWithUserRequest: StaticStructureSchema = [
+export var AssociatePhoneNumberWithUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _APNWUR,
@@ -445,8 +445,8 @@ export var AssociatePhoneNumberWithUserRequest: StaticStructureSchema = [
     [() => E164PhoneNumber, 0],
   ],
 ];
-export var AssociatePhoneNumberWithUserResponse: StaticStructureSchema = [3, n0, _APNWURs, 0, [], []];
-export var AssociateSigninDelegateGroupsWithAccountRequest: StaticStructureSchema = [
+export var AssociatePhoneNumberWithUserResponse$: StaticStructureSchema = [3, n0, _APNWURs, 0, [], []];
+export var AssociateSigninDelegateGroupsWithAccountRequest$: StaticStructureSchema = [
   3,
   n0,
   _ASDGWAR,
@@ -454,10 +454,10 @@ export var AssociateSigninDelegateGroupsWithAccountRequest: StaticStructureSchem
   [_AI, _SDG],
   [[0, 1], () => SigninDelegateGroupList],
 ];
-export var AssociateSigninDelegateGroupsWithAccountResponse: StaticStructureSchema = [3, n0, _ASDGWARs, 0, [], []];
-export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_C, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-export var BatchCreateRoomMembershipRequest: StaticStructureSchema = [
+export var AssociateSigninDelegateGroupsWithAccountResponse$: StaticStructureSchema = [3, n0, _ASDGWARs, 0, [], []];
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_C, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+export var BatchCreateRoomMembershipRequest$: StaticStructureSchema = [
   3,
   n0,
   _BCRMR,
@@ -465,7 +465,7 @@ export var BatchCreateRoomMembershipRequest: StaticStructureSchema = [
   [_AI, _RI, _MIL],
   [[0, 1], [0, 1], () => MembershipItemList],
 ];
-export var BatchCreateRoomMembershipResponse: StaticStructureSchema = [
+export var BatchCreateRoomMembershipResponse$: StaticStructureSchema = [
   3,
   n0,
   _BCRMRa,
@@ -473,8 +473,8 @@ export var BatchCreateRoomMembershipResponse: StaticStructureSchema = [
   [_E],
   [() => MemberErrorList],
 ];
-export var BatchDeletePhoneNumberRequest: StaticStructureSchema = [3, n0, _BDPNR, 0, [_PNI], [64 | 0]];
-export var BatchDeletePhoneNumberResponse: StaticStructureSchema = [
+export var BatchDeletePhoneNumberRequest$: StaticStructureSchema = [3, n0, _BDPNR, 0, [_PNI], [64 | 0]];
+export var BatchDeletePhoneNumberResponse$: StaticStructureSchema = [
   3,
   n0,
   _BDPNRa,
@@ -482,11 +482,11 @@ export var BatchDeletePhoneNumberResponse: StaticStructureSchema = [
   [_PNE],
   [() => PhoneNumberErrorList],
 ];
-export var BatchSuspendUserRequest: StaticStructureSchema = [3, n0, _BSUR, 0, [_AI, _UIL], [[0, 1], 64 | 0]];
-export var BatchSuspendUserResponse: StaticStructureSchema = [3, n0, _BSURa, 0, [_UE], [() => UserErrorList]];
-export var BatchUnsuspendUserRequest: StaticStructureSchema = [3, n0, _BUUR, 0, [_AI, _UIL], [[0, 1], 64 | 0]];
-export var BatchUnsuspendUserResponse: StaticStructureSchema = [3, n0, _BUURa, 0, [_UE], [() => UserErrorList]];
-export var BatchUpdatePhoneNumberRequest: StaticStructureSchema = [
+export var BatchSuspendUserRequest$: StaticStructureSchema = [3, n0, _BSUR, 0, [_AI, _UIL], [[0, 1], 64 | 0]];
+export var BatchSuspendUserResponse$: StaticStructureSchema = [3, n0, _BSURa, 0, [_UE], [() => UserErrorList]];
+export var BatchUnsuspendUserRequest$: StaticStructureSchema = [3, n0, _BUUR, 0, [_AI, _UIL], [[0, 1], 64 | 0]];
+export var BatchUnsuspendUserResponse$: StaticStructureSchema = [3, n0, _BUURa, 0, [_UE], [() => UserErrorList]];
+export var BatchUpdatePhoneNumberRequest$: StaticStructureSchema = [
   3,
   n0,
   _BUPNR,
@@ -494,7 +494,7 @@ export var BatchUpdatePhoneNumberRequest: StaticStructureSchema = [
   [_UPNRI],
   [[() => UpdatePhoneNumberRequestItemList, 0]],
 ];
-export var BatchUpdatePhoneNumberResponse: StaticStructureSchema = [
+export var BatchUpdatePhoneNumberResponse$: StaticStructureSchema = [
   3,
   n0,
   _BUPNRa,
@@ -502,7 +502,7 @@ export var BatchUpdatePhoneNumberResponse: StaticStructureSchema = [
   [_PNE],
   [() => PhoneNumberErrorList],
 ];
-export var BatchUpdateUserRequest: StaticStructureSchema = [
+export var BatchUpdateUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _BUURat,
@@ -513,8 +513,8 @@ export var BatchUpdateUserRequest: StaticStructureSchema = [
     [() => UpdateUserRequestItemList, 0],
   ],
 ];
-export var BatchUpdateUserResponse: StaticStructureSchema = [3, n0, _BUURatc, 0, [_UE], [() => UserErrorList]];
-export var Bot: StaticStructureSchema = [
+export var BatchUpdateUserResponse$: StaticStructureSchema = [3, n0, _BUURatc, 0, [_UE], [() => UserErrorList]];
+export var Bot$: StaticStructureSchema = [
   3,
   n0,
   _B,
@@ -522,13 +522,13 @@ export var Bot: StaticStructureSchema = [
   [_BI, _UI, _DN, _BT, _D, _CT, _UT, _BE, _ST],
   [0, 0, [() => SensitiveString, 0], 0, 2, 5, 5, [() => SensitiveString, 0], [() => SensitiveString, 0]],
 ];
-export var BusinessCallingSettings: StaticStructureSchema = [3, n0, _BCS, 0, [_CB], [0]];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_C, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var ConversationRetentionSettings: StaticStructureSchema = [3, n0, _CRS, 0, [_RD], [1]];
-export var CreateAccountRequest: StaticStructureSchema = [3, n0, _CAR, 0, [_N], [0]];
-export var CreateAccountResponse: StaticStructureSchema = [3, n0, _CARr, 0, [_A], [() => Account]];
-export var CreateBotRequest: StaticStructureSchema = [
+export var BusinessCallingSettings$: StaticStructureSchema = [3, n0, _BCS, 0, [_CB], [0]];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_C, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var ConversationRetentionSettings$: StaticStructureSchema = [3, n0, _CRS, 0, [_RD], [1]];
+export var CreateAccountRequest$: StaticStructureSchema = [3, n0, _CAR, 0, [_N], [0]];
+export var CreateAccountResponse$: StaticStructureSchema = [3, n0, _CARr, 0, [_A], [() => Account$]];
+export var CreateBotRequest$: StaticStructureSchema = [
   3,
   n0,
   _CBR,
@@ -536,8 +536,8 @@ export var CreateBotRequest: StaticStructureSchema = [
   [_AI, _DN, _Do],
   [[0, 1], [() => SensitiveString, 0], 0],
 ];
-export var CreateBotResponse: StaticStructureSchema = [3, n0, _CBRr, 0, [_B], [[() => Bot, 0]]];
-export var CreateMeetingDialOutRequest: StaticStructureSchema = [
+export var CreateBotResponse$: StaticStructureSchema = [3, n0, _CBRr, 0, [_B], [[() => Bot$, 0]]];
+export var CreateMeetingDialOutRequest$: StaticStructureSchema = [
   3,
   n0,
   _CMDOR,
@@ -550,8 +550,8 @@ export var CreateMeetingDialOutRequest: StaticStructureSchema = [
     [() => JoinTokenString, 0],
   ],
 ];
-export var CreateMeetingDialOutResponse: StaticStructureSchema = [3, n0, _CMDORr, 0, [_TI], [0]];
-export var CreatePhoneNumberOrderRequest: StaticStructureSchema = [
+export var CreateMeetingDialOutResponse$: StaticStructureSchema = [3, n0, _CMDORr, 0, [_TI], [0]];
+export var CreatePhoneNumberOrderRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPNOR,
@@ -559,15 +559,15 @@ export var CreatePhoneNumberOrderRequest: StaticStructureSchema = [
   [_PT, _EPNh],
   [0, [() => E164PhoneNumberList, 0]],
 ];
-export var CreatePhoneNumberOrderResponse: StaticStructureSchema = [
+export var CreatePhoneNumberOrderResponse$: StaticStructureSchema = [
   3,
   n0,
   _CPNORr,
   0,
   [_PNO],
-  [[() => PhoneNumberOrder, 0]],
+  [[() => PhoneNumberOrder$, 0]],
 ];
-export var CreateRoomMembershipRequest: StaticStructureSchema = [
+export var CreateRoomMembershipRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRMR,
@@ -575,8 +575,15 @@ export var CreateRoomMembershipRequest: StaticStructureSchema = [
   [_AI, _RI, _MIe, _R],
   [[0, 1], [0, 1], 0, 0],
 ];
-export var CreateRoomMembershipResponse: StaticStructureSchema = [3, n0, _CRMRr, 0, [_RM], [[() => RoomMembership, 0]]];
-export var CreateRoomRequest: StaticStructureSchema = [
+export var CreateRoomMembershipResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _CRMRr,
+  0,
+  [_RM],
+  [[() => RoomMembership$, 0]],
+];
+export var CreateRoomRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRR,
@@ -588,8 +595,8 @@ export var CreateRoomRequest: StaticStructureSchema = [
     [() => ClientRequestToken, 4],
   ],
 ];
-export var CreateRoomResponse: StaticStructureSchema = [3, n0, _CRRr, 0, [_Ro], [[() => Room, 0]]];
-export var CreateUserRequest: StaticStructureSchema = [
+export var CreateRoomResponse$: StaticStructureSchema = [3, n0, _CRRr, 0, [_Ro], [[() => Room$, 0]]];
+export var CreateUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _CUR,
@@ -597,10 +604,10 @@ export var CreateUserRequest: StaticStructureSchema = [
   [_AI, _U, _Em, _UTs],
   [[0, 1], 0, [() => EmailAddress, 0], 0],
 ];
-export var CreateUserResponse: StaticStructureSchema = [3, n0, _CURr, 0, [_Us], [[() => User, 0]]];
-export var DeleteAccountRequest: StaticStructureSchema = [3, n0, _DAR, 0, [_AI], [[0, 1]]];
-export var DeleteAccountResponse: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
-export var DeleteEventsConfigurationRequest: StaticStructureSchema = [
+export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr, 0, [_Us], [[() => User$, 0]]];
+export var DeleteAccountRequest$: StaticStructureSchema = [3, n0, _DAR, 0, [_AI], [[0, 1]]];
+export var DeleteAccountResponse$: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
+export var DeleteEventsConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DECR,
@@ -611,8 +618,8 @@ export var DeleteEventsConfigurationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeletePhoneNumberRequest: StaticStructureSchema = [3, n0, _DPNR, 0, [_PNIh], [[0, 1]]];
-export var DeleteRoomMembershipRequest: StaticStructureSchema = [
+export var DeletePhoneNumberRequest$: StaticStructureSchema = [3, n0, _DPNR, 0, [_PNIh], [[0, 1]]];
+export var DeleteRoomMembershipRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRMR,
@@ -624,7 +631,7 @@ export var DeleteRoomMembershipRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteRoomRequest: StaticStructureSchema = [
+export var DeleteRoomRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRR,
@@ -635,7 +642,7 @@ export var DeleteRoomRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DisassociatePhoneNumberFromUserRequest: StaticStructureSchema = [
+export var DisassociatePhoneNumberFromUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _DPNFUR,
@@ -646,8 +653,8 @@ export var DisassociatePhoneNumberFromUserRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DisassociatePhoneNumberFromUserResponse: StaticStructureSchema = [3, n0, _DPNFURi, 0, [], []];
-export var DisassociateSigninDelegateGroupsFromAccountRequest: StaticStructureSchema = [
+export var DisassociatePhoneNumberFromUserResponse$: StaticStructureSchema = [3, n0, _DPNFURi, 0, [], []];
+export var DisassociateSigninDelegateGroupsFromAccountRequest$: StaticStructureSchema = [
   3,
   n0,
   _DSDGFAR,
@@ -655,8 +662,8 @@ export var DisassociateSigninDelegateGroupsFromAccountRequest: StaticStructureSc
   [_AI, _GN],
   [[0, 1], 64 | 0],
 ];
-export var DisassociateSigninDelegateGroupsFromAccountResponse: StaticStructureSchema = [3, n0, _DSDGFARi, 0, [], []];
-export var EventsConfiguration: StaticStructureSchema = [
+export var DisassociateSigninDelegateGroupsFromAccountResponse$: StaticStructureSchema = [3, n0, _DSDGFARi, 0, [], []];
+export var EventsConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _EC,
@@ -664,13 +671,13 @@ export var EventsConfiguration: StaticStructureSchema = [
   [_BI, _OEHTTPSE, _LFA],
   [0, [() => SensitiveString, 0], [() => SensitiveString, 0]],
 ];
-export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_C, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-export var GetAccountRequest: StaticStructureSchema = [3, n0, _GAR, 0, [_AI], [[0, 1]]];
-export var GetAccountResponse: StaticStructureSchema = [3, n0, _GARe, 0, [_A], [() => Account]];
-export var GetAccountSettingsRequest: StaticStructureSchema = [3, n0, _GASR, 0, [_AI], [[0, 1]]];
-export var GetAccountSettingsResponse: StaticStructureSchema = [3, n0, _GASRe, 0, [_ASc], [() => AccountSettings]];
-export var GetBotRequest: StaticStructureSchema = [
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_C, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
+export var GetAccountRequest$: StaticStructureSchema = [3, n0, _GAR, 0, [_AI], [[0, 1]]];
+export var GetAccountResponse$: StaticStructureSchema = [3, n0, _GARe, 0, [_A], [() => Account$]];
+export var GetAccountSettingsRequest$: StaticStructureSchema = [3, n0, _GASR, 0, [_AI], [[0, 1]]];
+export var GetAccountSettingsResponse$: StaticStructureSchema = [3, n0, _GASRe, 0, [_ASc], [() => AccountSettings$]];
+export var GetBotRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBR,
@@ -681,8 +688,8 @@ export var GetBotRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetBotResponse: StaticStructureSchema = [3, n0, _GBRe, 0, [_B], [[() => Bot, 0]]];
-export var GetEventsConfigurationRequest: StaticStructureSchema = [
+export var GetBotResponse$: StaticStructureSchema = [3, n0, _GBRe, 0, [_B], [[() => Bot$, 0]]];
+export var GetEventsConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GECR,
@@ -693,34 +700,34 @@ export var GetEventsConfigurationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetEventsConfigurationResponse: StaticStructureSchema = [
+export var GetEventsConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GECRe,
   0,
   [_EC],
-  [[() => EventsConfiguration, 0]],
+  [[() => EventsConfiguration$, 0]],
 ];
-export var GetGlobalSettingsResponse: StaticStructureSchema = [
+export var GetGlobalSettingsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GGSR,
   0,
   [_BC, _VC],
-  [() => BusinessCallingSettings, () => VoiceConnectorSettings],
+  [() => BusinessCallingSettings$, () => VoiceConnectorSettings$],
 ];
-export var GetPhoneNumberOrderRequest: StaticStructureSchema = [3, n0, _GPNOR, 0, [_PNOI], [[0, 1]]];
-export var GetPhoneNumberOrderResponse: StaticStructureSchema = [
+export var GetPhoneNumberOrderRequest$: StaticStructureSchema = [3, n0, _GPNOR, 0, [_PNOI], [[0, 1]]];
+export var GetPhoneNumberOrderResponse$: StaticStructureSchema = [
   3,
   n0,
   _GPNORe,
   0,
   [_PNO],
-  [[() => PhoneNumberOrder, 0]],
+  [[() => PhoneNumberOrder$, 0]],
 ];
-export var GetPhoneNumberRequest: StaticStructureSchema = [3, n0, _GPNR, 0, [_PNIh], [[0, 1]]];
-export var GetPhoneNumberResponse: StaticStructureSchema = [3, n0, _GPNRe, 0, [_PN], [[() => PhoneNumber, 0]]];
-export var GetPhoneNumberSettingsResponse: StaticStructureSchema = [
+export var GetPhoneNumberRequest$: StaticStructureSchema = [3, n0, _GPNR, 0, [_PNIh], [[0, 1]]];
+export var GetPhoneNumberResponse$: StaticStructureSchema = [3, n0, _GPNRe, 0, [_PN], [[() => PhoneNumber$, 0]]];
+export var GetPhoneNumberSettingsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GPNSR,
@@ -728,16 +735,16 @@ export var GetPhoneNumberSettingsResponse: StaticStructureSchema = [
   [_CN, _CNUT],
   [[() => CallingName, 0], 5],
 ];
-export var GetRetentionSettingsRequest: StaticStructureSchema = [3, n0, _GRSR, 0, [_AI], [[0, 1]]];
-export var GetRetentionSettingsResponse: StaticStructureSchema = [
+export var GetRetentionSettingsRequest$: StaticStructureSchema = [3, n0, _GRSR, 0, [_AI], [[0, 1]]];
+export var GetRetentionSettingsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRSRe,
   0,
   [_RS, _IDT],
-  [() => RetentionSettings, 5],
+  [() => RetentionSettings$, 5],
 ];
-export var GetRoomRequest: StaticStructureSchema = [
+export var GetRoomRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRR,
@@ -748,8 +755,8 @@ export var GetRoomRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetRoomResponse: StaticStructureSchema = [3, n0, _GRRe, 0, [_Ro], [[() => Room, 0]]];
-export var GetUserRequest: StaticStructureSchema = [
+export var GetRoomResponse$: StaticStructureSchema = [3, n0, _GRRe, 0, [_Ro], [[() => Room$, 0]]];
+export var GetUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _GUR,
@@ -760,8 +767,8 @@ export var GetUserRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetUserResponse: StaticStructureSchema = [3, n0, _GURe, 0, [_Us], [[() => User, 0]]];
-export var GetUserSettingsRequest: StaticStructureSchema = [
+export var GetUserResponse$: StaticStructureSchema = [3, n0, _GURe, 0, [_Us], [[() => User$, 0]]];
+export var GetUserSettingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GUSR,
@@ -772,9 +779,9 @@ export var GetUserSettingsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetUserSettingsResponse: StaticStructureSchema = [3, n0, _GUSRe, 0, [_US], [() => UserSettings]];
-export var Invite: StaticStructureSchema = [3, n0, _I, 0, [_II, _S, _EA, _ES], [0, 0, [() => EmailAddress, 0], 0]];
-export var InviteUsersRequest: StaticStructureSchema = [
+export var GetUserSettingsResponse$: StaticStructureSchema = [3, n0, _GUSRe, 0, [_US], [() => UserSettings$]];
+export var Invite$: StaticStructureSchema = [3, n0, _I, 0, [_II, _S, _EA, _ES], [0, 0, [() => EmailAddress, 0], 0]];
+export var InviteUsersRequest$: StaticStructureSchema = [
   3,
   n0,
   _IUR,
@@ -782,8 +789,8 @@ export var InviteUsersRequest: StaticStructureSchema = [
   [_AI, _UEL, _UTs],
   [[0, 1], [() => UserEmailList, 0], 0],
 ];
-export var InviteUsersResponse: StaticStructureSchema = [3, n0, _IURn, 0, [_In], [[() => InviteList, 0]]];
-export var ListAccountsRequest: StaticStructureSchema = [
+export var InviteUsersResponse$: StaticStructureSchema = [3, n0, _IURn, 0, [_In], [[() => InviteList, 0]]];
+export var ListAccountsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAR,
@@ -796,8 +803,8 @@ export var ListAccountsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListAccountsResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_Ac, _NT], [() => AccountList, 0]];
-export var ListBotsRequest: StaticStructureSchema = [
+export var ListAccountsResponse$: StaticStructureSchema = [3, n0, _LARi, 0, [_Ac, _NT], [() => AccountList, 0]];
+export var ListBotsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBR,
@@ -809,8 +816,8 @@ export var ListBotsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nt }],
   ],
 ];
-export var ListBotsResponse: StaticStructureSchema = [3, n0, _LBRi, 0, [_Bo, _NT], [[() => BotList, 0], 0]];
-export var ListPhoneNumberOrdersRequest: StaticStructureSchema = [
+export var ListBotsResponse$: StaticStructureSchema = [3, n0, _LBRi, 0, [_Bo, _NT], [[() => BotList, 0], 0]];
+export var ListPhoneNumberOrdersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPNOR,
@@ -821,7 +828,7 @@ export var ListPhoneNumberOrdersRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mr }],
   ],
 ];
-export var ListPhoneNumberOrdersResponse: StaticStructureSchema = [
+export var ListPhoneNumberOrdersResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPNORi,
@@ -829,7 +836,7 @@ export var ListPhoneNumberOrdersResponse: StaticStructureSchema = [
   [_PNOh, _NT],
   [[() => PhoneNumberOrderList, 0], 0],
 ];
-export var ListPhoneNumbersRequest: StaticStructureSchema = [
+export var ListPhoneNumbersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPNR,
@@ -844,7 +851,7 @@ export var ListPhoneNumbersRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nt }],
   ],
 ];
-export var ListPhoneNumbersResponse: StaticStructureSchema = [
+export var ListPhoneNumbersResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPNRi,
@@ -852,7 +859,7 @@ export var ListPhoneNumbersResponse: StaticStructureSchema = [
   [_PNh, _NT],
   [[() => PhoneNumberList, 0], 0],
 ];
-export var ListRoomMembershipsRequest: StaticStructureSchema = [
+export var ListRoomMembershipsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRMR,
@@ -865,7 +872,7 @@ export var ListRoomMembershipsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nt }],
   ],
 ];
-export var ListRoomMembershipsResponse: StaticStructureSchema = [
+export var ListRoomMembershipsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRMRi,
@@ -873,7 +880,7 @@ export var ListRoomMembershipsResponse: StaticStructureSchema = [
   [_RMo, _NT],
   [[() => RoomMembershipList, 0], 0],
 ];
-export var ListRoomsRequest: StaticStructureSchema = [
+export var ListRoomsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRR,
@@ -886,8 +893,8 @@ export var ListRoomsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nt }],
   ],
 ];
-export var ListRoomsResponse: StaticStructureSchema = [3, n0, _LRRi, 0, [_Roo, _NT], [[() => RoomList, 0], 0]];
-export var ListSupportedPhoneNumberCountriesRequest: StaticStructureSchema = [
+export var ListRoomsResponse$: StaticStructureSchema = [3, n0, _LRRi, 0, [_Roo, _NT], [[() => RoomList, 0], 0]];
+export var ListSupportedPhoneNumberCountriesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSPNCR,
@@ -895,7 +902,7 @@ export var ListSupportedPhoneNumberCountriesRequest: StaticStructureSchema = [
   [_PT],
   [[0, { [_hQ]: _pt }]],
 ];
-export var ListSupportedPhoneNumberCountriesResponse: StaticStructureSchema = [
+export var ListSupportedPhoneNumberCountriesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSPNCRi,
@@ -903,7 +910,7 @@ export var ListSupportedPhoneNumberCountriesResponse: StaticStructureSchema = [
   [_PNC],
   [() => PhoneNumberCountriesList],
 ];
-export var ListUsersRequest: StaticStructureSchema = [
+export var ListUsersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LUR,
@@ -917,8 +924,8 @@ export var ListUsersRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nt }],
   ],
 ];
-export var ListUsersResponse: StaticStructureSchema = [3, n0, _LURi, 0, [_Use, _NT], [[() => UserList, 0], 0]];
-export var LogoutUserRequest: StaticStructureSchema = [
+export var ListUsersResponse$: StaticStructureSchema = [3, n0, _LURi, 0, [_Use, _NT], [[() => UserList, 0], 0]];
+export var LogoutUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _LURo,
@@ -929,8 +936,8 @@ export var LogoutUserRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var LogoutUserResponse: StaticStructureSchema = [3, n0, _LURog, 0, [], []];
-export var Member: StaticStructureSchema = [
+export var LogoutUserResponse$: StaticStructureSchema = [3, n0, _LURog, 0, [], []];
+export var Member$: StaticStructureSchema = [
   3,
   n0,
   _Me,
@@ -938,12 +945,12 @@ export var Member: StaticStructureSchema = [
   [_MIe, _MT, _Em, _FNu, _AI],
   [0, 0, [() => SensitiveString, 0], [() => SensitiveString, 0], 0],
 ];
-export var MemberError: StaticStructureSchema = [3, n0, _ME, 0, [_MIe, _ECr, _EM], [0, 0, 0]];
-export var MembershipItem: StaticStructureSchema = [3, n0, _MIem, 0, [_MIe, _R], [0, 0]];
-export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_C, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-export var OrderedPhoneNumber: StaticStructureSchema = [3, n0, _OPN, 0, [_EPN, _S], [[() => E164PhoneNumber, 0], 0]];
-export var PhoneNumber: StaticStructureSchema = [
+export var MemberError$: StaticStructureSchema = [3, n0, _ME, 0, [_MIe, _ECr, _EM], [0, 0, 0]];
+export var MembershipItem$: StaticStructureSchema = [3, n0, _MIem, 0, [_MIe, _R], [0, 0]];
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_C, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
+export var OrderedPhoneNumber$: StaticStructureSchema = [3, n0, _OPN, 0, [_EPN, _S], [[() => E164PhoneNumber, 0], 0]];
+export var PhoneNumber$: StaticStructureSchema = [
   3,
   n0,
   _PN,
@@ -956,7 +963,7 @@ export var PhoneNumber: StaticStructureSchema = [
     0,
     0,
     0,
-    () => PhoneNumberCapabilities,
+    () => PhoneNumberCapabilities$,
     () => PhoneNumberAssociationList,
     [() => CallingName, 0],
     0,
@@ -965,8 +972,8 @@ export var PhoneNumber: StaticStructureSchema = [
     5,
   ],
 ];
-export var PhoneNumberAssociation: StaticStructureSchema = [3, n0, _PNA, 0, [_V, _N, _ATs], [0, 0, 5]];
-export var PhoneNumberCapabilities: StaticStructureSchema = [
+export var PhoneNumberAssociation$: StaticStructureSchema = [3, n0, _PNA, 0, [_V, _N, _ATs], [0, 0, 5]];
+export var PhoneNumberCapabilities$: StaticStructureSchema = [
   3,
   n0,
   _PNCh,
@@ -974,9 +981,9 @@ export var PhoneNumberCapabilities: StaticStructureSchema = [
   [_IC, _OC, _ISMS, _OSMS, _IMMS, _OMMS],
   [2, 2, 2, 2, 2, 2],
 ];
-export var PhoneNumberCountry: StaticStructureSchema = [3, n0, _PNCho, 0, [_CC, _SPNT], [0, 64 | 0]];
-export var PhoneNumberError: StaticStructureSchema = [3, n0, _PNEh, 0, [_PNIh, _ECr, _EM], [0, 0, 0]];
-export var PhoneNumberOrder: StaticStructureSchema = [
+export var PhoneNumberCountry$: StaticStructureSchema = [3, n0, _PNCho, 0, [_CC, _SPNT], [0, 64 | 0]];
+export var PhoneNumberError$: StaticStructureSchema = [3, n0, _PNEh, 0, [_PNIh, _ECr, _EM], [0, 0, 0]];
+export var PhoneNumberOrder$: StaticStructureSchema = [
   3,
   n0,
   _PNO,
@@ -984,7 +991,7 @@ export var PhoneNumberOrder: StaticStructureSchema = [
   [_PNOI, _PT, _S, _OPNr, _CT, _UT],
   [0, 0, 0, [() => OrderedPhoneNumberList, 0], 5, 5],
 ];
-export var PutEventsConfigurationRequest: StaticStructureSchema = [
+export var PutEventsConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PECR,
@@ -997,31 +1004,31 @@ export var PutEventsConfigurationRequest: StaticStructureSchema = [
     [() => SensitiveString, 0],
   ],
 ];
-export var PutEventsConfigurationResponse: StaticStructureSchema = [
+export var PutEventsConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _PECRu,
   0,
   [_EC],
-  [[() => EventsConfiguration, 0]],
+  [[() => EventsConfiguration$, 0]],
 ];
-export var PutRetentionSettingsRequest: StaticStructureSchema = [
+export var PutRetentionSettingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _PRSR,
   0,
   [_AI, _RS],
-  [[0, 1], () => RetentionSettings],
+  [[0, 1], () => RetentionSettings$],
 ];
-export var PutRetentionSettingsResponse: StaticStructureSchema = [
+export var PutRetentionSettingsResponse$: StaticStructureSchema = [
   3,
   n0,
   _PRSRu,
   0,
   [_RS, _IDT],
-  [() => RetentionSettings, 5],
+  [() => RetentionSettings$, 5],
 ];
-export var RedactConversationMessageRequest: StaticStructureSchema = [
+export var RedactConversationMessageRequest$: StaticStructureSchema = [
   3,
   n0,
   _RCMR,
@@ -1033,8 +1040,8 @@ export var RedactConversationMessageRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var RedactConversationMessageResponse: StaticStructureSchema = [3, n0, _RCMRe, 0, [], []];
-export var RedactRoomMessageRequest: StaticStructureSchema = [
+export var RedactConversationMessageResponse$: StaticStructureSchema = [3, n0, _RCMRe, 0, [], []];
+export var RedactRoomMessageRequest$: StaticStructureSchema = [
   3,
   n0,
   _RRMR,
@@ -1046,8 +1053,8 @@ export var RedactRoomMessageRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var RedactRoomMessageResponse: StaticStructureSchema = [3, n0, _RRMRe, 0, [], []];
-export var RegenerateSecurityTokenRequest: StaticStructureSchema = [
+export var RedactRoomMessageResponse$: StaticStructureSchema = [3, n0, _RRMRe, 0, [], []];
+export var RegenerateSecurityTokenRequest$: StaticStructureSchema = [
   3,
   n0,
   _RSTR,
@@ -1058,8 +1065,8 @@ export var RegenerateSecurityTokenRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var RegenerateSecurityTokenResponse: StaticStructureSchema = [3, n0, _RSTRe, 0, [_B], [[() => Bot, 0]]];
-export var ResetPersonalPINRequest: StaticStructureSchema = [
+export var RegenerateSecurityTokenResponse$: StaticStructureSchema = [3, n0, _RSTRe, 0, [_B], [[() => Bot$, 0]]];
+export var ResetPersonalPINRequest$: StaticStructureSchema = [
   3,
   n0,
   _RPPINR,
@@ -1070,8 +1077,8 @@ export var ResetPersonalPINRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ResetPersonalPINResponse: StaticStructureSchema = [3, n0, _RPPINRe, 0, [_Us], [[() => User, 0]]];
-export var ResourceLimitExceededException: StaticErrorSchema = [
+export var ResetPersonalPINResponse$: StaticStructureSchema = [3, n0, _RPPINRe, 0, [_Us], [[() => User$, 0]]];
+export var ResourceLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _RLEE,
@@ -1079,18 +1086,18 @@ export var ResourceLimitExceededException: StaticErrorSchema = [
   [_C, _M],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceLimitExceededException, __ResourceLimitExceededException);
-export var RestorePhoneNumberRequest: StaticStructureSchema = [3, n0, _RPNR, 0, [_PNIh], [[0, 1]]];
-export var RestorePhoneNumberResponse: StaticStructureSchema = [3, n0, _RPNRe, 0, [_PN], [[() => PhoneNumber, 0]]];
-export var RetentionSettings: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
+export var RestorePhoneNumberRequest$: StaticStructureSchema = [3, n0, _RPNR, 0, [_PNIh], [[0, 1]]];
+export var RestorePhoneNumberResponse$: StaticStructureSchema = [3, n0, _RPNRe, 0, [_PN], [[() => PhoneNumber$, 0]]];
+export var RetentionSettings$: StaticStructureSchema = [
   3,
   n0,
   _RS,
   0,
   [_RRS, _CRS],
-  [() => RoomRetentionSettings, () => ConversationRetentionSettings],
+  [() => RoomRetentionSettings$, () => ConversationRetentionSettings$],
 ];
-export var Room: StaticStructureSchema = [
+export var Room$: StaticStructureSchema = [
   3,
   n0,
   _Ro,
@@ -1098,16 +1105,16 @@ export var Room: StaticStructureSchema = [
   [_RI, _N, _AI, _CBr, _CT, _UT],
   [0, [() => SensitiveString, 0], 0, 0, 5, 5],
 ];
-export var RoomMembership: StaticStructureSchema = [
+export var RoomMembership$: StaticStructureSchema = [
   3,
   n0,
   _RM,
   0,
   [_RI, _Me, _R, _IB, _UT],
-  [0, [() => Member, 0], 0, 0, 5],
+  [0, [() => Member$, 0], 0, 0, 5],
 ];
-export var RoomRetentionSettings: StaticStructureSchema = [3, n0, _RRS, 0, [_RD], [1]];
-export var SearchAvailablePhoneNumbersRequest: StaticStructureSchema = [
+export var RoomRetentionSettings$: StaticStructureSchema = [3, n0, _RRS, 0, [_RD], [1]];
+export var SearchAvailablePhoneNumbersRequest$: StaticStructureSchema = [
   3,
   n0,
   _SAPNR,
@@ -1124,7 +1131,7 @@ export var SearchAvailablePhoneNumbersRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nt }],
   ],
 ];
-export var SearchAvailablePhoneNumbersResponse: StaticStructureSchema = [
+export var SearchAvailablePhoneNumbersResponse$: StaticStructureSchema = [
   3,
   n0,
   _SAPNRe,
@@ -1132,40 +1139,54 @@ export var SearchAvailablePhoneNumbersResponse: StaticStructureSchema = [
   [_EPNh, _NT],
   [[() => E164PhoneNumberList, 0], 0],
 ];
-export var ServiceFailureException: StaticErrorSchema = [-3, n0, _SFE, { [_e]: _se, [_hE]: 500 }, [_C, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(ServiceFailureException, __ServiceFailureException);
-export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [_C, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-export var SigninDelegateGroup: StaticStructureSchema = [3, n0, _SDGi, 0, [_GNr], [0]];
-export var TelephonySettings: StaticStructureSchema = [3, n0, _TS, 0, [_ICn, _OCu, _SMS], [2, 2, 2]];
-export var ThrottledClientException: StaticErrorSchema = [-3, n0, _TCE, { [_e]: _c, [_hE]: 429 }, [_C, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(ThrottledClientException, __ThrottledClientException);
-export var UnauthorizedClientException: StaticErrorSchema = [-3, n0, _UCE, { [_e]: _c, [_hE]: 401 }, [_C, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(UnauthorizedClientException, __UnauthorizedClientException);
-export var UnprocessableEntityException: StaticErrorSchema = [-3, n0, _UEE, { [_e]: _c, [_hE]: 422 }, [_C, _M], [0, 0]];
-TypeRegistry.for(n0).registerError(UnprocessableEntityException, __UnprocessableEntityException);
-export var UpdateAccountRequest: StaticStructureSchema = [3, n0, _UAR, 0, [_AI, _N, _DL], [[0, 1], 0, 0]];
-export var UpdateAccountResponse: StaticStructureSchema = [3, n0, _UARp, 0, [_A], [() => Account]];
-export var UpdateAccountSettingsRequest: StaticStructureSchema = [
+export var ServiceFailureException$: StaticErrorSchema = [-3, n0, _SFE, { [_e]: _se, [_hE]: 500 }, [_C, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(ServiceFailureException$, ServiceFailureException);
+export var ServiceUnavailableException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_C, _M],
+  [0, 0],
+];
+TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var SigninDelegateGroup$: StaticStructureSchema = [3, n0, _SDGi, 0, [_GNr], [0]];
+export var TelephonySettings$: StaticStructureSchema = [3, n0, _TS, 0, [_ICn, _OCu, _SMS], [2, 2, 2]];
+export var ThrottledClientException$: StaticErrorSchema = [-3, n0, _TCE, { [_e]: _c, [_hE]: 429 }, [_C, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(ThrottledClientException$, ThrottledClientException);
+export var UnauthorizedClientException$: StaticErrorSchema = [-3, n0, _UCE, { [_e]: _c, [_hE]: 401 }, [_C, _M], [0, 0]];
+TypeRegistry.for(n0).registerError(UnauthorizedClientException$, UnauthorizedClientException);
+export var UnprocessableEntityException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _UEE,
+  { [_e]: _c, [_hE]: 422 },
+  [_C, _M],
+  [0, 0],
+];
+TypeRegistry.for(n0).registerError(UnprocessableEntityException$, UnprocessableEntityException);
+export var UpdateAccountRequest$: StaticStructureSchema = [3, n0, _UAR, 0, [_AI, _N, _DL], [[0, 1], 0, 0]];
+export var UpdateAccountResponse$: StaticStructureSchema = [3, n0, _UARp, 0, [_A], [() => Account$]];
+export var UpdateAccountSettingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UASR,
   0,
   [_AI, _ASc],
-  [[0, 1], () => AccountSettings],
+  [[0, 1], () => AccountSettings$],
 ];
-export var UpdateAccountSettingsResponse: StaticStructureSchema = [3, n0, _UASRp, 0, [], []];
-export var UpdateBotRequest: StaticStructureSchema = [3, n0, _UBR, 0, [_AI, _BI, _D], [[0, 1], [0, 1], 2]];
-export var UpdateBotResponse: StaticStructureSchema = [3, n0, _UBRp, 0, [_B], [[() => Bot, 0]]];
-export var UpdateGlobalSettingsRequest: StaticStructureSchema = [
+export var UpdateAccountSettingsResponse$: StaticStructureSchema = [3, n0, _UASRp, 0, [], []];
+export var UpdateBotRequest$: StaticStructureSchema = [3, n0, _UBR, 0, [_AI, _BI, _D], [[0, 1], [0, 1], 2]];
+export var UpdateBotResponse$: StaticStructureSchema = [3, n0, _UBRp, 0, [_B], [[() => Bot$, 0]]];
+export var UpdateGlobalSettingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UGSR,
   0,
   [_BC, _VC],
-  [() => BusinessCallingSettings, () => VoiceConnectorSettings],
+  [() => BusinessCallingSettings$, () => VoiceConnectorSettings$],
 ];
-export var UpdatePhoneNumberRequest: StaticStructureSchema = [
+export var UpdatePhoneNumberRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPNR,
@@ -1173,7 +1194,7 @@ export var UpdatePhoneNumberRequest: StaticStructureSchema = [
   [_PNIh, _PT, _CN],
   [[0, 1], 0, [() => CallingName, 0]],
 ];
-export var UpdatePhoneNumberRequestItem: StaticStructureSchema = [
+export var UpdatePhoneNumberRequestItem$: StaticStructureSchema = [
   3,
   n0,
   _UPNRIp,
@@ -1181,8 +1202,8 @@ export var UpdatePhoneNumberRequestItem: StaticStructureSchema = [
   [_PNIh, _PT, _CN],
   [0, 0, [() => CallingName, 0]],
 ];
-export var UpdatePhoneNumberResponse: StaticStructureSchema = [3, n0, _UPNRp, 0, [_PN], [[() => PhoneNumber, 0]]];
-export var UpdatePhoneNumberSettingsRequest: StaticStructureSchema = [
+export var UpdatePhoneNumberResponse$: StaticStructureSchema = [3, n0, _UPNRp, 0, [_PN], [[() => PhoneNumber$, 0]]];
+export var UpdatePhoneNumberSettingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UPNSR,
@@ -1190,7 +1211,7 @@ export var UpdatePhoneNumberSettingsRequest: StaticStructureSchema = [
   [_CN],
   [[() => CallingName, 0]],
 ];
-export var UpdateRoomMembershipRequest: StaticStructureSchema = [
+export var UpdateRoomMembershipRequest$: StaticStructureSchema = [
   3,
   n0,
   _URMR,
@@ -1198,8 +1219,15 @@ export var UpdateRoomMembershipRequest: StaticStructureSchema = [
   [_AI, _RI, _MIe, _R],
   [[0, 1], [0, 1], [0, 1], 0],
 ];
-export var UpdateRoomMembershipResponse: StaticStructureSchema = [3, n0, _URMRp, 0, [_RM], [[() => RoomMembership, 0]]];
-export var UpdateRoomRequest: StaticStructureSchema = [
+export var UpdateRoomMembershipResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _URMRp,
+  0,
+  [_RM],
+  [[() => RoomMembership$, 0]],
+];
+export var UpdateRoomRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -1211,33 +1239,33 @@ export var UpdateRoomRequest: StaticStructureSchema = [
     [() => SensitiveString, 0],
   ],
 ];
-export var UpdateRoomResponse: StaticStructureSchema = [3, n0, _URRp, 0, [_Ro], [[() => Room, 0]]];
-export var UpdateUserRequest: StaticStructureSchema = [
+export var UpdateRoomResponse$: StaticStructureSchema = [3, n0, _URRp, 0, [_Ro], [[() => Room$, 0]]];
+export var UpdateUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _UUR,
   0,
   [_AI, _UI, _LT, _UTs, _AFBM],
-  [[0, 1], [0, 1], 0, 0, [() => AlexaForBusinessMetadata, 0]],
+  [[0, 1], [0, 1], 0, 0, [() => AlexaForBusinessMetadata$, 0]],
 ];
-export var UpdateUserRequestItem: StaticStructureSchema = [
+export var UpdateUserRequestItem$: StaticStructureSchema = [
   3,
   n0,
   _UURIp,
   0,
   [_UI, _LT, _UTs, _AFBM],
-  [0, 0, 0, [() => AlexaForBusinessMetadata, 0]],
+  [0, 0, 0, [() => AlexaForBusinessMetadata$, 0]],
 ];
-export var UpdateUserResponse: StaticStructureSchema = [3, n0, _UURp, 0, [_Us], [[() => User, 0]]];
-export var UpdateUserSettingsRequest: StaticStructureSchema = [
+export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp, 0, [_Us], [[() => User$, 0]]];
+export var UpdateUserSettingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _UUSR,
   0,
   [_AI, _UI, _US],
-  [[0, 1], [0, 1], () => UserSettings],
+  [[0, 1], [0, 1], () => UserSettings$],
 ];
-export var User: StaticStructureSchema = [
+export var User$: StaticStructureSchema = [
   3,
   n0,
   _Us,
@@ -1255,539 +1283,533 @@ export var User: StaticStructureSchema = [
     0,
     5,
     5,
-    [() => AlexaForBusinessMetadata, 0],
+    [() => AlexaForBusinessMetadata$, 0],
     0,
   ],
 ];
-export var UserError: StaticStructureSchema = [3, n0, _UEse, 0, [_UI, _ECr, _EM], [0, 0, 0]];
-export var UserSettings: StaticStructureSchema = [3, n0, _US, 0, [_Te], [() => TelephonySettings]];
-export var VoiceConnectorSettings: StaticStructureSchema = [3, n0, _VCS, 0, [_CB], [0]];
-export var __Unit = "unit" as const;
-export var ChimeServiceException: StaticErrorSchema = [-3, _sm, "ChimeServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ChimeServiceException, __ChimeServiceException);
-export var AccountList: StaticListSchema = [1, n0, _AL, 0, () => Account];
-export var BotList: StaticListSchema = [1, n0, _BL, 0, [() => Bot, 0]];
-export var E164PhoneNumberList: StaticListSchema = [1, n0, _EPNL, 0, [() => E164PhoneNumber, 0]];
-export var InviteList: StaticListSchema = [1, n0, _IL, 0, [() => Invite, 0]];
-export var LicenseList = 64 | 0;
-export var MemberErrorList: StaticListSchema = [1, n0, _MEL, 0, () => MemberError];
-export var MembershipItemList: StaticListSchema = [1, n0, _MIL, 0, () => MembershipItem];
-export var NonEmptyStringList = 64 | 0;
-export var OrderedPhoneNumberList: StaticListSchema = [1, n0, _OPNL, 0, [() => OrderedPhoneNumber, 0]];
-export var PhoneNumberAssociationList: StaticListSchema = [1, n0, _PNAL, 0, () => PhoneNumberAssociation];
-export var PhoneNumberCountriesList: StaticListSchema = [1, n0, _PNCL, 0, () => PhoneNumberCountry];
-export var PhoneNumberErrorList: StaticListSchema = [1, n0, _PNEL, 0, () => PhoneNumberError];
-export var PhoneNumberList: StaticListSchema = [1, n0, _PNL, 0, [() => PhoneNumber, 0]];
-export var PhoneNumberOrderList: StaticListSchema = [1, n0, _PNOL, 0, [() => PhoneNumberOrder, 0]];
-export var PhoneNumberTypeList = 64 | 0;
-export var RoomList: StaticListSchema = [1, n0, _RL, 0, [() => Room, 0]];
-export var RoomMembershipList: StaticListSchema = [1, n0, _RML, 0, [() => RoomMembership, 0]];
-export var SigninDelegateGroupList: StaticListSchema = [1, n0, _SDGL, 0, () => SigninDelegateGroup];
-export var UpdatePhoneNumberRequestItemList: StaticListSchema = [
-  1,
-  n0,
-  _UPNRIL,
-  0,
-  [() => UpdatePhoneNumberRequestItem, 0],
-];
-export var UpdateUserRequestItemList: StaticListSchema = [1, n0, _UURIL, 0, [() => UpdateUserRequestItem, 0]];
-export var UserEmailList: StaticListSchema = [1, n0, _UEL, 0, [() => EmailAddress, 0]];
-export var UserErrorList: StaticListSchema = [1, n0, _UELs, 0, () => UserError];
-export var UserIdList = 64 | 0;
-export var UserList: StaticListSchema = [1, n0, _UL, 0, [() => User, 0]];
-export var AssociatePhoneNumberWithUser: StaticOperationSchema = [
+export var UserError$: StaticStructureSchema = [3, n0, _UEse, 0, [_UI, _ECr, _EM], [0, 0, 0]];
+export var UserSettings$: StaticStructureSchema = [3, n0, _US, 0, [_Te], [() => TelephonySettings$]];
+export var VoiceConnectorSettings$: StaticStructureSchema = [3, n0, _VCS, 0, [_CB], [0]];
+var __Unit = "unit" as const;
+export var ChimeServiceException$: StaticErrorSchema = [-3, _sm, "ChimeServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(ChimeServiceException$, ChimeServiceException);
+var AccountList: StaticListSchema = [1, n0, _AL, 0, () => Account$];
+var BotList: StaticListSchema = [1, n0, _BL, 0, [() => Bot$, 0]];
+var E164PhoneNumberList: StaticListSchema = [1, n0, _EPNL, 0, [() => E164PhoneNumber, 0]];
+var InviteList: StaticListSchema = [1, n0, _IL, 0, [() => Invite$, 0]];
+var LicenseList = 64 | 0;
+var MemberErrorList: StaticListSchema = [1, n0, _MEL, 0, () => MemberError$];
+var MembershipItemList: StaticListSchema = [1, n0, _MIL, 0, () => MembershipItem$];
+var NonEmptyStringList = 64 | 0;
+var OrderedPhoneNumberList: StaticListSchema = [1, n0, _OPNL, 0, [() => OrderedPhoneNumber$, 0]];
+var PhoneNumberAssociationList: StaticListSchema = [1, n0, _PNAL, 0, () => PhoneNumberAssociation$];
+var PhoneNumberCountriesList: StaticListSchema = [1, n0, _PNCL, 0, () => PhoneNumberCountry$];
+var PhoneNumberErrorList: StaticListSchema = [1, n0, _PNEL, 0, () => PhoneNumberError$];
+var PhoneNumberList: StaticListSchema = [1, n0, _PNL, 0, [() => PhoneNumber$, 0]];
+var PhoneNumberOrderList: StaticListSchema = [1, n0, _PNOL, 0, [() => PhoneNumberOrder$, 0]];
+var PhoneNumberTypeList = 64 | 0;
+var RoomList: StaticListSchema = [1, n0, _RL, 0, [() => Room$, 0]];
+var RoomMembershipList: StaticListSchema = [1, n0, _RML, 0, [() => RoomMembership$, 0]];
+var SigninDelegateGroupList: StaticListSchema = [1, n0, _SDGL, 0, () => SigninDelegateGroup$];
+var UpdatePhoneNumberRequestItemList: StaticListSchema = [1, n0, _UPNRIL, 0, [() => UpdatePhoneNumberRequestItem$, 0]];
+var UpdateUserRequestItemList: StaticListSchema = [1, n0, _UURIL, 0, [() => UpdateUserRequestItem$, 0]];
+var UserEmailList: StaticListSchema = [1, n0, _UEL, 0, [() => EmailAddress, 0]];
+var UserErrorList: StaticListSchema = [1, n0, _UELs, 0, () => UserError$];
+var UserIdList = 64 | 0;
+var UserList: StaticListSchema = [1, n0, _UL, 0, [() => User$, 0]];
+export var AssociatePhoneNumberWithUser$: StaticOperationSchema = [
   9,
   n0,
   _APNWU,
   { [_h]: ["POST", "/accounts/{AccountId}/users/{UserId}?operation=associate-phone-number", 200] },
-  () => AssociatePhoneNumberWithUserRequest,
-  () => AssociatePhoneNumberWithUserResponse,
+  () => AssociatePhoneNumberWithUserRequest$,
+  () => AssociatePhoneNumberWithUserResponse$,
 ];
-export var AssociateSigninDelegateGroupsWithAccount: StaticOperationSchema = [
+export var AssociateSigninDelegateGroupsWithAccount$: StaticOperationSchema = [
   9,
   n0,
   _ASDGWA,
   { [_h]: ["POST", "/accounts/{AccountId}?operation=associate-signin-delegate-groups", 200] },
-  () => AssociateSigninDelegateGroupsWithAccountRequest,
-  () => AssociateSigninDelegateGroupsWithAccountResponse,
+  () => AssociateSigninDelegateGroupsWithAccountRequest$,
+  () => AssociateSigninDelegateGroupsWithAccountResponse$,
 ];
-export var BatchCreateRoomMembership: StaticOperationSchema = [
+export var BatchCreateRoomMembership$: StaticOperationSchema = [
   9,
   n0,
   _BCRM,
   { [_h]: ["POST", "/accounts/{AccountId}/rooms/{RoomId}/memberships?operation=batch-create", 201] },
-  () => BatchCreateRoomMembershipRequest,
-  () => BatchCreateRoomMembershipResponse,
+  () => BatchCreateRoomMembershipRequest$,
+  () => BatchCreateRoomMembershipResponse$,
 ];
-export var BatchDeletePhoneNumber: StaticOperationSchema = [
+export var BatchDeletePhoneNumber$: StaticOperationSchema = [
   9,
   n0,
   _BDPN,
   { [_h]: ["POST", "/phone-numbers?operation=batch-delete", 200] },
-  () => BatchDeletePhoneNumberRequest,
-  () => BatchDeletePhoneNumberResponse,
+  () => BatchDeletePhoneNumberRequest$,
+  () => BatchDeletePhoneNumberResponse$,
 ];
-export var BatchSuspendUser: StaticOperationSchema = [
+export var BatchSuspendUser$: StaticOperationSchema = [
   9,
   n0,
   _BSU,
   { [_h]: ["POST", "/accounts/{AccountId}/users?operation=suspend", 200] },
-  () => BatchSuspendUserRequest,
-  () => BatchSuspendUserResponse,
+  () => BatchSuspendUserRequest$,
+  () => BatchSuspendUserResponse$,
 ];
-export var BatchUnsuspendUser: StaticOperationSchema = [
+export var BatchUnsuspendUser$: StaticOperationSchema = [
   9,
   n0,
   _BUU,
   { [_h]: ["POST", "/accounts/{AccountId}/users?operation=unsuspend", 200] },
-  () => BatchUnsuspendUserRequest,
-  () => BatchUnsuspendUserResponse,
+  () => BatchUnsuspendUserRequest$,
+  () => BatchUnsuspendUserResponse$,
 ];
-export var BatchUpdatePhoneNumber: StaticOperationSchema = [
+export var BatchUpdatePhoneNumber$: StaticOperationSchema = [
   9,
   n0,
   _BUPN,
   { [_h]: ["POST", "/phone-numbers?operation=batch-update", 200] },
-  () => BatchUpdatePhoneNumberRequest,
-  () => BatchUpdatePhoneNumberResponse,
+  () => BatchUpdatePhoneNumberRequest$,
+  () => BatchUpdatePhoneNumberResponse$,
 ];
-export var BatchUpdateUser: StaticOperationSchema = [
+export var BatchUpdateUser$: StaticOperationSchema = [
   9,
   n0,
   _BUUa,
   { [_h]: ["POST", "/accounts/{AccountId}/users", 200] },
-  () => BatchUpdateUserRequest,
-  () => BatchUpdateUserResponse,
+  () => BatchUpdateUserRequest$,
+  () => BatchUpdateUserResponse$,
 ];
-export var CreateAccount: StaticOperationSchema = [
+export var CreateAccount$: StaticOperationSchema = [
   9,
   n0,
   _CA,
   { [_h]: ["POST", "/accounts", 201] },
-  () => CreateAccountRequest,
-  () => CreateAccountResponse,
+  () => CreateAccountRequest$,
+  () => CreateAccountResponse$,
 ];
-export var CreateBot: StaticOperationSchema = [
+export var CreateBot$: StaticOperationSchema = [
   9,
   n0,
   _CBre,
   { [_h]: ["POST", "/accounts/{AccountId}/bots", 201] },
-  () => CreateBotRequest,
-  () => CreateBotResponse,
+  () => CreateBotRequest$,
+  () => CreateBotResponse$,
 ];
-export var CreateMeetingDialOut: StaticOperationSchema = [
+export var CreateMeetingDialOut$: StaticOperationSchema = [
   9,
   n0,
   _CMDO,
   { [_h]: ["POST", "/meetings/{MeetingId}/dial-outs", 201] },
-  () => CreateMeetingDialOutRequest,
-  () => CreateMeetingDialOutResponse,
+  () => CreateMeetingDialOutRequest$,
+  () => CreateMeetingDialOutResponse$,
 ];
-export var CreatePhoneNumberOrder: StaticOperationSchema = [
+export var CreatePhoneNumberOrder$: StaticOperationSchema = [
   9,
   n0,
   _CPNO,
   { [_h]: ["POST", "/phone-number-orders", 201] },
-  () => CreatePhoneNumberOrderRequest,
-  () => CreatePhoneNumberOrderResponse,
+  () => CreatePhoneNumberOrderRequest$,
+  () => CreatePhoneNumberOrderResponse$,
 ];
-export var CreateRoom: StaticOperationSchema = [
+export var CreateRoom$: StaticOperationSchema = [
   9,
   n0,
   _CR,
   { [_h]: ["POST", "/accounts/{AccountId}/rooms", 201] },
-  () => CreateRoomRequest,
-  () => CreateRoomResponse,
+  () => CreateRoomRequest$,
+  () => CreateRoomResponse$,
 ];
-export var CreateRoomMembership: StaticOperationSchema = [
+export var CreateRoomMembership$: StaticOperationSchema = [
   9,
   n0,
   _CRM,
   { [_h]: ["POST", "/accounts/{AccountId}/rooms/{RoomId}/memberships", 201] },
-  () => CreateRoomMembershipRequest,
-  () => CreateRoomMembershipResponse,
+  () => CreateRoomMembershipRequest$,
+  () => CreateRoomMembershipResponse$,
 ];
-export var CreateUser: StaticOperationSchema = [
+export var CreateUser$: StaticOperationSchema = [
   9,
   n0,
   _CU,
   { [_h]: ["POST", "/accounts/{AccountId}/users?operation=create", 201] },
-  () => CreateUserRequest,
-  () => CreateUserResponse,
+  () => CreateUserRequest$,
+  () => CreateUserResponse$,
 ];
-export var DeleteAccount: StaticOperationSchema = [
+export var DeleteAccount$: StaticOperationSchema = [
   9,
   n0,
   _DA,
   { [_h]: ["DELETE", "/accounts/{AccountId}", 204] },
-  () => DeleteAccountRequest,
-  () => DeleteAccountResponse,
+  () => DeleteAccountRequest$,
+  () => DeleteAccountResponse$,
 ];
-export var DeleteEventsConfiguration: StaticOperationSchema = [
+export var DeleteEventsConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DEC,
   { [_h]: ["DELETE", "/accounts/{AccountId}/bots/{BotId}/events-configuration", 204] },
-  () => DeleteEventsConfigurationRequest,
+  () => DeleteEventsConfigurationRequest$,
   () => __Unit,
 ];
-export var DeletePhoneNumber: StaticOperationSchema = [
+export var DeletePhoneNumber$: StaticOperationSchema = [
   9,
   n0,
   _DPN,
   { [_h]: ["DELETE", "/phone-numbers/{PhoneNumberId}", 204] },
-  () => DeletePhoneNumberRequest,
+  () => DeletePhoneNumberRequest$,
   () => __Unit,
 ];
-export var DeleteRoom: StaticOperationSchema = [
+export var DeleteRoom$: StaticOperationSchema = [
   9,
   n0,
   _DR,
   { [_h]: ["DELETE", "/accounts/{AccountId}/rooms/{RoomId}", 204] },
-  () => DeleteRoomRequest,
+  () => DeleteRoomRequest$,
   () => __Unit,
 ];
-export var DeleteRoomMembership: StaticOperationSchema = [
+export var DeleteRoomMembership$: StaticOperationSchema = [
   9,
   n0,
   _DRM,
   { [_h]: ["DELETE", "/accounts/{AccountId}/rooms/{RoomId}/memberships/{MemberId}", 204] },
-  () => DeleteRoomMembershipRequest,
+  () => DeleteRoomMembershipRequest$,
   () => __Unit,
 ];
-export var DisassociatePhoneNumberFromUser: StaticOperationSchema = [
+export var DisassociatePhoneNumberFromUser$: StaticOperationSchema = [
   9,
   n0,
   _DPNFU,
   { [_h]: ["POST", "/accounts/{AccountId}/users/{UserId}?operation=disassociate-phone-number", 200] },
-  () => DisassociatePhoneNumberFromUserRequest,
-  () => DisassociatePhoneNumberFromUserResponse,
+  () => DisassociatePhoneNumberFromUserRequest$,
+  () => DisassociatePhoneNumberFromUserResponse$,
 ];
-export var DisassociateSigninDelegateGroupsFromAccount: StaticOperationSchema = [
+export var DisassociateSigninDelegateGroupsFromAccount$: StaticOperationSchema = [
   9,
   n0,
   _DSDGFA,
   { [_h]: ["POST", "/accounts/{AccountId}?operation=disassociate-signin-delegate-groups", 200] },
-  () => DisassociateSigninDelegateGroupsFromAccountRequest,
-  () => DisassociateSigninDelegateGroupsFromAccountResponse,
+  () => DisassociateSigninDelegateGroupsFromAccountRequest$,
+  () => DisassociateSigninDelegateGroupsFromAccountResponse$,
 ];
-export var GetAccount: StaticOperationSchema = [
+export var GetAccount$: StaticOperationSchema = [
   9,
   n0,
   _GA,
   { [_h]: ["GET", "/accounts/{AccountId}", 200] },
-  () => GetAccountRequest,
-  () => GetAccountResponse,
+  () => GetAccountRequest$,
+  () => GetAccountResponse$,
 ];
-export var GetAccountSettings: StaticOperationSchema = [
+export var GetAccountSettings$: StaticOperationSchema = [
   9,
   n0,
   _GAS,
   { [_h]: ["GET", "/accounts/{AccountId}/settings", 200] },
-  () => GetAccountSettingsRequest,
-  () => GetAccountSettingsResponse,
+  () => GetAccountSettingsRequest$,
+  () => GetAccountSettingsResponse$,
 ];
-export var GetBot: StaticOperationSchema = [
+export var GetBot$: StaticOperationSchema = [
   9,
   n0,
   _GB,
   { [_h]: ["GET", "/accounts/{AccountId}/bots/{BotId}", 200] },
-  () => GetBotRequest,
-  () => GetBotResponse,
+  () => GetBotRequest$,
+  () => GetBotResponse$,
 ];
-export var GetEventsConfiguration: StaticOperationSchema = [
+export var GetEventsConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GEC,
   { [_h]: ["GET", "/accounts/{AccountId}/bots/{BotId}/events-configuration", 200] },
-  () => GetEventsConfigurationRequest,
-  () => GetEventsConfigurationResponse,
+  () => GetEventsConfigurationRequest$,
+  () => GetEventsConfigurationResponse$,
 ];
-export var GetGlobalSettings: StaticOperationSchema = [
+export var GetGlobalSettings$: StaticOperationSchema = [
   9,
   n0,
   _GGS,
   { [_h]: ["GET", "/settings", 200] },
   () => __Unit,
-  () => GetGlobalSettingsResponse,
+  () => GetGlobalSettingsResponse$,
 ];
-export var GetPhoneNumber: StaticOperationSchema = [
+export var GetPhoneNumber$: StaticOperationSchema = [
   9,
   n0,
   _GPN,
   { [_h]: ["GET", "/phone-numbers/{PhoneNumberId}", 200] },
-  () => GetPhoneNumberRequest,
-  () => GetPhoneNumberResponse,
+  () => GetPhoneNumberRequest$,
+  () => GetPhoneNumberResponse$,
 ];
-export var GetPhoneNumberOrder: StaticOperationSchema = [
+export var GetPhoneNumberOrder$: StaticOperationSchema = [
   9,
   n0,
   _GPNO,
   { [_h]: ["GET", "/phone-number-orders/{PhoneNumberOrderId}", 200] },
-  () => GetPhoneNumberOrderRequest,
-  () => GetPhoneNumberOrderResponse,
+  () => GetPhoneNumberOrderRequest$,
+  () => GetPhoneNumberOrderResponse$,
 ];
-export var GetPhoneNumberSettings: StaticOperationSchema = [
+export var GetPhoneNumberSettings$: StaticOperationSchema = [
   9,
   n0,
   _GPNS,
   { [_h]: ["GET", "/settings/phone-number", 200] },
   () => __Unit,
-  () => GetPhoneNumberSettingsResponse,
+  () => GetPhoneNumberSettingsResponse$,
 ];
-export var GetRetentionSettings: StaticOperationSchema = [
+export var GetRetentionSettings$: StaticOperationSchema = [
   9,
   n0,
   _GRS,
   { [_h]: ["GET", "/accounts/{AccountId}/retention-settings", 200] },
-  () => GetRetentionSettingsRequest,
-  () => GetRetentionSettingsResponse,
+  () => GetRetentionSettingsRequest$,
+  () => GetRetentionSettingsResponse$,
 ];
-export var GetRoom: StaticOperationSchema = [
+export var GetRoom$: StaticOperationSchema = [
   9,
   n0,
   _GR,
   { [_h]: ["GET", "/accounts/{AccountId}/rooms/{RoomId}", 200] },
-  () => GetRoomRequest,
-  () => GetRoomResponse,
+  () => GetRoomRequest$,
+  () => GetRoomResponse$,
 ];
-export var GetUser: StaticOperationSchema = [
+export var GetUser$: StaticOperationSchema = [
   9,
   n0,
   _GU,
   { [_h]: ["GET", "/accounts/{AccountId}/users/{UserId}", 200] },
-  () => GetUserRequest,
-  () => GetUserResponse,
+  () => GetUserRequest$,
+  () => GetUserResponse$,
 ];
-export var GetUserSettings: StaticOperationSchema = [
+export var GetUserSettings$: StaticOperationSchema = [
   9,
   n0,
   _GUS,
   { [_h]: ["GET", "/accounts/{AccountId}/users/{UserId}/settings", 200] },
-  () => GetUserSettingsRequest,
-  () => GetUserSettingsResponse,
+  () => GetUserSettingsRequest$,
+  () => GetUserSettingsResponse$,
 ];
-export var InviteUsers: StaticOperationSchema = [
+export var InviteUsers$: StaticOperationSchema = [
   9,
   n0,
   _IU,
   { [_h]: ["POST", "/accounts/{AccountId}/users?operation=add", 201] },
-  () => InviteUsersRequest,
-  () => InviteUsersResponse,
+  () => InviteUsersRequest$,
+  () => InviteUsersResponse$,
 ];
-export var ListAccounts: StaticOperationSchema = [
+export var ListAccounts$: StaticOperationSchema = [
   9,
   n0,
   _LA,
   { [_h]: ["GET", "/accounts", 200] },
-  () => ListAccountsRequest,
-  () => ListAccountsResponse,
+  () => ListAccountsRequest$,
+  () => ListAccountsResponse$,
 ];
-export var ListBots: StaticOperationSchema = [
+export var ListBots$: StaticOperationSchema = [
   9,
   n0,
   _LB,
   { [_h]: ["GET", "/accounts/{AccountId}/bots", 200] },
-  () => ListBotsRequest,
-  () => ListBotsResponse,
+  () => ListBotsRequest$,
+  () => ListBotsResponse$,
 ];
-export var ListPhoneNumberOrders: StaticOperationSchema = [
+export var ListPhoneNumberOrders$: StaticOperationSchema = [
   9,
   n0,
   _LPNO,
   { [_h]: ["GET", "/phone-number-orders", 200] },
-  () => ListPhoneNumberOrdersRequest,
-  () => ListPhoneNumberOrdersResponse,
+  () => ListPhoneNumberOrdersRequest$,
+  () => ListPhoneNumberOrdersResponse$,
 ];
-export var ListPhoneNumbers: StaticOperationSchema = [
+export var ListPhoneNumbers$: StaticOperationSchema = [
   9,
   n0,
   _LPN,
   { [_h]: ["GET", "/phone-numbers", 200] },
-  () => ListPhoneNumbersRequest,
-  () => ListPhoneNumbersResponse,
+  () => ListPhoneNumbersRequest$,
+  () => ListPhoneNumbersResponse$,
 ];
-export var ListRoomMemberships: StaticOperationSchema = [
+export var ListRoomMemberships$: StaticOperationSchema = [
   9,
   n0,
   _LRM,
   { [_h]: ["GET", "/accounts/{AccountId}/rooms/{RoomId}/memberships", 200] },
-  () => ListRoomMembershipsRequest,
-  () => ListRoomMembershipsResponse,
+  () => ListRoomMembershipsRequest$,
+  () => ListRoomMembershipsResponse$,
 ];
-export var ListRooms: StaticOperationSchema = [
+export var ListRooms$: StaticOperationSchema = [
   9,
   n0,
   _LR,
   { [_h]: ["GET", "/accounts/{AccountId}/rooms", 200] },
-  () => ListRoomsRequest,
-  () => ListRoomsResponse,
+  () => ListRoomsRequest$,
+  () => ListRoomsResponse$,
 ];
-export var ListSupportedPhoneNumberCountries: StaticOperationSchema = [
+export var ListSupportedPhoneNumberCountries$: StaticOperationSchema = [
   9,
   n0,
   _LSPNC,
   { [_h]: ["GET", "/phone-number-countries", 200] },
-  () => ListSupportedPhoneNumberCountriesRequest,
-  () => ListSupportedPhoneNumberCountriesResponse,
+  () => ListSupportedPhoneNumberCountriesRequest$,
+  () => ListSupportedPhoneNumberCountriesResponse$,
 ];
-export var ListUsers: StaticOperationSchema = [
+export var ListUsers$: StaticOperationSchema = [
   9,
   n0,
   _LU,
   { [_h]: ["GET", "/accounts/{AccountId}/users", 200] },
-  () => ListUsersRequest,
-  () => ListUsersResponse,
+  () => ListUsersRequest$,
+  () => ListUsersResponse$,
 ];
-export var LogoutUser: StaticOperationSchema = [
+export var LogoutUser$: StaticOperationSchema = [
   9,
   n0,
   _LUo,
   { [_h]: ["POST", "/accounts/{AccountId}/users/{UserId}?operation=logout", 204] },
-  () => LogoutUserRequest,
-  () => LogoutUserResponse,
+  () => LogoutUserRequest$,
+  () => LogoutUserResponse$,
 ];
-export var PutEventsConfiguration: StaticOperationSchema = [
+export var PutEventsConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PEC,
   { [_h]: ["PUT", "/accounts/{AccountId}/bots/{BotId}/events-configuration", 201] },
-  () => PutEventsConfigurationRequest,
-  () => PutEventsConfigurationResponse,
+  () => PutEventsConfigurationRequest$,
+  () => PutEventsConfigurationResponse$,
 ];
-export var PutRetentionSettings: StaticOperationSchema = [
+export var PutRetentionSettings$: StaticOperationSchema = [
   9,
   n0,
   _PRS,
   { [_h]: ["PUT", "/accounts/{AccountId}/retention-settings", 204] },
-  () => PutRetentionSettingsRequest,
-  () => PutRetentionSettingsResponse,
+  () => PutRetentionSettingsRequest$,
+  () => PutRetentionSettingsResponse$,
 ];
-export var RedactConversationMessage: StaticOperationSchema = [
+export var RedactConversationMessage$: StaticOperationSchema = [
   9,
   n0,
   _RCM,
   { [_h]: ["POST", "/accounts/{AccountId}/conversations/{ConversationId}/messages/{MessageId}?operation=redact", 200] },
-  () => RedactConversationMessageRequest,
-  () => RedactConversationMessageResponse,
+  () => RedactConversationMessageRequest$,
+  () => RedactConversationMessageResponse$,
 ];
-export var RedactRoomMessage: StaticOperationSchema = [
+export var RedactRoomMessage$: StaticOperationSchema = [
   9,
   n0,
   _RRM,
   { [_h]: ["POST", "/accounts/{AccountId}/rooms/{RoomId}/messages/{MessageId}?operation=redact", 200] },
-  () => RedactRoomMessageRequest,
-  () => RedactRoomMessageResponse,
+  () => RedactRoomMessageRequest$,
+  () => RedactRoomMessageResponse$,
 ];
-export var RegenerateSecurityToken: StaticOperationSchema = [
+export var RegenerateSecurityToken$: StaticOperationSchema = [
   9,
   n0,
   _RST,
   { [_h]: ["POST", "/accounts/{AccountId}/bots/{BotId}?operation=regenerate-security-token", 200] },
-  () => RegenerateSecurityTokenRequest,
-  () => RegenerateSecurityTokenResponse,
+  () => RegenerateSecurityTokenRequest$,
+  () => RegenerateSecurityTokenResponse$,
 ];
-export var ResetPersonalPIN: StaticOperationSchema = [
+export var ResetPersonalPIN$: StaticOperationSchema = [
   9,
   n0,
   _RPPIN,
   { [_h]: ["POST", "/accounts/{AccountId}/users/{UserId}?operation=reset-personal-pin", 200] },
-  () => ResetPersonalPINRequest,
-  () => ResetPersonalPINResponse,
+  () => ResetPersonalPINRequest$,
+  () => ResetPersonalPINResponse$,
 ];
-export var RestorePhoneNumber: StaticOperationSchema = [
+export var RestorePhoneNumber$: StaticOperationSchema = [
   9,
   n0,
   _RPN,
   { [_h]: ["POST", "/phone-numbers/{PhoneNumberId}?operation=restore", 200] },
-  () => RestorePhoneNumberRequest,
-  () => RestorePhoneNumberResponse,
+  () => RestorePhoneNumberRequest$,
+  () => RestorePhoneNumberResponse$,
 ];
-export var SearchAvailablePhoneNumbers: StaticOperationSchema = [
+export var SearchAvailablePhoneNumbers$: StaticOperationSchema = [
   9,
   n0,
   _SAPN,
   { [_h]: ["GET", "/search?type=phone-numbers", 200] },
-  () => SearchAvailablePhoneNumbersRequest,
-  () => SearchAvailablePhoneNumbersResponse,
+  () => SearchAvailablePhoneNumbersRequest$,
+  () => SearchAvailablePhoneNumbersResponse$,
 ];
-export var UpdateAccount: StaticOperationSchema = [
+export var UpdateAccount$: StaticOperationSchema = [
   9,
   n0,
   _UA,
   { [_h]: ["POST", "/accounts/{AccountId}", 200] },
-  () => UpdateAccountRequest,
-  () => UpdateAccountResponse,
+  () => UpdateAccountRequest$,
+  () => UpdateAccountResponse$,
 ];
-export var UpdateAccountSettings: StaticOperationSchema = [
+export var UpdateAccountSettings$: StaticOperationSchema = [
   9,
   n0,
   _UAS,
   { [_h]: ["PUT", "/accounts/{AccountId}/settings", 204] },
-  () => UpdateAccountSettingsRequest,
-  () => UpdateAccountSettingsResponse,
+  () => UpdateAccountSettingsRequest$,
+  () => UpdateAccountSettingsResponse$,
 ];
-export var UpdateBot: StaticOperationSchema = [
+export var UpdateBot$: StaticOperationSchema = [
   9,
   n0,
   _UB,
   { [_h]: ["POST", "/accounts/{AccountId}/bots/{BotId}", 200] },
-  () => UpdateBotRequest,
-  () => UpdateBotResponse,
+  () => UpdateBotRequest$,
+  () => UpdateBotResponse$,
 ];
-export var UpdateGlobalSettings: StaticOperationSchema = [
+export var UpdateGlobalSettings$: StaticOperationSchema = [
   9,
   n0,
   _UGS,
   { [_h]: ["PUT", "/settings", 204] },
-  () => UpdateGlobalSettingsRequest,
+  () => UpdateGlobalSettingsRequest$,
   () => __Unit,
 ];
-export var UpdatePhoneNumber: StaticOperationSchema = [
+export var UpdatePhoneNumber$: StaticOperationSchema = [
   9,
   n0,
   _UPN,
   { [_h]: ["POST", "/phone-numbers/{PhoneNumberId}", 200] },
-  () => UpdatePhoneNumberRequest,
-  () => UpdatePhoneNumberResponse,
+  () => UpdatePhoneNumberRequest$,
+  () => UpdatePhoneNumberResponse$,
 ];
-export var UpdatePhoneNumberSettings: StaticOperationSchema = [
+export var UpdatePhoneNumberSettings$: StaticOperationSchema = [
   9,
   n0,
   _UPNS,
   { [_h]: ["PUT", "/settings/phone-number", 204] },
-  () => UpdatePhoneNumberSettingsRequest,
+  () => UpdatePhoneNumberSettingsRequest$,
   () => __Unit,
 ];
-export var UpdateRoom: StaticOperationSchema = [
+export var UpdateRoom$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["POST", "/accounts/{AccountId}/rooms/{RoomId}", 200] },
-  () => UpdateRoomRequest,
-  () => UpdateRoomResponse,
+  () => UpdateRoomRequest$,
+  () => UpdateRoomResponse$,
 ];
-export var UpdateRoomMembership: StaticOperationSchema = [
+export var UpdateRoomMembership$: StaticOperationSchema = [
   9,
   n0,
   _URM,
   { [_h]: ["POST", "/accounts/{AccountId}/rooms/{RoomId}/memberships/{MemberId}", 200] },
-  () => UpdateRoomMembershipRequest,
-  () => UpdateRoomMembershipResponse,
+  () => UpdateRoomMembershipRequest$,
+  () => UpdateRoomMembershipResponse$,
 ];
-export var UpdateUser: StaticOperationSchema = [
+export var UpdateUser$: StaticOperationSchema = [
   9,
   n0,
   _UU,
   { [_h]: ["POST", "/accounts/{AccountId}/users/{UserId}", 200] },
-  () => UpdateUserRequest,
-  () => UpdateUserResponse,
+  () => UpdateUserRequest$,
+  () => UpdateUserResponse$,
 ];
-export var UpdateUserSettings: StaticOperationSchema = [
+export var UpdateUserSettings$: StaticOperationSchema = [
   9,
   n0,
   _UUS,
   { [_h]: ["PUT", "/accounts/{AccountId}/users/{UserId}/settings", 204] },
-  () => UpdateUserSettingsRequest,
+  () => UpdateUserSettingsRequest$,
   () => __Unit,
 ];

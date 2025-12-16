@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { DeleteClusterRequest, DeleteClusterResponse } from "../models/models_1";
-import { DeleteCluster } from "../schemas/schemas_0";
+import { DeleteCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class DeleteClusterCommand extends $Command
   })
   .s("MediaLive", "DeleteCluster", {})
   .n("MediaLiveClient", "DeleteClusterCommand")
-  .sc(DeleteCluster)
+  .sc(DeleteCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   AssociateConfigurationItemsToApplicationRequest,
   AssociateConfigurationItemsToApplicationResponse,
 } from "../models/models_0";
-import { AssociateConfigurationItemsToApplication } from "../schemas/schemas_0";
+import { AssociateConfigurationItemsToApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class AssociateConfigurationItemsToApplicationCommand extends $Command
   })
   .s("AWSPoseidonService_V2015_11_01", "AssociateConfigurationItemsToApplication", {})
   .n("ApplicationDiscoveryServiceClient", "AssociateConfigurationItemsToApplicationCommand")
-  .sc(AssociateConfigurationItemsToApplication)
+  .sc(AssociateConfigurationItemsToApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

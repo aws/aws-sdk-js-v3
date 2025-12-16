@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { MediaTypeHeader } from "../schemas/schemas_0";
+import { MediaTypeHeader$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class MediaTypeHeaderCommand extends $Command
   })
   .s("RestJson", "MediaTypeHeader", {})
   .n("RestJsonProtocolClient", "MediaTypeHeaderCommand")
-  .sc(MediaTypeHeader)
+  .sc(MediaTypeHeader$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

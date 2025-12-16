@@ -9,7 +9,7 @@ import type {
   UpdateLaunchConfigurationTemplateRequest,
   UpdateLaunchConfigurationTemplateResponse,
 } from "../models/models_0";
-import { UpdateLaunchConfigurationTemplate } from "../schemas/schemas_0";
+import { UpdateLaunchConfigurationTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class UpdateLaunchConfigurationTemplateCommand extends $Command
   })
   .s("ElasticDisasterRecoveryService", "UpdateLaunchConfigurationTemplate", {})
   .n("DrsClient", "UpdateLaunchConfigurationTemplateCommand")
-  .sc(UpdateLaunchConfigurationTemplate)
+  .sc(UpdateLaunchConfigurationTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

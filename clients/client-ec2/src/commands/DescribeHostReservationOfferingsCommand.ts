@@ -9,7 +9,7 @@ import type {
   DescribeHostReservationOfferingsRequest,
   DescribeHostReservationOfferingsResult,
 } from "../models/models_3";
-import { DescribeHostReservationOfferings } from "../schemas/schemas_0";
+import { DescribeHostReservationOfferings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class DescribeHostReservationOfferingsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeHostReservationOfferings", {})
   .n("EC2Client", "DescribeHostReservationOfferingsCommand")
-  .sc(DescribeHostReservationOfferings)
+  .sc(DescribeHostReservationOfferings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

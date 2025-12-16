@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutActionRevisionInput, PutActionRevisionOutput } from "../models/models_0";
-import { PutActionRevision } from "../schemas/schemas_0";
+import { PutActionRevision$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class PutActionRevisionCommand extends $Command
   })
   .s("CodePipeline_20150709", "PutActionRevision", {})
   .n("CodePipelineClient", "PutActionRevisionCommand")
-  .sc(PutActionRevision)
+  .sc(PutActionRevision$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

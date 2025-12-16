@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { SetMediaMessageSpendLimitOverride } from "../schemas/schemas_0";
+import { SetMediaMessageSpendLimitOverride$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class SetMediaMessageSpendLimitOverrideCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "SetMediaMessageSpendLimitOverride", {})
   .n("PinpointSMSVoiceV2Client", "SetMediaMessageSpendLimitOverrideCommand")
-  .sc(SetMediaMessageSpendLimitOverride)
+  .sc(SetMediaMessageSpendLimitOverride$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteChannelNamespaceRequest, DeleteChannelNamespaceResponse } from "../models/models_0";
-import { DeleteChannelNamespace } from "../schemas/schemas_0";
+import { DeleteChannelNamespace$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteChannelNamespaceCommand extends $Command
   })
   .s("AWSDeepdishControlPlaneService", "DeleteChannelNamespace", {})
   .n("AppSyncClient", "DeleteChannelNamespaceCommand")
-  .sc(DeleteChannelNamespace)
+  .sc(DeleteChannelNamespace$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

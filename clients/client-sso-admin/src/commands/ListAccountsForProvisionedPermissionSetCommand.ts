@@ -8,7 +8,7 @@ import type {
   ListAccountsForProvisionedPermissionSetRequest,
   ListAccountsForProvisionedPermissionSetResponse,
 } from "../models/models_0";
-import { ListAccountsForProvisionedPermissionSet } from "../schemas/schemas_0";
+import { ListAccountsForProvisionedPermissionSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -101,7 +101,7 @@ export class ListAccountsForProvisionedPermissionSetCommand extends $Command
   })
   .s("SWBExternalService", "ListAccountsForProvisionedPermissionSet", {})
   .n("SSOAdminClient", "ListAccountsForProvisionedPermissionSetCommand")
-  .sc(ListAccountsForProvisionedPermissionSet)
+  .sc(ListAccountsForProvisionedPermissionSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

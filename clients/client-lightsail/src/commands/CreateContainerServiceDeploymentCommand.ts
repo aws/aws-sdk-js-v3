@@ -9,7 +9,7 @@ import type {
   CreateContainerServiceDeploymentRequest,
   CreateContainerServiceDeploymentResult,
 } from "../models/models_0";
-import { CreateContainerServiceDeployment } from "../schemas/schemas_0";
+import { CreateContainerServiceDeployment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -240,7 +240,7 @@ export class CreateContainerServiceDeploymentCommand extends $Command
   })
   .s("Lightsail_20161128", "CreateContainerServiceDeployment", {})
   .n("LightsailClient", "CreateContainerServiceDeploymentCommand")
-  .sc(CreateContainerServiceDeployment)
+  .sc(CreateContainerServiceDeployment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

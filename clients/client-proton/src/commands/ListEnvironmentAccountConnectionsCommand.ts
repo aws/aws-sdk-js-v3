@@ -9,7 +9,7 @@ import type {
   ListEnvironmentAccountConnectionsOutput,
 } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { ListEnvironmentAccountConnections } from "../schemas/schemas_0";
+import { ListEnvironmentAccountConnections$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class ListEnvironmentAccountConnectionsCommand extends $Command
   })
   .s("AwsProton20200720", "ListEnvironmentAccountConnections", {})
   .n("ProtonClient", "ListEnvironmentAccountConnectionsCommand")
-  .sc(ListEnvironmentAccountConnections)
+  .sc(ListEnvironmentAccountConnections$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

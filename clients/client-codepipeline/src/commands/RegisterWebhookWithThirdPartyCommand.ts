@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RegisterWebhookWithThirdPartyInput, RegisterWebhookWithThirdPartyOutput } from "../models/models_0";
-import { RegisterWebhookWithThirdParty } from "../schemas/schemas_0";
+import { RegisterWebhookWithThirdParty$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,7 +81,7 @@ export class RegisterWebhookWithThirdPartyCommand extends $Command
   })
   .s("CodePipeline_20150709", "RegisterWebhookWithThirdParty", {})
   .n("CodePipelineClient", "RegisterWebhookWithThirdPartyCommand")
-  .sc(RegisterWebhookWithThirdParty)
+  .sc(RegisterWebhookWithThirdParty$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   ListDistributionsByOriginRequestPolicyIdRequest,
   ListDistributionsByOriginRequestPolicyIdResult,
 } from "../models/models_1";
-import { ListDistributionsByOriginRequestPolicyId } from "../schemas/schemas_0";
+import { ListDistributionsByOriginRequestPolicyId$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "ListDistributionsByOriginRequestPolicyId", {})
   .n("CloudFrontClient", "ListDistributionsByOriginRequestPolicyIdCommand")
-  .sc(ListDistributionsByOriginRequestPolicyId)
+  .sc(ListDistributionsByOriginRequestPolicyId$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

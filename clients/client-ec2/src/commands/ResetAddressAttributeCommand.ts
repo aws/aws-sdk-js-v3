@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ResetAddressAttributeRequest, ResetAddressAttributeResult } from "../models/models_7";
-import { ResetAddressAttribute } from "../schemas/schemas_0";
+import { ResetAddressAttribute$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class ResetAddressAttributeCommand extends $Command
   })
   .s("AmazonEC2", "ResetAddressAttribute", {})
   .n("EC2Client", "ResetAddressAttributeCommand")
-  .sc(ResetAddressAttribute)
+  .sc(ResetAddressAttribute$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

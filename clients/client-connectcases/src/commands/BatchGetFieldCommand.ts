@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchGetFieldRequest, BatchGetFieldResponse } from "../models/models_0";
-import { BatchGetField } from "../schemas/schemas_0";
+import { BatchGetField$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class BatchGetFieldCommand extends $Command
   })
   .s("AmazonConnectCases", "BatchGetField", {})
   .n("ConnectCasesClient", "BatchGetFieldCommand")
-  .sc(BatchGetField)
+  .sc(BatchGetField$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

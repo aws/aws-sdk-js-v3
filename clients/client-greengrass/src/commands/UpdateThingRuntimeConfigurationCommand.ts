@@ -9,7 +9,7 @@ import type {
   UpdateThingRuntimeConfigurationRequest,
   UpdateThingRuntimeConfigurationResponse,
 } from "../models/models_0";
-import { UpdateThingRuntimeConfiguration } from "../schemas/schemas_0";
+import { UpdateThingRuntimeConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class UpdateThingRuntimeConfigurationCommand extends $Command
   })
   .s("Greengrass", "UpdateThingRuntimeConfiguration", {})
   .n("GreengrassClient", "UpdateThingRuntimeConfigurationCommand")
-  .sc(UpdateThingRuntimeConfiguration)
+  .sc(UpdateThingRuntimeConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

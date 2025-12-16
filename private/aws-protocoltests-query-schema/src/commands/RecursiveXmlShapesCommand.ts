@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RecursiveXmlShapesOutput } from "../models/models_0";
 import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { RecursiveXmlShapes } from "../schemas/schemas_0";
+import { RecursiveXmlShapes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class RecursiveXmlShapesCommand extends $Command
   })
   .s("AwsQuery", "RecursiveXmlShapes", {})
   .n("QueryProtocolClient", "RecursiveXmlShapesCommand")
-  .sc(RecursiveXmlShapes)
+  .sc(RecursiveXmlShapes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

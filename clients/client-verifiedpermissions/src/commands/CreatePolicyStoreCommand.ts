@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreatePolicyStoreInput, CreatePolicyStoreOutput } from "../models/models_0";
-import { CreatePolicyStore } from "../schemas/schemas_0";
+import { CreatePolicyStore$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -127,7 +127,7 @@ export class CreatePolicyStoreCommand extends $Command
   })
   .s("VerifiedPermissions", "CreatePolicyStore", {})
   .n("VerifiedPermissionsClient", "CreatePolicyStoreCommand")
-  .sc(CreatePolicyStore)
+  .sc(CreatePolicyStore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

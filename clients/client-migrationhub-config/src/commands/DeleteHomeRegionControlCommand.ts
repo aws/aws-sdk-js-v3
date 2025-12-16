@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubConfigClient";
 import type { DeleteHomeRegionControlRequest, DeleteHomeRegionControlResult } from "../models/models_0";
-import { DeleteHomeRegionControl } from "../schemas/schemas_0";
+import { DeleteHomeRegionControl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteHomeRegionControlCommand extends $Command
   })
   .s("AWSMigrationHubMultiAccountService", "DeleteHomeRegionControl", {})
   .n("MigrationHubConfigClient", "DeleteHomeRegionControlCommand")
-  .sc(DeleteHomeRegionControl)
+  .sc(DeleteHomeRegionControl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

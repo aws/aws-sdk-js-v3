@@ -10,7 +10,7 @@ import type {
   GetBucketMetadataTableConfigurationRequest,
 } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetBucketMetadataTableConfiguration } from "../schemas/schemas_0";
+import { GetBucketMetadataTableConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -143,7 +143,7 @@ export class GetBucketMetadataTableConfigurationCommand extends $Command
   })
   .s("AmazonS3", "GetBucketMetadataTableConfiguration", {})
   .n("S3Client", "GetBucketMetadataTableConfigurationCommand")
-  .sc(GetBucketMetadataTableConfiguration)
+  .sc(GetBucketMetadataTableConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

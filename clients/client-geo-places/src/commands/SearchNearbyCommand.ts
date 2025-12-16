@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GeoPlacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoPlacesClient";
 import type { SearchNearbyRequest, SearchNearbyResponse } from "../models/models_0";
-import { SearchNearby } from "../schemas/schemas_0";
+import { SearchNearby$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -342,7 +342,7 @@ export class SearchNearbyCommand extends $Command
   })
   .s("PlacesService", "SearchNearby", {})
   .n("GeoPlacesClient", "SearchNearbyCommand")
-  .sc(SearchNearby)
+  .sc(SearchNearby$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

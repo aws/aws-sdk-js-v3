@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { UpdateProtectConfigurationCountryRuleSet } from "../schemas/schemas_0";
+import { UpdateProtectConfigurationCountryRuleSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class UpdateProtectConfigurationCountryRuleSetCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "UpdateProtectConfigurationCountryRuleSet", {})
   .n("PinpointSMSVoiceV2Client", "UpdateProtectConfigurationCountryRuleSetCommand")
-  .sc(UpdateProtectConfigurationCountryRuleSet)
+  .sc(UpdateProtectConfigurationCountryRuleSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

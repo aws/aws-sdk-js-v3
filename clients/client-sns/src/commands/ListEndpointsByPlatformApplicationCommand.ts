@@ -8,7 +8,7 @@ import type {
   ListEndpointsByPlatformApplicationInput,
   ListEndpointsByPlatformApplicationResponse,
 } from "../models/models_0";
-import { ListEndpointsByPlatformApplication } from "../schemas/schemas_0";
+import { ListEndpointsByPlatformApplication$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
@@ -109,7 +109,7 @@ export class ListEndpointsByPlatformApplicationCommand extends $Command
   })
   .s("AmazonSimpleNotificationService", "ListEndpointsByPlatformApplication", {})
   .n("SNSClient", "ListEndpointsByPlatformApplicationCommand")
-  .sc(ListEndpointsByPlatformApplication)
+  .sc(ListEndpointsByPlatformApplication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

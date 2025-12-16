@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { ListProvisioningProfilesRequest, ListProvisioningProfilesResponse } from "../models/models_0";
-import { ListProvisioningProfiles } from "../schemas/schemas_0";
+import { ListProvisioningProfiles$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class ListProvisioningProfilesCommand extends $Command
   })
   .s("IotManagedIntegrations", "ListProvisioningProfiles", {})
   .n("IoTManagedIntegrationsClient", "ListProvisioningProfilesCommand")
-  .sc(ListProvisioningProfiles)
+  .sc(ListProvisioningProfiles$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

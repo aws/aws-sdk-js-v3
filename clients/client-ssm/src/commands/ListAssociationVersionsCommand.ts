@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAssociationVersionsRequest, ListAssociationVersionsResult } from "../models/models_1";
-import { ListAssociationVersions } from "../schemas/schemas_0";
+import { ListAssociationVersions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -167,7 +167,7 @@ export class ListAssociationVersionsCommand extends $Command
   })
   .s("AmazonSSM", "ListAssociationVersions", {})
   .n("SSMClient", "ListAssociationVersionsCommand")
-  .sc(ListAssociationVersions)
+  .sc(ListAssociationVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

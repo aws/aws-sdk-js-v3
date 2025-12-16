@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetMailDomainRequest, GetMailDomainResponse } from "../models/models_0";
-import { GetMailDomain } from "../schemas/schemas_0";
+import { GetMailDomain$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -98,7 +98,7 @@ export class GetMailDomainCommand extends $Command
   })
   .s("WorkMailService", "GetMailDomain", {})
   .n("WorkMailClient", "GetMailDomainCommand")
-  .sc(GetMailDomain)
+  .sc(GetMailDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DescribeValidDBInstanceModificationsResult,
 } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DescribeValidDBInstanceModifications } from "../schemas/schemas_0";
+import { DescribeValidDBInstanceModifications$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -209,7 +209,7 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command
   })
   .s("AmazonRDSv19", "DescribeValidDBInstanceModifications", {})
   .n("RDSClient", "DescribeValidDBInstanceModificationsCommand")
-  .sc(DescribeValidDBInstanceModifications)
+  .sc(DescribeValidDBInstanceModifications$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

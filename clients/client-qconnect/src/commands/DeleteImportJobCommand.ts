@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteImportJobRequest, DeleteImportJobResponse } from "../models/models_1";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { DeleteImportJob } from "../schemas/schemas_0";
+import { DeleteImportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteImportJobCommand extends $Command
   })
   .s("WisdomService", "DeleteImportJob", {})
   .n("QConnectClient", "DeleteImportJobCommand")
-  .sc(DeleteImportJob)
+  .sc(DeleteImportJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

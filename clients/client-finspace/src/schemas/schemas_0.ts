@@ -394,25 +394,25 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  InvalidRequestException as __InvalidRequestException,
-  LimitExceededException as __LimitExceededException,
-  ResourceAlreadyExistsException as __ResourceAlreadyExistsException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  InvalidRequestException,
+  LimitExceededException,
+  ResourceAlreadyExistsException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { FinspaceServiceException as __FinspaceServiceException } from "../models/FinspaceServiceException";
+import { FinspaceServiceException } from "../models/FinspaceServiceException";
 
 /* eslint no-var: 0 */
-export var EmailId: StaticSimpleSchema = [0, n0, _EI, 8, 0];
-export var SignedKxConnectionString: StaticSimpleSchema = [0, n0, _SKCS, 8, 0];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AutoScalingConfiguration: StaticStructureSchema = [
+var EmailId: StaticSimpleSchema = [0, n0, _EI, 8, 0];
+var SignedKxConnectionString: StaticSimpleSchema = [0, n0, _SKCS, 8, 0];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AutoScalingConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ASC,
@@ -420,21 +420,21 @@ export var AutoScalingConfiguration: StaticStructureSchema = [
   [_mNC, _mNCa, _aSM, _mT, _sICS, _sOCS],
   [1, 1, 0, 1, 1, 1],
 ];
-export var CapacityConfiguration: StaticStructureSchema = [3, n0, _CC, 0, [_nT, _nC], [0, 1]];
-export var ChangeRequest: StaticStructureSchema = [3, n0, _CR, 0, [_cT, _sP, _dP], [0, 0, 0]];
-export var CodeConfiguration: StaticStructureSchema = [3, n0, _CCo, 0, [_sB, _sK, _sOV], [0, 0, 0]];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _r], [0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateEnvironmentRequest: StaticStructureSchema = [
+export var CapacityConfiguration$: StaticStructureSchema = [3, n0, _CC, 0, [_nT, _nC], [0, 1]];
+export var ChangeRequest$: StaticStructureSchema = [3, n0, _CR, 0, [_cT, _sP, _dP], [0, 0, 0]];
+export var CodeConfiguration$: StaticStructureSchema = [3, n0, _CCo, 0, [_sB, _sK, _sOV], [0, 0, 0]];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _r], [0, 0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateEnvironmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _CER,
   0,
   [_n, _d, _kKI, _t, _fM, _fP, _sPu, _dB],
-  [0, 0, 0, 128 | 0, 0, () => FederationParameters, [() => SuperuserParameters, 0], 64 | 0],
+  [0, 0, 0, 128 | 0, 0, () => FederationParameters$, [() => SuperuserParameters$, 0], 64 | 0],
 ];
-export var CreateEnvironmentResponse: StaticStructureSchema = [3, n0, _CERr, 0, [_eI, _eA, _eU], [0, 0, 0]];
-export var CreateKxChangesetRequest: StaticStructureSchema = [
+export var CreateEnvironmentResponse$: StaticStructureSchema = [3, n0, _CERr, 0, [_eI, _eA, _eU], [0, 0, 0]];
+export var CreateKxChangesetRequest$: StaticStructureSchema = [
   3,
   n0,
   _CKCR,
@@ -442,15 +442,15 @@ export var CreateKxChangesetRequest: StaticStructureSchema = [
   [_eI, _dN, _cR, _cTl],
   [[0, 1], [0, 1], () => ChangeRequests, [0, 4]],
 ];
-export var CreateKxChangesetResponse: StaticStructureSchema = [
+export var CreateKxChangesetResponse$: StaticStructureSchema = [
   3,
   n0,
   _CKCRr,
   0,
   [_cI, _dN, _eI, _cR, _cTr, _lMT, _s, _eIr],
-  [0, 0, 0, () => ChangeRequests, 4, 4, 0, () => ErrorInfo],
+  [0, 0, 0, () => ChangeRequests, 4, 4, 0, () => ErrorInfo$],
 ];
-export var CreateKxClusterRequest: StaticStructureSchema = [
+export var CreateKxClusterRequest$: StaticStructureSchema = [
   3,
   n0,
   _CKCRre,
@@ -461,26 +461,26 @@ export var CreateKxClusterRequest: StaticStructureSchema = [
     [0, 1],
     0,
     0,
-    () => TickerplantLogConfiguration,
+    () => TickerplantLogConfiguration$,
     () => KxDatabaseConfigurations,
     () => KxCacheStorageConfigurations,
-    () => AutoScalingConfiguration,
+    () => AutoScalingConfiguration$,
     0,
-    () => CapacityConfiguration,
+    () => CapacityConfiguration$,
     0,
-    () => VpcConfiguration,
+    () => VpcConfiguration$,
     0,
     () => KxCommandLineArguments,
-    () => CodeConfiguration,
+    () => CodeConfiguration$,
     0,
-    () => KxSavedownStorageConfiguration,
+    () => KxSavedownStorageConfiguration$,
     0,
     0,
     128 | 0,
-    () => KxScalingGroupConfiguration,
+    () => KxScalingGroupConfiguration$,
   ],
 ];
-export var CreateKxClusterResponse: StaticStructureSchema = [
+export var CreateKxClusterResponse$: StaticStructureSchema = [
   3,
   n0,
   _CKCRrea,
@@ -517,28 +517,28 @@ export var CreateKxClusterResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    () => TickerplantLogConfiguration,
+    () => TickerplantLogConfiguration$,
     () => Volumes,
     () => KxDatabaseConfigurations,
     () => KxCacheStorageConfigurations,
-    () => AutoScalingConfiguration,
+    () => AutoScalingConfiguration$,
     0,
-    () => CapacityConfiguration,
+    () => CapacityConfiguration$,
     0,
-    () => VpcConfiguration,
+    () => VpcConfiguration$,
     0,
     () => KxCommandLineArguments,
-    () => CodeConfiguration,
+    () => CodeConfiguration$,
     0,
     4,
-    () => KxSavedownStorageConfiguration,
+    () => KxSavedownStorageConfiguration$,
     0,
     0,
     4,
-    () => KxScalingGroupConfiguration,
+    () => KxScalingGroupConfiguration$,
   ],
 ];
-export var CreateKxDatabaseRequest: StaticStructureSchema = [
+export var CreateKxDatabaseRequest$: StaticStructureSchema = [
   3,
   n0,
   _CKDR,
@@ -546,7 +546,7 @@ export var CreateKxDatabaseRequest: StaticStructureSchema = [
   [_eI, _dN, _d, _t, _cTl],
   [[0, 1], 0, 0, 128 | 0, [0, 4]],
 ];
-export var CreateKxDatabaseResponse: StaticStructureSchema = [
+export var CreateKxDatabaseResponse$: StaticStructureSchema = [
   3,
   n0,
   _CKDRr,
@@ -554,7 +554,7 @@ export var CreateKxDatabaseResponse: StaticStructureSchema = [
   [_dN, _dA, _eI, _d, _cTr, _lMT],
   [0, 0, 0, 0, 4, 4],
 ];
-export var CreateKxDataviewRequest: StaticStructureSchema = [
+export var CreateKxDataviewRequest$: StaticStructureSchema = [
   3,
   n0,
   _CKDRre,
@@ -562,7 +562,7 @@ export var CreateKxDataviewRequest: StaticStructureSchema = [
   [_eI, _dN, _dNa, _aM, _aZI, _cI, _sC, _aU, _rW, _d, _t, _cTl],
   [[0, 1], [0, 1], 0, 0, 0, 0, () => KxDataviewSegmentConfigurationList, 2, 2, 0, 128 | 0, [0, 4]],
 ];
-export var CreateKxDataviewResponse: StaticStructureSchema = [
+export var CreateKxDataviewResponse$: StaticStructureSchema = [
   3,
   n0,
   _CKDRrea,
@@ -570,7 +570,7 @@ export var CreateKxDataviewResponse: StaticStructureSchema = [
   [_dNa, _dN, _eI, _aM, _aZI, _cI, _sC, _d, _aU, _rW, _cTr, _lMT, _s],
   [0, 0, 0, 0, 0, 0, () => KxDataviewSegmentConfigurationList, 0, 2, 2, 4, 4, 0],
 ];
-export var CreateKxEnvironmentRequest: StaticStructureSchema = [
+export var CreateKxEnvironmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _CKER,
@@ -578,7 +578,7 @@ export var CreateKxEnvironmentRequest: StaticStructureSchema = [
   [_n, _d, _kKI, _t, _cTl],
   [0, 0, 0, 128 | 0, [0, 4]],
 ];
-export var CreateKxEnvironmentResponse: StaticStructureSchema = [
+export var CreateKxEnvironmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _CKERr,
@@ -586,7 +586,7 @@ export var CreateKxEnvironmentResponse: StaticStructureSchema = [
   [_n, _s, _eI, _d, _eA, _kKI, _cTre],
   [0, 0, 0, 0, 0, 0, 4],
 ];
-export var CreateKxScalingGroupRequest: StaticStructureSchema = [
+export var CreateKxScalingGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _CKSGR,
@@ -594,7 +594,7 @@ export var CreateKxScalingGroupRequest: StaticStructureSchema = [
   [_cTl, _eI, _sGN, _hT, _aZI, _t],
   [[0, 4], [0, 1], 0, 0, 0, 128 | 0],
 ];
-export var CreateKxScalingGroupResponse: StaticStructureSchema = [
+export var CreateKxScalingGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _CKSGRr,
@@ -602,7 +602,7 @@ export var CreateKxScalingGroupResponse: StaticStructureSchema = [
   [_eI, _sGN, _hT, _aZI, _s, _lMT, _cTr],
   [0, 0, 0, 0, 0, 4, 4],
 ];
-export var CreateKxUserRequest: StaticStructureSchema = [
+export var CreateKxUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _CKUR,
@@ -610,27 +610,27 @@ export var CreateKxUserRequest: StaticStructureSchema = [
   [_eI, _uN, _iR, _t, _cTl],
   [[0, 1], 0, 0, 128 | 0, [0, 4]],
 ];
-export var CreateKxUserResponse: StaticStructureSchema = [3, n0, _CKURr, 0, [_uN, _uA, _eI, _iR], [0, 0, 0, 0]];
-export var CreateKxVolumeRequest: StaticStructureSchema = [
+export var CreateKxUserResponse$: StaticStructureSchema = [3, n0, _CKURr, 0, [_uN, _uA, _eI, _iR], [0, 0, 0, 0]];
+export var CreateKxVolumeRequest$: StaticStructureSchema = [
   3,
   n0,
   _CKVR,
   0,
   [_cTl, _eI, _vT, _vN, _d, _nCa, _aM, _aZIv, _t],
-  [[0, 4], [0, 1], 0, 0, 0, () => KxNAS1Configuration, 0, 64 | 0, 128 | 0],
+  [[0, 4], [0, 1], 0, 0, 0, () => KxNAS1Configuration$, 0, 64 | 0, 128 | 0],
 ];
-export var CreateKxVolumeResponse: StaticStructureSchema = [
+export var CreateKxVolumeResponse$: StaticStructureSchema = [
   3,
   n0,
   _CKVRr,
   0,
   [_eI, _vN, _vT, _vA, _nCa, _s, _sR, _aM, _d, _aZIv, _cTr],
-  [0, 0, 0, 0, () => KxNAS1Configuration, 0, 0, 0, 0, 64 | 0, 4],
+  [0, 0, 0, 0, () => KxNAS1Configuration$, 0, 0, 0, 0, 64 | 0, 4],
 ];
-export var CustomDNSServer: StaticStructureSchema = [3, n0, _CDNSS, 0, [_cDNSSN, _cDNSSIP], [0, 0]];
-export var DeleteEnvironmentRequest: StaticStructureSchema = [3, n0, _DER, 0, [_eI], [[0, 1]]];
-export var DeleteEnvironmentResponse: StaticStructureSchema = [3, n0, _DERe, 0, [], []];
-export var DeleteKxClusterNodeRequest: StaticStructureSchema = [
+export var CustomDNSServer$: StaticStructureSchema = [3, n0, _CDNSS, 0, [_cDNSSN, _cDNSSIP], [0, 0]];
+export var DeleteEnvironmentRequest$: StaticStructureSchema = [3, n0, _DER, 0, [_eI], [[0, 1]]];
+export var DeleteEnvironmentResponse$: StaticStructureSchema = [3, n0, _DERe, 0, [], []];
+export var DeleteKxClusterNodeRequest$: StaticStructureSchema = [
   3,
   n0,
   _DKCNR,
@@ -642,8 +642,8 @@ export var DeleteKxClusterNodeRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteKxClusterNodeResponse: StaticStructureSchema = [3, n0, _DKCNRe, 0, [], []];
-export var DeleteKxClusterRequest: StaticStructureSchema = [
+export var DeleteKxClusterNodeResponse$: StaticStructureSchema = [3, n0, _DKCNRe, 0, [], []];
+export var DeleteKxClusterRequest$: StaticStructureSchema = [
   3,
   n0,
   _DKCR,
@@ -655,8 +655,8 @@ export var DeleteKxClusterRequest: StaticStructureSchema = [
     [0, { [_iT]: 1, [_hQ]: _cTl }],
   ],
 ];
-export var DeleteKxClusterResponse: StaticStructureSchema = [3, n0, _DKCRe, 0, [], []];
-export var DeleteKxDatabaseRequest: StaticStructureSchema = [
+export var DeleteKxClusterResponse$: StaticStructureSchema = [3, n0, _DKCRe, 0, [], []];
+export var DeleteKxDatabaseRequest$: StaticStructureSchema = [
   3,
   n0,
   _DKDR,
@@ -668,8 +668,8 @@ export var DeleteKxDatabaseRequest: StaticStructureSchema = [
     [0, { [_iT]: 1, [_hQ]: _cTl }],
   ],
 ];
-export var DeleteKxDatabaseResponse: StaticStructureSchema = [3, n0, _DKDRe, 0, [], []];
-export var DeleteKxDataviewRequest: StaticStructureSchema = [
+export var DeleteKxDatabaseResponse$: StaticStructureSchema = [3, n0, _DKDRe, 0, [], []];
+export var DeleteKxDataviewRequest$: StaticStructureSchema = [
   3,
   n0,
   _DKDRel,
@@ -682,8 +682,8 @@ export var DeleteKxDataviewRequest: StaticStructureSchema = [
     [0, { [_iT]: 1, [_hQ]: _cTl }],
   ],
 ];
-export var DeleteKxDataviewResponse: StaticStructureSchema = [3, n0, _DKDRele, 0, [], []];
-export var DeleteKxEnvironmentRequest: StaticStructureSchema = [
+export var DeleteKxDataviewResponse$: StaticStructureSchema = [3, n0, _DKDRele, 0, [], []];
+export var DeleteKxEnvironmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _DKER,
@@ -694,8 +694,8 @@ export var DeleteKxEnvironmentRequest: StaticStructureSchema = [
     [0, { [_iT]: 1, [_hQ]: _cTl }],
   ],
 ];
-export var DeleteKxEnvironmentResponse: StaticStructureSchema = [3, n0, _DKERe, 0, [], []];
-export var DeleteKxScalingGroupRequest: StaticStructureSchema = [
+export var DeleteKxEnvironmentResponse$: StaticStructureSchema = [3, n0, _DKERe, 0, [], []];
+export var DeleteKxScalingGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _DKSGR,
@@ -707,8 +707,8 @@ export var DeleteKxScalingGroupRequest: StaticStructureSchema = [
     [0, { [_iT]: 1, [_hQ]: _cTl }],
   ],
 ];
-export var DeleteKxScalingGroupResponse: StaticStructureSchema = [3, n0, _DKSGRe, 0, [], []];
-export var DeleteKxUserRequest: StaticStructureSchema = [
+export var DeleteKxScalingGroupResponse$: StaticStructureSchema = [3, n0, _DKSGRe, 0, [], []];
+export var DeleteKxUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _DKUR,
@@ -720,8 +720,8 @@ export var DeleteKxUserRequest: StaticStructureSchema = [
     [0, { [_iT]: 1, [_hQ]: _cTl }],
   ],
 ];
-export var DeleteKxUserResponse: StaticStructureSchema = [3, n0, _DKURe, 0, [], []];
-export var DeleteKxVolumeRequest: StaticStructureSchema = [
+export var DeleteKxUserResponse$: StaticStructureSchema = [3, n0, _DKURe, 0, [], []];
+export var DeleteKxVolumeRequest$: StaticStructureSchema = [
   3,
   n0,
   _DKVR,
@@ -733,17 +733,17 @@ export var DeleteKxVolumeRequest: StaticStructureSchema = [
     [0, { [_iT]: 1, [_hQ]: _cTl }],
   ],
 ];
-export var DeleteKxVolumeResponse: StaticStructureSchema = [3, n0, _DKVRe, 0, [], []];
-export var Environment: StaticStructureSchema = [
+export var DeleteKxVolumeResponse$: StaticStructureSchema = [3, n0, _DKVRe, 0, [], []];
+export var Environment$: StaticStructureSchema = [
   3,
   n0,
   _E,
   0,
   [_n, _eI, _aAI, _s, _eU, _d, _eA, _sMSDU, _kKI, _dSAI, _fM, _fP],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => FederationParameters],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => FederationParameters$],
 ];
-export var ErrorInfo: StaticStructureSchema = [3, n0, _EIr, 0, [_eM, _eT], [0, 0]];
-export var FederationParameters: StaticStructureSchema = [
+export var ErrorInfo$: StaticStructureSchema = [3, n0, _EIr, 0, [_eM, _eT], [0, 0]];
+export var FederationParameters$: StaticStructureSchema = [
   3,
   n0,
   _FP,
@@ -751,9 +751,9 @@ export var FederationParameters: StaticStructureSchema = [
   [_sMD, _sMURL, _aCBURL, _fURN, _fPN, _aMt],
   [0, 0, 0, 0, 0, 128 | 0],
 ];
-export var GetEnvironmentRequest: StaticStructureSchema = [3, n0, _GER, 0, [_eI], [[0, 1]]];
-export var GetEnvironmentResponse: StaticStructureSchema = [3, n0, _GERe, 0, [_en], [() => Environment]];
-export var GetKxChangesetRequest: StaticStructureSchema = [
+export var GetEnvironmentRequest$: StaticStructureSchema = [3, n0, _GER, 0, [_eI], [[0, 1]]];
+export var GetEnvironmentResponse$: StaticStructureSchema = [3, n0, _GERe, 0, [_en], [() => Environment$]];
+export var GetKxChangesetRequest$: StaticStructureSchema = [
   3,
   n0,
   _GKCR,
@@ -765,15 +765,15 @@ export var GetKxChangesetRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetKxChangesetResponse: StaticStructureSchema = [
+export var GetKxChangesetResponse$: StaticStructureSchema = [
   3,
   n0,
   _GKCRe,
   0,
   [_cI, _dN, _eI, _cR, _cTr, _aFT, _lMT, _s, _eIr],
-  [0, 0, 0, () => ChangeRequests, 4, 4, 4, 0, () => ErrorInfo],
+  [0, 0, 0, () => ChangeRequests, 4, 4, 4, 0, () => ErrorInfo$],
 ];
-export var GetKxClusterRequest: StaticStructureSchema = [
+export var GetKxClusterRequest$: StaticStructureSchema = [
   3,
   n0,
   _GKCRet,
@@ -784,7 +784,7 @@ export var GetKxClusterRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetKxClusterResponse: StaticStructureSchema = [
+export var GetKxClusterResponse$: StaticStructureSchema = [
   3,
   n0,
   _GKCRetx,
@@ -819,28 +819,28 @@ export var GetKxClusterResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    () => TickerplantLogConfiguration,
+    () => TickerplantLogConfiguration$,
     () => Volumes,
     () => KxDatabaseConfigurations,
     () => KxCacheStorageConfigurations,
-    () => AutoScalingConfiguration,
+    () => AutoScalingConfiguration$,
     0,
-    () => CapacityConfiguration,
+    () => CapacityConfiguration$,
     0,
-    () => VpcConfiguration,
+    () => VpcConfiguration$,
     0,
     () => KxCommandLineArguments,
-    () => CodeConfiguration,
+    () => CodeConfiguration$,
     0,
     4,
-    () => KxSavedownStorageConfiguration,
+    () => KxSavedownStorageConfiguration$,
     0,
     0,
     4,
-    () => KxScalingGroupConfiguration,
+    () => KxScalingGroupConfiguration$,
   ],
 ];
-export var GetKxConnectionStringRequest: StaticStructureSchema = [
+export var GetKxConnectionStringRequest$: StaticStructureSchema = [
   3,
   n0,
   _GKCSR,
@@ -852,7 +852,7 @@ export var GetKxConnectionStringRequest: StaticStructureSchema = [
     [0, { [_hQ]: _cN }],
   ],
 ];
-export var GetKxConnectionStringResponse: StaticStructureSchema = [
+export var GetKxConnectionStringResponse$: StaticStructureSchema = [
   3,
   n0,
   _GKCSRe,
@@ -860,7 +860,7 @@ export var GetKxConnectionStringResponse: StaticStructureSchema = [
   [_sCS],
   [[() => SignedKxConnectionString, 0]],
 ];
-export var GetKxDatabaseRequest: StaticStructureSchema = [
+export var GetKxDatabaseRequest$: StaticStructureSchema = [
   3,
   n0,
   _GKDR,
@@ -871,7 +871,7 @@ export var GetKxDatabaseRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetKxDatabaseResponse: StaticStructureSchema = [
+export var GetKxDatabaseResponse$: StaticStructureSchema = [
   3,
   n0,
   _GKDRe,
@@ -879,7 +879,7 @@ export var GetKxDatabaseResponse: StaticStructureSchema = [
   [_dN, _dA, _eI, _d, _cTr, _lMT, _lCCI, _nB, _nCu, _nF],
   [0, 0, 0, 0, 4, 4, 0, 1, 1, 1],
 ];
-export var GetKxDataviewRequest: StaticStructureSchema = [
+export var GetKxDataviewRequest$: StaticStructureSchema = [
   3,
   n0,
   _GKDRet,
@@ -891,7 +891,7 @@ export var GetKxDataviewRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetKxDataviewResponse: StaticStructureSchema = [
+export var GetKxDataviewResponse$: StaticStructureSchema = [
   3,
   n0,
   _GKDRetx,
@@ -899,16 +899,16 @@ export var GetKxDataviewResponse: StaticStructureSchema = [
   [_dN, _dNa, _aM, _aZI, _cI, _sC, _aV, _d, _aU, _rW, _eI, _cTr, _lMT, _s, _sR],
   [0, 0, 0, 0, 0, () => KxDataviewSegmentConfigurationList, () => KxDataviewActiveVersionList, 0, 2, 2, 0, 4, 4, 0, 0],
 ];
-export var GetKxEnvironmentRequest: StaticStructureSchema = [3, n0, _GKER, 0, [_eI], [[0, 1]]];
-export var GetKxEnvironmentResponse: StaticStructureSchema = [
+export var GetKxEnvironmentRequest$: StaticStructureSchema = [3, n0, _GKER, 0, [_eI], [[0, 1]]];
+export var GetKxEnvironmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _GKERe,
   0,
   [_n, _eI, _aAI, _s, _tS, _dS, _eM, _d, _eA, _kKI, _dSAI, _tGC, _cDNSC, _cTre, _uT, _aZIv, _cAA],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => TransitGatewayConfiguration, () => CustomDNSConfiguration, 4, 4, 64 | 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => TransitGatewayConfiguration$, () => CustomDNSConfiguration, 4, 4, 64 | 0, 0],
 ];
-export var GetKxScalingGroupRequest: StaticStructureSchema = [
+export var GetKxScalingGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _GKSGR,
@@ -919,7 +919,7 @@ export var GetKxScalingGroupRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetKxScalingGroupResponse: StaticStructureSchema = [
+export var GetKxScalingGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _GKSGRe,
@@ -927,7 +927,7 @@ export var GetKxScalingGroupResponse: StaticStructureSchema = [
   [_sGN, _sGA, _hT, _cl, _aZI, _s, _sR, _lMT, _cTr],
   [0, 0, 0, 64 | 0, 0, 0, 0, 4, 4],
 ];
-export var GetKxUserRequest: StaticStructureSchema = [
+export var GetKxUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _GKUR,
@@ -938,8 +938,8 @@ export var GetKxUserRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetKxUserResponse: StaticStructureSchema = [3, n0, _GKURe, 0, [_uN, _uA, _eI, _iR], [0, 0, 0, 0]];
-export var GetKxVolumeRequest: StaticStructureSchema = [
+export var GetKxUserResponse$: StaticStructureSchema = [3, n0, _GKURe, 0, [_uN, _uA, _eI, _iR], [0, 0, 0, 0]];
+export var GetKxVolumeRequest$: StaticStructureSchema = [
   3,
   n0,
   _GKVR,
@@ -950,22 +950,22 @@ export var GetKxVolumeRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetKxVolumeResponse: StaticStructureSchema = [
+export var GetKxVolumeResponse$: StaticStructureSchema = [
   3,
   n0,
   _GKVRe,
   0,
   [_eI, _vN, _vT, _vA, _nCa, _s, _sR, _cTr, _d, _aM, _aZIv, _lMT, _aC],
-  [0, 0, 0, 0, () => KxNAS1Configuration, 0, 0, 4, 0, 0, 64 | 0, 4, () => KxAttachedClusters],
+  [0, 0, 0, 0, () => KxNAS1Configuration$, 0, 0, 4, 0, 0, 64 | 0, 4, () => KxAttachedClusters],
 ];
-export var IcmpTypeCode: StaticStructureSchema = [3, n0, _ITC, 0, [_ty, _co], [1, 1]];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-export var KxAttachedCluster: StaticStructureSchema = [3, n0, _KAC, 0, [_cN, _cTlu, _cS], [0, 0, 0]];
-export var KxCacheStorageConfiguration: StaticStructureSchema = [3, n0, _KCSC, 0, [_ty, _si], [0, 1]];
-export var KxChangesetListEntry: StaticStructureSchema = [
+export var IcmpTypeCode$: StaticStructureSchema = [3, n0, _ITC, 0, [_ty, _co], [1, 1]];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
+export var KxAttachedCluster$: StaticStructureSchema = [3, n0, _KAC, 0, [_cN, _cTlu, _cS], [0, 0, 0]];
+export var KxCacheStorageConfiguration$: StaticStructureSchema = [3, n0, _KCSC, 0, [_ty, _si], [0, 1]];
+export var KxChangesetListEntry$: StaticStructureSchema = [
   3,
   n0,
   _KCLE,
@@ -973,7 +973,7 @@ export var KxChangesetListEntry: StaticStructureSchema = [
   [_cI, _cTr, _aFT, _lMT, _s],
   [0, 4, 4, 4, 0],
 ];
-export var KxCluster: StaticStructureSchema = [
+export var KxCluster$: StaticStructureSchema = [
   3,
   n0,
   _KC,
@@ -981,19 +981,19 @@ export var KxCluster: StaticStructureSchema = [
   [_s, _sR, _cN, _cTlu, _cD, _rL, _v, _iS, _eR, _aM, _aZI, _lMT, _cTr],
   [0, 0, 0, 0, 0, 0, () => Volumes, 0, 0, 0, 0, 4, 4],
 ];
-export var KxClusterCodeDeploymentConfiguration: StaticStructureSchema = [3, n0, _KCCDC, 0, [_dSe], [0]];
-export var KxCommandLineArgument: StaticStructureSchema = [3, n0, _KCLA, 0, [_k, _va], [0, 0]];
-export var KxDatabaseCacheConfiguration: StaticStructureSchema = [3, n0, _KDCC, 0, [_cTa, _dPb, _dNa], [0, 64 | 0, 0]];
-export var KxDatabaseConfiguration: StaticStructureSchema = [
+export var KxClusterCodeDeploymentConfiguration$: StaticStructureSchema = [3, n0, _KCCDC, 0, [_dSe], [0]];
+export var KxCommandLineArgument$: StaticStructureSchema = [3, n0, _KCLA, 0, [_k, _va], [0, 0]];
+export var KxDatabaseCacheConfiguration$: StaticStructureSchema = [3, n0, _KDCC, 0, [_cTa, _dPb, _dNa], [0, 64 | 0, 0]];
+export var KxDatabaseConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _KDC,
   0,
   [_dN, _cCa, _cI, _dNa, _dC],
-  [0, () => KxDatabaseCacheConfigurations, 0, 0, () => KxDataviewConfiguration],
+  [0, () => KxDatabaseCacheConfigurations, 0, 0, () => KxDataviewConfiguration$],
 ];
-export var KxDatabaseListEntry: StaticStructureSchema = [3, n0, _KDLE, 0, [_dN, _cTr, _lMT], [0, 4, 4]];
-export var KxDataviewActiveVersion: StaticStructureSchema = [
+export var KxDatabaseListEntry$: StaticStructureSchema = [3, n0, _KDLE, 0, [_dN, _cTr, _lMT], [0, 4, 4]];
+export var KxDataviewActiveVersion$: StaticStructureSchema = [
   3,
   n0,
   _KDAV,
@@ -1001,7 +1001,7 @@ export var KxDataviewActiveVersion: StaticStructureSchema = [
   [_cI, _sC, _aC, _cTr, _vI],
   [0, () => KxDataviewSegmentConfigurationList, 64 | 0, 4, 0],
 ];
-export var KxDataviewConfiguration: StaticStructureSchema = [
+export var KxDataviewConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _KDCx,
@@ -1009,7 +1009,7 @@ export var KxDataviewConfiguration: StaticStructureSchema = [
   [_dNa, _dVI, _cI, _sC],
   [0, 0, 0, () => KxDataviewSegmentConfigurationList],
 ];
-export var KxDataviewListEntry: StaticStructureSchema = [
+export var KxDataviewListEntry$: StaticStructureSchema = [
   3,
   n0,
   _KDLEx,
@@ -1017,20 +1017,20 @@ export var KxDataviewListEntry: StaticStructureSchema = [
   [_eI, _dN, _dNa, _aM, _aZI, _cI, _sC, _aV, _s, _d, _aU, _rW, _cTr, _lMT, _sR],
   [0, 0, 0, 0, 0, 0, () => KxDataviewSegmentConfigurationList, () => KxDataviewActiveVersionList, 0, 0, 2, 2, 4, 4, 0],
 ];
-export var KxDataviewSegmentConfiguration: StaticStructureSchema = [3, n0, _KDSC, 0, [_dPb, _vN, _oD], [64 | 0, 0, 2]];
-export var KxDeploymentConfiguration: StaticStructureSchema = [3, n0, _KDCxe, 0, [_dSe], [0]];
-export var KxEnvironment: StaticStructureSchema = [
+export var KxDataviewSegmentConfiguration$: StaticStructureSchema = [3, n0, _KDSC, 0, [_dPb, _vN, _oD], [64 | 0, 0, 2]];
+export var KxDeploymentConfiguration$: StaticStructureSchema = [3, n0, _KDCxe, 0, [_dSe], [0]];
+export var KxEnvironment$: StaticStructureSchema = [
   3,
   n0,
   _KE,
   0,
   [_n, _eI, _aAI, _s, _tS, _dS, _eM, _d, _eA, _kKI, _dSAI, _tGC, _cDNSC, _cTre, _uT, _aZIv, _cAA],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => TransitGatewayConfiguration, () => CustomDNSConfiguration, 4, 4, 64 | 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => TransitGatewayConfiguration$, () => CustomDNSConfiguration, 4, 4, 64 | 0, 0],
 ];
-export var KxNAS1Configuration: StaticStructureSchema = [3, n0, _KNASC, 0, [_ty, _si], [0, 1]];
-export var KxNode: StaticStructureSchema = [3, n0, _KN, 0, [_nI, _aZI, _lT, _s], [0, 0, 4, 0]];
-export var KxSavedownStorageConfiguration: StaticStructureSchema = [3, n0, _KSSC, 0, [_ty, _si, _vN], [0, 1, 0]];
-export var KxScalingGroup: StaticStructureSchema = [
+export var KxNAS1Configuration$: StaticStructureSchema = [3, n0, _KNASC, 0, [_ty, _si], [0, 1]];
+export var KxNode$: StaticStructureSchema = [3, n0, _KN, 0, [_nI, _aZI, _lT, _s], [0, 0, 4, 0]];
+export var KxSavedownStorageConfiguration$: StaticStructureSchema = [3, n0, _KSSC, 0, [_ty, _si, _vN], [0, 1, 0]];
+export var KxScalingGroup$: StaticStructureSchema = [
   3,
   n0,
   _KSG,
@@ -1038,7 +1038,7 @@ export var KxScalingGroup: StaticStructureSchema = [
   [_sGN, _hT, _cl, _aZI, _s, _sR, _lMT, _cTr],
   [0, 0, 64 | 0, 0, 0, 0, 4, 4],
 ];
-export var KxScalingGroupConfiguration: StaticStructureSchema = [
+export var KxScalingGroupConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _KSGC,
@@ -1046,8 +1046,8 @@ export var KxScalingGroupConfiguration: StaticStructureSchema = [
   [_sGN, _mL, _mR, _nC, _cp],
   [0, 1, 1, 1, 1],
 ];
-export var KxUser: StaticStructureSchema = [3, n0, _KU, 0, [_uA, _uN, _iR, _cTrea, _uT], [0, 0, 0, 4, 4]];
-export var KxVolume: StaticStructureSchema = [
+export var KxUser$: StaticStructureSchema = [3, n0, _KU, 0, [_uA, _uN, _iR, _cTrea, _uT], [0, 0, 0, 4, 4]];
+export var KxVolume$: StaticStructureSchema = [
   3,
   n0,
   _KV,
@@ -1055,9 +1055,9 @@ export var KxVolume: StaticStructureSchema = [
   [_vN, _vT, _s, _d, _sR, _aM, _aZIv, _cTr, _lMT],
   [0, 0, 0, 0, 0, 0, 64 | 0, 4, 4],
 ];
-export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-export var ListEnvironmentsRequest: StaticStructureSchema = [
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var ListEnvironmentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LER,
@@ -1068,7 +1068,7 @@ export var ListEnvironmentsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListEnvironmentsResponse: StaticStructureSchema = [
+export var ListEnvironmentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LERi,
@@ -1076,7 +1076,7 @@ export var ListEnvironmentsResponse: StaticStructureSchema = [
   [_env, _nTe],
   [() => EnvironmentList, 0],
 ];
-export var ListKxChangesetsRequest: StaticStructureSchema = [
+export var ListKxChangesetsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LKCR,
@@ -1089,8 +1089,8 @@ export var ListKxChangesetsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListKxChangesetsResponse: StaticStructureSchema = [3, n0, _LKCRi, 0, [_kC, _nTe], [() => KxChangesets, 0]];
-export var ListKxClusterNodesRequest: StaticStructureSchema = [
+export var ListKxChangesetsResponse$: StaticStructureSchema = [3, n0, _LKCRi, 0, [_kC, _nTe], [() => KxChangesets, 0]];
+export var ListKxClusterNodesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LKCNR,
@@ -1103,7 +1103,7 @@ export var ListKxClusterNodesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListKxClusterNodesResponse: StaticStructureSchema = [
+export var ListKxClusterNodesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LKCNRi,
@@ -1111,7 +1111,7 @@ export var ListKxClusterNodesResponse: StaticStructureSchema = [
   [_no, _nTe],
   [() => KxNodeSummaries, 0],
 ];
-export var ListKxClustersRequest: StaticStructureSchema = [
+export var ListKxClustersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LKCRis,
@@ -1124,8 +1124,8 @@ export var ListKxClustersRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nTe }],
   ],
 ];
-export var ListKxClustersResponse: StaticStructureSchema = [3, n0, _LKCRist, 0, [_kCS, _nTe], [() => KxClusters, 0]];
-export var ListKxDatabasesRequest: StaticStructureSchema = [
+export var ListKxClustersResponse$: StaticStructureSchema = [3, n0, _LKCRist, 0, [_kCS, _nTe], [() => KxClusters, 0]];
+export var ListKxDatabasesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LKDR,
@@ -1137,8 +1137,8 @@ export var ListKxDatabasesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListKxDatabasesResponse: StaticStructureSchema = [3, n0, _LKDRi, 0, [_kD, _nTe], [() => KxDatabases, 0]];
-export var ListKxDataviewsRequest: StaticStructureSchema = [
+export var ListKxDatabasesResponse$: StaticStructureSchema = [3, n0, _LKDRi, 0, [_kD, _nTe], [() => KxDatabases, 0]];
+export var ListKxDataviewsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LKDRis,
@@ -1151,8 +1151,8 @@ export var ListKxDataviewsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListKxDataviewsResponse: StaticStructureSchema = [3, n0, _LKDRist, 0, [_kDx, _nTe], [() => KxDataviews, 0]];
-export var ListKxEnvironmentsRequest: StaticStructureSchema = [
+export var ListKxDataviewsResponse$: StaticStructureSchema = [3, n0, _LKDRist, 0, [_kDx, _nTe], [() => KxDataviews, 0]];
+export var ListKxEnvironmentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LKER,
@@ -1163,7 +1163,7 @@ export var ListKxEnvironmentsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListKxEnvironmentsResponse: StaticStructureSchema = [
+export var ListKxEnvironmentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LKERi,
@@ -1171,7 +1171,7 @@ export var ListKxEnvironmentsResponse: StaticStructureSchema = [
   [_env, _nTe],
   [() => KxEnvironmentList, 0],
 ];
-export var ListKxScalingGroupsRequest: StaticStructureSchema = [
+export var ListKxScalingGroupsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LKSGR,
@@ -1183,7 +1183,7 @@ export var ListKxScalingGroupsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nTe }],
   ],
 ];
-export var ListKxScalingGroupsResponse: StaticStructureSchema = [
+export var ListKxScalingGroupsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LKSGRi,
@@ -1191,7 +1191,7 @@ export var ListKxScalingGroupsResponse: StaticStructureSchema = [
   [_sG, _nTe],
   [() => KxScalingGroupList, 0],
 ];
-export var ListKxUsersRequest: StaticStructureSchema = [
+export var ListKxUsersRequest$: StaticStructureSchema = [
   3,
   n0,
   _LKUR,
@@ -1203,8 +1203,8 @@ export var ListKxUsersRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListKxUsersResponse: StaticStructureSchema = [3, n0, _LKURi, 0, [_u, _nTe], [() => KxUserList, 0]];
-export var ListKxVolumesRequest: StaticStructureSchema = [
+export var ListKxUsersResponse$: StaticStructureSchema = [3, n0, _LKURi, 0, [_u, _nTe], [() => KxUserList, 0]];
+export var ListKxVolumesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LKVR,
@@ -1217,31 +1217,31 @@ export var ListKxVolumesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _vT }],
   ],
 ];
-export var ListKxVolumesResponse: StaticStructureSchema = [3, n0, _LKVRi, 0, [_kVS, _nTe], [() => KxVolumes, 0]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
-export var NetworkACLEntry: StaticStructureSchema = [
+export var ListKxVolumesResponse$: StaticStructureSchema = [3, n0, _LKVRi, 0, [_kVS, _nTe], [() => KxVolumes, 0]];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
+export var NetworkACLEntry$: StaticStructureSchema = [
   3,
   n0,
   _NACLE,
   0,
   [_rN, _p, _rAu, _pR, _iTC, _cB],
-  [1, 0, 0, () => PortRange, () => IcmpTypeCode, 0],
+  [1, 0, 0, () => PortRange$, () => IcmpTypeCode$, 0],
 ];
-export var PortRange: StaticStructureSchema = [3, n0, _PR, 0, [_f, _to], [1, 1]];
-export var ResourceAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var SuperuserParameters: StaticStructureSchema = [3, n0, _SP, 0, [_eAm, _fN, _lN], [[() => EmailId, 0], 0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TickerplantLogConfiguration: StaticStructureSchema = [3, n0, _TLC, 0, [_tLV], [64 | 0]];
-export var TransitGatewayConfiguration: StaticStructureSchema = [
+export var PortRange$: StaticStructureSchema = [3, n0, _PR, 0, [_f, _to], [1, 1]];
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SuperuserParameters$: StaticStructureSchema = [3, n0, _SP, 0, [_eAm, _fN, _lN], [[() => EmailId, 0], 0, 0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TickerplantLogConfiguration$: StaticStructureSchema = [3, n0, _TLC, 0, [_tLV], [64 | 0]];
+export var TransitGatewayConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _TGC,
@@ -1249,7 +1249,7 @@ export var TransitGatewayConfiguration: StaticStructureSchema = [
   [_tGID, _rCIDRS, _aNAC],
   [0, 0, () => NetworkACLConfiguration],
 ];
-export var UntagResourceRequest: StaticStructureSchema = [
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -1260,17 +1260,17 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateEnvironmentRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateEnvironmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _UER,
   0,
   [_eI, _n, _d, _fM, _fP],
-  [[0, 1], 0, 0, 0, () => FederationParameters],
+  [[0, 1], 0, 0, 0, () => FederationParameters$],
 ];
-export var UpdateEnvironmentResponse: StaticStructureSchema = [3, n0, _UERp, 0, [_en], [() => Environment]];
-export var UpdateKxClusterCodeConfigurationRequest: StaticStructureSchema = [
+export var UpdateEnvironmentResponse$: StaticStructureSchema = [3, n0, _UERp, 0, [_en], [() => Environment$]];
+export var UpdateKxClusterCodeConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UKCCCR,
@@ -1280,23 +1280,23 @@ export var UpdateKxClusterCodeConfigurationRequest: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 4],
-    () => CodeConfiguration,
+    () => CodeConfiguration$,
     0,
     () => KxCommandLineArguments,
-    () => KxClusterCodeDeploymentConfiguration,
+    () => KxClusterCodeDeploymentConfiguration$,
   ],
 ];
-export var UpdateKxClusterCodeConfigurationResponse: StaticStructureSchema = [3, n0, _UKCCCRp, 0, [], []];
-export var UpdateKxClusterDatabasesRequest: StaticStructureSchema = [
+export var UpdateKxClusterCodeConfigurationResponse$: StaticStructureSchema = [3, n0, _UKCCCRp, 0, [], []];
+export var UpdateKxClusterDatabasesRequest$: StaticStructureSchema = [
   3,
   n0,
   _UKCDR,
   0,
   [_eI, _cN, _cTl, _da, _dCe],
-  [[0, 1], [0, 1], [0, 4], () => KxDatabaseConfigurations, () => KxDeploymentConfiguration],
+  [[0, 1], [0, 1], [0, 4], () => KxDatabaseConfigurations, () => KxDeploymentConfiguration$],
 ];
-export var UpdateKxClusterDatabasesResponse: StaticStructureSchema = [3, n0, _UKCDRp, 0, [], []];
-export var UpdateKxDatabaseRequest: StaticStructureSchema = [
+export var UpdateKxClusterDatabasesResponse$: StaticStructureSchema = [3, n0, _UKCDRp, 0, [], []];
+export var UpdateKxDatabaseRequest$: StaticStructureSchema = [
   3,
   n0,
   _UKDR,
@@ -1304,8 +1304,8 @@ export var UpdateKxDatabaseRequest: StaticStructureSchema = [
   [_eI, _dN, _d, _cTl],
   [[0, 1], [0, 1], 0, [0, 4]],
 ];
-export var UpdateKxDatabaseResponse: StaticStructureSchema = [3, n0, _UKDRp, 0, [_dN, _eI, _d, _lMT], [0, 0, 0, 4]];
-export var UpdateKxDataviewRequest: StaticStructureSchema = [
+export var UpdateKxDatabaseResponse$: StaticStructureSchema = [3, n0, _UKDRp, 0, [_dN, _eI, _d, _lMT], [0, 0, 0, 4]];
+export var UpdateKxDataviewRequest$: StaticStructureSchema = [
   3,
   n0,
   _UKDRpd,
@@ -1313,7 +1313,7 @@ export var UpdateKxDataviewRequest: StaticStructureSchema = [
   [_eI, _dN, _dNa, _d, _cI, _sC, _cTl],
   [[0, 1], [0, 1], [0, 1], 0, 0, () => KxDataviewSegmentConfigurationList, [0, 4]],
 ];
-export var UpdateKxDataviewResponse: StaticStructureSchema = [
+export var UpdateKxDataviewResponse$: StaticStructureSchema = [
   3,
   n0,
   _UKDRpda,
@@ -1321,23 +1321,23 @@ export var UpdateKxDataviewResponse: StaticStructureSchema = [
   [_eI, _dN, _dNa, _aM, _aZI, _cI, _sC, _aV, _s, _aU, _rW, _d, _cTr, _lMT],
   [0, 0, 0, 0, 0, 0, () => KxDataviewSegmentConfigurationList, () => KxDataviewActiveVersionList, 0, 2, 2, 0, 4, 4],
 ];
-export var UpdateKxEnvironmentNetworkRequest: StaticStructureSchema = [
+export var UpdateKxEnvironmentNetworkRequest$: StaticStructureSchema = [
   3,
   n0,
   _UKENR,
   0,
   [_eI, _tGC, _cDNSC, _cTl],
-  [[0, 1], () => TransitGatewayConfiguration, () => CustomDNSConfiguration, [0, 4]],
+  [[0, 1], () => TransitGatewayConfiguration$, () => CustomDNSConfiguration, [0, 4]],
 ];
-export var UpdateKxEnvironmentNetworkResponse: StaticStructureSchema = [
+export var UpdateKxEnvironmentNetworkResponse$: StaticStructureSchema = [
   3,
   n0,
   _UKENRp,
   0,
   [_n, _eI, _aAI, _s, _tS, _dS, _eM, _d, _eA, _kKI, _dSAI, _tGC, _cDNSC, _cTre, _uT, _aZIv],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => TransitGatewayConfiguration, () => CustomDNSConfiguration, 4, 4, 64 | 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => TransitGatewayConfiguration$, () => CustomDNSConfiguration, 4, 4, 64 | 0],
 ];
-export var UpdateKxEnvironmentRequest: StaticStructureSchema = [
+export var UpdateKxEnvironmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _UKER,
@@ -1345,15 +1345,15 @@ export var UpdateKxEnvironmentRequest: StaticStructureSchema = [
   [_eI, _n, _d, _cTl],
   [[0, 1], 0, 0, [0, 4]],
 ];
-export var UpdateKxEnvironmentResponse: StaticStructureSchema = [
+export var UpdateKxEnvironmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _UKERp,
   0,
   [_n, _eI, _aAI, _s, _tS, _dS, _eM, _d, _eA, _kKI, _dSAI, _tGC, _cDNSC, _cTre, _uT, _aZIv],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => TransitGatewayConfiguration, () => CustomDNSConfiguration, 4, 4, 64 | 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => TransitGatewayConfiguration$, () => CustomDNSConfiguration, 4, 4, 64 | 0],
 ];
-export var UpdateKxUserRequest: StaticStructureSchema = [
+export var UpdateKxUserRequest$: StaticStructureSchema = [
   3,
   n0,
   _UKUR,
@@ -1361,465 +1361,459 @@ export var UpdateKxUserRequest: StaticStructureSchema = [
   [_eI, _uN, _iR, _cTl],
   [[0, 1], [0, 1], 0, [0, 4]],
 ];
-export var UpdateKxUserResponse: StaticStructureSchema = [3, n0, _UKURp, 0, [_uN, _uA, _eI, _iR], [0, 0, 0, 0]];
-export var UpdateKxVolumeRequest: StaticStructureSchema = [
+export var UpdateKxUserResponse$: StaticStructureSchema = [3, n0, _UKURp, 0, [_uN, _uA, _eI, _iR], [0, 0, 0, 0]];
+export var UpdateKxVolumeRequest$: StaticStructureSchema = [
   3,
   n0,
   _UKVR,
   0,
   [_eI, _vN, _d, _cTl, _nCa],
-  [[0, 1], [0, 1], 0, [0, 4], () => KxNAS1Configuration],
+  [[0, 1], [0, 1], 0, [0, 4], () => KxNAS1Configuration$],
 ];
-export var UpdateKxVolumeResponse: StaticStructureSchema = [
+export var UpdateKxVolumeResponse$: StaticStructureSchema = [
   3,
   n0,
   _UKVRp,
   0,
   [_eI, _vN, _vT, _vA, _nCa, _s, _d, _sR, _cTr, _aM, _aZIv, _lMT, _aC],
-  [0, 0, 0, 0, () => KxNAS1Configuration, 0, 0, 0, 4, 0, 64 | 0, 4, () => KxAttachedClusters],
+  [0, 0, 0, 0, () => KxNAS1Configuration$, 0, 0, 0, 4, 0, 64 | 0, 4, () => KxAttachedClusters],
 ];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var Volume: StaticStructureSchema = [3, n0, _V, 0, [_vN, _vT], [0, 0]];
-export var VpcConfiguration: StaticStructureSchema = [3, n0, _VC, 0, [_vIp, _sGI, _sI, _iAT], [0, 64 | 0, 64 | 0, 0]];
-export var FinspaceServiceException: StaticErrorSchema = [-3, _sm, "FinspaceServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(FinspaceServiceException, __FinspaceServiceException);
-export var AttachedClusterList = 64 | 0;
-export var AvailabilityZoneIds = 64 | 0;
-export var ChangeRequests: StaticListSchema = [1, n0, _CRh, 0, () => ChangeRequest];
-export var CustomDNSConfiguration: StaticListSchema = [1, n0, _CDNSC, 0, () => CustomDNSServer];
-export var DataBundleArns = 64 | 0;
-export var DbPaths = 64 | 0;
-export var EnvironmentList: StaticListSchema = [1, n0, _EL, 0, () => Environment];
-export var KxAttachedClusters: StaticListSchema = [1, n0, _KACx, 0, () => KxAttachedCluster];
-export var KxCacheStorageConfigurations: StaticListSchema = [1, n0, _KCSCx, 0, () => KxCacheStorageConfiguration];
-export var KxChangesets: StaticListSchema = [1, n0, _KCx, 0, () => KxChangesetListEntry];
-export var KxClusterNameList = 64 | 0;
-export var KxClusters: StaticListSchema = [1, n0, _KCxl, 0, () => KxCluster];
-export var KxCommandLineArguments: StaticListSchema = [1, n0, _KCLAx, 0, () => KxCommandLineArgument];
-export var KxDatabaseCacheConfigurations: StaticListSchema = [1, n0, _KDCCx, 0, () => KxDatabaseCacheConfiguration];
-export var KxDatabaseConfigurations: StaticListSchema = [1, n0, _KDCxa, 0, () => KxDatabaseConfiguration];
-export var KxDatabases: StaticListSchema = [1, n0, _KD, 0, () => KxDatabaseListEntry];
-export var KxDataviewActiveVersionList: StaticListSchema = [1, n0, _KDAVL, 0, () => KxDataviewActiveVersion];
-export var KxDataviews: StaticListSchema = [1, n0, _KDx, 0, () => KxDataviewListEntry];
-export var KxDataviewSegmentConfigurationList: StaticListSchema = [
-  1,
-  n0,
-  _KDSCL,
-  0,
-  () => KxDataviewSegmentConfiguration,
-];
-export var KxEnvironmentList: StaticListSchema = [1, n0, _KEL, 0, () => KxEnvironment];
-export var KxNodeSummaries: StaticListSchema = [1, n0, _KNS, 0, () => KxNode];
-export var KxScalingGroupList: StaticListSchema = [1, n0, _KSGL, 0, () => KxScalingGroup];
-export var KxUserList: StaticListSchema = [1, n0, _KUL, 0, () => KxUser];
-export var KxVolumes: StaticListSchema = [1, n0, _KVx, 0, () => KxVolume];
-export var NetworkACLConfiguration: StaticListSchema = [1, n0, _NACLC, 0, () => NetworkACLEntry];
-export var SecurityGroupIdList = 64 | 0;
-export var SegmentConfigurationDbPathList = 64 | 0;
-export var SubnetIdList = 64 | 0;
-export var TagKeyList = 64 | 0;
-export var TickerplantLogVolumes = 64 | 0;
-export var Volumes: StaticListSchema = [1, n0, _Vo, 0, () => Volume];
-export var AttributeMap = 128 | 0;
-export var TagMap = 128 | 0;
-export var CreateEnvironment: StaticOperationSchema = [
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var Volume$: StaticStructureSchema = [3, n0, _V, 0, [_vN, _vT], [0, 0]];
+export var VpcConfiguration$: StaticStructureSchema = [3, n0, _VC, 0, [_vIp, _sGI, _sI, _iAT], [0, 64 | 0, 64 | 0, 0]];
+export var FinspaceServiceException$: StaticErrorSchema = [-3, _sm, "FinspaceServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(FinspaceServiceException$, FinspaceServiceException);
+var AttachedClusterList = 64 | 0;
+var AvailabilityZoneIds = 64 | 0;
+var ChangeRequests: StaticListSchema = [1, n0, _CRh, 0, () => ChangeRequest$];
+var CustomDNSConfiguration: StaticListSchema = [1, n0, _CDNSC, 0, () => CustomDNSServer$];
+var DataBundleArns = 64 | 0;
+var DbPaths = 64 | 0;
+var EnvironmentList: StaticListSchema = [1, n0, _EL, 0, () => Environment$];
+var KxAttachedClusters: StaticListSchema = [1, n0, _KACx, 0, () => KxAttachedCluster$];
+var KxCacheStorageConfigurations: StaticListSchema = [1, n0, _KCSCx, 0, () => KxCacheStorageConfiguration$];
+var KxChangesets: StaticListSchema = [1, n0, _KCx, 0, () => KxChangesetListEntry$];
+var KxClusterNameList = 64 | 0;
+var KxClusters: StaticListSchema = [1, n0, _KCxl, 0, () => KxCluster$];
+var KxCommandLineArguments: StaticListSchema = [1, n0, _KCLAx, 0, () => KxCommandLineArgument$];
+var KxDatabaseCacheConfigurations: StaticListSchema = [1, n0, _KDCCx, 0, () => KxDatabaseCacheConfiguration$];
+var KxDatabaseConfigurations: StaticListSchema = [1, n0, _KDCxa, 0, () => KxDatabaseConfiguration$];
+var KxDatabases: StaticListSchema = [1, n0, _KD, 0, () => KxDatabaseListEntry$];
+var KxDataviewActiveVersionList: StaticListSchema = [1, n0, _KDAVL, 0, () => KxDataviewActiveVersion$];
+var KxDataviews: StaticListSchema = [1, n0, _KDx, 0, () => KxDataviewListEntry$];
+var KxDataviewSegmentConfigurationList: StaticListSchema = [1, n0, _KDSCL, 0, () => KxDataviewSegmentConfiguration$];
+var KxEnvironmentList: StaticListSchema = [1, n0, _KEL, 0, () => KxEnvironment$];
+var KxNodeSummaries: StaticListSchema = [1, n0, _KNS, 0, () => KxNode$];
+var KxScalingGroupList: StaticListSchema = [1, n0, _KSGL, 0, () => KxScalingGroup$];
+var KxUserList: StaticListSchema = [1, n0, _KUL, 0, () => KxUser$];
+var KxVolumes: StaticListSchema = [1, n0, _KVx, 0, () => KxVolume$];
+var NetworkACLConfiguration: StaticListSchema = [1, n0, _NACLC, 0, () => NetworkACLEntry$];
+var SecurityGroupIdList = 64 | 0;
+var SegmentConfigurationDbPathList = 64 | 0;
+var SubnetIdList = 64 | 0;
+var TagKeyList = 64 | 0;
+var TickerplantLogVolumes = 64 | 0;
+var Volumes: StaticListSchema = [1, n0, _Vo, 0, () => Volume$];
+var AttributeMap = 128 | 0;
+var TagMap = 128 | 0;
+export var CreateEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _CEr,
   { [_h]: ["POST", "/environment", 200] },
-  () => CreateEnvironmentRequest,
-  () => CreateEnvironmentResponse,
+  () => CreateEnvironmentRequest$,
+  () => CreateEnvironmentResponse$,
 ];
-export var CreateKxChangeset: StaticOperationSchema = [
+export var CreateKxChangeset$: StaticOperationSchema = [
   9,
   n0,
   _CKC,
   { [_h]: ["POST", "/kx/environments/{environmentId}/databases/{databaseName}/changesets", 200] },
-  () => CreateKxChangesetRequest,
-  () => CreateKxChangesetResponse,
+  () => CreateKxChangesetRequest$,
+  () => CreateKxChangesetResponse$,
 ];
-export var CreateKxCluster: StaticOperationSchema = [
+export var CreateKxCluster$: StaticOperationSchema = [
   9,
   n0,
   _CKCr,
   { [_h]: ["POST", "/kx/environments/{environmentId}/clusters", 200] },
-  () => CreateKxClusterRequest,
-  () => CreateKxClusterResponse,
+  () => CreateKxClusterRequest$,
+  () => CreateKxClusterResponse$,
 ];
-export var CreateKxDatabase: StaticOperationSchema = [
+export var CreateKxDatabase$: StaticOperationSchema = [
   9,
   n0,
   _CKD,
   { [_h]: ["POST", "/kx/environments/{environmentId}/databases", 200] },
-  () => CreateKxDatabaseRequest,
-  () => CreateKxDatabaseResponse,
+  () => CreateKxDatabaseRequest$,
+  () => CreateKxDatabaseResponse$,
 ];
-export var CreateKxDataview: StaticOperationSchema = [
+export var CreateKxDataview$: StaticOperationSchema = [
   9,
   n0,
   _CKDr,
   { [_h]: ["POST", "/kx/environments/{environmentId}/databases/{databaseName}/dataviews", 200] },
-  () => CreateKxDataviewRequest,
-  () => CreateKxDataviewResponse,
+  () => CreateKxDataviewRequest$,
+  () => CreateKxDataviewResponse$,
 ];
-export var CreateKxEnvironment: StaticOperationSchema = [
+export var CreateKxEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _CKE,
   { [_h]: ["POST", "/kx/environments", 200] },
-  () => CreateKxEnvironmentRequest,
-  () => CreateKxEnvironmentResponse,
+  () => CreateKxEnvironmentRequest$,
+  () => CreateKxEnvironmentResponse$,
 ];
-export var CreateKxScalingGroup: StaticOperationSchema = [
+export var CreateKxScalingGroup$: StaticOperationSchema = [
   9,
   n0,
   _CKSG,
   { [_h]: ["POST", "/kx/environments/{environmentId}/scalingGroups", 200] },
-  () => CreateKxScalingGroupRequest,
-  () => CreateKxScalingGroupResponse,
+  () => CreateKxScalingGroupRequest$,
+  () => CreateKxScalingGroupResponse$,
 ];
-export var CreateKxUser: StaticOperationSchema = [
+export var CreateKxUser$: StaticOperationSchema = [
   9,
   n0,
   _CKU,
   { [_h]: ["POST", "/kx/environments/{environmentId}/users", 200] },
-  () => CreateKxUserRequest,
-  () => CreateKxUserResponse,
+  () => CreateKxUserRequest$,
+  () => CreateKxUserResponse$,
 ];
-export var CreateKxVolume: StaticOperationSchema = [
+export var CreateKxVolume$: StaticOperationSchema = [
   9,
   n0,
   _CKV,
   { [_h]: ["POST", "/kx/environments/{environmentId}/kxvolumes", 200] },
-  () => CreateKxVolumeRequest,
-  () => CreateKxVolumeResponse,
+  () => CreateKxVolumeRequest$,
+  () => CreateKxVolumeResponse$,
 ];
-export var DeleteEnvironment: StaticOperationSchema = [
+export var DeleteEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _DE,
   { [_h]: ["DELETE", "/environment/{environmentId}", 200] },
-  () => DeleteEnvironmentRequest,
-  () => DeleteEnvironmentResponse,
+  () => DeleteEnvironmentRequest$,
+  () => DeleteEnvironmentResponse$,
 ];
-export var DeleteKxCluster: StaticOperationSchema = [
+export var DeleteKxCluster$: StaticOperationSchema = [
   9,
   n0,
   _DKC,
   { [_h]: ["DELETE", "/kx/environments/{environmentId}/clusters/{clusterName}", 200] },
-  () => DeleteKxClusterRequest,
-  () => DeleteKxClusterResponse,
+  () => DeleteKxClusterRequest$,
+  () => DeleteKxClusterResponse$,
 ];
-export var DeleteKxClusterNode: StaticOperationSchema = [
+export var DeleteKxClusterNode$: StaticOperationSchema = [
   9,
   n0,
   _DKCN,
   { [_h]: ["DELETE", "/kx/environments/{environmentId}/clusters/{clusterName}/nodes/{nodeId}", 200] },
-  () => DeleteKxClusterNodeRequest,
-  () => DeleteKxClusterNodeResponse,
+  () => DeleteKxClusterNodeRequest$,
+  () => DeleteKxClusterNodeResponse$,
 ];
-export var DeleteKxDatabase: StaticOperationSchema = [
+export var DeleteKxDatabase$: StaticOperationSchema = [
   9,
   n0,
   _DKD,
   { [_h]: ["DELETE", "/kx/environments/{environmentId}/databases/{databaseName}", 200] },
-  () => DeleteKxDatabaseRequest,
-  () => DeleteKxDatabaseResponse,
+  () => DeleteKxDatabaseRequest$,
+  () => DeleteKxDatabaseResponse$,
 ];
-export var DeleteKxDataview: StaticOperationSchema = [
+export var DeleteKxDataview$: StaticOperationSchema = [
   9,
   n0,
   _DKDe,
   { [_h]: ["DELETE", "/kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}", 200] },
-  () => DeleteKxDataviewRequest,
-  () => DeleteKxDataviewResponse,
+  () => DeleteKxDataviewRequest$,
+  () => DeleteKxDataviewResponse$,
 ];
-export var DeleteKxEnvironment: StaticOperationSchema = [
+export var DeleteKxEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _DKE,
   { [_h]: ["DELETE", "/kx/environments/{environmentId}", 200] },
-  () => DeleteKxEnvironmentRequest,
-  () => DeleteKxEnvironmentResponse,
+  () => DeleteKxEnvironmentRequest$,
+  () => DeleteKxEnvironmentResponse$,
 ];
-export var DeleteKxScalingGroup: StaticOperationSchema = [
+export var DeleteKxScalingGroup$: StaticOperationSchema = [
   9,
   n0,
   _DKSG,
   { [_h]: ["DELETE", "/kx/environments/{environmentId}/scalingGroups/{scalingGroupName}", 200] },
-  () => DeleteKxScalingGroupRequest,
-  () => DeleteKxScalingGroupResponse,
+  () => DeleteKxScalingGroupRequest$,
+  () => DeleteKxScalingGroupResponse$,
 ];
-export var DeleteKxUser: StaticOperationSchema = [
+export var DeleteKxUser$: StaticOperationSchema = [
   9,
   n0,
   _DKU,
   { [_h]: ["DELETE", "/kx/environments/{environmentId}/users/{userName}", 200] },
-  () => DeleteKxUserRequest,
-  () => DeleteKxUserResponse,
+  () => DeleteKxUserRequest$,
+  () => DeleteKxUserResponse$,
 ];
-export var DeleteKxVolume: StaticOperationSchema = [
+export var DeleteKxVolume$: StaticOperationSchema = [
   9,
   n0,
   _DKV,
   { [_h]: ["DELETE", "/kx/environments/{environmentId}/kxvolumes/{volumeName}", 200] },
-  () => DeleteKxVolumeRequest,
-  () => DeleteKxVolumeResponse,
+  () => DeleteKxVolumeRequest$,
+  () => DeleteKxVolumeResponse$,
 ];
-export var GetEnvironment: StaticOperationSchema = [
+export var GetEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _GE,
   { [_h]: ["GET", "/environment/{environmentId}", 200] },
-  () => GetEnvironmentRequest,
-  () => GetEnvironmentResponse,
+  () => GetEnvironmentRequest$,
+  () => GetEnvironmentResponse$,
 ];
-export var GetKxChangeset: StaticOperationSchema = [
+export var GetKxChangeset$: StaticOperationSchema = [
   9,
   n0,
   _GKC,
   { [_h]: ["GET", "/kx/environments/{environmentId}/databases/{databaseName}/changesets/{changesetId}", 200] },
-  () => GetKxChangesetRequest,
-  () => GetKxChangesetResponse,
+  () => GetKxChangesetRequest$,
+  () => GetKxChangesetResponse$,
 ];
-export var GetKxCluster: StaticOperationSchema = [
+export var GetKxCluster$: StaticOperationSchema = [
   9,
   n0,
   _GKCe,
   { [_h]: ["GET", "/kx/environments/{environmentId}/clusters/{clusterName}", 200] },
-  () => GetKxClusterRequest,
-  () => GetKxClusterResponse,
+  () => GetKxClusterRequest$,
+  () => GetKxClusterResponse$,
 ];
-export var GetKxConnectionString: StaticOperationSchema = [
+export var GetKxConnectionString$: StaticOperationSchema = [
   9,
   n0,
   _GKCS,
   { [_h]: ["GET", "/kx/environments/{environmentId}/connectionString", 200] },
-  () => GetKxConnectionStringRequest,
-  () => GetKxConnectionStringResponse,
+  () => GetKxConnectionStringRequest$,
+  () => GetKxConnectionStringResponse$,
 ];
-export var GetKxDatabase: StaticOperationSchema = [
+export var GetKxDatabase$: StaticOperationSchema = [
   9,
   n0,
   _GKD,
   { [_h]: ["GET", "/kx/environments/{environmentId}/databases/{databaseName}", 200] },
-  () => GetKxDatabaseRequest,
-  () => GetKxDatabaseResponse,
+  () => GetKxDatabaseRequest$,
+  () => GetKxDatabaseResponse$,
 ];
-export var GetKxDataview: StaticOperationSchema = [
+export var GetKxDataview$: StaticOperationSchema = [
   9,
   n0,
   _GKDe,
   { [_h]: ["GET", "/kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}", 200] },
-  () => GetKxDataviewRequest,
-  () => GetKxDataviewResponse,
+  () => GetKxDataviewRequest$,
+  () => GetKxDataviewResponse$,
 ];
-export var GetKxEnvironment: StaticOperationSchema = [
+export var GetKxEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _GKE,
   { [_h]: ["GET", "/kx/environments/{environmentId}", 200] },
-  () => GetKxEnvironmentRequest,
-  () => GetKxEnvironmentResponse,
+  () => GetKxEnvironmentRequest$,
+  () => GetKxEnvironmentResponse$,
 ];
-export var GetKxScalingGroup: StaticOperationSchema = [
+export var GetKxScalingGroup$: StaticOperationSchema = [
   9,
   n0,
   _GKSG,
   { [_h]: ["GET", "/kx/environments/{environmentId}/scalingGroups/{scalingGroupName}", 200] },
-  () => GetKxScalingGroupRequest,
-  () => GetKxScalingGroupResponse,
+  () => GetKxScalingGroupRequest$,
+  () => GetKxScalingGroupResponse$,
 ];
-export var GetKxUser: StaticOperationSchema = [
+export var GetKxUser$: StaticOperationSchema = [
   9,
   n0,
   _GKU,
   { [_h]: ["GET", "/kx/environments/{environmentId}/users/{userName}", 200] },
-  () => GetKxUserRequest,
-  () => GetKxUserResponse,
+  () => GetKxUserRequest$,
+  () => GetKxUserResponse$,
 ];
-export var GetKxVolume: StaticOperationSchema = [
+export var GetKxVolume$: StaticOperationSchema = [
   9,
   n0,
   _GKV,
   { [_h]: ["GET", "/kx/environments/{environmentId}/kxvolumes/{volumeName}", 200] },
-  () => GetKxVolumeRequest,
-  () => GetKxVolumeResponse,
+  () => GetKxVolumeRequest$,
+  () => GetKxVolumeResponse$,
 ];
-export var ListEnvironments: StaticOperationSchema = [
+export var ListEnvironments$: StaticOperationSchema = [
   9,
   n0,
   _LE,
   { [_h]: ["GET", "/environment", 200] },
-  () => ListEnvironmentsRequest,
-  () => ListEnvironmentsResponse,
+  () => ListEnvironmentsRequest$,
+  () => ListEnvironmentsResponse$,
 ];
-export var ListKxChangesets: StaticOperationSchema = [
+export var ListKxChangesets$: StaticOperationSchema = [
   9,
   n0,
   _LKC,
   { [_h]: ["GET", "/kx/environments/{environmentId}/databases/{databaseName}/changesets", 200] },
-  () => ListKxChangesetsRequest,
-  () => ListKxChangesetsResponse,
+  () => ListKxChangesetsRequest$,
+  () => ListKxChangesetsResponse$,
 ];
-export var ListKxClusterNodes: StaticOperationSchema = [
+export var ListKxClusterNodes$: StaticOperationSchema = [
   9,
   n0,
   _LKCN,
   { [_h]: ["GET", "/kx/environments/{environmentId}/clusters/{clusterName}/nodes", 200] },
-  () => ListKxClusterNodesRequest,
-  () => ListKxClusterNodesResponse,
+  () => ListKxClusterNodesRequest$,
+  () => ListKxClusterNodesResponse$,
 ];
-export var ListKxClusters: StaticOperationSchema = [
+export var ListKxClusters$: StaticOperationSchema = [
   9,
   n0,
   _LKCi,
   { [_h]: ["GET", "/kx/environments/{environmentId}/clusters", 200] },
-  () => ListKxClustersRequest,
-  () => ListKxClustersResponse,
+  () => ListKxClustersRequest$,
+  () => ListKxClustersResponse$,
 ];
-export var ListKxDatabases: StaticOperationSchema = [
+export var ListKxDatabases$: StaticOperationSchema = [
   9,
   n0,
   _LKD,
   { [_h]: ["GET", "/kx/environments/{environmentId}/databases", 200] },
-  () => ListKxDatabasesRequest,
-  () => ListKxDatabasesResponse,
+  () => ListKxDatabasesRequest$,
+  () => ListKxDatabasesResponse$,
 ];
-export var ListKxDataviews: StaticOperationSchema = [
+export var ListKxDataviews$: StaticOperationSchema = [
   9,
   n0,
   _LKDi,
   { [_h]: ["GET", "/kx/environments/{environmentId}/databases/{databaseName}/dataviews", 200] },
-  () => ListKxDataviewsRequest,
-  () => ListKxDataviewsResponse,
+  () => ListKxDataviewsRequest$,
+  () => ListKxDataviewsResponse$,
 ];
-export var ListKxEnvironments: StaticOperationSchema = [
+export var ListKxEnvironments$: StaticOperationSchema = [
   9,
   n0,
   _LKE,
   { [_h]: ["GET", "/kx/environments", 200] },
-  () => ListKxEnvironmentsRequest,
-  () => ListKxEnvironmentsResponse,
+  () => ListKxEnvironmentsRequest$,
+  () => ListKxEnvironmentsResponse$,
 ];
-export var ListKxScalingGroups: StaticOperationSchema = [
+export var ListKxScalingGroups$: StaticOperationSchema = [
   9,
   n0,
   _LKSG,
   { [_h]: ["GET", "/kx/environments/{environmentId}/scalingGroups", 200] },
-  () => ListKxScalingGroupsRequest,
-  () => ListKxScalingGroupsResponse,
+  () => ListKxScalingGroupsRequest$,
+  () => ListKxScalingGroupsResponse$,
 ];
-export var ListKxUsers: StaticOperationSchema = [
+export var ListKxUsers$: StaticOperationSchema = [
   9,
   n0,
   _LKU,
   { [_h]: ["GET", "/kx/environments/{environmentId}/users", 200] },
-  () => ListKxUsersRequest,
-  () => ListKxUsersResponse,
+  () => ListKxUsersRequest$,
+  () => ListKxUsersResponse$,
 ];
-export var ListKxVolumes: StaticOperationSchema = [
+export var ListKxVolumes$: StaticOperationSchema = [
   9,
   n0,
   _LKV,
   { [_h]: ["GET", "/kx/environments/{environmentId}/kxvolumes", 200] },
-  () => ListKxVolumesRequest,
-  () => ListKxVolumesResponse,
+  () => ListKxVolumesRequest$,
+  () => ListKxVolumesResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateEnvironment: StaticOperationSchema = [
+export var UpdateEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _UE,
   { [_h]: ["PUT", "/environment/{environmentId}", 200] },
-  () => UpdateEnvironmentRequest,
-  () => UpdateEnvironmentResponse,
+  () => UpdateEnvironmentRequest$,
+  () => UpdateEnvironmentResponse$,
 ];
-export var UpdateKxClusterCodeConfiguration: StaticOperationSchema = [
+export var UpdateKxClusterCodeConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UKCCC,
   { [_h]: ["PUT", "/kx/environments/{environmentId}/clusters/{clusterName}/configuration/code", 200] },
-  () => UpdateKxClusterCodeConfigurationRequest,
-  () => UpdateKxClusterCodeConfigurationResponse,
+  () => UpdateKxClusterCodeConfigurationRequest$,
+  () => UpdateKxClusterCodeConfigurationResponse$,
 ];
-export var UpdateKxClusterDatabases: StaticOperationSchema = [
+export var UpdateKxClusterDatabases$: StaticOperationSchema = [
   9,
   n0,
   _UKCD,
   { [_h]: ["PUT", "/kx/environments/{environmentId}/clusters/{clusterName}/configuration/databases", 200] },
-  () => UpdateKxClusterDatabasesRequest,
-  () => UpdateKxClusterDatabasesResponse,
+  () => UpdateKxClusterDatabasesRequest$,
+  () => UpdateKxClusterDatabasesResponse$,
 ];
-export var UpdateKxDatabase: StaticOperationSchema = [
+export var UpdateKxDatabase$: StaticOperationSchema = [
   9,
   n0,
   _UKD,
   { [_h]: ["PUT", "/kx/environments/{environmentId}/databases/{databaseName}", 200] },
-  () => UpdateKxDatabaseRequest,
-  () => UpdateKxDatabaseResponse,
+  () => UpdateKxDatabaseRequest$,
+  () => UpdateKxDatabaseResponse$,
 ];
-export var UpdateKxDataview: StaticOperationSchema = [
+export var UpdateKxDataview$: StaticOperationSchema = [
   9,
   n0,
   _UKDp,
   { [_h]: ["PUT", "/kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}", 200] },
-  () => UpdateKxDataviewRequest,
-  () => UpdateKxDataviewResponse,
+  () => UpdateKxDataviewRequest$,
+  () => UpdateKxDataviewResponse$,
 ];
-export var UpdateKxEnvironment: StaticOperationSchema = [
+export var UpdateKxEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _UKE,
   { [_h]: ["PUT", "/kx/environments/{environmentId}", 200] },
-  () => UpdateKxEnvironmentRequest,
-  () => UpdateKxEnvironmentResponse,
+  () => UpdateKxEnvironmentRequest$,
+  () => UpdateKxEnvironmentResponse$,
 ];
-export var UpdateKxEnvironmentNetwork: StaticOperationSchema = [
+export var UpdateKxEnvironmentNetwork$: StaticOperationSchema = [
   9,
   n0,
   _UKEN,
   { [_h]: ["PUT", "/kx/environments/{environmentId}/network", 200] },
-  () => UpdateKxEnvironmentNetworkRequest,
-  () => UpdateKxEnvironmentNetworkResponse,
+  () => UpdateKxEnvironmentNetworkRequest$,
+  () => UpdateKxEnvironmentNetworkResponse$,
 ];
-export var UpdateKxUser: StaticOperationSchema = [
+export var UpdateKxUser$: StaticOperationSchema = [
   9,
   n0,
   _UKU,
   { [_h]: ["PUT", "/kx/environments/{environmentId}/users/{userName}", 200] },
-  () => UpdateKxUserRequest,
-  () => UpdateKxUserResponse,
+  () => UpdateKxUserRequest$,
+  () => UpdateKxUserResponse$,
 ];
-export var UpdateKxVolume: StaticOperationSchema = [
+export var UpdateKxVolume$: StaticOperationSchema = [
   9,
   n0,
   _UKV,
   { [_h]: ["PATCH", "/kx/environments/{environmentId}/kxvolumes/{volumeName}", 200] },
-  () => UpdateKxVolumeRequest,
-  () => UpdateKxVolumeResponse,
+  () => UpdateKxVolumeRequest$,
+  () => UpdateKxVolumeResponse$,
 ];

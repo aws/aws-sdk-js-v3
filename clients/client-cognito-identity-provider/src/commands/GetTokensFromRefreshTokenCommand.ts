@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetTokensFromRefreshTokenRequest, GetTokensFromRefreshTokenResponse } from "../models/models_0";
-import { GetTokensFromRefreshToken } from "../schemas/schemas_0";
+import { GetTokensFromRefreshToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -137,7 +137,7 @@ export class GetTokensFromRefreshTokenCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "GetTokensFromRefreshToken", {})
   .n("CognitoIdentityProviderClient", "GetTokensFromRefreshTokenCommand")
-  .sc(GetTokensFromRefreshToken)
+  .sc(GetTokensFromRefreshToken$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

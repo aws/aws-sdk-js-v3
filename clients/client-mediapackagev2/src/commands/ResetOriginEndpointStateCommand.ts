@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageV2Client";
 import type { ResetOriginEndpointStateRequest, ResetOriginEndpointStateResponse } from "../models/models_0";
-import { ResetOriginEndpointState } from "../schemas/schemas_0";
+import { ResetOriginEndpointState$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class ResetOriginEndpointStateCommand extends $Command
   })
   .s("mediapackagev2", "ResetOriginEndpointState", {})
   .n("MediaPackageV2Client", "ResetOriginEndpointStateCommand")
-  .sc(ResetOriginEndpointState)
+  .sc(ResetOriginEndpointState$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

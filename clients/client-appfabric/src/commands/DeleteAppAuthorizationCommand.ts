@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAppAuthorizationRequest, DeleteAppAuthorizationResponse } from "../models/models_0";
-import { DeleteAppAuthorization } from "../schemas/schemas_0";
+import { DeleteAppAuthorization$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeleteAppAuthorizationCommand extends $Command
   })
   .s("FabricFrontEndService", "DeleteAppAuthorization", {})
   .n("AppFabricClient", "DeleteAppAuthorizationCommand")
-  .sc(DeleteAppAuthorization)
+  .sc(DeleteAppAuthorization$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

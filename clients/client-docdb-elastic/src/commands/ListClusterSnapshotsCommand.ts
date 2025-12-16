@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListClusterSnapshotsInput, ListClusterSnapshotsOutput } from "../models/models_0";
-import { ListClusterSnapshots } from "../schemas/schemas_0";
+import { ListClusterSnapshots$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class ListClusterSnapshotsCommand extends $Command
   })
   .s("ChimeraDbLionfishServiceLambda", "ListClusterSnapshots", {})
   .n("DocDBElasticClient", "ListClusterSnapshotsCommand")
-  .sc(ListClusterSnapshots)
+  .sc(ListClusterSnapshots$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

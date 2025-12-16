@@ -10,7 +10,7 @@ import type {
   ListAccessPointsForDirectoryBucketsResult,
 } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { ListAccessPointsForDirectoryBuckets } from "../schemas/schemas_0";
+import { ListAccessPointsForDirectoryBuckets$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class ListAccessPointsForDirectoryBucketsCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "ListAccessPointsForDirectoryBuckets", {})
   .n("S3ControlClient", "ListAccessPointsForDirectoryBucketsCommand")
-  .sc(ListAccessPointsForDirectoryBuckets)
+  .sc(ListAccessPointsForDirectoryBuckets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

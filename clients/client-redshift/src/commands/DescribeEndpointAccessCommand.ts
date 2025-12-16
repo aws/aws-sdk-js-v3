@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeEndpointAccessMessage, EndpointAccessList } from "../models/models_0";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeEndpointAccess } from "../schemas/schemas_0";
+import { DescribeEndpointAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class DescribeEndpointAccessCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "DescribeEndpointAccess", {})
   .n("RedshiftClient", "DescribeEndpointAccessCommand")
-  .sc(DescribeEndpointAccess)
+  .sc(DescribeEndpointAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

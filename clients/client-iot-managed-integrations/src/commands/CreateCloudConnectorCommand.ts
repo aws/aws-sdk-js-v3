@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { CreateCloudConnectorRequest, CreateCloudConnectorResponse } from "../models/models_0";
-import { CreateCloudConnector } from "../schemas/schemas_0";
+import { CreateCloudConnector$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -164,7 +164,7 @@ export class CreateCloudConnectorCommand extends $Command
   })
   .s("IotManagedIntegrations", "CreateCloudConnector", {})
   .n("IoTManagedIntegrationsClient", "CreateCloudConnectorCommand")
-  .sc(CreateCloudConnector)
+  .sc(CreateCloudConnector$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

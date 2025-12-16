@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { RemoveRoleFromInstanceProfileRequest } from "../models/models_0";
-import { RemoveRoleFromInstanceProfile } from "../schemas/schemas_0";
+import { RemoveRoleFromInstanceProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class RemoveRoleFromInstanceProfileCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "RemoveRoleFromInstanceProfile", {})
   .n("IAMClient", "RemoveRoleFromInstanceProfileCommand")
-  .sc(RemoveRoleFromInstanceProfile)
+  .sc(RemoveRoleFromInstanceProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

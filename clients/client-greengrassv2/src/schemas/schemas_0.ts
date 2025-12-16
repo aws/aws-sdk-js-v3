@@ -340,22 +340,22 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  RequestAlreadyInProgressException as __RequestAlreadyInProgressException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  RequestAlreadyInProgressException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { GreengrassV2ServiceException as __GreengrassV2ServiceException } from "../models/GreengrassV2ServiceException";
+import { GreengrassV2ServiceException } from "../models/GreengrassV2ServiceException";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AssociateClientDeviceWithCoreDeviceEntry: StaticStructureSchema = [3, n0, _ACDWCDE, 0, [_tN], [0]];
-export var AssociateClientDeviceWithCoreDeviceErrorEntry: StaticStructureSchema = [
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AssociateClientDeviceWithCoreDeviceEntry$: StaticStructureSchema = [3, n0, _ACDWCDE, 0, [_tN], [0]];
+export var AssociateClientDeviceWithCoreDeviceErrorEntry$: StaticStructureSchema = [
   3,
   n0,
   _ACDWCDEE,
@@ -363,8 +363,8 @@ export var AssociateClientDeviceWithCoreDeviceErrorEntry: StaticStructureSchema 
   [_tN, _co, _m],
   [0, 0, 0],
 ];
-export var AssociatedClientDevice: StaticStructureSchema = [3, n0, _ACD, 0, [_tN, _aT], [0, 4]];
-export var AssociateServiceRoleToAccountRequest: StaticStructureSchema = [
+export var AssociatedClientDevice$: StaticStructureSchema = [3, n0, _ACD, 0, [_tN, _aT], [0, 4]];
+export var AssociateServiceRoleToAccountRequest$: StaticStructureSchema = [
   3,
   n0,
   _ASRTAR,
@@ -372,7 +372,7 @@ export var AssociateServiceRoleToAccountRequest: StaticStructureSchema = [
   [_rA],
   [[0, { [_jN]: _RA }]],
 ];
-export var AssociateServiceRoleToAccountResponse: StaticStructureSchema = [
+export var AssociateServiceRoleToAccountResponse$: StaticStructureSchema = [
   3,
   n0,
   _ASRTARs,
@@ -380,7 +380,7 @@ export var AssociateServiceRoleToAccountResponse: StaticStructureSchema = [
   [_aA],
   [[0, { [_jN]: _AA }]],
 ];
-export var BatchAssociateClientDeviceWithCoreDeviceRequest: StaticStructureSchema = [
+export var BatchAssociateClientDeviceWithCoreDeviceRequest$: StaticStructureSchema = [
   3,
   n0,
   _BACDWCDR,
@@ -388,7 +388,7 @@ export var BatchAssociateClientDeviceWithCoreDeviceRequest: StaticStructureSchem
   [_en, _cDTN],
   [() => AssociateClientDeviceWithCoreDeviceEntryList, [0, 1]],
 ];
-export var BatchAssociateClientDeviceWithCoreDeviceResponse: StaticStructureSchema = [
+export var BatchAssociateClientDeviceWithCoreDeviceResponse$: StaticStructureSchema = [
   3,
   n0,
   _BACDWCDRa,
@@ -396,7 +396,7 @@ export var BatchAssociateClientDeviceWithCoreDeviceResponse: StaticStructureSche
   [_eE],
   [() => AssociateClientDeviceWithCoreDeviceErrorList],
 ];
-export var BatchDisassociateClientDeviceFromCoreDeviceRequest: StaticStructureSchema = [
+export var BatchDisassociateClientDeviceFromCoreDeviceRequest$: StaticStructureSchema = [
   3,
   n0,
   _BDCDFCDR,
@@ -404,7 +404,7 @@ export var BatchDisassociateClientDeviceFromCoreDeviceRequest: StaticStructureSc
   [_en, _cDTN],
   [() => DisassociateClientDeviceFromCoreDeviceEntryList, [0, 1]],
 ];
-export var BatchDisassociateClientDeviceFromCoreDeviceResponse: StaticStructureSchema = [
+export var BatchDisassociateClientDeviceFromCoreDeviceResponse$: StaticStructureSchema = [
   3,
   n0,
   _BDCDFCDRa,
@@ -412,9 +412,9 @@ export var BatchDisassociateClientDeviceFromCoreDeviceResponse: StaticStructureS
   [_eE],
   [() => DisassociateClientDeviceFromCoreDeviceErrorList],
 ];
-export var CancelDeploymentRequest: StaticStructureSchema = [3, n0, _CDR, 0, [_dI], [[0, 1]]];
-export var CancelDeploymentResponse: StaticStructureSchema = [3, n0, _CDRa, 0, [_m], [0]];
-export var CloudComponentStatus: StaticStructureSchema = [
+export var CancelDeploymentRequest$: StaticStructureSchema = [3, n0, _CDR, 0, [_dI], [[0, 1]]];
+export var CancelDeploymentResponse$: StaticStructureSchema = [3, n0, _CDRa, 0, [_m], [0]];
+export var CloudComponentStatus$: StaticStructureSchema = [
   3,
   n0,
   _CCS,
@@ -422,19 +422,19 @@ export var CloudComponentStatus: StaticStructureSchema = [
   [_cS, _m, _er, _vG, _vGM],
   [0, 0, 128 | 0, 0, 0],
 ];
-export var Component: StaticStructureSchema = [3, n0, _C, 0, [_a, _cN, _lV], [0, 0, () => ComponentLatestVersion]];
-export var ComponentCandidate: StaticStructureSchema = [3, n0, _CC, 0, [_cN, _cV, _vR], [0, 0, 128 | 0]];
-export var ComponentConfigurationUpdate: StaticStructureSchema = [3, n0, _CCU, 0, [_me, _r], [0, 64 | 0]];
-export var ComponentDependencyRequirement: StaticStructureSchema = [3, n0, _CDRo, 0, [_vRe, _dT], [0, 0]];
-export var ComponentDeploymentSpecification: StaticStructureSchema = [
+export var Component$: StaticStructureSchema = [3, n0, _C, 0, [_a, _cN, _lV], [0, 0, () => ComponentLatestVersion$]];
+export var ComponentCandidate$: StaticStructureSchema = [3, n0, _CC, 0, [_cN, _cV, _vR], [0, 0, 128 | 0]];
+export var ComponentConfigurationUpdate$: StaticStructureSchema = [3, n0, _CCU, 0, [_me, _r], [0, 64 | 0]];
+export var ComponentDependencyRequirement$: StaticStructureSchema = [3, n0, _CDRo, 0, [_vRe, _dT], [0, 0]];
+export var ComponentDeploymentSpecification$: StaticStructureSchema = [
   3,
   n0,
   _CDS,
   0,
   [_cV, _cU, _rW],
-  [0, () => ComponentConfigurationUpdate, () => ComponentRunWith],
+  [0, () => ComponentConfigurationUpdate$, () => ComponentRunWith$],
 ];
-export var ComponentLatestVersion: StaticStructureSchema = [
+export var ComponentLatestVersion$: StaticStructureSchema = [
   3,
   n0,
   _CLV,
@@ -442,19 +442,19 @@ export var ComponentLatestVersion: StaticStructureSchema = [
   [_a, _cV, _cT, _d, _p, _pl],
   [0, 0, 4, 0, 0, () => ComponentPlatformList],
 ];
-export var ComponentPlatform: StaticStructureSchema = [3, n0, _CP, 0, [_n, _at], [0, 128 | 0]];
-export var ComponentRunWith: StaticStructureSchema = [
+export var ComponentPlatform$: StaticStructureSchema = [3, n0, _CP, 0, [_n, _at], [0, 128 | 0]];
+export var ComponentRunWith$: StaticStructureSchema = [
   3,
   n0,
   _CRW,
   0,
   [_pU, _sRL, _wU],
-  [0, () => SystemResourceLimits, 0],
+  [0, () => SystemResourceLimits$, 0],
 ];
-export var ComponentVersionListItem: StaticStructureSchema = [3, n0, _CVLI, 0, [_cN, _cV, _a], [0, 0, 0]];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var ConnectivityInfo: StaticStructureSchema = [
+export var ComponentVersionListItem$: StaticStructureSchema = [3, n0, _CVLI, 0, [_cN, _cV, _a], [0, 0, 0]];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var ConnectivityInfo$: StaticStructureSchema = [
   3,
   n0,
   _CI,
@@ -467,24 +467,24 @@ export var ConnectivityInfo: StaticStructureSchema = [
     [0, { [_jN]: _M }],
   ],
 ];
-export var CoreDevice: StaticStructureSchema = [3, n0, _CD, 0, [_cDTN, _s, _lSUT, _pla, _ar, _ru], [0, 0, 4, 0, 0, 0]];
-export var CreateComponentVersionRequest: StaticStructureSchema = [
+export var CoreDevice$: StaticStructureSchema = [3, n0, _CD, 0, [_cDTN, _s, _lSUT, _pla, _ar, _ru], [0, 0, 4, 0, 0, 0]];
+export var CreateComponentVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCVR,
   0,
   [_iR, _lF, _t, _cTl],
-  [21, () => LambdaFunctionRecipeSource, 128 | 0, [0, 4]],
+  [21, () => LambdaFunctionRecipeSource$, 128 | 0, [0, 4]],
 ];
-export var CreateComponentVersionResponse: StaticStructureSchema = [
+export var CreateComponentVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CCVRr,
   0,
   [_a, _cN, _cV, _cT, _s],
-  [0, 0, 0, 4, () => CloudComponentStatus],
+  [0, 0, 0, 4, () => CloudComponentStatus$],
 ];
-export var CreateDeploymentRequest: StaticStructureSchema = [
+export var CreateDeploymentRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDRr,
@@ -494,18 +494,18 @@ export var CreateDeploymentRequest: StaticStructureSchema = [
     0,
     0,
     () => ComponentDeploymentSpecifications,
-    () => DeploymentIoTJobConfiguration,
-    () => DeploymentPolicies,
+    () => DeploymentIoTJobConfiguration$,
+    () => DeploymentPolicies$,
     0,
     128 | 0,
     [0, 4],
   ],
 ];
-export var CreateDeploymentResponse: StaticStructureSchema = [3, n0, _CDRre, 0, [_dI, _iJI, _iJA], [0, 0, 0]];
-export var DeleteComponentRequest: StaticStructureSchema = [3, n0, _DCR, 0, [_a], [[0, 1]]];
-export var DeleteCoreDeviceRequest: StaticStructureSchema = [3, n0, _DCDR, 0, [_cDTN], [[0, 1]]];
-export var DeleteDeploymentRequest: StaticStructureSchema = [3, n0, _DDR, 0, [_dI], [[0, 1]]];
-export var Deployment: StaticStructureSchema = [
+export var CreateDeploymentResponse$: StaticStructureSchema = [3, n0, _CDRre, 0, [_dI, _iJI, _iJA], [0, 0, 0]];
+export var DeleteComponentRequest$: StaticStructureSchema = [3, n0, _DCR, 0, [_a], [[0, 1]]];
+export var DeleteCoreDeviceRequest$: StaticStructureSchema = [3, n0, _DCDR, 0, [_cDTN], [[0, 1]]];
+export var DeleteDeploymentRequest$: StaticStructureSchema = [3, n0, _DDR, 0, [_dI], [[0, 1]]];
+export var Deployment$: StaticStructureSchema = [
   3,
   n0,
   _D,
@@ -513,35 +513,35 @@ export var Deployment: StaticStructureSchema = [
   [_tA, _rIe, _dI, _dN, _cT, _dS, _iLFT, _pTA],
   [0, 0, 0, 0, 4, 0, 2, 0],
 ];
-export var DeploymentComponentUpdatePolicy: StaticStructureSchema = [3, n0, _DCUP, 0, [_tIS, _ac], [1, 0]];
-export var DeploymentConfigurationValidationPolicy: StaticStructureSchema = [3, n0, _DCVP, 0, [_tIS], [1]];
-export var DeploymentIoTJobConfiguration: StaticStructureSchema = [
+export var DeploymentComponentUpdatePolicy$: StaticStructureSchema = [3, n0, _DCUP, 0, [_tIS, _ac], [1, 0]];
+export var DeploymentConfigurationValidationPolicy$: StaticStructureSchema = [3, n0, _DCVP, 0, [_tIS], [1]];
+export var DeploymentIoTJobConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DITJC,
   0,
   [_jERC, _aC, _tC],
-  [() => IoTJobExecutionsRolloutConfig, () => IoTJobAbortConfig, () => IoTJobTimeoutConfig],
+  [() => IoTJobExecutionsRolloutConfig$, () => IoTJobAbortConfig$, () => IoTJobTimeoutConfig$],
 ];
-export var DeploymentPolicies: StaticStructureSchema = [
+export var DeploymentPolicies$: StaticStructureSchema = [
   3,
   n0,
   _DP,
   0,
   [_fHP, _cUP, _cVP],
-  [0, () => DeploymentComponentUpdatePolicy, () => DeploymentConfigurationValidationPolicy],
+  [0, () => DeploymentComponentUpdatePolicy$, () => DeploymentConfigurationValidationPolicy$],
 ];
-export var DescribeComponentRequest: StaticStructureSchema = [3, n0, _DCRe, 0, [_a], [[0, 1]]];
-export var DescribeComponentResponse: StaticStructureSchema = [
+export var DescribeComponentRequest$: StaticStructureSchema = [3, n0, _DCRe, 0, [_a], [[0, 1]]];
+export var DescribeComponentResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCRes,
   0,
   [_a, _cN, _cV, _cT, _p, _d, _s, _pl, _t],
-  [0, 0, 0, 4, 0, 0, () => CloudComponentStatus, () => ComponentPlatformList, 128 | 0],
+  [0, 0, 0, 4, 0, 0, () => CloudComponentStatus$, () => ComponentPlatformList, 128 | 0],
 ];
-export var DisassociateClientDeviceFromCoreDeviceEntry: StaticStructureSchema = [3, n0, _DCDFCDE, 0, [_tN], [0]];
-export var DisassociateClientDeviceFromCoreDeviceErrorEntry: StaticStructureSchema = [
+export var DisassociateClientDeviceFromCoreDeviceEntry$: StaticStructureSchema = [3, n0, _DCDFCDE, 0, [_tN], [0]];
+export var DisassociateClientDeviceFromCoreDeviceErrorEntry$: StaticStructureSchema = [
   3,
   n0,
   _DCDFCDEE,
@@ -549,8 +549,8 @@ export var DisassociateClientDeviceFromCoreDeviceErrorEntry: StaticStructureSche
   [_tN, _co, _m],
   [0, 0, 0],
 ];
-export var DisassociateServiceRoleFromAccountRequest: StaticStructureSchema = [3, n0, _DSRFAR, 0, [], []];
-export var DisassociateServiceRoleFromAccountResponse: StaticStructureSchema = [
+export var DisassociateServiceRoleFromAccountRequest$: StaticStructureSchema = [3, n0, _DSRFAR, 0, [], []];
+export var DisassociateServiceRoleFromAccountResponse$: StaticStructureSchema = [
   3,
   n0,
   _DSRFARi,
@@ -558,16 +558,16 @@ export var DisassociateServiceRoleFromAccountResponse: StaticStructureSchema = [
   [_dA],
   [[0, { [_jN]: _DA }]],
 ];
-export var EffectiveDeployment: StaticStructureSchema = [
+export var EffectiveDeployment$: StaticStructureSchema = [
   3,
   n0,
   _ED,
   0,
   [_dI, _dN, _iJI, _iJA, _d, _tA, _cDES, _re, _cT, _mT, _sD],
-  [0, 0, 0, 0, 0, 0, 0, 0, 4, 4, () => EffectiveDeploymentStatusDetails],
+  [0, 0, 0, 0, 0, 0, 0, 0, 4, 4, () => EffectiveDeploymentStatusDetails$],
 ];
-export var EffectiveDeploymentStatusDetails: StaticStructureSchema = [3, n0, _EDSD, 0, [_eS, _eT], [64 | 0, 64 | 0]];
-export var GetComponentRequest: StaticStructureSchema = [
+export var EffectiveDeploymentStatusDetails$: StaticStructureSchema = [3, n0, _EDSD, 0, [_eS, _eT], [64 | 0, 64 | 0]];
+export var GetComponentRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCR,
@@ -578,8 +578,8 @@ export var GetComponentRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetComponentResponse: StaticStructureSchema = [3, n0, _GCRe, 0, [_rOF, _rec, _t], [0, 21, 128 | 0]];
-export var GetComponentVersionArtifactRequest: StaticStructureSchema = [
+export var GetComponentResponse$: StaticStructureSchema = [3, n0, _GCRe, 0, [_rOF, _rec, _t], [0, 21, 128 | 0]];
+export var GetComponentVersionArtifactRequest$: StaticStructureSchema = [
   3,
   n0,
   _GCVAR,
@@ -592,9 +592,9 @@ export var GetComponentVersionArtifactRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaiet }],
   ],
 ];
-export var GetComponentVersionArtifactResponse: StaticStructureSchema = [3, n0, _GCVARe, 0, [_pSU], [0]];
-export var GetConnectivityInfoRequest: StaticStructureSchema = [3, n0, _GCIR, 0, [_tN], [[0, 1]]];
-export var GetConnectivityInfoResponse: StaticStructureSchema = [
+export var GetComponentVersionArtifactResponse$: StaticStructureSchema = [3, n0, _GCVARe, 0, [_pSU], [0]];
+export var GetConnectivityInfoRequest$: StaticStructureSchema = [3, n0, _GCIR, 0, [_tN], [[0, 1]]];
+export var GetConnectivityInfoResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCIRe,
@@ -605,8 +605,8 @@ export var GetConnectivityInfoResponse: StaticStructureSchema = [
     [0, { [_jN]: _Me }],
   ],
 ];
-export var GetCoreDeviceRequest: StaticStructureSchema = [3, n0, _GCDR, 0, [_cDTN], [[0, 1]]];
-export var GetCoreDeviceResponse: StaticStructureSchema = [
+export var GetCoreDeviceRequest$: StaticStructureSchema = [3, n0, _GCDR, 0, [_cDTN], [[0, 1]]];
+export var GetCoreDeviceResponse$: StaticStructureSchema = [
   3,
   n0,
   _GCDRe,
@@ -614,8 +614,8 @@ export var GetCoreDeviceResponse: StaticStructureSchema = [
   [_cDTN, _cVo, _pla, _ar, _ru, _s, _lSUT, _t],
   [0, 0, 0, 0, 0, 0, 4, 128 | 0],
 ];
-export var GetDeploymentRequest: StaticStructureSchema = [3, n0, _GDR, 0, [_dI], [[0, 1]]];
-export var GetDeploymentResponse: StaticStructureSchema = [
+export var GetDeploymentRequest$: StaticStructureSchema = [3, n0, _GDR, 0, [_dI], [[0, 1]]];
+export var GetDeploymentResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDRe,
@@ -630,16 +630,16 @@ export var GetDeploymentResponse: StaticStructureSchema = [
     0,
     0,
     () => ComponentDeploymentSpecifications,
-    () => DeploymentPolicies,
-    () => DeploymentIoTJobConfiguration,
+    () => DeploymentPolicies$,
+    () => DeploymentIoTJobConfiguration$,
     4,
     2,
     0,
     128 | 0,
   ],
 ];
-export var GetServiceRoleForAccountRequest: StaticStructureSchema = [3, n0, _GSRFAR, 0, [], []];
-export var GetServiceRoleForAccountResponse: StaticStructureSchema = [
+export var GetServiceRoleForAccountRequest$: StaticStructureSchema = [3, n0, _GSRFAR, 0, [], []];
+export var GetServiceRoleForAccountResponse$: StaticStructureSchema = [
   3,
   n0,
   _GSRFARe,
@@ -650,7 +650,7 @@ export var GetServiceRoleForAccountResponse: StaticStructureSchema = [
     [0, { [_jN]: _RA }],
   ],
 ];
-export var InstalledComponent: StaticStructureSchema = [
+export var InstalledComponent$: StaticStructureSchema = [
   3,
   n0,
   _IC,
@@ -658,7 +658,7 @@ export var InstalledComponent: StaticStructureSchema = [
   [_cN, _cV, _lS, _lSD, _iRs, _lSCT, _lRT, _lIS, _lSC],
   [0, 0, 0, 0, 2, 4, 4, 0, 64 | 0],
 ];
-export var InternalServerException: StaticErrorSchema = [
+export var InternalServerException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
@@ -666,28 +666,28 @@ export var InternalServerException: StaticErrorSchema = [
   [_m, _rAS],
   [0, [1, { [_hH]: _RA_ }]],
 ];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var IoTJobAbortConfig: StaticStructureSchema = [3, n0, _ITJAC, 0, [_cL], [() => IoTJobAbortCriteriaList]];
-export var IoTJobAbortCriteria: StaticStructureSchema = [3, n0, _ITJACo, 0, [_fT, _ac, _tP, _mNOET], [0, 0, 1, 1]];
-export var IoTJobExecutionsRolloutConfig: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var IoTJobAbortConfig$: StaticStructureSchema = [3, n0, _ITJAC, 0, [_cL], [() => IoTJobAbortCriteriaList]];
+export var IoTJobAbortCriteria$: StaticStructureSchema = [3, n0, _ITJACo, 0, [_fT, _ac, _tP, _mNOET], [0, 0, 1, 1]];
+export var IoTJobExecutionsRolloutConfig$: StaticStructureSchema = [
   3,
   n0,
   _ITJERC,
   0,
   [_eR, _mPM],
-  [() => IoTJobExponentialRolloutRate, 1],
+  [() => IoTJobExponentialRolloutRate$, 1],
 ];
-export var IoTJobExponentialRolloutRate: StaticStructureSchema = [
+export var IoTJobExponentialRolloutRate$: StaticStructureSchema = [
   3,
   n0,
   _ITJERR,
   0,
   [_bRPM, _iF, _rIC],
-  [1, 1, () => IoTJobRateIncreaseCriteria],
+  [1, 1, () => IoTJobRateIncreaseCriteria$],
 ];
-export var IoTJobRateIncreaseCriteria: StaticStructureSchema = [3, n0, _ITJRIC, 0, [_nONT, _nOST], [1, 1]];
-export var IoTJobTimeoutConfig: StaticStructureSchema = [3, n0, _ITJTC, 0, [_iPTIM], [1]];
-export var LambdaContainerParams: StaticStructureSchema = [
+export var IoTJobRateIncreaseCriteria$: StaticStructureSchema = [3, n0, _ITJRIC, 0, [_nONT, _nOST], [1, 1]];
+export var IoTJobTimeoutConfig$: StaticStructureSchema = [3, n0, _ITJTC, 0, [_iPTIM], [1]];
+export var LambdaContainerParams$: StaticStructureSchema = [
   3,
   n0,
   _LCP,
@@ -695,34 +695,34 @@ export var LambdaContainerParams: StaticStructureSchema = [
   [_mSIKB, _mROS, _v, _de],
   [1, 2, () => LambdaVolumeList, () => LambdaDeviceList],
 ];
-export var LambdaDeviceMount: StaticStructureSchema = [3, n0, _LDM, 0, [_pa, _pe, _aGO], [0, 0, 2]];
-export var LambdaEventSource: StaticStructureSchema = [3, n0, _LES, 0, [_to, _ty], [0, 0]];
-export var LambdaExecutionParameters: StaticStructureSchema = [
+export var LambdaDeviceMount$: StaticStructureSchema = [3, n0, _LDM, 0, [_pa, _pe, _aGO], [0, 0, 2]];
+export var LambdaEventSource$: StaticStructureSchema = [3, n0, _LES, 0, [_to, _ty], [0, 0]];
+export var LambdaExecutionParameters$: StaticStructureSchema = [
   3,
   n0,
   _LEP,
   0,
   [_eSv, _mQS, _mIC, _mITIS, _tIS, _sTIS, _pi, _iPET, _eA, _eV, _lPP],
-  [() => LambdaEventSourceList, 1, 1, 1, 1, 1, 2, 0, 64 | 0, 128 | 0, () => LambdaLinuxProcessParams],
+  [() => LambdaEventSourceList, 1, 1, 1, 1, 1, 2, 0, 64 | 0, 128 | 0, () => LambdaLinuxProcessParams$],
 ];
-export var LambdaFunctionRecipeSource: StaticStructureSchema = [
+export var LambdaFunctionRecipeSource$: StaticStructureSchema = [
   3,
   n0,
   _LFRS,
   0,
   [_lA, _cN, _cV, _cP, _cD, _cLP],
-  [0, 0, 0, () => ComponentPlatformList, () => ComponentDependencyMap, () => LambdaExecutionParameters],
+  [0, 0, 0, () => ComponentPlatformList, () => ComponentDependencyMap, () => LambdaExecutionParameters$],
 ];
-export var LambdaLinuxProcessParams: StaticStructureSchema = [
+export var LambdaLinuxProcessParams$: StaticStructureSchema = [
   3,
   n0,
   _LLPP,
   0,
   [_iM, _cPo],
-  [0, () => LambdaContainerParams],
+  [0, () => LambdaContainerParams$],
 ];
-export var LambdaVolumeMount: StaticStructureSchema = [3, n0, _LVM, 0, [_sP, _dPe, _pe, _aGO], [0, 0, 0, 2]];
-export var ListClientDevicesAssociatedWithCoreDeviceRequest: StaticStructureSchema = [
+export var LambdaVolumeMount$: StaticStructureSchema = [3, n0, _LVM, 0, [_sP, _dPe, _pe, _aGO], [0, 0, 0, 2]];
+export var ListClientDevicesAssociatedWithCoreDeviceRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCDAWCDR,
@@ -734,7 +734,7 @@ export var ListClientDevicesAssociatedWithCoreDeviceRequest: StaticStructureSche
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListClientDevicesAssociatedWithCoreDeviceResponse: StaticStructureSchema = [
+export var ListClientDevicesAssociatedWithCoreDeviceResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCDAWCDRi,
@@ -742,7 +742,7 @@ export var ListClientDevicesAssociatedWithCoreDeviceResponse: StaticStructureSch
   [_aCD, _nT],
   [() => AssociatedClientDeviceList, 0],
 ];
-export var ListComponentsRequest: StaticStructureSchema = [
+export var ListComponentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCR,
@@ -754,8 +754,8 @@ export var ListComponentsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListComponentsResponse: StaticStructureSchema = [3, n0, _LCRi, 0, [_com, _nT], [() => ComponentList, 0]];
-export var ListComponentVersionsRequest: StaticStructureSchema = [
+export var ListComponentsResponse$: StaticStructureSchema = [3, n0, _LCRi, 0, [_com, _nT], [() => ComponentList, 0]];
+export var ListComponentVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCVR,
@@ -767,7 +767,7 @@ export var ListComponentVersionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListComponentVersionsResponse: StaticStructureSchema = [
+export var ListComponentVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCVRi,
@@ -775,7 +775,7 @@ export var ListComponentVersionsResponse: StaticStructureSchema = [
   [_cVom, _nT],
   [() => ComponentVersionList, 0],
 ];
-export var ListCoreDevicesRequest: StaticStructureSchema = [
+export var ListCoreDevicesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCDR,
@@ -789,8 +789,15 @@ export var ListCoreDevicesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _ru }],
   ],
 ];
-export var ListCoreDevicesResponse: StaticStructureSchema = [3, n0, _LCDRi, 0, [_cDo, _nT], [() => CoreDevicesList, 0]];
-export var ListDeploymentsRequest: StaticStructureSchema = [
+export var ListCoreDevicesResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _LCDRi,
+  0,
+  [_cDo, _nT],
+  [() => CoreDevicesList, 0],
+];
+export var ListDeploymentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDR,
@@ -804,8 +811,8 @@ export var ListDeploymentsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListDeploymentsResponse: StaticStructureSchema = [3, n0, _LDRi, 0, [_dep, _nT], [() => DeploymentList, 0]];
-export var ListEffectiveDeploymentsRequest: StaticStructureSchema = [
+export var ListDeploymentsResponse$: StaticStructureSchema = [3, n0, _LDRi, 0, [_dep, _nT], [() => DeploymentList, 0]];
+export var ListEffectiveDeploymentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LEDR,
@@ -817,7 +824,7 @@ export var ListEffectiveDeploymentsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListEffectiveDeploymentsResponse: StaticStructureSchema = [
+export var ListEffectiveDeploymentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LEDRi,
@@ -825,7 +832,7 @@ export var ListEffectiveDeploymentsResponse: StaticStructureSchema = [
   [_eD, _nT],
   [() => EffectiveDeploymentsList, 0],
 ];
-export var ListInstalledComponentsRequest: StaticStructureSchema = [
+export var ListInstalledComponentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LICR,
@@ -838,7 +845,7 @@ export var ListInstalledComponentsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _tF }],
   ],
 ];
-export var ListInstalledComponentsResponse: StaticStructureSchema = [
+export var ListInstalledComponentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LICRi,
@@ -846,19 +853,26 @@ export var ListInstalledComponentsResponse: StaticStructureSchema = [
   [_iC, _nT],
   [() => InstalledComponentList, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rAe], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
-export var RequestAlreadyInProgressException: StaticErrorSchema = [-3, n0, _RAIPE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(RequestAlreadyInProgressException, __RequestAlreadyInProgressException);
-export var ResolveComponentCandidatesRequest: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rAe], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
+export var RequestAlreadyInProgressException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _RAIPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0],
+];
+TypeRegistry.for(n0).registerError(RequestAlreadyInProgressException$, RequestAlreadyInProgressException);
+export var ResolveComponentCandidatesRequest$: StaticStructureSchema = [
   3,
   n0,
   _RCCR,
   0,
   [_pla, _cC],
-  [() => ComponentPlatform, () => ComponentCandidateList],
+  [() => ComponentPlatform$, () => ComponentCandidateList],
 ];
-export var ResolveComponentCandidatesResponse: StaticStructureSchema = [
+export var ResolveComponentCandidatesResponse$: StaticStructureSchema = [
   3,
   n0,
   _RCCRe,
@@ -866,7 +880,7 @@ export var ResolveComponentCandidatesResponse: StaticStructureSchema = [
   [_rCV],
   [() => ResolvedComponentVersionsList],
 ];
-export var ResolvedComponentVersion: StaticStructureSchema = [
+export var ResolvedComponentVersion$: StaticStructureSchema = [
   3,
   n0,
   _RCV,
@@ -874,7 +888,7 @@ export var ResolvedComponentVersion: StaticStructureSchema = [
   [_a, _cN, _cV, _rec, _vG, _m],
   [0, 0, 0, 21, 0, 0],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -882,8 +896,8 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ServiceQuotaExceededException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
@@ -891,11 +905,11 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   [_m, _rI, _rT, _qC, _sC],
   [0, 0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var SystemResourceLimits: StaticStructureSchema = [3, n0, _SRL, 0, [_mem, _cp], [1, 1]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _t], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SystemResourceLimits$: StaticStructureSchema = [3, n0, _SRL, 0, [_mem, _cp], [1, 1]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _t], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
@@ -903,8 +917,8 @@ export var ThrottlingException: StaticErrorSchema = [
   [_m, _qC, _sC, _rAS],
   [0, 0, 0, [1, { [_hH]: _RA_ }]],
 ];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var UntagResourceRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -915,8 +929,8 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateConnectivityInfoRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateConnectivityInfoRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCIR,
@@ -927,7 +941,7 @@ export var UpdateConnectivityInfoRequest: StaticStructureSchema = [
     [() => connectivityInfoList, { [_jN]: _CI }],
   ],
 ];
-export var UpdateConnectivityInfoResponse: StaticStructureSchema = [
+export var UpdateConnectivityInfoResponse$: StaticStructureSchema = [
   3,
   n0,
   _UCIRp,
@@ -938,7 +952,7 @@ export var UpdateConnectivityInfoResponse: StaticStructureSchema = [
     [0, { [_jN]: _Me }],
   ],
 ];
-export var ValidationException: StaticErrorSchema = [
+export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
@@ -946,304 +960,297 @@ export var ValidationException: StaticErrorSchema = [
   [_m, _re, _f],
   [0, 0, () => ValidationExceptionFieldList],
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var __Unit = "unit" as const;
-export var GreengrassV2ServiceException: StaticErrorSchema = [-3, _sm, "GreengrassV2ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(GreengrassV2ServiceException, __GreengrassV2ServiceException);
-export var AssociateClientDeviceWithCoreDeviceEntryList: StaticListSchema = [
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
+var __Unit = "unit" as const;
+export var GreengrassV2ServiceException$: StaticErrorSchema = [-3, _sm, "GreengrassV2ServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(GreengrassV2ServiceException$, GreengrassV2ServiceException);
+var AssociateClientDeviceWithCoreDeviceEntryList: StaticListSchema = [
   1,
   n0,
   _ACDWCDEL,
   0,
-  () => AssociateClientDeviceWithCoreDeviceEntry,
+  () => AssociateClientDeviceWithCoreDeviceEntry$,
 ];
-export var AssociateClientDeviceWithCoreDeviceErrorList: StaticListSchema = [
+var AssociateClientDeviceWithCoreDeviceErrorList: StaticListSchema = [
   1,
   n0,
   _ACDWCDELs,
   0,
-  () => AssociateClientDeviceWithCoreDeviceErrorEntry,
+  () => AssociateClientDeviceWithCoreDeviceErrorEntry$,
 ];
-export var AssociatedClientDeviceList: StaticListSchema = [1, n0, _ACDL, 0, () => AssociatedClientDevice];
-export var ComponentCandidateList: StaticListSchema = [1, n0, _CCL, 0, () => ComponentCandidate];
-export var ComponentConfigurationPathList = 64 | 0;
-export var ComponentList: StaticListSchema = [1, n0, _CL, 0, () => Component];
-export var ComponentPlatformList: StaticListSchema = [1, n0, _CPL, 0, () => ComponentPlatform];
-export var ComponentVersionList: StaticListSchema = [1, n0, _CVL, 0, () => ComponentVersionListItem];
-export var connectivityInfoList: StaticListSchema = [1, n0, _cIL, 0, [() => ConnectivityInfo, 0]];
-export var CoreDevicesList: StaticListSchema = [1, n0, _CDL, 0, () => CoreDevice];
-export var DeploymentList: StaticListSchema = [1, n0, _DL, 0, () => Deployment];
-export var DisassociateClientDeviceFromCoreDeviceEntryList: StaticListSchema = [
+var AssociatedClientDeviceList: StaticListSchema = [1, n0, _ACDL, 0, () => AssociatedClientDevice$];
+var ComponentCandidateList: StaticListSchema = [1, n0, _CCL, 0, () => ComponentCandidate$];
+var ComponentConfigurationPathList = 64 | 0;
+var ComponentList: StaticListSchema = [1, n0, _CL, 0, () => Component$];
+var ComponentPlatformList: StaticListSchema = [1, n0, _CPL, 0, () => ComponentPlatform$];
+var ComponentVersionList: StaticListSchema = [1, n0, _CVL, 0, () => ComponentVersionListItem$];
+var connectivityInfoList: StaticListSchema = [1, n0, _cIL, 0, [() => ConnectivityInfo$, 0]];
+var CoreDevicesList: StaticListSchema = [1, n0, _CDL, 0, () => CoreDevice$];
+var DeploymentList: StaticListSchema = [1, n0, _DL, 0, () => Deployment$];
+var DisassociateClientDeviceFromCoreDeviceEntryList: StaticListSchema = [
   1,
   n0,
   _DCDFCDEL,
   0,
-  () => DisassociateClientDeviceFromCoreDeviceEntry,
+  () => DisassociateClientDeviceFromCoreDeviceEntry$,
 ];
-export var DisassociateClientDeviceFromCoreDeviceErrorList: StaticListSchema = [
+var DisassociateClientDeviceFromCoreDeviceErrorList: StaticListSchema = [
   1,
   n0,
   _DCDFCDELi,
   0,
-  () => DisassociateClientDeviceFromCoreDeviceErrorEntry,
+  () => DisassociateClientDeviceFromCoreDeviceErrorEntry$,
 ];
-export var EffectiveDeploymentErrorStack = 64 | 0;
-export var EffectiveDeploymentErrorTypeList = 64 | 0;
-export var EffectiveDeploymentsList: StaticListSchema = [1, n0, _EDL, 0, () => EffectiveDeployment];
-export var InstalledComponentLifecycleStatusCodeList = 64 | 0;
-export var InstalledComponentList: StaticListSchema = [1, n0, _ICL, 0, () => InstalledComponent];
-export var IoTJobAbortCriteriaList: StaticListSchema = [1, n0, _ITJACL, 0, () => IoTJobAbortCriteria];
-export var LambdaDeviceList: StaticListSchema = [1, n0, _LDL, 0, () => LambdaDeviceMount];
-export var LambdaEventSourceList: StaticListSchema = [1, n0, _LESL, 0, () => LambdaEventSource];
-export var LambdaExecArgsList = 64 | 0;
-export var LambdaVolumeList: StaticListSchema = [1, n0, _LVL, 0, () => LambdaVolumeMount];
-export var ResolvedComponentVersionsList: StaticListSchema = [1, n0, _RCVL, 0, () => ResolvedComponentVersion];
-export var TagKeyList = 64 | 0;
-export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
-export var ComponentDependencyMap: StaticMapSchema = [2, n0, _CDM, 0, 0, () => ComponentDependencyRequirement];
-export var ComponentDeploymentSpecifications: StaticMapSchema = [
-  2,
-  n0,
-  _CDSo,
-  0,
-  0,
-  () => ComponentDeploymentSpecification,
-];
-export var ComponentVersionRequirementMap = 128 | 0;
-export var LambdaEnvironmentVariables = 128 | 0;
-export var PlatformAttributesMap = 128 | 0;
-export var StringMap = 128 | 0;
-export var TagMap = 128 | 0;
-export var AssociateServiceRoleToAccount: StaticOperationSchema = [
+var EffectiveDeploymentErrorStack = 64 | 0;
+var EffectiveDeploymentErrorTypeList = 64 | 0;
+var EffectiveDeploymentsList: StaticListSchema = [1, n0, _EDL, 0, () => EffectiveDeployment$];
+var InstalledComponentLifecycleStatusCodeList = 64 | 0;
+var InstalledComponentList: StaticListSchema = [1, n0, _ICL, 0, () => InstalledComponent$];
+var IoTJobAbortCriteriaList: StaticListSchema = [1, n0, _ITJACL, 0, () => IoTJobAbortCriteria$];
+var LambdaDeviceList: StaticListSchema = [1, n0, _LDL, 0, () => LambdaDeviceMount$];
+var LambdaEventSourceList: StaticListSchema = [1, n0, _LESL, 0, () => LambdaEventSource$];
+var LambdaExecArgsList = 64 | 0;
+var LambdaVolumeList: StaticListSchema = [1, n0, _LVL, 0, () => LambdaVolumeMount$];
+var ResolvedComponentVersionsList: StaticListSchema = [1, n0, _RCVL, 0, () => ResolvedComponentVersion$];
+var TagKeyList = 64 | 0;
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
+var ComponentDependencyMap: StaticMapSchema = [2, n0, _CDM, 0, 0, () => ComponentDependencyRequirement$];
+var ComponentDeploymentSpecifications: StaticMapSchema = [2, n0, _CDSo, 0, 0, () => ComponentDeploymentSpecification$];
+var ComponentVersionRequirementMap = 128 | 0;
+var LambdaEnvironmentVariables = 128 | 0;
+var PlatformAttributesMap = 128 | 0;
+var StringMap = 128 | 0;
+var TagMap = 128 | 0;
+export var AssociateServiceRoleToAccount$: StaticOperationSchema = [
   9,
   n0,
   _ASRTA,
   { [_h]: ["PUT", "/greengrass/servicerole", 200] },
-  () => AssociateServiceRoleToAccountRequest,
-  () => AssociateServiceRoleToAccountResponse,
+  () => AssociateServiceRoleToAccountRequest$,
+  () => AssociateServiceRoleToAccountResponse$,
 ];
-export var BatchAssociateClientDeviceWithCoreDevice: StaticOperationSchema = [
+export var BatchAssociateClientDeviceWithCoreDevice$: StaticOperationSchema = [
   9,
   n0,
   _BACDWCD,
   { [_h]: ["POST", "/greengrass/v2/coreDevices/{coreDeviceThingName}/associateClientDevices", 200] },
-  () => BatchAssociateClientDeviceWithCoreDeviceRequest,
-  () => BatchAssociateClientDeviceWithCoreDeviceResponse,
+  () => BatchAssociateClientDeviceWithCoreDeviceRequest$,
+  () => BatchAssociateClientDeviceWithCoreDeviceResponse$,
 ];
-export var BatchDisassociateClientDeviceFromCoreDevice: StaticOperationSchema = [
+export var BatchDisassociateClientDeviceFromCoreDevice$: StaticOperationSchema = [
   9,
   n0,
   _BDCDFCD,
   { [_h]: ["POST", "/greengrass/v2/coreDevices/{coreDeviceThingName}/disassociateClientDevices", 200] },
-  () => BatchDisassociateClientDeviceFromCoreDeviceRequest,
-  () => BatchDisassociateClientDeviceFromCoreDeviceResponse,
+  () => BatchDisassociateClientDeviceFromCoreDeviceRequest$,
+  () => BatchDisassociateClientDeviceFromCoreDeviceResponse$,
 ];
-export var CancelDeployment: StaticOperationSchema = [
+export var CancelDeployment$: StaticOperationSchema = [
   9,
   n0,
   _CDa,
   { [_h]: ["POST", "/greengrass/v2/deployments/{deploymentId}/cancel", 200] },
-  () => CancelDeploymentRequest,
-  () => CancelDeploymentResponse,
+  () => CancelDeploymentRequest$,
+  () => CancelDeploymentResponse$,
 ];
-export var CreateComponentVersion: StaticOperationSchema = [
+export var CreateComponentVersion$: StaticOperationSchema = [
   9,
   n0,
   _CCV,
   { [_h]: ["POST", "/greengrass/v2/createComponentVersion", 201] },
-  () => CreateComponentVersionRequest,
-  () => CreateComponentVersionResponse,
+  () => CreateComponentVersionRequest$,
+  () => CreateComponentVersionResponse$,
 ];
-export var CreateDeployment: StaticOperationSchema = [
+export var CreateDeployment$: StaticOperationSchema = [
   9,
   n0,
   _CDr,
   { [_h]: ["POST", "/greengrass/v2/deployments", 201] },
-  () => CreateDeploymentRequest,
-  () => CreateDeploymentResponse,
+  () => CreateDeploymentRequest$,
+  () => CreateDeploymentResponse$,
 ];
-export var DeleteComponent: StaticOperationSchema = [
+export var DeleteComponent$: StaticOperationSchema = [
   9,
   n0,
   _DC,
   { [_h]: ["DELETE", "/greengrass/v2/components/{arn}", 204] },
-  () => DeleteComponentRequest,
+  () => DeleteComponentRequest$,
   () => __Unit,
 ];
-export var DeleteCoreDevice: StaticOperationSchema = [
+export var DeleteCoreDevice$: StaticOperationSchema = [
   9,
   n0,
   _DCD,
   { [_h]: ["DELETE", "/greengrass/v2/coreDevices/{coreDeviceThingName}", 204] },
-  () => DeleteCoreDeviceRequest,
+  () => DeleteCoreDeviceRequest$,
   () => __Unit,
 ];
-export var DeleteDeployment: StaticOperationSchema = [
+export var DeleteDeployment$: StaticOperationSchema = [
   9,
   n0,
   _DD,
   { [_h]: ["DELETE", "/greengrass/v2/deployments/{deploymentId}", 204] },
-  () => DeleteDeploymentRequest,
+  () => DeleteDeploymentRequest$,
   () => __Unit,
 ];
-export var DescribeComponent: StaticOperationSchema = [
+export var DescribeComponent$: StaticOperationSchema = [
   9,
   n0,
   _DCe,
   { [_h]: ["GET", "/greengrass/v2/components/{arn}/metadata", 200] },
-  () => DescribeComponentRequest,
-  () => DescribeComponentResponse,
+  () => DescribeComponentRequest$,
+  () => DescribeComponentResponse$,
 ];
-export var DisassociateServiceRoleFromAccount: StaticOperationSchema = [
+export var DisassociateServiceRoleFromAccount$: StaticOperationSchema = [
   9,
   n0,
   _DSRFA,
   { [_h]: ["DELETE", "/greengrass/servicerole", 200] },
-  () => DisassociateServiceRoleFromAccountRequest,
-  () => DisassociateServiceRoleFromAccountResponse,
+  () => DisassociateServiceRoleFromAccountRequest$,
+  () => DisassociateServiceRoleFromAccountResponse$,
 ];
-export var GetComponent: StaticOperationSchema = [
+export var GetComponent$: StaticOperationSchema = [
   9,
   n0,
   _GC,
   { [_h]: ["GET", "/greengrass/v2/components/{arn}", 200] },
-  () => GetComponentRequest,
-  () => GetComponentResponse,
+  () => GetComponentRequest$,
+  () => GetComponentResponse$,
 ];
-export var GetComponentVersionArtifact: StaticOperationSchema = [
+export var GetComponentVersionArtifact$: StaticOperationSchema = [
   9,
   n0,
   _GCVA,
   { [_h]: ["GET", "/greengrass/v2/components/{arn}/artifacts/{artifactName+}", 200] },
-  () => GetComponentVersionArtifactRequest,
-  () => GetComponentVersionArtifactResponse,
+  () => GetComponentVersionArtifactRequest$,
+  () => GetComponentVersionArtifactResponse$,
 ];
-export var GetConnectivityInfo: StaticOperationSchema = [
+export var GetConnectivityInfo$: StaticOperationSchema = [
   9,
   n0,
   _GCI,
   { [_h]: ["GET", "/greengrass/things/{thingName}/connectivityInfo", 200] },
-  () => GetConnectivityInfoRequest,
-  () => GetConnectivityInfoResponse,
+  () => GetConnectivityInfoRequest$,
+  () => GetConnectivityInfoResponse$,
 ];
-export var GetCoreDevice: StaticOperationSchema = [
+export var GetCoreDevice$: StaticOperationSchema = [
   9,
   n0,
   _GCD,
   { [_h]: ["GET", "/greengrass/v2/coreDevices/{coreDeviceThingName}", 200] },
-  () => GetCoreDeviceRequest,
-  () => GetCoreDeviceResponse,
+  () => GetCoreDeviceRequest$,
+  () => GetCoreDeviceResponse$,
 ];
-export var GetDeployment: StaticOperationSchema = [
+export var GetDeployment$: StaticOperationSchema = [
   9,
   n0,
   _GD,
   { [_h]: ["GET", "/greengrass/v2/deployments/{deploymentId}", 200] },
-  () => GetDeploymentRequest,
-  () => GetDeploymentResponse,
+  () => GetDeploymentRequest$,
+  () => GetDeploymentResponse$,
 ];
-export var GetServiceRoleForAccount: StaticOperationSchema = [
+export var GetServiceRoleForAccount$: StaticOperationSchema = [
   9,
   n0,
   _GSRFA,
   { [_h]: ["GET", "/greengrass/servicerole", 200] },
-  () => GetServiceRoleForAccountRequest,
-  () => GetServiceRoleForAccountResponse,
+  () => GetServiceRoleForAccountRequest$,
+  () => GetServiceRoleForAccountResponse$,
 ];
-export var ListClientDevicesAssociatedWithCoreDevice: StaticOperationSchema = [
+export var ListClientDevicesAssociatedWithCoreDevice$: StaticOperationSchema = [
   9,
   n0,
   _LCDAWCD,
   { [_h]: ["GET", "/greengrass/v2/coreDevices/{coreDeviceThingName}/associatedClientDevices", 200] },
-  () => ListClientDevicesAssociatedWithCoreDeviceRequest,
-  () => ListClientDevicesAssociatedWithCoreDeviceResponse,
+  () => ListClientDevicesAssociatedWithCoreDeviceRequest$,
+  () => ListClientDevicesAssociatedWithCoreDeviceResponse$,
 ];
-export var ListComponents: StaticOperationSchema = [
+export var ListComponents$: StaticOperationSchema = [
   9,
   n0,
   _LC,
   { [_h]: ["GET", "/greengrass/v2/components", 200] },
-  () => ListComponentsRequest,
-  () => ListComponentsResponse,
+  () => ListComponentsRequest$,
+  () => ListComponentsResponse$,
 ];
-export var ListComponentVersions: StaticOperationSchema = [
+export var ListComponentVersions$: StaticOperationSchema = [
   9,
   n0,
   _LCV,
   { [_h]: ["GET", "/greengrass/v2/components/{arn}/versions", 200] },
-  () => ListComponentVersionsRequest,
-  () => ListComponentVersionsResponse,
+  () => ListComponentVersionsRequest$,
+  () => ListComponentVersionsResponse$,
 ];
-export var ListCoreDevices: StaticOperationSchema = [
+export var ListCoreDevices$: StaticOperationSchema = [
   9,
   n0,
   _LCD,
   { [_h]: ["GET", "/greengrass/v2/coreDevices", 200] },
-  () => ListCoreDevicesRequest,
-  () => ListCoreDevicesResponse,
+  () => ListCoreDevicesRequest$,
+  () => ListCoreDevicesResponse$,
 ];
-export var ListDeployments: StaticOperationSchema = [
+export var ListDeployments$: StaticOperationSchema = [
   9,
   n0,
   _LD,
   { [_h]: ["GET", "/greengrass/v2/deployments", 200] },
-  () => ListDeploymentsRequest,
-  () => ListDeploymentsResponse,
+  () => ListDeploymentsRequest$,
+  () => ListDeploymentsResponse$,
 ];
-export var ListEffectiveDeployments: StaticOperationSchema = [
+export var ListEffectiveDeployments$: StaticOperationSchema = [
   9,
   n0,
   _LED,
   { [_h]: ["GET", "/greengrass/v2/coreDevices/{coreDeviceThingName}/effectiveDeployments", 200] },
-  () => ListEffectiveDeploymentsRequest,
-  () => ListEffectiveDeploymentsResponse,
+  () => ListEffectiveDeploymentsRequest$,
+  () => ListEffectiveDeploymentsResponse$,
 ];
-export var ListInstalledComponents: StaticOperationSchema = [
+export var ListInstalledComponents$: StaticOperationSchema = [
   9,
   n0,
   _LIC,
   { [_h]: ["GET", "/greengrass/v2/coreDevices/{coreDeviceThingName}/installedComponents", 200] },
-  () => ListInstalledComponentsRequest,
-  () => ListInstalledComponentsResponse,
+  () => ListInstalledComponentsRequest$,
+  () => ListInstalledComponentsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ResolveComponentCandidates: StaticOperationSchema = [
+export var ResolveComponentCandidates$: StaticOperationSchema = [
   9,
   n0,
   _RCC,
   { [_h]: ["POST", "/greengrass/v2/resolveComponentCandidates", 200] },
-  () => ResolveComponentCandidatesRequest,
-  () => ResolveComponentCandidatesResponse,
+  () => ResolveComponentCandidatesRequest$,
+  () => ResolveComponentCandidatesResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateConnectivityInfo: StaticOperationSchema = [
+export var UpdateConnectivityInfo$: StaticOperationSchema = [
   9,
   n0,
   _UCI,
   { [_h]: ["PUT", "/greengrass/things/{thingName}/connectivityInfo", 200] },
-  () => UpdateConnectivityInfoRequest,
-  () => UpdateConnectivityInfoResponse,
+  () => UpdateConnectivityInfoRequest$,
+  () => UpdateConnectivityInfoResponse$,
 ];

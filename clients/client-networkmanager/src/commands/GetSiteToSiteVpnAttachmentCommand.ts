@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { GetSiteToSiteVpnAttachment } from "../schemas/schemas_0";
+import { GetSiteToSiteVpnAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class GetSiteToSiteVpnAttachmentCommand extends $Command
   })
   .s("NetworkManager", "GetSiteToSiteVpnAttachment", {})
   .n("NetworkManagerClient", "GetSiteToSiteVpnAttachmentCommand")
-  .sc(GetSiteToSiteVpnAttachment)
+  .sc(GetSiteToSiteVpnAttachment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

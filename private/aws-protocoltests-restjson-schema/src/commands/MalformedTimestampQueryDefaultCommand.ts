@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { MalformedTimestampQueryDefault } from "../schemas/schemas_0";
+import { MalformedTimestampQueryDefault$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -75,7 +75,7 @@ export class MalformedTimestampQueryDefaultCommand extends $Command
   })
   .s("RestJson", "MalformedTimestampQueryDefault", {})
   .n("RestJsonProtocolClient", "MalformedTimestampQueryDefaultCommand")
-  .sc(MalformedTimestampQueryDefault)
+  .sc(MalformedTimestampQueryDefault$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

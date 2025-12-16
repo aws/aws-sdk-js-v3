@@ -9,7 +9,7 @@ import type {
   CreateModelQualityJobDefinitionResponse,
 } from "../models/models_1";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { CreateModelQualityJobDefinition } from "../schemas/schemas_0";
+import { CreateModelQualityJobDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -187,7 +187,7 @@ export class CreateModelQualityJobDefinitionCommand extends $Command
   })
   .s("SageMaker", "CreateModelQualityJobDefinition", {})
   .n("SageMakerClient", "CreateModelQualityJobDefinitionCommand")
-  .sc(CreateModelQualityJobDefinition)
+  .sc(CreateModelQualityJobDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

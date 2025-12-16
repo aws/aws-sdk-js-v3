@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteCacheParameterGroupMessage } from "../models/models_0";
-import { DeleteCacheParameterGroup } from "../schemas/schemas_0";
+import { DeleteCacheParameterGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class DeleteCacheParameterGroupCommand extends $Command
   })
   .s("AmazonElastiCacheV9", "DeleteCacheParameterGroup", {})
   .n("ElastiCacheClient", "DeleteCacheParameterGroupCommand")
-  .sc(DeleteCacheParameterGroup)
+  .sc(DeleteCacheParameterGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: QBusinessClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.qbusiness" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.qbusiness",
+      version: "2023-11-27",
+      serviceTarget: "ExpertQ",
+    },
     serviceId: config?.serviceId ?? "QBusiness",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

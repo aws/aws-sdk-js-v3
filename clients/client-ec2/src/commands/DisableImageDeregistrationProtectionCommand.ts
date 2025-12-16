@@ -9,7 +9,7 @@ import type {
   DisableImageDeregistrationProtectionRequest,
   DisableImageDeregistrationProtectionResult,
 } from "../models/models_5";
-import { DisableImageDeregistrationProtection } from "../schemas/schemas_0";
+import { DisableImageDeregistrationProtection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DisableImageDeregistrationProtectionCommand extends $Command
   })
   .s("AmazonEC2", "DisableImageDeregistrationProtection", {})
   .n("EC2Client", "DisableImageDeregistrationProtectionCommand")
-  .sc(DisableImageDeregistrationProtection)
+  .sc(DisableImageDeregistrationProtection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

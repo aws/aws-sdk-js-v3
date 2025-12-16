@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListPortfolioAccessInput, ListPortfolioAccessOutput } from "../models/models_0";
-import { ListPortfolioAccess } from "../schemas/schemas_0";
+import { ListPortfolioAccess$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -91,7 +91,7 @@ export class ListPortfolioAccessCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "ListPortfolioAccess", {})
   .n("ServiceCatalogClient", "ListPortfolioAccessCommand")
-  .sc(ListPortfolioAccess)
+  .sc(ListPortfolioAccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

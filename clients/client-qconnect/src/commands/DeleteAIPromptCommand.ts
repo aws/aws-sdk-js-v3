@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAIPromptRequest, DeleteAIPromptResponse } from "../models/models_0";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { DeleteAIPrompt } from "../schemas/schemas_0";
+import { DeleteAIPrompt$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteAIPromptCommand extends $Command
   })
   .s("WisdomService", "DeleteAIPrompt", {})
   .n("QConnectClient", "DeleteAIPromptCommand")
-  .sc(DeleteAIPrompt)
+  .sc(DeleteAIPrompt$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

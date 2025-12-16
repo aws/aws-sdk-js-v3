@@ -9,7 +9,7 @@ import type {
   UpdateActionConnectorPermissionsResponse,
 } from "../models/models_4";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { UpdateActionConnectorPermissions } from "../schemas/schemas_0";
+import { UpdateActionConnectorPermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -136,7 +136,7 @@ export class UpdateActionConnectorPermissionsCommand extends $Command
   })
   .s("QuickSight_20180401", "UpdateActionConnectorPermissions", {})
   .n("QuickSightClient", "UpdateActionConnectorPermissionsCommand")
-  .sc(UpdateActionConnectorPermissions)
+  .sc(UpdateActionConnectorPermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

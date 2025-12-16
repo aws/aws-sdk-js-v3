@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutRegistryCatalogDataRequest, PutRegistryCatalogDataResponse } from "../models/models_0";
-import { PutRegistryCatalogData } from "../schemas/schemas_0";
+import { PutRegistryCatalogData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class PutRegistryCatalogDataCommand extends $Command
   })
   .s("SpencerFrontendService", "PutRegistryCatalogData", {})
   .n("ECRPUBLICClient", "PutRegistryCatalogDataCommand")
-  .sc(PutRegistryCatalogData)
+  .sc(PutRegistryCatalogData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

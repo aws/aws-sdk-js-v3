@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteManagedPrefixListRequest, DeleteManagedPrefixListResult } from "../models/models_2";
-import { DeleteManagedPrefixList } from "../schemas/schemas_0";
+import { DeleteManagedPrefixList$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DeleteManagedPrefixListCommand extends $Command
   })
   .s("AmazonEC2", "DeleteManagedPrefixList", {})
   .n("EC2Client", "DeleteManagedPrefixListCommand")
-  .sc(DeleteManagedPrefixList)
+  .sc(DeleteManagedPrefixList$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

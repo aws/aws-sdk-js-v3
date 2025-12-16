@@ -9,7 +9,7 @@ import type {
   ListRealtimeContactAnalysisSegmentsV2Request,
   ListRealtimeContactAnalysisSegmentsV2Response,
 } from "../models/models_2";
-import { ListRealtimeContactAnalysisSegmentsV2 } from "../schemas/schemas_0";
+import { ListRealtimeContactAnalysisSegmentsV2$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -200,7 +200,7 @@ export class ListRealtimeContactAnalysisSegmentsV2Command extends $Command
   })
   .s("AmazonConnectService", "ListRealtimeContactAnalysisSegmentsV2", {})
   .n("ConnectClient", "ListRealtimeContactAnalysisSegmentsV2Command")
-  .sc(ListRealtimeContactAnalysisSegmentsV2)
+  .sc(ListRealtimeContactAnalysisSegmentsV2$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

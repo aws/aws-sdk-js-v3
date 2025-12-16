@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
 import type { CreateEnvironmentRequest, CreateEnvironmentResponse } from "../models/models_0";
-import { CreateEnvironment } from "../schemas/schemas_0";
+import { CreateEnvironment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class CreateEnvironmentCommand extends $Command
   })
   .s("RefactorSpaces", "CreateEnvironment", {})
   .n("MigrationHubRefactorSpacesClient", "CreateEnvironmentCommand")
-  .sc(CreateEnvironment)
+  .sc(CreateEnvironment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

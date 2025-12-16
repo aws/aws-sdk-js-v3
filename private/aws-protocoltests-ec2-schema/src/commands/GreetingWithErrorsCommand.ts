@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreetingWithErrorsOutput } from "../models/models_0";
-import { GreetingWithErrors } from "../schemas/schemas_0";
+import { GreetingWithErrors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,7 +81,7 @@ export class GreetingWithErrorsCommand extends $Command
   })
   .s("AwsEc2", "GreetingWithErrors", {})
   .n("EC2ProtocolClient", "GreetingWithErrorsCommand")
-  .sc(GreetingWithErrors)
+  .sc(GreetingWithErrors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreatePresignedUrlInput, CreatePresignedUrlOutput } from "../models/models_0";
 import type { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
-import { CreatePresignedUrl } from "../schemas/schemas_0";
+import { CreatePresignedUrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -156,7 +156,7 @@ export class CreatePresignedUrlCommand extends $Command
   })
   .s("QAppsService", "CreatePresignedUrl", {})
   .n("QAppsClient", "CreatePresignedUrlCommand")
-  .sc(CreatePresignedUrl)
+  .sc(CreatePresignedUrl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

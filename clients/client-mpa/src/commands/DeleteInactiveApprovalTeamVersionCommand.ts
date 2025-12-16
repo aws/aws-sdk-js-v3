@@ -9,7 +9,7 @@ import type {
   DeleteInactiveApprovalTeamVersionResponse,
 } from "../models/models_0";
 import type { MPAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MPAClient";
-import { DeleteInactiveApprovalTeamVersion } from "../schemas/schemas_0";
+import { DeleteInactiveApprovalTeamVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeleteInactiveApprovalTeamVersionCommand extends $Command
   })
   .s("AWSFluffyCoreService", "DeleteInactiveApprovalTeamVersion", {})
   .n("MPAClient", "DeleteInactiveApprovalTeamVersionCommand")
-  .sc(DeleteInactiveApprovalTeamVersion)
+  .sc(DeleteInactiveApprovalTeamVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

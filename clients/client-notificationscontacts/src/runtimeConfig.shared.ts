@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: NotificationsContactsClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.notificationscontacts" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.notificationscontacts",
+      version: "2018-05-10",
+      serviceTarget: "NotificationsContacts",
+    },
     serviceId: config?.serviceId ?? "NotificationsContacts",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

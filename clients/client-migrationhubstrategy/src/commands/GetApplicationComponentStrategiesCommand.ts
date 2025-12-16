@@ -13,7 +13,7 @@ import type {
   GetApplicationComponentStrategiesRequest,
   GetApplicationComponentStrategiesResponse,
 } from "../models/models_0";
-import { GetApplicationComponentStrategies } from "../schemas/schemas_0";
+import { GetApplicationComponentStrategies$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class GetApplicationComponentStrategiesCommand extends $Command
   })
   .s("AWSMigrationHubStrategyRecommendation", "GetApplicationComponentStrategies", {})
   .n("MigrationHubStrategyClient", "GetApplicationComponentStrategiesCommand")
-  .sc(GetApplicationComponentStrategies)
+  .sc(GetApplicationComponentStrategies$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

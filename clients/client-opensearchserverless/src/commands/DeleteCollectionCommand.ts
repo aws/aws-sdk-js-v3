@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import { DeleteCollection } from "../schemas/schemas_0";
+import { DeleteCollection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteCollectionCommand extends $Command
   })
   .s("OpenSearchServerless", "DeleteCollection", {})
   .n("OpenSearchServerlessClient", "DeleteCollectionCommand")
-  .sc(DeleteCollection)
+  .sc(DeleteCollection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

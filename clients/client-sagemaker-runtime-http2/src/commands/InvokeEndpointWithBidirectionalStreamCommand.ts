@@ -14,7 +14,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerRuntimeHTTP2Client";
-import { InvokeEndpointWithBidirectionalStream } from "../schemas/schemas_0";
+import { InvokeEndpointWithBidirectionalStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -135,7 +135,7 @@ export class InvokeEndpointWithBidirectionalStreamCommand extends $Command
     },
   })
   .n("SageMakerRuntimeHTTP2Client", "InvokeEndpointWithBidirectionalStreamCommand")
-  .sc(InvokeEndpointWithBidirectionalStream)
+  .sc(InvokeEndpointWithBidirectionalStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAssociatedGroupsRequest, ListAssociatedGroupsResponse } from "../models/models_0";
-import { ListAssociatedGroups } from "../schemas/schemas_0";
+import { ListAssociatedGroups$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
@@ -92,7 +92,7 @@ export class ListAssociatedGroupsCommand extends $Command
   })
   .s("Synthetics", "ListAssociatedGroups", {})
   .n("SyntheticsClient", "ListAssociatedGroupsCommand")
-  .sc(ListAssociatedGroups)
+  .sc(ListAssociatedGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

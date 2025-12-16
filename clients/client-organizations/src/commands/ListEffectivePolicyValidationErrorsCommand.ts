@@ -9,7 +9,7 @@ import type {
   ListEffectivePolicyValidationErrorsResponse,
 } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { ListEffectivePolicyValidationErrors } from "../schemas/schemas_0";
+import { ListEffectivePolicyValidationErrors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -526,7 +526,7 @@ export class ListEffectivePolicyValidationErrorsCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "ListEffectivePolicyValidationErrors", {})
   .n("OrganizationsClient", "ListEffectivePolicyValidationErrorsCommand")
-  .sc(ListEffectivePolicyValidationErrors)
+  .sc(ListEffectivePolicyValidationErrors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

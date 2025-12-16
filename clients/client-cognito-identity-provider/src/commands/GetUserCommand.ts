@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetUserRequest, GetUserResponse } from "../models/models_0";
-import { GetUser } from "../schemas/schemas_0";
+import { GetUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class GetUserCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "GetUser", {})
   .n("CognitoIdentityProviderClient", "GetUserCommand")
-  .sc(GetUser)
+  .sc(GetUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTThingsGraphClient";
 import type { DeploySystemInstanceRequest, DeploySystemInstanceResponse } from "../models/models_0";
-import { DeploySystemInstance } from "../schemas/schemas_0";
+import { DeploySystemInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class DeploySystemInstanceCommand extends $Command
   })
   .s("IotThingsGraphFrontEndService", "DeploySystemInstance", {})
   .n("IoTThingsGraphClient", "DeploySystemInstanceCommand")
-  .sc(DeploySystemInstance)
+  .sc(DeploySystemInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

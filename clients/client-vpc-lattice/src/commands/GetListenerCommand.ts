@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetListenerRequest, GetListenerResponse } from "../models/models_0";
-import { GetListener } from "../schemas/schemas_0";
+import { GetListener$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -110,7 +110,7 @@ export class GetListenerCommand extends $Command
   })
   .s("MercuryControlPlane", "GetListener", {})
   .n("VPCLatticeClient", "GetListenerCommand")
-  .sc(GetListener)
+  .sc(GetListener$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

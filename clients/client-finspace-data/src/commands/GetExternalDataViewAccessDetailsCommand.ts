@@ -9,7 +9,7 @@ import type {
   GetExternalDataViewAccessDetailsRequest,
   GetExternalDataViewAccessDetailsResponse,
 } from "../models/models_0";
-import { GetExternalDataViewAccessDetails } from "../schemas/schemas_0";
+import { GetExternalDataViewAccessDetails$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -114,7 +114,7 @@ export class GetExternalDataViewAccessDetailsCommand extends $Command
   })
   .s("AWSHabaneroPublicAPI", "GetExternalDataViewAccessDetails", {})
   .n("FinspaceDataClient", "GetExternalDataViewAccessDetailsCommand")
-  .sc(GetExternalDataViewAccessDetails)
+  .sc(GetExternalDataViewAccessDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

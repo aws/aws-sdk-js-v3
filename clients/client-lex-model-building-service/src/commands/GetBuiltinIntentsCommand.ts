@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import type { GetBuiltinIntentsRequest, GetBuiltinIntentsResponse } from "../models/models_0";
-import { GetBuiltinIntents } from "../schemas/schemas_0";
+import { GetBuiltinIntents$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class GetBuiltinIntentsCommand extends $Command
   })
   .s("AWSDeepSenseModelBuildingService", "GetBuiltinIntents", {})
   .n("LexModelBuildingServiceClient", "GetBuiltinIntentsCommand")
-  .sc(GetBuiltinIntents)
+  .sc(GetBuiltinIntents$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

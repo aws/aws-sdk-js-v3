@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import type { UpdateLiveSourceRequest, UpdateLiveSourceResponse } from "../models/models_0";
-import { UpdateLiveSource } from "../schemas/schemas_0";
+import { UpdateLiveSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class UpdateLiveSourceCommand extends $Command
   })
   .s("MediaTailor", "UpdateLiveSource", {})
   .n("MediaTailorClient", "UpdateLiveSourceCommand")
-  .sc(UpdateLiveSource)
+  .sc(UpdateLiveSource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

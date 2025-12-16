@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { DBEngineVersion } from "../models/models_0";
 import type { ModifyCustomDBEngineVersionMessage } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { ModifyCustomDBEngineVersion } from "../schemas/schemas_0";
+import { ModifyCustomDBEngineVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -184,7 +184,7 @@ export class ModifyCustomDBEngineVersionCommand extends $Command
   })
   .s("AmazonRDSv19", "ModifyCustomDBEngineVersion", {})
   .n("RDSClient", "ModifyCustomDBEngineVersionCommand")
-  .sc(ModifyCustomDBEngineVersion)
+  .sc(ModifyCustomDBEngineVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

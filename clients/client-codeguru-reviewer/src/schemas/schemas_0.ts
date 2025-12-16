@@ -167,71 +167,71 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { CodeGuruReviewerServiceException as __CodeGuruReviewerServiceException } from "../models/CodeGuruReviewerServiceException";
+import { CodeGuruReviewerServiceException } from "../models/CodeGuruReviewerServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  NotFoundException as __NotFoundException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  NotFoundException,
+  ResourceNotFoundException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AssociateRepositoryRequest: StaticStructureSchema = [
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AssociateRepositoryRequest$: StaticStructureSchema = [
   3,
   n0,
   _ARR,
   0,
   [_R, _CRT, _T, _KMSKD],
-  [() => Repository, [0, 4], 128 | 0, () => KMSKeyDetails],
+  [() => Repository$, [0, 4], 128 | 0, () => KMSKeyDetails$],
 ];
-export var AssociateRepositoryResponse: StaticStructureSchema = [
+export var AssociateRepositoryResponse$: StaticStructureSchema = [
   3,
   n0,
   _ARRs,
   0,
   [_RA, _T],
-  [() => RepositoryAssociation, 128 | 0],
+  [() => RepositoryAssociation$, 128 | 0],
 ];
-export var BranchDiffSourceCodeType: StaticStructureSchema = [3, n0, _BDSCT, 0, [_SBN, _DBN], [0, 0]];
-export var CodeArtifacts: StaticStructureSchema = [3, n0, _CA, 0, [_SCAOK, _BAOK], [0, 0]];
-export var CodeCommitRepository: StaticStructureSchema = [3, n0, _CCR, 0, [_N], [0]];
-export var CodeReview: StaticStructureSchema = [
+export var BranchDiffSourceCodeType$: StaticStructureSchema = [3, n0, _BDSCT, 0, [_SBN, _DBN], [0, 0]];
+export var CodeArtifacts$: StaticStructureSchema = [3, n0, _CA, 0, [_SCAOK, _BAOK], [0, 0]];
+export var CodeCommitRepository$: StaticStructureSchema = [3, n0, _CCR, 0, [_N], [0]];
+export var CodeReview$: StaticStructureSchema = [
   3,
   n0,
   _CR,
   0,
   [_N, _CRA, _RN, _O, _PT, _S, _SR, _CTS, _LUTS, _Ty, _PRI, _SCT, _AA, _Me, _AT, _CFS],
-  [0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, () => SourceCodeType, 0, () => Metrics, 64 | 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, () => SourceCodeType$, 0, () => Metrics$, 64 | 0, 0],
 ];
-export var CodeReviewSummary: StaticStructureSchema = [
+export var CodeReviewSummary$: StaticStructureSchema = [
   3,
   n0,
   _CRS,
   0,
   [_N, _CRA, _RN, _O, _PT, _S, _CTS, _LUTS, _Ty, _PRI, _MS, _SCT],
-  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0, () => MetricsSummary, () => SourceCodeType],
+  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0, () => MetricsSummary$, () => SourceCodeType$],
 ];
-export var CodeReviewType: StaticStructureSchema = [3, n0, _CRTo, 0, [_RAe, _AT], [() => RepositoryAnalysis, 64 | 0]];
-export var CommitDiffSourceCodeType: StaticStructureSchema = [3, n0, _CDSCT, 0, [_SC, _DC, _MBC], [0, 0, 0]];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateCodeReviewRequest: StaticStructureSchema = [
+export var CodeReviewType$: StaticStructureSchema = [3, n0, _CRTo, 0, [_RAe, _AT], [() => RepositoryAnalysis$, 64 | 0]];
+export var CommitDiffSourceCodeType$: StaticStructureSchema = [3, n0, _CDSCT, 0, [_SC, _DC, _MBC], [0, 0, 0]];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateCodeReviewRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCRR,
   0,
   [_N, _RAA, _Ty, _CRT],
-  [0, 0, () => CodeReviewType, [0, 4]],
+  [0, 0, () => CodeReviewType$, [0, 4]],
 ];
-export var CreateCodeReviewResponse: StaticStructureSchema = [3, n0, _CCRRr, 0, [_CR], [() => CodeReview]];
-export var DescribeCodeReviewRequest: StaticStructureSchema = [3, n0, _DCRR, 0, [_CRA], [[0, 1]]];
-export var DescribeCodeReviewResponse: StaticStructureSchema = [3, n0, _DCRRe, 0, [_CR], [() => CodeReview]];
-export var DescribeRecommendationFeedbackRequest: StaticStructureSchema = [
+export var CreateCodeReviewResponse$: StaticStructureSchema = [3, n0, _CCRRr, 0, [_CR], [() => CodeReview$]];
+export var DescribeCodeReviewRequest$: StaticStructureSchema = [3, n0, _DCRR, 0, [_CRA], [[0, 1]]];
+export var DescribeCodeReviewResponse$: StaticStructureSchema = [3, n0, _DCRRe, 0, [_CR], [() => CodeReview$]];
+export var DescribeRecommendationFeedbackRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRFR,
@@ -243,37 +243,37 @@ export var DescribeRecommendationFeedbackRequest: StaticStructureSchema = [
     [0, { [_hQ]: _UI }],
   ],
 ];
-export var DescribeRecommendationFeedbackResponse: StaticStructureSchema = [
+export var DescribeRecommendationFeedbackResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRFRe,
   0,
   [_RF],
-  [() => RecommendationFeedback],
+  [() => RecommendationFeedback$],
 ];
-export var DescribeRepositoryAssociationRequest: StaticStructureSchema = [3, n0, _DRAR, 0, [_AA], [[0, 1]]];
-export var DescribeRepositoryAssociationResponse: StaticStructureSchema = [
+export var DescribeRepositoryAssociationRequest$: StaticStructureSchema = [3, n0, _DRAR, 0, [_AA], [[0, 1]]];
+export var DescribeRepositoryAssociationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRARe,
   0,
   [_RA, _T],
-  [() => RepositoryAssociation, 128 | 0],
+  [() => RepositoryAssociation$, 128 | 0],
 ];
-export var DisassociateRepositoryRequest: StaticStructureSchema = [3, n0, _DRR, 0, [_AA], [[0, 1]]];
-export var DisassociateRepositoryResponse: StaticStructureSchema = [
+export var DisassociateRepositoryRequest$: StaticStructureSchema = [3, n0, _DRR, 0, [_AA], [[0, 1]]];
+export var DisassociateRepositoryResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRRi,
   0,
   [_RA, _T],
-  [() => RepositoryAssociation, 128 | 0],
+  [() => RepositoryAssociation$, 128 | 0],
 ];
-export var EventInfo: StaticStructureSchema = [3, n0, _EI, 0, [_N, _S], [0, 0]];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var KMSKeyDetails: StaticStructureSchema = [3, n0, _KMSKD, 0, [_KMSKI, _EO], [0, 0]];
-export var ListCodeReviewsRequest: StaticStructureSchema = [
+export var EventInfo$: StaticStructureSchema = [3, n0, _EI, 0, [_N, _S], [0, 0]];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var KMSKeyDetails$: StaticStructureSchema = [3, n0, _KMSKD, 0, [_KMSKI, _EO], [0, 0]];
+export var ListCodeReviewsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LCRR,
@@ -288,7 +288,7 @@ export var ListCodeReviewsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListCodeReviewsResponse: StaticStructureSchema = [
+export var ListCodeReviewsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCRRi,
@@ -296,7 +296,7 @@ export var ListCodeReviewsResponse: StaticStructureSchema = [
   [_CRSo, _NT],
   [() => CodeReviewSummaries, 0],
 ];
-export var ListRecommendationFeedbackRequest: StaticStructureSchema = [
+export var ListRecommendationFeedbackRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRFR,
@@ -310,7 +310,7 @@ export var ListRecommendationFeedbackRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _RIe }],
   ],
 ];
-export var ListRecommendationFeedbackResponse: StaticStructureSchema = [
+export var ListRecommendationFeedbackResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRFRi,
@@ -318,7 +318,7 @@ export var ListRecommendationFeedbackResponse: StaticStructureSchema = [
   [_RFS, _NT],
   [() => RecommendationFeedbackSummaries, 0],
 ];
-export var ListRecommendationsRequest: StaticStructureSchema = [
+export var ListRecommendationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRR,
@@ -330,7 +330,7 @@ export var ListRecommendationsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ListRecommendationsResponse: StaticStructureSchema = [
+export var ListRecommendationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRRi,
@@ -338,7 +338,7 @@ export var ListRecommendationsResponse: StaticStructureSchema = [
   [_RS, _NT],
   [() => RecommendationSummaries, 0],
 ];
-export var ListRepositoryAssociationsRequest: StaticStructureSchema = [
+export var ListRepositoryAssociationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRAR,
@@ -353,7 +353,7 @@ export var ListRepositoryAssociationsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListRepositoryAssociationsResponse: StaticStructureSchema = [
+export var ListRepositoryAssociationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRARi,
@@ -361,13 +361,13 @@ export var ListRepositoryAssociationsResponse: StaticStructureSchema = [
   [_RAS, _NT],
   [() => RepositoryAssociationSummaries, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [128 | 0]];
-export var Metrics: StaticStructureSchema = [3, n0, _Me, 0, [_MLOCC, _SLOCC, _FC], [1, 1, 1]];
-export var MetricsSummary: StaticStructureSchema = [3, n0, _MS, 0, [_MLOCC, _SLOCC, _FC], [1, 1, 1]];
-export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-export var PutRecommendationFeedbackRequest: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [128 | 0]];
+export var Metrics$: StaticStructureSchema = [3, n0, _Me, 0, [_MLOCC, _SLOCC, _FC], [1, 1, 1]];
+export var MetricsSummary$: StaticStructureSchema = [3, n0, _MS, 0, [_MLOCC, _SLOCC, _FC], [1, 1, 1]];
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
+export var PutRecommendationFeedbackRequest$: StaticStructureSchema = [
   3,
   n0,
   _PRFR,
@@ -375,8 +375,8 @@ export var PutRecommendationFeedbackRequest: StaticStructureSchema = [
   [_CRA, _RI, _Re],
   [0, 0, 64 | 0],
 ];
-export var PutRecommendationFeedbackResponse: StaticStructureSchema = [3, n0, _PRFRu, 0, [], []];
-export var RecommendationFeedback: StaticStructureSchema = [
+export var PutRecommendationFeedbackResponse$: StaticStructureSchema = [3, n0, _PRFRu, 0, [], []];
+export var RecommendationFeedback$: StaticStructureSchema = [
   3,
   n0,
   _RF,
@@ -384,40 +384,45 @@ export var RecommendationFeedback: StaticStructureSchema = [
   [_CRA, _RI, _Re, _UI, _CTS, _LUTS],
   [0, 0, 64 | 0, 0, 4, 4],
 ];
-export var RecommendationFeedbackSummary: StaticStructureSchema = [3, n0, _RFSe, 0, [_RI, _Re, _UI], [0, 64 | 0, 0]];
-export var RecommendationSummary: StaticStructureSchema = [
+export var RecommendationFeedbackSummary$: StaticStructureSchema = [3, n0, _RFSe, 0, [_RI, _Re, _UI], [0, 64 | 0, 0]];
+export var RecommendationSummary$: StaticStructureSchema = [
   3,
   n0,
   _RSe,
   0,
   [_FP, _RI, _SL, _EL, _D, _RC, _RM, _Se],
-  [0, 0, 1, 1, 0, 0, () => RuleMetadata, 0],
+  [0, 0, 1, 1, 0, 0, () => RuleMetadata$, 0],
 ];
-export var Repository: StaticStructureSchema = [
+export var Repository$: StaticStructureSchema = [
   3,
   n0,
   _R,
   0,
   [_CC, _B, _GHES, _SB],
-  [() => CodeCommitRepository, () => ThirdPartySourceRepository, () => ThirdPartySourceRepository, () => S3Repository],
+  [
+    () => CodeCommitRepository$,
+    () => ThirdPartySourceRepository$,
+    () => ThirdPartySourceRepository$,
+    () => S3Repository$,
+  ],
 ];
-export var RepositoryAnalysis: StaticStructureSchema = [
+export var RepositoryAnalysis$: StaticStructureSchema = [
   3,
   n0,
   _RAe,
   0,
   [_RH, _SCT],
-  [() => RepositoryHeadSourceCodeType, () => SourceCodeType],
+  [() => RepositoryHeadSourceCodeType$, () => SourceCodeType$],
 ];
-export var RepositoryAssociation: StaticStructureSchema = [
+export var RepositoryAssociation$: StaticStructureSchema = [
   3,
   n0,
   _RA,
   0,
   [_AI, _AA, _CAo, _N, _O, _PT, _S, _SR, _LUTS, _CTS, _KMSKD, _SRD],
-  [0, 0, 0, 0, 0, 0, 0, 0, 4, 4, () => KMSKeyDetails, () => S3RepositoryDetails],
+  [0, 0, 0, 0, 0, 0, 0, 0, 4, 4, () => KMSKeyDetails$, () => S3RepositoryDetails$],
 ];
-export var RepositoryAssociationSummary: StaticStructureSchema = [
+export var RepositoryAssociationSummary$: StaticStructureSchema = [
   3,
   n0,
   _RASe,
@@ -425,41 +430,41 @@ export var RepositoryAssociationSummary: StaticStructureSchema = [
   [_AA, _CAo, _LUTS, _AI, _N, _O, _PT, _S],
   [0, 0, 4, 0, 0, 0, 0, 0],
 ];
-export var RepositoryHeadSourceCodeType: StaticStructureSchema = [3, n0, _RHSCT, 0, [_BN], [0]];
-export var RequestMetadata: StaticStructureSchema = [
+export var RepositoryHeadSourceCodeType$: StaticStructureSchema = [3, n0, _RHSCT, 0, [_BN], [0]];
+export var RequestMetadata$: StaticStructureSchema = [
   3,
   n0,
   _RMe,
   0,
   [_RIeq, _Req, _EI, _VN],
-  [0, 0, () => EventInfo, 0],
+  [0, 0, () => EventInfo$, 0],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var RuleMetadata: StaticStructureSchema = [3, n0, _RM, 0, [_RIu, _RNu, _SD, _LD, _RT], [0, 0, 0, 0, 64 | 0]];
-export var S3BucketRepository: StaticStructureSchema = [3, n0, _SBR, 0, [_N, _De], [0, () => S3RepositoryDetails]];
-export var S3Repository: StaticStructureSchema = [3, n0, _SRe, 0, [_N, _BNu], [0, 0]];
-export var S3RepositoryDetails: StaticStructureSchema = [3, n0, _SRD, 0, [_BNu, _CA], [0, () => CodeArtifacts]];
-export var SourceCodeType: StaticStructureSchema = [
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var RuleMetadata$: StaticStructureSchema = [3, n0, _RM, 0, [_RIu, _RNu, _SD, _LD, _RT], [0, 0, 0, 0, 64 | 0]];
+export var S3BucketRepository$: StaticStructureSchema = [3, n0, _SBR, 0, [_N, _De], [0, () => S3RepositoryDetails$]];
+export var S3Repository$: StaticStructureSchema = [3, n0, _SRe, 0, [_N, _BNu], [0, 0]];
+export var S3RepositoryDetails$: StaticStructureSchema = [3, n0, _SRD, 0, [_BNu, _CA], [0, () => CodeArtifacts$]];
+export var SourceCodeType$: StaticStructureSchema = [
   3,
   n0,
   _SCT,
   0,
   [_CD, _RH, _BD, _SBR, _RMe],
   [
-    () => CommitDiffSourceCodeType,
-    () => RepositoryHeadSourceCodeType,
-    () => BranchDiffSourceCodeType,
-    () => S3BucketRepository,
-    () => RequestMetadata,
+    () => CommitDiffSourceCodeType$,
+    () => RepositoryHeadSourceCodeType$,
+    () => BranchDiffSourceCodeType$,
+    () => S3BucketRepository$,
+    () => RequestMetadata$,
   ],
 ];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _T], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThirdPartySourceRepository: StaticStructureSchema = [3, n0, _TPSR, 0, [_N, _CAo, _O], [0, 0, 0]];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var UntagResourceRequest: StaticStructureSchema = [
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _T], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var ThirdPartySourceRepository$: StaticStructureSchema = [3, n0, _TPSR, 0, [_N, _CAo, _O], [0, 0, 0]];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -470,10 +475,10 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var CodeGuruReviewerServiceException: StaticErrorSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var CodeGuruReviewerServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "CodeGuruReviewerServiceException",
@@ -481,133 +486,133 @@ export var CodeGuruReviewerServiceException: StaticErrorSchema = [
   [],
   [],
 ];
-TypeRegistry.for(_sm).registerError(CodeGuruReviewerServiceException, __CodeGuruReviewerServiceException);
-export var AnalysisTypes = 64 | 0;
-export var CodeReviewSummaries: StaticListSchema = [1, n0, _CRSo, 0, () => CodeReviewSummary];
-export var JobStates = 64 | 0;
-export var Names = 64 | 0;
-export var Owners = 64 | 0;
-export var ProviderTypes = 64 | 0;
-export var Reactions = 64 | 0;
-export var RecommendationFeedbackSummaries: StaticListSchema = [1, n0, _RFS, 0, () => RecommendationFeedbackSummary];
-export var RecommendationIds = 64 | 0;
-export var RecommendationSummaries: StaticListSchema = [1, n0, _RS, 0, () => RecommendationSummary];
-export var RepositoryAssociationStates = 64 | 0;
-export var RepositoryAssociationSummaries: StaticListSchema = [1, n0, _RAS, 0, () => RepositoryAssociationSummary];
-export var RepositoryNames = 64 | 0;
-export var RuleTags = 64 | 0;
-export var TagKeyList = 64 | 0;
-export var UserIds = 64 | 0;
-export var TagMap = 128 | 0;
-export var AssociateRepository: StaticOperationSchema = [
+TypeRegistry.for(_sm).registerError(CodeGuruReviewerServiceException$, CodeGuruReviewerServiceException);
+var AnalysisTypes = 64 | 0;
+var CodeReviewSummaries: StaticListSchema = [1, n0, _CRSo, 0, () => CodeReviewSummary$];
+var JobStates = 64 | 0;
+var Names = 64 | 0;
+var Owners = 64 | 0;
+var ProviderTypes = 64 | 0;
+var Reactions = 64 | 0;
+var RecommendationFeedbackSummaries: StaticListSchema = [1, n0, _RFS, 0, () => RecommendationFeedbackSummary$];
+var RecommendationIds = 64 | 0;
+var RecommendationSummaries: StaticListSchema = [1, n0, _RS, 0, () => RecommendationSummary$];
+var RepositoryAssociationStates = 64 | 0;
+var RepositoryAssociationSummaries: StaticListSchema = [1, n0, _RAS, 0, () => RepositoryAssociationSummary$];
+var RepositoryNames = 64 | 0;
+var RuleTags = 64 | 0;
+var TagKeyList = 64 | 0;
+var UserIds = 64 | 0;
+var TagMap = 128 | 0;
+export var AssociateRepository$: StaticOperationSchema = [
   9,
   n0,
   _AR,
   { [_h]: ["POST", "/associations", 200] },
-  () => AssociateRepositoryRequest,
-  () => AssociateRepositoryResponse,
+  () => AssociateRepositoryRequest$,
+  () => AssociateRepositoryResponse$,
 ];
-export var CreateCodeReview: StaticOperationSchema = [
+export var CreateCodeReview$: StaticOperationSchema = [
   9,
   n0,
   _CCRr,
   { [_h]: ["POST", "/codereviews", 200] },
-  () => CreateCodeReviewRequest,
-  () => CreateCodeReviewResponse,
+  () => CreateCodeReviewRequest$,
+  () => CreateCodeReviewResponse$,
 ];
-export var DescribeCodeReview: StaticOperationSchema = [
+export var DescribeCodeReview$: StaticOperationSchema = [
   9,
   n0,
   _DCR,
   { [_h]: ["GET", "/codereviews/{CodeReviewArn}", 200] },
-  () => DescribeCodeReviewRequest,
-  () => DescribeCodeReviewResponse,
+  () => DescribeCodeReviewRequest$,
+  () => DescribeCodeReviewResponse$,
 ];
-export var DescribeRecommendationFeedback: StaticOperationSchema = [
+export var DescribeRecommendationFeedback$: StaticOperationSchema = [
   9,
   n0,
   _DRF,
   { [_h]: ["GET", "/feedback/{CodeReviewArn}", 200] },
-  () => DescribeRecommendationFeedbackRequest,
-  () => DescribeRecommendationFeedbackResponse,
+  () => DescribeRecommendationFeedbackRequest$,
+  () => DescribeRecommendationFeedbackResponse$,
 ];
-export var DescribeRepositoryAssociation: StaticOperationSchema = [
+export var DescribeRepositoryAssociation$: StaticOperationSchema = [
   9,
   n0,
   _DRA,
   { [_h]: ["GET", "/associations/{AssociationArn}", 200] },
-  () => DescribeRepositoryAssociationRequest,
-  () => DescribeRepositoryAssociationResponse,
+  () => DescribeRepositoryAssociationRequest$,
+  () => DescribeRepositoryAssociationResponse$,
 ];
-export var DisassociateRepository: StaticOperationSchema = [
+export var DisassociateRepository$: StaticOperationSchema = [
   9,
   n0,
   _DR,
   { [_h]: ["DELETE", "/associations/{AssociationArn}", 200] },
-  () => DisassociateRepositoryRequest,
-  () => DisassociateRepositoryResponse,
+  () => DisassociateRepositoryRequest$,
+  () => DisassociateRepositoryResponse$,
 ];
-export var ListCodeReviews: StaticOperationSchema = [
+export var ListCodeReviews$: StaticOperationSchema = [
   9,
   n0,
   _LCR,
   { [_h]: ["GET", "/codereviews", 200] },
-  () => ListCodeReviewsRequest,
-  () => ListCodeReviewsResponse,
+  () => ListCodeReviewsRequest$,
+  () => ListCodeReviewsResponse$,
 ];
-export var ListRecommendationFeedback: StaticOperationSchema = [
+export var ListRecommendationFeedback$: StaticOperationSchema = [
   9,
   n0,
   _LRF,
   { [_h]: ["GET", "/feedback/{CodeReviewArn}/RecommendationFeedback", 200] },
-  () => ListRecommendationFeedbackRequest,
-  () => ListRecommendationFeedbackResponse,
+  () => ListRecommendationFeedbackRequest$,
+  () => ListRecommendationFeedbackResponse$,
 ];
-export var ListRecommendations: StaticOperationSchema = [
+export var ListRecommendations$: StaticOperationSchema = [
   9,
   n0,
   _LR,
   { [_h]: ["GET", "/codereviews/{CodeReviewArn}/Recommendations", 200] },
-  () => ListRecommendationsRequest,
-  () => ListRecommendationsResponse,
+  () => ListRecommendationsRequest$,
+  () => ListRecommendationsResponse$,
 ];
-export var ListRepositoryAssociations: StaticOperationSchema = [
+export var ListRepositoryAssociations$: StaticOperationSchema = [
   9,
   n0,
   _LRA,
   { [_h]: ["GET", "/associations", 200] },
-  () => ListRepositoryAssociationsRequest,
-  () => ListRepositoryAssociationsResponse,
+  () => ListRepositoryAssociationsRequest$,
+  () => ListRepositoryAssociationsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var PutRecommendationFeedback: StaticOperationSchema = [
+export var PutRecommendationFeedback$: StaticOperationSchema = [
   9,
   n0,
   _PRF,
   { [_h]: ["PUT", "/feedback", 200] },
-  () => PutRecommendationFeedbackRequest,
-  () => PutRecommendationFeedbackResponse,
+  () => PutRecommendationFeedbackRequest$,
+  () => PutRecommendationFeedbackResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];

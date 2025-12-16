@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCurrentUserDataRequest, GetCurrentUserDataResponse } from "../models/models_1";
-import { GetCurrentUserData } from "../schemas/schemas_0";
+import { GetCurrentUserData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -173,7 +173,7 @@ export class GetCurrentUserDataCommand extends $Command
   })
   .s("AmazonConnectService", "GetCurrentUserData", {})
   .n("ConnectClient", "GetCurrentUserDataCommand")
-  .sc(GetCurrentUserData)
+  .sc(GetCurrentUserData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

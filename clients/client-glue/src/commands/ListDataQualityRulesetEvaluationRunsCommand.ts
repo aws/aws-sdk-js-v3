@@ -9,7 +9,7 @@ import type {
   ListDataQualityRulesetEvaluationRunsRequest,
   ListDataQualityRulesetEvaluationRunsResponse,
 } from "../models/models_2";
-import { ListDataQualityRulesetEvaluationRuns } from "../schemas/schemas_0";
+import { ListDataQualityRulesetEvaluationRuns$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -141,7 +141,7 @@ export class ListDataQualityRulesetEvaluationRunsCommand extends $Command
   })
   .s("AWSGlue", "ListDataQualityRulesetEvaluationRuns", {})
   .n("GlueClient", "ListDataQualityRulesetEvaluationRunsCommand")
-  .sc(ListDataQualityRulesetEvaluationRuns)
+  .sc(ListDataQualityRulesetEvaluationRuns$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

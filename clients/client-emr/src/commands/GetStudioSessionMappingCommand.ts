@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetStudioSessionMappingInput, GetStudioSessionMappingOutput } from "../models/models_0";
-import { GetStudioSessionMapping } from "../schemas/schemas_0";
+import { GetStudioSessionMapping$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class GetStudioSessionMappingCommand extends $Command
   })
   .s("ElasticMapReduce", "GetStudioSessionMapping", {})
   .n("EMRClient", "GetStudioSessionMappingCommand")
-  .sc(GetStudioSessionMapping)
+  .sc(GetStudioSessionMapping$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

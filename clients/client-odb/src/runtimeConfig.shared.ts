@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: OdbClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.odb",
-        serviceTarget: "Odb",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.odb",
+      version: "2024-08-20",
+      serviceTarget: "Odb",
+    },
     serviceId: config?.serviceId ?? "odb",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

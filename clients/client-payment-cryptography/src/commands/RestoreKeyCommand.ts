@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyClient";
-import { RestoreKey } from "../schemas/schemas_0";
+import { RestoreKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -140,7 +140,7 @@ export class RestoreKeyCommand extends $Command
   })
   .s("PaymentCryptographyControlPlane", "RestoreKey", {})
   .n("PaymentCryptographyClient", "RestoreKeyCommand")
-  .sc(RestoreKey)
+  .sc(RestoreKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

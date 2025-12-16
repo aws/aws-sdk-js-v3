@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeConfigRulesRequest, DescribeConfigRulesResponse } from "../models/models_0";
-import { DescribeConfigRules } from "../schemas/schemas_0";
+import { DescribeConfigRules$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class DescribeConfigRulesCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeConfigRules", {})
   .n("ConfigServiceClient", "DescribeConfigRulesCommand")
-  .sc(DescribeConfigRules)
+  .sc(DescribeConfigRules$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

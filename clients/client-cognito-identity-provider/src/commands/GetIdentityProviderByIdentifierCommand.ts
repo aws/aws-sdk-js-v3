@@ -13,7 +13,7 @@ import type {
   GetIdentityProviderByIdentifierRequest,
   GetIdentityProviderByIdentifierResponse,
 } from "../models/models_0";
-import { GetIdentityProviderByIdentifier } from "../schemas/schemas_0";
+import { GetIdentityProviderByIdentifier$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class GetIdentityProviderByIdentifierCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "GetIdentityProviderByIdentifier", {})
   .n("CognitoIdentityProviderClient", "GetIdentityProviderByIdentifierCommand")
-  .sc(GetIdentityProviderByIdentifier)
+  .sc(GetIdentityProviderByIdentifier$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

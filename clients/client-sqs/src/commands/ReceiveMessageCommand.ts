@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ReceiveMessageRequest, ReceiveMessageResult } from "../models/models_0";
-import { ReceiveMessage } from "../schemas/schemas_0";
+import { ReceiveMessage$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -220,7 +220,7 @@ export class ReceiveMessageCommand extends $Command
   })
   .s("AmazonSQS", "ReceiveMessage", {})
   .n("SQSClient", "ReceiveMessageCommand")
-  .sc(ReceiveMessage)
+  .sc(ReceiveMessage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

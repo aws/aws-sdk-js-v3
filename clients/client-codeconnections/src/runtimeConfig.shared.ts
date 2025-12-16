@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: CodeConnectionsClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.codeconnections",
-        serviceTarget: "CodeConnections_20231201",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.codeconnections",
+      version: "2023-12-01",
+      serviceTarget: "CodeConnections_20231201",
+    },
     serviceId: config?.serviceId ?? "CodeConnections",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

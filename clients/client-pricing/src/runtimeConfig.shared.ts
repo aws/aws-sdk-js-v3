@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: PricingClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.pricing",
-        serviceTarget: "AWSPriceListService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.pricing",
+      version: "2017-10-15",
+      serviceTarget: "AWSPriceListService",
+    },
     serviceId: config?.serviceId ?? "Pricing",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

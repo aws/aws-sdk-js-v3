@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelCapacityReservationInput, CancelCapacityReservationOutput } from "../models/models_0";
-import { CancelCapacityReservation } from "../schemas/schemas_0";
+import { CancelCapacityReservation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class CancelCapacityReservationCommand extends $Command
   })
   .s("AmazonAthena", "CancelCapacityReservation", {})
   .n("AthenaClient", "CancelCapacityReservationCommand")
-  .sc(CancelCapacityReservation)
+  .sc(CancelCapacityReservation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

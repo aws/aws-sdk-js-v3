@@ -9,7 +9,7 @@ import type {
   DisassociateDistributionTenantWebACLRequest,
   DisassociateDistributionTenantWebACLResult,
 } from "../models/models_0";
-import { DisassociateDistributionTenantWebACL } from "../schemas/schemas_0";
+import { DisassociateDistributionTenantWebACL$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DisassociateDistributionTenantWebACLCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "DisassociateDistributionTenantWebACL", {})
   .n("CloudFrontClient", "DisassociateDistributionTenantWebACLCommand")
-  .sc(DisassociateDistributionTenantWebACL)
+  .sc(DisassociateDistributionTenantWebACL$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

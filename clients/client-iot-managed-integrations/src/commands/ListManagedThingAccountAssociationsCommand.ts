@@ -13,7 +13,7 @@ import type {
   ListManagedThingAccountAssociationsRequest,
   ListManagedThingAccountAssociationsResponse,
 } from "../models/models_0";
-import { ListManagedThingAccountAssociations } from "../schemas/schemas_0";
+import { ListManagedThingAccountAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class ListManagedThingAccountAssociationsCommand extends $Command
   })
   .s("IotManagedIntegrations", "ListManagedThingAccountAssociations", {})
   .n("IoTManagedIntegrationsClient", "ListManagedThingAccountAssociationsCommand")
-  .sc(ListManagedThingAccountAssociations)
+  .sc(ListManagedThingAccountAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: KinesisVideoSignalingClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.kinesisvideosignaling" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.kinesisvideosignaling",
+      version: "2019-12-04",
+      serviceTarget: "AWSAcuitySignalingService",
+    },
     serviceId: config?.serviceId ?? "Kinesis Video Signaling",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

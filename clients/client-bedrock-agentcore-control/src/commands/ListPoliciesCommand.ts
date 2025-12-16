@@ -11,7 +11,7 @@ import type {
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListPoliciesRequest } from "../models/models_0";
 import type { ListPoliciesResponse } from "../models/models_1";
-import { ListPolicies } from "../schemas/schemas_0";
+import { ListPolicies$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class ListPoliciesCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "ListPolicies", {})
   .n("BedrockAgentCoreControlClient", "ListPoliciesCommand")
-  .sc(ListPolicies)
+  .sc(ListPolicies$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

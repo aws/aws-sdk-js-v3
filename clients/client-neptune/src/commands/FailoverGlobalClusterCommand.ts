@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FailoverGlobalClusterMessage, FailoverGlobalClusterResult } from "../models/models_0";
 import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import { FailoverGlobalCluster } from "../schemas/schemas_0";
+import { FailoverGlobalCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class FailoverGlobalClusterCommand extends $Command
   })
   .s("AmazonRDSv19", "FailoverGlobalCluster", {})
   .n("NeptuneClient", "FailoverGlobalClusterCommand")
-  .sc(FailoverGlobalCluster)
+  .sc(FailoverGlobalCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

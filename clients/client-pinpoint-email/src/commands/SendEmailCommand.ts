@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SendEmailRequest, SendEmailResponse } from "../models/models_0";
 import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { SendEmail } from "../schemas/schemas_0";
+import { SendEmail$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -163,7 +163,7 @@ export class SendEmailCommand extends $Command
   })
   .s("AmazonPinpointEmailService", "SendEmail", {})
   .n("PinpointEmailClient", "SendEmailCommand")
-  .sc(SendEmail)
+  .sc(SendEmail$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

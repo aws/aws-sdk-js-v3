@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: CleanRoomsClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.cleanrooms" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.cleanrooms",
+      version: "2022-02-17",
+      serviceTarget: "AWSBastionControlPlaneServiceLambda",
+    },
     serviceId: config?.serviceId ?? "CleanRooms",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

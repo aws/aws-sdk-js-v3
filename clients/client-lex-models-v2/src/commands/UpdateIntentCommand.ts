@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import type { UpdateIntentRequest, UpdateIntentResponse } from "../models/models_1";
-import { UpdateIntent } from "../schemas/schemas_0";
+import { UpdateIntent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -1056,7 +1056,7 @@ export class UpdateIntentCommand extends $Command
   })
   .s("LexModelBuildingServiceV2", "UpdateIntent", {})
   .n("LexModelsV2Client", "UpdateIntentCommand")
-  .sc(UpdateIntent)
+  .sc(UpdateIntent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

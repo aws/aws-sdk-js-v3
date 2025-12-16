@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EndSessionRequest, EndSessionResponse } from "../models/models_0";
-import { EndSession } from "../schemas/schemas_0";
+import { EndSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class EndSessionCommand extends $Command
   })
   .s("AmazonBedrockAgentRunTimeService", "EndSession", {})
   .n("BedrockAgentRuntimeClient", "EndSessionCommand")
-  .sc(EndSession)
+  .sc(EndSession$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

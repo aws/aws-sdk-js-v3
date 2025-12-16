@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisableAddressTransferRequest, DisableAddressTransferResult } from "../models/models_5";
-import { DisableAddressTransfer } from "../schemas/schemas_0";
+import { DisableAddressTransfer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,7 +81,7 @@ export class DisableAddressTransferCommand extends $Command
   })
   .s("AmazonEC2", "DisableAddressTransfer", {})
   .n("EC2Client", "DisableAddressTransferCommand")
-  .sc(DisableAddressTransfer)
+  .sc(DisableAddressTransfer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

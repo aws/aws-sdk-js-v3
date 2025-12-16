@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LookoutEquipmentClient";
 import type { DeleteInferenceSchedulerRequest } from "../models/models_0";
-import { DeleteInferenceScheduler } from "../schemas/schemas_0";
+import { DeleteInferenceScheduler$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class DeleteInferenceSchedulerCommand extends $Command
   })
   .s("AWSLookoutEquipmentFrontendService", "DeleteInferenceScheduler", {})
   .n("LookoutEquipmentClient", "DeleteInferenceSchedulerCommand")
-  .sc(DeleteInferenceScheduler)
+  .sc(DeleteInferenceScheduler$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

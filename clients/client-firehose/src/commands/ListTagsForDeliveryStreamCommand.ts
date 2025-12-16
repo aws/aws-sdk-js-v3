@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import type { ListTagsForDeliveryStreamInput, ListTagsForDeliveryStreamOutput } from "../models/models_0";
-import { ListTagsForDeliveryStream } from "../schemas/schemas_0";
+import { ListTagsForDeliveryStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class ListTagsForDeliveryStreamCommand extends $Command
   })
   .s("Firehose_20150804", "ListTagsForDeliveryStream", {})
   .n("FirehoseClient", "ListTagsForDeliveryStreamCommand")
-  .sc(ListTagsForDeliveryStream)
+  .sc(ListTagsForDeliveryStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

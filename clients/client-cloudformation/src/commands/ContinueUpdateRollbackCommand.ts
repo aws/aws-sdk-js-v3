@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ContinueUpdateRollbackInput, ContinueUpdateRollbackOutput } from "../models/models_0";
-import { ContinueUpdateRollback } from "../schemas/schemas_0";
+import { ContinueUpdateRollback$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class ContinueUpdateRollbackCommand extends $Command
   })
   .s("CloudFormation", "ContinueUpdateRollback", {})
   .n("CloudFormationClient", "ContinueUpdateRollbackCommand")
-  .sc(ContinueUpdateRollback)
+  .sc(ContinueUpdateRollback$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

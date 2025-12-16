@@ -9,7 +9,7 @@ import type {
   ListManagedNotificationConfigurationsResponse,
 } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { ListManagedNotificationConfigurations } from "../schemas/schemas_0";
+import { ListManagedNotificationConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ListManagedNotificationConfigurationsCommand extends $Command
   })
   .s("Notifications", "ListManagedNotificationConfigurations", {})
   .n("NotificationsClient", "ListManagedNotificationConfigurationsCommand")
-  .sc(ListManagedNotificationConfigurations)
+  .sc(ListManagedNotificationConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   StartCommitmentPurchaseAnalysisRequest,
   StartCommitmentPurchaseAnalysisResponse,
 } from "../models/models_0";
-import { StartCommitmentPurchaseAnalysis } from "../schemas/schemas_0";
+import { StartCommitmentPurchaseAnalysis$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class StartCommitmentPurchaseAnalysisCommand extends $Command
   })
   .s("AWSInsightsIndexService", "StartCommitmentPurchaseAnalysis", {})
   .n("CostExplorerClient", "StartCommitmentPurchaseAnalysisCommand")
-  .sc(StartCommitmentPurchaseAnalysis)
+  .sc(StartCommitmentPurchaseAnalysis$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

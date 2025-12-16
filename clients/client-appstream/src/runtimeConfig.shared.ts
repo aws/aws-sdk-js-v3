@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: AppStreamClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.appstream",
-        serviceTarget: "PhotonAdminProxyService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.appstream",
+      version: "2016-12-01",
+      serviceTarget: "PhotonAdminProxyService",
+    },
     serviceId: config?.serviceId ?? "AppStream",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

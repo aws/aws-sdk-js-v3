@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import type { CancelTransactionRequest, CancelTransactionResponse } from "../models/models_0";
-import { CancelTransaction } from "../schemas/schemas_0";
+import { CancelTransaction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class CancelTransactionCommand extends $Command
   })
   .s("AWSLakeFormation", "CancelTransaction", {})
   .n("LakeFormationClient", "CancelTransactionCommand")
-  .sc(CancelTransaction)
+  .sc(CancelTransaction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

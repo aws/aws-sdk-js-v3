@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListNamespacesRequest, ListNamespacesResponse } from "../models/models_0";
 import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
-import { ListNamespaces } from "../schemas/schemas_0";
+import { ListNamespaces$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class ListNamespacesCommand extends $Command
   })
   .s("S3TableBuckets", "ListNamespaces", {})
   .n("S3TablesClient", "ListNamespacesCommand")
-  .sc(ListNamespaces)
+  .sc(ListNamespaces$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

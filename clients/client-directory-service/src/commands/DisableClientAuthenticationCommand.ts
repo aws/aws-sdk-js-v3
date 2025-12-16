@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisableClientAuthenticationRequest, DisableClientAuthenticationResult } from "../models/models_0";
-import { DisableClientAuthentication } from "../schemas/schemas_0";
+import { DisableClientAuthentication$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DisableClientAuthenticationCommand extends $Command
   })
   .s("DirectoryService_20150416", "DisableClientAuthentication", {})
   .n("DirectoryServiceClient", "DisableClientAuthenticationCommand")
-  .sc(DisableClientAuthentication)
+  .sc(DisableClientAuthentication$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

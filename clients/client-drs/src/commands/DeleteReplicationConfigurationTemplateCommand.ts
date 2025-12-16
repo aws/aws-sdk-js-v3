@@ -9,7 +9,7 @@ import type {
   DeleteReplicationConfigurationTemplateRequest,
   DeleteReplicationConfigurationTemplateResponse,
 } from "../models/models_0";
-import { DeleteReplicationConfigurationTemplate } from "../schemas/schemas_0";
+import { DeleteReplicationConfigurationTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DeleteReplicationConfigurationTemplateCommand extends $Command
   })
   .s("ElasticDisasterRecoveryService", "DeleteReplicationConfigurationTemplate", {})
   .n("DrsClient", "DeleteReplicationConfigurationTemplateCommand")
-  .sc(DeleteReplicationConfigurationTemplate)
+  .sc(DeleteReplicationConfigurationTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

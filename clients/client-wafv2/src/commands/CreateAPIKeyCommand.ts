@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateAPIKeyRequest, CreateAPIKeyResponse } from "../models/models_0";
-import { CreateAPIKey } from "../schemas/schemas_0";
+import { CreateAPIKey$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -115,7 +115,7 @@ export class CreateAPIKeyCommand extends $Command
   })
   .s("AWSWAF_20190729", "CreateAPIKey", {})
   .n("WAFV2Client", "CreateAPIKeyCommand")
-  .sc(CreateAPIKey)
+  .sc(CreateAPIKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

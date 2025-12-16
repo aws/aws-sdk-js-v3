@@ -9,7 +9,7 @@ import type {
   GetCollaborationConfiguredModelAlgorithmAssociationRequest,
   GetCollaborationConfiguredModelAlgorithmAssociationResponse,
 } from "../models/models_0";
-import { GetCollaborationConfiguredModelAlgorithmAssociation } from "../schemas/schemas_0";
+import { GetCollaborationConfiguredModelAlgorithmAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -166,7 +166,7 @@ export class GetCollaborationConfiguredModelAlgorithmAssociationCommand extends 
   })
   .s("AWSStarkControlService", "GetCollaborationConfiguredModelAlgorithmAssociation", {})
   .n("CleanRoomsMLClient", "GetCollaborationConfiguredModelAlgorithmAssociationCommand")
-  .sc(GetCollaborationConfiguredModelAlgorithmAssociation)
+  .sc(GetCollaborationConfiguredModelAlgorithmAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

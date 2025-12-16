@@ -9,7 +9,7 @@ import type {
   DescribeMountTargetSecurityGroupsRequest,
   DescribeMountTargetSecurityGroupsResponse,
 } from "../models/models_0";
-import { DescribeMountTargetSecurityGroups } from "../schemas/schemas_0";
+import { DescribeMountTargetSecurityGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class DescribeMountTargetSecurityGroupsCommand extends $Command
   })
   .s("MagnolioAPIService_v20150201", "DescribeMountTargetSecurityGroups", {})
   .n("EFSClient", "DescribeMountTargetSecurityGroupsCommand")
-  .sc(DescribeMountTargetSecurityGroups)
+  .sc(DescribeMountTargetSecurityGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

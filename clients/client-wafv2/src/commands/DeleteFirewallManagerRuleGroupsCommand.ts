@@ -8,7 +8,7 @@ import type {
   DeleteFirewallManagerRuleGroupsRequest,
   DeleteFirewallManagerRuleGroupsResponse,
 } from "../models/models_0";
-import { DeleteFirewallManagerRuleGroups } from "../schemas/schemas_0";
+import { DeleteFirewallManagerRuleGroups$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -119,7 +119,7 @@ export class DeleteFirewallManagerRuleGroupsCommand extends $Command
   })
   .s("AWSWAF_20190729", "DeleteFirewallManagerRuleGroups", {})
   .n("WAFV2Client", "DeleteFirewallManagerRuleGroupsCommand")
-  .sc(DeleteFirewallManagerRuleGroups)
+  .sc(DeleteFirewallManagerRuleGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

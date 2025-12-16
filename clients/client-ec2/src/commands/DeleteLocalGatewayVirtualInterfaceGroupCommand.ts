@@ -9,7 +9,7 @@ import type {
   DeleteLocalGatewayVirtualInterfaceGroupRequest,
   DeleteLocalGatewayVirtualInterfaceGroupResult,
 } from "../models/models_2";
-import { DeleteLocalGatewayVirtualInterfaceGroup } from "../schemas/schemas_0";
+import { DeleteLocalGatewayVirtualInterfaceGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DeleteLocalGatewayVirtualInterfaceGroupCommand extends $Command
   })
   .s("AmazonEC2", "DeleteLocalGatewayVirtualInterfaceGroup", {})
   .n("EC2Client", "DeleteLocalGatewayVirtualInterfaceGroupCommand")
-  .sc(DeleteLocalGatewayVirtualInterfaceGroup)
+  .sc(DeleteLocalGatewayVirtualInterfaceGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

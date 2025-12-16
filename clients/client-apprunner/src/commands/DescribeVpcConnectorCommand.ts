@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeVpcConnectorRequest, DescribeVpcConnectorResponse } from "../models/models_0";
-import { DescribeVpcConnector } from "../schemas/schemas_0";
+import { DescribeVpcConnector$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DescribeVpcConnectorCommand extends $Command
   })
   .s("AppRunner", "DescribeVpcConnector", {})
   .n("AppRunnerClient", "DescribeVpcConnectorCommand")
-  .sc(DescribeVpcConnector)
+  .sc(DescribeVpcConnector$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

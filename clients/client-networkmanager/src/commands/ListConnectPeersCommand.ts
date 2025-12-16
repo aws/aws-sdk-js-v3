@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { ListConnectPeers } from "../schemas/schemas_0";
+import { ListConnectPeers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class ListConnectPeersCommand extends $Command
   })
   .s("NetworkManager", "ListConnectPeers", {})
   .n("NetworkManagerClient", "ListConnectPeersCommand")
-  .sc(ListConnectPeers)
+  .sc(ListConnectPeers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

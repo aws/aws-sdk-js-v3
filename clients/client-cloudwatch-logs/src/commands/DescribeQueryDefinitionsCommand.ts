@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeQueryDefinitionsRequest, DescribeQueryDefinitionsResponse } from "../models/models_0";
-import { DescribeQueryDefinitions } from "../schemas/schemas_0";
+import { DescribeQueryDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class DescribeQueryDefinitionsCommand extends $Command
   })
   .s("Logs_20140328", "DescribeQueryDefinitions", {})
   .n("CloudWatchLogsClient", "DescribeQueryDefinitionsCommand")
-  .sc(DescribeQueryDefinitions)
+  .sc(DescribeQueryDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

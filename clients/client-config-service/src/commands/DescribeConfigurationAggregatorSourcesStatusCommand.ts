@@ -9,7 +9,7 @@ import type {
   DescribeConfigurationAggregatorSourcesStatusRequest,
   DescribeConfigurationAggregatorSourcesStatusResponse,
 } from "../models/models_0";
-import { DescribeConfigurationAggregatorSourcesStatus } from "../schemas/schemas_0";
+import { DescribeConfigurationAggregatorSourcesStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Comman
   })
   .s("StarlingDoveService", "DescribeConfigurationAggregatorSourcesStatus", {})
   .n("ConfigServiceClient", "DescribeConfigurationAggregatorSourcesStatusCommand")
-  .sc(DescribeConfigurationAggregatorSourcesStatus)
+  .sc(DescribeConfigurationAggregatorSourcesStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

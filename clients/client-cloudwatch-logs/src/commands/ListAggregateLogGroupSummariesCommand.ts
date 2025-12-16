@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAggregateLogGroupSummariesRequest, ListAggregateLogGroupSummariesResponse } from "../models/models_0";
-import { ListAggregateLogGroupSummaries } from "../schemas/schemas_0";
+import { ListAggregateLogGroupSummaries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class ListAggregateLogGroupSummariesCommand extends $Command
   })
   .s("Logs_20140328", "ListAggregateLogGroupSummaries", {})
   .n("CloudWatchLogsClient", "ListAggregateLogGroupSummariesCommand")
-  .sc(ListAggregateLogGroupSummaries)
+  .sc(ListAggregateLogGroupSummaries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

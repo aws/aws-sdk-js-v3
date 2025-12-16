@@ -9,7 +9,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputType
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type GetObjectRequest, GetObjectOutput } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetObject } from "../schemas/schemas_0";
+import { GetObject$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -389,7 +389,7 @@ export class GetObjectCommand extends $Command
   })
   .s("AmazonS3", "GetObject", {})
   .n("S3Client", "GetObjectCommand")
-  .sc(GetObject)
+  .sc(GetObject$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

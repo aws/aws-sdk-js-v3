@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteRotationRequest, DeleteRotationResult } from "../models/models_0";
-import { DeleteRotation } from "../schemas/schemas_0";
+import { DeleteRotation$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
@@ -91,7 +91,7 @@ export class DeleteRotationCommand extends $Command
   })
   .s("SSMContacts", "DeleteRotation", {})
   .n("SSMContactsClient", "DeleteRotationCommand")
-  .sc(DeleteRotation)
+  .sc(DeleteRotation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

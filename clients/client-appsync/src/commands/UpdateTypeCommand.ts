@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateTypeRequest, UpdateTypeResponse } from "../models/models_0";
-import { UpdateType } from "../schemas/schemas_0";
+import { UpdateType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class UpdateTypeCommand extends $Command
   })
   .s("AWSDeepdishControlPlaneService", "UpdateType", {})
   .n("AppSyncClient", "UpdateTypeCommand")
-  .sc(UpdateType)
+  .sc(UpdateType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

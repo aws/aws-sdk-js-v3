@@ -376,23 +376,23 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  ExecutionTimeoutException as __ExecutionTimeoutException,
-  InternalServerException as __InternalServerException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ServiceUnavailableException as __ServiceUnavailableException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  ExecutionTimeoutException,
+  InternalServerException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ServiceUnavailableException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { M2ServiceException as __M2ServiceException } from "../models/M2ServiceException";
+import { M2ServiceException } from "../models/M2ServiceException";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var AlternateKey: StaticStructureSchema = [3, n0, _AK, 0, [_n, _o, _l, _aD], [0, 1, 1, 2]];
-export var ApplicationSummary: StaticStructureSchema = [
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var AlternateKey$: StaticStructureSchema = [3, n0, _AK, 0, [_n, _o, _l, _aD], [0, 1, 1, 2]];
+export var ApplicationSummary$: StaticStructureSchema = [
   3,
   n0,
   _AS,
@@ -400,16 +400,16 @@ export var ApplicationSummary: StaticStructureSchema = [
   [_n, _d, _aI, _aA, _aV, _s, _eT, _cT, _eI, _lST, _vS, _dS, _rA],
   [0, 0, 0, 0, 1, 0, 0, 4, 0, 4, 0, 0, 0],
 ];
-export var ApplicationVersionSummary: StaticStructureSchema = [3, n0, _AVS, 0, [_aV, _s, _sR, _cT], [1, 0, 0, 4]];
-export var BatchJobExecutionSummary: StaticStructureSchema = [
+export var ApplicationVersionSummary$: StaticStructureSchema = [3, n0, _AVS, 0, [_aV, _s, _sR, _cT], [1, 0, 0, 4]];
+export var BatchJobExecutionSummary$: StaticStructureSchema = [
   3,
   n0,
   _BJES,
   0,
   [_eIx, _aI, _jI, _jN, _jT, _s, _sT, _eTn, _rC, _bJI],
-  [0, 0, 0, 0, 0, 0, 4, 4, 0, () => BatchJobIdentifier],
+  [0, 0, 0, 0, 0, 0, 4, 4, 0, () => BatchJobIdentifier$],
 ];
-export var CancelBatchJobExecutionRequest: StaticStructureSchema = [
+export var CancelBatchJobExecutionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CBJER,
@@ -417,37 +417,37 @@ export var CancelBatchJobExecutionRequest: StaticStructureSchema = [
   [_aI, _eIx, _aSMA],
   [[0, 1], [0, 1], 0],
 ];
-export var CancelBatchJobExecutionResponse: StaticStructureSchema = [3, n0, _CBJERa, 0, [], []];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateApplicationRequest: StaticStructureSchema = [
+export var CancelBatchJobExecutionResponse$: StaticStructureSchema = [3, n0, _CBJERa, 0, [], []];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m, _rI, _rT], [0, 0, 0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateApplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CAR,
   0,
   [_n, _d, _eT, _de, _t, _cTl, _kKI, _rA],
-  [0, 0, 0, () => Definition, 128 | 0, [0, 4], 0, 0],
+  [0, 0, 0, () => Definition$, 128 | 0, [0, 4], 0, 0],
 ];
-export var CreateApplicationResponse: StaticStructureSchema = [3, n0, _CARr, 0, [_aA, _aI, _aV], [0, 0, 1]];
-export var CreateDataSetExportTaskRequest: StaticStructureSchema = [
+export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr, 0, [_aA, _aI, _aV], [0, 0, 1]];
+export var CreateDataSetExportTaskRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDSETR,
   0,
   [_aI, _eC, _cTl, _kKI],
-  [[0, 1], () => DataSetExportConfig, [0, 4], 0],
+  [[0, 1], () => DataSetExportConfig$, [0, 4], 0],
 ];
-export var CreateDataSetExportTaskResponse: StaticStructureSchema = [3, n0, _CDSETRr, 0, [_tI], [0]];
-export var CreateDataSetImportTaskRequest: StaticStructureSchema = [
+export var CreateDataSetExportTaskResponse$: StaticStructureSchema = [3, n0, _CDSETRr, 0, [_tI], [0]];
+export var CreateDataSetImportTaskRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDSITR,
   0,
   [_aI, _iC, _cTl],
-  [[0, 1], () => DataSetImportConfig, [0, 4]],
+  [[0, 1], () => DataSetImportConfig$, [0, 4]],
 ];
-export var CreateDataSetImportTaskResponse: StaticStructureSchema = [3, n0, _CDSITRr, 0, [_tI], [0]];
-export var CreateDeploymentRequest: StaticStructureSchema = [
+export var CreateDataSetImportTaskResponse$: StaticStructureSchema = [3, n0, _CDSITRr, 0, [_tI], [0]];
+export var CreateDeploymentRequest$: StaticStructureSchema = [
   3,
   n0,
   _CDR,
@@ -455,8 +455,8 @@ export var CreateDeploymentRequest: StaticStructureSchema = [
   [_eI, _aI, _aV, _cTl],
   [0, [0, 1], 1, [0, 4]],
 ];
-export var CreateDeploymentResponse: StaticStructureSchema = [3, n0, _CDRr, 0, [_dI], [0]];
-export var CreateEnvironmentRequest: StaticStructureSchema = [
+export var CreateDeploymentResponse$: StaticStructureSchema = [3, n0, _CDRr, 0, [_dI], [0]];
+export var CreateEnvironmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _CER,
@@ -472,7 +472,7 @@ export var CreateEnvironmentRequest: StaticStructureSchema = [
     64 | 0,
     [() => StorageConfigurationList, 0],
     2,
-    () => HighAvailabilityConfig,
+    () => HighAvailabilityConfig$,
     128 | 0,
     0,
     0,
@@ -480,43 +480,43 @@ export var CreateEnvironmentRequest: StaticStructureSchema = [
     0,
   ],
 ];
-export var CreateEnvironmentResponse: StaticStructureSchema = [3, n0, _CERr, 0, [_eI], [0]];
-export var DataSet: StaticStructureSchema = [
+export var CreateEnvironmentResponse$: StaticStructureSchema = [3, n0, _CERr, 0, [_eI], [0]];
+export var DataSet$: StaticStructureSchema = [
   3,
   n0,
   _DS,
   0,
   [_sTt, _dN, _dO, _rP, _rL],
-  [0, 0, () => DatasetOrgAttributes, 0, () => RecordLength],
+  [0, 0, () => DatasetOrgAttributes$, 0, () => RecordLength$],
 ];
-export var DataSetExportItem: StaticStructureSchema = [3, n0, _DSEI, 0, [_dN, _eL], [0, () => ExternalLocation]];
-export var DataSetExportSummary: StaticStructureSchema = [3, n0, _DSES, 0, [_to, _su, _f, _p, _iP], [1, 1, 1, 1, 1]];
-export var DataSetExportTask: StaticStructureSchema = [
+export var DataSetExportItem$: StaticStructureSchema = [3, n0, _DSEI, 0, [_dN, _eL], [0, () => ExternalLocation$]];
+export var DataSetExportSummary$: StaticStructureSchema = [3, n0, _DSES, 0, [_to, _su, _f, _p, _iP], [1, 1, 1, 1, 1]];
+export var DataSetExportTask$: StaticStructureSchema = [
   3,
   n0,
   _DSET,
   0,
   [_tI, _s, _sum, _sR],
-  [0, 0, () => DataSetExportSummary, 0],
+  [0, 0, () => DataSetExportSummary$, 0],
 ];
-export var DataSetImportItem: StaticStructureSchema = [
+export var DataSetImportItem$: StaticStructureSchema = [
   3,
   n0,
   _DSII,
   0,
   [_dSa, _eL],
-  [() => DataSet, () => ExternalLocation],
+  [() => DataSet$, () => ExternalLocation$],
 ];
-export var DataSetImportSummary: StaticStructureSchema = [3, n0, _DSIS, 0, [_to, _su, _f, _p, _iP], [1, 1, 1, 1, 1]];
-export var DataSetImportTask: StaticStructureSchema = [
+export var DataSetImportSummary$: StaticStructureSchema = [3, n0, _DSIS, 0, [_to, _su, _f, _p, _iP], [1, 1, 1, 1, 1]];
+export var DataSetImportTask$: StaticStructureSchema = [
   3,
   n0,
   _DSIT,
   0,
   [_tI, _s, _sum, _sR],
-  [0, 0, () => DataSetImportSummary, 0],
+  [0, 0, () => DataSetImportSummary$, 0],
 ];
-export var DataSetSummary: StaticStructureSchema = [
+export var DataSetSummary$: StaticStructureSchema = [
   3,
   n0,
   _DSS,
@@ -524,7 +524,7 @@ export var DataSetSummary: StaticStructureSchema = [
   [_dSN, _dSO, _fo, _cT, _lUT, _lRT],
   [0, 0, 0, 4, 4, 4],
 ];
-export var DeleteApplicationFromEnvironmentRequest: StaticStructureSchema = [
+export var DeleteApplicationFromEnvironmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _DAFER,
@@ -535,13 +535,13 @@ export var DeleteApplicationFromEnvironmentRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteApplicationFromEnvironmentResponse: StaticStructureSchema = [3, n0, _DAFERe, 0, [], []];
-export var DeleteApplicationRequest: StaticStructureSchema = [3, n0, _DAR, 0, [_aI], [[0, 1]]];
-export var DeleteApplicationResponse: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
-export var DeleteEnvironmentRequest: StaticStructureSchema = [3, n0, _DER, 0, [_eI], [[0, 1]]];
-export var DeleteEnvironmentResponse: StaticStructureSchema = [3, n0, _DERe, 0, [], []];
-export var DeployedVersionSummary: StaticStructureSchema = [3, n0, _DVS, 0, [_aV, _s, _sR], [1, 0, 0]];
-export var DeploymentSummary: StaticStructureSchema = [
+export var DeleteApplicationFromEnvironmentResponse$: StaticStructureSchema = [3, n0, _DAFERe, 0, [], []];
+export var DeleteApplicationRequest$: StaticStructureSchema = [3, n0, _DAR, 0, [_aI], [[0, 1]]];
+export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
+export var DeleteEnvironmentRequest$: StaticStructureSchema = [3, n0, _DER, 0, [_eI], [[0, 1]]];
+export var DeleteEnvironmentResponse$: StaticStructureSchema = [3, n0, _DERe, 0, [], []];
+export var DeployedVersionSummary$: StaticStructureSchema = [3, n0, _DVS, 0, [_aV, _s, _sR], [1, 0, 0]];
+export var DeploymentSummary$: StaticStructureSchema = [
   3,
   n0,
   _DSe,
@@ -549,7 +549,7 @@ export var DeploymentSummary: StaticStructureSchema = [
   [_dI, _aI, _eI, _aV, _s, _cT, _sR],
   [0, 0, 0, 1, 0, 4, 0],
 ];
-export var EfsStorageConfiguration: StaticStructureSchema = [
+export var EfsStorageConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ESC,
@@ -560,8 +560,8 @@ export var EfsStorageConfiguration: StaticStructureSchema = [
     [0, { [_jNs]: _mp }],
   ],
 ];
-export var EngineVersionsSummary: StaticStructureSchema = [3, n0, _EVS, 0, [_eT, _eV], [0, 0]];
-export var EnvironmentSummary: StaticStructureSchema = [
+export var EngineVersionsSummary$: StaticStructureSchema = [3, n0, _EVS, 0, [_eT, _eV], [0, 0]];
+export var EnvironmentSummary$: StaticStructureSchema = [
   3,
   n0,
   _ES,
@@ -569,11 +569,11 @@ export var EnvironmentSummary: StaticStructureSchema = [
   [_n, _eA, _eI, _iT, _s, _eT, _eV, _cT, _nT],
   [0, 0, 0, 0, 0, 0, 0, 4, 0],
 ];
-export var ExecutionTimeoutException: StaticErrorSchema = [-3, n0, _ETE, { [_e]: _se, [_hE]: 504 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ExecutionTimeoutException, __ExecutionTimeoutException);
-export var FileBatchJobDefinition: StaticStructureSchema = [3, n0, _FBJD, 0, [_fN, _fP], [0, 0]];
-export var FileBatchJobIdentifier: StaticStructureSchema = [3, n0, _FBJI, 0, [_fN, _fP], [0, 0]];
-export var FsxStorageConfiguration: StaticStructureSchema = [
+export var ExecutionTimeoutException$: StaticErrorSchema = [-3, n0, _ETE, { [_e]: _se, [_hE]: 504 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ExecutionTimeoutException$, ExecutionTimeoutException);
+export var FileBatchJobDefinition$: StaticStructureSchema = [3, n0, _FBJD, 0, [_fN, _fP], [0, 0]];
+export var FileBatchJobIdentifier$: StaticStructureSchema = [3, n0, _FBJI, 0, [_fN, _fP], [0, 0]];
+export var FsxStorageConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _FSC,
@@ -584,10 +584,10 @@ export var FsxStorageConfiguration: StaticStructureSchema = [
     [0, { [_jNs]: _mp }],
   ],
 ];
-export var GdgAttributes: StaticStructureSchema = [3, n0, _GA, 0, [_li, _rD], [1, 0]];
-export var GdgDetailAttributes: StaticStructureSchema = [3, n0, _GDA, 0, [_li, _rD], [1, 0]];
-export var GetApplicationRequest: StaticStructureSchema = [3, n0, _GAR, 0, [_aI], [[0, 1]]];
-export var GetApplicationResponse: StaticStructureSchema = [
+export var GdgAttributes$: StaticStructureSchema = [3, n0, _GA, 0, [_li, _rD], [1, 0]];
+export var GdgDetailAttributes$: StaticStructureSchema = [3, n0, _GDA, 0, [_li, _rD], [1, 0]];
+export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR, 0, [_aI], [[0, 1]]];
+export var GetApplicationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GARe,
@@ -599,8 +599,8 @@ export var GetApplicationResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    () => ApplicationVersionSummary,
-    () => DeployedVersionSummary,
+    () => ApplicationVersionSummary$,
+    () => DeployedVersionSummary$,
     0,
     () => LogGroupSummaries,
     4,
@@ -616,7 +616,7 @@ export var GetApplicationResponse: StaticStructureSchema = [
     0,
   ],
 ];
-export var GetApplicationVersionRequest: StaticStructureSchema = [
+export var GetApplicationVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GAVR,
@@ -627,7 +627,7 @@ export var GetApplicationVersionRequest: StaticStructureSchema = [
     [1, 1],
   ],
 ];
-export var GetApplicationVersionResponse: StaticStructureSchema = [
+export var GetApplicationVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GAVRe,
@@ -635,7 +635,7 @@ export var GetApplicationVersionResponse: StaticStructureSchema = [
   [_n, _aV, _d, _dC, _s, _cT, _sR],
   [0, 1, 0, 0, 0, 4, 0],
 ];
-export var GetBatchJobExecutionRequest: StaticStructureSchema = [
+export var GetBatchJobExecutionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GBJER,
@@ -646,15 +646,15 @@ export var GetBatchJobExecutionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetBatchJobExecutionResponse: StaticStructureSchema = [
+export var GetBatchJobExecutionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GBJERe,
   0,
   [_eIx, _aI, _jI, _jN, _jU, _jT, _s, _sT, _eTn, _sR, _rC, _bJI, _jSRM],
-  [0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, () => BatchJobIdentifier, () => JobStepRestartMarker],
+  [0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, () => BatchJobIdentifier$, () => JobStepRestartMarker$],
 ];
-export var GetDataSetDetailsRequest: StaticStructureSchema = [
+export var GetDataSetDetailsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDSDR,
@@ -665,15 +665,15 @@ export var GetDataSetDetailsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetDataSetDetailsResponse: StaticStructureSchema = [
+export var GetDataSetDetailsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDSDRe,
   0,
   [_dSN, _dSO, _rL, _lo, _b, _cT, _lUT, _lRT, _fS],
-  [0, () => DatasetDetailOrgAttributes, 1, 0, 1, 4, 4, 4, 1],
+  [0, () => DatasetDetailOrgAttributes$, 1, 0, 1, 4, 4, 4, 1],
 ];
-export var GetDataSetExportTaskRequest: StaticStructureSchema = [
+export var GetDataSetExportTaskRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDSETR,
@@ -684,15 +684,15 @@ export var GetDataSetExportTaskRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetDataSetExportTaskResponse: StaticStructureSchema = [
+export var GetDataSetExportTaskResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDSETRe,
   0,
   [_tI, _s, _sum, _sR, _kKA],
-  [0, 0, () => DataSetExportSummary, 0, 0],
+  [0, 0, () => DataSetExportSummary$, 0, 0],
 ];
-export var GetDataSetImportTaskRequest: StaticStructureSchema = [
+export var GetDataSetImportTaskRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDSITR,
@@ -703,15 +703,15 @@ export var GetDataSetImportTaskRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetDataSetImportTaskResponse: StaticStructureSchema = [
+export var GetDataSetImportTaskResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDSITRe,
   0,
   [_tI, _s, _sum],
-  [0, 0, () => DataSetImportSummary],
+  [0, 0, () => DataSetImportSummary$],
 ];
-export var GetDeploymentRequest: StaticStructureSchema = [
+export var GetDeploymentRequest$: StaticStructureSchema = [
   3,
   n0,
   _GDR,
@@ -722,7 +722,7 @@ export var GetDeploymentRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetDeploymentResponse: StaticStructureSchema = [
+export var GetDeploymentResponse$: StaticStructureSchema = [
   3,
   n0,
   _GDRe,
@@ -730,8 +730,8 @@ export var GetDeploymentResponse: StaticStructureSchema = [
   [_dI, _aI, _eI, _aV, _s, _cT, _sR],
   [0, 0, 0, 1, 0, 4, 0],
 ];
-export var GetEnvironmentRequest: StaticStructureSchema = [3, n0, _GER, 0, [_eI], [[0, 1]]];
-export var GetEnvironmentResponse: StaticStructureSchema = [
+export var GetEnvironmentRequest$: StaticStructureSchema = [3, n0, _GER, 0, [_eI], [[0, 1]]];
+export var GetEnvironmentResponse$: StaticStructureSchema = [
   3,
   n0,
   _GERe,
@@ -752,20 +752,20 @@ export var GetEnvironmentResponse: StaticStructureSchema = [
     4,
     [() => StorageConfigurationList, 0],
     128 | 0,
-    () => HighAvailabilityConfig,
+    () => HighAvailabilityConfig$,
     2,
     1,
     0,
     0,
     0,
-    () => PendingMaintenance,
+    () => PendingMaintenance$,
     0,
     0,
   ],
 ];
-export var GetSignedBluinsightsUrlResponse: StaticStructureSchema = [3, n0, _GSBUR, 0, [_sBU], [0]];
-export var HighAvailabilityConfig: StaticStructureSchema = [3, n0, _HAC, 0, [_dCe], [1]];
-export var InternalServerException: StaticErrorSchema = [
+export var GetSignedBluinsightsUrlResponse$: StaticStructureSchema = [3, n0, _GSBUR, 0, [_sBU], [0]];
+export var HighAvailabilityConfig$: StaticStructureSchema = [3, n0, _HAC, 0, [_dCe], [1]];
+export var InternalServerException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
@@ -773,8 +773,8 @@ export var InternalServerException: StaticErrorSchema = [
   [_m, _rAS],
   [0, [1, { [_hH]: _RA }]],
 ];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var JobStep: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var JobStep$: StaticStructureSchema = [
   3,
   n0,
   _JS,
@@ -782,7 +782,7 @@ export var JobStep: StaticStructureSchema = [
   [_sN, _sNt, _pSN, _pSNr, _sCC, _sRt, _sCt, _sCS, _sCT],
   [1, 0, 1, 0, 0, 2, 1, 0, 4],
 ];
-export var JobStepRestartMarker: StaticStructureSchema = [
+export var JobStepRestartMarker$: StaticStructureSchema = [
   3,
   n0,
   _JSRM,
@@ -790,7 +790,7 @@ export var JobStepRestartMarker: StaticStructureSchema = [
   [_fSr, _fPS, _tS, _tPS, _sCt, _sk],
   [0, 0, 0, 0, 1, 2],
 ];
-export var ListApplicationsRequest: StaticStructureSchema = [
+export var ListApplicationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAR,
@@ -803,7 +803,7 @@ export var ListApplicationsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _eI }],
   ],
 ];
-export var ListApplicationsResponse: StaticStructureSchema = [
+export var ListApplicationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LARi,
@@ -811,7 +811,7 @@ export var ListApplicationsResponse: StaticStructureSchema = [
   [_a, _nTe],
   [() => ApplicationSummaryList, 0],
 ];
-export var ListApplicationVersionsRequest: StaticStructureSchema = [
+export var ListApplicationVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAVR,
@@ -823,7 +823,7 @@ export var ListApplicationVersionsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ListApplicationVersionsResponse: StaticStructureSchema = [
+export var ListApplicationVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAVRi,
@@ -831,7 +831,7 @@ export var ListApplicationVersionsResponse: StaticStructureSchema = [
   [_aVp, _nTe],
   [() => ApplicationVersionSummaryList, 0],
 ];
-export var ListBatchJobDefinitionsRequest: StaticStructureSchema = [
+export var ListBatchJobDefinitionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBJDR,
@@ -844,7 +844,7 @@ export var ListBatchJobDefinitionsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _pr }],
   ],
 ];
-export var ListBatchJobDefinitionsResponse: StaticStructureSchema = [
+export var ListBatchJobDefinitionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LBJDRi,
@@ -852,7 +852,7 @@ export var ListBatchJobDefinitionsResponse: StaticStructureSchema = [
   [_bJD, _nTe],
   [() => BatchJobDefinitions, 0],
 ];
-export var ListBatchJobExecutionsRequest: StaticStructureSchema = [
+export var ListBatchJobExecutionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBJER,
@@ -869,7 +869,7 @@ export var ListBatchJobExecutionsRequest: StaticStructureSchema = [
     [4, { [_hQ]: _sB }],
   ],
 ];
-export var ListBatchJobExecutionsResponse: StaticStructureSchema = [
+export var ListBatchJobExecutionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LBJERi,
@@ -877,7 +877,7 @@ export var ListBatchJobExecutionsResponse: StaticStructureSchema = [
   [_bJE, _nTe],
   [() => BatchJobExecutionSummaryList, 0],
 ];
-export var ListBatchJobRestartPointsRequest: StaticStructureSchema = [
+export var ListBatchJobRestartPointsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBJRPR,
@@ -889,7 +889,7 @@ export var ListBatchJobRestartPointsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _aSMA }],
   ],
 ];
-export var ListBatchJobRestartPointsResponse: StaticStructureSchema = [
+export var ListBatchJobRestartPointsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LBJRPRi,
@@ -897,7 +897,7 @@ export var ListBatchJobRestartPointsResponse: StaticStructureSchema = [
   [_bJS],
   [() => BatchJobStepList],
 ];
-export var ListDataSetExportHistoryRequest: StaticStructureSchema = [
+export var ListDataSetExportHistoryRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDSEHR,
@@ -909,7 +909,7 @@ export var ListDataSetExportHistoryRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ListDataSetExportHistoryResponse: StaticStructureSchema = [
+export var ListDataSetExportHistoryResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDSEHRi,
@@ -917,7 +917,7 @@ export var ListDataSetExportHistoryResponse: StaticStructureSchema = [
   [_dSET, _nTe],
   [() => DataSetExportTaskList, 0],
 ];
-export var ListDataSetImportHistoryRequest: StaticStructureSchema = [
+export var ListDataSetImportHistoryRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDSIHR,
@@ -929,7 +929,7 @@ export var ListDataSetImportHistoryRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ListDataSetImportHistoryResponse: StaticStructureSchema = [
+export var ListDataSetImportHistoryResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDSIHRi,
@@ -937,7 +937,7 @@ export var ListDataSetImportHistoryResponse: StaticStructureSchema = [
   [_dSIT, _nTe],
   [() => DataSetImportTaskList, 0],
 ];
-export var ListDataSetsRequest: StaticStructureSchema = [
+export var ListDataSetsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDSR,
@@ -951,7 +951,7 @@ export var ListDataSetsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nF }],
   ],
 ];
-export var ListDataSetsResponse: StaticStructureSchema = [
+export var ListDataSetsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LDSRi,
@@ -959,7 +959,7 @@ export var ListDataSetsResponse: StaticStructureSchema = [
   [_dSat, _nTe],
   [() => DataSetsSummaryList, 0],
 ];
-export var ListDeploymentsRequest: StaticStructureSchema = [
+export var ListDeploymentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LDR,
@@ -971,8 +971,8 @@ export var ListDeploymentsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ListDeploymentsResponse: StaticStructureSchema = [3, n0, _LDRi, 0, [_dep, _nTe], [() => DeploymentList, 0]];
-export var ListEngineVersionsRequest: StaticStructureSchema = [
+export var ListDeploymentsResponse$: StaticStructureSchema = [3, n0, _LDRi, 0, [_dep, _nTe], [() => DeploymentList, 0]];
+export var ListEngineVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LEVR,
@@ -984,7 +984,7 @@ export var ListEngineVersionsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mR }],
   ],
 ];
-export var ListEngineVersionsResponse: StaticStructureSchema = [
+export var ListEngineVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LEVRi,
@@ -992,7 +992,7 @@ export var ListEngineVersionsResponse: StaticStructureSchema = [
   [_eVn, _nTe],
   [() => EngineVersionsSummaryList, 0],
 ];
-export var ListEnvironmentsRequest: StaticStructureSchema = [
+export var ListEnvironmentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LER,
@@ -1005,7 +1005,7 @@ export var ListEnvironmentsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _eT }],
   ],
 ];
-export var ListEnvironmentsResponse: StaticStructureSchema = [
+export var ListEnvironmentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LERi,
@@ -1013,18 +1013,18 @@ export var ListEnvironmentsResponse: StaticStructureSchema = [
   [_en, _nTe],
   [() => EnvironmentSummaryList, 0],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rAe], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
-export var LogGroupSummary: StaticStructureSchema = [3, n0, _LGS, 0, [_lT, _lGN], [0, 0]];
-export var MaintenanceSchedule: StaticStructureSchema = [3, n0, _MS, 0, [_sT, _eTn], [4, 4]];
-export var PendingMaintenance: StaticStructureSchema = [3, n0, _PM, 0, [_sc, _eV], [() => MaintenanceSchedule, 0]];
-export var PoAttributes: StaticStructureSchema = [3, n0, _PA, 0, [_fo, _enc, _mFE], [0, 0, 64 | 0]];
-export var PoDetailAttributes: StaticStructureSchema = [3, n0, _PDA, 0, [_fo, _enc], [0, 0]];
-export var PrimaryKey: StaticStructureSchema = [3, n0, _PK, 0, [_n, _o, _l], [0, 1, 1]];
-export var PsAttributes: StaticStructureSchema = [3, n0, _PAs, 0, [_fo, _enc], [0, 0]];
-export var PsDetailAttributes: StaticStructureSchema = [3, n0, _PDAs, 0, [_fo, _enc], [0, 0]];
-export var RecordLength: StaticStructureSchema = [3, n0, _RL, 0, [_mi, _ma], [1, 1]];
-export var ResourceNotFoundException: StaticErrorSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rAe], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
+export var LogGroupSummary$: StaticStructureSchema = [3, n0, _LGS, 0, [_lT, _lGN], [0, 0]];
+export var MaintenanceSchedule$: StaticStructureSchema = [3, n0, _MS, 0, [_sT, _eTn], [4, 4]];
+export var PendingMaintenance$: StaticStructureSchema = [3, n0, _PM, 0, [_sc, _eV], [() => MaintenanceSchedule$, 0]];
+export var PoAttributes$: StaticStructureSchema = [3, n0, _PA, 0, [_fo, _enc, _mFE], [0, 0, 64 | 0]];
+export var PoDetailAttributes$: StaticStructureSchema = [3, n0, _PDA, 0, [_fo, _enc], [0, 0]];
+export var PrimaryKey$: StaticStructureSchema = [3, n0, _PK, 0, [_n, _o, _l], [0, 1, 1]];
+export var PsAttributes$: StaticStructureSchema = [3, n0, _PAs, 0, [_fo, _enc], [0, 0]];
+export var PsDetailAttributes$: StaticStructureSchema = [3, n0, _PDAs, 0, [_fo, _enc], [0, 0]];
+export var RecordLength$: StaticStructureSchema = [3, n0, _RL, 0, [_mi, _ma], [1, 1]];
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -1032,19 +1032,26 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var RestartBatchJobIdentifier: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var RestartBatchJobIdentifier$: StaticStructureSchema = [
   3,
   n0,
   _RBJI,
   0,
   [_eIx, _jSRM],
-  [0, () => JobStepRestartMarker],
+  [0, () => JobStepRestartMarker$],
 ];
-export var S3BatchJobIdentifier: StaticStructureSchema = [3, n0, _SBJI, 0, [_bu, _kP, _i], [0, 0, () => JobIdentifier]];
-export var ScriptBatchJobDefinition: StaticStructureSchema = [3, n0, _SBJD, 0, [_sNc], [0]];
-export var ScriptBatchJobIdentifier: StaticStructureSchema = [3, n0, _SBJIc, 0, [_sNc], [0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [
+export var S3BatchJobIdentifier$: StaticStructureSchema = [
+  3,
+  n0,
+  _SBJI,
+  0,
+  [_bu, _kP, _i],
+  [0, 0, () => JobIdentifier$],
+];
+export var ScriptBatchJobDefinition$: StaticStructureSchema = [3, n0, _SBJD, 0, [_sNc], [0]];
+export var ScriptBatchJobIdentifier$: StaticStructureSchema = [3, n0, _SBJIc, 0, [_sNc], [0]];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
@@ -1052,25 +1059,25 @@ export var ServiceQuotaExceededException: StaticErrorSchema = [
   [_m, _rI, _rT, _sCe, _qC],
   [0, 0, 0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var ServiceUnavailableException: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-export var StartApplicationRequest: StaticStructureSchema = [3, n0, _SAR, 0, [_aI], [[0, 1]]];
-export var StartApplicationResponse: StaticStructureSchema = [3, n0, _SARt, 0, [], []];
-export var StartBatchJobRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var StartApplicationRequest$: StaticStructureSchema = [3, n0, _SAR, 0, [_aI], [[0, 1]]];
+export var StartApplicationResponse$: StaticStructureSchema = [3, n0, _SARt, 0, [], []];
+export var StartBatchJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _SBJR,
   0,
   [_aI, _bJI, _jP, _aSMA],
-  [[0, 1], () => BatchJobIdentifier, 128 | 0, 0],
+  [[0, 1], () => BatchJobIdentifier$, 128 | 0, 0],
 ];
-export var StartBatchJobResponse: StaticStructureSchema = [3, n0, _SBJRt, 0, [_eIx], [0]];
-export var StopApplicationRequest: StaticStructureSchema = [3, n0, _SARto, 0, [_aI, _fSo], [[0, 1], 2]];
-export var StopApplicationResponse: StaticStructureSchema = [3, n0, _SARtop, 0, [], []];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _t], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException: StaticErrorSchema = [
+export var StartBatchJobResponse$: StaticStructureSchema = [3, n0, _SBJRt, 0, [_eIx], [0]];
+export var StopApplicationRequest$: StaticStructureSchema = [3, n0, _SARto, 0, [_aI, _fSo], [[0, 1], 2]];
+export var StopApplicationResponse$: StaticStructureSchema = [3, n0, _SARtop, 0, [], []];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _t], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
@@ -1078,8 +1085,8 @@ export var ThrottlingException: StaticErrorSchema = [
   [_m, _sCe, _qC, _rAS],
   [0, 0, 0, [1, { [_hH]: _RA }]],
 ];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var UntagResourceRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -1090,17 +1097,17 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateApplicationRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateApplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UAR,
   0,
   [_aI, _d, _cAV, _de],
-  [[0, 1], 0, 1, () => Definition],
+  [[0, 1], 0, 1, () => Definition$],
 ];
-export var UpdateApplicationResponse: StaticStructureSchema = [3, n0, _UARp, 0, [_aV], [1]];
-export var UpdateEnvironmentRequest: StaticStructureSchema = [
+export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp, 0, [_aV], [1]];
+export var UpdateEnvironmentRequest$: StaticStructureSchema = [
   3,
   n0,
   _UER,
@@ -1108,8 +1115,8 @@ export var UpdateEnvironmentRequest: StaticStructureSchema = [
   [_eI, _dCe, _iT, _eV, _pMW, _aDMW, _fU],
   [[0, 1], 1, 0, 0, 0, 2, 2],
 ];
-export var UpdateEnvironmentResponse: StaticStructureSchema = [3, n0, _UERp, 0, [_eI], [0]];
-export var ValidationException: StaticErrorSchema = [
+export var UpdateEnvironmentResponse$: StaticStructureSchema = [3, n0, _UERp, 0, [_eI], [0]];
+export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
@@ -1117,399 +1124,399 @@ export var ValidationException: StaticErrorSchema = [
   [_m, _r, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var ValidationExceptionField: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var VsamAttributes: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
+export var VsamAttributes$: StaticStructureSchema = [
   3,
   n0,
   _VA,
   0,
   [_fo, _enc, _co, _pK, _aK],
-  [0, 0, 2, () => PrimaryKey, () => AlternateKeyList],
+  [0, 0, 2, () => PrimaryKey$, () => AlternateKeyList],
 ];
-export var VsamDetailAttributes: StaticStructureSchema = [
+export var VsamDetailAttributes$: StaticStructureSchema = [
   3,
   n0,
   _VDA,
   0,
   [_enc, _rF, _co, _cAS, _pK, _aK],
-  [0, 0, 2, 2, () => PrimaryKey, () => AlternateKeyList],
+  [0, 0, 2, 2, () => PrimaryKey$, () => AlternateKeyList],
 ];
-export var __Unit = "unit" as const;
-export var M2ServiceException: StaticErrorSchema = [-3, _sm, "M2ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(M2ServiceException, __M2ServiceException);
-export var AlternateKeyList: StaticListSchema = [1, n0, _AKL, 0, () => AlternateKey];
-export var ApplicationSummaryList: StaticListSchema = [1, n0, _ASL, 0, () => ApplicationSummary];
-export var ApplicationVersionSummaryList: StaticListSchema = [1, n0, _AVSL, 0, () => ApplicationVersionSummary];
-export var ArnList = 64 | 0;
-export var BatchJobDefinitions: StaticListSchema = [1, n0, _BJD, 0, () => BatchJobDefinition];
-export var BatchJobExecutionSummaryList: StaticListSchema = [1, n0, _BJESL, 0, () => BatchJobExecutionSummary];
-export var BatchJobStepList: StaticListSchema = [1, n0, _BJSL, 0, () => JobStep];
-export var DataSetExportList: StaticListSchema = [1, n0, _DSEL, 0, () => DataSetExportItem];
-export var DataSetExportTaskList: StaticListSchema = [1, n0, _DSETL, 0, () => DataSetExportTask];
-export var DataSetImportList: StaticListSchema = [1, n0, _DSIL, 0, () => DataSetImportItem];
-export var DataSetImportTaskList: StaticListSchema = [1, n0, _DSITL, 0, () => DataSetImportTask];
-export var DataSetsSummaryList: StaticListSchema = [1, n0, _DSSL, 0, () => DataSetSummary];
-export var DeploymentList: StaticListSchema = [1, n0, _DL, 0, () => DeploymentSummary];
-export var EngineVersionsSummaryList: StaticListSchema = [1, n0, _EVSL, 0, () => EngineVersionsSummary];
-export var EntityNameList = 64 | 0;
-export var EnvironmentSummaryList: StaticListSchema = [1, n0, _ESL, 0, () => EnvironmentSummary];
-export var IdentifierList = 64 | 0;
-export var LogGroupSummaries: StaticListSchema = [1, n0, _LGSo, 0, () => LogGroupSummary];
-export var PortList = 64 | 1;
-export var StorageConfigurationList: StaticListSchema = [1, n0, _SCL, 0, [() => StorageConfiguration, 0]];
-export var String20List = 64 | 0;
-export var String50List = 64 | 0;
-export var TagKeyList = 64 | 0;
-export var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField];
-export var BatchJobParametersMap = 128 | 0;
-export var TagMap = 128 | 0;
-export var BatchJobDefinition: StaticStructureSchema = [
+var __Unit = "unit" as const;
+export var M2ServiceException$: StaticErrorSchema = [-3, _sm, "M2ServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(M2ServiceException$, M2ServiceException);
+var AlternateKeyList: StaticListSchema = [1, n0, _AKL, 0, () => AlternateKey$];
+var ApplicationSummaryList: StaticListSchema = [1, n0, _ASL, 0, () => ApplicationSummary$];
+var ApplicationVersionSummaryList: StaticListSchema = [1, n0, _AVSL, 0, () => ApplicationVersionSummary$];
+var ArnList = 64 | 0;
+var BatchJobDefinitions: StaticListSchema = [1, n0, _BJD, 0, () => BatchJobDefinition$];
+var BatchJobExecutionSummaryList: StaticListSchema = [1, n0, _BJESL, 0, () => BatchJobExecutionSummary$];
+var BatchJobStepList: StaticListSchema = [1, n0, _BJSL, 0, () => JobStep$];
+var DataSetExportList: StaticListSchema = [1, n0, _DSEL, 0, () => DataSetExportItem$];
+var DataSetExportTaskList: StaticListSchema = [1, n0, _DSETL, 0, () => DataSetExportTask$];
+var DataSetImportList: StaticListSchema = [1, n0, _DSIL, 0, () => DataSetImportItem$];
+var DataSetImportTaskList: StaticListSchema = [1, n0, _DSITL, 0, () => DataSetImportTask$];
+var DataSetsSummaryList: StaticListSchema = [1, n0, _DSSL, 0, () => DataSetSummary$];
+var DeploymentList: StaticListSchema = [1, n0, _DL, 0, () => DeploymentSummary$];
+var EngineVersionsSummaryList: StaticListSchema = [1, n0, _EVSL, 0, () => EngineVersionsSummary$];
+var EntityNameList = 64 | 0;
+var EnvironmentSummaryList: StaticListSchema = [1, n0, _ESL, 0, () => EnvironmentSummary$];
+var IdentifierList = 64 | 0;
+var LogGroupSummaries: StaticListSchema = [1, n0, _LGSo, 0, () => LogGroupSummary$];
+var PortList = 64 | 1;
+var StorageConfigurationList: StaticListSchema = [1, n0, _SCL, 0, [() => StorageConfiguration$, 0]];
+var String20List = 64 | 0;
+var String50List = 64 | 0;
+var TagKeyList = 64 | 0;
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
+var BatchJobParametersMap = 128 | 0;
+var TagMap = 128 | 0;
+export var BatchJobDefinition$: StaticStructureSchema = [
   3,
   n0,
   _BJDa,
   0,
   [_fBJD, _sBJD],
-  [() => FileBatchJobDefinition, () => ScriptBatchJobDefinition],
+  [() => FileBatchJobDefinition$, () => ScriptBatchJobDefinition$],
 ];
-export var BatchJobIdentifier: StaticStructureSchema = [
+export var BatchJobIdentifier$: StaticStructureSchema = [
   3,
   n0,
   _BJI,
   0,
   [_fBJI, _sBJI, _sBJIa, _rBJI],
   [
-    () => FileBatchJobIdentifier,
-    () => ScriptBatchJobIdentifier,
-    () => S3BatchJobIdentifier,
-    () => RestartBatchJobIdentifier,
+    () => FileBatchJobIdentifier$,
+    () => ScriptBatchJobIdentifier$,
+    () => S3BatchJobIdentifier$,
+    () => RestartBatchJobIdentifier$,
   ],
 ];
-export var DatasetDetailOrgAttributes: StaticStructureSchema = [
+export var DatasetDetailOrgAttributes$: StaticStructureSchema = [
   3,
   n0,
   _DDOA,
   0,
   [_v, _g, _po, _ps],
-  [() => VsamDetailAttributes, () => GdgDetailAttributes, () => PoDetailAttributes, () => PsDetailAttributes],
+  [() => VsamDetailAttributes$, () => GdgDetailAttributes$, () => PoDetailAttributes$, () => PsDetailAttributes$],
 ];
-export var DataSetExportConfig: StaticStructureSchema = [3, n0, _DSEC, 0, [_sL, _dSat], [0, () => DataSetExportList]];
-export var DataSetImportConfig: StaticStructureSchema = [3, n0, _DSIC, 0, [_sL, _dSat], [0, () => DataSetImportList]];
-export var DatasetOrgAttributes: StaticStructureSchema = [
+export var DataSetExportConfig$: StaticStructureSchema = [3, n0, _DSEC, 0, [_sL, _dSat], [0, () => DataSetExportList]];
+export var DataSetImportConfig$: StaticStructureSchema = [3, n0, _DSIC, 0, [_sL, _dSat], [0, () => DataSetImportList]];
+export var DatasetOrgAttributes$: StaticStructureSchema = [
   3,
   n0,
   _DOA,
   0,
   [_v, _g, _po, _ps],
-  [() => VsamAttributes, () => GdgAttributes, () => PoAttributes, () => PsAttributes],
+  [() => VsamAttributes$, () => GdgAttributes$, () => PoAttributes$, () => PsAttributes$],
 ];
-export var Definition: StaticStructureSchema = [3, n0, _D, 0, [_sL, _con], [0, 0]];
-export var ExternalLocation: StaticStructureSchema = [3, n0, _EL, 0, [_sL], [0]];
-export var JobIdentifier: StaticStructureSchema = [3, n0, _JI, 0, [_fN, _sNc], [0, 0]];
-export var StorageConfiguration: StaticStructureSchema = [
+export var Definition$: StaticStructureSchema = [3, n0, _D, 0, [_sL, _con], [0, 0]];
+export var ExternalLocation$: StaticStructureSchema = [3, n0, _EL, 0, [_sL], [0]];
+export var JobIdentifier$: StaticStructureSchema = [3, n0, _JI, 0, [_fN, _sNc], [0, 0]];
+export var StorageConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SC,
   0,
   [_ef, _fs],
   [
-    [() => EfsStorageConfiguration, 0],
-    [() => FsxStorageConfiguration, 0],
+    [() => EfsStorageConfiguration$, 0],
+    [() => FsxStorageConfiguration$, 0],
   ],
 ];
-export var CancelBatchJobExecution: StaticOperationSchema = [
+export var CancelBatchJobExecution$: StaticOperationSchema = [
   9,
   n0,
   _CBJE,
   { [_h]: ["POST", "/applications/{applicationId}/batch-job-executions/{executionId}/cancel", 200] },
-  () => CancelBatchJobExecutionRequest,
-  () => CancelBatchJobExecutionResponse,
+  () => CancelBatchJobExecutionRequest$,
+  () => CancelBatchJobExecutionResponse$,
 ];
-export var CreateApplication: StaticOperationSchema = [
+export var CreateApplication$: StaticOperationSchema = [
   9,
   n0,
   _CA,
   { [_h]: ["POST", "/applications", 200] },
-  () => CreateApplicationRequest,
-  () => CreateApplicationResponse,
+  () => CreateApplicationRequest$,
+  () => CreateApplicationResponse$,
 ];
-export var CreateDataSetExportTask: StaticOperationSchema = [
+export var CreateDataSetExportTask$: StaticOperationSchema = [
   9,
   n0,
   _CDSET,
   { [_h]: ["POST", "/applications/{applicationId}/dataset-export-task", 200] },
-  () => CreateDataSetExportTaskRequest,
-  () => CreateDataSetExportTaskResponse,
+  () => CreateDataSetExportTaskRequest$,
+  () => CreateDataSetExportTaskResponse$,
 ];
-export var CreateDataSetImportTask: StaticOperationSchema = [
+export var CreateDataSetImportTask$: StaticOperationSchema = [
   9,
   n0,
   _CDSIT,
   { [_h]: ["POST", "/applications/{applicationId}/dataset-import-task", 200] },
-  () => CreateDataSetImportTaskRequest,
-  () => CreateDataSetImportTaskResponse,
+  () => CreateDataSetImportTaskRequest$,
+  () => CreateDataSetImportTaskResponse$,
 ];
-export var CreateDeployment: StaticOperationSchema = [
+export var CreateDeployment$: StaticOperationSchema = [
   9,
   n0,
   _CD,
   { [_h]: ["POST", "/applications/{applicationId}/deployments", 200] },
-  () => CreateDeploymentRequest,
-  () => CreateDeploymentResponse,
+  () => CreateDeploymentRequest$,
+  () => CreateDeploymentResponse$,
 ];
-export var CreateEnvironment: StaticOperationSchema = [
+export var CreateEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _CEr,
   { [_h]: ["POST", "/environments", 200] },
-  () => CreateEnvironmentRequest,
-  () => CreateEnvironmentResponse,
+  () => CreateEnvironmentRequest$,
+  () => CreateEnvironmentResponse$,
 ];
-export var DeleteApplication: StaticOperationSchema = [
+export var DeleteApplication$: StaticOperationSchema = [
   9,
   n0,
   _DA,
   { [_h]: ["DELETE", "/applications/{applicationId}", 200] },
-  () => DeleteApplicationRequest,
-  () => DeleteApplicationResponse,
+  () => DeleteApplicationRequest$,
+  () => DeleteApplicationResponse$,
 ];
-export var DeleteApplicationFromEnvironment: StaticOperationSchema = [
+export var DeleteApplicationFromEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _DAFE,
   { [_h]: ["DELETE", "/applications/{applicationId}/environment/{environmentId}", 200] },
-  () => DeleteApplicationFromEnvironmentRequest,
-  () => DeleteApplicationFromEnvironmentResponse,
+  () => DeleteApplicationFromEnvironmentRequest$,
+  () => DeleteApplicationFromEnvironmentResponse$,
 ];
-export var DeleteEnvironment: StaticOperationSchema = [
+export var DeleteEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _DE,
   { [_h]: ["DELETE", "/environments/{environmentId}", 200] },
-  () => DeleteEnvironmentRequest,
-  () => DeleteEnvironmentResponse,
+  () => DeleteEnvironmentRequest$,
+  () => DeleteEnvironmentResponse$,
 ];
-export var GetApplication: StaticOperationSchema = [
+export var GetApplication$: StaticOperationSchema = [
   9,
   n0,
   _GAe,
   { [_h]: ["GET", "/applications/{applicationId}", 200] },
-  () => GetApplicationRequest,
-  () => GetApplicationResponse,
+  () => GetApplicationRequest$,
+  () => GetApplicationResponse$,
 ];
-export var GetApplicationVersion: StaticOperationSchema = [
+export var GetApplicationVersion$: StaticOperationSchema = [
   9,
   n0,
   _GAV,
   { [_h]: ["GET", "/applications/{applicationId}/versions/{applicationVersion}", 200] },
-  () => GetApplicationVersionRequest,
-  () => GetApplicationVersionResponse,
+  () => GetApplicationVersionRequest$,
+  () => GetApplicationVersionResponse$,
 ];
-export var GetBatchJobExecution: StaticOperationSchema = [
+export var GetBatchJobExecution$: StaticOperationSchema = [
   9,
   n0,
   _GBJE,
   { [_h]: ["GET", "/applications/{applicationId}/batch-job-executions/{executionId}", 200] },
-  () => GetBatchJobExecutionRequest,
-  () => GetBatchJobExecutionResponse,
+  () => GetBatchJobExecutionRequest$,
+  () => GetBatchJobExecutionResponse$,
 ];
-export var GetDataSetDetails: StaticOperationSchema = [
+export var GetDataSetDetails$: StaticOperationSchema = [
   9,
   n0,
   _GDSD,
   { [_h]: ["GET", "/applications/{applicationId}/datasets/{dataSetName}", 200] },
-  () => GetDataSetDetailsRequest,
-  () => GetDataSetDetailsResponse,
+  () => GetDataSetDetailsRequest$,
+  () => GetDataSetDetailsResponse$,
 ];
-export var GetDataSetExportTask: StaticOperationSchema = [
+export var GetDataSetExportTask$: StaticOperationSchema = [
   9,
   n0,
   _GDSET,
   { [_h]: ["GET", "/applications/{applicationId}/dataset-export-tasks/{taskId}", 200] },
-  () => GetDataSetExportTaskRequest,
-  () => GetDataSetExportTaskResponse,
+  () => GetDataSetExportTaskRequest$,
+  () => GetDataSetExportTaskResponse$,
 ];
-export var GetDataSetImportTask: StaticOperationSchema = [
+export var GetDataSetImportTask$: StaticOperationSchema = [
   9,
   n0,
   _GDSIT,
   { [_h]: ["GET", "/applications/{applicationId}/dataset-import-tasks/{taskId}", 200] },
-  () => GetDataSetImportTaskRequest,
-  () => GetDataSetImportTaskResponse,
+  () => GetDataSetImportTaskRequest$,
+  () => GetDataSetImportTaskResponse$,
 ];
-export var GetDeployment: StaticOperationSchema = [
+export var GetDeployment$: StaticOperationSchema = [
   9,
   n0,
   _GD,
   { [_h]: ["GET", "/applications/{applicationId}/deployments/{deploymentId}", 200] },
-  () => GetDeploymentRequest,
-  () => GetDeploymentResponse,
+  () => GetDeploymentRequest$,
+  () => GetDeploymentResponse$,
 ];
-export var GetEnvironment: StaticOperationSchema = [
+export var GetEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _GE,
   { [_h]: ["GET", "/environments/{environmentId}", 200] },
-  () => GetEnvironmentRequest,
-  () => GetEnvironmentResponse,
+  () => GetEnvironmentRequest$,
+  () => GetEnvironmentResponse$,
 ];
-export var GetSignedBluinsightsUrl: StaticOperationSchema = [
+export var GetSignedBluinsightsUrl$: StaticOperationSchema = [
   9,
   n0,
   _GSBU,
   { [_h]: ["GET", "/signed-bi-url", 200] },
   () => __Unit,
-  () => GetSignedBluinsightsUrlResponse,
+  () => GetSignedBluinsightsUrlResponse$,
 ];
-export var ListApplications: StaticOperationSchema = [
+export var ListApplications$: StaticOperationSchema = [
   9,
   n0,
   _LA,
   { [_h]: ["GET", "/applications", 200] },
-  () => ListApplicationsRequest,
-  () => ListApplicationsResponse,
+  () => ListApplicationsRequest$,
+  () => ListApplicationsResponse$,
 ];
-export var ListApplicationVersions: StaticOperationSchema = [
+export var ListApplicationVersions$: StaticOperationSchema = [
   9,
   n0,
   _LAV,
   { [_h]: ["GET", "/applications/{applicationId}/versions", 200] },
-  () => ListApplicationVersionsRequest,
-  () => ListApplicationVersionsResponse,
+  () => ListApplicationVersionsRequest$,
+  () => ListApplicationVersionsResponse$,
 ];
-export var ListBatchJobDefinitions: StaticOperationSchema = [
+export var ListBatchJobDefinitions$: StaticOperationSchema = [
   9,
   n0,
   _LBJD,
   { [_h]: ["GET", "/applications/{applicationId}/batch-job-definitions", 200] },
-  () => ListBatchJobDefinitionsRequest,
-  () => ListBatchJobDefinitionsResponse,
+  () => ListBatchJobDefinitionsRequest$,
+  () => ListBatchJobDefinitionsResponse$,
 ];
-export var ListBatchJobExecutions: StaticOperationSchema = [
+export var ListBatchJobExecutions$: StaticOperationSchema = [
   9,
   n0,
   _LBJE,
   { [_h]: ["GET", "/applications/{applicationId}/batch-job-executions", 200] },
-  () => ListBatchJobExecutionsRequest,
-  () => ListBatchJobExecutionsResponse,
+  () => ListBatchJobExecutionsRequest$,
+  () => ListBatchJobExecutionsResponse$,
 ];
-export var ListBatchJobRestartPoints: StaticOperationSchema = [
+export var ListBatchJobRestartPoints$: StaticOperationSchema = [
   9,
   n0,
   _LBJRP,
   { [_h]: ["GET", "/applications/{applicationId}/batch-job-executions/{executionId}/steps", 200] },
-  () => ListBatchJobRestartPointsRequest,
-  () => ListBatchJobRestartPointsResponse,
+  () => ListBatchJobRestartPointsRequest$,
+  () => ListBatchJobRestartPointsResponse$,
 ];
-export var ListDataSetExportHistory: StaticOperationSchema = [
+export var ListDataSetExportHistory$: StaticOperationSchema = [
   9,
   n0,
   _LDSEH,
   { [_h]: ["GET", "/applications/{applicationId}/dataset-export-tasks", 200] },
-  () => ListDataSetExportHistoryRequest,
-  () => ListDataSetExportHistoryResponse,
+  () => ListDataSetExportHistoryRequest$,
+  () => ListDataSetExportHistoryResponse$,
 ];
-export var ListDataSetImportHistory: StaticOperationSchema = [
+export var ListDataSetImportHistory$: StaticOperationSchema = [
   9,
   n0,
   _LDSIH,
   { [_h]: ["GET", "/applications/{applicationId}/dataset-import-tasks", 200] },
-  () => ListDataSetImportHistoryRequest,
-  () => ListDataSetImportHistoryResponse,
+  () => ListDataSetImportHistoryRequest$,
+  () => ListDataSetImportHistoryResponse$,
 ];
-export var ListDataSets: StaticOperationSchema = [
+export var ListDataSets$: StaticOperationSchema = [
   9,
   n0,
   _LDS,
   { [_h]: ["GET", "/applications/{applicationId}/datasets", 200] },
-  () => ListDataSetsRequest,
-  () => ListDataSetsResponse,
+  () => ListDataSetsRequest$,
+  () => ListDataSetsResponse$,
 ];
-export var ListDeployments: StaticOperationSchema = [
+export var ListDeployments$: StaticOperationSchema = [
   9,
   n0,
   _LD,
   { [_h]: ["GET", "/applications/{applicationId}/deployments", 200] },
-  () => ListDeploymentsRequest,
-  () => ListDeploymentsResponse,
+  () => ListDeploymentsRequest$,
+  () => ListDeploymentsResponse$,
 ];
-export var ListEngineVersions: StaticOperationSchema = [
+export var ListEngineVersions$: StaticOperationSchema = [
   9,
   n0,
   _LEV,
   { [_h]: ["GET", "/engine-versions", 200] },
-  () => ListEngineVersionsRequest,
-  () => ListEngineVersionsResponse,
+  () => ListEngineVersionsRequest$,
+  () => ListEngineVersionsResponse$,
 ];
-export var ListEnvironments: StaticOperationSchema = [
+export var ListEnvironments$: StaticOperationSchema = [
   9,
   n0,
   _LE,
   { [_h]: ["GET", "/environments", 200] },
-  () => ListEnvironmentsRequest,
-  () => ListEnvironmentsResponse,
+  () => ListEnvironmentsRequest$,
+  () => ListEnvironmentsResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var StartApplication: StaticOperationSchema = [
+export var StartApplication$: StaticOperationSchema = [
   9,
   n0,
   _SA,
   { [_h]: ["POST", "/applications/{applicationId}/start", 200] },
-  () => StartApplicationRequest,
-  () => StartApplicationResponse,
+  () => StartApplicationRequest$,
+  () => StartApplicationResponse$,
 ];
-export var StartBatchJob: StaticOperationSchema = [
+export var StartBatchJob$: StaticOperationSchema = [
   9,
   n0,
   _SBJ,
   { [_h]: ["POST", "/applications/{applicationId}/batch-job", 200] },
-  () => StartBatchJobRequest,
-  () => StartBatchJobResponse,
+  () => StartBatchJobRequest$,
+  () => StartBatchJobResponse$,
 ];
-export var StopApplication: StaticOperationSchema = [
+export var StopApplication$: StaticOperationSchema = [
   9,
   n0,
   _SAt,
   { [_h]: ["POST", "/applications/{applicationId}/stop", 200] },
-  () => StopApplicationRequest,
-  () => StopApplicationResponse,
+  () => StopApplicationRequest$,
+  () => StopApplicationResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{resourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateApplication: StaticOperationSchema = [
+export var UpdateApplication$: StaticOperationSchema = [
   9,
   n0,
   _UA,
   { [_h]: ["PATCH", "/applications/{applicationId}", 200] },
-  () => UpdateApplicationRequest,
-  () => UpdateApplicationResponse,
+  () => UpdateApplicationRequest$,
+  () => UpdateApplicationResponse$,
 ];
-export var UpdateEnvironment: StaticOperationSchema = [
+export var UpdateEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _UE,
   { [_h]: ["PATCH", "/environments/{environmentId}", 200] },
-  () => UpdateEnvironmentRequest,
-  () => UpdateEnvironmentResponse,
+  () => UpdateEnvironmentRequest$,
+  () => UpdateEnvironmentResponse$,
 ];

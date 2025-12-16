@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelJobRunRequest, CancelJobRunResponse } from "../models/models_0";
-import { CancelJobRun } from "../schemas/schemas_0";
+import { CancelJobRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class CancelJobRunCommand extends $Command
   })
   .s("AwsToledoWebService", "CancelJobRun", {})
   .n("EMRServerlessClient", "CancelJobRunCommand")
-  .sc(CancelJobRun)
+  .sc(CancelJobRun$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

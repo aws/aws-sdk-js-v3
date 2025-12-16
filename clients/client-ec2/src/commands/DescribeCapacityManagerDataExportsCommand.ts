@@ -9,7 +9,7 @@ import type {
   DescribeCapacityManagerDataExportsRequest,
   DescribeCapacityManagerDataExportsResult,
 } from "../models/models_3";
-import { DescribeCapacityManagerDataExports } from "../schemas/schemas_0";
+import { DescribeCapacityManagerDataExports$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class DescribeCapacityManagerDataExportsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeCapacityManagerDataExports", {})
   .n("EC2Client", "DescribeCapacityManagerDataExportsCommand")
-  .sc(DescribeCapacityManagerDataExports)
+  .sc(DescribeCapacityManagerDataExports$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

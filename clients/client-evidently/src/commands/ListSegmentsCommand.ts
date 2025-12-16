@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
 import type { ListSegmentsRequest, ListSegmentsResponse } from "../models/models_0";
-import { ListSegments } from "../schemas/schemas_0";
+import { ListSegments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class ListSegmentsCommand extends $Command
   })
   .s("Evidently", "ListSegments", {})
   .n("EvidentlyClient", "ListSegmentsCommand")
-  .sc(ListSegments)
+  .sc(ListSegments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

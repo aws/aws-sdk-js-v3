@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import type { GetPortfolioPreferencesRequest, GetPortfolioPreferencesResponse } from "../models/models_0";
-import { GetPortfolioPreferences } from "../schemas/schemas_0";
+import { GetPortfolioPreferences$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -135,7 +135,7 @@ export class GetPortfolioPreferencesCommand extends $Command
   })
   .s("AWSMigrationHubStrategyRecommendation", "GetPortfolioPreferences", {})
   .n("MigrationHubStrategyClient", "GetPortfolioPreferencesCommand")
-  .sc(GetPortfolioPreferences)
+  .sc(GetPortfolioPreferences$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

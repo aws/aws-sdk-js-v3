@@ -9,7 +9,7 @@ import {
   type SendDurableExecutionCallbackSuccessResponse,
   SendDurableExecutionCallbackSuccessRequest,
 } from "../models/models_0";
-import { SendDurableExecutionCallbackSuccess } from "../schemas/schemas_0";
+import { SendDurableExecutionCallbackSuccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class SendDurableExecutionCallbackSuccessCommand extends $Command
   })
   .s("AWSGirApiService", "SendDurableExecutionCallbackSuccess", {})
   .n("LambdaClient", "SendDurableExecutionCallbackSuccessCommand")
-  .sc(SendDurableExecutionCallbackSuccess)
+  .sc(SendDurableExecutionCallbackSuccess$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

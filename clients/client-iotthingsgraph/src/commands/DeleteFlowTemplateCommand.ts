@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTThingsGraphClient";
 import type { DeleteFlowTemplateRequest, DeleteFlowTemplateResponse } from "../models/models_0";
-import { DeleteFlowTemplate } from "../schemas/schemas_0";
+import { DeleteFlowTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class DeleteFlowTemplateCommand extends $Command
   })
   .s("IotThingsGraphFrontEndService", "DeleteFlowTemplate", {})
   .n("IoTThingsGraphClient", "DeleteFlowTemplateCommand")
-  .sc(DeleteFlowTemplate)
+  .sc(DeleteFlowTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

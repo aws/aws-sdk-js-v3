@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { PeerVpcRequest, PeerVpcResult } from "../models/models_1";
-import { PeerVpc } from "../schemas/schemas_0";
+import { PeerVpc$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class PeerVpcCommand extends $Command
   })
   .s("Lightsail_20161128", "PeerVpc", {})
   .n("LightsailClient", "PeerVpcCommand")
-  .sc(PeerVpc)
+  .sc(PeerVpc$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

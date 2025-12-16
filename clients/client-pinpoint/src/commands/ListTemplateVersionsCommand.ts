@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListTemplateVersionsRequest, ListTemplateVersionsResponse } from "../models/models_1";
 import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { ListTemplateVersions } from "../schemas/schemas_0";
+import { ListTemplateVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class ListTemplateVersionsCommand extends $Command
   })
   .s("Pinpoint", "ListTemplateVersions", {})
   .n("PinpointClient", "ListTemplateVersionsCommand")
-  .sc(ListTemplateVersions)
+  .sc(ListTemplateVersions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

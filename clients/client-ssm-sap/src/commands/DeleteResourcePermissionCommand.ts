@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteResourcePermissionInput, DeleteResourcePermissionOutput } from "../models/models_0";
-import { DeleteResourcePermission } from "../schemas/schemas_0";
+import { DeleteResourcePermission$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -84,7 +84,7 @@ export class DeleteResourcePermissionCommand extends $Command
   })
   .s("SsmSap", "DeleteResourcePermission", {})
   .n("SsmSapClient", "DeleteResourcePermissionCommand")
-  .sc(DeleteResourcePermission)
+  .sc(DeleteResourcePermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

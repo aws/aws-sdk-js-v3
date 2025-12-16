@@ -260,21 +260,21 @@ import type {
 } from "@smithy/types";
 
 import {
-  InsufficientCapacityException as __InsufficientCapacityException,
-  InvalidParameterValueException as __InvalidParameterValueException,
-  LimitExceededException as __LimitExceededException,
-  MissingParameterValueException as __MissingParameterValueException,
-  NoLongerSupportedException as __NoLongerSupportedException,
-  PolicyEnforcedException as __PolicyEnforcedException,
-  RequestTimeoutException as __RequestTimeoutException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceUnavailableException as __ServiceUnavailableException,
+  InsufficientCapacityException,
+  InvalidParameterValueException,
+  LimitExceededException,
+  MissingParameterValueException,
+  NoLongerSupportedException,
+  PolicyEnforcedException,
+  RequestTimeoutException,
+  ResourceNotFoundException,
+  ServiceUnavailableException,
 } from "../models/errors";
-import { GlacierServiceException as __GlacierServiceException } from "../models/GlacierServiceException";
+import { GlacierServiceException } from "../models/GlacierServiceException";
 
 /* eslint no-var: 0 */
-export var _Stream: StaticSimpleSchema = [0, n0, _S, { [_s]: 1 }, 42];
-export var AbortMultipartUploadInput: StaticStructureSchema = [
+var _Stream: StaticSimpleSchema = [0, n0, _S, { [_s]: 1 }, 42];
+export var AbortMultipartUploadInput$: StaticStructureSchema = [
   3,
   n0,
   _AMUI,
@@ -286,7 +286,7 @@ export var AbortMultipartUploadInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var AbortVaultLockInput: StaticStructureSchema = [
+export var AbortVaultLockInput$: StaticStructureSchema = [
   3,
   n0,
   _AVLI,
@@ -297,8 +297,8 @@ export var AbortVaultLockInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var AddTagsToVaultInput: StaticStructureSchema = [3, n0, _ATTVI, 0, [_aI, _vN, _T], [[0, 1], [0, 1], 128 | 0]];
-export var ArchiveCreationOutput: StaticStructureSchema = [
+export var AddTagsToVaultInput$: StaticStructureSchema = [3, n0, _ATTVI, 0, [_aI, _vN, _T], [[0, 1], [0, 1], 128 | 0]];
+export var ArchiveCreationOutput$: StaticStructureSchema = [
   3,
   n0,
   _ACO,
@@ -310,7 +310,7 @@ export var ArchiveCreationOutput: StaticStructureSchema = [
     [0, { [_hH]: _xaai }],
   ],
 ];
-export var CompleteMultipartUploadInput: StaticStructureSchema = [
+export var CompleteMultipartUploadInput$: StaticStructureSchema = [
   3,
   n0,
   _CMUI,
@@ -324,7 +324,7 @@ export var CompleteMultipartUploadInput: StaticStructureSchema = [
     [0, { [_hH]: _xasth }],
   ],
 ];
-export var CompleteVaultLockInput: StaticStructureSchema = [
+export var CompleteVaultLockInput$: StaticStructureSchema = [
   3,
   n0,
   _CVLI,
@@ -336,7 +336,7 @@ export var CompleteVaultLockInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var CreateVaultInput: StaticStructureSchema = [
+export var CreateVaultInput$: StaticStructureSchema = [
   3,
   n0,
   _CVI,
@@ -347,12 +347,12 @@ export var CreateVaultInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var CreateVaultOutput: StaticStructureSchema = [3, n0, _CVO, 0, [_l], [[0, { [_hH]: _L }]]];
-export var CSVInput: StaticStructureSchema = [3, n0, _CSVI, 0, [_FHI, _C, _QEC, _RD, _FD, _QC], [0, 0, 0, 0, 0, 0]];
-export var CSVOutput: StaticStructureSchema = [3, n0, _CSVO, 0, [_QF, _QEC, _RD, _FD, _QC], [0, 0, 0, 0, 0]];
-export var DataRetrievalPolicy: StaticStructureSchema = [3, n0, _DRP, 0, [_R], [() => DataRetrievalRulesList]];
-export var DataRetrievalRule: StaticStructureSchema = [3, n0, _DRR, 0, [_St, _BPH], [0, 1]];
-export var DeleteArchiveInput: StaticStructureSchema = [
+export var CreateVaultOutput$: StaticStructureSchema = [3, n0, _CVO, 0, [_l], [[0, { [_hH]: _L }]]];
+export var CSVInput$: StaticStructureSchema = [3, n0, _CSVI, 0, [_FHI, _C, _QEC, _RD, _FD, _QC], [0, 0, 0, 0, 0, 0]];
+export var CSVOutput$: StaticStructureSchema = [3, n0, _CSVO, 0, [_QF, _QEC, _RD, _FD, _QC], [0, 0, 0, 0, 0]];
+export var DataRetrievalPolicy$: StaticStructureSchema = [3, n0, _DRP, 0, [_R], [() => DataRetrievalRulesList]];
+export var DataRetrievalRule$: StaticStructureSchema = [3, n0, _DRR, 0, [_St, _BPH], [0, 1]];
+export var DeleteArchiveInput$: StaticStructureSchema = [
   3,
   n0,
   _DAI,
@@ -364,7 +364,7 @@ export var DeleteArchiveInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteVaultAccessPolicyInput: StaticStructureSchema = [
+export var DeleteVaultAccessPolicyInput$: StaticStructureSchema = [
   3,
   n0,
   _DVAPI,
@@ -375,7 +375,7 @@ export var DeleteVaultAccessPolicyInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteVaultInput: StaticStructureSchema = [
+export var DeleteVaultInput$: StaticStructureSchema = [
   3,
   n0,
   _DVI,
@@ -386,7 +386,7 @@ export var DeleteVaultInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteVaultNotificationsInput: StaticStructureSchema = [
+export var DeleteVaultNotificationsInput$: StaticStructureSchema = [
   3,
   n0,
   _DVNI,
@@ -397,7 +397,7 @@ export var DeleteVaultNotificationsInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeJobInput: StaticStructureSchema = [
+export var DescribeJobInput$: StaticStructureSchema = [
   3,
   n0,
   _DJI,
@@ -409,7 +409,7 @@ export var DescribeJobInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeVaultInput: StaticStructureSchema = [
+export var DescribeVaultInput$: StaticStructureSchema = [
   3,
   n0,
   _DVIe,
@@ -420,7 +420,7 @@ export var DescribeVaultInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DescribeVaultOutput: StaticStructureSchema = [
+export var DescribeVaultOutput$: StaticStructureSchema = [
   3,
   n0,
   _DVO,
@@ -428,10 +428,17 @@ export var DescribeVaultOutput: StaticStructureSchema = [
   [_VARN, _VN, _CD, _LID, _NOA, _SIB],
   [0, 0, 0, 0, 1, 1],
 ];
-export var Encryption: StaticStructureSchema = [3, n0, _E, 0, [_ET, _KMSKI, _KMSC], [0, 0, 0]];
-export var GetDataRetrievalPolicyInput: StaticStructureSchema = [3, n0, _GDRPI, 0, [_aI], [[0, 1]]];
-export var GetDataRetrievalPolicyOutput: StaticStructureSchema = [3, n0, _GDRPO, 0, [_P], [() => DataRetrievalPolicy]];
-export var GetJobOutputInput: StaticStructureSchema = [
+export var Encryption$: StaticStructureSchema = [3, n0, _E, 0, [_ET, _KMSKI, _KMSC], [0, 0, 0]];
+export var GetDataRetrievalPolicyInput$: StaticStructureSchema = [3, n0, _GDRPI, 0, [_aI], [[0, 1]]];
+export var GetDataRetrievalPolicyOutput$: StaticStructureSchema = [
+  3,
+  n0,
+  _GDRPO,
+  0,
+  [_P],
+  [() => DataRetrievalPolicy$],
+];
+export var GetJobOutputInput$: StaticStructureSchema = [
   3,
   n0,
   _GJOI,
@@ -444,7 +451,7 @@ export var GetJobOutputInput: StaticStructureSchema = [
     [0, { [_hH]: _Ra }],
   ],
 ];
-export var GetJobOutputOutput: StaticStructureSchema = [
+export var GetJobOutputOutput$: StaticStructureSchema = [
   3,
   n0,
   _GJOO,
@@ -460,7 +467,7 @@ export var GetJobOutputOutput: StaticStructureSchema = [
     [0, { [_hH]: _xaad }],
   ],
 ];
-export var GetVaultAccessPolicyInput: StaticStructureSchema = [
+export var GetVaultAccessPolicyInput$: StaticStructureSchema = [
   3,
   n0,
   _GVAPI,
@@ -471,15 +478,15 @@ export var GetVaultAccessPolicyInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetVaultAccessPolicyOutput: StaticStructureSchema = [
+export var GetVaultAccessPolicyOutput$: StaticStructureSchema = [
   3,
   n0,
   _GVAPO,
   0,
   [_p],
-  [[() => VaultAccessPolicy, 16]],
+  [[() => VaultAccessPolicy$, 16]],
 ];
-export var GetVaultLockInput: StaticStructureSchema = [
+export var GetVaultLockInput$: StaticStructureSchema = [
   3,
   n0,
   _GVLI,
@@ -490,8 +497,8 @@ export var GetVaultLockInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetVaultLockOutput: StaticStructureSchema = [3, n0, _GVLO, 0, [_P, _Sta, _ED, _CD], [0, 0, 0, 0]];
-export var GetVaultNotificationsInput: StaticStructureSchema = [
+export var GetVaultLockOutput$: StaticStructureSchema = [3, n0, _GVLO, 0, [_P, _Sta, _ED, _CD], [0, 0, 0, 0]];
+export var GetVaultNotificationsInput$: StaticStructureSchema = [
   3,
   n0,
   _GVNI,
@@ -502,15 +509,15 @@ export var GetVaultNotificationsInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetVaultNotificationsOutput: StaticStructureSchema = [
+export var GetVaultNotificationsOutput$: StaticStructureSchema = [
   3,
   n0,
   _GVNO,
   0,
   [_vNC],
-  [[() => VaultNotificationConfig, 16]],
+  [[() => VaultNotificationConfig$, 16]],
 ];
-export var GlacierJobDescription: StaticStructureSchema = [
+export var GlacierJobDescription$: StaticStructureSchema = [
   3,
   n0,
   _GJD,
@@ -556,15 +563,15 @@ export var GlacierJobDescription: StaticStructureSchema = [
     0,
     0,
     0,
-    () => InventoryRetrievalJobDescription,
+    () => InventoryRetrievalJobDescription$,
     0,
-    () => SelectParameters,
-    () => OutputLocation,
+    () => SelectParameters$,
+    () => OutputLocation$,
   ],
 ];
-export var Grant: StaticStructureSchema = [3, n0, _G, 0, [_Gr, _Pe], [() => Grantee, 0]];
-export var Grantee: StaticStructureSchema = [3, n0, _Gr, 0, [_Ty, _DN, _URI, _ID, _EA], [0, 0, 0, 0, 0]];
-export var InitiateJobInput: StaticStructureSchema = [
+export var Grant$: StaticStructureSchema = [3, n0, _G, 0, [_Gr, _Pe], [() => Grantee$, 0]];
+export var Grantee$: StaticStructureSchema = [3, n0, _Gr, 0, [_Ty, _DN, _URI, _ID, _EA], [0, 0, 0, 0, 0]];
+export var InitiateJobInput$: StaticStructureSchema = [
   3,
   n0,
   _IJI,
@@ -573,10 +580,10 @@ export var InitiateJobInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [() => JobParameters, 16],
+    [() => JobParameters$, 16],
   ],
 ];
-export var InitiateJobOutput: StaticStructureSchema = [
+export var InitiateJobOutput$: StaticStructureSchema = [
   3,
   n0,
   _IJO,
@@ -588,7 +595,7 @@ export var InitiateJobOutput: StaticStructureSchema = [
     [0, { [_hH]: _xajop }],
   ],
 ];
-export var InitiateMultipartUploadInput: StaticStructureSchema = [
+export var InitiateMultipartUploadInput$: StaticStructureSchema = [
   3,
   n0,
   _IMUI,
@@ -601,7 +608,7 @@ export var InitiateMultipartUploadInput: StaticStructureSchema = [
     [0, { [_hH]: _xaps }],
   ],
 ];
-export var InitiateMultipartUploadOutput: StaticStructureSchema = [
+export var InitiateMultipartUploadOutput$: StaticStructureSchema = [
   3,
   n0,
   _IMUO,
@@ -612,7 +619,7 @@ export var InitiateMultipartUploadOutput: StaticStructureSchema = [
     [0, { [_hH]: _xamui }],
   ],
 ];
-export var InitiateVaultLockInput: StaticStructureSchema = [
+export var InitiateVaultLockInput$: StaticStructureSchema = [
   3,
   n0,
   _IVLI,
@@ -621,12 +628,12 @@ export var InitiateVaultLockInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [() => VaultLockPolicy, 16],
+    [() => VaultLockPolicy$, 16],
   ],
 ];
-export var InitiateVaultLockOutput: StaticStructureSchema = [3, n0, _IVLO, 0, [_lI], [[0, { [_hH]: _xali }]]];
-export var InputSerialization: StaticStructureSchema = [3, n0, _IS, 0, [_cs], [() => CSVInput]];
-export var InsufficientCapacityException: StaticErrorSchema = [
+export var InitiateVaultLockOutput$: StaticStructureSchema = [3, n0, _IVLO, 0, [_lI], [[0, { [_hH]: _xali }]]];
+export var InputSerialization$: StaticStructureSchema = [3, n0, _IS, 0, [_cs], [() => CSVInput$]];
+export var InsufficientCapacityException$: StaticErrorSchema = [
   -3,
   n0,
   _ICE,
@@ -634,8 +641,8 @@ export var InsufficientCapacityException: StaticErrorSchema = [
   [_t, _co, _m],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(InsufficientCapacityException, __InsufficientCapacityException);
-export var InvalidParameterValueException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(InsufficientCapacityException$, InsufficientCapacityException);
+export var InvalidParameterValueException$: StaticErrorSchema = [
   -3,
   n0,
   _IPVE,
@@ -643,8 +650,8 @@ export var InvalidParameterValueException: StaticErrorSchema = [
   [_t, _co, _m],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(InvalidParameterValueException, __InvalidParameterValueException);
-export var InventoryRetrievalJobDescription: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InvalidParameterValueException$, InvalidParameterValueException);
+export var InventoryRetrievalJobDescription$: StaticStructureSchema = [
   3,
   n0,
   _IRJD,
@@ -652,16 +659,16 @@ export var InventoryRetrievalJobDescription: StaticStructureSchema = [
   [_F, _SD, _EDn, _Li, _M],
   [0, 0, 0, 0, 0],
 ];
-export var InventoryRetrievalJobInput: StaticStructureSchema = [3, n0, _IRJI, 0, [_SD, _EDn, _Li, _M], [0, 0, 0, 0]];
-export var JobParameters: StaticStructureSchema = [
+export var InventoryRetrievalJobInput$: StaticStructureSchema = [3, n0, _IRJI, 0, [_SD, _EDn, _Li, _M], [0, 0, 0, 0]];
+export var JobParameters$: StaticStructureSchema = [
   3,
   n0,
   _JP,
   0,
   [_F, _Ty, _AI, _D, _SNST, _RBR, _Ti, _IRP, _SP, _OL],
-  [0, 0, 0, 0, 0, 0, 0, () => InventoryRetrievalJobInput, () => SelectParameters, () => OutputLocation],
+  [0, 0, 0, 0, 0, 0, 0, () => InventoryRetrievalJobInput$, () => SelectParameters$, () => OutputLocation$],
 ];
-export var LimitExceededException: StaticErrorSchema = [
+export var LimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
@@ -669,8 +676,8 @@ export var LimitExceededException: StaticErrorSchema = [
   [_t, _co, _m],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-export var ListJobsInput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var ListJobsInput$: StaticStructureSchema = [
   3,
   n0,
   _LJI,
@@ -685,8 +692,8 @@ export var ListJobsInput: StaticStructureSchema = [
     [0, { [_hQ]: _com }],
   ],
 ];
-export var ListJobsOutput: StaticStructureSchema = [3, n0, _LJO, 0, [_JL, _M], [() => JobList, 0]];
-export var ListMultipartUploadsInput: StaticStructureSchema = [
+export var ListJobsOutput$: StaticStructureSchema = [3, n0, _LJO, 0, [_JL, _M], [() => JobList, 0]];
+export var ListMultipartUploadsInput$: StaticStructureSchema = [
   3,
   n0,
   _LMUI,
@@ -699,8 +706,8 @@ export var ListMultipartUploadsInput: StaticStructureSchema = [
     [0, { [_hQ]: _ma }],
   ],
 ];
-export var ListMultipartUploadsOutput: StaticStructureSchema = [3, n0, _LMUO, 0, [_UL, _M], [() => UploadsList, 0]];
-export var ListPartsInput: StaticStructureSchema = [
+export var ListMultipartUploadsOutput$: StaticStructureSchema = [3, n0, _LMUO, 0, [_UL, _M], [() => UploadsList, 0]];
+export var ListPartsInput$: StaticStructureSchema = [
   3,
   n0,
   _LPI,
@@ -714,7 +721,7 @@ export var ListPartsInput: StaticStructureSchema = [
     [1, { [_hQ]: _li }],
   ],
 ];
-export var ListPartsOutput: StaticStructureSchema = [
+export var ListPartsOutput$: StaticStructureSchema = [
   3,
   n0,
   _LPO,
@@ -722,8 +729,8 @@ export var ListPartsOutput: StaticStructureSchema = [
   [_MUI, _VARN, _AD, _PSIB, _CD, _Pa, _M],
   [0, 0, 0, 1, 0, () => PartList, 0],
 ];
-export var ListProvisionedCapacityInput: StaticStructureSchema = [3, n0, _LPCI, 0, [_aI], [[0, 1]]];
-export var ListProvisionedCapacityOutput: StaticStructureSchema = [
+export var ListProvisionedCapacityInput$: StaticStructureSchema = [3, n0, _LPCI, 0, [_aI], [[0, 1]]];
+export var ListProvisionedCapacityOutput$: StaticStructureSchema = [
   3,
   n0,
   _LPCO,
@@ -731,7 +738,7 @@ export var ListProvisionedCapacityOutput: StaticStructureSchema = [
   [_PCL],
   [() => ProvisionedCapacityList],
 ];
-export var ListTagsForVaultInput: StaticStructureSchema = [
+export var ListTagsForVaultInput$: StaticStructureSchema = [
   3,
   n0,
   _LTFVI,
@@ -742,8 +749,8 @@ export var ListTagsForVaultInput: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ListTagsForVaultOutput: StaticStructureSchema = [3, n0, _LTFVO, 0, [_T], [128 | 0]];
-export var ListVaultsInput: StaticStructureSchema = [
+export var ListTagsForVaultOutput$: StaticStructureSchema = [3, n0, _LTFVO, 0, [_T], [128 | 0]];
+export var ListVaultsInput$: StaticStructureSchema = [
   3,
   n0,
   _LVI,
@@ -755,8 +762,8 @@ export var ListVaultsInput: StaticStructureSchema = [
     [1, { [_hQ]: _li }],
   ],
 ];
-export var ListVaultsOutput: StaticStructureSchema = [3, n0, _LVO, 0, [_VL, _M], [() => VaultList, 0]];
-export var MissingParameterValueException: StaticErrorSchema = [
+export var ListVaultsOutput$: StaticStructureSchema = [3, n0, _LVO, 0, [_VL, _M], [() => VaultList, 0]];
+export var MissingParameterValueException$: StaticErrorSchema = [
   -3,
   n0,
   _MPVE,
@@ -764,8 +771,8 @@ export var MissingParameterValueException: StaticErrorSchema = [
   [_t, _co, _m],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(MissingParameterValueException, __MissingParameterValueException);
-export var NoLongerSupportedException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(MissingParameterValueException$, MissingParameterValueException);
+export var NoLongerSupportedException$: StaticErrorSchema = [
   -3,
   n0,
   _NLSE,
@@ -773,11 +780,11 @@ export var NoLongerSupportedException: StaticErrorSchema = [
   [_t, _co, _m],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(NoLongerSupportedException, __NoLongerSupportedException);
-export var OutputLocation: StaticStructureSchema = [3, n0, _OL, 0, [_S_], [() => S3Location]];
-export var OutputSerialization: StaticStructureSchema = [3, n0, _OS, 0, [_cs], [() => CSVOutput]];
-export var PartListElement: StaticStructureSchema = [3, n0, _PLE, 0, [_RIB, _SHATH], [0, 0]];
-export var PolicyEnforcedException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(NoLongerSupportedException$, NoLongerSupportedException);
+export var OutputLocation$: StaticStructureSchema = [3, n0, _OL, 0, [_S_], [() => S3Location$]];
+export var OutputSerialization$: StaticStructureSchema = [3, n0, _OS, 0, [_cs], [() => CSVOutput$]];
+export var PartListElement$: StaticStructureSchema = [3, n0, _PLE, 0, [_RIB, _SHATH], [0, 0]];
+export var PolicyEnforcedException$: StaticErrorSchema = [
   -3,
   n0,
   _PEE,
@@ -785,11 +792,18 @@ export var PolicyEnforcedException: StaticErrorSchema = [
   [_t, _co, _m],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(PolicyEnforcedException, __PolicyEnforcedException);
-export var ProvisionedCapacityDescription: StaticStructureSchema = [3, n0, _PCD, 0, [_CI, _SD, _ED], [0, 0, 0]];
-export var PurchaseProvisionedCapacityInput: StaticStructureSchema = [3, n0, _PPCI, 0, [_aI], [[0, 1]]];
-export var PurchaseProvisionedCapacityOutput: StaticStructureSchema = [3, n0, _PPCO, 0, [_cI], [[0, { [_hH]: _xaci }]]];
-export var RemoveTagsFromVaultInput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(PolicyEnforcedException$, PolicyEnforcedException);
+export var ProvisionedCapacityDescription$: StaticStructureSchema = [3, n0, _PCD, 0, [_CI, _SD, _ED], [0, 0, 0]];
+export var PurchaseProvisionedCapacityInput$: StaticStructureSchema = [3, n0, _PPCI, 0, [_aI], [[0, 1]]];
+export var PurchaseProvisionedCapacityOutput$: StaticStructureSchema = [
+  3,
+  n0,
+  _PPCO,
+  0,
+  [_cI],
+  [[0, { [_hH]: _xaci }]],
+];
+export var RemoveTagsFromVaultInput$: StaticStructureSchema = [
   3,
   n0,
   _RTFVI,
@@ -797,7 +811,7 @@ export var RemoveTagsFromVaultInput: StaticStructureSchema = [
   [_aI, _vN, _TK],
   [[0, 1], [0, 1], 64 | 0],
 ];
-export var RequestTimeoutException: StaticErrorSchema = [
+export var RequestTimeoutException$: StaticErrorSchema = [
   -3,
   n0,
   _RTE,
@@ -805,8 +819,8 @@ export var RequestTimeoutException: StaticErrorSchema = [
   [_t, _co, _m],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(RequestTimeoutException, __RequestTimeoutException);
-export var ResourceNotFoundException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(RequestTimeoutException$, RequestTimeoutException);
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -814,24 +828,24 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_t, _co, _m],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var S3Location: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var S3Location$: StaticStructureSchema = [
   3,
   n0,
   _SL,
   0,
   [_BN, _Pr, _E, _CACL, _ACL, _Ta, _UM, _SCt],
-  [0, 0, () => Encryption, 0, () => AccessControlPolicyList, 128 | 0, 128 | 0, 0],
+  [0, 0, () => Encryption$, 0, () => AccessControlPolicyList, 128 | 0, 128 | 0, 0],
 ];
-export var SelectParameters: StaticStructureSchema = [
+export var SelectParameters$: StaticStructureSchema = [
   3,
   n0,
   _SP,
   0,
   [_IS, _ETx, _Ex, _OS],
-  [() => InputSerialization, 0, 0, () => OutputSerialization],
+  [() => InputSerialization$, 0, 0, () => OutputSerialization$],
 ];
-export var ServiceUnavailableException: StaticErrorSchema = [
+export var ServiceUnavailableException$: StaticErrorSchema = [
   -3,
   n0,
   _SUE,
@@ -839,16 +853,16 @@ export var ServiceUnavailableException: StaticErrorSchema = [
   [_t, _co, _m],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-export var SetDataRetrievalPolicyInput: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var SetDataRetrievalPolicyInput$: StaticStructureSchema = [
   3,
   n0,
   _SDRPI,
   0,
   [_aI, _P],
-  [[0, 1], () => DataRetrievalPolicy],
+  [[0, 1], () => DataRetrievalPolicy$],
 ];
-export var SetVaultAccessPolicyInput: StaticStructureSchema = [
+export var SetVaultAccessPolicyInput$: StaticStructureSchema = [
   3,
   n0,
   _SVAPI,
@@ -857,10 +871,10 @@ export var SetVaultAccessPolicyInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [() => VaultAccessPolicy, 16],
+    [() => VaultAccessPolicy$, 16],
   ],
 ];
-export var SetVaultNotificationsInput: StaticStructureSchema = [
+export var SetVaultNotificationsInput$: StaticStructureSchema = [
   3,
   n0,
   _SVNI,
@@ -869,10 +883,10 @@ export var SetVaultNotificationsInput: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [() => VaultNotificationConfig, 16],
+    [() => VaultNotificationConfig$, 16],
   ],
 ];
-export var UploadArchiveInput: StaticStructureSchema = [
+export var UploadArchiveInput$: StaticStructureSchema = [
   3,
   n0,
   _UAI,
@@ -886,8 +900,15 @@ export var UploadArchiveInput: StaticStructureSchema = [
     [() => _Stream, 16],
   ],
 ];
-export var UploadListElement: StaticStructureSchema = [3, n0, _ULE, 0, [_MUI, _VARN, _AD, _PSIB, _CD], [0, 0, 0, 1, 0]];
-export var UploadMultipartPartInput: StaticStructureSchema = [
+export var UploadListElement$: StaticStructureSchema = [
+  3,
+  n0,
+  _ULE,
+  0,
+  [_MUI, _VARN, _AD, _PSIB, _CD],
+  [0, 0, 0, 1, 0],
+];
+export var UploadMultipartPartInput$: StaticStructureSchema = [
   3,
   n0,
   _UMPI,
@@ -902,285 +923,285 @@ export var UploadMultipartPartInput: StaticStructureSchema = [
     [() => _Stream, 16],
   ],
 ];
-export var UploadMultipartPartOutput: StaticStructureSchema = [3, n0, _UMPO, 0, [_c], [[0, { [_hH]: _xasth }]]];
-export var VaultAccessPolicy: StaticStructureSchema = [3, n0, _VAP, 0, [_P], [0]];
-export var VaultLockPolicy: StaticStructureSchema = [3, n0, _VLP, 0, [_P], [0]];
-export var VaultNotificationConfig: StaticStructureSchema = [3, n0, _VNC, 0, [_SNST, _Ev], [0, 64 | 0]];
-export var __Unit = "unit" as const;
-export var GlacierServiceException: StaticErrorSchema = [-3, _sm, "GlacierServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(GlacierServiceException, __GlacierServiceException);
-export var AccessControlPolicyList: StaticListSchema = [1, n0, _ACPL, 0, () => Grant];
-export var DataRetrievalRulesList: StaticListSchema = [1, n0, _DRRL, 0, () => DataRetrievalRule];
-export var JobList: StaticListSchema = [1, n0, _JL, 0, () => GlacierJobDescription];
-export var NotificationEventList = 64 | 0;
-export var PartList: StaticListSchema = [1, n0, _PL, 0, () => PartListElement];
-export var ProvisionedCapacityList: StaticListSchema = [1, n0, _PCL, 0, () => ProvisionedCapacityDescription];
-export var TagKeyList = 64 | 0;
-export var UploadsList: StaticListSchema = [1, n0, _UL, 0, () => UploadListElement];
-export var VaultList: StaticListSchema = [1, n0, _VL, 0, () => DescribeVaultOutput];
-export var hashmap = 128 | 0;
-export var TagMap = 128 | 0;
-export var AbortMultipartUpload: StaticOperationSchema = [
+export var UploadMultipartPartOutput$: StaticStructureSchema = [3, n0, _UMPO, 0, [_c], [[0, { [_hH]: _xasth }]]];
+export var VaultAccessPolicy$: StaticStructureSchema = [3, n0, _VAP, 0, [_P], [0]];
+export var VaultLockPolicy$: StaticStructureSchema = [3, n0, _VLP, 0, [_P], [0]];
+export var VaultNotificationConfig$: StaticStructureSchema = [3, n0, _VNC, 0, [_SNST, _Ev], [0, 64 | 0]];
+var __Unit = "unit" as const;
+export var GlacierServiceException$: StaticErrorSchema = [-3, _sm, "GlacierServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(GlacierServiceException$, GlacierServiceException);
+var AccessControlPolicyList: StaticListSchema = [1, n0, _ACPL, 0, () => Grant$];
+var DataRetrievalRulesList: StaticListSchema = [1, n0, _DRRL, 0, () => DataRetrievalRule$];
+var JobList: StaticListSchema = [1, n0, _JL, 0, () => GlacierJobDescription$];
+var NotificationEventList = 64 | 0;
+var PartList: StaticListSchema = [1, n0, _PL, 0, () => PartListElement$];
+var ProvisionedCapacityList: StaticListSchema = [1, n0, _PCL, 0, () => ProvisionedCapacityDescription$];
+var TagKeyList = 64 | 0;
+var UploadsList: StaticListSchema = [1, n0, _UL, 0, () => UploadListElement$];
+var VaultList: StaticListSchema = [1, n0, _VL, 0, () => DescribeVaultOutput$];
+var hashmap = 128 | 0;
+var TagMap = 128 | 0;
+export var AbortMultipartUpload$: StaticOperationSchema = [
   9,
   n0,
   _AMU,
   { [_h]: ["DELETE", "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}", 204] },
-  () => AbortMultipartUploadInput,
+  () => AbortMultipartUploadInput$,
   () => __Unit,
 ];
-export var AbortVaultLock: StaticOperationSchema = [
+export var AbortVaultLock$: StaticOperationSchema = [
   9,
   n0,
   _AVL,
   { [_h]: ["DELETE", "/{accountId}/vaults/{vaultName}/lock-policy", 204] },
-  () => AbortVaultLockInput,
+  () => AbortVaultLockInput$,
   () => __Unit,
 ];
-export var AddTagsToVault: StaticOperationSchema = [
+export var AddTagsToVault$: StaticOperationSchema = [
   9,
   n0,
   _ATTV,
   { [_h]: ["POST", "/{accountId}/vaults/{vaultName}/tags?operation=add", 204] },
-  () => AddTagsToVaultInput,
+  () => AddTagsToVaultInput$,
   () => __Unit,
 ];
-export var CompleteMultipartUpload: StaticOperationSchema = [
+export var CompleteMultipartUpload$: StaticOperationSchema = [
   9,
   n0,
   _CMU,
   { [_h]: ["POST", "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}", 201] },
-  () => CompleteMultipartUploadInput,
-  () => ArchiveCreationOutput,
+  () => CompleteMultipartUploadInput$,
+  () => ArchiveCreationOutput$,
 ];
-export var CompleteVaultLock: StaticOperationSchema = [
+export var CompleteVaultLock$: StaticOperationSchema = [
   9,
   n0,
   _CVL,
   { [_h]: ["POST", "/{accountId}/vaults/{vaultName}/lock-policy/{lockId}", 204] },
-  () => CompleteVaultLockInput,
+  () => CompleteVaultLockInput$,
   () => __Unit,
 ];
-export var CreateVault: StaticOperationSchema = [
+export var CreateVault$: StaticOperationSchema = [
   9,
   n0,
   _CV,
   { [_h]: ["PUT", "/{accountId}/vaults/{vaultName}", 201] },
-  () => CreateVaultInput,
-  () => CreateVaultOutput,
+  () => CreateVaultInput$,
+  () => CreateVaultOutput$,
 ];
-export var DeleteArchive: StaticOperationSchema = [
+export var DeleteArchive$: StaticOperationSchema = [
   9,
   n0,
   _DA,
   { [_h]: ["DELETE", "/{accountId}/vaults/{vaultName}/archives/{archiveId}", 204] },
-  () => DeleteArchiveInput,
+  () => DeleteArchiveInput$,
   () => __Unit,
 ];
-export var DeleteVault: StaticOperationSchema = [
+export var DeleteVault$: StaticOperationSchema = [
   9,
   n0,
   _DV,
   { [_h]: ["DELETE", "/{accountId}/vaults/{vaultName}", 204] },
-  () => DeleteVaultInput,
+  () => DeleteVaultInput$,
   () => __Unit,
 ];
-export var DeleteVaultAccessPolicy: StaticOperationSchema = [
+export var DeleteVaultAccessPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DVAP,
   { [_h]: ["DELETE", "/{accountId}/vaults/{vaultName}/access-policy", 204] },
-  () => DeleteVaultAccessPolicyInput,
+  () => DeleteVaultAccessPolicyInput$,
   () => __Unit,
 ];
-export var DeleteVaultNotifications: StaticOperationSchema = [
+export var DeleteVaultNotifications$: StaticOperationSchema = [
   9,
   n0,
   _DVN,
   { [_h]: ["DELETE", "/{accountId}/vaults/{vaultName}/notification-configuration", 204] },
-  () => DeleteVaultNotificationsInput,
+  () => DeleteVaultNotificationsInput$,
   () => __Unit,
 ];
-export var DescribeJob: StaticOperationSchema = [
+export var DescribeJob$: StaticOperationSchema = [
   9,
   n0,
   _DJ,
   { [_h]: ["GET", "/{accountId}/vaults/{vaultName}/jobs/{jobId}", 200] },
-  () => DescribeJobInput,
-  () => GlacierJobDescription,
+  () => DescribeJobInput$,
+  () => GlacierJobDescription$,
 ];
-export var DescribeVault: StaticOperationSchema = [
+export var DescribeVault$: StaticOperationSchema = [
   9,
   n0,
   _DVe,
   { [_h]: ["GET", "/{accountId}/vaults/{vaultName}", 200] },
-  () => DescribeVaultInput,
-  () => DescribeVaultOutput,
+  () => DescribeVaultInput$,
+  () => DescribeVaultOutput$,
 ];
-export var GetDataRetrievalPolicy: StaticOperationSchema = [
+export var GetDataRetrievalPolicy$: StaticOperationSchema = [
   9,
   n0,
   _GDRP,
   { [_h]: ["GET", "/{accountId}/policies/data-retrieval", 200] },
-  () => GetDataRetrievalPolicyInput,
-  () => GetDataRetrievalPolicyOutput,
+  () => GetDataRetrievalPolicyInput$,
+  () => GetDataRetrievalPolicyOutput$,
 ];
-export var GetJobOutput: StaticOperationSchema = [
+export var GetJobOutput$: StaticOperationSchema = [
   9,
   n0,
   _GJO,
   { [_h]: ["GET", "/{accountId}/vaults/{vaultName}/jobs/{jobId}/output", 200] },
-  () => GetJobOutputInput,
-  () => GetJobOutputOutput,
+  () => GetJobOutputInput$,
+  () => GetJobOutputOutput$,
 ];
-export var GetVaultAccessPolicy: StaticOperationSchema = [
+export var GetVaultAccessPolicy$: StaticOperationSchema = [
   9,
   n0,
   _GVAP,
   { [_h]: ["GET", "/{accountId}/vaults/{vaultName}/access-policy", 200] },
-  () => GetVaultAccessPolicyInput,
-  () => GetVaultAccessPolicyOutput,
+  () => GetVaultAccessPolicyInput$,
+  () => GetVaultAccessPolicyOutput$,
 ];
-export var GetVaultLock: StaticOperationSchema = [
+export var GetVaultLock$: StaticOperationSchema = [
   9,
   n0,
   _GVL,
   { [_h]: ["GET", "/{accountId}/vaults/{vaultName}/lock-policy", 200] },
-  () => GetVaultLockInput,
-  () => GetVaultLockOutput,
+  () => GetVaultLockInput$,
+  () => GetVaultLockOutput$,
 ];
-export var GetVaultNotifications: StaticOperationSchema = [
+export var GetVaultNotifications$: StaticOperationSchema = [
   9,
   n0,
   _GVN,
   { [_h]: ["GET", "/{accountId}/vaults/{vaultName}/notification-configuration", 200] },
-  () => GetVaultNotificationsInput,
-  () => GetVaultNotificationsOutput,
+  () => GetVaultNotificationsInput$,
+  () => GetVaultNotificationsOutput$,
 ];
-export var InitiateJob: StaticOperationSchema = [
+export var InitiateJob$: StaticOperationSchema = [
   9,
   n0,
   _IJ,
   { [_h]: ["POST", "/{accountId}/vaults/{vaultName}/jobs", 202] },
-  () => InitiateJobInput,
-  () => InitiateJobOutput,
+  () => InitiateJobInput$,
+  () => InitiateJobOutput$,
 ];
-export var InitiateMultipartUpload: StaticOperationSchema = [
+export var InitiateMultipartUpload$: StaticOperationSchema = [
   9,
   n0,
   _IMU,
   { [_h]: ["POST", "/{accountId}/vaults/{vaultName}/multipart-uploads", 201] },
-  () => InitiateMultipartUploadInput,
-  () => InitiateMultipartUploadOutput,
+  () => InitiateMultipartUploadInput$,
+  () => InitiateMultipartUploadOutput$,
 ];
-export var InitiateVaultLock: StaticOperationSchema = [
+export var InitiateVaultLock$: StaticOperationSchema = [
   9,
   n0,
   _IVL,
   { [_h]: ["POST", "/{accountId}/vaults/{vaultName}/lock-policy", 201] },
-  () => InitiateVaultLockInput,
-  () => InitiateVaultLockOutput,
+  () => InitiateVaultLockInput$,
+  () => InitiateVaultLockOutput$,
 ];
-export var ListJobs: StaticOperationSchema = [
+export var ListJobs$: StaticOperationSchema = [
   9,
   n0,
   _LJ,
   { [_h]: ["GET", "/{accountId}/vaults/{vaultName}/jobs", 200] },
-  () => ListJobsInput,
-  () => ListJobsOutput,
+  () => ListJobsInput$,
+  () => ListJobsOutput$,
 ];
-export var ListMultipartUploads: StaticOperationSchema = [
+export var ListMultipartUploads$: StaticOperationSchema = [
   9,
   n0,
   _LMU,
   { [_h]: ["GET", "/{accountId}/vaults/{vaultName}/multipart-uploads", 200] },
-  () => ListMultipartUploadsInput,
-  () => ListMultipartUploadsOutput,
+  () => ListMultipartUploadsInput$,
+  () => ListMultipartUploadsOutput$,
 ];
-export var ListParts: StaticOperationSchema = [
+export var ListParts$: StaticOperationSchema = [
   9,
   n0,
   _LP,
   { [_h]: ["GET", "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}", 200] },
-  () => ListPartsInput,
-  () => ListPartsOutput,
+  () => ListPartsInput$,
+  () => ListPartsOutput$,
 ];
-export var ListProvisionedCapacity: StaticOperationSchema = [
+export var ListProvisionedCapacity$: StaticOperationSchema = [
   9,
   n0,
   _LPC,
   { [_h]: ["GET", "/{accountId}/provisioned-capacity", 200] },
-  () => ListProvisionedCapacityInput,
-  () => ListProvisionedCapacityOutput,
+  () => ListProvisionedCapacityInput$,
+  () => ListProvisionedCapacityOutput$,
 ];
-export var ListTagsForVault: StaticOperationSchema = [
+export var ListTagsForVault$: StaticOperationSchema = [
   9,
   n0,
   _LTFV,
   { [_h]: ["GET", "/{accountId}/vaults/{vaultName}/tags", 200] },
-  () => ListTagsForVaultInput,
-  () => ListTagsForVaultOutput,
+  () => ListTagsForVaultInput$,
+  () => ListTagsForVaultOutput$,
 ];
-export var ListVaults: StaticOperationSchema = [
+export var ListVaults$: StaticOperationSchema = [
   9,
   n0,
   _LV,
   { [_h]: ["GET", "/{accountId}/vaults", 200] },
-  () => ListVaultsInput,
-  () => ListVaultsOutput,
+  () => ListVaultsInput$,
+  () => ListVaultsOutput$,
 ];
-export var PurchaseProvisionedCapacity: StaticOperationSchema = [
+export var PurchaseProvisionedCapacity$: StaticOperationSchema = [
   9,
   n0,
   _PPC,
   { [_h]: ["POST", "/{accountId}/provisioned-capacity", 201] },
-  () => PurchaseProvisionedCapacityInput,
-  () => PurchaseProvisionedCapacityOutput,
+  () => PurchaseProvisionedCapacityInput$,
+  () => PurchaseProvisionedCapacityOutput$,
 ];
-export var RemoveTagsFromVault: StaticOperationSchema = [
+export var RemoveTagsFromVault$: StaticOperationSchema = [
   9,
   n0,
   _RTFV,
   { [_h]: ["POST", "/{accountId}/vaults/{vaultName}/tags?operation=remove", 204] },
-  () => RemoveTagsFromVaultInput,
+  () => RemoveTagsFromVaultInput$,
   () => __Unit,
 ];
-export var SetDataRetrievalPolicy: StaticOperationSchema = [
+export var SetDataRetrievalPolicy$: StaticOperationSchema = [
   9,
   n0,
   _SDRP,
   { [_h]: ["PUT", "/{accountId}/policies/data-retrieval", 204] },
-  () => SetDataRetrievalPolicyInput,
+  () => SetDataRetrievalPolicyInput$,
   () => __Unit,
 ];
-export var SetVaultAccessPolicy: StaticOperationSchema = [
+export var SetVaultAccessPolicy$: StaticOperationSchema = [
   9,
   n0,
   _SVAP,
   { [_h]: ["PUT", "/{accountId}/vaults/{vaultName}/access-policy", 204] },
-  () => SetVaultAccessPolicyInput,
+  () => SetVaultAccessPolicyInput$,
   () => __Unit,
 ];
-export var SetVaultNotifications: StaticOperationSchema = [
+export var SetVaultNotifications$: StaticOperationSchema = [
   9,
   n0,
   _SVN,
   { [_h]: ["PUT", "/{accountId}/vaults/{vaultName}/notification-configuration", 204] },
-  () => SetVaultNotificationsInput,
+  () => SetVaultNotificationsInput$,
   () => __Unit,
 ];
-export var UploadArchive: StaticOperationSchema = [
+export var UploadArchive$: StaticOperationSchema = [
   9,
   n0,
   _UA,
   { [_h]: ["POST", "/{accountId}/vaults/{vaultName}/archives", 201] },
-  () => UploadArchiveInput,
-  () => ArchiveCreationOutput,
+  () => UploadArchiveInput$,
+  () => ArchiveCreationOutput$,
 ];
-export var UploadMultipartPart: StaticOperationSchema = [
+export var UploadMultipartPart$: StaticOperationSchema = [
   9,
   n0,
   _UMP,
   { [_h]: ["PUT", "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}", 204] },
-  () => UploadMultipartPartInput,
-  () => UploadMultipartPartOutput,
+  () => UploadMultipartPartInput$,
+  () => UploadMultipartPartOutput$,
 ];

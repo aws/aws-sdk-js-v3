@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutResourcePermissionInput, PutResourcePermissionOutput } from "../models/models_0";
-import { PutResourcePermission } from "../schemas/schemas_0";
+import { PutResourcePermission$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -84,7 +84,7 @@ export class PutResourcePermissionCommand extends $Command
   })
   .s("SsmSap", "PutResourcePermission", {})
   .n("SsmSapClient", "PutResourcePermissionCommand")
-  .sc(PutResourcePermission)
+  .sc(PutResourcePermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

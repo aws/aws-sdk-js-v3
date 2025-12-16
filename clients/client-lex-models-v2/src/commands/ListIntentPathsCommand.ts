@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import type { ListIntentPathsRequest, ListIntentPathsResponse } from "../models/models_1";
-import { ListIntentPaths } from "../schemas/schemas_0";
+import { ListIntentPaths$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class ListIntentPathsCommand extends $Command
   })
   .s("LexModelBuildingServiceV2", "ListIntentPaths", {})
   .n("LexModelsV2Client", "ListIntentPathsCommand")
-  .sc(ListIntentPaths)
+  .sc(ListIntentPaths$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

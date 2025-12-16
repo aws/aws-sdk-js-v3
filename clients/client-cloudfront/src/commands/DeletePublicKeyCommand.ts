@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeletePublicKeyRequest } from "../models/models_0";
-import { DeletePublicKey } from "../schemas/schemas_0";
+import { DeletePublicKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeletePublicKeyCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "DeletePublicKey", {})
   .n("CloudFrontClient", "DeletePublicKeyCommand")
-  .sc(DeletePublicKey)
+  .sc(DeletePublicKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: PersonalizeEventsClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.personalizeevents" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.personalizeevents",
+      version: "2018-03-22",
+      serviceTarget: "AmazonPersonalizeEvents",
+    },
     serviceId: config?.serviceId ?? "Personalize Events",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

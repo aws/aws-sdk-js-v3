@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IndexDocumentsRequest, IndexDocumentsResponse } from "../models/models_0";
-import { IndexDocuments } from "../schemas/schemas_0";
+import { IndexDocuments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class IndexDocumentsCommand extends $Command
   })
   .s("A9SearchCloudConfigService2013", "IndexDocuments", {})
   .n("CloudSearchClient", "IndexDocumentsCommand")
-  .sc(IndexDocuments)
+  .sc(IndexDocuments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

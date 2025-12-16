@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { AddCustomRoutingEndpointsRequest, AddCustomRoutingEndpointsResponse } from "../models/models_0";
-import { AddCustomRoutingEndpoints } from "../schemas/schemas_0";
+import { AddCustomRoutingEndpoints$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class AddCustomRoutingEndpointsCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "AddCustomRoutingEndpoints", {})
   .n("GlobalAcceleratorClient", "AddCustomRoutingEndpointsCommand")
-  .sc(AddCustomRoutingEndpoints)
+  .sc(AddCustomRoutingEndpoints$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

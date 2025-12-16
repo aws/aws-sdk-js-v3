@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDomainLayoutRequest, GetDomainLayoutResponse } from "../models/models_0";
-import { GetDomainLayout } from "../schemas/schemas_0";
+import { GetDomainLayout$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class GetDomainLayoutCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "GetDomainLayout", {})
   .n("CustomerProfilesClient", "GetDomainLayoutCommand")
-  .sc(GetDomainLayout)
+  .sc(GetDomainLayout$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

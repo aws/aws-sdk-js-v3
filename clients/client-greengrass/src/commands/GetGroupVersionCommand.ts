@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import type { GetGroupVersionRequest, GetGroupVersionResponse } from "../models/models_0";
-import { GetGroupVersion } from "../schemas/schemas_0";
+import { GetGroupVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class GetGroupVersionCommand extends $Command
   })
   .s("Greengrass", "GetGroupVersion", {})
   .n("GreengrassClient", "GetGroupVersionCommand")
-  .sc(GetGroupVersion)
+  .sc(GetGroupVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

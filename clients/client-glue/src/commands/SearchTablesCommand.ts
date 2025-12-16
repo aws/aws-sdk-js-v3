@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { SearchTablesRequest } from "../models/models_2";
 import type { SearchTablesResponse } from "../models/models_3";
-import { SearchTables } from "../schemas/schemas_0";
+import { SearchTables$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -377,7 +377,7 @@ export class SearchTablesCommand extends $Command
   })
   .s("AWSGlue", "SearchTables", {})
   .n("GlueClient", "SearchTablesCommand")
-  .sc(SearchTables)
+  .sc(SearchTables$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartInstanceRefreshAnswer, StartInstanceRefreshType } from "../models/models_0";
-import { StartInstanceRefresh } from "../schemas/schemas_0";
+import { StartInstanceRefresh$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -271,7 +271,7 @@ export class StartInstanceRefreshCommand extends $Command
   })
   .s("AutoScaling_2011_01_01", "StartInstanceRefresh", {})
   .n("AutoScalingClient", "StartInstanceRefreshCommand")
-  .sc(StartInstanceRefresh)
+  .sc(StartInstanceRefresh$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

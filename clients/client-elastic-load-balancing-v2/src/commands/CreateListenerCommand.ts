@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateListenerInput, CreateListenerOutput } from "../models/models_0";
-import { CreateListener } from "../schemas/schemas_0";
+import { CreateListener$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -443,7 +443,7 @@ export class CreateListenerCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "CreateListener", {})
   .n("ElasticLoadBalancingV2Client", "CreateListenerCommand")
-  .sc(CreateListener)
+  .sc(CreateListener$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

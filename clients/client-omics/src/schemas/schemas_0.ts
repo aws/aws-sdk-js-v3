@@ -663,26 +663,26 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  ConflictException as __ConflictException,
-  InternalServerException as __InternalServerException,
-  NotSupportedOperationException as __NotSupportedOperationException,
-  RangeNotSatisfiableException as __RangeNotSatisfiableException,
-  RequestTimeoutException as __RequestTimeoutException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ServiceQuotaExceededException as __ServiceQuotaExceededException,
-  ThrottlingException as __ThrottlingException,
-  ValidationException as __ValidationException,
+  AccessDeniedException,
+  ConflictException,
+  InternalServerException,
+  NotSupportedOperationException,
+  RangeNotSatisfiableException,
+  RequestTimeoutException,
+  ResourceNotFoundException,
+  ServiceQuotaExceededException,
+  ThrottlingException,
+  ValidationException,
 } from "../models/errors";
-import { OmicsServiceException as __OmicsServiceException } from "../models/OmicsServiceException";
+import { OmicsServiceException } from "../models/OmicsServiceException";
 
 /* eslint no-var: 0 */
-export var ReadmeMarkdown: StaticSimpleSchema = [0, n0, _RM, { [_mT]: _t }, 0];
-export var ReadSetPartStreamingBlob: StaticSimpleSchema = [0, n0, _RSPSB, { [_rL]: 1, [_s]: 1 }, 42];
-export var ReadSetStreamingBlob: StaticSimpleSchema = [0, n0, _RSSB, { [_s]: 1 }, 42];
-export var ReferenceStreamingBlob: StaticSimpleSchema = [0, n0, _RSB, { [_s]: 1 }, 42];
-export var S3AccessPolicy: StaticSimpleSchema = [0, n0, _SAP, { [_mT]: _a }, 0];
-export var AbortMultipartReadSetUploadRequest: StaticStructureSchema = [
+var ReadmeMarkdown: StaticSimpleSchema = [0, n0, _RM, { [_mT]: _t }, 0];
+var ReadSetPartStreamingBlob: StaticSimpleSchema = [0, n0, _RSPSB, { [_rL]: 1, [_s]: 1 }, 42];
+var ReadSetStreamingBlob: StaticSimpleSchema = [0, n0, _RSSB, { [_s]: 1 }, 42];
+var ReferenceStreamingBlob: StaticSimpleSchema = [0, n0, _RSB, { [_s]: 1 }, 42];
+var S3AccessPolicy: StaticSimpleSchema = [0, n0, _SAP, { [_mT]: _a }, 0];
+export var AbortMultipartReadSetUploadRequest$: StaticStructureSchema = [
   3,
   n0,
   _AMRSUR,
@@ -693,13 +693,13 @@ export var AbortMultipartReadSetUploadRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var AbortMultipartReadSetUploadResponse: StaticStructureSchema = [3, n0, _AMRSURb, 0, [], []];
-export var AcceptShareRequest: StaticStructureSchema = [3, n0, _ASR, 0, [_sI], [[0, 1]]];
-export var AcceptShareResponse: StaticStructureSchema = [3, n0, _ASRc, 0, [_st], [0]];
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var ActivateReadSetFilter: StaticStructureSchema = [3, n0, _ARSF, 0, [_st, _cA, _cB], [0, 5, 5]];
-export var ActivateReadSetJobItem: StaticStructureSchema = [
+export var AbortMultipartReadSetUploadResponse$: StaticStructureSchema = [3, n0, _AMRSURb, 0, [], []];
+export var AcceptShareRequest$: StaticStructureSchema = [3, n0, _ASR, 0, [_sI], [[0, 1]]];
+export var AcceptShareResponse$: StaticStructureSchema = [3, n0, _ASRc, 0, [_st], [0]];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var ActivateReadSetFilter$: StaticStructureSchema = [3, n0, _ARSF, 0, [_st, _cA, _cB], [0, 5, 5]];
+export var ActivateReadSetJobItem$: StaticStructureSchema = [
   3,
   n0,
   _ARSJI,
@@ -707,10 +707,10 @@ export var ActivateReadSetJobItem: StaticStructureSchema = [
   [_i, _sSI, _st, _cT, _cTo],
   [0, 0, 0, 5, 5],
 ];
-export var ActivateReadSetSourceItem: StaticStructureSchema = [3, n0, _ARSSI, 0, [_rSI, _st, _sM], [0, 0, 0]];
-export var AnnotationImportItemDetail: StaticStructureSchema = [3, n0, _AIID, 0, [_so, _jS], [0, 0]];
-export var AnnotationImportItemSource: StaticStructureSchema = [3, n0, _AIIS, 0, [_so], [0]];
-export var AnnotationImportJobItem: StaticStructureSchema = [
+export var ActivateReadSetSourceItem$: StaticStructureSchema = [3, n0, _ARSSI, 0, [_rSI, _st, _sM], [0, 0, 0]];
+export var AnnotationImportItemDetail$: StaticStructureSchema = [3, n0, _AIID, 0, [_so, _jS], [0, 0]];
+export var AnnotationImportItemSource$: StaticStructureSchema = [3, n0, _AIIS, 0, [_so], [0]];
+export var AnnotationImportJobItem$: StaticStructureSchema = [
   3,
   n0,
   _AIJI,
@@ -718,15 +718,15 @@ export var AnnotationImportJobItem: StaticStructureSchema = [
   [_i, _dN, _vN, _rA, _st, _cT, _uT, _cTo, _rLN, _aF],
   [0, 0, 0, 0, 0, 5, 5, 5, 2, 128 | 0],
 ];
-export var AnnotationStoreItem: StaticStructureSchema = [
+export var AnnotationStoreItem$: StaticStructureSchema = [
   3,
   n0,
   _ASI,
   0,
   [_i, _r, _st, _sA, _n, _sF, _d, _sC, _cT, _uT, _sM, _sSB],
-  [0, () => ReferenceItem, 0, 0, 0, 0, 0, () => SseConfig, 5, 5, 0, 1],
+  [0, () => ReferenceItem$, 0, 0, 0, 0, 0, () => SseConfig$, 5, 5, 0, 1],
 ];
-export var AnnotationStoreVersionItem: StaticStructureSchema = [
+export var AnnotationStoreVersionItem$: StaticStructureSchema = [
   3,
   n0,
   _ASVI,
@@ -734,8 +734,8 @@ export var AnnotationStoreVersionItem: StaticStructureSchema = [
   [_sIt, _i, _st, _vA, _n, _vN, _d, _cT, _uT, _sM, _vSB],
   [0, 0, 0, 0, 0, 0, 0, 5, 5, 0, 1],
 ];
-export var BatchDeleteReadSetRequest: StaticStructureSchema = [3, n0, _BDRSR, 0, [_id, _sSI], [64 | 0, [0, 1]]];
-export var BatchDeleteReadSetResponse: StaticStructureSchema = [
+export var BatchDeleteReadSetRequest$: StaticStructureSchema = [3, n0, _BDRSR, 0, [_id, _sSI], [64 | 0, [0, 1]]];
+export var BatchDeleteReadSetResponse$: StaticStructureSchema = [
   3,
   n0,
   _BDRSRa,
@@ -743,12 +743,12 @@ export var BatchDeleteReadSetResponse: StaticStructureSchema = [
   [_er],
   [() => ReadSetBatchErrorList],
 ];
-export var CancelAnnotationImportRequest: StaticStructureSchema = [3, n0, _CAIR, 0, [_jI], [[0, 1]]];
-export var CancelAnnotationImportResponse: StaticStructureSchema = [3, n0, _CAIRa, 0, [], []];
-export var CancelRunRequest: StaticStructureSchema = [3, n0, _CRR, 0, [_i], [[0, 1]]];
-export var CancelVariantImportRequest: StaticStructureSchema = [3, n0, _CVIR, 0, [_jI], [[0, 1]]];
-export var CancelVariantImportResponse: StaticStructureSchema = [3, n0, _CVIRa, 0, [], []];
-export var CompleteMultipartReadSetUploadRequest: StaticStructureSchema = [
+export var CancelAnnotationImportRequest$: StaticStructureSchema = [3, n0, _CAIR, 0, [_jI], [[0, 1]]];
+export var CancelAnnotationImportResponse$: StaticStructureSchema = [3, n0, _CAIRa, 0, [], []];
+export var CancelRunRequest$: StaticStructureSchema = [3, n0, _CRR, 0, [_i], [[0, 1]]];
+export var CancelVariantImportRequest$: StaticStructureSchema = [3, n0, _CVIR, 0, [_jI], [[0, 1]]];
+export var CancelVariantImportResponse$: StaticStructureSchema = [3, n0, _CVIRa, 0, [], []];
+export var CompleteMultipartReadSetUploadRequest$: StaticStructureSchema = [
   3,
   n0,
   _CMRSUR,
@@ -756,11 +756,11 @@ export var CompleteMultipartReadSetUploadRequest: StaticStructureSchema = [
   [_sSI, _uI, _p],
   [[0, 1], [0, 1], () => CompleteReadSetUploadPartList],
 ];
-export var CompleteMultipartReadSetUploadResponse: StaticStructureSchema = [3, n0, _CMRSURo, 0, [_rSI], [0]];
-export var CompleteReadSetUploadPartListItem: StaticStructureSchema = [3, n0, _CRSUPLI, 0, [_pN, _pS, _ch], [1, 0, 0]];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var ContainerRegistryMap: StaticStructureSchema = [
+export var CompleteMultipartReadSetUploadResponse$: StaticStructureSchema = [3, n0, _CMRSURo, 0, [_rSI], [0]];
+export var CompleteReadSetUploadPartListItem$: StaticStructureSchema = [3, n0, _CRSUPLI, 0, [_pN, _pS, _ch], [1, 0, 0]];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var ContainerRegistryMap$: StaticStructureSchema = [
   3,
   n0,
   _CRM,
@@ -768,39 +768,39 @@ export var ContainerRegistryMap: StaticStructureSchema = [
   [_rM, _iM],
   [() => RegistryMappingsList, () => ImageMappingsList],
 ];
-export var CreateAnnotationStoreRequest: StaticStructureSchema = [
+export var CreateAnnotationStoreRequest$: StaticStructureSchema = [
   3,
   n0,
   _CASR,
   0,
   [_r, _n, _d, _ta, _vN, _sC, _sF, _sO],
-  [() => ReferenceItem, 0, 0, 128 | 0, 0, () => SseConfig, 0, () => StoreOptions],
+  [() => ReferenceItem$, 0, 0, 128 | 0, 0, () => SseConfig$, 0, () => StoreOptions$],
 ];
-export var CreateAnnotationStoreResponse: StaticStructureSchema = [
+export var CreateAnnotationStoreResponse$: StaticStructureSchema = [
   3,
   n0,
   _CASRr,
   0,
   [_i, _r, _sF, _sO, _st, _n, _vN, _cT],
-  [0, () => ReferenceItem, 0, () => StoreOptions, 0, 0, 0, 5],
+  [0, () => ReferenceItem$, 0, () => StoreOptions$, 0, 0, 0, 5],
 ];
-export var CreateAnnotationStoreVersionRequest: StaticStructureSchema = [
+export var CreateAnnotationStoreVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CASVR,
   0,
   [_n, _vN, _d, _vO, _ta],
-  [[0, 1], 0, 0, () => VersionOptions, 128 | 0],
+  [[0, 1], 0, 0, () => VersionOptions$, 128 | 0],
 ];
-export var CreateAnnotationStoreVersionResponse: StaticStructureSchema = [
+export var CreateAnnotationStoreVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CASVRr,
   0,
   [_i, _vN, _sIt, _vO, _n, _st, _cT],
-  [0, 0, 0, () => VersionOptions, 0, 0, 5],
+  [0, 0, 0, () => VersionOptions$, 0, 0, 5],
 ];
-export var CreateMultipartReadSetUploadRequest: StaticStructureSchema = [
+export var CreateMultipartReadSetUploadRequest$: StaticStructureSchema = [
   3,
   n0,
   _CMRSURr,
@@ -808,7 +808,7 @@ export var CreateMultipartReadSetUploadRequest: StaticStructureSchema = [
   [_sSI, _cTl, _sFT, _sIu, _sIa, _gF, _rAe, _n, _d, _ta],
   [[0, 1], 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0],
 ];
-export var CreateMultipartReadSetUploadResponse: StaticStructureSchema = [
+export var CreateMultipartReadSetUploadResponse$: StaticStructureSchema = [
   3,
   n0,
   _CMRSURre,
@@ -816,23 +816,23 @@ export var CreateMultipartReadSetUploadResponse: StaticStructureSchema = [
   [_sSI, _uI, _sFT, _sIu, _sIa, _gF, _rAe, _n, _d, _ta, _cT],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 5],
 ];
-export var CreateReferenceStoreRequest: StaticStructureSchema = [
+export var CreateReferenceStoreRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRSR,
   0,
   [_n, _d, _sC, _ta, _cTl],
-  [0, 0, () => SseConfig, 128 | 0, 0],
+  [0, 0, () => SseConfig$, 128 | 0, 0],
 ];
-export var CreateReferenceStoreResponse: StaticStructureSchema = [
+export var CreateReferenceStoreResponse$: StaticStructureSchema = [
   3,
   n0,
   _CRSRr,
   0,
   [_i, _ar, _n, _d, _sC, _cT],
-  [0, 0, 0, 0, () => SseConfig, 5],
+  [0, 0, 0, 0, () => SseConfig$, 5],
 ];
-export var CreateRunCacheRequest: StaticStructureSchema = [
+export var CreateRunCacheRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRCR,
@@ -840,8 +840,8 @@ export var CreateRunCacheRequest: StaticStructureSchema = [
   [_cBa, _cSL, _d, _n, _rI, _ta, _cBOI],
   [0, 0, 0, 0, [0, 4], 128 | 0, 0],
 ];
-export var CreateRunCacheResponse: StaticStructureSchema = [3, n0, _CRCRr, 0, [_ar, _i, _st, _ta], [0, 0, 0, 128 | 0]];
-export var CreateRunGroupRequest: StaticStructureSchema = [
+export var CreateRunCacheResponse$: StaticStructureSchema = [3, n0, _CRCRr, 0, [_ar, _i, _st, _ta], [0, 0, 0, 128 | 0]];
+export var CreateRunGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRGR,
@@ -849,42 +849,42 @@ export var CreateRunGroupRequest: StaticStructureSchema = [
   [_n, _mC, _mR, _mD, _ta, _rI, _mG],
   [0, 1, 1, 1, 128 | 0, [0, 4], 1],
 ];
-export var CreateRunGroupResponse: StaticStructureSchema = [3, n0, _CRGRr, 0, [_ar, _i, _ta], [0, 0, 128 | 0]];
-export var CreateSequenceStoreRequest: StaticStructureSchema = [
+export var CreateRunGroupResponse$: StaticStructureSchema = [3, n0, _CRGRr, 0, [_ar, _i, _ta], [0, 0, 128 | 0]];
+export var CreateSequenceStoreRequest$: StaticStructureSchema = [
   3,
   n0,
   _CSSR,
   0,
   [_n, _d, _sC, _ta, _cTl, _fL, _eTAF, _pSLT, _sAC],
-  [0, 0, () => SseConfig, 128 | 0, [0, 4], 0, 0, 64 | 0, () => S3AccessConfig],
+  [0, 0, () => SseConfig$, 128 | 0, [0, 4], 0, 0, 64 | 0, () => S3AccessConfig$],
 ];
-export var CreateSequenceStoreResponse: StaticStructureSchema = [
+export var CreateSequenceStoreResponse$: StaticStructureSchema = [
   3,
   n0,
   _CSSRr,
   0,
   [_i, _ar, _n, _d, _sC, _cT, _fL, _eTAF, _st, _sM, _pSLT, _sAc],
-  [0, 0, 0, 0, () => SseConfig, 5, 0, 0, 0, 0, 64 | 0, () => SequenceStoreS3Access],
+  [0, 0, 0, 0, () => SseConfig$, 5, 0, 0, 0, 0, 64 | 0, () => SequenceStoreS3Access$],
 ];
-export var CreateShareRequest: StaticStructureSchema = [3, n0, _CSR, 0, [_rAes, _pSr, _sN], [0, 0, 0]];
-export var CreateShareResponse: StaticStructureSchema = [3, n0, _CSRr, 0, [_sI, _st, _sN], [0, 0, 0]];
-export var CreateVariantStoreRequest: StaticStructureSchema = [
+export var CreateShareRequest$: StaticStructureSchema = [3, n0, _CSR, 0, [_rAes, _pSr, _sN], [0, 0, 0]];
+export var CreateShareResponse$: StaticStructureSchema = [3, n0, _CSRr, 0, [_sI, _st, _sN], [0, 0, 0]];
+export var CreateVariantStoreRequest$: StaticStructureSchema = [
   3,
   n0,
   _CVSR,
   0,
   [_r, _n, _d, _ta, _sC],
-  [() => ReferenceItem, 0, 0, 128 | 0, () => SseConfig],
+  [() => ReferenceItem$, 0, 0, 128 | 0, () => SseConfig$],
 ];
-export var CreateVariantStoreResponse: StaticStructureSchema = [
+export var CreateVariantStoreResponse$: StaticStructureSchema = [
   3,
   n0,
   _CVSRr,
   0,
   [_i, _r, _st, _n, _cT],
-  [0, () => ReferenceItem, 0, 0, 5],
+  [0, () => ReferenceItem$, 0, 0, 5],
 ];
-export var CreateWorkflowRequest: StaticStructureSchema = [
+export var CreateWorkflowRequest$: StaticStructureSchema = [
   3,
   n0,
   _CWR,
@@ -903,17 +903,17 @@ export var CreateWorkflowRequest: StaticStructureSchema = [
     [0, 4],
     0,
     0,
-    () => ContainerRegistryMap,
+    () => ContainerRegistryMap$,
     0,
     [() => ReadmeMarkdown, 0],
     0,
     0,
-    () => DefinitionRepository,
+    () => DefinitionRepository$,
     0,
     0,
   ],
 ];
-export var CreateWorkflowResponse: StaticStructureSchema = [
+export var CreateWorkflowResponse$: StaticStructureSchema = [
   3,
   n0,
   _CWRr,
@@ -921,7 +921,7 @@ export var CreateWorkflowResponse: StaticStructureSchema = [
   [_ar, _i, _st, _ta, _u],
   [0, 0, 0, 128 | 0, 0],
 ];
-export var CreateWorkflowVersionRequest: StaticStructureSchema = [
+export var CreateWorkflowVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CWVR,
@@ -942,16 +942,16 @@ export var CreateWorkflowVersionRequest: StaticStructureSchema = [
     1,
     128 | 0,
     0,
-    () => ContainerRegistryMap,
+    () => ContainerRegistryMap$,
     0,
     [() => ReadmeMarkdown, 0],
     0,
     0,
-    () => DefinitionRepository,
+    () => DefinitionRepository$,
     0,
   ],
 ];
-export var CreateWorkflowVersionResponse: StaticStructureSchema = [
+export var CreateWorkflowVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _CWVRr,
@@ -959,23 +959,23 @@ export var CreateWorkflowVersionResponse: StaticStructureSchema = [
   [_ar, _wI, _vN, _st, _ta, _u],
   [0, 0, 0, 0, 128 | 0, 0],
 ];
-export var DefinitionRepository: StaticStructureSchema = [
+export var DefinitionRepository$: StaticStructureSchema = [
   3,
   n0,
   _DR,
   0,
   [_cAo, _fRI, _sR, _eFP],
-  [0, 0, () => SourceReference, 64 | 0],
+  [0, 0, () => SourceReference$, 64 | 0],
 ];
-export var DefinitionRepositoryDetails: StaticStructureSchema = [
+export var DefinitionRepositoryDetails$: StaticStructureSchema = [
   3,
   n0,
   _DRD,
   0,
   [_cAo, _fRI, _sR, _pTr, _pE],
-  [0, 0, () => SourceReference, 0, 0],
+  [0, 0, () => SourceReference$, 0, 0],
 ];
-export var DeleteAnnotationStoreRequest: StaticStructureSchema = [
+export var DeleteAnnotationStoreRequest$: StaticStructureSchema = [
   3,
   n0,
   _DASR,
@@ -986,8 +986,8 @@ export var DeleteAnnotationStoreRequest: StaticStructureSchema = [
     [2, { [_hQ]: _f }],
   ],
 ];
-export var DeleteAnnotationStoreResponse: StaticStructureSchema = [3, n0, _DASRe, 0, [_st], [0]];
-export var DeleteAnnotationStoreVersionsRequest: StaticStructureSchema = [
+export var DeleteAnnotationStoreResponse$: StaticStructureSchema = [3, n0, _DASRe, 0, [_st], [0]];
+export var DeleteAnnotationStoreVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DASVR,
@@ -995,7 +995,7 @@ export var DeleteAnnotationStoreVersionsRequest: StaticStructureSchema = [
   [_n, _v, _f],
   [[0, 1], 64 | 0, [2, { [_hQ]: _f }]],
 ];
-export var DeleteAnnotationStoreVersionsResponse: StaticStructureSchema = [
+export var DeleteAnnotationStoreVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _DASVRe,
@@ -1003,7 +1003,7 @@ export var DeleteAnnotationStoreVersionsResponse: StaticStructureSchema = [
   [_er],
   [() => VersionDeleteErrorList],
 ];
-export var DeleteReferenceRequest: StaticStructureSchema = [
+export var DeleteReferenceRequest$: StaticStructureSchema = [
   3,
   n0,
   _DRR,
@@ -1014,19 +1014,19 @@ export var DeleteReferenceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteReferenceResponse: StaticStructureSchema = [3, n0, _DRRe, 0, [], []];
-export var DeleteReferenceStoreRequest: StaticStructureSchema = [3, n0, _DRSR, 0, [_i], [[0, 1]]];
-export var DeleteReferenceStoreResponse: StaticStructureSchema = [3, n0, _DRSRe, 0, [], []];
-export var DeleteRunCacheRequest: StaticStructureSchema = [3, n0, _DRCR, 0, [_i], [[0, 1]]];
-export var DeleteRunGroupRequest: StaticStructureSchema = [3, n0, _DRGR, 0, [_i], [[0, 1]]];
-export var DeleteRunRequest: StaticStructureSchema = [3, n0, _DRRel, 0, [_i], [[0, 1]]];
-export var DeleteS3AccessPolicyRequest: StaticStructureSchema = [3, n0, _DSAPR, 0, [_sAPA], [[0, 1]]];
-export var DeleteS3AccessPolicyResponse: StaticStructureSchema = [3, n0, _DSAPRe, 0, [], []];
-export var DeleteSequenceStoreRequest: StaticStructureSchema = [3, n0, _DSSR, 0, [_i], [[0, 1]]];
-export var DeleteSequenceStoreResponse: StaticStructureSchema = [3, n0, _DSSRe, 0, [], []];
-export var DeleteShareRequest: StaticStructureSchema = [3, n0, _DSR, 0, [_sI], [[0, 1]]];
-export var DeleteShareResponse: StaticStructureSchema = [3, n0, _DSRe, 0, [_st], [0]];
-export var DeleteVariantStoreRequest: StaticStructureSchema = [
+export var DeleteReferenceResponse$: StaticStructureSchema = [3, n0, _DRRe, 0, [], []];
+export var DeleteReferenceStoreRequest$: StaticStructureSchema = [3, n0, _DRSR, 0, [_i], [[0, 1]]];
+export var DeleteReferenceStoreResponse$: StaticStructureSchema = [3, n0, _DRSRe, 0, [], []];
+export var DeleteRunCacheRequest$: StaticStructureSchema = [3, n0, _DRCR, 0, [_i], [[0, 1]]];
+export var DeleteRunGroupRequest$: StaticStructureSchema = [3, n0, _DRGR, 0, [_i], [[0, 1]]];
+export var DeleteRunRequest$: StaticStructureSchema = [3, n0, _DRRel, 0, [_i], [[0, 1]]];
+export var DeleteS3AccessPolicyRequest$: StaticStructureSchema = [3, n0, _DSAPR, 0, [_sAPA], [[0, 1]]];
+export var DeleteS3AccessPolicyResponse$: StaticStructureSchema = [3, n0, _DSAPRe, 0, [], []];
+export var DeleteSequenceStoreRequest$: StaticStructureSchema = [3, n0, _DSSR, 0, [_i], [[0, 1]]];
+export var DeleteSequenceStoreResponse$: StaticStructureSchema = [3, n0, _DSSRe, 0, [], []];
+export var DeleteShareRequest$: StaticStructureSchema = [3, n0, _DSR, 0, [_sI], [[0, 1]]];
+export var DeleteShareResponse$: StaticStructureSchema = [3, n0, _DSRe, 0, [_st], [0]];
+export var DeleteVariantStoreRequest$: StaticStructureSchema = [
   3,
   n0,
   _DVSR,
@@ -1037,9 +1037,9 @@ export var DeleteVariantStoreRequest: StaticStructureSchema = [
     [2, { [_hQ]: _f }],
   ],
 ];
-export var DeleteVariantStoreResponse: StaticStructureSchema = [3, n0, _DVSRe, 0, [_st], [0]];
-export var DeleteWorkflowRequest: StaticStructureSchema = [3, n0, _DWR, 0, [_i], [[0, 1]]];
-export var DeleteWorkflowVersionRequest: StaticStructureSchema = [
+export var DeleteVariantStoreResponse$: StaticStructureSchema = [3, n0, _DVSRe, 0, [_st], [0]];
+export var DeleteWorkflowRequest$: StaticStructureSchema = [3, n0, _DWR, 0, [_i], [[0, 1]]];
+export var DeleteWorkflowVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _DWVR,
@@ -1050,11 +1050,11 @@ export var DeleteWorkflowVersionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var ETag: StaticStructureSchema = [3, n0, _ET, 0, [_al, _sou, _sour], [0, 0, 0]];
-export var ExportReadSet: StaticStructureSchema = [3, n0, _ERS, 0, [_rSI], [0]];
-export var ExportReadSetDetail: StaticStructureSchema = [3, n0, _ERSD, 0, [_i, _st, _sM], [0, 0, 0]];
-export var ExportReadSetFilter: StaticStructureSchema = [3, n0, _ERSF, 0, [_st, _cA, _cB], [0, 5, 5]];
-export var ExportReadSetJobDetail: StaticStructureSchema = [
+export var ETag$: StaticStructureSchema = [3, n0, _ET, 0, [_al, _sou, _sour], [0, 0, 0]];
+export var ExportReadSet$: StaticStructureSchema = [3, n0, _ERS, 0, [_rSI], [0]];
+export var ExportReadSetDetail$: StaticStructureSchema = [3, n0, _ERSD, 0, [_i, _st, _sM], [0, 0, 0]];
+export var ExportReadSetFilter$: StaticStructureSchema = [3, n0, _ERSF, 0, [_st, _cA, _cB], [0, 5, 5]];
+export var ExportReadSetJobDetail$: StaticStructureSchema = [
   3,
   n0,
   _ERSJD,
@@ -1062,34 +1062,34 @@ export var ExportReadSetJobDetail: StaticStructureSchema = [
   [_i, _sSI, _de, _st, _cT, _cTo],
   [0, 0, 0, 0, 5, 5],
 ];
-export var FileInformation: StaticStructureSchema = [
+export var FileInformation$: StaticStructureSchema = [
   3,
   n0,
   _FI,
   0,
   [_tP, _pSa, _cL, _sAc],
-  [1, 1, 1, () => ReadSetS3Access],
+  [1, 1, 1, () => ReadSetS3Access$],
 ];
-export var Filter: StaticStructureSchema = [3, n0, _F, 0, [_rAeso, _st, _ty], [64 | 0, 64 | 0, 64 | 0]];
-export var GetAnnotationImportRequest: StaticStructureSchema = [3, n0, _GAIR, 0, [_jI], [[0, 1]]];
-export var GetAnnotationImportResponse: StaticStructureSchema = [
+export var Filter$: StaticStructureSchema = [3, n0, _F, 0, [_rAeso, _st, _ty], [64 | 0, 64 | 0, 64 | 0]];
+export var GetAnnotationImportRequest$: StaticStructureSchema = [3, n0, _GAIR, 0, [_jI], [[0, 1]]];
+export var GetAnnotationImportResponse$: StaticStructureSchema = [
   3,
   n0,
   _GAIRe,
   0,
   [_i, _dN, _vN, _rA, _st, _sM, _cT, _uT, _cTo, _it, _rLN, _fO, _aF],
-  [0, 0, 0, 0, 0, 0, 5, 5, 5, () => AnnotationImportItemDetails, 2, () => FormatOptions, 128 | 0],
+  [0, 0, 0, 0, 0, 0, 5, 5, 5, () => AnnotationImportItemDetails, 2, () => FormatOptions$, 128 | 0],
 ];
-export var GetAnnotationStoreRequest: StaticStructureSchema = [3, n0, _GASR, 0, [_n], [[0, 1]]];
-export var GetAnnotationStoreResponse: StaticStructureSchema = [
+export var GetAnnotationStoreRequest$: StaticStructureSchema = [3, n0, _GASR, 0, [_n], [[0, 1]]];
+export var GetAnnotationStoreResponse$: StaticStructureSchema = [
   3,
   n0,
   _GASRe,
   0,
   [_i, _r, _st, _sA, _n, _d, _sC, _cT, _uT, _ta, _sO, _sF, _sM, _sSB, _nV],
-  [0, () => ReferenceItem, 0, 0, 0, 0, () => SseConfig, 5, 5, 128 | 0, () => StoreOptions, 0, 0, 1, 1],
+  [0, () => ReferenceItem$, 0, 0, 0, 0, () => SseConfig$, 5, 5, 128 | 0, () => StoreOptions$, 0, 0, 1, 1],
 ];
-export var GetAnnotationStoreVersionRequest: StaticStructureSchema = [
+export var GetAnnotationStoreVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GASVR,
@@ -1100,15 +1100,15 @@ export var GetAnnotationStoreVersionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetAnnotationStoreVersionResponse: StaticStructureSchema = [
+export var GetAnnotationStoreVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GASVRe,
   0,
   [_sIt, _i, _st, _vA, _n, _vN, _d, _cT, _uT, _ta, _vO, _sM, _vSB],
-  [0, 0, 0, 0, 0, 0, 0, 5, 5, 128 | 0, () => VersionOptions, 0, 1],
+  [0, 0, 0, 0, 0, 0, 0, 5, 5, 128 | 0, () => VersionOptions$, 0, 1],
 ];
-export var GetReadSetActivationJobRequest: StaticStructureSchema = [
+export var GetReadSetActivationJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRSAJR,
@@ -1119,7 +1119,7 @@ export var GetReadSetActivationJobRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetReadSetActivationJobResponse: StaticStructureSchema = [
+export var GetReadSetActivationJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRSAJRe,
@@ -1127,7 +1127,7 @@ export var GetReadSetActivationJobResponse: StaticStructureSchema = [
   [_i, _sSI, _st, _sM, _cT, _cTo, _sourc],
   [0, 0, 0, 0, 5, 5, () => ActivateReadSetSourceList],
 ];
-export var GetReadSetExportJobRequest: StaticStructureSchema = [
+export var GetReadSetExportJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRSEJR,
@@ -1138,7 +1138,7 @@ export var GetReadSetExportJobRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetReadSetExportJobResponse: StaticStructureSchema = [
+export var GetReadSetExportJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRSEJRe,
@@ -1146,7 +1146,7 @@ export var GetReadSetExportJobResponse: StaticStructureSchema = [
   [_i, _sSI, _de, _st, _sM, _cT, _cTo, _rS],
   [0, 0, 0, 0, 0, 5, 5, () => ExportReadSetDetailList],
 ];
-export var GetReadSetImportJobRequest: StaticStructureSchema = [
+export var GetReadSetImportJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRSIJR,
@@ -1157,7 +1157,7 @@ export var GetReadSetImportJobRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetReadSetImportJobResponse: StaticStructureSchema = [
+export var GetReadSetImportJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRSIJRe,
@@ -1165,7 +1165,7 @@ export var GetReadSetImportJobResponse: StaticStructureSchema = [
   [_i, _sSI, _rA, _st, _sM, _cT, _cTo, _sourc],
   [0, 0, 0, 0, 0, 5, 5, () => ImportReadSetSourceList],
 ];
-export var GetReadSetMetadataRequest: StaticStructureSchema = [
+export var GetReadSetMetadataRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRSMR,
@@ -1176,15 +1176,15 @@ export var GetReadSetMetadataRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetReadSetMetadataResponse: StaticStructureSchema = [
+export var GetReadSetMetadataResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRSMRe,
   0,
   [_i, _ar, _sSI, _sIu, _sIa, _st, _n, _d, _fT, _cT, _sIe, _rAe, _fi, _sM, _cTr, _et, _cJI],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, () => SequenceInformation, 0, () => ReadSetFiles, 0, 0, () => ETag, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, () => SequenceInformation$, 0, () => ReadSetFiles$, 0, 0, () => ETag$, 0],
 ];
-export var GetReadSetRequest: StaticStructureSchema = [
+export var GetReadSetRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRSR,
@@ -1197,8 +1197,8 @@ export var GetReadSetRequest: StaticStructureSchema = [
     [1, { [_hQ]: _pN }],
   ],
 ];
-export var GetReadSetResponse: StaticStructureSchema = [3, n0, _GRSRe, 0, [_pa], [[() => ReadSetStreamingBlob, 16]]];
-export var GetReferenceImportJobRequest: StaticStructureSchema = [
+export var GetReadSetResponse$: StaticStructureSchema = [3, n0, _GRSRe, 0, [_pa], [[() => ReadSetStreamingBlob, 16]]];
+export var GetReferenceImportJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRIJR,
@@ -1209,7 +1209,7 @@ export var GetReferenceImportJobRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetReferenceImportJobResponse: StaticStructureSchema = [
+export var GetReferenceImportJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRIJRe,
@@ -1217,7 +1217,7 @@ export var GetReferenceImportJobResponse: StaticStructureSchema = [
   [_i, _rSIe, _rA, _st, _sM, _cT, _cTo, _sourc],
   [0, 0, 0, 0, 0, 5, 5, () => ImportReferenceSourceList],
 ];
-export var GetReferenceMetadataRequest: StaticStructureSchema = [
+export var GetReferenceMetadataRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRMR,
@@ -1228,15 +1228,15 @@ export var GetReferenceMetadataRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetReferenceMetadataResponse: StaticStructureSchema = [
+export var GetReferenceMetadataResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRMRe,
   0,
   [_i, _ar, _rSIe, _md, _st, _n, _d, _cT, _uT, _fi, _cTr, _cJI],
-  [0, 0, 0, 0, 0, 0, 0, 5, 5, () => ReferenceFiles, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 5, 5, () => ReferenceFiles$, 0, 0],
 ];
-export var GetReferenceRequest: StaticStructureSchema = [
+export var GetReferenceRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRR,
@@ -1250,18 +1250,25 @@ export var GetReferenceRequest: StaticStructureSchema = [
     [0, { [_hQ]: _fil }],
   ],
 ];
-export var GetReferenceResponse: StaticStructureSchema = [3, n0, _GRRe, 0, [_pa], [[() => ReferenceStreamingBlob, 16]]];
-export var GetReferenceStoreRequest: StaticStructureSchema = [3, n0, _GRSRet, 0, [_i], [[0, 1]]];
-export var GetReferenceStoreResponse: StaticStructureSchema = [
+export var GetReferenceResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _GRRe,
+  0,
+  [_pa],
+  [[() => ReferenceStreamingBlob, 16]],
+];
+export var GetReferenceStoreRequest$: StaticStructureSchema = [3, n0, _GRSRet, 0, [_i], [[0, 1]]];
+export var GetReferenceStoreResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRSRete,
   0,
   [_i, _ar, _n, _d, _sC, _cT],
-  [0, 0, 0, 0, () => SseConfig, 5],
+  [0, 0, 0, 0, () => SseConfig$, 5],
 ];
-export var GetRunCacheRequest: StaticStructureSchema = [3, n0, _GRCR, 0, [_i], [[0, 1]]];
-export var GetRunCacheResponse: StaticStructureSchema = [
+export var GetRunCacheRequest$: StaticStructureSchema = [3, n0, _GRCR, 0, [_i], [[0, 1]]];
+export var GetRunCacheResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRCRe,
@@ -1269,8 +1276,8 @@ export var GetRunCacheResponse: StaticStructureSchema = [
   [_ar, _cBa, _cBOI, _cSU, _cT, _d, _i, _n, _st, _ta],
   [0, 0, 0, 0, 5, 0, 0, 0, 0, 128 | 0],
 ];
-export var GetRunGroupRequest: StaticStructureSchema = [3, n0, _GRGR, 0, [_i], [[0, 1]]];
-export var GetRunGroupResponse: StaticStructureSchema = [
+export var GetRunGroupRequest$: StaticStructureSchema = [3, n0, _GRGR, 0, [_i], [[0, 1]]];
+export var GetRunGroupResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRGRe,
@@ -1278,7 +1285,7 @@ export var GetRunGroupResponse: StaticStructureSchema = [
   [_ar, _i, _n, _mC, _mR, _mD, _cT, _ta, _mG],
   [0, 0, 0, 1, 1, 1, 5, 128 | 0, 1],
 ];
-export var GetRunRequest: StaticStructureSchema = [
+export var GetRunRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRRet,
@@ -1289,7 +1296,7 @@ export var GetRunRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _ex }],
   ],
 ];
-export var GetRunResponse: StaticStructureSchema = [
+export var GetRunResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRRetu,
@@ -1362,7 +1369,7 @@ export var GetRunResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    () => RunLogLocation,
+    () => RunLogLocation$,
     0,
     0,
     0,
@@ -1371,7 +1378,7 @@ export var GetRunResponse: StaticStructureSchema = [
     0,
   ],
 ];
-export var GetRunTaskRequest: StaticStructureSchema = [
+export var GetRunTaskRequest$: StaticStructureSchema = [
   3,
   n0,
   _GRTR,
@@ -1382,16 +1389,16 @@ export var GetRunTaskRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetRunTaskResponse: StaticStructureSchema = [
+export var GetRunTaskResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRTRe,
   0,
   [_tI, _st, _n, _cp, _cH, _cSU, _me, _cT, _sTt, _sTto, _sM, _lS, _g, _iT, _fR, _iD],
-  [0, 0, 0, 1, 2, 0, 1, 5, 5, 5, 0, 0, 1, 0, 0, () => ImageDetails],
+  [0, 0, 0, 1, 2, 0, 1, 5, 5, 5, 0, 0, 1, 0, 0, () => ImageDetails$],
 ];
-export var GetS3AccessPolicyRequest: StaticStructureSchema = [3, n0, _GSAPR, 0, [_sAPA], [[0, 1]]];
-export var GetS3AccessPolicyResponse: StaticStructureSchema = [
+export var GetS3AccessPolicyRequest$: StaticStructureSchema = [3, n0, _GSAPR, 0, [_sAPA], [[0, 1]]];
+export var GetS3AccessPolicyResponse$: StaticStructureSchema = [
   3,
   n0,
   _GSAPRe,
@@ -1399,19 +1406,19 @@ export var GetS3AccessPolicyResponse: StaticStructureSchema = [
   [_sAPA, _sIt, _sTtor, _uT, _sAP],
   [0, 0, 0, 5, [() => S3AccessPolicy, 0]],
 ];
-export var GetSequenceStoreRequest: StaticStructureSchema = [3, n0, _GSSR, 0, [_i], [[0, 1]]];
-export var GetSequenceStoreResponse: StaticStructureSchema = [
+export var GetSequenceStoreRequest$: StaticStructureSchema = [3, n0, _GSSR, 0, [_i], [[0, 1]]];
+export var GetSequenceStoreResponse$: StaticStructureSchema = [
   3,
   n0,
   _GSSRe,
   0,
   [_i, _ar, _n, _d, _sC, _cT, _fL, _sAc, _eTAF, _st, _sM, _pSLT, _uT],
-  [0, 0, 0, 0, () => SseConfig, 5, 0, () => SequenceStoreS3Access, 0, 0, 0, 64 | 0, 5],
+  [0, 0, 0, 0, () => SseConfig$, 5, 0, () => SequenceStoreS3Access$, 0, 0, 0, 64 | 0, 5],
 ];
-export var GetShareRequest: StaticStructureSchema = [3, n0, _GSR, 0, [_sI], [[0, 1]]];
-export var GetShareResponse: StaticStructureSchema = [3, n0, _GSRe, 0, [_sh], [() => ShareDetails]];
-export var GetVariantImportRequest: StaticStructureSchema = [3, n0, _GVIR, 0, [_jI], [[0, 1]]];
-export var GetVariantImportResponse: StaticStructureSchema = [
+export var GetShareRequest$: StaticStructureSchema = [3, n0, _GSR, 0, [_sI], [[0, 1]]];
+export var GetShareResponse$: StaticStructureSchema = [3, n0, _GSRe, 0, [_sh], [() => ShareDetails$]];
+export var GetVariantImportRequest$: StaticStructureSchema = [3, n0, _GVIR, 0, [_jI], [[0, 1]]];
+export var GetVariantImportResponse$: StaticStructureSchema = [
   3,
   n0,
   _GVIRe,
@@ -1419,16 +1426,16 @@ export var GetVariantImportResponse: StaticStructureSchema = [
   [_i, _dN, _rA, _st, _sM, _cT, _uT, _cTo, _it, _rLN, _aF],
   [0, 0, 0, 0, 0, 5, 5, 5, () => VariantImportItemDetails, 2, 128 | 0],
 ];
-export var GetVariantStoreRequest: StaticStructureSchema = [3, n0, _GVSR, 0, [_n], [[0, 1]]];
-export var GetVariantStoreResponse: StaticStructureSchema = [
+export var GetVariantStoreRequest$: StaticStructureSchema = [3, n0, _GVSR, 0, [_n], [[0, 1]]];
+export var GetVariantStoreResponse$: StaticStructureSchema = [
   3,
   n0,
   _GVSRe,
   0,
   [_i, _r, _st, _sA, _n, _d, _sC, _cT, _uT, _ta, _sM, _sSB],
-  [0, () => ReferenceItem, 0, 0, 0, 0, () => SseConfig, 5, 5, 128 | 0, 0, 1],
+  [0, () => ReferenceItem$, 0, 0, 0, 0, () => SseConfig$, 5, 5, 128 | 0, 0, 1],
 ];
-export var GetWorkflowRequest: StaticStructureSchema = [
+export var GetWorkflowRequest$: StaticStructureSchema = [
   3,
   n0,
   _GWR,
@@ -1441,7 +1448,7 @@ export var GetWorkflowRequest: StaticStructureSchema = [
     [0, { [_hQ]: _wOI }],
   ],
 ];
-export var GetWorkflowResponse: StaticStructureSchema = [
+export var GetWorkflowResponse$: StaticStructureSchema = [
   3,
   n0,
   _GWRe,
@@ -1467,13 +1474,13 @@ export var GetWorkflowResponse: StaticStructureSchema = [
     0,
     0,
     0,
-    () => ContainerRegistryMap,
+    () => ContainerRegistryMap$,
     0,
-    () => DefinitionRepositoryDetails,
+    () => DefinitionRepositoryDetails$,
     0,
   ],
 ];
-export var GetWorkflowVersionRequest: StaticStructureSchema = [
+export var GetWorkflowVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GWVR,
@@ -1487,7 +1494,7 @@ export var GetWorkflowVersionRequest: StaticStructureSchema = [
     [0, { [_hQ]: _wOI }],
   ],
 ];
-export var GetWorkflowVersionResponse: StaticStructureSchema = [
+export var GetWorkflowVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GWVRe,
@@ -1539,16 +1546,16 @@ export var GetWorkflowVersionResponse: StaticStructureSchema = [
     128 | 0,
     0,
     0,
-    () => ContainerRegistryMap,
+    () => ContainerRegistryMap$,
     0,
-    () => DefinitionRepositoryDetails,
+    () => DefinitionRepositoryDetails$,
     0,
   ],
 ];
-export var ImageDetails: StaticStructureSchema = [3, n0, _ID, 0, [_im, _iDm, _sIo], [0, 0, 0]];
-export var ImageMapping: StaticStructureSchema = [3, n0, _IM, 0, [_sIo, _dI], [0, 0]];
-export var ImportReadSetFilter: StaticStructureSchema = [3, n0, _IRSF, 0, [_st, _cA, _cB], [0, 5, 5]];
-export var ImportReadSetJobItem: StaticStructureSchema = [
+export var ImageDetails$: StaticStructureSchema = [3, n0, _ID, 0, [_im, _iDm, _sIo], [0, 0, 0]];
+export var ImageMapping$: StaticStructureSchema = [3, n0, _IM, 0, [_sIo, _dI], [0, 0]];
+export var ImportReadSetFilter$: StaticStructureSchema = [3, n0, _IRSF, 0, [_st, _cA, _cB], [0, 5, 5]];
+export var ImportReadSetJobItem$: StaticStructureSchema = [
   3,
   n0,
   _IRSJI,
@@ -1556,16 +1563,16 @@ export var ImportReadSetJobItem: StaticStructureSchema = [
   [_i, _sSI, _rA, _st, _cT, _cTo],
   [0, 0, 0, 0, 5, 5],
 ];
-export var ImportReadSetSourceItem: StaticStructureSchema = [
+export var ImportReadSetSourceItem$: StaticStructureSchema = [
   3,
   n0,
   _IRSSI,
   0,
   [_sFo, _sFT, _st, _sM, _sIu, _sIa, _gF, _rAe, _n, _d, _ta, _rSI],
-  [() => SourceFiles, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 0],
+  [() => SourceFiles$, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 0],
 ];
-export var ImportReferenceFilter: StaticStructureSchema = [3, n0, _IRF, 0, [_st, _cA, _cB], [0, 5, 5]];
-export var ImportReferenceJobItem: StaticStructureSchema = [
+export var ImportReferenceFilter$: StaticStructureSchema = [3, n0, _IRF, 0, [_st, _cA, _cB], [0, 5, 5]];
+export var ImportReferenceJobItem$: StaticStructureSchema = [
   3,
   n0,
   _IRJI,
@@ -1573,7 +1580,7 @@ export var ImportReferenceJobItem: StaticStructureSchema = [
   [_i, _rSIe, _rA, _st, _cT, _cTo],
   [0, 0, 0, 0, 5, 5],
 ];
-export var ImportReferenceSourceItem: StaticStructureSchema = [
+export var ImportReferenceSourceItem$: StaticStructureSchema = [
   3,
   n0,
   _IRSI,
@@ -1581,18 +1588,18 @@ export var ImportReferenceSourceItem: StaticStructureSchema = [
   [_sFou, _st, _sM, _n, _d, _ta, _rIe],
   [0, 0, 0, 0, 0, 128 | 0, 0],
 ];
-export var InternalServerException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException, __InternalServerException);
-export var ListAnnotationImportJobsFilter: StaticStructureSchema = [3, n0, _LAIJF, 0, [_st, _sNt], [0, 0]];
-export var ListAnnotationImportJobsRequest: StaticStructureSchema = [
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var ListAnnotationImportJobsFilter$: StaticStructureSchema = [3, n0, _LAIJF, 0, [_st, _sNt], [0, 0]];
+export var ListAnnotationImportJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LAIJR,
   0,
   [_mRa, _id, _nT, _filt],
-  [[1, { [_hQ]: _mRa }], 64 | 0, [0, { [_hQ]: _nT }], () => ListAnnotationImportJobsFilter],
+  [[1, { [_hQ]: _mRa }], 64 | 0, [0, { [_hQ]: _nT }], () => ListAnnotationImportJobsFilter$],
 ];
-export var ListAnnotationImportJobsResponse: StaticStructureSchema = [
+export var ListAnnotationImportJobsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LAIJRi,
@@ -1600,16 +1607,16 @@ export var ListAnnotationImportJobsResponse: StaticStructureSchema = [
   [_aIJ, _nT],
   [() => AnnotationImportJobItems, 0],
 ];
-export var ListAnnotationStoresFilter: StaticStructureSchema = [3, n0, _LASF, 0, [_st], [0]];
-export var ListAnnotationStoresRequest: StaticStructureSchema = [
+export var ListAnnotationStoresFilter$: StaticStructureSchema = [3, n0, _LASF, 0, [_st], [0]];
+export var ListAnnotationStoresRequest$: StaticStructureSchema = [
   3,
   n0,
   _LASR,
   0,
   [_id, _mRa, _nT, _filt],
-  [64 | 0, [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], () => ListAnnotationStoresFilter],
+  [64 | 0, [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], () => ListAnnotationStoresFilter$],
 ];
-export var ListAnnotationStoresResponse: StaticStructureSchema = [
+export var ListAnnotationStoresResponse$: StaticStructureSchema = [
   3,
   n0,
   _LASRi,
@@ -1617,16 +1624,16 @@ export var ListAnnotationStoresResponse: StaticStructureSchema = [
   [_aS, _nT],
   [() => AnnotationStoreItems, 0],
 ];
-export var ListAnnotationStoreVersionsFilter: StaticStructureSchema = [3, n0, _LASVF, 0, [_st], [0]];
-export var ListAnnotationStoreVersionsRequest: StaticStructureSchema = [
+export var ListAnnotationStoreVersionsFilter$: StaticStructureSchema = [3, n0, _LASVF, 0, [_st], [0]];
+export var ListAnnotationStoreVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LASVR,
   0,
   [_n, _mRa, _nT, _filt],
-  [[0, 1], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], () => ListAnnotationStoreVersionsFilter],
+  [[0, 1], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], () => ListAnnotationStoreVersionsFilter$],
 ];
-export var ListAnnotationStoreVersionsResponse: StaticStructureSchema = [
+export var ListAnnotationStoreVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LASVRi,
@@ -1634,7 +1641,7 @@ export var ListAnnotationStoreVersionsResponse: StaticStructureSchema = [
   [_aSV, _nT],
   [() => AnnotationStoreVersionItems, 0],
 ];
-export var ListMultipartReadSetUploadsRequest: StaticStructureSchema = [
+export var ListMultipartReadSetUploadsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LMRSUR,
@@ -1646,7 +1653,7 @@ export var ListMultipartReadSetUploadsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListMultipartReadSetUploadsResponse: StaticStructureSchema = [
+export var ListMultipartReadSetUploadsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LMRSURi,
@@ -1654,15 +1661,15 @@ export var ListMultipartReadSetUploadsResponse: StaticStructureSchema = [
   [_nT, _up],
   [0, () => MultipartReadSetUploadList],
 ];
-export var ListReadSetActivationJobsRequest: StaticStructureSchema = [
+export var ListReadSetActivationJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRSAJR,
   0,
   [_sSI, _mRa, _nT, _filt],
-  [[0, 1], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], () => ActivateReadSetFilter],
+  [[0, 1], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], () => ActivateReadSetFilter$],
 ];
-export var ListReadSetActivationJobsResponse: StaticStructureSchema = [
+export var ListReadSetActivationJobsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRSAJRi,
@@ -1670,15 +1677,15 @@ export var ListReadSetActivationJobsResponse: StaticStructureSchema = [
   [_nT, _aJ],
   [0, () => ActivateReadSetJobList],
 ];
-export var ListReadSetExportJobsRequest: StaticStructureSchema = [
+export var ListReadSetExportJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRSEJR,
   0,
   [_sSI, _mRa, _nT, _filt],
-  [[0, 1], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], () => ExportReadSetFilter],
+  [[0, 1], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], () => ExportReadSetFilter$],
 ];
-export var ListReadSetExportJobsResponse: StaticStructureSchema = [
+export var ListReadSetExportJobsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRSEJRi,
@@ -1686,15 +1693,15 @@ export var ListReadSetExportJobsResponse: StaticStructureSchema = [
   [_nT, _eJ],
   [0, () => ExportReadSetJobDetailList],
 ];
-export var ListReadSetImportJobsRequest: StaticStructureSchema = [
+export var ListReadSetImportJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRSIJR,
   0,
   [_mRa, _nT, _sSI, _filt],
-  [[1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], [0, 1], () => ImportReadSetFilter],
+  [[1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], [0, 1], () => ImportReadSetFilter$],
 ];
-export var ListReadSetImportJobsResponse: StaticStructureSchema = [
+export var ListReadSetImportJobsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRSIJRi,
@@ -1702,24 +1709,24 @@ export var ListReadSetImportJobsResponse: StaticStructureSchema = [
   [_nT, _iJ],
   [0, () => ImportReadSetJobList],
 ];
-export var ListReadSetsRequest: StaticStructureSchema = [
+export var ListReadSetsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRSR,
   0,
   [_sSI, _mRa, _nT, _filt],
-  [[0, 1], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], () => ReadSetFilter],
+  [[0, 1], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], () => ReadSetFilter$],
 ];
-export var ListReadSetsResponse: StaticStructureSchema = [3, n0, _LRSRi, 0, [_nT, _rS], [0, () => ReadSetList]];
-export var ListReadSetUploadPartsRequest: StaticStructureSchema = [
+export var ListReadSetsResponse$: StaticStructureSchema = [3, n0, _LRSRi, 0, [_nT, _rS], [0, () => ReadSetList]];
+export var ListReadSetUploadPartsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRSUPR,
   0,
   [_sSI, _uI, _pS, _mRa, _nT, _filt],
-  [[0, 1], [0, 1], 0, [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], () => ReadSetUploadPartListFilter],
+  [[0, 1], [0, 1], 0, [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], () => ReadSetUploadPartListFilter$],
 ];
-export var ListReadSetUploadPartsResponse: StaticStructureSchema = [
+export var ListReadSetUploadPartsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRSUPRi,
@@ -1727,15 +1734,15 @@ export var ListReadSetUploadPartsResponse: StaticStructureSchema = [
   [_nT, _p],
   [0, () => ReadSetUploadPartList],
 ];
-export var ListReferenceImportJobsRequest: StaticStructureSchema = [
+export var ListReferenceImportJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRIJR,
   0,
   [_mRa, _nT, _rSIe, _filt],
-  [[1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], [0, 1], () => ImportReferenceFilter],
+  [[1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], [0, 1], () => ImportReferenceFilter$],
 ];
-export var ListReferenceImportJobsResponse: StaticStructureSchema = [
+export var ListReferenceImportJobsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRIJRi,
@@ -1743,24 +1750,24 @@ export var ListReferenceImportJobsResponse: StaticStructureSchema = [
   [_nT, _iJ],
   [0, () => ImportReferenceJobList],
 ];
-export var ListReferencesRequest: StaticStructureSchema = [
+export var ListReferencesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRR,
   0,
   [_rSIe, _mRa, _nT, _filt],
-  [[0, 1], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], () => ReferenceFilter],
+  [[0, 1], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], () => ReferenceFilter$],
 ];
-export var ListReferencesResponse: StaticStructureSchema = [3, n0, _LRRi, 0, [_nT, _ref], [0, () => ReferenceList]];
-export var ListReferenceStoresRequest: StaticStructureSchema = [
+export var ListReferencesResponse$: StaticStructureSchema = [3, n0, _LRRi, 0, [_nT, _ref], [0, () => ReferenceList]];
+export var ListReferenceStoresRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRSRis,
   0,
   [_mRa, _nT, _filt],
-  [[1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], () => ReferenceStoreFilter],
+  [[1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], () => ReferenceStoreFilter$],
 ];
-export var ListReferenceStoresResponse: StaticStructureSchema = [
+export var ListReferenceStoresResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRSRist,
@@ -1768,7 +1775,7 @@ export var ListReferenceStoresResponse: StaticStructureSchema = [
   [_nT, _rSe],
   [0, () => ReferenceStoreDetailList],
 ];
-export var ListRunCachesRequest: StaticStructureSchema = [
+export var ListRunCachesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRCR,
@@ -1779,8 +1786,8 @@ export var ListRunCachesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _sTta }],
   ],
 ];
-export var ListRunCachesResponse: StaticStructureSchema = [3, n0, _LRCRi, 0, [_it, _nT], [() => RunCacheList, 0]];
-export var ListRunGroupsRequest: StaticStructureSchema = [
+export var ListRunCachesResponse$: StaticStructureSchema = [3, n0, _LRCRi, 0, [_it, _nT], [() => RunCacheList, 0]];
+export var ListRunGroupsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRGR,
@@ -1792,8 +1799,8 @@ export var ListRunGroupsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListRunGroupsResponse: StaticStructureSchema = [3, n0, _LRGRi, 0, [_it, _nT], [() => RunGroupList, 0]];
-export var ListRunsRequest: StaticStructureSchema = [
+export var ListRunGroupsResponse$: StaticStructureSchema = [3, n0, _LRGRi, 0, [_it, _nT], [() => RunGroupList, 0]];
+export var ListRunsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRRis,
@@ -1807,8 +1814,8 @@ export var ListRunsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _st }],
   ],
 ];
-export var ListRunsResponse: StaticStructureSchema = [3, n0, _LRRist, 0, [_it, _nT], [() => RunList, 0]];
-export var ListRunTasksRequest: StaticStructureSchema = [
+export var ListRunsResponse$: StaticStructureSchema = [3, n0, _LRRist, 0, [_it, _nT], [() => RunList, 0]];
+export var ListRunTasksRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRTR,
@@ -1821,16 +1828,16 @@ export var ListRunTasksRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListRunTasksResponse: StaticStructureSchema = [3, n0, _LRTRi, 0, [_it, _nT], [() => TaskList, 0]];
-export var ListSequenceStoresRequest: StaticStructureSchema = [
+export var ListRunTasksResponse$: StaticStructureSchema = [3, n0, _LRTRi, 0, [_it, _nT], [() => TaskList, 0]];
+export var ListSequenceStoresRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSSR,
   0,
   [_mRa, _nT, _filt],
-  [[1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], () => SequenceStoreFilter],
+  [[1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], () => SequenceStoreFilter$],
 ];
-export var ListSequenceStoresResponse: StaticStructureSchema = [
+export var ListSequenceStoresResponse$: StaticStructureSchema = [
   3,
   n0,
   _LSSRi,
@@ -1838,27 +1845,27 @@ export var ListSequenceStoresResponse: StaticStructureSchema = [
   [_nT, _sS],
   [0, () => SequenceStoreDetailList],
 ];
-export var ListSharesRequest: StaticStructureSchema = [
+export var ListSharesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LSR,
   0,
   [_rO, _filt, _nT, _mRa],
-  [0, () => Filter, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]],
+  [0, () => Filter$, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]],
 ];
-export var ListSharesResponse: StaticStructureSchema = [3, n0, _LSRi, 0, [_sha, _nT], [() => ShareDetailsList, 0]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rAes], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [128 | 0]];
-export var ListVariantImportJobsFilter: StaticStructureSchema = [3, n0, _LVIJF, 0, [_st, _sNt], [0, 0]];
-export var ListVariantImportJobsRequest: StaticStructureSchema = [
+export var ListSharesResponse$: StaticStructureSchema = [3, n0, _LSRi, 0, [_sha, _nT], [() => ShareDetailsList, 0]];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rAes], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_ta], [128 | 0]];
+export var ListVariantImportJobsFilter$: StaticStructureSchema = [3, n0, _LVIJF, 0, [_st, _sNt], [0, 0]];
+export var ListVariantImportJobsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LVIJR,
   0,
   [_mRa, _id, _nT, _filt],
-  [[1, { [_hQ]: _mRa }], 64 | 0, [0, { [_hQ]: _nT }], () => ListVariantImportJobsFilter],
+  [[1, { [_hQ]: _mRa }], 64 | 0, [0, { [_hQ]: _nT }], () => ListVariantImportJobsFilter$],
 ];
-export var ListVariantImportJobsResponse: StaticStructureSchema = [
+export var ListVariantImportJobsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LVIJRi,
@@ -1866,16 +1873,16 @@ export var ListVariantImportJobsResponse: StaticStructureSchema = [
   [_vIJ, _nT],
   [() => VariantImportJobItems, 0],
 ];
-export var ListVariantStoresFilter: StaticStructureSchema = [3, n0, _LVSF, 0, [_st], [0]];
-export var ListVariantStoresRequest: StaticStructureSchema = [
+export var ListVariantStoresFilter$: StaticStructureSchema = [3, n0, _LVSF, 0, [_st], [0]];
+export var ListVariantStoresRequest$: StaticStructureSchema = [
   3,
   n0,
   _LVSR,
   0,
   [_mRa, _id, _nT, _filt],
-  [[1, { [_hQ]: _mRa }], 64 | 0, [0, { [_hQ]: _nT }], () => ListVariantStoresFilter],
+  [[1, { [_hQ]: _mRa }], 64 | 0, [0, { [_hQ]: _nT }], () => ListVariantStoresFilter$],
 ];
-export var ListVariantStoresResponse: StaticStructureSchema = [
+export var ListVariantStoresResponse$: StaticStructureSchema = [
   3,
   n0,
   _LVSRi,
@@ -1883,7 +1890,7 @@ export var ListVariantStoresResponse: StaticStructureSchema = [
   [_vS, _nT],
   [() => VariantStoreItems, 0],
 ];
-export var ListWorkflowsRequest: StaticStructureSchema = [
+export var ListWorkflowsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LWR,
@@ -1896,8 +1903,8 @@ export var ListWorkflowsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListWorkflowsResponse: StaticStructureSchema = [3, n0, _LWRi, 0, [_it, _nT], [() => WorkflowList, 0]];
-export var ListWorkflowVersionsRequest: StaticStructureSchema = [
+export var ListWorkflowsResponse$: StaticStructureSchema = [3, n0, _LWRi, 0, [_it, _nT], [() => WorkflowList, 0]];
+export var ListWorkflowVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LWVR,
@@ -1911,7 +1918,7 @@ export var ListWorkflowVersionsRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mRa }],
   ],
 ];
-export var ListWorkflowVersionsResponse: StaticStructureSchema = [
+export var ListWorkflowVersionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LWVRi,
@@ -1919,7 +1926,7 @@ export var ListWorkflowVersionsResponse: StaticStructureSchema = [
   [_it, _nT],
   [() => WorkflowVersionList, 0],
 ];
-export var MultipartReadSetUploadListItem: StaticStructureSchema = [
+export var MultipartReadSetUploadListItem$: StaticStructureSchema = [
   3,
   n0,
   _MRSULI,
@@ -1927,9 +1934,9 @@ export var MultipartReadSetUploadListItem: StaticStructureSchema = [
   [_sSI, _uI, _sFT, _sIu, _sIa, _gF, _rAe, _n, _d, _ta, _cT],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 5],
 ];
-export var NotSupportedOperationException: StaticErrorSchema = [-3, n0, _NSOE, { [_e]: _c, [_hE]: 405 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(NotSupportedOperationException, __NotSupportedOperationException);
-export var PutS3AccessPolicyRequest: StaticStructureSchema = [
+export var NotSupportedOperationException$: StaticErrorSchema = [-3, n0, _NSOE, { [_e]: _c, [_hE]: 405 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(NotSupportedOperationException$, NotSupportedOperationException);
+export var PutS3AccessPolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _PSAPR,
@@ -1940,10 +1947,10 @@ export var PutS3AccessPolicyRequest: StaticStructureSchema = [
     [() => S3AccessPolicy, 0],
   ],
 ];
-export var PutS3AccessPolicyResponse: StaticStructureSchema = [3, n0, _PSAPRu, 0, [_sAPA, _sIt, _sTtor], [0, 0, 0]];
-export var RangeNotSatisfiableException: StaticErrorSchema = [-3, n0, _RNSE, { [_e]: _c, [_hE]: 416 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(RangeNotSatisfiableException, __RangeNotSatisfiableException);
-export var ReadOptions: StaticStructureSchema = [
+export var PutS3AccessPolicyResponse$: StaticStructureSchema = [3, n0, _PSAPRu, 0, [_sAPA, _sIt, _sTtor], [0, 0, 0]];
+export var RangeNotSatisfiableException$: StaticErrorSchema = [-3, n0, _RNSE, { [_e]: _c, [_hE]: 416 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(RangeNotSatisfiableException$, RangeNotSatisfiableException);
+export var ReadOptions$: StaticStructureSchema = [
   3,
   n0,
   _RO,
@@ -1951,16 +1958,16 @@ export var ReadOptions: StaticStructureSchema = [
   [_sep, _enc, _q, _qA, _es, _eQ, _co, _h, _lSi],
   [0, 0, 0, 2, 0, 2, 0, 2, 0],
 ];
-export var ReadSetBatchError: StaticStructureSchema = [3, n0, _RSBE, 0, [_i, _cod, _m], [0, 0, 0]];
-export var ReadSetFiles: StaticStructureSchema = [
+export var ReadSetBatchError$: StaticStructureSchema = [3, n0, _RSBE, 0, [_i, _cod, _m], [0, 0, 0]];
+export var ReadSetFiles$: StaticStructureSchema = [
   3,
   n0,
   _RSF,
   0,
   [_sou, _sour, _in],
-  [() => FileInformation, () => FileInformation, () => FileInformation],
+  [() => FileInformation$, () => FileInformation$, () => FileInformation$],
 ];
-export var ReadSetFilter: StaticStructureSchema = [
+export var ReadSetFilter$: StaticStructureSchema = [
   3,
   n0,
   _RSFe,
@@ -1968,17 +1975,17 @@ export var ReadSetFilter: StaticStructureSchema = [
   [_n, _st, _rAe, _cA, _cB, _sIa, _sIu, _gF, _cTr],
   [0, 0, 0, 5, 5, 0, 0, 0, 0],
 ];
-export var ReadSetListItem: StaticStructureSchema = [
+export var ReadSetListItem$: StaticStructureSchema = [
   3,
   n0,
   _RSLI,
   0,
   [_i, _ar, _sSI, _sIu, _sIa, _st, _n, _d, _rAe, _fT, _sIe, _cT, _sM, _cTr, _et],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => SequenceInformation, 5, 0, 0, () => ETag],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => SequenceInformation$, 5, 0, 0, () => ETag$],
 ];
-export var ReadSetS3Access: StaticStructureSchema = [3, n0, _RSSA, 0, [_sU], [0]];
-export var ReadSetUploadPartListFilter: StaticStructureSchema = [3, n0, _RSUPLF, 0, [_cA, _cB], [5, 5]];
-export var ReadSetUploadPartListItem: StaticStructureSchema = [
+export var ReadSetS3Access$: StaticStructureSchema = [3, n0, _RSSA, 0, [_sU], [0]];
+export var ReadSetUploadPartListFilter$: StaticStructureSchema = [3, n0, _RSUPLF, 0, [_cA, _cB], [5, 5]];
+export var ReadSetUploadPartListItem$: StaticStructureSchema = [
   3,
   n0,
   _RSUPLI,
@@ -1986,16 +1993,16 @@ export var ReadSetUploadPartListItem: StaticStructureSchema = [
   [_pN, _pSa, _pS, _ch, _cT, _lUT],
   [1, 1, 0, 0, 5, 5],
 ];
-export var ReferenceFiles: StaticStructureSchema = [
+export var ReferenceFiles$: StaticStructureSchema = [
   3,
   n0,
   _RF,
   0,
   [_so, _in],
-  [() => FileInformation, () => FileInformation],
+  [() => FileInformation$, () => FileInformation$],
 ];
-export var ReferenceFilter: StaticStructureSchema = [3, n0, _RFe, 0, [_n, _md, _cA, _cB], [0, 0, 5, 5]];
-export var ReferenceListItem: StaticStructureSchema = [
+export var ReferenceFilter$: StaticStructureSchema = [3, n0, _RFe, 0, [_n, _md, _cA, _cB], [0, 0, 5, 5]];
+export var ReferenceListItem$: StaticStructureSchema = [
   3,
   n0,
   _RLI,
@@ -2003,21 +2010,21 @@ export var ReferenceListItem: StaticStructureSchema = [
   [_i, _ar, _rSIe, _md, _st, _n, _d, _cT, _uT],
   [0, 0, 0, 0, 0, 0, 0, 5, 5],
 ];
-export var ReferenceStoreDetail: StaticStructureSchema = [
+export var ReferenceStoreDetail$: StaticStructureSchema = [
   3,
   n0,
   _RSD,
   0,
   [_ar, _i, _n, _d, _sC, _cT],
-  [0, 0, 0, 0, () => SseConfig, 5],
+  [0, 0, 0, 0, () => SseConfig$, 5],
 ];
-export var ReferenceStoreFilter: StaticStructureSchema = [3, n0, _RSFef, 0, [_n, _cA, _cB], [0, 5, 5]];
-export var RegistryMapping: StaticStructureSchema = [3, n0, _RMe, 0, [_uRU, _eRP, _uRP, _eAI], [0, 0, 0, 0]];
-export var RequestTimeoutException: StaticErrorSchema = [-3, n0, _RTE, { [_e]: _c, [_hE]: 408 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(RequestTimeoutException, __RequestTimeoutException);
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var RunCacheListItem: StaticStructureSchema = [
+export var ReferenceStoreFilter$: StaticStructureSchema = [3, n0, _RSFef, 0, [_n, _cA, _cB], [0, 5, 5]];
+export var RegistryMapping$: StaticStructureSchema = [3, n0, _RMe, 0, [_uRU, _eRP, _uRP, _eAI], [0, 0, 0, 0]];
+export var RequestTimeoutException$: StaticErrorSchema = [-3, n0, _RTE, { [_e]: _c, [_hE]: 408 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(RequestTimeoutException$, RequestTimeoutException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var RunCacheListItem$: StaticStructureSchema = [
   3,
   n0,
   _RCLI,
@@ -2025,7 +2032,7 @@ export var RunCacheListItem: StaticStructureSchema = [
   [_ar, _cBa, _cSU, _cT, _i, _n, _st],
   [0, 0, 0, 5, 0, 0, 0],
 ];
-export var RunGroupListItem: StaticStructureSchema = [
+export var RunGroupListItem$: StaticStructureSchema = [
   3,
   n0,
   _RGLI,
@@ -2033,7 +2040,7 @@ export var RunGroupListItem: StaticStructureSchema = [
   [_ar, _i, _n, _mC, _mR, _mD, _cT, _mG],
   [0, 0, 0, 1, 1, 1, 5, 1],
 ];
-export var RunListItem: StaticStructureSchema = [
+export var RunListItem$: StaticStructureSchema = [
   3,
   n0,
   _RLIu,
@@ -2041,18 +2048,18 @@ export var RunListItem: StaticStructureSchema = [
   [_ar, _i, _st, _wI, _n, _pr, _sCt, _cT, _sTt, _sTto, _sT, _wVN],
   [0, 0, 0, 0, 0, 1, 1, 5, 5, 5, 0, 0],
 ];
-export var RunLogLocation: StaticStructureSchema = [3, n0, _RLL, 0, [_eLS, _rLS], [0, 0]];
-export var S3AccessConfig: StaticStructureSchema = [3, n0, _SAC, 0, [_aLL], [0]];
-export var SequenceInformation: StaticStructureSchema = [3, n0, _SI, 0, [_tRC, _tBC, _gF, _ali], [1, 1, 0, 0]];
-export var SequenceStoreDetail: StaticStructureSchema = [
+export var RunLogLocation$: StaticStructureSchema = [3, n0, _RLL, 0, [_eLS, _rLS], [0, 0]];
+export var S3AccessConfig$: StaticStructureSchema = [3, n0, _SAC, 0, [_aLL], [0]];
+export var SequenceInformation$: StaticStructureSchema = [3, n0, _SI, 0, [_tRC, _tBC, _gF, _ali], [1, 1, 0, 0]];
+export var SequenceStoreDetail$: StaticStructureSchema = [
   3,
   n0,
   _SSD,
   0,
   [_ar, _i, _n, _d, _sC, _cT, _fL, _eTAF, _st, _sM, _uT],
-  [0, 0, 0, 0, () => SseConfig, 5, 0, 0, 0, 0, 5],
+  [0, 0, 0, 0, () => SseConfig$, 5, 0, 0, 0, 0, 5],
 ];
-export var SequenceStoreFilter: StaticStructureSchema = [
+export var SequenceStoreFilter$: StaticStructureSchema = [
   3,
   n0,
   _SSF,
@@ -2060,10 +2067,10 @@ export var SequenceStoreFilter: StaticStructureSchema = [
   [_n, _cA, _cB, _st, _uA, _uB],
   [0, 5, 5, 0, 5, 5],
 ];
-export var SequenceStoreS3Access: StaticStructureSchema = [3, n0, _SSSA, 0, [_sU, _sAPA, _aLL], [0, 0, 0]];
-export var ServiceQuotaExceededException: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException, __ServiceQuotaExceededException);
-export var ShareDetails: StaticStructureSchema = [
+export var SequenceStoreS3Access$: StaticStructureSchema = [3, n0, _SSSA, 0, [_sU, _sAPA, _aLL], [0, 0, 0]];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ShareDetails$: StaticStructureSchema = [
   3,
   n0,
   _SD,
@@ -2071,19 +2078,19 @@ export var ShareDetails: StaticStructureSchema = [
   [_sI, _rAes, _rIes, _pSr, _oI, _st, _sM, _sN, _cT, _uT],
   [0, 0, 0, 0, 0, 0, 0, 0, 5, 5],
 ];
-export var SourceFiles: StaticStructureSchema = [3, n0, _SF, 0, [_sou, _sour], [0, 0]];
-export var SourceReference: StaticStructureSchema = [3, n0, _SR, 0, [_ty, _va], [0, 0]];
-export var SseConfig: StaticStructureSchema = [3, n0, _SC, 0, [_ty, _kA], [0, 0]];
-export var StartAnnotationImportRequest: StaticStructureSchema = [
+export var SourceFiles$: StaticStructureSchema = [3, n0, _SF, 0, [_sou, _sour], [0, 0]];
+export var SourceReference$: StaticStructureSchema = [3, n0, _SR, 0, [_ty, _va], [0, 0]];
+export var SseConfig$: StaticStructureSchema = [3, n0, _SC, 0, [_ty, _kA], [0, 0]];
+export var StartAnnotationImportRequest$: StaticStructureSchema = [
   3,
   n0,
   _SAIR,
   0,
   [_dN, _rA, _it, _vN, _fO, _rLN, _aF],
-  [0, 0, () => AnnotationImportItemSources, 0, () => FormatOptions, 2, 128 | 0],
+  [0, 0, () => AnnotationImportItemSources, 0, () => FormatOptions$, 2, 128 | 0],
 ];
-export var StartAnnotationImportResponse: StaticStructureSchema = [3, n0, _SAIRt, 0, [_jI], [0]];
-export var StartReadSetActivationJobRequest: StaticStructureSchema = [
+export var StartAnnotationImportResponse$: StaticStructureSchema = [3, n0, _SAIRt, 0, [_jI], [0]];
+export var StartReadSetActivationJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _SRSAJR,
@@ -2091,7 +2098,7 @@ export var StartReadSetActivationJobRequest: StaticStructureSchema = [
   [_sSI, _cTl, _sourc],
   [[0, 1], 0, () => StartReadSetActivationJobSourceList],
 ];
-export var StartReadSetActivationJobResponse: StaticStructureSchema = [
+export var StartReadSetActivationJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _SRSAJRt,
@@ -2099,8 +2106,8 @@ export var StartReadSetActivationJobResponse: StaticStructureSchema = [
   [_i, _sSI, _st, _cT],
   [0, 0, 0, 5],
 ];
-export var StartReadSetActivationJobSourceItem: StaticStructureSchema = [3, n0, _SRSAJSI, 0, [_rSI], [0]];
-export var StartReadSetExportJobRequest: StaticStructureSchema = [
+export var StartReadSetActivationJobSourceItem$: StaticStructureSchema = [3, n0, _SRSAJSI, 0, [_rSI], [0]];
+export var StartReadSetExportJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _SRSEJR,
@@ -2108,7 +2115,7 @@ export var StartReadSetExportJobRequest: StaticStructureSchema = [
   [_sSI, _de, _rA, _cTl, _sourc],
   [[0, 1], 0, 0, 0, () => ExportReadSetList],
 ];
-export var StartReadSetExportJobResponse: StaticStructureSchema = [
+export var StartReadSetExportJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _SRSEJRt,
@@ -2116,7 +2123,7 @@ export var StartReadSetExportJobResponse: StaticStructureSchema = [
   [_i, _sSI, _de, _st, _cT],
   [0, 0, 0, 0, 5],
 ];
-export var StartReadSetImportJobRequest: StaticStructureSchema = [
+export var StartReadSetImportJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _SRSIJR,
@@ -2124,7 +2131,7 @@ export var StartReadSetImportJobRequest: StaticStructureSchema = [
   [_sSI, _rA, _cTl, _sourc],
   [[0, 1], 0, 0, () => StartReadSetImportJobSourceList],
 ];
-export var StartReadSetImportJobResponse: StaticStructureSchema = [
+export var StartReadSetImportJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _SRSIJRt,
@@ -2132,15 +2139,15 @@ export var StartReadSetImportJobResponse: StaticStructureSchema = [
   [_i, _sSI, _rA, _st, _cT],
   [0, 0, 0, 0, 5],
 ];
-export var StartReadSetImportJobSourceItem: StaticStructureSchema = [
+export var StartReadSetImportJobSourceItem$: StaticStructureSchema = [
   3,
   n0,
   _SRSIJSI,
   0,
   [_sFo, _sFT, _sIu, _sIa, _gF, _rAe, _n, _d, _ta],
-  [() => SourceFiles, 0, 0, 0, 0, 0, 0, 0, 128 | 0],
+  [() => SourceFiles$, 0, 0, 0, 0, 0, 0, 0, 128 | 0],
 ];
-export var StartReferenceImportJobRequest: StaticStructureSchema = [
+export var StartReferenceImportJobRequest$: StaticStructureSchema = [
   3,
   n0,
   _SRIJR,
@@ -2148,7 +2155,7 @@ export var StartReferenceImportJobRequest: StaticStructureSchema = [
   [_rSIe, _rA, _cTl, _sourc],
   [[0, 1], 0, 0, () => StartReferenceImportJobSourceList],
 ];
-export var StartReferenceImportJobResponse: StaticStructureSchema = [
+export var StartReferenceImportJobResponse$: StaticStructureSchema = [
   3,
   n0,
   _SRIJRt,
@@ -2156,7 +2163,7 @@ export var StartReferenceImportJobResponse: StaticStructureSchema = [
   [_i, _rSIe, _rA, _st, _cT],
   [0, 0, 0, 0, 5],
 ];
-export var StartReferenceImportJobSourceItem: StaticStructureSchema = [
+export var StartReferenceImportJobSourceItem$: StaticStructureSchema = [
   3,
   n0,
   _SRIJSI,
@@ -2164,7 +2171,7 @@ export var StartReferenceImportJobSourceItem: StaticStructureSchema = [
   [_sFou, _n, _d, _ta],
   [0, 0, 0, 128 | 0],
 ];
-export var StartRunRequest: StaticStructureSchema = [
+export var StartRunRequest$: StaticStructureSchema = [
   3,
   n0,
   _SRR,
@@ -2172,7 +2179,7 @@ export var StartRunRequest: StaticStructureSchema = [
   [_wI, _wT, _rIu, _rA, _n, _cI, _cBa, _rGI, _pr, _par, _sCt, _oU, _lL, _ta, _rI, _rMet, _sT, _wOI, _wVN],
   [0, 0, 0, 0, 0, 0, 0, 0, 1, 15, 1, 0, 0, 128 | 0, [0, 4], 0, 0, 0, 0],
 ];
-export var StartRunResponse: StaticStructureSchema = [
+export var StartRunResponse$: StaticStructureSchema = [
   3,
   n0,
   _SRRt,
@@ -2180,7 +2187,7 @@ export var StartRunResponse: StaticStructureSchema = [
   [_ar, _i, _st, _ta, _u, _rOU],
   [0, 0, 0, 128 | 0, 0, 0],
 ];
-export var StartVariantImportRequest: StaticStructureSchema = [
+export var StartVariantImportRequest$: StaticStructureSchema = [
   3,
   n0,
   _SVIR,
@@ -2188,10 +2195,10 @@ export var StartVariantImportRequest: StaticStructureSchema = [
   [_dN, _rA, _it, _rLN, _aF],
   [0, 0, () => VariantImportItemSources, 2, 128 | 0],
 ];
-export var StartVariantImportResponse: StaticStructureSchema = [3, n0, _SVIRt, 0, [_jI], [0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_rAes, _ta], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TaskListItem: StaticStructureSchema = [
+export var StartVariantImportResponse$: StaticStructureSchema = [3, n0, _SVIRt, 0, [_jI], [0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rAes, _ta], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var TaskListItem$: StaticStructureSchema = [
   3,
   n0,
   _TLI,
@@ -2199,10 +2206,10 @@ export var TaskListItem: StaticStructureSchema = [
   [_tI, _st, _n, _cp, _cH, _cSU, _me, _cT, _sTt, _sTto, _g, _iT],
   [0, 0, 0, 1, 2, 0, 1, 5, 5, 5, 1, 0],
 ];
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var TsvOptions: StaticStructureSchema = [3, n0, _TO, 0, [_rOe], [() => ReadOptions]];
-export var TsvStoreOptions: StaticStructureSchema = [
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var TsvOptions$: StaticStructureSchema = [3, n0, _TO, 0, [_rOe], [() => ReadOptions$]];
+export var TsvStoreOptions$: StaticStructureSchema = [
   3,
   n0,
   _TSO,
@@ -2210,7 +2217,7 @@ export var TsvStoreOptions: StaticStructureSchema = [
   [_aT, _fTH, _sc],
   [0, 128 | 0, [1, n0, _S, 0, 128 | 0]],
 ];
-export var TsvVersionOptions: StaticStructureSchema = [
+export var TsvVersionOptions$: StaticStructureSchema = [
   3,
   n0,
   _TVO,
@@ -2218,7 +2225,7 @@ export var TsvVersionOptions: StaticStructureSchema = [
   [_aT, _fTH, _sc],
   [0, 128 | 0, [1, n0, _S, 0, 128 | 0]],
 ];
-export var UntagResourceRequest: StaticStructureSchema = [
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -2229,17 +2236,17 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateAnnotationStoreRequest: StaticStructureSchema = [3, n0, _UASR, 0, [_n, _d], [[0, 1], 0]];
-export var UpdateAnnotationStoreResponse: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateAnnotationStoreRequest$: StaticStructureSchema = [3, n0, _UASR, 0, [_n, _d], [[0, 1], 0]];
+export var UpdateAnnotationStoreResponse$: StaticStructureSchema = [
   3,
   n0,
   _UASRp,
   0,
   [_i, _r, _st, _n, _d, _cT, _uT, _sO, _sF],
-  [0, () => ReferenceItem, 0, 0, 0, 5, 5, () => StoreOptions, 0],
+  [0, () => ReferenceItem$, 0, 0, 0, 5, 5, () => StoreOptions$, 0],
 ];
-export var UpdateAnnotationStoreVersionRequest: StaticStructureSchema = [
+export var UpdateAnnotationStoreVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _UASVR,
@@ -2247,7 +2254,7 @@ export var UpdateAnnotationStoreVersionRequest: StaticStructureSchema = [
   [_n, _vN, _d],
   [[0, 1], [0, 1], 0],
 ];
-export var UpdateAnnotationStoreVersionResponse: StaticStructureSchema = [
+export var UpdateAnnotationStoreVersionResponse$: StaticStructureSchema = [
   3,
   n0,
   _UASVRp,
@@ -2255,8 +2262,8 @@ export var UpdateAnnotationStoreVersionResponse: StaticStructureSchema = [
   [_sIt, _i, _st, _n, _vN, _d, _cT, _uT],
   [0, 0, 0, 0, 0, 0, 5, 5],
 ];
-export var UpdateRunCacheRequest: StaticStructureSchema = [3, n0, _URCR, 0, [_cBa, _d, _i, _n], [0, 0, [0, 1], 0]];
-export var UpdateRunGroupRequest: StaticStructureSchema = [
+export var UpdateRunCacheRequest$: StaticStructureSchema = [3, n0, _URCR, 0, [_cBa, _d, _i, _n], [0, 0, [0, 1], 0]];
+export var UpdateRunGroupRequest$: StaticStructureSchema = [
   3,
   n0,
   _URGR,
@@ -2264,32 +2271,32 @@ export var UpdateRunGroupRequest: StaticStructureSchema = [
   [_i, _n, _mC, _mR, _mD, _mG],
   [[0, 1], 0, 1, 1, 1, 1],
 ];
-export var UpdateSequenceStoreRequest: StaticStructureSchema = [
+export var UpdateSequenceStoreRequest$: StaticStructureSchema = [
   3,
   n0,
   _USSR,
   0,
   [_i, _n, _d, _cTl, _fL, _pSLT, _sAC],
-  [[0, 1], 0, 0, [0, 4], 0, 64 | 0, () => S3AccessConfig],
+  [[0, 1], 0, 0, [0, 4], 0, 64 | 0, () => S3AccessConfig$],
 ];
-export var UpdateSequenceStoreResponse: StaticStructureSchema = [
+export var UpdateSequenceStoreResponse$: StaticStructureSchema = [
   3,
   n0,
   _USSRp,
   0,
   [_i, _ar, _n, _d, _sC, _cT, _uT, _pSLT, _st, _sM, _fL, _sAc, _eTAF],
-  [0, 0, 0, 0, () => SseConfig, 5, 5, 64 | 0, 0, 0, 0, () => SequenceStoreS3Access, 0],
+  [0, 0, 0, 0, () => SseConfig$, 5, 5, 64 | 0, 0, 0, 0, () => SequenceStoreS3Access$, 0],
 ];
-export var UpdateVariantStoreRequest: StaticStructureSchema = [3, n0, _UVSR, 0, [_n, _d], [[0, 1], 0]];
-export var UpdateVariantStoreResponse: StaticStructureSchema = [
+export var UpdateVariantStoreRequest$: StaticStructureSchema = [3, n0, _UVSR, 0, [_n, _d], [[0, 1], 0]];
+export var UpdateVariantStoreResponse$: StaticStructureSchema = [
   3,
   n0,
   _UVSRp,
   0,
   [_i, _r, _st, _n, _d, _cT, _uT],
-  [0, () => ReferenceItem, 0, 0, 0, 5, 5],
+  [0, () => ReferenceItem$, 0, 0, 0, 5, 5],
 ];
-export var UpdateWorkflowRequest: StaticStructureSchema = [
+export var UpdateWorkflowRequest$: StaticStructureSchema = [
   3,
   n0,
   _UWR,
@@ -2297,7 +2304,7 @@ export var UpdateWorkflowRequest: StaticStructureSchema = [
   [_i, _n, _d, _sT, _sCt, _rMe],
   [[0, 1], 0, 0, 0, 1, [() => ReadmeMarkdown, 0]],
 ];
-export var UpdateWorkflowVersionRequest: StaticStructureSchema = [
+export var UpdateWorkflowVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _UWVR,
@@ -2305,7 +2312,7 @@ export var UpdateWorkflowVersionRequest: StaticStructureSchema = [
   [_wI, _vN, _d, _sT, _sCt, _rMe],
   [[0, 1], [0, 1], 0, 0, 1, [() => ReadmeMarkdown, 0]],
 ];
-export var UploadReadSetPartRequest: StaticStructureSchema = [
+export var UploadReadSetPartRequest$: StaticStructureSchema = [
   3,
   n0,
   _URSPR,
@@ -2319,12 +2326,12 @@ export var UploadReadSetPartRequest: StaticStructureSchema = [
     [() => ReadSetPartStreamingBlob, 16],
   ],
 ];
-export var UploadReadSetPartResponse: StaticStructureSchema = [3, n0, _URSPRp, 0, [_ch], [0]];
-export var ValidationException: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ValidationException, __ValidationException);
-export var VariantImportItemDetail: StaticStructureSchema = [3, n0, _VIID, 0, [_so, _jS, _sM], [0, 0, 0]];
-export var VariantImportItemSource: StaticStructureSchema = [3, n0, _VIIS, 0, [_so], [0]];
-export var VariantImportJobItem: StaticStructureSchema = [
+export var UploadReadSetPartResponse$: StaticStructureSchema = [3, n0, _URSPRp, 0, [_ch], [0]];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+export var VariantImportItemDetail$: StaticStructureSchema = [3, n0, _VIID, 0, [_so, _jS, _sM], [0, 0, 0]];
+export var VariantImportItemSource$: StaticStructureSchema = [3, n0, _VIIS, 0, [_so], [0]];
+export var VariantImportJobItem$: StaticStructureSchema = [
   3,
   n0,
   _VIJI,
@@ -2332,17 +2339,17 @@ export var VariantImportJobItem: StaticStructureSchema = [
   [_i, _dN, _rA, _st, _cT, _uT, _cTo, _rLN, _aF],
   [0, 0, 0, 0, 5, 5, 5, 2, 128 | 0],
 ];
-export var VariantStoreItem: StaticStructureSchema = [
+export var VariantStoreItem$: StaticStructureSchema = [
   3,
   n0,
   _VSI,
   0,
   [_i, _r, _st, _sA, _n, _d, _sC, _cT, _uT, _sM, _sSB],
-  [0, () => ReferenceItem, 0, 0, 0, 0, () => SseConfig, 5, 5, 0, 1],
+  [0, () => ReferenceItem$, 0, 0, 0, 0, () => SseConfig$, 5, 5, 0, 1],
 ];
-export var VcfOptions: StaticStructureSchema = [3, n0, _VO, 0, [_iQF, _iFF], [2, 2]];
-export var VersionDeleteError: StaticStructureSchema = [3, n0, _VDE, 0, [_vN, _m], [0, 0]];
-export var WorkflowListItem: StaticStructureSchema = [
+export var VcfOptions$: StaticStructureSchema = [3, n0, _VO, 0, [_iQF, _iFF], [2, 2]];
+export var VersionDeleteError$: StaticStructureSchema = [3, n0, _VDE, 0, [_vN, _m], [0, 0]];
+export var WorkflowListItem$: StaticStructureSchema = [
   3,
   n0,
   _WLI,
@@ -2350,8 +2357,8 @@ export var WorkflowListItem: StaticStructureSchema = [
   [_ar, _i, _n, _st, _ty, _di, _cT, _met],
   [0, 0, 0, 0, 0, 0, 5, 128 | 0],
 ];
-export var WorkflowParameter: StaticStructureSchema = [3, n0, _WP, 0, [_d, _o], [0, 2]];
-export var WorkflowVersionListItem: StaticStructureSchema = [
+export var WorkflowParameter$: StaticStructureSchema = [3, n0, _WP, 0, [_d, _o], [0, 2]];
+export var WorkflowVersionListItem$: StaticStructureSchema = [
   3,
   n0,
   _WVLI,
@@ -2359,860 +2366,842 @@ export var WorkflowVersionListItem: StaticStructureSchema = [
   [_ar, _wI, _vN, _d, _st, _ty, _di, _cT, _met],
   [0, 0, 0, 0, 0, 0, 0, 5, 128 | 0],
 ];
-export var __Unit = "unit" as const;
-export var OmicsServiceException: StaticErrorSchema = [-3, _sm, "OmicsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(OmicsServiceException, __OmicsServiceException);
-export var ActivateReadSetJobList: StaticListSchema = [1, n0, _ARSJL, 0, () => ActivateReadSetJobItem];
-export var ActivateReadSetSourceList: StaticListSchema = [1, n0, _ARSSL, 0, () => ActivateReadSetSourceItem];
-export var AnnotationImportItemDetails: StaticListSchema = [1, n0, _AIIDn, 0, () => AnnotationImportItemDetail];
-export var AnnotationImportItemSources: StaticListSchema = [1, n0, _AIISn, 0, () => AnnotationImportItemSource];
-export var AnnotationImportJobItems: StaticListSchema = [1, n0, _AIJIn, 0, () => AnnotationImportJobItem];
-export var AnnotationStoreItems: StaticListSchema = [1, n0, _ASIn, 0, () => AnnotationStoreItem];
-export var AnnotationStoreVersionItems: StaticListSchema = [1, n0, _ASVIn, 0, () => AnnotationStoreVersionItem];
-export var ArnList = 64 | 0;
-export var CompleteReadSetUploadPartList: StaticListSchema = [
-  1,
-  n0,
-  _CRSUPL,
-  0,
-  () => CompleteReadSetUploadPartListItem,
-];
-export var ExcludeFilePatternList = 64 | 0;
-export var ExportReadSetDetailList: StaticListSchema = [1, n0, _ERSDL, 0, () => ExportReadSetDetail];
-export var ExportReadSetJobDetailList: StaticListSchema = [1, n0, _ERSJDL, 0, () => ExportReadSetJobDetail];
-export var ExportReadSetList: StaticListSchema = [1, n0, _ERSL, 0, () => ExportReadSet];
-export var IdList = 64 | 0;
-export var ImageMappingsList: StaticListSchema = [1, n0, _IML, 0, () => ImageMapping];
-export var ImportReadSetJobList: StaticListSchema = [1, n0, _IRSJL, 0, () => ImportReadSetJobItem];
-export var ImportReadSetSourceList: StaticListSchema = [1, n0, _IRSSL, 0, () => ImportReadSetSourceItem];
-export var ImportReferenceJobList: StaticListSchema = [1, n0, _IRJL, 0, () => ImportReferenceJobItem];
-export var ImportReferenceSourceList: StaticListSchema = [1, n0, _IRSL, 0, () => ImportReferenceSourceItem];
-export var MultipartReadSetUploadList: StaticListSchema = [1, n0, _MRSUL, 0, () => MultipartReadSetUploadListItem];
-export var PropagatedSetLevelTags = 64 | 0;
-export var ReadSetBatchErrorList: StaticListSchema = [1, n0, _RSBEL, 0, () => ReadSetBatchError];
-export var ReadSetIdList = 64 | 0;
-export var ReadSetList: StaticListSchema = [1, n0, _RSL, 0, () => ReadSetListItem];
-export var ReadSetUploadPartList: StaticListSchema = [1, n0, _RSUPL, 0, () => ReadSetUploadPartListItem];
-export var ReferenceList: StaticListSchema = [1, n0, _RL, 0, () => ReferenceListItem];
-export var ReferenceStoreDetailList: StaticListSchema = [1, n0, _RSDL, 0, () => ReferenceStoreDetail];
-export var RegistryMappingsList: StaticListSchema = [1, n0, _RML, 0, () => RegistryMapping];
-export var RunCacheList: StaticListSchema = [1, n0, _RCL, 0, () => RunCacheListItem];
-export var RunExportList = 64 | 0;
-export var RunGroupList: StaticListSchema = [1, n0, _RGL, 0, () => RunGroupListItem];
-export var RunList: StaticListSchema = [1, n0, _RLu, 0, () => RunListItem];
-export var Schema: StaticListSchema = [1, n0, _S, 0, 128 | 0];
-export var SequenceStoreDetailList: StaticListSchema = [1, n0, _SSDL, 0, () => SequenceStoreDetail];
-export var ShareDetailsList: StaticListSchema = [1, n0, _SDL, 0, () => ShareDetails];
-export var StartReadSetActivationJobSourceList: StaticListSchema = [
+var __Unit = "unit" as const;
+export var OmicsServiceException$: StaticErrorSchema = [-3, _sm, "OmicsServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(OmicsServiceException$, OmicsServiceException);
+var ActivateReadSetJobList: StaticListSchema = [1, n0, _ARSJL, 0, () => ActivateReadSetJobItem$];
+var ActivateReadSetSourceList: StaticListSchema = [1, n0, _ARSSL, 0, () => ActivateReadSetSourceItem$];
+var AnnotationImportItemDetails: StaticListSchema = [1, n0, _AIIDn, 0, () => AnnotationImportItemDetail$];
+var AnnotationImportItemSources: StaticListSchema = [1, n0, _AIISn, 0, () => AnnotationImportItemSource$];
+var AnnotationImportJobItems: StaticListSchema = [1, n0, _AIJIn, 0, () => AnnotationImportJobItem$];
+var AnnotationStoreItems: StaticListSchema = [1, n0, _ASIn, 0, () => AnnotationStoreItem$];
+var AnnotationStoreVersionItems: StaticListSchema = [1, n0, _ASVIn, 0, () => AnnotationStoreVersionItem$];
+var ArnList = 64 | 0;
+var CompleteReadSetUploadPartList: StaticListSchema = [1, n0, _CRSUPL, 0, () => CompleteReadSetUploadPartListItem$];
+var ExcludeFilePatternList = 64 | 0;
+var ExportReadSetDetailList: StaticListSchema = [1, n0, _ERSDL, 0, () => ExportReadSetDetail$];
+var ExportReadSetJobDetailList: StaticListSchema = [1, n0, _ERSJDL, 0, () => ExportReadSetJobDetail$];
+var ExportReadSetList: StaticListSchema = [1, n0, _ERSL, 0, () => ExportReadSet$];
+var IdList = 64 | 0;
+var ImageMappingsList: StaticListSchema = [1, n0, _IML, 0, () => ImageMapping$];
+var ImportReadSetJobList: StaticListSchema = [1, n0, _IRSJL, 0, () => ImportReadSetJobItem$];
+var ImportReadSetSourceList: StaticListSchema = [1, n0, _IRSSL, 0, () => ImportReadSetSourceItem$];
+var ImportReferenceJobList: StaticListSchema = [1, n0, _IRJL, 0, () => ImportReferenceJobItem$];
+var ImportReferenceSourceList: StaticListSchema = [1, n0, _IRSL, 0, () => ImportReferenceSourceItem$];
+var MultipartReadSetUploadList: StaticListSchema = [1, n0, _MRSUL, 0, () => MultipartReadSetUploadListItem$];
+var PropagatedSetLevelTags = 64 | 0;
+var ReadSetBatchErrorList: StaticListSchema = [1, n0, _RSBEL, 0, () => ReadSetBatchError$];
+var ReadSetIdList = 64 | 0;
+var ReadSetList: StaticListSchema = [1, n0, _RSL, 0, () => ReadSetListItem$];
+var ReadSetUploadPartList: StaticListSchema = [1, n0, _RSUPL, 0, () => ReadSetUploadPartListItem$];
+var ReferenceList: StaticListSchema = [1, n0, _RL, 0, () => ReferenceListItem$];
+var ReferenceStoreDetailList: StaticListSchema = [1, n0, _RSDL, 0, () => ReferenceStoreDetail$];
+var RegistryMappingsList: StaticListSchema = [1, n0, _RML, 0, () => RegistryMapping$];
+var RunCacheList: StaticListSchema = [1, n0, _RCL, 0, () => RunCacheListItem$];
+var RunExportList = 64 | 0;
+var RunGroupList: StaticListSchema = [1, n0, _RGL, 0, () => RunGroupListItem$];
+var RunList: StaticListSchema = [1, n0, _RLu, 0, () => RunListItem$];
+var Schema: StaticListSchema = [1, n0, _S, 0, 128 | 0];
+var SequenceStoreDetailList: StaticListSchema = [1, n0, _SSDL, 0, () => SequenceStoreDetail$];
+var ShareDetailsList: StaticListSchema = [1, n0, _SDL, 0, () => ShareDetails$];
+var StartReadSetActivationJobSourceList: StaticListSchema = [
   1,
   n0,
   _SRSAJSL,
   0,
-  () => StartReadSetActivationJobSourceItem,
+  () => StartReadSetActivationJobSourceItem$,
 ];
-export var StartReadSetImportJobSourceList: StaticListSchema = [
-  1,
-  n0,
-  _SRSIJSL,
-  0,
-  () => StartReadSetImportJobSourceItem,
-];
-export var StartReferenceImportJobSourceList: StaticListSchema = [
-  1,
-  n0,
-  _SRIJSL,
-  0,
-  () => StartReferenceImportJobSourceItem,
-];
-export var StatusList = 64 | 0;
-export var TagKeyList = 64 | 0;
-export var TaskList: StaticListSchema = [1, n0, _TL, 0, () => TaskListItem];
-export var TypeList = 64 | 0;
-export var VariantImportItemDetails: StaticListSchema = [1, n0, _VIIDa, 0, () => VariantImportItemDetail];
-export var VariantImportItemSources: StaticListSchema = [1, n0, _VIISa, 0, () => VariantImportItemSource];
-export var VariantImportJobItems: StaticListSchema = [1, n0, _VIJIa, 0, () => VariantImportJobItem];
-export var VariantStoreItems: StaticListSchema = [1, n0, _VSIa, 0, () => VariantStoreItem];
-export var VersionDeleteErrorList: StaticListSchema = [1, n0, _VDEL, 0, () => VersionDeleteError];
-export var VersionList = 64 | 0;
-export var WorkflowExportList = 64 | 0;
-export var WorkflowList: StaticListSchema = [1, n0, _WL, 0, () => WorkflowListItem];
-export var WorkflowVersionList: StaticListSchema = [1, n0, _WVL, 0, () => WorkflowVersionListItem];
-export var AnnotationFieldMap = 128 | 0;
-export var FormatToHeader = 128 | 0;
-export var RunResourceDigests = 128 | 0;
-export var SchemaItem = 128 | 0;
-export var TagMap = 128 | 0;
-export var WorkflowMetadata = 128 | 0;
-export var WorkflowParameterTemplate: StaticMapSchema = [2, n0, _WPT, 0, 0, () => WorkflowParameter];
-export var FormatOptions: StaticStructureSchema = [3, n0, _FO, 0, [_tO, _vOc], [() => TsvOptions, () => VcfOptions]];
-export var ReferenceItem: StaticStructureSchema = [3, n0, _RI, 0, [_rAe], [0]];
-export var StoreOptions: StaticStructureSchema = [3, n0, _SO, 0, [_tSO], [() => TsvStoreOptions]];
-export var VersionOptions: StaticStructureSchema = [3, n0, _VOe, 0, [_tVO], [() => TsvVersionOptions]];
-export var AbortMultipartReadSetUpload: StaticOperationSchema = [
+var StartReadSetImportJobSourceList: StaticListSchema = [1, n0, _SRSIJSL, 0, () => StartReadSetImportJobSourceItem$];
+var StartReferenceImportJobSourceList: StaticListSchema = [1, n0, _SRIJSL, 0, () => StartReferenceImportJobSourceItem$];
+var StatusList = 64 | 0;
+var TagKeyList = 64 | 0;
+var TaskList: StaticListSchema = [1, n0, _TL, 0, () => TaskListItem$];
+var TypeList = 64 | 0;
+var VariantImportItemDetails: StaticListSchema = [1, n0, _VIIDa, 0, () => VariantImportItemDetail$];
+var VariantImportItemSources: StaticListSchema = [1, n0, _VIISa, 0, () => VariantImportItemSource$];
+var VariantImportJobItems: StaticListSchema = [1, n0, _VIJIa, 0, () => VariantImportJobItem$];
+var VariantStoreItems: StaticListSchema = [1, n0, _VSIa, 0, () => VariantStoreItem$];
+var VersionDeleteErrorList: StaticListSchema = [1, n0, _VDEL, 0, () => VersionDeleteError$];
+var VersionList = 64 | 0;
+var WorkflowExportList = 64 | 0;
+var WorkflowList: StaticListSchema = [1, n0, _WL, 0, () => WorkflowListItem$];
+var WorkflowVersionList: StaticListSchema = [1, n0, _WVL, 0, () => WorkflowVersionListItem$];
+var AnnotationFieldMap = 128 | 0;
+var FormatToHeader = 128 | 0;
+var RunResourceDigests = 128 | 0;
+var SchemaItem = 128 | 0;
+var TagMap = 128 | 0;
+var WorkflowMetadata = 128 | 0;
+var WorkflowParameterTemplate: StaticMapSchema = [2, n0, _WPT, 0, 0, () => WorkflowParameter$];
+export var FormatOptions$: StaticStructureSchema = [3, n0, _FO, 0, [_tO, _vOc], [() => TsvOptions$, () => VcfOptions$]];
+export var ReferenceItem$: StaticStructureSchema = [3, n0, _RI, 0, [_rAe], [0]];
+export var StoreOptions$: StaticStructureSchema = [3, n0, _SO, 0, [_tSO], [() => TsvStoreOptions$]];
+export var VersionOptions$: StaticStructureSchema = [3, n0, _VOe, 0, [_tVO], [() => TsvVersionOptions$]];
+export var AbortMultipartReadSetUpload$: StaticOperationSchema = [
   9,
   n0,
   _AMRSU,
   { [_ht]: ["DELETE", "/sequencestore/{sequenceStoreId}/upload/{uploadId}/abort", 200], [_end]: ["control-storage-"] },
-  () => AbortMultipartReadSetUploadRequest,
-  () => AbortMultipartReadSetUploadResponse,
+  () => AbortMultipartReadSetUploadRequest$,
+  () => AbortMultipartReadSetUploadResponse$,
 ];
-export var AcceptShare: StaticOperationSchema = [
+export var AcceptShare$: StaticOperationSchema = [
   9,
   n0,
   _AS,
   { [_ht]: ["POST", "/share/{shareId}", 200], [_end]: ["analytics-"] },
-  () => AcceptShareRequest,
-  () => AcceptShareResponse,
+  () => AcceptShareRequest$,
+  () => AcceptShareResponse$,
 ];
-export var BatchDeleteReadSet: StaticOperationSchema = [
+export var BatchDeleteReadSet$: StaticOperationSchema = [
   9,
   n0,
   _BDRS,
   { [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/readset/batch/delete", 200], [_end]: ["control-storage-"] },
-  () => BatchDeleteReadSetRequest,
-  () => BatchDeleteReadSetResponse,
+  () => BatchDeleteReadSetRequest$,
+  () => BatchDeleteReadSetResponse$,
 ];
-export var CancelAnnotationImportJob: StaticOperationSchema = [
+export var CancelAnnotationImportJob$: StaticOperationSchema = [
   9,
   n0,
   _CAIJ,
   { [_ht]: ["DELETE", "/import/annotation/{jobId}", 200], [_end]: ["analytics-"] },
-  () => CancelAnnotationImportRequest,
-  () => CancelAnnotationImportResponse,
+  () => CancelAnnotationImportRequest$,
+  () => CancelAnnotationImportResponse$,
 ];
-export var CancelRun: StaticOperationSchema = [
+export var CancelRun$: StaticOperationSchema = [
   9,
   n0,
   _CR,
   { [_ht]: ["POST", "/run/{id}/cancel", 202], [_end]: ["workflows-"] },
-  () => CancelRunRequest,
+  () => CancelRunRequest$,
   () => __Unit,
 ];
-export var CancelVariantImportJob: StaticOperationSchema = [
+export var CancelVariantImportJob$: StaticOperationSchema = [
   9,
   n0,
   _CVIJ,
   { [_ht]: ["DELETE", "/import/variant/{jobId}", 200], [_end]: ["analytics-"] },
-  () => CancelVariantImportRequest,
-  () => CancelVariantImportResponse,
+  () => CancelVariantImportRequest$,
+  () => CancelVariantImportResponse$,
 ];
-export var CompleteMultipartReadSetUpload: StaticOperationSchema = [
+export var CompleteMultipartReadSetUpload$: StaticOperationSchema = [
   9,
   n0,
   _CMRSU,
   { [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/upload/{uploadId}/complete", 200], [_end]: ["storage-"] },
-  () => CompleteMultipartReadSetUploadRequest,
-  () => CompleteMultipartReadSetUploadResponse,
+  () => CompleteMultipartReadSetUploadRequest$,
+  () => CompleteMultipartReadSetUploadResponse$,
 ];
-export var CreateAnnotationStore: StaticOperationSchema = [
+export var CreateAnnotationStore$: StaticOperationSchema = [
   9,
   n0,
   _CAS,
   { [_ht]: ["POST", "/annotationStore", 200], [_end]: ["analytics-"] },
-  () => CreateAnnotationStoreRequest,
-  () => CreateAnnotationStoreResponse,
+  () => CreateAnnotationStoreRequest$,
+  () => CreateAnnotationStoreResponse$,
 ];
-export var CreateAnnotationStoreVersion: StaticOperationSchema = [
+export var CreateAnnotationStoreVersion$: StaticOperationSchema = [
   9,
   n0,
   _CASV,
   { [_ht]: ["POST", "/annotationStore/{name}/version", 200], [_end]: ["analytics-"] },
-  () => CreateAnnotationStoreVersionRequest,
-  () => CreateAnnotationStoreVersionResponse,
+  () => CreateAnnotationStoreVersionRequest$,
+  () => CreateAnnotationStoreVersionResponse$,
 ];
-export var CreateMultipartReadSetUpload: StaticOperationSchema = [
+export var CreateMultipartReadSetUpload$: StaticOperationSchema = [
   9,
   n0,
   _CMRSUr,
   { [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/upload", 200], [_end]: ["control-storage-"] },
-  () => CreateMultipartReadSetUploadRequest,
-  () => CreateMultipartReadSetUploadResponse,
+  () => CreateMultipartReadSetUploadRequest$,
+  () => CreateMultipartReadSetUploadResponse$,
 ];
-export var CreateReferenceStore: StaticOperationSchema = [
+export var CreateReferenceStore$: StaticOperationSchema = [
   9,
   n0,
   _CRS,
   { [_ht]: ["POST", "/referencestore", 200], [_end]: ["control-storage-"] },
-  () => CreateReferenceStoreRequest,
-  () => CreateReferenceStoreResponse,
+  () => CreateReferenceStoreRequest$,
+  () => CreateReferenceStoreResponse$,
 ];
-export var CreateRunCache: StaticOperationSchema = [
+export var CreateRunCache$: StaticOperationSchema = [
   9,
   n0,
   _CRC,
   { [_ht]: ["POST", "/runCache", 201], [_end]: ["workflows-"] },
-  () => CreateRunCacheRequest,
-  () => CreateRunCacheResponse,
+  () => CreateRunCacheRequest$,
+  () => CreateRunCacheResponse$,
 ];
-export var CreateRunGroup: StaticOperationSchema = [
+export var CreateRunGroup$: StaticOperationSchema = [
   9,
   n0,
   _CRG,
   { [_ht]: ["POST", "/runGroup", 201], [_end]: ["workflows-"] },
-  () => CreateRunGroupRequest,
-  () => CreateRunGroupResponse,
+  () => CreateRunGroupRequest$,
+  () => CreateRunGroupResponse$,
 ];
-export var CreateSequenceStore: StaticOperationSchema = [
+export var CreateSequenceStore$: StaticOperationSchema = [
   9,
   n0,
   _CSS,
   { [_ht]: ["POST", "/sequencestore", 200], [_end]: ["control-storage-"] },
-  () => CreateSequenceStoreRequest,
-  () => CreateSequenceStoreResponse,
+  () => CreateSequenceStoreRequest$,
+  () => CreateSequenceStoreResponse$,
 ];
-export var CreateShare: StaticOperationSchema = [
+export var CreateShare$: StaticOperationSchema = [
   9,
   n0,
   _CS,
   { [_ht]: ["POST", "/share", 200], [_end]: ["analytics-"] },
-  () => CreateShareRequest,
-  () => CreateShareResponse,
+  () => CreateShareRequest$,
+  () => CreateShareResponse$,
 ];
-export var CreateVariantStore: StaticOperationSchema = [
+export var CreateVariantStore$: StaticOperationSchema = [
   9,
   n0,
   _CVS,
   { [_ht]: ["POST", "/variantStore", 200], [_end]: ["analytics-"] },
-  () => CreateVariantStoreRequest,
-  () => CreateVariantStoreResponse,
+  () => CreateVariantStoreRequest$,
+  () => CreateVariantStoreResponse$,
 ];
-export var CreateWorkflow: StaticOperationSchema = [
+export var CreateWorkflow$: StaticOperationSchema = [
   9,
   n0,
   _CW,
   { [_ht]: ["POST", "/workflow", 201], [_end]: ["workflows-"] },
-  () => CreateWorkflowRequest,
-  () => CreateWorkflowResponse,
+  () => CreateWorkflowRequest$,
+  () => CreateWorkflowResponse$,
 ];
-export var CreateWorkflowVersion: StaticOperationSchema = [
+export var CreateWorkflowVersion$: StaticOperationSchema = [
   9,
   n0,
   _CWV,
   { [_ht]: ["POST", "/workflow/{workflowId}/version", 201], [_end]: ["workflows-"] },
-  () => CreateWorkflowVersionRequest,
-  () => CreateWorkflowVersionResponse,
+  () => CreateWorkflowVersionRequest$,
+  () => CreateWorkflowVersionResponse$,
 ];
-export var DeleteAnnotationStore: StaticOperationSchema = [
+export var DeleteAnnotationStore$: StaticOperationSchema = [
   9,
   n0,
   _DAS,
   { [_ht]: ["DELETE", "/annotationStore/{name}", 200], [_end]: ["analytics-"] },
-  () => DeleteAnnotationStoreRequest,
-  () => DeleteAnnotationStoreResponse,
+  () => DeleteAnnotationStoreRequest$,
+  () => DeleteAnnotationStoreResponse$,
 ];
-export var DeleteAnnotationStoreVersions: StaticOperationSchema = [
+export var DeleteAnnotationStoreVersions$: StaticOperationSchema = [
   9,
   n0,
   _DASV,
   { [_ht]: ["POST", "/annotationStore/{name}/versions/delete", 200], [_end]: ["analytics-"] },
-  () => DeleteAnnotationStoreVersionsRequest,
-  () => DeleteAnnotationStoreVersionsResponse,
+  () => DeleteAnnotationStoreVersionsRequest$,
+  () => DeleteAnnotationStoreVersionsResponse$,
 ];
-export var DeleteReference: StaticOperationSchema = [
+export var DeleteReference$: StaticOperationSchema = [
   9,
   n0,
   _DRe,
   { [_ht]: ["DELETE", "/referencestore/{referenceStoreId}/reference/{id}", 200], [_end]: ["control-storage-"] },
-  () => DeleteReferenceRequest,
-  () => DeleteReferenceResponse,
+  () => DeleteReferenceRequest$,
+  () => DeleteReferenceResponse$,
 ];
-export var DeleteReferenceStore: StaticOperationSchema = [
+export var DeleteReferenceStore$: StaticOperationSchema = [
   9,
   n0,
   _DRS,
   { [_ht]: ["DELETE", "/referencestore/{id}", 200], [_end]: ["control-storage-"] },
-  () => DeleteReferenceStoreRequest,
-  () => DeleteReferenceStoreResponse,
+  () => DeleteReferenceStoreRequest$,
+  () => DeleteReferenceStoreResponse$,
 ];
-export var DeleteRun: StaticOperationSchema = [
+export var DeleteRun$: StaticOperationSchema = [
   9,
   n0,
   _DRel,
   { [_ht]: ["DELETE", "/run/{id}", 202], [_end]: ["workflows-"] },
-  () => DeleteRunRequest,
+  () => DeleteRunRequest$,
   () => __Unit,
 ];
-export var DeleteRunCache: StaticOperationSchema = [
+export var DeleteRunCache$: StaticOperationSchema = [
   9,
   n0,
   _DRC,
   { [_ht]: ["DELETE", "/runCache/{id}", 202], [_end]: ["workflows-"] },
-  () => DeleteRunCacheRequest,
+  () => DeleteRunCacheRequest$,
   () => __Unit,
 ];
-export var DeleteRunGroup: StaticOperationSchema = [
+export var DeleteRunGroup$: StaticOperationSchema = [
   9,
   n0,
   _DRG,
   { [_ht]: ["DELETE", "/runGroup/{id}", 202], [_end]: ["workflows-"] },
-  () => DeleteRunGroupRequest,
+  () => DeleteRunGroupRequest$,
   () => __Unit,
 ];
-export var DeleteS3AccessPolicy: StaticOperationSchema = [
+export var DeleteS3AccessPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DSAP,
   { [_ht]: ["DELETE", "/s3accesspolicy/{s3AccessPointArn}", 200], [_end]: ["control-storage-"] },
-  () => DeleteS3AccessPolicyRequest,
-  () => DeleteS3AccessPolicyResponse,
+  () => DeleteS3AccessPolicyRequest$,
+  () => DeleteS3AccessPolicyResponse$,
 ];
-export var DeleteSequenceStore: StaticOperationSchema = [
+export var DeleteSequenceStore$: StaticOperationSchema = [
   9,
   n0,
   _DSS,
   { [_ht]: ["DELETE", "/sequencestore/{id}", 200], [_end]: ["control-storage-"] },
-  () => DeleteSequenceStoreRequest,
-  () => DeleteSequenceStoreResponse,
+  () => DeleteSequenceStoreRequest$,
+  () => DeleteSequenceStoreResponse$,
 ];
-export var DeleteShare: StaticOperationSchema = [
+export var DeleteShare$: StaticOperationSchema = [
   9,
   n0,
   _DS,
   { [_ht]: ["DELETE", "/share/{shareId}", 200], [_end]: ["analytics-"] },
-  () => DeleteShareRequest,
-  () => DeleteShareResponse,
+  () => DeleteShareRequest$,
+  () => DeleteShareResponse$,
 ];
-export var DeleteVariantStore: StaticOperationSchema = [
+export var DeleteVariantStore$: StaticOperationSchema = [
   9,
   n0,
   _DVS,
   { [_ht]: ["DELETE", "/variantStore/{name}", 200], [_end]: ["analytics-"] },
-  () => DeleteVariantStoreRequest,
-  () => DeleteVariantStoreResponse,
+  () => DeleteVariantStoreRequest$,
+  () => DeleteVariantStoreResponse$,
 ];
-export var DeleteWorkflow: StaticOperationSchema = [
+export var DeleteWorkflow$: StaticOperationSchema = [
   9,
   n0,
   _DW,
   { [_ht]: ["DELETE", "/workflow/{id}", 202], [_end]: ["workflows-"] },
-  () => DeleteWorkflowRequest,
+  () => DeleteWorkflowRequest$,
   () => __Unit,
 ];
-export var DeleteWorkflowVersion: StaticOperationSchema = [
+export var DeleteWorkflowVersion$: StaticOperationSchema = [
   9,
   n0,
   _DWV,
   { [_ht]: ["DELETE", "/workflow/{workflowId}/version/{versionName}", 202], [_end]: ["workflows-"] },
-  () => DeleteWorkflowVersionRequest,
+  () => DeleteWorkflowVersionRequest$,
   () => __Unit,
 ];
-export var GetAnnotationImportJob: StaticOperationSchema = [
+export var GetAnnotationImportJob$: StaticOperationSchema = [
   9,
   n0,
   _GAIJ,
   { [_ht]: ["GET", "/import/annotation/{jobId}", 200], [_end]: ["analytics-"] },
-  () => GetAnnotationImportRequest,
-  () => GetAnnotationImportResponse,
+  () => GetAnnotationImportRequest$,
+  () => GetAnnotationImportResponse$,
 ];
-export var GetAnnotationStore: StaticOperationSchema = [
+export var GetAnnotationStore$: StaticOperationSchema = [
   9,
   n0,
   _GAS,
   { [_end]: ["analytics-"], [_ht]: ["GET", "/annotationStore/{name}", 200] },
-  () => GetAnnotationStoreRequest,
-  () => GetAnnotationStoreResponse,
+  () => GetAnnotationStoreRequest$,
+  () => GetAnnotationStoreResponse$,
 ];
-export var GetAnnotationStoreVersion: StaticOperationSchema = [
+export var GetAnnotationStoreVersion$: StaticOperationSchema = [
   9,
   n0,
   _GASV,
   { [_ht]: ["GET", "/annotationStore/{name}/version/{versionName}", 200], [_end]: ["analytics-"] },
-  () => GetAnnotationStoreVersionRequest,
-  () => GetAnnotationStoreVersionResponse,
+  () => GetAnnotationStoreVersionRequest$,
+  () => GetAnnotationStoreVersionResponse$,
 ];
-export var GetReadSet: StaticOperationSchema = [
+export var GetReadSet$: StaticOperationSchema = [
   9,
   n0,
   _GRS,
   { [_ht]: ["GET", "/sequencestore/{sequenceStoreId}/readset/{id}", 200], [_end]: ["storage-"] },
-  () => GetReadSetRequest,
-  () => GetReadSetResponse,
+  () => GetReadSetRequest$,
+  () => GetReadSetResponse$,
 ];
-export var GetReadSetActivationJob: StaticOperationSchema = [
+export var GetReadSetActivationJob$: StaticOperationSchema = [
   9,
   n0,
   _GRSAJ,
   { [_end]: ["control-storage-"], [_ht]: ["GET", "/sequencestore/{sequenceStoreId}/activationjob/{id}", 200] },
-  () => GetReadSetActivationJobRequest,
-  () => GetReadSetActivationJobResponse,
+  () => GetReadSetActivationJobRequest$,
+  () => GetReadSetActivationJobResponse$,
 ];
-export var GetReadSetExportJob: StaticOperationSchema = [
+export var GetReadSetExportJob$: StaticOperationSchema = [
   9,
   n0,
   _GRSEJ,
   { [_end]: ["control-storage-"], [_ht]: ["GET", "/sequencestore/{sequenceStoreId}/exportjob/{id}", 200] },
-  () => GetReadSetExportJobRequest,
-  () => GetReadSetExportJobResponse,
+  () => GetReadSetExportJobRequest$,
+  () => GetReadSetExportJobResponse$,
 ];
-export var GetReadSetImportJob: StaticOperationSchema = [
+export var GetReadSetImportJob$: StaticOperationSchema = [
   9,
   n0,
   _GRSIJ,
   { [_end]: ["control-storage-"], [_ht]: ["GET", "/sequencestore/{sequenceStoreId}/importjob/{id}", 200] },
-  () => GetReadSetImportJobRequest,
-  () => GetReadSetImportJobResponse,
+  () => GetReadSetImportJobRequest$,
+  () => GetReadSetImportJobResponse$,
 ];
-export var GetReadSetMetadata: StaticOperationSchema = [
+export var GetReadSetMetadata$: StaticOperationSchema = [
   9,
   n0,
   _GRSM,
   { [_ht]: ["GET", "/sequencestore/{sequenceStoreId}/readset/{id}/metadata", 200], [_end]: ["control-storage-"] },
-  () => GetReadSetMetadataRequest,
-  () => GetReadSetMetadataResponse,
+  () => GetReadSetMetadataRequest$,
+  () => GetReadSetMetadataResponse$,
 ];
-export var GetReference: StaticOperationSchema = [
+export var GetReference$: StaticOperationSchema = [
   9,
   n0,
   _GR,
   { [_ht]: ["GET", "/referencestore/{referenceStoreId}/reference/{id}", 200], [_end]: ["storage-"] },
-  () => GetReferenceRequest,
-  () => GetReferenceResponse,
+  () => GetReferenceRequest$,
+  () => GetReferenceResponse$,
 ];
-export var GetReferenceImportJob: StaticOperationSchema = [
+export var GetReferenceImportJob$: StaticOperationSchema = [
   9,
   n0,
   _GRIJ,
   { [_end]: ["control-storage-"], [_ht]: ["GET", "/referencestore/{referenceStoreId}/importjob/{id}", 200] },
-  () => GetReferenceImportJobRequest,
-  () => GetReferenceImportJobResponse,
+  () => GetReferenceImportJobRequest$,
+  () => GetReferenceImportJobResponse$,
 ];
-export var GetReferenceMetadata: StaticOperationSchema = [
+export var GetReferenceMetadata$: StaticOperationSchema = [
   9,
   n0,
   _GRM,
   { [_ht]: ["GET", "/referencestore/{referenceStoreId}/reference/{id}/metadata", 200], [_end]: ["control-storage-"] },
-  () => GetReferenceMetadataRequest,
-  () => GetReferenceMetadataResponse,
+  () => GetReferenceMetadataRequest$,
+  () => GetReferenceMetadataResponse$,
 ];
-export var GetReferenceStore: StaticOperationSchema = [
+export var GetReferenceStore$: StaticOperationSchema = [
   9,
   n0,
   _GRSe,
   { [_ht]: ["GET", "/referencestore/{id}", 200], [_end]: ["control-storage-"] },
-  () => GetReferenceStoreRequest,
-  () => GetReferenceStoreResponse,
+  () => GetReferenceStoreRequest$,
+  () => GetReferenceStoreResponse$,
 ];
-export var GetRun: StaticOperationSchema = [
+export var GetRun$: StaticOperationSchema = [
   9,
   n0,
   _GRe,
   { [_ht]: ["GET", "/run/{id}", 200], [_end]: ["workflows-"] },
-  () => GetRunRequest,
-  () => GetRunResponse,
+  () => GetRunRequest$,
+  () => GetRunResponse$,
 ];
-export var GetRunCache: StaticOperationSchema = [
+export var GetRunCache$: StaticOperationSchema = [
   9,
   n0,
   _GRC,
   { [_ht]: ["GET", "/runCache/{id}", 200], [_end]: ["workflows-"] },
-  () => GetRunCacheRequest,
-  () => GetRunCacheResponse,
+  () => GetRunCacheRequest$,
+  () => GetRunCacheResponse$,
 ];
-export var GetRunGroup: StaticOperationSchema = [
+export var GetRunGroup$: StaticOperationSchema = [
   9,
   n0,
   _GRG,
   { [_ht]: ["GET", "/runGroup/{id}", 200], [_end]: ["workflows-"] },
-  () => GetRunGroupRequest,
-  () => GetRunGroupResponse,
+  () => GetRunGroupRequest$,
+  () => GetRunGroupResponse$,
 ];
-export var GetRunTask: StaticOperationSchema = [
+export var GetRunTask$: StaticOperationSchema = [
   9,
   n0,
   _GRT,
   { [_ht]: ["GET", "/run/{id}/task/{taskId}", 200], [_end]: ["workflows-"] },
-  () => GetRunTaskRequest,
-  () => GetRunTaskResponse,
+  () => GetRunTaskRequest$,
+  () => GetRunTaskResponse$,
 ];
-export var GetS3AccessPolicy: StaticOperationSchema = [
+export var GetS3AccessPolicy$: StaticOperationSchema = [
   9,
   n0,
   _GSAP,
   { [_ht]: ["GET", "/s3accesspolicy/{s3AccessPointArn}", 200], [_end]: ["control-storage-"] },
-  () => GetS3AccessPolicyRequest,
-  () => GetS3AccessPolicyResponse,
+  () => GetS3AccessPolicyRequest$,
+  () => GetS3AccessPolicyResponse$,
 ];
-export var GetSequenceStore: StaticOperationSchema = [
+export var GetSequenceStore$: StaticOperationSchema = [
   9,
   n0,
   _GSS,
   { [_ht]: ["GET", "/sequencestore/{id}", 200], [_end]: ["control-storage-"] },
-  () => GetSequenceStoreRequest,
-  () => GetSequenceStoreResponse,
+  () => GetSequenceStoreRequest$,
+  () => GetSequenceStoreResponse$,
 ];
-export var GetShare: StaticOperationSchema = [
+export var GetShare$: StaticOperationSchema = [
   9,
   n0,
   _GS,
   { [_ht]: ["GET", "/share/{shareId}", 200], [_end]: ["analytics-"] },
-  () => GetShareRequest,
-  () => GetShareResponse,
+  () => GetShareRequest$,
+  () => GetShareResponse$,
 ];
-export var GetVariantImportJob: StaticOperationSchema = [
+export var GetVariantImportJob$: StaticOperationSchema = [
   9,
   n0,
   _GVIJ,
   { [_ht]: ["GET", "/import/variant/{jobId}", 200], [_end]: ["analytics-"] },
-  () => GetVariantImportRequest,
-  () => GetVariantImportResponse,
+  () => GetVariantImportRequest$,
+  () => GetVariantImportResponse$,
 ];
-export var GetVariantStore: StaticOperationSchema = [
+export var GetVariantStore$: StaticOperationSchema = [
   9,
   n0,
   _GVS,
   { [_end]: ["analytics-"], [_ht]: ["GET", "/variantStore/{name}", 200] },
-  () => GetVariantStoreRequest,
-  () => GetVariantStoreResponse,
+  () => GetVariantStoreRequest$,
+  () => GetVariantStoreResponse$,
 ];
-export var GetWorkflow: StaticOperationSchema = [
+export var GetWorkflow$: StaticOperationSchema = [
   9,
   n0,
   _GW,
   { [_ht]: ["GET", "/workflow/{id}", 200], [_end]: ["workflows-"] },
-  () => GetWorkflowRequest,
-  () => GetWorkflowResponse,
+  () => GetWorkflowRequest$,
+  () => GetWorkflowResponse$,
 ];
-export var GetWorkflowVersion: StaticOperationSchema = [
+export var GetWorkflowVersion$: StaticOperationSchema = [
   9,
   n0,
   _GWV,
   { [_ht]: ["GET", "/workflow/{workflowId}/version/{versionName}", 200], [_end]: ["workflows-"] },
-  () => GetWorkflowVersionRequest,
-  () => GetWorkflowVersionResponse,
+  () => GetWorkflowVersionRequest$,
+  () => GetWorkflowVersionResponse$,
 ];
-export var ListAnnotationImportJobs: StaticOperationSchema = [
+export var ListAnnotationImportJobs$: StaticOperationSchema = [
   9,
   n0,
   _LAIJ,
   { [_ht]: ["POST", "/import/annotations", 200], [_end]: ["analytics-"] },
-  () => ListAnnotationImportJobsRequest,
-  () => ListAnnotationImportJobsResponse,
+  () => ListAnnotationImportJobsRequest$,
+  () => ListAnnotationImportJobsResponse$,
 ];
-export var ListAnnotationStores: StaticOperationSchema = [
+export var ListAnnotationStores$: StaticOperationSchema = [
   9,
   n0,
   _LAS,
   { [_end]: ["analytics-"], [_ht]: ["POST", "/annotationStores", 200] },
-  () => ListAnnotationStoresRequest,
-  () => ListAnnotationStoresResponse,
+  () => ListAnnotationStoresRequest$,
+  () => ListAnnotationStoresResponse$,
 ];
-export var ListAnnotationStoreVersions: StaticOperationSchema = [
+export var ListAnnotationStoreVersions$: StaticOperationSchema = [
   9,
   n0,
   _LASV,
   { [_ht]: ["POST", "/annotationStore/{name}/versions", 200], [_end]: ["analytics-"] },
-  () => ListAnnotationStoreVersionsRequest,
-  () => ListAnnotationStoreVersionsResponse,
+  () => ListAnnotationStoreVersionsRequest$,
+  () => ListAnnotationStoreVersionsResponse$,
 ];
-export var ListMultipartReadSetUploads: StaticOperationSchema = [
+export var ListMultipartReadSetUploads$: StaticOperationSchema = [
   9,
   n0,
   _LMRSU,
   { [_end]: ["control-storage-"], [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/uploads", 200] },
-  () => ListMultipartReadSetUploadsRequest,
-  () => ListMultipartReadSetUploadsResponse,
+  () => ListMultipartReadSetUploadsRequest$,
+  () => ListMultipartReadSetUploadsResponse$,
 ];
-export var ListReadSetActivationJobs: StaticOperationSchema = [
+export var ListReadSetActivationJobs$: StaticOperationSchema = [
   9,
   n0,
   _LRSAJ,
   { [_end]: ["control-storage-"], [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/activationjobs", 200] },
-  () => ListReadSetActivationJobsRequest,
-  () => ListReadSetActivationJobsResponse,
+  () => ListReadSetActivationJobsRequest$,
+  () => ListReadSetActivationJobsResponse$,
 ];
-export var ListReadSetExportJobs: StaticOperationSchema = [
+export var ListReadSetExportJobs$: StaticOperationSchema = [
   9,
   n0,
   _LRSEJ,
   { [_end]: ["control-storage-"], [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/exportjobs", 200] },
-  () => ListReadSetExportJobsRequest,
-  () => ListReadSetExportJobsResponse,
+  () => ListReadSetExportJobsRequest$,
+  () => ListReadSetExportJobsResponse$,
 ];
-export var ListReadSetImportJobs: StaticOperationSchema = [
+export var ListReadSetImportJobs$: StaticOperationSchema = [
   9,
   n0,
   _LRSIJ,
   { [_end]: ["control-storage-"], [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/importjobs", 200] },
-  () => ListReadSetImportJobsRequest,
-  () => ListReadSetImportJobsResponse,
+  () => ListReadSetImportJobsRequest$,
+  () => ListReadSetImportJobsResponse$,
 ];
-export var ListReadSets: StaticOperationSchema = [
+export var ListReadSets$: StaticOperationSchema = [
   9,
   n0,
   _LRS,
   { [_end]: ["control-storage-"], [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/readsets", 200] },
-  () => ListReadSetsRequest,
-  () => ListReadSetsResponse,
+  () => ListReadSetsRequest$,
+  () => ListReadSetsResponse$,
 ];
-export var ListReadSetUploadParts: StaticOperationSchema = [
+export var ListReadSetUploadParts$: StaticOperationSchema = [
   9,
   n0,
   _LRSUP,
   { [_end]: ["control-storage-"], [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/upload/{uploadId}/parts", 200] },
-  () => ListReadSetUploadPartsRequest,
-  () => ListReadSetUploadPartsResponse,
+  () => ListReadSetUploadPartsRequest$,
+  () => ListReadSetUploadPartsResponse$,
 ];
-export var ListReferenceImportJobs: StaticOperationSchema = [
+export var ListReferenceImportJobs$: StaticOperationSchema = [
   9,
   n0,
   _LRIJ,
   { [_end]: ["control-storage-"], [_ht]: ["POST", "/referencestore/{referenceStoreId}/importjobs", 200] },
-  () => ListReferenceImportJobsRequest,
-  () => ListReferenceImportJobsResponse,
+  () => ListReferenceImportJobsRequest$,
+  () => ListReferenceImportJobsResponse$,
 ];
-export var ListReferences: StaticOperationSchema = [
+export var ListReferences$: StaticOperationSchema = [
   9,
   n0,
   _LR,
   { [_end]: ["control-storage-"], [_ht]: ["POST", "/referencestore/{referenceStoreId}/references", 200] },
-  () => ListReferencesRequest,
-  () => ListReferencesResponse,
+  () => ListReferencesRequest$,
+  () => ListReferencesResponse$,
 ];
-export var ListReferenceStores: StaticOperationSchema = [
+export var ListReferenceStores$: StaticOperationSchema = [
   9,
   n0,
   _LRSi,
   { [_end]: ["control-storage-"], [_ht]: ["POST", "/referencestores", 200] },
-  () => ListReferenceStoresRequest,
-  () => ListReferenceStoresResponse,
+  () => ListReferenceStoresRequest$,
+  () => ListReferenceStoresResponse$,
 ];
-export var ListRunCaches: StaticOperationSchema = [
+export var ListRunCaches$: StaticOperationSchema = [
   9,
   n0,
   _LRC,
   { [_ht]: ["GET", "/runCache", 200], [_end]: ["workflows-"] },
-  () => ListRunCachesRequest,
-  () => ListRunCachesResponse,
+  () => ListRunCachesRequest$,
+  () => ListRunCachesResponse$,
 ];
-export var ListRunGroups: StaticOperationSchema = [
+export var ListRunGroups$: StaticOperationSchema = [
   9,
   n0,
   _LRG,
   { [_ht]: ["GET", "/runGroup", 200], [_end]: ["workflows-"] },
-  () => ListRunGroupsRequest,
-  () => ListRunGroupsResponse,
+  () => ListRunGroupsRequest$,
+  () => ListRunGroupsResponse$,
 ];
-export var ListRuns: StaticOperationSchema = [
+export var ListRuns$: StaticOperationSchema = [
   9,
   n0,
   _LRi,
   { [_ht]: ["GET", "/run", 200], [_end]: ["workflows-"] },
-  () => ListRunsRequest,
-  () => ListRunsResponse,
+  () => ListRunsRequest$,
+  () => ListRunsResponse$,
 ];
-export var ListRunTasks: StaticOperationSchema = [
+export var ListRunTasks$: StaticOperationSchema = [
   9,
   n0,
   _LRT,
   { [_ht]: ["GET", "/run/{id}/task", 200], [_end]: ["workflows-"] },
-  () => ListRunTasksRequest,
-  () => ListRunTasksResponse,
+  () => ListRunTasksRequest$,
+  () => ListRunTasksResponse$,
 ];
-export var ListSequenceStores: StaticOperationSchema = [
+export var ListSequenceStores$: StaticOperationSchema = [
   9,
   n0,
   _LSS,
   { [_end]: ["control-storage-"], [_ht]: ["POST", "/sequencestores", 200] },
-  () => ListSequenceStoresRequest,
-  () => ListSequenceStoresResponse,
+  () => ListSequenceStoresRequest$,
+  () => ListSequenceStoresResponse$,
 ];
-export var ListShares: StaticOperationSchema = [
+export var ListShares$: StaticOperationSchema = [
   9,
   n0,
   _LS,
   { [_ht]: ["POST", "/shares", 200], [_end]: ["analytics-"] },
-  () => ListSharesRequest,
-  () => ListSharesResponse,
+  () => ListSharesRequest$,
+  () => ListSharesResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_ht]: ["GET", "/tags/{resourceArn}", 200], [_end]: ["tags-"] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListVariantImportJobs: StaticOperationSchema = [
+export var ListVariantImportJobs$: StaticOperationSchema = [
   9,
   n0,
   _LVIJ,
   { [_ht]: ["POST", "/import/variants", 200], [_end]: ["analytics-"] },
-  () => ListVariantImportJobsRequest,
-  () => ListVariantImportJobsResponse,
+  () => ListVariantImportJobsRequest$,
+  () => ListVariantImportJobsResponse$,
 ];
-export var ListVariantStores: StaticOperationSchema = [
+export var ListVariantStores$: StaticOperationSchema = [
   9,
   n0,
   _LVS,
   { [_end]: ["analytics-"], [_ht]: ["POST", "/variantStores", 200] },
-  () => ListVariantStoresRequest,
-  () => ListVariantStoresResponse,
+  () => ListVariantStoresRequest$,
+  () => ListVariantStoresResponse$,
 ];
-export var ListWorkflows: StaticOperationSchema = [
+export var ListWorkflows$: StaticOperationSchema = [
   9,
   n0,
   _LW,
   { [_ht]: ["GET", "/workflow", 200], [_end]: ["workflows-"] },
-  () => ListWorkflowsRequest,
-  () => ListWorkflowsResponse,
+  () => ListWorkflowsRequest$,
+  () => ListWorkflowsResponse$,
 ];
-export var ListWorkflowVersions: StaticOperationSchema = [
+export var ListWorkflowVersions$: StaticOperationSchema = [
   9,
   n0,
   _LWV,
   { [_ht]: ["GET", "/workflow/{workflowId}/version", 200], [_end]: ["workflows-"] },
-  () => ListWorkflowVersionsRequest,
-  () => ListWorkflowVersionsResponse,
+  () => ListWorkflowVersionsRequest$,
+  () => ListWorkflowVersionsResponse$,
 ];
-export var PutS3AccessPolicy: StaticOperationSchema = [
+export var PutS3AccessPolicy$: StaticOperationSchema = [
   9,
   n0,
   _PSAP,
   { [_ht]: ["PUT", "/s3accesspolicy/{s3AccessPointArn}", 200], [_end]: ["control-storage-"] },
-  () => PutS3AccessPolicyRequest,
-  () => PutS3AccessPolicyResponse,
+  () => PutS3AccessPolicyRequest$,
+  () => PutS3AccessPolicyResponse$,
 ];
-export var StartAnnotationImportJob: StaticOperationSchema = [
+export var StartAnnotationImportJob$: StaticOperationSchema = [
   9,
   n0,
   _SAIJ,
   { [_ht]: ["POST", "/import/annotation", 200], [_end]: ["analytics-"] },
-  () => StartAnnotationImportRequest,
-  () => StartAnnotationImportResponse,
+  () => StartAnnotationImportRequest$,
+  () => StartAnnotationImportResponse$,
 ];
-export var StartReadSetActivationJob: StaticOperationSchema = [
+export var StartReadSetActivationJob$: StaticOperationSchema = [
   9,
   n0,
   _SRSAJ,
   { [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/activationjob", 200], [_end]: ["control-storage-"] },
-  () => StartReadSetActivationJobRequest,
-  () => StartReadSetActivationJobResponse,
+  () => StartReadSetActivationJobRequest$,
+  () => StartReadSetActivationJobResponse$,
 ];
-export var StartReadSetExportJob: StaticOperationSchema = [
+export var StartReadSetExportJob$: StaticOperationSchema = [
   9,
   n0,
   _SRSEJ,
   { [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/exportjob", 200], [_end]: ["control-storage-"] },
-  () => StartReadSetExportJobRequest,
-  () => StartReadSetExportJobResponse,
+  () => StartReadSetExportJobRequest$,
+  () => StartReadSetExportJobResponse$,
 ];
-export var StartReadSetImportJob: StaticOperationSchema = [
+export var StartReadSetImportJob$: StaticOperationSchema = [
   9,
   n0,
   _SRSIJ,
   { [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/importjob", 200], [_end]: ["control-storage-"] },
-  () => StartReadSetImportJobRequest,
-  () => StartReadSetImportJobResponse,
+  () => StartReadSetImportJobRequest$,
+  () => StartReadSetImportJobResponse$,
 ];
-export var StartReferenceImportJob: StaticOperationSchema = [
+export var StartReferenceImportJob$: StaticOperationSchema = [
   9,
   n0,
   _SRIJ,
   { [_ht]: ["POST", "/referencestore/{referenceStoreId}/importjob", 200], [_end]: ["control-storage-"] },
-  () => StartReferenceImportJobRequest,
-  () => StartReferenceImportJobResponse,
+  () => StartReferenceImportJobRequest$,
+  () => StartReferenceImportJobResponse$,
 ];
-export var StartRun: StaticOperationSchema = [
+export var StartRun$: StaticOperationSchema = [
   9,
   n0,
   _SRt,
   { [_ht]: ["POST", "/run", 201], [_end]: ["workflows-"] },
-  () => StartRunRequest,
-  () => StartRunResponse,
+  () => StartRunRequest$,
+  () => StartRunResponse$,
 ];
-export var StartVariantImportJob: StaticOperationSchema = [
+export var StartVariantImportJob$: StaticOperationSchema = [
   9,
   n0,
   _SVIJ,
   { [_ht]: ["POST", "/import/variant", 200], [_end]: ["analytics-"] },
-  () => StartVariantImportRequest,
-  () => StartVariantImportResponse,
+  () => StartVariantImportRequest$,
+  () => StartVariantImportResponse$,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_ht]: ["POST", "/tags/{resourceArn}", 204], [_end]: ["tags-"] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_ht]: ["DELETE", "/tags/{resourceArn}", 204], [_end]: ["tags-"] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateAnnotationStore: StaticOperationSchema = [
+export var UpdateAnnotationStore$: StaticOperationSchema = [
   9,
   n0,
   _UAS,
   { [_ht]: ["POST", "/annotationStore/{name}", 200], [_end]: ["analytics-"] },
-  () => UpdateAnnotationStoreRequest,
-  () => UpdateAnnotationStoreResponse,
+  () => UpdateAnnotationStoreRequest$,
+  () => UpdateAnnotationStoreResponse$,
 ];
-export var UpdateAnnotationStoreVersion: StaticOperationSchema = [
+export var UpdateAnnotationStoreVersion$: StaticOperationSchema = [
   9,
   n0,
   _UASV,
   { [_ht]: ["POST", "/annotationStore/{name}/version/{versionName}", 200], [_end]: ["analytics-"] },
-  () => UpdateAnnotationStoreVersionRequest,
-  () => UpdateAnnotationStoreVersionResponse,
+  () => UpdateAnnotationStoreVersionRequest$,
+  () => UpdateAnnotationStoreVersionResponse$,
 ];
-export var UpdateRunCache: StaticOperationSchema = [
+export var UpdateRunCache$: StaticOperationSchema = [
   9,
   n0,
   _URC,
   { [_ht]: ["POST", "/runCache/{id}", 202], [_end]: ["workflows-"] },
-  () => UpdateRunCacheRequest,
+  () => UpdateRunCacheRequest$,
   () => __Unit,
 ];
-export var UpdateRunGroup: StaticOperationSchema = [
+export var UpdateRunGroup$: StaticOperationSchema = [
   9,
   n0,
   _URG,
   { [_ht]: ["POST", "/runGroup/{id}", 202], [_end]: ["workflows-"] },
-  () => UpdateRunGroupRequest,
+  () => UpdateRunGroupRequest$,
   () => __Unit,
 ];
-export var UpdateSequenceStore: StaticOperationSchema = [
+export var UpdateSequenceStore$: StaticOperationSchema = [
   9,
   n0,
   _USS,
   { [_ht]: ["PATCH", "/sequencestore/{id}", 200], [_end]: ["control-storage-"] },
-  () => UpdateSequenceStoreRequest,
-  () => UpdateSequenceStoreResponse,
+  () => UpdateSequenceStoreRequest$,
+  () => UpdateSequenceStoreResponse$,
 ];
-export var UpdateVariantStore: StaticOperationSchema = [
+export var UpdateVariantStore$: StaticOperationSchema = [
   9,
   n0,
   _UVS,
   { [_ht]: ["POST", "/variantStore/{name}", 200], [_end]: ["analytics-"] },
-  () => UpdateVariantStoreRequest,
-  () => UpdateVariantStoreResponse,
+  () => UpdateVariantStoreRequest$,
+  () => UpdateVariantStoreResponse$,
 ];
-export var UpdateWorkflow: StaticOperationSchema = [
+export var UpdateWorkflow$: StaticOperationSchema = [
   9,
   n0,
   _UW,
   { [_ht]: ["POST", "/workflow/{id}", 202], [_end]: ["workflows-"] },
-  () => UpdateWorkflowRequest,
+  () => UpdateWorkflowRequest$,
   () => __Unit,
 ];
-export var UpdateWorkflowVersion: StaticOperationSchema = [
+export var UpdateWorkflowVersion$: StaticOperationSchema = [
   9,
   n0,
   _UWV,
   { [_ht]: ["POST", "/workflow/{workflowId}/version/{versionName}", 202], [_end]: ["workflows-"] },
-  () => UpdateWorkflowVersionRequest,
+  () => UpdateWorkflowVersionRequest$,
   () => __Unit,
 ];
-export var UploadReadSetPart: StaticOperationSchema = [
+export var UploadReadSetPart$: StaticOperationSchema = [
   9,
   n0,
   _URSP,
   { [_ht]: ["PUT", "/sequencestore/{sequenceStoreId}/upload/{uploadId}/part", 200], [_end]: ["storage-"] },
-  () => UploadReadSetPartRequest,
-  () => UploadReadSetPartResponse,
+  () => UploadReadSetPartRequest$,
+  () => UploadReadSetPartResponse$,
 ];

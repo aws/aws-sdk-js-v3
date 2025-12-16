@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Deployments, GetDeploymentsRequest } from "../models/models_0";
-import { GetDeployments } from "../schemas/schemas_0";
+import { GetDeployments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class GetDeploymentsCommand extends $Command
   })
   .s("BackplaneControlService", "GetDeployments", {})
   .n("APIGatewayClient", "GetDeploymentsCommand")
-  .sc(GetDeployments)
+  .sc(GetDeployments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

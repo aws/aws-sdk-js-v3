@@ -8,7 +8,7 @@ import type {
   CreateSnapshotFromVolumeRecoveryPointInput,
   CreateSnapshotFromVolumeRecoveryPointOutput,
 } from "../models/models_0";
-import { CreateSnapshotFromVolumeRecoveryPoint } from "../schemas/schemas_0";
+import { CreateSnapshotFromVolumeRecoveryPoint$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -138,7 +138,7 @@ export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command
   })
   .s("StorageGateway_20130630", "CreateSnapshotFromVolumeRecoveryPoint", {})
   .n("StorageGatewayClient", "CreateSnapshotFromVolumeRecoveryPointCommand")
-  .sc(CreateSnapshotFromVolumeRecoveryPoint)
+  .sc(CreateSnapshotFromVolumeRecoveryPoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

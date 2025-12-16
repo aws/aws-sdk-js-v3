@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchSampleQueriesRequest, SearchSampleQueriesResponse } from "../models/models_0";
-import { SearchSampleQueries } from "../schemas/schemas_0";
+import { SearchSampleQueries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class SearchSampleQueriesCommand extends $Command
   })
   .s("CloudTrail_20131101", "SearchSampleQueries", {})
   .n("CloudTrailClient", "SearchSampleQueriesCommand")
-  .sc(SearchSampleQueries)
+  .sc(SearchSampleQueries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

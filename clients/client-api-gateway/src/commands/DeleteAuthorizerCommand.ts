@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAuthorizerRequest } from "../models/models_0";
-import { DeleteAuthorizer } from "../schemas/schemas_0";
+import { DeleteAuthorizer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DeleteAuthorizerCommand extends $Command
   })
   .s("BackplaneControlService", "DeleteAuthorizer", {})
   .n("APIGatewayClient", "DeleteAuthorizerCommand")
-  .sc(DeleteAuthorizer)
+  .sc(DeleteAuthorizer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

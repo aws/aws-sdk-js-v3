@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputType
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type GetReadSetRequest, GetReadSetResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { GetReadSet } from "../schemas/schemas_0";
+import { GetReadSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class GetReadSetCommand extends $Command
   })
   .s("Omics", "GetReadSet", {})
   .n("OmicsClient", "GetReadSetCommand")
-  .sc(GetReadSet)
+  .sc(GetReadSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

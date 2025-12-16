@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: Cloud9ClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.cloud9",
-        serviceTarget: "AWSCloud9WorkspaceManagementService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.cloud9",
+      version: "2017-09-23",
+      serviceTarget: "AWSCloud9WorkspaceManagementService",
+    },
     serviceId: config?.serviceId ?? "Cloud9",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

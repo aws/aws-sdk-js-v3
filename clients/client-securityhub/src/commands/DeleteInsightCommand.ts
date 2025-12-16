@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteInsightRequest, DeleteInsightResponse } from "../models/models_2";
-import { DeleteInsight } from "../schemas/schemas_0";
+import { DeleteInsight$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -105,7 +105,7 @@ export class DeleteInsightCommand extends $Command
   })
   .s("SecurityHubAPIService", "DeleteInsight", {})
   .n("SecurityHubClient", "DeleteInsightCommand")
-  .sc(DeleteInsight)
+  .sc(DeleteInsight$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

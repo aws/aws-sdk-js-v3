@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import type { ListJobsInput, ListJobsOutput } from "../models/models_0";
-import { ListJobs } from "../schemas/schemas_0";
+import { ListJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -254,7 +254,7 @@ export class ListJobsCommand extends $Command
   })
   .s("Glacier", "ListJobs", {})
   .n("GlacierClient", "ListJobsCommand")
-  .sc(ListJobs)
+  .sc(ListJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

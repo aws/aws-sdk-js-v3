@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: IoTTwinMakerClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.iottwinmaker" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.iottwinmaker",
+      version: "2021-11-29",
+      serviceTarget: "AWSIoTTwinMaker",
+    },
     serviceId: config?.serviceId ?? "IoTTwinMaker",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

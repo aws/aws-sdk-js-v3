@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListProfilesResponse, ListRequest } from "../models/models_0";
 import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
-import { ListProfiles } from "../schemas/schemas_0";
+import { ListProfiles$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class ListProfilesCommand extends $Command
   })
   .s("RolesAnywhere", "ListProfiles", {})
   .n("RolesAnywhereClient", "ListProfilesCommand")
-  .sc(ListProfiles)
+  .sc(ListProfiles$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

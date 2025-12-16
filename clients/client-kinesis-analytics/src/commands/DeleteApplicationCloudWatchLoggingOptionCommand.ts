@@ -13,7 +13,7 @@ import type {
   DeleteApplicationCloudWatchLoggingOptionRequest,
   DeleteApplicationCloudWatchLoggingOptionResponse,
 } from "../models/models_0";
-import { DeleteApplicationCloudWatchLoggingOption } from "../schemas/schemas_0";
+import { DeleteApplicationCloudWatchLoggingOption$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command
   })
   .s("KinesisAnalytics_20150814", "DeleteApplicationCloudWatchLoggingOption", {})
   .n("KinesisAnalyticsClient", "DeleteApplicationCloudWatchLoggingOptionCommand")
-  .sc(DeleteApplicationCloudWatchLoggingOption)
+  .sc(DeleteApplicationCloudWatchLoggingOption$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

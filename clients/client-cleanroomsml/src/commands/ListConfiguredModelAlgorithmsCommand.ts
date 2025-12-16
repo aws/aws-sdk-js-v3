@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListConfiguredModelAlgorithmsRequest, ListConfiguredModelAlgorithmsResponse } from "../models/models_0";
-import { ListConfiguredModelAlgorithms } from "../schemas/schemas_0";
+import { ListConfiguredModelAlgorithms$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class ListConfiguredModelAlgorithmsCommand extends $Command
   })
   .s("AWSStarkControlService", "ListConfiguredModelAlgorithms", {})
   .n("CleanRoomsMLClient", "ListConfiguredModelAlgorithmsCommand")
-  .sc(ListConfiguredModelAlgorithms)
+  .sc(ListConfiguredModelAlgorithms$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

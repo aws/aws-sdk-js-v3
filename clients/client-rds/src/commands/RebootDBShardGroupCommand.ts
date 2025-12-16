@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { DBShardGroup } from "../models/models_0";
 import type { RebootDBShardGroupMessage } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { RebootDBShardGroup } from "../schemas/schemas_0";
+import { RebootDBShardGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class RebootDBShardGroupCommand extends $Command
   })
   .s("AmazonRDSv19", "RebootDBShardGroup", {})
   .n("RDSClient", "RebootDBShardGroupCommand")
-  .sc(RebootDBShardGroup)
+  .sc(RebootDBShardGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

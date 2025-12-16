@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { GetLoadBalancerTlsPoliciesRequest, GetLoadBalancerTlsPoliciesResult } from "../models/models_1";
-import { GetLoadBalancerTlsPolicies } from "../schemas/schemas_0";
+import { GetLoadBalancerTlsPolicies$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -117,7 +117,7 @@ export class GetLoadBalancerTlsPoliciesCommand extends $Command
   })
   .s("Lightsail_20161128", "GetLoadBalancerTlsPolicies", {})
   .n("LightsailClient", "GetLoadBalancerTlsPoliciesCommand")
-  .sc(GetLoadBalancerTlsPolicies)
+  .sc(GetLoadBalancerTlsPolicies$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

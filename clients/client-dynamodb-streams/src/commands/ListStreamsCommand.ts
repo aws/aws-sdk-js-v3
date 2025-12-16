@@ -10,7 +10,7 @@ import type {
 } from "../DynamoDBStreamsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListStreamsInput, ListStreamsOutput } from "../models/models_0";
-import { ListStreams } from "../schemas/schemas_0";
+import { ListStreams$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class ListStreamsCommand extends $Command
   })
   .s("DynamoDBStreams_20120810", "ListStreams", {})
   .n("DynamoDBStreamsClient", "ListStreamsCommand")
-  .sc(ListStreams)
+  .sc(ListStreams$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

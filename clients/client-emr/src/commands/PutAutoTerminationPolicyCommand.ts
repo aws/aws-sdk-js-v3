@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutAutoTerminationPolicyInput, PutAutoTerminationPolicyOutput } from "../models/models_0";
-import { PutAutoTerminationPolicy } from "../schemas/schemas_0";
+import { PutAutoTerminationPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class PutAutoTerminationPolicyCommand extends $Command
   })
   .s("ElasticMapReduce", "PutAutoTerminationPolicy", {})
   .n("EMRClient", "PutAutoTerminationPolicyCommand")
-  .sc(PutAutoTerminationPolicy)
+  .sc(PutAutoTerminationPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   RejectEnvironmentAccountConnectionOutput,
 } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { RejectEnvironmentAccountConnection } from "../schemas/schemas_0";
+import { RejectEnvironmentAccountConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -115,7 +115,7 @@ export class RejectEnvironmentAccountConnectionCommand extends $Command
   })
   .s("AwsProton20200720", "RejectEnvironmentAccountConnection", {})
   .n("ProtonClient", "RejectEnvironmentAccountConnectionCommand")
-  .sc(RejectEnvironmentAccountConnection)
+  .sc(RejectEnvironmentAccountConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

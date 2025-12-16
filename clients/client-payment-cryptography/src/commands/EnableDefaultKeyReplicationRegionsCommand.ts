@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyClient";
-import { EnableDefaultKeyReplicationRegions } from "../schemas/schemas_0";
+import { EnableDefaultKeyReplicationRegions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class EnableDefaultKeyReplicationRegionsCommand extends $Command
   })
   .s("PaymentCryptographyControlPlane", "EnableDefaultKeyReplicationRegions", {})
   .n("PaymentCryptographyClient", "EnableDefaultKeyReplicationRegionsCommand")
-  .sc(EnableDefaultKeyReplicationRegions)
+  .sc(EnableDefaultKeyReplicationRegions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -8,7 +8,7 @@ import type {
   AttachManagedPolicyToPermissionSetRequest,
   AttachManagedPolicyToPermissionSetResponse,
 } from "../models/models_0";
-import { AttachManagedPolicyToPermissionSet } from "../schemas/schemas_0";
+import { AttachManagedPolicyToPermissionSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -99,7 +99,7 @@ export class AttachManagedPolicyToPermissionSetCommand extends $Command
   })
   .s("SWBExternalService", "AttachManagedPolicyToPermissionSet", {})
   .n("SSOAdminClient", "AttachManagedPolicyToPermissionSetCommand")
-  .sc(AttachManagedPolicyToPermissionSet)
+  .sc(AttachManagedPolicyToPermissionSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

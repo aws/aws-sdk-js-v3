@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKMediaPipelinesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetVoiceToneAnalysisTaskRequest, GetVoiceToneAnalysisTaskResponse } from "../models/models_0";
-import { GetVoiceToneAnalysisTask } from "../schemas/schemas_0";
+import { GetVoiceToneAnalysisTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class GetVoiceToneAnalysisTaskCommand extends $Command
   })
   .s("ChimeSDKMediaPipelinesService", "GetVoiceToneAnalysisTask", {})
   .n("ChimeSDKMediaPipelinesClient", "GetVoiceToneAnalysisTaskCommand")
-  .sc(GetVoiceToneAnalysisTask)
+  .sc(GetVoiceToneAnalysisTask$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

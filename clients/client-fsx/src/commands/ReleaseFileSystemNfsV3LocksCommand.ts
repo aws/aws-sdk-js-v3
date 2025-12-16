@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import type { ReleaseFileSystemNfsV3LocksRequest, ReleaseFileSystemNfsV3LocksResponse } from "../models/models_0";
-import { ReleaseFileSystemNfsV3Locks } from "../schemas/schemas_0";
+import { ReleaseFileSystemNfsV3Locks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -707,7 +707,7 @@ export class ReleaseFileSystemNfsV3LocksCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "ReleaseFileSystemNfsV3Locks", {})
   .n("FSxClient", "ReleaseFileSystemNfsV3LocksCommand")
-  .sc(ReleaseFileSystemNfsV3Locks)
+  .sc(ReleaseFileSystemNfsV3Locks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

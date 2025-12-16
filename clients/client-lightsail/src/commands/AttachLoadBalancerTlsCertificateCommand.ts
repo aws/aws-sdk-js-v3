@@ -9,7 +9,7 @@ import type {
   AttachLoadBalancerTlsCertificateRequest,
   AttachLoadBalancerTlsCertificateResult,
 } from "../models/models_0";
-import { AttachLoadBalancerTlsCertificate } from "../schemas/schemas_0";
+import { AttachLoadBalancerTlsCertificate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class AttachLoadBalancerTlsCertificateCommand extends $Command
   })
   .s("Lightsail_20161128", "AttachLoadBalancerTlsCertificate", {})
   .n("LightsailClient", "AttachLoadBalancerTlsCertificateCommand")
-  .sc(AttachLoadBalancerTlsCertificate)
+  .sc(AttachLoadBalancerTlsCertificate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   BatchUpdateCustomVocabularyItemRequest,
   BatchUpdateCustomVocabularyItemResponse,
 } from "../models/models_0";
-import { BatchUpdateCustomVocabularyItem } from "../schemas/schemas_0";
+import { BatchUpdateCustomVocabularyItem$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -125,7 +125,7 @@ export class BatchUpdateCustomVocabularyItemCommand extends $Command
   })
   .s("LexModelBuildingServiceV2", "BatchUpdateCustomVocabularyItem", {})
   .n("LexModelsV2Client", "BatchUpdateCustomVocabularyItemCommand")
-  .sc(BatchUpdateCustomVocabularyItem)
+  .sc(BatchUpdateCustomVocabularyItem$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPredictiveScalingForecastAnswer, GetPredictiveScalingForecastType } from "../models/models_0";
-import { GetPredictiveScalingForecast } from "../schemas/schemas_0";
+import { GetPredictiveScalingForecast$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -195,7 +195,7 @@ export class GetPredictiveScalingForecastCommand extends $Command
   })
   .s("AutoScaling_2011_01_01", "GetPredictiveScalingForecast", {})
   .n("AutoScalingClient", "GetPredictiveScalingForecastCommand")
-  .sc(GetPredictiveScalingForecast)
+  .sc(GetPredictiveScalingForecast$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

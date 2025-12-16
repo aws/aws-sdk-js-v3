@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteCorsConfigurationRequest } from "../models/models_0";
-import { DeleteCorsConfiguration } from "../schemas/schemas_0";
+import { DeleteCorsConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class DeleteCorsConfigurationCommand extends $Command
   })
   .s("ApiGatewayV2", "DeleteCorsConfiguration", {})
   .n("ApiGatewayV2Client", "DeleteCorsConfigurationCommand")
-  .sc(DeleteCorsConfiguration)
+  .sc(DeleteCorsConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

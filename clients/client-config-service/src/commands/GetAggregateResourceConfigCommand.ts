@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAggregateResourceConfigRequest, GetAggregateResourceConfigResponse } from "../models/models_0";
-import { GetAggregateResourceConfig } from "../schemas/schemas_0";
+import { GetAggregateResourceConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -163,7 +163,7 @@ export class GetAggregateResourceConfigCommand extends $Command
   })
   .s("StarlingDoveService", "GetAggregateResourceConfig", {})
   .n("ConfigServiceClient", "GetAggregateResourceConfigCommand")
-  .sc(GetAggregateResourceConfig)
+  .sc(GetAggregateResourceConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

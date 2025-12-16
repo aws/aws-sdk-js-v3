@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListRegionsRequest, ListRegionsResponse } from "../models/models_0";
-import { ListRegions } from "../schemas/schemas_0";
+import { ListRegions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class ListRegionsCommand extends $Command
   })
   .s("Account", "ListRegions", {})
   .n("AccountClient", "ListRegionsCommand")
-  .sc(ListRegions)
+  .sc(ListRegions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

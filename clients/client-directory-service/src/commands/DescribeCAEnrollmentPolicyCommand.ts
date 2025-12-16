@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeCAEnrollmentPolicyRequest, DescribeCAEnrollmentPolicyResult } from "../models/models_0";
-import { DescribeCAEnrollmentPolicy } from "../schemas/schemas_0";
+import { DescribeCAEnrollmentPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DescribeCAEnrollmentPolicyCommand extends $Command
   })
   .s("DirectoryService_20150416", "DescribeCAEnrollmentPolicy", {})
   .n("DirectoryServiceClient", "DescribeCAEnrollmentPolicyCommand")
-  .sc(DescribeCAEnrollmentPolicy)
+  .sc(DescribeCAEnrollmentPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

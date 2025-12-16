@@ -9,7 +9,7 @@ import type {
   ConfigureLogsForPlaybackConfigurationRequest,
   ConfigureLogsForPlaybackConfigurationResponse,
 } from "../models/models_0";
-import { ConfigureLogsForPlaybackConfiguration } from "../schemas/schemas_0";
+import { ConfigureLogsForPlaybackConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class ConfigureLogsForPlaybackConfigurationCommand extends $Command
   })
   .s("MediaTailor", "ConfigureLogsForPlaybackConfiguration", {})
   .n("MediaTailorClient", "ConfigureLogsForPlaybackConfigurationCommand")
-  .sc(ConfigureLogsForPlaybackConfiguration)
+  .sc(ConfigureLogsForPlaybackConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

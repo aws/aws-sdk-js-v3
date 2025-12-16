@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsClient";
-import { UpdateGroupQuery } from "../schemas/schemas_0";
+import { UpdateGroupQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class UpdateGroupQueryCommand extends $Command
   })
   .s("Ardi", "UpdateGroupQuery", {})
   .n("ResourceGroupsClient", "UpdateGroupQueryCommand")
-  .sc(UpdateGroupQuery)
+  .sc(UpdateGroupQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

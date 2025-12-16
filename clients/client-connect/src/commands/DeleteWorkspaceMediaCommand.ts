@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteWorkspaceMediaRequest, DeleteWorkspaceMediaResponse } from "../models/models_1";
-import { DeleteWorkspaceMedia } from "../schemas/schemas_0";
+import { DeleteWorkspaceMedia$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeleteWorkspaceMediaCommand extends $Command
   })
   .s("AmazonConnectService", "DeleteWorkspaceMedia", {})
   .n("ConnectClient", "DeleteWorkspaceMediaCommand")
-  .sc(DeleteWorkspaceMedia)
+  .sc(DeleteWorkspaceMedia$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

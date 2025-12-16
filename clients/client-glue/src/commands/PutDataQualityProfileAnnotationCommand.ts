@@ -9,7 +9,7 @@ import type {
   PutDataQualityProfileAnnotationRequest,
   PutDataQualityProfileAnnotationResponse,
 } from "../models/models_2";
-import { PutDataQualityProfileAnnotation } from "../schemas/schemas_0";
+import { PutDataQualityProfileAnnotation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class PutDataQualityProfileAnnotationCommand extends $Command
   })
   .s("AWSGlue", "PutDataQualityProfileAnnotation", {})
   .n("GlueClient", "PutDataQualityProfileAnnotationCommand")
-  .sc(PutDataQualityProfileAnnotation)
+  .sc(PutDataQualityProfileAnnotation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

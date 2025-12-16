@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { GetCustomerGatewayAssociations } from "../schemas/schemas_0";
+import { GetCustomerGatewayAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class GetCustomerGatewayAssociationsCommand extends $Command
   })
   .s("NetworkManager", "GetCustomerGatewayAssociations", {})
   .n("NetworkManagerClient", "GetCustomerGatewayAssociationsCommand")
-  .sc(GetCustomerGatewayAssociations)
+  .sc(GetCustomerGatewayAssociations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

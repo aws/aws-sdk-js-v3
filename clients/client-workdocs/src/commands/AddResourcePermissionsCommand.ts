@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AddResourcePermissionsRequest, AddResourcePermissionsResponse } from "../models/models_0";
-import { AddResourcePermissions } from "../schemas/schemas_0";
+import { AddResourcePermissions$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
@@ -113,7 +113,7 @@ export class AddResourcePermissionsCommand extends $Command
   })
   .s("AWSGorillaBoyService", "AddResourcePermissions", {})
   .n("WorkDocsClient", "AddResourcePermissionsCommand")
-  .sc(AddResourcePermissions)
+  .sc(AddResourcePermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

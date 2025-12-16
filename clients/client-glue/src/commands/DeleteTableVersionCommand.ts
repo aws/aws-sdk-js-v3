@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { DeleteTableVersionRequest, DeleteTableVersionResponse } from "../models/models_1";
-import { DeleteTableVersion } from "../schemas/schemas_0";
+import { DeleteTableVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class DeleteTableVersionCommand extends $Command
   })
   .s("AWSGlue", "DeleteTableVersion", {})
   .n("GlueClient", "DeleteTableVersionCommand")
-  .sc(DeleteTableVersion)
+  .sc(DeleteTableVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

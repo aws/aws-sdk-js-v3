@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetFileInput, GetFileOutput } from "../models/models_0";
-import { GetFile } from "../schemas/schemas_0";
+import { GetFile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class GetFileCommand extends $Command
   })
   .s("CodeCommit_20150413", "GetFile", {})
   .n("CodeCommitClient", "GetFileCommand")
-  .sc(GetFile)
+  .sc(GetFile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

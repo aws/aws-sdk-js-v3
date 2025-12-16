@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateExternalConnectionRequest, AssociateExternalConnectionResult } from "../models/models_0";
-import { AssociateExternalConnection } from "../schemas/schemas_0";
+import { AssociateExternalConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,7 +133,7 @@ export class AssociateExternalConnectionCommand extends $Command
   })
   .s("CodeArtifactControlPlaneService", "AssociateExternalConnection", {})
   .n("CodeartifactClient", "AssociateExternalConnectionCommand")
-  .sc(AssociateExternalConnection)
+  .sc(AssociateExternalConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

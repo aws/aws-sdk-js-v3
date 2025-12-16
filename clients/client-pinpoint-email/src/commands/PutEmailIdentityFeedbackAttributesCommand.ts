@@ -9,7 +9,7 @@ import type {
   PutEmailIdentityFeedbackAttributesResponse,
 } from "../models/models_0";
 import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
-import { PutEmailIdentityFeedbackAttributes } from "../schemas/schemas_0";
+import { PutEmailIdentityFeedbackAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command
   })
   .s("AmazonPinpointEmailService", "PutEmailIdentityFeedbackAttributes", {})
   .n("PinpointEmailClient", "PutEmailIdentityFeedbackAttributesCommand")
-  .sc(PutEmailIdentityFeedbackAttributes)
+  .sc(PutEmailIdentityFeedbackAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   UpdateIntegrationResourcePropertyRequest,
   UpdateIntegrationResourcePropertyResponse,
 } from "../models/models_2";
-import { UpdateIntegrationResourceProperty } from "../schemas/schemas_0";
+import { UpdateIntegrationResourceProperty$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class UpdateIntegrationResourcePropertyCommand extends $Command
   })
   .s("AWSGlue", "UpdateIntegrationResourceProperty", {})
   .n("GlueClient", "UpdateIntegrationResourcePropertyCommand")
-  .sc(UpdateIntegrationResourceProperty)
+  .sc(UpdateIntegrationResourceProperty$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -446,48 +446,48 @@ const n0 = "com.amazonaws.elasticbeanstalk";
 import { TypeRegistry } from "@smithy/core/schema";
 import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
 
-import { ElasticBeanstalkSyntheticServiceException as __ElasticBeanstalkSyntheticServiceException } from "../models/ElasticBeanstalkSyntheticServiceException";
+import { ElasticBeanstalkSyntheticServiceException } from "../models/ElasticBeanstalkSyntheticServiceException";
 import {
-  CodeBuildNotInServiceRegionException as __CodeBuildNotInServiceRegionException,
-  ElasticBeanstalkServiceException as __ElasticBeanstalkServiceException,
-  InsufficientPrivilegesException as __InsufficientPrivilegesException,
-  InvalidRequestException as __InvalidRequestException,
-  ManagedActionInvalidStateException as __ManagedActionInvalidStateException,
-  OperationInProgressException as __OperationInProgressException,
-  PlatformVersionStillReferencedException as __PlatformVersionStillReferencedException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ResourceTypeNotSupportedException as __ResourceTypeNotSupportedException,
-  S3LocationNotInServiceRegionException as __S3LocationNotInServiceRegionException,
-  S3SubscriptionRequiredException as __S3SubscriptionRequiredException,
-  SourceBundleDeletionException as __SourceBundleDeletionException,
-  TooManyApplicationsException as __TooManyApplicationsException,
-  TooManyApplicationVersionsException as __TooManyApplicationVersionsException,
-  TooManyBucketsException as __TooManyBucketsException,
-  TooManyConfigurationTemplatesException as __TooManyConfigurationTemplatesException,
-  TooManyEnvironmentsException as __TooManyEnvironmentsException,
-  TooManyPlatformsException as __TooManyPlatformsException,
-  TooManyTagsException as __TooManyTagsException,
+  CodeBuildNotInServiceRegionException,
+  ElasticBeanstalkServiceException,
+  InsufficientPrivilegesException,
+  InvalidRequestException,
+  ManagedActionInvalidStateException,
+  OperationInProgressException,
+  PlatformVersionStillReferencedException,
+  ResourceNotFoundException,
+  ResourceTypeNotSupportedException,
+  S3LocationNotInServiceRegionException,
+  S3SubscriptionRequiredException,
+  SourceBundleDeletionException,
+  TooManyApplicationsException,
+  TooManyApplicationVersionsException,
+  TooManyBucketsException,
+  TooManyConfigurationTemplatesException,
+  TooManyEnvironmentsException,
+  TooManyPlatformsException,
+  TooManyTagsException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AbortEnvironmentUpdateMessage: StaticStructureSchema = [3, n0, _AEUM, 0, [_EI, _EN], [0, 0]];
-export var ApplicationDescription: StaticStructureSchema = [
+export var AbortEnvironmentUpdateMessage$: StaticStructureSchema = [3, n0, _AEUM, 0, [_EI, _EN], [0, 0]];
+export var ApplicationDescription$: StaticStructureSchema = [
   3,
   n0,
   _AD,
   0,
   [_AA, _AN, _D, _DC, _DU, _V, _CT, _RLC],
-  [0, 0, 0, 4, 4, 64 | 0, 64 | 0, () => ApplicationResourceLifecycleConfig],
+  [0, 0, 0, 4, 4, 64 | 0, 64 | 0, () => ApplicationResourceLifecycleConfig$],
 ];
-export var ApplicationDescriptionMessage: StaticStructureSchema = [
+export var ApplicationDescriptionMessage$: StaticStructureSchema = [
   3,
   n0,
   _ADM,
   0,
   [_A],
-  [() => ApplicationDescription],
+  [() => ApplicationDescription$],
 ];
-export var ApplicationDescriptionsMessage: StaticStructureSchema = [
+export var ApplicationDescriptionsMessage$: StaticStructureSchema = [
   3,
   n0,
   _ADMp,
@@ -495,47 +495,47 @@ export var ApplicationDescriptionsMessage: StaticStructureSchema = [
   [_Ap],
   [() => ApplicationDescriptionList],
 ];
-export var ApplicationMetrics: StaticStructureSchema = [
+export var ApplicationMetrics$: StaticStructureSchema = [
   3,
   n0,
   _AM,
   0,
   [_Du, _RC, _SC, _L],
-  [1, 1, () => StatusCodes, () => Latency],
+  [1, 1, () => StatusCodes$, () => Latency$],
 ];
-export var ApplicationResourceLifecycleConfig: StaticStructureSchema = [
+export var ApplicationResourceLifecycleConfig$: StaticStructureSchema = [
   3,
   n0,
   _ARLC,
   0,
   [_SR, _VLC],
-  [0, () => ApplicationVersionLifecycleConfig],
+  [0, () => ApplicationVersionLifecycleConfig$],
 ];
-export var ApplicationResourceLifecycleDescriptionMessage: StaticStructureSchema = [
+export var ApplicationResourceLifecycleDescriptionMessage$: StaticStructureSchema = [
   3,
   n0,
   _ARLDM,
   0,
   [_AN, _RLC],
-  [0, () => ApplicationResourceLifecycleConfig],
+  [0, () => ApplicationResourceLifecycleConfig$],
 ];
-export var ApplicationVersionDescription: StaticStructureSchema = [
+export var ApplicationVersionDescription$: StaticStructureSchema = [
   3,
   n0,
   _AVD,
   0,
   [_AVA, _AN, _D, _VL, _SBI, _BA, _SB, _DC, _DU, _S],
-  [0, 0, 0, 0, () => SourceBuildInformation, 0, () => S3Location, 4, 4, 0],
+  [0, 0, 0, 0, () => SourceBuildInformation$, 0, () => S3Location$, 4, 4, 0],
 ];
-export var ApplicationVersionDescriptionMessage: StaticStructureSchema = [
+export var ApplicationVersionDescriptionMessage$: StaticStructureSchema = [
   3,
   n0,
   _AVDM,
   0,
   [_AV],
-  [() => ApplicationVersionDescription],
+  [() => ApplicationVersionDescription$],
 ];
-export var ApplicationVersionDescriptionsMessage: StaticStructureSchema = [
+export var ApplicationVersionDescriptionsMessage$: StaticStructureSchema = [
   3,
   n0,
   _AVDMp,
@@ -543,16 +543,23 @@ export var ApplicationVersionDescriptionsMessage: StaticStructureSchema = [
   [_AVp, _NT],
   [() => ApplicationVersionDescriptionList, 0],
 ];
-export var ApplicationVersionLifecycleConfig: StaticStructureSchema = [
+export var ApplicationVersionLifecycleConfig$: StaticStructureSchema = [
   3,
   n0,
   _AVLC,
   0,
   [_MCR, _MAR],
-  [() => MaxCountRule, () => MaxAgeRule],
+  [() => MaxCountRule$, () => MaxAgeRule$],
 ];
-export var ApplyEnvironmentManagedActionRequest: StaticStructureSchema = [3, n0, _AEMAR, 0, [_EN, _EI, _AI], [0, 0, 0]];
-export var ApplyEnvironmentManagedActionResult: StaticStructureSchema = [
+export var ApplyEnvironmentManagedActionRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _AEMAR,
+  0,
+  [_EN, _EI, _AI],
+  [0, 0, 0],
+];
+export var ApplyEnvironmentManagedActionResult$: StaticStructureSchema = [
   3,
   n0,
   _AEMARp,
@@ -560,13 +567,13 @@ export var ApplyEnvironmentManagedActionResult: StaticStructureSchema = [
   [_AI, _ADc, _AT, _S],
   [0, 0, 0, 0],
 ];
-export var AssociateEnvironmentOperationsRoleMessage: StaticStructureSchema = [3, n0, _AEORM, 0, [_EN, _OR], [0, 0]];
-export var AutoScalingGroup: StaticStructureSchema = [3, n0, _ASG, 0, [_N], [0]];
-export var BuildConfiguration: StaticStructureSchema = [3, n0, _BC, 0, [_ANr, _CBSR, _CTo, _I, _TIM], [0, 0, 0, 0, 1]];
-export var Builder: StaticStructureSchema = [3, n0, _B, 0, [_ARN], [0]];
-export var CheckDNSAvailabilityMessage: StaticStructureSchema = [3, n0, _CDNSAM, 0, [_CNAMEP], [0]];
-export var CheckDNSAvailabilityResultMessage: StaticStructureSchema = [3, n0, _CDNSARM, 0, [_Av, _FQCNAME], [2, 0]];
-export var CodeBuildNotInServiceRegionException: StaticErrorSchema = [
+export var AssociateEnvironmentOperationsRoleMessage$: StaticStructureSchema = [3, n0, _AEORM, 0, [_EN, _OR], [0, 0]];
+export var AutoScalingGroup$: StaticStructureSchema = [3, n0, _ASG, 0, [_N], [0]];
+export var BuildConfiguration$: StaticStructureSchema = [3, n0, _BC, 0, [_ANr, _CBSR, _CTo, _I, _TIM], [0, 0, 0, 0, 1]];
+export var Builder$: StaticStructureSchema = [3, n0, _B, 0, [_ARN], [0]];
+export var CheckDNSAvailabilityMessage$: StaticStructureSchema = [3, n0, _CDNSAM, 0, [_CNAMEP], [0]];
+export var CheckDNSAvailabilityResultMessage$: StaticStructureSchema = [3, n0, _CDNSARM, 0, [_Av, _FQCNAME], [2, 0]];
+export var CodeBuildNotInServiceRegionException$: StaticErrorSchema = [
   -3,
   n0,
   _CBNISRE,
@@ -574,17 +581,17 @@ export var CodeBuildNotInServiceRegionException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(CodeBuildNotInServiceRegionException, __CodeBuildNotInServiceRegionException);
-export var ComposeEnvironmentsMessage: StaticStructureSchema = [3, n0, _CEM, 0, [_AN, _GN, _VLe], [0, 0, 64 | 0]];
-export var ConfigurationOptionDescription: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(CodeBuildNotInServiceRegionException$, CodeBuildNotInServiceRegionException);
+export var ComposeEnvironmentsMessage$: StaticStructureSchema = [3, n0, _CEM, 0, [_AN, _GN, _VLe], [0, 0, 64 | 0]];
+export var ConfigurationOptionDescription$: StaticStructureSchema = [
   3,
   n0,
   _COD,
   0,
   [_Na, _N, _DV, _CS, _UD, _VT, _VO, _MV, _MVa, _ML, _R],
-  [0, 0, 0, 0, 2, 0, 64 | 0, 1, 1, 1, () => OptionRestrictionRegex],
+  [0, 0, 0, 0, 2, 0, 64 | 0, 1, 1, 1, () => OptionRestrictionRegex$],
 ];
-export var ConfigurationOptionsDescription: StaticStructureSchema = [
+export var ConfigurationOptionsDescription$: StaticStructureSchema = [
   3,
   n0,
   _CODo,
@@ -592,8 +599,8 @@ export var ConfigurationOptionsDescription: StaticStructureSchema = [
   [_SSN, _PA, _O],
   [0, 0, () => ConfigurationOptionDescriptionsList],
 ];
-export var ConfigurationOptionSetting: StaticStructureSchema = [3, n0, _COS, 0, [_RN, _Na, _ON, _Va], [0, 0, 0, 0]];
-export var ConfigurationSettingsDescription: StaticStructureSchema = [
+export var ConfigurationOptionSetting$: StaticStructureSchema = [3, n0, _COS, 0, [_RN, _Na, _ON, _Va], [0, 0, 0, 0]];
+export var ConfigurationSettingsDescription$: StaticStructureSchema = [
   3,
   n0,
   _CSD,
@@ -601,7 +608,7 @@ export var ConfigurationSettingsDescription: StaticStructureSchema = [
   [_SSN, _PA, _AN, _TN, _D, _EN, _DS, _DC, _DU, _OS],
   [0, 0, 0, 0, 0, 0, 0, 4, 4, () => ConfigurationOptionSettingsList],
 ];
-export var ConfigurationSettingsDescriptions: StaticStructureSchema = [
+export var ConfigurationSettingsDescriptions$: StaticStructureSchema = [
   3,
   n0,
   _CSDo,
@@ -609,7 +616,7 @@ export var ConfigurationSettingsDescriptions: StaticStructureSchema = [
   [_CSo],
   [() => ConfigurationSettingsDescriptionList],
 ];
-export var ConfigurationSettingsValidationMessages: StaticStructureSchema = [
+export var ConfigurationSettingsValidationMessages$: StaticStructureSchema = [
   3,
   n0,
   _CSVM,
@@ -617,7 +624,7 @@ export var ConfigurationSettingsValidationMessages: StaticStructureSchema = [
   [_M],
   [() => ValidationMessagesList],
 ];
-export var CPUUtilization: StaticStructureSchema = [
+export var CPUUtilization$: StaticStructureSchema = [
   3,
   n0,
   _CPUU,
@@ -625,31 +632,31 @@ export var CPUUtilization: StaticStructureSchema = [
   [_U, _Ni, _Sy, _Id, _IOW, _IRQ, _SIRQ, _P],
   [1, 1, 1, 1, 1, 1, 1, 1],
 ];
-export var CreateApplicationMessage: StaticStructureSchema = [
+export var CreateApplicationMessage$: StaticStructureSchema = [
   3,
   n0,
   _CAM,
   0,
   [_AN, _D, _RLC, _T],
-  [0, 0, () => ApplicationResourceLifecycleConfig, () => Tags],
+  [0, 0, () => ApplicationResourceLifecycleConfig$, () => Tags],
 ];
-export var CreateApplicationVersionMessage: StaticStructureSchema = [
+export var CreateApplicationVersionMessage$: StaticStructureSchema = [
   3,
   n0,
   _CAVM,
   0,
   [_AN, _VL, _D, _SBI, _SB, _BC, _ACA, _Pr, _T],
-  [0, 0, 0, () => SourceBuildInformation, () => S3Location, () => BuildConfiguration, 2, 2, () => Tags],
+  [0, 0, 0, () => SourceBuildInformation$, () => S3Location$, () => BuildConfiguration$, 2, 2, () => Tags],
 ];
-export var CreateConfigurationTemplateMessage: StaticStructureSchema = [
+export var CreateConfigurationTemplateMessage$: StaticStructureSchema = [
   3,
   n0,
   _CCTM,
   0,
   [_AN, _TN, _SSN, _PA, _SCo, _EI, _D, _OS, _T],
-  [0, 0, 0, 0, () => SourceConfiguration, 0, 0, () => ConfigurationOptionSettingsList, () => Tags],
+  [0, 0, 0, 0, () => SourceConfiguration$, 0, 0, () => ConfigurationOptionSettingsList, () => Tags],
 ];
-export var CreateEnvironmentMessage: StaticStructureSchema = [
+export var CreateEnvironmentMessage$: StaticStructureSchema = [
   3,
   n0,
   _CEMr,
@@ -661,7 +668,7 @@ export var CreateEnvironmentMessage: StaticStructureSchema = [
     0,
     0,
     0,
-    () => EnvironmentTier,
+    () => EnvironmentTier$,
     () => Tags,
     0,
     0,
@@ -672,34 +679,34 @@ export var CreateEnvironmentMessage: StaticStructureSchema = [
     0,
   ],
 ];
-export var CreatePlatformVersionRequest: StaticStructureSchema = [
+export var CreatePlatformVersionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CPVR,
   0,
   [_PN, _PV, _PDB, _EN, _OS, _T],
-  [0, 0, () => S3Location, 0, () => ConfigurationOptionSettingsList, () => Tags],
+  [0, 0, () => S3Location$, 0, () => ConfigurationOptionSettingsList, () => Tags],
 ];
-export var CreatePlatformVersionResult: StaticStructureSchema = [
+export var CreatePlatformVersionResult$: StaticStructureSchema = [
   3,
   n0,
   _CPVRr,
   0,
   [_PS, _B],
-  [() => PlatformSummary, () => Builder],
+  [() => PlatformSummary$, () => Builder$],
 ];
-export var CreateStorageLocationResultMessage: StaticStructureSchema = [3, n0, _CSLRM, 0, [_SBu], [0]];
-export var CustomAmi: StaticStructureSchema = [3, n0, _CA, 0, [_VTi, _II], [0, 0]];
-export var DeleteApplicationMessage: StaticStructureSchema = [3, n0, _DAM, 0, [_AN, _TEBF], [0, 2]];
-export var DeleteApplicationVersionMessage: StaticStructureSchema = [3, n0, _DAVM, 0, [_AN, _VL, _DSB], [0, 0, 2]];
-export var DeleteConfigurationTemplateMessage: StaticStructureSchema = [3, n0, _DCTM, 0, [_AN, _TN], [0, 0]];
-export var DeleteEnvironmentConfigurationMessage: StaticStructureSchema = [3, n0, _DECM, 0, [_AN, _EN], [0, 0]];
-export var DeletePlatformVersionRequest: StaticStructureSchema = [3, n0, _DPVR, 0, [_PA], [0]];
-export var DeletePlatformVersionResult: StaticStructureSchema = [3, n0, _DPVRe, 0, [_PS], [() => PlatformSummary]];
-export var Deployment: StaticStructureSchema = [3, n0, _De, 0, [_VL, _DI, _S, _DT], [0, 1, 0, 4]];
-export var DescribeAccountAttributesResult: StaticStructureSchema = [3, n0, _DAAR, 0, [_RQ], [() => ResourceQuotas]];
-export var DescribeApplicationsMessage: StaticStructureSchema = [3, n0, _DAMe, 0, [_ANp], [64 | 0]];
-export var DescribeApplicationVersionsMessage: StaticStructureSchema = [
+export var CreateStorageLocationResultMessage$: StaticStructureSchema = [3, n0, _CSLRM, 0, [_SBu], [0]];
+export var CustomAmi$: StaticStructureSchema = [3, n0, _CA, 0, [_VTi, _II], [0, 0]];
+export var DeleteApplicationMessage$: StaticStructureSchema = [3, n0, _DAM, 0, [_AN, _TEBF], [0, 2]];
+export var DeleteApplicationVersionMessage$: StaticStructureSchema = [3, n0, _DAVM, 0, [_AN, _VL, _DSB], [0, 0, 2]];
+export var DeleteConfigurationTemplateMessage$: StaticStructureSchema = [3, n0, _DCTM, 0, [_AN, _TN], [0, 0]];
+export var DeleteEnvironmentConfigurationMessage$: StaticStructureSchema = [3, n0, _DECM, 0, [_AN, _EN], [0, 0]];
+export var DeletePlatformVersionRequest$: StaticStructureSchema = [3, n0, _DPVR, 0, [_PA], [0]];
+export var DeletePlatformVersionResult$: StaticStructureSchema = [3, n0, _DPVRe, 0, [_PS], [() => PlatformSummary$]];
+export var Deployment$: StaticStructureSchema = [3, n0, _De, 0, [_VL, _DI, _S, _DT], [0, 1, 0, 4]];
+export var DescribeAccountAttributesResult$: StaticStructureSchema = [3, n0, _DAAR, 0, [_RQ], [() => ResourceQuotas$]];
+export var DescribeApplicationsMessage$: StaticStructureSchema = [3, n0, _DAMe, 0, [_ANp], [64 | 0]];
+export var DescribeApplicationVersionsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DAVMe,
@@ -707,7 +714,7 @@ export var DescribeApplicationVersionsMessage: StaticStructureSchema = [
   [_AN, _VLe, _MR, _NT],
   [0, 64 | 0, 1, 0],
 ];
-export var DescribeConfigurationOptionsMessage: StaticStructureSchema = [
+export var DescribeConfigurationOptionsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DCOM,
@@ -715,8 +722,8 @@ export var DescribeConfigurationOptionsMessage: StaticStructureSchema = [
   [_AN, _TN, _EN, _SSN, _PA, _O],
   [0, 0, 0, 0, 0, () => OptionsSpecifierList],
 ];
-export var DescribeConfigurationSettingsMessage: StaticStructureSchema = [3, n0, _DCSM, 0, [_AN, _TN, _EN], [0, 0, 0]];
-export var DescribeEnvironmentHealthRequest: StaticStructureSchema = [
+export var DescribeConfigurationSettingsMessage$: StaticStructureSchema = [3, n0, _DCSM, 0, [_AN, _TN, _EN], [0, 0, 0]];
+export var DescribeEnvironmentHealthRequest$: StaticStructureSchema = [
   3,
   n0,
   _DEHR,
@@ -724,15 +731,15 @@ export var DescribeEnvironmentHealthRequest: StaticStructureSchema = [
   [_EN, _EI, _ANt],
   [0, 0, 64 | 0],
 ];
-export var DescribeEnvironmentHealthResult: StaticStructureSchema = [
+export var DescribeEnvironmentHealthResult$: StaticStructureSchema = [
   3,
   n0,
   _DEHRe,
   0,
   [_EN, _HS, _S, _C, _Ca, _AM, _IH, _RA],
-  [0, 0, 0, 0, 64 | 0, () => ApplicationMetrics, () => InstanceHealthSummary, 4],
+  [0, 0, 0, 0, 64 | 0, () => ApplicationMetrics$, () => InstanceHealthSummary$, 4],
 ];
-export var DescribeEnvironmentManagedActionHistoryRequest: StaticStructureSchema = [
+export var DescribeEnvironmentManagedActionHistoryRequest$: StaticStructureSchema = [
   3,
   n0,
   _DEMAHR,
@@ -740,7 +747,7 @@ export var DescribeEnvironmentManagedActionHistoryRequest: StaticStructureSchema
   [_EI, _EN, _NT, _MI],
   [0, 0, 0, 1],
 ];
-export var DescribeEnvironmentManagedActionHistoryResult: StaticStructureSchema = [
+export var DescribeEnvironmentManagedActionHistoryResult$: StaticStructureSchema = [
   3,
   n0,
   _DEMAHRe,
@@ -748,7 +755,7 @@ export var DescribeEnvironmentManagedActionHistoryResult: StaticStructureSchema 
   [_MAHI, _NT],
   [() => ManagedActionHistoryItems, 0],
 ];
-export var DescribeEnvironmentManagedActionsRequest: StaticStructureSchema = [
+export var DescribeEnvironmentManagedActionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _DEMAR,
@@ -756,7 +763,7 @@ export var DescribeEnvironmentManagedActionsRequest: StaticStructureSchema = [
   [_EN, _EI, _S],
   [0, 0, 0],
 ];
-export var DescribeEnvironmentManagedActionsResult: StaticStructureSchema = [
+export var DescribeEnvironmentManagedActionsResult$: StaticStructureSchema = [
   3,
   n0,
   _DEMARe,
@@ -764,8 +771,8 @@ export var DescribeEnvironmentManagedActionsResult: StaticStructureSchema = [
   [_MA],
   [() => ManagedActions],
 ];
-export var DescribeEnvironmentResourcesMessage: StaticStructureSchema = [3, n0, _DERM, 0, [_EI, _EN], [0, 0]];
-export var DescribeEnvironmentsMessage: StaticStructureSchema = [
+export var DescribeEnvironmentResourcesMessage$: StaticStructureSchema = [3, n0, _DERM, 0, [_EI, _EN], [0, 0]];
+export var DescribeEnvironmentsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DEM,
@@ -773,7 +780,7 @@ export var DescribeEnvironmentsMessage: StaticStructureSchema = [
   [_AN, _VL, _EIn, _ENn, _ID, _IDBT, _MR, _NT],
   [0, 0, 64 | 0, 64 | 0, 2, 4, 1, 0],
 ];
-export var DescribeEventsMessage: StaticStructureSchema = [
+export var DescribeEventsMessage$: StaticStructureSchema = [
   3,
   n0,
   _DEMe,
@@ -781,7 +788,7 @@ export var DescribeEventsMessage: StaticStructureSchema = [
   [_AN, _VL, _TN, _EI, _EN, _PA, _RI, _Se, _ST, _ET, _MR, _NT],
   [0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 1, 0],
 ];
-export var DescribeInstancesHealthRequest: StaticStructureSchema = [
+export var DescribeInstancesHealthRequest$: StaticStructureSchema = [
   3,
   n0,
   _DIHR,
@@ -789,7 +796,7 @@ export var DescribeInstancesHealthRequest: StaticStructureSchema = [
   [_EN, _EI, _ANt, _NT],
   [0, 0, 64 | 0, 0],
 ];
-export var DescribeInstancesHealthResult: StaticStructureSchema = [
+export var DescribeInstancesHealthResult$: StaticStructureSchema = [
   3,
   n0,
   _DIHRe,
@@ -797,19 +804,19 @@ export var DescribeInstancesHealthResult: StaticStructureSchema = [
   [_IHL, _RA, _NT],
   [() => InstanceHealthList, 4, 0],
 ];
-export var DescribePlatformVersionRequest: StaticStructureSchema = [3, n0, _DPVRes, 0, [_PA], [0]];
-export var DescribePlatformVersionResult: StaticStructureSchema = [
+export var DescribePlatformVersionRequest$: StaticStructureSchema = [3, n0, _DPVRes, 0, [_PA], [0]];
+export var DescribePlatformVersionResult$: StaticStructureSchema = [
   3,
   n0,
   _DPVResc,
   0,
   [_PD],
-  [() => PlatformDescription],
+  [() => PlatformDescription$],
 ];
-export var DisassociateEnvironmentOperationsRoleMessage: StaticStructureSchema = [3, n0, _DEORM, 0, [_EN], [0]];
-export var ElasticBeanstalkServiceException: StaticErrorSchema = [-3, n0, _EBSE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ElasticBeanstalkServiceException, __ElasticBeanstalkServiceException);
-export var EnvironmentDescription: StaticStructureSchema = [
+export var DisassociateEnvironmentOperationsRoleMessage$: StaticStructureSchema = [3, n0, _DEORM, 0, [_EN], [0]];
+export var ElasticBeanstalkServiceException$: StaticErrorSchema = [-3, n0, _EBSE, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ElasticBeanstalkServiceException$, ElasticBeanstalkServiceException);
+export var EnvironmentDescription$: StaticStructureSchema = [
   3,
   n0,
   _ED,
@@ -832,14 +839,14 @@ export var EnvironmentDescription: StaticStructureSchema = [
     2,
     0,
     0,
-    () => EnvironmentResourcesDescription,
-    () => EnvironmentTier,
+    () => EnvironmentResourcesDescription$,
+    () => EnvironmentTier$,
     () => EnvironmentLinks,
     0,
     0,
   ],
 ];
-export var EnvironmentDescriptionsMessage: StaticStructureSchema = [
+export var EnvironmentDescriptionsMessage$: StaticStructureSchema = [
   3,
   n0,
   _EDM,
@@ -847,9 +854,9 @@ export var EnvironmentDescriptionsMessage: StaticStructureSchema = [
   [_E, _NT],
   [() => EnvironmentDescriptionsList, 0],
 ];
-export var EnvironmentInfoDescription: StaticStructureSchema = [3, n0, _EID, 0, [_IT, _EII, _STa, _Me], [0, 0, 4, 0]];
-export var EnvironmentLink: StaticStructureSchema = [3, n0, _ELn, 0, [_LN, _EN], [0, 0]];
-export var EnvironmentResourceDescription: StaticStructureSchema = [
+export var EnvironmentInfoDescription$: StaticStructureSchema = [3, n0, _EID, 0, [_IT, _EII, _STa, _Me], [0, 0, 4, 0]];
+export var EnvironmentLink$: StaticStructureSchema = [3, n0, _ELn, 0, [_LN, _EN], [0, 0]];
+export var EnvironmentResourceDescription$: StaticStructureSchema = [
   3,
   n0,
   _ERD,
@@ -866,24 +873,24 @@ export var EnvironmentResourceDescription: StaticStructureSchema = [
     () => QueueList,
   ],
 ];
-export var EnvironmentResourceDescriptionsMessage: StaticStructureSchema = [
+export var EnvironmentResourceDescriptionsMessage$: StaticStructureSchema = [
   3,
   n0,
   _ERDM,
   0,
   [_ER],
-  [() => EnvironmentResourceDescription],
+  [() => EnvironmentResourceDescription$],
 ];
-export var EnvironmentResourcesDescription: StaticStructureSchema = [
+export var EnvironmentResourcesDescription$: StaticStructureSchema = [
   3,
   n0,
   _ERDn,
   0,
   [_LBo],
-  [() => LoadBalancerDescription],
+  [() => LoadBalancerDescription$],
 ];
-export var EnvironmentTier: StaticStructureSchema = [3, n0, _ETn, 0, [_N, _Ty, _Ve], [0, 0, 0]];
-export var EventDescription: StaticStructureSchema = [
+export var EnvironmentTier$: StaticStructureSchema = [3, n0, _ETn, 0, [_N, _Ty, _Ve], [0, 0, 0]];
+export var EventDescription$: StaticStructureSchema = [
   3,
   n0,
   _EDv,
@@ -891,7 +898,7 @@ export var EventDescription: StaticStructureSchema = [
   [_EDve, _Me, _AN, _VL, _TN, _EN, _PA, _RI, _Se],
   [4, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var EventDescriptionsMessage: StaticStructureSchema = [
+export var EventDescriptionsMessage$: StaticStructureSchema = [
   3,
   n0,
   _EDMv,
@@ -899,8 +906,8 @@ export var EventDescriptionsMessage: StaticStructureSchema = [
   [_Ev, _NT],
   [() => EventDescriptionList, 0],
 ];
-export var Instance: StaticStructureSchema = [3, n0, _Ins, 0, [_Id_], [0]];
-export var InstanceHealthSummary: StaticStructureSchema = [
+export var Instance$: StaticStructureSchema = [3, n0, _Ins, 0, [_Id_], [0]];
+export var InstanceHealthSummary$: StaticStructureSchema = [
   3,
   n0,
   _IHS,
@@ -908,7 +915,7 @@ export var InstanceHealthSummary: StaticStructureSchema = [
   [_ND, _Un, _Pe, _Ok, _Inf, _W, _Deg, _Sev],
   [1, 1, 1, 1, 1, 1, 1, 1],
 ];
-export var InsufficientPrivilegesException: StaticErrorSchema = [
+export var InsufficientPrivilegesException$: StaticErrorSchema = [
   -3,
   n0,
   _IPE,
@@ -916,8 +923,8 @@ export var InsufficientPrivilegesException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(InsufficientPrivilegesException, __InsufficientPrivilegesException);
-export var InvalidRequestException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(InsufficientPrivilegesException$, InsufficientPrivilegesException);
+export var InvalidRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _IRE,
@@ -925,8 +932,8 @@ export var InvalidRequestException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-export var Latency: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
+export var Latency$: StaticStructureSchema = [
   3,
   n0,
   _L,
@@ -934,9 +941,9 @@ export var Latency: StaticStructureSchema = [
   [_P_, _P__, _P___, _P____, _P_____, _P______, _P_______, _P________],
   [1, 1, 1, 1, 1, 1, 1, 1],
 ];
-export var LaunchConfiguration: StaticStructureSchema = [3, n0, _LCa, 0, [_N], [0]];
-export var LaunchTemplate: StaticStructureSchema = [3, n0, _LTa, 0, [_Id_], [0]];
-export var ListAvailableSolutionStacksResultMessage: StaticStructureSchema = [
+export var LaunchConfiguration$: StaticStructureSchema = [3, n0, _LCa, 0, [_N], [0]];
+export var LaunchTemplate$: StaticStructureSchema = [3, n0, _LTa, 0, [_Id_], [0]];
+export var ListAvailableSolutionStacksResultMessage$: StaticStructureSchema = [
   3,
   n0,
   _LASSRM,
@@ -944,8 +951,8 @@ export var ListAvailableSolutionStacksResultMessage: StaticStructureSchema = [
   [_SS, _SSD],
   [64 | 0, () => AvailableSolutionStackDetailsList],
 ];
-export var Listener: StaticStructureSchema = [3, n0, _Li, 0, [_Pro, _Po], [0, 1]];
-export var ListPlatformBranchesRequest: StaticStructureSchema = [
+export var Listener$: StaticStructureSchema = [3, n0, _Li, 0, [_Pro, _Po], [0, 1]];
+export var ListPlatformBranchesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPBR,
@@ -953,7 +960,7 @@ export var ListPlatformBranchesRequest: StaticStructureSchema = [
   [_F, _MR, _NT],
   [() => SearchFilters, 1, 0],
 ];
-export var ListPlatformBranchesResult: StaticStructureSchema = [
+export var ListPlatformBranchesResult$: StaticStructureSchema = [
   3,
   n0,
   _LPBRi,
@@ -961,7 +968,7 @@ export var ListPlatformBranchesResult: StaticStructureSchema = [
   [_PBSL, _NT],
   [() => PlatformBranchSummaryList, 0],
 ];
-export var ListPlatformVersionsRequest: StaticStructureSchema = [
+export var ListPlatformVersionsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPVR,
@@ -969,7 +976,7 @@ export var ListPlatformVersionsRequest: StaticStructureSchema = [
   [_F, _MR, _NT],
   [() => PlatformFilters, 1, 0],
 ];
-export var ListPlatformVersionsResult: StaticStructureSchema = [
+export var ListPlatformVersionsResult$: StaticStructureSchema = [
   3,
   n0,
   _LPVRi,
@@ -977,9 +984,9 @@ export var ListPlatformVersionsResult: StaticStructureSchema = [
   [_PSL, _NT],
   [() => PlatformSummaryList, 0],
 ];
-export var ListTagsForResourceMessage: StaticStructureSchema = [3, n0, _LTFRM, 0, [_RAe], [0]];
-export var LoadBalancer: StaticStructureSchema = [3, n0, _LBo, 0, [_N], [0]];
-export var LoadBalancerDescription: StaticStructureSchema = [
+export var ListTagsForResourceMessage$: StaticStructureSchema = [3, n0, _LTFRM, 0, [_RAe], [0]];
+export var LoadBalancer$: StaticStructureSchema = [3, n0, _LBo, 0, [_N], [0]];
+export var LoadBalancerDescription$: StaticStructureSchema = [
   3,
   n0,
   _LBD,
@@ -987,8 +994,8 @@ export var LoadBalancerDescription: StaticStructureSchema = [
   [_LBN, _Do, _Lis],
   [0, 0, () => LoadBalancerListenersDescription],
 ];
-export var ManagedAction: StaticStructureSchema = [3, n0, _MAa, 0, [_AI, _ADc, _AT, _S, _WST], [0, 0, 0, 0, 4]];
-export var ManagedActionHistoryItem: StaticStructureSchema = [
+export var ManagedAction$: StaticStructureSchema = [3, n0, _MAa, 0, [_AI, _ADc, _AT, _S, _WST], [0, 0, 0, 0, 4]];
+export var ManagedActionHistoryItem$: StaticStructureSchema = [
   3,
   n0,
   _MAHIa,
@@ -996,7 +1003,7 @@ export var ManagedActionHistoryItem: StaticStructureSchema = [
   [_AI, _AT, _ADc, _FT, _S, _FD, _ETx, _FTi],
   [0, 0, 0, 0, 0, 0, 4, 4],
 ];
-export var ManagedActionInvalidStateException: StaticErrorSchema = [
+export var ManagedActionInvalidStateException$: StaticErrorSchema = [
   -3,
   n0,
   _MAISE,
@@ -1004,10 +1011,10 @@ export var ManagedActionInvalidStateException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ManagedActionInvalidStateException, __ManagedActionInvalidStateException);
-export var MaxAgeRule: StaticStructureSchema = [3, n0, _MAR, 0, [_En, _MAID, _DSFS], [2, 1, 2]];
-export var MaxCountRule: StaticStructureSchema = [3, n0, _MCR, 0, [_En, _MC, _DSFS], [2, 1, 2]];
-export var OperationInProgressException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(ManagedActionInvalidStateException$, ManagedActionInvalidStateException);
+export var MaxAgeRule$: StaticStructureSchema = [3, n0, _MAR, 0, [_En, _MAID, _DSFS], [2, 1, 2]];
+export var MaxCountRule$: StaticStructureSchema = [3, n0, _MCR, 0, [_En, _MC, _DSFS], [2, 1, 2]];
+export var OperationInProgressException$: StaticErrorSchema = [
   -3,
   n0,
   _OIPE,
@@ -1015,10 +1022,10 @@ export var OperationInProgressException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(OperationInProgressException, __OperationInProgressException);
-export var OptionRestrictionRegex: StaticStructureSchema = [3, n0, _ORR, 0, [_Pa, _La], [0, 0]];
-export var OptionSpecification: StaticStructureSchema = [3, n0, _OSp, 0, [_RN, _Na, _ON], [0, 0, 0]];
-export var PlatformBranchSummary: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(OperationInProgressException$, OperationInProgressException);
+export var OptionRestrictionRegex$: StaticStructureSchema = [3, n0, _ORR, 0, [_Pa, _La], [0, 0]];
+export var OptionSpecification$: StaticStructureSchema = [3, n0, _OSp, 0, [_RN, _Na, _ON], [0, 0, 0]];
+export var PlatformBranchSummary$: StaticStructureSchema = [
   3,
   n0,
   _PBS,
@@ -1026,7 +1033,7 @@ export var PlatformBranchSummary: StaticStructureSchema = [
   [_PN, _BN, _LS, _BO, _STL],
   [0, 0, 0, 1, 64 | 0],
 ];
-export var PlatformDescription: StaticStructureSchema = [
+export var PlatformDescription$: StaticStructureSchema = [
   3,
   n0,
   _PD,
@@ -1056,10 +1063,10 @@ export var PlatformDescription: StaticStructureSchema = [
     0,
   ],
 ];
-export var PlatformFilter: StaticStructureSchema = [3, n0, _PF, 0, [_Ty, _Op, _Val], [0, 0, 64 | 0]];
-export var PlatformFramework: StaticStructureSchema = [3, n0, _PFl, 0, [_N, _Ve], [0, 0]];
-export var PlatformProgrammingLanguage: StaticStructureSchema = [3, n0, _PPL, 0, [_N, _Ve], [0, 0]];
-export var PlatformSummary: StaticStructureSchema = [
+export var PlatformFilter$: StaticStructureSchema = [3, n0, _PF, 0, [_Ty, _Op, _Val], [0, 0, 64 | 0]];
+export var PlatformFramework$: StaticStructureSchema = [3, n0, _PFl, 0, [_N, _Ve], [0, 0]];
+export var PlatformProgrammingLanguage$: StaticStructureSchema = [3, n0, _PPL, 0, [_N, _Ve], [0, 0]];
+export var PlatformSummary$: StaticStructureSchema = [
   3,
   n0,
   _PS,
@@ -1067,7 +1074,7 @@ export var PlatformSummary: StaticStructureSchema = [
   [_PA, _PO, _PSl, _PC, _OSN, _OSV, _STL, _SAL, _PLS, _PV, _PBN, _PBLS],
   [0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0, 0, 0, 0],
 ];
-export var PlatformVersionStillReferencedException: StaticErrorSchema = [
+export var PlatformVersionStillReferencedException$: StaticErrorSchema = [
   -3,
   n0,
   _PVSRE,
@@ -1075,11 +1082,11 @@ export var PlatformVersionStillReferencedException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(PlatformVersionStillReferencedException, __PlatformVersionStillReferencedException);
-export var Queue: StaticStructureSchema = [3, n0, _Qu, 0, [_N, _URL], [0, 0]];
-export var RebuildEnvironmentMessage: StaticStructureSchema = [3, n0, _REM, 0, [_EI, _EN], [0, 0]];
-export var RequestEnvironmentInfoMessage: StaticStructureSchema = [3, n0, _REIM, 0, [_EI, _EN, _IT], [0, 0, 0]];
-export var ResourceNotFoundException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(PlatformVersionStillReferencedException$, PlatformVersionStillReferencedException);
+export var Queue$: StaticStructureSchema = [3, n0, _Qu, 0, [_N, _URL], [0, 0]];
+export var RebuildEnvironmentMessage$: StaticStructureSchema = [3, n0, _REM, 0, [_EI, _EN], [0, 0]];
+export var RequestEnvironmentInfoMessage$: StaticStructureSchema = [3, n0, _REIM, 0, [_EI, _EN, _IT], [0, 0, 0]];
+export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
@@ -1087,18 +1094,18 @@ export var ResourceNotFoundException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ResourceQuota: StaticStructureSchema = [3, n0, _RQe, 0, [_Max], [1]];
-export var ResourceQuotas: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceQuota$: StaticStructureSchema = [3, n0, _RQe, 0, [_Max], [1]];
+export var ResourceQuotas$: StaticStructureSchema = [
   3,
   n0,
   _RQ,
   0,
   [_AQ, _AVQ, _EQ, _CTQ, _CPQ],
-  [() => ResourceQuota, () => ResourceQuota, () => ResourceQuota, () => ResourceQuota, () => ResourceQuota],
+  [() => ResourceQuota$, () => ResourceQuota$, () => ResourceQuota$, () => ResourceQuota$, () => ResourceQuota$],
 ];
-export var ResourceTagsDescriptionMessage: StaticStructureSchema = [3, n0, _RTDM, 0, [_RAe, _RT], [0, () => TagList]];
-export var ResourceTypeNotSupportedException: StaticErrorSchema = [
+export var ResourceTagsDescriptionMessage$: StaticStructureSchema = [3, n0, _RTDM, 0, [_RAe, _RT], [0, () => TagList]];
+export var ResourceTypeNotSupportedException$: StaticErrorSchema = [
   -3,
   n0,
   _RTNSE,
@@ -1106,10 +1113,10 @@ export var ResourceTypeNotSupportedException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(ResourceTypeNotSupportedException, __ResourceTypeNotSupportedException);
-export var RestartAppServerMessage: StaticStructureSchema = [3, n0, _RASM, 0, [_EI, _EN], [0, 0]];
-export var RetrieveEnvironmentInfoMessage: StaticStructureSchema = [3, n0, _REIMe, 0, [_EI, _EN, _IT], [0, 0, 0]];
-export var RetrieveEnvironmentInfoResultMessage: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ResourceTypeNotSupportedException$, ResourceTypeNotSupportedException);
+export var RestartAppServerMessage$: StaticStructureSchema = [3, n0, _RASM, 0, [_EI, _EN], [0, 0]];
+export var RetrieveEnvironmentInfoMessage$: StaticStructureSchema = [3, n0, _REIMe, 0, [_EI, _EN, _IT], [0, 0, 0]];
+export var RetrieveEnvironmentInfoResultMessage$: StaticStructureSchema = [
   3,
   n0,
   _REIRM,
@@ -1117,8 +1124,8 @@ export var RetrieveEnvironmentInfoResultMessage: StaticStructureSchema = [
   [_EInv],
   [() => EnvironmentInfoDescriptionList],
 ];
-export var S3Location: StaticStructureSchema = [3, n0, _SL, 0, [_SBu, _SK], [0, 0]];
-export var S3LocationNotInServiceRegionException: StaticErrorSchema = [
+export var S3Location$: StaticStructureSchema = [3, n0, _SL, 0, [_SBu, _SK], [0, 0]];
+export var S3LocationNotInServiceRegionException$: StaticErrorSchema = [
   -3,
   n0,
   _SLNISRE,
@@ -1126,8 +1133,8 @@ export var S3LocationNotInServiceRegionException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(S3LocationNotInServiceRegionException, __S3LocationNotInServiceRegionException);
-export var S3SubscriptionRequiredException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(S3LocationNotInServiceRegionException$, S3LocationNotInServiceRegionException);
+export var S3SubscriptionRequiredException$: StaticErrorSchema = [
   -3,
   n0,
   _SSRE,
@@ -1135,19 +1142,19 @@ export var S3SubscriptionRequiredException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(S3SubscriptionRequiredException, __S3SubscriptionRequiredException);
-export var SearchFilter: StaticStructureSchema = [3, n0, _SF, 0, [_At, _Op, _Val], [0, 0, 64 | 0]];
-export var SingleInstanceHealth: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(S3SubscriptionRequiredException$, S3SubscriptionRequiredException);
+export var SearchFilter$: StaticStructureSchema = [3, n0, _SF, 0, [_At, _Op, _Val], [0, 0, 64 | 0]];
+export var SingleInstanceHealth$: StaticStructureSchema = [
   3,
   n0,
   _SIH,
   0,
   [_IIn, _HS, _C, _Ca, _LA, _AM, _Sy, _De, _AZ, _ITn],
-  [0, 0, 0, 64 | 0, 4, () => ApplicationMetrics, () => SystemStatus, () => Deployment, 0, 0],
+  [0, 0, 0, 64 | 0, 4, () => ApplicationMetrics$, () => SystemStatus$, () => Deployment$, 0, 0],
 ];
-export var SolutionStackDescription: StaticStructureSchema = [3, n0, _SSDo, 0, [_SSN, _PFT], [0, 64 | 0]];
-export var SourceBuildInformation: StaticStructureSchema = [3, n0, _SBI, 0, [_STo, _SRo, _SLo], [0, 0, 0]];
-export var SourceBundleDeletionException: StaticErrorSchema = [
+export var SolutionStackDescription$: StaticStructureSchema = [3, n0, _SSDo, 0, [_SSN, _PFT], [0, 64 | 0]];
+export var SourceBuildInformation$: StaticStructureSchema = [3, n0, _SBI, 0, [_STo, _SRo, _SLo], [0, 0, 0]];
+export var SourceBundleDeletionException$: StaticErrorSchema = [
   -3,
   n0,
   _SBDE,
@@ -1155,10 +1162,10 @@ export var SourceBundleDeletionException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(SourceBundleDeletionException, __SourceBundleDeletionException);
-export var SourceConfiguration: StaticStructureSchema = [3, n0, _SCo, 0, [_AN, _TN], [0, 0]];
-export var StatusCodes: StaticStructureSchema = [3, n0, _SC, 0, [_St, _Sta, _Stat, _Statu], [1, 1, 1, 1]];
-export var SwapEnvironmentCNAMEsMessage: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(SourceBundleDeletionException$, SourceBundleDeletionException);
+export var SourceConfiguration$: StaticStructureSchema = [3, n0, _SCo, 0, [_AN, _TN], [0, 0]];
+export var StatusCodes$: StaticStructureSchema = [3, n0, _SC, 0, [_St, _Sta, _Stat, _Statu], [1, 1, 1, 1]];
+export var SwapEnvironmentCNAMEsMessage$: StaticStructureSchema = [
   3,
   n0,
   _SECNAMEM,
@@ -1166,10 +1173,10 @@ export var SwapEnvironmentCNAMEsMessage: StaticStructureSchema = [
   [_SEI, _SEN, _DEI, _DEN],
   [0, 0, 0, 0],
 ];
-export var SystemStatus: StaticStructureSchema = [3, n0, _SSy, 0, [_CPUU, _LAo], [() => CPUUtilization, 64 | 1]];
-export var Tag: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _Va], [0, 0]];
-export var TerminateEnvironmentMessage: StaticStructureSchema = [3, n0, _TEM, 0, [_EI, _EN, _TR, _FTo], [0, 0, 2, 2]];
-export var TooManyApplicationsException: StaticErrorSchema = [
+export var SystemStatus$: StaticStructureSchema = [3, n0, _SSy, 0, [_CPUU, _LAo], [() => CPUUtilization$, 64 | 1]];
+export var Tag$: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _Va], [0, 0]];
+export var TerminateEnvironmentMessage$: StaticStructureSchema = [3, n0, _TEM, 0, [_EI, _EN, _TR, _FTo], [0, 0, 2, 2]];
+export var TooManyApplicationsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMAE,
@@ -1177,10 +1184,10 @@ export var TooManyApplicationsException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(TooManyApplicationsException, __TooManyApplicationsException);
-export var TooManyApplicationVersionsException: StaticErrorSchema = [-3, n0, _TMAVE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(TooManyApplicationVersionsException, __TooManyApplicationVersionsException);
-export var TooManyBucketsException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(TooManyApplicationsException$, TooManyApplicationsException);
+export var TooManyApplicationVersionsException$: StaticErrorSchema = [-3, n0, _TMAVE, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(TooManyApplicationVersionsException$, TooManyApplicationVersionsException);
+export var TooManyBucketsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMBE,
@@ -1188,8 +1195,8 @@ export var TooManyBucketsException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(TooManyBucketsException, __TooManyBucketsException);
-export var TooManyConfigurationTemplatesException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(TooManyBucketsException$, TooManyBucketsException);
+export var TooManyConfigurationTemplatesException$: StaticErrorSchema = [
   -3,
   n0,
   _TMCTE,
@@ -1197,8 +1204,8 @@ export var TooManyConfigurationTemplatesException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(TooManyConfigurationTemplatesException, __TooManyConfigurationTemplatesException);
-export var TooManyEnvironmentsException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(TooManyConfigurationTemplatesException$, TooManyConfigurationTemplatesException);
+export var TooManyEnvironmentsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMEE,
@@ -1206,8 +1213,8 @@ export var TooManyEnvironmentsException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(TooManyEnvironmentsException, __TooManyEnvironmentsException);
-export var TooManyPlatformsException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(TooManyEnvironmentsException$, TooManyEnvironmentsException);
+export var TooManyPlatformsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMPE,
@@ -1215,8 +1222,8 @@ export var TooManyPlatformsException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(TooManyPlatformsException, __TooManyPlatformsException);
-export var TooManyTagsException: StaticErrorSchema = [
+TypeRegistry.for(n0).registerError(TooManyPlatformsException$, TooManyPlatformsException);
+export var TooManyTagsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMTE,
@@ -1224,19 +1231,19 @@ export var TooManyTagsException: StaticErrorSchema = [
   [_m],
   [0],
 ];
-TypeRegistry.for(n0).registerError(TooManyTagsException, __TooManyTagsException);
-export var Trigger: StaticStructureSchema = [3, n0, _Tri, 0, [_N], [0]];
-export var UpdateApplicationMessage: StaticStructureSchema = [3, n0, _UAM, 0, [_AN, _D], [0, 0]];
-export var UpdateApplicationResourceLifecycleMessage: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
+export var Trigger$: StaticStructureSchema = [3, n0, _Tri, 0, [_N], [0]];
+export var UpdateApplicationMessage$: StaticStructureSchema = [3, n0, _UAM, 0, [_AN, _D], [0, 0]];
+export var UpdateApplicationResourceLifecycleMessage$: StaticStructureSchema = [
   3,
   n0,
   _UARLM,
   0,
   [_AN, _RLC],
-  [0, () => ApplicationResourceLifecycleConfig],
+  [0, () => ApplicationResourceLifecycleConfig$],
 ];
-export var UpdateApplicationVersionMessage: StaticStructureSchema = [3, n0, _UAVM, 0, [_AN, _VL, _D], [0, 0, 0]];
-export var UpdateConfigurationTemplateMessage: StaticStructureSchema = [
+export var UpdateApplicationVersionMessage$: StaticStructureSchema = [3, n0, _UAVM, 0, [_AN, _VL, _D], [0, 0, 0]];
+export var UpdateConfigurationTemplateMessage$: StaticStructureSchema = [
   3,
   n0,
   _UCTM,
@@ -1244,15 +1251,28 @@ export var UpdateConfigurationTemplateMessage: StaticStructureSchema = [
   [_AN, _TN, _D, _OS, _OTR],
   [0, 0, 0, () => ConfigurationOptionSettingsList, () => OptionsSpecifierList],
 ];
-export var UpdateEnvironmentMessage: StaticStructureSchema = [
+export var UpdateEnvironmentMessage$: StaticStructureSchema = [
   3,
   n0,
   _UEM,
   0,
   [_AN, _EI, _EN, _GN, _D, _Ti, _VL, _TN, _SSN, _PA, _OS, _OTR],
-  [0, 0, 0, 0, 0, () => EnvironmentTier, 0, 0, 0, 0, () => ConfigurationOptionSettingsList, () => OptionsSpecifierList],
+  [
+    0,
+    0,
+    0,
+    0,
+    0,
+    () => EnvironmentTier$,
+    0,
+    0,
+    0,
+    0,
+    () => ConfigurationOptionSettingsList,
+    () => OptionsSpecifierList,
+  ],
 ];
-export var UpdateTagsForResourceMessage: StaticStructureSchema = [
+export var UpdateTagsForResourceMessage$: StaticStructureSchema = [
   3,
   n0,
   _UTFRM,
@@ -1260,7 +1280,7 @@ export var UpdateTagsForResourceMessage: StaticStructureSchema = [
   [_RAe, _TTA, _TTR],
   [0, () => TagList, 64 | 0],
 ];
-export var ValidateConfigurationSettingsMessage: StaticStructureSchema = [
+export var ValidateConfigurationSettingsMessage$: StaticStructureSchema = [
   3,
   n0,
   _VCSM,
@@ -1268,9 +1288,9 @@ export var ValidateConfigurationSettingsMessage: StaticStructureSchema = [
   [_AN, _TN, _EN, _OS],
   [0, 0, 0, () => ConfigurationOptionSettingsList],
 ];
-export var ValidationMessage: StaticStructureSchema = [3, n0, _VM, 0, [_Me, _Se, _Na, _ON], [0, 0, 0, 0]];
-export var __Unit = "unit" as const;
-export var ElasticBeanstalkSyntheticServiceException: StaticErrorSchema = [
+export var ValidationMessage$: StaticStructureSchema = [3, n0, _VM, 0, [_Me, _Se, _Na, _ON], [0, 0, 0, 0]];
+var __Unit = "unit" as const;
+export var ElasticBeanstalkSyntheticServiceException$: StaticErrorSchema = [
   -3,
   _s,
   "ElasticBeanstalkSyntheticServiceException",
@@ -1279,423 +1299,411 @@ export var ElasticBeanstalkSyntheticServiceException: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_s).registerError(
-  ElasticBeanstalkSyntheticServiceException,
-  __ElasticBeanstalkSyntheticServiceException
+  ElasticBeanstalkSyntheticServiceException$,
+  ElasticBeanstalkSyntheticServiceException
 );
-export var ApplicationDescriptionList: StaticListSchema = [1, n0, _ADL, 0, () => ApplicationDescription];
-export var ApplicationNamesList = 64 | 0;
-export var ApplicationVersionDescriptionList: StaticListSchema = [1, n0, _AVDL, 0, () => ApplicationVersionDescription];
-export var AutoScalingGroupList: StaticListSchema = [1, n0, _ASGL, 0, () => AutoScalingGroup];
-export var AvailableSolutionStackDetailsList: StaticListSchema = [1, n0, _ASSDL, 0, () => SolutionStackDescription];
-export var AvailableSolutionStackNamesList = 64 | 0;
-export var Causes = 64 | 0;
-export var ConfigurationOptionDescriptionsList: StaticListSchema = [
-  1,
-  n0,
-  _CODL,
-  0,
-  () => ConfigurationOptionDescription,
-];
-export var ConfigurationOptionPossibleValues = 64 | 0;
-export var ConfigurationOptionSettingsList: StaticListSchema = [1, n0, _COSL, 0, () => ConfigurationOptionSetting];
-export var ConfigurationSettingsDescriptionList: StaticListSchema = [
-  1,
-  n0,
-  _CSDL,
-  0,
-  () => ConfigurationSettingsDescription,
-];
-export var ConfigurationTemplateNamesList = 64 | 0;
-export var CustomAmiList: StaticListSchema = [1, n0, _CAL, 0, () => CustomAmi];
-export var EnvironmentDescriptionsList: StaticListSchema = [1, n0, _EDL, 0, () => EnvironmentDescription];
-export var EnvironmentHealthAttributes = 64 | 0;
-export var EnvironmentIdList = 64 | 0;
-export var EnvironmentInfoDescriptionList: StaticListSchema = [1, n0, _EIDL, 0, () => EnvironmentInfoDescription];
-export var EnvironmentLinks: StaticListSchema = [1, n0, _EL, 0, () => EnvironmentLink];
-export var EnvironmentNamesList = 64 | 0;
-export var EventDescriptionList: StaticListSchema = [1, n0, _EDLv, 0, () => EventDescription];
-export var InstanceHealthList: StaticListSchema = [1, n0, _IHL, 0, () => SingleInstanceHealth];
-export var InstanceList: StaticListSchema = [1, n0, _IL, 0, () => Instance];
-export var InstancesHealthAttributes = 64 | 0;
-export var LaunchConfigurationList: StaticListSchema = [1, n0, _LCL, 0, () => LaunchConfiguration];
-export var LaunchTemplateList: StaticListSchema = [1, n0, _LTL, 0, () => LaunchTemplate];
-export var LoadAverage = 64 | 1;
-export var LoadBalancerList: StaticListSchema = [1, n0, _LBL, 0, () => LoadBalancer];
-export var LoadBalancerListenersDescription: StaticListSchema = [1, n0, _LBLD, 0, () => Listener];
-export var ManagedActionHistoryItems: StaticListSchema = [1, n0, _MAHI, 0, () => ManagedActionHistoryItem];
-export var ManagedActions: StaticListSchema = [1, n0, _MA, 0, () => ManagedAction];
-export var OptionsSpecifierList: StaticListSchema = [1, n0, _OSL, 0, () => OptionSpecification];
-export var PlatformBranchSummaryList: StaticListSchema = [1, n0, _PBSL, 0, () => PlatformBranchSummary];
-export var PlatformFilters: StaticListSchema = [1, n0, _PFla, 0, () => PlatformFilter];
-export var PlatformFilterValueList = 64 | 0;
-export var PlatformFrameworks: StaticListSchema = [1, n0, _PFlat, 0, () => PlatformFramework];
-export var PlatformProgrammingLanguages: StaticListSchema = [1, n0, _PPLl, 0, () => PlatformProgrammingLanguage];
-export var PlatformSummaryList: StaticListSchema = [1, n0, _PSL, 0, () => PlatformSummary];
-export var QueueList: StaticListSchema = [1, n0, _QL, 0, () => Queue];
-export var SearchFilters: StaticListSchema = [1, n0, _SFe, 0, () => SearchFilter];
-export var SearchFilterValues = 64 | 0;
-export var SolutionStackFileTypeList = 64 | 0;
-export var SupportedAddonList = 64 | 0;
-export var SupportedTierList = 64 | 0;
-export var TagKeyList = 64 | 0;
-export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
-export var Tags: StaticListSchema = [1, n0, _T, 0, () => Tag];
-export var TriggerList: StaticListSchema = [1, n0, _TLr, 0, () => Trigger];
-export var ValidationMessagesList: StaticListSchema = [1, n0, _VML, 0, () => ValidationMessage];
-export var VersionLabels = 64 | 0;
-export var VersionLabelsList = 64 | 0;
-export var AbortEnvironmentUpdate: StaticOperationSchema = [
+var ApplicationDescriptionList: StaticListSchema = [1, n0, _ADL, 0, () => ApplicationDescription$];
+var ApplicationNamesList = 64 | 0;
+var ApplicationVersionDescriptionList: StaticListSchema = [1, n0, _AVDL, 0, () => ApplicationVersionDescription$];
+var AutoScalingGroupList: StaticListSchema = [1, n0, _ASGL, 0, () => AutoScalingGroup$];
+var AvailableSolutionStackDetailsList: StaticListSchema = [1, n0, _ASSDL, 0, () => SolutionStackDescription$];
+var AvailableSolutionStackNamesList = 64 | 0;
+var Causes = 64 | 0;
+var ConfigurationOptionDescriptionsList: StaticListSchema = [1, n0, _CODL, 0, () => ConfigurationOptionDescription$];
+var ConfigurationOptionPossibleValues = 64 | 0;
+var ConfigurationOptionSettingsList: StaticListSchema = [1, n0, _COSL, 0, () => ConfigurationOptionSetting$];
+var ConfigurationSettingsDescriptionList: StaticListSchema = [1, n0, _CSDL, 0, () => ConfigurationSettingsDescription$];
+var ConfigurationTemplateNamesList = 64 | 0;
+var CustomAmiList: StaticListSchema = [1, n0, _CAL, 0, () => CustomAmi$];
+var EnvironmentDescriptionsList: StaticListSchema = [1, n0, _EDL, 0, () => EnvironmentDescription$];
+var EnvironmentHealthAttributes = 64 | 0;
+var EnvironmentIdList = 64 | 0;
+var EnvironmentInfoDescriptionList: StaticListSchema = [1, n0, _EIDL, 0, () => EnvironmentInfoDescription$];
+var EnvironmentLinks: StaticListSchema = [1, n0, _EL, 0, () => EnvironmentLink$];
+var EnvironmentNamesList = 64 | 0;
+var EventDescriptionList: StaticListSchema = [1, n0, _EDLv, 0, () => EventDescription$];
+var InstanceHealthList: StaticListSchema = [1, n0, _IHL, 0, () => SingleInstanceHealth$];
+var InstanceList: StaticListSchema = [1, n0, _IL, 0, () => Instance$];
+var InstancesHealthAttributes = 64 | 0;
+var LaunchConfigurationList: StaticListSchema = [1, n0, _LCL, 0, () => LaunchConfiguration$];
+var LaunchTemplateList: StaticListSchema = [1, n0, _LTL, 0, () => LaunchTemplate$];
+var LoadAverage = 64 | 1;
+var LoadBalancerList: StaticListSchema = [1, n0, _LBL, 0, () => LoadBalancer$];
+var LoadBalancerListenersDescription: StaticListSchema = [1, n0, _LBLD, 0, () => Listener$];
+var ManagedActionHistoryItems: StaticListSchema = [1, n0, _MAHI, 0, () => ManagedActionHistoryItem$];
+var ManagedActions: StaticListSchema = [1, n0, _MA, 0, () => ManagedAction$];
+var OptionsSpecifierList: StaticListSchema = [1, n0, _OSL, 0, () => OptionSpecification$];
+var PlatformBranchSummaryList: StaticListSchema = [1, n0, _PBSL, 0, () => PlatformBranchSummary$];
+var PlatformFilters: StaticListSchema = [1, n0, _PFla, 0, () => PlatformFilter$];
+var PlatformFilterValueList = 64 | 0;
+var PlatformFrameworks: StaticListSchema = [1, n0, _PFlat, 0, () => PlatformFramework$];
+var PlatformProgrammingLanguages: StaticListSchema = [1, n0, _PPLl, 0, () => PlatformProgrammingLanguage$];
+var PlatformSummaryList: StaticListSchema = [1, n0, _PSL, 0, () => PlatformSummary$];
+var QueueList: StaticListSchema = [1, n0, _QL, 0, () => Queue$];
+var SearchFilters: StaticListSchema = [1, n0, _SFe, 0, () => SearchFilter$];
+var SearchFilterValues = 64 | 0;
+var SolutionStackFileTypeList = 64 | 0;
+var SupportedAddonList = 64 | 0;
+var SupportedTierList = 64 | 0;
+var TagKeyList = 64 | 0;
+var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
+var Tags: StaticListSchema = [1, n0, _T, 0, () => Tag$];
+var TriggerList: StaticListSchema = [1, n0, _TLr, 0, () => Trigger$];
+var ValidationMessagesList: StaticListSchema = [1, n0, _VML, 0, () => ValidationMessage$];
+var VersionLabels = 64 | 0;
+var VersionLabelsList = 64 | 0;
+export var AbortEnvironmentUpdate$: StaticOperationSchema = [
   9,
   n0,
   _AEU,
   0,
-  () => AbortEnvironmentUpdateMessage,
+  () => AbortEnvironmentUpdateMessage$,
   () => __Unit,
 ];
-export var ApplyEnvironmentManagedAction: StaticOperationSchema = [
+export var ApplyEnvironmentManagedAction$: StaticOperationSchema = [
   9,
   n0,
   _AEMA,
   0,
-  () => ApplyEnvironmentManagedActionRequest,
-  () => ApplyEnvironmentManagedActionResult,
+  () => ApplyEnvironmentManagedActionRequest$,
+  () => ApplyEnvironmentManagedActionResult$,
 ];
-export var AssociateEnvironmentOperationsRole: StaticOperationSchema = [
+export var AssociateEnvironmentOperationsRole$: StaticOperationSchema = [
   9,
   n0,
   _AEOR,
   0,
-  () => AssociateEnvironmentOperationsRoleMessage,
+  () => AssociateEnvironmentOperationsRoleMessage$,
   () => __Unit,
 ];
-export var CheckDNSAvailability: StaticOperationSchema = [
+export var CheckDNSAvailability$: StaticOperationSchema = [
   9,
   n0,
   _CDNSA,
   0,
-  () => CheckDNSAvailabilityMessage,
-  () => CheckDNSAvailabilityResultMessage,
+  () => CheckDNSAvailabilityMessage$,
+  () => CheckDNSAvailabilityResultMessage$,
 ];
-export var ComposeEnvironments: StaticOperationSchema = [
+export var ComposeEnvironments$: StaticOperationSchema = [
   9,
   n0,
   _CE,
   0,
-  () => ComposeEnvironmentsMessage,
-  () => EnvironmentDescriptionsMessage,
+  () => ComposeEnvironmentsMessage$,
+  () => EnvironmentDescriptionsMessage$,
 ];
-export var CreateApplication: StaticOperationSchema = [
+export var CreateApplication$: StaticOperationSchema = [
   9,
   n0,
   _CAr,
   0,
-  () => CreateApplicationMessage,
-  () => ApplicationDescriptionMessage,
+  () => CreateApplicationMessage$,
+  () => ApplicationDescriptionMessage$,
 ];
-export var CreateApplicationVersion: StaticOperationSchema = [
+export var CreateApplicationVersion$: StaticOperationSchema = [
   9,
   n0,
   _CAV,
   0,
-  () => CreateApplicationVersionMessage,
-  () => ApplicationVersionDescriptionMessage,
+  () => CreateApplicationVersionMessage$,
+  () => ApplicationVersionDescriptionMessage$,
 ];
-export var CreateConfigurationTemplate: StaticOperationSchema = [
+export var CreateConfigurationTemplate$: StaticOperationSchema = [
   9,
   n0,
   _CCT,
   0,
-  () => CreateConfigurationTemplateMessage,
-  () => ConfigurationSettingsDescription,
+  () => CreateConfigurationTemplateMessage$,
+  () => ConfigurationSettingsDescription$,
 ];
-export var CreateEnvironment: StaticOperationSchema = [
+export var CreateEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _CEr,
   0,
-  () => CreateEnvironmentMessage,
-  () => EnvironmentDescription,
+  () => CreateEnvironmentMessage$,
+  () => EnvironmentDescription$,
 ];
-export var CreatePlatformVersion: StaticOperationSchema = [
+export var CreatePlatformVersion$: StaticOperationSchema = [
   9,
   n0,
   _CPV,
   0,
-  () => CreatePlatformVersionRequest,
-  () => CreatePlatformVersionResult,
+  () => CreatePlatformVersionRequest$,
+  () => CreatePlatformVersionResult$,
 ];
-export var CreateStorageLocation: StaticOperationSchema = [
+export var CreateStorageLocation$: StaticOperationSchema = [
   9,
   n0,
   _CSL,
   0,
   () => __Unit,
-  () => CreateStorageLocationResultMessage,
+  () => CreateStorageLocationResultMessage$,
 ];
-export var DeleteApplication: StaticOperationSchema = [9, n0, _DA, 0, () => DeleteApplicationMessage, () => __Unit];
-export var DeleteApplicationVersion: StaticOperationSchema = [
+export var DeleteApplication$: StaticOperationSchema = [9, n0, _DA, 0, () => DeleteApplicationMessage$, () => __Unit];
+export var DeleteApplicationVersion$: StaticOperationSchema = [
   9,
   n0,
   _DAV,
   0,
-  () => DeleteApplicationVersionMessage,
+  () => DeleteApplicationVersionMessage$,
   () => __Unit,
 ];
-export var DeleteConfigurationTemplate: StaticOperationSchema = [
+export var DeleteConfigurationTemplate$: StaticOperationSchema = [
   9,
   n0,
   _DCT,
   0,
-  () => DeleteConfigurationTemplateMessage,
+  () => DeleteConfigurationTemplateMessage$,
   () => __Unit,
 ];
-export var DeleteEnvironmentConfiguration: StaticOperationSchema = [
+export var DeleteEnvironmentConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DEC,
   0,
-  () => DeleteEnvironmentConfigurationMessage,
+  () => DeleteEnvironmentConfigurationMessage$,
   () => __Unit,
 ];
-export var DeletePlatformVersion: StaticOperationSchema = [
+export var DeletePlatformVersion$: StaticOperationSchema = [
   9,
   n0,
   _DPV,
   0,
-  () => DeletePlatformVersionRequest,
-  () => DeletePlatformVersionResult,
+  () => DeletePlatformVersionRequest$,
+  () => DeletePlatformVersionResult$,
 ];
-export var DescribeAccountAttributes: StaticOperationSchema = [
+export var DescribeAccountAttributes$: StaticOperationSchema = [
   9,
   n0,
   _DAA,
   0,
   () => __Unit,
-  () => DescribeAccountAttributesResult,
+  () => DescribeAccountAttributesResult$,
 ];
-export var DescribeApplications: StaticOperationSchema = [
+export var DescribeApplications$: StaticOperationSchema = [
   9,
   n0,
   _DAe,
   0,
-  () => DescribeApplicationsMessage,
-  () => ApplicationDescriptionsMessage,
+  () => DescribeApplicationsMessage$,
+  () => ApplicationDescriptionsMessage$,
 ];
-export var DescribeApplicationVersions: StaticOperationSchema = [
+export var DescribeApplicationVersions$: StaticOperationSchema = [
   9,
   n0,
   _DAVe,
   0,
-  () => DescribeApplicationVersionsMessage,
-  () => ApplicationVersionDescriptionsMessage,
+  () => DescribeApplicationVersionsMessage$,
+  () => ApplicationVersionDescriptionsMessage$,
 ];
-export var DescribeConfigurationOptions: StaticOperationSchema = [
+export var DescribeConfigurationOptions$: StaticOperationSchema = [
   9,
   n0,
   _DCO,
   0,
-  () => DescribeConfigurationOptionsMessage,
-  () => ConfigurationOptionsDescription,
+  () => DescribeConfigurationOptionsMessage$,
+  () => ConfigurationOptionsDescription$,
 ];
-export var DescribeConfigurationSettings: StaticOperationSchema = [
+export var DescribeConfigurationSettings$: StaticOperationSchema = [
   9,
   n0,
   _DCS,
   0,
-  () => DescribeConfigurationSettingsMessage,
-  () => ConfigurationSettingsDescriptions,
+  () => DescribeConfigurationSettingsMessage$,
+  () => ConfigurationSettingsDescriptions$,
 ];
-export var DescribeEnvironmentHealth: StaticOperationSchema = [
+export var DescribeEnvironmentHealth$: StaticOperationSchema = [
   9,
   n0,
   _DEH,
   0,
-  () => DescribeEnvironmentHealthRequest,
-  () => DescribeEnvironmentHealthResult,
+  () => DescribeEnvironmentHealthRequest$,
+  () => DescribeEnvironmentHealthResult$,
 ];
-export var DescribeEnvironmentManagedActionHistory: StaticOperationSchema = [
+export var DescribeEnvironmentManagedActionHistory$: StaticOperationSchema = [
   9,
   n0,
   _DEMAH,
   0,
-  () => DescribeEnvironmentManagedActionHistoryRequest,
-  () => DescribeEnvironmentManagedActionHistoryResult,
+  () => DescribeEnvironmentManagedActionHistoryRequest$,
+  () => DescribeEnvironmentManagedActionHistoryResult$,
 ];
-export var DescribeEnvironmentManagedActions: StaticOperationSchema = [
+export var DescribeEnvironmentManagedActions$: StaticOperationSchema = [
   9,
   n0,
   _DEMA,
   0,
-  () => DescribeEnvironmentManagedActionsRequest,
-  () => DescribeEnvironmentManagedActionsResult,
+  () => DescribeEnvironmentManagedActionsRequest$,
+  () => DescribeEnvironmentManagedActionsResult$,
 ];
-export var DescribeEnvironmentResources: StaticOperationSchema = [
+export var DescribeEnvironmentResources$: StaticOperationSchema = [
   9,
   n0,
   _DER,
   0,
-  () => DescribeEnvironmentResourcesMessage,
-  () => EnvironmentResourceDescriptionsMessage,
+  () => DescribeEnvironmentResourcesMessage$,
+  () => EnvironmentResourceDescriptionsMessage$,
 ];
-export var DescribeEnvironments: StaticOperationSchema = [
+export var DescribeEnvironments$: StaticOperationSchema = [
   9,
   n0,
   _DE,
   0,
-  () => DescribeEnvironmentsMessage,
-  () => EnvironmentDescriptionsMessage,
+  () => DescribeEnvironmentsMessage$,
+  () => EnvironmentDescriptionsMessage$,
 ];
-export var DescribeEvents: StaticOperationSchema = [
+export var DescribeEvents$: StaticOperationSchema = [
   9,
   n0,
   _DEe,
   0,
-  () => DescribeEventsMessage,
-  () => EventDescriptionsMessage,
+  () => DescribeEventsMessage$,
+  () => EventDescriptionsMessage$,
 ];
-export var DescribeInstancesHealth: StaticOperationSchema = [
+export var DescribeInstancesHealth$: StaticOperationSchema = [
   9,
   n0,
   _DIH,
   0,
-  () => DescribeInstancesHealthRequest,
-  () => DescribeInstancesHealthResult,
+  () => DescribeInstancesHealthRequest$,
+  () => DescribeInstancesHealthResult$,
 ];
-export var DescribePlatformVersion: StaticOperationSchema = [
+export var DescribePlatformVersion$: StaticOperationSchema = [
   9,
   n0,
   _DPVe,
   0,
-  () => DescribePlatformVersionRequest,
-  () => DescribePlatformVersionResult,
+  () => DescribePlatformVersionRequest$,
+  () => DescribePlatformVersionResult$,
 ];
-export var DisassociateEnvironmentOperationsRole: StaticOperationSchema = [
+export var DisassociateEnvironmentOperationsRole$: StaticOperationSchema = [
   9,
   n0,
   _DEOR,
   0,
-  () => DisassociateEnvironmentOperationsRoleMessage,
+  () => DisassociateEnvironmentOperationsRoleMessage$,
   () => __Unit,
 ];
-export var ListAvailableSolutionStacks: StaticOperationSchema = [
+export var ListAvailableSolutionStacks$: StaticOperationSchema = [
   9,
   n0,
   _LASS,
   0,
   () => __Unit,
-  () => ListAvailableSolutionStacksResultMessage,
+  () => ListAvailableSolutionStacksResultMessage$,
 ];
-export var ListPlatformBranches: StaticOperationSchema = [
+export var ListPlatformBranches$: StaticOperationSchema = [
   9,
   n0,
   _LPB,
   0,
-  () => ListPlatformBranchesRequest,
-  () => ListPlatformBranchesResult,
+  () => ListPlatformBranchesRequest$,
+  () => ListPlatformBranchesResult$,
 ];
-export var ListPlatformVersions: StaticOperationSchema = [
+export var ListPlatformVersions$: StaticOperationSchema = [
   9,
   n0,
   _LPV,
   0,
-  () => ListPlatformVersionsRequest,
-  () => ListPlatformVersionsResult,
+  () => ListPlatformVersionsRequest$,
+  () => ListPlatformVersionsResult$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   0,
-  () => ListTagsForResourceMessage,
-  () => ResourceTagsDescriptionMessage,
+  () => ListTagsForResourceMessage$,
+  () => ResourceTagsDescriptionMessage$,
 ];
-export var RebuildEnvironment: StaticOperationSchema = [9, n0, _RE, 0, () => RebuildEnvironmentMessage, () => __Unit];
-export var RequestEnvironmentInfo: StaticOperationSchema = [
+export var RebuildEnvironment$: StaticOperationSchema = [9, n0, _RE, 0, () => RebuildEnvironmentMessage$, () => __Unit];
+export var RequestEnvironmentInfo$: StaticOperationSchema = [
   9,
   n0,
   _REI,
   0,
-  () => RequestEnvironmentInfoMessage,
+  () => RequestEnvironmentInfoMessage$,
   () => __Unit,
 ];
-export var RestartAppServer: StaticOperationSchema = [9, n0, _RAS, 0, () => RestartAppServerMessage, () => __Unit];
-export var RetrieveEnvironmentInfo: StaticOperationSchema = [
+export var RestartAppServer$: StaticOperationSchema = [9, n0, _RAS, 0, () => RestartAppServerMessage$, () => __Unit];
+export var RetrieveEnvironmentInfo$: StaticOperationSchema = [
   9,
   n0,
   _REIe,
   0,
-  () => RetrieveEnvironmentInfoMessage,
-  () => RetrieveEnvironmentInfoResultMessage,
+  () => RetrieveEnvironmentInfoMessage$,
+  () => RetrieveEnvironmentInfoResultMessage$,
 ];
-export var SwapEnvironmentCNAMEs: StaticOperationSchema = [
+export var SwapEnvironmentCNAMEs$: StaticOperationSchema = [
   9,
   n0,
   _SECNAME,
   0,
-  () => SwapEnvironmentCNAMEsMessage,
+  () => SwapEnvironmentCNAMEsMessage$,
   () => __Unit,
 ];
-export var TerminateEnvironment: StaticOperationSchema = [
+export var TerminateEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _TE,
   0,
-  () => TerminateEnvironmentMessage,
-  () => EnvironmentDescription,
+  () => TerminateEnvironmentMessage$,
+  () => EnvironmentDescription$,
 ];
-export var UpdateApplication: StaticOperationSchema = [
+export var UpdateApplication$: StaticOperationSchema = [
   9,
   n0,
   _UA,
   0,
-  () => UpdateApplicationMessage,
-  () => ApplicationDescriptionMessage,
+  () => UpdateApplicationMessage$,
+  () => ApplicationDescriptionMessage$,
 ];
-export var UpdateApplicationResourceLifecycle: StaticOperationSchema = [
+export var UpdateApplicationResourceLifecycle$: StaticOperationSchema = [
   9,
   n0,
   _UARL,
   0,
-  () => UpdateApplicationResourceLifecycleMessage,
-  () => ApplicationResourceLifecycleDescriptionMessage,
+  () => UpdateApplicationResourceLifecycleMessage$,
+  () => ApplicationResourceLifecycleDescriptionMessage$,
 ];
-export var UpdateApplicationVersion: StaticOperationSchema = [
+export var UpdateApplicationVersion$: StaticOperationSchema = [
   9,
   n0,
   _UAV,
   0,
-  () => UpdateApplicationVersionMessage,
-  () => ApplicationVersionDescriptionMessage,
+  () => UpdateApplicationVersionMessage$,
+  () => ApplicationVersionDescriptionMessage$,
 ];
-export var UpdateConfigurationTemplate: StaticOperationSchema = [
+export var UpdateConfigurationTemplate$: StaticOperationSchema = [
   9,
   n0,
   _UCT,
   0,
-  () => UpdateConfigurationTemplateMessage,
-  () => ConfigurationSettingsDescription,
+  () => UpdateConfigurationTemplateMessage$,
+  () => ConfigurationSettingsDescription$,
 ];
-export var UpdateEnvironment: StaticOperationSchema = [
+export var UpdateEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _UE,
   0,
-  () => UpdateEnvironmentMessage,
-  () => EnvironmentDescription,
+  () => UpdateEnvironmentMessage$,
+  () => EnvironmentDescription$,
 ];
-export var UpdateTagsForResource: StaticOperationSchema = [
+export var UpdateTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _UTFR,
   0,
-  () => UpdateTagsForResourceMessage,
+  () => UpdateTagsForResourceMessage$,
   () => __Unit,
 ];
-export var ValidateConfigurationSettings: StaticOperationSchema = [
+export var ValidateConfigurationSettings$: StaticOperationSchema = [
   9,
   n0,
   _VCS,
   0,
-  () => ValidateConfigurationSettingsMessage,
-  () => ConfigurationSettingsValidationMessages,
+  () => ValidateConfigurationSettingsMessage$,
+  () => ConfigurationSettingsValidationMessages$,
 ];

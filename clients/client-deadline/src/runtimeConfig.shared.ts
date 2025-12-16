@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: DeadlineClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.deadline" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.deadline",
+      version: "2023-10-12",
+      serviceTarget: "Deadline",
+    },
     serviceId: config?.serviceId ?? "deadline",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

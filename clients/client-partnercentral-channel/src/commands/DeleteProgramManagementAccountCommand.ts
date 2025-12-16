@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralChannelClient";
-import { DeleteProgramManagementAccount } from "../schemas/schemas_0";
+import { DeleteProgramManagementAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class DeleteProgramManagementAccountCommand extends $Command
   })
   .s("PartnerCentralChannel", "DeleteProgramManagementAccount", {})
   .n("PartnerCentralChannelClient", "DeleteProgramManagementAccountCommand")
-  .sc(DeleteProgramManagementAccount)
+  .sc(DeleteProgramManagementAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

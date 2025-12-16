@@ -9,7 +9,7 @@ import type {
   CreateServiceSpecificCredentialRequest,
   CreateServiceSpecificCredentialResponse,
 } from "../models/models_0";
-import { CreateServiceSpecificCredential } from "../schemas/schemas_0";
+import { CreateServiceSpecificCredential$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class CreateServiceSpecificCredentialCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "CreateServiceSpecificCredential", {})
   .n("IAMClient", "CreateServiceSpecificCredentialCommand")
-  .sc(CreateServiceSpecificCredential)
+  .sc(CreateServiceSpecificCredential$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetApprovalRuleTemplateInput, GetApprovalRuleTemplateOutput } from "../models/models_0";
-import { GetApprovalRuleTemplate } from "../schemas/schemas_0";
+import { GetApprovalRuleTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class GetApprovalRuleTemplateCommand extends $Command
   })
   .s("CodeCommit_20150413", "GetApprovalRuleTemplate", {})
   .n("CodeCommitClient", "GetApprovalRuleTemplateCommand")
-  .sc(GetApprovalRuleTemplate)
+  .sc(GetApprovalRuleTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

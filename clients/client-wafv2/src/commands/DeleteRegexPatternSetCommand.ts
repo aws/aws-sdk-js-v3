@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteRegexPatternSetRequest, DeleteRegexPatternSetResponse } from "../models/models_0";
-import { DeleteRegexPatternSet } from "../schemas/schemas_0";
+import { DeleteRegexPatternSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -124,7 +124,7 @@ export class DeleteRegexPatternSetCommand extends $Command
   })
   .s("AWSWAF_20190729", "DeleteRegexPatternSet", {})
   .n("WAFV2Client", "DeleteRegexPatternSetCommand")
-  .sc(DeleteRegexPatternSet)
+  .sc(DeleteRegexPatternSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

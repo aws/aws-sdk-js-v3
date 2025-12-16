@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { DisassociateLink } from "../schemas/schemas_0";
+import { DisassociateLink$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DisassociateLinkCommand extends $Command
   })
   .s("NetworkManager", "DisassociateLink", {})
   .n("NetworkManagerClient", "DisassociateLinkCommand")
-  .sc(DisassociateLink)
+  .sc(DisassociateLink$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

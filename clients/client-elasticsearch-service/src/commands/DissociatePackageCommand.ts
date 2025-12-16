@@ -10,7 +10,7 @@ import type {
 } from "../ElasticsearchServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DissociatePackageRequest, DissociatePackageResponse } from "../models/models_0";
-import { DissociatePackage } from "../schemas/schemas_0";
+import { DissociatePackage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class DissociatePackageCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "DissociatePackage", {})
   .n("ElasticsearchServiceClient", "DissociatePackageCommand")
-  .sc(DissociatePackage)
+  .sc(DissociatePackage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -11,7 +11,7 @@ import type {
   PutAccessGrantsInstanceResourcePolicyResult,
 } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { PutAccessGrantsInstanceResourcePolicy } from "../schemas/schemas_0";
+import { PutAccessGrantsInstanceResourcePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class PutAccessGrantsInstanceResourcePolicyCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "PutAccessGrantsInstanceResourcePolicy", {})
   .n("S3ControlClient", "PutAccessGrantsInstanceResourcePolicyCommand")
-  .sc(PutAccessGrantsInstanceResourcePolicy)
+  .sc(PutAccessGrantsInstanceResourcePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

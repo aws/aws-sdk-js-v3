@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: BillingconductorClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.billingconductor" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.billingconductor",
+      version: "2021-07-30",
+      serviceTarget: "AWSBillingConductor",
+    },
     serviceId: config?.serviceId ?? "billingconductor",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

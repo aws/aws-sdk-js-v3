@@ -9,7 +9,7 @@ import type {
   CreateResourceDefinitionVersionRequest,
   CreateResourceDefinitionVersionResponse,
 } from "../models/models_0";
-import { CreateResourceDefinitionVersion } from "../schemas/schemas_0";
+import { CreateResourceDefinitionVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class CreateResourceDefinitionVersionCommand extends $Command
   })
   .s("Greengrass", "CreateResourceDefinitionVersion", {})
   .n("GreengrassClient", "CreateResourceDefinitionVersionCommand")
-  .sc(CreateResourceDefinitionVersion)
+  .sc(CreateResourceDefinitionVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

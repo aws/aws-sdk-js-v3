@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetLendingAnalysisSummaryRequest, GetLendingAnalysisSummaryResponse } from "../models/models_0";
-import { GetLendingAnalysisSummary } from "../schemas/schemas_0";
+import { GetLendingAnalysisSummary$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
@@ -159,7 +159,7 @@ export class GetLendingAnalysisSummaryCommand extends $Command
   })
   .s("Textract", "GetLendingAnalysisSummary", {})
   .n("TextractClient", "GetLendingAnalysisSummaryCommand")
-  .sc(GetLendingAnalysisSummary)
+  .sc(GetLendingAnalysisSummary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

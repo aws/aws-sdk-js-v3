@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteEventRuleRequest, DeleteEventRuleResponse } from "../models/models_0";
 import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
-import { DeleteEventRule } from "../schemas/schemas_0";
+import { DeleteEventRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeleteEventRuleCommand extends $Command
   })
   .s("Notifications", "DeleteEventRule", {})
   .n("NotificationsClient", "DeleteEventRuleCommand")
-  .sc(DeleteEventRule)
+  .sc(DeleteEventRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

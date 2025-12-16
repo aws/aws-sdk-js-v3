@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListPluginTypeMetadataRequest, ListPluginTypeMetadataResponse } from "../models/models_0";
 import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
-import { ListPluginTypeMetadata } from "../schemas/schemas_0";
+import { ListPluginTypeMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class ListPluginTypeMetadataCommand extends $Command
   })
   .s("ExpertQ", "ListPluginTypeMetadata", {})
   .n("QBusinessClient", "ListPluginTypeMetadataCommand")
-  .sc(ListPluginTypeMetadata)
+  .sc(ListPluginTypeMetadata$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

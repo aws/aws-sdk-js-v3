@@ -9,7 +9,7 @@ import type {
   UpdateGatewayCapabilityConfigurationRequest,
   UpdateGatewayCapabilityConfigurationResponse,
 } from "../models/models_1";
-import { UpdateGatewayCapabilityConfiguration } from "../schemas/schemas_0";
+import { UpdateGatewayCapabilityConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class UpdateGatewayCapabilityConfigurationCommand extends $Command
   })
   .s("AWSIoTSiteWise", "UpdateGatewayCapabilityConfiguration", {})
   .n("IoTSiteWiseClient", "UpdateGatewayCapabilityConfigurationCommand")
-  .sc(UpdateGatewayCapabilityConfiguration)
+  .sc(UpdateGatewayCapabilityConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

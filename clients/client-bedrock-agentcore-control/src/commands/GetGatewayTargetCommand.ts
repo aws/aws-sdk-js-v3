@@ -11,7 +11,7 @@ import type {
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetGatewayTargetRequest } from "../models/models_0";
 import type { GetGatewayTargetResponse } from "../models/models_1";
-import { GetGatewayTarget } from "../schemas/schemas_0";
+import { GetGatewayTarget$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -208,7 +208,7 @@ export class GetGatewayTargetCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "GetGatewayTarget", {})
   .n("BedrockAgentCoreControlClient", "GetGatewayTargetCommand")
-  .sc(GetGatewayTarget)
+  .sc(GetGatewayTarget$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

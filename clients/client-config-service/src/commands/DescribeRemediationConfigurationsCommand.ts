@@ -9,7 +9,7 @@ import type {
   DescribeRemediationConfigurationsRequest,
   DescribeRemediationConfigurationsResponse,
 } from "../models/models_0";
-import { DescribeRemediationConfigurations } from "../schemas/schemas_0";
+import { DescribeRemediationConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class DescribeRemediationConfigurationsCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeRemediationConfigurations", {})
   .n("ConfigServiceClient", "DescribeRemediationConfigurationsCommand")
-  .sc(DescribeRemediationConfigurations)
+  .sc(DescribeRemediationConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
 import type { ResumeResourceRequest } from "../models/models_0";
-import { ResumeResource } from "../schemas/schemas_0";
+import { ResumeResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class ResumeResourceCommand extends $Command
   })
   .s("AmazonForecast", "ResumeResource", {})
   .n("ForecastClient", "ResumeResourceCommand")
-  .sc(ResumeResource)
+  .sc(ResumeResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

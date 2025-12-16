@@ -9,7 +9,7 @@ import type {
   CreateConfiguredTableAnalysisRuleInput,
   CreateConfiguredTableAnalysisRuleOutput,
 } from "../models/models_0";
-import { CreateConfiguredTableAnalysisRule } from "../schemas/schemas_0";
+import { CreateConfiguredTableAnalysisRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -238,7 +238,7 @@ export class CreateConfiguredTableAnalysisRuleCommand extends $Command
   })
   .s("AWSBastionControlPlaneServiceLambda", "CreateConfiguredTableAnalysisRule", {})
   .n("CleanRoomsClient", "CreateConfiguredTableAnalysisRuleCommand")
-  .sc(CreateConfiguredTableAnalysisRule)
+  .sc(CreateConfiguredTableAnalysisRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

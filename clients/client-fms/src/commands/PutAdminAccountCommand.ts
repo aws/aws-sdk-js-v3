@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import type { PutAdminAccountRequest } from "../models/models_0";
-import { PutAdminAccount } from "../schemas/schemas_0";
+import { PutAdminAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class PutAdminAccountCommand extends $Command
   })
   .s("AWSFMS_20180101", "PutAdminAccount", {})
   .n("FMSClient", "PutAdminAccountCommand")
-  .sc(PutAdminAccount)
+  .sc(PutAdminAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

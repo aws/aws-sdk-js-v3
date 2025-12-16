@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: MediaPackageClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.mediapackage" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.mediapackage",
+      version: "2017-10-12",
+      serviceTarget: "MediaPackage",
+    },
     serviceId: config?.serviceId ?? "MediaPackage",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

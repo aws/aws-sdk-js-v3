@@ -9,7 +9,7 @@ import type {
   AssociateDistributionTenantWebACLRequest,
   AssociateDistributionTenantWebACLResult,
 } from "../models/models_0";
-import { AssociateDistributionTenantWebACL } from "../schemas/schemas_0";
+import { AssociateDistributionTenantWebACL$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class AssociateDistributionTenantWebACLCommand extends $Command
   })
   .s("Cloudfront2020_05_31", "AssociateDistributionTenantWebACL", {})
   .n("CloudFrontClient", "AssociateDistributionTenantWebACLCommand")
-  .sc(AssociateDistributionTenantWebACL)
+  .sc(AssociateDistributionTenantWebACL$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

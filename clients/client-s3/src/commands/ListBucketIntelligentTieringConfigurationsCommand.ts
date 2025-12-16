@@ -10,7 +10,7 @@ import type {
   ListBucketIntelligentTieringConfigurationsRequest,
 } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { ListBucketIntelligentTieringConfigurations } from "../schemas/schemas_0";
+import { ListBucketIntelligentTieringConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -143,7 +143,7 @@ export class ListBucketIntelligentTieringConfigurationsCommand extends $Command
   })
   .s("AmazonS3", "ListBucketIntelligentTieringConfigurations", {})
   .n("S3Client", "ListBucketIntelligentTieringConfigurationsCommand")
-  .sc(ListBucketIntelligentTieringConfigurations)
+  .sc(ListBucketIntelligentTieringConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

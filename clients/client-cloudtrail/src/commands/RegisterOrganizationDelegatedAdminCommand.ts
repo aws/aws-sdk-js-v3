@@ -9,7 +9,7 @@ import type {
   RegisterOrganizationDelegatedAdminRequest,
   RegisterOrganizationDelegatedAdminResponse,
 } from "../models/models_0";
-import { RegisterOrganizationDelegatedAdmin } from "../schemas/schemas_0";
+import { RegisterOrganizationDelegatedAdmin$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class RegisterOrganizationDelegatedAdminCommand extends $Command
   })
   .s("CloudTrail_20131101", "RegisterOrganizationDelegatedAdmin", {})
   .n("CloudTrailClient", "RegisterOrganizationDelegatedAdminCommand")
-  .sc(RegisterOrganizationDelegatedAdmin)
+  .sc(RegisterOrganizationDelegatedAdmin$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

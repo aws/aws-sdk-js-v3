@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: TimestreamQueryClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.timestreamquery",
-        serviceTarget: "Timestream_20181101",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.timestreamquery",
+      version: "2018-11-01",
+      serviceTarget: "Timestream_20181101",
+    },
     serviceId: config?.serviceId ?? "Timestream Query",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

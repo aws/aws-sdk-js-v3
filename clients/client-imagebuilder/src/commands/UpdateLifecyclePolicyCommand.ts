@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import type { UpdateLifecyclePolicyRequest, UpdateLifecyclePolicyResponse } from "../models/models_0";
-import { UpdateLifecyclePolicy } from "../schemas/schemas_0";
+import { UpdateLifecyclePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -159,7 +159,7 @@ export class UpdateLifecyclePolicyCommand extends $Command
   })
   .s("imagebuilder", "UpdateLifecyclePolicy", {})
   .n("ImagebuilderClient", "UpdateLifecyclePolicyCommand")
-  .sc(UpdateLifecyclePolicy)
+  .sc(UpdateLifecyclePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

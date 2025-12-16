@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListQueueEnvironmentsRequest, ListQueueEnvironmentsResponse } from "../models/models_0";
-import { ListQueueEnvironments } from "../schemas/schemas_0";
+import { ListQueueEnvironments$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class ListQueueEnvironmentsCommand extends $Command
   })
   .s("Deadline", "ListQueueEnvironments", {})
   .n("DeadlineClient", "ListQueueEnvironmentsCommand")
-  .sc(ListQueueEnvironments)
+  .sc(ListQueueEnvironments$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

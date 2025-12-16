@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteStateMachineAliasInput, DeleteStateMachineAliasOutput } from "../models/models_0";
-import { DeleteStateMachineAlias } from "../schemas/schemas_0";
+import { DeleteStateMachineAlias$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
@@ -112,7 +112,7 @@ export class DeleteStateMachineAliasCommand extends $Command
   })
   .s("AWSStepFunctions", "DeleteStateMachineAlias", {})
   .n("SFNClient", "DeleteStateMachineAliasCommand")
-  .sc(DeleteStateMachineAlias)
+  .sc(DeleteStateMachineAlias$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

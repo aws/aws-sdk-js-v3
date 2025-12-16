@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: S3TablesClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.s3tables" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.s3tables",
+      version: "2018-05-10",
+      serviceTarget: "S3TableBuckets",
+    },
     serviceId: config?.serviceId ?? "S3Tables",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

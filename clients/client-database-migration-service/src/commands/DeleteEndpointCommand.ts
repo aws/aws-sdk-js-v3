@@ -10,7 +10,7 @@ import type {
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteEndpointMessage, DeleteEndpointResponse } from "../models/models_0";
-import { DeleteEndpoint } from "../schemas/schemas_0";
+import { DeleteEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -477,7 +477,7 @@ export class DeleteEndpointCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DeleteEndpoint", {})
   .n("DatabaseMigrationServiceClient", "DeleteEndpointCommand")
-  .sc(DeleteEndpoint)
+  .sc(DeleteEndpoint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

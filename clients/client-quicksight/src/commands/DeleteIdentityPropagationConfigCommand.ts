@@ -9,7 +9,7 @@ import type {
   DeleteIdentityPropagationConfigResponse,
 } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DeleteIdentityPropagationConfig } from "../schemas/schemas_0";
+import { DeleteIdentityPropagationConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class DeleteIdentityPropagationConfigCommand extends $Command
   })
   .s("QuickSight_20180401", "DeleteIdentityPropagationConfig", {})
   .n("QuickSightClient", "DeleteIdentityPropagationConfigCommand")
-  .sc(DeleteIdentityPropagationConfig)
+  .sc(DeleteIdentityPropagationConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

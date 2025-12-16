@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateDRTLogBucketRequest, AssociateDRTLogBucketResponse } from "../models/models_0";
-import { AssociateDRTLogBucket } from "../schemas/schemas_0";
+import { AssociateDRTLogBucket$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
@@ -97,7 +97,7 @@ export class AssociateDRTLogBucketCommand extends $Command
   })
   .s("AWSShield_20160616", "AssociateDRTLogBucket", {})
   .n("ShieldClient", "AssociateDRTLogBucketCommand")
-  .sc(AssociateDRTLogBucket)
+  .sc(AssociateDRTLogBucket$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

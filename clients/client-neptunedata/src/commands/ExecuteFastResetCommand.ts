@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ExecuteFastResetInput, ExecuteFastResetOutput } from "../models/models_0";
 import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
-import { ExecuteFastReset } from "../schemas/schemas_0";
+import { ExecuteFastReset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class ExecuteFastResetCommand extends $Command
   })
   .s("AmazonNeptuneDataplane", "ExecuteFastReset", {})
   .n("NeptunedataClient", "ExecuteFastResetCommand")
-  .sc(ExecuteFastReset)
+  .sc(ExecuteFastReset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

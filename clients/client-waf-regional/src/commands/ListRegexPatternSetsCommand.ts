@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListRegexPatternSetsRequest, ListRegexPatternSetsResponse } from "../models/models_0";
-import { ListRegexPatternSets } from "../schemas/schemas_0";
+import { ListRegexPatternSets$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -94,7 +94,7 @@ export class ListRegexPatternSetsCommand extends $Command
   })
   .s("AWSWAF_Regional_20161128", "ListRegexPatternSets", {})
   .n("WAFRegionalClient", "ListRegexPatternSetsCommand")
-  .sc(ListRegexPatternSets)
+  .sc(ListRegexPatternSets$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RespondActivityTaskFailedInput } from "../models/models_0";
-import { RespondActivityTaskFailed } from "../schemas/schemas_0";
+import { RespondActivityTaskFailed$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
@@ -109,7 +109,7 @@ export class RespondActivityTaskFailedCommand extends $Command
   })
   .s("SimpleWorkflowService", "RespondActivityTaskFailed", {})
   .n("SWFClient", "RespondActivityTaskFailedCommand")
-  .sc(RespondActivityTaskFailed)
+  .sc(RespondActivityTaskFailed$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

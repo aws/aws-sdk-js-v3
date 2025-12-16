@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UnassignIpv6AddressesRequest, UnassignIpv6AddressesResult } from "../models/models_7";
-import { UnassignIpv6Addresses } from "../schemas/schemas_0";
+import { UnassignIpv6Addresses$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class UnassignIpv6AddressesCommand extends $Command
   })
   .s("AmazonEC2", "UnassignIpv6Addresses", {})
   .n("EC2Client", "UnassignIpv6AddressesCommand")
-  .sc(UnassignIpv6Addresses)
+  .sc(UnassignIpv6Addresses$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   DeleteStorageLensConfigurationTaggingResult,
 } from "../models/models_0";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { DeleteStorageLensConfigurationTagging } from "../schemas/schemas_0";
+import { DeleteStorageLensConfigurationTagging$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeleteStorageLensConfigurationTaggingCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "DeleteStorageLensConfigurationTagging", {})
   .n("S3ControlClient", "DeleteStorageLensConfigurationTaggingCommand")
-  .sc(DeleteStorageLensConfigurationTagging)
+  .sc(DeleteStorageLensConfigurationTagging$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

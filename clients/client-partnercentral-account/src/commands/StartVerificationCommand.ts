@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralAccountClient";
-import { StartVerification } from "../schemas/schemas_0";
+import { StartVerification$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class StartVerificationCommand extends $Command
   })
   .s("PartnerCentralAccount", "StartVerification", {})
   .n("PartnerCentralAccountClient", "StartVerificationCommand")
-  .sc(StartVerification)
+  .sc(StartVerification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

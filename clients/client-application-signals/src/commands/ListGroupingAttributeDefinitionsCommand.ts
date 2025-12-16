@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationSignalsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListGroupingAttributeDefinitionsInput, ListGroupingAttributeDefinitionsOutput } from "../models/models_0";
-import { ListGroupingAttributeDefinitions } from "../schemas/schemas_0";
+import { ListGroupingAttributeDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ListGroupingAttributeDefinitionsCommand extends $Command
   })
   .s("ApplicationSignals", "ListGroupingAttributeDefinitions", {})
   .n("ApplicationSignalsClient", "ListGroupingAttributeDefinitionsCommand")
-  .sc(ListGroupingAttributeDefinitions)
+  .sc(ListGroupingAttributeDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import type { ListDataSourceSyncJobsRequest, ListDataSourceSyncJobsResponse } from "../models/models_0";
-import { ListDataSourceSyncJobs } from "../schemas/schemas_0";
+import { ListDataSourceSyncJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class ListDataSourceSyncJobsCommand extends $Command
   })
   .s("AWSKendraFrontendService", "ListDataSourceSyncJobs", {})
   .n("KendraClient", "ListDataSourceSyncJobsCommand")
-  .sc(ListDataSourceSyncJobs)
+  .sc(ListDataSourceSyncJobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

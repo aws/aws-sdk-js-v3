@@ -9,7 +9,7 @@ import type {
   DeleteEnforcedGuardrailConfigurationRequest,
   DeleteEnforcedGuardrailConfigurationResponse,
 } from "../models/models_0";
-import { DeleteEnforcedGuardrailConfiguration } from "../schemas/schemas_0";
+import { DeleteEnforcedGuardrailConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteEnforcedGuardrailConfigurationCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "DeleteEnforcedGuardrailConfiguration", {})
   .n("BedrockClient", "DeleteEnforcedGuardrailConfigurationCommand")
-  .sc(DeleteEnforcedGuardrailConfiguration)
+  .sc(DeleteEnforcedGuardrailConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

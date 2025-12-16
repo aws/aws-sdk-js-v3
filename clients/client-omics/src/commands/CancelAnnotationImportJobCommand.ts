@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelAnnotationImportRequest, CancelAnnotationImportResponse } from "../models/models_0";
 import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { CancelAnnotationImportJob } from "../schemas/schemas_0";
+import { CancelAnnotationImportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -86,7 +86,7 @@ export class CancelAnnotationImportJobCommand extends $Command
   })
   .s("Omics", "CancelAnnotationImportJob", {})
   .n("OmicsClient", "CancelAnnotationImportJobCommand")
-  .sc(CancelAnnotationImportJob)
+  .sc(CancelAnnotationImportJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

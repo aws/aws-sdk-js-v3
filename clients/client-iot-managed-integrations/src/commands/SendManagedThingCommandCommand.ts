@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTManagedIntegrationsClient";
 import type { SendManagedThingCommandRequest, SendManagedThingCommandResponse } from "../models/models_0";
-import { SendManagedThingCommand } from "../schemas/schemas_0";
+import { SendManagedThingCommand$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class SendManagedThingCommandCommand extends $Command
   })
   .s("IotManagedIntegrations", "SendManagedThingCommand", {})
   .n("IoTManagedIntegrationsClient", "SendManagedThingCommandCommand")
-  .sc(SendManagedThingCommand)
+  .sc(SendManagedThingCommand$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

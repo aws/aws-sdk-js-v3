@@ -8,7 +8,7 @@ import type {
   UpdateUserAccessLoggingSettingsRequest,
   UpdateUserAccessLoggingSettingsResponse,
 } from "../models/models_0";
-import { UpdateUserAccessLoggingSettings } from "../schemas/schemas_0";
+import { UpdateUserAccessLoggingSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -101,7 +101,7 @@ export class UpdateUserAccessLoggingSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "UpdateUserAccessLoggingSettings", {})
   .n("WorkSpacesWebClient", "UpdateUserAccessLoggingSettingsCommand")
-  .sc(UpdateUserAccessLoggingSettings)
+  .sc(UpdateUserAccessLoggingSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

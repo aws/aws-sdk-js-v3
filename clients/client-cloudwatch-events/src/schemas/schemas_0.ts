@@ -405,28 +405,28 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { CloudWatchEventsServiceException as __CloudWatchEventsServiceException } from "../models/CloudWatchEventsServiceException";
+import { CloudWatchEventsServiceException } from "../models/CloudWatchEventsServiceException";
 import {
-  ConcurrentModificationException as __ConcurrentModificationException,
-  IllegalStatusException as __IllegalStatusException,
-  InternalException as __InternalException,
-  InvalidEventPatternException as __InvalidEventPatternException,
-  InvalidStateException as __InvalidStateException,
-  LimitExceededException as __LimitExceededException,
-  ManagedRuleException as __ManagedRuleException,
-  OperationDisabledException as __OperationDisabledException,
-  PolicyLengthExceededException as __PolicyLengthExceededException,
-  ResourceAlreadyExistsException as __ResourceAlreadyExistsException,
-  ResourceNotFoundException as __ResourceNotFoundException,
+  ConcurrentModificationException,
+  IllegalStatusException,
+  InternalException,
+  InvalidEventPatternException,
+  InvalidStateException,
+  LimitExceededException,
+  ManagedRuleException,
+  OperationDisabledException,
+  PolicyLengthExceededException,
+  ResourceAlreadyExistsException,
+  ResourceNotFoundException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AuthHeaderParametersSensitive: StaticSimpleSchema = [0, n0, _AHPS, 8, 0];
-export var HeaderValueSensitive: StaticSimpleSchema = [0, n0, _HVS, 8, 0];
-export var QueryStringValueSensitive: StaticSimpleSchema = [0, n0, _QSVS, 8, 0];
-export var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
-export var ActivateEventSourceRequest: StaticStructureSchema = [3, n0, _AESR, 0, [_N], [0]];
-export var ApiDestination: StaticStructureSchema = [
+var AuthHeaderParametersSensitive: StaticSimpleSchema = [0, n0, _AHPS, 8, 0];
+var HeaderValueSensitive: StaticSimpleSchema = [0, n0, _HVS, 8, 0];
+var QueryStringValueSensitive: StaticSimpleSchema = [0, n0, _QSVS, 8, 0];
+var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+export var ActivateEventSourceRequest$: StaticStructureSchema = [3, n0, _AESR, 0, [_N], [0]];
+export var ApiDestination$: StaticStructureSchema = [
   3,
   n0,
   _AD,
@@ -434,7 +434,7 @@ export var ApiDestination: StaticStructureSchema = [
   [_ADA, _N, _ADS, _CA, _IE, _HM, _IRLPS, _CT, _LMT],
   [0, 0, 0, 0, 0, 0, 1, 4, 4],
 ];
-export var Archive: StaticStructureSchema = [
+export var Archive$: StaticStructureSchema = [
   3,
   n0,
   _A,
@@ -442,24 +442,24 @@ export var Archive: StaticStructureSchema = [
   [_AN, _ESA, _S, _SR, _RD, _SB, _EC, _CT],
   [0, 0, 0, 0, 1, 1, 1, 4],
 ];
-export var AwsVpcConfiguration: StaticStructureSchema = [3, n0, _AVC, 0, [_Su, _SG, _API], [64 | 0, 64 | 0, 0]];
-export var BatchArrayProperties: StaticStructureSchema = [3, n0, _BAP, 0, [_Si], [1]];
-export var BatchParameters: StaticStructureSchema = [
+export var AwsVpcConfiguration$: StaticStructureSchema = [3, n0, _AVC, 0, [_Su, _SG, _API], [64 | 0, 64 | 0, 0]];
+export var BatchArrayProperties$: StaticStructureSchema = [3, n0, _BAP, 0, [_Si], [1]];
+export var BatchParameters$: StaticStructureSchema = [
   3,
   n0,
   _BP,
   0,
   [_JD, _JN, _AP, _RS],
-  [0, 0, () => BatchArrayProperties, () => BatchRetryStrategy],
+  [0, 0, () => BatchArrayProperties$, () => BatchRetryStrategy$],
 ];
-export var BatchRetryStrategy: StaticStructureSchema = [3, n0, _BRS, 0, [_At], [1]];
-export var CancelReplayRequest: StaticStructureSchema = [3, n0, _CRR, 0, [_RN], [0]];
-export var CancelReplayResponse: StaticStructureSchema = [3, n0, _CRRa, 0, [_RA, _S, _SR], [0, 0, 0]];
-export var CapacityProviderStrategyItem: StaticStructureSchema = [3, n0, _CPSI, 0, [_cP, _w, _b], [0, 1, 1]];
-export var ConcurrentModificationException: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException, __ConcurrentModificationException);
-export var Condition: StaticStructureSchema = [3, n0, _C, 0, [_T, _K, _V], [0, 0, 0]];
-export var Connection: StaticStructureSchema = [
+export var BatchRetryStrategy$: StaticStructureSchema = [3, n0, _BRS, 0, [_At], [1]];
+export var CancelReplayRequest$: StaticStructureSchema = [3, n0, _CRR, 0, [_RN], [0]];
+export var CancelReplayResponse$: StaticStructureSchema = [3, n0, _CRRa, 0, [_RA, _S, _SR], [0, 0, 0]];
+export var CapacityProviderStrategyItem$: StaticStructureSchema = [3, n0, _CPSI, 0, [_cP, _w, _b], [0, 1, 1]];
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var Condition$: StaticStructureSchema = [3, n0, _C, 0, [_T, _K, _V], [0, 0, 0]];
+export var Connection$: StaticStructureSchema = [
   3,
   n0,
   _Co,
@@ -467,22 +467,22 @@ export var Connection: StaticStructureSchema = [
   [_CA, _N, _CS, _SR, _AT, _CT, _LMT, _LAT],
   [0, 0, 0, 0, 0, 4, 4, 4],
 ];
-export var ConnectionApiKeyAuthResponseParameters: StaticStructureSchema = [3, n0, _CAKARP, 0, [_AKN], [0]];
-export var ConnectionAuthResponseParameters: StaticStructureSchema = [
+export var ConnectionApiKeyAuthResponseParameters$: StaticStructureSchema = [3, n0, _CAKARP, 0, [_AKN], [0]];
+export var ConnectionAuthResponseParameters$: StaticStructureSchema = [
   3,
   n0,
   _CARP,
   0,
   [_BAPa, _OAP, _AKAP, _IHP],
   [
-    () => ConnectionBasicAuthResponseParameters,
-    [() => ConnectionOAuthResponseParameters, 0],
-    () => ConnectionApiKeyAuthResponseParameters,
-    [() => ConnectionHttpParameters, 0],
+    () => ConnectionBasicAuthResponseParameters$,
+    [() => ConnectionOAuthResponseParameters$, 0],
+    () => ConnectionApiKeyAuthResponseParameters$,
+    [() => ConnectionHttpParameters$, 0],
   ],
 ];
-export var ConnectionBasicAuthResponseParameters: StaticStructureSchema = [3, n0, _CBARP, 0, [_U], [0]];
-export var ConnectionBodyParameter: StaticStructureSchema = [
+export var ConnectionBasicAuthResponseParameters$: StaticStructureSchema = [3, n0, _CBARP, 0, [_U], [0]];
+export var ConnectionBodyParameter$: StaticStructureSchema = [
   3,
   n0,
   _CBP,
@@ -490,7 +490,7 @@ export var ConnectionBodyParameter: StaticStructureSchema = [
   [_K, _V, _IVS],
   [0, [() => SensitiveString, 0], 2],
 ];
-export var ConnectionHeaderParameter: StaticStructureSchema = [
+export var ConnectionHeaderParameter$: StaticStructureSchema = [
   3,
   n0,
   _CHP,
@@ -498,7 +498,7 @@ export var ConnectionHeaderParameter: StaticStructureSchema = [
   [_K, _V, _IVS],
   [0, [() => HeaderValueSensitive, 0], 2],
 ];
-export var ConnectionHttpParameters: StaticStructureSchema = [
+export var ConnectionHttpParameters$: StaticStructureSchema = [
   3,
   n0,
   _CHPo,
@@ -510,16 +510,16 @@ export var ConnectionHttpParameters: StaticStructureSchema = [
     [() => ConnectionBodyParametersList, 0],
   ],
 ];
-export var ConnectionOAuthClientResponseParameters: StaticStructureSchema = [3, n0, _COACRP, 0, [_CID], [0]];
-export var ConnectionOAuthResponseParameters: StaticStructureSchema = [
+export var ConnectionOAuthClientResponseParameters$: StaticStructureSchema = [3, n0, _COACRP, 0, [_CID], [0]];
+export var ConnectionOAuthResponseParameters$: StaticStructureSchema = [
   3,
   n0,
   _COARP,
   0,
   [_CP, _AE, _HM, _OAHP],
-  [() => ConnectionOAuthClientResponseParameters, 0, 0, [() => ConnectionHttpParameters, 0]],
+  [() => ConnectionOAuthClientResponseParameters$, 0, 0, [() => ConnectionHttpParameters$, 0]],
 ];
-export var ConnectionQueryStringParameter: StaticStructureSchema = [
+export var ConnectionQueryStringParameter$: StaticStructureSchema = [
   3,
   n0,
   _CQSP,
@@ -527,7 +527,7 @@ export var ConnectionQueryStringParameter: StaticStructureSchema = [
   [_K, _V, _IVS],
   [0, [() => QueryStringValueSensitive, 0], 2],
 ];
-export var CreateApiDestinationRequest: StaticStructureSchema = [
+export var CreateApiDestinationRequest$: StaticStructureSchema = [
   3,
   n0,
   _CADR,
@@ -535,7 +535,7 @@ export var CreateApiDestinationRequest: StaticStructureSchema = [
   [_N, _D, _CA, _IE, _HM, _IRLPS],
   [0, 0, 0, 0, 0, 1],
 ];
-export var CreateApiDestinationResponse: StaticStructureSchema = [
+export var CreateApiDestinationResponse$: StaticStructureSchema = [
   3,
   n0,
   _CADRr,
@@ -543,9 +543,9 @@ export var CreateApiDestinationResponse: StaticStructureSchema = [
   [_ADA, _ADS, _CT, _LMT],
   [0, 0, 4, 4],
 ];
-export var CreateArchiveRequest: StaticStructureSchema = [3, n0, _CAR, 0, [_AN, _ESA, _D, _EP, _RD], [0, 0, 0, 0, 1]];
-export var CreateArchiveResponse: StaticStructureSchema = [3, n0, _CARr, 0, [_AA, _S, _SR, _CT], [0, 0, 0, 4]];
-export var CreateConnectionApiKeyAuthRequestParameters: StaticStructureSchema = [
+export var CreateArchiveRequest$: StaticStructureSchema = [3, n0, _CAR, 0, [_AN, _ESA, _D, _EP, _RD], [0, 0, 0, 0, 1]];
+export var CreateArchiveResponse$: StaticStructureSchema = [3, n0, _CARr, 0, [_AA, _S, _SR, _CT], [0, 0, 0, 4]];
+export var CreateConnectionApiKeyAuthRequestParameters$: StaticStructureSchema = [
   3,
   n0,
   _CCAKARP,
@@ -553,20 +553,20 @@ export var CreateConnectionApiKeyAuthRequestParameters: StaticStructureSchema = 
   [_AKN, _AKV],
   [0, [() => AuthHeaderParametersSensitive, 0]],
 ];
-export var CreateConnectionAuthRequestParameters: StaticStructureSchema = [
+export var CreateConnectionAuthRequestParameters$: StaticStructureSchema = [
   3,
   n0,
   _CCARP,
   0,
   [_BAPa, _OAP, _AKAP, _IHP],
   [
-    [() => CreateConnectionBasicAuthRequestParameters, 0],
-    [() => CreateConnectionOAuthRequestParameters, 0],
-    [() => CreateConnectionApiKeyAuthRequestParameters, 0],
-    [() => ConnectionHttpParameters, 0],
+    [() => CreateConnectionBasicAuthRequestParameters$, 0],
+    [() => CreateConnectionOAuthRequestParameters$, 0],
+    [() => CreateConnectionApiKeyAuthRequestParameters$, 0],
+    [() => ConnectionHttpParameters$, 0],
   ],
 ];
-export var CreateConnectionBasicAuthRequestParameters: StaticStructureSchema = [
+export var CreateConnectionBasicAuthRequestParameters$: StaticStructureSchema = [
   3,
   n0,
   _CCBARP,
@@ -574,7 +574,7 @@ export var CreateConnectionBasicAuthRequestParameters: StaticStructureSchema = [
   [_U, _P],
   [0, [() => AuthHeaderParametersSensitive, 0]],
 ];
-export var CreateConnectionOAuthClientRequestParameters: StaticStructureSchema = [
+export var CreateConnectionOAuthClientRequestParameters$: StaticStructureSchema = [
   3,
   n0,
   _CCOACRP,
@@ -582,31 +582,31 @@ export var CreateConnectionOAuthClientRequestParameters: StaticStructureSchema =
   [_CID, _CSl],
   [0, [() => AuthHeaderParametersSensitive, 0]],
 ];
-export var CreateConnectionOAuthRequestParameters: StaticStructureSchema = [
+export var CreateConnectionOAuthRequestParameters$: StaticStructureSchema = [
   3,
   n0,
   _CCOARP,
   0,
   [_CP, _AE, _HM, _OAHP],
-  [[() => CreateConnectionOAuthClientRequestParameters, 0], 0, 0, [() => ConnectionHttpParameters, 0]],
+  [[() => CreateConnectionOAuthClientRequestParameters$, 0], 0, 0, [() => ConnectionHttpParameters$, 0]],
 ];
-export var CreateConnectionRequest: StaticStructureSchema = [
+export var CreateConnectionRequest$: StaticStructureSchema = [
   3,
   n0,
   _CCR,
   0,
   [_N, _D, _AT, _APu],
-  [0, 0, 0, [() => CreateConnectionAuthRequestParameters, 0]],
+  [0, 0, 0, [() => CreateConnectionAuthRequestParameters$, 0]],
 ];
-export var CreateConnectionResponse: StaticStructureSchema = [3, n0, _CCRr, 0, [_CA, _CS, _CT, _LMT], [0, 0, 4, 4]];
-export var CreateEventBusRequest: StaticStructureSchema = [3, n0, _CEBR, 0, [_N, _ESN, _Ta], [0, 0, () => TagList]];
-export var CreateEventBusResponse: StaticStructureSchema = [3, n0, _CEBRr, 0, [_EBA], [0]];
-export var CreatePartnerEventSourceRequest: StaticStructureSchema = [3, n0, _CPESR, 0, [_N, _Ac], [0, 0]];
-export var CreatePartnerEventSourceResponse: StaticStructureSchema = [3, n0, _CPESRr, 0, [_ESA], [0]];
-export var DeactivateEventSourceRequest: StaticStructureSchema = [3, n0, _DESR, 0, [_N], [0]];
-export var DeadLetterConfig: StaticStructureSchema = [3, n0, _DLC, 0, [_Ar], [0]];
-export var DeauthorizeConnectionRequest: StaticStructureSchema = [3, n0, _DCR, 0, [_N], [0]];
-export var DeauthorizeConnectionResponse: StaticStructureSchema = [
+export var CreateConnectionResponse$: StaticStructureSchema = [3, n0, _CCRr, 0, [_CA, _CS, _CT, _LMT], [0, 0, 4, 4]];
+export var CreateEventBusRequest$: StaticStructureSchema = [3, n0, _CEBR, 0, [_N, _ESN, _Ta], [0, 0, () => TagList]];
+export var CreateEventBusResponse$: StaticStructureSchema = [3, n0, _CEBRr, 0, [_EBA], [0]];
+export var CreatePartnerEventSourceRequest$: StaticStructureSchema = [3, n0, _CPESR, 0, [_N, _Ac], [0, 0]];
+export var CreatePartnerEventSourceResponse$: StaticStructureSchema = [3, n0, _CPESRr, 0, [_ESA], [0]];
+export var DeactivateEventSourceRequest$: StaticStructureSchema = [3, n0, _DESR, 0, [_N], [0]];
+export var DeadLetterConfig$: StaticStructureSchema = [3, n0, _DLC, 0, [_Ar], [0]];
+export var DeauthorizeConnectionRequest$: StaticStructureSchema = [3, n0, _DCR, 0, [_N], [0]];
+export var DeauthorizeConnectionResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCRe,
@@ -614,12 +614,12 @@ export var DeauthorizeConnectionResponse: StaticStructureSchema = [
   [_CA, _CS, _CT, _LMT, _LAT],
   [0, 0, 4, 4, 4],
 ];
-export var DeleteApiDestinationRequest: StaticStructureSchema = [3, n0, _DADR, 0, [_N], [0]];
-export var DeleteApiDestinationResponse: StaticStructureSchema = [3, n0, _DADRe, 0, [], []];
-export var DeleteArchiveRequest: StaticStructureSchema = [3, n0, _DAR, 0, [_AN], [0]];
-export var DeleteArchiveResponse: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
-export var DeleteConnectionRequest: StaticStructureSchema = [3, n0, _DCRel, 0, [_N], [0]];
-export var DeleteConnectionResponse: StaticStructureSchema = [
+export var DeleteApiDestinationRequest$: StaticStructureSchema = [3, n0, _DADR, 0, [_N], [0]];
+export var DeleteApiDestinationResponse$: StaticStructureSchema = [3, n0, _DADRe, 0, [], []];
+export var DeleteArchiveRequest$: StaticStructureSchema = [3, n0, _DAR, 0, [_AN], [0]];
+export var DeleteArchiveResponse$: StaticStructureSchema = [3, n0, _DARe, 0, [], []];
+export var DeleteConnectionRequest$: StaticStructureSchema = [3, n0, _DCRel, 0, [_N], [0]];
+export var DeleteConnectionResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCRele,
@@ -627,11 +627,11 @@ export var DeleteConnectionResponse: StaticStructureSchema = [
   [_CA, _CS, _CT, _LMT, _LAT],
   [0, 0, 4, 4, 4],
 ];
-export var DeleteEventBusRequest: StaticStructureSchema = [3, n0, _DEBR, 0, [_N], [0]];
-export var DeletePartnerEventSourceRequest: StaticStructureSchema = [3, n0, _DPESR, 0, [_N, _Ac], [0, 0]];
-export var DeleteRuleRequest: StaticStructureSchema = [3, n0, _DRR, 0, [_N, _EBN, _F], [0, 0, 2]];
-export var DescribeApiDestinationRequest: StaticStructureSchema = [3, n0, _DADRes, 0, [_N], [0]];
-export var DescribeApiDestinationResponse: StaticStructureSchema = [
+export var DeleteEventBusRequest$: StaticStructureSchema = [3, n0, _DEBR, 0, [_N], [0]];
+export var DeletePartnerEventSourceRequest$: StaticStructureSchema = [3, n0, _DPESR, 0, [_N, _Ac], [0, 0]];
+export var DeleteRuleRequest$: StaticStructureSchema = [3, n0, _DRR, 0, [_N, _EBN, _F], [0, 0, 2]];
+export var DescribeApiDestinationRequest$: StaticStructureSchema = [3, n0, _DADRes, 0, [_N], [0]];
+export var DescribeApiDestinationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DADResc,
@@ -639,8 +639,8 @@ export var DescribeApiDestinationResponse: StaticStructureSchema = [
   [_ADA, _N, _D, _ADS, _CA, _IE, _HM, _IRLPS, _CT, _LMT],
   [0, 0, 0, 0, 0, 0, 0, 1, 4, 4],
 ];
-export var DescribeArchiveRequest: StaticStructureSchema = [3, n0, _DARes, 0, [_AN], [0]];
-export var DescribeArchiveResponse: StaticStructureSchema = [
+export var DescribeArchiveRequest$: StaticStructureSchema = [3, n0, _DARes, 0, [_AN], [0]];
+export var DescribeArchiveResponse$: StaticStructureSchema = [
   3,
   n0,
   _DAResc,
@@ -648,19 +648,19 @@ export var DescribeArchiveResponse: StaticStructureSchema = [
   [_AA, _AN, _ESA, _D, _EP, _S, _SR, _RD, _SB, _EC, _CT],
   [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 4],
 ];
-export var DescribeConnectionRequest: StaticStructureSchema = [3, n0, _DCRes, 0, [_N], [0]];
-export var DescribeConnectionResponse: StaticStructureSchema = [
+export var DescribeConnectionRequest$: StaticStructureSchema = [3, n0, _DCRes, 0, [_N], [0]];
+export var DescribeConnectionResponse$: StaticStructureSchema = [
   3,
   n0,
   _DCResc,
   0,
   [_CA, _N, _D, _CS, _SR, _AT, _SA, _APu, _CT, _LMT, _LAT],
-  [0, 0, 0, 0, 0, 0, 0, [() => ConnectionAuthResponseParameters, 0], 4, 4, 4],
+  [0, 0, 0, 0, 0, 0, 0, [() => ConnectionAuthResponseParameters$, 0], 4, 4, 4],
 ];
-export var DescribeEventBusRequest: StaticStructureSchema = [3, n0, _DEBRe, 0, [_N], [0]];
-export var DescribeEventBusResponse: StaticStructureSchema = [3, n0, _DEBRes, 0, [_N, _Ar, _Po], [0, 0, 0]];
-export var DescribeEventSourceRequest: StaticStructureSchema = [3, n0, _DESRe, 0, [_N], [0]];
-export var DescribeEventSourceResponse: StaticStructureSchema = [
+export var DescribeEventBusRequest$: StaticStructureSchema = [3, n0, _DEBRe, 0, [_N], [0]];
+export var DescribeEventBusResponse$: StaticStructureSchema = [3, n0, _DEBRes, 0, [_N, _Ar, _Po], [0, 0, 0]];
+export var DescribeEventSourceRequest$: StaticStructureSchema = [3, n0, _DESRe, 0, [_N], [0]];
+export var DescribeEventSourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _DESRes,
@@ -668,19 +668,19 @@ export var DescribeEventSourceResponse: StaticStructureSchema = [
   [_Ar, _CB, _CT, _ET, _N, _S],
   [0, 0, 4, 4, 0, 0],
 ];
-export var DescribePartnerEventSourceRequest: StaticStructureSchema = [3, n0, _DPESRe, 0, [_N], [0]];
-export var DescribePartnerEventSourceResponse: StaticStructureSchema = [3, n0, _DPESRes, 0, [_Ar, _N], [0, 0]];
-export var DescribeReplayRequest: StaticStructureSchema = [3, n0, _DRRe, 0, [_RN], [0]];
-export var DescribeReplayResponse: StaticStructureSchema = [
+export var DescribePartnerEventSourceRequest$: StaticStructureSchema = [3, n0, _DPESRe, 0, [_N], [0]];
+export var DescribePartnerEventSourceResponse$: StaticStructureSchema = [3, n0, _DPESRes, 0, [_Ar, _N], [0, 0]];
+export var DescribeReplayRequest$: StaticStructureSchema = [3, n0, _DRRe, 0, [_RN], [0]];
+export var DescribeReplayResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRRes,
   0,
   [_RN, _RA, _D, _S, _SR, _ESA, _De, _EST, _EET, _ELRT, _RST, _RET],
-  [0, 0, 0, 0, 0, 0, () => ReplayDestination, 4, 4, 4, 4, 4],
+  [0, 0, 0, 0, 0, 0, () => ReplayDestination$, 4, 4, 4, 4, 4],
 ];
-export var DescribeRuleRequest: StaticStructureSchema = [3, n0, _DRResc, 0, [_N, _EBN], [0, 0]];
-export var DescribeRuleResponse: StaticStructureSchema = [
+export var DescribeRuleRequest$: StaticStructureSchema = [3, n0, _DRResc, 0, [_N, _EBN], [0, 0]];
+export var DescribeRuleResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRRescr,
@@ -688,8 +688,8 @@ export var DescribeRuleResponse: StaticStructureSchema = [
   [_N, _Ar, _EP, _SE, _S, _D, _RAo, _MB, _EBN, _CB],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var DisableRuleRequest: StaticStructureSchema = [3, n0, _DRRi, 0, [_N, _EBN], [0, 0]];
-export var EcsParameters: StaticStructureSchema = [
+export var DisableRuleRequest$: StaticStructureSchema = [3, n0, _DRRi, 0, [_N, _EBN], [0, 0]];
+export var EcsParameters$: StaticStructureSchema = [
   3,
   n0,
   _EPc,
@@ -699,7 +699,7 @@ export var EcsParameters: StaticStructureSchema = [
     0,
     1,
     0,
-    () => NetworkConfiguration,
+    () => NetworkConfiguration$,
     0,
     0,
     () => CapacityProviderStrategy,
@@ -712,24 +712,24 @@ export var EcsParameters: StaticStructureSchema = [
     () => TagList,
   ],
 ];
-export var EnableRuleRequest: StaticStructureSchema = [3, n0, _ERR, 0, [_N, _EBN], [0, 0]];
-export var EventBus: StaticStructureSchema = [3, n0, _EB, 0, [_N, _Ar, _Po], [0, 0, 0]];
-export var EventSource: StaticStructureSchema = [3, n0, _ES, 0, [_Ar, _CB, _CT, _ET, _N, _S], [0, 0, 4, 4, 0, 0]];
-export var HttpParameters: StaticStructureSchema = [3, n0, _HPt, 0, [_PPV, _HP, _QSP], [64 | 0, 128 | 0, 128 | 0]];
-export var IllegalStatusException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(IllegalStatusException, __IllegalStatusException);
-export var InputTransformer: StaticStructureSchema = [3, n0, _IT, 0, [_IPM, _ITn], [128 | 0, 0]];
-export var InternalException: StaticErrorSchema = [-3, n0, _IEn, { [_e]: _s }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalException, __InternalException);
-export var InvalidEventPatternException: StaticErrorSchema = [-3, n0, _IEPE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InvalidEventPatternException, __InvalidEventPatternException);
-export var InvalidStateException: StaticErrorSchema = [-3, n0, _ISEn, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InvalidStateException, __InvalidStateException);
-export var KinesisParameters: StaticStructureSchema = [3, n0, _KP, 0, [_PKP], [0]];
-export var LimitExceededException: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(LimitExceededException, __LimitExceededException);
-export var ListApiDestinationsRequest: StaticStructureSchema = [3, n0, _LADR, 0, [_NP, _CA, _NT, _L], [0, 0, 0, 1]];
-export var ListApiDestinationsResponse: StaticStructureSchema = [
+export var EnableRuleRequest$: StaticStructureSchema = [3, n0, _ERR, 0, [_N, _EBN], [0, 0]];
+export var EventBus$: StaticStructureSchema = [3, n0, _EB, 0, [_N, _Ar, _Po], [0, 0, 0]];
+export var EventSource$: StaticStructureSchema = [3, n0, _ES, 0, [_Ar, _CB, _CT, _ET, _N, _S], [0, 0, 4, 4, 0, 0]];
+export var HttpParameters$: StaticStructureSchema = [3, n0, _HPt, 0, [_PPV, _HP, _QSP], [64 | 0, 128 | 0, 128 | 0]];
+export var IllegalStatusException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(IllegalStatusException$, IllegalStatusException);
+export var InputTransformer$: StaticStructureSchema = [3, n0, _IT, 0, [_IPM, _ITn], [128 | 0, 0]];
+export var InternalException$: StaticErrorSchema = [-3, n0, _IEn, { [_e]: _s }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InternalException$, InternalException);
+export var InvalidEventPatternException$: StaticErrorSchema = [-3, n0, _IEPE, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InvalidEventPatternException$, InvalidEventPatternException);
+export var InvalidStateException$: StaticErrorSchema = [-3, n0, _ISEn, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InvalidStateException$, InvalidStateException);
+export var KinesisParameters$: StaticStructureSchema = [3, n0, _KP, 0, [_PKP], [0]];
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var ListApiDestinationsRequest$: StaticStructureSchema = [3, n0, _LADR, 0, [_NP, _CA, _NT, _L], [0, 0, 0, 1]];
+export var ListApiDestinationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LADRi,
@@ -737,10 +737,17 @@ export var ListApiDestinationsResponse: StaticStructureSchema = [
   [_ADp, _NT],
   [() => ApiDestinationResponseList, 0],
 ];
-export var ListArchivesRequest: StaticStructureSchema = [3, n0, _LAR, 0, [_NP, _ESA, _S, _NT, _L], [0, 0, 0, 0, 1]];
-export var ListArchivesResponse: StaticStructureSchema = [3, n0, _LARi, 0, [_Arc, _NT], [() => ArchiveResponseList, 0]];
-export var ListConnectionsRequest: StaticStructureSchema = [3, n0, _LCR, 0, [_NP, _CS, _NT, _L], [0, 0, 0, 1]];
-export var ListConnectionsResponse: StaticStructureSchema = [
+export var ListArchivesRequest$: StaticStructureSchema = [3, n0, _LAR, 0, [_NP, _ESA, _S, _NT, _L], [0, 0, 0, 0, 1]];
+export var ListArchivesResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _LARi,
+  0,
+  [_Arc, _NT],
+  [() => ArchiveResponseList, 0],
+];
+export var ListConnectionsRequest$: StaticStructureSchema = [3, n0, _LCR, 0, [_NP, _CS, _NT, _L], [0, 0, 0, 1]];
+export var ListConnectionsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LCRi,
@@ -748,10 +755,10 @@ export var ListConnectionsResponse: StaticStructureSchema = [
   [_Con, _NT],
   [() => ConnectionResponseList, 0],
 ];
-export var ListEventBusesRequest: StaticStructureSchema = [3, n0, _LEBR, 0, [_NP, _NT, _L], [0, 0, 1]];
-export var ListEventBusesResponse: StaticStructureSchema = [3, n0, _LEBRi, 0, [_EBv, _NT], [() => EventBusList, 0]];
-export var ListEventSourcesRequest: StaticStructureSchema = [3, n0, _LESR, 0, [_NP, _NT, _L], [0, 0, 1]];
-export var ListEventSourcesResponse: StaticStructureSchema = [
+export var ListEventBusesRequest$: StaticStructureSchema = [3, n0, _LEBR, 0, [_NP, _NT, _L], [0, 0, 1]];
+export var ListEventBusesResponse$: StaticStructureSchema = [3, n0, _LEBRi, 0, [_EBv, _NT], [() => EventBusList, 0]];
+export var ListEventSourcesRequest$: StaticStructureSchema = [3, n0, _LESR, 0, [_NP, _NT, _L], [0, 0, 1]];
+export var ListEventSourcesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LESRi,
@@ -759,7 +766,7 @@ export var ListEventSourcesResponse: StaticStructureSchema = [
   [_ESv, _NT],
   [() => EventSourceList, 0],
 ];
-export var ListPartnerEventSourceAccountsRequest: StaticStructureSchema = [
+export var ListPartnerEventSourceAccountsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LPESAR,
@@ -767,7 +774,7 @@ export var ListPartnerEventSourceAccountsRequest: StaticStructureSchema = [
   [_ESN, _NT, _L],
   [0, 0, 1],
 ];
-export var ListPartnerEventSourceAccountsResponse: StaticStructureSchema = [
+export var ListPartnerEventSourceAccountsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPESARi,
@@ -775,8 +782,8 @@ export var ListPartnerEventSourceAccountsResponse: StaticStructureSchema = [
   [_PESA, _NT],
   [() => PartnerEventSourceAccountList, 0],
 ];
-export var ListPartnerEventSourcesRequest: StaticStructureSchema = [3, n0, _LPESR, 0, [_NP, _NT, _L], [0, 0, 1]];
-export var ListPartnerEventSourcesResponse: StaticStructureSchema = [
+export var ListPartnerEventSourcesRequest$: StaticStructureSchema = [3, n0, _LPESR, 0, [_NP, _NT, _L], [0, 0, 1]];
+export var ListPartnerEventSourcesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LPESRi,
@@ -784,9 +791,9 @@ export var ListPartnerEventSourcesResponse: StaticStructureSchema = [
   [_PES, _NT],
   [() => PartnerEventSourceList, 0],
 ];
-export var ListReplaysRequest: StaticStructureSchema = [3, n0, _LRR, 0, [_NP, _S, _ESA, _NT, _L], [0, 0, 0, 0, 1]];
-export var ListReplaysResponse: StaticStructureSchema = [3, n0, _LRRi, 0, [_R, _NT], [() => ReplayList, 0]];
-export var ListRuleNamesByTargetRequest: StaticStructureSchema = [
+export var ListReplaysRequest$: StaticStructureSchema = [3, n0, _LRR, 0, [_NP, _S, _ESA, _NT, _L], [0, 0, 0, 0, 1]];
+export var ListReplaysResponse$: StaticStructureSchema = [3, n0, _LRRi, 0, [_R, _NT], [() => ReplayList, 0]];
+export var ListRuleNamesByTargetRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRNBTR,
@@ -794,26 +801,26 @@ export var ListRuleNamesByTargetRequest: StaticStructureSchema = [
   [_TA, _EBN, _NT, _L],
   [0, 0, 0, 1],
 ];
-export var ListRuleNamesByTargetResponse: StaticStructureSchema = [3, n0, _LRNBTRi, 0, [_RNu, _NT], [64 | 0, 0]];
-export var ListRulesRequest: StaticStructureSchema = [3, n0, _LRRis, 0, [_NP, _EBN, _NT, _L], [0, 0, 0, 1]];
-export var ListRulesResponse: StaticStructureSchema = [3, n0, _LRRist, 0, [_Ru, _NT], [() => RuleResponseList, 0]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RARN], [0]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [() => TagList]];
-export var ListTargetsByRuleRequest: StaticStructureSchema = [3, n0, _LTBRR, 0, [_Rul, _EBN, _NT, _L], [0, 0, 0, 1]];
-export var ListTargetsByRuleResponse: StaticStructureSchema = [3, n0, _LTBRRi, 0, [_Tar, _NT], [() => TargetList, 0]];
-export var ManagedRuleException: StaticErrorSchema = [-3, n0, _MRE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ManagedRuleException, __ManagedRuleException);
-export var NetworkConfiguration: StaticStructureSchema = [3, n0, _NC, 0, [_aC], [() => AwsVpcConfiguration]];
-export var OperationDisabledException: StaticErrorSchema = [-3, n0, _ODE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(OperationDisabledException, __OperationDisabledException);
-export var PartnerEventSource: StaticStructureSchema = [3, n0, _PESa, 0, [_Ar, _N], [0, 0]];
-export var PartnerEventSourceAccount: StaticStructureSchema = [3, n0, _PESAa, 0, [_Ac, _CT, _ET, _S], [0, 4, 4, 0]];
-export var PlacementConstraint: StaticStructureSchema = [3, n0, _PCl, 0, [_t, _ex], [0, 0]];
-export var PlacementStrategy: StaticStructureSchema = [3, n0, _PS, 0, [_t, _f], [0, 0]];
-export var PolicyLengthExceededException: StaticErrorSchema = [-3, n0, _PLEE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(PolicyLengthExceededException, __PolicyLengthExceededException);
-export var PutEventsRequest: StaticStructureSchema = [3, n0, _PER, 0, [_E], [() => PutEventsRequestEntryList]];
-export var PutEventsRequestEntry: StaticStructureSchema = [
+export var ListRuleNamesByTargetResponse$: StaticStructureSchema = [3, n0, _LRNBTRi, 0, [_RNu, _NT], [64 | 0, 0]];
+export var ListRulesRequest$: StaticStructureSchema = [3, n0, _LRRis, 0, [_NP, _EBN, _NT, _L], [0, 0, 0, 1]];
+export var ListRulesResponse$: StaticStructureSchema = [3, n0, _LRRist, 0, [_Ru, _NT], [() => RuleResponseList, 0]];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RARN], [0]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [() => TagList]];
+export var ListTargetsByRuleRequest$: StaticStructureSchema = [3, n0, _LTBRR, 0, [_Rul, _EBN, _NT, _L], [0, 0, 0, 1]];
+export var ListTargetsByRuleResponse$: StaticStructureSchema = [3, n0, _LTBRRi, 0, [_Tar, _NT], [() => TargetList, 0]];
+export var ManagedRuleException$: StaticErrorSchema = [-3, n0, _MRE, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ManagedRuleException$, ManagedRuleException);
+export var NetworkConfiguration$: StaticStructureSchema = [3, n0, _NC, 0, [_aC], [() => AwsVpcConfiguration$]];
+export var OperationDisabledException$: StaticErrorSchema = [-3, n0, _ODE, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(OperationDisabledException$, OperationDisabledException);
+export var PartnerEventSource$: StaticStructureSchema = [3, n0, _PESa, 0, [_Ar, _N], [0, 0]];
+export var PartnerEventSourceAccount$: StaticStructureSchema = [3, n0, _PESAa, 0, [_Ac, _CT, _ET, _S], [0, 4, 4, 0]];
+export var PlacementConstraint$: StaticStructureSchema = [3, n0, _PCl, 0, [_t, _ex], [0, 0]];
+export var PlacementStrategy$: StaticStructureSchema = [3, n0, _PS, 0, [_t, _f], [0, 0]];
+export var PolicyLengthExceededException$: StaticErrorSchema = [-3, n0, _PLEE, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(PolicyLengthExceededException$, PolicyLengthExceededException);
+export var PutEventsRequest$: StaticStructureSchema = [3, n0, _PER, 0, [_E], [() => PutEventsRequestEntryList]];
+export var PutEventsRequestEntry$: StaticStructureSchema = [
   3,
   n0,
   _PERE,
@@ -821,7 +828,7 @@ export var PutEventsRequestEntry: StaticStructureSchema = [
   [_Ti, _So, _Re, _DT, _Det, _EBN, _TH],
   [4, 0, 64 | 0, 0, 0, 0, 0],
 ];
-export var PutEventsResponse: StaticStructureSchema = [
+export var PutEventsResponse$: StaticStructureSchema = [
   3,
   n0,
   _PERu,
@@ -829,8 +836,8 @@ export var PutEventsResponse: StaticStructureSchema = [
   [_FEC, _E],
   [1, () => PutEventsResultEntryList],
 ];
-export var PutEventsResultEntry: StaticStructureSchema = [3, n0, _PEREu, 0, [_EI, _ECr, _EM], [0, 0, 0]];
-export var PutPartnerEventsRequest: StaticStructureSchema = [
+export var PutEventsResultEntry$: StaticStructureSchema = [3, n0, _PEREu, 0, [_EI, _ECr, _EM], [0, 0, 0]];
+export var PutPartnerEventsRequest$: StaticStructureSchema = [
   3,
   n0,
   _PPER,
@@ -838,7 +845,7 @@ export var PutPartnerEventsRequest: StaticStructureSchema = [
   [_E],
   [() => PutPartnerEventsRequestEntryList],
 ];
-export var PutPartnerEventsRequestEntry: StaticStructureSchema = [
+export var PutPartnerEventsRequestEntry$: StaticStructureSchema = [
   3,
   n0,
   _PPERE,
@@ -846,7 +853,7 @@ export var PutPartnerEventsRequestEntry: StaticStructureSchema = [
   [_Ti, _So, _Re, _DT, _Det],
   [4, 0, 64 | 0, 0, 0],
 ];
-export var PutPartnerEventsResponse: StaticStructureSchema = [
+export var PutPartnerEventsResponse$: StaticStructureSchema = [
   3,
   n0,
   _PPERu,
@@ -854,16 +861,16 @@ export var PutPartnerEventsResponse: StaticStructureSchema = [
   [_FEC, _E],
   [1, () => PutPartnerEventsResultEntryList],
 ];
-export var PutPartnerEventsResultEntry: StaticStructureSchema = [3, n0, _PPEREu, 0, [_EI, _ECr, _EM], [0, 0, 0]];
-export var PutPermissionRequest: StaticStructureSchema = [
+export var PutPartnerEventsResultEntry$: StaticStructureSchema = [3, n0, _PPEREu, 0, [_EI, _ECr, _EM], [0, 0, 0]];
+export var PutPermissionRequest$: StaticStructureSchema = [
   3,
   n0,
   _PPR,
   0,
   [_EBN, _Act, _Pr, _SI, _C, _Po],
-  [0, 0, 0, 0, () => Condition, 0],
+  [0, 0, 0, 0, () => Condition$, 0],
 ];
-export var PutRuleRequest: StaticStructureSchema = [
+export var PutRuleRequest$: StaticStructureSchema = [
   3,
   n0,
   _PRR,
@@ -871,9 +878,9 @@ export var PutRuleRequest: StaticStructureSchema = [
   [_N, _SE, _EP, _S, _D, _RAo, _Ta, _EBN],
   [0, 0, 0, 0, 0, 0, () => TagList, 0],
 ];
-export var PutRuleResponse: StaticStructureSchema = [3, n0, _PRRu, 0, [_RAu], [0]];
-export var PutTargetsRequest: StaticStructureSchema = [3, n0, _PTR, 0, [_Rul, _EBN, _Tar], [0, 0, () => TargetList]];
-export var PutTargetsResponse: StaticStructureSchema = [
+export var PutRuleResponse$: StaticStructureSchema = [3, n0, _PRRu, 0, [_RAu], [0]];
+export var PutTargetsRequest$: StaticStructureSchema = [3, n0, _PTR, 0, [_Rul, _EBN, _Tar], [0, 0, () => TargetList]];
+export var PutTargetsResponse$: StaticStructureSchema = [
   3,
   n0,
   _PTRu,
@@ -881,8 +888,8 @@ export var PutTargetsResponse: StaticStructureSchema = [
   [_FEC, _FE],
   [1, () => PutTargetsResultEntryList],
 ];
-export var PutTargetsResultEntry: StaticStructureSchema = [3, n0, _PTRE, 0, [_TI, _ECr, _EM], [0, 0, 0]];
-export var RedshiftDataParameters: StaticStructureSchema = [
+export var PutTargetsResultEntry$: StaticStructureSchema = [3, n0, _PTRE, 0, [_TI, _ECr, _EM], [0, 0, 0]];
+export var RedshiftDataParameters$: StaticStructureSchema = [
   3,
   n0,
   _RDP,
@@ -890,9 +897,9 @@ export var RedshiftDataParameters: StaticStructureSchema = [
   [_SMA, _Da, _DU, _Sq, _SN, _WE],
   [0, 0, 0, 0, 0, 2],
 ];
-export var RemovePermissionRequest: StaticStructureSchema = [3, n0, _RPR, 0, [_SI, _RAP, _EBN], [0, 2, 0]];
-export var RemoveTargetsRequest: StaticStructureSchema = [3, n0, _RTR, 0, [_Rul, _EBN, _I, _F], [0, 0, 64 | 0, 2]];
-export var RemoveTargetsResponse: StaticStructureSchema = [
+export var RemovePermissionRequest$: StaticStructureSchema = [3, n0, _RPR, 0, [_SI, _RAP, _EBN], [0, 2, 0]];
+export var RemoveTargetsRequest$: StaticStructureSchema = [3, n0, _RTR, 0, [_Rul, _EBN, _I, _F], [0, 0, 64 | 0, 2]];
+export var RemoveTargetsResponse$: StaticStructureSchema = [
   3,
   n0,
   _RTRe,
@@ -900,8 +907,8 @@ export var RemoveTargetsResponse: StaticStructureSchema = [
   [_FEC, _FE],
   [1, () => RemoveTargetsResultEntryList],
 ];
-export var RemoveTargetsResultEntry: StaticStructureSchema = [3, n0, _RTRE, 0, [_TI, _ECr, _EM], [0, 0, 0]];
-export var Replay: StaticStructureSchema = [
+export var RemoveTargetsResultEntry$: StaticStructureSchema = [3, n0, _RTRE, 0, [_TI, _ECr, _EM], [0, 0, 0]];
+export var Replay$: StaticStructureSchema = [
   3,
   n0,
   _Rep,
@@ -909,13 +916,13 @@ export var Replay: StaticStructureSchema = [
   [_RN, _ESA, _S, _SR, _EST, _EET, _ELRT, _RST, _RET],
   [0, 0, 0, 0, 4, 4, 4, 4, 4],
 ];
-export var ReplayDestination: StaticStructureSchema = [3, n0, _RDe, 0, [_Ar, _FA], [0, 64 | 0]];
-export var ResourceAlreadyExistsException: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException, __ResourceAlreadyExistsException);
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var RetryPolicy: StaticStructureSchema = [3, n0, _RP, 0, [_MRA, _MEAIS], [1, 1]];
-export var Rule: StaticStructureSchema = [
+export var ReplayDestination$: StaticStructureSchema = [3, n0, _RDe, 0, [_Ar, _FA], [0, 64 | 0]];
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var RetryPolicy$: StaticStructureSchema = [3, n0, _RP, 0, [_MRA, _MEAIS], [1, 1]];
+export var Rule$: StaticStructureSchema = [
   3,
   n0,
   _Rul,
@@ -923,10 +930,10 @@ export var Rule: StaticStructureSchema = [
   [_N, _Ar, _EP, _S, _D, _SE, _RAo, _MB, _EBN],
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-export var RunCommandParameters: StaticStructureSchema = [3, n0, _RCP, 0, [_RCT], [() => RunCommandTargets]];
-export var RunCommandTarget: StaticStructureSchema = [3, n0, _RCTu, 0, [_K, _Va], [0, 64 | 0]];
-export var SageMakerPipelineParameter: StaticStructureSchema = [3, n0, _SMPP, 0, [_N, _V], [0, 0]];
-export var SageMakerPipelineParameters: StaticStructureSchema = [
+export var RunCommandParameters$: StaticStructureSchema = [3, n0, _RCP, 0, [_RCT], [() => RunCommandTargets]];
+export var RunCommandTarget$: StaticStructureSchema = [3, n0, _RCTu, 0, [_K, _Va], [0, 64 | 0]];
+export var SageMakerPipelineParameter$: StaticStructureSchema = [3, n0, _SMPP, 0, [_N, _V], [0, 0]];
+export var SageMakerPipelineParameters$: StaticStructureSchema = [
   3,
   n0,
   _SMPPa,
@@ -934,20 +941,20 @@ export var SageMakerPipelineParameters: StaticStructureSchema = [
   [_PPL],
   [() => SageMakerPipelineParameterList],
 ];
-export var SqsParameters: StaticStructureSchema = [3, n0, _SP, 0, [_MGI], [0]];
-export var StartReplayRequest: StaticStructureSchema = [
+export var SqsParameters$: StaticStructureSchema = [3, n0, _SP, 0, [_MGI], [0]];
+export var StartReplayRequest$: StaticStructureSchema = [
   3,
   n0,
   _SRR,
   0,
   [_RN, _D, _ESA, _EST, _EET, _De],
-  [0, 0, 0, 4, 4, () => ReplayDestination],
+  [0, 0, 0, 4, 4, () => ReplayDestination$],
 ];
-export var StartReplayResponse: StaticStructureSchema = [3, n0, _SRRt, 0, [_RA, _S, _SR, _RST], [0, 0, 0, 4]];
-export var Tag: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRR, 0, [_RARN, _Ta], [0, () => TagList]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var Target: StaticStructureSchema = [
+export var StartReplayResponse$: StaticStructureSchema = [3, n0, _SRRt, 0, [_RA, _S, _SR, _RST], [0, 0, 0, 4]];
+export var Tag$: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RARN, _Ta], [0, () => TagList]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
+export var Target$: StaticStructureSchema = [
   3,
   n0,
   _Targ,
@@ -959,24 +966,24 @@ export var Target: StaticStructureSchema = [
     0,
     0,
     0,
-    () => InputTransformer,
-    () => KinesisParameters,
-    () => RunCommandParameters,
-    () => EcsParameters,
-    () => BatchParameters,
-    () => SqsParameters,
-    () => HttpParameters,
-    () => RedshiftDataParameters,
-    () => SageMakerPipelineParameters,
-    () => DeadLetterConfig,
-    () => RetryPolicy,
+    () => InputTransformer$,
+    () => KinesisParameters$,
+    () => RunCommandParameters$,
+    () => EcsParameters$,
+    () => BatchParameters$,
+    () => SqsParameters$,
+    () => HttpParameters$,
+    () => RedshiftDataParameters$,
+    () => SageMakerPipelineParameters$,
+    () => DeadLetterConfig$,
+    () => RetryPolicy$,
   ],
 ];
-export var TestEventPatternRequest: StaticStructureSchema = [3, n0, _TEPR, 0, [_EP, _Ev], [0, 0]];
-export var TestEventPatternResponse: StaticStructureSchema = [3, n0, _TEPRe, 0, [_Res], [2]];
-export var UntagResourceRequest: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TK], [0, 64 | 0]];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateApiDestinationRequest: StaticStructureSchema = [
+export var TestEventPatternRequest$: StaticStructureSchema = [3, n0, _TEPR, 0, [_EP, _Ev], [0, 0]];
+export var TestEventPatternResponse$: StaticStructureSchema = [3, n0, _TEPRe, 0, [_Res], [2]];
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TK], [0, 64 | 0]];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateApiDestinationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UADR,
@@ -984,7 +991,7 @@ export var UpdateApiDestinationRequest: StaticStructureSchema = [
   [_N, _D, _CA, _IE, _HM, _IRLPS],
   [0, 0, 0, 0, 0, 1],
 ];
-export var UpdateApiDestinationResponse: StaticStructureSchema = [
+export var UpdateApiDestinationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UADRp,
@@ -992,9 +999,9 @@ export var UpdateApiDestinationResponse: StaticStructureSchema = [
   [_ADA, _ADS, _CT, _LMT],
   [0, 0, 4, 4],
 ];
-export var UpdateArchiveRequest: StaticStructureSchema = [3, n0, _UAR, 0, [_AN, _D, _EP, _RD], [0, 0, 0, 1]];
-export var UpdateArchiveResponse: StaticStructureSchema = [3, n0, _UARp, 0, [_AA, _S, _SR, _CT], [0, 0, 0, 4]];
-export var UpdateConnectionApiKeyAuthRequestParameters: StaticStructureSchema = [
+export var UpdateArchiveRequest$: StaticStructureSchema = [3, n0, _UAR, 0, [_AN, _D, _EP, _RD], [0, 0, 0, 1]];
+export var UpdateArchiveResponse$: StaticStructureSchema = [3, n0, _UARp, 0, [_AA, _S, _SR, _CT], [0, 0, 0, 4]];
+export var UpdateConnectionApiKeyAuthRequestParameters$: StaticStructureSchema = [
   3,
   n0,
   _UCAKARP,
@@ -1002,20 +1009,20 @@ export var UpdateConnectionApiKeyAuthRequestParameters: StaticStructureSchema = 
   [_AKN, _AKV],
   [0, [() => AuthHeaderParametersSensitive, 0]],
 ];
-export var UpdateConnectionAuthRequestParameters: StaticStructureSchema = [
+export var UpdateConnectionAuthRequestParameters$: StaticStructureSchema = [
   3,
   n0,
   _UCARP,
   0,
   [_BAPa, _OAP, _AKAP, _IHP],
   [
-    [() => UpdateConnectionBasicAuthRequestParameters, 0],
-    [() => UpdateConnectionOAuthRequestParameters, 0],
-    [() => UpdateConnectionApiKeyAuthRequestParameters, 0],
-    [() => ConnectionHttpParameters, 0],
+    [() => UpdateConnectionBasicAuthRequestParameters$, 0],
+    [() => UpdateConnectionOAuthRequestParameters$, 0],
+    [() => UpdateConnectionApiKeyAuthRequestParameters$, 0],
+    [() => ConnectionHttpParameters$, 0],
   ],
 ];
-export var UpdateConnectionBasicAuthRequestParameters: StaticStructureSchema = [
+export var UpdateConnectionBasicAuthRequestParameters$: StaticStructureSchema = [
   3,
   n0,
   _UCBARP,
@@ -1023,7 +1030,7 @@ export var UpdateConnectionBasicAuthRequestParameters: StaticStructureSchema = [
   [_U, _P],
   [0, [() => AuthHeaderParametersSensitive, 0]],
 ];
-export var UpdateConnectionOAuthClientRequestParameters: StaticStructureSchema = [
+export var UpdateConnectionOAuthClientRequestParameters$: StaticStructureSchema = [
   3,
   n0,
   _UCOACRP,
@@ -1031,23 +1038,23 @@ export var UpdateConnectionOAuthClientRequestParameters: StaticStructureSchema =
   [_CID, _CSl],
   [0, [() => AuthHeaderParametersSensitive, 0]],
 ];
-export var UpdateConnectionOAuthRequestParameters: StaticStructureSchema = [
+export var UpdateConnectionOAuthRequestParameters$: StaticStructureSchema = [
   3,
   n0,
   _UCOARP,
   0,
   [_CP, _AE, _HM, _OAHP],
-  [[() => UpdateConnectionOAuthClientRequestParameters, 0], 0, 0, [() => ConnectionHttpParameters, 0]],
+  [[() => UpdateConnectionOAuthClientRequestParameters$, 0], 0, 0, [() => ConnectionHttpParameters$, 0]],
 ];
-export var UpdateConnectionRequest: StaticStructureSchema = [
+export var UpdateConnectionRequest$: StaticStructureSchema = [
   3,
   n0,
   _UCR,
   0,
   [_N, _D, _AT, _APu],
-  [0, 0, 0, [() => UpdateConnectionAuthRequestParameters, 0]],
+  [0, 0, 0, [() => UpdateConnectionAuthRequestParameters$, 0]],
 ];
-export var UpdateConnectionResponse: StaticStructureSchema = [
+export var UpdateConnectionResponse$: StaticStructureSchema = [
   3,
   n0,
   _UCRp,
@@ -1055,8 +1062,8 @@ export var UpdateConnectionResponse: StaticStructureSchema = [
   [_CA, _CS, _CT, _LMT, _LAT],
   [0, 0, 4, 4, 4],
 ];
-export var __Unit = "unit" as const;
-export var CloudWatchEventsServiceException: StaticErrorSchema = [
+var __Unit = "unit" as const;
+export var CloudWatchEventsServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "CloudWatchEventsServiceException",
@@ -1064,349 +1071,370 @@ export var CloudWatchEventsServiceException: StaticErrorSchema = [
   [],
   [],
 ];
-TypeRegistry.for(_sm).registerError(CloudWatchEventsServiceException, __CloudWatchEventsServiceException);
-export var ApiDestinationResponseList: StaticListSchema = [1, n0, _ADRL, 0, () => ApiDestination];
-export var ArchiveResponseList: StaticListSchema = [1, n0, _ARL, 0, () => Archive];
-export var CapacityProviderStrategy: StaticListSchema = [1, n0, _CPS, 0, () => CapacityProviderStrategyItem];
-export var ConnectionBodyParametersList: StaticListSchema = [1, n0, _CBPL, 0, [() => ConnectionBodyParameter, 0]];
-export var ConnectionHeaderParametersList: StaticListSchema = [1, n0, _CHPL, 0, [() => ConnectionHeaderParameter, 0]];
-export var ConnectionQueryStringParametersList: StaticListSchema = [
+TypeRegistry.for(_sm).registerError(CloudWatchEventsServiceException$, CloudWatchEventsServiceException);
+var ApiDestinationResponseList: StaticListSchema = [1, n0, _ADRL, 0, () => ApiDestination$];
+var ArchiveResponseList: StaticListSchema = [1, n0, _ARL, 0, () => Archive$];
+var CapacityProviderStrategy: StaticListSchema = [1, n0, _CPS, 0, () => CapacityProviderStrategyItem$];
+var ConnectionBodyParametersList: StaticListSchema = [1, n0, _CBPL, 0, [() => ConnectionBodyParameter$, 0]];
+var ConnectionHeaderParametersList: StaticListSchema = [1, n0, _CHPL, 0, [() => ConnectionHeaderParameter$, 0]];
+var ConnectionQueryStringParametersList: StaticListSchema = [
   1,
   n0,
   _CQSPL,
   0,
-  [() => ConnectionQueryStringParameter, 0],
+  [() => ConnectionQueryStringParameter$, 0],
 ];
-export var ConnectionResponseList: StaticListSchema = [1, n0, _CRL, 0, () => Connection];
-export var EventBusList: StaticListSchema = [1, n0, _EBL, 0, () => EventBus];
-export var EventResourceList = 64 | 0;
-export var EventSourceList: StaticListSchema = [1, n0, _ESL, 0, () => EventSource];
-export var PartnerEventSourceAccountList: StaticListSchema = [1, n0, _PESAL, 0, () => PartnerEventSourceAccount];
-export var PartnerEventSourceList: StaticListSchema = [1, n0, _PESL, 0, () => PartnerEventSource];
-export var PathParameterList = 64 | 0;
-export var PlacementConstraints: StaticListSchema = [1, n0, _PC, 0, () => PlacementConstraint];
-export var PlacementStrategies: StaticListSchema = [1, n0, _PSl, 0, () => PlacementStrategy];
-export var PutEventsRequestEntryList: StaticListSchema = [1, n0, _PEREL, 0, () => PutEventsRequestEntry];
-export var PutEventsResultEntryList: StaticListSchema = [1, n0, _PERELu, 0, () => PutEventsResultEntry];
-export var PutPartnerEventsRequestEntryList: StaticListSchema = [1, n0, _PPEREL, 0, () => PutPartnerEventsRequestEntry];
-export var PutPartnerEventsResultEntryList: StaticListSchema = [1, n0, _PPERELu, 0, () => PutPartnerEventsResultEntry];
-export var PutTargetsResultEntryList: StaticListSchema = [1, n0, _PTREL, 0, () => PutTargetsResultEntry];
-export var RemoveTargetsResultEntryList: StaticListSchema = [1, n0, _RTREL, 0, () => RemoveTargetsResultEntry];
-export var ReplayDestinationFilters = 64 | 0;
-export var ReplayList: StaticListSchema = [1, n0, _RL, 0, () => Replay];
-export var RuleNameList = 64 | 0;
-export var RuleResponseList: StaticListSchema = [1, n0, _RRL, 0, () => Rule];
-export var RunCommandTargets: StaticListSchema = [1, n0, _RCT, 0, () => RunCommandTarget];
-export var RunCommandTargetValues = 64 | 0;
-export var SageMakerPipelineParameterList: StaticListSchema = [1, n0, _SMPPL, 0, () => SageMakerPipelineParameter];
-export var StringList = 64 | 0;
-export var TagKeyList = 64 | 0;
-export var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag];
-export var TargetIdList = 64 | 0;
-export var TargetList: StaticListSchema = [1, n0, _TLa, 0, () => Target];
-export var HeaderParametersMap = 128 | 0;
-export var QueryStringParametersMap = 128 | 0;
-export var TransformerPaths = 128 | 0;
-export var ActivateEventSource: StaticOperationSchema = [
+var ConnectionResponseList: StaticListSchema = [1, n0, _CRL, 0, () => Connection$];
+var EventBusList: StaticListSchema = [1, n0, _EBL, 0, () => EventBus$];
+var EventResourceList = 64 | 0;
+var EventSourceList: StaticListSchema = [1, n0, _ESL, 0, () => EventSource$];
+var PartnerEventSourceAccountList: StaticListSchema = [1, n0, _PESAL, 0, () => PartnerEventSourceAccount$];
+var PartnerEventSourceList: StaticListSchema = [1, n0, _PESL, 0, () => PartnerEventSource$];
+var PathParameterList = 64 | 0;
+var PlacementConstraints: StaticListSchema = [1, n0, _PC, 0, () => PlacementConstraint$];
+var PlacementStrategies: StaticListSchema = [1, n0, _PSl, 0, () => PlacementStrategy$];
+var PutEventsRequestEntryList: StaticListSchema = [1, n0, _PEREL, 0, () => PutEventsRequestEntry$];
+var PutEventsResultEntryList: StaticListSchema = [1, n0, _PERELu, 0, () => PutEventsResultEntry$];
+var PutPartnerEventsRequestEntryList: StaticListSchema = [1, n0, _PPEREL, 0, () => PutPartnerEventsRequestEntry$];
+var PutPartnerEventsResultEntryList: StaticListSchema = [1, n0, _PPERELu, 0, () => PutPartnerEventsResultEntry$];
+var PutTargetsResultEntryList: StaticListSchema = [1, n0, _PTREL, 0, () => PutTargetsResultEntry$];
+var RemoveTargetsResultEntryList: StaticListSchema = [1, n0, _RTREL, 0, () => RemoveTargetsResultEntry$];
+var ReplayDestinationFilters = 64 | 0;
+var ReplayList: StaticListSchema = [1, n0, _RL, 0, () => Replay$];
+var RuleNameList = 64 | 0;
+var RuleResponseList: StaticListSchema = [1, n0, _RRL, 0, () => Rule$];
+var RunCommandTargets: StaticListSchema = [1, n0, _RCT, 0, () => RunCommandTarget$];
+var RunCommandTargetValues = 64 | 0;
+var SageMakerPipelineParameterList: StaticListSchema = [1, n0, _SMPPL, 0, () => SageMakerPipelineParameter$];
+var StringList = 64 | 0;
+var TagKeyList = 64 | 0;
+var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
+var TargetIdList = 64 | 0;
+var TargetList: StaticListSchema = [1, n0, _TLa, 0, () => Target$];
+var HeaderParametersMap = 128 | 0;
+var QueryStringParametersMap = 128 | 0;
+var TransformerPaths = 128 | 0;
+export var ActivateEventSource$: StaticOperationSchema = [
   9,
   n0,
   _AES,
   0,
-  () => ActivateEventSourceRequest,
+  () => ActivateEventSourceRequest$,
   () => __Unit,
 ];
-export var CancelReplay: StaticOperationSchema = [9, n0, _CR, 0, () => CancelReplayRequest, () => CancelReplayResponse];
-export var CreateApiDestination: StaticOperationSchema = [
+export var CancelReplay$: StaticOperationSchema = [
+  9,
+  n0,
+  _CR,
+  0,
+  () => CancelReplayRequest$,
+  () => CancelReplayResponse$,
+];
+export var CreateApiDestination$: StaticOperationSchema = [
   9,
   n0,
   _CAD,
   0,
-  () => CreateApiDestinationRequest,
-  () => CreateApiDestinationResponse,
+  () => CreateApiDestinationRequest$,
+  () => CreateApiDestinationResponse$,
 ];
-export var CreateArchive: StaticOperationSchema = [
+export var CreateArchive$: StaticOperationSchema = [
   9,
   n0,
   _CAr,
   0,
-  () => CreateArchiveRequest,
-  () => CreateArchiveResponse,
+  () => CreateArchiveRequest$,
+  () => CreateArchiveResponse$,
 ];
-export var CreateConnection: StaticOperationSchema = [
+export var CreateConnection$: StaticOperationSchema = [
   9,
   n0,
   _CC,
   0,
-  () => CreateConnectionRequest,
-  () => CreateConnectionResponse,
+  () => CreateConnectionRequest$,
+  () => CreateConnectionResponse$,
 ];
-export var CreateEventBus: StaticOperationSchema = [
+export var CreateEventBus$: StaticOperationSchema = [
   9,
   n0,
   _CEB,
   0,
-  () => CreateEventBusRequest,
-  () => CreateEventBusResponse,
+  () => CreateEventBusRequest$,
+  () => CreateEventBusResponse$,
 ];
-export var CreatePartnerEventSource: StaticOperationSchema = [
+export var CreatePartnerEventSource$: StaticOperationSchema = [
   9,
   n0,
   _CPES,
   0,
-  () => CreatePartnerEventSourceRequest,
-  () => CreatePartnerEventSourceResponse,
+  () => CreatePartnerEventSourceRequest$,
+  () => CreatePartnerEventSourceResponse$,
 ];
-export var DeactivateEventSource: StaticOperationSchema = [
+export var DeactivateEventSource$: StaticOperationSchema = [
   9,
   n0,
   _DES,
   0,
-  () => DeactivateEventSourceRequest,
+  () => DeactivateEventSourceRequest$,
   () => __Unit,
 ];
-export var DeauthorizeConnection: StaticOperationSchema = [
+export var DeauthorizeConnection$: StaticOperationSchema = [
   9,
   n0,
   _DC,
   0,
-  () => DeauthorizeConnectionRequest,
-  () => DeauthorizeConnectionResponse,
+  () => DeauthorizeConnectionRequest$,
+  () => DeauthorizeConnectionResponse$,
 ];
-export var DeleteApiDestination: StaticOperationSchema = [
+export var DeleteApiDestination$: StaticOperationSchema = [
   9,
   n0,
   _DAD,
   0,
-  () => DeleteApiDestinationRequest,
-  () => DeleteApiDestinationResponse,
+  () => DeleteApiDestinationRequest$,
+  () => DeleteApiDestinationResponse$,
 ];
-export var DeleteArchive: StaticOperationSchema = [
+export var DeleteArchive$: StaticOperationSchema = [
   9,
   n0,
   _DA,
   0,
-  () => DeleteArchiveRequest,
-  () => DeleteArchiveResponse,
+  () => DeleteArchiveRequest$,
+  () => DeleteArchiveResponse$,
 ];
-export var DeleteConnection: StaticOperationSchema = [
+export var DeleteConnection$: StaticOperationSchema = [
   9,
   n0,
   _DCe,
   0,
-  () => DeleteConnectionRequest,
-  () => DeleteConnectionResponse,
+  () => DeleteConnectionRequest$,
+  () => DeleteConnectionResponse$,
 ];
-export var DeleteEventBus: StaticOperationSchema = [9, n0, _DEB, 0, () => DeleteEventBusRequest, () => __Unit];
-export var DeletePartnerEventSource: StaticOperationSchema = [
+export var DeleteEventBus$: StaticOperationSchema = [9, n0, _DEB, 0, () => DeleteEventBusRequest$, () => __Unit];
+export var DeletePartnerEventSource$: StaticOperationSchema = [
   9,
   n0,
   _DPES,
   0,
-  () => DeletePartnerEventSourceRequest,
+  () => DeletePartnerEventSourceRequest$,
   () => __Unit,
 ];
-export var DeleteRule: StaticOperationSchema = [9, n0, _DR, 0, () => DeleteRuleRequest, () => __Unit];
-export var DescribeApiDestination: StaticOperationSchema = [
+export var DeleteRule$: StaticOperationSchema = [9, n0, _DR, 0, () => DeleteRuleRequest$, () => __Unit];
+export var DescribeApiDestination$: StaticOperationSchema = [
   9,
   n0,
   _DADe,
   0,
-  () => DescribeApiDestinationRequest,
-  () => DescribeApiDestinationResponse,
+  () => DescribeApiDestinationRequest$,
+  () => DescribeApiDestinationResponse$,
 ];
-export var DescribeArchive: StaticOperationSchema = [
+export var DescribeArchive$: StaticOperationSchema = [
   9,
   n0,
   _DAe,
   0,
-  () => DescribeArchiveRequest,
-  () => DescribeArchiveResponse,
+  () => DescribeArchiveRequest$,
+  () => DescribeArchiveResponse$,
 ];
-export var DescribeConnection: StaticOperationSchema = [
+export var DescribeConnection$: StaticOperationSchema = [
   9,
   n0,
   _DCes,
   0,
-  () => DescribeConnectionRequest,
-  () => DescribeConnectionResponse,
+  () => DescribeConnectionRequest$,
+  () => DescribeConnectionResponse$,
 ];
-export var DescribeEventBus: StaticOperationSchema = [
+export var DescribeEventBus$: StaticOperationSchema = [
   9,
   n0,
   _DEBe,
   0,
-  () => DescribeEventBusRequest,
-  () => DescribeEventBusResponse,
+  () => DescribeEventBusRequest$,
+  () => DescribeEventBusResponse$,
 ];
-export var DescribeEventSource: StaticOperationSchema = [
+export var DescribeEventSource$: StaticOperationSchema = [
   9,
   n0,
   _DESe,
   0,
-  () => DescribeEventSourceRequest,
-  () => DescribeEventSourceResponse,
+  () => DescribeEventSourceRequest$,
+  () => DescribeEventSourceResponse$,
 ];
-export var DescribePartnerEventSource: StaticOperationSchema = [
+export var DescribePartnerEventSource$: StaticOperationSchema = [
   9,
   n0,
   _DPESe,
   0,
-  () => DescribePartnerEventSourceRequest,
-  () => DescribePartnerEventSourceResponse,
+  () => DescribePartnerEventSourceRequest$,
+  () => DescribePartnerEventSourceResponse$,
 ];
-export var DescribeReplay: StaticOperationSchema = [
+export var DescribeReplay$: StaticOperationSchema = [
   9,
   n0,
   _DRe,
   0,
-  () => DescribeReplayRequest,
-  () => DescribeReplayResponse,
+  () => DescribeReplayRequest$,
+  () => DescribeReplayResponse$,
 ];
-export var DescribeRule: StaticOperationSchema = [
+export var DescribeRule$: StaticOperationSchema = [
   9,
   n0,
   _DRes,
   0,
-  () => DescribeRuleRequest,
-  () => DescribeRuleResponse,
+  () => DescribeRuleRequest$,
+  () => DescribeRuleResponse$,
 ];
-export var DisableRule: StaticOperationSchema = [9, n0, _DRi, 0, () => DisableRuleRequest, () => __Unit];
-export var EnableRule: StaticOperationSchema = [9, n0, _ER, 0, () => EnableRuleRequest, () => __Unit];
-export var ListApiDestinations: StaticOperationSchema = [
+export var DisableRule$: StaticOperationSchema = [9, n0, _DRi, 0, () => DisableRuleRequest$, () => __Unit];
+export var EnableRule$: StaticOperationSchema = [9, n0, _ER, 0, () => EnableRuleRequest$, () => __Unit];
+export var ListApiDestinations$: StaticOperationSchema = [
   9,
   n0,
   _LAD,
   0,
-  () => ListApiDestinationsRequest,
-  () => ListApiDestinationsResponse,
+  () => ListApiDestinationsRequest$,
+  () => ListApiDestinationsResponse$,
 ];
-export var ListArchives: StaticOperationSchema = [9, n0, _LA, 0, () => ListArchivesRequest, () => ListArchivesResponse];
-export var ListConnections: StaticOperationSchema = [
+export var ListArchives$: StaticOperationSchema = [
+  9,
+  n0,
+  _LA,
+  0,
+  () => ListArchivesRequest$,
+  () => ListArchivesResponse$,
+];
+export var ListConnections$: StaticOperationSchema = [
   9,
   n0,
   _LC,
   0,
-  () => ListConnectionsRequest,
-  () => ListConnectionsResponse,
+  () => ListConnectionsRequest$,
+  () => ListConnectionsResponse$,
 ];
-export var ListEventBuses: StaticOperationSchema = [
+export var ListEventBuses$: StaticOperationSchema = [
   9,
   n0,
   _LEB,
   0,
-  () => ListEventBusesRequest,
-  () => ListEventBusesResponse,
+  () => ListEventBusesRequest$,
+  () => ListEventBusesResponse$,
 ];
-export var ListEventSources: StaticOperationSchema = [
+export var ListEventSources$: StaticOperationSchema = [
   9,
   n0,
   _LES,
   0,
-  () => ListEventSourcesRequest,
-  () => ListEventSourcesResponse,
+  () => ListEventSourcesRequest$,
+  () => ListEventSourcesResponse$,
 ];
-export var ListPartnerEventSourceAccounts: StaticOperationSchema = [
+export var ListPartnerEventSourceAccounts$: StaticOperationSchema = [
   9,
   n0,
   _LPESA,
   0,
-  () => ListPartnerEventSourceAccountsRequest,
-  () => ListPartnerEventSourceAccountsResponse,
+  () => ListPartnerEventSourceAccountsRequest$,
+  () => ListPartnerEventSourceAccountsResponse$,
 ];
-export var ListPartnerEventSources: StaticOperationSchema = [
+export var ListPartnerEventSources$: StaticOperationSchema = [
   9,
   n0,
   _LPES,
   0,
-  () => ListPartnerEventSourcesRequest,
-  () => ListPartnerEventSourcesResponse,
+  () => ListPartnerEventSourcesRequest$,
+  () => ListPartnerEventSourcesResponse$,
 ];
-export var ListReplays: StaticOperationSchema = [9, n0, _LR, 0, () => ListReplaysRequest, () => ListReplaysResponse];
-export var ListRuleNamesByTarget: StaticOperationSchema = [
+export var ListReplays$: StaticOperationSchema = [9, n0, _LR, 0, () => ListReplaysRequest$, () => ListReplaysResponse$];
+export var ListRuleNamesByTarget$: StaticOperationSchema = [
   9,
   n0,
   _LRNBT,
   0,
-  () => ListRuleNamesByTargetRequest,
-  () => ListRuleNamesByTargetResponse,
+  () => ListRuleNamesByTargetRequest$,
+  () => ListRuleNamesByTargetResponse$,
 ];
-export var ListRules: StaticOperationSchema = [9, n0, _LRi, 0, () => ListRulesRequest, () => ListRulesResponse];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListRules$: StaticOperationSchema = [9, n0, _LRi, 0, () => ListRulesRequest$, () => ListRulesResponse$];
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   0,
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var ListTargetsByRule: StaticOperationSchema = [
+export var ListTargetsByRule$: StaticOperationSchema = [
   9,
   n0,
   _LTBR,
   0,
-  () => ListTargetsByRuleRequest,
-  () => ListTargetsByRuleResponse,
+  () => ListTargetsByRuleRequest$,
+  () => ListTargetsByRuleResponse$,
 ];
-export var PutEvents: StaticOperationSchema = [9, n0, _PE, 0, () => PutEventsRequest, () => PutEventsResponse];
-export var PutPartnerEvents: StaticOperationSchema = [
+export var PutEvents$: StaticOperationSchema = [9, n0, _PE, 0, () => PutEventsRequest$, () => PutEventsResponse$];
+export var PutPartnerEvents$: StaticOperationSchema = [
   9,
   n0,
   _PPE,
   0,
-  () => PutPartnerEventsRequest,
-  () => PutPartnerEventsResponse,
+  () => PutPartnerEventsRequest$,
+  () => PutPartnerEventsResponse$,
 ];
-export var PutPermission: StaticOperationSchema = [9, n0, _PP, 0, () => PutPermissionRequest, () => __Unit];
-export var PutRule: StaticOperationSchema = [9, n0, _PR, 0, () => PutRuleRequest, () => PutRuleResponse];
-export var PutTargets: StaticOperationSchema = [9, n0, _PTu, 0, () => PutTargetsRequest, () => PutTargetsResponse];
-export var RemovePermission: StaticOperationSchema = [9, n0, _RPe, 0, () => RemovePermissionRequest, () => __Unit];
-export var RemoveTargets: StaticOperationSchema = [
+export var PutPermission$: StaticOperationSchema = [9, n0, _PP, 0, () => PutPermissionRequest$, () => __Unit];
+export var PutRule$: StaticOperationSchema = [9, n0, _PR, 0, () => PutRuleRequest$, () => PutRuleResponse$];
+export var PutTargets$: StaticOperationSchema = [9, n0, _PTu, 0, () => PutTargetsRequest$, () => PutTargetsResponse$];
+export var RemovePermission$: StaticOperationSchema = [9, n0, _RPe, 0, () => RemovePermissionRequest$, () => __Unit];
+export var RemoveTargets$: StaticOperationSchema = [
   9,
   n0,
   _RT,
   0,
-  () => RemoveTargetsRequest,
-  () => RemoveTargetsResponse,
+  () => RemoveTargetsRequest$,
+  () => RemoveTargetsResponse$,
 ];
-export var StartReplay: StaticOperationSchema = [9, n0, _SRt, 0, () => StartReplayRequest, () => StartReplayResponse];
-export var TagResource: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest, () => TagResourceResponse];
-export var TestEventPattern: StaticOperationSchema = [
+export var StartReplay$: StaticOperationSchema = [
+  9,
+  n0,
+  _SRt,
+  0,
+  () => StartReplayRequest$,
+  () => StartReplayResponse$,
+];
+export var TagResource$: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest$, () => TagResourceResponse$];
+export var TestEventPattern$: StaticOperationSchema = [
   9,
   n0,
   _TEP,
   0,
-  () => TestEventPatternRequest,
-  () => TestEventPatternResponse,
+  () => TestEventPatternRequest$,
+  () => TestEventPatternResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   0,
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateApiDestination: StaticOperationSchema = [
+export var UpdateApiDestination$: StaticOperationSchema = [
   9,
   n0,
   _UAD,
   0,
-  () => UpdateApiDestinationRequest,
-  () => UpdateApiDestinationResponse,
+  () => UpdateApiDestinationRequest$,
+  () => UpdateApiDestinationResponse$,
 ];
-export var UpdateArchive: StaticOperationSchema = [
+export var UpdateArchive$: StaticOperationSchema = [
   9,
   n0,
   _UA,
   0,
-  () => UpdateArchiveRequest,
-  () => UpdateArchiveResponse,
+  () => UpdateArchiveRequest$,
+  () => UpdateArchiveResponse$,
 ];
-export var UpdateConnection: StaticOperationSchema = [
+export var UpdateConnection$: StaticOperationSchema = [
   9,
   n0,
   _UC,
   0,
-  () => UpdateConnectionRequest,
-  () => UpdateConnectionResponse,
+  () => UpdateConnectionRequest$,
+  () => UpdateConnectionResponse$,
 ];

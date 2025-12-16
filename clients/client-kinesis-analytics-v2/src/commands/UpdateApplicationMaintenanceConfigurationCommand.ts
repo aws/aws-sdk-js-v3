@@ -13,7 +13,7 @@ import type {
   UpdateApplicationMaintenanceConfigurationRequest,
   UpdateApplicationMaintenanceConfigurationResponse,
 } from "../models/models_0";
-import { UpdateApplicationMaintenanceConfiguration } from "../schemas/schemas_0";
+import { UpdateApplicationMaintenanceConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class UpdateApplicationMaintenanceConfigurationCommand extends $Command
   })
   .s("KinesisAnalytics_20180523", "UpdateApplicationMaintenanceConfiguration", {})
   .n("KinesisAnalyticsV2Client", "UpdateApplicationMaintenanceConfigurationCommand")
-  .sc(UpdateApplicationMaintenanceConfiguration)
+  .sc(UpdateApplicationMaintenanceConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

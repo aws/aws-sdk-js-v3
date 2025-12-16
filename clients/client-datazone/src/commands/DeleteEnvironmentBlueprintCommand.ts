@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteEnvironmentBlueprintInput } from "../models/models_1";
-import { DeleteEnvironmentBlueprint } from "../schemas/schemas_0";
+import { DeleteEnvironmentBlueprint$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteEnvironmentBlueprintCommand extends $Command
   })
   .s("DataZone", "DeleteEnvironmentBlueprint", {})
   .n("DataZoneClient", "DeleteEnvironmentBlueprintCommand")
-  .sc(DeleteEnvironmentBlueprint)
+  .sc(DeleteEnvironmentBlueprint$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

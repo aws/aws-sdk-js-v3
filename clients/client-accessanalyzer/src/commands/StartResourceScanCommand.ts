@@ -10,7 +10,7 @@ import type {
 } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartResourceScanRequest } from "../models/models_0";
-import { StartResourceScan } from "../schemas/schemas_0";
+import { StartResourceScan$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class StartResourceScanCommand extends $Command
   })
   .s("AccessAnalyzer", "StartResourceScan", {})
   .n("AccessAnalyzerClient", "StartResourceScanCommand")
-  .sc(StartResourceScan)
+  .sc(StartResourceScan$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

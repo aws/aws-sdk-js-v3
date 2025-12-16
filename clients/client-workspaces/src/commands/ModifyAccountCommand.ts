@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyAccountRequest, ModifyAccountResult } from "../models/models_0";
-import { ModifyAccount } from "../schemas/schemas_0";
+import { ModifyAccount$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
@@ -90,7 +90,7 @@ export class ModifyAccountCommand extends $Command
   })
   .s("WorkspacesService", "ModifyAccount", {})
   .n("WorkSpacesClient", "ModifyAccountCommand")
-  .sc(ModifyAccount)
+  .sc(ModifyAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

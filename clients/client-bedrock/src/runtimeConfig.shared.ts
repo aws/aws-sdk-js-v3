@@ -37,7 +37,12 @@ export const getRuntimeConfig = (config: BedrockClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.bedrock" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.bedrock",
+      version: "2023-04-20",
+      serviceTarget: "AmazonBedrockControlPlaneService",
+    },
     serviceId: config?.serviceId ?? "Bedrock",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

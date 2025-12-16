@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyDataClient";
-import { EncryptData } from "../schemas/schemas_0";
+import { EncryptData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -134,7 +134,7 @@ export class EncryptDataCommand extends $Command
   })
   .s("PaymentCryptographyDataPlane", "EncryptData", {})
   .n("PaymentCryptographyDataClient", "EncryptDataCommand")
-  .sc(EncryptData)
+  .sc(EncryptData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

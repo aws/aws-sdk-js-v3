@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetTransformerRequest, GetTransformerResponse } from "../models/models_0";
-import { GetTransformer } from "../schemas/schemas_0";
+import { GetTransformer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -274,7 +274,7 @@ export class GetTransformerCommand extends $Command
   })
   .s("B2BI", "GetTransformer", {})
   .n("B2biClient", "GetTransformerCommand")
-  .sc(GetTransformer)
+  .sc(GetTransformer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

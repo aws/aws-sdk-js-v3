@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: CleanRoomsMLClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.cleanroomsml" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.cleanroomsml",
+      version: "2023-09-06",
+      serviceTarget: "AWSStarkControlService",
+    },
     serviceId: config?.serviceId ?? "CleanRoomsML",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

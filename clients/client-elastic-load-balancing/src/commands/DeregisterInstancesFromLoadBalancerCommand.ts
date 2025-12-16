@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeregisterEndPointsInput, DeregisterEndPointsOutput } from "../models/models_0";
-import { DeregisterInstancesFromLoadBalancer } from "../schemas/schemas_0";
+import { DeregisterInstancesFromLoadBalancer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -124,7 +124,7 @@ export class DeregisterInstancesFromLoadBalancerCommand extends $Command
   })
   .s("ElasticLoadBalancing_v7", "DeregisterInstancesFromLoadBalancer", {})
   .n("ElasticLoadBalancingClient", "DeregisterInstancesFromLoadBalancerCommand")
-  .sc(DeregisterInstancesFromLoadBalancer)
+  .sc(DeregisterInstancesFromLoadBalancer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

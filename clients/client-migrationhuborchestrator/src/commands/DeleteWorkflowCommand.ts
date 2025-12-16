@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
 import type { DeleteMigrationWorkflowRequest, DeleteMigrationWorkflowResponse } from "../models/models_0";
-import { DeleteWorkflow } from "../schemas/schemas_0";
+import { DeleteWorkflow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class DeleteWorkflowCommand extends $Command
   })
   .s("AWSMigrationHubOrchestrator", "DeleteWorkflow", {})
   .n("MigrationHubOrchestratorClient", "DeleteWorkflowCommand")
-  .sc(DeleteWorkflow)
+  .sc(DeleteWorkflow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

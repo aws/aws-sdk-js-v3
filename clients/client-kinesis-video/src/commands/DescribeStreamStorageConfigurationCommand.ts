@@ -9,7 +9,7 @@ import type {
   DescribeStreamStorageConfigurationInput,
   DescribeStreamStorageConfigurationOutput,
 } from "../models/models_0";
-import { DescribeStreamStorageConfiguration } from "../schemas/schemas_0";
+import { DescribeStreamStorageConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DescribeStreamStorageConfigurationCommand extends $Command
   })
   .s("KinesisVideo_20170930", "DescribeStreamStorageConfiguration", {})
   .n("KinesisVideoClient", "DescribeStreamStorageConfigurationCommand")
-  .sc(DescribeStreamStorageConfiguration)
+  .sc(DescribeStreamStorageConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

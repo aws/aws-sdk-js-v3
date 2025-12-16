@@ -8,7 +8,7 @@ import type {
   AssociateUserAccessLoggingSettingsRequest,
   AssociateUserAccessLoggingSettingsResponse,
 } from "../models/models_0";
-import { AssociateUserAccessLoggingSettings } from "../schemas/schemas_0";
+import { AssociateUserAccessLoggingSettings$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -98,7 +98,7 @@ export class AssociateUserAccessLoggingSettingsCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "AssociateUserAccessLoggingSettings", {})
   .n("WorkSpacesWebClient", "AssociateUserAccessLoggingSettingsCommand")
-  .sc(AssociateUserAccessLoggingSettings)
+  .sc(AssociateUserAccessLoggingSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

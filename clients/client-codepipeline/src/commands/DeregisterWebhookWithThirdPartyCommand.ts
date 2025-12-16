@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeregisterWebhookWithThirdPartyInput, DeregisterWebhookWithThirdPartyOutput } from "../models/models_0";
-import { DeregisterWebhookWithThirdParty } from "../schemas/schemas_0";
+import { DeregisterWebhookWithThirdParty$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class DeregisterWebhookWithThirdPartyCommand extends $Command
   })
   .s("CodePipeline_20150709", "DeregisterWebhookWithThirdParty", {})
   .n("CodePipelineClient", "DeregisterWebhookWithThirdPartyCommand")
-  .sc(DeregisterWebhookWithThirdParty)
+  .sc(DeregisterWebhookWithThirdParty$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

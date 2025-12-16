@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchUsersByImageRequest, SearchUsersByImageResponse } from "../models/models_0";
 import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { SearchUsersByImage } from "../schemas/schemas_0";
+import { SearchUsersByImage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -365,7 +365,7 @@ export class SearchUsersByImageCommand extends $Command
   })
   .s("RekognitionService", "SearchUsersByImage", {})
   .n("RekognitionClient", "SearchUsersByImageCommand")
-  .sc(SearchUsersByImage)
+  .sc(SearchUsersByImage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

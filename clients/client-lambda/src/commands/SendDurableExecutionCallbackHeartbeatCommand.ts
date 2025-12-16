@@ -9,7 +9,7 @@ import type {
   SendDurableExecutionCallbackHeartbeatRequest,
   SendDurableExecutionCallbackHeartbeatResponse,
 } from "../models/models_0";
-import { SendDurableExecutionCallbackHeartbeat } from "../schemas/schemas_0";
+import { SendDurableExecutionCallbackHeartbeat$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class SendDurableExecutionCallbackHeartbeatCommand extends $Command
   })
   .s("AWSGirApiService", "SendDurableExecutionCallbackHeartbeat", {})
   .n("LambdaClient", "SendDurableExecutionCallbackHeartbeatCommand")
-  .sc(SendDurableExecutionCallbackHeartbeat)
+  .sc(SendDurableExecutionCallbackHeartbeat$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

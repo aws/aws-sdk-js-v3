@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { XmlBlobsOutput } from "../models/models_0";
-import { XmlEmptyBlobs } from "../schemas/schemas_0";
+import { XmlEmptyBlobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -71,7 +71,7 @@ export class XmlEmptyBlobsCommand extends $Command
   })
   .s("AwsEc2", "XmlEmptyBlobs", {})
   .n("EC2ProtocolClient", "XmlEmptyBlobsCommand")
-  .sc(XmlEmptyBlobs)
+  .sc(XmlEmptyBlobs$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

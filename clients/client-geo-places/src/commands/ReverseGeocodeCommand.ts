@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GeoPlacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoPlacesClient";
 import type { ReverseGeocodeRequest, ReverseGeocodeResponse } from "../models/models_0";
-import { ReverseGeocode } from "../schemas/schemas_0";
+import { ReverseGeocode$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -266,7 +266,7 @@ export class ReverseGeocodeCommand extends $Command
   })
   .s("PlacesService", "ReverseGeocode", {})
   .n("GeoPlacesClient", "ReverseGeocodeCommand")
-  .sc(ReverseGeocode)
+  .sc(ReverseGeocode$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

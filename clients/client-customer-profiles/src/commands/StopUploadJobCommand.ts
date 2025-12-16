@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StopUploadJobRequest, StopUploadJobResponse } from "../models/models_1";
-import { StopUploadJob } from "../schemas/schemas_0";
+import { StopUploadJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class StopUploadJobCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "StopUploadJob", {})
   .n("CustomerProfilesClient", "StopUploadJobCommand")
-  .sc(StopUploadJob)
+  .sc(StopUploadJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

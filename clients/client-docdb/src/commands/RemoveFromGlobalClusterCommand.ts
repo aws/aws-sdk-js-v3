@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveFromGlobalClusterMessage, RemoveFromGlobalClusterResult } from "../models/models_0";
-import { RemoveFromGlobalCluster } from "../schemas/schemas_0";
+import { RemoveFromGlobalCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class RemoveFromGlobalClusterCommand extends $Command
   })
   .s("AmazonRDSv19", "RemoveFromGlobalCluster", {})
   .n("DocDBClient", "RemoveFromGlobalClusterCommand")
-  .sc(RemoveFromGlobalCluster)
+  .sc(RemoveFromGlobalCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

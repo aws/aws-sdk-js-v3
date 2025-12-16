@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteScheduledQueryRequest, DeleteScheduledQueryResponse } from "../models/models_0";
-import { DeleteScheduledQuery } from "../schemas/schemas_0";
+import { DeleteScheduledQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteScheduledQueryCommand extends $Command
   })
   .s("Logs_20140328", "DeleteScheduledQuery", {})
   .n("CloudWatchLogsClient", "DeleteScheduledQueryCommand")
-  .sc(DeleteScheduledQuery)
+  .sc(DeleteScheduledQuery$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

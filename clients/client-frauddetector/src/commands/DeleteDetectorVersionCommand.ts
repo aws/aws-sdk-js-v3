@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import type { DeleteDetectorVersionRequest, DeleteDetectorVersionResult } from "../models/models_0";
-import { DeleteDetectorVersion } from "../schemas/schemas_0";
+import { DeleteDetectorVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteDetectorVersionCommand extends $Command
   })
   .s("AWSHawksNestServiceFacade", "DeleteDetectorVersion", {})
   .n("FraudDetectorClient", "DeleteDetectorVersionCommand")
-  .sc(DeleteDetectorVersion)
+  .sc(DeleteDetectorVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

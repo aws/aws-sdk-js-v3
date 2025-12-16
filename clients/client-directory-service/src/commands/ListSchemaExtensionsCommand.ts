@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSchemaExtensionsRequest, ListSchemaExtensionsResult } from "../models/models_0";
-import { ListSchemaExtensions } from "../schemas/schemas_0";
+import { ListSchemaExtensions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -128,7 +128,7 @@ export class ListSchemaExtensionsCommand extends $Command
   })
   .s("DirectoryService_20150416", "ListSchemaExtensions", {})
   .n("DirectoryServiceClient", "ListSchemaExtensionsCommand")
-  .sc(ListSchemaExtensions)
+  .sc(ListSchemaExtensions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LookoutEquipmentClient";
 import type { DeleteDatasetRequest } from "../models/models_0";
-import { DeleteDataset } from "../schemas/schemas_0";
+import { DeleteDataset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class DeleteDatasetCommand extends $Command
   })
   .s("AWSLookoutEquipmentFrontendService", "DeleteDataset", {})
   .n("LookoutEquipmentClient", "DeleteDatasetCommand")
-  .sc(DeleteDataset)
+  .sc(DeleteDataset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

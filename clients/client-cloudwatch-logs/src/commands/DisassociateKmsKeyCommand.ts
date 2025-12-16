@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisassociateKmsKeyRequest } from "../models/models_0";
-import { DisassociateKmsKey } from "../schemas/schemas_0";
+import { DisassociateKmsKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class DisassociateKmsKeyCommand extends $Command
   })
   .s("Logs_20140328", "DisassociateKmsKey", {})
   .n("CloudWatchLogsClient", "DisassociateKmsKeyCommand")
-  .sc(DisassociateKmsKey)
+  .sc(DisassociateKmsKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

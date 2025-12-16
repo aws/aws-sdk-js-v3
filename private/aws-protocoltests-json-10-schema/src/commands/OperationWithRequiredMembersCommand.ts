@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
 import type { OperationWithRequiredMembersOutput } from "../models/models_0";
-import { OperationWithRequiredMembers } from "../schemas/schemas_0";
+import { OperationWithRequiredMembers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class OperationWithRequiredMembersCommand extends $Command
   })
   .s("JsonRpc10", "OperationWithRequiredMembers", {})
   .n("JSONRPC10Client", "OperationWithRequiredMembersCommand")
-  .sc(OperationWithRequiredMembers)
+  .sc(OperationWithRequiredMembers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

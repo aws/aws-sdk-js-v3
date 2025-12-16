@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchEventsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeReplayRequest, DescribeReplayResponse } from "../models/models_0";
-import { DescribeReplay } from "../schemas/schemas_0";
+import { DescribeReplay$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class DescribeReplayCommand extends $Command
   })
   .s("AWSEvents", "DescribeReplay", {})
   .n("CloudWatchEventsClient", "DescribeReplayCommand")
-  .sc(DescribeReplay)
+  .sc(DescribeReplay$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

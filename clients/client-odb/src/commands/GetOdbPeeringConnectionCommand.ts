@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetOdbPeeringConnectionInput, GetOdbPeeringConnectionOutput } from "../models/models_0";
 import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { GetOdbPeeringConnection } from "../schemas/schemas_0";
+import { GetOdbPeeringConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class GetOdbPeeringConnectionCommand extends $Command
   })
   .s("Odb", "GetOdbPeeringConnection", {})
   .n("OdbClient", "GetOdbPeeringConnectionCommand")
-  .sc(GetOdbPeeringConnection)
+  .sc(GetOdbPeeringConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateGlobalClusterMessage, CreateGlobalClusterResult } from "../models/models_0";
-import { CreateGlobalCluster } from "../schemas/schemas_0";
+import { CreateGlobalCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class CreateGlobalClusterCommand extends $Command
   })
   .s("AmazonRDSv19", "CreateGlobalCluster", {})
   .n("DocDBClient", "CreateGlobalClusterCommand")
-  .sc(CreateGlobalCluster)
+  .sc(CreateGlobalCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

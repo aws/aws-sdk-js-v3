@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ModifyInstancePlacementRequest, ModifyInstancePlacementResult } from "../models/models_6";
-import { ModifyInstancePlacement } from "../schemas/schemas_0";
+import { ModifyInstancePlacement$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class ModifyInstancePlacementCommand extends $Command
   })
   .s("AmazonEC2", "ModifyInstancePlacement", {})
   .n("EC2Client", "ModifyInstancePlacementCommand")
-  .sc(ModifyInstancePlacement)
+  .sc(ModifyInstancePlacement$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

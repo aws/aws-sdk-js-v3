@@ -10,7 +10,7 @@ import type {
 } from "../BedrockRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ConverseRequest, ConverseResponse } from "../models/models_0";
-import { Converse } from "../schemas/schemas_0";
+import { Converse$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -1063,7 +1063,7 @@ export class ConverseCommand extends $Command
   })
   .s("AmazonBedrockFrontendService", "Converse", {})
   .n("BedrockRuntimeClient", "ConverseCommand")
-  .sc(Converse)
+  .sc(Converse$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

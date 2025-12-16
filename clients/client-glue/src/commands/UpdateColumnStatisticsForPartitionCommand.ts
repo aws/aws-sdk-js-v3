@@ -9,7 +9,7 @@ import type {
   UpdateColumnStatisticsForPartitionRequest,
   UpdateColumnStatisticsForPartitionResponse,
 } from "../models/models_2";
-import { UpdateColumnStatisticsForPartition } from "../schemas/schemas_0";
+import { UpdateColumnStatisticsForPartition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -216,7 +216,7 @@ export class UpdateColumnStatisticsForPartitionCommand extends $Command
   })
   .s("AWSGlue", "UpdateColumnStatisticsForPartition", {})
   .n("GlueClient", "UpdateColumnStatisticsForPartitionCommand")
-  .sc(UpdateColumnStatisticsForPartition)
+  .sc(UpdateColumnStatisticsForPartition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

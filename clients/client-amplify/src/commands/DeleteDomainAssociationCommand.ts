@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteDomainAssociationRequest, DeleteDomainAssociationResult } from "../models/models_0";
-import { DeleteDomainAssociation } from "../schemas/schemas_0";
+import { DeleteDomainAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class DeleteDomainAssociationCommand extends $Command
   })
   .s("Amplify", "DeleteDomainAssociation", {})
   .n("AmplifyClient", "DeleteDomainAssociationCommand")
-  .sc(DeleteDomainAssociation)
+  .sc(DeleteDomainAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

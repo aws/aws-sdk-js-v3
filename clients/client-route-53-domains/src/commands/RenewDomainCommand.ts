@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { RenewDomain } from "../schemas/schemas_0";
+import { RenewDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class RenewDomainCommand extends $Command
   })
   .s("Route53Domains_v20140515", "RenewDomain", {})
   .n("Route53DomainsClient", "RenewDomainCommand")
-  .sc(RenewDomain)
+  .sc(RenewDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

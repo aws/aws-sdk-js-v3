@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteIpamPolicyRequest, DeleteIpamPolicyResult } from "../models/models_2";
-import { DeleteIpamPolicy } from "../schemas/schemas_0";
+import { DeleteIpamPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeleteIpamPolicyCommand extends $Command
   })
   .s("AmazonEC2", "DeleteIpamPolicy", {})
   .n("EC2Client", "DeleteIpamPolicyCommand")
-  .sc(DeleteIpamPolicy)
+  .sc(DeleteIpamPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

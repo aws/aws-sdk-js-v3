@@ -10,7 +10,7 @@ import type {
 } from "../ElasticLoadBalancingV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SetIpAddressTypeInput, SetIpAddressTypeOutput } from "../models/models_0";
-import { SetIpAddressType } from "../schemas/schemas_0";
+import { SetIpAddressType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class SetIpAddressTypeCommand extends $Command
   })
   .s("ElasticLoadBalancing_v10", "SetIpAddressType", {})
   .n("ElasticLoadBalancingV2Client", "SetIpAddressTypeCommand")
-  .sc(SetIpAddressType)
+  .sc(SetIpAddressType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

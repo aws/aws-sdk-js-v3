@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateAccountRequest, CreateAccountResponse } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { CreateAccount } from "../schemas/schemas_0";
+import { CreateAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -611,7 +611,7 @@ export class CreateAccountCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "CreateAccount", {})
   .n("OrganizationsClient", "CreateAccountCommand")
-  .sc(CreateAccount)
+  .sc(CreateAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

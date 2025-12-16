@@ -8,7 +8,7 @@ import type {
   PutAccountDedicatedIpWarmupAttributesRequest,
   PutAccountDedicatedIpWarmupAttributesResponse,
 } from "../models/models_0";
-import { PutAccountDedicatedIpWarmupAttributes } from "../schemas/schemas_0";
+import { PutAccountDedicatedIpWarmupAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -83,7 +83,7 @@ export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command
   })
   .s("SimpleEmailService_v2", "PutAccountDedicatedIpWarmupAttributes", {})
   .n("SESv2Client", "PutAccountDedicatedIpWarmupAttributesCommand")
-  .sc(PutAccountDedicatedIpWarmupAttributes)
+  .sc(PutAccountDedicatedIpWarmupAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import type { PutRolePermissionsBoundaryRequest } from "../models/models_0";
-import { PutRolePermissionsBoundary } from "../schemas/schemas_0";
+import { PutRolePermissionsBoundary$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class PutRolePermissionsBoundaryCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "PutRolePermissionsBoundary", {})
   .n("IAMClient", "PutRolePermissionsBoundaryCommand")
-  .sc(PutRolePermissionsBoundary)
+  .sc(PutRolePermissionsBoundary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

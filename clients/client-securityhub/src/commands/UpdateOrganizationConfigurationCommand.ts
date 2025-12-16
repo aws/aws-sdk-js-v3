@@ -8,7 +8,7 @@ import type {
   UpdateOrganizationConfigurationRequest,
   UpdateOrganizationConfigurationResponse,
 } from "../models/models_3";
-import { UpdateOrganizationConfiguration } from "../schemas/schemas_0";
+import { UpdateOrganizationConfiguration$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -123,7 +123,7 @@ export class UpdateOrganizationConfigurationCommand extends $Command
   })
   .s("SecurityHubAPIService", "UpdateOrganizationConfiguration", {})
   .n("SecurityHubClient", "UpdateOrganizationConfigurationCommand")
-  .sc(UpdateOrganizationConfiguration)
+  .sc(UpdateOrganizationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

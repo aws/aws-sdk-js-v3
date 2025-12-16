@@ -10,7 +10,7 @@ import type {
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetProfileHistoryRecordRequest, GetProfileHistoryRecordResponse } from "../models/models_0";
-import { GetProfileHistoryRecord } from "../schemas/schemas_0";
+import { GetProfileHistoryRecord$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class GetProfileHistoryRecordCommand extends $Command
   })
   .s("CustomerProfiles_20200815", "GetProfileHistoryRecord", {})
   .n("CustomerProfilesClient", "GetProfileHistoryRecordCommand")
-  .sc(GetProfileHistoryRecord)
+  .sc(GetProfileHistoryRecord$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

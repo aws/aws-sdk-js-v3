@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateResponsibilityTransferRequest, UpdateResponsibilityTransferResponse } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { UpdateResponsibilityTransfer } from "../schemas/schemas_0";
+import { UpdateResponsibilityTransfer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -517,7 +517,7 @@ export class UpdateResponsibilityTransferCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "UpdateResponsibilityTransfer", {})
   .n("OrganizationsClient", "UpdateResponsibilityTransferCommand")
-  .sc(UpdateResponsibilityTransfer)
+  .sc(UpdateResponsibilityTransfer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

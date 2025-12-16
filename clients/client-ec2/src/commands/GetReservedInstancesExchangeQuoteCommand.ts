@@ -9,7 +9,7 @@ import type {
   GetReservedInstancesExchangeQuoteRequest,
   GetReservedInstancesExchangeQuoteResult,
 } from "../models/models_6";
-import { GetReservedInstancesExchangeQuote } from "../schemas/schemas_0";
+import { GetReservedInstancesExchangeQuote$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class GetReservedInstancesExchangeQuoteCommand extends $Command
   })
   .s("AmazonEC2", "GetReservedInstancesExchangeQuote", {})
   .n("EC2Client", "GetReservedInstancesExchangeQuoteCommand")
-  .sc(GetReservedInstancesExchangeQuote)
+  .sc(GetReservedInstancesExchangeQuote$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

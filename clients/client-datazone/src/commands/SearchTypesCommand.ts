@@ -7,7 +7,7 @@ import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SearchTypesOutput } from "../models/models_1";
 import type { SearchTypesInput } from "../models/models_2";
-import { SearchTypes } from "../schemas/schemas_0";
+import { SearchTypes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -189,7 +189,7 @@ export class SearchTypesCommand extends $Command
   })
   .s("DataZone", "SearchTypes", {})
   .n("DataZoneClient", "SearchTypesCommand")
-  .sc(SearchTypes)
+  .sc(SearchTypes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

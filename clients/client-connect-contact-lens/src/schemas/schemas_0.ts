@@ -54,27 +54,27 @@ import type {
   StaticStructureSchema,
 } from "@smithy/types";
 
-import { ConnectContactLensServiceException as __ConnectContactLensServiceException } from "../models/ConnectContactLensServiceException";
+import { ConnectContactLensServiceException } from "../models/ConnectContactLensServiceException";
 import {
-  AccessDeniedException as __AccessDeniedException,
-  InternalServiceException as __InternalServiceException,
-  InvalidRequestException as __InvalidRequestException,
-  ResourceNotFoundException as __ResourceNotFoundException,
-  ThrottlingException as __ThrottlingException,
+  AccessDeniedException,
+  InternalServiceException,
+  InvalidRequestException,
+  ResourceNotFoundException,
+  ThrottlingException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var Categories: StaticStructureSchema = [3, n0, _C, 0, [_MC, _MD], [64 | 0, () => MatchedDetails]];
-export var CategoryDetails: StaticStructureSchema = [3, n0, _CD, 0, [_POI], [() => PointsOfInterest]];
-export var CharacterOffsets: StaticStructureSchema = [3, n0, _CO, 0, [_BOC, _EOC], [1, 1]];
-export var InternalServiceException: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InternalServiceException, __InternalServiceException);
-export var InvalidRequestException: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidRequestException, __InvalidRequestException);
-export var IssueDetected: StaticStructureSchema = [3, n0, _ID, 0, [_CO], [() => CharacterOffsets]];
-export var ListRealtimeContactAnalysisSegmentsRequest: StaticStructureSchema = [
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var Categories$: StaticStructureSchema = [3, n0, _C, 0, [_MC, _MD], [64 | 0, () => MatchedDetails]];
+export var CategoryDetails$: StaticStructureSchema = [3, n0, _CD, 0, [_POI], [() => PointsOfInterest]];
+export var CharacterOffsets$: StaticStructureSchema = [3, n0, _CO, 0, [_BOC, _EOC], [1, 1]];
+export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InternalServiceException$, InternalServiceException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
+export var IssueDetected$: StaticStructureSchema = [3, n0, _ID, 0, [_CO], [() => CharacterOffsets$]];
+export var ListRealtimeContactAnalysisSegmentsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRCASR,
@@ -82,7 +82,7 @@ export var ListRealtimeContactAnalysisSegmentsRequest: StaticStructureSchema = [
   [_II, _CI, _MR, _NT],
   [0, 0, 1, 0],
 ];
-export var ListRealtimeContactAnalysisSegmentsResponse: StaticStructureSchema = [
+export var ListRealtimeContactAnalysisSegmentsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRCASRi,
@@ -90,21 +90,21 @@ export var ListRealtimeContactAnalysisSegmentsResponse: StaticStructureSchema = 
   [_S, _NT],
   [() => RealtimeContactAnalysisSegments, 0],
 ];
-export var PointOfInterest: StaticStructureSchema = [3, n0, _POIo, 0, [_BOM, _EOM], [1, 1]];
-export var PostContactSummary: StaticStructureSchema = [3, n0, _PCS, 0, [_Co, _St, _FC], [0, 0, 0]];
-export var RealtimeContactAnalysisSegment: StaticStructureSchema = [
+export var PointOfInterest$: StaticStructureSchema = [3, n0, _POIo, 0, [_BOM, _EOM], [1, 1]];
+export var PostContactSummary$: StaticStructureSchema = [3, n0, _PCS, 0, [_Co, _St, _FC], [0, 0, 0]];
+export var RealtimeContactAnalysisSegment$: StaticStructureSchema = [
   3,
   n0,
   _RCAS,
   0,
   [_T, _C, _PCS],
-  [() => Transcript, () => Categories, () => PostContactSummary],
+  [() => Transcript$, () => Categories$, () => PostContactSummary$],
 ];
-export var ResourceNotFoundException: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException, __ResourceNotFoundException);
-export var ThrottlingException: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ThrottlingException, __ThrottlingException);
-export var Transcript: StaticStructureSchema = [
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var Transcript$: StaticStructureSchema = [
   3,
   n0,
   _T,
@@ -112,7 +112,7 @@ export var Transcript: StaticStructureSchema = [
   [_I, _PI, _PR, _Co, _BOM, _EOM, _Se, _IDs],
   [0, 0, 0, 0, 1, 1, 0, () => IssuesDetected],
 ];
-export var ConnectContactLensServiceException: StaticErrorSchema = [
+export var ConnectContactLensServiceException$: StaticErrorSchema = [
   -3,
   _sm,
   "ConnectContactLensServiceException",
@@ -120,17 +120,17 @@ export var ConnectContactLensServiceException: StaticErrorSchema = [
   [],
   [],
 ];
-TypeRegistry.for(_sm).registerError(ConnectContactLensServiceException, __ConnectContactLensServiceException);
-export var IssuesDetected: StaticListSchema = [1, n0, _IDs, 0, () => IssueDetected];
-export var MatchedCategories = 64 | 0;
-export var PointsOfInterest: StaticListSchema = [1, n0, _POI, 0, () => PointOfInterest];
-export var RealtimeContactAnalysisSegments: StaticListSchema = [1, n0, _RCASe, 0, () => RealtimeContactAnalysisSegment];
-export var MatchedDetails: StaticMapSchema = [2, n0, _MD, 0, 0, () => CategoryDetails];
-export var ListRealtimeContactAnalysisSegments: StaticOperationSchema = [
+TypeRegistry.for(_sm).registerError(ConnectContactLensServiceException$, ConnectContactLensServiceException);
+var IssuesDetected: StaticListSchema = [1, n0, _IDs, 0, () => IssueDetected$];
+var MatchedCategories = 64 | 0;
+var PointsOfInterest: StaticListSchema = [1, n0, _POI, 0, () => PointOfInterest$];
+var RealtimeContactAnalysisSegments: StaticListSchema = [1, n0, _RCASe, 0, () => RealtimeContactAnalysisSegment$];
+var MatchedDetails: StaticMapSchema = [2, n0, _MD, 0, 0, () => CategoryDetails$];
+export var ListRealtimeContactAnalysisSegments$: StaticOperationSchema = [
   9,
   n0,
   _LRCAS,
   { [_h]: ["POST", "/realtime-contact-analysis/analysis-segments", 200] },
-  () => ListRealtimeContactAnalysisSegmentsRequest,
-  () => ListRealtimeContactAnalysisSegmentsResponse,
+  () => ListRealtimeContactAnalysisSegmentsRequest$,
+  () => ListRealtimeContactAnalysisSegmentsResponse$,
 ];

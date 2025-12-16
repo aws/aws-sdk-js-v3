@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTThingsGraphClient";
 import type { UploadEntityDefinitionsRequest, UploadEntityDefinitionsResponse } from "../models/models_0";
-import { UploadEntityDefinitions } from "../schemas/schemas_0";
+import { UploadEntityDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class UploadEntityDefinitionsCommand extends $Command
   })
   .s("IotThingsGraphFrontEndService", "UploadEntityDefinitions", {})
   .n("IoTThingsGraphClient", "UploadEntityDefinitionsCommand")
-  .sc(UploadEntityDefinitions)
+  .sc(UploadEntityDefinitions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

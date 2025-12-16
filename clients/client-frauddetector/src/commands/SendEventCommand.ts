@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import type { SendEventRequest, SendEventResult } from "../models/models_0";
-import { SendEvent } from "../schemas/schemas_0";
+import { SendEvent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class SendEventCommand extends $Command
   })
   .s("AWSHawksNestServiceFacade", "SendEvent", {})
   .n("FraudDetectorClient", "SendEventCommand")
-  .sc(SendEvent)
+  .sc(SendEvent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

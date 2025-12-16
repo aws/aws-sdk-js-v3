@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateChimeWebhookConfigurationRequest, CreateChimeWebhookConfigurationResult } from "../models/models_0";
-import { CreateChimeWebhookConfiguration } from "../schemas/schemas_0";
+import { CreateChimeWebhookConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class CreateChimeWebhookConfigurationCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "CreateChimeWebhookConfiguration", {})
   .n("ChatbotClient", "CreateChimeWebhookConfigurationCommand")
-  .sc(CreateChimeWebhookConfiguration)
+  .sc(CreateChimeWebhookConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

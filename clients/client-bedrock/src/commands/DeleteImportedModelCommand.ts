@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteImportedModelRequest, DeleteImportedModelResponse } from "../models/models_1";
-import { DeleteImportedModel } from "../schemas/schemas_0";
+import { DeleteImportedModel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DeleteImportedModelCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "DeleteImportedModel", {})
   .n("BedrockClient", "DeleteImportedModelCommand")
-  .sc(DeleteImportedModel)
+  .sc(DeleteImportedModel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

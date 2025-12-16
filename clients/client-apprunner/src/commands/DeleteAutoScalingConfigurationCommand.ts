@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAutoScalingConfigurationRequest, DeleteAutoScalingConfigurationResponse } from "../models/models_0";
-import { DeleteAutoScalingConfiguration } from "../schemas/schemas_0";
+import { DeleteAutoScalingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class DeleteAutoScalingConfigurationCommand extends $Command
   })
   .s("AppRunner", "DeleteAutoScalingConfiguration", {})
   .n("AppRunnerClient", "DeleteAutoScalingConfigurationCommand")
-  .sc(DeleteAutoScalingConfiguration)
+  .sc(DeleteAutoScalingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

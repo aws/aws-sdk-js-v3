@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: ChimeSDKIdentityClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.chimesdkidentity" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.chimesdkidentity",
+      version: "2021-04-20",
+      serviceTarget: "ChimeIdentityService",
+    },
     serviceId: config?.serviceId ?? "Chime SDK Identity",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

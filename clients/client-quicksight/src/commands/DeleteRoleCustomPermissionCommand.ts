@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteRoleCustomPermissionRequest, DeleteRoleCustomPermissionResponse } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DeleteRoleCustomPermission } from "../schemas/schemas_0";
+import { DeleteRoleCustomPermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class DeleteRoleCustomPermissionCommand extends $Command
   })
   .s("QuickSight_20180401", "DeleteRoleCustomPermission", {})
   .n("QuickSightClient", "DeleteRoleCustomPermissionCommand")
-  .sc(DeleteRoleCustomPermission)
+  .sc(DeleteRoleCustomPermission$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

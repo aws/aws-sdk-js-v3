@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import { DeleteIndex } from "../schemas/schemas_0";
+import { DeleteIndex$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DeleteIndexCommand extends $Command
   })
   .s("OpenSearchServerless", "DeleteIndex", {})
   .n("OpenSearchServerlessClient", "DeleteIndexCommand")
-  .sc(DeleteIndex)
+  .sc(DeleteIndex$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

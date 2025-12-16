@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListTemplateSharesInput, ListTemplateSharesOutput } from "../models/models_0";
-import { ListTemplateShares } from "../schemas/schemas_0";
+import { ListTemplateShares$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -105,7 +105,7 @@ export class ListTemplateSharesCommand extends $Command
   })
   .s("WellArchitectedApiServiceLambda", "ListTemplateShares", {})
   .n("WellArchitectedClient", "ListTemplateSharesCommand")
-  .sc(ListTemplateShares)
+  .sc(ListTemplateShares$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

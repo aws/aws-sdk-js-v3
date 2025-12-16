@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { BackupSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupSearchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSearchResultExportJobInput, GetSearchResultExportJobOutput } from "../models/models_0";
-import { GetSearchResultExportJob } from "../schemas/schemas_0";
+import { GetSearchResultExportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class GetSearchResultExportJobCommand extends $Command
   })
   .s("CryoBackupSearchService", "GetSearchResultExportJob", {})
   .n("BackupSearchClient", "GetSearchResultExportJobCommand")
-  .sc(GetSearchResultExportJob)
+  .sc(GetSearchResultExportJob$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

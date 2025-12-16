@@ -9,7 +9,7 @@ import type {
   DisassociatePhoneNumbersFromVoiceConnectorRequest,
   DisassociatePhoneNumbersFromVoiceConnectorResponse,
 } from "../models/models_0";
-import { DisassociatePhoneNumbersFromVoiceConnector } from "../schemas/schemas_0";
+import { DisassociatePhoneNumbersFromVoiceConnector$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class DisassociatePhoneNumbersFromVoiceConnectorCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "DisassociatePhoneNumbersFromVoiceConnector", {})
   .n("ChimeSDKVoiceClient", "DisassociatePhoneNumbersFromVoiceConnectorCommand")
-  .sc(DisassociatePhoneNumbersFromVoiceConnector)
+  .sc(DisassociatePhoneNumbersFromVoiceConnector$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartDbNodeInput, StartDbNodeOutput } from "../models/models_0";
 import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { StartDbNode } from "../schemas/schemas_0";
+import { StartDbNode$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class StartDbNodeCommand extends $Command
   })
   .s("Odb", "StartDbNode", {})
   .n("OdbClient", "StartDbNodeCommand")
-  .sc(StartDbNode)
+  .sc(StartDbNode$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

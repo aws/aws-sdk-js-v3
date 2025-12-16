@@ -10,7 +10,7 @@ import type {
 } from "../ElasticBeanstalkClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateTagsForResourceMessage } from "../models/models_0";
-import { UpdateTagsForResource } from "../schemas/schemas_0";
+import { UpdateTagsForResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class UpdateTagsForResourceCommand extends $Command
   })
   .s("AWSElasticBeanstalkService", "UpdateTagsForResource", {})
   .n("ElasticBeanstalkClient", "UpdateTagsForResourceCommand")
-  .sc(UpdateTagsForResource)
+  .sc(UpdateTagsForResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

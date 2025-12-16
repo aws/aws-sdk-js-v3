@@ -9,7 +9,7 @@ import type {
   DescribeBudgetPerformanceHistoryRequest,
   DescribeBudgetPerformanceHistoryResponse,
 } from "../models/models_0";
-import { DescribeBudgetPerformanceHistory } from "../schemas/schemas_0";
+import { DescribeBudgetPerformanceHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -152,7 +152,7 @@ export class DescribeBudgetPerformanceHistoryCommand extends $Command
   })
   .s("AWSBudgetServiceGateway", "DescribeBudgetPerformanceHistory", {})
   .n("BudgetsClient", "DescribeBudgetPerformanceHistoryCommand")
-  .sc(DescribeBudgetPerformanceHistory)
+  .sc(DescribeBudgetPerformanceHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

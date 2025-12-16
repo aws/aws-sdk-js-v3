@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateSessionDataRequest, UpdateSessionDataResponse } from "../models/models_0";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { UpdateSessionData } from "../schemas/schemas_0";
+import { UpdateSessionData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class UpdateSessionDataCommand extends $Command
   })
   .s("WisdomService", "UpdateSessionData", {})
   .n("QConnectClient", "UpdateSessionDataCommand")
-  .sc(UpdateSessionData)
+  .sc(UpdateSessionData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

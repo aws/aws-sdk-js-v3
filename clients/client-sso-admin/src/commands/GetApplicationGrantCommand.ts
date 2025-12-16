@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetApplicationGrantRequest, GetApplicationGrantResponse } from "../models/models_0";
-import { GetApplicationGrant } from "../schemas/schemas_0";
+import { GetApplicationGrant$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -107,7 +107,7 @@ export class GetApplicationGrantCommand extends $Command
   })
   .s("SWBExternalService", "GetApplicationGrant", {})
   .n("SSOAdminClient", "GetApplicationGrantCommand")
-  .sc(GetApplicationGrant)
+  .sc(GetApplicationGrant$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

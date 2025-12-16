@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import type { GetServerDetailsRequest, GetServerDetailsResponse } from "../models/models_0";
-import { GetServerDetails } from "../schemas/schemas_0";
+import { GetServerDetails$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -155,7 +155,7 @@ export class GetServerDetailsCommand extends $Command
   })
   .s("AWSMigrationHubStrategyRecommendation", "GetServerDetails", {})
   .n("MigrationHubStrategyClient", "GetServerDetailsCommand")
-  .sc(GetServerDetails)
+  .sc(GetServerDetails$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

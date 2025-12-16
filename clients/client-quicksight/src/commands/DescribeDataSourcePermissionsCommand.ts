@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeDataSourcePermissionsRequest, DescribeDataSourcePermissionsResponse } from "../models/models_3";
 import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeDataSourcePermissions } from "../schemas/schemas_0";
+import { DescribeDataSourcePermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class DescribeDataSourcePermissionsCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeDataSourcePermissions", {})
   .n("QuickSightClient", "DescribeDataSourcePermissionsCommand")
-  .sc(DescribeDataSourcePermissions)
+  .sc(DescribeDataSourcePermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

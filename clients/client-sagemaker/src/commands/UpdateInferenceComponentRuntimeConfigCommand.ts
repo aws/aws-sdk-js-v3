@@ -9,7 +9,7 @@ import type {
   UpdateInferenceComponentRuntimeConfigOutput,
 } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { UpdateInferenceComponentRuntimeConfig } from "../schemas/schemas_0";
+import { UpdateInferenceComponentRuntimeConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class UpdateInferenceComponentRuntimeConfigCommand extends $Command
   })
   .s("SageMaker", "UpdateInferenceComponentRuntimeConfig", {})
   .n("SageMakerClient", "UpdateInferenceComponentRuntimeConfigCommand")
-  .sc(UpdateInferenceComponentRuntimeConfig)
+  .sc(UpdateInferenceComponentRuntimeConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

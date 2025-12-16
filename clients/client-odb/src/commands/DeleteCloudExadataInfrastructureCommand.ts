@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteCloudExadataInfrastructureInput, DeleteCloudExadataInfrastructureOutput } from "../models/models_0";
 import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { DeleteCloudExadataInfrastructure } from "../schemas/schemas_0";
+import { DeleteCloudExadataInfrastructure$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteCloudExadataInfrastructureCommand extends $Command
   })
   .s("Odb", "DeleteCloudExadataInfrastructure", {})
   .n("OdbClient", "DeleteCloudExadataInfrastructureCommand")
-  .sc(DeleteCloudExadataInfrastructure)
+  .sc(DeleteCloudExadataInfrastructure$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

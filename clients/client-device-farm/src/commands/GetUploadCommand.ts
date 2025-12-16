@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetUploadRequest, GetUploadResult } from "../models/models_0";
-import { GetUpload } from "../schemas/schemas_0";
+import { GetUpload$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class GetUploadCommand extends $Command
   })
   .s("DeviceFarm_20150623", "GetUpload", {})
   .n("DeviceFarmClient", "GetUploadCommand")
-  .sc(GetUpload)
+  .sc(GetUpload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

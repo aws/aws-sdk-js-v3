@@ -8,7 +8,7 @@ import type {
   PutAccountSuppressionAttributesRequest,
   PutAccountSuppressionAttributesResponse,
 } from "../models/models_0";
-import { PutAccountSuppressionAttributes } from "../schemas/schemas_0";
+import { PutAccountSuppressionAttributes$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -84,7 +84,7 @@ export class PutAccountSuppressionAttributesCommand extends $Command
   })
   .s("SimpleEmailService_v2", "PutAccountSuppressionAttributes", {})
   .n("SESv2Client", "PutAccountSuppressionAttributesCommand")
-  .sc(PutAccountSuppressionAttributes)
+  .sc(PutAccountSuppressionAttributes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

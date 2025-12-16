@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteFlowRequest, DeleteFlowResponse } from "../models/models_0";
-import { DeleteFlow } from "../schemas/schemas_0";
+import { DeleteFlow$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -85,7 +85,7 @@ export class DeleteFlowCommand extends $Command
   })
   .s("SandstoneConfigurationServiceLambda", "DeleteFlow", {})
   .n("AppflowClient", "DeleteFlowCommand")
-  .sc(DeleteFlow)
+  .sc(DeleteFlow$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

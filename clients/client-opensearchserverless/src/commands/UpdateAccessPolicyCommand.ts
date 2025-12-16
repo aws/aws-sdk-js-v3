@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../OpenSearchServerlessClient";
-import { UpdateAccessPolicy } from "../schemas/schemas_0";
+import { UpdateAccessPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class UpdateAccessPolicyCommand extends $Command
   })
   .s("OpenSearchServerless", "UpdateAccessPolicy", {})
   .n("OpenSearchServerlessClient", "UpdateAccessPolicyCommand")
-  .sc(UpdateAccessPolicy)
+  .sc(UpdateAccessPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

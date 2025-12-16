@@ -9,7 +9,7 @@ import type {
   ValidateSecurityProfileBehaviorsRequest,
   ValidateSecurityProfileBehaviorsResponse,
 } from "../models/models_2";
-import { ValidateSecurityProfileBehaviors } from "../schemas/schemas_0";
+import { ValidateSecurityProfileBehaviors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -132,7 +132,7 @@ export class ValidateSecurityProfileBehaviorsCommand extends $Command
   })
   .s("AWSIotService", "ValidateSecurityProfileBehaviors", {})
   .n("IoTClient", "ValidateSecurityProfileBehaviorsCommand")
-  .sc(ValidateSecurityProfileBehaviors)
+  .sc(ValidateSecurityProfileBehaviors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

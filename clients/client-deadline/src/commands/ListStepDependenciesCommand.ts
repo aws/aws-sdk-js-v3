@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListStepDependenciesRequest, ListStepDependenciesResponse } from "../models/models_0";
-import { ListStepDependencies } from "../schemas/schemas_0";
+import { ListStepDependencies$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ListStepDependenciesCommand extends $Command
   })
   .s("Deadline", "ListStepDependencies", {})
   .n("DeadlineClient", "ListStepDependenciesCommand")
-  .sc(ListStepDependencies)
+  .sc(ListStepDependencies$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

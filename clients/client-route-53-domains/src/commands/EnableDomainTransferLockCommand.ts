@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { EnableDomainTransferLock } from "../schemas/schemas_0";
+import { EnableDomainTransferLock$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class EnableDomainTransferLockCommand extends $Command
   })
   .s("Route53Domains_v20140515", "EnableDomainTransferLock", {})
   .n("Route53DomainsClient", "EnableDomainTransferLockCommand")
-  .sc(EnableDomainTransferLock)
+  .sc(EnableDomainTransferLock$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

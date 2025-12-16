@@ -274,45 +274,54 @@ import type {
 } from "@smithy/types";
 
 import {
-  AccessDeniedException as __AccessDeniedException,
-  BadRequestException as __BadRequestException,
-  ConflictException as __ConflictException,
-  ForbiddenException as __ForbiddenException,
-  InternalServerErrorException as __InternalServerErrorException,
-  MethodNotAllowedException as __MethodNotAllowedException,
-  NotFoundException as __NotFoundException,
-  TooManyRequestsException as __TooManyRequestsException,
+  AccessDeniedException,
+  BadRequestException,
+  ConflictException,
+  ForbiddenException,
+  InternalServerErrorException,
+  MethodNotAllowedException,
+  NotFoundException,
+  TooManyRequestsException,
 } from "../models/errors";
-import { S3TablesServiceException as __S3TablesServiceException } from "../models/S3TablesServiceException";
+import { S3TablesServiceException } from "../models/S3TablesServiceException";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException, __AccessDeniedException);
-export var BadRequestException: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateNamespaceRequest: StaticStructureSchema = [3, n0, _CNR, 0, [_tBARN, _n], [[0, 1], 64 | 0]];
-export var CreateNamespaceResponse: StaticStructureSchema = [3, n0, _CNRr, 0, [_tBARN, _n], [0, 64 | 0]];
-export var CreateTableBucketRequest: StaticStructureSchema = [
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateNamespaceRequest$: StaticStructureSchema = [3, n0, _CNR, 0, [_tBARN, _n], [[0, 1], 64 | 0]];
+export var CreateNamespaceResponse$: StaticStructureSchema = [3, n0, _CNRr, 0, [_tBARN, _n], [0, 64 | 0]];
+export var CreateTableBucketRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTBR,
   0,
   [_na, _eC, _sCC, _t],
-  [0, () => EncryptionConfiguration, () => StorageClassConfiguration, 128 | 0],
+  [0, () => EncryptionConfiguration$, () => StorageClassConfiguration$, 128 | 0],
 ];
-export var CreateTableBucketResponse: StaticStructureSchema = [3, n0, _CTBRr, 0, [_a], [0]];
-export var CreateTableRequest: StaticStructureSchema = [
+export var CreateTableBucketResponse$: StaticStructureSchema = [3, n0, _CTBRr, 0, [_a], [0]];
+export var CreateTableRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTR,
   0,
   [_tBARN, _n, _na, _f, _me, _eC, _sCC, _t],
-  [[0, 1], [0, 1], 0, 0, () => TableMetadata, () => EncryptionConfiguration, () => StorageClassConfiguration, 128 | 0],
+  [
+    [0, 1],
+    [0, 1],
+    0,
+    0,
+    () => TableMetadata$,
+    () => EncryptionConfiguration$,
+    () => StorageClassConfiguration$,
+    128 | 0,
+  ],
 ];
-export var CreateTableResponse: StaticStructureSchema = [3, n0, _CTRr, 0, [_tARN, _vT], [0, 0]];
-export var DeleteNamespaceRequest: StaticStructureSchema = [
+export var CreateTableResponse$: StaticStructureSchema = [3, n0, _CTRr, 0, [_tARN, _vT], [0, 0]];
+export var DeleteNamespaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _DNR,
@@ -323,8 +332,8 @@ export var DeleteNamespaceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteTableBucketEncryptionRequest: StaticStructureSchema = [3, n0, _DTBER, 0, [_tBARN], [[0, 1]]];
-export var DeleteTableBucketMetricsConfigurationRequest: StaticStructureSchema = [
+export var DeleteTableBucketEncryptionRequest$: StaticStructureSchema = [3, n0, _DTBER, 0, [_tBARN], [[0, 1]]];
+export var DeleteTableBucketMetricsConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTBMCR,
@@ -332,8 +341,8 @@ export var DeleteTableBucketMetricsConfigurationRequest: StaticStructureSchema =
   [_tBARN],
   [[0, 1]],
 ];
-export var DeleteTableBucketPolicyRequest: StaticStructureSchema = [3, n0, _DTBPR, 0, [_tBARN], [[0, 1]]];
-export var DeleteTableBucketReplicationRequest: StaticStructureSchema = [
+export var DeleteTableBucketPolicyRequest$: StaticStructureSchema = [3, n0, _DTBPR, 0, [_tBARN], [[0, 1]]];
+export var DeleteTableBucketReplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTBRR,
@@ -344,8 +353,8 @@ export var DeleteTableBucketReplicationRequest: StaticStructureSchema = [
     [0, { [_hQ]: _vT }],
   ],
 ];
-export var DeleteTableBucketRequest: StaticStructureSchema = [3, n0, _DTBR, 0, [_tBARN], [[0, 1]]];
-export var DeleteTablePolicyRequest: StaticStructureSchema = [
+export var DeleteTableBucketRequest$: StaticStructureSchema = [3, n0, _DTBR, 0, [_tBARN], [[0, 1]]];
+export var DeleteTablePolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTPR,
@@ -357,7 +366,7 @@ export var DeleteTablePolicyRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeleteTableReplicationRequest: StaticStructureSchema = [
+export var DeleteTableReplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTRR,
@@ -368,7 +377,7 @@ export var DeleteTableReplicationRequest: StaticStructureSchema = [
     [0, { [_hQ]: _vT }],
   ],
 ];
-export var DeleteTableRequest: StaticStructureSchema = [
+export var DeleteTableRequest$: StaticStructureSchema = [
   3,
   n0,
   _DTR,
@@ -381,10 +390,10 @@ export var DeleteTableRequest: StaticStructureSchema = [
     [0, { [_hQ]: _vT }],
   ],
 ];
-export var EncryptionConfiguration: StaticStructureSchema = [3, n0, _EC, 0, [_sA, _kKA], [0, 0]];
-export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-export var GetNamespaceRequest: StaticStructureSchema = [
+export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC, 0, [_sA, _kKA], [0, 0]];
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
+export var GetNamespaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _GNR,
@@ -395,7 +404,7 @@ export var GetNamespaceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetNamespaceResponse: StaticStructureSchema = [
+export var GetNamespaceResponse$: StaticStructureSchema = [
   3,
   n0,
   _GNRe,
@@ -403,16 +412,16 @@ export var GetNamespaceResponse: StaticStructureSchema = [
   [_n, _cA, _cB, _oAI, _nI, _tBI],
   [64 | 0, 5, 0, 0, 0, 0],
 ];
-export var GetTableBucketEncryptionRequest: StaticStructureSchema = [3, n0, _GTBER, 0, [_tBARN], [[0, 1]]];
-export var GetTableBucketEncryptionResponse: StaticStructureSchema = [
+export var GetTableBucketEncryptionRequest$: StaticStructureSchema = [3, n0, _GTBER, 0, [_tBARN], [[0, 1]]];
+export var GetTableBucketEncryptionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GTBERe,
   0,
   [_eC],
-  [() => EncryptionConfiguration],
+  [() => EncryptionConfiguration$],
 ];
-export var GetTableBucketMaintenanceConfigurationRequest: StaticStructureSchema = [
+export var GetTableBucketMaintenanceConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GTBMCR,
@@ -420,7 +429,7 @@ export var GetTableBucketMaintenanceConfigurationRequest: StaticStructureSchema 
   [_tBARN],
   [[0, 1]],
 ];
-export var GetTableBucketMaintenanceConfigurationResponse: StaticStructureSchema = [
+export var GetTableBucketMaintenanceConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GTBMCRe,
@@ -428,8 +437,15 @@ export var GetTableBucketMaintenanceConfigurationResponse: StaticStructureSchema
   [_tBARN, _co],
   [0, () => TableBucketMaintenanceConfiguration],
 ];
-export var GetTableBucketMetricsConfigurationRequest: StaticStructureSchema = [3, n0, _GTBMCRet, 0, [_tBARN], [[0, 1]]];
-export var GetTableBucketMetricsConfigurationResponse: StaticStructureSchema = [
+export var GetTableBucketMetricsConfigurationRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _GTBMCRet,
+  0,
+  [_tBARN],
+  [[0, 1]],
+];
+export var GetTableBucketMetricsConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GTBMCReta,
@@ -437,9 +453,9 @@ export var GetTableBucketMetricsConfigurationResponse: StaticStructureSchema = [
   [_tBARN, _i],
   [0, 0],
 ];
-export var GetTableBucketPolicyRequest: StaticStructureSchema = [3, n0, _GTBPR, 0, [_tBARN], [[0, 1]]];
-export var GetTableBucketPolicyResponse: StaticStructureSchema = [3, n0, _GTBPRe, 0, [_rP], [0]];
-export var GetTableBucketReplicationRequest: StaticStructureSchema = [
+export var GetTableBucketPolicyRequest$: StaticStructureSchema = [3, n0, _GTBPR, 0, [_tBARN], [[0, 1]]];
+export var GetTableBucketPolicyResponse$: StaticStructureSchema = [3, n0, _GTBPRe, 0, [_rP], [0]];
+export var GetTableBucketReplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GTBRR,
@@ -447,16 +463,16 @@ export var GetTableBucketReplicationRequest: StaticStructureSchema = [
   [_tBARN],
   [[0, { [_hQ]: _tBARN }]],
 ];
-export var GetTableBucketReplicationResponse: StaticStructureSchema = [
+export var GetTableBucketReplicationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GTBRRe,
   0,
   [_vT, _co],
-  [0, () => TableBucketReplicationConfiguration],
+  [0, () => TableBucketReplicationConfiguration$],
 ];
-export var GetTableBucketRequest: StaticStructureSchema = [3, n0, _GTBR, 0, [_tBARN], [[0, 1]]];
-export var GetTableBucketResponse: StaticStructureSchema = [
+export var GetTableBucketRequest$: StaticStructureSchema = [3, n0, _GTBR, 0, [_tBARN], [[0, 1]]];
+export var GetTableBucketResponse$: StaticStructureSchema = [
   3,
   n0,
   _GTBRe,
@@ -464,16 +480,16 @@ export var GetTableBucketResponse: StaticStructureSchema = [
   [_a, _na, _oAI, _cA, _tBI, _ty],
   [0, 0, 0, 5, 0, 0],
 ];
-export var GetTableBucketStorageClassRequest: StaticStructureSchema = [3, n0, _GTBSCR, 0, [_tBARN], [[0, 1]]];
-export var GetTableBucketStorageClassResponse: StaticStructureSchema = [
+export var GetTableBucketStorageClassRequest$: StaticStructureSchema = [3, n0, _GTBSCR, 0, [_tBARN], [[0, 1]]];
+export var GetTableBucketStorageClassResponse$: StaticStructureSchema = [
   3,
   n0,
   _GTBSCRe,
   0,
   [_sCC],
-  [() => StorageClassConfiguration],
+  [() => StorageClassConfiguration$],
 ];
-export var GetTableEncryptionRequest: StaticStructureSchema = [
+export var GetTableEncryptionRequest$: StaticStructureSchema = [
   3,
   n0,
   _GTER,
@@ -485,15 +501,15 @@ export var GetTableEncryptionRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetTableEncryptionResponse: StaticStructureSchema = [
+export var GetTableEncryptionResponse$: StaticStructureSchema = [
   3,
   n0,
   _GTERe,
   0,
   [_eC],
-  [() => EncryptionConfiguration],
+  [() => EncryptionConfiguration$],
 ];
-export var GetTableMaintenanceConfigurationRequest: StaticStructureSchema = [
+export var GetTableMaintenanceConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GTMCR,
@@ -505,7 +521,7 @@ export var GetTableMaintenanceConfigurationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetTableMaintenanceConfigurationResponse: StaticStructureSchema = [
+export var GetTableMaintenanceConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GTMCRe,
@@ -513,7 +529,7 @@ export var GetTableMaintenanceConfigurationResponse: StaticStructureSchema = [
   [_tARN, _co],
   [0, () => TableMaintenanceConfiguration],
 ];
-export var GetTableMaintenanceJobStatusRequest: StaticStructureSchema = [
+export var GetTableMaintenanceJobStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _GTMJSR,
@@ -525,7 +541,7 @@ export var GetTableMaintenanceJobStatusRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetTableMaintenanceJobStatusResponse: StaticStructureSchema = [
+export var GetTableMaintenanceJobStatusResponse$: StaticStructureSchema = [
   3,
   n0,
   _GTMJSRe,
@@ -533,7 +549,7 @@ export var GetTableMaintenanceJobStatusResponse: StaticStructureSchema = [
   [_tARN, _s],
   [0, () => TableMaintenanceJobStatus],
 ];
-export var GetTableMetadataLocationRequest: StaticStructureSchema = [
+export var GetTableMetadataLocationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GTMLR,
@@ -545,8 +561,8 @@ export var GetTableMetadataLocationRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetTableMetadataLocationResponse: StaticStructureSchema = [3, n0, _GTMLRe, 0, [_vT, _mL, _wL], [0, 0, 0]];
-export var GetTablePolicyRequest: StaticStructureSchema = [
+export var GetTableMetadataLocationResponse$: StaticStructureSchema = [3, n0, _GTMLRe, 0, [_vT, _mL, _wL], [0, 0, 0]];
+export var GetTablePolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _GTPR,
@@ -558,8 +574,8 @@ export var GetTablePolicyRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetTablePolicyResponse: StaticStructureSchema = [3, n0, _GTPRe, 0, [_rP], [0]];
-export var GetTableRecordExpirationConfigurationRequest: StaticStructureSchema = [
+export var GetTablePolicyResponse$: StaticStructureSchema = [3, n0, _GTPRe, 0, [_rP], [0]];
+export var GetTableRecordExpirationConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _GTRECR,
@@ -567,15 +583,15 @@ export var GetTableRecordExpirationConfigurationRequest: StaticStructureSchema =
   [_tA],
   [[0, { [_hQ]: _tA }]],
 ];
-export var GetTableRecordExpirationConfigurationResponse: StaticStructureSchema = [
+export var GetTableRecordExpirationConfigurationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GTRECRe,
   0,
   [_co],
-  [() => TableRecordExpirationConfigurationValue],
+  [() => TableRecordExpirationConfigurationValue$],
 ];
-export var GetTableRecordExpirationJobStatusRequest: StaticStructureSchema = [
+export var GetTableRecordExpirationJobStatusRequest$: StaticStructureSchema = [
   3,
   n0,
   _GTREJSR,
@@ -583,25 +599,25 @@ export var GetTableRecordExpirationJobStatusRequest: StaticStructureSchema = [
   [_tA],
   [[0, { [_hQ]: _tA }]],
 ];
-export var GetTableRecordExpirationJobStatusResponse: StaticStructureSchema = [
+export var GetTableRecordExpirationJobStatusResponse$: StaticStructureSchema = [
   3,
   n0,
   _GTREJSRe,
   0,
   [_s, _lRT, _fM, _met],
-  [0, 5, 0, () => TableRecordExpirationJobMetrics],
+  [0, 5, 0, () => TableRecordExpirationJobMetrics$],
 ];
-export var GetTableReplicationRequest: StaticStructureSchema = [3, n0, _GTRR, 0, [_tA], [[0, { [_hQ]: _tA }]]];
-export var GetTableReplicationResponse: StaticStructureSchema = [
+export var GetTableReplicationRequest$: StaticStructureSchema = [3, n0, _GTRR, 0, [_tA], [[0, { [_hQ]: _tA }]]];
+export var GetTableReplicationResponse$: StaticStructureSchema = [
   3,
   n0,
   _GTRRe,
   0,
   [_vT, _co],
-  [0, () => TableReplicationConfiguration],
+  [0, () => TableReplicationConfiguration$],
 ];
-export var GetTableReplicationStatusRequest: StaticStructureSchema = [3, n0, _GTRSR, 0, [_tA], [[0, { [_hQ]: _tA }]]];
-export var GetTableReplicationStatusResponse: StaticStructureSchema = [
+export var GetTableReplicationStatusRequest$: StaticStructureSchema = [3, n0, _GTRSR, 0, [_tA], [[0, { [_hQ]: _tA }]]];
+export var GetTableReplicationStatusResponse$: StaticStructureSchema = [
   3,
   n0,
   _GTRSRe,
@@ -609,7 +625,7 @@ export var GetTableReplicationStatusResponse: StaticStructureSchema = [
   [_sTA, _d],
   [0, () => ReplicationDestinationStatuses],
 ];
-export var GetTableRequest: StaticStructureSchema = [
+export var GetTableRequest$: StaticStructureSchema = [
   3,
   n0,
   _GTR,
@@ -622,15 +638,15 @@ export var GetTableRequest: StaticStructureSchema = [
     [0, { [_hQ]: _tA }],
   ],
 ];
-export var GetTableResponse: StaticStructureSchema = [
+export var GetTableResponse$: StaticStructureSchema = [
   3,
   n0,
   _GTRe,
   0,
   [_na, _ty, _tARN, _n, _nI, _vT, _mL, _wL, _cA, _cB, _mBS, _mA, _mB, _oAI, _f, _tBI, _mTI],
-  [0, 0, 0, 64 | 0, 0, 0, 0, 0, 5, 0, 0, 5, 0, 0, 0, 0, () => ManagedTableInformation],
+  [0, 0, 0, 64 | 0, 0, 0, 0, 0, 5, 0, 0, 5, 0, 0, 0, 0, () => ManagedTableInformation$],
 ];
-export var GetTableStorageClassRequest: StaticStructureSchema = [
+export var GetTableStorageClassRequest$: StaticStructureSchema = [
   3,
   n0,
   _GTSCR,
@@ -642,23 +658,23 @@ export var GetTableStorageClassRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GetTableStorageClassResponse: StaticStructureSchema = [
+export var GetTableStorageClassResponse$: StaticStructureSchema = [
   3,
   n0,
   _GTSCRe,
   0,
   [_sCC],
-  [() => StorageClassConfiguration],
+  [() => StorageClassConfiguration$],
 ];
-export var IcebergCompactionSettings: StaticStructureSchema = [3, n0, _ICS, 0, [_tFSMB, _st], [1, 0]];
-export var IcebergMetadata: StaticStructureSchema = [3, n0, _IM, 0, [_sc, _p], [() => IcebergSchema, 128 | 0]];
-export var IcebergSchema: StaticStructureSchema = [3, n0, _IS, 0, [_fi], [() => SchemaFieldList]];
-export var IcebergSnapshotManagementSettings: StaticStructureSchema = [3, n0, _ISMS, 0, [_mSTK, _mSAH], [1, 1]];
-export var IcebergUnreferencedFileRemovalSettings: StaticStructureSchema = [3, n0, _IUFRS, 0, [_uD, _nCD], [1, 1]];
-export var InternalServerErrorException: StaticErrorSchema = [-3, n0, _ISEE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServerErrorException, __InternalServerErrorException);
-export var LastSuccessfulReplicatedUpdate: StaticStructureSchema = [3, n0, _LSRU, 0, [_mL, _ti], [0, 5]];
-export var ListNamespacesRequest: StaticStructureSchema = [
+export var IcebergCompactionSettings$: StaticStructureSchema = [3, n0, _ICS, 0, [_tFSMB, _st], [1, 0]];
+export var IcebergMetadata$: StaticStructureSchema = [3, n0, _IM, 0, [_sc, _p], [() => IcebergSchema$, 128 | 0]];
+export var IcebergSchema$: StaticStructureSchema = [3, n0, _IS, 0, [_fi], [() => SchemaFieldList]];
+export var IcebergSnapshotManagementSettings$: StaticStructureSchema = [3, n0, _ISMS, 0, [_mSTK, _mSAH], [1, 1]];
+export var IcebergUnreferencedFileRemovalSettings$: StaticStructureSchema = [3, n0, _IUFRS, 0, [_uD, _nCD], [1, 1]];
+export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
+export var LastSuccessfulReplicatedUpdate$: StaticStructureSchema = [3, n0, _LSRU, 0, [_mL, _ti], [0, 5]];
+export var ListNamespacesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LNR,
@@ -671,7 +687,7 @@ export var ListNamespacesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mN }],
   ],
 ];
-export var ListNamespacesResponse: StaticStructureSchema = [
+export var ListNamespacesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LNRi,
@@ -679,7 +695,7 @@ export var ListNamespacesResponse: StaticStructureSchema = [
   [_nam, _cT],
   [() => NamespaceSummaryList, 0],
 ];
-export var ListTableBucketsRequest: StaticStructureSchema = [
+export var ListTableBucketsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTBR,
@@ -692,7 +708,7 @@ export var ListTableBucketsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _ty }],
   ],
 ];
-export var ListTableBucketsResponse: StaticStructureSchema = [
+export var ListTableBucketsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTBRi,
@@ -700,7 +716,7 @@ export var ListTableBucketsResponse: StaticStructureSchema = [
   [_tB, _cT],
   [() => TableBucketSummaryList, 0],
 ];
-export var ListTablesRequest: StaticStructureSchema = [
+export var ListTablesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LTR,
@@ -714,13 +730,13 @@ export var ListTablesRequest: StaticStructureSchema = [
     [1, { [_hQ]: _mT }],
   ],
 ];
-export var ListTablesResponse: StaticStructureSchema = [3, n0, _LTRi, 0, [_ta, _cT], [() => TableSummaryList, 0]];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
-export var ManagedTableInformation: StaticStructureSchema = [3, n0, _MTI, 0, [_rI], [() => ReplicationInformation]];
-export var MethodNotAllowedException: StaticErrorSchema = [-3, n0, _MNAE, { [_e]: _c, [_hE]: 405 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(MethodNotAllowedException, __MethodNotAllowedException);
-export var NamespaceSummary: StaticStructureSchema = [
+export var ListTablesResponse$: StaticStructureSchema = [3, n0, _LTRi, 0, [_ta, _cT], [() => TableSummaryList, 0]];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
+export var ManagedTableInformation$: StaticStructureSchema = [3, n0, _MTI, 0, [_rI], [() => ReplicationInformation$]];
+export var MethodNotAllowedException$: StaticErrorSchema = [-3, n0, _MNAE, { [_e]: _c, [_hE]: 405 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(MethodNotAllowedException$, MethodNotAllowedException);
+export var NamespaceSummary$: StaticStructureSchema = [
   3,
   n0,
   _NS,
@@ -728,52 +744,52 @@ export var NamespaceSummary: StaticStructureSchema = [
   [_n, _cA, _cB, _oAI, _nI, _tBI],
   [64 | 0, 5, 0, 0, 0, 0],
 ];
-export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-export var PutTableBucketEncryptionRequest: StaticStructureSchema = [
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
+export var PutTableBucketEncryptionRequest$: StaticStructureSchema = [
   3,
   n0,
   _PTBER,
   0,
   [_tBARN, _eC],
-  [[0, 1], () => EncryptionConfiguration],
+  [[0, 1], () => EncryptionConfiguration$],
 ];
-export var PutTableBucketMaintenanceConfigurationRequest: StaticStructureSchema = [
+export var PutTableBucketMaintenanceConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PTBMCR,
   0,
   [_tBARN, _ty, _v],
-  [[0, 1], [0, 1], () => TableBucketMaintenanceConfigurationValue],
+  [[0, 1], [0, 1], () => TableBucketMaintenanceConfigurationValue$],
 ];
-export var PutTableBucketMetricsConfigurationRequest: StaticStructureSchema = [3, n0, _PTBMCRu, 0, [_tBARN], [[0, 1]]];
-export var PutTableBucketPolicyRequest: StaticStructureSchema = [3, n0, _PTBPR, 0, [_tBARN, _rP], [[0, 1], 0]];
-export var PutTableBucketReplicationRequest: StaticStructureSchema = [
+export var PutTableBucketMetricsConfigurationRequest$: StaticStructureSchema = [3, n0, _PTBMCRu, 0, [_tBARN], [[0, 1]]];
+export var PutTableBucketPolicyRequest$: StaticStructureSchema = [3, n0, _PTBPR, 0, [_tBARN, _rP], [[0, 1], 0]];
+export var PutTableBucketReplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PTBRR,
   0,
   [_tBARN, _vT, _co],
-  [[0, { [_hQ]: _tBARN }], [0, { [_hQ]: _vT }], () => TableBucketReplicationConfiguration],
+  [[0, { [_hQ]: _tBARN }], [0, { [_hQ]: _vT }], () => TableBucketReplicationConfiguration$],
 ];
-export var PutTableBucketReplicationResponse: StaticStructureSchema = [3, n0, _PTBRRu, 0, [_vT, _s], [0, 0]];
-export var PutTableBucketStorageClassRequest: StaticStructureSchema = [
+export var PutTableBucketReplicationResponse$: StaticStructureSchema = [3, n0, _PTBRRu, 0, [_vT, _s], [0, 0]];
+export var PutTableBucketStorageClassRequest$: StaticStructureSchema = [
   3,
   n0,
   _PTBSCR,
   0,
   [_tBARN, _sCC],
-  [[0, 1], () => StorageClassConfiguration],
+  [[0, 1], () => StorageClassConfiguration$],
 ];
-export var PutTableMaintenanceConfigurationRequest: StaticStructureSchema = [
+export var PutTableMaintenanceConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PTMCR,
   0,
   [_tBARN, _n, _na, _ty, _v],
-  [[0, 1], [0, 1], [0, 1], [0, 1], () => TableMaintenanceConfigurationValue],
+  [[0, 1], [0, 1], [0, 1], [0, 1], () => TableMaintenanceConfigurationValue$],
 ];
-export var PutTablePolicyRequest: StaticStructureSchema = [
+export var PutTablePolicyRequest$: StaticStructureSchema = [
   3,
   n0,
   _PTPR,
@@ -781,24 +797,24 @@ export var PutTablePolicyRequest: StaticStructureSchema = [
   [_tBARN, _n, _na, _rP],
   [[0, 1], [0, 1], [0, 1], 0],
 ];
-export var PutTableRecordExpirationConfigurationRequest: StaticStructureSchema = [
+export var PutTableRecordExpirationConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PTRECR,
   0,
   [_tA, _v],
-  [[0, { [_hQ]: _tA }], () => TableRecordExpirationConfigurationValue],
+  [[0, { [_hQ]: _tA }], () => TableRecordExpirationConfigurationValue$],
 ];
-export var PutTableReplicationRequest: StaticStructureSchema = [
+export var PutTableReplicationRequest$: StaticStructureSchema = [
   3,
   n0,
   _PTRR,
   0,
   [_tA, _vT, _co],
-  [[0, { [_hQ]: _tA }], [0, { [_hQ]: _vT }], () => TableReplicationConfiguration],
+  [[0, { [_hQ]: _tA }], [0, { [_hQ]: _vT }], () => TableReplicationConfiguration$],
 ];
-export var PutTableReplicationResponse: StaticStructureSchema = [3, n0, _PTRRu, 0, [_vT, _s], [0, 0]];
-export var RenameTableRequest: StaticStructureSchema = [
+export var PutTableReplicationResponse$: StaticStructureSchema = [3, n0, _PTRRu, 0, [_vT, _s], [0, 0]];
+export var RenameTableRequest$: StaticStructureSchema = [
   3,
   n0,
   _RTR,
@@ -806,27 +822,27 @@ export var RenameTableRequest: StaticStructureSchema = [
   [_tBARN, _n, _na, _nNN, _nN, _vT],
   [[0, 1], [0, 1], [0, 1], 0, 0, 0],
 ];
-export var ReplicationDestination: StaticStructureSchema = [3, n0, _RD, 0, [_dTBARN], [0]];
-export var ReplicationDestinationStatusModel: StaticStructureSchema = [
+export var ReplicationDestination$: StaticStructureSchema = [3, n0, _RD, 0, [_dTBARN], [0]];
+export var ReplicationDestinationStatusModel$: StaticStructureSchema = [
   3,
   n0,
   _RDSM,
   0,
   [_rS, _dTBA, _dTA, _lSRU, _fM],
-  [0, 0, 0, () => LastSuccessfulReplicatedUpdate, 0],
+  [0, 0, 0, () => LastSuccessfulReplicatedUpdate$, 0],
 ];
-export var ReplicationInformation: StaticStructureSchema = [3, n0, _RI, 0, [_sTARN], [0]];
-export var SchemaField: StaticStructureSchema = [3, n0, _SF, 0, [_na, _ty, _r], [0, 0, 2]];
-export var StorageClassConfiguration: StaticStructureSchema = [3, n0, _SCC, 0, [_sC], [0]];
-export var TableBucketMaintenanceConfigurationValue: StaticStructureSchema = [
+export var ReplicationInformation$: StaticStructureSchema = [3, n0, _RI, 0, [_sTARN], [0]];
+export var SchemaField$: StaticStructureSchema = [3, n0, _SF, 0, [_na, _ty, _r], [0, 0, 2]];
+export var StorageClassConfiguration$: StaticStructureSchema = [3, n0, _SCC, 0, [_sC], [0]];
+export var TableBucketMaintenanceConfigurationValue$: StaticStructureSchema = [
   3,
   n0,
   _TBMCV,
   0,
   [_s, _set],
-  [0, () => TableBucketMaintenanceSettings],
+  [0, () => TableBucketMaintenanceSettings$],
 ];
-export var TableBucketReplicationConfiguration: StaticStructureSchema = [
+export var TableBucketReplicationConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _TBRC,
@@ -834,8 +850,15 @@ export var TableBucketReplicationConfiguration: StaticStructureSchema = [
   [_ro, _ru],
   [0, () => TableBucketReplicationRules],
 ];
-export var TableBucketReplicationRule: StaticStructureSchema = [3, n0, _TBRR, 0, [_d], [() => ReplicationDestinations]];
-export var TableBucketSummary: StaticStructureSchema = [
+export var TableBucketReplicationRule$: StaticStructureSchema = [
+  3,
+  n0,
+  _TBRR,
+  0,
+  [_d],
+  [() => ReplicationDestinations],
+];
+export var TableBucketSummary$: StaticStructureSchema = [
   3,
   n0,
   _TBS,
@@ -843,26 +866,26 @@ export var TableBucketSummary: StaticStructureSchema = [
   [_a, _na, _oAI, _cA, _tBI, _ty],
   [0, 0, 0, 5, 0, 0],
 ];
-export var TableMaintenanceConfigurationValue: StaticStructureSchema = [
+export var TableMaintenanceConfigurationValue$: StaticStructureSchema = [
   3,
   n0,
   _TMCV,
   0,
   [_s, _set],
-  [0, () => TableMaintenanceSettings],
+  [0, () => TableMaintenanceSettings$],
 ];
-export var TableMaintenanceJobStatusValue: StaticStructureSchema = [3, n0, _TMJSV, 0, [_s, _lRT, _fM], [0, 5, 0]];
-export var TableRecordExpirationConfigurationValue: StaticStructureSchema = [
+export var TableMaintenanceJobStatusValue$: StaticStructureSchema = [3, n0, _TMJSV, 0, [_s, _lRT, _fM], [0, 5, 0]];
+export var TableRecordExpirationConfigurationValue$: StaticStructureSchema = [
   3,
   n0,
   _TRECV,
   0,
   [_s, _set],
-  [0, () => TableRecordExpirationSettings],
+  [0, () => TableRecordExpirationSettings$],
 ];
-export var TableRecordExpirationJobMetrics: StaticStructureSchema = [3, n0, _TREJM, 0, [_dDF, _dR, _rFS], [1, 1, 1]];
-export var TableRecordExpirationSettings: StaticStructureSchema = [3, n0, _TRES, 0, [_da], [1]];
-export var TableReplicationConfiguration: StaticStructureSchema = [
+export var TableRecordExpirationJobMetrics$: StaticStructureSchema = [3, n0, _TREJM, 0, [_dDF, _dR, _rFS], [1, 1, 1]];
+export var TableRecordExpirationSettings$: StaticStructureSchema = [3, n0, _TRES, 0, [_da], [1]];
+export var TableReplicationConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _TRC,
@@ -870,8 +893,8 @@ export var TableReplicationConfiguration: StaticStructureSchema = [
   [_ro, _ru],
   [0, () => TableReplicationRules],
 ];
-export var TableReplicationRule: StaticStructureSchema = [3, n0, _TRR, 0, [_d], [() => ReplicationDestinations]];
-export var TableSummary: StaticStructureSchema = [
+export var TableReplicationRule$: StaticStructureSchema = [3, n0, _TRR, 0, [_d], [() => ReplicationDestinations]];
+export var TableSummary$: StaticStructureSchema = [
   3,
   n0,
   _TS,
@@ -879,11 +902,11 @@ export var TableSummary: StaticStructureSchema = [
   [_n, _na, _ty, _tARN, _cA, _mA, _mBS, _nI, _tBI],
   [64 | 0, 0, 0, 0, 5, 5, 0, 0, 0],
 ];
-export var TagResourceRequest: StaticStructureSchema = [3, n0, _TRRa, 0, [_rA, _t], [[0, 1], 128 | 0]];
-export var TagResourceResponse: StaticStructureSchema = [3, n0, _TRRag, 0, [], []];
-export var TooManyRequestsException: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-export var UntagResourceRequest: StaticStructureSchema = [
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRRa, 0, [_rA, _t], [[0, 1], 128 | 0]];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRag, 0, [], []];
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
+TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -894,8 +917,8 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceResponse: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateTableMetadataLocationRequest: StaticStructureSchema = [
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
+export var UpdateTableMetadataLocationRequest$: StaticStructureSchema = [
   3,
   n0,
   _UTMLR,
@@ -903,7 +926,7 @@ export var UpdateTableMetadataLocationRequest: StaticStructureSchema = [
   [_tBARN, _n, _na, _vT, _mL],
   [[0, 1], [0, 1], [0, 1], 0, 0],
 ];
-export var UpdateTableMetadataLocationResponse: StaticStructureSchema = [
+export var UpdateTableMetadataLocationResponse$: StaticStructureSchema = [
   3,
   n0,
   _UTMLRp,
@@ -911,444 +934,437 @@ export var UpdateTableMetadataLocationResponse: StaticStructureSchema = [
   [_na, _tARN, _n, _vT, _mL],
   [0, 0, 64 | 0, 0, 0],
 ];
-export var __Unit = "unit" as const;
-export var S3TablesServiceException: StaticErrorSchema = [-3, _sm, "S3TablesServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(S3TablesServiceException, __S3TablesServiceException);
-export var NamespaceList = 64 | 0;
-export var NamespaceSummaryList: StaticListSchema = [1, n0, _NSL, 0, () => NamespaceSummary];
-export var ReplicationDestinations: StaticListSchema = [1, n0, _RDe, 0, () => ReplicationDestination];
-export var ReplicationDestinationStatuses: StaticListSchema = [1, n0, _RDS, 0, () => ReplicationDestinationStatusModel];
-export var SchemaFieldList: StaticListSchema = [1, n0, _SFL, 0, () => SchemaField];
-export var TableBucketReplicationRules: StaticListSchema = [1, n0, _TBRRa, 0, () => TableBucketReplicationRule];
-export var TableBucketSummaryList: StaticListSchema = [1, n0, _TBSL, 0, () => TableBucketSummary];
-export var TableReplicationRules: StaticListSchema = [1, n0, _TRRab, 0, () => TableReplicationRule];
-export var TableSummaryList: StaticListSchema = [1, n0, _TSL, 0, () => TableSummary];
-export var TagKeyList = 64 | 0;
-export var TableBucketMaintenanceConfiguration: StaticMapSchema = [
+var __Unit = "unit" as const;
+export var S3TablesServiceException$: StaticErrorSchema = [-3, _sm, "S3TablesServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(S3TablesServiceException$, S3TablesServiceException);
+var NamespaceList = 64 | 0;
+var NamespaceSummaryList: StaticListSchema = [1, n0, _NSL, 0, () => NamespaceSummary$];
+var ReplicationDestinations: StaticListSchema = [1, n0, _RDe, 0, () => ReplicationDestination$];
+var ReplicationDestinationStatuses: StaticListSchema = [1, n0, _RDS, 0, () => ReplicationDestinationStatusModel$];
+var SchemaFieldList: StaticListSchema = [1, n0, _SFL, 0, () => SchemaField$];
+var TableBucketReplicationRules: StaticListSchema = [1, n0, _TBRRa, 0, () => TableBucketReplicationRule$];
+var TableBucketSummaryList: StaticListSchema = [1, n0, _TBSL, 0, () => TableBucketSummary$];
+var TableReplicationRules: StaticListSchema = [1, n0, _TRRab, 0, () => TableReplicationRule$];
+var TableSummaryList: StaticListSchema = [1, n0, _TSL, 0, () => TableSummary$];
+var TagKeyList = 64 | 0;
+var TableBucketMaintenanceConfiguration: StaticMapSchema = [
   2,
   n0,
   _TBMC,
   0,
   0,
-  () => TableBucketMaintenanceConfigurationValue,
+  () => TableBucketMaintenanceConfigurationValue$,
 ];
-export var TableMaintenanceConfiguration: StaticMapSchema = [
-  2,
-  n0,
-  _TMC,
-  0,
-  0,
-  () => TableMaintenanceConfigurationValue,
-];
-export var TableMaintenanceJobStatus: StaticMapSchema = [2, n0, _TMJS, 0, 0, () => TableMaintenanceJobStatusValue];
-export var TableProperties = 128 | 0;
-export var Tags = 128 | 0;
-export var TableBucketMaintenanceSettings: StaticStructureSchema = [
+var TableMaintenanceConfiguration: StaticMapSchema = [2, n0, _TMC, 0, 0, () => TableMaintenanceConfigurationValue$];
+var TableMaintenanceJobStatus: StaticMapSchema = [2, n0, _TMJS, 0, 0, () => TableMaintenanceJobStatusValue$];
+var TableProperties = 128 | 0;
+var Tags = 128 | 0;
+export var TableBucketMaintenanceSettings$: StaticStructureSchema = [
   3,
   n0,
   _TBMS,
   0,
   [_iUFR],
-  [() => IcebergUnreferencedFileRemovalSettings],
+  [() => IcebergUnreferencedFileRemovalSettings$],
 ];
-export var TableMaintenanceSettings: StaticStructureSchema = [
+export var TableMaintenanceSettings$: StaticStructureSchema = [
   3,
   n0,
   _TMS,
   0,
   [_iC, _iSM],
-  [() => IcebergCompactionSettings, () => IcebergSnapshotManagementSettings],
+  [() => IcebergCompactionSettings$, () => IcebergSnapshotManagementSettings$],
 ];
-export var TableMetadata: StaticStructureSchema = [3, n0, _TM, 0, [_ic], [() => IcebergMetadata]];
-export var CreateNamespace: StaticOperationSchema = [
+export var TableMetadata$: StaticStructureSchema = [3, n0, _TM, 0, [_ic], [() => IcebergMetadata$]];
+export var CreateNamespace$: StaticOperationSchema = [
   9,
   n0,
   _CN,
   { [_h]: ["PUT", "/namespaces/{tableBucketARN}", 200] },
-  () => CreateNamespaceRequest,
-  () => CreateNamespaceResponse,
+  () => CreateNamespaceRequest$,
+  () => CreateNamespaceResponse$,
 ];
-export var CreateTable: StaticOperationSchema = [
+export var CreateTable$: StaticOperationSchema = [
   9,
   n0,
   _CT,
   { [_h]: ["PUT", "/tables/{tableBucketARN}/{namespace}", 200] },
-  () => CreateTableRequest,
-  () => CreateTableResponse,
+  () => CreateTableRequest$,
+  () => CreateTableResponse$,
 ];
-export var CreateTableBucket: StaticOperationSchema = [
+export var CreateTableBucket$: StaticOperationSchema = [
   9,
   n0,
   _CTB,
   { [_h]: ["PUT", "/buckets", 200] },
-  () => CreateTableBucketRequest,
-  () => CreateTableBucketResponse,
+  () => CreateTableBucketRequest$,
+  () => CreateTableBucketResponse$,
 ];
-export var DeleteNamespace: StaticOperationSchema = [
+export var DeleteNamespace$: StaticOperationSchema = [
   9,
   n0,
   _DN,
   { [_h]: ["DELETE", "/namespaces/{tableBucketARN}/{namespace}", 204] },
-  () => DeleteNamespaceRequest,
+  () => DeleteNamespaceRequest$,
   () => __Unit,
 ];
-export var DeleteTable: StaticOperationSchema = [
+export var DeleteTable$: StaticOperationSchema = [
   9,
   n0,
   _DT,
   { [_h]: ["DELETE", "/tables/{tableBucketARN}/{namespace}/{name}", 204] },
-  () => DeleteTableRequest,
+  () => DeleteTableRequest$,
   () => __Unit,
 ];
-export var DeleteTableBucket: StaticOperationSchema = [
+export var DeleteTableBucket$: StaticOperationSchema = [
   9,
   n0,
   _DTB,
   { [_h]: ["DELETE", "/buckets/{tableBucketARN}", 204] },
-  () => DeleteTableBucketRequest,
+  () => DeleteTableBucketRequest$,
   () => __Unit,
 ];
-export var DeleteTableBucketEncryption: StaticOperationSchema = [
+export var DeleteTableBucketEncryption$: StaticOperationSchema = [
   9,
   n0,
   _DTBE,
   { [_h]: ["DELETE", "/buckets/{tableBucketARN}/encryption", 204] },
-  () => DeleteTableBucketEncryptionRequest,
+  () => DeleteTableBucketEncryptionRequest$,
   () => __Unit,
 ];
-export var DeleteTableBucketMetricsConfiguration: StaticOperationSchema = [
+export var DeleteTableBucketMetricsConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DTBMC,
   { [_h]: ["DELETE", "/buckets/{tableBucketARN}/metrics", 204] },
-  () => DeleteTableBucketMetricsConfigurationRequest,
+  () => DeleteTableBucketMetricsConfigurationRequest$,
   () => __Unit,
 ];
-export var DeleteTableBucketPolicy: StaticOperationSchema = [
+export var DeleteTableBucketPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DTBP,
   { [_h]: ["DELETE", "/buckets/{tableBucketARN}/policy", 204] },
-  () => DeleteTableBucketPolicyRequest,
+  () => DeleteTableBucketPolicyRequest$,
   () => __Unit,
 ];
-export var DeleteTableBucketReplication: StaticOperationSchema = [
+export var DeleteTableBucketReplication$: StaticOperationSchema = [
   9,
   n0,
   _DTBRe,
   { [_h]: ["DELETE", "/table-bucket-replication", 204] },
-  () => DeleteTableBucketReplicationRequest,
+  () => DeleteTableBucketReplicationRequest$,
   () => __Unit,
 ];
-export var DeleteTablePolicy: StaticOperationSchema = [
+export var DeleteTablePolicy$: StaticOperationSchema = [
   9,
   n0,
   _DTP,
   { [_h]: ["DELETE", "/tables/{tableBucketARN}/{namespace}/{name}/policy", 204] },
-  () => DeleteTablePolicyRequest,
+  () => DeleteTablePolicyRequest$,
   () => __Unit,
 ];
-export var DeleteTableReplication: StaticOperationSchema = [
+export var DeleteTableReplication$: StaticOperationSchema = [
   9,
   n0,
   _DTRe,
   { [_h]: ["DELETE", "/table-replication", 204] },
-  () => DeleteTableReplicationRequest,
+  () => DeleteTableReplicationRequest$,
   () => __Unit,
 ];
-export var GetNamespace: StaticOperationSchema = [
+export var GetNamespace$: StaticOperationSchema = [
   9,
   n0,
   _GN,
   { [_h]: ["GET", "/namespaces/{tableBucketARN}/{namespace}", 200] },
-  () => GetNamespaceRequest,
-  () => GetNamespaceResponse,
+  () => GetNamespaceRequest$,
+  () => GetNamespaceResponse$,
 ];
-export var GetTable: StaticOperationSchema = [
+export var GetTable$: StaticOperationSchema = [
   9,
   n0,
   _GT,
   { [_h]: ["GET", "/get-table", 200] },
-  () => GetTableRequest,
-  () => GetTableResponse,
+  () => GetTableRequest$,
+  () => GetTableResponse$,
 ];
-export var GetTableBucket: StaticOperationSchema = [
+export var GetTableBucket$: StaticOperationSchema = [
   9,
   n0,
   _GTB,
   { [_h]: ["GET", "/buckets/{tableBucketARN}", 200] },
-  () => GetTableBucketRequest,
-  () => GetTableBucketResponse,
+  () => GetTableBucketRequest$,
+  () => GetTableBucketResponse$,
 ];
-export var GetTableBucketEncryption: StaticOperationSchema = [
+export var GetTableBucketEncryption$: StaticOperationSchema = [
   9,
   n0,
   _GTBE,
   { [_h]: ["GET", "/buckets/{tableBucketARN}/encryption", 200] },
-  () => GetTableBucketEncryptionRequest,
-  () => GetTableBucketEncryptionResponse,
+  () => GetTableBucketEncryptionRequest$,
+  () => GetTableBucketEncryptionResponse$,
 ];
-export var GetTableBucketMaintenanceConfiguration: StaticOperationSchema = [
+export var GetTableBucketMaintenanceConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GTBMC,
   { [_h]: ["GET", "/buckets/{tableBucketARN}/maintenance", 200] },
-  () => GetTableBucketMaintenanceConfigurationRequest,
-  () => GetTableBucketMaintenanceConfigurationResponse,
+  () => GetTableBucketMaintenanceConfigurationRequest$,
+  () => GetTableBucketMaintenanceConfigurationResponse$,
 ];
-export var GetTableBucketMetricsConfiguration: StaticOperationSchema = [
+export var GetTableBucketMetricsConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GTBMCe,
   { [_h]: ["GET", "/buckets/{tableBucketARN}/metrics", 200] },
-  () => GetTableBucketMetricsConfigurationRequest,
-  () => GetTableBucketMetricsConfigurationResponse,
+  () => GetTableBucketMetricsConfigurationRequest$,
+  () => GetTableBucketMetricsConfigurationResponse$,
 ];
-export var GetTableBucketPolicy: StaticOperationSchema = [
+export var GetTableBucketPolicy$: StaticOperationSchema = [
   9,
   n0,
   _GTBP,
   { [_h]: ["GET", "/buckets/{tableBucketARN}/policy", 200] },
-  () => GetTableBucketPolicyRequest,
-  () => GetTableBucketPolicyResponse,
+  () => GetTableBucketPolicyRequest$,
+  () => GetTableBucketPolicyResponse$,
 ];
-export var GetTableBucketReplication: StaticOperationSchema = [
+export var GetTableBucketReplication$: StaticOperationSchema = [
   9,
   n0,
   _GTBRet,
   { [_h]: ["GET", "/table-bucket-replication", 200] },
-  () => GetTableBucketReplicationRequest,
-  () => GetTableBucketReplicationResponse,
+  () => GetTableBucketReplicationRequest$,
+  () => GetTableBucketReplicationResponse$,
 ];
-export var GetTableBucketStorageClass: StaticOperationSchema = [
+export var GetTableBucketStorageClass$: StaticOperationSchema = [
   9,
   n0,
   _GTBSC,
   { [_h]: ["GET", "/buckets/{tableBucketARN}/storage-class", 200] },
-  () => GetTableBucketStorageClassRequest,
-  () => GetTableBucketStorageClassResponse,
+  () => GetTableBucketStorageClassRequest$,
+  () => GetTableBucketStorageClassResponse$,
 ];
-export var GetTableEncryption: StaticOperationSchema = [
+export var GetTableEncryption$: StaticOperationSchema = [
   9,
   n0,
   _GTE,
   { [_h]: ["GET", "/tables/{tableBucketARN}/{namespace}/{name}/encryption", 200] },
-  () => GetTableEncryptionRequest,
-  () => GetTableEncryptionResponse,
+  () => GetTableEncryptionRequest$,
+  () => GetTableEncryptionResponse$,
 ];
-export var GetTableMaintenanceConfiguration: StaticOperationSchema = [
+export var GetTableMaintenanceConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GTMC,
   { [_h]: ["GET", "/tables/{tableBucketARN}/{namespace}/{name}/maintenance", 200] },
-  () => GetTableMaintenanceConfigurationRequest,
-  () => GetTableMaintenanceConfigurationResponse,
+  () => GetTableMaintenanceConfigurationRequest$,
+  () => GetTableMaintenanceConfigurationResponse$,
 ];
-export var GetTableMaintenanceJobStatus: StaticOperationSchema = [
+export var GetTableMaintenanceJobStatus$: StaticOperationSchema = [
   9,
   n0,
   _GTMJS,
   { [_h]: ["GET", "/tables/{tableBucketARN}/{namespace}/{name}/maintenance-job-status", 200] },
-  () => GetTableMaintenanceJobStatusRequest,
-  () => GetTableMaintenanceJobStatusResponse,
+  () => GetTableMaintenanceJobStatusRequest$,
+  () => GetTableMaintenanceJobStatusResponse$,
 ];
-export var GetTableMetadataLocation: StaticOperationSchema = [
+export var GetTableMetadataLocation$: StaticOperationSchema = [
   9,
   n0,
   _GTML,
   { [_h]: ["GET", "/tables/{tableBucketARN}/{namespace}/{name}/metadata-location", 200] },
-  () => GetTableMetadataLocationRequest,
-  () => GetTableMetadataLocationResponse,
+  () => GetTableMetadataLocationRequest$,
+  () => GetTableMetadataLocationResponse$,
 ];
-export var GetTablePolicy: StaticOperationSchema = [
+export var GetTablePolicy$: StaticOperationSchema = [
   9,
   n0,
   _GTP,
   { [_h]: ["GET", "/tables/{tableBucketARN}/{namespace}/{name}/policy", 200] },
-  () => GetTablePolicyRequest,
-  () => GetTablePolicyResponse,
+  () => GetTablePolicyRequest$,
+  () => GetTablePolicyResponse$,
 ];
-export var GetTableRecordExpirationConfiguration: StaticOperationSchema = [
+export var GetTableRecordExpirationConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _GTREC,
   { [_h]: ["GET", "/table-record-expiration", 200] },
-  () => GetTableRecordExpirationConfigurationRequest,
-  () => GetTableRecordExpirationConfigurationResponse,
+  () => GetTableRecordExpirationConfigurationRequest$,
+  () => GetTableRecordExpirationConfigurationResponse$,
 ];
-export var GetTableRecordExpirationJobStatus: StaticOperationSchema = [
+export var GetTableRecordExpirationJobStatus$: StaticOperationSchema = [
   9,
   n0,
   _GTREJS,
   { [_h]: ["GET", "/table-record-expiration-job-status", 200] },
-  () => GetTableRecordExpirationJobStatusRequest,
-  () => GetTableRecordExpirationJobStatusResponse,
+  () => GetTableRecordExpirationJobStatusRequest$,
+  () => GetTableRecordExpirationJobStatusResponse$,
 ];
-export var GetTableReplication: StaticOperationSchema = [
+export var GetTableReplication$: StaticOperationSchema = [
   9,
   n0,
   _GTRet,
   { [_h]: ["GET", "/table-replication", 200] },
-  () => GetTableReplicationRequest,
-  () => GetTableReplicationResponse,
+  () => GetTableReplicationRequest$,
+  () => GetTableReplicationResponse$,
 ];
-export var GetTableReplicationStatus: StaticOperationSchema = [
+export var GetTableReplicationStatus$: StaticOperationSchema = [
   9,
   n0,
   _GTRS,
   { [_h]: ["GET", "/replication-status", 200] },
-  () => GetTableReplicationStatusRequest,
-  () => GetTableReplicationStatusResponse,
+  () => GetTableReplicationStatusRequest$,
+  () => GetTableReplicationStatusResponse$,
 ];
-export var GetTableStorageClass: StaticOperationSchema = [
+export var GetTableStorageClass$: StaticOperationSchema = [
   9,
   n0,
   _GTSC,
   { [_h]: ["GET", "/tables/{tableBucketARN}/{namespace}/{name}/storage-class", 200] },
-  () => GetTableStorageClassRequest,
-  () => GetTableStorageClassResponse,
+  () => GetTableStorageClassRequest$,
+  () => GetTableStorageClassResponse$,
 ];
-export var ListNamespaces: StaticOperationSchema = [
+export var ListNamespaces$: StaticOperationSchema = [
   9,
   n0,
   _LN,
   { [_h]: ["GET", "/namespaces/{tableBucketARN}", 200] },
-  () => ListNamespacesRequest,
-  () => ListNamespacesResponse,
+  () => ListNamespacesRequest$,
+  () => ListNamespacesResponse$,
 ];
-export var ListTableBuckets: StaticOperationSchema = [
+export var ListTableBuckets$: StaticOperationSchema = [
   9,
   n0,
   _LTB,
   { [_h]: ["GET", "/buckets", 200] },
-  () => ListTableBucketsRequest,
-  () => ListTableBucketsResponse,
+  () => ListTableBucketsRequest$,
+  () => ListTableBucketsResponse$,
 ];
-export var ListTables: StaticOperationSchema = [
+export var ListTables$: StaticOperationSchema = [
   9,
   n0,
   _LT,
   { [_h]: ["GET", "/tables/{tableBucketARN}", 200] },
-  () => ListTablesRequest,
-  () => ListTablesResponse,
+  () => ListTablesRequest$,
+  () => ListTablesResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tag/{resourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var PutTableBucketEncryption: StaticOperationSchema = [
+export var PutTableBucketEncryption$: StaticOperationSchema = [
   9,
   n0,
   _PTBE,
   { [_h]: ["PUT", "/buckets/{tableBucketARN}/encryption", 200] },
-  () => PutTableBucketEncryptionRequest,
+  () => PutTableBucketEncryptionRequest$,
   () => __Unit,
 ];
-export var PutTableBucketMaintenanceConfiguration: StaticOperationSchema = [
+export var PutTableBucketMaintenanceConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PTBMC,
   { [_h]: ["PUT", "/buckets/{tableBucketARN}/maintenance/{type}", 204] },
-  () => PutTableBucketMaintenanceConfigurationRequest,
+  () => PutTableBucketMaintenanceConfigurationRequest$,
   () => __Unit,
 ];
-export var PutTableBucketMetricsConfiguration: StaticOperationSchema = [
+export var PutTableBucketMetricsConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PTBMCu,
   { [_h]: ["PUT", "/buckets/{tableBucketARN}/metrics", 204] },
-  () => PutTableBucketMetricsConfigurationRequest,
+  () => PutTableBucketMetricsConfigurationRequest$,
   () => __Unit,
 ];
-export var PutTableBucketPolicy: StaticOperationSchema = [
+export var PutTableBucketPolicy$: StaticOperationSchema = [
   9,
   n0,
   _PTBP,
   { [_h]: ["PUT", "/buckets/{tableBucketARN}/policy", 200] },
-  () => PutTableBucketPolicyRequest,
+  () => PutTableBucketPolicyRequest$,
   () => __Unit,
 ];
-export var PutTableBucketReplication: StaticOperationSchema = [
+export var PutTableBucketReplication$: StaticOperationSchema = [
   9,
   n0,
   _PTBR,
   { [_h]: ["PUT", "/table-bucket-replication", 200] },
-  () => PutTableBucketReplicationRequest,
-  () => PutTableBucketReplicationResponse,
+  () => PutTableBucketReplicationRequest$,
+  () => PutTableBucketReplicationResponse$,
 ];
-export var PutTableBucketStorageClass: StaticOperationSchema = [
+export var PutTableBucketStorageClass$: StaticOperationSchema = [
   9,
   n0,
   _PTBSC,
   { [_h]: ["PUT", "/buckets/{tableBucketARN}/storage-class", 200] },
-  () => PutTableBucketStorageClassRequest,
+  () => PutTableBucketStorageClassRequest$,
   () => __Unit,
 ];
-export var PutTableMaintenanceConfiguration: StaticOperationSchema = [
+export var PutTableMaintenanceConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PTMC,
   { [_h]: ["PUT", "/tables/{tableBucketARN}/{namespace}/{name}/maintenance/{type}", 204] },
-  () => PutTableMaintenanceConfigurationRequest,
+  () => PutTableMaintenanceConfigurationRequest$,
   () => __Unit,
 ];
-export var PutTablePolicy: StaticOperationSchema = [
+export var PutTablePolicy$: StaticOperationSchema = [
   9,
   n0,
   _PTP,
   { [_h]: ["PUT", "/tables/{tableBucketARN}/{namespace}/{name}/policy", 200] },
-  () => PutTablePolicyRequest,
+  () => PutTablePolicyRequest$,
   () => __Unit,
 ];
-export var PutTableRecordExpirationConfiguration: StaticOperationSchema = [
+export var PutTableRecordExpirationConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PTREC,
   { [_h]: ["PUT", "/table-record-expiration", 204] },
-  () => PutTableRecordExpirationConfigurationRequest,
+  () => PutTableRecordExpirationConfigurationRequest$,
   () => __Unit,
 ];
-export var PutTableReplication: StaticOperationSchema = [
+export var PutTableReplication$: StaticOperationSchema = [
   9,
   n0,
   _PTR,
   { [_h]: ["PUT", "/table-replication", 200] },
-  () => PutTableReplicationRequest,
-  () => PutTableReplicationResponse,
+  () => PutTableReplicationRequest$,
+  () => PutTableReplicationResponse$,
 ];
-export var RenameTable: StaticOperationSchema = [
+export var RenameTable$: StaticOperationSchema = [
   9,
   n0,
   _RT,
   { [_h]: ["PUT", "/tables/{tableBucketARN}/{namespace}/{name}/rename", 204] },
-  () => RenameTableRequest,
+  () => RenameTableRequest$,
   () => __Unit,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tag/{resourceArn}", 200] },
-  () => TagResourceRequest,
-  () => TagResourceResponse,
+  () => TagResourceRequest$,
+  () => TagResourceResponse$,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tag/{resourceArn}", 204] },
-  () => UntagResourceRequest,
-  () => UntagResourceResponse,
+  () => UntagResourceRequest$,
+  () => UntagResourceResponse$,
 ];
-export var UpdateTableMetadataLocation: StaticOperationSchema = [
+export var UpdateTableMetadataLocation$: StaticOperationSchema = [
   9,
   n0,
   _UTML,
   { [_h]: ["PUT", "/tables/{tableBucketARN}/{namespace}/{name}/metadata-location", 200] },
-  () => UpdateTableMetadataLocationRequest,
-  () => UpdateTableMetadataLocationResponse,
+  () => UpdateTableMetadataLocationRequest$,
+  () => UpdateTableMetadataLocationResponse$,
 ];

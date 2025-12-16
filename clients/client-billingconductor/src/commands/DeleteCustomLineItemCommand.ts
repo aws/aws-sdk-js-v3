@@ -10,7 +10,7 @@ import type {
 } from "../BillingconductorClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteCustomLineItemInput, DeleteCustomLineItemOutput } from "../models/models_0";
-import { DeleteCustomLineItem } from "../schemas/schemas_0";
+import { DeleteCustomLineItem$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DeleteCustomLineItemCommand extends $Command
   })
   .s("AWSBillingConductor", "DeleteCustomLineItem", {})
   .n("BillingconductorClient", "DeleteCustomLineItemCommand")
-  .sc(DeleteCustomLineItem)
+  .sc(DeleteCustomLineItem$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
-import { UpdateLakehouseConfiguration } from "../schemas/schemas_0";
+import { UpdateLakehouseConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class UpdateLakehouseConfigurationCommand extends $Command
   })
   .s("RedshiftServerless", "UpdateLakehouseConfiguration", {})
   .n("RedshiftServerlessClient", "UpdateLakehouseConfigurationCommand")
-  .sc(UpdateLakehouseConfiguration)
+  .sc(UpdateLakehouseConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationDiscoveryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchDeleteAgentsRequest, BatchDeleteAgentsResponse } from "../models/models_0";
-import { BatchDeleteAgents } from "../schemas/schemas_0";
+import { BatchDeleteAgents$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -107,7 +107,7 @@ export class BatchDeleteAgentsCommand extends $Command
   })
   .s("AWSPoseidonService_V2015_11_01", "BatchDeleteAgents", {})
   .n("ApplicationDiscoveryServiceClient", "BatchDeleteAgentsCommand")
-  .sc(BatchDeleteAgents)
+  .sc(BatchDeleteAgents$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

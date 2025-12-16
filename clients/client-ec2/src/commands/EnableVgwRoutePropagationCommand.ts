@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EnableVgwRoutePropagationRequest } from "../models/models_5";
-import { EnableVgwRoutePropagation } from "../schemas/schemas_0";
+import { EnableVgwRoutePropagation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class EnableVgwRoutePropagationCommand extends $Command
   })
   .s("AmazonEC2", "EnableVgwRoutePropagation", {})
   .n("EC2Client", "EnableVgwRoutePropagationCommand")
-  .sc(EnableVgwRoutePropagation)
+  .sc(EnableVgwRoutePropagation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

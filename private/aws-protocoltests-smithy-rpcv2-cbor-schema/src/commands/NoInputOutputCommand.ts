@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RpcV2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RpcV2ProtocolClient";
-import { NoInputOutput } from "../schemas/schemas_0";
+import { NoInputOutput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -68,7 +68,7 @@ export class NoInputOutputCommand extends $Command
   })
   .s("RpcV2Protocol", "NoInputOutput", {})
   .n("RpcV2ProtocolClient", "NoInputOutputCommand")
-  .sc(NoInputOutput)
+  .sc(NoInputOutput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

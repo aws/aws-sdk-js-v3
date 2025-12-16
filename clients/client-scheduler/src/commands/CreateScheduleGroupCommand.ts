@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateScheduleGroupInput, CreateScheduleGroupOutput } from "../models/models_0";
 import type { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
-import { CreateScheduleGroup } from "../schemas/schemas_0";
+import { CreateScheduleGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class CreateScheduleGroupCommand extends $Command
   })
   .s("AWSChronosService", "CreateScheduleGroup", {})
   .n("SchedulerClient", "CreateScheduleGroupCommand")
-  .sc(CreateScheduleGroup)
+  .sc(CreateScheduleGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

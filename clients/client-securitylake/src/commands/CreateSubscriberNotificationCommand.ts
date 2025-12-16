@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateSubscriberNotificationRequest, CreateSubscriberNotificationResponse } from "../models/models_0";
-import { CreateSubscriberNotification } from "../schemas/schemas_0";
+import { CreateSubscriberNotification$ } from "../schemas/schemas_0";
 import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -112,7 +112,7 @@ export class CreateSubscriberNotificationCommand extends $Command
   })
   .s("SecurityLake", "CreateSubscriberNotification", {})
   .n("SecurityLakeClient", "CreateSubscriberNotificationCommand")
-  .sc(CreateSubscriberNotification)
+  .sc(CreateSubscriberNotification$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import type { WithdrawByoipCidrRequest, WithdrawByoipCidrResponse } from "../models/models_0";
-import { WithdrawByoipCidr } from "../schemas/schemas_0";
+import { WithdrawByoipCidr$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class WithdrawByoipCidrCommand extends $Command
   })
   .s("GlobalAccelerator_V20180706", "WithdrawByoipCidr", {})
   .n("GlobalAcceleratorClient", "WithdrawByoipCidrCommand")
-  .sc(WithdrawByoipCidr)
+  .sc(WithdrawByoipCidr$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

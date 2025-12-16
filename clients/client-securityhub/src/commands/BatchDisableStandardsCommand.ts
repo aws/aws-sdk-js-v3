@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchDisableStandardsRequest, BatchDisableStandardsResponse } from "../models/models_2";
-import { BatchDisableStandards } from "../schemas/schemas_0";
+import { BatchDisableStandards$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -132,7 +132,7 @@ export class BatchDisableStandardsCommand extends $Command
   })
   .s("SecurityHubAPIService", "BatchDisableStandards", {})
   .n("SecurityHubClient", "BatchDisableStandardsCommand")
-  .sc(BatchDisableStandards)
+  .sc(BatchDisableStandards$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkManagerClient";
-import { ListCoreNetworkRoutingInformation } from "../schemas/schemas_0";
+import { ListCoreNetworkRoutingInformation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class ListCoreNetworkRoutingInformationCommand extends $Command
   })
   .s("NetworkManager", "ListCoreNetworkRoutingInformation", {})
   .n("NetworkManagerClient", "ListCoreNetworkRoutingInformationCommand")
-  .sc(ListCoreNetworkRoutingInformation)
+  .sc(ListCoreNetworkRoutingInformation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

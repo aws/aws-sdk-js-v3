@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InitiateAuthRequest, InitiateAuthResponse } from "../models/models_0";
-import { InitiateAuth } from "../schemas/schemas_0";
+import { InitiateAuth$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -236,7 +236,7 @@ export class InitiateAuthCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "InitiateAuth", {})
   .n("CognitoIdentityProviderClient", "InitiateAuthCommand")
-  .sc(InitiateAuth)
+  .sc(InitiateAuth$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

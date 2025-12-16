@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import type { DisableDelegatedAdminAccountRequest, DisableDelegatedAdminAccountResponse } from "../models/models_0";
-import { DisableDelegatedAdminAccount } from "../schemas/schemas_0";
+import { DisableDelegatedAdminAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DisableDelegatedAdminAccountCommand extends $Command
   })
   .s("Inspector2", "DisableDelegatedAdminAccount", {})
   .n("Inspector2Client", "DisableDelegatedAdminAccountCommand")
-  .sc(DisableDelegatedAdminAccount)
+  .sc(DisableDelegatedAdminAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

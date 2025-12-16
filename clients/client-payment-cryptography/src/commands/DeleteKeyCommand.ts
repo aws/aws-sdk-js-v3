@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PaymentCryptographyClient";
-import { DeleteKey } from "../schemas/schemas_0";
+import { DeleteKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,7 +138,7 @@ export class DeleteKeyCommand extends $Command
   })
   .s("PaymentCryptographyControlPlane", "DeleteKey", {})
   .n("PaymentCryptographyClient", "DeleteKeyCommand")
-  .sc(DeleteKey)
+  .sc(DeleteKey$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

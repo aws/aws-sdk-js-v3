@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSlackChannelConfigurationRequest, DeleteSlackChannelConfigurationResult } from "../models/models_0";
-import { DeleteSlackChannelConfiguration } from "../schemas/schemas_0";
+import { DeleteSlackChannelConfiguration$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
@@ -117,7 +117,7 @@ export class DeleteSlackChannelConfigurationCommand extends $Command
   })
   .s("SupportApp", "DeleteSlackChannelConfiguration", {})
   .n("SupportAppClient", "DeleteSlackChannelConfigurationCommand")
-  .sc(DeleteSlackChannelConfiguration)
+  .sc(DeleteSlackChannelConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

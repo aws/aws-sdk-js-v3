@@ -32,7 +32,12 @@ export const getRuntimeConfig = (config: WorkMailMessageFlowClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.workmailmessageflow" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.workmailmessageflow",
+      version: "2019-05-01",
+      serviceTarget: "GiraffeMessageInTransitService",
+    },
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "WorkMailMessageFlow",
     urlParser: config?.urlParser ?? parseUrl,

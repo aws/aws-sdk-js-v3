@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CancelComponentDeploymentInput, CancelComponentDeploymentOutput } from "../models/models_0";
 import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
-import { CancelComponentDeployment } from "../schemas/schemas_0";
+import { CancelComponentDeployment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class CancelComponentDeploymentCommand extends $Command
   })
   .s("AwsProton20200720", "CancelComponentDeployment", {})
   .n("ProtonClient", "CancelComponentDeploymentCommand")
-  .sc(CancelComponentDeployment)
+  .sc(CancelComponentDeployment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

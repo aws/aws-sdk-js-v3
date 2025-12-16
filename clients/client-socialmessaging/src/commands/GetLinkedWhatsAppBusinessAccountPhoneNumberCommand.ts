@@ -8,7 +8,7 @@ import type {
   GetLinkedWhatsAppBusinessAccountPhoneNumberInput,
   GetLinkedWhatsAppBusinessAccountPhoneNumberOutput,
 } from "../models/models_0";
-import { GetLinkedWhatsAppBusinessAccountPhoneNumber } from "../schemas/schemas_0";
+import { GetLinkedWhatsAppBusinessAccountPhoneNumber$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -116,7 +116,7 @@ export class GetLinkedWhatsAppBusinessAccountPhoneNumberCommand extends $Command
   })
   .s("SocialMessaging", "GetLinkedWhatsAppBusinessAccountPhoneNumber", {})
   .n("SocialMessagingClient", "GetLinkedWhatsAppBusinessAccountPhoneNumberCommand")
-  .sc(GetLinkedWhatsAppBusinessAccountPhoneNumber)
+  .sc(GetLinkedWhatsAppBusinessAccountPhoneNumber$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

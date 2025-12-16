@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: LicenseManagerClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.licensemanager",
-        serviceTarget: "AWSLicenseManager",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.licensemanager",
+      xmlNamespace: "https://license-manager.amazonaws.com/doc/2018_08_01",
+      version: "2018-08-01",
+      serviceTarget: "AWSLicenseManager",
+    },
     serviceId: config?.serviceId ?? "License Manager",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

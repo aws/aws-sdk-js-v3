@@ -7,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import { type GetMapTileRequest, GetMapTileResponse } from "../models/models_0";
-import { GetMapTile } from "../schemas/schemas_0";
+import { GetMapTile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class GetMapTileCommand extends $Command
   })
   .s("LocationService", "GetMapTile", {})
   .n("LocationClient", "GetMapTileCommand")
-  .sc(GetMapTile)
+  .sc(GetMapTile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

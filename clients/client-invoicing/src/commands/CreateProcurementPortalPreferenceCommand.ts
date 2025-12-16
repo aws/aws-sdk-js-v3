@@ -9,7 +9,7 @@ import type {
   CreateProcurementPortalPreferenceRequest,
   CreateProcurementPortalPreferenceResponse,
 } from "../models/models_0";
-import { CreateProcurementPortalPreference } from "../schemas/schemas_0";
+import { CreateProcurementPortalPreference$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -221,7 +221,7 @@ export class CreateProcurementPortalPreferenceCommand extends $Command
   })
   .s("Invoicing", "CreateProcurementPortalPreference", {})
   .n("InvoicingClient", "CreateProcurementPortalPreferenceCommand")
-  .sc(CreateProcurementPortalPreference)
+  .sc(CreateProcurementPortalPreference$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateHITReviewStatusRequest, UpdateHITReviewStatusResponse } from "../models/models_0";
 import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { UpdateHITReviewStatus } from "../schemas/schemas_0";
+import { UpdateHITReviewStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class UpdateHITReviewStatusCommand extends $Command
   })
   .s("MTurkRequesterServiceV20170117", "UpdateHITReviewStatus", {})
   .n("MTurkClient", "UpdateHITReviewStatusCommand")
-  .sc(UpdateHITReviewStatus)
+  .sc(UpdateHITReviewStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: BackupGatewayClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.backupgateway",
-        serviceTarget: "BackupOnPremises_v20210101",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.backupgateway",
+      version: "2021-01-01",
+      serviceTarget: "BackupOnPremises_v20210101",
+    },
     serviceId: config?.serviceId ?? "Backup Gateway",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

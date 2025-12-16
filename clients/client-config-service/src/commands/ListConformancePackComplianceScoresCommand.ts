@@ -9,7 +9,7 @@ import type {
   ListConformancePackComplianceScoresRequest,
   ListConformancePackComplianceScoresResponse,
 } from "../models/models_0";
-import { ListConformancePackComplianceScores } from "../schemas/schemas_0";
+import { ListConformancePackComplianceScores$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -111,7 +111,7 @@ export class ListConformancePackComplianceScoresCommand extends $Command
   })
   .s("StarlingDoveService", "ListConformancePackComplianceScores", {})
   .n("ConfigServiceClient", "ListConformancePackComplianceScoresCommand")
-  .sc(ListConformancePackComplianceScores)
+  .sc(ListConformancePackComplianceScores$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

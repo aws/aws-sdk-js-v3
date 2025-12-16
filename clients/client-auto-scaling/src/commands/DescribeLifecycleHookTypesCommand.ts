@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeLifecycleHookTypesAnswer } from "../models/models_0";
-import { DescribeLifecycleHookTypes } from "../schemas/schemas_0";
+import { DescribeLifecycleHookTypes$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class DescribeLifecycleHookTypesCommand extends $Command
   })
   .s("AutoScaling_2011_01_01", "DescribeLifecycleHookTypes", {})
   .n("AutoScalingClient", "DescribeLifecycleHookTypesCommand")
-  .sc(DescribeLifecycleHookTypes)
+  .sc(DescribeLifecycleHookTypes$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

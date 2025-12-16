@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
 import type { BatchDescribeEntitiesRequest, BatchDescribeEntitiesResponse } from "../models/models_0";
-import { BatchDescribeEntities } from "../schemas/schemas_0";
+import { BatchDescribeEntities$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -112,7 +112,7 @@ export class BatchDescribeEntitiesCommand extends $Command
   })
   .s("AWSMPSeymour", "BatchDescribeEntities", {})
   .n("MarketplaceCatalogClient", "BatchDescribeEntitiesCommand")
-  .sc(BatchDescribeEntities)
+  .sc(BatchDescribeEntities$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

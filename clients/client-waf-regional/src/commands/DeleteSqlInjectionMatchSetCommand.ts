@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteSqlInjectionMatchSetRequest, DeleteSqlInjectionMatchSetResponse } from "../models/models_0";
-import { DeleteSqlInjectionMatchSet } from "../schemas/schemas_0";
+import { DeleteSqlInjectionMatchSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
@@ -155,7 +155,7 @@ export class DeleteSqlInjectionMatchSetCommand extends $Command
   })
   .s("AWSWAF_Regional_20161128", "DeleteSqlInjectionMatchSet", {})
   .n("WAFRegionalClient", "DeleteSqlInjectionMatchSetCommand")
-  .sc(DeleteSqlInjectionMatchSet)
+  .sc(DeleteSqlInjectionMatchSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

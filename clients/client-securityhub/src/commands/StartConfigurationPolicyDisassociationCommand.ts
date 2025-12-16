@@ -8,7 +8,7 @@ import type {
   StartConfigurationPolicyDisassociationRequest,
   StartConfigurationPolicyDisassociationResponse,
 } from "../models/models_3";
-import { StartConfigurationPolicyDisassociation } from "../schemas/schemas_0";
+import { StartConfigurationPolicyDisassociation$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -124,7 +124,7 @@ export class StartConfigurationPolicyDisassociationCommand extends $Command
   })
   .s("SecurityHubAPIService", "StartConfigurationPolicyDisassociation", {})
   .n("SecurityHubClient", "StartConfigurationPolicyDisassociationCommand")
-  .sc(StartConfigurationPolicyDisassociation)
+  .sc(StartConfigurationPolicyDisassociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetFleetRequest, GetFleetResponse } from "../models/models_0";
-import { GetFleet } from "../schemas/schemas_0";
+import { GetFleet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -232,7 +232,7 @@ export class GetFleetCommand extends $Command
   })
   .s("Deadline", "GetFleet", {})
   .n("DeadlineClient", "GetFleetCommand")
-  .sc(GetFleet)
+  .sc(GetFleet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

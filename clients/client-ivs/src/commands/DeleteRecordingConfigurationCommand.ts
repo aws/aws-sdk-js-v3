@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import type { DeleteRecordingConfigurationRequest } from "../models/models_0";
-import { DeleteRecordingConfiguration } from "../schemas/schemas_0";
+import { DeleteRecordingConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteRecordingConfigurationCommand extends $Command
   })
   .s("AmazonInteractiveVideoService", "DeleteRecordingConfiguration", {})
   .n("IvsClient", "DeleteRecordingConfigurationCommand")
-  .sc(DeleteRecordingConfiguration)
+  .sc(DeleteRecordingConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

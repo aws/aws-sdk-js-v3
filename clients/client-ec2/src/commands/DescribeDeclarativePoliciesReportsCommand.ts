@@ -9,7 +9,7 @@ import type {
   DescribeDeclarativePoliciesReportsRequest,
   DescribeDeclarativePoliciesReportsResult,
 } from "../models/models_3";
-import { DescribeDeclarativePoliciesReports } from "../schemas/schemas_0";
+import { DescribeDeclarativePoliciesReports$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class DescribeDeclarativePoliciesReportsCommand extends $Command
   })
   .s("AmazonEC2", "DescribeDeclarativePoliciesReports", {})
   .n("EC2Client", "DescribeDeclarativePoliciesReportsCommand")
-  .sc(DescribeDeclarativePoliciesReports)
+  .sc(DescribeDeclarativePoliciesReports$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

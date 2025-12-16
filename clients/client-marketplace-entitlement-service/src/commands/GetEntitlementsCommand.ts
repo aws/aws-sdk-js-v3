@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MarketplaceEntitlementServiceClient";
 import type { GetEntitlementsRequest, GetEntitlementsResult } from "../models/models_0";
-import { GetEntitlements } from "../schemas/schemas_0";
+import { GetEntitlements$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class GetEntitlementsCommand extends $Command
   })
   .s("AWSMPEntitlementService", "GetEntitlements", {})
   .n("MarketplaceEntitlementServiceClient", "GetEntitlementsCommand")
-  .sc(GetEntitlements)
+  .sc(GetEntitlements$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

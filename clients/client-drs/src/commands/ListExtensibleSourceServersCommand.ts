@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListExtensibleSourceServersRequest, ListExtensibleSourceServersResponse } from "../models/models_0";
-import { ListExtensibleSourceServers } from "../schemas/schemas_0";
+import { ListExtensibleSourceServers$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class ListExtensibleSourceServersCommand extends $Command
   })
   .s("ElasticDisasterRecoveryService", "ListExtensibleSourceServers", {})
   .n("DrsClient", "ListExtensibleSourceServersCommand")
-  .sc(ListExtensibleSourceServers)
+  .sc(ListExtensibleSourceServers$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

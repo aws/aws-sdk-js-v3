@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
 import type { DeleteApplicationOutputRequest, DeleteApplicationOutputResponse } from "../models/models_0";
-import { DeleteApplicationOutput } from "../schemas/schemas_0";
+import { DeleteApplicationOutput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class DeleteApplicationOutputCommand extends $Command
   })
   .s("KinesisAnalytics_20180523", "DeleteApplicationOutput", {})
   .n("KinesisAnalyticsV2Client", "DeleteApplicationOutputCommand")
-  .sc(DeleteApplicationOutput)
+  .sc(DeleteApplicationOutput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

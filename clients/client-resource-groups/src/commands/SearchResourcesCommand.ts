@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsClient";
-import { SearchResources } from "../schemas/schemas_0";
+import { SearchResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -142,7 +142,7 @@ export class SearchResourcesCommand extends $Command
   })
   .s("Ardi", "SearchResources", {})
   .n("ResourceGroupsClient", "SearchResourcesCommand")
-  .sc(SearchResources)
+  .sc(SearchResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

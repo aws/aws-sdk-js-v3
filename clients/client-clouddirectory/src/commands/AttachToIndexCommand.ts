@@ -10,7 +10,7 @@ import type {
 } from "../CloudDirectoryClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AttachToIndexRequest, AttachToIndexResponse } from "../models/models_0";
-import { AttachToIndex } from "../schemas/schemas_0";
+import { AttachToIndex$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -143,7 +143,7 @@ export class AttachToIndexCommand extends $Command
   })
   .s("AmazonCloudDirectory_20170111", "AttachToIndex", {})
   .n("CloudDirectoryClient", "AttachToIndexCommand")
-  .sc(AttachToIndex)
+  .sc(AttachToIndex$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ExecuteSqlRequest, ExecuteSqlResponse } from "../models/models_0";
 import type { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
-import { ExecuteSql } from "../schemas/schemas_0";
+import { ExecuteSql$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -164,7 +164,7 @@ export class ExecuteSqlCommand extends $Command
   })
   .s("RdsDataService", "ExecuteSql", {})
   .n("RDSDataClient", "ExecuteSqlCommand")
-  .sc(ExecuteSql)
+  .sc(ExecuteSql$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

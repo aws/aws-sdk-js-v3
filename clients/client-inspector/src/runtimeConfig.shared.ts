@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: InspectorClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.inspector",
-        serviceTarget: "InspectorService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.inspector",
+      version: "2016-02-16",
+      serviceTarget: "InspectorService",
+    },
     serviceId: config?.serviceId ?? "Inspector",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

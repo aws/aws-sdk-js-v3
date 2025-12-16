@@ -9,7 +9,7 @@ import type {
   DescribeNetworkInterfaceAttributeRequest,
   DescribeNetworkInterfaceAttributeResult,
 } from "../models/models_4";
-import { DescribeNetworkInterfaceAttribute } from "../schemas/schemas_0";
+import { DescribeNetworkInterfaceAttribute$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -196,7 +196,7 @@ export class DescribeNetworkInterfaceAttributeCommand extends $Command
   })
   .s("AmazonEC2", "DescribeNetworkInterfaceAttribute", {})
   .n("EC2Client", "DescribeNetworkInterfaceAttributeCommand")
-  .sc(DescribeNetworkInterfaceAttribute)
+  .sc(DescribeNetworkInterfaceAttribute$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

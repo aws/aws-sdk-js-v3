@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateSubscriberRequest, CreateSubscriberResponse } from "../models/models_0";
-import { CreateSubscriber } from "../schemas/schemas_0";
+import { CreateSubscriber$ } from "../schemas/schemas_0";
 import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -175,7 +175,7 @@ export class CreateSubscriberCommand extends $Command
   })
   .s("SecurityLake", "CreateSubscriber", {})
   .n("SecurityLakeClient", "CreateSubscriberCommand")
-  .sc(CreateSubscriber)
+  .sc(CreateSubscriber$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

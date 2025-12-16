@@ -10,7 +10,7 @@ import type {
   ListTrafficPolicyInstancesByHostedZoneResponse,
 } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { ListTrafficPolicyInstancesByHostedZone } from "../schemas/schemas_0";
+import { ListTrafficPolicyInstancesByHostedZone$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command
   })
   .s("AWSDnsV20130401", "ListTrafficPolicyInstancesByHostedZone", {})
   .n("Route53Client", "ListTrafficPolicyInstancesByHostedZoneCommand")
-  .sc(ListTrafficPolicyInstancesByHostedZone)
+  .sc(ListTrafficPolicyInstancesByHostedZone$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

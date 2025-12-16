@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
 import type { UpdateTrafficPolicyRequest, UpdateTrafficPolicyResponse } from "../models/models_0";
-import { UpdateTrafficPolicy } from "../schemas/schemas_0";
+import { UpdateTrafficPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -205,7 +205,7 @@ export class UpdateTrafficPolicyCommand extends $Command
   })
   .s("MailManagerSvc", "UpdateTrafficPolicy", {})
   .n("MailManagerClient", "UpdateTrafficPolicyCommand")
-  .sc(UpdateTrafficPolicy)
+  .sc(UpdateTrafficPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

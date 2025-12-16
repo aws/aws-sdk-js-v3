@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeTestCasesInput, DescribeTestCasesOutput } from "../models/models_0";
-import { DescribeTestCases } from "../schemas/schemas_0";
+import { DescribeTestCases$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class DescribeTestCasesCommand extends $Command
   })
   .s("CodeBuild_20161006", "DescribeTestCases", {})
   .n("CodeBuildClient", "DescribeTestCasesCommand")
-  .sc(DescribeTestCases)
+  .sc(DescribeTestCases$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetContentSummaryRequest, GetContentSummaryResponse } from "../models/models_0";
-import { GetContentSummary } from "../schemas/schemas_0";
+import { GetContentSummary$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
@@ -99,7 +99,7 @@ export class GetContentSummaryCommand extends $Command
   })
   .s("WisdomService", "GetContentSummary", {})
   .n("WisdomClient", "GetContentSummaryCommand")
-  .sc(GetContentSummary)
+  .sc(GetContentSummary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

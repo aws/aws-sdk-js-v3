@@ -10,7 +10,7 @@ import type {
 } from "../ElasticTranscoderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdatePipelineStatusRequest, UpdatePipelineStatusResponse } from "../models/models_0";
-import { UpdatePipelineStatus } from "../schemas/schemas_0";
+import { UpdatePipelineStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -143,7 +143,7 @@ export class UpdatePipelineStatusCommand extends $Command
   })
   .s("EtsCustomerService", "UpdatePipelineStatus", {})
   .n("ElasticTranscoderClient", "UpdatePipelineStatusCommand")
-  .sc(UpdatePipelineStatus)
+  .sc(UpdatePipelineStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

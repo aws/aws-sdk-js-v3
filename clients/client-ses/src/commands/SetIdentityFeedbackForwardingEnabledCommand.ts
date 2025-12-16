@@ -8,7 +8,7 @@ import type {
   SetIdentityFeedbackForwardingEnabledRequest,
   SetIdentityFeedbackForwardingEnabledResponse,
 } from "../models/models_0";
-import { SetIdentityFeedbackForwardingEnabled } from "../schemas/schemas_0";
+import { SetIdentityFeedbackForwardingEnabled$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -101,7 +101,7 @@ export class SetIdentityFeedbackForwardingEnabledCommand extends $Command
   })
   .s("SimpleEmailService", "SetIdentityFeedbackForwardingEnabled", {})
   .n("SESClient", "SetIdentityFeedbackForwardingEnabledCommand")
-  .sc(SetIdentityFeedbackForwardingEnabled)
+  .sc(SetIdentityFeedbackForwardingEnabled$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ConfirmConnectionRequest, ConfirmConnectionResponse } from "../models/models_0";
-import { ConfirmConnection } from "../schemas/schemas_0";
+import { ConfirmConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -81,7 +81,7 @@ export class ConfirmConnectionCommand extends $Command
   })
   .s("OvertureService", "ConfirmConnection", {})
   .n("DirectConnectClient", "ConfirmConnectionCommand")
-  .sc(ConfirmConnection)
+  .sc(ConfirmConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DeleteDirectConnectGatewayAssociationRequest,
   DeleteDirectConnectGatewayAssociationResult,
 } from "../models/models_0";
-import { DeleteDirectConnectGatewayAssociation } from "../schemas/schemas_0";
+import { DeleteDirectConnectGatewayAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class DeleteDirectConnectGatewayAssociationCommand extends $Command
   })
   .s("OvertureService", "DeleteDirectConnectGatewayAssociation", {})
   .n("DirectConnectClient", "DeleteDirectConnectGatewayAssociationCommand")
-  .sc(DeleteDirectConnectGatewayAssociation)
+  .sc(DeleteDirectConnectGatewayAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

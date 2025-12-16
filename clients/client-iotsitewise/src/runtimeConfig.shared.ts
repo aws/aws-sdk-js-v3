@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: IoTSiteWiseClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.iotsitewise" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.iotsitewise",
+      version: "2019-12-02",
+      serviceTarget: "AWSIoTSiteWise",
+    },
     serviceId: config?.serviceId ?? "IoTSiteWise",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

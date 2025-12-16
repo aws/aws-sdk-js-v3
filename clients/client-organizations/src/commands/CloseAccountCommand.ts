@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CloseAccountRequest } from "../models/models_0";
 import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
-import { CloseAccount } from "../schemas/schemas_0";
+import { CloseAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -551,7 +551,7 @@ export class CloseAccountCommand extends $Command
   })
   .s("AWSOrganizationsV20161128", "CloseAccount", {})
   .n("OrganizationsClient", "CloseAccountCommand")
-  .sc(CloseAccount)
+  .sc(CloseAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

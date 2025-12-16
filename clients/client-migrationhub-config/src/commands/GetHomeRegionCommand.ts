@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MigrationHubConfigClient";
 import type { GetHomeRegionRequest, GetHomeRegionResult } from "../models/models_0";
-import { GetHomeRegion } from "../schemas/schemas_0";
+import { GetHomeRegion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class GetHomeRegionCommand extends $Command
   })
   .s("AWSMigrationHubMultiAccountService", "GetHomeRegion", {})
   .n("MigrationHubConfigClient", "GetHomeRegionCommand")
-  .sc(GetHomeRegion)
+  .sc(GetHomeRegion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutConfigurationRequest } from "../models/models_0";
-import { PutConfiguration } from "../schemas/schemas_0";
+import { PutConfiguration$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
@@ -92,7 +92,7 @@ export class PutConfigurationCommand extends $Command
   })
   .s("AWS242AppRegistry", "PutConfiguration", {})
   .n("ServiceCatalogAppRegistryClient", "PutConfigurationCommand")
-  .sc(PutConfiguration)
+  .sc(PutConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

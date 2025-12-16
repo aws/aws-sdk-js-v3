@@ -10,7 +10,7 @@ import type {
 } from "../ConnectCampaignsV2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutOutboundRequestBatchRequest, PutOutboundRequestBatchResponse } from "../models/models_0";
-import { PutOutboundRequestBatch } from "../schemas/schemas_0";
+import { PutOutboundRequestBatch$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -154,7 +154,7 @@ export class PutOutboundRequestBatchCommand extends $Command
   })
   .s("AmazonConnectCampaignServiceV2", "PutOutboundRequestBatch", {})
   .n("ConnectCampaignsV2Client", "PutOutboundRequestBatchCommand")
-  .sc(PutOutboundRequestBatch)
+  .sc(PutOutboundRequestBatch$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

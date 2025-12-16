@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient";
-import { UntagResources } from "../schemas/schemas_0";
+import { UntagResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -164,7 +164,7 @@ export class UntagResourcesCommand extends $Command
   })
   .s("ResourceGroupsTaggingAPI_20170126", "UntagResources", {})
   .n("ResourceGroupsTaggingAPIClient", "UntagResourcesCommand")
-  .sc(UntagResources)
+  .sc(UntagResources$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

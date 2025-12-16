@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
 import type { DisassociateUserRequest, DisassociateUserResponse } from "../models/models_0";
-import { DisassociateUser } from "../schemas/schemas_0";
+import { DisassociateUser$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -162,7 +162,7 @@ export class DisassociateUserCommand extends $Command
   })
   .s("LicenseManagerUserSubscriptions", "DisassociateUser", {})
   .n("LicenseManagerUserSubscriptionsClient", "DisassociateUserCommand")
-  .sc(DisassociateUser)
+  .sc(DisassociateUser$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

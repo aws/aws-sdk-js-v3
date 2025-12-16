@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteCodeInterpreterRequest, DeleteCodeInterpreterResponse } from "../models/models_0";
-import { DeleteCodeInterpreter } from "../schemas/schemas_0";
+import { DeleteCodeInterpreter$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class DeleteCodeInterpreterCommand extends $Command
   })
   .s("AmazonBedrockAgentCoreControl", "DeleteCodeInterpreter", {})
   .n("BedrockAgentCoreControlClient", "DeleteCodeInterpreterCommand")
-  .sc(DeleteCodeInterpreter)
+  .sc(DeleteCodeInterpreter$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

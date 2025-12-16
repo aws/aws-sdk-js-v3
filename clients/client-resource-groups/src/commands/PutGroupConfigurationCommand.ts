@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsClient";
-import { PutGroupConfiguration } from "../schemas/schemas_0";
+import { PutGroupConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class PutGroupConfigurationCommand extends $Command
   })
   .s("Ardi", "PutGroupConfiguration", {})
   .n("ResourceGroupsClient", "PutGroupConfigurationCommand")
-  .sc(PutGroupConfiguration)
+  .sc(PutGroupConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

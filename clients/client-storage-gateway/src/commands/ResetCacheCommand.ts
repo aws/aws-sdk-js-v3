@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ResetCacheInput, ResetCacheOutput } from "../models/models_0";
-import { ResetCache } from "../schemas/schemas_0";
+import { ResetCache$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -111,7 +111,7 @@ export class ResetCacheCommand extends $Command
   })
   .s("StorageGateway_20130630", "ResetCache", {})
   .n("StorageGatewayClient", "ResetCacheCommand")
-  .sc(ResetCache)
+  .sc(ResetCache$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

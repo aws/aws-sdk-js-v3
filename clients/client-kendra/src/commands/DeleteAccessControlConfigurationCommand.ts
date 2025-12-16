@@ -9,7 +9,7 @@ import type {
   DeleteAccessControlConfigurationRequest,
   DeleteAccessControlConfigurationResponse,
 } from "../models/models_0";
-import { DeleteAccessControlConfiguration } from "../schemas/schemas_0";
+import { DeleteAccessControlConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class DeleteAccessControlConfigurationCommand extends $Command
   })
   .s("AWSKendraFrontendService", "DeleteAccessControlConfiguration", {})
   .n("KendraClient", "DeleteAccessControlConfigurationCommand")
-  .sc(DeleteAccessControlConfiguration)
+  .sc(DeleteAccessControlConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

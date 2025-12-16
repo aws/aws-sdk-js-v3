@@ -13,7 +13,7 @@ import type {
   GetScalingPlanResourceForecastDataRequest,
   GetScalingPlanResourceForecastDataResponse,
 } from "../models/models_0";
-import { GetScalingPlanResourceForecastData } from "../schemas/schemas_0";
+import { GetScalingPlanResourceForecastData$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class GetScalingPlanResourceForecastDataCommand extends $Command
   })
   .s("AnyScaleScalingPlannerFrontendService", "GetScalingPlanResourceForecastData", {})
   .n("AutoScalingPlansClient", "GetScalingPlanResourceForecastDataCommand")
-  .sc(GetScalingPlanResourceForecastData)
+  .sc(GetScalingPlanResourceForecastData$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

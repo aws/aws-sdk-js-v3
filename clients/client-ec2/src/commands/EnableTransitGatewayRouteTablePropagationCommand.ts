@@ -9,7 +9,7 @@ import type {
   EnableTransitGatewayRouteTablePropagationRequest,
   EnableTransitGatewayRouteTablePropagationResult,
 } from "../models/models_5";
-import { EnableTransitGatewayRouteTablePropagation } from "../schemas/schemas_0";
+import { EnableTransitGatewayRouteTablePropagation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -90,7 +90,7 @@ export class EnableTransitGatewayRouteTablePropagationCommand extends $Command
   })
   .s("AmazonEC2", "EnableTransitGatewayRouteTablePropagation", {})
   .n("EC2Client", "EnableTransitGatewayRouteTablePropagationCommand")
-  .sc(EnableTransitGatewayRouteTablePropagation)
+  .sc(EnableTransitGatewayRouteTablePropagation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

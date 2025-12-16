@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkMonitorClient";
-import { DeleteMonitor } from "../schemas/schemas_0";
+import { DeleteMonitor$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -92,7 +92,7 @@ export class DeleteMonitorCommand extends $Command
   })
   .s("NetworkMonitor", "DeleteMonitor", {})
   .n("NetworkMonitorClient", "DeleteMonitorCommand")
-  .sc(DeleteMonitor)
+  .sc(DeleteMonitor$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

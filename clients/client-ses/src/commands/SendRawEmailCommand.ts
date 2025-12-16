@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SendRawEmailRequest, SendRawEmailResponse } from "../models/models_0";
-import { SendRawEmail } from "../schemas/schemas_0";
+import { SendRawEmail$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -232,7 +232,7 @@ export class SendRawEmailCommand extends $Command
   })
   .s("SimpleEmailService", "SendRawEmail", {})
   .n("SESClient", "SendRawEmailCommand")
-  .sc(SendRawEmail)
+  .sc(SendRawEmail$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

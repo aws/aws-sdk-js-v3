@@ -7,7 +7,7 @@ import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { StartOutboundChatContactResponse } from "../models/models_2";
 import type { StartOutboundChatContactRequest } from "../models/models_3";
-import { StartOutboundChatContact } from "../schemas/schemas_0";
+import { StartOutboundChatContact$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -178,7 +178,7 @@ export class StartOutboundChatContactCommand extends $Command
   })
   .s("AmazonConnectService", "StartOutboundChatContact", {})
   .n("ConnectClient", "StartOutboundChatContactCommand")
-  .sc(StartOutboundChatContact)
+  .sc(StartOutboundChatContact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

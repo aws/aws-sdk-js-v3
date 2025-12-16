@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { HttpEnumPayload } from "../schemas/schemas_0";
+import { HttpEnumPayload$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -77,7 +77,7 @@ export class HttpEnumPayloadCommand extends $Command
   })
   .s("RestJson", "HttpEnumPayload", {})
   .n("RestJsonProtocolClient", "HttpEnumPayloadCommand")
-  .sc(HttpEnumPayload)
+  .sc(HttpEnumPayload$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

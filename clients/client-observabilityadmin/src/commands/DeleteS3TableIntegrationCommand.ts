@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { DeleteS3TableIntegration } from "../schemas/schemas_0";
+import { DeleteS3TableIntegration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeleteS3TableIntegrationCommand extends $Command
   })
   .s("ObservabilityAdmin", "DeleteS3TableIntegration", {})
   .n("ObservabilityAdminClient", "DeleteS3TableIntegrationCommand")
-  .sc(DeleteS3TableIntegration)
+  .sc(DeleteS3TableIntegration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

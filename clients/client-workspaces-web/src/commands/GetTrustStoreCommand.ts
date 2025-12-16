@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetTrustStoreRequest, GetTrustStoreResponse } from "../models/models_0";
-import { GetTrustStore } from "../schemas/schemas_0";
+import { GetTrustStore$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
@@ -93,7 +93,7 @@ export class GetTrustStoreCommand extends $Command
   })
   .s("AWSErmineControlPlaneService", "GetTrustStore", {})
   .n("WorkSpacesWebClient", "GetTrustStoreCommand")
-  .sc(GetTrustStore)
+  .sc(GetTrustStore$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

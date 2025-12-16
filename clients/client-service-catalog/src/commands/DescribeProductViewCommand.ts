@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeProductViewInput, DescribeProductViewOutput } from "../models/models_0";
-import { DescribeProductView } from "../schemas/schemas_0";
+import { DescribeProductView$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -105,7 +105,7 @@ export class DescribeProductViewCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "DescribeProductView", {})
   .n("ServiceCatalogClient", "DescribeProductViewCommand")
-  .sc(DescribeProductView)
+  .sc(DescribeProductView$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

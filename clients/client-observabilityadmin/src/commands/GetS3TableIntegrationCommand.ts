@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ObservabilityAdminClient";
-import { GetS3TableIntegration } from "../schemas/schemas_0";
+import { GetS3TableIntegration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class GetS3TableIntegrationCommand extends $Command
   })
   .s("ObservabilityAdmin", "GetS3TableIntegration", {})
   .n("ObservabilityAdminClient", "GetS3TableIntegrationCommand")
-  .sc(GetS3TableIntegration)
+  .sc(GetS3TableIntegration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

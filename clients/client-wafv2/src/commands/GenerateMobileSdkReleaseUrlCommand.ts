@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GenerateMobileSdkReleaseUrlRequest, GenerateMobileSdkReleaseUrlResponse } from "../models/models_0";
-import { GenerateMobileSdkReleaseUrl } from "../schemas/schemas_0";
+import { GenerateMobileSdkReleaseUrl$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
@@ -112,7 +112,7 @@ export class GenerateMobileSdkReleaseUrlCommand extends $Command
   })
   .s("AWSWAF_20190729", "GenerateMobileSdkReleaseUrl", {})
   .n("WAFV2Client", "GenerateMobileSdkReleaseUrlCommand")
-  .sc(GenerateMobileSdkReleaseUrl)
+  .sc(GenerateMobileSdkReleaseUrl$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

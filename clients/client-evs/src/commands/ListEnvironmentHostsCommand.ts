@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { EvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvsClient";
 import type { ListEnvironmentHostsRequest, ListEnvironmentHostsResponse } from "../models/models_0";
-import { ListEnvironmentHosts } from "../schemas/schemas_0";
+import { ListEnvironmentHosts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class ListEnvironmentHostsCommand extends $Command
   })
   .s("AmazonElasticVMwareService", "ListEnvironmentHosts", {})
   .n("EvsClient", "ListEnvironmentHostsCommand")
-  .sc(ListEnvironmentHosts)
+  .sc(ListEnvironmentHosts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

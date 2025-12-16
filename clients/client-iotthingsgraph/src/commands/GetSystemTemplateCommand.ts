@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../IoTThingsGraphClient";
 import type { GetSystemTemplateRequest, GetSystemTemplateResponse } from "../models/models_0";
-import { GetSystemTemplate } from "../schemas/schemas_0";
+import { GetSystemTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class GetSystemTemplateCommand extends $Command
   })
   .s("IotThingsGraphFrontEndService", "GetSystemTemplate", {})
   .n("IoTThingsGraphClient", "GetSystemTemplateCommand")
-  .sc(GetSystemTemplate)
+  .sc(GetSystemTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

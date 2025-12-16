@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateGlobalTableSettingsInput, UpdateGlobalTableSettingsOutput } from "../models/models_0";
-import { UpdateGlobalTableSettings } from "../schemas/schemas_0";
+import { UpdateGlobalTableSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -288,7 +288,7 @@ export class UpdateGlobalTableSettingsCommand extends $Command
   })
   .s("DynamoDB_20120810", "UpdateGlobalTableSettings", {})
   .n("DynamoDBClient", "UpdateGlobalTableSettingsCommand")
-  .sc(UpdateGlobalTableSettings)
+  .sc(UpdateGlobalTableSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

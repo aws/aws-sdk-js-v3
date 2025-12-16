@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { StartTriggerRequest, StartTriggerResponse } from "../models/models_2";
-import { StartTrigger } from "../schemas/schemas_0";
+import { StartTrigger$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class StartTriggerCommand extends $Command
   })
   .s("AWSGlue", "StartTrigger", {})
   .n("GlueClient", "StartTriggerCommand")
-  .sc(StartTrigger)
+  .sc(StartTrigger$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

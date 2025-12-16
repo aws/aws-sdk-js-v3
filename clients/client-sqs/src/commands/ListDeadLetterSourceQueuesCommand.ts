@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListDeadLetterSourceQueuesRequest, ListDeadLetterSourceQueuesResult } from "../models/models_0";
-import { ListDeadLetterSourceQueues } from "../schemas/schemas_0";
+import { ListDeadLetterSourceQueues$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -115,7 +115,7 @@ export class ListDeadLetterSourceQueuesCommand extends $Command
   })
   .s("AmazonSQS", "ListDeadLetterSourceQueues", {})
   .n("SQSClient", "ListDeadLetterSourceQueuesCommand")
-  .sc(ListDeadLetterSourceQueues)
+  .sc(ListDeadLetterSourceQueues$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

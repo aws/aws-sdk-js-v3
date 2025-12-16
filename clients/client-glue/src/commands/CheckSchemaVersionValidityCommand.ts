@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import type { CheckSchemaVersionValidityInput, CheckSchemaVersionValidityResponse } from "../models/models_0";
-import { CheckSchemaVersionValidity } from "../schemas/schemas_0";
+import { CheckSchemaVersionValidity$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class CheckSchemaVersionValidityCommand extends $Command
   })
   .s("AWSGlue", "CheckSchemaVersionValidity", {})
   .n("GlueClient", "CheckSchemaVersionValidityCommand")
-  .sc(CheckSchemaVersionValidity)
+  .sc(CheckSchemaVersionValidity$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

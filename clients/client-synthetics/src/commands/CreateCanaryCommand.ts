@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateCanaryRequest, CreateCanaryResponse } from "../models/models_0";
-import { CreateCanary } from "../schemas/schemas_0";
+import { CreateCanary$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
@@ -266,7 +266,7 @@ export class CreateCanaryCommand extends $Command
   })
   .s("Synthetics", "CreateCanary", {})
   .n("SyntheticsClient", "CreateCanaryCommand")
-  .sc(CreateCanary)
+  .sc(CreateCanary$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

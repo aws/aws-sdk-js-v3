@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSigningConfigurationRequest, GetSigningConfigurationResponse } from "../models/models_0";
-import { GetSigningConfiguration } from "../schemas/schemas_0";
+import { GetSigningConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class GetSigningConfigurationCommand extends $Command
   })
   .s("AmazonEC2ContainerRegistry_V20150921", "GetSigningConfiguration", {})
   .n("ECRClient", "GetSigningConfigurationCommand")
-  .sc(GetSigningConfiguration)
+  .sc(GetSigningConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

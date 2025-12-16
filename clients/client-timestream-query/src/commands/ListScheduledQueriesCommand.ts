@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListScheduledQueriesRequest, ListScheduledQueriesResponse } from "../models/models_0";
-import { ListScheduledQueries } from "../schemas/schemas_0";
+import { ListScheduledQueries$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -126,7 +126,7 @@ export class ListScheduledQueriesCommand extends $Command
   })
   .s("Timestream_20181101", "ListScheduledQueries", {})
   .n("TimestreamQueryClient", "ListScheduledQueriesCommand")
-  .sc(ListScheduledQueries)
+  .sc(ListScheduledQueries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

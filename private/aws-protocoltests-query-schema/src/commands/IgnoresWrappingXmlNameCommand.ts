@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IgnoresWrappingXmlNameOutput } from "../models/models_0";
 import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
-import { IgnoresWrappingXmlName } from "../schemas/schemas_0";
+import { IgnoresWrappingXmlName$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -74,7 +74,7 @@ export class IgnoresWrappingXmlNameCommand extends $Command
   })
   .s("AwsQuery", "IgnoresWrappingXmlName", {})
   .n("QueryProtocolClient", "IgnoresWrappingXmlNameCommand")
-  .sc(IgnoresWrappingXmlName)
+  .sc(IgnoresWrappingXmlName$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

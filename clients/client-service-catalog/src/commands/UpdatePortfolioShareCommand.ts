@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdatePortfolioShareInput, UpdatePortfolioShareOutput } from "../models/models_0";
-import { UpdatePortfolioShare } from "../schemas/schemas_0";
+import { UpdatePortfolioShare$ } from "../schemas/schemas_0";
 import type {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
@@ -114,7 +114,7 @@ export class UpdatePortfolioShareCommand extends $Command
   })
   .s("AWS242ServiceCatalogService", "UpdatePortfolioShare", {})
   .n("ServiceCatalogClient", "UpdatePortfolioShareCommand")
-  .sc(UpdatePortfolioShare)
+  .sc(UpdatePortfolioShare$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

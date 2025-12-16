@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { UpdateEventDestination } from "../schemas/schemas_0";
+import { UpdateEventDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class UpdateEventDestinationCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "UpdateEventDestination", {})
   .n("PinpointSMSVoiceV2Client", "UpdateEventDestinationCommand")
-  .sc(UpdateEventDestination)
+  .sc(UpdateEventDestination$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

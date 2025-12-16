@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import type { GetSignalMapRequest, GetSignalMapResponse } from "../models/models_1";
-import { GetSignalMap } from "../schemas/schemas_0";
+import { GetSignalMap$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -150,7 +150,7 @@ export class GetSignalMapCommand extends $Command
   })
   .s("MediaLive", "GetSignalMap", {})
   .n("MediaLiveClient", "GetSignalMapCommand")
-  .sc(GetSignalMap)
+  .sc(GetSignalMap$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

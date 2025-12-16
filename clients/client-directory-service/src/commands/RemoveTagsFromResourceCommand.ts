@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveTagsFromResourceRequest, RemoveTagsFromResourceResult } from "../models/models_0";
-import { RemoveTagsFromResource } from "../schemas/schemas_0";
+import { RemoveTagsFromResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class RemoveTagsFromResourceCommand extends $Command
   })
   .s("DirectoryService_20150416", "RemoveTagsFromResource", {})
   .n("DirectoryServiceClient", "RemoveTagsFromResourceCommand")
-  .sc(RemoveTagsFromResource)
+  .sc(RemoveTagsFromResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

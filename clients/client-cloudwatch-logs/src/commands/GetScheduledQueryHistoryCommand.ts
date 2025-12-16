@@ -10,7 +10,7 @@ import type {
 } from "../CloudWatchLogsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetScheduledQueryHistoryRequest, GetScheduledQueryHistoryResponse } from "../models/models_0";
-import { GetScheduledQueryHistory } from "../schemas/schemas_0";
+import { GetScheduledQueryHistory$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -121,7 +121,7 @@ export class GetScheduledQueryHistoryCommand extends $Command
   })
   .s("Logs_20140328", "GetScheduledQueryHistory", {})
   .n("CloudWatchLogsClient", "GetScheduledQueryHistoryCommand")
-  .sc(GetScheduledQueryHistory)
+  .sc(GetScheduledQueryHistory$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

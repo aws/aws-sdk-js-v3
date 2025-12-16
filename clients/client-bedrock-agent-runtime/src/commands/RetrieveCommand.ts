@@ -10,7 +10,7 @@ import type {
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RetrieveRequest, RetrieveResponse } from "../models/models_0";
-import { Retrieve } from "../schemas/schemas_0";
+import { Retrieve$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -268,7 +268,7 @@ export class RetrieveCommand extends $Command
   })
   .s("AmazonBedrockAgentRunTimeService", "Retrieve", {})
   .n("BedrockAgentRuntimeClient", "RetrieveCommand")
-  .sc(Retrieve)
+  .sc(Retrieve$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

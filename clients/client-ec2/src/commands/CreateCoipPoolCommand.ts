@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateCoipPoolRequest, CreateCoipPoolResult } from "../models/models_0";
-import { CreateCoipPool } from "../schemas/schemas_0";
+import { CreateCoipPool$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class CreateCoipPoolCommand extends $Command
   })
   .s("AmazonEC2", "CreateCoipPool", {})
   .n("EC2Client", "CreateCoipPoolCommand")
-  .sc(CreateCoipPool)
+  .sc(CreateCoipPool$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: IdentitystoreClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.identitystore",
-        serviceTarget: "AWSIdentityStore",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.identitystore",
+      version: "2020-06-15",
+      serviceTarget: "AWSIdentityStore",
+    },
     serviceId: config?.serviceId ?? "identitystore",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

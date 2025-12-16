@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListSnapshotBlocksRequest, ListSnapshotBlocksResponse } from "../models/models_0";
-import { ListSnapshotBlocks } from "../schemas/schemas_0";
+import { ListSnapshotBlocks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class ListSnapshotBlocksCommand extends $Command
   })
   .s("Ebs", "ListSnapshotBlocks", {})
   .n("EBSClient", "ListSnapshotBlocksCommand")
-  .sc(ListSnapshotBlocks)
+  .sc(ListSnapshotBlocks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

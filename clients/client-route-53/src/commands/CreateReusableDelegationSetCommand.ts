@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateReusableDelegationSetRequest, CreateReusableDelegationSetResponse } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { CreateReusableDelegationSet } from "../schemas/schemas_0";
+import { CreateReusableDelegationSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -168,7 +168,7 @@ export class CreateReusableDelegationSetCommand extends $Command
   })
   .s("AWSDnsV20130401", "CreateReusableDelegationSet", {})
   .n("Route53Client", "CreateReusableDelegationSetCommand")
-  .sc(CreateReusableDelegationSet)
+  .sc(CreateReusableDelegationSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

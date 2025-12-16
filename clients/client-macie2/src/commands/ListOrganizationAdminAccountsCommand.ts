@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import type { ListOrganizationAdminAccountsRequest, ListOrganizationAdminAccountsResponse } from "../models/models_0";
-import { ListOrganizationAdminAccounts } from "../schemas/schemas_0";
+import { ListOrganizationAdminAccounts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -103,7 +103,7 @@ export class ListOrganizationAdminAccountsCommand extends $Command
   })
   .s("Macie2", "ListOrganizationAdminAccounts", {})
   .n("Macie2Client", "ListOrganizationAdminAccountsCommand")
-  .sc(ListOrganizationAdminAccounts)
+  .sc(ListOrganizationAdminAccounts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

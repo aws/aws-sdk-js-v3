@@ -10,7 +10,7 @@ import type {
 } from "../CodeGuruProfilerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AddNotificationChannelsRequest, AddNotificationChannelsResponse } from "../models/models_0";
-import { AddNotificationChannels } from "../schemas/schemas_0";
+import { AddNotificationChannels$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class AddNotificationChannelsCommand extends $Command
   })
   .s("CodeGuruProfiler", "AddNotificationChannels", {})
   .n("CodeGuruProfilerClient", "AddNotificationChannelsCommand")
-  .sc(AddNotificationChannels)
+  .sc(AddNotificationChannels$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

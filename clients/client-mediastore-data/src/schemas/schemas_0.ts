@@ -68,21 +68,21 @@ import type {
 } from "@smithy/types";
 
 import {
-  ContainerNotFoundException as __ContainerNotFoundException,
-  InternalServerError as __InternalServerError,
-  ObjectNotFoundException as __ObjectNotFoundException,
-  RequestedRangeNotSatisfiableException as __RequestedRangeNotSatisfiableException,
+  ContainerNotFoundException,
+  InternalServerError,
+  ObjectNotFoundException,
+  RequestedRangeNotSatisfiableException,
 } from "../models/errors";
-import { MediaStoreDataServiceException as __MediaStoreDataServiceException } from "../models/MediaStoreDataServiceException";
+import { MediaStoreDataServiceException } from "../models/MediaStoreDataServiceException";
 
 /* eslint no-var: 0 */
-export var PayloadBlob: StaticSimpleSchema = [0, n0, _PB, { [_s]: 1 }, 42];
-export var ContainerNotFoundException: StaticErrorSchema = [-3, n0, _CNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ContainerNotFoundException, __ContainerNotFoundException);
-export var DeleteObjectRequest: StaticStructureSchema = [3, n0, _DOR, 0, [_P], [[0, 1]]];
-export var DeleteObjectResponse: StaticStructureSchema = [3, n0, _DORe, 0, [], []];
-export var DescribeObjectRequest: StaticStructureSchema = [3, n0, _DORes, 0, [_P], [[0, 1]]];
-export var DescribeObjectResponse: StaticStructureSchema = [
+var PayloadBlob: StaticSimpleSchema = [0, n0, _PB, { [_s]: 1 }, 42];
+export var ContainerNotFoundException$: StaticErrorSchema = [-3, n0, _CNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ContainerNotFoundException$, ContainerNotFoundException);
+export var DeleteObjectRequest$: StaticStructureSchema = [3, n0, _DOR, 0, [_P], [[0, 1]]];
+export var DeleteObjectResponse$: StaticStructureSchema = [3, n0, _DORe, 0, [], []];
+export var DescribeObjectRequest$: StaticStructureSchema = [3, n0, _DORes, 0, [_P], [[0, 1]]];
+export var DescribeObjectResponse$: StaticStructureSchema = [
   3,
   n0,
   _DOResc,
@@ -96,7 +96,7 @@ export var DescribeObjectResponse: StaticStructureSchema = [
     [4, { [_hH]: _LM_ }],
   ],
 ];
-export var GetObjectRequest: StaticStructureSchema = [
+export var GetObjectRequest$: StaticStructureSchema = [
   3,
   n0,
   _GOR,
@@ -107,7 +107,7 @@ export var GetObjectRequest: StaticStructureSchema = [
     [0, { [_hH]: _R }],
   ],
 ];
-export var GetObjectResponse: StaticStructureSchema = [
+export var GetObjectResponse$: StaticStructureSchema = [
   3,
   n0,
   _GORe,
@@ -124,10 +124,10 @@ export var GetObjectResponse: StaticStructureSchema = [
     [1, 32],
   ],
 ];
-export var InternalServerError: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InternalServerError, __InternalServerError);
-export var Item: StaticStructureSchema = [3, n0, _I, 0, [_N, _T, _ET, _LM, _CT, _CL], [0, 0, 0, 4, 0, 1]];
-export var ListItemsRequest: StaticStructureSchema = [
+export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se }, [_M], [0]];
+TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
+export var Item$: StaticStructureSchema = [3, n0, _I, 0, [_N, _T, _ET, _LM, _CT, _CL], [0, 0, 0, 4, 0, 1]];
+export var ListItemsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LIR,
@@ -139,10 +139,10 @@ export var ListItemsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _NT }],
   ],
 ];
-export var ListItemsResponse: StaticStructureSchema = [3, n0, _LIRi, 0, [_It, _NT], [() => ItemList, 0]];
-export var ObjectNotFoundException: StaticErrorSchema = [-3, n0, _ONFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ObjectNotFoundException, __ObjectNotFoundException);
-export var PutObjectRequest: StaticStructureSchema = [
+export var ListItemsResponse$: StaticStructureSchema = [3, n0, _LIRi, 0, [_It, _NT], [() => ItemList, 0]];
+export var ObjectNotFoundException$: StaticErrorSchema = [-3, n0, _ONFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
+TypeRegistry.for(n0).registerError(ObjectNotFoundException$, ObjectNotFoundException);
+export var PutObjectRequest$: StaticStructureSchema = [
   3,
   n0,
   _POR,
@@ -157,8 +157,8 @@ export var PutObjectRequest: StaticStructureSchema = [
     [0, { [_hH]: _xaua }],
   ],
 ];
-export var PutObjectResponse: StaticStructureSchema = [3, n0, _PORu, 0, [_CSHA, _ET, _SCt], [0, 0, 0]];
-export var RequestedRangeNotSatisfiableException: StaticErrorSchema = [
+export var PutObjectResponse$: StaticStructureSchema = [3, n0, _PORu, 0, [_CSHA, _ET, _SCt], [0, 0, 0]];
+export var RequestedRangeNotSatisfiableException$: StaticErrorSchema = [
   -3,
   n0,
   _RRNSE,
@@ -166,47 +166,47 @@ export var RequestedRangeNotSatisfiableException: StaticErrorSchema = [
   [_M],
   [0],
 ];
-TypeRegistry.for(n0).registerError(RequestedRangeNotSatisfiableException, __RequestedRangeNotSatisfiableException);
-export var MediaStoreDataServiceException: StaticErrorSchema = [-3, _sm, "MediaStoreDataServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MediaStoreDataServiceException, __MediaStoreDataServiceException);
-export var ItemList: StaticListSchema = [1, n0, _IL, 0, () => Item];
-export var DeleteObject: StaticOperationSchema = [
+TypeRegistry.for(n0).registerError(RequestedRangeNotSatisfiableException$, RequestedRangeNotSatisfiableException);
+export var MediaStoreDataServiceException$: StaticErrorSchema = [-3, _sm, "MediaStoreDataServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(MediaStoreDataServiceException$, MediaStoreDataServiceException);
+var ItemList: StaticListSchema = [1, n0, _IL, 0, () => Item$];
+export var DeleteObject$: StaticOperationSchema = [
   9,
   n0,
   _DO,
   { [_h]: ["DELETE", "/{Path+}", 200] },
-  () => DeleteObjectRequest,
-  () => DeleteObjectResponse,
+  () => DeleteObjectRequest$,
+  () => DeleteObjectResponse$,
 ];
-export var DescribeObject: StaticOperationSchema = [
+export var DescribeObject$: StaticOperationSchema = [
   9,
   n0,
   _DOe,
   { [_h]: ["HEAD", "/{Path+}", 200] },
-  () => DescribeObjectRequest,
-  () => DescribeObjectResponse,
+  () => DescribeObjectRequest$,
+  () => DescribeObjectResponse$,
 ];
-export var GetObject: StaticOperationSchema = [
+export var GetObject$: StaticOperationSchema = [
   9,
   n0,
   _GO,
   { [_h]: ["GET", "/{Path+}", 200] },
-  () => GetObjectRequest,
-  () => GetObjectResponse,
+  () => GetObjectRequest$,
+  () => GetObjectResponse$,
 ];
-export var ListItems: StaticOperationSchema = [
+export var ListItems$: StaticOperationSchema = [
   9,
   n0,
   _LI,
   { [_h]: ["GET", "/", 200] },
-  () => ListItemsRequest,
-  () => ListItemsResponse,
+  () => ListItemsRequest$,
+  () => ListItemsResponse$,
 ];
-export var PutObject: StaticOperationSchema = [
+export var PutObject$: StaticOperationSchema = [
   9,
   n0,
   _PO,
   { [_h]: ["PUT", "/{Path+}", 200] },
-  () => PutObjectRequest,
-  () => PutObjectResponse,
+  () => PutObjectRequest$,
+  () => PutObjectResponse$,
 ];

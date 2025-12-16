@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
 import type { DeleteComponentRequest } from "../models/models_0";
-import { DeleteComponent } from "../schemas/schemas_0";
+import { DeleteComponent$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class DeleteComponentCommand extends $Command
   })
   .s("GreengrassV2", "DeleteComponent", {})
   .n("GreengrassV2Client", "DeleteComponentCommand")
-  .sc(DeleteComponent)
+  .sc(DeleteComponent$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

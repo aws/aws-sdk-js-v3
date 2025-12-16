@@ -9,7 +9,7 @@ import type {
   BatchDeleteCustomVocabularyItemRequest,
   BatchDeleteCustomVocabularyItemResponse,
 } from "../models/models_0";
-import { BatchDeleteCustomVocabularyItem } from "../schemas/schemas_0";
+import { BatchDeleteCustomVocabularyItem$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class BatchDeleteCustomVocabularyItemCommand extends $Command
   })
   .s("LexModelBuildingServiceV2", "BatchDeleteCustomVocabularyItem", {})
   .n("LexModelsV2Client", "BatchDeleteCustomVocabularyItemCommand")
-  .sc(BatchDeleteCustomVocabularyItem)
+  .sc(BatchDeleteCustomVocabularyItem$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

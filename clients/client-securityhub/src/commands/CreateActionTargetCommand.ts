@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateActionTargetRequest, CreateActionTargetResponse } from "../models/models_2";
-import { CreateActionTarget } from "../schemas/schemas_0";
+import { CreateActionTarget$ } from "../schemas/schemas_0";
 import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
@@ -111,7 +111,7 @@ export class CreateActionTargetCommand extends $Command
   })
   .s("SecurityHubAPIService", "CreateActionTarget", {})
   .n("SecurityHubClient", "CreateActionTargetCommand")
-  .sc(CreateActionTarget)
+  .sc(CreateActionTarget$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

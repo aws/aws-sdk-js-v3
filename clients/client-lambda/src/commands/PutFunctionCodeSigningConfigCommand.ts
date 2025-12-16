@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import type { PutFunctionCodeSigningConfigRequest, PutFunctionCodeSigningConfigResponse } from "../models/models_0";
-import { PutFunctionCodeSigningConfig } from "../schemas/schemas_0";
+import { PutFunctionCodeSigningConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -95,7 +95,7 @@ export class PutFunctionCodeSigningConfigCommand extends $Command
   })
   .s("AWSGirApiService", "PutFunctionCodeSigningConfig", {})
   .n("LambdaClient", "PutFunctionCodeSigningConfigCommand")
-  .sc(PutFunctionCodeSigningConfig)
+  .sc(PutFunctionCodeSigningConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MarketplaceReportingClient";
 import type { GetBuyerDashboardInput, GetBuyerDashboardOutput } from "../models/models_0";
-import { GetBuyerDashboard } from "../schemas/schemas_0";
+import { GetBuyerDashboard$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -154,7 +154,7 @@ export class GetBuyerDashboardCommand extends $Command
   })
   .s("AWSMarketplaceReporting", "GetBuyerDashboard", {})
   .n("MarketplaceReportingClient", "GetBuyerDashboardCommand")
-  .sc(GetBuyerDashboard)
+  .sc(GetBuyerDashboard$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

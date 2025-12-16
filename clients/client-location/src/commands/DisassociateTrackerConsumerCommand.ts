@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import type { DisassociateTrackerConsumerRequest, DisassociateTrackerConsumerResponse } from "../models/models_0";
-import { DisassociateTrackerConsumer } from "../schemas/schemas_0";
+import { DisassociateTrackerConsumer$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class DisassociateTrackerConsumerCommand extends $Command
   })
   .s("LocationService", "DisassociateTrackerConsumer", {})
   .n("LocationClient", "DisassociateTrackerConsumerCommand")
-  .sc(DisassociateTrackerConsumer)
+  .sc(DisassociateTrackerConsumer$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

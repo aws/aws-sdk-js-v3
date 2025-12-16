@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import type { UpdateListRequest, UpdateListResult } from "../models/models_0";
-import { UpdateList } from "../schemas/schemas_0";
+import { UpdateList$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class UpdateListCommand extends $Command
   })
   .s("AWSHawksNestServiceFacade", "UpdateList", {})
   .n("FraudDetectorClient", "UpdateListCommand")
-  .sc(UpdateList)
+  .sc(UpdateList$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

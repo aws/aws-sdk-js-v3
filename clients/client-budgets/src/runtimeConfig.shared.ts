@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: BudgetsClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.budgets",
-        serviceTarget: "AWSBudgetServiceGateway",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.budgets",
+      version: "2016-10-20",
+      serviceTarget: "AWSBudgetServiceGateway",
+    },
     serviceId: config?.serviceId ?? "Budgets",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

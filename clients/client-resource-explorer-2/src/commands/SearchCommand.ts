@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceExplorer2Client";
-import { Search } from "../schemas/schemas_0";
+import { Search$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -120,7 +120,7 @@ export class SearchCommand extends $Command
   })
   .s("ResourceExplorer", "Search", {})
   .n("ResourceExplorer2Client", "SearchCommand")
-  .sc(Search)
+  .sc(Search$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

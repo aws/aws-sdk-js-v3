@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import type { PutProtocolsListRequest, PutProtocolsListResponse } from "../models/models_0";
-import { PutProtocolsList } from "../schemas/schemas_0";
+import { PutProtocolsList$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class PutProtocolsListCommand extends $Command
   })
   .s("AWSFMS_20180101", "PutProtocolsList", {})
   .n("FMSClient", "PutProtocolsListCommand")
-  .sc(PutProtocolsList)
+  .sc(PutProtocolsList$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

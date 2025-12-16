@@ -9,7 +9,7 @@ import type {
   PutBlockPublicAccessConfigurationInput,
   PutBlockPublicAccessConfigurationOutput,
 } from "../models/models_0";
-import { PutBlockPublicAccessConfiguration } from "../schemas/schemas_0";
+import { PutBlockPublicAccessConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class PutBlockPublicAccessConfigurationCommand extends $Command
   })
   .s("ElasticMapReduce", "PutBlockPublicAccessConfiguration", {})
   .n("EMRClient", "PutBlockPublicAccessConfigurationCommand")
-  .sc(PutBlockPublicAccessConfiguration)
+  .sc(PutBlockPublicAccessConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

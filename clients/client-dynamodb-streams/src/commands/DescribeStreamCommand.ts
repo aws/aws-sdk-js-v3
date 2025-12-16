@@ -10,7 +10,7 @@ import type {
 } from "../DynamoDBStreamsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DescribeStreamInput, DescribeStreamOutput } from "../models/models_0";
-import { DescribeStream } from "../schemas/schemas_0";
+import { DescribeStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -123,7 +123,7 @@ export class DescribeStreamCommand extends $Command
   })
   .s("DynamoDBStreams_20120810", "DescribeStream", {})
   .n("DynamoDBStreamsClient", "DescribeStreamCommand")
-  .sc(DescribeStream)
+  .sc(DescribeStream$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

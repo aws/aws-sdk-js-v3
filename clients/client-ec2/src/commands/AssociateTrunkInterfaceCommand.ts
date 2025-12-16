@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AssociateTrunkInterfaceRequest, AssociateTrunkInterfaceResult } from "../models/models_0";
-import { AssociateTrunkInterface } from "../schemas/schemas_0";
+import { AssociateTrunkInterface$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class AssociateTrunkInterfaceCommand extends $Command
   })
   .s("AmazonEC2", "AssociateTrunkInterface", {})
   .n("EC2Client", "AssociateTrunkInterfaceCommand")
-  .sc(AssociateTrunkInterface)
+  .sc(AssociateTrunkInterface$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

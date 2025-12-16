@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteTrainedModelOutputRequest } from "../models/models_0";
-import { DeleteTrainedModelOutput } from "../schemas/schemas_0";
+import { DeleteTrainedModelOutput$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeleteTrainedModelOutputCommand extends $Command
   })
   .s("AWSStarkControlService", "DeleteTrainedModelOutput", {})
   .n("CleanRoomsMLClient", "DeleteTrainedModelOutputCommand")
-  .sc(DeleteTrainedModelOutput)
+  .sc(DeleteTrainedModelOutput$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

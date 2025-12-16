@@ -9,7 +9,7 @@ import type {
   DisassociateTransitGatewayPolicyTableRequest,
   DisassociateTransitGatewayPolicyTableResult,
 } from "../models/models_5";
-import { DisassociateTransitGatewayPolicyTable } from "../schemas/schemas_0";
+import { DisassociateTransitGatewayPolicyTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class DisassociateTransitGatewayPolicyTableCommand extends $Command
   })
   .s("AmazonEC2", "DisassociateTransitGatewayPolicyTable", {})
   .n("EC2Client", "DisassociateTransitGatewayPolicyTableCommand")
-  .sc(DisassociateTransitGatewayPolicyTable)
+  .sc(DisassociateTransitGatewayPolicyTable$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import type { CreateDimensionRequest, CreateDimensionResponse } from "../models/models_0";
-import { CreateDimension } from "../schemas/schemas_0";
+import { CreateDimension$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class CreateDimensionCommand extends $Command
   })
   .s("AWSIotService", "CreateDimension", {})
   .n("IoTClient", "CreateDimensionCommand")
-  .sc(CreateDimension)
+  .sc(CreateDimension$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

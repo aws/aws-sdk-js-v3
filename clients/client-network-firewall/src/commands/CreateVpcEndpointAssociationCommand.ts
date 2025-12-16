@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../NetworkFirewallClient";
-import { CreateVpcEndpointAssociation } from "../schemas/schemas_0";
+import { CreateVpcEndpointAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -157,7 +157,7 @@ export class CreateVpcEndpointAssociationCommand extends $Command
   })
   .s("NetworkFirewall_20201112", "CreateVpcEndpointAssociation", {})
   .n("NetworkFirewallClient", "CreateVpcEndpointAssociationCommand")
-  .sc(CreateVpcEndpointAssociation)
+  .sc(CreateVpcEndpointAssociation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

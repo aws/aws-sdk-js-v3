@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import type { ListAdminsManagingAccountRequest, ListAdminsManagingAccountResponse } from "../models/models_0";
-import { ListAdminsManagingAccount } from "../schemas/schemas_0";
+import { ListAdminsManagingAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -87,7 +87,7 @@ export class ListAdminsManagingAccountCommand extends $Command
   })
   .s("AWSFMS_20180101", "ListAdminsManagingAccount", {})
   .n("FMSClient", "ListAdminsManagingAccountCommand")
-  .sc(ListAdminsManagingAccount)
+  .sc(ListAdminsManagingAccount$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

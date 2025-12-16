@@ -9,7 +9,7 @@ import type {
   DescribeOrganizationConformancePacksRequest,
   DescribeOrganizationConformancePacksResponse,
 } from "../models/models_0";
-import { DescribeOrganizationConformancePacks } from "../schemas/schemas_0";
+import { DescribeOrganizationConformancePacks$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -151,7 +151,7 @@ export class DescribeOrganizationConformancePacksCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeOrganizationConformancePacks", {})
   .n("ConfigServiceClient", "DescribeOrganizationConformancePacksCommand")
-  .sc(DescribeOrganizationConformancePacks)
+  .sc(DescribeOrganizationConformancePacks$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

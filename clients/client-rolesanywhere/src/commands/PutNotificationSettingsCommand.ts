@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { PutNotificationSettingsRequest, PutNotificationSettingsResponse } from "../models/models_0";
 import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
-import { PutNotificationSettings } from "../schemas/schemas_0";
+import { PutNotificationSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -164,7 +164,7 @@ export class PutNotificationSettingsCommand extends $Command
   })
   .s("RolesAnywhere", "PutNotificationSettings", {})
   .n("RolesAnywhereClient", "PutNotificationSettingsCommand")
-  .sc(PutNotificationSettings)
+  .sc(PutNotificationSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

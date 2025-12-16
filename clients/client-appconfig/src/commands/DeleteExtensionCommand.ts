@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteExtensionRequest } from "../models/models_0";
-import { DeleteExtension } from "../schemas/schemas_0";
+import { DeleteExtension$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -82,7 +82,7 @@ export class DeleteExtensionCommand extends $Command
   })
   .s("AmazonAppConfig", "DeleteExtension", {})
   .n("AppConfigClient", "DeleteExtensionCommand")
-  .sc(DeleteExtension)
+  .sc(DeleteExtension$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RevokeDBSecurityGroupIngressMessage, RevokeDBSecurityGroupIngressResult } from "../models/models_1";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { RevokeDBSecurityGroupIngress } from "../schemas/schemas_0";
+import { RevokeDBSecurityGroupIngress$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -137,7 +137,7 @@ export class RevokeDBSecurityGroupIngressCommand extends $Command
   })
   .s("AmazonRDSv19", "RevokeDBSecurityGroupIngress", {})
   .n("RDSClient", "RevokeDBSecurityGroupIngressCommand")
-  .sc(RevokeDBSecurityGroupIngress)
+  .sc(RevokeDBSecurityGroupIngress$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

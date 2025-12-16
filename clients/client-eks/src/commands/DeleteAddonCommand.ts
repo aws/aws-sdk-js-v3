@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAddonRequest, DeleteAddonResponse } from "../models/models_0";
-import { DeleteAddon } from "../schemas/schemas_0";
+import { DeleteAddon$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -135,7 +135,7 @@ export class DeleteAddonCommand extends $Command
   })
   .s("AWSWesleyFrontend", "DeleteAddon", {})
   .n("EKSClient", "DeleteAddonCommand")
-  .sc(DeleteAddon)
+  .sc(DeleteAddon$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

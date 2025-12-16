@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import type { UpdateStorageVirtualMachineRequest, UpdateStorageVirtualMachineResponse } from "../models/models_0";
-import { UpdateStorageVirtualMachine } from "../schemas/schemas_0";
+import { UpdateStorageVirtualMachine$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -172,7 +172,7 @@ export class UpdateStorageVirtualMachineCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "UpdateStorageVirtualMachine", {})
   .n("FSxClient", "UpdateStorageVirtualMachineCommand")
-  .sc(UpdateStorageVirtualMachine)
+  .sc(UpdateStorageVirtualMachine$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

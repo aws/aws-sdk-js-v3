@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import type { GetRegionsRequest, GetRegionsResult } from "../models/models_1";
-import { GetRegions } from "../schemas/schemas_0";
+import { GetRegions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -129,7 +129,7 @@ export class GetRegionsCommand extends $Command
   })
   .s("Lightsail_20161128", "GetRegions", {})
   .n("LightsailClient", "GetRegionsCommand")
-  .sc(GetRegions)
+  .sc(GetRegions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteADAssessmentRequest, DeleteADAssessmentResult } from "../models/models_0";
-import { DeleteADAssessment } from "../schemas/schemas_0";
+import { DeleteADAssessment$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class DeleteADAssessmentCommand extends $Command
   })
   .s("DirectoryService_20150416", "DeleteADAssessment", {})
   .n("DirectoryServiceClient", "DeleteADAssessmentCommand")
-  .sc(DeleteADAssessment)
+  .sc(DeleteADAssessment$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

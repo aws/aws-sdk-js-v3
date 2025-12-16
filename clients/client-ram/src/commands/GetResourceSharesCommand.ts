@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetResourceSharesRequest, GetResourceSharesResponse } from "../models/models_0";
 import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { GetResourceShares } from "../schemas/schemas_0";
+import { GetResourceShares$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class GetResourceSharesCommand extends $Command
   })
   .s("AmazonResourceSharing", "GetResourceShares", {})
   .n("RAMClient", "GetResourceSharesCommand")
-  .sc(GetResourceShares)
+  .sc(GetResourceShares$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

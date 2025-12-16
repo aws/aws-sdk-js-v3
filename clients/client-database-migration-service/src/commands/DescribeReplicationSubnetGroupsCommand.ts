@@ -13,7 +13,7 @@ import type {
   DescribeReplicationSubnetGroupsMessage,
   DescribeReplicationSubnetGroupsResponse,
 } from "../models/models_0";
-import { DescribeReplicationSubnetGroups } from "../schemas/schemas_0";
+import { DescribeReplicationSubnetGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -141,7 +141,7 @@ export class DescribeReplicationSubnetGroupsCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeReplicationSubnetGroups", {})
   .n("DatabaseMigrationServiceClient", "DescribeReplicationSubnetGroupsCommand")
-  .sc(DescribeReplicationSubnetGroups)
+  .sc(DescribeReplicationSubnetGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

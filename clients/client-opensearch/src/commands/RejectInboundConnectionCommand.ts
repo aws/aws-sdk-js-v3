@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RejectInboundConnectionRequest, RejectInboundConnectionResponse } from "../models/models_0";
 import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
-import { RejectInboundConnection } from "../schemas/schemas_0";
+import { RejectInboundConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -101,7 +101,7 @@ export class RejectInboundConnectionCommand extends $Command
   })
   .s("AmazonOpenSearchService", "RejectInboundConnection", {})
   .n("OpenSearchClient", "RejectInboundConnectionCommand")
-  .sc(RejectInboundConnection)
+  .sc(RejectInboundConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

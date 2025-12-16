@@ -31,13 +31,13 @@ export const getRuntimeConfig = (config: DAXClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_1Protocol({
-        defaultNamespace: "com.amazonaws.dax",
-        serviceTarget: "AmazonDAXV3",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_1Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.dax",
+      xmlNamespace: "http://dax.amazonaws.com/doc/2017-04-19/",
+      version: "2017-04-19",
+      serviceTarget: "AmazonDAXV3",
+    },
     serviceId: config?.serviceId ?? "DAX",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

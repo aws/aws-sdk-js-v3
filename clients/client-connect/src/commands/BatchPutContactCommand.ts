@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BatchPutContactRequest, BatchPutContactResponse } from "../models/models_0";
-import { BatchPutContact } from "../schemas/schemas_0";
+import { BatchPutContact$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -146,7 +146,7 @@ export class BatchPutContactCommand extends $Command
   })
   .s("AmazonConnectService", "BatchPutContact", {})
   .n("ConnectClient", "BatchPutContactCommand")
-  .sc(BatchPutContact)
+  .sc(BatchPutContact$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

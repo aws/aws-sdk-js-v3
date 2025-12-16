@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateJobStatusRequest } from "../models/models_0";
 import type { UpdateJobStatusResult } from "../models/models_1";
 import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { UpdateJobStatus } from "../schemas/schemas_0";
+import { UpdateJobStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -131,7 +131,7 @@ export class UpdateJobStatusCommand extends $Command
   })
   .s("AWSS3ControlServiceV20180820", "UpdateJobStatus", {})
   .n("S3ControlClient", "UpdateJobStatusCommand")
-  .sc(UpdateJobStatus)
+  .sc(UpdateJobStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

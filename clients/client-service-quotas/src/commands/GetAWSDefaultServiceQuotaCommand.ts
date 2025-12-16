@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetAWSDefaultServiceQuotaRequest, GetAWSDefaultServiceQuotaResponse } from "../models/models_0";
-import { GetAWSDefaultServiceQuota } from "../schemas/schemas_0";
+import { GetAWSDefaultServiceQuota$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
@@ -124,7 +124,7 @@ export class GetAWSDefaultServiceQuotaCommand extends $Command
   })
   .s("ServiceQuotasV20190624", "GetAWSDefaultServiceQuota", {})
   .n("ServiceQuotasClient", "GetAWSDefaultServiceQuotaCommand")
-  .sc(GetAWSDefaultServiceQuota)
+  .sc(GetAWSDefaultServiceQuota$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

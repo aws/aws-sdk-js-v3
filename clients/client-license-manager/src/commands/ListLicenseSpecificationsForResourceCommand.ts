@@ -13,7 +13,7 @@ import type {
   ListLicenseSpecificationsForResourceRequest,
   ListLicenseSpecificationsForResourceResponse,
 } from "../models/models_0";
-import { ListLicenseSpecificationsForResource } from "../schemas/schemas_0";
+import { ListLicenseSpecificationsForResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class ListLicenseSpecificationsForResourceCommand extends $Command
   })
   .s("AWSLicenseManager", "ListLicenseSpecificationsForResource", {})
   .n("LicenseManagerClient", "ListLicenseSpecificationsForResourceCommand")
-  .sc(ListLicenseSpecificationsForResource)
+  .sc(ListLicenseSpecificationsForResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

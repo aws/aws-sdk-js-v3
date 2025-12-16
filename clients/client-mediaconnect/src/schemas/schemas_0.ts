@@ -1108,26 +1108,26 @@ import type {
 } from "@smithy/types";
 
 import {
-  AddFlowOutputs420Exception as __AddFlowOutputs420Exception,
-  BadRequestException as __BadRequestException,
-  ConflictException as __ConflictException,
-  CreateBridge420Exception as __CreateBridge420Exception,
-  CreateFlow420Exception as __CreateFlow420Exception,
-  CreateGateway420Exception as __CreateGateway420Exception,
-  ForbiddenException as __ForbiddenException,
-  GrantFlowEntitlements420Exception as __GrantFlowEntitlements420Exception,
-  InternalServerErrorException as __InternalServerErrorException,
-  NotFoundException as __NotFoundException,
-  RouterInputServiceQuotaExceededException as __RouterInputServiceQuotaExceededException,
-  RouterNetworkInterfaceServiceQuotaExceededException as __RouterNetworkInterfaceServiceQuotaExceededException,
-  RouterOutputServiceQuotaExceededException as __RouterOutputServiceQuotaExceededException,
-  ServiceUnavailableException as __ServiceUnavailableException,
-  TooManyRequestsException as __TooManyRequestsException,
+  AddFlowOutputs420Exception,
+  BadRequestException,
+  ConflictException,
+  CreateBridge420Exception,
+  CreateFlow420Exception,
+  CreateGateway420Exception,
+  ForbiddenException,
+  GrantFlowEntitlements420Exception,
+  InternalServerErrorException,
+  NotFoundException,
+  RouterInputServiceQuotaExceededException,
+  RouterNetworkInterfaceServiceQuotaExceededException,
+  RouterOutputServiceQuotaExceededException,
+  ServiceUnavailableException,
+  TooManyRequestsException,
 } from "../models/errors";
-import { MediaConnectServiceException as __MediaConnectServiceException } from "../models/MediaConnectServiceException";
+import { MediaConnectServiceException } from "../models/MediaConnectServiceException";
 
 /* eslint no-var: 0 */
-export var AddBridgeFlowSourceRequest: StaticStructureSchema = [
+export var AddBridgeFlowSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _ABFSR,
@@ -1135,11 +1135,11 @@ export var AddBridgeFlowSourceRequest: StaticStructureSchema = [
   [_FA, _FVIA, _N],
   [
     [0, { [_jN]: _fA }],
-    [() => VpcInterfaceAttachment, { [_jN]: _fVIA }],
+    [() => VpcInterfaceAttachment$, { [_jN]: _fVIA }],
     [0, { [_jN]: _n }],
   ],
 ];
-export var AddBridgeNetworkOutputRequest: StaticStructureSchema = [
+export var AddBridgeNetworkOutputRequest$: StaticStructureSchema = [
   3,
   n0,
   _ABNOR,
@@ -1154,7 +1154,7 @@ export var AddBridgeNetworkOutputRequest: StaticStructureSchema = [
     [1, { [_jN]: _t }],
   ],
 ];
-export var AddBridgeNetworkSourceRequest: StaticStructureSchema = [
+export var AddBridgeNetworkSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _ABNSR,
@@ -1162,22 +1162,22 @@ export var AddBridgeNetworkSourceRequest: StaticStructureSchema = [
   [_MI, _MSS, _N, _NN, _P, _Pr],
   [
     [0, { [_jN]: _mI }],
-    [() => MulticastSourceSettings, { [_jN]: _mSS }],
+    [() => MulticastSourceSettings$, { [_jN]: _mSS }],
     [0, { [_jN]: _n }],
     [0, { [_jN]: _nN }],
     [1, { [_jN]: _p }],
     [0, { [_jN]: _pr }],
   ],
 ];
-export var AddBridgeOutputRequest: StaticStructureSchema = [
+export var AddBridgeOutputRequest$: StaticStructureSchema = [
   3,
   n0,
   _ABOR,
   0,
   [_NO],
-  [[() => AddBridgeNetworkOutputRequest, { [_jN]: _nO }]],
+  [[() => AddBridgeNetworkOutputRequest$, { [_jN]: _nO }]],
 ];
-export var AddBridgeOutputsRequest: StaticStructureSchema = [
+export var AddBridgeOutputsRequest$: StaticStructureSchema = [
   3,
   n0,
   _ABORd,
@@ -1188,7 +1188,7 @@ export var AddBridgeOutputsRequest: StaticStructureSchema = [
     [() => __listOfAddBridgeOutputRequest, { [_jN]: _o }],
   ],
 ];
-export var AddBridgeOutputsResponse: StaticStructureSchema = [
+export var AddBridgeOutputsResponse$: StaticStructureSchema = [
   3,
   n0,
   _ABORdd,
@@ -1199,18 +1199,18 @@ export var AddBridgeOutputsResponse: StaticStructureSchema = [
     [() => __listOfBridgeOutput, { [_jN]: _o }],
   ],
 ];
-export var AddBridgeSourceRequest: StaticStructureSchema = [
+export var AddBridgeSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _ABSR,
   0,
   [_FS, _NS],
   [
-    [() => AddBridgeFlowSourceRequest, { [_jN]: _fS }],
-    [() => AddBridgeNetworkSourceRequest, { [_jN]: _nS }],
+    [() => AddBridgeFlowSourceRequest$, { [_jN]: _fS }],
+    [() => AddBridgeNetworkSourceRequest$, { [_jN]: _nS }],
   ],
 ];
-export var AddBridgeSourcesRequest: StaticStructureSchema = [
+export var AddBridgeSourcesRequest$: StaticStructureSchema = [
   3,
   n0,
   _ABSRd,
@@ -1221,7 +1221,7 @@ export var AddBridgeSourcesRequest: StaticStructureSchema = [
     [() => __listOfAddBridgeSourceRequest, { [_jN]: _s }],
   ],
 ];
-export var AddBridgeSourcesResponse: StaticStructureSchema = [
+export var AddBridgeSourcesResponse$: StaticStructureSchema = [
   3,
   n0,
   _ABSRdd,
@@ -1232,8 +1232,8 @@ export var AddBridgeSourcesResponse: StaticStructureSchema = [
     [() => __listOfBridgeSource, { [_jN]: _s }],
   ],
 ];
-export var AddEgressGatewayBridgeRequest: StaticStructureSchema = [3, n0, _AEGBR, 0, [_MB], [[1, { [_jN]: _mB }]]];
-export var AddFlowMediaStreamsRequest: StaticStructureSchema = [
+export var AddEgressGatewayBridgeRequest$: StaticStructureSchema = [3, n0, _AEGBR, 0, [_MB], [[1, { [_jN]: _mB }]]];
+export var AddFlowMediaStreamsRequest$: StaticStructureSchema = [
   3,
   n0,
   _AFMSR,
@@ -1244,7 +1244,7 @@ export var AddFlowMediaStreamsRequest: StaticStructureSchema = [
     [() => __listOfAddMediaStreamRequest, { [_jN]: _mS }],
   ],
 ];
-export var AddFlowMediaStreamsResponse: StaticStructureSchema = [
+export var AddFlowMediaStreamsResponse$: StaticStructureSchema = [
   3,
   n0,
   _AFMSRd,
@@ -1255,7 +1255,7 @@ export var AddFlowMediaStreamsResponse: StaticStructureSchema = [
     [() => __listOfMediaStream, { [_jN]: _mS }],
   ],
 ];
-export var AddFlowOutputs420Exception: StaticErrorSchema = [
+export var AddFlowOutputs420Exception$: StaticErrorSchema = [
   -3,
   n0,
   _AFOE,
@@ -1263,8 +1263,8 @@ export var AddFlowOutputs420Exception: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(AddFlowOutputs420Exception, __AddFlowOutputs420Exception);
-export var AddFlowOutputsRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(AddFlowOutputs420Exception$, AddFlowOutputs420Exception);
+export var AddFlowOutputsRequest$: StaticStructureSchema = [
   3,
   n0,
   _AFOR,
@@ -1275,7 +1275,7 @@ export var AddFlowOutputsRequest: StaticStructureSchema = [
     [() => __listOfAddOutputRequest, { [_jN]: _o }],
   ],
 ];
-export var AddFlowOutputsResponse: StaticStructureSchema = [
+export var AddFlowOutputsResponse$: StaticStructureSchema = [
   3,
   n0,
   _AFORd,
@@ -1286,7 +1286,7 @@ export var AddFlowOutputsResponse: StaticStructureSchema = [
     [() => __listOfOutput, { [_jN]: _o }],
   ],
 ];
-export var AddFlowSourcesRequest: StaticStructureSchema = [
+export var AddFlowSourcesRequest$: StaticStructureSchema = [
   3,
   n0,
   _AFSR,
@@ -1297,7 +1297,7 @@ export var AddFlowSourcesRequest: StaticStructureSchema = [
     [() => __listOfSetSourceRequest, { [_jN]: _s }],
   ],
 ];
-export var AddFlowSourcesResponse: StaticStructureSchema = [
+export var AddFlowSourcesResponse$: StaticStructureSchema = [
   3,
   n0,
   _AFSRd,
@@ -1308,7 +1308,7 @@ export var AddFlowSourcesResponse: StaticStructureSchema = [
     [() => __listOfSource, { [_jN]: _s }],
   ],
 ];
-export var AddFlowVpcInterfacesRequest: StaticStructureSchema = [
+export var AddFlowVpcInterfacesRequest$: StaticStructureSchema = [
   3,
   n0,
   _AFVIR,
@@ -1319,7 +1319,7 @@ export var AddFlowVpcInterfacesRequest: StaticStructureSchema = [
     [() => __listOfVpcInterfaceRequest, { [_jN]: _vI }],
   ],
 ];
-export var AddFlowVpcInterfacesResponse: StaticStructureSchema = [
+export var AddFlowVpcInterfacesResponse$: StaticStructureSchema = [
   3,
   n0,
   _AFVIRd,
@@ -1330,7 +1330,7 @@ export var AddFlowVpcInterfacesResponse: StaticStructureSchema = [
     [() => __listOfVpcInterface, { [_jN]: _vI }],
   ],
 ];
-export var AddIngressGatewayBridgeRequest: StaticStructureSchema = [
+export var AddIngressGatewayBridgeRequest$: StaticStructureSchema = [
   3,
   n0,
   _AIGBR,
@@ -1341,7 +1341,7 @@ export var AddIngressGatewayBridgeRequest: StaticStructureSchema = [
     [1, { [_jN]: _mO }],
   ],
 ];
-export var AddMaintenance: StaticStructureSchema = [
+export var AddMaintenance$: StaticStructureSchema = [
   3,
   n0,
   _AM,
@@ -1352,14 +1352,14 @@ export var AddMaintenance: StaticStructureSchema = [
     [0, { [_jN]: _mSH }],
   ],
 ];
-export var AddMediaStreamRequest: StaticStructureSchema = [
+export var AddMediaStreamRequest$: StaticStructureSchema = [
   3,
   n0,
   _AMSR,
   0,
   [_A, _CR, _D, _MSI, _MSN, _MST, _VF, _MSTe],
   [
-    [() => MediaStreamAttributesRequest, { [_jN]: _a }],
+    [() => MediaStreamAttributesRequest$, { [_jN]: _a }],
     [1, { [_jN]: _cR }],
     [0, { [_jN]: _d }],
     [1, { [_jN]: _mSI }],
@@ -1369,7 +1369,7 @@ export var AddMediaStreamRequest: StaticStructureSchema = [
     [128 | 0, { [_jN]: _mSTe }],
   ],
 ];
-export var AddOutputRequest: StaticStructureSchema = [
+export var AddOutputRequest$: StaticStructureSchema = [
   3,
   n0,
   _AOR,
@@ -1379,7 +1379,7 @@ export var AddOutputRequest: StaticStructureSchema = [
     [64 | 0, { [_jN]: _cAL }],
     [0, { [_jN]: _d }],
     [0, { [_jN]: _de }],
-    [() => Encryption, { [_jN]: _en }],
+    [() => Encryption$, { [_jN]: _en }],
     [1, { [_jN]: _mL }],
     [() => __listOfMediaStreamOutputConfigurationRequest, { [_jN]: _mSOC }],
     [1, { [_jN]: _mLi }],
@@ -1390,25 +1390,25 @@ export var AddOutputRequest: StaticStructureSchema = [
     [1, { [_jN]: _sCP }],
     [1, { [_jN]: _sL }],
     [0, { [_jN]: _sI }],
-    [() => VpcInterfaceAttachment, { [_jN]: _vIA }],
+    [() => VpcInterfaceAttachment$, { [_jN]: _vIA }],
     [0, { [_jN]: _oS }],
     [1, { [_jN]: _nSHQ }],
     [0, { [_jN]: _nPN }],
     [128 | 0, { [_jN]: _oT }],
     [0, { [_jN]: _rIS }],
-    [() => FlowTransitEncryption, { [_jN]: _rITE }],
+    [() => FlowTransitEncryption$, { [_jN]: _rITE }],
   ],
 ];
-export var AudioMonitoringSetting: StaticStructureSchema = [
+export var AudioMonitoringSetting$: StaticStructureSchema = [
   3,
   n0,
   _AMS,
   0,
   [_SA],
-  [[() => SilentAudio, { [_jN]: _sA }]],
+  [[() => SilentAudio$, { [_jN]: _sA }]],
 ];
-export var AutomaticEncryptionKeyConfiguration: StaticStructureSchema = [3, n0, _AEKC, 0, [], []];
-export var BadRequestException: StaticErrorSchema = [
+export var AutomaticEncryptionKeyConfiguration$: StaticStructureSchema = [3, n0, _AEKC, 0, [], []];
+export var BadRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _BRE,
@@ -1416,8 +1416,8 @@ export var BadRequestException: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(BadRequestException, __BadRequestException);
-export var BatchGetRouterInputError: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+export var BatchGetRouterInputError$: StaticStructureSchema = [
   3,
   n0,
   _BGRIE,
@@ -1429,8 +1429,8 @@ export var BatchGetRouterInputError: StaticStructureSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-export var BatchGetRouterInputRequest: StaticStructureSchema = [3, n0, _BGRIR, 0, [_Arn], [[64 | 0, { [_hQ]: _arn }]]];
-export var BatchGetRouterInputResponse: StaticStructureSchema = [
+export var BatchGetRouterInputRequest$: StaticStructureSchema = [3, n0, _BGRIR, 0, [_Arn], [[64 | 0, { [_hQ]: _arn }]]];
+export var BatchGetRouterInputResponse$: StaticStructureSchema = [
   3,
   n0,
   _BGRIRa,
@@ -1441,7 +1441,7 @@ export var BatchGetRouterInputResponse: StaticStructureSchema = [
     [() => BatchGetRouterInputErrorList, { [_jN]: _er }],
   ],
 ];
-export var BatchGetRouterNetworkInterfaceError: StaticStructureSchema = [
+export var BatchGetRouterNetworkInterfaceError$: StaticStructureSchema = [
   3,
   n0,
   _BGRNIE,
@@ -1453,7 +1453,7 @@ export var BatchGetRouterNetworkInterfaceError: StaticStructureSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-export var BatchGetRouterNetworkInterfaceRequest: StaticStructureSchema = [
+export var BatchGetRouterNetworkInterfaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _BGRNIR,
@@ -1461,7 +1461,7 @@ export var BatchGetRouterNetworkInterfaceRequest: StaticStructureSchema = [
   [_Arn],
   [[64 | 0, { [_hQ]: _arn }]],
 ];
-export var BatchGetRouterNetworkInterfaceResponse: StaticStructureSchema = [
+export var BatchGetRouterNetworkInterfaceResponse$: StaticStructureSchema = [
   3,
   n0,
   _BGRNIRa,
@@ -1472,7 +1472,7 @@ export var BatchGetRouterNetworkInterfaceResponse: StaticStructureSchema = [
     [() => BatchGetRouterNetworkInterfaceErrorList, { [_jN]: _er }],
   ],
 ];
-export var BatchGetRouterOutputError: StaticStructureSchema = [
+export var BatchGetRouterOutputError$: StaticStructureSchema = [
   3,
   n0,
   _BGROE,
@@ -1484,8 +1484,15 @@ export var BatchGetRouterOutputError: StaticStructureSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-export var BatchGetRouterOutputRequest: StaticStructureSchema = [3, n0, _BGROR, 0, [_Arn], [[64 | 0, { [_hQ]: _arn }]]];
-export var BatchGetRouterOutputResponse: StaticStructureSchema = [
+export var BatchGetRouterOutputRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _BGROR,
+  0,
+  [_Arn],
+  [[64 | 0, { [_hQ]: _arn }]],
+];
+export var BatchGetRouterOutputResponse$: StaticStructureSchema = [
   3,
   n0,
   _BGRORa,
@@ -1496,7 +1503,7 @@ export var BatchGetRouterOutputResponse: StaticStructureSchema = [
     [() => BatchGetRouterOutputErrorList, { [_jN]: _er }],
   ],
 ];
-export var BlackFrames: StaticStructureSchema = [
+export var BlackFrames$: StaticStructureSchema = [
   3,
   n0,
   _BF,
@@ -1507,7 +1514,7 @@ export var BlackFrames: StaticStructureSchema = [
     [1, { [_jN]: _tS }],
   ],
 ];
-export var Bridge: StaticStructureSchema = [
+export var Bridge$: StaticStructureSchema = [
   3,
   n0,
   _B,
@@ -1517,16 +1524,16 @@ export var Bridge: StaticStructureSchema = [
     [0, { [_jN]: _bA }],
     [() => __listOfMessageDetail, { [_jN]: _bM }],
     [0, { [_jN]: _bS }],
-    [() => EgressGatewayBridge, { [_jN]: _eGB }],
-    [() => IngressGatewayBridge, { [_jN]: _iGB }],
+    [() => EgressGatewayBridge$, { [_jN]: _eGB }],
+    [() => IngressGatewayBridge$, { [_jN]: _iGB }],
     [0, { [_jN]: _n }],
     [() => __listOfBridgeOutput, { [_jN]: _o }],
     [0, { [_jN]: _pA }],
-    [() => FailoverConfig, { [_jN]: _sFC }],
+    [() => FailoverConfig$, { [_jN]: _sFC }],
     [() => __listOfBridgeSource, { [_jN]: _s }],
   ],
 ];
-export var BridgeFlowOutput: StaticStructureSchema = [
+export var BridgeFlowOutput$: StaticStructureSchema = [
   3,
   n0,
   _BFO,
@@ -1538,7 +1545,7 @@ export var BridgeFlowOutput: StaticStructureSchema = [
     [0, { [_jN]: _n }],
   ],
 ];
-export var BridgeFlowSource: StaticStructureSchema = [
+export var BridgeFlowSource$: StaticStructureSchema = [
   3,
   n0,
   _BFS,
@@ -1546,12 +1553,12 @@ export var BridgeFlowSource: StaticStructureSchema = [
   [_FA, _FVIA, _N, _OA],
   [
     [0, { [_jN]: _fA }],
-    [() => VpcInterfaceAttachment, { [_jN]: _fVIA }],
+    [() => VpcInterfaceAttachment$, { [_jN]: _fVIA }],
     [0, { [_jN]: _n }],
     [0, { [_jN]: _oA }],
   ],
 ];
-export var BridgeNetworkOutput: StaticStructureSchema = [
+export var BridgeNetworkOutput$: StaticStructureSchema = [
   3,
   n0,
   _BNO,
@@ -1566,7 +1573,7 @@ export var BridgeNetworkOutput: StaticStructureSchema = [
     [1, { [_jN]: _t }],
   ],
 ];
-export var BridgeNetworkSource: StaticStructureSchema = [
+export var BridgeNetworkSource$: StaticStructureSchema = [
   3,
   n0,
   _BNS,
@@ -1574,38 +1581,38 @@ export var BridgeNetworkSource: StaticStructureSchema = [
   [_MI, _MSS, _N, _NN, _P, _Pr],
   [
     [0, { [_jN]: _mI }],
-    [() => MulticastSourceSettings, { [_jN]: _mSS }],
+    [() => MulticastSourceSettings$, { [_jN]: _mSS }],
     [0, { [_jN]: _n }],
     [0, { [_jN]: _nN }],
     [1, { [_jN]: _p }],
     [0, { [_jN]: _pr }],
   ],
 ];
-export var BridgeOutput: StaticStructureSchema = [
+export var BridgeOutput$: StaticStructureSchema = [
   3,
   n0,
   _BO,
   0,
   [_FO, _NO],
   [
-    [() => BridgeFlowOutput, { [_jN]: _fO }],
-    [() => BridgeNetworkOutput, { [_jN]: _nO }],
+    [() => BridgeFlowOutput$, { [_jN]: _fO }],
+    [() => BridgeNetworkOutput$, { [_jN]: _nO }],
   ],
 ];
-export var BridgeSource: StaticStructureSchema = [
+export var BridgeSource$: StaticStructureSchema = [
   3,
   n0,
   _BSr,
   0,
   [_FS, _NS],
   [
-    [() => BridgeFlowSource, { [_jN]: _fS }],
-    [() => BridgeNetworkSource, { [_jN]: _nS }],
+    [() => BridgeFlowSource$, { [_jN]: _fS }],
+    [() => BridgeNetworkSource$, { [_jN]: _nS }],
   ],
 ];
-export var ConflictException: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [[0, { [_jN]: _m }]]];
-TypeRegistry.for(n0).registerError(ConflictException, __ConflictException);
-export var CreateBridge420Exception: StaticErrorSchema = [
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [[0, { [_jN]: _m }]]];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CreateBridge420Exception$: StaticErrorSchema = [
   -3,
   n0,
   _CBE,
@@ -1613,25 +1620,25 @@ export var CreateBridge420Exception: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(CreateBridge420Exception, __CreateBridge420Exception);
-export var CreateBridgeRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(CreateBridge420Exception$, CreateBridge420Exception);
+export var CreateBridgeRequest$: StaticStructureSchema = [
   3,
   n0,
   _CBR,
   0,
   [_EGB, _IGB, _N, _O, _PA, _SFC, _S],
   [
-    [() => AddEgressGatewayBridgeRequest, { [_jN]: _eGB }],
-    [() => AddIngressGatewayBridgeRequest, { [_jN]: _iGB }],
+    [() => AddEgressGatewayBridgeRequest$, { [_jN]: _eGB }],
+    [() => AddIngressGatewayBridgeRequest$, { [_jN]: _iGB }],
     [0, { [_jN]: _n }],
     [() => __listOfAddBridgeOutputRequest, { [_jN]: _o }],
     [0, { [_jN]: _pA }],
-    [() => FailoverConfig, { [_jN]: _sFC }],
+    [() => FailoverConfig$, { [_jN]: _sFC }],
     [() => __listOfAddBridgeSourceRequest, { [_jN]: _s }],
   ],
 ];
-export var CreateBridgeResponse: StaticStructureSchema = [3, n0, _CBRr, 0, [_B], [[() => Bridge, { [_jN]: _b }]]];
-export var CreateFlow420Exception: StaticErrorSchema = [
+export var CreateBridgeResponse$: StaticStructureSchema = [3, n0, _CBRr, 0, [_B], [[() => Bridge$, { [_jN]: _b }]]];
+export var CreateFlow420Exception$: StaticErrorSchema = [
   -3,
   n0,
   _CFE,
@@ -1639,8 +1646,8 @@ export var CreateFlow420Exception: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(CreateFlow420Exception, __CreateFlow420Exception);
-export var CreateFlowRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(CreateFlow420Exception$, CreateFlow420Exception);
+export var CreateFlowRequest$: StaticStructureSchema = [
   3,
   n0,
   _CFR,
@@ -1652,19 +1659,19 @@ export var CreateFlowRequest: StaticStructureSchema = [
     [() => __listOfAddMediaStreamRequest, { [_jN]: _mS }],
     [0, { [_jN]: _n }],
     [() => __listOfAddOutputRequest, { [_jN]: _o }],
-    [() => SetSourceRequest, { [_jN]: _so }],
-    [() => FailoverConfig, { [_jN]: _sFC }],
+    [() => SetSourceRequest$, { [_jN]: _so }],
+    [() => FailoverConfig$, { [_jN]: _sFC }],
     [() => __listOfSetSourceRequest, { [_jN]: _s }],
     [() => __listOfVpcInterfaceRequest, { [_jN]: _vI }],
-    [() => AddMaintenance, { [_jN]: _ma }],
-    [() => MonitoringConfig, { [_jN]: _sMC }],
+    [() => AddMaintenance$, { [_jN]: _ma }],
+    [() => MonitoringConfig$, { [_jN]: _sMC }],
     [0, { [_jN]: _fSl }],
-    [() => NdiConfig, { [_jN]: _nC }],
+    [() => NdiConfig$, { [_jN]: _nC }],
     [128 | 0, { [_jN]: _fT }],
   ],
 ];
-export var CreateFlowResponse: StaticStructureSchema = [3, n0, _CFRr, 0, [_F], [[() => Flow, { [_jN]: _f }]]];
-export var CreateGateway420Exception: StaticErrorSchema = [
+export var CreateFlowResponse$: StaticStructureSchema = [3, n0, _CFRr, 0, [_F], [[() => Flow$, { [_jN]: _f }]]];
+export var CreateGateway420Exception$: StaticErrorSchema = [
   -3,
   n0,
   _CGE,
@@ -1672,8 +1679,8 @@ export var CreateGateway420Exception: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(CreateGateway420Exception, __CreateGateway420Exception);
-export var CreateGatewayRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(CreateGateway420Exception$, CreateGateway420Exception);
+export var CreateGatewayRequest$: StaticStructureSchema = [
   3,
   n0,
   _CGR,
@@ -1685,8 +1692,8 @@ export var CreateGatewayRequest: StaticStructureSchema = [
     [() => __listOfGatewayNetwork, { [_jN]: _ne }],
   ],
 ];
-export var CreateGatewayResponse: StaticStructureSchema = [3, n0, _CGRr, 0, [_G], [[() => Gateway, { [_jN]: _g }]]];
-export var CreateRouterInputRequest: StaticStructureSchema = [
+export var CreateGatewayResponse$: StaticStructureSchema = [3, n0, _CGRr, 0, [_G], [[() => Gateway$, { [_jN]: _g }]]];
+export var CreateRouterInputRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRIR,
@@ -1694,27 +1701,27 @@ export var CreateRouterInputRequest: StaticStructureSchema = [
   [_N, _Co, _MBa, _RS, _Ti, _RN, _AZ, _TE, _MC, _Ta, _CT],
   [
     [0, { [_jN]: _n }],
-    [() => RouterInputConfiguration, { [_jN]: _con }],
+    [() => RouterInputConfiguration$, { [_jN]: _con }],
     [1, { [_jN]: _mBa }],
     [0, { [_jN]: _rS }],
     [0, { [_jN]: _ti }],
     [0, { [_jN]: _rN }],
     [0, { [_jN]: _aZ }],
-    [() => RouterInputTransitEncryption, { [_jN]: _tE }],
-    [() => MaintenanceConfiguration, { [_jN]: _mC }],
+    [() => RouterInputTransitEncryption$, { [_jN]: _tE }],
+    [() => MaintenanceConfiguration$, { [_jN]: _mC }],
     [128 | 0, { [_jN]: _ta }],
     [0, { [_jN]: _cT, [_iT]: 1 }],
   ],
 ];
-export var CreateRouterInputResponse: StaticStructureSchema = [
+export var CreateRouterInputResponse$: StaticStructureSchema = [
   3,
   n0,
   _CRIRr,
   0,
   [_RIou],
-  [[() => RouterInput, { [_jN]: _rIou }]],
+  [[() => RouterInput$, { [_jN]: _rIou }]],
 ];
-export var CreateRouterNetworkInterfaceRequest: StaticStructureSchema = [
+export var CreateRouterNetworkInterfaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _CRNIR,
@@ -1722,21 +1729,21 @@ export var CreateRouterNetworkInterfaceRequest: StaticStructureSchema = [
   [_N, _Co, _RN, _Ta, _CT],
   [
     [0, { [_jN]: _n }],
-    [() => RouterNetworkInterfaceConfiguration, { [_jN]: _con }],
+    [() => RouterNetworkInterfaceConfiguration$, { [_jN]: _con }],
     [0, { [_jN]: _rN }],
     [128 | 0, { [_jN]: _ta }],
     [0, { [_jN]: _cT, [_iT]: 1 }],
   ],
 ];
-export var CreateRouterNetworkInterfaceResponse: StaticStructureSchema = [
+export var CreateRouterNetworkInterfaceResponse$: StaticStructureSchema = [
   3,
   n0,
   _CRNIRr,
   0,
   [_RNIo],
-  [[() => RouterNetworkInterface, { [_jN]: _rNIo }]],
+  [[() => RouterNetworkInterface$, { [_jN]: _rNIo }]],
 ];
-export var CreateRouterOutputRequest: StaticStructureSchema = [
+export var CreateRouterOutputRequest$: StaticStructureSchema = [
   3,
   n0,
   _CROR,
@@ -1744,30 +1751,30 @@ export var CreateRouterOutputRequest: StaticStructureSchema = [
   [_N, _Co, _MBa, _RS, _Ti, _RN, _AZ, _MC, _Ta, _CT],
   [
     [0, { [_jN]: _n }],
-    [() => RouterOutputConfiguration, { [_jN]: _con }],
+    [() => RouterOutputConfiguration$, { [_jN]: _con }],
     [1, { [_jN]: _mBa }],
     [0, { [_jN]: _rS }],
     [0, { [_jN]: _ti }],
     [0, { [_jN]: _rN }],
     [0, { [_jN]: _aZ }],
-    [() => MaintenanceConfiguration, { [_jN]: _mC }],
+    [() => MaintenanceConfiguration$, { [_jN]: _mC }],
     [128 | 0, { [_jN]: _ta }],
     [0, { [_jN]: _cT, [_iT]: 1 }],
   ],
 ];
-export var CreateRouterOutputResponse: StaticStructureSchema = [
+export var CreateRouterOutputResponse$: StaticStructureSchema = [
   3,
   n0,
   _CRORr,
   0,
   [_ROo],
-  [[() => RouterOutput, { [_jN]: _rOo }]],
+  [[() => RouterOutput$, { [_jN]: _rOo }]],
 ];
-export var DefaultMaintenanceConfiguration: StaticStructureSchema = [3, n0, _DMC, 0, [], []];
-export var DeleteBridgeRequest: StaticStructureSchema = [3, n0, _DBR, 0, [_BA], [[0, 1]]];
-export var DeleteBridgeResponse: StaticStructureSchema = [3, n0, _DBRe, 0, [_BA], [[0, { [_jN]: _bA }]]];
-export var DeleteFlowRequest: StaticStructureSchema = [3, n0, _DFR, 0, [_FA], [[0, 1]]];
-export var DeleteFlowResponse: StaticStructureSchema = [
+export var DefaultMaintenanceConfiguration$: StaticStructureSchema = [3, n0, _DMC, 0, [], []];
+export var DeleteBridgeRequest$: StaticStructureSchema = [3, n0, _DBR, 0, [_BA], [[0, 1]]];
+export var DeleteBridgeResponse$: StaticStructureSchema = [3, n0, _DBRe, 0, [_BA], [[0, { [_jN]: _bA }]]];
+export var DeleteFlowRequest$: StaticStructureSchema = [3, n0, _DFR, 0, [_FA], [[0, 1]]];
+export var DeleteFlowResponse$: StaticStructureSchema = [
   3,
   n0,
   _DFRe,
@@ -1778,10 +1785,10 @@ export var DeleteFlowResponse: StaticStructureSchema = [
     [0, { [_jN]: _sta }],
   ],
 ];
-export var DeleteGatewayRequest: StaticStructureSchema = [3, n0, _DGR, 0, [_GA], [[0, 1]]];
-export var DeleteGatewayResponse: StaticStructureSchema = [3, n0, _DGRe, 0, [_GA], [[0, { [_jN]: _gA }]]];
-export var DeleteRouterInputRequest: StaticStructureSchema = [3, n0, _DRIR, 0, [_Ar], [[0, 1]]];
-export var DeleteRouterInputResponse: StaticStructureSchema = [
+export var DeleteGatewayRequest$: StaticStructureSchema = [3, n0, _DGR, 0, [_GA], [[0, 1]]];
+export var DeleteGatewayResponse$: StaticStructureSchema = [3, n0, _DGRe, 0, [_GA], [[0, { [_jN]: _gA }]]];
+export var DeleteRouterInputRequest$: StaticStructureSchema = [3, n0, _DRIR, 0, [_Ar], [[0, 1]]];
+export var DeleteRouterInputResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRIRe,
@@ -1793,8 +1800,8 @@ export var DeleteRouterInputResponse: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var DeleteRouterNetworkInterfaceRequest: StaticStructureSchema = [3, n0, _DRNIR, 0, [_Ar], [[0, 1]]];
-export var DeleteRouterNetworkInterfaceResponse: StaticStructureSchema = [
+export var DeleteRouterNetworkInterfaceRequest$: StaticStructureSchema = [3, n0, _DRNIR, 0, [_Ar], [[0, 1]]];
+export var DeleteRouterNetworkInterfaceResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRNIRe,
@@ -1806,8 +1813,8 @@ export var DeleteRouterNetworkInterfaceResponse: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var DeleteRouterOutputRequest: StaticStructureSchema = [3, n0, _DROR, 0, [_Ar], [[0, 1]]];
-export var DeleteRouterOutputResponse: StaticStructureSchema = [
+export var DeleteRouterOutputRequest$: StaticStructureSchema = [3, n0, _DROR, 0, [_Ar], [[0, 1]]];
+export var DeleteRouterOutputResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRORe,
@@ -1819,7 +1826,7 @@ export var DeleteRouterOutputResponse: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var DeregisterGatewayInstanceRequest: StaticStructureSchema = [
+export var DeregisterGatewayInstanceRequest$: StaticStructureSchema = [
   3,
   n0,
   _DGIR,
@@ -1830,7 +1837,7 @@ export var DeregisterGatewayInstanceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var DeregisterGatewayInstanceResponse: StaticStructureSchema = [
+export var DeregisterGatewayInstanceResponse$: StaticStructureSchema = [
   3,
   n0,
   _DGIRe,
@@ -1841,22 +1848,22 @@ export var DeregisterGatewayInstanceResponse: StaticStructureSchema = [
     [0, { [_jN]: _iS }],
   ],
 ];
-export var DescribeBridgeRequest: StaticStructureSchema = [3, n0, _DBRes, 0, [_BA], [[0, 1]]];
-export var DescribeBridgeResponse: StaticStructureSchema = [3, n0, _DBResc, 0, [_B], [[() => Bridge, { [_jN]: _b }]]];
-export var DescribeFlowRequest: StaticStructureSchema = [3, n0, _DFRes, 0, [_FA], [[0, 1]]];
-export var DescribeFlowResponse: StaticStructureSchema = [
+export var DescribeBridgeRequest$: StaticStructureSchema = [3, n0, _DBRes, 0, [_BA], [[0, 1]]];
+export var DescribeBridgeResponse$: StaticStructureSchema = [3, n0, _DBResc, 0, [_B], [[() => Bridge$, { [_jN]: _b }]]];
+export var DescribeFlowRequest$: StaticStructureSchema = [3, n0, _DFRes, 0, [_FA], [[0, 1]]];
+export var DescribeFlowResponse$: StaticStructureSchema = [
   3,
   n0,
   _DFResc,
   0,
   [_F, _Me],
   [
-    [() => Flow, { [_jN]: _f }],
-    [() => Messages, { [_jN]: _me }],
+    [() => Flow$, { [_jN]: _f }],
+    [() => Messages$, { [_jN]: _me }],
   ],
 ];
-export var DescribeFlowSourceMetadataRequest: StaticStructureSchema = [3, n0, _DFSMR, 0, [_FA], [[0, 1]]];
-export var DescribeFlowSourceMetadataResponse: StaticStructureSchema = [
+export var DescribeFlowSourceMetadataRequest$: StaticStructureSchema = [3, n0, _DFSMR, 0, [_FA], [[0, 1]]];
+export var DescribeFlowSourceMetadataResponse$: StaticStructureSchema = [
   3,
   n0,
   _DFSMRe,
@@ -1866,48 +1873,55 @@ export var DescribeFlowSourceMetadataResponse: StaticStructureSchema = [
     [0, { [_jN]: _fA }],
     [() => __listOfMessageDetail, { [_jN]: _me }],
     [5, { [_jN]: _tim }],
-    [() => TransportMediaInfo, { [_jN]: _tMI }],
+    [() => TransportMediaInfo$, { [_jN]: _tMI }],
   ],
 ];
-export var DescribeFlowSourceThumbnailRequest: StaticStructureSchema = [3, n0, _DFSTR, 0, [_FA], [[0, 1]]];
-export var DescribeFlowSourceThumbnailResponse: StaticStructureSchema = [
+export var DescribeFlowSourceThumbnailRequest$: StaticStructureSchema = [3, n0, _DFSTR, 0, [_FA], [[0, 1]]];
+export var DescribeFlowSourceThumbnailResponse$: StaticStructureSchema = [
   3,
   n0,
   _DFSTRe,
   0,
   [_TD],
-  [[() => ThumbnailDetails, { [_jN]: _tD }]],
+  [[() => ThumbnailDetails$, { [_jN]: _tD }]],
 ];
-export var DescribeGatewayInstanceRequest: StaticStructureSchema = [3, n0, _DGIRes, 0, [_GIA], [[0, 1]]];
-export var DescribeGatewayInstanceResponse: StaticStructureSchema = [
+export var DescribeGatewayInstanceRequest$: StaticStructureSchema = [3, n0, _DGIRes, 0, [_GIA], [[0, 1]]];
+export var DescribeGatewayInstanceResponse$: StaticStructureSchema = [
   3,
   n0,
   _DGIResc,
   0,
   [_GI],
-  [[() => GatewayInstance, { [_jN]: _gI }]],
+  [[() => GatewayInstance$, { [_jN]: _gI }]],
 ];
-export var DescribeGatewayRequest: StaticStructureSchema = [3, n0, _DGRes, 0, [_GA], [[0, 1]]];
-export var DescribeGatewayResponse: StaticStructureSchema = [3, n0, _DGResc, 0, [_G], [[() => Gateway, { [_jN]: _g }]]];
-export var DescribeOfferingRequest: StaticStructureSchema = [3, n0, _DOR, 0, [_OAf], [[0, 1]]];
-export var DescribeOfferingResponse: StaticStructureSchema = [
+export var DescribeGatewayRequest$: StaticStructureSchema = [3, n0, _DGRes, 0, [_GA], [[0, 1]]];
+export var DescribeGatewayResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _DGResc,
+  0,
+  [_G],
+  [[() => Gateway$, { [_jN]: _g }]],
+];
+export var DescribeOfferingRequest$: StaticStructureSchema = [3, n0, _DOR, 0, [_OAf], [[0, 1]]];
+export var DescribeOfferingResponse$: StaticStructureSchema = [
   3,
   n0,
   _DORe,
   0,
   [_Of],
-  [[() => Offering, { [_jN]: _of }]],
+  [[() => Offering$, { [_jN]: _of }]],
 ];
-export var DescribeReservationRequest: StaticStructureSchema = [3, n0, _DRR, 0, [_RA], [[0, 1]]];
-export var DescribeReservationResponse: StaticStructureSchema = [
+export var DescribeReservationRequest$: StaticStructureSchema = [3, n0, _DRR, 0, [_RA], [[0, 1]]];
+export var DescribeReservationResponse$: StaticStructureSchema = [
   3,
   n0,
   _DRRe,
   0,
   [_R],
-  [[() => Reservation, { [_jN]: _r }]],
+  [[() => Reservation$, { [_jN]: _r }]],
 ];
-export var DestinationConfiguration: StaticStructureSchema = [
+export var DestinationConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _DC,
@@ -1916,11 +1930,11 @@ export var DestinationConfiguration: StaticStructureSchema = [
   [
     [0, { [_jN]: _dI }],
     [1, { [_jN]: _dP }],
-    [() => Interface, { [_jN]: _i }],
+    [() => Interface$, { [_jN]: _i }],
     [0, { [_jN]: _oI }],
   ],
 ];
-export var DestinationConfigurationRequest: StaticStructureSchema = [
+export var DestinationConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _DCR,
@@ -1929,10 +1943,10 @@ export var DestinationConfigurationRequest: StaticStructureSchema = [
   [
     [0, { [_jN]: _dI }],
     [1, { [_jN]: _dP }],
-    [() => InterfaceRequest, { [_jN]: _i }],
+    [() => InterfaceRequest$, { [_jN]: _i }],
   ],
 ];
-export var EgressGatewayBridge: StaticStructureSchema = [
+export var EgressGatewayBridge$: StaticStructureSchema = [
   3,
   n0,
   _EGB,
@@ -1943,7 +1957,7 @@ export var EgressGatewayBridge: StaticStructureSchema = [
     [1, { [_jN]: _mB }],
   ],
 ];
-export var EncodingParameters: StaticStructureSchema = [
+export var EncodingParameters$: StaticStructureSchema = [
   3,
   n0,
   _EP,
@@ -1954,7 +1968,7 @@ export var EncodingParameters: StaticStructureSchema = [
     [0, { [_jN]: _eP }],
   ],
 ];
-export var EncodingParametersRequest: StaticStructureSchema = [
+export var EncodingParametersRequest$: StaticStructureSchema = [
   3,
   n0,
   _EPR,
@@ -1965,7 +1979,7 @@ export var EncodingParametersRequest: StaticStructureSchema = [
     [0, { [_jN]: _eP }],
   ],
 ];
-export var Encryption: StaticStructureSchema = [
+export var Encryption$: StaticStructureSchema = [
   3,
   n0,
   _E,
@@ -1983,7 +1997,7 @@ export var Encryption: StaticStructureSchema = [
     [0, { [_jN]: _u }],
   ],
 ];
-export var Entitlement: StaticStructureSchema = [
+export var Entitlement$: StaticStructureSchema = [
   3,
   n0,
   _Ent,
@@ -1992,14 +2006,14 @@ export var Entitlement: StaticStructureSchema = [
   [
     [1, { [_jN]: _dTSFP }],
     [0, { [_jN]: _d }],
-    [() => Encryption, { [_jN]: _en }],
+    [() => Encryption$, { [_jN]: _en }],
     [0, { [_jN]: _eA }],
     [0, { [_jN]: _eS }],
     [0, { [_jN]: _n }],
     [64 | 0, { [_jN]: _su }],
   ],
 ];
-export var FailoverConfig: StaticStructureSchema = [
+export var FailoverConfig$: StaticStructureSchema = [
   3,
   n0,
   _FC,
@@ -2008,11 +2022,11 @@ export var FailoverConfig: StaticStructureSchema = [
   [
     [0, { [_jN]: _fM }],
     [1, { [_jN]: _rW }],
-    [() => SourcePriority, { [_jN]: _sP }],
+    [() => SourcePriority$, { [_jN]: _sP }],
     [0, { [_jN]: _st }],
   ],
 ];
-export var FailoverRouterInputConfiguration: StaticStructureSchema = [
+export var FailoverRouterInputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _FRIC,
@@ -2025,7 +2039,7 @@ export var FailoverRouterInputConfiguration: StaticStructureSchema = [
     [1, { [_jN]: _pSI }],
   ],
 ];
-export var FailoverRouterInputIndexedStreamDetails: StaticStructureSchema = [
+export var FailoverRouterInputIndexedStreamDetails$: StaticStructureSchema = [
   3,
   n0,
   _FRIISD,
@@ -2036,18 +2050,18 @@ export var FailoverRouterInputIndexedStreamDetails: StaticStructureSchema = [
     [0, { [_jN]: _sIA }],
   ],
 ];
-export var FailoverRouterInputStreamDetails: StaticStructureSchema = [
+export var FailoverRouterInputStreamDetails$: StaticStructureSchema = [
   3,
   n0,
   _FRISD,
   0,
   [_SIZSD, _SIOSD],
   [
-    [() => FailoverRouterInputIndexedStreamDetails, { [_jN]: _sIZSD }],
-    [() => FailoverRouterInputIndexedStreamDetails, { [_jN]: _sIOSD }],
+    [() => FailoverRouterInputIndexedStreamDetails$, { [_jN]: _sIZSD }],
+    [() => FailoverRouterInputIndexedStreamDetails$, { [_jN]: _sIOSD }],
   ],
 ];
-export var Flow: StaticStructureSchema = [
+export var Flow$: StaticStructureSchema = [
   3,
   n0,
   _F,
@@ -2062,18 +2076,18 @@ export var Flow: StaticStructureSchema = [
     [() => __listOfMediaStream, { [_jN]: _mS }],
     [0, { [_jN]: _n }],
     [() => __listOfOutput, { [_jN]: _o }],
-    [() => Source, { [_jN]: _so }],
-    [() => FailoverConfig, { [_jN]: _sFC }],
+    [() => Source$, { [_jN]: _so }],
+    [() => FailoverConfig$, { [_jN]: _sFC }],
     [() => __listOfSource, { [_jN]: _s }],
     [0, { [_jN]: _sta }],
     [() => __listOfVpcInterface, { [_jN]: _vI }],
-    [() => Maintenance, { [_jN]: _ma }],
-    [() => MonitoringConfig, { [_jN]: _sMC }],
+    [() => Maintenance$, { [_jN]: _ma }],
+    [() => MonitoringConfig$, { [_jN]: _sMC }],
     [0, { [_jN]: _fSl }],
-    [() => NdiConfig, { [_jN]: _nC }],
+    [() => NdiConfig$, { [_jN]: _nC }],
   ],
 ];
-export var FlowTransitEncryption: StaticStructureSchema = [
+export var FlowTransitEncryption$: StaticStructureSchema = [
   3,
   n0,
   _FTE,
@@ -2081,10 +2095,10 @@ export var FlowTransitEncryption: StaticStructureSchema = [
   [_EKT, _EKC],
   [
     [0, { [_jN]: _eKT }],
-    [() => FlowTransitEncryptionKeyConfiguration, { [_jN]: _eKC }],
+    [() => FlowTransitEncryptionKeyConfiguration$, { [_jN]: _eKC }],
   ],
 ];
-export var Fmtp: StaticStructureSchema = [
+export var Fmtp$: StaticStructureSchema = [
   3,
   n0,
   _Fm,
@@ -2100,7 +2114,7 @@ export var Fmtp: StaticStructureSchema = [
     [0, { [_jN]: _tc }],
   ],
 ];
-export var FmtpRequest: StaticStructureSchema = [
+export var FmtpRequest$: StaticStructureSchema = [
   3,
   n0,
   _FR,
@@ -2116,9 +2130,9 @@ export var FmtpRequest: StaticStructureSchema = [
     [0, { [_jN]: _tc }],
   ],
 ];
-export var ForbiddenException: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_M], [[0, { [_jN]: _m }]]];
-TypeRegistry.for(n0).registerError(ForbiddenException, __ForbiddenException);
-export var FrameResolution: StaticStructureSchema = [
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_M], [[0, { [_jN]: _m }]]];
+TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
+export var FrameResolution$: StaticStructureSchema = [
   3,
   n0,
   _FRr,
@@ -2129,7 +2143,7 @@ export var FrameResolution: StaticStructureSchema = [
     [1, { [_jN]: _fW }],
   ],
 ];
-export var FrozenFrames: StaticStructureSchema = [
+export var FrozenFrames$: StaticStructureSchema = [
   3,
   n0,
   _FF,
@@ -2140,7 +2154,7 @@ export var FrozenFrames: StaticStructureSchema = [
     [1, { [_jN]: _tS }],
   ],
 ];
-export var Gateway: StaticStructureSchema = [
+export var Gateway$: StaticStructureSchema = [
   3,
   n0,
   _G,
@@ -2155,7 +2169,7 @@ export var Gateway: StaticStructureSchema = [
     [() => __listOfGatewayNetwork, { [_jN]: _ne }],
   ],
 ];
-export var GatewayBridgeSource: StaticStructureSchema = [
+export var GatewayBridgeSource$: StaticStructureSchema = [
   3,
   n0,
   _GBS,
@@ -2163,10 +2177,10 @@ export var GatewayBridgeSource: StaticStructureSchema = [
   [_BA, _VIA],
   [
     [0, { [_jN]: _bA }],
-    [() => VpcInterfaceAttachment, { [_jN]: _vIA }],
+    [() => VpcInterfaceAttachment$, { [_jN]: _vIA }],
   ],
 ];
-export var GatewayInstance: StaticStructureSchema = [
+export var GatewayInstance$: StaticStructureSchema = [
   3,
   n0,
   _GI,
@@ -2183,7 +2197,7 @@ export var GatewayInstance: StaticStructureSchema = [
     [1, { [_jN]: _rBC }],
   ],
 ];
-export var GatewayNetwork: StaticStructureSchema = [
+export var GatewayNetwork$: StaticStructureSchema = [
   3,
   n0,
   _GN,
@@ -2194,17 +2208,17 @@ export var GatewayNetwork: StaticStructureSchema = [
     [0, { [_jN]: _n }],
   ],
 ];
-export var GetRouterInputRequest: StaticStructureSchema = [3, n0, _GRIR, 0, [_Ar], [[0, 1]]];
-export var GetRouterInputResponse: StaticStructureSchema = [
+export var GetRouterInputRequest$: StaticStructureSchema = [3, n0, _GRIR, 0, [_Ar], [[0, 1]]];
+export var GetRouterInputResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRIRe,
   0,
   [_RIou],
-  [[() => RouterInput, { [_jN]: _rIou }]],
+  [[() => RouterInput$, { [_jN]: _rIou }]],
 ];
-export var GetRouterInputSourceMetadataRequest: StaticStructureSchema = [3, n0, _GRISMR, 0, [_Ar], [[0, 1]]];
-export var GetRouterInputSourceMetadataResponse: StaticStructureSchema = [
+export var GetRouterInputSourceMetadataRequest$: StaticStructureSchema = [3, n0, _GRISMR, 0, [_Ar], [[0, 1]]];
+export var GetRouterInputSourceMetadataResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRISMRe,
@@ -2213,11 +2227,11 @@ export var GetRouterInputSourceMetadataResponse: StaticStructureSchema = [
   [
     [0, { [_jN]: _ar }],
     [0, { [_jN]: _n }],
-    [() => RouterInputSourceMetadataDetails, { [_jN]: _sMD }],
+    [() => RouterInputSourceMetadataDetails$, { [_jN]: _sMD }],
   ],
 ];
-export var GetRouterInputThumbnailRequest: StaticStructureSchema = [3, n0, _GRITR, 0, [_Ar], [[0, 1]]];
-export var GetRouterInputThumbnailResponse: StaticStructureSchema = [
+export var GetRouterInputThumbnailRequest$: StaticStructureSchema = [3, n0, _GRITR, 0, [_Ar], [[0, 1]]];
+export var GetRouterInputThumbnailResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRITRe,
@@ -2226,28 +2240,28 @@ export var GetRouterInputThumbnailResponse: StaticStructureSchema = [
   [
     [0, { [_jN]: _ar }],
     [0, { [_jN]: _n }],
-    [() => RouterInputThumbnailDetails, { [_jN]: _tD }],
+    [() => RouterInputThumbnailDetails$, { [_jN]: _tD }],
   ],
 ];
-export var GetRouterNetworkInterfaceRequest: StaticStructureSchema = [3, n0, _GRNIR, 0, [_Ar], [[0, 1]]];
-export var GetRouterNetworkInterfaceResponse: StaticStructureSchema = [
+export var GetRouterNetworkInterfaceRequest$: StaticStructureSchema = [3, n0, _GRNIR, 0, [_Ar], [[0, 1]]];
+export var GetRouterNetworkInterfaceResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRNIRe,
   0,
   [_RNIo],
-  [[() => RouterNetworkInterface, { [_jN]: _rNIo }]],
+  [[() => RouterNetworkInterface$, { [_jN]: _rNIo }]],
 ];
-export var GetRouterOutputRequest: StaticStructureSchema = [3, n0, _GROR, 0, [_Ar], [[0, 1]]];
-export var GetRouterOutputResponse: StaticStructureSchema = [
+export var GetRouterOutputRequest$: StaticStructureSchema = [3, n0, _GROR, 0, [_Ar], [[0, 1]]];
+export var GetRouterOutputResponse$: StaticStructureSchema = [
   3,
   n0,
   _GRORe,
   0,
   [_ROo],
-  [[() => RouterOutput, { [_jN]: _rOo }]],
+  [[() => RouterOutput$, { [_jN]: _rOo }]],
 ];
-export var GrantEntitlementRequest: StaticStructureSchema = [
+export var GrantEntitlementRequest$: StaticStructureSchema = [
   3,
   n0,
   _GER,
@@ -2256,14 +2270,14 @@ export var GrantEntitlementRequest: StaticStructureSchema = [
   [
     [1, { [_jN]: _dTSFP }],
     [0, { [_jN]: _d }],
-    [() => Encryption, { [_jN]: _en }],
+    [() => Encryption$, { [_jN]: _en }],
     [0, { [_jN]: _eS }],
     [0, { [_jN]: _n }],
     [64 | 0, { [_jN]: _su }],
     [128 | 0, { [_jN]: _eT }],
   ],
 ];
-export var GrantFlowEntitlements420Exception: StaticErrorSchema = [
+export var GrantFlowEntitlements420Exception$: StaticErrorSchema = [
   -3,
   n0,
   _GFEE,
@@ -2271,8 +2285,8 @@ export var GrantFlowEntitlements420Exception: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(GrantFlowEntitlements420Exception, __GrantFlowEntitlements420Exception);
-export var GrantFlowEntitlementsRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(GrantFlowEntitlements420Exception$, GrantFlowEntitlements420Exception);
+export var GrantFlowEntitlementsRequest$: StaticStructureSchema = [
   3,
   n0,
   _GFER,
@@ -2283,7 +2297,7 @@ export var GrantFlowEntitlementsRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var GrantFlowEntitlementsResponse: StaticStructureSchema = [
+export var GrantFlowEntitlementsResponse$: StaticStructureSchema = [
   3,
   n0,
   _GFERr,
@@ -2294,7 +2308,7 @@ export var GrantFlowEntitlementsResponse: StaticStructureSchema = [
     [0, { [_jN]: _fA }],
   ],
 ];
-export var IngressGatewayBridge: StaticStructureSchema = [
+export var IngressGatewayBridge$: StaticStructureSchema = [
   3,
   n0,
   _IGB,
@@ -2306,7 +2320,7 @@ export var IngressGatewayBridge: StaticStructureSchema = [
     [1, { [_jN]: _mO }],
   ],
 ];
-export var InputConfiguration: StaticStructureSchema = [
+export var InputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _IC,
@@ -2315,10 +2329,10 @@ export var InputConfiguration: StaticStructureSchema = [
   [
     [0, { [_jN]: _iIn }],
     [1, { [_jN]: _iP }],
-    [() => Interface, { [_jN]: _i }],
+    [() => Interface$, { [_jN]: _i }],
   ],
 ];
-export var InputConfigurationRequest: StaticStructureSchema = [
+export var InputConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _ICR,
@@ -2326,12 +2340,12 @@ export var InputConfigurationRequest: StaticStructureSchema = [
   [_IP, _I],
   [
     [1, { [_jN]: _iP }],
-    [() => InterfaceRequest, { [_jN]: _i }],
+    [() => InterfaceRequest$, { [_jN]: _i }],
   ],
 ];
-export var Interface: StaticStructureSchema = [3, n0, _I, 0, [_N], [[0, { [_jN]: _n }]]];
-export var InterfaceRequest: StaticStructureSchema = [3, n0, _IR, 0, [_N], [[0, { [_jN]: _n }]]];
-export var InternalServerErrorException: StaticErrorSchema = [
+export var Interface$: StaticStructureSchema = [3, n0, _I, 0, [_N], [[0, { [_jN]: _n }]]];
+export var InterfaceRequest$: StaticStructureSchema = [3, n0, _IR, 0, [_N], [[0, { [_jN]: _n }]]];
+export var InternalServerErrorException$: StaticErrorSchema = [
   -3,
   n0,
   _ISEE,
@@ -2339,8 +2353,8 @@ export var InternalServerErrorException: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(InternalServerErrorException, __InternalServerErrorException);
-export var ListBridgesRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
+export var ListBridgesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LBR,
@@ -2352,7 +2366,7 @@ export var ListBridgesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListBridgesResponse: StaticStructureSchema = [
+export var ListBridgesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LBRi,
@@ -2363,7 +2377,7 @@ export var ListBridgesResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListedBridge: StaticStructureSchema = [
+export var ListedBridge$: StaticStructureSchema = [
   3,
   n0,
   _LB,
@@ -2377,7 +2391,7 @@ export var ListedBridge: StaticStructureSchema = [
     [0, { [_jN]: _pA }],
   ],
 ];
-export var ListedEntitlement: StaticStructureSchema = [
+export var ListedEntitlement$: StaticStructureSchema = [
   3,
   n0,
   _LE,
@@ -2389,7 +2403,7 @@ export var ListedEntitlement: StaticStructureSchema = [
     [0, { [_jN]: _eN }],
   ],
 ];
-export var ListedFlow: StaticStructureSchema = [
+export var ListedFlow$: StaticStructureSchema = [
   3,
   n0,
   _LF,
@@ -2402,10 +2416,10 @@ export var ListedFlow: StaticStructureSchema = [
     [0, { [_jN]: _n }],
     [0, { [_jN]: _sT }],
     [0, { [_jN]: _sta }],
-    [() => Maintenance, { [_jN]: _ma }],
+    [() => Maintenance$, { [_jN]: _ma }],
   ],
 ];
-export var ListedGateway: StaticStructureSchema = [
+export var ListedGateway$: StaticStructureSchema = [
   3,
   n0,
   _LG,
@@ -2417,7 +2431,7 @@ export var ListedGateway: StaticStructureSchema = [
     [0, { [_jN]: _n }],
   ],
 ];
-export var ListedGatewayInstance: StaticStructureSchema = [
+export var ListedGatewayInstance$: StaticStructureSchema = [
   3,
   n0,
   _LGI,
@@ -2430,7 +2444,7 @@ export var ListedGatewayInstance: StaticStructureSchema = [
     [0, { [_jN]: _iS }],
   ],
 ];
-export var ListedRouterInput: StaticStructureSchema = [
+export var ListedRouterInput$: StaticStructureSchema = [
   3,
   n0,
   _LRI,
@@ -2452,10 +2466,10 @@ export var ListedRouterInput: StaticStructureSchema = [
     [1, { [_jN]: _mCe }],
     [0, { [_jN]: _nIA }],
     [0, { [_jN]: _mSTa }],
-    [() => MaintenanceSchedule, { [_jN]: _mSa }],
+    [() => MaintenanceSchedule$, { [_jN]: _mSa }],
   ],
 ];
-export var ListedRouterNetworkInterface: StaticStructureSchema = [
+export var ListedRouterNetworkInterface$: StaticStructureSchema = [
   3,
   n0,
   _LRNI,
@@ -2474,7 +2488,7 @@ export var ListedRouterNetworkInterface: StaticStructureSchema = [
     [5, { [_jN]: _uA }],
   ],
 ];
-export var ListedRouterOutput: StaticStructureSchema = [
+export var ListedRouterOutput$: StaticStructureSchema = [
   3,
   n0,
   _LRO,
@@ -2497,10 +2511,10 @@ export var ListedRouterOutput: StaticStructureSchema = [
     [0, { [_jN]: _rIA }],
     [0, { [_jN]: _nIA }],
     [0, { [_jN]: _mSTa }],
-    [() => MaintenanceSchedule, { [_jN]: _mSa }],
+    [() => MaintenanceSchedule$, { [_jN]: _mSa }],
   ],
 ];
-export var ListEntitlementsRequest: StaticStructureSchema = [
+export var ListEntitlementsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LER,
@@ -2511,7 +2525,7 @@ export var ListEntitlementsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListEntitlementsResponse: StaticStructureSchema = [
+export var ListEntitlementsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LERi,
@@ -2522,7 +2536,7 @@ export var ListEntitlementsResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListFlowsRequest: StaticStructureSchema = [
+export var ListFlowsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LFR,
@@ -2533,7 +2547,7 @@ export var ListFlowsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListFlowsResponse: StaticStructureSchema = [
+export var ListFlowsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LFRi,
@@ -2544,7 +2558,7 @@ export var ListFlowsResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListGatewayInstancesRequest: StaticStructureSchema = [
+export var ListGatewayInstancesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LGIR,
@@ -2556,7 +2570,7 @@ export var ListGatewayInstancesRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListGatewayInstancesResponse: StaticStructureSchema = [
+export var ListGatewayInstancesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LGIRi,
@@ -2567,7 +2581,7 @@ export var ListGatewayInstancesResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListGatewaysRequest: StaticStructureSchema = [
+export var ListGatewaysRequest$: StaticStructureSchema = [
   3,
   n0,
   _LGR,
@@ -2578,7 +2592,7 @@ export var ListGatewaysRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListGatewaysResponse: StaticStructureSchema = [
+export var ListGatewaysResponse$: StaticStructureSchema = [
   3,
   n0,
   _LGRi,
@@ -2589,7 +2603,7 @@ export var ListGatewaysResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListOfferingsRequest: StaticStructureSchema = [
+export var ListOfferingsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LOR,
@@ -2600,7 +2614,7 @@ export var ListOfferingsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListOfferingsResponse: StaticStructureSchema = [
+export var ListOfferingsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LORi,
@@ -2611,7 +2625,7 @@ export var ListOfferingsResponse: StaticStructureSchema = [
     [() => __listOfOffering, { [_jN]: _off }],
   ],
 ];
-export var ListReservationsRequest: StaticStructureSchema = [
+export var ListReservationsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRR,
@@ -2622,7 +2636,7 @@ export var ListReservationsRequest: StaticStructureSchema = [
     [0, { [_hQ]: _nT }],
   ],
 ];
-export var ListReservationsResponse: StaticStructureSchema = [
+export var ListReservationsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRRi,
@@ -2633,7 +2647,7 @@ export var ListReservationsResponse: StaticStructureSchema = [
     [() => __listOfReservation, { [_jN]: _res }],
   ],
 ];
-export var ListRouterInputsRequest: StaticStructureSchema = [
+export var ListRouterInputsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRIR,
@@ -2645,7 +2659,7 @@ export var ListRouterInputsRequest: StaticStructureSchema = [
     [() => RouterInputFilterList, { [_jN]: _fi }],
   ],
 ];
-export var ListRouterInputsResponse: StaticStructureSchema = [
+export var ListRouterInputsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRIRi,
@@ -2656,7 +2670,7 @@ export var ListRouterInputsResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListRouterNetworkInterfacesRequest: StaticStructureSchema = [
+export var ListRouterNetworkInterfacesRequest$: StaticStructureSchema = [
   3,
   n0,
   _LRNIR,
@@ -2668,7 +2682,7 @@ export var ListRouterNetworkInterfacesRequest: StaticStructureSchema = [
     [() => RouterNetworkInterfaceFilterList, { [_jN]: _fi }],
   ],
 ];
-export var ListRouterNetworkInterfacesResponse: StaticStructureSchema = [
+export var ListRouterNetworkInterfacesResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRNIRi,
@@ -2679,7 +2693,7 @@ export var ListRouterNetworkInterfacesResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListRouterOutputsRequest: StaticStructureSchema = [
+export var ListRouterOutputsRequest$: StaticStructureSchema = [
   3,
   n0,
   _LROR,
@@ -2691,7 +2705,7 @@ export var ListRouterOutputsRequest: StaticStructureSchema = [
     [() => RouterOutputFilterList, { [_jN]: _fi }],
   ],
 ];
-export var ListRouterOutputsResponse: StaticStructureSchema = [
+export var ListRouterOutputsResponse$: StaticStructureSchema = [
   3,
   n0,
   _LRORi,
@@ -2702,8 +2716,8 @@ export var ListRouterOutputsResponse: StaticStructureSchema = [
     [0, { [_jN]: _nT }],
   ],
 ];
-export var ListTagsForGlobalResourceRequest: StaticStructureSchema = [3, n0, _LTFGRR, 0, [_RAe], [[0, 1]]];
-export var ListTagsForGlobalResourceResponse: StaticStructureSchema = [
+export var ListTagsForGlobalResourceRequest$: StaticStructureSchema = [3, n0, _LTFGRR, 0, [_RAe], [[0, 1]]];
+export var ListTagsForGlobalResourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _LTFGRRi,
@@ -2711,9 +2725,16 @@ export var ListTagsForGlobalResourceResponse: StaticStructureSchema = [
   [_Ta],
   [[128 | 0, { [_jN]: _ta }]],
 ];
-export var ListTagsForResourceRequest: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAe], [[0, 1]]];
-export var ListTagsForResourceResponse: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_Ta], [[128 | 0, { [_jN]: _ta }]]];
-export var Maintenance: StaticStructureSchema = [
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RAe], [[0, 1]]];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _LTFRRi,
+  0,
+  [_Ta],
+  [[128 | 0, { [_jN]: _ta }]],
+];
+export var Maintenance$: StaticStructureSchema = [
   3,
   n0,
   _Ma,
@@ -2726,7 +2747,7 @@ export var Maintenance: StaticStructureSchema = [
     [0, { [_jN]: _mSH }],
   ],
 ];
-export var MediaConnectFlowRouterInputConfiguration: StaticStructureSchema = [
+export var MediaConnectFlowRouterInputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _MCFRIC,
@@ -2735,11 +2756,11 @@ export var MediaConnectFlowRouterInputConfiguration: StaticStructureSchema = [
   [
     [0, { [_jN]: _fA }],
     [0, { [_jN]: _fOA }],
-    [() => FlowTransitEncryption, { [_jN]: _sTD }],
+    [() => FlowTransitEncryption$, { [_jN]: _sTD }],
   ],
 ];
-export var MediaConnectFlowRouterInputStreamDetails: StaticStructureSchema = [3, n0, _MCFRISD, 0, [], []];
-export var MediaConnectFlowRouterOutputConfiguration: StaticStructureSchema = [
+export var MediaConnectFlowRouterInputStreamDetails$: StaticStructureSchema = [3, n0, _MCFRISD, 0, [], []];
+export var MediaConnectFlowRouterOutputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _MCFROC,
@@ -2748,11 +2769,11 @@ export var MediaConnectFlowRouterOutputConfiguration: StaticStructureSchema = [
   [
     [0, { [_jN]: _fA }],
     [0, { [_jN]: _fSA }],
-    [() => FlowTransitEncryption, { [_jN]: _dTE }],
+    [() => FlowTransitEncryption$, { [_jN]: _dTE }],
   ],
 ];
-export var MediaConnectFlowRouterOutputStreamDetails: StaticStructureSchema = [3, n0, _MCFROSD, 0, [], []];
-export var MediaLiveInputRouterOutputConfiguration: StaticStructureSchema = [
+export var MediaConnectFlowRouterOutputStreamDetails$: StaticStructureSchema = [3, n0, _MCFROSD, 0, [], []];
+export var MediaLiveInputRouterOutputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _MLIROC,
@@ -2761,11 +2782,11 @@ export var MediaLiveInputRouterOutputConfiguration: StaticStructureSchema = [
   [
     [0, { [_jN]: _mLIA }],
     [0, { [_jN]: _mLPI }],
-    [() => MediaLiveTransitEncryption, { [_jN]: _dTE }],
+    [() => MediaLiveTransitEncryption$, { [_jN]: _dTE }],
   ],
 ];
-export var MediaLiveInputRouterOutputStreamDetails: StaticStructureSchema = [3, n0, _MLIROSD, 0, [], []];
-export var MediaLiveTransitEncryption: StaticStructureSchema = [
+export var MediaLiveInputRouterOutputStreamDetails$: StaticStructureSchema = [3, n0, _MLIROSD, 0, [], []];
+export var MediaLiveTransitEncryption$: StaticStructureSchema = [
   3,
   n0,
   _MLTE,
@@ -2773,17 +2794,17 @@ export var MediaLiveTransitEncryption: StaticStructureSchema = [
   [_EKT, _EKC],
   [
     [0, { [_jN]: _eKT }],
-    [() => MediaLiveTransitEncryptionKeyConfiguration, { [_jN]: _eKC }],
+    [() => MediaLiveTransitEncryptionKeyConfiguration$, { [_jN]: _eKC }],
   ],
 ];
-export var MediaStream: StaticStructureSchema = [
+export var MediaStream$: StaticStructureSchema = [
   3,
   n0,
   _MSe,
   0,
   [_A, _CR, _D, _Fmt, _MSI, _MSN, _MST, _VF],
   [
-    [() => MediaStreamAttributes, { [_jN]: _a }],
+    [() => MediaStreamAttributes$, { [_jN]: _a }],
     [1, { [_jN]: _cR }],
     [0, { [_jN]: _d }],
     [1, { [_jN]: _fm }],
@@ -2793,29 +2814,29 @@ export var MediaStream: StaticStructureSchema = [
     [0, { [_jN]: _vF }],
   ],
 ];
-export var MediaStreamAttributes: StaticStructureSchema = [
+export var MediaStreamAttributes$: StaticStructureSchema = [
   3,
   n0,
   _MSA,
   0,
   [_Fm, _L],
   [
-    [() => Fmtp, { [_jN]: _fmt }],
+    [() => Fmtp$, { [_jN]: _fmt }],
     [0, { [_jN]: _l }],
   ],
 ];
-export var MediaStreamAttributesRequest: StaticStructureSchema = [
+export var MediaStreamAttributesRequest$: StaticStructureSchema = [
   3,
   n0,
   _MSAR,
   0,
   [_Fm, _L],
   [
-    [() => FmtpRequest, { [_jN]: _fmt }],
+    [() => FmtpRequest$, { [_jN]: _fmt }],
     [0, { [_jN]: _l }],
   ],
 ];
-export var MediaStreamOutputConfiguration: StaticStructureSchema = [
+export var MediaStreamOutputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _MSOCe,
@@ -2824,11 +2845,11 @@ export var MediaStreamOutputConfiguration: StaticStructureSchema = [
   [
     [() => __listOfDestinationConfiguration, { [_jN]: _dC }],
     [0, { [_jN]: _eNn }],
-    [() => EncodingParameters, { [_jN]: _ePn }],
+    [() => EncodingParameters$, { [_jN]: _ePn }],
     [0, { [_jN]: _mSN }],
   ],
 ];
-export var MediaStreamOutputConfigurationRequest: StaticStructureSchema = [
+export var MediaStreamOutputConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _MSOCR,
@@ -2837,11 +2858,11 @@ export var MediaStreamOutputConfigurationRequest: StaticStructureSchema = [
   [
     [() => __listOfDestinationConfigurationRequest, { [_jN]: _dC }],
     [0, { [_jN]: _eNn }],
-    [() => EncodingParametersRequest, { [_jN]: _ePn }],
+    [() => EncodingParametersRequest$, { [_jN]: _ePn }],
     [0, { [_jN]: _mSN }],
   ],
 ];
-export var MediaStreamSourceConfiguration: StaticStructureSchema = [
+export var MediaStreamSourceConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _MSSC,
@@ -2853,7 +2874,7 @@ export var MediaStreamSourceConfiguration: StaticStructureSchema = [
     [0, { [_jN]: _mSN }],
   ],
 ];
-export var MediaStreamSourceConfigurationRequest: StaticStructureSchema = [
+export var MediaStreamSourceConfigurationRequest$: StaticStructureSchema = [
   3,
   n0,
   _MSSCR,
@@ -2865,7 +2886,7 @@ export var MediaStreamSourceConfigurationRequest: StaticStructureSchema = [
     [0, { [_jN]: _mSN }],
   ],
 ];
-export var MergeRouterInputConfiguration: StaticStructureSchema = [
+export var MergeRouterInputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _MRIC,
@@ -2877,7 +2898,7 @@ export var MergeRouterInputConfiguration: StaticStructureSchema = [
     [1, { [_jN]: _mRWM }],
   ],
 ];
-export var MergeRouterInputIndexedStreamDetails: StaticStructureSchema = [
+export var MergeRouterInputIndexedStreamDetails$: StaticStructureSchema = [
   3,
   n0,
   _MRIISD,
@@ -2888,18 +2909,18 @@ export var MergeRouterInputIndexedStreamDetails: StaticStructureSchema = [
     [0, { [_jN]: _sIA }],
   ],
 ];
-export var MergeRouterInputStreamDetails: StaticStructureSchema = [
+export var MergeRouterInputStreamDetails$: StaticStructureSchema = [
   3,
   n0,
   _MRISD,
   0,
   [_SIZSD, _SIOSD],
   [
-    [() => MergeRouterInputIndexedStreamDetails, { [_jN]: _sIZSD }],
-    [() => MergeRouterInputIndexedStreamDetails, { [_jN]: _sIOSD }],
+    [() => MergeRouterInputIndexedStreamDetails$, { [_jN]: _sIZSD }],
+    [() => MergeRouterInputIndexedStreamDetails$, { [_jN]: _sIOSD }],
   ],
 ];
-export var MessageDetail: StaticStructureSchema = [
+export var MessageDetail$: StaticStructureSchema = [
   3,
   n0,
   _MDe,
@@ -2911,8 +2932,8 @@ export var MessageDetail: StaticStructureSchema = [
     [0, { [_jN]: _rNe }],
   ],
 ];
-export var Messages: StaticStructureSchema = [3, n0, _Me, 0, [_Er], [[64 | 0, { [_jN]: _er }]]];
-export var MonitoringConfig: StaticStructureSchema = [
+export var Messages$: StaticStructureSchema = [3, n0, _Me, 0, [_Er], [[64 | 0, { [_jN]: _er }]]];
+export var MonitoringConfig$: StaticStructureSchema = [
   3,
   n0,
   _MCo,
@@ -2925,8 +2946,8 @@ export var MonitoringConfig: StaticStructureSchema = [
     [() => __listOfVideoMonitoringSetting, { [_jN]: _vMS }],
   ],
 ];
-export var MulticastSourceSettings: StaticStructureSchema = [3, n0, _MSS, 0, [_MSIu], [[0, { [_jN]: _mSIu }]]];
-export var NdiConfig: StaticStructureSchema = [
+export var MulticastSourceSettings$: StaticStructureSchema = [3, n0, _MSS, 0, [_MSIu], [[0, { [_jN]: _mSIu }]]];
+export var NdiConfig$: StaticStructureSchema = [
   3,
   n0,
   _NC,
@@ -2938,7 +2959,7 @@ export var NdiConfig: StaticStructureSchema = [
     [() => __listOfNdiDiscoveryServerConfig, { [_jN]: _nDS }],
   ],
 ];
-export var NdiDiscoveryServerConfig: StaticStructureSchema = [
+export var NdiDiscoveryServerConfig$: StaticStructureSchema = [
   3,
   n0,
   _NDSC,
@@ -2950,9 +2971,9 @@ export var NdiDiscoveryServerConfig: StaticStructureSchema = [
     [0, { [_jN]: _vIAp }],
   ],
 ];
-export var NotFoundException: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_M], [[0, { [_jN]: _m }]]];
-TypeRegistry.for(n0).registerError(NotFoundException, __NotFoundException);
-export var Offering: StaticStructureSchema = [
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE, { [_e]: _c, [_hE]: 404 }, [_M], [[0, { [_jN]: _m }]]];
+TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
+export var Offering$: StaticStructureSchema = [
   3,
   n0,
   _Of,
@@ -2966,10 +2987,10 @@ export var Offering: StaticStructureSchema = [
     [0, { [_jN]: _oD }],
     [0, { [_jN]: _pPU }],
     [0, { [_jN]: _pU }],
-    [() => ResourceSpecification, { [_jN]: _rSe }],
+    [() => ResourceSpecification$, { [_jN]: _rSe }],
   ],
 ];
-export var Output: StaticStructureSchema = [
+export var Output$: StaticStructureSchema = [
   3,
   n0,
   _Ou,
@@ -2979,7 +3000,7 @@ export var Output: StaticStructureSchema = [
     [1, { [_jN]: _dTSFP }],
     [0, { [_jN]: _d }],
     [0, { [_jN]: _de }],
-    [() => Encryption, { [_jN]: _en }],
+    [() => Encryption$, { [_jN]: _en }],
     [0, { [_jN]: _eA }],
     [0, { [_jN]: _lA }],
     [0, { [_jN]: _mLIA }],
@@ -2987,18 +3008,18 @@ export var Output: StaticStructureSchema = [
     [0, { [_jN]: _n }],
     [0, { [_jN]: _oA }],
     [1, { [_jN]: _p }],
-    [() => Transport, { [_jN]: _tr }],
-    [() => VpcInterfaceAttachment, { [_jN]: _vIA }],
+    [() => Transport$, { [_jN]: _tr }],
+    [() => VpcInterfaceAttachment$, { [_jN]: _vIA }],
     [0, { [_jN]: _bA }],
     [64 | 1, { [_jN]: _bPr }],
     [0, { [_jN]: _oS }],
     [0, { [_jN]: _pIA }],
     [0, { [_jN]: _rIS }],
-    [() => FlowTransitEncryption, { [_jN]: _rITE }],
+    [() => FlowTransitEncryption$, { [_jN]: _rITE }],
     [0, { [_jN]: _cRIA }],
   ],
 ];
-export var PreferredDayTimeMaintenanceConfiguration: StaticStructureSchema = [
+export var PreferredDayTimeMaintenanceConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PDTMC,
@@ -3009,7 +3030,7 @@ export var PreferredDayTimeMaintenanceConfiguration: StaticStructureSchema = [
     [0, { [_jN]: _time }],
   ],
 ];
-export var PublicRouterNetworkInterfaceConfiguration: StaticStructureSchema = [
+export var PublicRouterNetworkInterfaceConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _PRNIC,
@@ -3017,8 +3038,8 @@ export var PublicRouterNetworkInterfaceConfiguration: StaticStructureSchema = [
   [_AR],
   [[() => NetworkInterfaceRuleList, { [_jN]: _aR }]],
 ];
-export var PublicRouterNetworkInterfaceRule: StaticStructureSchema = [3, n0, _PRNIR, 0, [_Ci], [[0, { [_jN]: _ci }]]];
-export var PurchaseOfferingRequest: StaticStructureSchema = [
+export var PublicRouterNetworkInterfaceRule$: StaticStructureSchema = [3, n0, _PRNIR, 0, [_Ci], [[0, { [_jN]: _ci }]]];
+export var PurchaseOfferingRequest$: StaticStructureSchema = [
   3,
   n0,
   _POR,
@@ -3030,15 +3051,15 @@ export var PurchaseOfferingRequest: StaticStructureSchema = [
     [0, { [_jN]: _star }],
   ],
 ];
-export var PurchaseOfferingResponse: StaticStructureSchema = [
+export var PurchaseOfferingResponse$: StaticStructureSchema = [
   3,
   n0,
   _PORu,
   0,
   [_R],
-  [[() => Reservation, { [_jN]: _r }]],
+  [[() => Reservation$, { [_jN]: _r }]],
 ];
-export var RemoveBridgeOutputRequest: StaticStructureSchema = [
+export var RemoveBridgeOutputRequest$: StaticStructureSchema = [
   3,
   n0,
   _RBOR,
@@ -3049,7 +3070,7 @@ export var RemoveBridgeOutputRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var RemoveBridgeOutputResponse: StaticStructureSchema = [
+export var RemoveBridgeOutputResponse$: StaticStructureSchema = [
   3,
   n0,
   _RBORe,
@@ -3060,7 +3081,7 @@ export var RemoveBridgeOutputResponse: StaticStructureSchema = [
     [0, { [_jN]: _oN }],
   ],
 ];
-export var RemoveBridgeSourceRequest: StaticStructureSchema = [
+export var RemoveBridgeSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _RBSR,
@@ -3071,7 +3092,7 @@ export var RemoveBridgeSourceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var RemoveBridgeSourceResponse: StaticStructureSchema = [
+export var RemoveBridgeSourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _RBSRe,
@@ -3082,7 +3103,7 @@ export var RemoveBridgeSourceResponse: StaticStructureSchema = [
     [0, { [_jN]: _sN }],
   ],
 ];
-export var RemoveFlowMediaStreamRequest: StaticStructureSchema = [
+export var RemoveFlowMediaStreamRequest$: StaticStructureSchema = [
   3,
   n0,
   _RFMSR,
@@ -3093,7 +3114,7 @@ export var RemoveFlowMediaStreamRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var RemoveFlowMediaStreamResponse: StaticStructureSchema = [
+export var RemoveFlowMediaStreamResponse$: StaticStructureSchema = [
   3,
   n0,
   _RFMSRe,
@@ -3104,7 +3125,7 @@ export var RemoveFlowMediaStreamResponse: StaticStructureSchema = [
     [0, { [_jN]: _mSN }],
   ],
 ];
-export var RemoveFlowOutputRequest: StaticStructureSchema = [
+export var RemoveFlowOutputRequest$: StaticStructureSchema = [
   3,
   n0,
   _RFOR,
@@ -3115,7 +3136,7 @@ export var RemoveFlowOutputRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var RemoveFlowOutputResponse: StaticStructureSchema = [
+export var RemoveFlowOutputResponse$: StaticStructureSchema = [
   3,
   n0,
   _RFORe,
@@ -3126,7 +3147,7 @@ export var RemoveFlowOutputResponse: StaticStructureSchema = [
     [0, { [_jN]: _oA }],
   ],
 ];
-export var RemoveFlowSourceRequest: StaticStructureSchema = [
+export var RemoveFlowSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _RFSR,
@@ -3137,7 +3158,7 @@ export var RemoveFlowSourceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var RemoveFlowSourceResponse: StaticStructureSchema = [
+export var RemoveFlowSourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _RFSRe,
@@ -3148,7 +3169,7 @@ export var RemoveFlowSourceResponse: StaticStructureSchema = [
     [0, { [_jN]: _sAo }],
   ],
 ];
-export var RemoveFlowVpcInterfaceRequest: StaticStructureSchema = [
+export var RemoveFlowVpcInterfaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _RFVIR,
@@ -3159,7 +3180,7 @@ export var RemoveFlowVpcInterfaceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var RemoveFlowVpcInterfaceResponse: StaticStructureSchema = [
+export var RemoveFlowVpcInterfaceResponse$: StaticStructureSchema = [
   3,
   n0,
   _RFVIRe,
@@ -3171,7 +3192,7 @@ export var RemoveFlowVpcInterfaceResponse: StaticStructureSchema = [
     [0, { [_jN]: _vIN }],
   ],
 ];
-export var Reservation: StaticStructureSchema = [
+export var Reservation$: StaticStructureSchema = [
   3,
   n0,
   _R,
@@ -3189,11 +3210,11 @@ export var Reservation: StaticStructureSchema = [
     [0, { [_jN]: _rAe }],
     [0, { [_jN]: _rNes }],
     [0, { [_jN]: _rSes }],
-    [() => ResourceSpecification, { [_jN]: _rSe }],
+    [() => ResourceSpecification$, { [_jN]: _rSe }],
     [0, { [_jN]: _star }],
   ],
 ];
-export var ResourceSpecification: StaticStructureSchema = [
+export var ResourceSpecification$: StaticStructureSchema = [
   3,
   n0,
   _RSe,
@@ -3204,8 +3225,8 @@ export var ResourceSpecification: StaticStructureSchema = [
     [0, { [_jN]: _rT }],
   ],
 ];
-export var RestartRouterInputRequest: StaticStructureSchema = [3, n0, _RRIR, 0, [_Ar], [[0, 1]]];
-export var RestartRouterInputResponse: StaticStructureSchema = [
+export var RestartRouterInputRequest$: StaticStructureSchema = [3, n0, _RRIR, 0, [_Ar], [[0, 1]]];
+export var RestartRouterInputResponse$: StaticStructureSchema = [
   3,
   n0,
   _RRIRe,
@@ -3217,8 +3238,8 @@ export var RestartRouterInputResponse: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var RestartRouterOutputRequest: StaticStructureSchema = [3, n0, _RROR, 0, [_Ar], [[0, 1]]];
-export var RestartRouterOutputResponse: StaticStructureSchema = [
+export var RestartRouterOutputRequest$: StaticStructureSchema = [3, n0, _RROR, 0, [_Ar], [[0, 1]]];
+export var RestartRouterOutputResponse$: StaticStructureSchema = [
   3,
   n0,
   _RRORe,
@@ -3230,7 +3251,7 @@ export var RestartRouterOutputResponse: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var RevokeFlowEntitlementRequest: StaticStructureSchema = [
+export var RevokeFlowEntitlementRequest$: StaticStructureSchema = [
   3,
   n0,
   _RFER,
@@ -3241,7 +3262,7 @@ export var RevokeFlowEntitlementRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var RevokeFlowEntitlementResponse: StaticStructureSchema = [
+export var RevokeFlowEntitlementResponse$: StaticStructureSchema = [
   3,
   n0,
   _RFERe,
@@ -3252,7 +3273,7 @@ export var RevokeFlowEntitlementResponse: StaticStructureSchema = [
     [0, { [_jN]: _fA }],
   ],
 ];
-export var RistRouterInputConfiguration: StaticStructureSchema = [
+export var RistRouterInputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RRIC,
@@ -3263,7 +3284,7 @@ export var RistRouterInputConfiguration: StaticStructureSchema = [
     [1, { [_jN]: _rLM }],
   ],
 ];
-export var RistRouterOutputConfiguration: StaticStructureSchema = [
+export var RistRouterOutputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RROC,
@@ -3274,7 +3295,7 @@ export var RistRouterOutputConfiguration: StaticStructureSchema = [
     [1, { [_jN]: _dP }],
   ],
 ];
-export var RouterInput: StaticStructureSchema = [
+export var RouterInput$: StaticStructureSchema = [
   3,
   n0,
   _RIou,
@@ -3311,7 +3332,7 @@ export var RouterInput: StaticStructureSchema = [
     [0, { [_jN]: _id }],
     [0, { [_jN]: _st }],
     [0, { [_jN]: _iTn }],
-    [() => RouterInputConfiguration, { [_jN]: _con }],
+    [() => RouterInputConfiguration$, { [_jN]: _con }],
     [1, { [_jN]: _rOou }],
     [1, { [_jN]: _mRO }],
     [0, { [_jN]: _rN }],
@@ -3322,17 +3343,17 @@ export var RouterInput: StaticStructureSchema = [
     [5, { [_jN]: _cA }],
     [5, { [_jN]: _uA }],
     [() => RouterInputMessages, { [_jN]: _me }],
-    [() => RouterInputTransitEncryption, { [_jN]: _tE }],
+    [() => RouterInputTransitEncryption$, { [_jN]: _tE }],
     [128 | 0, { [_jN]: _ta }],
-    [() => RouterInputStreamDetails, { [_jN]: _sD }],
+    [() => RouterInputStreamDetails$, { [_jN]: _sD }],
     [0, { [_jN]: _iA }],
     [0, { [_jN]: _mT }],
-    [() => MaintenanceConfiguration, { [_jN]: _mC }],
+    [() => MaintenanceConfiguration$, { [_jN]: _mC }],
     [0, { [_jN]: _mSTa }],
-    [() => MaintenanceSchedule, { [_jN]: _mSa }],
+    [() => MaintenanceSchedule$, { [_jN]: _mSa }],
   ],
 ];
-export var RouterInputMessage: StaticStructureSchema = [
+export var RouterInputMessage$: StaticStructureSchema = [
   3,
   n0,
   _RIM,
@@ -3343,7 +3364,7 @@ export var RouterInputMessage: StaticStructureSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-export var RouterInputServiceQuotaExceededException: StaticErrorSchema = [
+export var RouterInputServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _RISQEE,
@@ -3351,11 +3372,8 @@ export var RouterInputServiceQuotaExceededException: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(
-  RouterInputServiceQuotaExceededException,
-  __RouterInputServiceQuotaExceededException
-);
-export var RouterInputSourceMetadataDetails: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(RouterInputServiceQuotaExceededException$, RouterInputServiceQuotaExceededException);
+export var RouterInputSourceMetadataDetails$: StaticStructureSchema = [
   3,
   n0,
   _RISMD,
@@ -3364,10 +3382,10 @@ export var RouterInputSourceMetadataDetails: StaticStructureSchema = [
   [
     [() => RouterInputMessages, { [_jN]: _sMM }],
     [5, { [_jN]: _tim }],
-    [() => RouterInputMetadata, { [_jN]: _rIM }],
+    [() => RouterInputMetadata$, { [_jN]: _rIM }],
   ],
 ];
-export var RouterInputThumbnailDetails: StaticStructureSchema = [
+export var RouterInputThumbnailDetails$: StaticStructureSchema = [
   3,
   n0,
   _RITD,
@@ -3380,7 +3398,7 @@ export var RouterInputThumbnailDetails: StaticStructureSchema = [
     [5, { [_jN]: _tim }],
   ],
 ];
-export var RouterInputTransitEncryption: StaticStructureSchema = [
+export var RouterInputTransitEncryption$: StaticStructureSchema = [
   3,
   n0,
   _RITEo,
@@ -3388,10 +3406,10 @@ export var RouterInputTransitEncryption: StaticStructureSchema = [
   [_EKT, _EKC],
   [
     [0, { [_jN]: _eKT }],
-    [() => RouterInputTransitEncryptionKeyConfiguration, { [_jN]: _eKC }],
+    [() => RouterInputTransitEncryptionKeyConfiguration$, { [_jN]: _eKC }],
   ],
 ];
-export var RouterNetworkInterface: StaticStructureSchema = [
+export var RouterNetworkInterface$: StaticStructureSchema = [
   3,
   n0,
   _RNIo,
@@ -3403,7 +3421,7 @@ export var RouterNetworkInterface: StaticStructureSchema = [
     [0, { [_jN]: _id }],
     [0, { [_jN]: _st }],
     [0, { [_jN]: _nIT }],
-    [() => RouterNetworkInterfaceConfiguration, { [_jN]: _con }],
+    [() => RouterNetworkInterfaceConfiguration$, { [_jN]: _con }],
     [1, { [_jN]: _aOC }],
     [1, { [_jN]: _aIC }],
     [0, { [_jN]: _rN }],
@@ -3412,7 +3430,7 @@ export var RouterNetworkInterface: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var RouterNetworkInterfaceServiceQuotaExceededException: StaticErrorSchema = [
+export var RouterNetworkInterfaceServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _RNISQEE,
@@ -3421,10 +3439,10 @@ export var RouterNetworkInterfaceServiceQuotaExceededException: StaticErrorSchem
   [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(
-  RouterNetworkInterfaceServiceQuotaExceededException,
-  __RouterNetworkInterfaceServiceQuotaExceededException
+  RouterNetworkInterfaceServiceQuotaExceededException$,
+  RouterNetworkInterfaceServiceQuotaExceededException
 );
-export var RouterOutput: StaticStructureSchema = [
+export var RouterOutput$: StaticStructureSchema = [
   3,
   n0,
   _ROo,
@@ -3460,7 +3478,7 @@ export var RouterOutput: StaticStructureSchema = [
     [0, { [_jN]: _id }],
     [0, { [_jN]: _st }],
     [0, { [_jN]: _oTu }],
-    [() => RouterOutputConfiguration, { [_jN]: _con }],
+    [() => RouterOutputConfiguration$, { [_jN]: _con }],
     [0, { [_jN]: _rSo }],
     [0, { [_jN]: _rN }],
     [0, { [_jN]: _aZ }],
@@ -3471,16 +3489,16 @@ export var RouterOutput: StaticStructureSchema = [
     [5, { [_jN]: _uA }],
     [() => RouterOutputMessages, { [_jN]: _me }],
     [128 | 0, { [_jN]: _ta }],
-    [() => RouterOutputStreamDetails, { [_jN]: _sD }],
+    [() => RouterOutputStreamDetails$, { [_jN]: _sD }],
     [0, { [_jN]: _iA }],
     [0, { [_jN]: _rIA }],
     [0, { [_jN]: _mT }],
-    [() => MaintenanceConfiguration, { [_jN]: _mC }],
+    [() => MaintenanceConfiguration$, { [_jN]: _mC }],
     [0, { [_jN]: _mSTa }],
-    [() => MaintenanceSchedule, { [_jN]: _mSa }],
+    [() => MaintenanceSchedule$, { [_jN]: _mSa }],
   ],
 ];
-export var RouterOutputMessage: StaticStructureSchema = [
+export var RouterOutputMessage$: StaticStructureSchema = [
   3,
   n0,
   _ROM,
@@ -3491,7 +3509,7 @@ export var RouterOutputMessage: StaticStructureSchema = [
     [0, { [_jN]: _m }],
   ],
 ];
-export var RouterOutputServiceQuotaExceededException: StaticErrorSchema = [
+export var RouterOutputServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _ROSQEE,
@@ -3500,10 +3518,10 @@ export var RouterOutputServiceQuotaExceededException: StaticErrorSchema = [
   [[0, { [_jN]: _m }]],
 ];
 TypeRegistry.for(n0).registerError(
-  RouterOutputServiceQuotaExceededException,
-  __RouterOutputServiceQuotaExceededException
+  RouterOutputServiceQuotaExceededException$,
+  RouterOutputServiceQuotaExceededException
 );
-export var RtpRouterInputConfiguration: StaticStructureSchema = [
+export var RtpRouterInputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RRICt,
@@ -3514,7 +3532,7 @@ export var RtpRouterInputConfiguration: StaticStructureSchema = [
     [0, { [_jN]: _fEC }],
   ],
 ];
-export var RtpRouterOutputConfiguration: StaticStructureSchema = [
+export var RtpRouterOutputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RROCt,
@@ -3526,7 +3544,7 @@ export var RtpRouterOutputConfiguration: StaticStructureSchema = [
     [0, { [_jN]: _fEC }],
   ],
 ];
-export var SecretsManagerEncryptionKeyConfiguration: StaticStructureSchema = [
+export var SecretsManagerEncryptionKeyConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SMEKC,
@@ -3537,7 +3555,7 @@ export var SecretsManagerEncryptionKeyConfiguration: StaticStructureSchema = [
     [0, { [_jN]: _rA }],
   ],
 ];
-export var ServiceUnavailableException: StaticErrorSchema = [
+export var ServiceUnavailableException$: StaticErrorSchema = [
   -3,
   n0,
   _SUE,
@@ -3545,8 +3563,8 @@ export var ServiceUnavailableException: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException, __ServiceUnavailableException);
-export var SetGatewayBridgeSourceRequest: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var SetGatewayBridgeSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _SGBSR,
@@ -3554,10 +3572,10 @@ export var SetGatewayBridgeSourceRequest: StaticStructureSchema = [
   [_BA, _VIA],
   [
     [0, { [_jN]: _bA }],
-    [() => VpcInterfaceAttachment, { [_jN]: _vIA }],
+    [() => VpcInterfaceAttachment$, { [_jN]: _vIA }],
   ],
 ];
-export var SetSourceRequest: StaticStructureSchema = [
+export var SetSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _SSR,
@@ -3587,7 +3605,7 @@ export var SetSourceRequest: StaticStructureSchema = [
     _RITDo,
   ],
   [
-    [() => Encryption, { [_jN]: _dec }],
+    [() => Encryption$, { [_jN]: _dec }],
     [0, { [_jN]: _d }],
     [0, { [_jN]: _eA }],
     [1, { [_jN]: _iPn }],
@@ -3605,13 +3623,13 @@ export var SetSourceRequest: StaticStructureSchema = [
     [0, { [_jN]: _sI }],
     [0, { [_jN]: _vIN }],
     [0, { [_jN]: _wC }],
-    [() => SetGatewayBridgeSourceRequest, { [_jN]: _gBS }],
+    [() => SetGatewayBridgeSourceRequest$, { [_jN]: _gBS }],
     [128 | 0, { [_jN]: _sTo }],
     [0, { [_jN]: _rIS }],
-    [() => FlowTransitEncryption, { [_jN]: _rITD }],
+    [() => FlowTransitEncryption$, { [_jN]: _rITD }],
   ],
 ];
-export var SilentAudio: StaticStructureSchema = [
+export var SilentAudio$: StaticStructureSchema = [
   3,
   n0,
   _SA,
@@ -3622,7 +3640,7 @@ export var SilentAudio: StaticStructureSchema = [
     [1, { [_jN]: _tS }],
   ],
 ];
-export var Source: StaticStructureSchema = [
+export var Source$: StaticStructureSchema = [
   3,
   n0,
   _So,
@@ -3630,7 +3648,7 @@ export var Source: StaticStructureSchema = [
   [_DTSFP, _Dec, _D, _EA, _IIng, _IPn, _MSSCe, _N, _SCP, _SIAe, _SAo, _Tr, _VIN, _WC, _GBS, _PIA, _RIS, _RITDo, _CROA],
   [
     [1, { [_jN]: _dTSFP }],
-    [() => Encryption, { [_jN]: _dec }],
+    [() => Encryption$, { [_jN]: _dec }],
     [0, { [_jN]: _d }],
     [0, { [_jN]: _eA }],
     [0, { [_jN]: _iIng }],
@@ -3640,18 +3658,18 @@ export var Source: StaticStructureSchema = [
     [1, { [_jN]: _sCP }],
     [0, { [_jN]: _sIAe }],
     [0, { [_jN]: _sAo }],
-    [() => Transport, { [_jN]: _tr }],
+    [() => Transport$, { [_jN]: _tr }],
     [0, { [_jN]: _vIN }],
     [0, { [_jN]: _wC }],
-    [() => GatewayBridgeSource, { [_jN]: _gBS }],
+    [() => GatewayBridgeSource$, { [_jN]: _gBS }],
     [0, { [_jN]: _pIA }],
     [0, { [_jN]: _rIS }],
-    [() => FlowTransitEncryption, { [_jN]: _rITD }],
+    [() => FlowTransitEncryption$, { [_jN]: _rITD }],
     [0, { [_jN]: _cROA }],
   ],
 ];
-export var SourcePriority: StaticStructureSchema = [3, n0, _SP, 0, [_PS], [[0, { [_jN]: _pS }]]];
-export var SrtCallerRouterInputConfiguration: StaticStructureSchema = [
+export var SourcePriority$: StaticStructureSchema = [3, n0, _SP, 0, [_PS], [[0, { [_jN]: _pS }]]];
+export var SrtCallerRouterInputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SCRIC,
@@ -3662,10 +3680,10 @@ export var SrtCallerRouterInputConfiguration: StaticStructureSchema = [
     [1, { [_jN]: _sPo }],
     [1, { [_jN]: _mLM }],
     [0, { [_jN]: _sI }],
-    [() => SrtDecryptionConfiguration, { [_jN]: _dCe }],
+    [() => SrtDecryptionConfiguration$, { [_jN]: _dCe }],
   ],
 ];
-export var SrtCallerRouterOutputConfiguration: StaticStructureSchema = [
+export var SrtCallerRouterOutputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SCROC,
@@ -3676,26 +3694,26 @@ export var SrtCallerRouterOutputConfiguration: StaticStructureSchema = [
     [1, { [_jN]: _dP }],
     [1, { [_jN]: _mLM }],
     [0, { [_jN]: _sI }],
-    [() => SrtEncryptionConfiguration, { [_jN]: _eC }],
+    [() => SrtEncryptionConfiguration$, { [_jN]: _eC }],
   ],
 ];
-export var SrtDecryptionConfiguration: StaticStructureSchema = [
+export var SrtDecryptionConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SDC,
   0,
   [_EK],
-  [[() => SecretsManagerEncryptionKeyConfiguration, { [_jN]: _eK }]],
+  [[() => SecretsManagerEncryptionKeyConfiguration$, { [_jN]: _eK }]],
 ];
-export var SrtEncryptionConfiguration: StaticStructureSchema = [
+export var SrtEncryptionConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SEC,
   0,
   [_EK],
-  [[() => SecretsManagerEncryptionKeyConfiguration, { [_jN]: _eK }]],
+  [[() => SecretsManagerEncryptionKeyConfiguration$, { [_jN]: _eK }]],
 ];
-export var SrtListenerRouterInputConfiguration: StaticStructureSchema = [
+export var SrtListenerRouterInputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SLRIC,
@@ -3704,10 +3722,10 @@ export var SrtListenerRouterInputConfiguration: StaticStructureSchema = [
   [
     [1, { [_jN]: _p }],
     [1, { [_jN]: _mLM }],
-    [() => SrtDecryptionConfiguration, { [_jN]: _dCe }],
+    [() => SrtDecryptionConfiguration$, { [_jN]: _dCe }],
   ],
 ];
-export var SrtListenerRouterOutputConfiguration: StaticStructureSchema = [
+export var SrtListenerRouterOutputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SLROC,
@@ -3716,10 +3734,10 @@ export var SrtListenerRouterOutputConfiguration: StaticStructureSchema = [
   [
     [1, { [_jN]: _p }],
     [1, { [_jN]: _mLM }],
-    [() => SrtEncryptionConfiguration, { [_jN]: _eC }],
+    [() => SrtEncryptionConfiguration$, { [_jN]: _eC }],
   ],
 ];
-export var StandardRouterInputConfiguration: StaticStructureSchema = [
+export var StandardRouterInputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SRIC,
@@ -3727,12 +3745,19 @@ export var StandardRouterInputConfiguration: StaticStructureSchema = [
   [_NIA, _PCr, _Pr],
   [
     [0, { [_jN]: _nIA }],
-    [() => RouterInputProtocolConfiguration, { [_jN]: _pCr }],
+    [() => RouterInputProtocolConfiguration$, { [_jN]: _pCr }],
     [0, { [_jN]: _pr }],
   ],
 ];
-export var StandardRouterInputStreamDetails: StaticStructureSchema = [3, n0, _SRISD, 0, [_SIA], [[0, { [_jN]: _sIA }]]];
-export var StandardRouterOutputConfiguration: StaticStructureSchema = [
+export var StandardRouterInputStreamDetails$: StaticStructureSchema = [
+  3,
+  n0,
+  _SRISD,
+  0,
+  [_SIA],
+  [[0, { [_jN]: _sIA }]],
+];
+export var StandardRouterOutputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _SROC,
@@ -3740,11 +3765,11 @@ export var StandardRouterOutputConfiguration: StaticStructureSchema = [
   [_NIA, _PCr, _Pr],
   [
     [0, { [_jN]: _nIA }],
-    [() => RouterOutputProtocolConfiguration, { [_jN]: _pCr }],
+    [() => RouterOutputProtocolConfiguration$, { [_jN]: _pCr }],
     [0, { [_jN]: _pr }],
   ],
 ];
-export var StandardRouterOutputStreamDetails: StaticStructureSchema = [
+export var StandardRouterOutputStreamDetails$: StaticStructureSchema = [
   3,
   n0,
   _SROSD,
@@ -3752,8 +3777,8 @@ export var StandardRouterOutputStreamDetails: StaticStructureSchema = [
   [_DIA],
   [[0, { [_jN]: _dIA }]],
 ];
-export var StartFlowRequest: StaticStructureSchema = [3, n0, _SFR, 0, [_FA], [[0, 1]]];
-export var StartFlowResponse: StaticStructureSchema = [
+export var StartFlowRequest$: StaticStructureSchema = [3, n0, _SFR, 0, [_FA], [[0, 1]]];
+export var StartFlowResponse$: StaticStructureSchema = [
   3,
   n0,
   _SFRt,
@@ -3764,8 +3789,8 @@ export var StartFlowResponse: StaticStructureSchema = [
     [0, { [_jN]: _sta }],
   ],
 ];
-export var StartRouterInputRequest: StaticStructureSchema = [3, n0, _SRIR, 0, [_Ar], [[0, 1]]];
-export var StartRouterInputResponse: StaticStructureSchema = [
+export var StartRouterInputRequest$: StaticStructureSchema = [3, n0, _SRIR, 0, [_Ar], [[0, 1]]];
+export var StartRouterInputResponse$: StaticStructureSchema = [
   3,
   n0,
   _SRIRt,
@@ -3776,11 +3801,11 @@ export var StartRouterInputResponse: StaticStructureSchema = [
     [0, { [_jN]: _n }],
     [0, { [_jN]: _st }],
     [0, { [_jN]: _mSTa }],
-    [() => MaintenanceSchedule, { [_jN]: _mSa }],
+    [() => MaintenanceSchedule$, { [_jN]: _mSa }],
   ],
 ];
-export var StartRouterOutputRequest: StaticStructureSchema = [3, n0, _SROR, 0, [_Ar], [[0, 1]]];
-export var StartRouterOutputResponse: StaticStructureSchema = [
+export var StartRouterOutputRequest$: StaticStructureSchema = [3, n0, _SROR, 0, [_Ar], [[0, 1]]];
+export var StartRouterOutputResponse$: StaticStructureSchema = [
   3,
   n0,
   _SRORt,
@@ -3791,11 +3816,11 @@ export var StartRouterOutputResponse: StaticStructureSchema = [
     [0, { [_jN]: _n }],
     [0, { [_jN]: _st }],
     [0, { [_jN]: _mSTa }],
-    [() => MaintenanceSchedule, { [_jN]: _mSa }],
+    [() => MaintenanceSchedule$, { [_jN]: _mSa }],
   ],
 ];
-export var StopFlowRequest: StaticStructureSchema = [3, n0, _SFRto, 0, [_FA], [[0, 1]]];
-export var StopFlowResponse: StaticStructureSchema = [
+export var StopFlowRequest$: StaticStructureSchema = [3, n0, _SFRto, 0, [_FA], [[0, 1]]];
+export var StopFlowResponse$: StaticStructureSchema = [
   3,
   n0,
   _SFRtop,
@@ -3806,8 +3831,8 @@ export var StopFlowResponse: StaticStructureSchema = [
     [0, { [_jN]: _sta }],
   ],
 ];
-export var StopRouterInputRequest: StaticStructureSchema = [3, n0, _SRIRto, 0, [_Ar], [[0, 1]]];
-export var StopRouterInputResponse: StaticStructureSchema = [
+export var StopRouterInputRequest$: StaticStructureSchema = [3, n0, _SRIRto, 0, [_Ar], [[0, 1]]];
+export var StopRouterInputResponse$: StaticStructureSchema = [
   3,
   n0,
   _SRIRtop,
@@ -3819,8 +3844,8 @@ export var StopRouterInputResponse: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var StopRouterOutputRequest: StaticStructureSchema = [3, n0, _SRORto, 0, [_Ar], [[0, 1]]];
-export var StopRouterOutputResponse: StaticStructureSchema = [
+export var StopRouterOutputRequest$: StaticStructureSchema = [3, n0, _SRORto, 0, [_Ar], [[0, 1]]];
+export var StopRouterOutputResponse$: StaticStructureSchema = [
   3,
   n0,
   _SRORtop,
@@ -3832,7 +3857,7 @@ export var StopRouterOutputResponse: StaticStructureSchema = [
     [0, { [_jN]: _st }],
   ],
 ];
-export var TagGlobalResourceRequest: StaticStructureSchema = [
+export var TagGlobalResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _TGRR,
@@ -3843,7 +3868,7 @@ export var TagGlobalResourceRequest: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var TagResourceRequest: StaticStructureSchema = [
+export var TagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _TRR,
@@ -3854,7 +3879,7 @@ export var TagResourceRequest: StaticStructureSchema = [
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
-export var TakeRouterInputRequest: StaticStructureSchema = [
+export var TakeRouterInputRequest$: StaticStructureSchema = [
   3,
   n0,
   _TRIR,
@@ -3865,7 +3890,7 @@ export var TakeRouterInputRequest: StaticStructureSchema = [
     [0, { [_jN]: _rIAo }],
   ],
 ];
-export var TakeRouterInputResponse: StaticStructureSchema = [
+export var TakeRouterInputResponse$: StaticStructureSchema = [
   3,
   n0,
   _TRIRa,
@@ -3879,7 +3904,7 @@ export var TakeRouterInputResponse: StaticStructureSchema = [
     [0, { [_jN]: _rIN }],
   ],
 ];
-export var ThumbnailDetails: StaticStructureSchema = [
+export var ThumbnailDetails$: StaticStructureSchema = [
   3,
   n0,
   _TD,
@@ -3893,7 +3918,7 @@ export var ThumbnailDetails: StaticStructureSchema = [
     [5, { [_jN]: _tim }],
   ],
 ];
-export var TooManyRequestsException: StaticErrorSchema = [
+export var TooManyRequestsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMRE,
@@ -3901,8 +3926,8 @@ export var TooManyRequestsException: StaticErrorSchema = [
   [_M],
   [[0, { [_jN]: _m }]],
 ];
-TypeRegistry.for(n0).registerError(TooManyRequestsException, __TooManyRequestsException);
-export var Transport: StaticStructureSchema = [
+TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
+export var Transport$: StaticStructureSchema = [
   3,
   n0,
   _Tr,
@@ -3926,7 +3951,7 @@ export var Transport: StaticStructureSchema = [
     [0, { [_jN]: _nPN }],
   ],
 ];
-export var TransportMediaInfo: StaticStructureSchema = [
+export var TransportMediaInfo$: StaticStructureSchema = [
   3,
   n0,
   _TMI,
@@ -3934,7 +3959,7 @@ export var TransportMediaInfo: StaticStructureSchema = [
   [_Pro],
   [[() => __listOfTransportStreamProgram, { [_jN]: _pro }]],
 ];
-export var TransportStream: StaticStructureSchema = [
+export var TransportStream$: StaticStructureSchema = [
   3,
   n0,
   _TSr,
@@ -3944,14 +3969,14 @@ export var TransportStream: StaticStructureSchema = [
     [1, { [_jN]: _ch }],
     [0, { [_jN]: _cod }],
     [0, { [_jN]: _fR }],
-    [() => FrameResolution, { [_jN]: _fRr }],
+    [() => FrameResolution$, { [_jN]: _fRr }],
     [1, { [_jN]: _pi }],
     [1, { [_jN]: _sR }],
     [1, { [_jN]: _sS }],
     [0, { [_jN]: _sTt }],
   ],
 ];
-export var TransportStreamProgram: StaticStructureSchema = [
+export var TransportStreamProgram$: StaticStructureSchema = [
   3,
   n0,
   _TSP,
@@ -3965,7 +3990,7 @@ export var TransportStreamProgram: StaticStructureSchema = [
     [() => __listOfTransportStream, { [_jN]: _str }],
   ],
 ];
-export var UntagGlobalResourceRequest: StaticStructureSchema = [
+export var UntagGlobalResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _UGRR,
@@ -3976,7 +4001,7 @@ export var UntagGlobalResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UntagResourceRequest: StaticStructureSchema = [
+export var UntagResourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URR,
@@ -3987,7 +4012,7 @@ export var UntagResourceRequest: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _tK }],
   ],
 ];
-export var UpdateBridgeFlowSourceRequest: StaticStructureSchema = [
+export var UpdateBridgeFlowSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _UBFSR,
@@ -3995,10 +4020,10 @@ export var UpdateBridgeFlowSourceRequest: StaticStructureSchema = [
   [_FA, _FVIA],
   [
     [0, { [_jN]: _fA }],
-    [() => VpcInterfaceAttachment, { [_jN]: _fVIA }],
+    [() => VpcInterfaceAttachment$, { [_jN]: _fVIA }],
   ],
 ];
-export var UpdateBridgeNetworkOutputRequest: StaticStructureSchema = [
+export var UpdateBridgeNetworkOutputRequest$: StaticStructureSchema = [
   3,
   n0,
   _UBNOR,
@@ -4012,7 +4037,7 @@ export var UpdateBridgeNetworkOutputRequest: StaticStructureSchema = [
     [1, { [_jN]: _t }],
   ],
 ];
-export var UpdateBridgeNetworkSourceRequest: StaticStructureSchema = [
+export var UpdateBridgeNetworkSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _UBNSR,
@@ -4020,13 +4045,13 @@ export var UpdateBridgeNetworkSourceRequest: StaticStructureSchema = [
   [_MI, _MSS, _NN, _P, _Pr],
   [
     [0, { [_jN]: _mI }],
-    [() => MulticastSourceSettings, { [_jN]: _mSS }],
+    [() => MulticastSourceSettings$, { [_jN]: _mSS }],
     [0, { [_jN]: _nN }],
     [1, { [_jN]: _p }],
     [0, { [_jN]: _pr }],
   ],
 ];
-export var UpdateBridgeOutputRequest: StaticStructureSchema = [
+export var UpdateBridgeOutputRequest$: StaticStructureSchema = [
   3,
   n0,
   _UBOR,
@@ -4034,11 +4059,11 @@ export var UpdateBridgeOutputRequest: StaticStructureSchema = [
   [_BA, _NO, _ON],
   [
     [0, 1],
-    [() => UpdateBridgeNetworkOutputRequest, { [_jN]: _nO }],
+    [() => UpdateBridgeNetworkOutputRequest$, { [_jN]: _nO }],
     [0, 1],
   ],
 ];
-export var UpdateBridgeOutputResponse: StaticStructureSchema = [
+export var UpdateBridgeOutputResponse$: StaticStructureSchema = [
   3,
   n0,
   _UBORp,
@@ -4046,10 +4071,10 @@ export var UpdateBridgeOutputResponse: StaticStructureSchema = [
   [_BA, _Ou],
   [
     [0, { [_jN]: _bA }],
-    [() => BridgeOutput, { [_jN]: _ou }],
+    [() => BridgeOutput$, { [_jN]: _ou }],
   ],
 ];
-export var UpdateBridgeRequest: StaticStructureSchema = [
+export var UpdateBridgeRequest$: StaticStructureSchema = [
   3,
   n0,
   _UBR,
@@ -4057,13 +4082,13 @@ export var UpdateBridgeRequest: StaticStructureSchema = [
   [_BA, _EGB, _IGB, _SFC],
   [
     [0, 1],
-    [() => UpdateEgressGatewayBridgeRequest, { [_jN]: _eGB }],
-    [() => UpdateIngressGatewayBridgeRequest, { [_jN]: _iGB }],
-    [() => UpdateFailoverConfig, { [_jN]: _sFC }],
+    [() => UpdateEgressGatewayBridgeRequest$, { [_jN]: _eGB }],
+    [() => UpdateIngressGatewayBridgeRequest$, { [_jN]: _iGB }],
+    [() => UpdateFailoverConfig$, { [_jN]: _sFC }],
   ],
 ];
-export var UpdateBridgeResponse: StaticStructureSchema = [3, n0, _UBRp, 0, [_B], [[() => Bridge, { [_jN]: _b }]]];
-export var UpdateBridgeSourceRequest: StaticStructureSchema = [
+export var UpdateBridgeResponse$: StaticStructureSchema = [3, n0, _UBRp, 0, [_B], [[() => Bridge$, { [_jN]: _b }]]];
+export var UpdateBridgeSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _UBSR,
@@ -4071,12 +4096,12 @@ export var UpdateBridgeSourceRequest: StaticStructureSchema = [
   [_BA, _FS, _NS, _SN],
   [
     [0, 1],
-    [() => UpdateBridgeFlowSourceRequest, { [_jN]: _fS }],
-    [() => UpdateBridgeNetworkSourceRequest, { [_jN]: _nS }],
+    [() => UpdateBridgeFlowSourceRequest$, { [_jN]: _fS }],
+    [() => UpdateBridgeNetworkSourceRequest$, { [_jN]: _nS }],
     [0, 1],
   ],
 ];
-export var UpdateBridgeSourceResponse: StaticStructureSchema = [
+export var UpdateBridgeSourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _UBSRp,
@@ -4084,10 +4109,10 @@ export var UpdateBridgeSourceResponse: StaticStructureSchema = [
   [_BA, _So],
   [
     [0, { [_jN]: _bA }],
-    [() => BridgeSource, { [_jN]: _so }],
+    [() => BridgeSource$, { [_jN]: _so }],
   ],
 ];
-export var UpdateBridgeStateRequest: StaticStructureSchema = [
+export var UpdateBridgeStateRequest$: StaticStructureSchema = [
   3,
   n0,
   _UBSRpd,
@@ -4098,7 +4123,7 @@ export var UpdateBridgeStateRequest: StaticStructureSchema = [
     [0, { [_jN]: _dS }],
   ],
 ];
-export var UpdateBridgeStateResponse: StaticStructureSchema = [
+export var UpdateBridgeStateResponse$: StaticStructureSchema = [
   3,
   n0,
   _UBSRpda,
@@ -4109,8 +4134,8 @@ export var UpdateBridgeStateResponse: StaticStructureSchema = [
     [0, { [_jN]: _dS }],
   ],
 ];
-export var UpdateEgressGatewayBridgeRequest: StaticStructureSchema = [3, n0, _UEGBR, 0, [_MB], [[1, { [_jN]: _mB }]]];
-export var UpdateEncryption: StaticStructureSchema = [
+export var UpdateEgressGatewayBridgeRequest$: StaticStructureSchema = [3, n0, _UEGBR, 0, [_MB], [[1, { [_jN]: _mB }]]];
+export var UpdateEncryption$: StaticStructureSchema = [
   3,
   n0,
   _UE,
@@ -4128,7 +4153,7 @@ export var UpdateEncryption: StaticStructureSchema = [
     [0, { [_jN]: _u }],
   ],
 ];
-export var UpdateFailoverConfig: StaticStructureSchema = [
+export var UpdateFailoverConfig$: StaticStructureSchema = [
   3,
   n0,
   _UFC,
@@ -4137,11 +4162,11 @@ export var UpdateFailoverConfig: StaticStructureSchema = [
   [
     [0, { [_jN]: _fM }],
     [1, { [_jN]: _rW }],
-    [() => SourcePriority, { [_jN]: _sP }],
+    [() => SourcePriority$, { [_jN]: _sP }],
     [0, { [_jN]: _st }],
   ],
 ];
-export var UpdateFlowEntitlementRequest: StaticStructureSchema = [
+export var UpdateFlowEntitlementRequest$: StaticStructureSchema = [
   3,
   n0,
   _UFER,
@@ -4149,32 +4174,32 @@ export var UpdateFlowEntitlementRequest: StaticStructureSchema = [
   [_D, _E, _EA, _ES, _FA, _Su],
   [
     [0, { [_jN]: _d }],
-    [() => UpdateEncryption, { [_jN]: _en }],
+    [() => UpdateEncryption$, { [_jN]: _en }],
     [0, 1],
     [0, { [_jN]: _eS }],
     [0, 1],
     [64 | 0, { [_jN]: _su }],
   ],
 ];
-export var UpdateFlowEntitlementResponse: StaticStructureSchema = [
+export var UpdateFlowEntitlementResponse$: StaticStructureSchema = [
   3,
   n0,
   _UFERp,
   0,
   [_Ent, _FA],
   [
-    [() => Entitlement, { [_jN]: _enti }],
+    [() => Entitlement$, { [_jN]: _enti }],
     [0, { [_jN]: _fA }],
   ],
 ];
-export var UpdateFlowMediaStreamRequest: StaticStructureSchema = [
+export var UpdateFlowMediaStreamRequest$: StaticStructureSchema = [
   3,
   n0,
   _UFMSR,
   0,
   [_A, _CR, _D, _FA, _MSN, _MST, _VF],
   [
-    [() => MediaStreamAttributesRequest, { [_jN]: _a }],
+    [() => MediaStreamAttributesRequest$, { [_jN]: _a }],
     [1, { [_jN]: _cR }],
     [0, { [_jN]: _d }],
     [0, 1],
@@ -4183,7 +4208,7 @@ export var UpdateFlowMediaStreamRequest: StaticStructureSchema = [
     [0, { [_jN]: _vF }],
   ],
 ];
-export var UpdateFlowMediaStreamResponse: StaticStructureSchema = [
+export var UpdateFlowMediaStreamResponse$: StaticStructureSchema = [
   3,
   n0,
   _UFMSRp,
@@ -4191,10 +4216,10 @@ export var UpdateFlowMediaStreamResponse: StaticStructureSchema = [
   [_FA, _MSe],
   [
     [0, { [_jN]: _fA }],
-    [() => MediaStream, { [_jN]: _mSe }],
+    [() => MediaStream$, { [_jN]: _mSe }],
   ],
 ];
-export var UpdateFlowOutputRequest: StaticStructureSchema = [
+export var UpdateFlowOutputRequest$: StaticStructureSchema = [
   3,
   n0,
   _UFOR,
@@ -4227,7 +4252,7 @@ export var UpdateFlowOutputRequest: StaticStructureSchema = [
     [64 | 0, { [_jN]: _cAL }],
     [0, { [_jN]: _d }],
     [0, { [_jN]: _de }],
-    [() => UpdateEncryption, { [_jN]: _en }],
+    [() => UpdateEncryption$, { [_jN]: _en }],
     [0, 1],
     [1, { [_jN]: _mL }],
     [() => __listOfMediaStreamOutputConfigurationRequest, { [_jN]: _mSOC }],
@@ -4240,15 +4265,15 @@ export var UpdateFlowOutputRequest: StaticStructureSchema = [
     [0, { [_jN]: _sIAe }],
     [1, { [_jN]: _sL }],
     [0, { [_jN]: _sI }],
-    [() => VpcInterfaceAttachment, { [_jN]: _vIA }],
+    [() => VpcInterfaceAttachment$, { [_jN]: _vIA }],
     [0, { [_jN]: _oS }],
     [0, { [_jN]: _nPN }],
     [1, { [_jN]: _nSHQ }],
     [0, { [_jN]: _rIS }],
-    [() => FlowTransitEncryption, { [_jN]: _rITE }],
+    [() => FlowTransitEncryption$, { [_jN]: _rITE }],
   ],
 ];
-export var UpdateFlowOutputResponse: StaticStructureSchema = [
+export var UpdateFlowOutputResponse$: StaticStructureSchema = [
   3,
   n0,
   _UFORp,
@@ -4256,10 +4281,10 @@ export var UpdateFlowOutputResponse: StaticStructureSchema = [
   [_FA, _Ou],
   [
     [0, { [_jN]: _fA }],
-    [() => Output, { [_jN]: _ou }],
+    [() => Output$, { [_jN]: _ou }],
   ],
 ];
-export var UpdateFlowRequest: StaticStructureSchema = [
+export var UpdateFlowRequest$: StaticStructureSchema = [
   3,
   n0,
   _UFR,
@@ -4267,15 +4292,15 @@ export var UpdateFlowRequest: StaticStructureSchema = [
   [_FA, _SFC, _Ma, _SMC, _NC, _FSl],
   [
     [0, 1],
-    [() => UpdateFailoverConfig, { [_jN]: _sFC }],
-    [() => UpdateMaintenance, { [_jN]: _ma }],
-    [() => MonitoringConfig, { [_jN]: _sMC }],
-    [() => NdiConfig, { [_jN]: _nC }],
+    [() => UpdateFailoverConfig$, { [_jN]: _sFC }],
+    [() => UpdateMaintenance$, { [_jN]: _ma }],
+    [() => MonitoringConfig$, { [_jN]: _sMC }],
+    [() => NdiConfig$, { [_jN]: _nC }],
     [0, { [_jN]: _fSl }],
   ],
 ];
-export var UpdateFlowResponse: StaticStructureSchema = [3, n0, _UFRp, 0, [_F], [[() => Flow, { [_jN]: _f }]]];
-export var UpdateFlowSourceRequest: StaticStructureSchema = [
+export var UpdateFlowResponse$: StaticStructureSchema = [3, n0, _UFRp, 0, [_F], [[() => Flow$, { [_jN]: _f }]]];
+export var UpdateFlowSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _UFSR,
@@ -4305,7 +4330,7 @@ export var UpdateFlowSourceRequest: StaticStructureSchema = [
     _RITDo,
   ],
   [
-    [() => UpdateEncryption, { [_jN]: _dec }],
+    [() => UpdateEncryption$, { [_jN]: _dec }],
     [0, { [_jN]: _d }],
     [0, { [_jN]: _eA }],
     [0, 1],
@@ -4324,12 +4349,12 @@ export var UpdateFlowSourceRequest: StaticStructureSchema = [
     [0, { [_jN]: _sI }],
     [0, { [_jN]: _vIN }],
     [0, { [_jN]: _wC }],
-    [() => UpdateGatewayBridgeSourceRequest, { [_jN]: _gBS }],
+    [() => UpdateGatewayBridgeSourceRequest$, { [_jN]: _gBS }],
     [0, { [_jN]: _rIS }],
-    [() => FlowTransitEncryption, { [_jN]: _rITD }],
+    [() => FlowTransitEncryption$, { [_jN]: _rITD }],
   ],
 ];
-export var UpdateFlowSourceResponse: StaticStructureSchema = [
+export var UpdateFlowSourceResponse$: StaticStructureSchema = [
   3,
   n0,
   _UFSRp,
@@ -4337,10 +4362,10 @@ export var UpdateFlowSourceResponse: StaticStructureSchema = [
   [_FA, _So],
   [
     [0, { [_jN]: _fA }],
-    [() => Source, { [_jN]: _so }],
+    [() => Source$, { [_jN]: _so }],
   ],
 ];
-export var UpdateGatewayBridgeSourceRequest: StaticStructureSchema = [
+export var UpdateGatewayBridgeSourceRequest$: StaticStructureSchema = [
   3,
   n0,
   _UGBSR,
@@ -4348,10 +4373,10 @@ export var UpdateGatewayBridgeSourceRequest: StaticStructureSchema = [
   [_BA, _VIA],
   [
     [0, { [_jN]: _bA }],
-    [() => VpcInterfaceAttachment, { [_jN]: _vIA }],
+    [() => VpcInterfaceAttachment$, { [_jN]: _vIA }],
   ],
 ];
-export var UpdateGatewayInstanceRequest: StaticStructureSchema = [
+export var UpdateGatewayInstanceRequest$: StaticStructureSchema = [
   3,
   n0,
   _UGIR,
@@ -4362,7 +4387,7 @@ export var UpdateGatewayInstanceRequest: StaticStructureSchema = [
     [0, 1],
   ],
 ];
-export var UpdateGatewayInstanceResponse: StaticStructureSchema = [
+export var UpdateGatewayInstanceResponse$: StaticStructureSchema = [
   3,
   n0,
   _UGIRp,
@@ -4373,7 +4398,7 @@ export var UpdateGatewayInstanceResponse: StaticStructureSchema = [
     [0, { [_jN]: _gIA }],
   ],
 ];
-export var UpdateIngressGatewayBridgeRequest: StaticStructureSchema = [
+export var UpdateIngressGatewayBridgeRequest$: StaticStructureSchema = [
   3,
   n0,
   _UIGBR,
@@ -4384,7 +4409,7 @@ export var UpdateIngressGatewayBridgeRequest: StaticStructureSchema = [
     [1, { [_jN]: _mO }],
   ],
 ];
-export var UpdateMaintenance: StaticStructureSchema = [
+export var UpdateMaintenance$: StaticStructureSchema = [
   3,
   n0,
   _UM,
@@ -4396,7 +4421,7 @@ export var UpdateMaintenance: StaticStructureSchema = [
     [0, { [_jN]: _mSH }],
   ],
 ];
-export var UpdateRouterInputRequest: StaticStructureSchema = [
+export var UpdateRouterInputRequest$: StaticStructureSchema = [
   3,
   n0,
   _URIR,
@@ -4405,23 +4430,23 @@ export var UpdateRouterInputRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, { [_jN]: _n }],
-    [() => RouterInputConfiguration, { [_jN]: _con }],
+    [() => RouterInputConfiguration$, { [_jN]: _con }],
     [1, { [_jN]: _mBa }],
     [0, { [_jN]: _rS }],
     [0, { [_jN]: _ti }],
-    [() => RouterInputTransitEncryption, { [_jN]: _tE }],
-    [() => MaintenanceConfiguration, { [_jN]: _mC }],
+    [() => RouterInputTransitEncryption$, { [_jN]: _tE }],
+    [() => MaintenanceConfiguration$, { [_jN]: _mC }],
   ],
 ];
-export var UpdateRouterInputResponse: StaticStructureSchema = [
+export var UpdateRouterInputResponse$: StaticStructureSchema = [
   3,
   n0,
   _URIRp,
   0,
   [_RIou],
-  [[() => RouterInput, { [_jN]: _rIou }]],
+  [[() => RouterInput$, { [_jN]: _rIou }]],
 ];
-export var UpdateRouterNetworkInterfaceRequest: StaticStructureSchema = [
+export var UpdateRouterNetworkInterfaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _URNIR,
@@ -4430,18 +4455,18 @@ export var UpdateRouterNetworkInterfaceRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, { [_jN]: _n }],
-    [() => RouterNetworkInterfaceConfiguration, { [_jN]: _con }],
+    [() => RouterNetworkInterfaceConfiguration$, { [_jN]: _con }],
   ],
 ];
-export var UpdateRouterNetworkInterfaceResponse: StaticStructureSchema = [
+export var UpdateRouterNetworkInterfaceResponse$: StaticStructureSchema = [
   3,
   n0,
   _URNIRp,
   0,
   [_RNIo],
-  [[() => RouterNetworkInterface, { [_jN]: _rNIo }]],
+  [[() => RouterNetworkInterface$, { [_jN]: _rNIo }]],
 ];
-export var UpdateRouterOutputRequest: StaticStructureSchema = [
+export var UpdateRouterOutputRequest$: StaticStructureSchema = [
   3,
   n0,
   _UROR,
@@ -4450,33 +4475,33 @@ export var UpdateRouterOutputRequest: StaticStructureSchema = [
   [
     [0, 1],
     [0, { [_jN]: _n }],
-    [() => RouterOutputConfiguration, { [_jN]: _con }],
+    [() => RouterOutputConfiguration$, { [_jN]: _con }],
     [1, { [_jN]: _mBa }],
     [0, { [_jN]: _rS }],
     [0, { [_jN]: _ti }],
-    [() => MaintenanceConfiguration, { [_jN]: _mC }],
+    [() => MaintenanceConfiguration$, { [_jN]: _mC }],
   ],
 ];
-export var UpdateRouterOutputResponse: StaticStructureSchema = [
+export var UpdateRouterOutputResponse$: StaticStructureSchema = [
   3,
   n0,
   _URORp,
   0,
   [_ROo],
-  [[() => RouterOutput, { [_jN]: _rOo }]],
+  [[() => RouterOutput$, { [_jN]: _rOo }]],
 ];
-export var VideoMonitoringSetting: StaticStructureSchema = [
+export var VideoMonitoringSetting$: StaticStructureSchema = [
   3,
   n0,
   _VMSi,
   0,
   [_BF, _FF],
   [
-    [() => BlackFrames, { [_jN]: _bF }],
-    [() => FrozenFrames, { [_jN]: _fF }],
+    [() => BlackFrames$, { [_jN]: _bF }],
+    [() => FrozenFrames$, { [_jN]: _fF }],
   ],
 ];
-export var VpcInterface: StaticStructureSchema = [
+export var VpcInterface$: StaticStructureSchema = [
   3,
   n0,
   _VIp,
@@ -4491,8 +4516,8 @@ export var VpcInterface: StaticStructureSchema = [
     [0, { [_jN]: _sIu }],
   ],
 ];
-export var VpcInterfaceAttachment: StaticStructureSchema = [3, n0, _VIA, 0, [_VIN], [[0, { [_jN]: _vIN }]]];
-export var VpcInterfaceRequest: StaticStructureSchema = [
+export var VpcInterfaceAttachment$: StaticStructureSchema = [3, n0, _VIA, 0, [_VIN], [[0, { [_jN]: _vIN }]]];
+export var VpcInterfaceRequest$: StaticStructureSchema = [
   3,
   n0,
   _VIR,
@@ -4507,7 +4532,7 @@ export var VpcInterfaceRequest: StaticStructureSchema = [
     [128 | 0, { [_jN]: _vIT }],
   ],
 ];
-export var VpcRouterNetworkInterfaceConfiguration: StaticStructureSchema = [
+export var VpcRouterNetworkInterfaceConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _VRNIC,
@@ -4518,7 +4543,7 @@ export var VpcRouterNetworkInterfaceConfiguration: StaticStructureSchema = [
     [0, { [_jN]: _sIu }],
   ],
 ];
-export var WindowMaintenanceSchedule: StaticStructureSchema = [
+export var WindowMaintenanceSchedule$: StaticStructureSchema = [
   3,
   n0,
   _WMS,
@@ -4530,225 +4555,201 @@ export var WindowMaintenanceSchedule: StaticStructureSchema = [
     [5, { [_jN]: _sTc }],
   ],
 ];
-export var __Unit = "unit" as const;
-export var MediaConnectServiceException: StaticErrorSchema = [-3, _sm, "MediaConnectServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MediaConnectServiceException, __MediaConnectServiceException);
-export var __listOfAddBridgeOutputRequest: StaticListSchema = [1, n0, _lOABOR, 0, [() => AddBridgeOutputRequest, 0]];
-export var __listOfAddBridgeSourceRequest: StaticListSchema = [1, n0, _lOABSR, 0, [() => AddBridgeSourceRequest, 0]];
-export var __listOfAddMediaStreamRequest: StaticListSchema = [1, n0, _lOAMSR, 0, [() => AddMediaStreamRequest, 0]];
-export var __listOfAddOutputRequest: StaticListSchema = [1, n0, _lOAOR, 0, [() => AddOutputRequest, 0]];
-export var __listOfAudioMonitoringSetting: StaticListSchema = [1, n0, _lOAMS, 0, [() => AudioMonitoringSetting, 0]];
-export var __listOfBridgeOutput: StaticListSchema = [1, n0, _lOBO, 0, [() => BridgeOutput, 0]];
-export var __listOfBridgeSource: StaticListSchema = [1, n0, _lOBS, 0, [() => BridgeSource, 0]];
-export var __listOfDestinationConfiguration: StaticListSchema = [1, n0, _lODC, 0, [() => DestinationConfiguration, 0]];
-export var __listOfDestinationConfigurationRequest: StaticListSchema = [
+var __Unit = "unit" as const;
+export var MediaConnectServiceException$: StaticErrorSchema = [-3, _sm, "MediaConnectServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(MediaConnectServiceException$, MediaConnectServiceException);
+var __listOfAddBridgeOutputRequest: StaticListSchema = [1, n0, _lOABOR, 0, [() => AddBridgeOutputRequest$, 0]];
+var __listOfAddBridgeSourceRequest: StaticListSchema = [1, n0, _lOABSR, 0, [() => AddBridgeSourceRequest$, 0]];
+var __listOfAddMediaStreamRequest: StaticListSchema = [1, n0, _lOAMSR, 0, [() => AddMediaStreamRequest$, 0]];
+var __listOfAddOutputRequest: StaticListSchema = [1, n0, _lOAOR, 0, [() => AddOutputRequest$, 0]];
+var __listOfAudioMonitoringSetting: StaticListSchema = [1, n0, _lOAMS, 0, [() => AudioMonitoringSetting$, 0]];
+var __listOfBridgeOutput: StaticListSchema = [1, n0, _lOBO, 0, [() => BridgeOutput$, 0]];
+var __listOfBridgeSource: StaticListSchema = [1, n0, _lOBS, 0, [() => BridgeSource$, 0]];
+var __listOfDestinationConfiguration: StaticListSchema = [1, n0, _lODC, 0, [() => DestinationConfiguration$, 0]];
+var __listOfDestinationConfigurationRequest: StaticListSchema = [
   1,
   n0,
   _lODCR,
   0,
-  [() => DestinationConfigurationRequest, 0],
+  [() => DestinationConfigurationRequest$, 0],
 ];
-export var __listOfEntitlement: StaticListSchema = [1, n0, _lOE, 0, [() => Entitlement, 0]];
-export var __listOfGatewayNetwork: StaticListSchema = [1, n0, _lOGN, 0, [() => GatewayNetwork, 0]];
-export var __listOfGrantEntitlementRequest: StaticListSchema = [1, n0, _lOGER, 0, [() => GrantEntitlementRequest, 0]];
-export var __listOfInputConfiguration: StaticListSchema = [1, n0, _lOIC, 0, [() => InputConfiguration, 0]];
-export var __listOfInputConfigurationRequest: StaticListSchema = [
-  1,
-  n0,
-  _lOICR,
-  0,
-  [() => InputConfigurationRequest, 0],
-];
-export var __listOfInteger = 64 | 1;
-export var __listOfListedBridge: StaticListSchema = [1, n0, _lOLB, 0, [() => ListedBridge, 0]];
-export var __listOfListedEntitlement: StaticListSchema = [1, n0, _lOLE, 0, [() => ListedEntitlement, 0]];
-export var __listOfListedFlow: StaticListSchema = [1, n0, _lOLF, 0, [() => ListedFlow, 0]];
-export var __listOfListedGateway: StaticListSchema = [1, n0, _lOLG, 0, [() => ListedGateway, 0]];
-export var __listOfListedGatewayInstance: StaticListSchema = [1, n0, _lOLGI, 0, [() => ListedGatewayInstance, 0]];
-export var __listOfMediaStream: StaticListSchema = [1, n0, _lOMS, 0, [() => MediaStream, 0]];
-export var __listOfMediaStreamOutputConfiguration: StaticListSchema = [
+var __listOfEntitlement: StaticListSchema = [1, n0, _lOE, 0, [() => Entitlement$, 0]];
+var __listOfGatewayNetwork: StaticListSchema = [1, n0, _lOGN, 0, [() => GatewayNetwork$, 0]];
+var __listOfGrantEntitlementRequest: StaticListSchema = [1, n0, _lOGER, 0, [() => GrantEntitlementRequest$, 0]];
+var __listOfInputConfiguration: StaticListSchema = [1, n0, _lOIC, 0, [() => InputConfiguration$, 0]];
+var __listOfInputConfigurationRequest: StaticListSchema = [1, n0, _lOICR, 0, [() => InputConfigurationRequest$, 0]];
+var __listOfInteger = 64 | 1;
+var __listOfListedBridge: StaticListSchema = [1, n0, _lOLB, 0, [() => ListedBridge$, 0]];
+var __listOfListedEntitlement: StaticListSchema = [1, n0, _lOLE, 0, [() => ListedEntitlement$, 0]];
+var __listOfListedFlow: StaticListSchema = [1, n0, _lOLF, 0, [() => ListedFlow$, 0]];
+var __listOfListedGateway: StaticListSchema = [1, n0, _lOLG, 0, [() => ListedGateway$, 0]];
+var __listOfListedGatewayInstance: StaticListSchema = [1, n0, _lOLGI, 0, [() => ListedGatewayInstance$, 0]];
+var __listOfMediaStream: StaticListSchema = [1, n0, _lOMS, 0, [() => MediaStream$, 0]];
+var __listOfMediaStreamOutputConfiguration: StaticListSchema = [
   1,
   n0,
   _lOMSOC,
   0,
-  [() => MediaStreamOutputConfiguration, 0],
+  [() => MediaStreamOutputConfiguration$, 0],
 ];
-export var __listOfMediaStreamOutputConfigurationRequest: StaticListSchema = [
+var __listOfMediaStreamOutputConfigurationRequest: StaticListSchema = [
   1,
   n0,
   _lOMSOCR,
   0,
-  [() => MediaStreamOutputConfigurationRequest, 0],
+  [() => MediaStreamOutputConfigurationRequest$, 0],
 ];
-export var __listOfMediaStreamSourceConfiguration: StaticListSchema = [
+var __listOfMediaStreamSourceConfiguration: StaticListSchema = [
   1,
   n0,
   _lOMSSC,
   0,
-  [() => MediaStreamSourceConfiguration, 0],
+  [() => MediaStreamSourceConfiguration$, 0],
 ];
-export var __listOfMediaStreamSourceConfigurationRequest: StaticListSchema = [
+var __listOfMediaStreamSourceConfigurationRequest: StaticListSchema = [
   1,
   n0,
   _lOMSSCR,
   0,
-  [() => MediaStreamSourceConfigurationRequest, 0],
+  [() => MediaStreamSourceConfigurationRequest$, 0],
 ];
-export var __listOfMessageDetail: StaticListSchema = [1, n0, _lOMD, 0, [() => MessageDetail, 0]];
-export var __listOfNdiDiscoveryServerConfig: StaticListSchema = [
-  1,
-  n0,
-  _lONDSC,
-  0,
-  [() => NdiDiscoveryServerConfig, 0],
-];
-export var __listOfOffering: StaticListSchema = [1, n0, _lOO, 0, [() => Offering, 0]];
-export var __listOfOutput: StaticListSchema = [1, n0, _lOOi, 0, [() => Output, 0]];
-export var __listOfReservation: StaticListSchema = [1, n0, _lOR, 0, [() => Reservation, 0]];
-export var __listOfSetSourceRequest: StaticListSchema = [1, n0, _lOSSR, 0, [() => SetSourceRequest, 0]];
-export var __listOfSource: StaticListSchema = [1, n0, _lOS, 0, [() => Source, 0]];
-export var __listOfString = 64 | 0;
-export var __listOfTransportStream: StaticListSchema = [1, n0, _lOTS, 0, [() => TransportStream, 0]];
-export var __listOfTransportStreamProgram: StaticListSchema = [1, n0, _lOTSP, 0, [() => TransportStreamProgram, 0]];
-export var __listOfVideoMonitoringSetting: StaticListSchema = [1, n0, _lOVMS, 0, [() => VideoMonitoringSetting, 0]];
-export var __listOfVpcInterface: StaticListSchema = [1, n0, _lOVI, 0, [() => VpcInterface, 0]];
-export var __listOfVpcInterfaceRequest: StaticListSchema = [1, n0, _lOVIR, 0, [() => VpcInterfaceRequest, 0]];
-export var BatchGetRouterInputErrorList: StaticListSchema = [1, n0, _BGRIEL, 0, [() => BatchGetRouterInputError, 0]];
-export var BatchGetRouterNetworkInterfaceErrorList: StaticListSchema = [
+var __listOfMessageDetail: StaticListSchema = [1, n0, _lOMD, 0, [() => MessageDetail$, 0]];
+var __listOfNdiDiscoveryServerConfig: StaticListSchema = [1, n0, _lONDSC, 0, [() => NdiDiscoveryServerConfig$, 0]];
+var __listOfOffering: StaticListSchema = [1, n0, _lOO, 0, [() => Offering$, 0]];
+var __listOfOutput: StaticListSchema = [1, n0, _lOOi, 0, [() => Output$, 0]];
+var __listOfReservation: StaticListSchema = [1, n0, _lOR, 0, [() => Reservation$, 0]];
+var __listOfSetSourceRequest: StaticListSchema = [1, n0, _lOSSR, 0, [() => SetSourceRequest$, 0]];
+var __listOfSource: StaticListSchema = [1, n0, _lOS, 0, [() => Source$, 0]];
+var __listOfString = 64 | 0;
+var __listOfTransportStream: StaticListSchema = [1, n0, _lOTS, 0, [() => TransportStream$, 0]];
+var __listOfTransportStreamProgram: StaticListSchema = [1, n0, _lOTSP, 0, [() => TransportStreamProgram$, 0]];
+var __listOfVideoMonitoringSetting: StaticListSchema = [1, n0, _lOVMS, 0, [() => VideoMonitoringSetting$, 0]];
+var __listOfVpcInterface: StaticListSchema = [1, n0, _lOVI, 0, [() => VpcInterface$, 0]];
+var __listOfVpcInterfaceRequest: StaticListSchema = [1, n0, _lOVIR, 0, [() => VpcInterfaceRequest$, 0]];
+var BatchGetRouterInputErrorList: StaticListSchema = [1, n0, _BGRIEL, 0, [() => BatchGetRouterInputError$, 0]];
+var BatchGetRouterNetworkInterfaceErrorList: StaticListSchema = [
   1,
   n0,
   _BGRNIEL,
   0,
-  [() => BatchGetRouterNetworkInterfaceError, 0],
+  [() => BatchGetRouterNetworkInterfaceError$, 0],
 ];
-export var BatchGetRouterOutputErrorList: StaticListSchema = [1, n0, _BGROEL, 0, [() => BatchGetRouterOutputError, 0]];
-export var FailoverRouterInputProtocolConfigurationList: StaticListSchema = [
+var BatchGetRouterOutputErrorList: StaticListSchema = [1, n0, _BGROEL, 0, [() => BatchGetRouterOutputError$, 0]];
+var FailoverRouterInputProtocolConfigurationList: StaticListSchema = [
   1,
   n0,
   _FRIPCL,
   0,
-  [() => FailoverRouterInputProtocolConfiguration, 0],
+  [() => FailoverRouterInputProtocolConfiguration$, 0],
 ];
-export var ListedRouterInputList: StaticListSchema = [1, n0, _LRIL, 0, [() => ListedRouterInput, 0]];
-export var ListedRouterNetworkInterfaceList: StaticListSchema = [
-  1,
-  n0,
-  _LRNIL,
-  0,
-  [() => ListedRouterNetworkInterface, 0],
-];
-export var ListedRouterOutputList: StaticListSchema = [1, n0, _LROL, 0, [() => ListedRouterOutput, 0]];
-export var MergeRouterInputProtocolConfigurationList: StaticListSchema = [
+var ListedRouterInputList: StaticListSchema = [1, n0, _LRIL, 0, [() => ListedRouterInput$, 0]];
+var ListedRouterNetworkInterfaceList: StaticListSchema = [1, n0, _LRNIL, 0, [() => ListedRouterNetworkInterface$, 0]];
+var ListedRouterOutputList: StaticListSchema = [1, n0, _LROL, 0, [() => ListedRouterOutput$, 0]];
+var MergeRouterInputProtocolConfigurationList: StaticListSchema = [
   1,
   n0,
   _MRIPCL,
   0,
-  [() => MergeRouterInputProtocolConfiguration, 0],
+  [() => MergeRouterInputProtocolConfiguration$, 0],
 ];
-export var NetworkInterfaceRuleList: StaticListSchema = [1, n0, _NIRL, 0, [() => PublicRouterNetworkInterfaceRule, 0]];
-export var RouterInputArnList = 64 | 0;
-export var RouterInputFilterList: StaticListSchema = [1, n0, _RIFL, 0, [() => RouterInputFilter, 0]];
-export var RouterInputList: StaticListSchema = [1, n0, _RIL, 0, [() => RouterInput, 0]];
-export var RouterInputMessages: StaticListSchema = [1, n0, _RIMou, 0, [() => RouterInputMessage, 0]];
-export var RouterInputTypeList = 64 | 0;
-export var RouterNetworkInterfaceArnList = 64 | 0;
-export var RouterNetworkInterfaceFilterList: StaticListSchema = [
-  1,
-  n0,
-  _RNIFL,
-  0,
-  [() => RouterNetworkInterfaceFilter, 0],
-];
-export var RouterNetworkInterfaceList: StaticListSchema = [1, n0, _RNIL, 0, [() => RouterNetworkInterface, 0]];
-export var RouterNetworkInterfaceTypeList = 64 | 0;
-export var RouterOutputArnList = 64 | 0;
-export var RouterOutputFilterList: StaticListSchema = [1, n0, _ROFL, 0, [() => RouterOutputFilter, 0]];
-export var RouterOutputList: StaticListSchema = [1, n0, _ROL, 0, [() => RouterOutput, 0]];
-export var RouterOutputMessages: StaticListSchema = [1, n0, _ROMo, 0, [() => RouterOutputMessage, 0]];
-export var RouterOutputTypeList = 64 | 0;
-export var RoutingScopeList = 64 | 0;
-export var SecurityGroupIdList = 64 | 0;
-export var StringList = 64 | 0;
-export var __mapOfString = 128 | 0;
-export var FailoverRouterInputProtocolConfiguration: StaticStructureSchema = [
+var NetworkInterfaceRuleList: StaticListSchema = [1, n0, _NIRL, 0, [() => PublicRouterNetworkInterfaceRule$, 0]];
+var RouterInputArnList = 64 | 0;
+var RouterInputFilterList: StaticListSchema = [1, n0, _RIFL, 0, [() => RouterInputFilter$, 0]];
+var RouterInputList: StaticListSchema = [1, n0, _RIL, 0, [() => RouterInput$, 0]];
+var RouterInputMessages: StaticListSchema = [1, n0, _RIMou, 0, [() => RouterInputMessage$, 0]];
+var RouterInputTypeList = 64 | 0;
+var RouterNetworkInterfaceArnList = 64 | 0;
+var RouterNetworkInterfaceFilterList: StaticListSchema = [1, n0, _RNIFL, 0, [() => RouterNetworkInterfaceFilter$, 0]];
+var RouterNetworkInterfaceList: StaticListSchema = [1, n0, _RNIL, 0, [() => RouterNetworkInterface$, 0]];
+var RouterNetworkInterfaceTypeList = 64 | 0;
+var RouterOutputArnList = 64 | 0;
+var RouterOutputFilterList: StaticListSchema = [1, n0, _ROFL, 0, [() => RouterOutputFilter$, 0]];
+var RouterOutputList: StaticListSchema = [1, n0, _ROL, 0, [() => RouterOutput$, 0]];
+var RouterOutputMessages: StaticListSchema = [1, n0, _ROMo, 0, [() => RouterOutputMessage$, 0]];
+var RouterOutputTypeList = 64 | 0;
+var RoutingScopeList = 64 | 0;
+var SecurityGroupIdList = 64 | 0;
+var StringList = 64 | 0;
+var __mapOfString = 128 | 0;
+export var FailoverRouterInputProtocolConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _FRIPC,
   0,
   [_Rt, _Ri, _SLr, _SC],
   [
-    [() => RtpRouterInputConfiguration, { [_jN]: _rt }],
-    [() => RistRouterInputConfiguration, { [_jN]: _ri }],
-    [() => SrtListenerRouterInputConfiguration, { [_jN]: _sLr }],
-    [() => SrtCallerRouterInputConfiguration, { [_jN]: _sC }],
+    [() => RtpRouterInputConfiguration$, { [_jN]: _rt }],
+    [() => RistRouterInputConfiguration$, { [_jN]: _ri }],
+    [() => SrtListenerRouterInputConfiguration$, { [_jN]: _sLr }],
+    [() => SrtCallerRouterInputConfiguration$, { [_jN]: _sC }],
   ],
 ];
-export var FlowTransitEncryptionKeyConfiguration: StaticStructureSchema = [
+export var FlowTransitEncryptionKeyConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _FTEKC,
   0,
   [_SMe, _Au],
   [
-    [() => SecretsManagerEncryptionKeyConfiguration, { [_jN]: _sMe }],
-    [() => AutomaticEncryptionKeyConfiguration, { [_jN]: _au }],
+    [() => SecretsManagerEncryptionKeyConfiguration$, { [_jN]: _sMe }],
+    [() => AutomaticEncryptionKeyConfiguration$, { [_jN]: _au }],
   ],
 ];
-export var MaintenanceConfiguration: StaticStructureSchema = [
+export var MaintenanceConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _MC,
   0,
   [_PDT, _Def],
   [
-    [() => PreferredDayTimeMaintenanceConfiguration, { [_jN]: _pDT }],
-    [() => DefaultMaintenanceConfiguration, { [_jN]: _def }],
+    [() => PreferredDayTimeMaintenanceConfiguration$, { [_jN]: _pDT }],
+    [() => DefaultMaintenanceConfiguration$, { [_jN]: _def }],
   ],
 ];
-export var MaintenanceSchedule: StaticStructureSchema = [
+export var MaintenanceSchedule$: StaticStructureSchema = [
   3,
   n0,
   _MSa,
   0,
   [_W],
-  [[() => WindowMaintenanceSchedule, { [_jN]: _w }]],
+  [[() => WindowMaintenanceSchedule$, { [_jN]: _w }]],
 ];
-export var MediaLiveTransitEncryptionKeyConfiguration: StaticStructureSchema = [
+export var MediaLiveTransitEncryptionKeyConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _MLTEKC,
   0,
   [_SMe, _Au],
   [
-    [() => SecretsManagerEncryptionKeyConfiguration, { [_jN]: _sMe }],
-    [() => AutomaticEncryptionKeyConfiguration, { [_jN]: _au }],
+    [() => SecretsManagerEncryptionKeyConfiguration$, { [_jN]: _sMe }],
+    [() => AutomaticEncryptionKeyConfiguration$, { [_jN]: _au }],
   ],
 ];
-export var MergeRouterInputProtocolConfiguration: StaticStructureSchema = [
+export var MergeRouterInputProtocolConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _MRIPC,
   0,
   [_Rt, _Ri],
   [
-    [() => RtpRouterInputConfiguration, { [_jN]: _rt }],
-    [() => RistRouterInputConfiguration, { [_jN]: _ri }],
+    [() => RtpRouterInputConfiguration$, { [_jN]: _rt }],
+    [() => RistRouterInputConfiguration$, { [_jN]: _ri }],
   ],
 ];
-export var RouterInputConfiguration: StaticStructureSchema = [
+export var RouterInputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RIC,
   0,
   [_Stan, _Fa, _Mer, _MCF],
   [
-    [() => StandardRouterInputConfiguration, { [_jN]: _stan }],
-    [() => FailoverRouterInputConfiguration, { [_jN]: _fa }],
-    [() => MergeRouterInputConfiguration, { [_jN]: _mer }],
-    [() => MediaConnectFlowRouterInputConfiguration, { [_jN]: _mCF }],
+    [() => StandardRouterInputConfiguration$, { [_jN]: _stan }],
+    [() => FailoverRouterInputConfiguration$, { [_jN]: _fa }],
+    [() => MergeRouterInputConfiguration$, { [_jN]: _mer }],
+    [() => MediaConnectFlowRouterInputConfiguration$, { [_jN]: _mCF }],
   ],
 ];
-export var RouterInputFilter: StaticStructureSchema = [
+export var RouterInputFilter$: StaticStructureSchema = [
   3,
   n0,
   _RIF,
@@ -4762,63 +4763,63 @@ export var RouterInputFilter: StaticStructureSchema = [
     [64 | 0, { [_jN]: _rSou }],
   ],
 ];
-export var RouterInputMetadata: StaticStructureSchema = [
+export var RouterInputMetadata$: StaticStructureSchema = [
   3,
   n0,
   _RIMo,
   0,
   [_TSMI],
-  [[() => TransportMediaInfo, { [_jN]: _tSMI }]],
+  [[() => TransportMediaInfo$, { [_jN]: _tSMI }]],
 ];
-export var RouterInputProtocolConfiguration: StaticStructureSchema = [
+export var RouterInputProtocolConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RIPC,
   0,
   [_Rt, _Ri, _SLr, _SC],
   [
-    [() => RtpRouterInputConfiguration, { [_jN]: _rt }],
-    [() => RistRouterInputConfiguration, { [_jN]: _ri }],
-    [() => SrtListenerRouterInputConfiguration, { [_jN]: _sLr }],
-    [() => SrtCallerRouterInputConfiguration, { [_jN]: _sC }],
+    [() => RtpRouterInputConfiguration$, { [_jN]: _rt }],
+    [() => RistRouterInputConfiguration$, { [_jN]: _ri }],
+    [() => SrtListenerRouterInputConfiguration$, { [_jN]: _sLr }],
+    [() => SrtCallerRouterInputConfiguration$, { [_jN]: _sC }],
   ],
 ];
-export var RouterInputStreamDetails: StaticStructureSchema = [
+export var RouterInputStreamDetails$: StaticStructureSchema = [
   3,
   n0,
   _RISD,
   0,
   [_Stan, _Fa, _Mer, _MCF],
   [
-    [() => StandardRouterInputStreamDetails, { [_jN]: _stan }],
-    [() => FailoverRouterInputStreamDetails, { [_jN]: _fa }],
-    [() => MergeRouterInputStreamDetails, { [_jN]: _mer }],
-    [() => MediaConnectFlowRouterInputStreamDetails, { [_jN]: _mCF }],
+    [() => StandardRouterInputStreamDetails$, { [_jN]: _stan }],
+    [() => FailoverRouterInputStreamDetails$, { [_jN]: _fa }],
+    [() => MergeRouterInputStreamDetails$, { [_jN]: _mer }],
+    [() => MediaConnectFlowRouterInputStreamDetails$, { [_jN]: _mCF }],
   ],
 ];
-export var RouterInputTransitEncryptionKeyConfiguration: StaticStructureSchema = [
+export var RouterInputTransitEncryptionKeyConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RITEKC,
   0,
   [_SMe, _Au],
   [
-    [() => SecretsManagerEncryptionKeyConfiguration, { [_jN]: _sMe }],
-    [() => AutomaticEncryptionKeyConfiguration, { [_jN]: _au }],
+    [() => SecretsManagerEncryptionKeyConfiguration$, { [_jN]: _sMe }],
+    [() => AutomaticEncryptionKeyConfiguration$, { [_jN]: _au }],
   ],
 ];
-export var RouterNetworkInterfaceConfiguration: StaticStructureSchema = [
+export var RouterNetworkInterfaceConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _RNIC,
   0,
   [_Pu, _V],
   [
-    [() => PublicRouterNetworkInterfaceConfiguration, { [_jN]: _pu }],
-    [() => VpcRouterNetworkInterfaceConfiguration, { [_jN]: _v }],
+    [() => PublicRouterNetworkInterfaceConfiguration$, { [_jN]: _pu }],
+    [() => VpcRouterNetworkInterfaceConfiguration$, { [_jN]: _v }],
   ],
 ];
-export var RouterNetworkInterfaceFilter: StaticStructureSchema = [
+export var RouterNetworkInterfaceFilter$: StaticStructureSchema = [
   3,
   n0,
   _RNIF,
@@ -4830,19 +4831,19 @@ export var RouterNetworkInterfaceFilter: StaticStructureSchema = [
     [64 | 0, { [_jN]: _nCa }],
   ],
 ];
-export var RouterOutputConfiguration: StaticStructureSchema = [
+export var RouterOutputConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ROC,
   0,
   [_Stan, _MCF, _MLI],
   [
-    [() => StandardRouterOutputConfiguration, { [_jN]: _stan }],
-    [() => MediaConnectFlowRouterOutputConfiguration, { [_jN]: _mCF }],
-    [() => MediaLiveInputRouterOutputConfiguration, { [_jN]: _mLI }],
+    [() => StandardRouterOutputConfiguration$, { [_jN]: _stan }],
+    [() => MediaConnectFlowRouterOutputConfiguration$, { [_jN]: _mCF }],
+    [() => MediaLiveInputRouterOutputConfiguration$, { [_jN]: _mLI }],
   ],
 ];
-export var RouterOutputFilter: StaticStructureSchema = [
+export var RouterOutputFilter$: StaticStructureSchema = [
   3,
   n0,
   _ROF,
@@ -4857,684 +4858,684 @@ export var RouterOutputFilter: StaticStructureSchema = [
     [64 | 0, { [_jN]: _rSou }],
   ],
 ];
-export var RouterOutputProtocolConfiguration: StaticStructureSchema = [
+export var RouterOutputProtocolConfiguration$: StaticStructureSchema = [
   3,
   n0,
   _ROPC,
   0,
   [_Rt, _Ri, _SLr, _SC],
   [
-    [() => RtpRouterOutputConfiguration, { [_jN]: _rt }],
-    [() => RistRouterOutputConfiguration, { [_jN]: _ri }],
-    [() => SrtListenerRouterOutputConfiguration, { [_jN]: _sLr }],
-    [() => SrtCallerRouterOutputConfiguration, { [_jN]: _sC }],
+    [() => RtpRouterOutputConfiguration$, { [_jN]: _rt }],
+    [() => RistRouterOutputConfiguration$, { [_jN]: _ri }],
+    [() => SrtListenerRouterOutputConfiguration$, { [_jN]: _sLr }],
+    [() => SrtCallerRouterOutputConfiguration$, { [_jN]: _sC }],
   ],
 ];
-export var RouterOutputStreamDetails: StaticStructureSchema = [
+export var RouterOutputStreamDetails$: StaticStructureSchema = [
   3,
   n0,
   _ROSD,
   0,
   [_Stan, _MCF, _MLI],
   [
-    [() => StandardRouterOutputStreamDetails, { [_jN]: _stan }],
-    [() => MediaConnectFlowRouterOutputStreamDetails, { [_jN]: _mCF }],
-    [() => MediaLiveInputRouterOutputStreamDetails, { [_jN]: _mLI }],
+    [() => StandardRouterOutputStreamDetails$, { [_jN]: _stan }],
+    [() => MediaConnectFlowRouterOutputStreamDetails$, { [_jN]: _mCF }],
+    [() => MediaLiveInputRouterOutputStreamDetails$, { [_jN]: _mLI }],
   ],
 ];
-export var AddBridgeOutputs: StaticOperationSchema = [
+export var AddBridgeOutputs$: StaticOperationSchema = [
   9,
   n0,
   _ABO,
   { [_h]: ["POST", "/v1/bridges/{BridgeArn}/outputs", 202] },
-  () => AddBridgeOutputsRequest,
-  () => AddBridgeOutputsResponse,
+  () => AddBridgeOutputsRequest$,
+  () => AddBridgeOutputsResponse$,
 ];
-export var AddBridgeSources: StaticOperationSchema = [
+export var AddBridgeSources$: StaticOperationSchema = [
   9,
   n0,
   _ABS,
   { [_h]: ["POST", "/v1/bridges/{BridgeArn}/sources", 202] },
-  () => AddBridgeSourcesRequest,
-  () => AddBridgeSourcesResponse,
+  () => AddBridgeSourcesRequest$,
+  () => AddBridgeSourcesResponse$,
 ];
-export var AddFlowMediaStreams: StaticOperationSchema = [
+export var AddFlowMediaStreams$: StaticOperationSchema = [
   9,
   n0,
   _AFMS,
   { [_h]: ["POST", "/v1/flows/{FlowArn}/mediaStreams", 201] },
-  () => AddFlowMediaStreamsRequest,
-  () => AddFlowMediaStreamsResponse,
+  () => AddFlowMediaStreamsRequest$,
+  () => AddFlowMediaStreamsResponse$,
 ];
-export var AddFlowOutputs: StaticOperationSchema = [
+export var AddFlowOutputs$: StaticOperationSchema = [
   9,
   n0,
   _AFO,
   { [_h]: ["POST", "/v1/flows/{FlowArn}/outputs", 201] },
-  () => AddFlowOutputsRequest,
-  () => AddFlowOutputsResponse,
+  () => AddFlowOutputsRequest$,
+  () => AddFlowOutputsResponse$,
 ];
-export var AddFlowSources: StaticOperationSchema = [
+export var AddFlowSources$: StaticOperationSchema = [
   9,
   n0,
   _AFS,
   { [_h]: ["POST", "/v1/flows/{FlowArn}/source", 201] },
-  () => AddFlowSourcesRequest,
-  () => AddFlowSourcesResponse,
+  () => AddFlowSourcesRequest$,
+  () => AddFlowSourcesResponse$,
 ];
-export var AddFlowVpcInterfaces: StaticOperationSchema = [
+export var AddFlowVpcInterfaces$: StaticOperationSchema = [
   9,
   n0,
   _AFVI,
   { [_h]: ["POST", "/v1/flows/{FlowArn}/vpcInterfaces", 201] },
-  () => AddFlowVpcInterfacesRequest,
-  () => AddFlowVpcInterfacesResponse,
+  () => AddFlowVpcInterfacesRequest$,
+  () => AddFlowVpcInterfacesResponse$,
 ];
-export var BatchGetRouterInput: StaticOperationSchema = [
+export var BatchGetRouterInput$: StaticOperationSchema = [
   9,
   n0,
   _BGRI,
   { [_h]: ["GET", "/v1/routerInputs", 200] },
-  () => BatchGetRouterInputRequest,
-  () => BatchGetRouterInputResponse,
+  () => BatchGetRouterInputRequest$,
+  () => BatchGetRouterInputResponse$,
 ];
-export var BatchGetRouterNetworkInterface: StaticOperationSchema = [
+export var BatchGetRouterNetworkInterface$: StaticOperationSchema = [
   9,
   n0,
   _BGRNI,
   { [_h]: ["GET", "/v1/routerNetworkInterfaces", 200] },
-  () => BatchGetRouterNetworkInterfaceRequest,
-  () => BatchGetRouterNetworkInterfaceResponse,
+  () => BatchGetRouterNetworkInterfaceRequest$,
+  () => BatchGetRouterNetworkInterfaceResponse$,
 ];
-export var BatchGetRouterOutput: StaticOperationSchema = [
+export var BatchGetRouterOutput$: StaticOperationSchema = [
   9,
   n0,
   _BGRO,
   { [_h]: ["GET", "/v1/routerOutputs", 200] },
-  () => BatchGetRouterOutputRequest,
-  () => BatchGetRouterOutputResponse,
+  () => BatchGetRouterOutputRequest$,
+  () => BatchGetRouterOutputResponse$,
 ];
-export var CreateBridge: StaticOperationSchema = [
+export var CreateBridge$: StaticOperationSchema = [
   9,
   n0,
   _CBr,
   { [_h]: ["POST", "/v1/bridges", 201] },
-  () => CreateBridgeRequest,
-  () => CreateBridgeResponse,
+  () => CreateBridgeRequest$,
+  () => CreateBridgeResponse$,
 ];
-export var CreateFlow: StaticOperationSchema = [
+export var CreateFlow$: StaticOperationSchema = [
   9,
   n0,
   _CFr,
   { [_h]: ["POST", "/v1/flows", 201] },
-  () => CreateFlowRequest,
-  () => CreateFlowResponse,
+  () => CreateFlowRequest$,
+  () => CreateFlowResponse$,
 ];
-export var CreateGateway: StaticOperationSchema = [
+export var CreateGateway$: StaticOperationSchema = [
   9,
   n0,
   _CG,
   { [_h]: ["POST", "/v1/gateways", 201] },
-  () => CreateGatewayRequest,
-  () => CreateGatewayResponse,
+  () => CreateGatewayRequest$,
+  () => CreateGatewayResponse$,
 ];
-export var CreateRouterInput: StaticOperationSchema = [
+export var CreateRouterInput$: StaticOperationSchema = [
   9,
   n0,
   _CRI,
   { [_h]: ["POST", "/v1/routerInput", 201] },
-  () => CreateRouterInputRequest,
-  () => CreateRouterInputResponse,
+  () => CreateRouterInputRequest$,
+  () => CreateRouterInputResponse$,
 ];
-export var CreateRouterNetworkInterface: StaticOperationSchema = [
+export var CreateRouterNetworkInterface$: StaticOperationSchema = [
   9,
   n0,
   _CRNI,
   { [_h]: ["POST", "/v1/routerNetworkInterface", 201] },
-  () => CreateRouterNetworkInterfaceRequest,
-  () => CreateRouterNetworkInterfaceResponse,
+  () => CreateRouterNetworkInterfaceRequest$,
+  () => CreateRouterNetworkInterfaceResponse$,
 ];
-export var CreateRouterOutput: StaticOperationSchema = [
+export var CreateRouterOutput$: StaticOperationSchema = [
   9,
   n0,
   _CRO,
   { [_h]: ["POST", "/v1/routerOutput", 201] },
-  () => CreateRouterOutputRequest,
-  () => CreateRouterOutputResponse,
+  () => CreateRouterOutputRequest$,
+  () => CreateRouterOutputResponse$,
 ];
-export var DeleteBridge: StaticOperationSchema = [
+export var DeleteBridge$: StaticOperationSchema = [
   9,
   n0,
   _DB,
   { [_h]: ["DELETE", "/v1/bridges/{BridgeArn}", 200] },
-  () => DeleteBridgeRequest,
-  () => DeleteBridgeResponse,
+  () => DeleteBridgeRequest$,
+  () => DeleteBridgeResponse$,
 ];
-export var DeleteFlow: StaticOperationSchema = [
+export var DeleteFlow$: StaticOperationSchema = [
   9,
   n0,
   _DF,
   { [_h]: ["DELETE", "/v1/flows/{FlowArn}", 202] },
-  () => DeleteFlowRequest,
-  () => DeleteFlowResponse,
+  () => DeleteFlowRequest$,
+  () => DeleteFlowResponse$,
 ];
-export var DeleteGateway: StaticOperationSchema = [
+export var DeleteGateway$: StaticOperationSchema = [
   9,
   n0,
   _DG,
   { [_h]: ["DELETE", "/v1/gateways/{GatewayArn}", 200] },
-  () => DeleteGatewayRequest,
-  () => DeleteGatewayResponse,
+  () => DeleteGatewayRequest$,
+  () => DeleteGatewayResponse$,
 ];
-export var DeleteRouterInput: StaticOperationSchema = [
+export var DeleteRouterInput$: StaticOperationSchema = [
   9,
   n0,
   _DRI,
   { [_h]: ["DELETE", "/v1/routerInput/{Arn}", 200] },
-  () => DeleteRouterInputRequest,
-  () => DeleteRouterInputResponse,
+  () => DeleteRouterInputRequest$,
+  () => DeleteRouterInputResponse$,
 ];
-export var DeleteRouterNetworkInterface: StaticOperationSchema = [
+export var DeleteRouterNetworkInterface$: StaticOperationSchema = [
   9,
   n0,
   _DRNI,
   { [_h]: ["DELETE", "/v1/routerNetworkInterface/{Arn}", 200] },
-  () => DeleteRouterNetworkInterfaceRequest,
-  () => DeleteRouterNetworkInterfaceResponse,
+  () => DeleteRouterNetworkInterfaceRequest$,
+  () => DeleteRouterNetworkInterfaceResponse$,
 ];
-export var DeleteRouterOutput: StaticOperationSchema = [
+export var DeleteRouterOutput$: StaticOperationSchema = [
   9,
   n0,
   _DRO,
   { [_h]: ["DELETE", "/v1/routerOutput/{Arn}", 200] },
-  () => DeleteRouterOutputRequest,
-  () => DeleteRouterOutputResponse,
+  () => DeleteRouterOutputRequest$,
+  () => DeleteRouterOutputResponse$,
 ];
-export var DeregisterGatewayInstance: StaticOperationSchema = [
+export var DeregisterGatewayInstance$: StaticOperationSchema = [
   9,
   n0,
   _DGI,
   { [_h]: ["DELETE", "/v1/gateway-instances/{GatewayInstanceArn}", 202] },
-  () => DeregisterGatewayInstanceRequest,
-  () => DeregisterGatewayInstanceResponse,
+  () => DeregisterGatewayInstanceRequest$,
+  () => DeregisterGatewayInstanceResponse$,
 ];
-export var DescribeBridge: StaticOperationSchema = [
+export var DescribeBridge$: StaticOperationSchema = [
   9,
   n0,
   _DBe,
   { [_h]: ["GET", "/v1/bridges/{BridgeArn}", 200] },
-  () => DescribeBridgeRequest,
-  () => DescribeBridgeResponse,
+  () => DescribeBridgeRequest$,
+  () => DescribeBridgeResponse$,
 ];
-export var DescribeFlow: StaticOperationSchema = [
+export var DescribeFlow$: StaticOperationSchema = [
   9,
   n0,
   _DFe,
   { [_h]: ["GET", "/v1/flows/{FlowArn}", 200] },
-  () => DescribeFlowRequest,
-  () => DescribeFlowResponse,
+  () => DescribeFlowRequest$,
+  () => DescribeFlowResponse$,
 ];
-export var DescribeFlowSourceMetadata: StaticOperationSchema = [
+export var DescribeFlowSourceMetadata$: StaticOperationSchema = [
   9,
   n0,
   _DFSM,
   { [_h]: ["GET", "/v1/flows/{FlowArn}/source-metadata", 200] },
-  () => DescribeFlowSourceMetadataRequest,
-  () => DescribeFlowSourceMetadataResponse,
+  () => DescribeFlowSourceMetadataRequest$,
+  () => DescribeFlowSourceMetadataResponse$,
 ];
-export var DescribeFlowSourceThumbnail: StaticOperationSchema = [
+export var DescribeFlowSourceThumbnail$: StaticOperationSchema = [
   9,
   n0,
   _DFST,
   { [_h]: ["GET", "/v1/flows/{FlowArn}/source-thumbnail", 200] },
-  () => DescribeFlowSourceThumbnailRequest,
-  () => DescribeFlowSourceThumbnailResponse,
+  () => DescribeFlowSourceThumbnailRequest$,
+  () => DescribeFlowSourceThumbnailResponse$,
 ];
-export var DescribeGateway: StaticOperationSchema = [
+export var DescribeGateway$: StaticOperationSchema = [
   9,
   n0,
   _DGe,
   { [_h]: ["GET", "/v1/gateways/{GatewayArn}", 200] },
-  () => DescribeGatewayRequest,
-  () => DescribeGatewayResponse,
+  () => DescribeGatewayRequest$,
+  () => DescribeGatewayResponse$,
 ];
-export var DescribeGatewayInstance: StaticOperationSchema = [
+export var DescribeGatewayInstance$: StaticOperationSchema = [
   9,
   n0,
   _DGIe,
   { [_h]: ["GET", "/v1/gateway-instances/{GatewayInstanceArn}", 200] },
-  () => DescribeGatewayInstanceRequest,
-  () => DescribeGatewayInstanceResponse,
+  () => DescribeGatewayInstanceRequest$,
+  () => DescribeGatewayInstanceResponse$,
 ];
-export var DescribeOffering: StaticOperationSchema = [
+export var DescribeOffering$: StaticOperationSchema = [
   9,
   n0,
   _DO,
   { [_h]: ["GET", "/v1/offerings/{OfferingArn}", 200] },
-  () => DescribeOfferingRequest,
-  () => DescribeOfferingResponse,
+  () => DescribeOfferingRequest$,
+  () => DescribeOfferingResponse$,
 ];
-export var DescribeReservation: StaticOperationSchema = [
+export var DescribeReservation$: StaticOperationSchema = [
   9,
   n0,
   _DR,
   { [_h]: ["GET", "/v1/reservations/{ReservationArn}", 200] },
-  () => DescribeReservationRequest,
-  () => DescribeReservationResponse,
+  () => DescribeReservationRequest$,
+  () => DescribeReservationResponse$,
 ];
-export var GetRouterInput: StaticOperationSchema = [
+export var GetRouterInput$: StaticOperationSchema = [
   9,
   n0,
   _GRI,
   { [_h]: ["GET", "/v1/routerInput/{Arn}", 200] },
-  () => GetRouterInputRequest,
-  () => GetRouterInputResponse,
+  () => GetRouterInputRequest$,
+  () => GetRouterInputResponse$,
 ];
-export var GetRouterInputSourceMetadata: StaticOperationSchema = [
+export var GetRouterInputSourceMetadata$: StaticOperationSchema = [
   9,
   n0,
   _GRISM,
   { [_h]: ["GET", "/v1/routerInput/{Arn}/source-metadata", 200] },
-  () => GetRouterInputSourceMetadataRequest,
-  () => GetRouterInputSourceMetadataResponse,
+  () => GetRouterInputSourceMetadataRequest$,
+  () => GetRouterInputSourceMetadataResponse$,
 ];
-export var GetRouterInputThumbnail: StaticOperationSchema = [
+export var GetRouterInputThumbnail$: StaticOperationSchema = [
   9,
   n0,
   _GRIT,
   { [_h]: ["GET", "/v1/routerInput/{Arn}/thumbnail", 200] },
-  () => GetRouterInputThumbnailRequest,
-  () => GetRouterInputThumbnailResponse,
+  () => GetRouterInputThumbnailRequest$,
+  () => GetRouterInputThumbnailResponse$,
 ];
-export var GetRouterNetworkInterface: StaticOperationSchema = [
+export var GetRouterNetworkInterface$: StaticOperationSchema = [
   9,
   n0,
   _GRNI,
   { [_h]: ["GET", "/v1/routerNetworkInterface/{Arn}", 200] },
-  () => GetRouterNetworkInterfaceRequest,
-  () => GetRouterNetworkInterfaceResponse,
+  () => GetRouterNetworkInterfaceRequest$,
+  () => GetRouterNetworkInterfaceResponse$,
 ];
-export var GetRouterOutput: StaticOperationSchema = [
+export var GetRouterOutput$: StaticOperationSchema = [
   9,
   n0,
   _GRO,
   { [_h]: ["GET", "/v1/routerOutput/{Arn}", 200] },
-  () => GetRouterOutputRequest,
-  () => GetRouterOutputResponse,
+  () => GetRouterOutputRequest$,
+  () => GetRouterOutputResponse$,
 ];
-export var GrantFlowEntitlements: StaticOperationSchema = [
+export var GrantFlowEntitlements$: StaticOperationSchema = [
   9,
   n0,
   _GFE,
   { [_h]: ["POST", "/v1/flows/{FlowArn}/entitlements", 200] },
-  () => GrantFlowEntitlementsRequest,
-  () => GrantFlowEntitlementsResponse,
+  () => GrantFlowEntitlementsRequest$,
+  () => GrantFlowEntitlementsResponse$,
 ];
-export var ListBridges: StaticOperationSchema = [
+export var ListBridges$: StaticOperationSchema = [
   9,
   n0,
   _LBi,
   { [_h]: ["GET", "/v1/bridges", 200] },
-  () => ListBridgesRequest,
-  () => ListBridgesResponse,
+  () => ListBridgesRequest$,
+  () => ListBridgesResponse$,
 ];
-export var ListEntitlements: StaticOperationSchema = [
+export var ListEntitlements$: StaticOperationSchema = [
   9,
   n0,
   _LEi,
   { [_h]: ["GET", "/v1/entitlements", 200] },
-  () => ListEntitlementsRequest,
-  () => ListEntitlementsResponse,
+  () => ListEntitlementsRequest$,
+  () => ListEntitlementsResponse$,
 ];
-export var ListFlows: StaticOperationSchema = [
+export var ListFlows$: StaticOperationSchema = [
   9,
   n0,
   _LFi,
   { [_h]: ["GET", "/v1/flows", 200] },
-  () => ListFlowsRequest,
-  () => ListFlowsResponse,
+  () => ListFlowsRequest$,
+  () => ListFlowsResponse$,
 ];
-export var ListGatewayInstances: StaticOperationSchema = [
+export var ListGatewayInstances$: StaticOperationSchema = [
   9,
   n0,
   _LGIi,
   { [_h]: ["GET", "/v1/gateway-instances", 200] },
-  () => ListGatewayInstancesRequest,
-  () => ListGatewayInstancesResponse,
+  () => ListGatewayInstancesRequest$,
+  () => ListGatewayInstancesResponse$,
 ];
-export var ListGateways: StaticOperationSchema = [
+export var ListGateways$: StaticOperationSchema = [
   9,
   n0,
   _LGi,
   { [_h]: ["GET", "/v1/gateways", 200] },
-  () => ListGatewaysRequest,
-  () => ListGatewaysResponse,
+  () => ListGatewaysRequest$,
+  () => ListGatewaysResponse$,
 ];
-export var ListOfferings: StaticOperationSchema = [
+export var ListOfferings$: StaticOperationSchema = [
   9,
   n0,
   _LO,
   { [_h]: ["GET", "/v1/offerings", 200] },
-  () => ListOfferingsRequest,
-  () => ListOfferingsResponse,
+  () => ListOfferingsRequest$,
+  () => ListOfferingsResponse$,
 ];
-export var ListReservations: StaticOperationSchema = [
+export var ListReservations$: StaticOperationSchema = [
   9,
   n0,
   _LR,
   { [_h]: ["GET", "/v1/reservations", 200] },
-  () => ListReservationsRequest,
-  () => ListReservationsResponse,
+  () => ListReservationsRequest$,
+  () => ListReservationsResponse$,
 ];
-export var ListRouterInputs: StaticOperationSchema = [
+export var ListRouterInputs$: StaticOperationSchema = [
   9,
   n0,
   _LRIi,
   { [_h]: ["POST", "/v1/routerInputs", 200] },
-  () => ListRouterInputsRequest,
-  () => ListRouterInputsResponse,
+  () => ListRouterInputsRequest$,
+  () => ListRouterInputsResponse$,
 ];
-export var ListRouterNetworkInterfaces: StaticOperationSchema = [
+export var ListRouterNetworkInterfaces$: StaticOperationSchema = [
   9,
   n0,
   _LRNIi,
   { [_h]: ["POST", "/v1/routerNetworkInterfaces", 200] },
-  () => ListRouterNetworkInterfacesRequest,
-  () => ListRouterNetworkInterfacesResponse,
+  () => ListRouterNetworkInterfacesRequest$,
+  () => ListRouterNetworkInterfacesResponse$,
 ];
-export var ListRouterOutputs: StaticOperationSchema = [
+export var ListRouterOutputs$: StaticOperationSchema = [
   9,
   n0,
   _LROi,
   { [_h]: ["POST", "/v1/routerOutputs", 200] },
-  () => ListRouterOutputsRequest,
-  () => ListRouterOutputsResponse,
+  () => ListRouterOutputsRequest$,
+  () => ListRouterOutputsResponse$,
 ];
-export var ListTagsForGlobalResource: StaticOperationSchema = [
+export var ListTagsForGlobalResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFGR,
   { [_h]: ["GET", "/tags/global/{ResourceArn}", 200] },
-  () => ListTagsForGlobalResourceRequest,
-  () => ListTagsForGlobalResourceResponse,
+  () => ListTagsForGlobalResourceRequest$,
+  () => ListTagsForGlobalResourceResponse$,
 ];
-export var ListTagsForResource: StaticOperationSchema = [
+export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
   { [_h]: ["GET", "/tags/{ResourceArn}", 200] },
-  () => ListTagsForResourceRequest,
-  () => ListTagsForResourceResponse,
+  () => ListTagsForResourceRequest$,
+  () => ListTagsForResourceResponse$,
 ];
-export var PurchaseOffering: StaticOperationSchema = [
+export var PurchaseOffering$: StaticOperationSchema = [
   9,
   n0,
   _PO,
   { [_h]: ["POST", "/v1/offerings/{OfferingArn}", 201] },
-  () => PurchaseOfferingRequest,
-  () => PurchaseOfferingResponse,
+  () => PurchaseOfferingRequest$,
+  () => PurchaseOfferingResponse$,
 ];
-export var RemoveBridgeOutput: StaticOperationSchema = [
+export var RemoveBridgeOutput$: StaticOperationSchema = [
   9,
   n0,
   _RBO,
   { [_h]: ["DELETE", "/v1/bridges/{BridgeArn}/outputs/{OutputName}", 202] },
-  () => RemoveBridgeOutputRequest,
-  () => RemoveBridgeOutputResponse,
+  () => RemoveBridgeOutputRequest$,
+  () => RemoveBridgeOutputResponse$,
 ];
-export var RemoveBridgeSource: StaticOperationSchema = [
+export var RemoveBridgeSource$: StaticOperationSchema = [
   9,
   n0,
   _RBS,
   { [_h]: ["DELETE", "/v1/bridges/{BridgeArn}/sources/{SourceName}", 202] },
-  () => RemoveBridgeSourceRequest,
-  () => RemoveBridgeSourceResponse,
+  () => RemoveBridgeSourceRequest$,
+  () => RemoveBridgeSourceResponse$,
 ];
-export var RemoveFlowMediaStream: StaticOperationSchema = [
+export var RemoveFlowMediaStream$: StaticOperationSchema = [
   9,
   n0,
   _RFMS,
   { [_h]: ["DELETE", "/v1/flows/{FlowArn}/mediaStreams/{MediaStreamName}", 200] },
-  () => RemoveFlowMediaStreamRequest,
-  () => RemoveFlowMediaStreamResponse,
+  () => RemoveFlowMediaStreamRequest$,
+  () => RemoveFlowMediaStreamResponse$,
 ];
-export var RemoveFlowOutput: StaticOperationSchema = [
+export var RemoveFlowOutput$: StaticOperationSchema = [
   9,
   n0,
   _RFO,
   { [_h]: ["DELETE", "/v1/flows/{FlowArn}/outputs/{OutputArn}", 202] },
-  () => RemoveFlowOutputRequest,
-  () => RemoveFlowOutputResponse,
+  () => RemoveFlowOutputRequest$,
+  () => RemoveFlowOutputResponse$,
 ];
-export var RemoveFlowSource: StaticOperationSchema = [
+export var RemoveFlowSource$: StaticOperationSchema = [
   9,
   n0,
   _RFS,
   { [_h]: ["DELETE", "/v1/flows/{FlowArn}/source/{SourceArn}", 202] },
-  () => RemoveFlowSourceRequest,
-  () => RemoveFlowSourceResponse,
+  () => RemoveFlowSourceRequest$,
+  () => RemoveFlowSourceResponse$,
 ];
-export var RemoveFlowVpcInterface: StaticOperationSchema = [
+export var RemoveFlowVpcInterface$: StaticOperationSchema = [
   9,
   n0,
   _RFVI,
   { [_h]: ["DELETE", "/v1/flows/{FlowArn}/vpcInterfaces/{VpcInterfaceName}", 200] },
-  () => RemoveFlowVpcInterfaceRequest,
-  () => RemoveFlowVpcInterfaceResponse,
+  () => RemoveFlowVpcInterfaceRequest$,
+  () => RemoveFlowVpcInterfaceResponse$,
 ];
-export var RestartRouterInput: StaticOperationSchema = [
+export var RestartRouterInput$: StaticOperationSchema = [
   9,
   n0,
   _RRI,
   { [_h]: ["POST", "/v1/routerInput/restart/{Arn}", 202] },
-  () => RestartRouterInputRequest,
-  () => RestartRouterInputResponse,
+  () => RestartRouterInputRequest$,
+  () => RestartRouterInputResponse$,
 ];
-export var RestartRouterOutput: StaticOperationSchema = [
+export var RestartRouterOutput$: StaticOperationSchema = [
   9,
   n0,
   _RRO,
   { [_h]: ["POST", "/v1/routerOutput/restart/{Arn}", 202] },
-  () => RestartRouterOutputRequest,
-  () => RestartRouterOutputResponse,
+  () => RestartRouterOutputRequest$,
+  () => RestartRouterOutputResponse$,
 ];
-export var RevokeFlowEntitlement: StaticOperationSchema = [
+export var RevokeFlowEntitlement$: StaticOperationSchema = [
   9,
   n0,
   _RFE,
   { [_h]: ["DELETE", "/v1/flows/{FlowArn}/entitlements/{EntitlementArn}", 202] },
-  () => RevokeFlowEntitlementRequest,
-  () => RevokeFlowEntitlementResponse,
+  () => RevokeFlowEntitlementRequest$,
+  () => RevokeFlowEntitlementResponse$,
 ];
-export var StartFlow: StaticOperationSchema = [
+export var StartFlow$: StaticOperationSchema = [
   9,
   n0,
   _SF,
   { [_h]: ["POST", "/v1/flows/start/{FlowArn}", 202] },
-  () => StartFlowRequest,
-  () => StartFlowResponse,
+  () => StartFlowRequest$,
+  () => StartFlowResponse$,
 ];
-export var StartRouterInput: StaticOperationSchema = [
+export var StartRouterInput$: StaticOperationSchema = [
   9,
   n0,
   _SRI,
   { [_h]: ["POST", "/v1/routerInput/start/{Arn}", 202] },
-  () => StartRouterInputRequest,
-  () => StartRouterInputResponse,
+  () => StartRouterInputRequest$,
+  () => StartRouterInputResponse$,
 ];
-export var StartRouterOutput: StaticOperationSchema = [
+export var StartRouterOutput$: StaticOperationSchema = [
   9,
   n0,
   _SRO,
   { [_h]: ["POST", "/v1/routerOutput/start/{Arn}", 202] },
-  () => StartRouterOutputRequest,
-  () => StartRouterOutputResponse,
+  () => StartRouterOutputRequest$,
+  () => StartRouterOutputResponse$,
 ];
-export var StopFlow: StaticOperationSchema = [
+export var StopFlow$: StaticOperationSchema = [
   9,
   n0,
   _SFt,
   { [_h]: ["POST", "/v1/flows/stop/{FlowArn}", 202] },
-  () => StopFlowRequest,
-  () => StopFlowResponse,
+  () => StopFlowRequest$,
+  () => StopFlowResponse$,
 ];
-export var StopRouterInput: StaticOperationSchema = [
+export var StopRouterInput$: StaticOperationSchema = [
   9,
   n0,
   _SRIt,
   { [_h]: ["POST", "/v1/routerInput/stop/{Arn}", 202] },
-  () => StopRouterInputRequest,
-  () => StopRouterInputResponse,
+  () => StopRouterInputRequest$,
+  () => StopRouterInputResponse$,
 ];
-export var StopRouterOutput: StaticOperationSchema = [
+export var StopRouterOutput$: StaticOperationSchema = [
   9,
   n0,
   _SROt,
   { [_h]: ["POST", "/v1/routerOutput/stop/{Arn}", 202] },
-  () => StopRouterOutputRequest,
-  () => StopRouterOutputResponse,
+  () => StopRouterOutputRequest$,
+  () => StopRouterOutputResponse$,
 ];
-export var TagGlobalResource: StaticOperationSchema = [
+export var TagGlobalResource$: StaticOperationSchema = [
   9,
   n0,
   _TGR,
   { [_h]: ["POST", "/tags/global/{ResourceArn}", 204] },
-  () => TagGlobalResourceRequest,
+  () => TagGlobalResourceRequest$,
   () => __Unit,
 ];
-export var TagResource: StaticOperationSchema = [
+export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
   { [_h]: ["POST", "/tags/{ResourceArn}", 204] },
-  () => TagResourceRequest,
+  () => TagResourceRequest$,
   () => __Unit,
 ];
-export var TakeRouterInput: StaticOperationSchema = [
+export var TakeRouterInput$: StaticOperationSchema = [
   9,
   n0,
   _TRI,
   { [_h]: ["PUT", "/v1/routerOutput/takeRouterInput/{RouterOutputArn}", 202] },
-  () => TakeRouterInputRequest,
-  () => TakeRouterInputResponse,
+  () => TakeRouterInputRequest$,
+  () => TakeRouterInputResponse$,
 ];
-export var UntagGlobalResource: StaticOperationSchema = [
+export var UntagGlobalResource$: StaticOperationSchema = [
   9,
   n0,
   _UGR,
   { [_h]: ["DELETE", "/tags/global/{ResourceArn}", 204] },
-  () => UntagGlobalResourceRequest,
+  () => UntagGlobalResourceRequest$,
   () => __Unit,
 ];
-export var UntagResource: StaticOperationSchema = [
+export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
   { [_h]: ["DELETE", "/tags/{ResourceArn}", 204] },
-  () => UntagResourceRequest,
+  () => UntagResourceRequest$,
   () => __Unit,
 ];
-export var UpdateBridge: StaticOperationSchema = [
+export var UpdateBridge$: StaticOperationSchema = [
   9,
   n0,
   _UB,
   { [_h]: ["PUT", "/v1/bridges/{BridgeArn}", 202] },
-  () => UpdateBridgeRequest,
-  () => UpdateBridgeResponse,
+  () => UpdateBridgeRequest$,
+  () => UpdateBridgeResponse$,
 ];
-export var UpdateBridgeOutput: StaticOperationSchema = [
+export var UpdateBridgeOutput$: StaticOperationSchema = [
   9,
   n0,
   _UBO,
   { [_h]: ["PUT", "/v1/bridges/{BridgeArn}/outputs/{OutputName}", 202] },
-  () => UpdateBridgeOutputRequest,
-  () => UpdateBridgeOutputResponse,
+  () => UpdateBridgeOutputRequest$,
+  () => UpdateBridgeOutputResponse$,
 ];
-export var UpdateBridgeSource: StaticOperationSchema = [
+export var UpdateBridgeSource$: StaticOperationSchema = [
   9,
   n0,
   _UBS,
   { [_h]: ["PUT", "/v1/bridges/{BridgeArn}/sources/{SourceName}", 202] },
-  () => UpdateBridgeSourceRequest,
-  () => UpdateBridgeSourceResponse,
+  () => UpdateBridgeSourceRequest$,
+  () => UpdateBridgeSourceResponse$,
 ];
-export var UpdateBridgeState: StaticOperationSchema = [
+export var UpdateBridgeState$: StaticOperationSchema = [
   9,
   n0,
   _UBSp,
   { [_h]: ["PUT", "/v1/bridges/{BridgeArn}/state", 202] },
-  () => UpdateBridgeStateRequest,
-  () => UpdateBridgeStateResponse,
+  () => UpdateBridgeStateRequest$,
+  () => UpdateBridgeStateResponse$,
 ];
-export var UpdateFlow: StaticOperationSchema = [
+export var UpdateFlow$: StaticOperationSchema = [
   9,
   n0,
   _UF,
   { [_h]: ["PUT", "/v1/flows/{FlowArn}", 202] },
-  () => UpdateFlowRequest,
-  () => UpdateFlowResponse,
+  () => UpdateFlowRequest$,
+  () => UpdateFlowResponse$,
 ];
-export var UpdateFlowEntitlement: StaticOperationSchema = [
+export var UpdateFlowEntitlement$: StaticOperationSchema = [
   9,
   n0,
   _UFE,
   { [_h]: ["PUT", "/v1/flows/{FlowArn}/entitlements/{EntitlementArn}", 202] },
-  () => UpdateFlowEntitlementRequest,
-  () => UpdateFlowEntitlementResponse,
+  () => UpdateFlowEntitlementRequest$,
+  () => UpdateFlowEntitlementResponse$,
 ];
-export var UpdateFlowMediaStream: StaticOperationSchema = [
+export var UpdateFlowMediaStream$: StaticOperationSchema = [
   9,
   n0,
   _UFMS,
   { [_h]: ["PUT", "/v1/flows/{FlowArn}/mediaStreams/{MediaStreamName}", 202] },
-  () => UpdateFlowMediaStreamRequest,
-  () => UpdateFlowMediaStreamResponse,
+  () => UpdateFlowMediaStreamRequest$,
+  () => UpdateFlowMediaStreamResponse$,
 ];
-export var UpdateFlowOutput: StaticOperationSchema = [
+export var UpdateFlowOutput$: StaticOperationSchema = [
   9,
   n0,
   _UFO,
   { [_h]: ["PUT", "/v1/flows/{FlowArn}/outputs/{OutputArn}", 202] },
-  () => UpdateFlowOutputRequest,
-  () => UpdateFlowOutputResponse,
+  () => UpdateFlowOutputRequest$,
+  () => UpdateFlowOutputResponse$,
 ];
-export var UpdateFlowSource: StaticOperationSchema = [
+export var UpdateFlowSource$: StaticOperationSchema = [
   9,
   n0,
   _UFS,
   { [_h]: ["PUT", "/v1/flows/{FlowArn}/source/{SourceArn}", 202] },
-  () => UpdateFlowSourceRequest,
-  () => UpdateFlowSourceResponse,
+  () => UpdateFlowSourceRequest$,
+  () => UpdateFlowSourceResponse$,
 ];
-export var UpdateGatewayInstance: StaticOperationSchema = [
+export var UpdateGatewayInstance$: StaticOperationSchema = [
   9,
   n0,
   _UGI,
   { [_h]: ["PUT", "/v1/gateway-instances/{GatewayInstanceArn}", 200] },
-  () => UpdateGatewayInstanceRequest,
-  () => UpdateGatewayInstanceResponse,
+  () => UpdateGatewayInstanceRequest$,
+  () => UpdateGatewayInstanceResponse$,
 ];
-export var UpdateRouterInput: StaticOperationSchema = [
+export var UpdateRouterInput$: StaticOperationSchema = [
   9,
   n0,
   _URI,
   { [_h]: ["PUT", "/v1/routerInput/{Arn}", 202] },
-  () => UpdateRouterInputRequest,
-  () => UpdateRouterInputResponse,
+  () => UpdateRouterInputRequest$,
+  () => UpdateRouterInputResponse$,
 ];
-export var UpdateRouterNetworkInterface: StaticOperationSchema = [
+export var UpdateRouterNetworkInterface$: StaticOperationSchema = [
   9,
   n0,
   _URNI,
   { [_h]: ["PUT", "/v1/routerNetworkInterface/{Arn}", 202] },
-  () => UpdateRouterNetworkInterfaceRequest,
-  () => UpdateRouterNetworkInterfaceResponse,
+  () => UpdateRouterNetworkInterfaceRequest$,
+  () => UpdateRouterNetworkInterfaceResponse$,
 ];
-export var UpdateRouterOutput: StaticOperationSchema = [
+export var UpdateRouterOutput$: StaticOperationSchema = [
   9,
   n0,
   _URO,
   { [_h]: ["PUT", "/v1/routerOutput/{Arn}", 202] },
-  () => UpdateRouterOutputRequest,
-  () => UpdateRouterOutputResponse,
+  () => UpdateRouterOutputRequest$,
+  () => UpdateRouterOutputResponse$,
 ];

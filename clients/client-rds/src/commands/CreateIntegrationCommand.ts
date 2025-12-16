@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateIntegrationMessage, Integration } from "../models/models_0";
 import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { CreateIntegration } from "../schemas/schemas_0";
+import { CreateIntegration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -156,7 +156,7 @@ export class CreateIntegrationCommand extends $Command
   })
   .s("AmazonRDSv19", "CreateIntegration", {})
   .n("RDSClient", "CreateIntegrationCommand")
-  .sc(CreateIntegration)
+  .sc(CreateIntegration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

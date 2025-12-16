@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RetryStageExecutionInput, RetryStageExecutionOutput } from "../models/models_0";
-import { RetryStageExecution } from "../schemas/schemas_0";
+import { RetryStageExecution$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -109,7 +109,7 @@ export class RetryStageExecutionCommand extends $Command
   })
   .s("CodePipeline_20150709", "RetryStageExecution", {})
   .n("CodePipelineClient", "RetryStageExecutionCommand")
-  .sc(RetryStageExecution)
+  .sc(RetryStageExecution$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

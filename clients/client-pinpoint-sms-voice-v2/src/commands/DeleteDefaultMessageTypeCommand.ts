@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DeleteDefaultMessageType } from "../schemas/schemas_0";
+import { DeleteDefaultMessageType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class DeleteDefaultMessageTypeCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DeleteDefaultMessageType", {})
   .n("PinpointSMSVoiceV2Client", "DeleteDefaultMessageTypeCommand")
-  .sc(DeleteDefaultMessageType)
+  .sc(DeleteDefaultMessageType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

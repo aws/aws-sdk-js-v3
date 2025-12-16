@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { BuildSuggestersRequest, BuildSuggestersResponse } from "../models/models_0";
-import { BuildSuggesters } from "../schemas/schemas_0";
+import { BuildSuggesters$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class BuildSuggestersCommand extends $Command
   })
   .s("A9SearchCloudConfigService2013", "BuildSuggesters", {})
   .n("CloudSearchClient", "BuildSuggestersCommand")
-  .sc(BuildSuggesters)
+  .sc(BuildSuggesters$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

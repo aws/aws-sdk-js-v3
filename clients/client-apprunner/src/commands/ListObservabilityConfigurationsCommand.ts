@@ -9,7 +9,7 @@ import type {
   ListObservabilityConfigurationsRequest,
   ListObservabilityConfigurationsResponse,
 } from "../models/models_0";
-import { ListObservabilityConfigurations } from "../schemas/schemas_0";
+import { ListObservabilityConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class ListObservabilityConfigurationsCommand extends $Command
   })
   .s("AppRunner", "ListObservabilityConfigurations", {})
   .n("AppRunnerClient", "ListObservabilityConfigurationsCommand")
-  .sc(ListObservabilityConfigurations)
+  .sc(ListObservabilityConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

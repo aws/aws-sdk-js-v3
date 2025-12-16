@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { GreetingWithErrors } from "../schemas/schemas_0";
+import { GreetingWithErrors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -94,7 +94,7 @@ export class GreetingWithErrorsCommand extends $Command
   })
   .s("RestJson", "GreetingWithErrors", {})
   .n("RestJsonProtocolClient", "GreetingWithErrorsCommand")
-  .sc(GreetingWithErrors)
+  .sc(GreetingWithErrors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

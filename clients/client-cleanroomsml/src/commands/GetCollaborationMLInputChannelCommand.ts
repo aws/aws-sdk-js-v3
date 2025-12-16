@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCollaborationMLInputChannelRequest, GetCollaborationMLInputChannelResponse } from "../models/models_0";
-import { GetCollaborationMLInputChannel } from "../schemas/schemas_0";
+import { GetCollaborationMLInputChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -148,7 +148,7 @@ export class GetCollaborationMLInputChannelCommand extends $Command
   })
   .s("AWSStarkControlService", "GetCollaborationMLInputChannel", {})
   .n("CleanRoomsMLClient", "GetCollaborationMLInputChannelCommand")
-  .sc(GetCollaborationMLInputChannel)
+  .sc(GetCollaborationMLInputChannel$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

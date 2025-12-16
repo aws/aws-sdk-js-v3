@@ -31,13 +31,12 @@ export const getRuntimeConfig = (config: LookoutEquipmentClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ??
-      new AwsJson1_0Protocol({
-        defaultNamespace: "com.amazonaws.lookoutequipment",
-        serviceTarget: "AWSLookoutEquipmentFrontendService",
-        awsQueryCompatible: false,
-      }),
+    protocol: config?.protocol ?? AwsJson1_0Protocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.lookoutequipment",
+      version: "2020-12-15",
+      serviceTarget: "AWSLookoutEquipmentFrontendService",
+    },
     serviceId: config?.serviceId ?? "LookoutEquipment",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

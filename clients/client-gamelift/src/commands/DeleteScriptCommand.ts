@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import type { DeleteScriptInput } from "../models/models_0";
-import { DeleteScript } from "../schemas/schemas_0";
+import { DeleteScript$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -110,7 +110,7 @@ export class DeleteScriptCommand extends $Command
   })
   .s("GameLift", "DeleteScript", {})
   .n("GameLiftClient", "DeleteScriptCommand")
-  .sc(DeleteScript)
+  .sc(DeleteScript$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

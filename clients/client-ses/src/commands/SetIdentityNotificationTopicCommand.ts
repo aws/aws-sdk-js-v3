@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SetIdentityNotificationTopicRequest, SetIdentityNotificationTopicResponse } from "../models/models_0";
-import { SetIdentityNotificationTopic } from "../schemas/schemas_0";
+import { SetIdentityNotificationTopic$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -98,7 +98,7 @@ export class SetIdentityNotificationTopicCommand extends $Command
   })
   .s("SimpleEmailService", "SetIdentityNotificationTopic", {})
   .n("SESClient", "SetIdentityNotificationTopicCommand")
-  .sc(SetIdentityNotificationTopic)
+  .sc(SetIdentityNotificationTopic$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

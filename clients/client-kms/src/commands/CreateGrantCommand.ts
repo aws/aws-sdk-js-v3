@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import type { CreateGrantRequest, CreateGrantResponse } from "../models/models_0";
-import { CreateGrant } from "../schemas/schemas_0";
+import { CreateGrant$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -227,7 +227,7 @@ export class CreateGrantCommand extends $Command
   })
   .s("TrentService", "CreateGrant", {})
   .n("KMSClient", "CreateGrantCommand")
-  .sc(CreateGrant)
+  .sc(CreateGrant$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

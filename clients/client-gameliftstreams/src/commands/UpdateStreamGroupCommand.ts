@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../GameLiftStreamsClient";
 import type { UpdateStreamGroupInput, UpdateStreamGroupOutput } from "../models/models_0";
-import { UpdateStreamGroup } from "../schemas/schemas_0";
+import { UpdateStreamGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -133,7 +133,7 @@ export class UpdateStreamGroupCommand extends $Command
   })
   .s("GameLiftStreams", "UpdateStreamGroup", {})
   .n("GameLiftStreamsClient", "UpdateStreamGroupCommand")
-  .sc(UpdateStreamGroup)
+  .sc(UpdateStreamGroup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

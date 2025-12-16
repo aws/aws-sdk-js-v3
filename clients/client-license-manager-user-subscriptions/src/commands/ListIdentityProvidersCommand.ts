@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
 import type { ListIdentityProvidersRequest, ListIdentityProvidersResponse } from "../models/models_0";
-import { ListIdentityProviders } from "../schemas/schemas_0";
+import { ListIdentityProviders$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -147,7 +147,7 @@ export class ListIdentityProvidersCommand extends $Command
   })
   .s("LicenseManagerUserSubscriptions", "ListIdentityProviders", {})
   .n("LicenseManagerUserSubscriptionsClient", "ListIdentityProvidersCommand")
-  .sc(ListIdentityProviders)
+  .sc(ListIdentityProviders$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

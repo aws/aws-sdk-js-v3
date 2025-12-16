@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: WorkSpacesThinClientClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.workspacesthinclient" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.workspacesthinclient",
+      version: "2023-08-22",
+      serviceTarget: "ThinClient",
+    },
     serviceId: config?.serviceId ?? "WorkSpaces Thin Client",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

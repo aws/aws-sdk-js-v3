@@ -7,7 +7,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import type { PauseClusterMessage } from "../models/models_0";
 import type { PauseClusterResult } from "../models/models_1";
 import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { PauseCluster } from "../schemas/schemas_0";
+import { PauseCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -274,7 +274,7 @@ export class PauseClusterCommand extends $Command
   })
   .s("RedshiftServiceVersion20121201", "PauseCluster", {})
   .n("RedshiftClient", "PauseClusterCommand")
-  .sc(PauseCluster)
+  .sc(PauseCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

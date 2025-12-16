@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateCloudVmClusterInput, CreateCloudVmClusterOutput } from "../models/models_0";
 import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
-import { CreateCloudVmCluster } from "../schemas/schemas_0";
+import { CreateCloudVmCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class CreateCloudVmClusterCommand extends $Command
   })
   .s("Odb", "CreateCloudVmCluster", {})
   .n("OdbClient", "CreateCloudVmClusterCommand")
-  .sc(CreateCloudVmCluster)
+  .sc(CreateCloudVmCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

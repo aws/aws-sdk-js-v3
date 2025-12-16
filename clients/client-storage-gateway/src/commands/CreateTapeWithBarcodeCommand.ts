@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateTapeWithBarcodeInput, CreateTapeWithBarcodeOutput } from "../models/models_0";
-import { CreateTapeWithBarcode } from "../schemas/schemas_0";
+import { CreateTapeWithBarcode$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -121,7 +121,7 @@ export class CreateTapeWithBarcodeCommand extends $Command
   })
   .s("StorageGateway_20130630", "CreateTapeWithBarcode", {})
   .n("StorageGatewayClient", "CreateTapeWithBarcodeCommand")
-  .sc(CreateTapeWithBarcode)
+  .sc(CreateTapeWithBarcode$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

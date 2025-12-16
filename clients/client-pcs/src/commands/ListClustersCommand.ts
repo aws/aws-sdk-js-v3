@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListClustersRequest, ListClustersResponse } from "../models/models_0";
 import type { PCSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PCSClient";
-import { ListClusters } from "../schemas/schemas_0";
+import { ListClusters$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class ListClustersCommand extends $Command
   })
   .s("AWSParallelComputingService", "ListClusters", {})
   .n("PCSClient", "ListClustersCommand")
-  .sc(ListClusters)
+  .sc(ListClusters$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

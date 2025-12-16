@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateMicrosoftADRequest, CreateMicrosoftADResult } from "../models/models_0";
-import { CreateMicrosoftAD } from "../schemas/schemas_0";
+import { CreateMicrosoftAD$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class CreateMicrosoftADCommand extends $Command
   })
   .s("DirectoryService_20150416", "CreateMicrosoftAD", {})
   .n("DirectoryServiceClient", "CreateMicrosoftADCommand")
-  .sc(CreateMicrosoftAD)
+  .sc(CreateMicrosoftAD$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

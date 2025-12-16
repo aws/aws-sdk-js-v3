@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetSecurityGroupsForVpcRequest, GetSecurityGroupsForVpcResult } from "../models/models_6";
-import { GetSecurityGroupsForVpc } from "../schemas/schemas_0";
+import { GetSecurityGroupsForVpc$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class GetSecurityGroupsForVpcCommand extends $Command
   })
   .s("AmazonEC2", "GetSecurityGroupsForVpc", {})
   .n("EC2Client", "GetSecurityGroupsForVpcCommand")
-  .sc(GetSecurityGroupsForVpc)
+  .sc(GetSecurityGroupsForVpc$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

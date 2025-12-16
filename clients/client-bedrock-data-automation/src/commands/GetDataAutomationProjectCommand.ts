@@ -10,7 +10,7 @@ import type {
 } from "../BedrockDataAutomationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetDataAutomationProjectRequest, GetDataAutomationProjectResponse } from "../models/models_0";
-import { GetDataAutomationProject } from "../schemas/schemas_0";
+import { GetDataAutomationProject$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -292,7 +292,7 @@ export class GetDataAutomationProjectCommand extends $Command
   })
   .s("AmazonBedrockKeystoneBuildTimeService", "GetDataAutomationProject", {})
   .n("BedrockDataAutomationClient", "GetDataAutomationProjectCommand")
-  .sc(GetDataAutomationProject)
+  .sc(GetDataAutomationProject$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

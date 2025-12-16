@@ -31,8 +31,12 @@ export const getRuntimeConfig = (config: ApiGatewayManagementApiClientConfig) =>
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.apigatewaymanagementapi" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.apigatewaymanagementapi",
+      version: "2018-11-29",
+      serviceTarget: "ApiGatewayManagementApi",
+    },
     serviceId: config?.serviceId ?? "ApiGatewayManagementApi",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

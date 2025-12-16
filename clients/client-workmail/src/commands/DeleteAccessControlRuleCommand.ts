@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteAccessControlRuleRequest, DeleteAccessControlRuleResponse } from "../models/models_0";
-import { DeleteAccessControlRule } from "../schemas/schemas_0";
+import { DeleteAccessControlRule$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
@@ -83,7 +83,7 @@ export class DeleteAccessControlRuleCommand extends $Command
   })
   .s("WorkMailService", "DeleteAccessControlRule", {})
   .n("WorkMailClient", "DeleteAccessControlRuleCommand")
-  .sc(DeleteAccessControlRule)
+  .sc(DeleteAccessControlRule$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

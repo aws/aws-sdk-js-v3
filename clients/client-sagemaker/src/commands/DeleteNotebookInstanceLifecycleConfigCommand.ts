@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteNotebookInstanceLifecycleConfigInput } from "../models/models_2";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DeleteNotebookInstanceLifecycleConfig } from "../schemas/schemas_0";
+import { DeleteNotebookInstanceLifecycleConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -71,7 +71,7 @@ export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command
   })
   .s("SageMaker", "DeleteNotebookInstanceLifecycleConfig", {})
   .n("SageMakerClient", "DeleteNotebookInstanceLifecycleConfigCommand")
-  .sc(DeleteNotebookInstanceLifecycleConfig)
+  .sc(DeleteNotebookInstanceLifecycleConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

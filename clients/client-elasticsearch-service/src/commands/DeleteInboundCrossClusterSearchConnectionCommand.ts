@@ -13,7 +13,7 @@ import type {
   DeleteInboundCrossClusterSearchConnectionRequest,
   DeleteInboundCrossClusterSearchConnectionResponse,
 } from "../models/models_0";
-import { DeleteInboundCrossClusterSearchConnection } from "../schemas/schemas_0";
+import { DeleteInboundCrossClusterSearchConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class DeleteInboundCrossClusterSearchConnectionCommand extends $Command
   })
   .s("AmazonElasticsearchService2015", "DeleteInboundCrossClusterSearchConnection", {})
   .n("ElasticsearchServiceClient", "DeleteInboundCrossClusterSearchConnectionCommand")
-  .sc(DeleteInboundCrossClusterSearchConnection)
+  .sc(DeleteInboundCrossClusterSearchConnection$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

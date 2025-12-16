@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { VerifyUserAttributeRequest, VerifyUserAttributeResponse } from "../models/models_1";
-import { VerifyUserAttribute } from "../schemas/schemas_0";
+import { VerifyUserAttribute$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -138,7 +138,7 @@ export class VerifyUserAttributeCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "VerifyUserAttribute", {})
   .n("CognitoIdentityProviderClient", "VerifyUserAttributeCommand")
-  .sc(VerifyUserAttribute)
+  .sc(VerifyUserAttribute$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

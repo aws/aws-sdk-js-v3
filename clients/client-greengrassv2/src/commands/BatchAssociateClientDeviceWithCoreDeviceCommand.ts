@@ -9,7 +9,7 @@ import type {
   BatchAssociateClientDeviceWithCoreDeviceRequest,
   BatchAssociateClientDeviceWithCoreDeviceResponse,
 } from "../models/models_0";
-import { BatchAssociateClientDeviceWithCoreDevice } from "../schemas/schemas_0";
+import { BatchAssociateClientDeviceWithCoreDevice$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -118,7 +118,7 @@ export class BatchAssociateClientDeviceWithCoreDeviceCommand extends $Command
   })
   .s("GreengrassV2", "BatchAssociateClientDeviceWithCoreDevice", {})
   .n("GreengrassV2Client", "BatchAssociateClientDeviceWithCoreDeviceCommand")
-  .sc(BatchAssociateClientDeviceWithCoreDevice)
+  .sc(BatchAssociateClientDeviceWithCoreDevice$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

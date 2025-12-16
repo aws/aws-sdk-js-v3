@@ -13,7 +13,7 @@ import type {
   ListRegisteredSubscriptionProvidersRequest,
   ListRegisteredSubscriptionProvidersResponse,
 } from "../models/models_0";
-import { ListRegisteredSubscriptionProviders } from "../schemas/schemas_0";
+import { ListRegisteredSubscriptionProviders$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class ListRegisteredSubscriptionProvidersCommand extends $Command
   })
   .s("LicenseManagerLinuxSubscriptions", "ListRegisteredSubscriptionProviders", {})
   .n("LicenseManagerLinuxSubscriptionsClient", "ListRegisteredSubscriptionProvidersCommand")
-  .sc(ListRegisteredSubscriptionProviders)
+  .sc(ListRegisteredSubscriptionProviders$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

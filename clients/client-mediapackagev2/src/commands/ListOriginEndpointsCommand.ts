@@ -10,7 +10,7 @@ import type {
   ServiceOutputTypes,
 } from "../MediaPackageV2Client";
 import type { ListOriginEndpointsRequest, ListOriginEndpointsResponse } from "../models/models_0";
-import { ListOriginEndpoints } from "../schemas/schemas_0";
+import { ListOriginEndpoints$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -276,7 +276,7 @@ export class ListOriginEndpointsCommand extends $Command
   })
   .s("mediapackagev2", "ListOriginEndpoints", {})
   .n("MediaPackageV2Client", "ListOriginEndpointsCommand")
-  .sc(ListOriginEndpoints)
+  .sc(ListOriginEndpoints$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

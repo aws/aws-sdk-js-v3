@@ -9,7 +9,7 @@ import type {
   DeleteLaunchConfigurationTemplateRequest,
   DeleteLaunchConfigurationTemplateResponse,
 } from "../models/models_0";
-import { DeleteLaunchConfigurationTemplate } from "../schemas/schemas_0";
+import { DeleteLaunchConfigurationTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class DeleteLaunchConfigurationTemplateCommand extends $Command
   })
   .s("ElasticDisasterRecoveryService", "DeleteLaunchConfigurationTemplate", {})
   .n("DrsClient", "DeleteLaunchConfigurationTemplateCommand")
-  .sc(DeleteLaunchConfigurationTemplate)
+  .sc(DeleteLaunchConfigurationTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

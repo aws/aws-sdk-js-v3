@@ -9,7 +9,7 @@ import type {
   DescribeNotificationConfigurationInput,
   DescribeNotificationConfigurationOutput,
 } from "../models/models_0";
-import { DescribeNotificationConfiguration } from "../schemas/schemas_0";
+import { DescribeNotificationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -97,7 +97,7 @@ export class DescribeNotificationConfigurationCommand extends $Command
   })
   .s("KinesisVideo_20170930", "DescribeNotificationConfiguration", {})
   .n("KinesisVideoClient", "DescribeNotificationConfigurationCommand")
-  .sc(DescribeNotificationConfiguration)
+  .sc(DescribeNotificationConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

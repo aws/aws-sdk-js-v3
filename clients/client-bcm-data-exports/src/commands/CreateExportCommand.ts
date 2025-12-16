@@ -10,7 +10,7 @@ import type {
 } from "../BCMDataExportsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateExportRequest, CreateExportResponse } from "../models/models_0";
-import { CreateExport } from "../schemas/schemas_0";
+import { CreateExport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -142,7 +142,7 @@ export class CreateExportCommand extends $Command
   })
   .s("AWSBillingAndCostManagementDataExports", "CreateExport", {})
   .n("BCMDataExportsClient", "CreateExportCommand")
-  .sc(CreateExport)
+  .sc(CreateExport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

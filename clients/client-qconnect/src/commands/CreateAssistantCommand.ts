@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateAssistantRequest, CreateAssistantResponse } from "../models/models_0";
 import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
-import { CreateAssistant } from "../schemas/schemas_0";
+import { CreateAssistant$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class CreateAssistantCommand extends $Command
   })
   .s("WisdomService", "CreateAssistant", {})
   .n("QConnectClient", "CreateAssistantCommand")
-  .sc(CreateAssistant)
+  .sc(CreateAssistant$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

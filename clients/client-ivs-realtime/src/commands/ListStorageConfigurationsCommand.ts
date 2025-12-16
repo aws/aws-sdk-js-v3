@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
 import type { ListStorageConfigurationsRequest, ListStorageConfigurationsResponse } from "../models/models_0";
-import { ListStorageConfigurations } from "../schemas/schemas_0";
+import { ListStorageConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class ListStorageConfigurationsCommand extends $Command
   })
   .s("AmazonInteractiveVideoServiceRealTime", "ListStorageConfigurations", {})
   .n("IVSRealTimeClient", "ListStorageConfigurationsCommand")
-  .sc(ListStorageConfigurations)
+  .sc(ListStorageConfigurations$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

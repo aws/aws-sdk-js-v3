@@ -10,7 +10,7 @@ import type {
 } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListStackInstanceResourceDriftsInput, ListStackInstanceResourceDriftsOutput } from "../models/models_0";
-import { ListStackInstanceResourceDrifts } from "../schemas/schemas_0";
+import { ListStackInstanceResourceDrifts$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -127,7 +127,7 @@ export class ListStackInstanceResourceDriftsCommand extends $Command
   })
   .s("CloudFormation", "ListStackInstanceResourceDrifts", {})
   .n("CloudFormationClient", "ListStackInstanceResourceDriftsCommand")
-  .sc(ListStackInstanceResourceDrifts)
+  .sc(ListStackInstanceResourceDrifts$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

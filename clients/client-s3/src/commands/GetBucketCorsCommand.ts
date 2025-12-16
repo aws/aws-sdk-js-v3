@@ -7,7 +7,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetBucketCorsOutput, GetBucketCorsRequest } from "../models/models_0";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetBucketCors } from "../schemas/schemas_0";
+import { GetBucketCors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -152,7 +152,7 @@ export class GetBucketCorsCommand extends $Command
   })
   .s("AmazonS3", "GetBucketCors", {})
   .n("S3Client", "GetBucketCorsCommand")
-  .sc(GetBucketCors)
+  .sc(GetBucketCors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

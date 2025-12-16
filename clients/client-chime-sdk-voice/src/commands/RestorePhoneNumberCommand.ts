@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RestorePhoneNumberRequest, RestorePhoneNumberResponse } from "../models/models_0";
-import { RestorePhoneNumber } from "../schemas/schemas_0";
+import { RestorePhoneNumber$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class RestorePhoneNumberCommand extends $Command
   })
   .s("ChimeSDKTelephonyService", "RestorePhoneNumber", {})
   .n("ChimeSDKVoiceClient", "RestorePhoneNumberCommand")
-  .sc(RestorePhoneNumber)
+  .sc(RestorePhoneNumber$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

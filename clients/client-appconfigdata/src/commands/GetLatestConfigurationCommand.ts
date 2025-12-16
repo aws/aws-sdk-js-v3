@@ -7,7 +7,7 @@ import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 import type { AppConfigDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigDataClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type GetLatestConfigurationRequest, GetLatestConfigurationResponse } from "../models/models_0";
-import { GetLatestConfiguration } from "../schemas/schemas_0";
+import { GetLatestConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -119,7 +119,7 @@ export class GetLatestConfigurationCommand extends $Command
   })
   .s("AppConfigData", "GetLatestConfiguration", {})
   .n("AppConfigDataClient", "GetLatestConfigurationCommand")
-  .sc(GetLatestConfiguration)
+  .sc(GetLatestConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

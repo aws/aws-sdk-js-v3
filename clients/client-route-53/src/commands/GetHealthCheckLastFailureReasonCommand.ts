@@ -9,7 +9,7 @@ import type {
   GetHealthCheckLastFailureReasonResponse,
 } from "../models/models_0";
 import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
-import { GetHealthCheckLastFailureReason } from "../schemas/schemas_0";
+import { GetHealthCheckLastFailureReason$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class GetHealthCheckLastFailureReasonCommand extends $Command
   })
   .s("AWSDnsV20130401", "GetHealthCheckLastFailureReason", {})
   .n("Route53Client", "GetHealthCheckLastFailureReasonCommand")
-  .sc(GetHealthCheckLastFailureReason)
+  .sc(GetHealthCheckLastFailureReason$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceDataClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RemoveGroupMemberRequest, RemoveGroupMemberResult } from "../models/models_0";
-import { RemoveGroupMember } from "../schemas/schemas_0";
+import { RemoveGroupMember$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class RemoveGroupMemberCommand extends $Command
   })
   .s("DirectoryServiceData", "RemoveGroupMember", {})
   .n("DirectoryServiceDataClient", "RemoveGroupMemberCommand")
-  .sc(RemoveGroupMember)
+  .sc(RemoveGroupMember$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

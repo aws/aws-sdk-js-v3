@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateMeetingDialOutRequest, CreateMeetingDialOutResponse } from "../models/models_0";
-import { CreateMeetingDialOut } from "../schemas/schemas_0";
+import { CreateMeetingDialOut$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class CreateMeetingDialOutCommand extends $Command
   })
   .s("UCBuzzConsoleService", "CreateMeetingDialOut", {})
   .n("ChimeClient", "CreateMeetingDialOutCommand")
-  .sc(CreateMeetingDialOut)
+  .sc(CreateMeetingDialOut$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

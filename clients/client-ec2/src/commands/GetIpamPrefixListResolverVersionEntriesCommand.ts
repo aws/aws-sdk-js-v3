@@ -9,7 +9,7 @@ import type {
   GetIpamPrefixListResolverVersionEntriesRequest,
   GetIpamPrefixListResolverVersionEntriesResult,
 } from "../models/models_6";
-import { GetIpamPrefixListResolverVersionEntries } from "../schemas/schemas_0";
+import { GetIpamPrefixListResolverVersionEntries$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class GetIpamPrefixListResolverVersionEntriesCommand extends $Command
   })
   .s("AmazonEC2", "GetIpamPrefixListResolverVersionEntries", {})
   .n("EC2Client", "GetIpamPrefixListResolverVersionEntriesCommand")
-  .sc(GetIpamPrefixListResolverVersionEntries)
+  .sc(GetIpamPrefixListResolverVersionEntries$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

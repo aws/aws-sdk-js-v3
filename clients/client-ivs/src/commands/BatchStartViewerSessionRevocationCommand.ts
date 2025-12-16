@@ -9,7 +9,7 @@ import type {
   BatchStartViewerSessionRevocationRequest,
   BatchStartViewerSessionRevocationResponse,
 } from "../models/models_0";
-import { BatchStartViewerSessionRevocation } from "../schemas/schemas_0";
+import { BatchStartViewerSessionRevocation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class BatchStartViewerSessionRevocationCommand extends $Command
   })
   .s("AmazonInteractiveVideoService", "BatchStartViewerSessionRevocation", {})
   .n("IvsClient", "BatchStartViewerSessionRevocationCommand")
-  .sc(BatchStartViewerSessionRevocation)
+  .sc(BatchStartViewerSessionRevocation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

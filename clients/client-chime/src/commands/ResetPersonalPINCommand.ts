@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ResetPersonalPINRequest, ResetPersonalPINResponse } from "../models/models_0";
-import { ResetPersonalPIN } from "../schemas/schemas_0";
+import { ResetPersonalPIN$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -113,7 +113,7 @@ export class ResetPersonalPINCommand extends $Command
   })
   .s("UCBuzzConsoleService", "ResetPersonalPIN", {})
   .n("ChimeClient", "ResetPersonalPINCommand")
-  .sc(ResetPersonalPIN)
+  .sc(ResetPersonalPIN$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

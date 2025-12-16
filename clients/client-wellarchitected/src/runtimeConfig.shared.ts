@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: WellArchitectedClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.wellarchitected" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.wellarchitected",
+      version: "2020-03-31",
+      serviceTarget: "WellArchitectedApiServiceLambda",
+    },
     serviceId: config?.serviceId ?? "WellArchitected",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

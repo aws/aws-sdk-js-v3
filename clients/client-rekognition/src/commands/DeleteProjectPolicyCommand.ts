@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteProjectPolicyRequest, DeleteProjectPolicyResponse } from "../models/models_0";
 import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { DeleteProjectPolicy } from "../schemas/schemas_0";
+import { DeleteProjectPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -116,7 +116,7 @@ export class DeleteProjectPolicyCommand extends $Command
   })
   .s("RekognitionService", "DeleteProjectPolicy", {})
   .n("RekognitionClient", "DeleteProjectPolicyCommand")
-  .sc(DeleteProjectPolicy)
+  .sc(DeleteProjectPolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

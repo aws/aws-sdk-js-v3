@@ -9,7 +9,7 @@ import type {
   DisassociateIdentityProviderConfigRequest,
   DisassociateIdentityProviderConfigResponse,
 } from "../models/models_0";
-import { DisassociateIdentityProviderConfig } from "../schemas/schemas_0";
+import { DisassociateIdentityProviderConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -135,7 +135,7 @@ export class DisassociateIdentityProviderConfigCommand extends $Command
   })
   .s("AWSWesleyFrontend", "DisassociateIdentityProviderConfig", {})
   .n("EKSClient", "DisassociateIdentityProviderConfigCommand")
-  .sc(DisassociateIdentityProviderConfig)
+  .sc(DisassociateIdentityProviderConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

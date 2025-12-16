@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { RegisterDomain } from "../schemas/schemas_0";
+import { RegisterDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -224,7 +224,7 @@ export class RegisterDomainCommand extends $Command
   })
   .s("Route53Domains_v20140515", "RegisterDomain", {})
   .n("Route53DomainsClient", "RegisterDomainCommand")
-  .sc(RegisterDomain)
+  .sc(RegisterDomain$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

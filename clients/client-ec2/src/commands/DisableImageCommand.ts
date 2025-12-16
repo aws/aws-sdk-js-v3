@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DisableImageRequest, DisableImageResult } from "../models/models_5";
-import { DisableImage } from "../schemas/schemas_0";
+import { DisableImage$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DisableImageCommand extends $Command
   })
   .s("AmazonEC2", "DisableImage", {})
   .n("EC2Client", "DisableImageCommand")
-  .sc(DisableImage)
+  .sc(DisableImage$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

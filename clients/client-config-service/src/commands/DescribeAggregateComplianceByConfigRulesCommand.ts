@@ -9,7 +9,7 @@ import type {
   DescribeAggregateComplianceByConfigRulesRequest,
   DescribeAggregateComplianceByConfigRulesResponse,
 } from "../models/models_0";
-import { DescribeAggregateComplianceByConfigRules } from "../schemas/schemas_0";
+import { DescribeAggregateComplianceByConfigRules$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -155,7 +155,7 @@ export class DescribeAggregateComplianceByConfigRulesCommand extends $Command
   })
   .s("StarlingDoveService", "DescribeAggregateComplianceByConfigRules", {})
   .n("ConfigServiceClient", "DescribeAggregateComplianceByConfigRulesCommand")
-  .sc(DescribeAggregateComplianceByConfigRules)
+  .sc(DescribeAggregateComplianceByConfigRules$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

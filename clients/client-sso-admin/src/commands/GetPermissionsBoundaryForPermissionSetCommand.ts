@@ -8,7 +8,7 @@ import type {
   GetPermissionsBoundaryForPermissionSetRequest,
   GetPermissionsBoundaryForPermissionSetResponse,
 } from "../models/models_0";
-import { GetPermissionsBoundaryForPermissionSet } from "../schemas/schemas_0";
+import { GetPermissionsBoundaryForPermissionSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
@@ -101,7 +101,7 @@ export class GetPermissionsBoundaryForPermissionSetCommand extends $Command
   })
   .s("SWBExternalService", "GetPermissionsBoundaryForPermissionSet", {})
   .n("SSOAdminClient", "GetPermissionsBoundaryForPermissionSetCommand")
-  .sc(GetPermissionsBoundaryForPermissionSet)
+  .sc(GetPermissionsBoundaryForPermissionSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

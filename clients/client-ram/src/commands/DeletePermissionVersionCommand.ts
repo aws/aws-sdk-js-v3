@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeletePermissionVersionRequest, DeletePermissionVersionResponse } from "../models/models_0";
 import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
-import { DeletePermissionVersion } from "../schemas/schemas_0";
+import { DeletePermissionVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class DeletePermissionVersionCommand extends $Command
   })
   .s("AmazonResourceSharing", "DeletePermissionVersion", {})
   .n("RAMClient", "DeletePermissionVersionCommand")
-  .sc(DeletePermissionVersion)
+  .sc(DeletePermissionVersion$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

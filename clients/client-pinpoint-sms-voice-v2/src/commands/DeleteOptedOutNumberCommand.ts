@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PinpointSMSVoiceV2Client";
-import { DeleteOptedOutNumber } from "../schemas/schemas_0";
+import { DeleteOptedOutNumber$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class DeleteOptedOutNumberCommand extends $Command
   })
   .s("PinpointSMSVoiceV2", "DeleteOptedOutNumber", {})
   .n("PinpointSMSVoiceV2Client", "DeleteOptedOutNumberCommand")
-  .sc(DeleteOptedOutNumber)
+  .sc(DeleteOptedOutNumber$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

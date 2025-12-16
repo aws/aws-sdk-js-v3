@@ -10,7 +10,7 @@ import type {
 } from "../ChimeSDKMeetingsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteMeetingRequest } from "../models/models_0";
-import { DeleteMeeting } from "../schemas/schemas_0";
+import { DeleteMeeting$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -99,7 +99,7 @@ export class DeleteMeetingCommand extends $Command
   })
   .s("ChimeMeetingsSDKService", "DeleteMeeting", {})
   .n("ChimeSDKMeetingsClient", "DeleteMeetingCommand")
-  .sc(DeleteMeeting)
+  .sc(DeleteMeeting$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

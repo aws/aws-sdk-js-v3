@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../RestJsonProtocolClient";
-import { DocumentType } from "../schemas/schemas_0";
+import { DocumentType$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -79,7 +79,7 @@ export class DocumentTypeCommand extends $Command
   })
   .s("RestJson", "DocumentType", {})
   .n("RestJsonProtocolClient", "DocumentTypeCommand")
-  .sc(DocumentType)
+  .sc(DocumentType$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -9,7 +9,7 @@ import type {
   DisassociateCapacityReservationBillingOwnerRequest,
   DisassociateCapacityReservationBillingOwnerResult,
 } from "../models/models_5";
-import { DisassociateCapacityReservationBillingOwner } from "../schemas/schemas_0";
+import { DisassociateCapacityReservationBillingOwner$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -84,7 +84,7 @@ export class DisassociateCapacityReservationBillingOwnerCommand extends $Command
   })
   .s("AmazonEC2", "DisassociateCapacityReservationBillingOwner", {})
   .n("EC2Client", "DisassociateCapacityReservationBillingOwnerCommand")
-  .sc(DisassociateCapacityReservationBillingOwner)
+  .sc(DisassociateCapacityReservationBillingOwner$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

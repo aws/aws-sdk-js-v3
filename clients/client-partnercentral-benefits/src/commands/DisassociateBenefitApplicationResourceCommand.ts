@@ -13,7 +13,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PartnerCentralBenefitsClient";
-import { DisassociateBenefitApplicationResource } from "../schemas/schemas_0";
+import { DisassociateBenefitApplicationResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class DisassociateBenefitApplicationResourceCommand extends $Command
   })
   .s("PartnerCentralBenefitsService", "DisassociateBenefitApplicationResource", {})
   .n("PartnerCentralBenefitsClient", "DisassociateBenefitApplicationResourceCommand")
-  .sc(DisassociateBenefitApplicationResource)
+  .sc(DisassociateBenefitApplicationResource$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

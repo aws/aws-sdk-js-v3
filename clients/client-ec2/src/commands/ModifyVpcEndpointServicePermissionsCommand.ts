@@ -9,7 +9,7 @@ import type {
   ModifyVpcEndpointServicePermissionsRequest,
   ModifyVpcEndpointServicePermissionsResult,
 } from "../models/models_7";
-import { ModifyVpcEndpointServicePermissions } from "../schemas/schemas_0";
+import { ModifyVpcEndpointServicePermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -98,7 +98,7 @@ export class ModifyVpcEndpointServicePermissionsCommand extends $Command
   })
   .s("AmazonEC2", "ModifyVpcEndpointServicePermissions", {})
   .n("EC2Client", "ModifyVpcEndpointServicePermissionsCommand")
-  .sc(ModifyVpcEndpointServicePermissions)
+  .sc(ModifyVpcEndpointServicePermissions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

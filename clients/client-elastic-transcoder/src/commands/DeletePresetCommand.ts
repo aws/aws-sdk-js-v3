@@ -10,7 +10,7 @@ import type {
 } from "../ElasticTranscoderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeletePresetRequest, DeletePresetResponse } from "../models/models_0";
-import { DeletePreset } from "../schemas/schemas_0";
+import { DeletePreset$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class DeletePresetCommand extends $Command
   })
   .s("EtsCustomerService", "DeletePreset", {})
   .n("ElasticTranscoderClient", "DeletePresetCommand")
-  .sc(DeletePreset)
+  .sc(DeletePreset$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

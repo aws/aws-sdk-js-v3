@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ResetNotificationSettingsRequest, ResetNotificationSettingsResponse } from "../models/models_0";
 import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
-import { ResetNotificationSettings } from "../schemas/schemas_0";
+import { ResetNotificationSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -160,7 +160,7 @@ export class ResetNotificationSettingsCommand extends $Command
   })
   .s("RolesAnywhere", "ResetNotificationSettings", {})
   .n("RolesAnywhereClient", "ResetNotificationSettingsCommand")
-  .sc(ResetNotificationSettings)
+  .sc(ResetNotificationSettings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

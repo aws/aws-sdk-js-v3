@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { ArtifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ArtifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListCustomerAgreementsRequest, ListCustomerAgreementsResponse } from "../models/models_0";
-import { ListCustomerAgreements } from "../schemas/schemas_0";
+import { ListCustomerAgreements$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -139,7 +139,7 @@ export class ListCustomerAgreementsCommand extends $Command
   })
   .s("Artifact", "ListCustomerAgreements", {})
   .n("ArtifactClient", "ListCustomerAgreementsCommand")
-  .sc(ListCustomerAgreements)
+  .sc(ListCustomerAgreements$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

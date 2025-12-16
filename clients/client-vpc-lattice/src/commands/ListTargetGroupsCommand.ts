@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListTargetGroupsRequest, ListTargetGroupsResponse } from "../models/models_0";
-import { ListTargetGroups } from "../schemas/schemas_0";
+import { ListTargetGroups$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -107,7 +107,7 @@ export class ListTargetGroupsCommand extends $Command
   })
   .s("MercuryControlPlane", "ListTargetGroups", {})
   .n("VPCLatticeClient", "ListTargetGroupsCommand")
-  .sc(ListTargetGroups)
+  .sc(ListTargetGroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

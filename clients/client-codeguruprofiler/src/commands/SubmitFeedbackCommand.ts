@@ -10,7 +10,7 @@ import type {
 } from "../CodeGuruProfilerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { SubmitFeedbackRequest, SubmitFeedbackResponse } from "../models/models_0";
-import { SubmitFeedback } from "../schemas/schemas_0";
+import { SubmitFeedback$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class SubmitFeedbackCommand extends $Command
   })
   .s("CodeGuruProfiler", "SubmitFeedback", {})
   .n("CodeGuruProfilerClient", "SubmitFeedbackCommand")
-  .sc(SubmitFeedback)
+  .sc(SubmitFeedback$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

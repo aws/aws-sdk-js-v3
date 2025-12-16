@@ -9,7 +9,7 @@ import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes
 import { commonParams } from "../endpoint/EndpointParameters";
 import { type UploadPartOutput, UploadPartRequest } from "../models/models_1";
 import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { UploadPart } from "../schemas/schemas_0";
+import { UploadPart$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -323,7 +323,7 @@ export class UploadPartCommand extends $Command
   })
   .s("AmazonS3", "UploadPart", {})
   .n("S3Client", "UploadPartCommand")
-  .sc(UploadPart)
+  .sc(UploadPart$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListGraphqlApisRequest, ListGraphqlApisResponse } from "../models/models_0";
-import { ListGraphqlApis } from "../schemas/schemas_0";
+import { ListGraphqlApis$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -161,7 +161,7 @@ export class ListGraphqlApisCommand extends $Command
   })
   .s("AWSDeepdishControlPlaneService", "ListGraphqlApis", {})
   .n("AppSyncClient", "ListGraphqlApisCommand")
-  .sc(ListGraphqlApis)
+  .sc(ListGraphqlApis$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

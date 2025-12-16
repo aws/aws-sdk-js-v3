@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListNodegroupsRequest, ListNodegroupsResponse } from "../models/models_0";
-import { ListNodegroups } from "../schemas/schemas_0";
+import { ListNodegroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -100,7 +100,7 @@ export class ListNodegroupsCommand extends $Command
   })
   .s("AWSWesleyFrontend", "ListNodegroups", {})
   .n("EKSClient", "ListNodegroupsCommand")
-  .sc(ListNodegroups)
+  .sc(ListNodegroups$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

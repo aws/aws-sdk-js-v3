@@ -9,7 +9,7 @@ import type {
   UpdateResourceEventConfigurationRequest,
   UpdateResourceEventConfigurationResponse,
 } from "../models/models_1";
-import { UpdateResourceEventConfiguration } from "../schemas/schemas_0";
+import { UpdateResourceEventConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -126,7 +126,7 @@ export class UpdateResourceEventConfigurationCommand extends $Command
   })
   .s("iotwireless", "UpdateResourceEventConfiguration", {})
   .n("IoTWirelessClient", "UpdateResourceEventConfigurationCommand")
-  .sc(UpdateResourceEventConfiguration)
+  .sc(UpdateResourceEventConfiguration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

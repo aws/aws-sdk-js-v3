@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetCommandInvocationRequest, GetCommandInvocationResult } from "../models/models_0";
-import { GetCommandInvocation } from "../schemas/schemas_0";
+import { GetCommandInvocation$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
@@ -136,7 +136,7 @@ export class GetCommandInvocationCommand extends $Command
   })
   .s("AmazonSSM", "GetCommandInvocation", {})
   .n("SSMClient", "GetCommandInvocationCommand")
-  .sc(GetCommandInvocation)
+  .sc(GetCommandInvocation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

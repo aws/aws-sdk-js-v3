@@ -13,7 +13,7 @@ import type {
   StartRecommendationReportGenerationRequest,
   StartRecommendationReportGenerationResponse,
 } from "../models/models_0";
-import { StartRecommendationReportGeneration } from "../schemas/schemas_0";
+import { StartRecommendationReportGeneration$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -105,7 +105,7 @@ export class StartRecommendationReportGenerationCommand extends $Command
   })
   .s("AWSMigrationHubStrategyRecommendation", "StartRecommendationReportGeneration", {})
   .n("MigrationHubStrategyClient", "StartRecommendationReportGenerationCommand")
-  .sc(StartRecommendationReportGeneration)
+  .sc(StartRecommendationReportGeneration$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

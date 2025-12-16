@@ -9,7 +9,7 @@ import type {
   BatchRemoveChannelRoleFromAccessorsOutput,
 } from "../models/models_0";
 import type { RepostspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RepostspaceClient";
-import { BatchRemoveChannelRoleFromAccessors } from "../schemas/schemas_0";
+import { BatchRemoveChannelRoleFromAccessors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class BatchRemoveChannelRoleFromAccessorsCommand extends $Command
   })
   .s("RepostSpace", "BatchRemoveChannelRoleFromAccessors", {})
   .n("RepostspaceClient", "BatchRemoveChannelRoleFromAccessorsCommand")
-  .sc(BatchRemoveChannelRoleFromAccessors)
+  .sc(BatchRemoveChannelRoleFromAccessors$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

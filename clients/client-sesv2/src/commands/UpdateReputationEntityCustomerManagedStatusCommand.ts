@@ -8,7 +8,7 @@ import type {
   UpdateReputationEntityCustomerManagedStatusRequest,
   UpdateReputationEntityCustomerManagedStatusResponse,
 } from "../models/models_1";
-import { UpdateReputationEntityCustomerManagedStatus } from "../schemas/schemas_0";
+import { UpdateReputationEntityCustomerManagedStatus$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
@@ -96,7 +96,7 @@ export class UpdateReputationEntityCustomerManagedStatusCommand extends $Command
   })
   .s("SimpleEmailService_v2", "UpdateReputationEntityCustomerManagedStatus", {})
   .n("SESv2Client", "UpdateReputationEntityCustomerManagedStatusCommand")
-  .sc(UpdateReputationEntityCustomerManagedStatus)
+  .sc(UpdateReputationEntityCustomerManagedStatus$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

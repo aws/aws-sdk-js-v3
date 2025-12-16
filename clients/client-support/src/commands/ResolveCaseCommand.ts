@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ResolveCaseRequest, ResolveCaseResponse } from "../models/models_0";
-import { ResolveCase } from "../schemas/schemas_0";
+import { ResolveCase$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
@@ -95,7 +95,7 @@ export class ResolveCaseCommand extends $Command
   })
   .s("AWSSupport_20130415", "ResolveCase", {})
   .n("SupportClient", "ResolveCaseCommand")
-  .sc(ResolveCase)
+  .sc(ResolveCase$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

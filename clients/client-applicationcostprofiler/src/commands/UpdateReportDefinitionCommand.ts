@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationCostProfilerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { UpdateReportDefinitionRequest, UpdateReportDefinitionResult } from "../models/models_0";
-import { UpdateReportDefinition } from "../schemas/schemas_0";
+import { UpdateReportDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -96,7 +96,7 @@ export class UpdateReportDefinitionCommand extends $Command
   })
   .s("AWSApplicationCostProfiler", "UpdateReportDefinition", {})
   .n("ApplicationCostProfilerClient", "UpdateReportDefinitionCommand")
-  .sc(UpdateReportDefinition)
+  .sc(UpdateReportDefinition$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

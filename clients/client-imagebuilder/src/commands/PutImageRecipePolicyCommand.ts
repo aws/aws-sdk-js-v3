@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import type { PutImageRecipePolicyRequest, PutImageRecipePolicyResponse } from "../models/models_0";
-import { PutImageRecipePolicy } from "../schemas/schemas_0";
+import { PutImageRecipePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -104,7 +104,7 @@ export class PutImageRecipePolicyCommand extends $Command
   })
   .s("imagebuilder", "PutImageRecipePolicy", {})
   .n("ImagebuilderClient", "PutImageRecipePolicyCommand")
-  .sc(PutImageRecipePolicy)
+  .sc(PutImageRecipePolicy$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

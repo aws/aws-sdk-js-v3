@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import type { DescribeExclusionsRequest, DescribeExclusionsResponse } from "../models/models_0";
-import { DescribeExclusions } from "../schemas/schemas_0";
+import { DescribeExclusions$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -108,7 +108,7 @@ export class DescribeExclusionsCommand extends $Command
   })
   .s("InspectorService", "DescribeExclusions", {})
   .n("InspectorClient", "DescribeExclusionsCommand")
-  .sc(DescribeExclusions)
+  .sc(DescribeExclusions$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

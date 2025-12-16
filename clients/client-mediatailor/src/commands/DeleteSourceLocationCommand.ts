@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import type { DeleteSourceLocationRequest, DeleteSourceLocationResponse } from "../models/models_0";
-import { DeleteSourceLocation } from "../schemas/schemas_0";
+import { DeleteSourceLocation$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -71,7 +71,7 @@ export class DeleteSourceLocationCommand extends $Command
   })
   .s("MediaTailor", "DeleteSourceLocation", {})
   .n("MediaTailorClient", "DeleteSourceLocationCommand")
-  .sc(DeleteSourceLocation)
+  .sc(DeleteSourceLocation$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

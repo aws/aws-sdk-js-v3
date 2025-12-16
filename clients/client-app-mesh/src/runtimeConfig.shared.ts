@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: AppMeshClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.appmesh" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.appmesh",
+      version: "2019-01-25",
+      serviceTarget: "AppMesh",
+    },
     serviceId: config?.serviceId ?? "App Mesh",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

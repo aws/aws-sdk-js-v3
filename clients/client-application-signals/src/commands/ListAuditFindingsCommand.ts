@@ -10,7 +10,7 @@ import type {
 } from "../ApplicationSignalsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ListAuditFindingsInput, ListAuditFindingsOutput } from "../models/models_0";
-import { ListAuditFindings } from "../schemas/schemas_0";
+import { ListAuditFindings$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -193,7 +193,7 @@ export class ListAuditFindingsCommand extends $Command
   })
   .s("ApplicationSignals", "ListAuditFindings", {})
   .n("ApplicationSignalsClient", "ListAuditFindingsCommand")
-  .sc(ListAuditFindings)
+  .sc(ListAuditFindings$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: ApplicationSignalsClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.applicationsignals" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.applicationsignals",
+      version: "2024-04-15",
+      serviceTarget: "ApplicationSignals",
+    },
     serviceId: config?.serviceId ?? "Application Signals",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import type { DeleteSnapshotRequest, DeleteSnapshotResponse } from "../models/models_0";
-import { DeleteSnapshot } from "../schemas/schemas_0";
+import { DeleteSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -88,7 +88,7 @@ export class DeleteSnapshotCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "DeleteSnapshot", {})
   .n("FSxClient", "DeleteSnapshotCommand")
-  .sc(DeleteSnapshot)
+  .sc(DeleteSnapshot$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

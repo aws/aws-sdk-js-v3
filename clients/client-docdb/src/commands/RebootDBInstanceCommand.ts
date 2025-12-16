@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { RebootDBInstanceMessage, RebootDBInstanceResult } from "../models/models_0";
-import { RebootDBInstance } from "../schemas/schemas_0";
+import { RebootDBInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -180,7 +180,7 @@ export class RebootDBInstanceCommand extends $Command
   })
   .s("AmazonRDSv19", "RebootDBInstance", {})
   .n("DocDBClient", "RebootDBInstanceCommand")
-  .sc(RebootDBInstance)
+  .sc(RebootDBInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { GetPerformanceAnalysisReportRequest, GetPerformanceAnalysisReportResponse } from "../models/models_0";
 import type { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
-import { GetPerformanceAnalysisReport } from "../schemas/schemas_0";
+import { GetPerformanceAnalysisReport$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -188,7 +188,7 @@ export class GetPerformanceAnalysisReportCommand extends $Command
   })
   .s("PerformanceInsightsv20180227", "GetPerformanceAnalysisReport", {})
   .n("PIClient", "GetPerformanceAnalysisReportCommand")
-  .sc(GetPerformanceAnalysisReport)
+  .sc(GetPerformanceAnalysisReport$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

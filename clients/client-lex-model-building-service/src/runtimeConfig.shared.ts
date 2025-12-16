@@ -31,8 +31,12 @@ export const getRuntimeConfig = (config: LexModelBuildingServiceClientConfig) =>
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.lexmodelbuildingservice" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.lexmodelbuildingservice",
+      version: "2017-04-19",
+      serviceTarget: "AWSDeepSenseModelBuildingService",
+    },
     serviceId: config?.serviceId ?? "Lex Model Building Service",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

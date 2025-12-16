@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { DeleteNetworkProfileRequest, DeleteNetworkProfileResult } from "../models/models_0";
-import { DeleteNetworkProfile } from "../schemas/schemas_0";
+import { DeleteNetworkProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -83,7 +83,7 @@ export class DeleteNetworkProfileCommand extends $Command
   })
   .s("DeviceFarm_20150623", "DeleteNetworkProfile", {})
   .n("DeviceFarmClient", "DeleteNetworkProfileCommand")
-  .sc(DeleteNetworkProfile)
+  .sc(DeleteNetworkProfile$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

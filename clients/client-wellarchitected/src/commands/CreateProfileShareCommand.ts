@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { CreateProfileShareInput, CreateProfileShareOutput } from "../models/models_0";
-import { CreateProfileShare } from "../schemas/schemas_0";
+import { CreateProfileShare$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -101,7 +101,7 @@ export class CreateProfileShareCommand extends $Command
   })
   .s("WellArchitectedApiServiceLambda", "CreateProfileShare", {})
   .n("WellArchitectedClient", "CreateProfileShareCommand")
-  .sc(CreateProfileShare)
+  .sc(CreateProfileShare$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

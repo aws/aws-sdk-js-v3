@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { ReorderReceiptRuleSetRequest, ReorderReceiptRuleSetResponse } from "../models/models_0";
-import { ReorderReceiptRuleSet } from "../schemas/schemas_0";
+import { ReorderReceiptRuleSet$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
@@ -104,7 +104,7 @@ export class ReorderReceiptRuleSetCommand extends $Command
   })
   .s("SimpleEmailService", "ReorderReceiptRuleSet", {})
   .n("SESClient", "ReorderReceiptRuleSetCommand")
-  .sc(ReorderReceiptRuleSet)
+  .sc(ReorderReceiptRuleSet$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

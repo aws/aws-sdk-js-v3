@@ -10,7 +10,7 @@ import type {
 } from "../DirectoryServiceDataClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AddGroupMemberRequest, AddGroupMemberResult } from "../models/models_0";
-import { AddGroupMember } from "../schemas/schemas_0";
+import { AddGroupMember$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -130,7 +130,7 @@ export class AddGroupMemberCommand extends $Command
   })
   .s("DirectoryServiceData", "AddGroupMember", {})
   .n("DirectoryServiceDataClient", "AddGroupMemberCommand")
-  .sc(AddGroupMember)
+  .sc(AddGroupMember$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

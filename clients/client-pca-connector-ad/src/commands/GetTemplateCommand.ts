@@ -10,7 +10,7 @@ import type {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PcaConnectorAdClient";
-import { GetTemplate } from "../schemas/schemas_0";
+import { GetTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -349,7 +349,7 @@ export class GetTemplateCommand extends $Command
   })
   .s("PcaConnectorAd", "GetTemplate", {})
   .n("PcaConnectorAdClient", "GetTemplateCommand")
-  .sc(GetTemplate)
+  .sc(GetTemplate$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

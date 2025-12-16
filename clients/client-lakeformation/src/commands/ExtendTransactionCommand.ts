@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import type { ExtendTransactionRequest, ExtendTransactionResponse } from "../models/models_0";
-import { ExtendTransaction } from "../schemas/schemas_0";
+import { ExtendTransaction$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -93,7 +93,7 @@ export class ExtendTransactionCommand extends $Command
   })
   .s("AWSLakeFormation", "ExtendTransaction", {})
   .n("LakeFormationClient", "ExtendTransactionCommand")
-  .sc(ExtendTransaction)
+  .sc(ExtendTransaction$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

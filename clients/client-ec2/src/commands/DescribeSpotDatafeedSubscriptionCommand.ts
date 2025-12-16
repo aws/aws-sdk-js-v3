@@ -9,7 +9,7 @@ import type {
   DescribeSpotDatafeedSubscriptionRequest,
   DescribeSpotDatafeedSubscriptionResult,
 } from "../models/models_4";
-import { DescribeSpotDatafeedSubscription } from "../schemas/schemas_0";
+import { DescribeSpotDatafeedSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -106,7 +106,7 @@ export class DescribeSpotDatafeedSubscriptionCommand extends $Command
   })
   .s("AmazonEC2", "DescribeSpotDatafeedSubscription", {})
   .n("EC2Client", "DescribeSpotDatafeedSubscriptionCommand")
-  .sc(DescribeSpotDatafeedSubscription)
+  .sc(DescribeSpotDatafeedSubscription$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

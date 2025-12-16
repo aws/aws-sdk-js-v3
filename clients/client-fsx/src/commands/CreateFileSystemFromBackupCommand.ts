@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import type { CreateFileSystemFromBackupRequest, CreateFileSystemFromBackupResponse } from "../models/models_0";
-import { CreateFileSystemFromBackup } from "../schemas/schemas_0";
+import { CreateFileSystemFromBackup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -884,7 +884,7 @@ export class CreateFileSystemFromBackupCommand extends $Command
   })
   .s("AWSSimbaAPIService_v20180301", "CreateFileSystemFromBackup", {})
   .n("FSxClient", "CreateFileSystemFromBackupCommand")
-  .sc(CreateFileSystemFromBackup)
+  .sc(CreateFileSystemFromBackup$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

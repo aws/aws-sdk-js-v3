@@ -31,8 +31,12 @@ export const getRuntimeConfig = (config: ServiceCatalogAppRegistryClientConfig) 
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol:
-      config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.servicecatalogappregistry" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.servicecatalogappregistry",
+      version: "2020-06-24",
+      serviceTarget: "AWS242AppRegistry",
+    },
     serviceId: config?.serviceId ?? "Service Catalog AppRegistry",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -6,7 +6,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AttachNetworkInterfaceRequest, AttachNetworkInterfaceResult } from "../models/models_0";
-import { AttachNetworkInterface } from "../schemas/schemas_0";
+import { AttachNetworkInterface$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -102,7 +102,7 @@ export class AttachNetworkInterfaceCommand extends $Command
   })
   .s("AmazonEC2", "AttachNetworkInterface", {})
   .n("EC2Client", "AttachNetworkInterfaceCommand")
-  .sc(AttachNetworkInterface)
+  .sc(AttachNetworkInterface$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

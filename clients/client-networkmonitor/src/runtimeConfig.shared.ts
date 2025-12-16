@@ -31,7 +31,12 @@ export const getRuntimeConfig = (config: NetworkMonitorClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    protocol: config?.protocol ?? new AwsRestJsonProtocol({ defaultNamespace: "com.amazonaws.networkmonitor" }),
+    protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.networkmonitor",
+      version: "2023-08-01",
+      serviceTarget: "NetworkMonitor",
+    },
     serviceId: config?.serviceId ?? "NetworkMonitor",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

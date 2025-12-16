@@ -10,7 +10,7 @@ import type {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { AdminUserGlobalSignOutRequest, AdminUserGlobalSignOutResponse } from "../models/models_0";
-import { AdminUserGlobalSignOut } from "../schemas/schemas_0";
+import { AdminUserGlobalSignOut$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -143,7 +143,7 @@ export class AdminUserGlobalSignOutCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "AdminUserGlobalSignOut", {})
   .n("CognitoIdentityProviderClient", "AdminUserGlobalSignOutCommand")
-  .sc(AdminUserGlobalSignOut)
+  .sc(AdminUserGlobalSignOut$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
