@@ -32,6 +32,12 @@ export const getRuntimeConfig = (config: ChatbotClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.chatbot",
+      xmlNamespace: "http://wheatley.amazonaws.com/orchestration/2017-10-11/",
+      version: "2017-10-11",
+      serviceTarget: "WheatleyOrchestration_20171011",
+    },
     serviceId: config?.serviceId ?? "chatbot",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

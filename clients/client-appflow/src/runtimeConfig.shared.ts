@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: AppflowClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.appflow",
+      version: "2020-08-23",
+      serviceTarget: "SandstoneConfigurationServiceLambda",
+    },
     serviceId: config?.serviceId ?? "Appflow",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

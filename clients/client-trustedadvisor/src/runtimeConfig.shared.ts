@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: TrustedAdvisorClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.trustedadvisor",
+      version: "2022-09-15",
+      serviceTarget: "TrustedAdvisor",
+    },
     serviceId: config?.serviceId ?? "TrustedAdvisor",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

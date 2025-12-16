@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: ImagebuilderClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.imagebuilder",
+      version: "2019-12-02",
+      serviceTarget: "imagebuilder",
+    },
     serviceId: config?.serviceId ?? "imagebuilder",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

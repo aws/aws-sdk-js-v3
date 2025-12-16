@@ -32,6 +32,12 @@ export const getRuntimeConfig = (config: DirectoryServiceDataClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.directoryservicedata",
+      xmlNamespace: "http://directoryservicedata.amazonaws.com/doc/2023-05-31/",
+      version: "2023-05-31",
+      serviceTarget: "DirectoryServiceData",
+    },
     serviceId: config?.serviceId ?? "Directory Service Data",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

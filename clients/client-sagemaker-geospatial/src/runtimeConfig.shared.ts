@@ -33,6 +33,11 @@ export const getRuntimeConfig = (config: SageMakerGeospatialClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.sagemakergeospatial",
+      version: "2020-05-27",
+      serviceTarget: "SageMakerGeospatial",
+    },
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "SageMaker Geospatial",
     urlParser: config?.urlParser ?? parseUrl,

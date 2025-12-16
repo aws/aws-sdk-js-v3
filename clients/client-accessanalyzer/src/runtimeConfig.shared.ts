@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: AccessAnalyzerClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.accessanalyzer",
+      version: "2019-11-01",
+      serviceTarget: "AccessAnalyzer",
+    },
     serviceId: config?.serviceId ?? "AccessAnalyzer",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: SecurityIRClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.securityir",
+      version: "2018-05-10",
+      serviceTarget: "SecurityIncidentResponse",
+    },
     serviceId: config?.serviceId ?? "Security IR",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

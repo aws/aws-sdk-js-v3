@@ -33,6 +33,11 @@ export const getRuntimeConfig = (config: NeptuneGraphClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.neptunegraph",
+      version: "2023-11-29",
+      serviceTarget: "AmazonNeptuneGraph",
+    },
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "Neptune Graph",
     urlParser: config?.urlParser ?? parseUrl,

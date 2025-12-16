@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: OutpostsClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.outposts",
+      version: "2019-12-03",
+      serviceTarget: "OutpostsOlafService",
+    },
     serviceId: config?.serviceId ?? "Outposts",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

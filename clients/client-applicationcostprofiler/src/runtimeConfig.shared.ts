@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: ApplicationCostProfilerClientConfig) =>
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.applicationcostprofiler",
+      version: "2020-09-10",
+      serviceTarget: "AWSApplicationCostProfiler",
+    },
     serviceId: config?.serviceId ?? "ApplicationCostProfiler",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

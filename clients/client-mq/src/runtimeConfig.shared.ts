@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: MqClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.mq",
+      version: "2017-11-27",
+      serviceTarget: "mq",
+    },
     serviceId: config?.serviceId ?? "mq",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

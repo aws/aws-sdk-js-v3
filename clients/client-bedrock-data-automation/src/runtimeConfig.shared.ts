@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: BedrockDataAutomationClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.bedrockdataautomation",
+      version: "2023-07-26",
+      serviceTarget: "AmazonBedrockKeystoneBuildTimeService",
+    },
     serviceId: config?.serviceId ?? "Bedrock Data Automation",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

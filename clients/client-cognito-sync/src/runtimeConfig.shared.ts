@@ -32,6 +32,12 @@ export const getRuntimeConfig = (config: CognitoSyncClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.cognitosync",
+      xmlNamespace: "http://cognito-sync.amazonaws.com/doc/2014-06-30/",
+      version: "2014-06-30",
+      serviceTarget: "AWSCognitoSyncService",
+    },
     serviceId: config?.serviceId ?? "Cognito Sync",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

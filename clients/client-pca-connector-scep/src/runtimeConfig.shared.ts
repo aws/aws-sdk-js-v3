@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: PcaConnectorScepClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.pcaconnectorscep",
+      version: "2018-05-10",
+      serviceTarget: "PcaConnectorScep",
+    },
     serviceId: config?.serviceId ?? "Pca Connector Scep",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

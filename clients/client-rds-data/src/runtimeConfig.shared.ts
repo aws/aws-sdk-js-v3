@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: RDSDataClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.rdsdata",
+      version: "2018-08-01",
+      serviceTarget: "RdsDataService",
+    },
     serviceId: config?.serviceId ?? "RDS Data",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

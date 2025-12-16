@@ -32,6 +32,12 @@ export const getRuntimeConfig = (config: OpenSearchClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.opensearch",
+      xmlNamespace: "http://es.amazonaws.com/doc/2021-01-01/",
+      version: "2021-01-01",
+      serviceTarget: "AmazonOpenSearchService",
+    },
     serviceId: config?.serviceId ?? "OpenSearch",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

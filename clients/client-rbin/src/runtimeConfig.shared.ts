@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: RbinClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.rbin",
+      version: "2021-06-15",
+      serviceTarget: "AmazonRecycleBin",
+    },
     serviceId: config?.serviceId ?? "rbin",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

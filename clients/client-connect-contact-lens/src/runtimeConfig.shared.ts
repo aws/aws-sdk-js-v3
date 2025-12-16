@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: ConnectContactLensClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.connectcontactlens",
+      version: "2020-08-21",
+      serviceTarget: "AmazonConnectContactLens",
+    },
     serviceId: config?.serviceId ?? "Connect Contact Lens",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: TranscribeStreamingClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.transcribestreaming",
+      version: "2017-10-26",
+      serviceTarget: "Transcribe",
+    },
     serviceId: config?.serviceId ?? "Transcribe Streaming",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

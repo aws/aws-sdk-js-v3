@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: AmplifyUIBuilderClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.amplifyuibuilder",
+      version: "2021-08-11",
+      serviceTarget: "AmplifyUIBuilder",
+    },
     serviceId: config?.serviceId ?? "AmplifyUIBuilder",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

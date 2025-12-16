@@ -33,6 +33,11 @@ export const getRuntimeConfig = (config: OmicsClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.omics",
+      version: "2022-11-28",
+      serviceTarget: "Omics",
+    },
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "Omics",
     urlParser: config?.urlParser ?? parseUrl,

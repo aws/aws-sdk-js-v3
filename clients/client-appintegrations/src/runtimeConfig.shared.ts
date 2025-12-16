@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: AppIntegrationsClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.appintegrations",
+      version: "2020-07-29",
+      serviceTarget: "AmazonAppIntegrationService",
+    },
     serviceId: config?.serviceId ?? "AppIntegrations",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: RolesAnywhereClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.rolesanywhere",
+      version: "2018-05-10",
+      serviceTarget: "RolesAnywhere",
+    },
     serviceId: config?.serviceId ?? "RolesAnywhere",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

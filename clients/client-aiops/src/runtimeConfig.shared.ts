@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: AIOpsClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.aiops",
+      version: "2018-05-10",
+      serviceTarget: "AIOps",
+    },
     serviceId: config?.serviceId ?? "AIOps",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -32,6 +32,12 @@ export const getRuntimeConfig = (config: KinesisVideoClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.kinesisvideo",
+      xmlNamespace: "https://kinesisvideo.amazonaws.com/doc/2017-09-30/",
+      version: "2017-09-30",
+      serviceTarget: "KinesisVideo_20170930",
+    },
     serviceId: config?.serviceId ?? "Kinesis Video",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

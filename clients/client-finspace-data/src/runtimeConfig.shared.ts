@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: FinspaceDataClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.finspacedata",
+      version: "2020-07-13",
+      serviceTarget: "AWSHabaneroPublicAPI",
+    },
     serviceId: config?.serviceId ?? "finspace data",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: MediaConnectClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.mediaconnect",
+      version: "2018-11-14",
+      serviceTarget: "MediaConnect",
+    },
     serviceId: config?.serviceId ?? "MediaConnect",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

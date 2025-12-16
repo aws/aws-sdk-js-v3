@@ -38,6 +38,11 @@ export const getRuntimeConfig = (config: SESv2ClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.sesv2",
+      version: "2019-09-27",
+      serviceTarget: "SimpleEmailService_v2",
+    },
     serviceId: config?.serviceId ?? "SESv2",
     signerConstructor: config?.signerConstructor ?? SignatureV4MultiRegion,
     urlParser: config?.urlParser ?? parseUrl,

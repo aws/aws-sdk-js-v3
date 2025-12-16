@@ -32,6 +32,12 @@ export const getRuntimeConfig = (config: ElasticsearchServiceClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.elasticsearchservice",
+      xmlNamespace: "http://es.amazonaws.com/doc/2015-01-01/",
+      version: "2015-01-01",
+      serviceTarget: "AmazonElasticsearchService2015",
+    },
     serviceId: config?.serviceId ?? "Elasticsearch Service",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

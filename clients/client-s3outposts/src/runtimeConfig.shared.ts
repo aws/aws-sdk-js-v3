@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: S3OutpostsClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.s3outposts",
+      version: "2017-07-25",
+      serviceTarget: "S3Outposts",
+    },
     serviceId: config?.serviceId ?? "S3Outposts",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

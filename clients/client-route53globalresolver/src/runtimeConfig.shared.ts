@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: Route53GlobalResolverClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.route53globalresolver",
+      version: "2022-09-27",
+      serviceTarget: "EC2DNSGlobalResolverCustomerAPI",
+    },
     serviceId: config?.serviceId ?? "Route53GlobalResolver",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

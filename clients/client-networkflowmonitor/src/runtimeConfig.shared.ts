@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: NetworkFlowMonitorClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.networkflowmonitor",
+      version: "2023-04-19",
+      serviceTarget: "NetworkFlowMonitor",
+    },
     serviceId: config?.serviceId ?? "NetworkFlowMonitor",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

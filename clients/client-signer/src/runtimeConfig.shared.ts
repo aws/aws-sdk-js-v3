@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: SignerClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.signer",
+      version: "2017-08-25",
+      serviceTarget: "WallabyService",
+    },
     serviceId: config?.serviceId ?? "signer",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

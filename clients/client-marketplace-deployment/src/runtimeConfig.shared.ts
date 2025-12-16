@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: MarketplaceDeploymentClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.marketplacedeployment",
+      version: "2023-01-25",
+      serviceTarget: "AWSMPDeploymentParametersService",
+    },
     serviceId: config?.serviceId ?? "Marketplace Deployment",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

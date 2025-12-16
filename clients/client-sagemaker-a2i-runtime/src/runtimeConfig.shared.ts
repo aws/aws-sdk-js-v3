@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: SageMakerA2IRuntimeClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.sagemakera2iruntime",
+      version: "2019-11-07",
+      serviceTarget: "AmazonSageMakerA2IRuntime",
+    },
     serviceId: config?.serviceId ?? "SageMaker A2I Runtime",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

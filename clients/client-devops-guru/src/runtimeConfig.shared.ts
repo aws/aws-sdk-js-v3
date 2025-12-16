@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: DevOpsGuruClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.devopsguru",
+      version: "2020-12-01",
+      serviceTarget: "CapstoneControlPlaneService",
+    },
     serviceId: config?.serviceId ?? "DevOps Guru",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: RekognitionStreamingClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.rekognitionstreaming",
+      version: "2022-05-30",
+      serviceTarget: "RekognitionStreamingService",
+    },
     serviceId: config?.serviceId ?? "RekognitionStreaming",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

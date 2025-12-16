@@ -33,6 +33,11 @@ export const getRuntimeConfig = (config: CodeartifactClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.codeartifact",
+      version: "2018-09-22",
+      serviceTarget: "CodeArtifactControlPlaneService",
+    },
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "codeartifact",
     urlParser: config?.urlParser ?? parseUrl,

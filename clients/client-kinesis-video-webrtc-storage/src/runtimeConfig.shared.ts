@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: KinesisVideoWebRTCStorageClientConfig) 
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.kinesisvideowebrtcstorage",
+      version: "2018-05-10",
+      serviceTarget: "AWSAcuityRoutingServiceLambda",
+    },
     serviceId: config?.serviceId ?? "Kinesis Video WebRTC Storage",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: PanoramaClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.panorama",
+      version: "2019-07-24",
+      serviceTarget: "OmniCloudServiceLambda",
+    },
     serviceId: config?.serviceId ?? "Panorama",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

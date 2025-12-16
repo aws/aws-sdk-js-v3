@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: NovaActClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.novaact",
+      version: "2025-08-22",
+      serviceTarget: "AmazonNovaAgentsDataPlane",
+    },
     serviceId: config?.serviceId ?? "Nova Act",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

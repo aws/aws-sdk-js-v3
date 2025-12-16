@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: EMRServerlessClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.emrserverless",
+      version: "2021-07-13",
+      serviceTarget: "AwsToledoWebService",
+    },
     serviceId: config?.serviceId ?? "EMR Serverless",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

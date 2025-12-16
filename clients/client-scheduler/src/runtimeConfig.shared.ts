@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: SchedulerClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.scheduler",
+      version: "2021-06-30",
+      serviceTarget: "AWSChronosService",
+    },
     serviceId: config?.serviceId ?? "Scheduler",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

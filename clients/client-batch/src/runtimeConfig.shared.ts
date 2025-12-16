@@ -32,6 +32,12 @@ export const getRuntimeConfig = (config: BatchClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.batch",
+      xmlNamespace: "http://batch.amazonaws.com/doc/2016-08-10/",
+      version: "2016-08-10",
+      serviceTarget: "AWSBatchV20160810",
+    },
     serviceId: config?.serviceId ?? "Batch",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

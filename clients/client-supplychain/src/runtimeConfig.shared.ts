@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: SupplyChainClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.supplychain",
+      version: "2024-01-01",
+      serviceTarget: "GalaxyPublicAPIGateway",
+    },
     serviceId: config?.serviceId ?? "SupplyChain",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

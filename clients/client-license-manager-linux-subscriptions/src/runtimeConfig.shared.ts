@@ -33,6 +33,11 @@ export const getRuntimeConfig = (config: LicenseManagerLinuxSubscriptionsClientC
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.licensemanagerlinuxsubscriptions",
+      version: "2018-05-10",
+      serviceTarget: "LicenseManagerLinuxSubscriptions",
+    },
     serviceId: config?.serviceId ?? "License Manager Linux Subscriptions",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

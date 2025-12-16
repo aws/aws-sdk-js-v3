@@ -39,6 +39,11 @@ export const getRuntimeConfig = (config: SSOClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.sso",
+      version: "2019-06-10",
+      serviceTarget: "SWBPortalService",
+    },
     serviceId: config?.serviceId ?? "SSO",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

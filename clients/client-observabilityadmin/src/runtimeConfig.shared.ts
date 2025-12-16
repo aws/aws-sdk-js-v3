@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: ObservabilityAdminClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.observabilityadmin",
+      version: "2018-05-10",
+      serviceTarget: "ObservabilityAdmin",
+    },
     serviceId: config?.serviceId ?? "ObservabilityAdmin",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

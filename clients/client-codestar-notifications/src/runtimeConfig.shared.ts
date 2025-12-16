@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: CodestarNotificationsClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.codestarnotifications",
+      version: "2019-10-15",
+      serviceTarget: "CodeStarNotifications_20191015",
+    },
     serviceId: config?.serviceId ?? "codestar notifications",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

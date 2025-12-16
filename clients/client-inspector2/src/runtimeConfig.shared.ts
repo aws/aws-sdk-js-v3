@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: Inspector2ClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.inspector2",
+      version: "2020-06-08",
+      serviceTarget: "Inspector2",
+    },
     serviceId: config?.serviceId ?? "Inspector2",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

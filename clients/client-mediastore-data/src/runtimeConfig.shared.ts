@@ -33,6 +33,12 @@ export const getRuntimeConfig = (config: MediaStoreDataClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.mediastoredata",
+      xmlNamespace: "https://object.mediastore.amazonaws.com/doc/2017-09-01",
+      version: "2017-09-01",
+      serviceTarget: "MediaStoreObject_20170901",
+    },
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "MediaStore Data",
     urlParser: config?.urlParser ?? parseUrl,

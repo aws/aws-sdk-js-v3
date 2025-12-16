@@ -32,6 +32,12 @@ export const getRuntimeConfig = (config: CloudSearchDomainClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.cloudsearchdomain",
+      xmlNamespace: "http://cloudsearch.amazonaws.com/doc/2013-01-01/",
+      version: "2013-01-01",
+      serviceTarget: "AmazonCloudSearch2013",
+    },
     serviceId: config?.serviceId ?? "CloudSearch Domain",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: AppConfigDataClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.appconfigdata",
+      version: "2021-11-11",
+      serviceTarget: "AppConfigData",
+    },
     serviceId: config?.serviceId ?? "AppConfigData",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

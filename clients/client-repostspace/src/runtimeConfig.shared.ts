@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: RepostspaceClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.repostspace",
+      version: "2022-05-13",
+      serviceTarget: "RepostSpace",
+    },
     serviceId: config?.serviceId ?? "repostspace",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: EFSClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.efs",
+      version: "2015-02-01",
+      serviceTarget: "MagnolioAPIService_v20150201",
+    },
     serviceId: config?.serviceId ?? "EFS",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

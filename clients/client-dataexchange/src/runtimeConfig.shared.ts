@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: DataExchangeClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.dataexchange",
+      version: "2017-07-25",
+      serviceTarget: "DataExchange",
+    },
     serviceId: config?.serviceId ?? "DataExchange",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -33,6 +33,11 @@ export const getRuntimeConfig = (config: MedicalImagingClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.medicalimaging",
+      version: "2023-07-19",
+      serviceTarget: "AHIGatewayService",
+    },
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "Medical Imaging",
     urlParser: config?.urlParser ?? parseUrl,

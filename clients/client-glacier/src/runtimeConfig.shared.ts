@@ -33,6 +33,12 @@ export const getRuntimeConfig = (config: GlacierClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.glacier",
+      xmlNamespace: "http://glacier.amazonaws.com/doc/2012-06-01/",
+      version: "2012-06-01",
+      serviceTarget: "Glacier",
+    },
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "Glacier",
     urlParser: config?.urlParser ?? parseUrl,

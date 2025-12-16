@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: TnbClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.tnb",
+      version: "2008-10-21",
+      serviceTarget: "TNB",
+    },
     serviceId: config?.serviceId ?? "tnb",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

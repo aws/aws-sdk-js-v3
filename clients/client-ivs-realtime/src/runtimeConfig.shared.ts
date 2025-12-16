@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: IVSRealTimeClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.ivsrealtime",
+      version: "2020-07-14",
+      serviceTarget: "AmazonInteractiveVideoServiceRealTime",
+    },
     serviceId: config?.serviceId ?? "IVS RealTime",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

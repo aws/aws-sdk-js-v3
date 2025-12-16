@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: DataBrewClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.databrew",
+      version: "2017-07-25",
+      serviceTarget: "AWSGlueDataBrew",
+    },
     serviceId: config?.serviceId ?? "DataBrew",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: SageMakerFeatureStoreRuntimeClientConfi
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.sagemakerfeaturestoreruntime",
+      version: "2020-07-01",
+      serviceTarget: "AmazonSageMakerFeatureStoreRuntime",
+    },
     serviceId: config?.serviceId ?? "SageMaker FeatureStore Runtime",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

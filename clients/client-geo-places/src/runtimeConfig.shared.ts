@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: GeoPlacesClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.geoplaces",
+      version: "2020-11-19",
+      serviceTarget: "PlacesService",
+    },
     serviceId: config?.serviceId ?? "Geo Places",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

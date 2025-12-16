@@ -32,6 +32,12 @@ export const getRuntimeConfig = (config: ElasticTranscoderClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.elastictranscoder",
+      xmlNamespace: "http://elastictranscoder.amazonaws.com/doc/2012-09-25/",
+      version: "2012-09-25",
+      serviceTarget: "EtsCustomerService",
+    },
     serviceId: config?.serviceId ?? "Elastic Transcoder",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -33,6 +33,11 @@ export const getRuntimeConfig = (config: KinesisVideoMediaClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.kinesisvideomedia",
+      version: "2017-09-30",
+      serviceTarget: "AWSAcuityInletService",
+    },
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "Kinesis Video Media",
     urlParser: config?.urlParser ?? parseUrl,

@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: ConnectCampaignsClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.connectcampaigns",
+      version: "2021-01-30",
+      serviceTarget: "AmazonConnectCampaignService",
+    },
     serviceId: config?.serviceId ?? "ConnectCampaigns",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

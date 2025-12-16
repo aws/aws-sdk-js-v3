@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: MgnClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.mgn",
+      version: "2020-02-26",
+      serviceTarget: "ApplicationMigrationService",
+    },
     serviceId: config?.serviceId ?? "mgn",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

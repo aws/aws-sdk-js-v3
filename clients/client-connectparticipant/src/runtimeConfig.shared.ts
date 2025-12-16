@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: ConnectParticipantClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.connectparticipant",
+      version: "2018-09-07",
+      serviceTarget: "AmazonConnectParticipantServiceLambda",
+    },
     serviceId: config?.serviceId ?? "ConnectParticipant",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

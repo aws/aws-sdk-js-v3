@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: AuditManagerClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.auditmanager",
+      version: "2017-07-25",
+      serviceTarget: "BedrockAssessmentManagerLambda",
+    },
     serviceId: config?.serviceId ?? "AuditManager",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

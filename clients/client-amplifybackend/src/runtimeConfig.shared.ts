@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: AmplifyBackendClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.amplifybackend",
+      version: "2020-08-11",
+      serviceTarget: "AmplifyBackend",
+    },
     serviceId: config?.serviceId ?? "AmplifyBackend",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

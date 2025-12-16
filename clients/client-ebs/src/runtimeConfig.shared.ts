@@ -33,6 +33,11 @@ export const getRuntimeConfig = (config: EBSClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.ebs",
+      version: "2019-11-02",
+      serviceTarget: "Ebs",
+    },
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "EBS",
     urlParser: config?.urlParser ?? parseUrl,

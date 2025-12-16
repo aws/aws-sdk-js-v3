@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: QuickSightClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.quicksight",
+      version: "2018-04-01",
+      serviceTarget: "QuickSight_20180401",
+    },
     serviceId: config?.serviceId ?? "QuickSight",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

@@ -39,6 +39,11 @@ export const getRuntimeConfig = (config: SSOOIDCClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.ssooidc",
+      version: "2019-06-10",
+      serviceTarget: "AWSSSOOIDCService",
+    },
     serviceId: config?.serviceId ?? "SSO OIDC",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

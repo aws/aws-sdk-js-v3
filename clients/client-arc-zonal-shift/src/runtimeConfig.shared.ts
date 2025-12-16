@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: ARCZonalShiftClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.arczonalshift",
+      version: "2022-10-30",
+      serviceTarget: "PercDataPlane",
+    },
     serviceId: config?.serviceId ?? "ARC Zonal Shift",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

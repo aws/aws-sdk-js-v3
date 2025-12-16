@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: ControlTowerClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.controltower",
+      version: "2018-05-10",
+      serviceTarget: "AWSControlTowerApis",
+    },
     serviceId: config?.serviceId ?? "ControlTower",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

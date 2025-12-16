@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: GameLiftStreamsClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.gameliftstreams",
+      version: "2018-05-10",
+      serviceTarget: "GameLiftStreams",
+    },
     serviceId: config?.serviceId ?? "GameLiftStreams",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

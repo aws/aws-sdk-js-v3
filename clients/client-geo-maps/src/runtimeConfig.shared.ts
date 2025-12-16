@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: GeoMapsClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.geomaps",
+      version: "2020-11-19",
+      serviceTarget: "MapsService",
+    },
     serviceId: config?.serviceId ?? "Geo Maps",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

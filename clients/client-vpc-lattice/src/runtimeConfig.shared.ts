@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: VPCLatticeClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.vpclattice",
+      version: "2022-11-30",
+      serviceTarget: "MercuryControlPlane",
+    },
     serviceId: config?.serviceId ?? "VPC Lattice",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

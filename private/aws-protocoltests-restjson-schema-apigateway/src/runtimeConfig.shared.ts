@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: APIGatewayClientConfig) => {
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.apigateway",
+      version: "2015-07-09",
+      serviceTarget: "BackplaneControlService",
+    },
     serviceId: config?.serviceId ?? "API Gateway",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,

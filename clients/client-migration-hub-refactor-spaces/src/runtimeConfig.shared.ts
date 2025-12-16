@@ -32,6 +32,11 @@ export const getRuntimeConfig = (config: MigrationHubRefactorSpacesClientConfig)
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
+    protocolSettings: config?.protocolSettings ?? {
+      defaultNamespace: "com.amazonaws.migrationhubrefactorspaces",
+      version: "2021-10-26",
+      serviceTarget: "RefactorSpaces",
+    },
     serviceId: config?.serviceId ?? "Migration Hub Refactor Spaces",
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,
