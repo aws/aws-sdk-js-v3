@@ -630,7 +630,70 @@ client.middlewareStack.add(
 await client.listBuckets({});
 ```
 
-### Middleware Caching `cacheMiddleware`.
+### Protocol `protocol`
+
+> Available only in [v3.953.0](https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.953.0)
+> and later.
+
+The client `protocol` in this context refers to [AWS protocols](https://smithy.io/2.0/aws/protocols/index.html)
+and [Smithy protocols](https://smithy.io/2.0/additional-specs/protocols/index.html).
+
+These protocols define how to serialize and deserialize data, and how to
+structure it into (e.g. HTTP) messages for transport over the network.
+While every SDK client has always had a protocol under the hood, as of v3.953.0 of the
+AWS SDK for JavaScript, the client packages now allow you to select the protocol.
+
+Coinciding with the release of
+[additional protocol support in Amazon CloudWatch](https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-cloudwatch-sdk-json-cbor-protocols/),
+the following code example shows how to select a custom protocol for a client.
+
+```js
+// example: how to select a protocol for a client.
+import {
+  AwsRestJsonProtocol,
+  AwsEc2QueryProtocol,
+  AwsJsonRpcProtocol,
+  AwsRestXmlProtocol,
+  AwsJson1_0Protocol,
+  AwsJson1_1Protocol,
+  AwsSmithyRpcV2CborProtocol,
+  AwsQueryProtocol,
+} from "@aws-sdk/core/protocols";
+
+// v3.953.0+
+import { CloudWatch } from "@aws-sdk/client-cloudwatch";
+
+// The previous CloudWatch main protocol,
+// using Query format requests and XML format responses.
+new CloudWatch({
+  protocol: AwsQueryProtocol,
+});
+
+// The new default protocol for the AWS SDK for JavaScript, RPC in JSON format.
+// You don't need to specify this, since it is the default.
+const cloudwatch = new CloudWatch({
+  protocol: AwsJson1_0Protocol,
+});
+
+// Another optional protocol, in CBOR format.
+// Note that although Smithy RPC v2 CBOR is a Smithy protocol,
+// this is the AWS flavor of it that supports AwsQuery compatibility,
+// a compatibility layer for services like CloudWatch that transition from
+// the older AwsQuery protocol.
+new CloudWatch({
+  protocol: AwsSmithyRpcV2CborProtocol,
+});
+```
+
+#### Keep in mind
+
+- At this time, few AWS services support more than one protocol.
+  - CloudWatch: AwsQueryProtocol, AwsJson1_0Protocol, AwsSmithyRpcV2CborProtocol
+  - SQS: AwsQueryProtocol, AwsJson1_0Protocol
+- The client will not validate that you have selected a supported protocol.
+  - The service will reject your request if you select a protocol that is not supported.
+
+### Middleware Caching `cacheMiddleware`
 
 > Available only in [v3.649.0](https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.649.0) and later.
 
