@@ -48,7 +48,7 @@ describe(CloudWatch.name, () => {
 
   for (const client of Object.values(cloudwatch)) {
     it(`can make requests with ${client.config.protocol.constructor.name}`, async () => {
-      const dashes = await cloudwatch.query.listDashboards();
+      const dashes = await client.listDashboards();
       expect(dashes.DashboardEntries ?? []).toBeInstanceOf(Array);
     });
   }

@@ -26,3 +26,7 @@ General recommended practices for working with AWS SDK clients.
 #### [TypeScript](./TYPESCRIPT.md)
 
 TypeScript tips & FAQ related to this project.
+
+#### [Schemas](./SCHEMAS.md)
+
+Working with _Schema_ objects and interfaces.
