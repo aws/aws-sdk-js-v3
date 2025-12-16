@@ -195,7 +195,9 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
                                 "/protocols"
                             );
                             writer.write("AwsRestJsonProtocol");
-                        }
+                        },
+                        "protocolSettings",
+                        typeScriptWriterConsumer
                     );
                 } else if (Objects.equals(settings.getProtocol(), AwsJson1_0Trait.ID)) {
                     return MapUtils.of(
