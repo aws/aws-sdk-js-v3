@@ -29,11 +29,10 @@ export interface UpdateEncryptionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates the encryption configuration. By default, all Amazon Web Services IoT Core data at rest is
- *          encrypted using Amazon Web Services owned keys. Amazon Web Services IoT Core also supports symmetric customer managed keys
- *          from Amazon Web Services Key Management Service (KMS). With customer managed keys, you create, own, and
- *          manage the KMS keys in your Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/data-encryption.html">Data
- *             encryption</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</p>
+ * <p>Updates the encryption configuration. By default, Amazon Web Services IoT Core encrypts your data at rest using Amazon Web Services owned keys. Amazon Web Services IoT Core also supports symmetric customer managed keys
+ *          from Key Management Service (KMS). With customer managed keys, you create, own, and
+ *          manage the KMS keys in your Amazon Web Services account. </p>
+ *          <p>Before using this API, you must set up permissions for Amazon Web Services IoT Core to access KMS. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/encryption-at-rest.html">Data encryption at rest</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

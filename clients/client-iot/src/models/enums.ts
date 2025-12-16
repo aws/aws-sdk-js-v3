@@ -444,6 +444,46 @@ export type CertificateProviderOperation =
  * @public
  * @enum
  */
+export const CommandParameterType = {
+  BINARY: "BINARY",
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  INTEGER: "INTEGER",
+  LONG: "LONG",
+  STRING: "STRING",
+  UNSIGNEDLONG: "UNSIGNEDLONG",
+} as const;
+/**
+ * @public
+ */
+export type CommandParameterType = (typeof CommandParameterType)[keyof typeof CommandParameterType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CommandParameterValueComparisonOperator = {
+  EQUALS: "EQUALS",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_EQUALS: "GREATER_THAN_EQUALS",
+  IN_RANGE: "IN_RANGE",
+  IN_SET: "IN_SET",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_EQUALS: "LESS_THAN_EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
+  NOT_IN_RANGE: "NOT_IN_RANGE",
+  NOT_IN_SET: "NOT_IN_SET",
+} as const;
+/**
+ * @public
+ */
+export type CommandParameterValueComparisonOperator =
+  (typeof CommandParameterValueComparisonOperator)[keyof typeof CommandParameterValueComparisonOperator];
+
+/**
+ * @public
+ * @enum
+ */
 export const CommandNamespace = {
   AWSIoT: "AWS-IoT",
   AWSIoTFleetWise: "AWS-IoT-FleetWise",
@@ -452,6 +492,19 @@ export const CommandNamespace = {
  * @public
  */
 export type CommandNamespace = (typeof CommandNamespace)[keyof typeof CommandNamespace];
+
+/**
+ * @public
+ * @enum
+ */
+export const OutputFormat = {
+  CBOR: "CBOR",
+  JSON: "JSON",
+} as const;
+/**
+ * @public
+ */
+export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
 
 /**
  * @public

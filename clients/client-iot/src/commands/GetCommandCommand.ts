@@ -50,6 +50,7 @@ export interface GetCommandCommandOutput extends GetCommandResponse, __MetadataB
  * //   mandatoryParameters: [ // CommandParameterList
  * //     { // CommandParameter
  * //       name: "STRING_VALUE", // required
+ * //       type: "STRING" || "INTEGER" || "DOUBLE" || "LONG" || "UNSIGNEDLONG" || "BOOLEAN" || "BINARY",
  * //       value: { // CommandParameterValue
  * //         S: "STRING_VALUE",
  * //         B: true || false,
@@ -68,12 +69,37 @@ export interface GetCommandCommandOutput extends GetCommandResponse, __MetadataB
  * //         BIN: new Uint8Array(),
  * //         UL: "STRING_VALUE",
  * //       },
+ * //       valueConditions: [ // CommandParameterValueConditionList
+ * //         { // CommandParameterValueCondition
+ * //           comparisonOperator: "EQUALS" || "NOT_EQUALS" || "LESS_THAN" || "LESS_THAN_EQUALS" || "GREATER_THAN" || "GREATER_THAN_EQUALS" || "IN_SET" || "NOT_IN_SET" || "IN_RANGE" || "NOT_IN_RANGE", // required
+ * //           operand: { // CommandParameterValueComparisonOperand
+ * //             number: "STRING_VALUE",
+ * //             numbers: [ // CommandParameterValueStringList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             string: "STRING_VALUE",
+ * //             strings: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             numberRange: { // CommandParameterValueNumberRange
+ * //               min: "STRING_VALUE", // required
+ * //               max: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
  * //       description: "STRING_VALUE",
  * //     },
  * //   ],
  * //   payload: { // CommandPayload
  * //     content: new Uint8Array(),
  * //     contentType: "STRING_VALUE",
+ * //   },
+ * //   payloadTemplate: "STRING_VALUE",
+ * //   preprocessor: { // CommandPreprocessor
+ * //     awsJsonSubstitution: { // AwsJsonSubstitutionCommandPreprocessorConfig
+ * //       outputFormat: "JSON" || "CBOR", // required
+ * //     },
  * //   },
  * //   roleArn: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"),

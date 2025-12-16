@@ -46,9 +46,16 @@ export interface CreateCommandCommandOutput extends CreateCommandResponse, __Met
  *     content: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     contentType: "STRING_VALUE",
  *   },
+ *   payloadTemplate: "STRING_VALUE",
+ *   preprocessor: { // CommandPreprocessor
+ *     awsJsonSubstitution: { // AwsJsonSubstitutionCommandPreprocessorConfig
+ *       outputFormat: "JSON" || "CBOR", // required
+ *     },
+ *   },
  *   mandatoryParameters: [ // CommandParameterList
  *     { // CommandParameter
  *       name: "STRING_VALUE", // required
+ *       type: "STRING" || "INTEGER" || "DOUBLE" || "LONG" || "UNSIGNEDLONG" || "BOOLEAN" || "BINARY",
  *       value: { // CommandParameterValue
  *         S: "STRING_VALUE",
  *         B: true || false,
@@ -67,6 +74,25 @@ export interface CreateCommandCommandOutput extends CreateCommandResponse, __Met
  *         BIN: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *         UL: "STRING_VALUE",
  *       },
+ *       valueConditions: [ // CommandParameterValueConditionList
+ *         { // CommandParameterValueCondition
+ *           comparisonOperator: "EQUALS" || "NOT_EQUALS" || "LESS_THAN" || "LESS_THAN_EQUALS" || "GREATER_THAN" || "GREATER_THAN_EQUALS" || "IN_SET" || "NOT_IN_SET" || "IN_RANGE" || "NOT_IN_RANGE", // required
+ *           operand: { // CommandParameterValueComparisonOperand
+ *             number: "STRING_VALUE",
+ *             numbers: [ // CommandParameterValueStringList
+ *               "STRING_VALUE",
+ *             ],
+ *             string: "STRING_VALUE",
+ *             strings: [
+ *               "STRING_VALUE",
+ *             ],
+ *             numberRange: { // CommandParameterValueNumberRange
+ *               min: "STRING_VALUE", // required
+ *               max: "STRING_VALUE", // required
+ *             },
+ *           },
+ *         },
+ *       ],
  *       description: "STRING_VALUE",
  *     },
  *   ],

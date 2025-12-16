@@ -84,6 +84,7 @@ import {
   AwsJobPresignedUrlConfig$,
   AwsJobRateIncreaseCriteria$,
   AwsJobTimeoutConfig$,
+  AwsJsonSubstitutionCommandPreprocessorConfig$,
   Behavior$,
   BehaviorCriteria$,
   BehaviorCriteriaType,
@@ -148,8 +149,14 @@ import {
   CommandExecutionSummary$,
   CommandNamespace,
   CommandParameter$,
+  CommandParameterType,
   CommandParameterValue$,
+  CommandParameterValueComparisonOperand$,
+  CommandParameterValueComparisonOperator,
+  CommandParameterValueCondition$,
+  CommandParameterValueNumberRange$,
   CommandPayload$,
+  CommandPreprocessor$,
   CommandSummary$,
   ComparisonOperator,
   ConfidenceLevel,
@@ -1078,6 +1085,7 @@ import {
   OTAUpdateSummary$,
   OpenSearchAction$,
   OutgoingCertificate$,
+  OutputFormat,
   PackageSummary$,
   PackageVersionAction,
   PackageVersionArtifact$,
@@ -2105,6 +2113,7 @@ assert(typeof AwsJobExponentialRolloutRate$ === "object");
 assert(typeof AwsJobPresignedUrlConfig$ === "object");
 assert(typeof AwsJobRateIncreaseCriteria$ === "object");
 assert(typeof AwsJobTimeoutConfig$ === "object");
+assert(typeof AwsJsonSubstitutionCommandPreprocessorConfig$ === "object");
 assert(typeof Behavior$ === "object");
 assert(typeof BehaviorCriteria$ === "object");
 assert(typeof BehaviorModelTrainingSummary$ === "object");
@@ -2141,7 +2150,11 @@ assert(typeof CommandExecutionResult$ === "object");
 assert(typeof CommandExecutionSummary$ === "object");
 assert(typeof CommandParameter$ === "object");
 assert(typeof CommandParameterValue$ === "object");
+assert(typeof CommandParameterValueComparisonOperand$ === "object");
+assert(typeof CommandParameterValueCondition$ === "object");
+assert(typeof CommandParameterValueNumberRange$ === "object");
 assert(typeof CommandPayload$ === "object");
+assert(typeof CommandPreprocessor$ === "object");
 assert(typeof CommandSummary$ === "object");
 assert(typeof Configuration$ === "object");
 assert(typeof ConfigurationDetails$ === "object");
@@ -2831,6 +2844,8 @@ assert(typeof CertificateProviderOperation === "object");
 assert(typeof CertificateStatus === "object");
 assert(typeof CommandExecutionStatus === "object");
 assert(typeof CommandNamespace === "object");
+assert(typeof CommandParameterType === "object");
+assert(typeof CommandParameterValueComparisonOperator === "object");
 assert(typeof ComparisonOperator === "object");
 assert(typeof ConfidenceLevel === "object");
 assert(typeof ConfigName === "object");
@@ -2864,6 +2879,7 @@ assert(typeof MitigationActionType === "object");
 assert(typeof ModelStatus === "object");
 assert(typeof NamedShadowIndexingMode === "object");
 assert(typeof OTAUpdateStatus === "object");
+assert(typeof OutputFormat === "object");
 assert(typeof PackageVersionAction === "object");
 assert(typeof PackageVersionStatus === "object");
 assert(typeof PolicyTemplateName === "object");

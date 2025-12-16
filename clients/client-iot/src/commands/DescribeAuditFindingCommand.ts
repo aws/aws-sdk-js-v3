@@ -5,7 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import type { DescribeAuditFindingRequest, DescribeAuditFindingResponse } from "../models/models_0";
+import type { DescribeAuditFindingRequest, DescribeAuditFindingResponse } from "../models/models_1";
 import { DescribeAuditFinding$ } from "../schemas/schemas_0";
 
 /**

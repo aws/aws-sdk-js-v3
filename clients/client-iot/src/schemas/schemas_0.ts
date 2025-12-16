@@ -23,6 +23,7 @@ const _AJERC = "AwsJobExecutionsRolloutConfig";
 const _AJERR = "AwsJobExponentialRolloutRate";
 const _AJPUC = "AwsJobPresignedUrlConfig";
 const _AJRIC = "AwsJobRateIncreaseCriteria";
+const _AJSCPC = "AwsJsonSubstitutionCommandPreprocessorConfig";
 const _AJTC = "AwsJobTimeoutConfig";
 const _AL = "ActionList";
 const _AMAEM = "AuditMitigationActionExecutionMetadata";
@@ -192,6 +193,10 @@ const _CPTV = "CreateProvisioningTemplateVersion";
 const _CPTVR = "CreateProvisioningTemplateVersionRequest";
 const _CPTVRr = "CreateProvisioningTemplateVersionResponse";
 const _CPV = "CommandParameterValue";
+const _CPVC = "CommandParameterValueCondition";
+const _CPVCL = "CommandParameterValueConditionList";
+const _CPVCO = "CommandParameterValueComparisonOperand";
+const _CPVNR = "CommandParameterValueNumberRange";
 const _CPVR = "CreatePackageVersionRequest";
 const _CPVRr = "CreatePackageVersionResponse";
 const _CPVRre = "CreatePolicyVersionRequest";
@@ -200,6 +205,7 @@ const _CPVr = "CreatePackageVersion";
 const _CPVre = "CreatePolicyVersion";
 const _CPe = "CertificateProviders";
 const _CPo = "CommandPayload";
+const _CPom = "CommandPreprocessor";
 const _CPr = "CreatePackage";
 const _CPre = "CreatePolicy";
 const _CRA = "CreateRoleAlias";
@@ -1189,6 +1195,7 @@ const _aIut = "authInfos";
 const _aJAC = "awsJobAbortConfig";
 const _aJERC = "awsJobExecutionsRolloutConfig";
 const _aJPUC = "awsJobPresignedUrlConfig";
+const _aJS = "awsJsonSubstitution";
 const _aJTC = "awsJobTimeoutConfig";
 const _aMTR = "additionalMetricsToRetain";
 const _aMTRV = "additionalMetricsToRetainV2";
@@ -1548,11 +1555,13 @@ const _mTq = "mqttTopic";
 const _mU = "metricUnit";
 const _mV = "metricValue";
 const _mW = "maintenanceWindows";
-const _ma = "marker";
+const _ma = "max";
+const _mar = "marker";
 const _max = "maximum";
 const _me = "message";
 const _met = "metric";
-const _mi = "minimum";
+const _mi = "min";
+const _min = "minimum";
 const _n = "name";
 const _nA = "notAfter";
 const _nARS = "newAutoRegistrationStatus";
@@ -1573,6 +1582,7 @@ const _nORTu = "numberOfRemovedThings";
 const _nOST = "numberOfSucceededThings";
 const _nOTOT = "numberOfTimedOutThings";
 const _nPF = "namePrefixFilter";
+const _nR = "numberRange";
 const _nS = "newStatus";
 const _nSIM = "namedShadowIndexingMode";
 const _nSN = "namedShadowNames";
@@ -1580,12 +1590,13 @@ const _nT = "nextToken";
 const _na = "namespace";
 const _nu = "number";
 const _num = "numbers";
-const _o = "optional";
+const _o = "operand";
 const _oARA = "ocspAuthorizedResponderArn";
 const _oAVI = "onlyActiveViolationsIncluded";
 const _oB = "ownedBy";
 const _oC = "outgoingCertificates";
 const _oDG = "overrideDynamicGroups";
+const _oF = "outputFormat";
 const _oIN = "offsetInNanos";
 const _oLA = "ocspLambdaArn";
 const _oS = "openSearch";
@@ -1595,8 +1606,9 @@ const _oUF = "otaUpdateFiles";
 const _oUI = "otaUpdateId";
 const _oUIt = "otaUpdateInfo";
 const _oUS = "otaUpdateStatus";
-const _op = "operation";
-const _ope = "operator";
+const _op = "optional";
+const _ope = "operation";
+const _oper = "operator";
 const _or = "order";
 const _ow = "owner";
 const _p = "policies";
@@ -1628,8 +1640,9 @@ const _pPH = "preProvisioningHook";
 const _pRA = "provisioningRoleArn";
 const _pS = "pageSize";
 const _pSa = "packageSummaries";
-const _pT = "processingTargets";
+const _pT = "payloadTemplate";
 const _pTO = "principalThingObjects";
+const _pTr = "processingTargets";
 const _pUC = "presignedUrlConfig";
 const _pV = "policyVersions";
 const _pVA = "packageVersionArn";
@@ -1649,7 +1662,8 @@ const _perce = "percent";
 const _pl = "platform";
 const _po = "ports";
 const _pr = "principal";
-const _pre = "prefix";
+const _pre = "preprocessor";
+const _pref = "prefix";
 const _pri = "principals";
 const _pro = "protocols";
 const _q = "quality";
@@ -1786,8 +1800,9 @@ const _sql = "sql";
 const _st = "status";
 const _sta = "statistics";
 const _stat = "statistic";
-const _str = "stream";
-const _stre = "streams";
+const _str = "string";
+const _stre = "stream";
+const _strea = "streams";
 const _stri = "strings";
 const _su = "summaries";
 const _sum = "sum";
@@ -1888,8 +1903,9 @@ const _uPK = "userPropertyKey";
 const _ur = "url";
 const _us = "username";
 const _v = "values";
-const _vC = "verificationCertificate";
+const _vC = "valueConditions";
 const _vCA = "validationCertificateArn";
+const _vCe = "verificationCertificate";
 const _vCp = "vpcConfiguration";
 const _vDS = "vpcDestinationSummary";
 const _vE = "violationEvents";
@@ -2208,6 +2224,7 @@ export var AwsJobExponentialRolloutRate$: StaticStructureSchema = [
 export var AwsJobPresignedUrlConfig$: StaticStructureSchema = [3, n0, _AJPUC, 0, [_eIS], [1]];
 export var AwsJobRateIncreaseCriteria$: StaticStructureSchema = [3, n0, _AJRIC, 0, [_nONT, _nOST], [1, 1]];
 export var AwsJobTimeoutConfig$: StaticStructureSchema = [3, n0, _AJTC, 0, [_iPTIM], [1]];
+export var AwsJsonSubstitutionCommandPreprocessorConfig$: StaticStructureSchema = [3, n0, _AJSCPC, 0, [_oF], [0]];
 export var Behavior$: StaticStructureSchema = [
   3,
   n0,
@@ -2323,8 +2340,8 @@ export var CommandParameter$: StaticStructureSchema = [
   n0,
   _CP,
   0,
-  [_n, _va, _dV, _d],
-  [0, () => CommandParameterValue$, () => CommandParameterValue$, 0],
+  [_n, _ty, _va, _dV, _vC, _d],
+  [0, 0, () => CommandParameterValue$, () => CommandParameterValue$, () => CommandParameterValueConditionList, 0],
 ];
 export var CommandParameterValue$: StaticStructureSchema = [
   3,
@@ -2334,7 +2351,32 @@ export var CommandParameterValue$: StaticStructureSchema = [
   [_S, _B_, _I, _L, _D, _BIN, _UL],
   [0, 2, 1, 1, 1, 21, 0],
 ];
+export var CommandParameterValueComparisonOperand$: StaticStructureSchema = [
+  3,
+  n0,
+  _CPVCO,
+  0,
+  [_nu, _num, _str, _stri, _nR],
+  [0, 64 | 0, 0, 64 | 0, () => CommandParameterValueNumberRange$],
+];
+export var CommandParameterValueCondition$: StaticStructureSchema = [
+  3,
+  n0,
+  _CPVC,
+  0,
+  [_cO, _o],
+  [0, () => CommandParameterValueComparisonOperand$],
+];
+export var CommandParameterValueNumberRange$: StaticStructureSchema = [3, n0, _CPVNR, 0, [_mi, _ma], [0, 0]];
 export var CommandPayload$: StaticStructureSchema = [3, n0, _CPo, 0, [_con, _cTo], [21, 0]];
+export var CommandPreprocessor$: StaticStructureSchema = [
+  3,
+  n0,
+  _CPom,
+  0,
+  [_aJS],
+  [() => AwsJsonSubstitutionCommandPreprocessorConfig$],
+];
 export var CommandSummary$: StaticStructureSchema = [
   3,
   n0,
@@ -2408,8 +2450,8 @@ export var CreateCommandRequest$: StaticStructureSchema = [
   n0,
   _CCR,
   0,
-  [_cIo, _na, _dN, _d, _pa, _mP, _rA, _tag],
-  [[0, 1], 0, 0, 0, () => CommandPayload$, () => CommandParameterList, 0, () => TagList],
+  [_cIo, _na, _dN, _d, _pa, _pT, _pre, _mP, _rA, _tag],
+  [[0, 1], 0, 0, 0, () => CommandPayload$, 0, () => CommandPreprocessor$, () => CommandParameterList, 0, () => TagList],
 ];
 export var CreateCommandResponse$: StaticStructureSchema = [3, n0, _CCRr, 0, [_cIo, _cAo], [0, 0]];
 export var CreateCustomMetricRequest$: StaticStructureSchema = [
@@ -3502,14 +3544,14 @@ export var DisassociateSbomFromPackageVersionRequest$: StaticStructureSchema = [
   ],
 ];
 export var DisassociateSbomFromPackageVersionResponse$: StaticStructureSchema = [3, n0, _DSFPVRi, 0, [], []];
-export var DocumentParameter$: StaticStructureSchema = [3, n0, _DP, 0, [_ke, _d, _reg, _exa, _o], [0, 0, 0, 0, 2]];
+export var DocumentParameter$: StaticStructureSchema = [3, n0, _DP, 0, [_ke, _d, _reg, _exa, _op], [0, 0, 0, 0, 2]];
 export var DomainConfigurationSummary$: StaticStructureSchema = [3, n0, _DCS, 0, [_dCN, _dCA, _sTe], [0, 0, 0]];
 export var DynamoDBAction$: StaticStructureSchema = [
   3,
   n0,
   _DDBA,
   0,
-  [_tNab, _rA, _op, _hKF, _hKV, _hKT, _rKF, _rKV, _rKT, _pF],
+  [_tNab, _rA, _ope, _hKF, _hKV, _hKT, _rKF, _rKV, _rKT, _pF],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
 export var DynamoDBv2Action$: StaticStructureSchema = [3, n0, _DDBAy, 0, [_rA, _pI], [0, () => PutItemInput$]];
@@ -3528,7 +3570,7 @@ export var ExponentialRolloutRate$: StaticStructureSchema = [
   [1, 1, () => RateIncreaseCriteria$],
 ];
 export var Field$: StaticStructureSchema = [3, n0, _F, 0, [_n, _ty], [0, 0]];
-export var FileLocation$: StaticStructureSchema = [3, n0, _FL, 0, [_str, _sL], [() => _Stream$, () => S3Location$]];
+export var FileLocation$: StaticStructureSchema = [3, n0, _FL, 0, [_stre, _sL], [() => _Stream$, () => S3Location$]];
 export var FirehoseAction$: StaticStructureSchema = [3, n0, _FA, 0, [_rA, _dSN, _sep, _bM], [0, 0, 0, 2]];
 export var FleetMetricNameAndArn$: StaticStructureSchema = [3, n0, _FMNAA, 0, [_mNe, _mA], [0, 0]];
 export var GeoLocationTarget$: StaticStructureSchema = [3, n0, _GLT, 0, [_n, _or], [0, 0]];
@@ -3603,8 +3645,8 @@ export var GetCommandResponse$: StaticStructureSchema = [
   n0,
   _GCReto,
   0,
-  [_cIo, _cAo, _na, _dN, _d, _mP, _pa, _rA, _cAr, _lUA, _dep, _pD],
-  [0, 0, 0, 0, 0, () => CommandParameterList, () => CommandPayload$, 0, 4, 4, 2, 2],
+  [_cIo, _cAo, _na, _dN, _d, _mP, _pa, _pT, _pre, _rA, _cAr, _lUA, _dep, _pD],
+  [0, 0, 0, 0, 0, () => CommandParameterList, () => CommandPayload$, 0, () => CommandPreprocessor$, 0, 4, 4, 2, 2],
 ];
 export var GetEffectivePoliciesRequest$: StaticStructureSchema = [
   3,
@@ -3921,7 +3963,7 @@ export var JobProcessDetails$: StaticStructureSchema = [
   n0,
   _JPD,
   0,
-  [_pT, _nOCT, _nOST, _nOFT, _nORT, _nOQT, _nOIPT, _nORTu, _nOTOT],
+  [_pTr, _nOCT, _nOST, _nOFT, _nORT, _nOQT, _nOIPT, _nORTu, _nOTOT],
   [64 | 0, 1, 1, 1, 1, 1, 1, 1, 1],
 ];
 export var JobSummary$: StaticStructureSchema = [
@@ -3976,11 +4018,11 @@ export var ListAttachedPoliciesRequest$: StaticStructureSchema = [
   n0,
   _LAPR,
   0,
-  [_tar, _recu, _ma, _pS],
+  [_tar, _recu, _mar, _pS],
   [
     [0, 1],
     [2, { [_hQ]: _recu }],
-    [0, { [_hQ]: _ma }],
+    [0, { [_hQ]: _mar }],
     [1, { [_hQ]: _pS }],
   ],
 ];
@@ -4091,10 +4133,10 @@ export var ListAuthorizersRequest$: StaticStructureSchema = [
   n0,
   _LAR,
   0,
-  [_pS, _ma, _aO, _st],
+  [_pS, _mar, _aO, _st],
   [
     [1, { [_hQ]: _pS }],
-    [0, { [_hQ]: _ma }],
+    [0, { [_hQ]: _mar }],
     [2, { [_hQ]: _iAO }],
     [0, { [_hQ]: _st }],
   ],
@@ -4125,10 +4167,10 @@ export var ListCACertificatesRequest$: StaticStructureSchema = [
   n0,
   _LCACR,
   0,
-  [_pS, _ma, _aO, _tNe],
+  [_pS, _mar, _aO, _tNe],
   [
     [1, { [_hQ]: _pS }],
-    [0, { [_hQ]: _ma }],
+    [0, { [_hQ]: _mar }],
     [2, { [_hQ]: _iAO }],
     [0, { [_hQ]: _tNe }],
   ],
@@ -4165,11 +4207,11 @@ export var ListCertificatesByCARequest$: StaticStructureSchema = [
   n0,
   _LCBCAR,
   0,
-  [_cCI, _pS, _ma, _aO],
+  [_cCI, _pS, _mar, _aO],
   [
     [0, 1],
     [1, { [_hQ]: _pS }],
-    [0, { [_hQ]: _ma }],
+    [0, { [_hQ]: _mar }],
     [2, { [_hQ]: _iAO }],
   ],
 ];
@@ -4186,10 +4228,10 @@ export var ListCertificatesRequest$: StaticStructureSchema = [
   n0,
   _LCR,
   0,
-  [_pS, _ma, _aO],
+  [_pS, _mar, _aO],
   [
     [1, { [_hQ]: _pS }],
-    [0, { [_hQ]: _ma }],
+    [0, { [_hQ]: _mar }],
     [2, { [_hQ]: _iAO }],
   ],
 ];
@@ -4306,9 +4348,9 @@ export var ListDomainConfigurationsRequest$: StaticStructureSchema = [
   n0,
   _LDCR,
   0,
-  [_ma, _pS, _sTe],
+  [_mar, _pS, _sTe],
   [
-    [0, { [_hQ]: _ma }],
+    [0, { [_hQ]: _mar }],
     [1, { [_hQ]: _pS }],
     [0, { [_hQ]: _sTe }],
   ],
@@ -4522,10 +4564,10 @@ export var ListOutgoingCertificatesRequest$: StaticStructureSchema = [
   n0,
   _LOCR,
   0,
-  [_pS, _ma, _aO],
+  [_pS, _mar, _aO],
   [
     [1, { [_hQ]: _pS }],
-    [0, { [_hQ]: _ma }],
+    [0, { [_hQ]: _mar }],
     [2, { [_hQ]: _iAO }],
   ],
 ];
@@ -4575,9 +4617,9 @@ export var ListPoliciesRequest$: StaticStructureSchema = [
   n0,
   _LPRis,
   0,
-  [_ma, _pS, _aO],
+  [_mar, _pS, _aO],
   [
-    [0, { [_hQ]: _ma }],
+    [0, { [_hQ]: _mar }],
     [1, { [_hQ]: _pS }],
     [2, { [_hQ]: _iAO }],
   ],
@@ -4588,10 +4630,10 @@ export var ListPolicyPrincipalsRequest$: StaticStructureSchema = [
   n0,
   _LPPR,
   0,
-  [_pNo, _ma, _pS, _aO],
+  [_pNo, _mar, _pS, _aO],
   [
     [0, { [_hH]: _xaip_ }],
-    [0, { [_hQ]: _ma }],
+    [0, { [_hQ]: _mar }],
     [1, { [_hQ]: _pS }],
     [2, { [_hQ]: _iAO }],
   ],
@@ -4604,10 +4646,10 @@ export var ListPrincipalPoliciesRequest$: StaticStructureSchema = [
   n0,
   _LPPRis,
   0,
-  [_pr, _ma, _pS, _aO],
+  [_pr, _mar, _pS, _aO],
   [
     [0, { [_hH]: _xaip }],
-    [0, { [_hQ]: _ma }],
+    [0, { [_hQ]: _mar }],
     [1, { [_hQ]: _pS }],
     [2, { [_hQ]: _iAO }],
   ],
@@ -4711,10 +4753,10 @@ export var ListRoleAliasesRequest$: StaticStructureSchema = [
   n0,
   _LRAR,
   0,
-  [_pS, _ma, _aO],
+  [_pS, _mar, _aO],
   [
     [1, { [_hQ]: _pS }],
-    [0, { [_hQ]: _ma }],
+    [0, { [_hQ]: _mar }],
     [2, { [_hQ]: _iAO }],
   ],
 ];
@@ -4814,7 +4856,7 @@ export var ListStreamsRequest$: StaticStructureSchema = [
     [2, { [_hQ]: _iAO }],
   ],
 ];
-export var ListStreamsResponse$: StaticStructureSchema = [3, n0, _LSRi, 0, [_stre, _nT], [() => StreamsSummary, 0]];
+export var ListStreamsResponse$: StaticStructureSchema = [3, n0, _LSRi, 0, [_strea, _nT], [() => StreamsSummary, 0]];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [
   3,
   n0,
@@ -4832,10 +4874,10 @@ export var ListTargetsForPolicyRequest$: StaticStructureSchema = [
   n0,
   _LTFPR,
   0,
-  [_pNo, _ma, _pS],
+  [_pNo, _mar, _pS],
   [
     [0, 1],
-    [0, { [_hQ]: _ma }],
+    [0, { [_hQ]: _mar }],
     [1, { [_hQ]: _pS }],
   ],
 ];
@@ -5130,7 +5172,7 @@ export var ManagedJobTemplateSummary$: StaticStructureSchema = [
   [0, 0, 0, 64 | 0, 0],
 ];
 export var MetricDatum$: StaticStructureSchema = [3, n0, _MD, 0, [_ti, _va], [4, () => MetricValue$]];
-export var MetricDimension$: StaticStructureSchema = [3, n0, _MDe, 0, [_dNim, _ope], [0, 0]];
+export var MetricDimension$: StaticStructureSchema = [3, n0, _MDe, 0, [_dNim, _oper], [0, 0]];
 export var MetricsExportConfig$: StaticStructureSchema = [3, n0, _MEC, 0, [_mTq, _rA], [0, 0]];
 export var MetricToRetain$: StaticStructureSchema = [3, n0, _MTR, 0, [_met, _mD, _eM], [0, () => MetricDimension$, 2]];
 export var MetricValue$: StaticStructureSchema = [
@@ -5280,7 +5322,7 @@ export var RegisterCACertificateRequest$: StaticStructureSchema = [
   n0,
   _RCACR,
   0,
-  [_cCa, _vC, _sAA, _aAR, _rCe, _tag, _cMe],
+  [_cCa, _vCe, _sAA, _aAR, _rCe, _tag, _cMe],
   [0, 0, [2, { [_hQ]: _sAA }], [2, { [_hQ]: _aAR }], () => RegistrationConfig$, () => TagList, 0],
 ];
 export var RegisterCACertificateResponse$: StaticStructureSchema = [3, n0, _RCACRe, 0, [_cAe, _cI], [0, 0]];
@@ -5392,7 +5434,7 @@ export var RoleAliasDescription$: StaticStructureSchema = [
   [0, 0, 0, 0, 1, 4, 4],
 ];
 export var S3Action$: StaticStructureSchema = [3, n0, _SA, 0, [_rA, _bNu, _ke, _cAa], [0, 0, 0, 0]];
-export var S3Destination$: StaticStructureSchema = [3, n0, _SD, 0, [_buc, _pre], [0, 0]];
+export var S3Destination$: StaticStructureSchema = [3, n0, _SD, 0, [_buc, _pref], [0, 0]];
 export var S3Location$: StaticStructureSchema = [3, n0, _SL, 0, [_buc, _ke, _ve], [0, 0, 0]];
 export var SalesforceAction$: StaticStructureSchema = [3, n0, _SAa, 0, [_tok, _ur], [0, 0]];
 export var Sbom$: StaticStructureSchema = [3, n0, _Sb, 0, [_sL], [() => S3Location$]];
@@ -5511,7 +5553,7 @@ export var Statistics$: StaticStructureSchema = [
   n0,
   _St,
   0,
-  [_cou, _av, _sum, _mi, _max, _sOS, _var, _sDtd],
+  [_cou, _av, _sum, _min, _max, _sOS, _var, _sDtd],
   [1, 1, 1, 1, 1, 1, 1, 1],
 ];
 export var StatusReason$: StaticStructureSchema = [3, n0, _SR, 0, [_rC, _rDe], [0, 0]];
@@ -6146,6 +6188,8 @@ var Certificates: StaticListSchema = [1, n0, _Ce, 0, () => Certificate$];
 var Cidrs = 64 | 0;
 var CommandExecutionSummaryList: StaticListSchema = [1, n0, _CESL, 0, () => CommandExecutionSummary$];
 var CommandParameterList: StaticListSchema = [1, n0, _CPL, 0, () => CommandParameter$];
+var CommandParameterValueConditionList: StaticListSchema = [1, n0, _CPVCL, 0, () => CommandParameterValueCondition$];
+var CommandParameterValueStringList = 64 | 0;
 var CommandSummaryList: StaticListSchema = [1, n0, _CSL, 0, () => CommandSummary$];
 var DestinationPackageVersions = 64 | 0;
 var DetectMitigationActionExecutionList: StaticListSchema = [1, n0, _DMAEL, 0, () => DetectMitigationActionExecution$];

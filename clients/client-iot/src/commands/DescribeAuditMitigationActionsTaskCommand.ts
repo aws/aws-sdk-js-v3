@@ -5,8 +5,10 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import type { DescribeAuditMitigationActionsTaskRequest } from "../models/models_0";
-import type { DescribeAuditMitigationActionsTaskResponse } from "../models/models_1";
+import type {
+  DescribeAuditMitigationActionsTaskRequest,
+  DescribeAuditMitigationActionsTaskResponse,
+} from "../models/models_1";
 import { DescribeAuditMitigationActionsTask$ } from "../schemas/schemas_0";
 
 /**

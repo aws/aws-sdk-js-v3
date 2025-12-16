@@ -33,7 +33,7 @@ export interface DescribeEncryptionConfigurationCommandOutput
 
 /**
  * <p>Retrieves the encryption configuration for resources and data of your Amazon Web Services account in
- *          Amazon Web Services IoT Core. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/key-management.html">Key management in IoT</a> from
+ *          Amazon Web Services IoT Core. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/encryption-at-rest.html">Data encryption at rest</a> in
  *          the <i>Amazon Web Services IoT Core Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
