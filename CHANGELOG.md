@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.953.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.952.0...v3.953.0) (2025-12-16)
+
+
+### Features
+
+* **client-iot:** Add support for dynamic payloads in IoT Device Management Commands ([991cba0](https://github.com/aws/aws-sdk-js-v3/commit/991cba08effdcac0cc887296a0546ed650d408a3))
+* **client-timestream-influxdb:** This release adds support for rebooting InfluxDB DbInstances and DbClusters ([a8b712b](https://github.com/aws/aws-sdk-js-v3/commit/a8b712bb999f2ce4c251670169385c133de907c9))
+* **clients:** allow protocol selection by class constructor ([#7568](https://github.com/aws/aws-sdk-js-v3/issues/7568)) ([5c5fd2e](https://github.com/aws/aws-sdk-js-v3/commit/5c5fd2e627109cbcdb40ecf0947a5b638d517101))
+* **clients:** update client endpoints as of 2025-12-16 ([5c0fba3](https://github.com/aws/aws-sdk-js-v3/commit/5c0fba3d73ee1e707ea1d11be3b8c750db57fc45))
+
+
+
+
+
 # [3.952.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.951.0...v3.952.0) (2025-12-15)
 
 

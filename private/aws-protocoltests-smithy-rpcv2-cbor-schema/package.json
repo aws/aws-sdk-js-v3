@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor-schema",
   "description": "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor-schema client",
-  "version": "3.948.0",
+  "version": "3.953.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",
