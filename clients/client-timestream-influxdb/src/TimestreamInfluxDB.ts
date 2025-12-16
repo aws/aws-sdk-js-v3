@@ -67,6 +67,16 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  RebootDbClusterCommand,
+  RebootDbClusterCommandInput,
+  RebootDbClusterCommandOutput,
+} from "./commands/RebootDbClusterCommand";
+import {
+  RebootDbInstanceCommand,
+  RebootDbInstanceCommandInput,
+  RebootDbInstanceCommandOutput,
+} from "./commands/RebootDbInstanceCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -99,6 +109,8 @@ const commands = {
   ListDbInstancesForClusterCommand,
   ListDbParameterGroupsCommand,
   ListTagsForResourceCommand,
+  RebootDbClusterCommand,
+  RebootDbInstanceCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateDbClusterCommand,
@@ -304,6 +316,37 @@ export interface TimestreamInfluxDB {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RebootDbClusterCommand}
+   */
+  rebootDbCluster(
+    args: RebootDbClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RebootDbClusterCommandOutput>;
+  rebootDbCluster(args: RebootDbClusterCommandInput, cb: (err: any, data?: RebootDbClusterCommandOutput) => void): void;
+  rebootDbCluster(
+    args: RebootDbClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RebootDbClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RebootDbInstanceCommand}
+   */
+  rebootDbInstance(
+    args: RebootDbInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RebootDbInstanceCommandOutput>;
+  rebootDbInstance(
+    args: RebootDbInstanceCommandInput,
+    cb: (err: any, data?: RebootDbInstanceCommandOutput) => void
+  ): void;
+  rebootDbInstance(
+    args: RebootDbInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RebootDbInstanceCommandOutput) => void
   ): void;
 
   /**

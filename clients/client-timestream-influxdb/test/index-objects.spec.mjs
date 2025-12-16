@@ -80,6 +80,14 @@ import {
   LogLevel,
   NetworkType,
   PercentOrAbsoluteLong$,
+  RebootDbCluster$,
+  RebootDbClusterCommand,
+  RebootDbClusterInput$,
+  RebootDbClusterOutput$,
+  RebootDbInstance$,
+  RebootDbInstanceCommand,
+  RebootDbInstanceInput$,
+  RebootDbInstanceOutput$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   S3Configuration$,
@@ -146,6 +154,10 @@ assert(typeof ListDbParameterGroupsCommand === "function");
 assert(typeof ListDbParameterGroups$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
+assert(typeof RebootDbClusterCommand === "function");
+assert(typeof RebootDbCluster$ === "object");
+assert(typeof RebootDbInstanceCommand === "function");
+assert(typeof RebootDbInstance$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
@@ -192,6 +204,10 @@ assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof LogDeliveryConfiguration$ === "object");
 assert(typeof _Parameters$ === "object");
 assert(typeof PercentOrAbsoluteLong$ === "object");
+assert(typeof RebootDbClusterInput$ === "object");
+assert(typeof RebootDbClusterOutput$ === "object");
+assert(typeof RebootDbInstanceInput$ === "object");
+assert(typeof RebootDbInstanceOutput$ === "object");
 assert(typeof S3Configuration$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof UntagResourceRequest$ === "object");

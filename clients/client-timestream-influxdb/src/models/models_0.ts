@@ -599,6 +599,34 @@ export interface ListDbInstancesForClusterOutput {
 /**
  * @public
  */
+export interface RebootDbClusterInput {
+  /**
+   * <p>Service-generated unique identifier of the DB cluster to reboot.</p>
+   * @public
+   */
+  dbClusterId: string | undefined;
+
+  /**
+   * <p>A list of service-generated unique DB Instance Ids belonging to the DB Cluster to reboot.</p>
+   * @public
+   */
+  instanceIds?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RebootDbClusterOutput {
+  /**
+   * <p>The status of the DB Cluster.</p>
+   * @public
+   */
+  dbClusterStatus?: ClusterStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateDbClusterInput {
   /**
    * <p>Service-generated unique identifier of the DB cluster to update.</p>
@@ -1312,6 +1340,154 @@ export interface ListDbInstancesOutput {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RebootDbInstanceInput {
+  /**
+   * <p>The id of the DB instance to reboot.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RebootDbInstanceOutput {
+  /**
+   * <p>A service-generated unique identifier.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The customer-supplied name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the DB instance.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The status of the DB instance.</p>
+   * @public
+   */
+  status?: Status | undefined;
+
+  /**
+   * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
+   * @public
+   */
+  endpoint?: string | undefined;
+
+  /**
+   * <p>The port number on which InfluxDB accepts connections.</p>
+   * @public
+   */
+  port?: number | undefined;
+
+  /**
+   * <p>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
+
+  /**
+   * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
+   * @public
+   */
+  dbInstanceType?: DbInstanceType | undefined;
+
+  /**
+   * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
+   * @public
+   */
+  dbStorageType?: DbStorageType | undefined;
+
+  /**
+   * <p>The amount of storage allocated for your DB storage type (in gibibytes).</p>
+   * @public
+   */
+  allocatedStorage?: number | undefined;
+
+  /**
+   * <p>Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.</p>
+   * @public
+   */
+  deploymentType?: DeploymentType | undefined;
+
+  /**
+   * <p>A list of VPC subnet IDs associated with the DB instance.</p>
+   * @public
+   */
+  vpcSubnetIds: string[] | undefined;
+
+  /**
+   * <p>Indicates if the DB instance has a public IP to facilitate access.</p>
+   * @public
+   */
+  publiclyAccessible?: boolean | undefined;
+
+  /**
+   * <p>A list of VPC security group IDs associated with the DB instance.</p>
+   * @public
+   */
+  vpcSecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The id of the DB parameter group assigned to your DB instance.</p>
+   * @public
+   */
+  dbParameterGroupIdentifier?: string | undefined;
+
+  /**
+   * <p>The Availability Zone in which the DB instance resides.</p>
+   * @public
+   */
+  availabilityZone?: string | undefined;
+
+  /**
+   * <p>The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.</p>
+   * @public
+   */
+  secondaryAvailabilityZone?: string | undefined;
+
+  /**
+   * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
+   * @public
+   */
+  logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * @public
+   */
+  influxAuthParametersSecretArn?: string | undefined;
+
+  /**
+   * <p>Specifies the DbCluster to which this DbInstance belongs to.</p>
+   * @public
+   */
+  dbClusterId?: string | undefined;
+
+  /**
+   * <p>Specifies the DbInstance's role in the cluster.</p>
+   * @public
+   */
+  instanceMode?: InstanceMode | undefined;
+
+  /**
+   * <p>Specifies the DbInstance's roles in the cluster.</p>
+   * @public
+   */
+  instanceModes?: InstanceMode[] | undefined;
 }
 
 /**

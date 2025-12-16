@@ -4,8 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DeleteDbClusterInput, DeleteDbClusterOutput } from "../models/models_0";
-import { DeleteDbCluster$ } from "../schemas/schemas_0";
+import type { RebootDbClusterInput, RebootDbClusterOutput } from "../models/models_0";
+import { RebootDbCluster$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -20,41 +20,44 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteDbClusterCommand}.
+ * The input for {@link RebootDbClusterCommand}.
  */
-export interface DeleteDbClusterCommandInput extends DeleteDbClusterInput {}
+export interface RebootDbClusterCommandInput extends RebootDbClusterInput {}
 /**
  * @public
  *
- * The output of {@link DeleteDbClusterCommand}.
+ * The output of {@link RebootDbClusterCommand}.
  */
-export interface DeleteDbClusterCommandOutput extends DeleteDbClusterOutput, __MetadataBearer {}
+export interface RebootDbClusterCommandOutput extends RebootDbClusterOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a Timestream for InfluxDB cluster.</p>
+ * <p>Reboots a Timestream for InfluxDB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamInfluxDBClient, DeleteDbClusterCommand } from "@aws-sdk/client-timestream-influxdb"; // ES Modules import
- * // const { TimestreamInfluxDBClient, DeleteDbClusterCommand } = require("@aws-sdk/client-timestream-influxdb"); // CommonJS import
+ * import { TimestreamInfluxDBClient, RebootDbClusterCommand } from "@aws-sdk/client-timestream-influxdb"; // ES Modules import
+ * // const { TimestreamInfluxDBClient, RebootDbClusterCommand } = require("@aws-sdk/client-timestream-influxdb"); // CommonJS import
  * // import type { TimestreamInfluxDBClientConfig } from "@aws-sdk/client-timestream-influxdb";
  * const config = {}; // type is TimestreamInfluxDBClientConfig
  * const client = new TimestreamInfluxDBClient(config);
- * const input = { // DeleteDbClusterInput
+ * const input = { // RebootDbClusterInput
  *   dbClusterId: "STRING_VALUE", // required
+ *   instanceIds: [ // DbInstanceIdList
+ *     "STRING_VALUE",
+ *   ],
  * };
- * const command = new DeleteDbClusterCommand(input);
+ * const command = new RebootDbClusterCommand(input);
  * const response = await client.send(command);
- * // { // DeleteDbClusterOutput
+ * // { // RebootDbClusterOutput
  * //   dbClusterStatus: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED" || "MAINTENANCE" || "UPDATING_INSTANCE_TYPE" || "REBOOTING" || "REBOOT_FAILED" || "PARTIALLY_AVAILABLE",
  * // };
  *
  * ```
  *
- * @param DeleteDbClusterCommandInput - {@link DeleteDbClusterCommandInput}
- * @returns {@link DeleteDbClusterCommandOutput}
- * @see {@link DeleteDbClusterCommandInput} for command's `input` shape.
- * @see {@link DeleteDbClusterCommandOutput} for command's `response` shape.
+ * @param RebootDbClusterCommandInput - {@link RebootDbClusterCommandInput}
+ * @returns {@link RebootDbClusterCommandOutput}
+ * @see {@link RebootDbClusterCommandInput} for command's `input` shape.
+ * @see {@link RebootDbClusterCommandOutput} for command's `response` shape.
  * @see {@link TimestreamInfluxDBClientResolvedConfig | config} for TimestreamInfluxDBClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -81,10 +84,10 @@ export interface DeleteDbClusterCommandOutput extends DeleteDbClusterOutput, __M
  *
  * @public
  */
-export class DeleteDbClusterCommand extends $Command
+export class RebootDbClusterCommand extends $Command
   .classBuilder<
-    DeleteDbClusterCommandInput,
-    DeleteDbClusterCommandOutput,
+    RebootDbClusterCommandInput,
+    RebootDbClusterCommandOutput,
     TimestreamInfluxDBClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -93,19 +96,19 @@ export class DeleteDbClusterCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: TimestreamInfluxDBClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonTimestreamInfluxDB", "DeleteDbCluster", {})
-  .n("TimestreamInfluxDBClient", "DeleteDbClusterCommand")
-  .sc(DeleteDbCluster$)
+  .s("AmazonTimestreamInfluxDB", "RebootDbCluster", {})
+  .n("TimestreamInfluxDBClient", "RebootDbClusterCommand")
+  .sc(RebootDbCluster$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteDbClusterInput;
-      output: DeleteDbClusterOutput;
+      input: RebootDbClusterInput;
+      output: RebootDbClusterOutput;
     };
     sdk: {
-      input: DeleteDbClusterCommandInput;
-      output: DeleteDbClusterCommandOutput;
+      input: RebootDbClusterCommandInput;
+      output: RebootDbClusterCommandOutput;
     };
   };
 }

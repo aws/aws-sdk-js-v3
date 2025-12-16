@@ -60,6 +60,12 @@ const _P = "Password";
 const _POAL = "PercentOrAbsoluteLong";
 const _Pa = "Parameters";
 const _RA = "Retry-After";
+const _RDC = "RebootDbCluster";
+const _RDCI = "RebootDbClusterInput";
+const _RDCO = "RebootDbClusterOutput";
+const _RDI = "RebootDbInstance";
+const _RDII = "RebootDbInstanceInput";
+const _RDIO = "RebootDbInstanceOutput";
 const _RNFE = "ResourceNotFoundException";
 const _SC = "S3Configuration";
 const _SQEE = "ServiceQuotaExceededException";
@@ -134,6 +140,7 @@ const _hRT = "httpReadTimeout";
 const _hWT = "httpWriteTimeout";
 const _i = "id";
 const _iAPSA = "influxAuthParametersSecretArn";
+const _iI = "instanceIds";
 const _iM = "instanceMode";
 const _iMSB = "influxqlMaxSelectBuckets";
 const _iMSP = "influxqlMaxSelectPoint";
@@ -782,6 +789,40 @@ export var ListDbParameterGroupsOutput$: StaticStructureSchema = [
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [0]];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
 export var LogDeliveryConfiguration$: StaticStructureSchema = [3, n0, _LDC, 0, [_sC], [() => S3Configuration$]];
+export var RebootDbClusterInput$: StaticStructureSchema = [3, n0, _RDCI, 0, [_dCI, _iI], [0, 64 | 0]];
+export var RebootDbClusterOutput$: StaticStructureSchema = [3, n0, _RDCO, 0, [_dCS], [0]];
+export var RebootDbInstanceInput$: StaticStructureSchema = [3, n0, _RDII, 0, [_id], [0]];
+export var RebootDbInstanceOutput$: StaticStructureSchema = [
+  3,
+  n0,
+  _RDIO,
+  0,
+  [
+    _i,
+    _n,
+    _a,
+    _s,
+    _en,
+    _po,
+    _nT,
+    _dIT,
+    _dST,
+    _aS,
+    _dT,
+    _vSI,
+    _pA,
+    _vSGI,
+    _dPGI,
+    _aZ,
+    _sAZ,
+    _lDC,
+    _iAPSA,
+    _dCI,
+    _iM,
+    _iMn,
+  ],
+  [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 64 | 0, 2, 64 | 0, 0, 0, 0, () => LogDeliveryConfiguration$, 0, 0, 0, 64 | 0],
+];
 export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
@@ -867,6 +908,7 @@ export var TimestreamInfluxDBServiceException$: StaticErrorSchema = [
 TypeRegistry.for(_sm).registerError(TimestreamInfluxDBServiceException$, TimestreamInfluxDBServiceException);
 var DbClusterSummaryList: StaticListSchema = [1, n0, _DCSL, 0, () => DbClusterSummary$];
 var DbInstanceForClusterSummaryList: StaticListSchema = [1, n0, _DIFCSL, 0, () => DbInstanceForClusterSummary$];
+var DbInstanceIdList = 64 | 0;
 var DbInstanceSummaryList: StaticListSchema = [1, n0, _DISL, 0, () => DbInstanceSummary$];
 var DbParameterGroupSummaryList: StaticListSchema = [1, n0, _DPGSL, 0, () => DbParameterGroupSummary$];
 var InstanceModeList = 64 | 0;
@@ -980,6 +1022,22 @@ export var ListTagsForResource$: StaticOperationSchema = [
   0,
   () => ListTagsForResourceRequest$,
   () => ListTagsForResourceResponse$,
+];
+export var RebootDbCluster$: StaticOperationSchema = [
+  9,
+  n0,
+  _RDC,
+  2,
+  () => RebootDbClusterInput$,
+  () => RebootDbClusterOutput$,
+];
+export var RebootDbInstance$: StaticOperationSchema = [
+  9,
+  n0,
+  _RDI,
+  2,
+  () => RebootDbInstanceInput$,
+  () => RebootDbInstanceOutput$,
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR, 2, () => TagResourceRequest$, () => __Unit];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR, 2, () => UntagResourceRequest$, () => __Unit];

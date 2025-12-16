@@ -4,8 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetDbInstanceInput, GetDbInstanceOutput } from "../models/models_0";
-import { GetDbInstance$ } from "../schemas/schemas_0";
+import type { RebootDbInstanceInput, RebootDbInstanceOutput } from "../models/models_0";
+import { RebootDbInstance$ } from "../schemas/schemas_0";
 import type {
   ServiceInputTypes,
   ServiceOutputTypes,
@@ -20,32 +20,32 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetDbInstanceCommand}.
+ * The input for {@link RebootDbInstanceCommand}.
  */
-export interface GetDbInstanceCommandInput extends GetDbInstanceInput {}
+export interface RebootDbInstanceCommandInput extends RebootDbInstanceInput {}
 /**
  * @public
  *
- * The output of {@link GetDbInstanceCommand}.
+ * The output of {@link RebootDbInstanceCommand}.
  */
-export interface GetDbInstanceCommandOutput extends GetDbInstanceOutput, __MetadataBearer {}
+export interface RebootDbInstanceCommandOutput extends RebootDbInstanceOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a Timestream for InfluxDB DB instance.</p>
+ * <p>Reboots a Timestream for InfluxDB instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamInfluxDBClient, GetDbInstanceCommand } from "@aws-sdk/client-timestream-influxdb"; // ES Modules import
- * // const { TimestreamInfluxDBClient, GetDbInstanceCommand } = require("@aws-sdk/client-timestream-influxdb"); // CommonJS import
+ * import { TimestreamInfluxDBClient, RebootDbInstanceCommand } from "@aws-sdk/client-timestream-influxdb"; // ES Modules import
+ * // const { TimestreamInfluxDBClient, RebootDbInstanceCommand } = require("@aws-sdk/client-timestream-influxdb"); // CommonJS import
  * // import type { TimestreamInfluxDBClientConfig } from "@aws-sdk/client-timestream-influxdb";
  * const config = {}; // type is TimestreamInfluxDBClientConfig
  * const client = new TimestreamInfluxDBClient(config);
- * const input = { // GetDbInstanceInput
+ * const input = { // RebootDbInstanceInput
  *   identifier: "STRING_VALUE", // required
  * };
- * const command = new GetDbInstanceCommand(input);
+ * const command = new RebootDbInstanceCommand(input);
  * const response = await client.send(command);
- * // { // GetDbInstanceOutput
+ * // { // RebootDbInstanceOutput
  * //   id: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
@@ -83,14 +83,17 @@ export interface GetDbInstanceCommandOutput extends GetDbInstanceOutput, __Metad
  *
  * ```
  *
- * @param GetDbInstanceCommandInput - {@link GetDbInstanceCommandInput}
- * @returns {@link GetDbInstanceCommandOutput}
- * @see {@link GetDbInstanceCommandInput} for command's `input` shape.
- * @see {@link GetDbInstanceCommandOutput} for command's `response` shape.
+ * @param RebootDbInstanceCommandInput - {@link RebootDbInstanceCommandInput}
+ * @returns {@link RebootDbInstanceCommandOutput}
+ * @see {@link RebootDbInstanceCommandInput} for command's `input` shape.
+ * @see {@link RebootDbInstanceCommandOutput} for command's `response` shape.
  * @see {@link TimestreamInfluxDBClientResolvedConfig | config} for TimestreamInfluxDBClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request conflicts with an existing resource in Timestream for InfluxDB.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
@@ -110,10 +113,10 @@ export interface GetDbInstanceCommandOutput extends GetDbInstanceOutput, __Metad
  *
  * @public
  */
-export class GetDbInstanceCommand extends $Command
+export class RebootDbInstanceCommand extends $Command
   .classBuilder<
-    GetDbInstanceCommandInput,
-    GetDbInstanceCommandOutput,
+    RebootDbInstanceCommandInput,
+    RebootDbInstanceCommandOutput,
     TimestreamInfluxDBClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -122,19 +125,19 @@ export class GetDbInstanceCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: TimestreamInfluxDBClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AmazonTimestreamInfluxDB", "GetDbInstance", {})
-  .n("TimestreamInfluxDBClient", "GetDbInstanceCommand")
-  .sc(GetDbInstance$)
+  .s("AmazonTimestreamInfluxDB", "RebootDbInstance", {})
+  .n("TimestreamInfluxDBClient", "RebootDbInstanceCommand")
+  .sc(RebootDbInstance$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetDbInstanceInput;
-      output: GetDbInstanceOutput;
+      input: RebootDbInstanceInput;
+      output: RebootDbInstanceOutput;
     };
     sdk: {
-      input: GetDbInstanceCommandInput;
-      output: GetDbInstanceCommandOutput;
+      input: RebootDbInstanceCommandInput;
+      output: RebootDbInstanceCommandOutput;
     };
   };
 }

@@ -310,6 +310,22 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+RebootDbCluster
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/timestream-influxdb/command/RebootDbClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/RebootDbClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/RebootDbClusterCommandOutput/)
+
+</details>
+<details>
+<summary>
+RebootDbInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/timestream-influxdb/command/RebootDbInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/RebootDbInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/RebootDbInstanceCommandOutput/)
+
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 

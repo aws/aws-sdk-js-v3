@@ -12,6 +12,8 @@ export * from "./ListDbInstancesCommand";
 export * from "./ListDbInstancesForClusterCommand";
 export * from "./ListDbParameterGroupsCommand";
 export * from "./ListTagsForResourceCommand";
+export * from "./RebootDbClusterCommand";
+export * from "./RebootDbInstanceCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateDbClusterCommand";

@@ -91,6 +91,8 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { RebootDbClusterCommandInput, RebootDbClusterCommandOutput } from "./commands/RebootDbClusterCommand";
+import { RebootDbInstanceCommandInput, RebootDbInstanceCommandOutput } from "./commands/RebootDbInstanceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDbClusterCommandInput, UpdateDbClusterCommandOutput } from "./commands/UpdateDbClusterCommand";
@@ -123,6 +125,8 @@ export type ServiceInputTypes =
   | ListDbInstancesForClusterCommandInput
   | ListDbParameterGroupsCommandInput
   | ListTagsForResourceCommandInput
+  | RebootDbClusterCommandInput
+  | RebootDbInstanceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateDbClusterCommandInput
@@ -145,6 +149,8 @@ export type ServiceOutputTypes =
   | ListDbInstancesForClusterCommandOutput
   | ListDbParameterGroupsCommandOutput
   | ListTagsForResourceCommandOutput
+  | RebootDbClusterCommandOutput
+  | RebootDbInstanceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDbClusterCommandOutput

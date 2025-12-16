@@ -61,7 +61,7 @@ export interface UpdateDbInstanceCommandOutput extends UpdateDbInstanceOutput, _
  * //   id: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
- * //   status: "CREATING" || "AVAILABLE" || "DELETING" || "MODIFYING" || "UPDATING" || "DELETED" || "FAILED" || "UPDATING_DEPLOYMENT_TYPE" || "UPDATING_INSTANCE_TYPE" || "MAINTENANCE",
+ * //   status: "CREATING" || "AVAILABLE" || "DELETING" || "MODIFYING" || "UPDATING" || "DELETED" || "FAILED" || "UPDATING_DEPLOYMENT_TYPE" || "UPDATING_INSTANCE_TYPE" || "MAINTENANCE" || "REBOOTING" || "REBOOT_FAILED",
  * //   endpoint: "STRING_VALUE",
  * //   port: Number("int"),
  * //   networkType: "IPV4" || "DUAL",

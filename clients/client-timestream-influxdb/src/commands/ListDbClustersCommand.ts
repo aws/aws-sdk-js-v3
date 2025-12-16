@@ -52,7 +52,7 @@ export interface ListDbClustersCommandOutput extends ListDbClustersOutput, __Met
  * //       id: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
  * //       arn: "STRING_VALUE", // required
- * //       status: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED" || "MAINTENANCE",
+ * //       status: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED" || "MAINTENANCE" || "UPDATING_INSTANCE_TYPE" || "REBOOTING" || "REBOOT_FAILED" || "PARTIALLY_AVAILABLE",
  * //       endpoint: "STRING_VALUE",
  * //       readerEndpoint: "STRING_VALUE",
  * //       port: Number("int"),
