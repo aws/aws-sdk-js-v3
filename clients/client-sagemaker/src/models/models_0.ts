@@ -6269,7 +6269,7 @@ export interface ClusterOrchestrator {
    * <p>The Amazon EKS cluster used as the orchestrator for the SageMaker HyperPod cluster.</p>
    * @public
    */
-  Eks: ClusterOrchestratorEksConfig | undefined;
+  Eks?: ClusterOrchestratorEksConfig | undefined;
 }
 
 /**

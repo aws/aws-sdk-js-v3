@@ -9804,6 +9804,12 @@
           "traits": {
             "smithy.api#enumValue": "ml.r7i.48xlarge"
           }
+        },
+        "ML_P6_B300_48XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.p6-b300.48xlarge"
+          }
         }
       }
     },
@@ -10393,8 +10399,7 @@
           "target": "com.amazonaws.sagemaker#ClusterOrchestratorEksConfig",
           "traits": {
             "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The Amazon EKS cluster used as the orchestrator for the SageMaker HyperPod cluster.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The Amazon EKS cluster used as the orchestrator for the SageMaker HyperPod cluster.</p>"
           }
         }
       },
@@ -42402,7 +42407,7 @@
         "smithy.api#documentation": "Optional. Customer requested period in seconds for which the Training cluster is kept alive after the job is finished.",
         "smithy.api#range": {
           "min": 0,
-          "max": 3600
+          "max": 21600
         }
       }
     },
@@ -66794,6 +66799,12 @@
           "traits": {
             "smithy.api#enumValue": "ml.p5.4xlarge"
           }
+        },
+        "ML_P6_B300_48XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.p6-b300.48xlarge"
+          }
         }
       }
     },
@@ -76750,6 +76761,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "ml.p5.4xlarge"
+          }
+        },
+        "ML_P6_B300_48XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ml.p6-b300.48xlarge"
           }
         }
       }
