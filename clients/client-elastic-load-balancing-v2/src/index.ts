@@ -45,6 +45,6 @@ export * from "./waiters";
 
 export * from "./models/enums";
 export * from "./models/errors";
-export type * from "./models/models_0";
+export * from "./models/models_0";
 
 export { ElasticLoadBalancingV2ServiceException } from "./models/ElasticLoadBalancingV2ServiceException";

@@ -46,7 +46,7 @@ export * from "./pagination";
 
 export * from "./models/enums";
 export * from "./models/errors";
-export type * from "./models/models_0";
-export type * from "./models/models_1";
+export * from "./models/models_0";
+export * from "./models/models_1";
 
 export { CognitoIdentityProviderServiceException } from "./models/CognitoIdentityProviderServiceException";
