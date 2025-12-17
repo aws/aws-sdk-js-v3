@@ -6,6 +6,7 @@ import {
   AddKeyReplicationRegionsInput$,
   AddKeyReplicationRegionsOutput$,
   Alias$,
+  As2805KeyVariant,
   CertificateSubjectType$,
   ConflictException,
   ConflictException$,
@@ -35,6 +36,7 @@ import {
   EnableDefaultKeyReplicationRegionsCommand,
   EnableDefaultKeyReplicationRegionsInput$,
   EnableDefaultKeyReplicationRegionsOutput$,
+  ExportAs2805KeyCryptogram$,
   ExportAttributes$,
   ExportDiffieHellmanTr31KeyBlock$,
   ExportDukptInitialKey$,
@@ -74,6 +76,7 @@ import {
   GetPublicKeyCertificateCommand,
   GetPublicKeyCertificateInput$,
   GetPublicKeyCertificateOutput$,
+  ImportAs2805KeyCryptogram$,
   ImportDiffieHellmanTr31KeyBlock$,
   ImportKey$,
   ImportKeyCommand,
@@ -244,6 +247,7 @@ assert(typeof DisableDefaultKeyReplicationRegionsInput$ === "object");
 assert(typeof DisableDefaultKeyReplicationRegionsOutput$ === "object");
 assert(typeof EnableDefaultKeyReplicationRegionsInput$ === "object");
 assert(typeof EnableDefaultKeyReplicationRegionsOutput$ === "object");
+assert(typeof ExportAs2805KeyCryptogram$ === "object");
 assert(typeof ExportAttributes$ === "object");
 assert(typeof ExportDiffieHellmanTr31KeyBlock$ === "object");
 assert(typeof ExportDukptInitialKey$ === "object");
@@ -267,6 +271,7 @@ assert(typeof GetParametersForImportInput$ === "object");
 assert(typeof GetParametersForImportOutput$ === "object");
 assert(typeof GetPublicKeyCertificateInput$ === "object");
 assert(typeof GetPublicKeyCertificateOutput$ === "object");
+assert(typeof ImportAs2805KeyCryptogram$ === "object");
 assert(typeof ImportDiffieHellmanTr31KeyBlock$ === "object");
 assert(typeof ImportKeyCryptogram$ === "object");
 assert(typeof ImportKeyInput$ === "object");
@@ -305,6 +310,7 @@ assert(typeof UpdateAliasInput$ === "object");
 assert(typeof UpdateAliasOutput$ === "object");
 assert(typeof WrappedKey$ === "object");
 // enums
+assert(typeof As2805KeyVariant === "object");
 assert(typeof DeriveKeyUsage === "object");
 assert(typeof KeyAlgorithm === "object");
 assert(typeof KeyCheckValueAlgorithm === "object");

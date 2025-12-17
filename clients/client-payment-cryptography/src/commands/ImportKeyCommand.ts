@@ -129,6 +129,24 @@ export interface ImportKeyCommandOutput extends ImportKeyOutput, __MetadataBeare
  *       },
  *       WrappedKeyBlock: "STRING_VALUE", // required
  *     },
+ *     As2805KeyCryptogram: { // ImportAs2805KeyCryptogram
+ *       As2805KeyVariant: "TERMINAL_MAJOR_KEY_VARIANT_00" || "PIN_ENCRYPTION_KEY_VARIANT_28" || "MESSAGE_AUTHENTICATION_KEY_VARIANT_24" || "DATA_ENCRYPTION_KEY_VARIANT_22", // required
+ *       KeyModesOfUse: {
+ *         Encrypt: true || false,
+ *         Decrypt: true || false,
+ *         Wrap: true || false,
+ *         Unwrap: true || false,
+ *         Generate: true || false,
+ *         Sign: true || false,
+ *         Verify: true || false,
+ *         DeriveKey: true || false,
+ *         NoRestrictions: true || false,
+ *       },
+ *       KeyAlgorithm: "STRING_VALUE", // required
+ *       Exportable: true || false, // required
+ *       WrappingKeyIdentifier: "STRING_VALUE", // required
+ *       WrappedKeyCryptogram: "STRING_VALUE", // required
+ *     },
  *   },
  *   KeyCheckValueAlgorithm: "STRING_VALUE",
  *   Enabled: true || false,

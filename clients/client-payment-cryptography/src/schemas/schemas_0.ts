@@ -1,8 +1,10 @@
 const _A = "Alias";
 const _ADE = "AccessDeniedException";
+const _AKC = "As2805KeyCryptogram";
 const _AKRR = "AddKeyReplicationRegions";
 const _AKRRI = "AddKeyReplicationRegionsInput";
 const _AKRRO = "AddKeyReplicationRegionsOutput";
+const _AKV = "As2805KeyVariant";
 const _AN = "AliasName";
 const _Al = "Aliases";
 const _C = "City";
@@ -42,6 +44,7 @@ const _DPT = "DeletePendingTimestamp";
 const _DT = "DeleteTimestamp";
 const _E = "Exportable";
 const _EA = "EmailAddress";
+const _EAKC = "ExportAs2805KeyCryptogram";
 const _EAx = "ExportAttributes";
 const _EDHTKB = "ExportDiffieHellmanTr31KeyBlock";
 const _EDIK = "ExportDukptInitialKey";
@@ -82,6 +85,7 @@ const _GPFIO = "GetParametersForImportOutput";
 const _GPKC = "GetPublicKeyCertificate";
 const _GPKCI = "GetPublicKeyCertificateInput";
 const _GPKCO = "GetPublicKeyCertificateOutput";
+const _IAKC = "ImportAs2805KeyCryptogram";
 const _IDHTKB = "ImportDiffieHellmanTr31KeyBlock";
 const _IK = "ImportKey";
 const _IKC = "ImportKeyCryptogram";
@@ -282,6 +286,7 @@ export var DisableDefaultKeyReplicationRegionsInput$: StaticStructureSchema = [3
 export var DisableDefaultKeyReplicationRegionsOutput$: StaticStructureSchema = [3, n0, _DDKRRO, 0, [_ERR], [64 | 0]];
 export var EnableDefaultKeyReplicationRegionsInput$: StaticStructureSchema = [3, n0, _EDKRRI, 0, [_RR], [64 | 0]];
 export var EnableDefaultKeyReplicationRegionsOutput$: StaticStructureSchema = [3, n0, _EDKRRO, 0, [_ERR], [64 | 0]];
+export var ExportAs2805KeyCryptogram$: StaticStructureSchema = [3, n0, _EAKC, 0, [_WKI, _AKV], [0, 0]];
 export var ExportAttributes$: StaticStructureSchema = [
   3,
   n0,
@@ -367,6 +372,14 @@ export var GetParametersForImportOutput$: StaticStructureSchema = [
 ];
 export var GetPublicKeyCertificateInput$: StaticStructureSchema = [3, n0, _GPKCI, 0, [_KI], [0]];
 export var GetPublicKeyCertificateOutput$: StaticStructureSchema = [3, n0, _GPKCO, 0, [_KC, _KCC], [0, 0]];
+export var ImportAs2805KeyCryptogram$: StaticStructureSchema = [
+  3,
+  n0,
+  _IAKC,
+  0,
+  [_AKV, _KMOU, _KAey, _E, _WKI, _WKC],
+  [0, () => KeyModesOfUse$, 0, 2, 0, [() => WrappedKeyCryptogram, 0]],
+];
 export var ImportDiffieHellmanTr31KeyBlock$: StaticStructureSchema = [
   3,
   n0,
@@ -528,12 +541,13 @@ export var ExportKeyMaterial$: StaticStructureSchema = [
   n0,
   _EKM,
   0,
-  [_TKB, _TKBr, _KCey, _DHTKB],
+  [_TKB, _TKBr, _KCey, _DHTKB, _AKC],
   [
     [() => ExportTr31KeyBlock$, 0],
     [() => ExportTr34KeyBlock$, 0],
     () => ExportKeyCryptogram$,
     [() => ExportDiffieHellmanTr31KeyBlock$, 0],
+    () => ExportAs2805KeyCryptogram$,
   ],
 ];
 export var ImportKeyMaterial$: StaticStructureSchema = [
@@ -541,7 +555,7 @@ export var ImportKeyMaterial$: StaticStructureSchema = [
   n0,
   _IKM,
   0,
-  [_RCPK, _TCPK, _TKB, _TKBr, _KCey, _DHTKB],
+  [_RCPK, _TCPK, _TKB, _TKBr, _KCey, _DHTKB, _AKC],
   [
     () => RootCertificatePublicKey$,
     () => TrustedCertificatePublicKey$,
@@ -549,6 +563,7 @@ export var ImportKeyMaterial$: StaticStructureSchema = [
     [() => ImportTr34KeyBlock$, 0],
     [() => ImportKeyCryptogram$, 0],
     [() => ImportDiffieHellmanTr31KeyBlock$, 0],
+    [() => ImportAs2805KeyCryptogram$, 0],
   ],
 ];
 export var AddKeyReplicationRegions$: StaticOperationSchema = [
