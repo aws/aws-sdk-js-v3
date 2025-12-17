@@ -5,6 +5,11 @@ import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 import { DecryptDataCommand, DecryptDataCommandInput, DecryptDataCommandOutput } from "./commands/DecryptDataCommand";
 import { EncryptDataCommand, EncryptDataCommandInput, EncryptDataCommandOutput } from "./commands/EncryptDataCommand";
 import {
+  GenerateAs2805KekValidationCommand,
+  GenerateAs2805KekValidationCommandInput,
+  GenerateAs2805KekValidationCommandOutput,
+} from "./commands/GenerateAs2805KekValidationCommand";
+import {
   GenerateCardValidationDataCommand,
   GenerateCardValidationDataCommandInput,
   GenerateCardValidationDataCommandOutput,
@@ -56,6 +61,7 @@ import { PaymentCryptographyDataClient } from "./PaymentCryptographyDataClient";
 const commands = {
   DecryptDataCommand,
   EncryptDataCommand,
+  GenerateAs2805KekValidationCommand,
   GenerateCardValidationDataCommand,
   GenerateMacCommand,
   GenerateMacEmvPinChangeCommand,
@@ -90,6 +96,23 @@ export interface PaymentCryptographyData {
     args: EncryptDataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: EncryptDataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GenerateAs2805KekValidationCommand}
+   */
+  generateAs2805KekValidation(
+    args: GenerateAs2805KekValidationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GenerateAs2805KekValidationCommandOutput>;
+  generateAs2805KekValidation(
+    args: GenerateAs2805KekValidationCommandInput,
+    cb: (err: any, data?: GenerateAs2805KekValidationCommandOutput) => void
+  ): void;
+  generateAs2805KekValidation(
+    args: GenerateAs2805KekValidationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GenerateAs2805KekValidationCommandOutput) => void
   ): void;
 
   /**

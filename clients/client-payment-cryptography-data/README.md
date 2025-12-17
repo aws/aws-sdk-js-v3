@@ -221,6 +221,14 @@ EncryptData
 </details>
 <details>
 <summary>
+GenerateAs2805KekValidation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography-data/command/GenerateAs2805KekValidationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/GenerateAs2805KekValidationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/GenerateAs2805KekValidationCommandOutput/)
+
+</details>
+<details>
+<summary>
 GenerateCardValidationData
 </summary>
 

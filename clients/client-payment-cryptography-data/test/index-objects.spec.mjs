@@ -4,6 +4,8 @@ import {
   AmexAttributes$,
   AmexCardSecurityCodeVersion1$,
   AmexCardSecurityCodeVersion2$,
+  As2805KekValidationType$,
+  As2805PekDerivationAttributes$,
   AsymmetricEncryptionAttributes$,
   CardGenerationAttributes$,
   CardHolderVerificationValue$,
@@ -41,6 +43,10 @@ import {
   EncryptDataOutput$,
   EncryptionDecryptionAttributes$,
   EncryptionMode,
+  GenerateAs2805KekValidation$,
+  GenerateAs2805KekValidationCommand,
+  GenerateAs2805KekValidationInput$,
+  GenerateAs2805KekValidationOutput$,
   GenerateCardValidationData$,
   GenerateCardValidationDataCommand,
   GenerateCardValidationDataInput$,
@@ -66,6 +72,8 @@ import {
   IncomingKeyMaterial$,
   InternalServerException,
   InternalServerException$,
+  KekValidationRequest$,
+  KekValidationResponse$,
   KeyCheckValueAlgorithm,
   KeyDerivationFunction,
   KeyDerivationHashAlgorithm,
@@ -88,6 +96,7 @@ import {
   PinData$,
   PinGenerationAttributes$,
   PinVerificationAttributes$,
+  RandomKeySendVariantMask,
   ReEncryptData$,
   ReEncryptDataCommand,
   ReEncryptDataInput$,
@@ -116,6 +125,7 @@ import {
   TranslatePinDataInput$,
   TranslatePinDataOutput$,
   TranslationIsoFormats$,
+  TranslationPinDataAs2805Format0$,
   TranslationPinDataIsoFormat034$,
   TranslationPinDataIsoFormat1$,
   ValidationException,
@@ -159,6 +169,8 @@ assert(typeof DecryptDataCommand === "function");
 assert(typeof DecryptData$ === "object");
 assert(typeof EncryptDataCommand === "function");
 assert(typeof EncryptData$ === "object");
+assert(typeof GenerateAs2805KekValidationCommand === "function");
+assert(typeof GenerateAs2805KekValidation$ === "object");
 assert(typeof GenerateCardValidationDataCommand === "function");
 assert(typeof GenerateCardValidationData$ === "object");
 assert(typeof GenerateMacCommand === "function");
@@ -185,6 +197,8 @@ assert(typeof VerifyPinData$ === "object");
 assert(typeof AmexAttributes$ === "object");
 assert(typeof AmexCardSecurityCodeVersion1$ === "object");
 assert(typeof AmexCardSecurityCodeVersion2$ === "object");
+assert(typeof As2805KekValidationType$ === "object");
+assert(typeof As2805PekDerivationAttributes$ === "object");
 assert(typeof AsymmetricEncryptionAttributes$ === "object");
 assert(typeof CardGenerationAttributes$ === "object");
 assert(typeof CardHolderVerificationValue$ === "object");
@@ -212,6 +226,8 @@ assert(typeof EmvEncryptionAttributes$ === "object");
 assert(typeof EncryptDataInput$ === "object");
 assert(typeof EncryptDataOutput$ === "object");
 assert(typeof EncryptionDecryptionAttributes$ === "object");
+assert(typeof GenerateAs2805KekValidationInput$ === "object");
+assert(typeof GenerateAs2805KekValidationOutput$ === "object");
 assert(typeof GenerateCardValidationDataInput$ === "object");
 assert(typeof GenerateCardValidationDataOutput$ === "object");
 assert(typeof GenerateMacEmvPinChangeInput$ === "object");
@@ -227,6 +243,8 @@ assert(typeof Ibm3624PinVerification$ === "object");
 assert(typeof Ibm3624RandomPin$ === "object");
 assert(typeof IncomingDiffieHellmanTr31KeyBlock$ === "object");
 assert(typeof IncomingKeyMaterial$ === "object");
+assert(typeof KekValidationRequest$ === "object");
+assert(typeof KekValidationResponse$ === "object");
 assert(typeof MacAlgorithmDukpt$ === "object");
 assert(typeof MacAlgorithmEmv$ === "object");
 assert(typeof MacAttributes$ === "object");
@@ -252,6 +270,7 @@ assert(typeof TranslateKeyMaterialOutput$ === "object");
 assert(typeof TranslatePinDataInput$ === "object");
 assert(typeof TranslatePinDataOutput$ === "object");
 assert(typeof TranslationIsoFormats$ === "object");
+assert(typeof TranslationPinDataAs2805Format0$ === "object");
 assert(typeof TranslationPinDataIsoFormat034$ === "object");
 assert(typeof TranslationPinDataIsoFormat1$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
@@ -288,6 +307,7 @@ assert(typeof PinBlockFormatForEmvPinChange === "object");
 assert(typeof PinBlockFormatForPinData === "object");
 assert(typeof PinBlockLengthPosition === "object");
 assert(typeof PinBlockPaddingType === "object");
+assert(typeof RandomKeySendVariantMask === "object");
 assert(typeof SessionKeyDerivationMode === "object");
 assert(typeof SymmetricKeyAlgorithm === "object");
 assert(typeof VerificationFailedReason === "object");

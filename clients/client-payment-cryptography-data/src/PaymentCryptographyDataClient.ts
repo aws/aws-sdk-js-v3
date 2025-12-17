@@ -66,6 +66,10 @@ import {
 import { DecryptDataCommandInput, DecryptDataCommandOutput } from "./commands/DecryptDataCommand";
 import { EncryptDataCommandInput, EncryptDataCommandOutput } from "./commands/EncryptDataCommand";
 import {
+  GenerateAs2805KekValidationCommandInput,
+  GenerateAs2805KekValidationCommandOutput,
+} from "./commands/GenerateAs2805KekValidationCommand";
+import {
   GenerateCardValidationDataCommandInput,
   GenerateCardValidationDataCommandOutput,
 } from "./commands/GenerateCardValidationDataCommand";
@@ -108,6 +112,7 @@ export { __Client };
 export type ServiceInputTypes =
   | DecryptDataCommandInput
   | EncryptDataCommandInput
+  | GenerateAs2805KekValidationCommandInput
   | GenerateCardValidationDataCommandInput
   | GenerateMacCommandInput
   | GenerateMacEmvPinChangeCommandInput
@@ -126,6 +131,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | DecryptDataCommandOutput
   | EncryptDataCommandOutput
+  | GenerateAs2805KekValidationCommandOutput
   | GenerateCardValidationDataCommandOutput
   | GenerateMacCommandOutput
   | GenerateMacEmvPinChangeCommandOutput

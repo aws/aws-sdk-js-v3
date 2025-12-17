@@ -16,6 +16,7 @@ import {
   PinBlockFormatForPinData,
   PinBlockLengthPosition,
   PinBlockPaddingType,
+  RandomKeySendVariantMask,
   SessionKeyDerivationMode,
   SymmetricKeyAlgorithm,
   WrappedKeyMaterialFormat,
@@ -109,6 +110,101 @@ export interface AmexCardSecurityCodeVersion2 {
    * @public
    */
   ServiceCode: string | undefined;
+}
+
+/**
+ * <p>Parameter information for generating a KEK validation request during node-to-node initialization.</p>
+ * @public
+ */
+export interface KekValidationRequest {
+  /**
+   * <p>The key derivation algorithm to use for generating a KEK validation request.</p>
+   * @public
+   */
+  DeriveKeyAlgorithm: SymmetricKeyAlgorithm | undefined;
+}
+
+/**
+ * <p>Parameter information for generating a KEK validation response during node-to-node initialization.</p>
+ * @public
+ */
+export interface KekValidationResponse {
+  /**
+   * <p>The random key for generating a KEK validation response.</p>
+   * @public
+   */
+  RandomKeySend: string | undefined;
+}
+
+/**
+ * <p>Parameter information for generating a random key for KEK validation to perform node-to-node initialization.</p>
+ * @public
+ */
+export type As2805KekValidationType =
+  | As2805KekValidationType.KekValidationRequestMember
+  | As2805KekValidationType.KekValidationResponseMember
+  | As2805KekValidationType.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace As2805KekValidationType {
+  /**
+   * <p>Parameter information for generating a KEK validation request during node-to-node initialization.</p>
+   * @public
+   */
+  export interface KekValidationRequestMember {
+    KekValidationRequest: KekValidationRequest;
+    KekValidationResponse?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Parameter information for generating a KEK validation response during node-to-node initialization.</p>
+   * @public
+   */
+  export interface KekValidationResponseMember {
+    KekValidationRequest?: never;
+    KekValidationResponse: KekValidationResponse;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    KekValidationRequest?: never;
+    KekValidationResponse?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    KekValidationRequest: (value: KekValidationRequest) => T;
+    KekValidationResponse: (value: KekValidationResponse) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Parameter information to use a PEK derived using AS2805.</p>
+ * @public
+ */
+export interface As2805PekDerivationAttributes {
+  /**
+   * <p>The system trace audit number for the transaction.</p>
+   * @public
+   */
+  SystemTraceAuditNumber: string | undefined;
+
+  /**
+   * <p>The transaction amount for the transaction.</p>
+   * @public
+   */
+  TransactionAmount: string | undefined;
 }
 
 /**
@@ -1441,6 +1537,58 @@ export interface EncryptDataOutput {
 /**
  * @public
  */
+export interface GenerateAs2805KekValidationInput {
+  /**
+   * <p>The <code>keyARN</code> of sending KEK that Amazon Web Services Payment Cryptography uses for node-to-node initialization</p>
+   * @public
+   */
+  KeyIdentifier: string | undefined;
+
+  /**
+   * <p>Parameter information for generating a random key for KEK validation to perform node-to-node initialization.</p>
+   * @public
+   */
+  KekValidationType: As2805KekValidationType | undefined;
+
+  /**
+   * <p>The key variant to use for generating a random key for KEK validation during node-to-node initialization.</p>
+   * @public
+   */
+  RandomKeySendVariantMask: RandomKeySendVariantMask | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GenerateAs2805KekValidationOutput {
+  /**
+   * <p>The <code>keyARN</code> of sending KEK that Amazon Web Services Payment Cryptography validates for node-to-node initialization</p>
+   * @public
+   */
+  KeyArn: string | undefined;
+
+  /**
+   * <p>The key check value (KCV) of the sending KEK that Amazon Web Services Payment Cryptography validates for node-to-node initialization.</p>
+   * @public
+   */
+  KeyCheckValue: string | undefined;
+
+  /**
+   * <p>The random key generated for sending KEK validation.</p>
+   * @public
+   */
+  RandomKeySend: string | undefined;
+
+  /**
+   * <p>The random key generated for receiving KEK validation. The initiating node sends this key to its partner node for validation.</p>
+   * @public
+   */
+  RandomKeyReceive: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GenerateCardValidationDataInput {
   /**
    * <p>The <code>keyARN</code> of the CVK encryption key that Amazon Web Services Payment Cryptography uses to generate card data.</p>
@@ -2200,7 +2348,7 @@ export interface GeneratePinDataInput {
   PrimaryAccountNumber?: string | undefined;
 
   /**
-   * <p>The PIN encoding format for pin data generation as specified in ISO 9564. Amazon Web Services Payment Cryptography supports <code>ISO_Format_0</code>, <code>ISO_Format_3</code> and <code>ISO_Format_4</code>.</p> <p>The <code>ISO_Format_0</code> PIN block format is equivalent to the ANSI X9.8, VISA-1, and ECI-1 PIN block formats. It is similar to a VISA-4 PIN block format. It supports a PIN from 4 to 12 digits in length.</p> <p>The <code>ISO_Format_3</code> PIN block format is the same as <code>ISO_Format_0</code> except that the fill digits are random values from 10 to 15.</p> <p>The <code>ISO_Format_4</code> PIN block format is the only one supporting AES encryption. It is similar to <code>ISO_Format_3</code> but doubles the pin block length by padding with fill digit A and random values from 10 to 15.</p>
+   * <p>The PIN encoding format for pin data generation as specified in ISO 9564. Amazon Web Services Payment Cryptography supports <code>ISO_Format_0</code>, <code>ISO_Format_3</code> and <code>ISO_Format_4</code>.</p> <p>The <code>ISO_Format_0</code> PIN block format is equivalent to the ANSI X9.8, VISA-1, and ECI-1 PIN block formats. It is similar to a VISA-4 PIN block format. It supports a PIN from 4 to 12 digits in length.</p> <p>The <code>ISO_Format_3</code> PIN block format is the same as <code>ISO_Format_0</code> except that the fill digits are random values from 10 to 15.</p> <p>The <code>ISO_Format_4</code> PIN block format is the only one supporting AES encryption.</p>
    * @public
    */
   PinBlockFormat: PinBlockFormatForPinData | undefined;
@@ -2615,7 +2763,7 @@ export interface TranslateKeyMaterialInput {
   OutgoingKeyMaterial: OutgoingKeyMaterial | undefined;
 
   /**
-   * <p>The key check value (KCV) algorithm used for calculating the KCV.</p>
+   * <p>The key check value (KCV) algorithm used for calculating the KCV of the derived key.</p>
    * @public
    */
   KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm | undefined;
@@ -2657,7 +2805,19 @@ export interface TranslateKeyMaterialOutput {
 }
 
 /**
- * <p>Parameters that are required for tranlation between ISO9564 PIN format 0,3,4 tranlation.</p>
+ * <p>Parameters that are required for translation between AS2805 PIN format 0 translation.</p>
+ * @public
+ */
+export interface TranslationPinDataAs2805Format0 {
+  /**
+   * <p>The Primary Account Number (PAN) of the cardholder. A PAN is a unique identifier for a payment credit or debit card and associates the card to a specific account holder.</p>
+   * @public
+   */
+  PrimaryAccountNumber: string | undefined;
+}
+
+/**
+ * <p>Parameters that are required for translation between ISO9564 PIN format 0,3,4 translation.</p>
  * @public
  */
 export interface TranslationPinDataIsoFormat034 {
@@ -2669,7 +2829,7 @@ export interface TranslationPinDataIsoFormat034 {
 }
 
 /**
- * <p>Parameters that are required for ISO9564 PIN format 1 tranlation.</p>
+ * <p>Parameters that are required for ISO9564 PIN format 1 translation.</p>
  * @public
  */
 export interface TranslationPinDataIsoFormat1 {}
@@ -2679,6 +2839,7 @@ export interface TranslationPinDataIsoFormat1 {}
  * @public
  */
 export type TranslationIsoFormats =
+  | TranslationIsoFormats.As2805Format0Member
   | TranslationIsoFormats.IsoFormat0Member
   | TranslationIsoFormats.IsoFormat1Member
   | TranslationIsoFormats.IsoFormat3Member
@@ -2690,7 +2851,7 @@ export type TranslationIsoFormats =
  */
 export namespace TranslationIsoFormats {
   /**
-   * <p>Parameters that are required for ISO9564 PIN format 0 tranlation.</p>
+   * <p>Parameters that are required for ISO9564 PIN format 0 translation.</p>
    * @public
    */
   export interface IsoFormat0Member {
@@ -2698,11 +2859,12 @@ export namespace TranslationIsoFormats {
     IsoFormat1?: never;
     IsoFormat3?: never;
     IsoFormat4?: never;
+    As2805Format0?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Parameters that are required for ISO9564 PIN format 1 tranlation.</p>
+   * <p>Parameters that are required for ISO9564 PIN format 1 translation.</p>
    * @public
    */
   export interface IsoFormat1Member {
@@ -2710,11 +2872,12 @@ export namespace TranslationIsoFormats {
     IsoFormat1: TranslationPinDataIsoFormat1;
     IsoFormat3?: never;
     IsoFormat4?: never;
+    As2805Format0?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Parameters that are required for ISO9564 PIN format 3 tranlation.</p>
+   * <p>Parameters that are required for ISO9564 PIN format 3 translation.</p>
    * @public
    */
   export interface IsoFormat3Member {
@@ -2722,11 +2885,12 @@ export namespace TranslationIsoFormats {
     IsoFormat1?: never;
     IsoFormat3: TranslationPinDataIsoFormat034;
     IsoFormat4?: never;
+    As2805Format0?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>Parameters that are required for ISO9564 PIN format 4 tranlation.</p>
+   * <p>Parameters that are required for ISO9564 PIN format 4 translation.</p>
    * @public
    */
   export interface IsoFormat4Member {
@@ -2734,6 +2898,20 @@ export namespace TranslationIsoFormats {
     IsoFormat1?: never;
     IsoFormat3?: never;
     IsoFormat4: TranslationPinDataIsoFormat034;
+    As2805Format0?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Parameters that are required for AS2805 PIN format 0 translation.</p>
+   * @public
+   */
+  export interface As2805Format0Member {
+    IsoFormat0?: never;
+    IsoFormat1?: never;
+    IsoFormat3?: never;
+    IsoFormat4?: never;
+    As2805Format0: TranslationPinDataAs2805Format0;
     $unknown?: never;
   }
 
@@ -2745,6 +2923,7 @@ export namespace TranslationIsoFormats {
     IsoFormat1?: never;
     IsoFormat3?: never;
     IsoFormat4?: never;
+    As2805Format0?: never;
     $unknown: [string, any];
   }
 
@@ -2757,6 +2936,7 @@ export namespace TranslationIsoFormats {
     IsoFormat1: (value: TranslationPinDataIsoFormat1) => T;
     IsoFormat3: (value: TranslationPinDataIsoFormat034) => T;
     IsoFormat4: (value: TranslationPinDataIsoFormat034) => T;
+    As2805Format0: (value: TranslationPinDataAs2805Format0) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2818,6 +2998,12 @@ export interface TranslatePinDataInput {
    * @public
    */
   OutgoingWrappedKey?: WrappedKey | undefined;
+
+  /**
+   * <p>The attributes and values to use for incoming AS2805 encryption key for PIN block translation.</p>
+   * @public
+   */
+  IncomingAs2805Attributes?: As2805PekDerivationAttributes | undefined;
 }
 
 /**

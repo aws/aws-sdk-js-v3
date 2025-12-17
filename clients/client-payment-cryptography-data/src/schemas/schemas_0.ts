@@ -6,8 +6,11 @@ const _ACSCVm = "AmexCardSecurityCodeVersion2";
 const _ACT = "ApplicationCryptogramType";
 const _ADE = "AccessDeniedException";
 const _AEA = "AsymmetricEncryptionAttributes";
+const _AF = "As2805Format0";
+const _AKVT = "As2805KekValidationType";
 const _AM = "ArpcMethod1";
 const _AMr = "ArpcMethod2";
+const _APDA = "As2805PekDerivationAttributes";
 const _ARA = "AuthResponseAttributes";
 const _ARC = "AuthResponseCode";
 const _ARCT = "AuthRequestCryptogramType";
@@ -15,6 +18,7 @@ const _ARCu = "AuthRequestCryptogram";
 const _ARKA = "AuthorizationRequestKeyArn";
 const _ARKCV = "AuthorizationRequestKeyCheckValue";
 const _ARKI = "AuthorizationRequestKeyIdentifier";
+const _ARKM = "As2805RandomKeyMaterial";
 const _ARV = "AuthResponseValue";
 const _ARVT = "AuthResponseValueType";
 const _ATC = "ApplicationTransactionCounter";
@@ -85,6 +89,9 @@ const _EPBT = "EncryptedPinBlockType";
 const _EWK = "EncryptionWrappedKey";
 const _Em = "Emv";
 const _GA = "GenerationAttributes";
+const _GAKV = "GenerateAs2805KekValidation";
+const _GAKVI = "GenerateAs2805KekValidationInput";
+const _GAKVO = "GenerateAs2805KekValidationOutput";
 const _GCVD = "GenerateCardValidationData";
 const _GCVDI = "GenerateCardValidationDataInput";
 const _GCVDO = "GenerateCardValidationDataOutput";
@@ -101,6 +108,7 @@ const _GPD = "GeneratePinData";
 const _GPDI = "GeneratePinDataInput";
 const _GPDO = "GeneratePinDataOutput";
 const _HELBA = "HexEvenLengthBetween16And32";
+const _IAA = "IncomingAs2805Attributes";
 const _IDA = "IncomingDukptAttributes";
 const _IDHTKB = "IncomingDiffieHellmanTr31KeyBlock";
 const _IEA = "IncomingEncryptionAttributes";
@@ -130,6 +138,9 @@ const _KDHA = "KeyDerivationHashAlgorithm";
 const _KI = "KeyIdentifier";
 const _KM = "KeyMaterial";
 const _KSN = "KeySerialNumber";
+const _KVR = "KekValidationRequest";
+const _KVRe = "KekValidationResponse";
+const _KVT = "KekValidationType";
 const _M = "Message";
 const _MA = "MacAttributes";
 const _MAD = "MacAlgorithmDukpt";
@@ -188,6 +199,9 @@ const _RED = "ReEncryptData";
 const _REDI = "ReEncryptDataInput";
 const _REDO = "ReEncryptDataOutput";
 const _RI = "ResourceId";
+const _RKR = "RandomKeyReceive";
+const _RKS = "RandomKeySend";
+const _RKSVM = "RandomKeySendVariantMask";
 const _RNFE = "ResourceNotFoundException";
 const _S = "Symmetric";
 const _SC = "ServiceCode";
@@ -211,6 +225,8 @@ const _SMCKI = "SecureMessagingConfidentialityKeyIdentifier";
 const _SMIKA = "SecureMessagingIntegrityKeyArn";
 const _SMIKCV = "SecureMessagingIntegrityKeyCheckValue";
 const _SMIKI = "SecureMessagingIntegrityKeyIdentifier";
+const _STAN = "SystemTraceAuditNumber";
+const _TA = "TransactionAmount";
 const _TD = "TrackData";
 const _TDT = "TrackDataType";
 const _TDTr = "TransactionDataType";
@@ -222,6 +238,7 @@ const _TKM = "TranslateKeyMaterial";
 const _TKMI = "TranslateKeyMaterialInput";
 const _TKMO = "TranslateKeyMaterialOutput";
 const _TPD = "TranslatePinData";
+const _TPDAF = "TranslationPinDataAs2805Format0";
 const _TPDI = "TranslatePinDataInput";
 const _TPDIF = "TranslationPinDataIsoFormat034";
 const _TPDIFr = "TranslationPinDataIsoFormat1";
@@ -298,6 +315,7 @@ import { PaymentCryptographyDataServiceException } from "../models/PaymentCrypto
 
 /* eslint no-var: 0 */
 var ApplicationCryptogramType: StaticSimpleSchema = [0, n0, _ACT, 8, 0];
+var As2805RandomKeyMaterial: StaticSimpleSchema = [0, n0, _ARKM, 8, 0];
 var AuthRequestCryptogramType: StaticSimpleSchema = [0, n0, _ARCT, 8, 0];
 var AuthResponseValueType: StaticSimpleSchema = [0, n0, _ARVT, 8, 0];
 var CardExpiryDateType: StaticSimpleSchema = [0, n0, _CEDT, 8, 0];
@@ -355,6 +373,7 @@ export var AmexCardSecurityCodeVersion2$: StaticStructureSchema = [
     [() => ServiceCodeType, 0],
   ],
 ];
+export var As2805PekDerivationAttributes$: StaticStructureSchema = [3, n0, _APDA, 0, [_STAN, _TA], [0, 0]];
 export var AsymmetricEncryptionAttributes$: StaticStructureSchema = [3, n0, _AEA, 0, [_PT], [0]];
 export var CardHolderVerificationValue$: StaticStructureSchema = [3, n0, _CHVV, 0, [_UN, _PSN, _ATC], [0, 0, 0]];
 export var CardVerificationValue1$: StaticStructureSchema = [
@@ -501,6 +520,22 @@ export var EncryptDataOutput$: StaticStructureSchema = [
   [_KA, _KCV, _CT],
   [0, 0, [() => CipherTextType, 0]],
 ];
+export var GenerateAs2805KekValidationInput$: StaticStructureSchema = [
+  3,
+  n0,
+  _GAKVI,
+  0,
+  [_KI, _KVT, _RKSVM],
+  [0, [() => As2805KekValidationType$, 0], 0],
+];
+export var GenerateAs2805KekValidationOutput$: StaticStructureSchema = [
+  3,
+  n0,
+  _GAKVO,
+  0,
+  [_KA, _KCV, _RKS, _RKR],
+  [0, 0, [() => As2805RandomKeyMaterial, 0], [() => As2805RandomKeyMaterial, 0]],
+];
 export var GenerateCardValidationDataInput$: StaticStructureSchema = [
   3,
   n0,
@@ -633,6 +668,15 @@ export var IncomingDiffieHellmanTr31KeyBlock$: StaticStructureSchema = [
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var KekValidationRequest$: StaticStructureSchema = [3, n0, _KVR, 0, [_DKA], [0]];
+export var KekValidationResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _KVRe,
+  0,
+  [_RKS],
+  [[() => As2805RandomKeyMaterial, 0]],
+];
 export var MacAlgorithmDukpt$: StaticStructureSchema = [3, n0, _MAD, 0, [_KSN, _DKV, _DDT], [0, 0, 0]];
 export var MacAlgorithmEmv$: StaticStructureSchema = [
   3,
@@ -748,7 +792,7 @@ export var TranslatePinDataInput$: StaticStructureSchema = [
   n0,
   _TPDI,
   0,
-  [_IKI, _OKI, _ITA, _OTA, _EPB, _IDA, _ODA, _IWK, _OWK],
+  [_IKI, _OKI, _ITA, _OTA, _EPB, _IDA, _ODA, _IWK, _OWK, _IAA],
   [
     0,
     0,
@@ -759,6 +803,7 @@ export var TranslatePinDataInput$: StaticStructureSchema = [
     () => DukptDerivationAttributes$,
     [() => WrappedKey$, 0],
     [() => WrappedKey$, 0],
+    () => As2805PekDerivationAttributes$,
   ],
 ];
 export var TranslatePinDataOutput$: StaticStructureSchema = [
@@ -768,6 +813,14 @@ export var TranslatePinDataOutput$: StaticStructureSchema = [
   0,
   [_PB, _KA, _KCV],
   [[() => EncryptedPinBlockType, 0], 0, 0],
+];
+export var TranslationPinDataAs2805Format0$: StaticStructureSchema = [
+  3,
+  n0,
+  _TPDAF,
+  0,
+  [_PAN],
+  [[() => PrimaryAccountNumberType, 0]],
 ];
 export var TranslationPinDataIsoFormat034$: StaticStructureSchema = [
   3,
@@ -902,6 +955,14 @@ export var PaymentCryptographyDataServiceException$: StaticErrorSchema = [
 ];
 TypeRegistry.for(_sm).registerError(PaymentCryptographyDataServiceException$, PaymentCryptographyDataServiceException);
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
+export var As2805KekValidationType$: StaticStructureSchema = [
+  3,
+  n0,
+  _AKVT,
+  0,
+  [_KVR, _KVRe],
+  [() => KekValidationRequest$, [() => KekValidationResponse$, 0]],
+];
 export var CardGenerationAttributes$: StaticStructureSchema = [
   3,
   n0,
@@ -1063,12 +1124,13 @@ export var TranslationIsoFormats$: StaticStructureSchema = [
   n0,
   _TIF,
   0,
-  [_IF, _IFs, _IFso, _IFsoo],
+  [_IF, _IFs, _IFso, _IFsoo, _AF],
   [
     [() => TranslationPinDataIsoFormat034$, 0],
     () => TranslationPinDataIsoFormat1$,
     [() => TranslationPinDataIsoFormat034$, 0],
     [() => TranslationPinDataIsoFormat034$, 0],
+    [() => TranslationPinDataAs2805Format0$, 0],
   ],
 ];
 export var WrappedKeyMaterial$: StaticStructureSchema = [
@@ -1094,6 +1156,14 @@ export var EncryptData$: StaticOperationSchema = [
   { [_h]: ["POST", "/keys/{KeyIdentifier}/encrypt", 200] },
   () => EncryptDataInput$,
   () => EncryptDataOutput$,
+];
+export var GenerateAs2805KekValidation$: StaticOperationSchema = [
+  9,
+  n0,
+  _GAKV,
+  { [_h]: ["POST", "/as2805kekvalidation/generate", 200] },
+  () => GenerateAs2805KekValidationInput$,
+  () => GenerateAs2805KekValidationOutput$,
 ];
 export var GenerateCardValidationData$: StaticOperationSchema = [
   9,
