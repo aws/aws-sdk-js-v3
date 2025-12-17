@@ -184,7 +184,8 @@ const _mWC = "maxWorkerCount";
 const _mWCi = "minWorkerCount";
 const _n = "name";
 const _nP = "namePrefix";
-const _nT = "nextToken";
+const _nT = "networkType";
+const _nTe = "nextToken";
 const _oCC = "originConnectorConfiguration";
 const _oS = "operationSteps";
 const _oV = "objectVersion";
@@ -323,7 +324,7 @@ export var ConnectorSummary$: StaticStructureSchema = [
   n0,
   _CS,
   0,
-  [_ca, _cA, _cD, _cN, _cS, _cT, _cV, _kC, _kCCA, _kCEIT, _kCV, _lD, _p, _sERA, _wC],
+  [_ca, _cA, _cD, _cN, _cS, _cT, _cV, _kC, _kCCA, _kCEIT, _kCV, _lD, _nT, _p, _sERA, _wC],
   [
     () => CapacityDescription$,
     0,
@@ -337,6 +338,7 @@ export var ConnectorSummary$: StaticStructureSchema = [
     () => KafkaClusterEncryptionInTransitDescription$,
     0,
     () => LogDeliveryDescription$,
+    0,
     () => __listOfPluginDescription,
     0,
     () => WorkerConfigurationDescription$,
@@ -347,7 +349,7 @@ export var CreateConnectorRequest$: StaticStructureSchema = [
   n0,
   _CCR,
   0,
-  [_ca, _cC, _cD, _cN, _kC, _kCCA, _kCEIT, _kCV, _lD, _p, _sERA, _wC, _t],
+  [_ca, _cC, _cD, _cN, _kC, _kCCA, _kCEIT, _kCV, _lD, _nT, _p, _sERA, _wC, _t],
   [
     () => Capacity$,
     [() => ConnectorConfiguration, 0],
@@ -358,6 +360,7 @@ export var CreateConnectorRequest$: StaticStructureSchema = [
     () => KafkaClusterEncryptionInTransit$,
     0,
     () => LogDelivery$,
+    0,
     () => __listOfPlugin,
     0,
     () => WorkerConfiguration$,
@@ -462,7 +465,7 @@ export var DescribeConnectorResponse$: StaticStructureSchema = [
   n0,
   _DCResc,
   0,
-  [_ca, _cA, _cC, _cD, _cN, _cS, _cT, _cV, _kC, _kCCA, _kCEIT, _kCV, _lD, _p, _sERA, _wC, _sD],
+  [_ca, _cA, _cC, _cD, _cN, _cS, _cT, _cV, _kC, _kCCA, _kCEIT, _kCV, _lD, _nT, _p, _sERA, _wC, _sD],
   [
     () => CapacityDescription$,
     0,
@@ -477,6 +480,7 @@ export var DescribeConnectorResponse$: StaticStructureSchema = [
     () => KafkaClusterEncryptionInTransitDescription$,
     0,
     () => LogDeliveryDescription$,
+    0,
     () => __listOfPluginDescription,
     0,
     () => WorkerConfigurationDescription$,
@@ -525,11 +529,11 @@ export var ListConnectorOperationsRequest$: StaticStructureSchema = [
   n0,
   _LCOR,
   0,
-  [_cA, _mR, _nT],
+  [_cA, _mR, _nTe],
   [
     [0, 1],
     [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _nTe }],
   ],
 ];
 export var ListConnectorOperationsResponse$: StaticStructureSchema = [
@@ -537,7 +541,7 @@ export var ListConnectorOperationsResponse$: StaticStructureSchema = [
   n0,
   _LCORi,
   0,
-  [_cO, _nT],
+  [_cO, _nTe],
   [() => __listOfConnectorOperationSummary, 0],
 ];
 export var ListConnectorsRequest$: StaticStructureSchema = [
@@ -545,11 +549,11 @@ export var ListConnectorsRequest$: StaticStructureSchema = [
   n0,
   _LCR,
   0,
-  [_cNP, _mR, _nT],
+  [_cNP, _mR, _nTe],
   [
     [0, { [_hQ]: _cNP }],
     [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _nTe }],
   ],
 ];
 export var ListConnectorsResponse$: StaticStructureSchema = [
@@ -557,7 +561,7 @@ export var ListConnectorsResponse$: StaticStructureSchema = [
   n0,
   _LCRi,
   0,
-  [_co, _nT],
+  [_co, _nTe],
   [() => __listOfConnectorSummary, 0],
 ];
 export var ListCustomPluginsRequest$: StaticStructureSchema = [
@@ -565,10 +569,10 @@ export var ListCustomPluginsRequest$: StaticStructureSchema = [
   n0,
   _LCPR,
   0,
-  [_mR, _nT, _nP],
+  [_mR, _nTe, _nP],
   [
     [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _nTe }],
     [0, { [_hQ]: _nP }],
   ],
 ];
@@ -577,7 +581,7 @@ export var ListCustomPluginsResponse$: StaticStructureSchema = [
   n0,
   _LCPRi,
   0,
-  [_cP, _nT],
+  [_cP, _nTe],
   [() => __listOfCustomPluginSummary, 0],
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [[0, 1]]];
@@ -587,10 +591,10 @@ export var ListWorkerConfigurationsRequest$: StaticStructureSchema = [
   n0,
   _LWCR,
   0,
-  [_mR, _nT, _nP],
+  [_mR, _nTe, _nP],
   [
     [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
+    [0, { [_hQ]: _nTe }],
     [0, { [_hQ]: _nP }],
   ],
 ];
@@ -599,7 +603,7 @@ export var ListWorkerConfigurationsResponse$: StaticStructureSchema = [
   n0,
   _LWCRi,
   0,
-  [_nT, _wCo],
+  [_nTe, _wCo],
   [0, () => __listOfWorkerConfigurationSummary],
 ];
 export var LogDelivery$: StaticStructureSchema = [3, n0, _LD, 0, [_wLD], [() => WorkerLogDelivery$]];

@@ -109,6 +109,7 @@ import {
   ListWorkerConfigurationsResponse$,
   LogDelivery$,
   LogDeliveryDescription$,
+  NetworkType,
   NotFoundException,
   NotFoundException$,
   Plugin$,
@@ -305,6 +306,7 @@ assert(typeof CustomPluginContentType === "object");
 assert(typeof CustomPluginState === "object");
 assert(typeof KafkaClusterClientAuthenticationType === "object");
 assert(typeof KafkaClusterEncryptionInTransitType === "object");
+assert(typeof NetworkType === "object");
 assert(typeof WorkerConfigurationState === "object");
 // errors
 assert(BadRequestException.prototype instanceof KafkaConnectServiceException);

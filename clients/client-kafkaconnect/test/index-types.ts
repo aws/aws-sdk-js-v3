@@ -65,6 +65,7 @@ export type {
   CustomPluginState,
   KafkaClusterClientAuthenticationType,
   KafkaClusterEncryptionInTransitType,
+  NetworkType,
   WorkerConfigurationState,
   ApacheKafkaCluster,
   ApacheKafkaClusterDescription,
