@@ -20,10 +20,10 @@ export * from "./pagination";
 
 export * from "./models/enums";
 export * from "./models/errors";
-export type * from "./models/models_0";
-export type * from "./models/models_1";
-export type * from "./models/models_2";
-export type * from "./models/models_3";
-export type * from "./models/models_4";
+export * from "./models/models_0";
+export * from "./models/models_1";
+export * from "./models/models_2";
+export * from "./models/models_3";
+export * from "./models/models_4";
 
 export { QuickSightServiceException } from "./models/QuickSightServiceException";

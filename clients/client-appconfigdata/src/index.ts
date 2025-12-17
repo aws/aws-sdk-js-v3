@@ -73,6 +73,6 @@ export * from "./schemas/schemas_0";
 
 export * from "./models/enums";
 export * from "./models/errors";
-export type * from "./models/models_0";
+export * from "./models/models_0";
 
 export { AppConfigDataServiceException } from "./models/AppConfigDataServiceException";

@@ -23,6 +23,6 @@ export * from "./commands";
 export * from "./schemas/schemas_0";
 
 export * from "./models/errors";
-export type * from "./models/models_0";
+export * from "./models/models_0";
 
 export { EC2InstanceConnectServiceException } from "./models/EC2InstanceConnectServiceException";

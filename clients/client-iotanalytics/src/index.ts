@@ -32,6 +32,6 @@ export * from "./pagination";
 
 export * from "./models/enums";
 export * from "./models/errors";
-export type * from "./models/models_0";
+export * from "./models/models_0";
 
 export { IoTAnalyticsServiceException } from "./models/IoTAnalyticsServiceException";

@@ -7,7 +7,7 @@ export type { RuntimeExtension } from "./runtimeExtensions";
 export type { WeatherExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 
-export type * from "./models/models_0";
+export * from "./models/models_0";
 
 export * from "./middleware/HttpApiKeyAuth";
 

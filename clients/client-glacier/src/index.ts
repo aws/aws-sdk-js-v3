@@ -54,6 +54,6 @@ export * from "./waiters";
 
 export * from "./models/enums";
 export * from "./models/errors";
-export type * from "./models/models_0";
+export * from "./models/models_0";
 
 export { GlacierServiceException } from "./models/GlacierServiceException";
