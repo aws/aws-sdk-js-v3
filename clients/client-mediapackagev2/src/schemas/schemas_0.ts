@@ -7,6 +7,7 @@ const _BU = "BaseUrls";
 const _C = "Compactness";
 const _CA = "CreatedAt";
 const _CAC = "CdnAuthConfiguration";
+const _CAe = "CertificateArn";
 const _CC = "CreateChannel";
 const _CCG = "CreateChannelGroup";
 const _CCGR = "CreateChannelGroupRequest";
@@ -1058,8 +1059,8 @@ export var SpekeKeyProvider$: StaticStructureSchema = [
   n0,
   _SKP,
   0,
-  [_ECC, _RI, _DSrm, _RAo, _U],
-  [() => EncryptionContractConfiguration$, 0, 64 | 0, 0, 0],
+  [_ECC, _RI, _DSrm, _RAo, _U, _CAe],
+  [() => EncryptionContractConfiguration$, 0, 64 | 0, 0, 0, 0],
 ];
 export var StartTag$: StaticStructureSchema = [3, n0, _ST, 0, [_TO, _Pre], [1, 2]];
 export var TagResourceRequest$: StaticStructureSchema = [

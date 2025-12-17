@@ -85,6 +85,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //         ],
  * //         RoleArn: "STRING_VALUE", // required
  * //         Url: "STRING_VALUE", // required
+ * //         CertificateArn: "STRING_VALUE",
  * //       },
  * //     },
  * //   },
@@ -345,6 +346,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  *       },
  *       KeyRotationIntervalSeconds: 300,
  *       SpekeKeyProvider: {
+ *         CertificateArn: "arn:aws:acm:us-west-2:123456789012:certificate/0c6a65f1-7bd3-48ac-be17-f38675def22e",
  *         DrmSystems: [
  *           "CLEAR_KEY_AES_128"
  *         ],
