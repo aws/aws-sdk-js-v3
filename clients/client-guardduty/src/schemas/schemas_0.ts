@@ -249,6 +249,7 @@ const _DPDRes = "DescribePublishingDestinationRequest";
 const _DPDResc = "DescribePublishingDestinationResponse";
 const _DPDe = "DescribePublishingDestination";
 const _DRA = "DnsRequestAction";
+const _DRI = "DbiResourceId";
 const _DS = "DataSources";
 const _DSC = "DataSourceConfigurations";
 const _DSCR = "DataSourceConfigurationsResult";
@@ -1147,6 +1148,7 @@ const _dL = "dnsLogs";
 const _dN = "deviceName";
 const _dP = "destinationProperties";
 const _dRA = "dnsRequestAction";
+const _dRI = "dbiResourceId";
 const _dS = "dataSources";
 const _dSGA = "dbShardGroupArn";
 const _dSGI = "dbShardGroupIdentifier";
@@ -4836,13 +4838,14 @@ export var RdsDbInstanceDetails$: StaticStructureSchema = [
   n0,
   _RDID,
   0,
-  [_DII, _Eng, _EVn, _DCI, _DIA, _Ta],
+  [_DII, _Eng, _EVn, _DCI, _DIA, _DRI, _Ta],
   [
     [0, { [_jN]: _dII }],
     [0, { [_jN]: _eng }],
     [0, { [_jN]: _eVn }],
     [0, { [_jN]: _dCI }],
     [0, { [_jN]: _dIA }],
+    [0, { [_jN]: _dRI }],
     [() => Tags, { [_jN]: _ta }],
   ],
 ];

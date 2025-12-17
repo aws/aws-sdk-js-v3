@@ -6578,6 +6578,13 @@ export interface RdsDbInstanceDetails {
   DbInstanceArn?: string | undefined;
 
   /**
+   * <p>The unique ID of the database resource involved in the activity that prompted GuardDuty
+   *       to generate the finding.</p>
+   * @public
+   */
+  DbiResourceId?: string | undefined;
+
+  /**
    * <p>Information about the tag key-value pairs.</p>
    * @public
    */

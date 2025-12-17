@@ -351,6 +351,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //           EngineVersion: "STRING_VALUE",
  * //           DbClusterIdentifier: "STRING_VALUE",
  * //           DbInstanceArn: "STRING_VALUE",
+ * //           DbiResourceId: "STRING_VALUE",
  * //           Tags: "<Tags>",
  * //         },
  * //         RdsLimitlessDbDetails: { // RdsLimitlessDbDetails
