@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.954.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.953.0...v3.954.0) (2025-12-17)
+
+
+### Features
+
+* **client-kafkaconnect:** Support dual-stack network connectivity for connectors via NetworkType field. ([04719ac](https://github.com/aws/aws-sdk-js-v3/commit/04719ac2e0176d907b37c0c554311865273071be))
+
+
+
+
+
 # [3.953.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.952.0...v3.953.0) (2025-12-16)
 
 

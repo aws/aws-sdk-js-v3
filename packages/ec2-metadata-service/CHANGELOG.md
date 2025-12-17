@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.954.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.953.0...v3.954.0) (2025-12-17)
+
+
+### Features
+
+* **ec2-metadata-service:** add retries for IMDS requests ([#7569](https://github.com/aws/aws-sdk-js-v3/issues/7569)) ([4b9a0ea](https://github.com/aws/aws-sdk-js-v3/commit/4b9a0ea9898dba11faab7292c693dcc7977dd73a))
+
+
+
+
+
 # [3.953.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.952.0...v3.953.0) (2025-12-16)
 
 

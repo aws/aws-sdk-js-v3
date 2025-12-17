@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.954.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.953.0...v3.954.0) (2025-12-17)
+
+
+### Features
+
+* **client-payment-cryptography:** Support for AS2805 standard.  Modifications to import-key and export-key to support AS2805 variants. ([1d7c22e](https://github.com/aws/aws-sdk-js-v3/commit/1d7c22e4e7f3d2d7353a7f67f0cf78c76a1dada4))
+
+
+
+
+
 # [3.953.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.952.0...v3.953.0) (2025-12-16)
 
 

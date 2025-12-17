@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.954.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.953.0...v3.954.0) (2025-12-17)
+
+
+### Features
+
+* **client-gameliftstreams:** Added new stream group operation parameters for scale-on-demand capacity with automatic prewarming. Added new Gen6 stream classes based on the EC2 G6 instance family. Added new StartStreamSession parameter for exposure of real-time performance stats to clients. ([9431651](https://github.com/aws/aws-sdk-js-v3/commit/94316515aa8f71e52792a7fd3105de499e010578))
+* **client-guardduty:** Add support for dbiResourceId in finding. ([5053405](https://github.com/aws/aws-sdk-js-v3/commit/50534058a6a2b60cc80f4ebf70d35f2e63ff9cd6))
+* **client-inspector-scan:** Adds an additional OutputFormat ([fb2ca52](https://github.com/aws/aws-sdk-js-v3/commit/fb2ca52a8c14ef51e470c5ba2f271b1e4239ba1e))
+* **client-kafkaconnect:** Support dual-stack network connectivity for connectors via NetworkType field. ([04719ac](https://github.com/aws/aws-sdk-js-v3/commit/04719ac2e0176d907b37c0c554311865273071be))
+* **client-mediaconvert:** Adds support for tile encoding in HEVC and audio for video overlays. ([010a9f7](https://github.com/aws/aws-sdk-js-v3/commit/010a9f7d96c19dd4ce697cd4ebccad0ad14d3bd3))
+* **client-mediapackagev2:** This release adds support for SPEKE V2 content key encryption in MediaPackage v2 Origin Endpoints. ([988aac9](https://github.com/aws/aws-sdk-js-v3/commit/988aac9d7d868d1753f7c88b1460d15554ef9eb3))
+* **client-payment-cryptography-data:** Support for AS2805 standard.  New API GenerateAs2805KekValidation and changes to translate pin, GenerateMac and VerifyMac to support AS2805 key variants. ([fc2784b](https://github.com/aws/aws-sdk-js-v3/commit/fc2784b4979ad6f0ea507d9088ec78a06a7d0f5b))
+* **client-payment-cryptography:** Support for AS2805 standard.  Modifications to import-key and export-key to support AS2805 variants. ([1d7c22e](https://github.com/aws/aws-sdk-js-v3/commit/1d7c22e4e7f3d2d7353a7f67f0cf78c76a1dada4))
+* **client-sagemaker:** Adding the newly launched p6-b300.48xlarge ec2  instance support in Sagemaker(Hyperpod,Training and Sceptor) ([9833262](https://github.com/aws/aws-sdk-js-v3/commit/9833262e2c53ad137d73d6f163d18fc052244021))
+* **clients:** update client endpoints as of 2025-12-17 ([cf14f27](https://github.com/aws/aws-sdk-js-v3/commit/cf14f274215904ccfa31cced2508fa17ca287637))
+* **ec2-metadata-service:** add retries for IMDS requests ([#7569](https://github.com/aws/aws-sdk-js-v3/issues/7569)) ([4b9a0ea](https://github.com/aws/aws-sdk-js-v3/commit/4b9a0ea9898dba11faab7292c693dcc7977dd73a))
+
+
+
+
+
 # [3.953.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.952.0...v3.953.0) (2025-12-16)
 
 

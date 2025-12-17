@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.954.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.953.0...v3.954.0) (2025-12-17)
+
+
+### Features
+
+* **client-mediaconvert:** Adds support for tile encoding in HEVC and audio for video overlays. ([010a9f7](https://github.com/aws/aws-sdk-js-v3/commit/010a9f7d96c19dd4ce697cd4ebccad0ad14d3bd3))
+
+
+
+
+
 # [3.953.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.952.0...v3.953.0) (2025-12-16)
 
 

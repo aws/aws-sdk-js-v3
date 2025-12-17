@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-restjson-validation-server",
   "description": "@aws-sdk/aws-restjson-validation-server server",
-  "version": "3.953.0",
+  "version": "3.954.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",
