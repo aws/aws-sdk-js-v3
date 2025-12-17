@@ -26,7 +26,7 @@ plugins {
     checkstyle
     jacoco
     id("com.github.spotbugs") version "6.3.0"
-    id("org.jreleaser") version "1.20.0"
+    id("org.jreleaser") version "1.21.0"
     id("com.diffplug.spotless") version "8.1.0"
 }
 
