@@ -839,6 +839,7 @@ const _en = "endpoint";
 const _et = "encoding-type";
 const _fo = "fetch-owner";
 const _h = "http";
+const _hC = "httpChecksum";
 const _hE = "httpError";
 const _hH = "httpHeader";
 const _hL = "hostLabel";
@@ -4638,7 +4639,7 @@ export var CreateBucketMetadataConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _CBMC,
-  { [_h]: ["POST", "/?metadataConfiguration", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["POST", "/?metadataConfiguration", 200] },
   () => CreateBucketMetadataConfigurationRequest$,
   () => __Unit,
 ];
@@ -4646,7 +4647,7 @@ export var CreateBucketMetadataTableConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _CBMTC,
-  { [_h]: ["POST", "/?metadataTable", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["POST", "/?metadataTable", 200] },
   () => CreateBucketMetadataTableConfigurationRequest$,
   () => __Unit,
 ];
@@ -4798,7 +4799,7 @@ export var DeleteObjects$: StaticOperationSchema = [
   9,
   n0,
   _DOele,
-  { [_h]: ["POST", "/?delete", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["POST", "/?delete", 200] },
   () => DeleteObjectsRequest$,
   () => DeleteObjectsOutput$,
 ];
@@ -5006,7 +5007,7 @@ export var GetObject$: StaticOperationSchema = [
   9,
   n0,
   _GO,
-  { [_h]: ["GET", "/{Key+}?x-id=GetObject", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["GET", "/{Key+}?x-id=GetObject", 200] },
   () => GetObjectRequest$,
   () => GetObjectOutput$,
 ];
@@ -5182,7 +5183,7 @@ export var PutBucketAbac$: StaticOperationSchema = [
   9,
   n0,
   _PBA,
-  { [_h]: ["PUT", "/?abac", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/?abac", 200] },
   () => PutBucketAbacRequest$,
   () => __Unit,
 ];
@@ -5190,7 +5191,7 @@ export var PutBucketAccelerateConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PBAC,
-  { [_h]: ["PUT", "/?accelerate", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/?accelerate", 200] },
   () => PutBucketAccelerateConfigurationRequest$,
   () => __Unit,
 ];
@@ -5198,7 +5199,7 @@ export var PutBucketAcl$: StaticOperationSchema = [
   9,
   n0,
   _PBAu,
-  { [_h]: ["PUT", "/?acl", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/?acl", 200] },
   () => PutBucketAclRequest$,
   () => __Unit,
 ];
@@ -5214,7 +5215,7 @@ export var PutBucketCors$: StaticOperationSchema = [
   9,
   n0,
   _PBC,
-  { [_h]: ["PUT", "/?cors", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/?cors", 200] },
   () => PutBucketCorsRequest$,
   () => __Unit,
 ];
@@ -5222,7 +5223,7 @@ export var PutBucketEncryption$: StaticOperationSchema = [
   9,
   n0,
   _PBE,
-  { [_h]: ["PUT", "/?encryption", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/?encryption", 200] },
   () => PutBucketEncryptionRequest$,
   () => __Unit,
 ];
@@ -5246,7 +5247,7 @@ export var PutBucketLifecycleConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PBLC,
-  { [_h]: ["PUT", "/?lifecycle", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/?lifecycle", 200] },
   () => PutBucketLifecycleConfigurationRequest$,
   () => PutBucketLifecycleConfigurationOutput$,
 ];
@@ -5254,7 +5255,7 @@ export var PutBucketLogging$: StaticOperationSchema = [
   9,
   n0,
   _PBL,
-  { [_h]: ["PUT", "/?logging", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/?logging", 200] },
   () => PutBucketLoggingRequest$,
   () => __Unit,
 ];
@@ -5278,7 +5279,7 @@ export var PutBucketOwnershipControls$: StaticOperationSchema = [
   9,
   n0,
   _PBOC,
-  { [_h]: ["PUT", "/?ownershipControls", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/?ownershipControls", 200] },
   () => PutBucketOwnershipControlsRequest$,
   () => __Unit,
 ];
@@ -5286,7 +5287,7 @@ export var PutBucketPolicy$: StaticOperationSchema = [
   9,
   n0,
   _PBP,
-  { [_h]: ["PUT", "/?policy", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/?policy", 200] },
   () => PutBucketPolicyRequest$,
   () => __Unit,
 ];
@@ -5294,7 +5295,7 @@ export var PutBucketReplication$: StaticOperationSchema = [
   9,
   n0,
   _PBR,
-  { [_h]: ["PUT", "/?replication", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/?replication", 200] },
   () => PutBucketReplicationRequest$,
   () => __Unit,
 ];
@@ -5302,7 +5303,7 @@ export var PutBucketRequestPayment$: StaticOperationSchema = [
   9,
   n0,
   _PBRP,
-  { [_h]: ["PUT", "/?requestPayment", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/?requestPayment", 200] },
   () => PutBucketRequestPaymentRequest$,
   () => __Unit,
 ];
@@ -5310,7 +5311,7 @@ export var PutBucketTagging$: StaticOperationSchema = [
   9,
   n0,
   _PBT,
-  { [_h]: ["PUT", "/?tagging", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/?tagging", 200] },
   () => PutBucketTaggingRequest$,
   () => __Unit,
 ];
@@ -5318,7 +5319,7 @@ export var PutBucketVersioning$: StaticOperationSchema = [
   9,
   n0,
   _PBV,
-  { [_h]: ["PUT", "/?versioning", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/?versioning", 200] },
   () => PutBucketVersioningRequest$,
   () => __Unit,
 ];
@@ -5326,7 +5327,7 @@ export var PutBucketWebsite$: StaticOperationSchema = [
   9,
   n0,
   _PBW,
-  { [_h]: ["PUT", "/?website", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/?website", 200] },
   () => PutBucketWebsiteRequest$,
   () => __Unit,
 ];
@@ -5334,7 +5335,7 @@ export var PutObject$: StaticOperationSchema = [
   9,
   n0,
   _PO,
-  { [_h]: ["PUT", "/{Key+}?x-id=PutObject", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/{Key+}?x-id=PutObject", 200] },
   () => PutObjectRequest$,
   () => PutObjectOutput$,
 ];
@@ -5342,7 +5343,7 @@ export var PutObjectAcl$: StaticOperationSchema = [
   9,
   n0,
   _POA,
-  { [_h]: ["PUT", "/{Key+}?acl", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/{Key+}?acl", 200] },
   () => PutObjectAclRequest$,
   () => PutObjectAclOutput$,
 ];
@@ -5350,7 +5351,7 @@ export var PutObjectLegalHold$: StaticOperationSchema = [
   9,
   n0,
   _POLH,
-  { [_h]: ["PUT", "/{Key+}?legal-hold", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/{Key+}?legal-hold", 200] },
   () => PutObjectLegalHoldRequest$,
   () => PutObjectLegalHoldOutput$,
 ];
@@ -5358,7 +5359,7 @@ export var PutObjectLockConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _POLC,
-  { [_h]: ["PUT", "/?object-lock", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/?object-lock", 200] },
   () => PutObjectLockConfigurationRequest$,
   () => PutObjectLockConfigurationOutput$,
 ];
@@ -5366,7 +5367,7 @@ export var PutObjectRetention$: StaticOperationSchema = [
   9,
   n0,
   _PORu,
-  { [_h]: ["PUT", "/{Key+}?retention", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/{Key+}?retention", 200] },
   () => PutObjectRetentionRequest$,
   () => PutObjectRetentionOutput$,
 ];
@@ -5374,7 +5375,7 @@ export var PutObjectTagging$: StaticOperationSchema = [
   9,
   n0,
   _POT,
-  { [_h]: ["PUT", "/{Key+}?tagging", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/{Key+}?tagging", 200] },
   () => PutObjectTaggingRequest$,
   () => PutObjectTaggingOutput$,
 ];
@@ -5382,7 +5383,7 @@ export var PutPublicAccessBlock$: StaticOperationSchema = [
   9,
   n0,
   _PPAB,
-  { [_h]: ["PUT", "/?publicAccessBlock", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/?publicAccessBlock", 200] },
   () => PutPublicAccessBlockRequest$,
   () => __Unit,
 ];
@@ -5398,7 +5399,7 @@ export var RestoreObject$: StaticOperationSchema = [
   9,
   n0,
   _ROe,
-  { [_h]: ["POST", "/{Key+}?restore", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["POST", "/{Key+}?restore", 200] },
   () => RestoreObjectRequest$,
   () => RestoreObjectOutput$,
 ];
@@ -5414,7 +5415,7 @@ export var UpdateBucketMetadataInventoryTableConfiguration$: StaticOperationSche
   9,
   n0,
   _UBMITC,
-  { [_h]: ["PUT", "/?metadataInventoryTable", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/?metadataInventoryTable", 200] },
   () => UpdateBucketMetadataInventoryTableConfigurationRequest$,
   () => __Unit,
 ];
@@ -5422,7 +5423,7 @@ export var UpdateBucketMetadataJournalTableConfiguration$: StaticOperationSchema
   9,
   n0,
   _UBMJTC,
-  { [_h]: ["PUT", "/?metadataJournalTable", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/?metadataJournalTable", 200] },
   () => UpdateBucketMetadataJournalTableConfigurationRequest$,
   () => __Unit,
 ];
@@ -5430,7 +5431,7 @@ export var UploadPart$: StaticOperationSchema = [
   9,
   n0,
   _UP,
-  { [_h]: ["PUT", "/{Key+}?x-id=UploadPart", 200] },
+  { [_hC]: /* unhandled trait  `HttpChecksumTrait` */ void 0, [_h]: ["PUT", "/{Key+}?x-id=UploadPart", 200] },
   () => UploadPartRequest$,
   () => UploadPartOutput$,
 ];
