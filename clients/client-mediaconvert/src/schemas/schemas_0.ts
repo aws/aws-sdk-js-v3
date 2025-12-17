@@ -421,6 +421,7 @@ const _II = "Id3Insertion";
 const _III = "ImageInserterInput";
 const _IId = "Id3Insertions";
 const _IIm = "ImageInserter";
+const _IIma = "ImageInput";
 const _IIn = "InsertableImages";
 const _IIns = "InsertableImage";
 const _IM = "InterlaceMode";
@@ -539,6 +540,7 @@ const _MMBT = "MpdManifestBandwidthType";
 const _MMN = "MasteringMonitorNits";
 const _MMS = "ManifestMetadataSignaling";
 const _MNM = "ManifestNameModifier";
+const _MOPB = "MvOverPictureBoundaries";
 const _MP = "MpdProfile";
 const _MPI = "MaxPcrInterval";
 const _MPo = "MoovPlacement";
@@ -562,6 +564,7 @@ const _MSt = "M2tsSettings";
 const _MSu = "M3u8Settings";
 const _MSx = "MxfSettings";
 const _MT = "MimeType";
+const _MTP = "MvTemporalPredictor";
 const _MTRS = "MinTopRenditionSize";
 const _MX = "MccXml";
 const _MXPS = "MxfXavcProfileSettings";
@@ -822,6 +825,7 @@ const _Sy = "Syntax";
 const _T = "Tracks";
 const _TAQ = "TemporalAdaptiveQuantization";
 const _TB = "TimecodeBurnin";
+const _TBS = "TreeBlockSize";
 const _TC = "TerminateCaptions";
 const _TCJ = "TotalConcurrentJobs";
 const _TCi = "TimecodeConfig";
@@ -856,6 +860,7 @@ const _TMr = "TrackMappings";
 const _TMra = "TrackMapping";
 const _TN = "TrackNumber";
 const _TO = "TimestampOffset";
+const _TP = "TilePadding";
 const _TPLT = "TruePeakLimiterThreshold";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
@@ -1291,6 +1296,7 @@ const _iI = "insertableImages";
 const _iII = "imageInserterInput";
 const _iId = "id3Insertions";
 const _iIm = "imageInserter";
+const _iIma = "imageInput";
 const _iM = "interlaceMode";
 const _iML = "inputMasteringLuminance";
 const _iMn = "insertionMode";
@@ -1424,6 +1430,7 @@ const _mOAS = "__mapOfAudioSelector";
 const _mOASG = "__mapOfAudioSelectorGroup";
 const _mOCS = "__mapOfCaptionSelector";
 const _mODAS = "__mapOfDynamicAudioSelector";
+const _mOPB = "mvOverPictureBoundaries";
 const _mP = "mpdProfile";
 const _mPI = "maxPcrInterval";
 const _mPo = "moovPlacement";
@@ -1444,6 +1451,7 @@ const _mSt = "m2tsSettings";
 const _mSu = "m3u8Settings";
 const _mSx = "mxfSettings";
 const _mT = "mimeType";
+const _mTP = "mvTemporalPredictor";
 const _mTRS = "minTopRenditionSize";
 const _mX = "mccXml";
 const _mYUV = "maximumYUV";
@@ -1671,6 +1679,7 @@ const _sy = "syntax";
 const _t = "tracks";
 const _tAQ = "temporalAdaptiveQuantization";
 const _tB = "timecodeBurnin";
+const _tBS = "treeBlockSize";
 const _tC = "terminateCaptions";
 const _tCJ = "totalConcurrentJobs";
 const _tCi = "timecodeConfig";
@@ -1703,6 +1712,7 @@ const _tMV = "timedMetadataValue";
 const _tMr = "trackMappings";
 const _tN = "trackNumber";
 const _tO = "timestampOffset";
+const _tP = "tilePadding";
 const _tPLT = "truePeakLimiterThreshold";
 const _tS = "teletextSpacing";
 const _tSI = "transportStreamId";
@@ -3320,6 +3330,8 @@ export var H265Settings$: StaticStructureSchema = [
     _IM,
     _MB,
     _MII,
+    _MOPB,
+    _MTP,
     _NBFBRF,
     _NRF,
     _PCar,
@@ -3338,7 +3350,11 @@ export var H265Settings$: StaticStructureSchema = [
     _Te,
     _TAQ,
     _TIe,
+    _THi,
+    _TP,
+    _TWi,
     _Ti,
+    _TBS,
     _UST,
     _WMPT,
   ],
@@ -3367,6 +3383,8 @@ export var H265Settings$: StaticStructureSchema = [
     [0, { [_jN]: _iM }],
     [1, { [_jN]: _mB }],
     [1, { [_jN]: _mII }],
+    [0, { [_jN]: _mOPB }],
+    [0, { [_jN]: _mTP }],
     [1, { [_jN]: _nBFBRF }],
     [1, { [_jN]: _nRF }],
     [0, { [_jN]: _pCar }],
@@ -3385,7 +3403,11 @@ export var H265Settings$: StaticStructureSchema = [
     [0, { [_jN]: _te }],
     [0, { [_jN]: _tAQ }],
     [0, { [_jN]: _tIe }],
+    [1, { [_jN]: _tHi }],
+    [0, { [_jN]: _tP }],
+    [1, { [_jN]: _tWi }],
     [0, { [_jN]: _ti }],
+    [0, { [_jN]: _tBS }],
     [0, { [_jN]: _uST }],
     [0, { [_jN]: _wMPT }],
   ],
@@ -3784,13 +3806,14 @@ export var InputVideoGenerator$: StaticStructureSchema = [
   n0,
   _IVG,
   0,
-  [_C, _Du, _FD, _FN, _H, _SR, _W],
+  [_C, _Du, _FD, _FN, _H, _IIma, _SR, _W],
   [
     [1, { [_jN]: _c }],
     [1, { [_jN]: _du }],
     [1, { [_jN]: _fD }],
     [1, { [_jN]: _fN }],
     [1, { [_jN]: _h }],
+    [0, { [_jN]: _iIma }],
     [1, { [_jN]: _sR }],
     [1, { [_jN]: _w }],
   ],
@@ -5438,8 +5461,9 @@ export var VideoOverlayInput$: StaticStructureSchema = [
   n0,
   _VOI,
   0,
-  [_FI, _ICn, _TSi, _TSim],
+  [_ASud, _FI, _ICn, _TSi, _TSim],
   [
+    [() => __mapOfAudioSelector, { [_jN]: _aSu }],
     [0, { [_jN]: _fI }],
     [() => __listOfVideoOverlayInputClipping, { [_jN]: _iCn }],
     [0, { [_jN]: _tSi }],

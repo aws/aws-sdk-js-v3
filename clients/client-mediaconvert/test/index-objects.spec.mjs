@@ -378,6 +378,8 @@ import {
   H265GopBReference,
   H265GopSizeUnits,
   H265InterlaceMode,
+  H265MvOverPictureBoundaries,
+  H265MvTemporalPredictor,
   H265ParControl,
   H265QualityTuningLevel,
   H265QvbrSettings$,
@@ -391,7 +393,9 @@ import {
   H265Telecine,
   H265TemporalAdaptiveQuantization,
   H265TemporalIds,
+  H265TilePadding,
   H265Tiles,
+  H265TreeBlockSize,
   H265UnregisteredSeiTimecode,
   H265WriteMp4PackagingType,
   HDRToSDRToneMapper,
@@ -1386,6 +1390,8 @@ assert(typeof H265FramerateConversionAlgorithm === "object");
 assert(typeof H265GopBReference === "object");
 assert(typeof H265GopSizeUnits === "object");
 assert(typeof H265InterlaceMode === "object");
+assert(typeof H265MvOverPictureBoundaries === "object");
+assert(typeof H265MvTemporalPredictor === "object");
 assert(typeof H265ParControl === "object");
 assert(typeof H265QualityTuningLevel === "object");
 assert(typeof H265RateControlMode === "object");
@@ -1397,7 +1403,9 @@ assert(typeof H265SpatialAdaptiveQuantization === "object");
 assert(typeof H265Telecine === "object");
 assert(typeof H265TemporalAdaptiveQuantization === "object");
 assert(typeof H265TemporalIds === "object");
+assert(typeof H265TilePadding === "object");
 assert(typeof H265Tiles === "object");
+assert(typeof H265TreeBlockSize === "object");
 assert(typeof H265UnregisteredSeiTimecode === "object");
 assert(typeof H265WriteMp4PackagingType === "object");
 assert(typeof HDRToSDRToneMapper === "object");
