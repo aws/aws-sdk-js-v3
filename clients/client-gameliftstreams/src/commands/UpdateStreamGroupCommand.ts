@@ -31,7 +31,7 @@ export interface UpdateStreamGroupCommandInput extends UpdateStreamGroupInput {}
 export interface UpdateStreamGroupCommandOutput extends UpdateStreamGroupOutput, __MetadataBearer {}
 
 /**
- * <p> Updates the configuration settings for an Amazon GameLift Streams stream group resource. To update a stream group, it must be in <code>ACTIVE</code> status. You can change the description, the set of locations, and the requested capacity of a stream group per location. If you want to change the stream class, create a new stream group. </p> <p> Stream capacity represents the number of concurrent streams that can be active at a time. You set stream capacity per location, per stream group. There are two types of capacity, always-on and on-demand: </p> <ul> <li> <p> <b>Always-on</b>: The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session. Default is 1 (2 for high stream classes) when creating a stream group or adding a location. </p> </li> <li> <p> <b>On-demand</b>: The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes). Default is 0 when creating a stream group or adding a location. </p> </li> </ul> <p>Values for capacity must be whole number multiples of the tenancy value of the stream group's stream class.</p> <p>To update a stream group, specify the stream group's Amazon Resource Name (ARN) and provide the new values. If the request is successful, Amazon GameLift Streams returns the complete updated metadata for the stream group. Expired stream groups cannot be updated.</p>
+ * <p> Updates the configuration settings for an Amazon GameLift Streams stream group resource. To update a stream group, it must be in <code>ACTIVE</code> status. You can change the description, the set of locations, and the requested capacity of a stream group per location. If you want to change the stream class, create a new stream group. </p> <p> Stream capacity represents the number of concurrent streams that can be active at a time. You set stream capacity per location, per stream group. The following capacity settings are available: </p> <ul> <li> <p> <b>Always-on capacity</b>: This setting, if non-zero, indicates minimum streaming capacity which is allocated to you and is never released back to the service. You pay for this base level of capacity at all times, whether used or idle. </p> </li> <li> <p> <b>Maximum capacity</b>: This indicates the maximum capacity that the service can allocate for you. Newly created streams may take a few minutes to start. Capacity is released back to the service when idle. You pay for capacity that is allocated to you until it is released. </p> </li> <li> <p> <b>Target-idle capacity</b>: This indicates idle capacity which the service pre-allocates and holds for you in anticipation of future activity. This helps to insulate your users from capacity-allocation delays. You pay for capacity which is held in this intentional idle state. </p> </li> </ul> <p>Values for capacity must be whole number multiples of the tenancy value of the stream group's stream class.</p> <p>To update a stream group, specify the stream group's Amazon Resource Name (ARN) and provide the new values. If the request is successful, Amazon GameLift Streams returns the complete updated metadata for the stream group. Expired stream groups cannot be updated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,6 +47,8 @@ export interface UpdateStreamGroupCommandOutput extends UpdateStreamGroupOutput,
  *       LocationName: "STRING_VALUE", // required
  *       AlwaysOnCapacity: Number("int"),
  *       OnDemandCapacity: Number("int"),
+ *       TargetIdleCapacity: Number("int"),
+ *       MaximumCapacity: Number("int"),
  *     },
  *   ],
  *   Description: "STRING_VALUE",
@@ -67,12 +69,14 @@ export interface UpdateStreamGroupCommandOutput extends UpdateStreamGroupOutput,
  * //       Status: "ACTIVATING" || "ACTIVE" || "ERROR" || "REMOVING",
  * //       AlwaysOnCapacity: Number("int"),
  * //       OnDemandCapacity: Number("int"),
+ * //       TargetIdleCapacity: Number("int"),
+ * //       MaximumCapacity: Number("int"),
  * //       RequestedCapacity: Number("int"),
  * //       AllocatedCapacity: Number("int"),
  * //       IdleCapacity: Number("int"),
  * //     },
  * //   ],
- * //   StreamClass: "gen4n_high" || "gen4n_ultra" || "gen4n_win2022" || "gen5n_high" || "gen5n_ultra" || "gen5n_win2022",
+ * //   StreamClass: "gen4n_high" || "gen4n_ultra" || "gen4n_win2022" || "gen5n_high" || "gen5n_ultra" || "gen5n_win2022" || "gen6n_small" || "gen6n_medium" || "gen6n_high" || "gen6n_ultra" || "gen6n_ultra_win2022" || "gen6n_pro" || "gen6n_pro_win2022",
  * //   Id: "STRING_VALUE",
  * //   Status: "ACTIVATING" || "UPDATING_LOCATIONS" || "ACTIVE" || "ACTIVE_WITH_ERRORS" || "ERROR" || "DELETING" || "EXPIRED",
  * //   StatusReason: "internalError" || "noAvailableInstances",

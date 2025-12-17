@@ -123,6 +123,7 @@ export type {
   ListTagsForResourceResponse,
   LocationConfiguration,
   LocationState,
+  PerformanceStatsConfiguration,
   RemoveStreamGroupLocationsInput,
   ReplicationStatus,
   RuntimeEnvironment,

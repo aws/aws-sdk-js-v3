@@ -82,6 +82,7 @@ import {
   ListTagsForResourceResponse$,
   LocationConfiguration$,
   LocationState$,
+  PerformanceStatsConfiguration$,
   Protocol,
   RemoveStreamGroupLocations$,
   RemoveStreamGroupLocationsCommand,
@@ -235,6 +236,7 @@ assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof LocationConfiguration$ === "object");
 assert(typeof LocationState$ === "object");
+assert(typeof PerformanceStatsConfiguration$ === "object");
 assert(typeof RemoveStreamGroupLocationsInput$ === "object");
 assert(typeof ReplicationStatus$ === "object");
 assert(typeof RuntimeEnvironment$ === "object");

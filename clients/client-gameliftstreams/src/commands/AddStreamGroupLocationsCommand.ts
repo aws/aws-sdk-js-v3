@@ -47,6 +47,8 @@ export interface AddStreamGroupLocationsCommandOutput extends AddStreamGroupLoca
  *       LocationName: "STRING_VALUE", // required
  *       AlwaysOnCapacity: Number("int"),
  *       OnDemandCapacity: Number("int"),
+ *       TargetIdleCapacity: Number("int"),
+ *       MaximumCapacity: Number("int"),
  *     },
  *   ],
  * };
@@ -60,6 +62,8 @@ export interface AddStreamGroupLocationsCommandOutput extends AddStreamGroupLoca
  * //       Status: "ACTIVATING" || "ACTIVE" || "ERROR" || "REMOVING",
  * //       AlwaysOnCapacity: Number("int"),
  * //       OnDemandCapacity: Number("int"),
+ * //       TargetIdleCapacity: Number("int"),
+ * //       MaximumCapacity: Number("int"),
  * //       RequestedCapacity: Number("int"),
  * //       AllocatedCapacity: Number("int"),
  * //       IdleCapacity: Number("int"),

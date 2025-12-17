@@ -59,6 +59,9 @@ export interface StartStreamSessionCommandOutput extends StartStreamSessionOutpu
  *   AdditionalEnvironmentVariables: { // EnvironmentVariables
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   PerformanceStatsConfiguration: { // PerformanceStatsConfiguration
+ *     SharedWithClient: true || false,
+ *   },
  * };
  * const command = new StartStreamSessionCommand(input);
  * const response = await client.send(command);
@@ -80,6 +83,9 @@ export interface StartStreamSessionCommandOutput extends StartStreamSessionOutpu
  * //   ],
  * //   AdditionalEnvironmentVariables: { // EnvironmentVariables
  * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   PerformanceStatsConfiguration: { // PerformanceStatsConfiguration
+ * //     SharedWithClient: true || false,
  * //   },
  * //   LogFileLocationUri: "STRING_VALUE",
  * //   WebSdkProtocolUrl: "STRING_VALUE",

@@ -65,6 +65,9 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionOutput, _
  * //   AdditionalEnvironmentVariables: { // EnvironmentVariables
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   PerformanceStatsConfiguration: { // PerformanceStatsConfiguration
+ * //     SharedWithClient: true || false,
+ * //   },
  * //   LogFileLocationUri: "STRING_VALUE",
  * //   WebSdkProtocolUrl: "STRING_VALUE",
  * //   LastUpdatedAt: new Date("TIMESTAMP"),

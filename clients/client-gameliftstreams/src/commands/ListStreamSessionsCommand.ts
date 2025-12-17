@@ -55,6 +55,7 @@ export interface ListStreamSessionsCommandOutput extends ListStreamSessionsOutpu
  * //       Arn: "STRING_VALUE",
  * //       UserId: "STRING_VALUE",
  * //       Status: "ACTIVATING" || "ACTIVE" || "CONNECTED" || "PENDING_CLIENT_RECONNECTION" || "RECONNECTING" || "TERMINATING" || "TERMINATED" || "ERROR",
+ * //       StatusReason: "internalError" || "invalidSignalRequest" || "placementTimeout" || "applicationLogS3DestinationError" || "applicationExit" || "connectionTimeout" || "reconnectionTimeout" || "maxSessionLengthTimeout" || "idleTimeout" || "apiTerminated",
  * //       Protocol: "WebRTC",
  * //       LastUpdatedAt: new Date("TIMESTAMP"),
  * //       CreatedAt: new Date("TIMESTAMP"),

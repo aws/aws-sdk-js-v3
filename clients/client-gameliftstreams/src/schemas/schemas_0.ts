@@ -90,11 +90,13 @@ const _LTFRRi = "ListTagsForResourceResponse";
 const _LUA = "LastUpdatedAt";
 const _Lo = "Location";
 const _M = "Message";
+const _MC = "MaximumCapacity";
 const _MR = "MaxResults";
 const _NT = "NextToken";
 const _ODC = "OnDemandCapacity";
 const _OU = "OutputUri";
 const _P = "Protocol";
+const _PSC = "PerformanceStatsConfiguration";
 const _RA = "ResourceArn";
 const _RC = "RequestedCapacity";
 const _RE = "RuntimeEnvironment";
@@ -119,8 +121,10 @@ const _SSSI = "StartStreamSessionInput";
 const _SSSL = "StreamSessionSummaryList";
 const _SSSO = "StartStreamSessionOutput";
 const _SSSt = "StartStreamSession";
+const _SWC = "SharedWithClient";
 const _T = "Tags";
 const _TE = "ThrottlingException";
+const _TIC = "TargetIdleCapacity";
 const _TK = "TagKeys";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
@@ -309,7 +313,7 @@ export var GetStreamSessionOutput$: StaticStructureSchema = [
   n0,
   _GSSO,
   0,
-  [_A, _D, _SGI, _UI, _S, _SRt, _P, _Lo, _SR, _SRi, _CTS, _SLS, _ALA, _AEV, _LFLU, _WSPU, _LUA, _CA, _AAp, _EFM],
+  [_A, _D, _SGI, _UI, _S, _SRt, _P, _Lo, _SR, _SRi, _CTS, _SLS, _ALA, _AEV, _PSC, _LFLU, _WSPU, _LUA, _CA, _AAp, _EFM],
   [
     0,
     0,
@@ -325,6 +329,7 @@ export var GetStreamSessionOutput$: StaticStructureSchema = [
     1,
     64 | 0,
     128 | 0,
+    () => PerformanceStatsConfiguration$,
     0,
     0,
     4,
@@ -418,15 +423,23 @@ export var ListStreamSessionsOutput$: StaticStructureSchema = [
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RA], [[0, 1]]];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [128 | 0]];
-export var LocationConfiguration$: StaticStructureSchema = [3, n0, _LCo, 0, [_LN, _AOC, _ODC], [0, 1, 1]];
+export var LocationConfiguration$: StaticStructureSchema = [
+  3,
+  n0,
+  _LCo,
+  0,
+  [_LN, _AOC, _ODC, _TIC, _MC],
+  [0, 1, 1, 1, 1],
+];
 export var LocationState$: StaticStructureSchema = [
   3,
   n0,
   _LSo,
   0,
-  [_LN, _S, _AOC, _ODC, _RC, _AC, _IC],
-  [0, 0, 1, 1, 1, 1, 1],
+  [_LN, _S, _AOC, _ODC, _TIC, _MC, _RC, _AC, _IC],
+  [0, 0, 1, 1, 1, 1, 1, 1, 1],
 ];
+export var PerformanceStatsConfiguration$: StaticStructureSchema = [3, n0, _PSC, 0, [_SWC], [2]];
 export var RemoveStreamGroupLocationsInput$: StaticStructureSchema = [
   3,
   n0,
@@ -449,15 +462,29 @@ export var StartStreamSessionInput$: StaticStructureSchema = [
   n0,
   _SSSI,
   0,
-  [_CT, _D, _I, _P, _SR, _AIp, _UI, _L, _CTS, _SLS, _ALA, _AEV],
-  [[0, 4], 0, [0, 1], 0, [() => SignalRequest, 0], 0, 0, 64 | 0, 1, 1, 64 | 0, 128 | 0],
+  [_CT, _D, _I, _P, _SR, _AIp, _UI, _L, _CTS, _SLS, _ALA, _AEV, _PSC],
+  [
+    [0, 4],
+    0,
+    [0, 1],
+    0,
+    [() => SignalRequest, 0],
+    0,
+    0,
+    64 | 0,
+    1,
+    1,
+    64 | 0,
+    128 | 0,
+    () => PerformanceStatsConfiguration$,
+  ],
 ];
 export var StartStreamSessionOutput$: StaticStructureSchema = [
   3,
   n0,
   _SSSO,
   0,
-  [_A, _D, _SGI, _UI, _S, _SRt, _P, _Lo, _SR, _SRi, _CTS, _SLS, _ALA, _AEV, _LFLU, _WSPU, _LUA, _CA, _AAp, _EFM],
+  [_A, _D, _SGI, _UI, _S, _SRt, _P, _Lo, _SR, _SRi, _CTS, _SLS, _ALA, _AEV, _PSC, _LFLU, _WSPU, _LUA, _CA, _AAp, _EFM],
   [
     0,
     0,
@@ -473,6 +500,7 @@ export var StartStreamSessionOutput$: StaticStructureSchema = [
     1,
     64 | 0,
     128 | 0,
+    () => PerformanceStatsConfiguration$,
     0,
     0,
     4,
@@ -494,8 +522,8 @@ export var StreamSessionSummary$: StaticStructureSchema = [
   n0,
   _SSS,
   0,
-  [_A, _UI, _S, _P, _LUA, _CA, _AAp, _EFM, _Lo],
-  [0, 0, 0, 0, 4, 4, 0, () => ExportFilesMetadata$, 0],
+  [_A, _UI, _S, _SRt, _P, _LUA, _CA, _AAp, _EFM, _Lo],
+  [0, 0, 0, 0, 0, 4, 4, 0, () => ExportFilesMetadata$, 0],
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _T], [[0, 1], 128 | 0]];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
