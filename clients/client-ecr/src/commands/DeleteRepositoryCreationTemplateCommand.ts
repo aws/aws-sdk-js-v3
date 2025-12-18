@@ -71,7 +71,7 @@ export interface DeleteRepositoryCreationTemplateCommandOutput
  * //     repositoryPolicy: "STRING_VALUE",
  * //     lifecyclePolicy: "STRING_VALUE",
  * //     appliedFor: [ // RCTAppliedForList
- * //       "REPLICATION" || "PULL_THROUGH_CACHE",
+ * //       "REPLICATION" || "PULL_THROUGH_CACHE" || "CREATE_ON_PUSH",
  * //     ],
  * //     customRoleArn: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),

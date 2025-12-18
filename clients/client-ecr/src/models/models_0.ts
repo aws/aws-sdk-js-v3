@@ -979,8 +979,8 @@ export interface CreateRepositoryCreationTemplateRequest {
 
   /**
    * <p>A list of enumerable strings representing the Amazon ECR repository creation scenarios that
-   *             this template will apply towards. The two supported scenarios are
-   *                 <code>PULL_THROUGH_CACHE</code> and <code>REPLICATION</code>
+   *             this template will apply towards. The supported scenarios are
+   *                 <code>PULL_THROUGH_CACHE</code>, <code>REPLICATION</code>, and <code>CREATE_ON_PUSH</code>
    *          </p>
    * @public
    */
@@ -1060,8 +1060,8 @@ export interface RepositoryCreationTemplate {
 
   /**
    * <p>A list of enumerable Strings representing the repository creation scenarios that this
-   *             template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and
-   *             REPLICATION</p>
+   *             template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and
+   *             CREATE_ON_PUSH</p>
    * @public
    */
   appliedFor?: RCTAppliedFor[] | undefined;
@@ -4652,8 +4652,8 @@ export interface UpdateRepositoryCreationTemplateRequest {
 
   /**
    * <p>Updates the list of enumerable strings representing the Amazon ECR repository creation
-   *             scenarios that this template will apply towards. The two supported scenarios are
-   *                 <code>PULL_THROUGH_CACHE</code> and <code>REPLICATION</code>
+   *             scenarios that this template will apply towards. The supported scenarios are
+   *                 <code>PULL_THROUGH_CACHE</code>, <code>REPLICATION</code>, and <code>CREATE_ON_PUSH</code>
    *          </p>
    * @public
    */

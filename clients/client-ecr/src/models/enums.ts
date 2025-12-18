@@ -154,6 +154,7 @@ export type ImageTagMutabilityExclusionFilterType =
  * @enum
  */
 export const RCTAppliedFor = {
+  CREATE_ON_PUSH: "CREATE_ON_PUSH",
   PULL_THROUGH_CACHE: "PULL_THROUGH_CACHE",
   REPLICATION: "REPLICATION",
 } as const;
