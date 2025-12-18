@@ -275,6 +275,7 @@ export const DatabaseStatus = {
   RUNNING: "RUNNING",
   STARTING: "STARTING",
   STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
   UNKNOWN: "UNKNOWN",
   WARNING: "WARNING",
 } as const;

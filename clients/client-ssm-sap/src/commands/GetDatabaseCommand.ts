@@ -59,7 +59,7 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
  * //     DatabaseName: "STRING_VALUE",
  * //     DatabaseType: "SYSTEM" || "TENANT",
  * //     Arn: "STRING_VALUE",
- * //     Status: "RUNNING" || "STARTING" || "STOPPED" || "WARNING" || "UNKNOWN" || "ERROR",
+ * //     Status: "RUNNING" || "STARTING" || "STOPPED" || "WARNING" || "UNKNOWN" || "ERROR" || "STOPPING",
  * //     PrimaryHost: "STRING_VALUE",
  * //     SQLPort: Number("int"),
  * //     LastUpdated: new Date("TIMESTAMP"),
