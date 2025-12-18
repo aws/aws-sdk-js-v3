@@ -3,6 +3,23 @@
  * @public
  * @enum
  */
+export const BlueprintOptimizationJobStatus = {
+  CLIENT_ERROR: "ClientError",
+  CREATED: "Created",
+  IN_PROGRESS: "InProgress",
+  SERVICE_ERROR: "ServiceError",
+  SUCCESS: "Success",
+} as const;
+/**
+ * @public
+ */
+export type BlueprintOptimizationJobStatus =
+  (typeof BlueprintOptimizationJobStatus)[keyof typeof BlueprintOptimizationJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const BlueprintStage = {
   DEVELOPMENT: "DEVELOPMENT",
   LIVE: "LIVE",

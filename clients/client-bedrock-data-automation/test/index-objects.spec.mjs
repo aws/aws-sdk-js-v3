@@ -17,12 +17,20 @@ import {
   Blueprint$,
   BlueprintFilter$,
   BlueprintItem$,
+  BlueprintOptimizationJobStatus,
+  BlueprintOptimizationObject$,
+  BlueprintOptimizationOutputConfiguration$,
+  BlueprintOptimizationSample$,
   BlueprintStage,
   BlueprintStageFilter,
   BlueprintSummary$,
   ChannelLabelingConfiguration$,
   ConflictException,
   ConflictException$,
+  CopyBlueprintStage$,
+  CopyBlueprintStageCommand,
+  CopyBlueprintStageRequest$,
+  CopyBlueprintStageResponse$,
   CreateBlueprint$,
   CreateBlueprintCommand,
   CreateBlueprintRequest$,
@@ -66,6 +74,10 @@ import {
   EncryptionConfiguration$,
   GetBlueprint$,
   GetBlueprintCommand,
+  GetBlueprintOptimizationStatus$,
+  GetBlueprintOptimizationStatusCommand,
+  GetBlueprintOptimizationStatusRequest$,
+  GetBlueprintOptimizationStatusResponse$,
   GetBlueprintRequest$,
   GetBlueprintResponse$,
   GetDataAutomationProject$,
@@ -82,6 +94,10 @@ import {
   ImageStandardOutputConfiguration$,
   InternalServerException,
   InternalServerException$,
+  InvokeBlueprintOptimizationAsync$,
+  InvokeBlueprintOptimizationAsyncCommand,
+  InvokeBlueprintOptimizationAsyncRequest$,
+  InvokeBlueprintOptimizationAsyncResponse$,
   Language,
   ListBlueprints$,
   ListBlueprintsCommand,
@@ -104,6 +120,7 @@ import {
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResourceOwner,
+  S3Object$,
   SensitiveDataConfiguration$,
   SensitiveDataDetectionMode,
   SensitiveDataDetectionScopeType,
@@ -153,6 +170,8 @@ import assert from "node:assert";
 assert(typeof BedrockDataAutomationClient === "function");
 assert(typeof BedrockDataAutomation === "function");
 // commands
+assert(typeof CopyBlueprintStageCommand === "function");
+assert(typeof CopyBlueprintStage$ === "object");
 assert(typeof CreateBlueprintCommand === "function");
 assert(typeof CreateBlueprint$ === "object");
 assert(typeof CreateBlueprintVersionCommand === "function");
@@ -165,8 +184,12 @@ assert(typeof DeleteDataAutomationProjectCommand === "function");
 assert(typeof DeleteDataAutomationProject$ === "object");
 assert(typeof GetBlueprintCommand === "function");
 assert(typeof GetBlueprint$ === "object");
+assert(typeof GetBlueprintOptimizationStatusCommand === "function");
+assert(typeof GetBlueprintOptimizationStatus$ === "object");
 assert(typeof GetDataAutomationProjectCommand === "function");
 assert(typeof GetDataAutomationProject$ === "object");
+assert(typeof InvokeBlueprintOptimizationAsyncCommand === "function");
+assert(typeof InvokeBlueprintOptimizationAsync$ === "object");
 assert(typeof ListBlueprintsCommand === "function");
 assert(typeof ListBlueprints$ === "object");
 assert(typeof ListDataAutomationProjectsCommand === "function");
@@ -192,8 +215,13 @@ assert(typeof AudioStandardOutputConfiguration$ === "object");
 assert(typeof Blueprint$ === "object");
 assert(typeof BlueprintFilter$ === "object");
 assert(typeof BlueprintItem$ === "object");
+assert(typeof BlueprintOptimizationObject$ === "object");
+assert(typeof BlueprintOptimizationOutputConfiguration$ === "object");
+assert(typeof BlueprintOptimizationSample$ === "object");
 assert(typeof BlueprintSummary$ === "object");
 assert(typeof ChannelLabelingConfiguration$ === "object");
+assert(typeof CopyBlueprintStageRequest$ === "object");
+assert(typeof CopyBlueprintStageResponse$ === "object");
 assert(typeof CreateBlueprintRequest$ === "object");
 assert(typeof CreateBlueprintResponse$ === "object");
 assert(typeof CreateBlueprintVersionRequest$ === "object");
@@ -218,6 +246,8 @@ assert(typeof DocumentStandardExtraction$ === "object");
 assert(typeof DocumentStandardGenerativeField$ === "object");
 assert(typeof DocumentStandardOutputConfiguration$ === "object");
 assert(typeof EncryptionConfiguration$ === "object");
+assert(typeof GetBlueprintOptimizationStatusRequest$ === "object");
+assert(typeof GetBlueprintOptimizationStatusResponse$ === "object");
 assert(typeof GetBlueprintRequest$ === "object");
 assert(typeof GetBlueprintResponse$ === "object");
 assert(typeof GetDataAutomationProjectRequest$ === "object");
@@ -228,6 +258,8 @@ assert(typeof ImageOverrideConfiguration$ === "object");
 assert(typeof ImageStandardExtraction$ === "object");
 assert(typeof ImageStandardGenerativeField$ === "object");
 assert(typeof ImageStandardOutputConfiguration$ === "object");
+assert(typeof InvokeBlueprintOptimizationAsyncRequest$ === "object");
+assert(typeof InvokeBlueprintOptimizationAsyncResponse$ === "object");
 assert(typeof ListBlueprintsRequest$ === "object");
 assert(typeof ListBlueprintsResponse$ === "object");
 assert(typeof ListDataAutomationProjectsRequest$ === "object");
@@ -238,6 +270,7 @@ assert(typeof ModalityProcessingConfiguration$ === "object");
 assert(typeof ModalityRoutingConfiguration$ === "object");
 assert(typeof OverrideConfiguration$ === "object");
 assert(typeof PIIEntitiesConfiguration$ === "object");
+assert(typeof S3Object$ === "object");
 assert(typeof SensitiveDataConfiguration$ === "object");
 assert(typeof SpeakerLabelingConfiguration$ === "object");
 assert(typeof SplitterConfiguration$ === "object");
@@ -263,6 +296,7 @@ assert(typeof VideoStandardOutputConfiguration$ === "object");
 assert(typeof AudioExtractionCategoryType === "object");
 assert(typeof AudioGenerativeOutputLanguage === "object");
 assert(typeof AudioStandardGenerativeFieldType === "object");
+assert(typeof BlueprintOptimizationJobStatus === "object");
 assert(typeof BlueprintStage === "object");
 assert(typeof BlueprintStageFilter === "object");
 assert(typeof DataAutomationProjectStage === "object");

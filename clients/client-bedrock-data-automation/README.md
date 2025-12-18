@@ -205,6 +205,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+CopyBlueprintStage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-data-automation/command/CopyBlueprintStageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-data-automation/Interface/CopyBlueprintStageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-data-automation/Interface/CopyBlueprintStageCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateBlueprint
 </summary>
 
@@ -253,10 +261,26 @@ GetBlueprint
 </details>
 <details>
 <summary>
+GetBlueprintOptimizationStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-data-automation/command/GetBlueprintOptimizationStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-data-automation/Interface/GetBlueprintOptimizationStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-data-automation/Interface/GetBlueprintOptimizationStatusCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetDataAutomationProject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-data-automation/command/GetDataAutomationProjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-data-automation/Interface/GetDataAutomationProjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-data-automation/Interface/GetDataAutomationProjectCommandOutput/)
+
+</details>
+<details>
+<summary>
+InvokeBlueprintOptimizationAsync
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-data-automation/command/InvokeBlueprintOptimizationAsyncCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-data-automation/Interface/InvokeBlueprintOptimizationAsyncCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-data-automation/Interface/InvokeBlueprintOptimizationAsyncCommandOutput/)
 
 </details>
 <details>

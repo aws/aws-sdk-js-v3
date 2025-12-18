@@ -75,6 +75,19 @@ export interface CreateBlueprintCommandOutput extends CreateBlueprintResponse, _
  * //     kmsEncryptionContext: { // KmsEncryptionContext
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     optimizationSamples: [ // BlueprintOptimizationSamples
+ * //       { // BlueprintOptimizationSample
+ * //         assetS3Object: { // S3Object
+ * //           s3Uri: "STRING_VALUE", // required
+ * //           version: "STRING_VALUE",
+ * //         },
+ * //         groundTruthS3Object: {
+ * //           s3Uri: "STRING_VALUE", // required
+ * //           version: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     optimizationTime: new Date("TIMESTAMP"),
  * //   },
  * // };
  *

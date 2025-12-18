@@ -11,12 +11,19 @@ const _BF = "BlueprintFilter";
 const _BI = "BlueprintItem";
 const _BIl = "BlueprintItems";
 const _BN = "BlueprintName";
+const _BOO = "BlueprintOptimizationObject";
+const _BOOC = "BlueprintOptimizationOutputConfiguration";
+const _BOS = "BlueprintOptimizationSample";
+const _BOSl = "BlueprintOptimizationSamples";
 const _BS = "BlueprintSchema";
 const _BSl = "BlueprintSummary";
 const _Bl = "Blueprints";
 const _CB = "CreateBlueprint";
 const _CBR = "CreateBlueprintRequest";
 const _CBRr = "CreateBlueprintResponse";
+const _CBS = "CopyBlueprintStage";
+const _CBSR = "CopyBlueprintStageRequest";
+const _CBSRo = "CopyBlueprintStageResponse";
 const _CBV = "CreateBlueprintVersion";
 const _CBVR = "CreateBlueprintVersionRequest";
 const _CBVRr = "CreateBlueprintVersionResponse";
@@ -49,12 +56,18 @@ const _DSGF = "DocumentStandardGenerativeField";
 const _DSOC = "DocumentStandardOutputConfiguration";
 const _EC = "EncryptionConfiguration";
 const _GB = "GetBlueprint";
+const _GBOS = "GetBlueprintOptimizationStatus";
+const _GBOSR = "GetBlueprintOptimizationStatusRequest";
+const _GBOSRe = "GetBlueprintOptimizationStatusResponse";
 const _GBR = "GetBlueprintRequest";
 const _GBRe = "GetBlueprintResponse";
 const _GDAP = "GetDataAutomationProject";
 const _GDAPR = "GetDataAutomationProjectRequest";
 const _GDAPRe = "GetDataAutomationProjectResponse";
 const _IBB = "ImageBoundingBox";
+const _IBOA = "InvokeBlueprintOptimizationAsync";
+const _IBOAR = "InvokeBlueprintOptimizationAsyncRequest";
+const _IBOARn = "InvokeBlueprintOptimizationAsyncResponse";
 const _IEC = "ImageExtractionCategory";
 const _IOC = "ImageOverrideConfiguration";
 const _ISE = "ImageStandardExtraction";
@@ -78,6 +91,7 @@ const _RNFE = "ResourceNotFoundException";
 const _SC = "SplitterConfiguration";
 const _SDC = "SensitiveDataConfiguration";
 const _SLC = "SpeakerLabelingConfiguration";
+const _SO = "S3Object";
 const _SOC = "StandardOutputConfiguration";
 const _SQEE = "ServiceQuotaExceededException";
 const _T = "Tag";
@@ -107,6 +121,7 @@ const _VSGF = "VideoStandardGenerativeField";
 const _VSOC = "VideoStandardOutputConfiguration";
 const _a = "audio";
 const _aFF = "additionalFileFormat";
+const _aSO = "assetS3Object";
 const _b = "blueprint";
 const _bA = "blueprintArn";
 const _bB = "boundingBox";
@@ -123,19 +138,24 @@ const _cT = "creationTime";
 const _cTl = "clientToken";
 const _ca = "category";
 const _d = "document";
+const _dAPA = "dataAutomationProfileArn";
 const _dM = "detectionMode";
 const _dS = "detectionScope";
 const _e = "error";
 const _eC = "encryptionConfiguration";
+const _eM = "errorMessage";
+const _eT = "errorType";
 const _ex = "extraction";
 const _fL = "fieldList";
 const _g = "granularity";
 const _gF = "generativeField";
 const _gOL = "generativeOutputLanguage";
+const _gTSO = "groundTruthS3Object";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _i = "image";
+const _iA = "invocationArn";
 const _iL = "inputLanguages";
 const _iML = "identifyMultipleLanguages";
 const _j = "jpeg";
@@ -153,7 +173,10 @@ const _mp = "mp4";
 const _n = "name";
 const _nT = "nextToken";
 const _oC = "overrideConfiguration";
+const _oCu = "outputConfiguration";
 const _oF = "outputFormat";
+const _oS = "optimizationSamples";
+const _oT = "optimizationTime";
 const _p = "project";
 const _pA = "projectArn";
 const _pD = "projectDescription";
@@ -172,21 +195,28 @@ const _rO = "resourceOwner";
 const _s = "state";
 const _sDC = "sensitiveDataConfiguration";
 const _sL = "speakerLabeling";
+const _sO = "s3Object";
 const _sOC = "standardOutputConfiguration";
+const _sS = "sourceStage";
+const _sU = "s3Uri";
+const _sa = "samples";
 const _sc = "schema";
 const _se = "server";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.bedrockdataautomation";
 const _sp = "splitter";
-const _st = "status";
+const _st = "stage";
+const _sta = "status";
 const _t = "types";
 const _tC = "typeConfiguration";
 const _tF = "textFormat";
 const _tK = "tagKeys";
+const _tS = "targetStage";
 const _ta = "tags";
 const _tr = "transcript";
 const _ty = "type";
 const _v = "video";
 const _va = "value";
+const _ve = "version";
 const n0 = "com.amazonaws.bedrockdataautomation";
 
 // smithy-typescript generated code
@@ -258,11 +288,41 @@ export var Blueprint$: StaticStructureSchema = [
   n0,
   _B,
   0,
-  [_bA, _sc, _ty, _cT, _lMT, _bN, _bV, _bS, _kKI, _kEC],
-  [0, [() => BlueprintSchema, 0], 0, 5, 5, [() => BlueprintName, 0], 0, 0, 0, 128 | 0],
+  [_bA, _sc, _ty, _cT, _lMT, _bN, _bV, _bS, _kKI, _kEC, _oS, _oT],
+  [
+    0,
+    [() => BlueprintSchema, 0],
+    0,
+    5,
+    5,
+    [() => BlueprintName, 0],
+    0,
+    0,
+    0,
+    128 | 0,
+    () => BlueprintOptimizationSamples,
+    5,
+  ],
 ];
 export var BlueprintFilter$: StaticStructureSchema = [3, n0, _BF, 0, [_bA, _bV, _bS], [0, 0, 0]];
 export var BlueprintItem$: StaticStructureSchema = [3, n0, _BI, 0, [_bA, _bV, _bS], [0, 0, 0]];
+export var BlueprintOptimizationObject$: StaticStructureSchema = [3, n0, _BOO, 0, [_bA, _st], [0, 0]];
+export var BlueprintOptimizationOutputConfiguration$: StaticStructureSchema = [
+  3,
+  n0,
+  _BOOC,
+  0,
+  [_sO],
+  [() => S3Object$],
+];
+export var BlueprintOptimizationSample$: StaticStructureSchema = [
+  3,
+  n0,
+  _BOS,
+  0,
+  [_aSO, _gTSO],
+  [() => S3Object$, () => S3Object$],
+];
 export var BlueprintSummary$: StaticStructureSchema = [
   3,
   n0,
@@ -274,6 +334,15 @@ export var BlueprintSummary$: StaticStructureSchema = [
 export var ChannelLabelingConfiguration$: StaticStructureSchema = [3, n0, _CLC, 0, [_s], [0]];
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var CopyBlueprintStageRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _CBSR,
+  0,
+  [_bA, _sS, _tS, _cTl],
+  [[0, 1], 0, 0, [0, 4]],
+];
+export var CopyBlueprintStageResponse$: StaticStructureSchema = [3, n0, _CBSRo, 0, [], []];
 export var CreateBlueprintRequest$: StaticStructureSchema = [
   3,
   n0,
@@ -319,7 +388,7 @@ export var CreateDataAutomationProjectResponse$: StaticStructureSchema = [
   n0,
   _CDAPRr,
   0,
-  [_pA, _pS, _st],
+  [_pA, _pS, _sta],
   [0, 0, 0],
 ];
 export var CustomOutputConfiguration$: StaticStructureSchema = [3, n0, _COC, 0, [_bl], [() => BlueprintItems]];
@@ -328,7 +397,7 @@ export var DataAutomationProject$: StaticStructureSchema = [
   n0,
   _DAP,
   0,
-  [_pA, _cT, _lMT, _pN, _pS, _pT, _pD, _sOC, _cOC, _oC, _st, _kKI, _kEC],
+  [_pA, _cT, _lMT, _pN, _pS, _pT, _pD, _sOC, _cOC, _oC, _sta, _kKI, _kEC],
   [
     0,
     5,
@@ -367,7 +436,7 @@ export var DeleteBlueprintRequest$: StaticStructureSchema = [
 ];
 export var DeleteBlueprintResponse$: StaticStructureSchema = [3, n0, _DBRe, 0, [], []];
 export var DeleteDataAutomationProjectRequest$: StaticStructureSchema = [3, n0, _DDAPR, 0, [_pA], [[0, 1]]];
-export var DeleteDataAutomationProjectResponse$: StaticStructureSchema = [3, n0, _DDAPRe, 0, [_pA, _st], [0, 0]];
+export var DeleteDataAutomationProjectResponse$: StaticStructureSchema = [3, n0, _DDAPRe, 0, [_pA, _sta], [0, 0]];
 export var DocumentBoundingBox$: StaticStructureSchema = [3, n0, _DBB, 0, [_s], [0]];
 export var DocumentExtractionGranularity$: StaticStructureSchema = [3, n0, _DEG, 0, [_t], [64 | 0]];
 export var DocumentOutputAdditionalFileFormat$: StaticStructureSchema = [3, n0, _DOAFF, 0, [_s], [0]];
@@ -406,6 +475,15 @@ export var DocumentStandardOutputConfiguration$: StaticStructureSchema = [
   [() => DocumentStandardExtraction$, () => DocumentStandardGenerativeField$, () => DocumentOutputFormat$],
 ];
 export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC, 0, [_kKI, _kEC], [0, 128 | 0]];
+export var GetBlueprintOptimizationStatusRequest$: StaticStructureSchema = [3, n0, _GBOSR, 0, [_iA], [[0, 1]]];
+export var GetBlueprintOptimizationStatusResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _GBOSRe,
+  0,
+  [_sta, _eT, _eM, _oCu],
+  [0, 0, 0, () => BlueprintOptimizationOutputConfiguration$],
+];
 export var GetBlueprintRequest$: StaticStructureSchema = [3, n0, _GBR, 0, [_bA, _bV, _bS], [[0, 1], 0, 0]];
 export var GetBlueprintResponse$: StaticStructureSchema = [3, n0, _GBRe, 0, [_b], [[() => Blueprint$, 0]]];
 export var GetDataAutomationProjectRequest$: StaticStructureSchema = [3, n0, _GDAPR, 0, [_pA, _pS], [[0, 1], 0]];
@@ -446,6 +524,22 @@ export var ImageStandardOutputConfiguration$: StaticStructureSchema = [
 ];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISEn, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var InvokeBlueprintOptimizationAsyncRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _IBOAR,
+  0,
+  [_b, _sa, _oCu, _dAPA, _eC, _ta],
+  [
+    () => BlueprintOptimizationObject$,
+    () => BlueprintOptimizationSamples,
+    () => BlueprintOptimizationOutputConfiguration$,
+    0,
+    () => EncryptionConfiguration$,
+    () => TagList,
+  ],
+];
+export var InvokeBlueprintOptimizationAsyncResponse$: StaticStructureSchema = [3, n0, _IBOARn, 0, [_iA], [0]];
 export var ListBlueprintsRequest$: StaticStructureSchema = [
   3,
   n0,
@@ -492,6 +586,7 @@ export var OverrideConfiguration$: StaticStructureSchema = [
 export var PIIEntitiesConfiguration$: StaticStructureSchema = [3, n0, _PIIEC, 0, [_pET, _rMM], [64 | 0, 0]];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var S3Object$: StaticStructureSchema = [3, n0, _SO, 0, [_sU, _ve], [0, 0]];
 export var SensitiveDataConfiguration$: StaticStructureSchema = [
   3,
   n0,
@@ -562,7 +657,7 @@ export var UpdateDataAutomationProjectResponse$: StaticStructureSchema = [
   n0,
   _UDAPRp,
   0,
-  [_pA, _pS, _st],
+  [_pA, _pS, _sta],
   [0, 0, 0],
 ];
 export var ValidationException$: StaticErrorSchema = [
@@ -615,6 +710,7 @@ var AudioExtractionCategoryTypes = 64 | 0;
 var AudioInputLanguages = 64 | 0;
 var AudioStandardGenerativeFieldTypes = 64 | 0;
 var BlueprintItems: StaticListSchema = [1, n0, _BIl, 0, () => BlueprintItem$];
+var BlueprintOptimizationSamples: StaticListSchema = [1, n0, _BOSl, 0, () => BlueprintOptimizationSample$];
 var Blueprints: StaticListSchema = [1, n0, _Bl, 0, [() => BlueprintSummary$, 0]];
 var DataAutomationProjectSummaries: StaticListSchema = [1, n0, _DAPSa, 0, [() => DataAutomationProjectSummary$, 0]];
 var DocumentExtractionGranularityTypes = 64 | 0;
@@ -629,6 +725,14 @@ var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => Val
 var VideoExtractionCategoryTypes = 64 | 0;
 var VideoStandardGenerativeFieldTypes = 64 | 0;
 var KmsEncryptionContext = 128 | 0;
+export var CopyBlueprintStage$: StaticOperationSchema = [
+  9,
+  n0,
+  _CBS,
+  { [_h]: ["PUT", "/blueprints/{blueprintArn}/copy-stage", 200] },
+  () => CopyBlueprintStageRequest$,
+  () => CopyBlueprintStageResponse$,
+];
 export var CreateBlueprint$: StaticOperationSchema = [
   9,
   n0,
@@ -677,6 +781,14 @@ export var GetBlueprint$: StaticOperationSchema = [
   () => GetBlueprintRequest$,
   () => GetBlueprintResponse$,
 ];
+export var GetBlueprintOptimizationStatus$: StaticOperationSchema = [
+  9,
+  n0,
+  _GBOS,
+  { [_h]: ["POST", "/getBlueprintOptimizationStatus/{invocationArn}", 200] },
+  () => GetBlueprintOptimizationStatusRequest$,
+  () => GetBlueprintOptimizationStatusResponse$,
+];
 export var GetDataAutomationProject$: StaticOperationSchema = [
   9,
   n0,
@@ -684,6 +796,14 @@ export var GetDataAutomationProject$: StaticOperationSchema = [
   { [_h]: ["POST", "/data-automation-projects/{projectArn}/", 200] },
   () => GetDataAutomationProjectRequest$,
   () => GetDataAutomationProjectResponse$,
+];
+export var InvokeBlueprintOptimizationAsync$: StaticOperationSchema = [
+  9,
+  n0,
+  _IBOA,
+  { [_h]: ["POST", "/invokeBlueprintOptimizationAsync", 200] },
+  () => InvokeBlueprintOptimizationAsyncRequest$,
+  () => InvokeBlueprintOptimizationAsyncResponse$,
 ];
 export var ListBlueprints$: StaticOperationSchema = [
   9,

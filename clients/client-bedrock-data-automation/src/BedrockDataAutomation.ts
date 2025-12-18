@@ -4,6 +4,11 @@ import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { BedrockDataAutomationClient } from "./BedrockDataAutomationClient";
 import {
+  CopyBlueprintStageCommand,
+  CopyBlueprintStageCommandInput,
+  CopyBlueprintStageCommandOutput,
+} from "./commands/CopyBlueprintStageCommand";
+import {
   CreateBlueprintCommand,
   CreateBlueprintCommandInput,
   CreateBlueprintCommandOutput,
@@ -34,10 +39,20 @@ import {
   GetBlueprintCommandOutput,
 } from "./commands/GetBlueprintCommand";
 import {
+  GetBlueprintOptimizationStatusCommand,
+  GetBlueprintOptimizationStatusCommandInput,
+  GetBlueprintOptimizationStatusCommandOutput,
+} from "./commands/GetBlueprintOptimizationStatusCommand";
+import {
   GetDataAutomationProjectCommand,
   GetDataAutomationProjectCommandInput,
   GetDataAutomationProjectCommandOutput,
 } from "./commands/GetDataAutomationProjectCommand";
+import {
+  InvokeBlueprintOptimizationAsyncCommand,
+  InvokeBlueprintOptimizationAsyncCommandInput,
+  InvokeBlueprintOptimizationAsyncCommandOutput,
+} from "./commands/InvokeBlueprintOptimizationAsyncCommand";
 import {
   ListBlueprintsCommand,
   ListBlueprintsCommandInput,
@@ -71,13 +86,16 @@ import {
 } from "./commands/UpdateDataAutomationProjectCommand";
 
 const commands = {
+  CopyBlueprintStageCommand,
   CreateBlueprintCommand,
   CreateBlueprintVersionCommand,
   CreateDataAutomationProjectCommand,
   DeleteBlueprintCommand,
   DeleteDataAutomationProjectCommand,
   GetBlueprintCommand,
+  GetBlueprintOptimizationStatusCommand,
   GetDataAutomationProjectCommand,
+  InvokeBlueprintOptimizationAsyncCommand,
   ListBlueprintsCommand,
   ListDataAutomationProjectsCommand,
   ListTagsForResourceCommand,
@@ -88,6 +106,23 @@ const commands = {
 };
 
 export interface BedrockDataAutomation {
+  /**
+   * @see {@link CopyBlueprintStageCommand}
+   */
+  copyBlueprintStage(
+    args: CopyBlueprintStageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CopyBlueprintStageCommandOutput>;
+  copyBlueprintStage(
+    args: CopyBlueprintStageCommandInput,
+    cb: (err: any, data?: CopyBlueprintStageCommandOutput) => void
+  ): void;
+  copyBlueprintStage(
+    args: CopyBlueprintStageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CopyBlueprintStageCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateBlueprintCommand}
    */
@@ -179,6 +214,23 @@ export interface BedrockDataAutomation {
   ): void;
 
   /**
+   * @see {@link GetBlueprintOptimizationStatusCommand}
+   */
+  getBlueprintOptimizationStatus(
+    args: GetBlueprintOptimizationStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBlueprintOptimizationStatusCommandOutput>;
+  getBlueprintOptimizationStatus(
+    args: GetBlueprintOptimizationStatusCommandInput,
+    cb: (err: any, data?: GetBlueprintOptimizationStatusCommandOutput) => void
+  ): void;
+  getBlueprintOptimizationStatus(
+    args: GetBlueprintOptimizationStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBlueprintOptimizationStatusCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDataAutomationProjectCommand}
    */
   getDataAutomationProject(
@@ -193,6 +245,23 @@ export interface BedrockDataAutomation {
     args: GetDataAutomationProjectCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDataAutomationProjectCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link InvokeBlueprintOptimizationAsyncCommand}
+   */
+  invokeBlueprintOptimizationAsync(
+    args: InvokeBlueprintOptimizationAsyncCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InvokeBlueprintOptimizationAsyncCommandOutput>;
+  invokeBlueprintOptimizationAsync(
+    args: InvokeBlueprintOptimizationAsyncCommandInput,
+    cb: (err: any, data?: InvokeBlueprintOptimizationAsyncCommandOutput) => void
+  ): void;
+  invokeBlueprintOptimizationAsync(
+    args: InvokeBlueprintOptimizationAsyncCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InvokeBlueprintOptimizationAsyncCommandOutput) => void
   ): void;
 
   /**

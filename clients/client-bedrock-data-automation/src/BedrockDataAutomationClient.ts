@@ -63,6 +63,7 @@ import {
   defaultBedrockDataAutomationHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { CopyBlueprintStageCommandInput, CopyBlueprintStageCommandOutput } from "./commands/CopyBlueprintStageCommand";
 import { CreateBlueprintCommandInput, CreateBlueprintCommandOutput } from "./commands/CreateBlueprintCommand";
 import {
   CreateBlueprintVersionCommandInput,
@@ -79,9 +80,17 @@ import {
 } from "./commands/DeleteDataAutomationProjectCommand";
 import { GetBlueprintCommandInput, GetBlueprintCommandOutput } from "./commands/GetBlueprintCommand";
 import {
+  GetBlueprintOptimizationStatusCommandInput,
+  GetBlueprintOptimizationStatusCommandOutput,
+} from "./commands/GetBlueprintOptimizationStatusCommand";
+import {
   GetDataAutomationProjectCommandInput,
   GetDataAutomationProjectCommandOutput,
 } from "./commands/GetDataAutomationProjectCommand";
+import {
+  InvokeBlueprintOptimizationAsyncCommandInput,
+  InvokeBlueprintOptimizationAsyncCommandOutput,
+} from "./commands/InvokeBlueprintOptimizationAsyncCommand";
 import { ListBlueprintsCommandInput, ListBlueprintsCommandOutput } from "./commands/ListBlueprintsCommand";
 import {
   ListDataAutomationProjectsCommandInput,
@@ -113,13 +122,16 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CopyBlueprintStageCommandInput
   | CreateBlueprintCommandInput
   | CreateBlueprintVersionCommandInput
   | CreateDataAutomationProjectCommandInput
   | DeleteBlueprintCommandInput
   | DeleteDataAutomationProjectCommandInput
   | GetBlueprintCommandInput
+  | GetBlueprintOptimizationStatusCommandInput
   | GetDataAutomationProjectCommandInput
+  | InvokeBlueprintOptimizationAsyncCommandInput
   | ListBlueprintsCommandInput
   | ListDataAutomationProjectsCommandInput
   | ListTagsForResourceCommandInput
@@ -132,13 +144,16 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CopyBlueprintStageCommandOutput
   | CreateBlueprintCommandOutput
   | CreateBlueprintVersionCommandOutput
   | CreateDataAutomationProjectCommandOutput
   | DeleteBlueprintCommandOutput
   | DeleteDataAutomationProjectCommandOutput
   | GetBlueprintCommandOutput
+  | GetBlueprintOptimizationStatusCommandOutput
   | GetDataAutomationProjectCommandOutput
+  | InvokeBlueprintOptimizationAsyncCommandOutput
   | ListBlueprintsCommandOutput
   | ListDataAutomationProjectsCommandOutput
   | ListTagsForResourceCommandOutput
