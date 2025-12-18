@@ -14,6 +14,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.function.Consumer;
 import software.amazon.smithy.aws.traits.HttpChecksumTrait;
+import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.TopDownIndex;
@@ -22,12 +23,14 @@ import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.traits.HttpHeaderTrait;
+import software.amazon.smithy.model.traits.Trait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.typescript.codegen.schema.SchemaTraitExtension;
 import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
@@ -37,6 +40,21 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 public class AddHttpChecksumDependency implements TypeScriptIntegration {
+
+    static {
+        SchemaTraitExtension.INSTANCE.add(
+            HttpChecksumTrait.ID,
+            (Trait trait) -> {
+                if (trait instanceof HttpChecksumTrait httpChecksum) {
+                    // This trait is handled by static codegen, so the
+                    // schema does not need to generate the full set of data.
+                    return """
+                        "-\"""";
+                }
+                throw new CodegenException("HttpChecksumTrait handler called with trait of incorrect type.");
+            }
+        );
+    }
 
     @Override
     public void addConfigInterfaceFields(

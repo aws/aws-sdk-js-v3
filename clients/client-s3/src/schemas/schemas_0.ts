@@ -839,6 +839,7 @@ const _en = "endpoint";
 const _et = "encoding-type";
 const _fo = "fetch-owner";
 const _h = "http";
+const _hC = "httpChecksum";
 const _hE = "httpError";
 const _hH = "httpHeader";
 const _hL = "hostLabel";
@@ -1194,7 +1195,7 @@ export var CompleteMultipartUploadRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [() => CompletedMultipartUpload$, { [_xN]: _CMUo, [_hP]: 1 }],
+    [() => CompletedMultipartUpload$, { [_hP]: 1, [_xN]: _CMUo }],
     [0, { [_hQ]: _uI }],
     [0, { [_hH]: _xacc }],
     [0, { [_hH]: _xacc_ }],
@@ -1425,7 +1426,7 @@ export var CreateBucketRequest$: StaticStructureSchema = [
   [
     [0, { [_hH]: _xaa }],
     [0, 1],
-    [() => CreateBucketConfiguration$, { [_xN]: _CBC, [_hP]: 1 }],
+    [() => CreateBucketConfiguration$, { [_hP]: 1, [_xN]: _CBC }],
     [0, { [_hH]: _xagfc }],
     [0, { [_hH]: _xagr }],
     [0, { [_hH]: _xagra }],
@@ -2345,7 +2346,7 @@ export var GetObjectLegalHoldOutput$: StaticStructureSchema = [
   _GOLHO,
   0,
   [_LH],
-  [[() => ObjectLockLegalHold$, { [_xN]: _LH, [_hP]: 1 }]],
+  [[() => ObjectLockLegalHold$, { [_hP]: 1, [_xN]: _LH }]],
 ];
 export var GetObjectLegalHoldRequest$: StaticStructureSchema = [
   3,
@@ -2526,7 +2527,7 @@ export var GetObjectRetentionOutput$: StaticStructureSchema = [
   _GORO,
   0,
   [_Ret],
-  [[() => ObjectLockRetention$, { [_xN]: _Ret, [_hP]: 1 }]],
+  [[() => ObjectLockRetention$, { [_hP]: 1, [_xN]: _Ret }]],
 ];
 export var GetObjectRetentionRequest$: StaticStructureSchema = [
   3,
@@ -3489,7 +3490,7 @@ export var PutBucketAclRequest$: StaticStructureSchema = [
   [_ACL_, _ACP, _B, _CMD, _CA, _GFC, _GR, _GRACP, _GW, _GWACP, _EBO],
   [
     [0, { [_hH]: _xaa }],
-    [() => AccessControlPolicy$, { [_xN]: _ACP, [_hP]: 1 }],
+    [() => AccessControlPolicy$, { [_hP]: 1, [_xN]: _ACP }],
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
@@ -3538,7 +3539,7 @@ export var PutBucketEncryptionRequest$: StaticStructureSchema = [
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
-    [() => ServerSideEncryptionConfiguration$, { [_xN]: _SSEC, [_hP]: 1 }],
+    [() => ServerSideEncryptionConfiguration$, { [_hP]: 1, [_xN]: _SSEC }],
     [0, { [_hH]: _xaebo }],
   ],
 ];
@@ -3585,7 +3586,7 @@ export var PutBucketLifecycleConfigurationRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, { [_hH]: _xasca }],
-    [() => BucketLifecycleConfiguration$, { [_xN]: _LCi, [_hP]: 1 }],
+    [() => BucketLifecycleConfiguration$, { [_hP]: 1, [_xN]: _LCi }],
     [0, { [_hH]: _xaebo }],
     [0, { [_hH]: _xatdmos }],
   ],
@@ -3625,7 +3626,7 @@ export var PutBucketNotificationConfigurationRequest$: StaticStructureSchema = [
   [_B, _NC, _EBO, _SDV],
   [
     [0, 1],
-    [() => NotificationConfiguration$, { [_xN]: _NC, [_hP]: 1 }],
+    [() => NotificationConfiguration$, { [_hP]: 1, [_xN]: _NC }],
     [0, { [_hH]: _xaebo }],
     [2, { [_hH]: _xasdv }],
   ],
@@ -3669,7 +3670,7 @@ export var PutBucketReplicationRequest$: StaticStructureSchema = [
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
-    [() => ReplicationConfiguration$, { [_xN]: _RCe, [_hP]: 1 }],
+    [() => ReplicationConfiguration$, { [_hP]: 1, [_xN]: _RCe }],
     [0, { [_hH]: _xabolt }],
     [0, { [_hH]: _xaebo }],
   ],
@@ -3740,7 +3741,7 @@ export var PutObjectAclRequest$: StaticStructureSchema = [
   [_ACL_, _ACP, _B, _CMD, _CA, _GFC, _GR, _GRACP, _GW, _GWACP, _K, _RP, _VI, _EBO],
   [
     [0, { [_hH]: _xaa }],
-    [() => AccessControlPolicy$, { [_xN]: _ACP, [_hP]: 1 }],
+    [() => AccessControlPolicy$, { [_hP]: 1, [_xN]: _ACP }],
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
@@ -3765,7 +3766,7 @@ export var PutObjectLegalHoldRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [() => ObjectLockLegalHold$, { [_xN]: _LH, [_hP]: 1 }],
+    [() => ObjectLockLegalHold$, { [_hP]: 1, [_xN]: _LH }],
     [0, { [_hH]: _xarp }],
     [0, { [_hQ]: _vI }],
     [0, { [_hH]: _CM }],
@@ -3789,7 +3790,7 @@ export var PutObjectLockConfigurationRequest$: StaticStructureSchema = [
   [_B, _OLC, _RP, _To, _CMD, _CA, _EBO],
   [
     [0, 1],
-    [() => ObjectLockConfiguration$, { [_xN]: _OLC, [_hP]: 1 }],
+    [() => ObjectLockConfiguration$, { [_hP]: 1, [_xN]: _OLC }],
     [0, { [_hH]: _xarp }],
     [0, { [_hH]: _xabolt }],
     [0, { [_hH]: _CM }],
@@ -3943,7 +3944,7 @@ export var PutObjectRetentionRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [() => ObjectLockRetention$, { [_xN]: _Ret, [_hP]: 1 }],
+    [() => ObjectLockRetention$, { [_hP]: 1, [_xN]: _Ret }],
     [0, { [_hH]: _xarp }],
     [0, { [_hQ]: _vI }],
     [2, { [_hH]: _xabgr }],
@@ -4638,7 +4639,7 @@ export var CreateBucketMetadataConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _CBMC,
-  { [_h]: ["POST", "/?metadataConfiguration", 200] },
+  { [_hC]: "-", [_h]: ["POST", "/?metadataConfiguration", 200] },
   () => CreateBucketMetadataConfigurationRequest$,
   () => __Unit,
 ];
@@ -4646,7 +4647,7 @@ export var CreateBucketMetadataTableConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _CBMTC,
-  { [_h]: ["POST", "/?metadataTable", 200] },
+  { [_hC]: "-", [_h]: ["POST", "/?metadataTable", 200] },
   () => CreateBucketMetadataTableConfigurationRequest$,
   () => __Unit,
 ];
@@ -4798,7 +4799,7 @@ export var DeleteObjects$: StaticOperationSchema = [
   9,
   n0,
   _DOele,
-  { [_h]: ["POST", "/?delete", 200] },
+  { [_hC]: "-", [_h]: ["POST", "/?delete", 200] },
   () => DeleteObjectsRequest$,
   () => DeleteObjectsOutput$,
 ];
@@ -5006,7 +5007,7 @@ export var GetObject$: StaticOperationSchema = [
   9,
   n0,
   _GO,
-  { [_h]: ["GET", "/{Key+}?x-id=GetObject", 200] },
+  { [_hC]: "-", [_h]: ["GET", "/{Key+}?x-id=GetObject", 200] },
   () => GetObjectRequest$,
   () => GetObjectOutput$,
 ];
@@ -5182,7 +5183,7 @@ export var PutBucketAbac$: StaticOperationSchema = [
   9,
   n0,
   _PBA,
-  { [_h]: ["PUT", "/?abac", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/?abac", 200] },
   () => PutBucketAbacRequest$,
   () => __Unit,
 ];
@@ -5190,7 +5191,7 @@ export var PutBucketAccelerateConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PBAC,
-  { [_h]: ["PUT", "/?accelerate", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/?accelerate", 200] },
   () => PutBucketAccelerateConfigurationRequest$,
   () => __Unit,
 ];
@@ -5198,7 +5199,7 @@ export var PutBucketAcl$: StaticOperationSchema = [
   9,
   n0,
   _PBAu,
-  { [_h]: ["PUT", "/?acl", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/?acl", 200] },
   () => PutBucketAclRequest$,
   () => __Unit,
 ];
@@ -5214,7 +5215,7 @@ export var PutBucketCors$: StaticOperationSchema = [
   9,
   n0,
   _PBC,
-  { [_h]: ["PUT", "/?cors", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/?cors", 200] },
   () => PutBucketCorsRequest$,
   () => __Unit,
 ];
@@ -5222,7 +5223,7 @@ export var PutBucketEncryption$: StaticOperationSchema = [
   9,
   n0,
   _PBE,
-  { [_h]: ["PUT", "/?encryption", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/?encryption", 200] },
   () => PutBucketEncryptionRequest$,
   () => __Unit,
 ];
@@ -5246,7 +5247,7 @@ export var PutBucketLifecycleConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PBLC,
-  { [_h]: ["PUT", "/?lifecycle", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/?lifecycle", 200] },
   () => PutBucketLifecycleConfigurationRequest$,
   () => PutBucketLifecycleConfigurationOutput$,
 ];
@@ -5254,7 +5255,7 @@ export var PutBucketLogging$: StaticOperationSchema = [
   9,
   n0,
   _PBL,
-  { [_h]: ["PUT", "/?logging", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/?logging", 200] },
   () => PutBucketLoggingRequest$,
   () => __Unit,
 ];
@@ -5278,7 +5279,7 @@ export var PutBucketOwnershipControls$: StaticOperationSchema = [
   9,
   n0,
   _PBOC,
-  { [_h]: ["PUT", "/?ownershipControls", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/?ownershipControls", 200] },
   () => PutBucketOwnershipControlsRequest$,
   () => __Unit,
 ];
@@ -5286,7 +5287,7 @@ export var PutBucketPolicy$: StaticOperationSchema = [
   9,
   n0,
   _PBP,
-  { [_h]: ["PUT", "/?policy", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/?policy", 200] },
   () => PutBucketPolicyRequest$,
   () => __Unit,
 ];
@@ -5294,7 +5295,7 @@ export var PutBucketReplication$: StaticOperationSchema = [
   9,
   n0,
   _PBR,
-  { [_h]: ["PUT", "/?replication", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/?replication", 200] },
   () => PutBucketReplicationRequest$,
   () => __Unit,
 ];
@@ -5302,7 +5303,7 @@ export var PutBucketRequestPayment$: StaticOperationSchema = [
   9,
   n0,
   _PBRP,
-  { [_h]: ["PUT", "/?requestPayment", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/?requestPayment", 200] },
   () => PutBucketRequestPaymentRequest$,
   () => __Unit,
 ];
@@ -5310,7 +5311,7 @@ export var PutBucketTagging$: StaticOperationSchema = [
   9,
   n0,
   _PBT,
-  { [_h]: ["PUT", "/?tagging", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/?tagging", 200] },
   () => PutBucketTaggingRequest$,
   () => __Unit,
 ];
@@ -5318,7 +5319,7 @@ export var PutBucketVersioning$: StaticOperationSchema = [
   9,
   n0,
   _PBV,
-  { [_h]: ["PUT", "/?versioning", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/?versioning", 200] },
   () => PutBucketVersioningRequest$,
   () => __Unit,
 ];
@@ -5326,7 +5327,7 @@ export var PutBucketWebsite$: StaticOperationSchema = [
   9,
   n0,
   _PBW,
-  { [_h]: ["PUT", "/?website", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/?website", 200] },
   () => PutBucketWebsiteRequest$,
   () => __Unit,
 ];
@@ -5334,7 +5335,7 @@ export var PutObject$: StaticOperationSchema = [
   9,
   n0,
   _PO,
-  { [_h]: ["PUT", "/{Key+}?x-id=PutObject", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/{Key+}?x-id=PutObject", 200] },
   () => PutObjectRequest$,
   () => PutObjectOutput$,
 ];
@@ -5342,7 +5343,7 @@ export var PutObjectAcl$: StaticOperationSchema = [
   9,
   n0,
   _POA,
-  { [_h]: ["PUT", "/{Key+}?acl", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/{Key+}?acl", 200] },
   () => PutObjectAclRequest$,
   () => PutObjectAclOutput$,
 ];
@@ -5350,7 +5351,7 @@ export var PutObjectLegalHold$: StaticOperationSchema = [
   9,
   n0,
   _POLH,
-  { [_h]: ["PUT", "/{Key+}?legal-hold", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/{Key+}?legal-hold", 200] },
   () => PutObjectLegalHoldRequest$,
   () => PutObjectLegalHoldOutput$,
 ];
@@ -5358,7 +5359,7 @@ export var PutObjectLockConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _POLC,
-  { [_h]: ["PUT", "/?object-lock", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/?object-lock", 200] },
   () => PutObjectLockConfigurationRequest$,
   () => PutObjectLockConfigurationOutput$,
 ];
@@ -5366,7 +5367,7 @@ export var PutObjectRetention$: StaticOperationSchema = [
   9,
   n0,
   _PORu,
-  { [_h]: ["PUT", "/{Key+}?retention", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/{Key+}?retention", 200] },
   () => PutObjectRetentionRequest$,
   () => PutObjectRetentionOutput$,
 ];
@@ -5374,7 +5375,7 @@ export var PutObjectTagging$: StaticOperationSchema = [
   9,
   n0,
   _POT,
-  { [_h]: ["PUT", "/{Key+}?tagging", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/{Key+}?tagging", 200] },
   () => PutObjectTaggingRequest$,
   () => PutObjectTaggingOutput$,
 ];
@@ -5382,7 +5383,7 @@ export var PutPublicAccessBlock$: StaticOperationSchema = [
   9,
   n0,
   _PPAB,
-  { [_h]: ["PUT", "/?publicAccessBlock", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/?publicAccessBlock", 200] },
   () => PutPublicAccessBlockRequest$,
   () => __Unit,
 ];
@@ -5398,7 +5399,7 @@ export var RestoreObject$: StaticOperationSchema = [
   9,
   n0,
   _ROe,
-  { [_h]: ["POST", "/{Key+}?restore", 200] },
+  { [_hC]: "-", [_h]: ["POST", "/{Key+}?restore", 200] },
   () => RestoreObjectRequest$,
   () => RestoreObjectOutput$,
 ];
@@ -5414,7 +5415,7 @@ export var UpdateBucketMetadataInventoryTableConfiguration$: StaticOperationSche
   9,
   n0,
   _UBMITC,
-  { [_h]: ["PUT", "/?metadataInventoryTable", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/?metadataInventoryTable", 200] },
   () => UpdateBucketMetadataInventoryTableConfigurationRequest$,
   () => __Unit,
 ];
@@ -5422,7 +5423,7 @@ export var UpdateBucketMetadataJournalTableConfiguration$: StaticOperationSchema
   9,
   n0,
   _UBMJTC,
-  { [_h]: ["PUT", "/?metadataJournalTable", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/?metadataJournalTable", 200] },
   () => UpdateBucketMetadataJournalTableConfigurationRequest$,
   () => __Unit,
 ];
@@ -5430,7 +5431,7 @@ export var UploadPart$: StaticOperationSchema = [
   9,
   n0,
   _UP,
-  { [_h]: ["PUT", "/{Key+}?x-id=UploadPart", 200] },
+  { [_hC]: "-", [_h]: ["PUT", "/{Key+}?x-id=UploadPart", 200] },
   () => UploadPartRequest$,
   () => UploadPartOutput$,
 ];
@@ -5446,7 +5447,7 @@ export var WriteGetObjectResponse$: StaticOperationSchema = [
   9,
   n0,
   _WGOR,
-  { [_en]: ["{RequestRoute}."], [_h]: ["POST", "/WriteGetObjectResponse", 200] },
+  { [_h]: ["POST", "/WriteGetObjectResponse", 200], [_en]: ["{RequestRoute}."] },
   () => WriteGetObjectResponseRequest$,
   () => __Unit,
 ];
