@@ -1451,7 +1451,10 @@ export interface FleetLaunchTemplateOverridesRequest {
   SubnetId?: string | undefined;
 
   /**
-   * <p>The Availability Zone in which to launch the instances.</p>
+   * <p>The Availability Zone in which to launch the instances. For example,
+   *             <code>us-east-2a</code>.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be
+   *          specified in the request, but not both.</p>
    * @public
    */
   AvailabilityZone?: string | undefined;
@@ -1585,6 +1588,15 @@ export interface FleetLaunchTemplateOverridesRequest {
    * @public
    */
   ImageId?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone in which to launch the instances. For example,
+   *             <code>use2-az1</code>.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be
+   *          specified in the request, but not both.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 }
 
 /**
@@ -2992,7 +3004,9 @@ export interface FleetLaunchTemplateOverrides {
   SubnetId?: string | undefined;
 
   /**
-   * <p>The Availability Zone in which to launch the instances.</p>
+   * <p>The Availability Zone in which to launch the instances. For example,
+   *             <code>us-east-2a</code>.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified in the request, but not both.</p>
    * @public
    */
   AvailabilityZone?: string | undefined;
@@ -3126,6 +3140,15 @@ export interface FleetLaunchTemplateOverrides {
    * @public
    */
   BlockDeviceMappings?: BlockDeviceMappingResponse[] | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone in which to launch the instances. For example,
+   *             <code>use2-az1</code>.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be
+   *          specified in the request, but not both.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
 }
 
 /**

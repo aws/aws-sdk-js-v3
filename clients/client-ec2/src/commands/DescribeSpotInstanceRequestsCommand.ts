@@ -177,6 +177,7 @@ export interface DescribeSpotInstanceRequestsCommandOutput
  * //           AvailabilityZone: "STRING_VALUE",
  * //           GroupName: "STRING_VALUE",
  * //           Tenancy: "default" || "dedicated" || "host",
+ * //           AvailabilityZoneId: "STRING_VALUE",
  * //         },
  * //         RamdiskId: "STRING_VALUE",
  * //         SubnetId: "STRING_VALUE",

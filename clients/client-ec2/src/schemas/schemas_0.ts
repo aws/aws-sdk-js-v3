@@ -19892,7 +19892,7 @@ export var FleetLaunchTemplateOverrides$: StaticStructureSchema = [
   n0,
   _FLTO,
   0,
-  [_IT, _MPax, _SIu, _AZ, _WCe, _Prio, _Pla, _IRn, _IIm, _BDMl],
+  [_IT, _MPax, _SIu, _AZ, _WCe, _Prio, _Pla, _IRn, _IIm, _BDMl, _AZI],
   [
     [0, { [_eQN]: `InstanceType`, [_xN]: _iT }],
     [0, { [_eQN]: `MaxPrice`, [_xN]: _mP }],
@@ -19904,6 +19904,7 @@ export var FleetLaunchTemplateOverrides$: StaticStructureSchema = [
     [() => InstanceRequirements$, { [_eQN]: `InstanceRequirements`, [_xN]: _iR }],
     [0, { [_eQN]: `ImageId`, [_xN]: _iIma }],
     [() => BlockDeviceMappingResponseList, { [_eQN]: `BlockDeviceMappingSet`, [_xN]: _bDMS }],
+    [0, { [_eQN]: `AvailabilityZoneId`, [_xN]: _aZI }],
   ],
 ];
 export var FleetLaunchTemplateOverridesRequest$: StaticStructureSchema = [
@@ -19911,7 +19912,7 @@ export var FleetLaunchTemplateOverridesRequest$: StaticStructureSchema = [
   n0,
   _FLTOR,
   0,
-  [_IT, _MPax, _SIu, _AZ, _WCe, _Prio, _Pla, _BDMl, _IRn, _IIm],
+  [_IT, _MPax, _SIu, _AZ, _WCe, _Prio, _Pla, _BDMl, _IRn, _IIm, _AZI],
   [
     0,
     0,
@@ -19922,6 +19923,7 @@ export var FleetLaunchTemplateOverridesRequest$: StaticStructureSchema = [
     [() => Placement$, 0],
     [() => FleetBlockDeviceMappingRequestList, { [_xN]: _BDM }],
     [() => InstanceRequirementsRequest$, 0],
+    0,
     0,
   ],
 ];
@@ -24343,7 +24345,7 @@ export var LaunchTemplateOverrides$: StaticStructureSchema = [
   n0,
   _LTO,
   0,
-  [_IT, _SPp, _SIu, _AZ, _WCe, _Prio, _IRn],
+  [_IT, _SPp, _SIu, _AZ, _WCe, _Prio, _IRn, _AZI],
   [
     [0, { [_eQN]: `InstanceType`, [_xN]: _iT }],
     [0, { [_eQN]: `SpotPrice`, [_xN]: _sPp }],
@@ -24352,6 +24354,7 @@ export var LaunchTemplateOverrides$: StaticStructureSchema = [
     [1, { [_eQN]: `WeightedCapacity`, [_xN]: _wC }],
     [1, { [_eQN]: `Priority`, [_xN]: _pri }],
     [() => InstanceRequirements$, { [_eQN]: `InstanceRequirements`, [_xN]: _iR }],
+    [0, { [_eQN]: `AvailabilityZoneId`, [_xN]: _aZI }],
   ],
 ];
 export var LaunchTemplatePlacement$: StaticStructureSchema = [
@@ -30241,11 +30244,12 @@ export var SpotPlacement$: StaticStructureSchema = [
   n0,
   _SPpo,
   0,
-  [_AZ, _GN, _Te],
+  [_AZ, _GN, _Te, _AZI],
   [
     [0, { [_eQN]: `AvailabilityZone`, [_xN]: _aZ }],
     [0, { [_eQN]: `GroupName`, [_xN]: _gN }],
     [0, { [_eQN]: `Tenancy`, [_xN]: _t }],
+    [0, { [_eQN]: `AvailabilityZoneId`, [_xN]: _aZI }],
   ],
 ];
 export var SpotPlacementScore$: StaticStructureSchema = [

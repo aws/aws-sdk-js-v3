@@ -155,6 +155,7 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  *             },
  *             RequireEncryptionInTransit: true || false,
  *           },
+ *           AvailabilityZoneId: "STRING_VALUE",
  *         },
  *       ],
  *     },

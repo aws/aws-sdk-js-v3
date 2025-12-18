@@ -11824,7 +11824,7 @@ export interface DescribeInstancesRequest {
    *             <li>
    *                <p>
    *                   <code>requester-id</code> - The ID of the entity that launched the instance on
-   *                     your behalf (for example, Amazon Web Services Management Console, Amazon EC2 Auto Scaling, and so
+   *                     your behalf (for example, Amazon Web Services Management Console, Auto Scaling, and so
    *                     on).</p>
    *             </li>
    *             <li>
