@@ -84,6 +84,7 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  * //             storageSizeGiB: Number("int"),
  * //           },
  * //           monitoring: "BASIC" || "DETAILED",
+ * //           capacityOptionType: "ON_DEMAND" || "SPOT",
  * //           instanceRequirements: { // InstanceRequirementsRequest
  * //             vCpuCount: { // VCpuCountRangeRequest
  * //               min: Number("int"), // required

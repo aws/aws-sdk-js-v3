@@ -204,6 +204,7 @@ export type {
   AvailabilityZoneRebalancing,
   BareMetal,
   BurstablePerformance,
+  CapacityOptionType,
   CapacityProviderField,
   CapacityProviderStatus,
   CapacityProviderType,

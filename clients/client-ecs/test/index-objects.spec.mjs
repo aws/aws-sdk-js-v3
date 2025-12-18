@@ -27,6 +27,7 @@ import {
   BurstablePerformance,
   CPUArchitecture,
   CanaryConfiguration$,
+  CapacityOptionType,
   CapacityProvider$,
   CapacityProviderField,
   CapacityProviderStatus,
@@ -1021,6 +1022,7 @@ assert(typeof AssignPublicIp === "object");
 assert(typeof AvailabilityZoneRebalancing === "object");
 assert(typeof BareMetal === "object");
 assert(typeof BurstablePerformance === "object");
+assert(typeof CapacityOptionType === "object");
 assert(typeof CapacityProviderField === "object");
 assert(typeof CapacityProviderStatus === "object");
 assert(typeof CapacityProviderType === "object");

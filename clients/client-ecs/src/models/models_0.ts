@@ -12,6 +12,7 @@ import {
   AvailabilityZoneRebalancing,
   BareMetal,
   BurstablePerformance,
+  CapacityOptionType,
   CapacityProviderField,
   CapacityProviderStatus,
   CapacityProviderType,
@@ -734,6 +735,31 @@ export interface InstanceLaunchTemplate {
    * @public
    */
   monitoring?: ManagedInstancesMonitoringOptions | undefined;
+
+  /**
+   * <p>The capacity option type. This determines whether
+   * 			Amazon ECS launches On-Demand or Spot Instances for your managed instance
+   * 			capacity provider.</p>
+   *          <p>Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ON_DEMAND</code> - Launches standard On-Demand Instances.
+   *                 On-Demand Instances provide predictable pricing and availability.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SPOT</code> - Launches Spot Instances that use spare Amazon EC2 capacity
+   * 					at reduced cost. Spot Instances can be interrupted by Amazon EC2 with a two-minute
+   * 					notification when the capacity is needed back.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The default is On-Demand</p>
+   *          <p>For more information about Amazon EC2 capacity options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Instance purchasing
+   * 				options</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  capacityOptionType?: CapacityOptionType | undefined;
 
   /**
    * <p>The instance requirements. You can specify:</p>
@@ -12665,6 +12691,15 @@ export interface PutAccountSettingRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>fargateEventWindows</code> - When
+   *                     Amazon Web Services
+   *                     determines that a security or infrastructure update is needed for an Amazon ECS
+   *                     task hosted on Fargate, the tasks need to be stopped and new tasks launched to
+   *                     replace them. Use <code>fargateEventWindows</code> to use EC2 Event Windows associated
+   *                     with Fargate tasks to configure time windows for task retirement.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>tagResourceAuthorization</code> - Amazon ECS is introducing tagging
    * 					authorization for resource creation. Users must have permissions for actions
    * 					that create the resource, such as <code>ecsCreateCluster</code>. If tags are
@@ -12862,6 +12897,15 @@ export interface PutAccountSettingDefaultRequest {
    * 					maintenance, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-maintenance.html">Amazon Web
    * 							Services Fargate task maintenance</a> in the
    * 						<i>Amazon ECS Developer Guide</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fargateEventWindows</code> - When
+   *                 Amazon Web Services
+   *                     determines that a security or infrastructure update is needed for an Amazon ECS
+   *                     task hosted on Fargate, the tasks need to be stopped and new tasks launched to
+   *                     replace them. Use <code>fargateEventWindows</code> to use EC2 Event Windows associated
+   *                     with Fargate tasks to configure time windows for task retirement.</p>
    *             </li>
    *             <li>
    *                <p>

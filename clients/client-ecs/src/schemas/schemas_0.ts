@@ -551,6 +551,7 @@ const _cM = "cpuManufacturers";
 const _cN = "clusterName";
 const _cNo = "containerName";
 const _cO = "containerOverrides";
+const _cOT = "capacityOptionType";
 const _cP = "canaryPercent";
 const _cPA = "capacityProviderArn";
 const _cPN = "capacityProviderName";
@@ -1851,11 +1852,12 @@ export var InstanceLaunchTemplate$: StaticStructureSchema = [
   n0,
   _ILT,
   0,
-  [_eIPA, _nC, _sCto, _mo, _iR],
+  [_eIPA, _nC, _sCto, _mo, _cOT, _iR],
   [
     0,
     () => ManagedInstancesNetworkConfiguration$,
     () => ManagedInstancesStorageConfiguration$,
+    0,
     0,
     [() => InstanceRequirementsRequest$, 0],
   ],
