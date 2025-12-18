@@ -55,6 +55,7 @@ export interface ListRoute53HealthChecksCommandOutput extends ListRoute53HealthC
  * //       hostedZoneId: "STRING_VALUE", // required
  * //       recordName: "STRING_VALUE", // required
  * //       healthCheckId: "STRING_VALUE",
+ * //       status: "healthy" || "unhealthy" || "unknown",
  * //       region: "STRING_VALUE", // required
  * //     },
  * //   ],

@@ -325,6 +325,20 @@ export type ExecutionEventType = (typeof ExecutionEventType)[keyof typeof Execut
  * @public
  * @enum
  */
+export const Route53HealthCheckStatus = {
+  HEALTHY: "healthy",
+  UNHEALTHY: "unhealthy",
+  UNKNOWN: "unknown",
+} as const;
+/**
+ * @public
+ */
+export type Route53HealthCheckStatus = (typeof Route53HealthCheckStatus)[keyof typeof Route53HealthCheckStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const UpdatePlanExecutionAction = {
   PAUSE: "pause",
   RESUME: "resume",

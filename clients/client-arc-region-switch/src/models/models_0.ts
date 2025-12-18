@@ -18,6 +18,7 @@ import {
   RecoveryApproach,
   RegionToRunIn,
   ResourceWarningStatus,
+  Route53HealthCheckStatus,
   RoutingControlStateChange,
   StepStatus,
   UpdatePlanExecutionAction,
@@ -1354,6 +1355,12 @@ export interface Route53HealthCheck {
   healthCheckId?: string | undefined;
 
   /**
+   * <p>The Amazon Route 53 health check status.</p>
+   * @public
+   */
+  status?: Route53HealthCheckStatus | undefined;
+
+  /**
    * <p>The Amazon Route 53 Region.</p>
    * @public
    */
@@ -1364,6 +1371,58 @@ export interface Route53HealthCheck {
  * @public
  */
 export interface ListRoute53HealthChecksResponse {
+  /**
+   * <p>List of the health checks requested.</p>
+   * @public
+   */
+  healthChecks?: Route53HealthCheck[] | undefined;
+
+  /**
+   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRoute53HealthChecksInRegionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Arc Region Switch Plan.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The hosted zone ID for the health checks.</p>
+   * @public
+   */
+  hostedZoneId?: string | undefined;
+
+  /**
+   * <p>The record name for the health checks.</p>
+   * @public
+   */
+  recordName?: string | undefined;
+
+  /**
+   * <p>The number of objects that you want to return with this call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRoute53HealthChecksInRegionResponse {
   /**
    * <p>List of the health checks requested.</p>
    * @public

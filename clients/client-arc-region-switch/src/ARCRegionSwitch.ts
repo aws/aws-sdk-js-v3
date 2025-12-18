@@ -53,6 +53,11 @@ import {
   ListRoute53HealthChecksCommandOutput,
 } from "./commands/ListRoute53HealthChecksCommand";
 import {
+  ListRoute53HealthChecksInRegionCommand,
+  ListRoute53HealthChecksInRegionCommandInput,
+  ListRoute53HealthChecksInRegionCommandOutput,
+} from "./commands/ListRoute53HealthChecksInRegionCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -94,6 +99,7 @@ const commands = {
   ListPlansCommand,
   ListPlansInRegionCommand,
   ListRoute53HealthChecksCommand,
+  ListRoute53HealthChecksInRegionCommand,
   ListTagsForResourceCommand,
   StartPlanExecutionCommand,
   TagResourceCommand,
@@ -298,6 +304,23 @@ export interface ARCRegionSwitch {
     args: ListRoute53HealthChecksCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRoute53HealthChecksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRoute53HealthChecksInRegionCommand}
+   */
+  listRoute53HealthChecksInRegion(
+    args: ListRoute53HealthChecksInRegionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRoute53HealthChecksInRegionCommandOutput>;
+  listRoute53HealthChecksInRegion(
+    args: ListRoute53HealthChecksInRegionCommandInput,
+    cb: (err: any, data?: ListRoute53HealthChecksInRegionCommandOutput) => void
+  ): void;
+  listRoute53HealthChecksInRegion(
+    args: ListRoute53HealthChecksInRegionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRoute53HealthChecksInRegionCommandOutput) => void
   ): void;
 
   /**

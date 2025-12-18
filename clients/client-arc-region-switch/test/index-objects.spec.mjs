@@ -98,6 +98,10 @@ import {
   ListPlansResponse$,
   ListRoute53HealthChecks$,
   ListRoute53HealthChecksCommand,
+  ListRoute53HealthChecksInRegion$,
+  ListRoute53HealthChecksInRegionCommand,
+  ListRoute53HealthChecksInRegionRequest$,
+  ListRoute53HealthChecksInRegionResponse$,
   ListRoute53HealthChecksRequest$,
   ListRoute53HealthChecksResponse$,
   ListTagsForResource$,
@@ -116,6 +120,7 @@ import {
   ResourceWarningStatus,
   Route53HealthCheck$,
   Route53HealthCheckConfiguration$,
+  Route53HealthCheckStatus,
   Route53ResourceRecordSet$,
   RoutingControlStateChange,
   Service$,
@@ -159,6 +164,7 @@ import {
   paginateListPlans,
   paginateListPlansInRegion,
   paginateListRoute53HealthChecks,
+  paginateListRoute53HealthChecksInRegion,
   waitForPlanEvaluationStatusPassed,
   waitForPlanExecutionCompleted,
   waitUntilPlanEvaluationStatusPassed,
@@ -195,6 +201,8 @@ assert(typeof ListPlansInRegionCommand === "function");
 assert(typeof ListPlansInRegion$ === "object");
 assert(typeof ListRoute53HealthChecksCommand === "function");
 assert(typeof ListRoute53HealthChecks$ === "object");
+assert(typeof ListRoute53HealthChecksInRegionCommand === "function");
+assert(typeof ListRoute53HealthChecksInRegion$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof StartPlanExecutionCommand === "function");
@@ -257,6 +265,8 @@ assert(typeof ListPlansInRegionRequest$ === "object");
 assert(typeof ListPlansInRegionResponse$ === "object");
 assert(typeof ListPlansRequest$ === "object");
 assert(typeof ListPlansResponse$ === "object");
+assert(typeof ListRoute53HealthChecksInRegionRequest$ === "object");
+assert(typeof ListRoute53HealthChecksInRegionResponse$ === "object");
 assert(typeof ListRoute53HealthChecksRequest$ === "object");
 assert(typeof ListRoute53HealthChecksResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
@@ -306,6 +316,7 @@ assert(typeof LambdaUngracefulBehavior === "object");
 assert(typeof RecoveryApproach === "object");
 assert(typeof RegionToRunIn === "object");
 assert(typeof ResourceWarningStatus === "object");
+assert(typeof Route53HealthCheckStatus === "object");
 assert(typeof RoutingControlStateChange === "object");
 assert(typeof StepStatus === "object");
 assert(typeof UpdatePlanExecutionAction === "object");
@@ -336,4 +347,5 @@ assert(typeof paginateListPlanExecutions === "function");
 assert(typeof paginateListPlans === "function");
 assert(typeof paginateListPlansInRegion === "function");
 assert(typeof paginateListRoute53HealthChecks === "function");
+assert(typeof paginateListRoute53HealthChecksInRegion === "function");
 console.log(`ARCRegionSwitch index test passed.`);

@@ -70,6 +70,9 @@ const _LPIRRi = "ListPlansInRegionResponse";
 const _LPR = "ListPlansRequest";
 const _LPRi = "ListPlansResponse";
 const _LRHC = "ListRoute53HealthChecks";
+const _LRHCIR = "ListRoute53HealthChecksInRegion";
+const _LRHCIRR = "ListRoute53HealthChecksInRegionRequest";
+const _LRHCIRRi = "ListRoute53HealthChecksInRegionResponse";
 const _LRHCR = "ListRoute53HealthChecksRequest";
 const _LRHCRi = "ListRoute53HealthChecksResponse";
 const _LTFR = "ListTagsForResource";
@@ -439,6 +442,22 @@ export var ListPlansInRegionRequest$: StaticStructureSchema = [3, n0, _LPIRR, 0,
 export var ListPlansInRegionResponse$: StaticStructureSchema = [3, n0, _LPIRRi, 0, [_pl, _nT], [() => PlanList, 0]];
 export var ListPlansRequest$: StaticStructureSchema = [3, n0, _LPR, 0, [_mR, _nT], [1, 0]];
 export var ListPlansResponse$: StaticStructureSchema = [3, n0, _LPRi, 0, [_pl, _nT], [() => PlanList, 0]];
+export var ListRoute53HealthChecksInRegionRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _LRHCIRR,
+  0,
+  [_a, _hZI, _rN, _mR, _nT],
+  [0, 0, 0, 1, 0],
+];
+export var ListRoute53HealthChecksInRegionResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _LRHCIRRi,
+  0,
+  [_hC, _nT],
+  [() => Route53HealthCheckList, 0],
+];
 export var ListRoute53HealthChecksRequest$: StaticStructureSchema = [
   3,
   n0,
@@ -478,7 +497,14 @@ export var ResourceWarning$: StaticStructureSchema = [
   [_wo, _v, _sN, _rAe, _wS, _wUT, _wM],
   [() => MinimalWorkflow$, 0, 0, 0, 0, 4, 0],
 ];
-export var Route53HealthCheck$: StaticStructureSchema = [3, n0, _RHC, 0, [_hZI, _rN, _hCI, _reg], [0, 0, 0, 0]];
+export var Route53HealthCheck$: StaticStructureSchema = [
+  3,
+  n0,
+  _RHC,
+  0,
+  [_hZI, _rN, _hCI, _sta, _reg],
+  [0, 0, 0, 0, 0],
+];
 export var Route53HealthCheckConfiguration$: StaticStructureSchema = [
   3,
   n0,
@@ -677,6 +703,14 @@ export var ListRoute53HealthChecks$: StaticOperationSchema = [
   0,
   () => ListRoute53HealthChecksRequest$,
   () => ListRoute53HealthChecksResponse$,
+];
+export var ListRoute53HealthChecksInRegion$: StaticOperationSchema = [
+  9,
+  n0,
+  _LRHCIR,
+  0,
+  () => ListRoute53HealthChecksInRegionRequest$,
+  () => ListRoute53HealthChecksInRegionResponse$,
 ];
 export var ListTagsForResource$: StaticOperationSchema = [
   9,

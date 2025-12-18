@@ -309,6 +309,14 @@ ListRoute53HealthChecks
 </details>
 <details>
 <summary>
+ListRoute53HealthChecksInRegion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/arc-region-switch/command/ListRoute53HealthChecksInRegionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-region-switch/Interface/ListRoute53HealthChecksInRegionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-region-switch/Interface/ListRoute53HealthChecksInRegionCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 
