@@ -176,6 +176,9 @@ import {
   DomainDeliverabilityCampaign$,
   DomainDeliverabilityTrackingOption$,
   DomainIspPlacement$,
+  EmailAddressInsightsConfidenceVerdict,
+  EmailAddressInsightsMailboxEvaluations$,
+  EmailAddressInsightsVerdict$,
   EmailContent$,
   EmailInsights$,
   EmailTemplateContent$,
@@ -250,6 +253,10 @@ import {
   GetDomainStatisticsReportCommand,
   GetDomainStatisticsReportRequest$,
   GetDomainStatisticsReportResponse$,
+  GetEmailAddressInsights$,
+  GetEmailAddressInsightsCommand,
+  GetEmailAddressInsightsRequest$,
+  GetEmailAddressInsightsResponse$,
   GetEmailIdentity$,
   GetEmailIdentityCommand,
   GetEmailIdentityPolicies$,
@@ -395,6 +402,7 @@ import {
   MailFromDomainNotVerifiedException$,
   MailFromDomainStatus,
   MailType,
+  MailboxValidation$,
   Message$,
   MessageHeader$,
   MessageInsightsDataSource$,
@@ -551,10 +559,15 @@ import {
   SuppressedDestinationAttributes$,
   SuppressedDestinationSummary$,
   SuppressionAttributes$,
+  SuppressionConditionThreshold$,
+  SuppressionConfidenceThreshold$,
+  SuppressionConfidenceVerdictThreshold,
   SuppressionListDestination$,
   SuppressionListImportAction,
   SuppressionListReason,
   SuppressionOptions$,
+  SuppressionValidationAttributes$,
+  SuppressionValidationOptions$,
   Tag$,
   TagResource$,
   TagResourceCommand,
@@ -731,6 +744,8 @@ assert(typeof GetDomainDeliverabilityCampaignCommand === "function");
 assert(typeof GetDomainDeliverabilityCampaign$ === "object");
 assert(typeof GetDomainStatisticsReportCommand === "function");
 assert(typeof GetDomainStatisticsReport$ === "object");
+assert(typeof GetEmailAddressInsightsCommand === "function");
+assert(typeof GetEmailAddressInsights$ === "object");
 assert(typeof GetEmailIdentityCommand === "function");
 assert(typeof GetEmailIdentity$ === "object");
 assert(typeof GetEmailIdentityPoliciesCommand === "function");
@@ -954,6 +969,8 @@ assert(typeof DkimSigningAttributes$ === "object");
 assert(typeof DomainDeliverabilityCampaign$ === "object");
 assert(typeof DomainDeliverabilityTrackingOption$ === "object");
 assert(typeof DomainIspPlacement$ === "object");
+assert(typeof EmailAddressInsightsMailboxEvaluations$ === "object");
+assert(typeof EmailAddressInsightsVerdict$ === "object");
 assert(typeof EmailContent$ === "object");
 assert(typeof EmailInsights$ === "object");
 assert(typeof EmailTemplateContent$ === "object");
@@ -996,6 +1013,8 @@ assert(typeof GetDomainDeliverabilityCampaignRequest$ === "object");
 assert(typeof GetDomainDeliverabilityCampaignResponse$ === "object");
 assert(typeof GetDomainStatisticsReportRequest$ === "object");
 assert(typeof GetDomainStatisticsReportResponse$ === "object");
+assert(typeof GetEmailAddressInsightsRequest$ === "object");
+assert(typeof GetEmailAddressInsightsResponse$ === "object");
 assert(typeof GetEmailIdentityPoliciesRequest$ === "object");
 assert(typeof GetEmailIdentityPoliciesResponse$ === "object");
 assert(typeof GetEmailIdentityRequest$ === "object");
@@ -1066,6 +1085,7 @@ assert(typeof ListTenantResourcesRequest$ === "object");
 assert(typeof ListTenantResourcesResponse$ === "object");
 assert(typeof ListTenantsRequest$ === "object");
 assert(typeof ListTenantsResponse$ === "object");
+assert(typeof MailboxValidation$ === "object");
 assert(typeof MailFromAttributes$ === "object");
 assert(typeof Message$ === "object");
 assert(typeof MessageHeader$ === "object");
@@ -1148,8 +1168,12 @@ assert(typeof SuppressedDestination$ === "object");
 assert(typeof SuppressedDestinationAttributes$ === "object");
 assert(typeof SuppressedDestinationSummary$ === "object");
 assert(typeof SuppressionAttributes$ === "object");
+assert(typeof SuppressionConditionThreshold$ === "object");
+assert(typeof SuppressionConfidenceThreshold$ === "object");
 assert(typeof SuppressionListDestination$ === "object");
 assert(typeof SuppressionOptions$ === "object");
+assert(typeof SuppressionValidationAttributes$ === "object");
+assert(typeof SuppressionValidationOptions$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
@@ -1201,6 +1225,7 @@ assert(typeof DimensionValueSource === "object");
 assert(typeof DkimSigningAttributesOrigin === "object");
 assert(typeof DkimSigningKeyLength === "object");
 assert(typeof DkimStatus === "object");
+assert(typeof EmailAddressInsightsConfidenceVerdict === "object");
 assert(typeof EngagementEventType === "object");
 assert(typeof EventType === "object");
 assert(typeof ExportSourceType === "object");
@@ -1229,6 +1254,7 @@ assert(typeof ScalingMode === "object");
 assert(typeof SendingStatus === "object");
 assert(typeof Status === "object");
 assert(typeof SubscriptionStatus === "object");
+assert(typeof SuppressionConfidenceVerdictThreshold === "object");
 assert(typeof SuppressionListImportAction === "object");
 assert(typeof SuppressionListReason === "object");
 assert(typeof TlsPolicy === "object");

@@ -215,6 +215,11 @@ import {
   GetDomainStatisticsReportCommandOutput,
 } from "./commands/GetDomainStatisticsReportCommand";
 import {
+  GetEmailAddressInsightsCommand,
+  GetEmailAddressInsightsCommandInput,
+  GetEmailAddressInsightsCommandOutput,
+} from "./commands/GetEmailAddressInsightsCommand";
+import {
   GetEmailIdentityCommand,
   GetEmailIdentityCommandInput,
   GetEmailIdentityCommandOutput,
@@ -570,6 +575,7 @@ const commands = {
   GetDeliverabilityTestReportCommand,
   GetDomainDeliverabilityCampaignCommand,
   GetDomainStatisticsReportCommand,
+  GetEmailAddressInsightsCommand,
   GetEmailIdentityCommand,
   GetEmailIdentityPoliciesCommand,
   GetEmailTemplateCommand,
@@ -1333,6 +1339,23 @@ export interface SESv2 {
     args: GetDomainStatisticsReportCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDomainStatisticsReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEmailAddressInsightsCommand}
+   */
+  getEmailAddressInsights(
+    args: GetEmailAddressInsightsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEmailAddressInsightsCommandOutput>;
+  getEmailAddressInsights(
+    args: GetEmailAddressInsightsCommandInput,
+    cb: (err: any, data?: GetEmailAddressInsightsCommandOutput) => void
+  ): void;
+  getEmailAddressInsights(
+    args: GetEmailAddressInsightsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEmailAddressInsightsCommandOutput) => void
   ): void;
 
   /**

@@ -54,6 +54,14 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * //     SuppressedReasons: [ // SuppressionListReasons
  * //       "BOUNCE" || "COMPLAINT",
  * //     ],
+ * //     ValidationAttributes: { // SuppressionValidationAttributes
+ * //       ConditionThreshold: { // SuppressionConditionThreshold
+ * //         ConditionThresholdEnabled: "ENABLED" || "DISABLED", // required
+ * //         OverallConfidenceThreshold: { // SuppressionConfidenceThreshold
+ * //           ConfidenceVerdictThreshold: "MEDIUM" || "HIGH" || "MANAGED", // required
+ * //         },
+ * //       },
+ * //     },
  * //   },
  * //   Details: { // AccountDetails
  * //     MailType: "MARKETING" || "TRANSACTIONAL",

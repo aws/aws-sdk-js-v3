@@ -47,6 +47,14 @@ export interface PutConfigurationSetSuppressionOptionsCommandOutput
  *   SuppressedReasons: [ // SuppressionListReasons
  *     "BOUNCE" || "COMPLAINT",
  *   ],
+ *   ValidationOptions: { // SuppressionValidationOptions
+ *     ConditionThreshold: { // SuppressionConditionThreshold
+ *       ConditionThresholdEnabled: "ENABLED" || "DISABLED", // required
+ *       OverallConfidenceThreshold: { // SuppressionConfidenceThreshold
+ *         ConfidenceVerdictThreshold: "MEDIUM" || "HIGH" || "MANAGED", // required
+ *       },
+ *     },
+ *   },
  * };
  * const command = new PutConfigurationSetSuppressionOptionsCommand(input);
  * const response = await client.send(command);

@@ -76,6 +76,14 @@ export interface GetConfigurationSetCommandOutput extends GetConfigurationSetRes
  * //     SuppressedReasons: [ // SuppressionListReasons
  * //       "BOUNCE" || "COMPLAINT",
  * //     ],
+ * //     ValidationOptions: { // SuppressionValidationOptions
+ * //       ConditionThreshold: { // SuppressionConditionThreshold
+ * //         ConditionThresholdEnabled: "ENABLED" || "DISABLED", // required
+ * //         OverallConfidenceThreshold: { // SuppressionConfidenceThreshold
+ * //           ConfidenceVerdictThreshold: "MEDIUM" || "HIGH" || "MANAGED", // required
+ * //         },
+ * //       },
+ * //     },
  * //   },
  * //   VdmOptions: { // VdmOptions
  * //     DashboardOptions: { // DashboardOptions

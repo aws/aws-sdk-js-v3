@@ -45,6 +45,14 @@ export interface PutAccountSuppressionAttributesCommandOutput
  *   SuppressedReasons: [ // SuppressionListReasons
  *     "BOUNCE" || "COMPLAINT",
  *   ],
+ *   ValidationAttributes: { // SuppressionValidationAttributes
+ *     ConditionThreshold: { // SuppressionConditionThreshold
+ *       ConditionThresholdEnabled: "ENABLED" || "DISABLED", // required
+ *       OverallConfidenceThreshold: { // SuppressionConfidenceThreshold
+ *         ConfidenceVerdictThreshold: "MEDIUM" || "HIGH" || "MANAGED", // required
+ *       },
+ *     },
+ *   },
  * };
  * const command = new PutAccountSuppressionAttributesCommand(input);
  * const response = await client.send(command);

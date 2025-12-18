@@ -51,6 +51,12 @@ export interface CreateCustomVerificationEmailTemplateCommandOutput
  *   FromEmailAddress: "STRING_VALUE", // required
  *   TemplateSubject: "STRING_VALUE", // required
  *   TemplateContent: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  *   SuccessRedirectionURL: "STRING_VALUE", // required
  *   FailureRedirectionURL: "STRING_VALUE", // required
  * };

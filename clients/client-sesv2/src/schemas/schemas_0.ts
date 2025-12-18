@@ -108,17 +108,21 @@ const _CSN = "ConfigurationSetName";
 const _CST = "ComplaintSubType";
 const _CT = "ContentType";
 const _CTE = "ContentTransferEncoding";
+const _CTEo = "ConditionThresholdEnabled";
 const _CTR = "CreateTenantRequest";
 const _CTRA = "CreateTenantResourceAssociation";
 const _CTRAR = "CreateTenantResourceAssociationRequest";
 const _CTRARr = "CreateTenantResourceAssociationResponse";
 const _CTRr = "CreateTenantResponse";
 const _CTo = "CompletedTimestamp";
+const _CTon = "ConditionThreshold";
 const _CTr = "CreatedTimestamp";
 const _CTre = "CreateTenant";
+const _CV = "ConfidenceVerdict";
 const _CVET = "CustomVerificationEmailTemplates";
 const _CVETL = "CustomVerificationEmailTemplatesList";
 const _CVETM = "CustomVerificationEmailTemplateMetadata";
+const _CVT = "ConfidenceVerdictThreshold";
 const _CWD = "CloudWatchDestination";
 const _CWDC = "CloudWatchDimensionConfiguration";
 const _CWDCl = "CloudWatchDimensionConfigurations";
@@ -219,6 +223,8 @@ const _Do = "Domain";
 const _E = "Errors";
 const _EA = "EmailAddress";
 const _EAFL = "EmailAddressFilterList";
+const _EAIME = "EmailAddressInsightsMailboxEvaluations";
+const _EAIV = "EmailAddressInsightsVerdict";
 const _EBA = "EventBusArn";
 const _EBD = "EventBridgeDestination";
 const _EC = "EmailContent";
@@ -260,6 +266,7 @@ const _En = "Enabled";
 const _Er = "Error";
 const _Es = "Esps";
 const _Ev = "Events";
+const _Eva = "Evaluations";
 const _Ex = "Exclude";
 const _F = "Filter";
 const _FA = "FromAddress";
@@ -320,6 +327,9 @@ const _GDSRRe = "GetDomainStatisticsReportResponse";
 const _GDTR = "GetDeliverabilityTestReport";
 const _GDTRR = "GetDeliverabilityTestReportRequest";
 const _GDTRRe = "GetDeliverabilityTestReportResponse";
+const _GEAI = "GetEmailAddressInsights";
+const _GEAIR = "GetEmailAddressInsightsRequest";
+const _GEAIRe = "GetEmailAddressInsightsResponse";
 const _GEI = "GetEmailIdentity";
 const _GEIP = "GetEmailIdentityPolicies";
 const _GEIPR = "GetEmailIdentityPoliciesRequest";
@@ -353,12 +363,15 @@ const _GTR = "GetTenantRequest";
 const _GTRe = "GetTenantResponse";
 const _H = "Html";
 const _HP = "HttpsPolicy";
+const _HVDR = "HasValidDnsRecords";
+const _HVS = "HasValidSyntax";
 const _He = "Headers";
 const _I = "Id";
 const _IC = "InboxCount";
 const _ID = "ImportDestination";
 const _IDS = "ImportDataSource";
 const _IDT = "ImportDestinationType";
+const _IDs = "IsDisposable";
 const _IE = "InsightsEvent";
 const _IEA = "InsightsEmailAddress";
 const _IEn = "InsightsEvents";
@@ -374,11 +387,14 @@ const _IP = "InboxPercentage";
 const _IPTO = "InboxPlacementTrackingOption";
 const _IPs = "IspPlacements";
 const _IPsp = "IspPlacement";
-const _IRA = "IamRoleArn";
+const _IRA = "IsRoleAddress";
+const _IRAa = "IamRoleArn";
 const _IRC = "InboxRawCount";
+const _IRI = "IsRandomInput";
 const _ISEE = "InternalServiceErrorException";
 const _IT = "IdentityType";
 const _IU = "ImageUrl";
+const _IV = "IsValid";
 const _Im = "Impact";
 const _In = "Insights";
 const _Inc = "Include";
@@ -467,6 +483,7 @@ const _MDR = "MetricDataResult";
 const _MDRL = "MetricDataResultList";
 const _MDS = "MaxDeliverySeconds";
 const _MDSe = "MetricsDataSource";
+const _ME = "MailboxExists";
 const _MET = "MatchingEventTypes";
 const _MFA = "MailFromAttributes";
 const _MFD = "MailFromDomain";
@@ -487,6 +504,7 @@ const _MSR = "MaxSendRate";
 const _MT = "MailType";
 const _MTL = "MessageTagList";
 const _MTe = "MessageTag";
+const _MV = "MailboxValidation";
 const _Me = "Message";
 const _Met = "Metrics";
 const _N = "Namespace";
@@ -494,6 +512,7 @@ const _NFE = "NotFoundException";
 const _NSKL = "NextSigningKeyLength";
 const _NT = "NextToken";
 const _Na = "Name";
+const _OCT = "OverallConfidenceThreshold";
 const _OP = "OverallPlacement";
 const _OSD = "OptimizedSharedDelivery";
 const _OV = "OverallVolume";
@@ -631,6 +650,8 @@ const _SBE = "SendBulkEmail";
 const _SBER = "SendBulkEmailRequest";
 const _SBERe = "SendBulkEmailResponse";
 const _SC = "SpamCount";
+const _SCT = "SuppressionConditionThreshold";
+const _SCTu = "SuppressionConfidenceThreshold";
 const _SCVE = "SendCustomVerificationEmail";
 const _SCVER = "SendCustomVerificationEmailRequest";
 const _SCVERe = "SendCustomVerificationEmailResponse";
@@ -672,6 +693,8 @@ const _SSA = "SendingStatusAggregate";
 const _SSD = "SubscriptionStartDate";
 const _SSu = "SubscriptionStatus";
 const _SU = "S3Url";
+const _SVA = "SuppressionValidationAttributes";
+const _SVO = "SuppressionValidationOptions";
 const _Si = "Simple";
 const _St = "Statistics";
 const _Su = "Subject";
@@ -753,10 +776,12 @@ const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
 const _V = "Value";
 const _VA = "VdmAttributes";
+const _VAa = "ValidationAttributes";
 const _VE = "VdmEnabled";
 const _VFSS = "VerifiedForSendingStatus";
 const _VI = "VerificationInfo";
 const _VO = "VdmOptions";
+const _VOa = "ValidationOptions";
 const _VS = "VolumeStatistics";
 const _VSe = "VerificationStatus";
 const _Va = "Values";
@@ -953,8 +978,8 @@ export var CreateCustomVerificationEmailTemplateRequest$: StaticStructureSchema 
   n0,
   _CCVETR,
   0,
-  [_TN, _FEA, _TS, _TC, _SRURL, _FRURL],
-  [0, 0, 0, 0, 0, 0],
+  [_TN, _FEA, _TS, _TC, _Ta, _SRURL, _FRURL],
+  [0, 0, 0, 0, () => TagList, 0, 0],
 ];
 export var CreateCustomVerificationEmailTemplateResponse$: StaticStructureSchema = [3, n0, _CCVETRr, 0, [], []];
 export var CreateDedicatedIpPoolRequest$: StaticStructureSchema = [
@@ -1005,8 +1030,8 @@ export var CreateEmailTemplateRequest$: StaticStructureSchema = [
   n0,
   _CETR,
   0,
-  [_TN, _TC],
-  [0, () => EmailTemplateContent$],
+  [_TN, _TC, _Ta],
+  [0, () => EmailTemplateContent$, () => TagList],
 ];
 export var CreateEmailTemplateResponse$: StaticStructureSchema = [3, n0, _CETRr, 0, [], []];
 export var CreateExportJobRequest$: StaticStructureSchema = [
@@ -1167,6 +1192,22 @@ export var DomainDeliverabilityTrackingOption$: StaticStructureSchema = [
   [0, 4, () => InboxPlacementTrackingOption$],
 ];
 export var DomainIspPlacement$: StaticStructureSchema = [3, n0, _DIPo, 0, [_IN, _IRC, _SRC, _IP, _SP], [0, 1, 1, 1, 1]];
+export var EmailAddressInsightsMailboxEvaluations$: StaticStructureSchema = [
+  3,
+  n0,
+  _EAIME,
+  0,
+  [_HVS, _HVDR, _ME, _IRA, _IDs, _IRI],
+  [
+    () => EmailAddressInsightsVerdict$,
+    () => EmailAddressInsightsVerdict$,
+    () => EmailAddressInsightsVerdict$,
+    () => EmailAddressInsightsVerdict$,
+    () => EmailAddressInsightsVerdict$,
+    () => EmailAddressInsightsVerdict$,
+  ],
+];
+export var EmailAddressInsightsVerdict$: StaticStructureSchema = [3, n0, _EAIV, 0, [_CV], [0]];
 export var EmailContent$: StaticStructureSchema = [
   3,
   n0,
@@ -1306,8 +1347,8 @@ export var GetCustomVerificationEmailTemplateResponse$: StaticStructureSchema = 
   n0,
   _GCVETRe,
   0,
-  [_TN, _FEA, _TS, _TC, _SRURL, _FRURL],
-  [0, 0, 0, 0, 0, 0],
+  [_TN, _FEA, _TS, _TC, _Ta, _SRURL, _FRURL],
+  [0, 0, 0, 0, () => TagList, 0, 0],
 ];
 export var GetDedicatedIpPoolRequest$: StaticStructureSchema = [3, n0, _GDIPR, 0, [_PN], [[0, 1]]];
 export var GetDedicatedIpPoolResponse$: StaticStructureSchema = [3, n0, _GDIPRe, 0, [_DIPe], [() => DedicatedIpPool$]];
@@ -1380,6 +1421,15 @@ export var GetDomainStatisticsReportResponse$: StaticStructureSchema = [
   [_OV, _DVa],
   [() => OverallVolume$, () => DailyVolumes],
 ];
+export var GetEmailAddressInsightsRequest$: StaticStructureSchema = [3, n0, _GEAIR, 0, [_EA], [0]];
+export var GetEmailAddressInsightsResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _GEAIRe,
+  0,
+  [_MV],
+  [() => MailboxValidation$],
+];
 export var GetEmailIdentityPoliciesRequest$: StaticStructureSchema = [3, n0, _GEIPR, 0, [_EI], [[0, 1]]];
 export var GetEmailIdentityPoliciesResponse$: StaticStructureSchema = [3, n0, _GEIPRe, 0, [_Po], [128 | 0]];
 export var GetEmailIdentityRequest$: StaticStructureSchema = [3, n0, _GEIR, 0, [_EI], [[0, 1]]];
@@ -1397,8 +1447,8 @@ export var GetEmailTemplateResponse$: StaticStructureSchema = [
   n0,
   _GETRe,
   0,
-  [_TN, _TC],
-  [0, () => EmailTemplateContent$],
+  [_TN, _TC, _Ta],
+  [0, () => EmailTemplateContent$, () => TagList],
 ];
 export var GetExportJobRequest$: StaticStructureSchema = [3, n0, _GEJR, 0, [_JI], [[0, 1]]];
 export var GetExportJobResponse$: StaticStructureSchema = [
@@ -1486,7 +1536,7 @@ TypeRegistry.for(n0).registerError(InternalServiceErrorException$, InternalServi
 export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
 export var IspPlacement$: StaticStructureSchema = [3, n0, _IPsp, 0, [_IN, _PSl], [0, () => PlacementStatistics$]];
-export var KinesisFirehoseDestination$: StaticStructureSchema = [3, n0, _KFD, 0, [_IRA, _DSAe], [0, 0]];
+export var KinesisFirehoseDestination$: StaticStructureSchema = [3, n0, _KFD, 0, [_IRAa, _DSAe], [0, 0]];
 export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListConfigurationSetsRequest$: StaticStructureSchema = [
@@ -1747,6 +1797,14 @@ export var ListTenantResourcesResponse$: StaticStructureSchema = [
 ];
 export var ListTenantsRequest$: StaticStructureSchema = [3, n0, _LTR, 0, [_NT, _PS], [0, 1]];
 export var ListTenantsResponse$: StaticStructureSchema = [3, n0, _LTRi, 0, [_Tena, _NT], [() => TenantInfoList, 0]];
+export var MailboxValidation$: StaticStructureSchema = [
+  3,
+  n0,
+  _MV,
+  0,
+  [_IV, _Eva],
+  [() => EmailAddressInsightsVerdict$, () => EmailAddressInsightsMailboxEvaluations$],
+];
 export var MailFromAttributes$: StaticStructureSchema = [3, n0, _MFA, 0, [_MFD, _MFDS, _BOMF], [0, 0, 0]];
 export var MailFromDomainNotVerifiedException$: StaticErrorSchema = [
   -3,
@@ -1835,7 +1893,14 @@ export var PutAccountDetailsRequest$: StaticStructureSchema = [
 export var PutAccountDetailsResponse$: StaticStructureSchema = [3, n0, _PADRu, 0, [], []];
 export var PutAccountSendingAttributesRequest$: StaticStructureSchema = [3, n0, _PASAR, 0, [_SEe], [2]];
 export var PutAccountSendingAttributesResponse$: StaticStructureSchema = [3, n0, _PASARu, 0, [], []];
-export var PutAccountSuppressionAttributesRequest$: StaticStructureSchema = [3, n0, _PASARut, 0, [_SR], [64 | 0]];
+export var PutAccountSuppressionAttributesRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _PASARut,
+  0,
+  [_SR, _VAa],
+  [64 | 0, () => SuppressionValidationAttributes$],
+];
 export var PutAccountSuppressionAttributesResponse$: StaticStructureSchema = [3, n0, _PASARutc, 0, [], []];
 export var PutAccountVdmAttributesRequest$: StaticStructureSchema = [3, n0, _PAVAR, 0, [_VA], [() => VdmAttributes$]];
 export var PutAccountVdmAttributesResponse$: StaticStructureSchema = [3, n0, _PAVARu, 0, [], []];
@@ -1880,8 +1945,8 @@ export var PutConfigurationSetSuppressionOptionsRequest$: StaticStructureSchema 
   n0,
   _PCSSORut,
   0,
-  [_CSN, _SR],
-  [[0, 1], 64 | 0],
+  [_CSN, _SR, _VOa],
+  [[0, 1], 64 | 0, () => SuppressionValidationOptions$],
 ];
 export var PutConfigurationSetSuppressionOptionsResponse$: StaticStructureSchema = [3, n0, _PCSSORuto, 0, [], []];
 export var PutConfigurationSetTrackingOptionsRequest$: StaticStructureSchema = [
@@ -2052,9 +2117,48 @@ export var SuppressedDestination$: StaticStructureSchema = [
 ];
 export var SuppressedDestinationAttributes$: StaticStructureSchema = [3, n0, _SDA, 0, [_MI, _FIe], [0, 0]];
 export var SuppressedDestinationSummary$: StaticStructureSchema = [3, n0, _SDSu, 0, [_EA, _Reas, _LUTa], [0, 0, 4]];
-export var SuppressionAttributes$: StaticStructureSchema = [3, n0, _SA, 0, [_SR], [64 | 0]];
+export var SuppressionAttributes$: StaticStructureSchema = [
+  3,
+  n0,
+  _SA,
+  0,
+  [_SR, _VAa],
+  [64 | 0, () => SuppressionValidationAttributes$],
+];
+export var SuppressionConditionThreshold$: StaticStructureSchema = [
+  3,
+  n0,
+  _SCT,
+  0,
+  [_CTEo, _OCT],
+  [0, () => SuppressionConfidenceThreshold$],
+];
+export var SuppressionConfidenceThreshold$: StaticStructureSchema = [3, n0, _SCTu, 0, [_CVT], [0]];
 export var SuppressionListDestination$: StaticStructureSchema = [3, n0, _SLD, 0, [_SLIA], [0]];
-export var SuppressionOptions$: StaticStructureSchema = [3, n0, _SOu, 0, [_SR], [64 | 0]];
+export var SuppressionOptions$: StaticStructureSchema = [
+  3,
+  n0,
+  _SOu,
+  0,
+  [_SR, _VOa],
+  [64 | 0, () => SuppressionValidationOptions$],
+];
+export var SuppressionValidationAttributes$: StaticStructureSchema = [
+  3,
+  n0,
+  _SVA,
+  0,
+  [_CTon],
+  [() => SuppressionConditionThreshold$],
+];
+export var SuppressionValidationOptions$: StaticStructureSchema = [
+  3,
+  n0,
+  _SVO,
+  0,
+  [_CTon],
+  [() => SuppressionConditionThreshold$],
+];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RA, _Ta], [0, () => TagList]];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
@@ -2632,6 +2736,14 @@ export var GetDomainStatisticsReport$: StaticOperationSchema = [
   { [_h]: ["GET", "/v2/email/deliverability-dashboard/statistics-report/{Domain}", 200] },
   () => GetDomainStatisticsReportRequest$,
   () => GetDomainStatisticsReportResponse$,
+];
+export var GetEmailAddressInsights$: StaticOperationSchema = [
+  9,
+  n0,
+  _GEAI,
+  { [_h]: ["POST", "/v2/email/email-address-insights", 200] },
+  () => GetEmailAddressInsightsRequest$,
+  () => GetEmailAddressInsightsResponse$,
 ];
 export var GetEmailIdentity$: StaticOperationSchema = [
   9,

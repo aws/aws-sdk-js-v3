@@ -43,6 +43,7 @@ export * from "./GetDeliverabilityDashboardOptionsCommand";
 export * from "./GetDeliverabilityTestReportCommand";
 export * from "./GetDomainDeliverabilityCampaignCommand";
 export * from "./GetDomainStatisticsReportCommand";
+export * from "./GetEmailAddressInsightsCommand";
 export * from "./GetEmailIdentityCommand";
 export * from "./GetEmailIdentityPoliciesCommand";
 export * from "./GetEmailTemplateCommand";

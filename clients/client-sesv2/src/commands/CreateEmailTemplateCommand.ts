@@ -46,6 +46,12 @@ export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateRes
  *     Text: "STRING_VALUE",
  *     Html: "STRING_VALUE",
  *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new CreateEmailTemplateCommand(input);
  * const response = await client.send(command);

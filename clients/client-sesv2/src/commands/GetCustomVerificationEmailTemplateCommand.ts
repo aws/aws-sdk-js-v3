@@ -56,6 +56,12 @@ export interface GetCustomVerificationEmailTemplateCommandOutput
  * //   FromEmailAddress: "STRING_VALUE",
  * //   TemplateSubject: "STRING_VALUE",
  * //   TemplateContent: "STRING_VALUE",
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * //   SuccessRedirectionURL: "STRING_VALUE",
  * //   FailureRedirectionURL: "STRING_VALUE",
  * // };

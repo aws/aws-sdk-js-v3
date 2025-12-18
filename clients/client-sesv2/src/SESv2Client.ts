@@ -191,6 +191,10 @@ import {
   GetDomainStatisticsReportCommandInput,
   GetDomainStatisticsReportCommandOutput,
 } from "./commands/GetDomainStatisticsReportCommand";
+import {
+  GetEmailAddressInsightsCommandInput,
+  GetEmailAddressInsightsCommandOutput,
+} from "./commands/GetEmailAddressInsightsCommand";
 import { GetEmailIdentityCommandInput, GetEmailIdentityCommandOutput } from "./commands/GetEmailIdentityCommand";
 import {
   GetEmailIdentityPoliciesCommandInput,
@@ -453,6 +457,7 @@ export type ServiceInputTypes =
   | GetDeliverabilityTestReportCommandInput
   | GetDomainDeliverabilityCampaignCommandInput
   | GetDomainStatisticsReportCommandInput
+  | GetEmailAddressInsightsCommandInput
   | GetEmailIdentityCommandInput
   | GetEmailIdentityPoliciesCommandInput
   | GetEmailTemplateCommandInput
@@ -567,6 +572,7 @@ export type ServiceOutputTypes =
   | GetDeliverabilityTestReportCommandOutput
   | GetDomainDeliverabilityCampaignCommandOutput
   | GetDomainStatisticsReportCommandOutput
+  | GetEmailAddressInsightsCommandOutput
   | GetEmailIdentityCommandOutput
   | GetEmailIdentityPoliciesCommandOutput
   | GetEmailTemplateCommandOutput
