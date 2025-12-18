@@ -13,8 +13,10 @@ import {
   AnalysisTemplateValidationType,
   AnalysisType,
   AnalyticsEngine,
+  ApprovalStatus,
   AutoApprovedChangeType,
   AutoRefreshMode,
+  ChangeRequestAction,
   ChangeRequestStatus,
   ChangeSpecificationType,
   ChangeType,
@@ -1811,6 +1813,18 @@ export interface UpdateAnalysisTemplateOutput {
 }
 
 /**
+ * <p>Contains detailed information about the approval state of a given member in the collaboration for a given collaboration change request.</p>
+ * @public
+ */
+export interface ApprovalStatusDetails {
+  /**
+   * <p>The approval status of a member's vote on the change request. Valid values are PENDING (if they haven't voted), APPROVED, or DENIED.</p>
+   * @public
+   */
+  status: ApprovalStatus | undefined;
+}
+
+/**
  * <p> A reference to a table within Athena.</p>
  * @public
  */
@@ -2788,6 +2802,18 @@ export interface CreateCollaborationOutput {
 }
 
 /**
+ * <p>Defines the specific changes being requested for a collaboration, including configuration modifications and approval requirements.</p>
+ * @public
+ */
+export interface CollaborationChangeSpecification {
+  /**
+   * <p>Defines requested updates to properties of the collaboration. Currently, this only supports modifying which change types are auto-approved for the collaboration.</p>
+   * @public
+   */
+  autoApprovedChangeTypes?: AutoApprovedChangeType[] | undefined;
+}
+
+/**
  * <p>Specifies changes to collaboration membership, including adding new members with their abilities and display names.</p>
  * @public
  */
@@ -2815,7 +2841,10 @@ export interface MemberChangeSpecification {
  * <p>A union that contains the specification details for different types of changes.</p>
  * @public
  */
-export type ChangeSpecification = ChangeSpecification.MemberMember | ChangeSpecification.$UnknownMember;
+export type ChangeSpecification =
+  | ChangeSpecification.CollaborationMember
+  | ChangeSpecification.MemberMember
+  | ChangeSpecification.$UnknownMember;
 
 /**
  * @public
@@ -2827,6 +2856,17 @@ export namespace ChangeSpecification {
    */
   export interface MemberMember {
     member: MemberChangeSpecification;
+    collaboration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The collaboration configuration changes being requested. Currently, this only supports modifying which change types are auto-approved for the collaboration.</p>
+   * @public
+   */
+  export interface CollaborationMember {
+    member?: never;
+    collaboration: CollaborationChangeSpecification;
     $unknown?: never;
   }
 
@@ -2835,6 +2875,7 @@ export namespace ChangeSpecification {
    */
   export interface $UnknownMember {
     member?: never;
+    collaboration?: never;
     $unknown: [string, any];
   }
 
@@ -2844,6 +2885,7 @@ export namespace ChangeSpecification {
    */
   export interface Visitor<T> {
     member: (value: MemberChangeSpecification) => T;
+    collaboration: (value: CollaborationChangeSpecification) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2953,6 +2995,12 @@ export interface CollaborationChangeRequest {
    * @public
    */
   changes: Change[] | undefined;
+
+  /**
+   * <p>A list of approval details from collaboration members, including approval status and multi-party approval workflow information.</p>
+   * @public
+   */
+  approvals?: Record<string, ApprovalStatusDetails> | undefined;
 }
 
 /**
@@ -3738,6 +3786,12 @@ export interface CollaborationChangeRequestSummary {
    * @public
    */
   changes: Change[] | undefined;
+
+  /**
+   * <p>Summary of approval statuses from all collaboration members for this change request.</p>
+   * @public
+   */
+  approvals?: Record<string, ApprovalStatusDetails> | undefined;
 }
 
 /**
@@ -4664,6 +4718,40 @@ export interface UpdateCollaborationOutput {
    * @public
    */
   collaboration: Collaboration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCollaborationChangeRequestInput {
+  /**
+   * <p>The unique identifier of the collaboration that contains the change request to be updated.</p>
+   * @public
+   */
+  collaborationIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the specific change request to be updated within the collaboration.</p>
+   * @public
+   */
+  changeRequestIdentifier: string | undefined;
+
+  /**
+   * <p>The action to perform on the change request. Valid values include APPROVE (approve the change), DENY (reject the change), CANCEL (cancel the request), and COMMIT (commit after the request is approved).</p> <p>For change requests without automatic approval, a member in the collaboration can manually APPROVE or DENY a change request. The collaboration owner can manually CANCEL or COMMIT a change request.</p>
+   * @public
+   */
+  action: ChangeRequestAction | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCollaborationChangeRequestOutput {
+  /**
+   * <p>Represents a request to modify a collaboration. Change requests enable structured modifications to collaborations after they have been created.</p>
+   * @public
+   */
+  collaborationChangeRequest: CollaborationChangeRequest | undefined;
 }
 
 /**
@@ -8154,150 +8242,4 @@ export interface ProtectedQueryDistributeOutput {
    * @public
    */
   memberList?: ProtectedQuerySingleMemberOutput[] | undefined;
-}
-
-/**
- * <p>Contains details about the protected query output.</p>
- * @public
- */
-export type ProtectedQueryOutput =
-  | ProtectedQueryOutput.DistributeMember
-  | ProtectedQueryOutput.MemberListMember
-  | ProtectedQueryOutput.S3Member
-  | ProtectedQueryOutput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ProtectedQueryOutput {
-  /**
-   * <p>If present, the output for a protected query with an <code>S3</code> output type.</p>
-   * @public
-   */
-  export interface S3Member {
-    s3: ProtectedQueryS3Output;
-    memberList?: never;
-    distribute?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The list of member Amazon Web Services account(s) that received the results of the query. </p>
-   * @public
-   */
-  export interface MemberListMember {
-    s3?: never;
-    memberList: ProtectedQuerySingleMemberOutput[];
-    distribute?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains output information for protected queries that use a <code>distribute</code> output type. This output type lets you send query results to multiple locations - either to S3 or to collaboration members. </p> <note> <p> You can only use the <code>distribute</code> output type with the Spark analytics engine. </p> </note>
-   * @public
-   */
-  export interface DistributeMember {
-    s3?: never;
-    memberList?: never;
-    distribute: ProtectedQueryDistributeOutput;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    s3?: never;
-    memberList?: never;
-    distribute?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    s3: (value: ProtectedQueryS3Output) => T;
-    memberList: (value: ProtectedQuerySingleMemberOutput[]) => T;
-    distribute: (value: ProtectedQueryDistributeOutput) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Details about the query results.</p>
- * @public
- */
-export interface ProtectedQueryResult {
-  /**
-   * <p>The output of the protected query.</p>
-   * @public
-   */
-  output: ProtectedQueryOutput | undefined;
-}
-
-/**
- * <p> Contains configuration details for the protected query member output.</p>
- * @public
- */
-export interface ProtectedQueryMemberOutputConfiguration {
-  /**
-   * <p>The unique identifier for the account.</p>
-   * @public
-   */
-  accountId: string | undefined;
-}
-
-/**
- * <p> Specifies where you'll distribute the results of your protected query. You must configure either an S3 destination or a collaboration member destination.</p>
- * @public
- */
-export type ProtectedQueryDistributeOutputConfigurationLocation =
-  | ProtectedQueryDistributeOutputConfigurationLocation.MemberMember
-  | ProtectedQueryDistributeOutputConfigurationLocation.S3Member
-  | ProtectedQueryDistributeOutputConfigurationLocation.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ProtectedQueryDistributeOutputConfigurationLocation {
-  /**
-   * <p>Contains the configuration to write the query results to S3.</p>
-   * @public
-   */
-  export interface S3Member {
-    s3: ProtectedQueryS3OutputConfiguration;
-    member?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p> Contains configuration details for the protected query member output.</p>
-   * @public
-   */
-  export interface MemberMember {
-    s3?: never;
-    member: ProtectedQueryMemberOutputConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    s3?: never;
-    member?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    s3: (value: ProtectedQueryS3OutputConfiguration) => T;
-    member: (value: ProtectedQueryMemberOutputConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
 }

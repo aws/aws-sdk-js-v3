@@ -38,6 +38,8 @@ import {
   AnalysisTemplateValidationType,
   AnalysisType,
   AnalyticsEngine,
+  ApprovalStatus,
+  ApprovalStatusDetails$,
   AthenaTableReference$,
   AutoApprovedChangeType,
   AutoRefreshMode,
@@ -61,6 +63,7 @@ import {
   BudgetParameter$,
   Change$,
   ChangeInput$,
+  ChangeRequestAction,
   ChangeRequestStatus,
   ChangeSpecification$,
   ChangeSpecificationType,
@@ -73,6 +76,7 @@ import {
   CollaborationAnalysisTemplateSummary$,
   CollaborationChangeRequest$,
   CollaborationChangeRequestSummary$,
+  CollaborationChangeSpecification$,
   CollaborationConfiguredAudienceModelAssociation$,
   CollaborationConfiguredAudienceModelAssociationSummary$,
   CollaborationIdNamespaceAssociation$,
@@ -561,6 +565,10 @@ import {
   UpdateAnalysisTemplateInput$,
   UpdateAnalysisTemplateOutput$,
   UpdateCollaboration$,
+  UpdateCollaborationChangeRequest$,
+  UpdateCollaborationChangeRequestCommand,
+  UpdateCollaborationChangeRequestInput$,
+  UpdateCollaborationChangeRequestOutput$,
   UpdateCollaborationCommand,
   UpdateCollaborationInput$,
   UpdateCollaborationOutput$,
@@ -793,6 +801,8 @@ assert(typeof UpdateAnalysisTemplateCommand === "function");
 assert(typeof UpdateAnalysisTemplate$ === "object");
 assert(typeof UpdateCollaborationCommand === "function");
 assert(typeof UpdateCollaboration$ === "object");
+assert(typeof UpdateCollaborationChangeRequestCommand === "function");
+assert(typeof UpdateCollaborationChangeRequest$ === "object");
 assert(typeof UpdateConfiguredAudienceModelAssociationCommand === "function");
 assert(typeof UpdateConfiguredAudienceModelAssociation$ === "object");
 assert(typeof UpdateConfiguredTableCommand === "function");
@@ -841,6 +851,7 @@ assert(typeof AnalysisTemplateArtifacts$ === "object");
 assert(typeof AnalysisTemplateSummary$ === "object");
 assert(typeof AnalysisTemplateValidationStatusDetail$ === "object");
 assert(typeof AnalysisTemplateValidationStatusReason$ === "object");
+assert(typeof ApprovalStatusDetails$ === "object");
 assert(typeof AthenaTableReference$ === "object");
 assert(typeof BatchGetCollaborationAnalysisTemplateError$ === "object");
 assert(typeof BatchGetCollaborationAnalysisTemplateInput$ === "object");
@@ -862,6 +873,7 @@ assert(typeof CollaborationAnalysisTemplate$ === "object");
 assert(typeof CollaborationAnalysisTemplateSummary$ === "object");
 assert(typeof CollaborationChangeRequest$ === "object");
 assert(typeof CollaborationChangeRequestSummary$ === "object");
+assert(typeof CollaborationChangeSpecification$ === "object");
 assert(typeof CollaborationConfiguredAudienceModelAssociation$ === "object");
 assert(typeof CollaborationConfiguredAudienceModelAssociationSummary$ === "object");
 assert(typeof CollaborationIdNamespaceAssociation$ === "object");
@@ -1155,6 +1167,8 @@ assert(typeof UntagResourceInput$ === "object");
 assert(typeof UntagResourceOutput$ === "object");
 assert(typeof UpdateAnalysisTemplateInput$ === "object");
 assert(typeof UpdateAnalysisTemplateOutput$ === "object");
+assert(typeof UpdateCollaborationChangeRequestInput$ === "object");
+assert(typeof UpdateCollaborationChangeRequestOutput$ === "object");
 assert(typeof UpdateCollaborationInput$ === "object");
 assert(typeof UpdateCollaborationOutput$ === "object");
 assert(typeof UpdateConfiguredAudienceModelAssociationInput$ === "object");
@@ -1195,8 +1209,10 @@ assert(typeof AnalysisTemplateValidationStatus === "object");
 assert(typeof AnalysisTemplateValidationType === "object");
 assert(typeof AnalysisType === "object");
 assert(typeof AnalyticsEngine === "object");
+assert(typeof ApprovalStatus === "object");
 assert(typeof AutoApprovedChangeType === "object");
 assert(typeof AutoRefreshMode === "object");
+assert(typeof ChangeRequestAction === "object");
 assert(typeof ChangeRequestStatus === "object");
 assert(typeof ChangeSpecificationType === "object");
 assert(typeof ChangeType === "object");

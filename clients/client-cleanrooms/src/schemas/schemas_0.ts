@@ -19,8 +19,10 @@ const _ARL = "AnalysisRuleList";
 const _ARP = "AnalysisRulePolicy";
 const _ARPV = "AnalysisRulePolicyV1";
 const _AS = "AnalysisSchema";
+const _ASD = "ApprovalStatusDetails";
 const _ASM = "AnalysisSourceMetadata";
 const _ASn = "AnalysisSource";
+const _ASp = "ApprovalStatuses";
 const _AT = "AnalysisTemplate";
 const _ATA = "AnalysisTemplateArtifact";
 const _ATAL = "AnalysisTemplateArtifactList";
@@ -80,6 +82,7 @@ const _CCO = "CreateCollaborationOutput";
 const _CCR = "CollaborationChangeRequest";
 const _CCRS = "CollaborationChangeRequestSummary";
 const _CCRSL = "CollaborationChangeRequestSummaryList";
+const _CCS = "CollaborationChangeSpecification";
 const _CCT = "CreateConfiguredTable";
 const _CCTA = "CreateConfiguredTableAssociation";
 const _CCTAAR = "CreateConfiguredTableAssociationAnalysisRule";
@@ -475,6 +478,9 @@ const _UC = "UpdateCollaboration";
 const _UCAMA = "UpdateConfiguredAudienceModelAssociation";
 const _UCAMAI = "UpdateConfiguredAudienceModelAssociationInput";
 const _UCAMAO = "UpdateConfiguredAudienceModelAssociationOutput";
+const _UCCR = "UpdateCollaborationChangeRequest";
+const _UCCRI = "UpdateCollaborationChangeRequestInput";
+const _UCCRO = "UpdateCollaborationChangeRequestOutput";
 const _UCI = "UpdateCollaborationInput";
 const _UCO = "UpdateCollaborationOutput";
 const _UCT = "UpdateConfiguredTable";
@@ -556,8 +562,10 @@ const _aTg = "aggregationType";
 const _aTn = "analysisType";
 const _aUADC = "allowUseAsDimensionColumn";
 const _ab = "abilities";
+const _ac = "action";
 const _ag = "aggregations";
 const _agg = "aggregation";
+const _ap = "approvals";
 const _ar = "artifacts";
 const _at = "athena";
 const _b = "budget";
@@ -987,6 +995,7 @@ export var AnalysisTemplateValidationStatusDetail$: StaticStructureSchema = [
   [0, 0, () => AnalysisTemplateValidationStatusReasonList],
 ];
 export var AnalysisTemplateValidationStatusReason$: StaticStructureSchema = [3, n0, _ATVSR, 0, [_m], [0]];
+export var ApprovalStatusDetails$: StaticStructureSchema = [3, n0, _ASD, 0, [_st], [0]];
 export var AthenaTableReference$: StaticStructureSchema = [3, n0, _ATR, 0, [_reg, _wG, _oL, _dN, _tN], [0, 0, 0, 0, 0]];
 export var BatchGetCollaborationAnalysisTemplateError$: StaticStructureSchema = [
   3,
@@ -1098,17 +1107,18 @@ export var CollaborationChangeRequest$: StaticStructureSchema = [
   n0,
   _CCR,
   0,
-  [_i, _cI, _cT, _uT, _st, _iAA, _ch],
-  [0, 0, 4, 4, 0, 2, () => ChangeList],
+  [_i, _cI, _cT, _uT, _st, _iAA, _ch, _ap],
+  [0, 0, 4, 4, 0, 2, () => ChangeList, () => ApprovalStatuses],
 ];
 export var CollaborationChangeRequestSummary$: StaticStructureSchema = [
   3,
   n0,
   _CCRS,
   0,
-  [_i, _cI, _cT, _uT, _st, _iAA, _ch],
-  [0, 0, 4, 4, 0, 2, () => ChangeList],
+  [_i, _cI, _cT, _uT, _st, _iAA, _ch, _ap],
+  [0, 0, 4, 4, 0, 2, () => ChangeList, () => ApprovalStatuses],
 ];
+export var CollaborationChangeSpecification$: StaticStructureSchema = [3, n0, _CCS, 0, [_aACT], [64 | 0]];
 export var CollaborationConfiguredAudienceModelAssociation$: StaticStructureSchema = [
   3,
   n0,
@@ -2987,6 +2997,22 @@ export var UpdateAnalysisTemplateOutput$: StaticStructureSchema = [
   [_aT],
   [[() => AnalysisTemplate$, 0]],
 ];
+export var UpdateCollaborationChangeRequestInput$: StaticStructureSchema = [
+  3,
+  n0,
+  _UCCRI,
+  0,
+  [_cIo, _cRI, _ac],
+  [[0, 1], [0, 1], 0],
+];
+export var UpdateCollaborationChangeRequestOutput$: StaticStructureSchema = [
+  3,
+  n0,
+  _UCCRO,
+  0,
+  [_cCR],
+  [() => CollaborationChangeRequest$],
+];
 export var UpdateCollaborationInput$: StaticStructureSchema = [3, n0, _UCI, 0, [_cIo, _n, _de, _aE], [[0, 1], 0, 0, 0]];
 export var UpdateCollaborationOutput$: StaticStructureSchema = [3, n0, _UCO, 0, [_col], [() => Collaboration$]];
 export var UpdateConfiguredAudienceModelAssociationInput$: StaticStructureSchema = [
@@ -3321,6 +3347,7 @@ var SnowflakeTableSchemaList: StaticListSchema = [1, n0, _STSL, 0, () => Snowfla
 var TableAliasList = 64 | 0;
 var TagKeys = 64 | 0;
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
+var ApprovalStatuses: StaticMapSchema = [2, n0, _ASp, 0, 0, () => ApprovalStatusDetails$];
 var ParameterMap = 128 | 0;
 var SparkProperties = 128 | 0;
 var TagMap = 128 | 0;
@@ -3354,7 +3381,14 @@ export var AnalysisSourceMetadata$: StaticStructureSchema = [
   [_ar],
   [() => AnalysisTemplateArtifactMetadata$],
 ];
-export var ChangeSpecification$: StaticStructureSchema = [3, n0, _CSh, 0, [_memb], [() => MemberChangeSpecification$]];
+export var ChangeSpecification$: StaticStructureSchema = [
+  3,
+  n0,
+  _CSh,
+  0,
+  [_memb, _col],
+  [() => MemberChangeSpecification$, () => CollaborationChangeSpecification$],
+];
 export var ComputeConfiguration$: StaticStructureSchema = [3, n0, _CC, 0, [_w], [() => WorkerComputeConfiguration$]];
 export var ConfigurationDetails$: StaticStructureSchema = [
   3,
@@ -4248,6 +4282,14 @@ export var UpdateCollaboration$: StaticOperationSchema = [
   { [_h]: ["PATCH", "/collaborations/{collaborationIdentifier}", 200] },
   () => UpdateCollaborationInput$,
   () => UpdateCollaborationOutput$,
+];
+export var UpdateCollaborationChangeRequest$: StaticOperationSchema = [
+  9,
+  n0,
+  _UCCR,
+  { [_h]: ["PATCH", "/collaborations/{collaborationIdentifier}/changeRequests/{changeRequestIdentifier}", 200] },
+  () => UpdateCollaborationChangeRequestInput$,
+  () => UpdateCollaborationChangeRequestOutput$,
 ];
 export var UpdateConfiguredAudienceModelAssociation$: StaticOperationSchema = [
   9,

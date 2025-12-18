@@ -394,6 +394,20 @@ export type AnalyticsEngine = (typeof AnalyticsEngine)[keyof typeof AnalyticsEng
  * @public
  * @enum
  */
+export const ApprovalStatus = {
+  APPROVED: "APPROVED",
+  DENIED: "DENIED",
+  PENDING: "PENDING",
+} as const;
+/**
+ * @public
+ */
+export type ApprovalStatus = (typeof ApprovalStatus)[keyof typeof ApprovalStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const CommercialRegion = {
   AF_SOUTH_1: "af-south-1",
   AP_EAST_1: "ap-east-1",
@@ -440,6 +454,8 @@ export type CommercialRegion = (typeof CommercialRegion)[keyof typeof Commercial
  */
 export const AutoApprovedChangeType = {
   ADD_MEMBER: "ADD_MEMBER",
+  GRANT_RECEIVE_RESULTS_ABILITY: "GRANT_RECEIVE_RESULTS_ABILITY",
+  REVOKE_RECEIVE_RESULTS_ABILITY: "REVOKE_RECEIVE_RESULTS_ABILITY",
 } as const;
 /**
  * @public
@@ -606,6 +622,7 @@ export type MemberStatus = (typeof MemberStatus)[keyof typeof MemberStatus];
  * @enum
  */
 export const ChangeSpecificationType = {
+  COLLABORATION: "COLLABORATION",
   MEMBER: "MEMBER",
 } as const;
 /**
@@ -619,6 +636,9 @@ export type ChangeSpecificationType = (typeof ChangeSpecificationType)[keyof typ
  */
 export const ChangeType = {
   ADD_MEMBER: "ADD_MEMBER",
+  EDIT_AUTO_APPROVED_CHANGE_TYPES: "EDIT_AUTO_APPROVED_CHANGE_TYPES",
+  GRANT_RECEIVE_RESULTS_ABILITY: "GRANT_RECEIVE_RESULTS_ABILITY",
+  REVOKE_RECEIVE_RESULTS_ABILITY: "REVOKE_RECEIVE_RESULTS_ABILITY",
 } as const;
 /**
  * @public
@@ -697,6 +717,21 @@ export const FilterableMemberStatus = {
  * @public
  */
 export type FilterableMemberStatus = (typeof FilterableMemberStatus)[keyof typeof FilterableMemberStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChangeRequestAction = {
+  APPROVE: "APPROVE",
+  CANCEL: "CANCEL",
+  COMMIT: "COMMIT",
+  DENY: "DENY",
+} as const;
+/**
+ * @public
+ */
+export type ChangeRequestAction = (typeof ChangeRequestAction)[keyof typeof ChangeRequestAction];
 
 /**
  * @public

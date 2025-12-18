@@ -813,6 +813,14 @@ UpdateCollaboration
 </details>
 <details>
 <summary>
+UpdateCollaborationChangeRequest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanrooms/command/UpdateCollaborationChangeRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/UpdateCollaborationChangeRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanrooms/Interface/UpdateCollaborationChangeRequestCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateConfiguredAudienceModelAssociation
 </summary>
 

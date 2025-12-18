@@ -31,13 +31,159 @@ import {
   type ProtectedJobComputeConfiguration,
   type ProtectedJobParameters,
   type ProtectedQueryError,
-  type ProtectedQueryResult,
   AccessBudgetsPrivacyTemplateParametersInput,
   AccessBudgetsPrivacyTemplateUpdateParameters,
-  ProtectedQueryDistributeOutputConfigurationLocation,
-  ProtectedQueryMemberOutputConfiguration,
+  ProtectedQueryDistributeOutput,
+  ProtectedQueryS3Output,
   ProtectedQueryS3OutputConfiguration,
+  ProtectedQuerySingleMemberOutput,
 } from "./models_0";
+
+/**
+ * <p>Contains details about the protected query output.</p>
+ * @public
+ */
+export type ProtectedQueryOutput =
+  | ProtectedQueryOutput.DistributeMember
+  | ProtectedQueryOutput.MemberListMember
+  | ProtectedQueryOutput.S3Member
+  | ProtectedQueryOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedQueryOutput {
+  /**
+   * <p>If present, the output for a protected query with an <code>S3</code> output type.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: ProtectedQueryS3Output;
+    memberList?: never;
+    distribute?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The list of member Amazon Web Services account(s) that received the results of the query. </p>
+   * @public
+   */
+  export interface MemberListMember {
+    s3?: never;
+    memberList: ProtectedQuerySingleMemberOutput[];
+    distribute?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains output information for protected queries that use a <code>distribute</code> output type. This output type lets you send query results to multiple locations - either to S3 or to collaboration members. </p> <note> <p> You can only use the <code>distribute</code> output type with the Spark analytics engine. </p> </note>
+   * @public
+   */
+  export interface DistributeMember {
+    s3?: never;
+    memberList?: never;
+    distribute: ProtectedQueryDistributeOutput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    memberList?: never;
+    distribute?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: ProtectedQueryS3Output) => T;
+    memberList: (value: ProtectedQuerySingleMemberOutput[]) => T;
+    distribute: (value: ProtectedQueryDistributeOutput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Details about the query results.</p>
+ * @public
+ */
+export interface ProtectedQueryResult {
+  /**
+   * <p>The output of the protected query.</p>
+   * @public
+   */
+  output: ProtectedQueryOutput | undefined;
+}
+
+/**
+ * <p> Contains configuration details for the protected query member output.</p>
+ * @public
+ */
+export interface ProtectedQueryMemberOutputConfiguration {
+  /**
+   * <p>The unique identifier for the account.</p>
+   * @public
+   */
+  accountId: string | undefined;
+}
+
+/**
+ * <p> Specifies where you'll distribute the results of your protected query. You must configure either an S3 destination or a collaboration member destination.</p>
+ * @public
+ */
+export type ProtectedQueryDistributeOutputConfigurationLocation =
+  | ProtectedQueryDistributeOutputConfigurationLocation.MemberMember
+  | ProtectedQueryDistributeOutputConfigurationLocation.S3Member
+  | ProtectedQueryDistributeOutputConfigurationLocation.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedQueryDistributeOutputConfigurationLocation {
+  /**
+   * <p>Contains the configuration to write the query results to S3.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: ProtectedQueryS3OutputConfiguration;
+    member?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> Contains configuration details for the protected query member output.</p>
+   * @public
+   */
+  export interface MemberMember {
+    s3?: never;
+    member: ProtectedQueryMemberOutputConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    member?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: ProtectedQueryS3OutputConfiguration) => T;
+    member: (value: ProtectedQueryMemberOutputConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
 
 /**
  * <p> Specifies the configuration for distributing protected query results to multiple receivers, including S3 and collaboration members.</p>

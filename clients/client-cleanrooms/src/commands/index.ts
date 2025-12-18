@@ -74,6 +74,7 @@ export * from "./StartProtectedQueryCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateAnalysisTemplateCommand";
+export * from "./UpdateCollaborationChangeRequestCommand";
 export * from "./UpdateCollaborationCommand";
 export * from "./UpdateConfiguredAudienceModelAssociationCommand";
 export * from "./UpdateConfiguredTableAnalysisRuleCommand";

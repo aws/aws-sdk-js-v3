@@ -363,6 +363,11 @@ import {
   UpdateAnalysisTemplateCommandOutput,
 } from "./commands/UpdateAnalysisTemplateCommand";
 import {
+  UpdateCollaborationChangeRequestCommand,
+  UpdateCollaborationChangeRequestCommandInput,
+  UpdateCollaborationChangeRequestCommandOutput,
+} from "./commands/UpdateCollaborationChangeRequestCommand";
+import {
   UpdateCollaborationCommand,
   UpdateCollaborationCommandInput,
   UpdateCollaborationCommandOutput,
@@ -500,6 +505,7 @@ const commands = {
   UntagResourceCommand,
   UpdateAnalysisTemplateCommand,
   UpdateCollaborationCommand,
+  UpdateCollaborationChangeRequestCommand,
   UpdateConfiguredAudienceModelAssociationCommand,
   UpdateConfiguredTableCommand,
   UpdateConfiguredTableAnalysisRuleCommand,
@@ -1756,6 +1762,23 @@ export interface CleanRooms {
     args: UpdateCollaborationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCollaborationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCollaborationChangeRequestCommand}
+   */
+  updateCollaborationChangeRequest(
+    args: UpdateCollaborationChangeRequestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCollaborationChangeRequestCommandOutput>;
+  updateCollaborationChangeRequest(
+    args: UpdateCollaborationChangeRequestCommandInput,
+    cb: (err: any, data?: UpdateCollaborationChangeRequestCommandOutput) => void
+  ): void;
+  updateCollaborationChangeRequest(
+    args: UpdateCollaborationChangeRequestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCollaborationChangeRequestCommandOutput) => void
   ): void;
 
   /**

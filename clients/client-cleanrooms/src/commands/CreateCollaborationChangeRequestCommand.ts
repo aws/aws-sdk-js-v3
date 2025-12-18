@@ -42,7 +42,7 @@ export interface CreateCollaborationChangeRequestCommandOutput
  *   collaborationIdentifier: "STRING_VALUE", // required
  *   changes: [ // ChangeInputList // required
  *     { // ChangeInput
- *       specificationType: "MEMBER", // required
+ *       specificationType: "MEMBER" || "COLLABORATION", // required
  *       specification: { // ChangeSpecification Union: only one key present
  *         member: { // MemberChangeSpecification
  *           accountId: "STRING_VALUE", // required
@@ -50,6 +50,11 @@ export interface CreateCollaborationChangeRequestCommandOutput
  *             "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB",
  *           ],
  *           displayName: "STRING_VALUE",
+ *         },
+ *         collaboration: { // CollaborationChangeSpecification
+ *           autoApprovedChangeTypes: [ // AutoApprovedChangeTypeList
+ *             "ADD_MEMBER" || "GRANT_RECEIVE_RESULTS_ABILITY" || "REVOKE_RECEIVE_RESULTS_ABILITY",
+ *           ],
  *         },
  *       },
  *     },
@@ -67,7 +72,7 @@ export interface CreateCollaborationChangeRequestCommandOutput
  * //     isAutoApproved: true || false, // required
  * //     changes: [ // ChangeList // required
  * //       { // Change
- * //         specificationType: "MEMBER", // required
+ * //         specificationType: "MEMBER" || "COLLABORATION", // required
  * //         specification: { // ChangeSpecification Union: only one key present
  * //           member: { // MemberChangeSpecification
  * //             accountId: "STRING_VALUE", // required
@@ -76,12 +81,22 @@ export interface CreateCollaborationChangeRequestCommandOutput
  * //             ],
  * //             displayName: "STRING_VALUE",
  * //           },
+ * //           collaboration: { // CollaborationChangeSpecification
+ * //             autoApprovedChangeTypes: [ // AutoApprovedChangeTypeList
+ * //               "ADD_MEMBER" || "GRANT_RECEIVE_RESULTS_ABILITY" || "REVOKE_RECEIVE_RESULTS_ABILITY",
+ * //             ],
+ * //           },
  * //         },
  * //         types: [ // ChangeTypeList // required
- * //           "ADD_MEMBER",
+ * //           "ADD_MEMBER" || "GRANT_RECEIVE_RESULTS_ABILITY" || "REVOKE_RECEIVE_RESULTS_ABILITY" || "EDIT_AUTO_APPROVED_CHANGE_TYPES",
  * //         ],
  * //       },
  * //     ],
+ * //     approvals: { // ApprovalStatuses
+ * //       "<keys>": { // ApprovalStatusDetails
+ * //         status: "APPROVED" || "DENIED" || "PENDING", // required
+ * //       },
+ * //     },
  * //   },
  * // };
  *

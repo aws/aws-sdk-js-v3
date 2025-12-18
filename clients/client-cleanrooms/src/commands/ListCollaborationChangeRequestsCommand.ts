@@ -57,7 +57,7 @@ export interface ListCollaborationChangeRequestsCommandOutput
  * //       isAutoApproved: true || false, // required
  * //       changes: [ // ChangeList // required
  * //         { // Change
- * //           specificationType: "MEMBER", // required
+ * //           specificationType: "MEMBER" || "COLLABORATION", // required
  * //           specification: { // ChangeSpecification Union: only one key present
  * //             member: { // MemberChangeSpecification
  * //               accountId: "STRING_VALUE", // required
@@ -66,12 +66,22 @@ export interface ListCollaborationChangeRequestsCommandOutput
  * //               ],
  * //               displayName: "STRING_VALUE",
  * //             },
+ * //             collaboration: { // CollaborationChangeSpecification
+ * //               autoApprovedChangeTypes: [ // AutoApprovedChangeTypeList
+ * //                 "ADD_MEMBER" || "GRANT_RECEIVE_RESULTS_ABILITY" || "REVOKE_RECEIVE_RESULTS_ABILITY",
+ * //               ],
+ * //             },
  * //           },
  * //           types: [ // ChangeTypeList // required
- * //             "ADD_MEMBER",
+ * //             "ADD_MEMBER" || "GRANT_RECEIVE_RESULTS_ABILITY" || "REVOKE_RECEIVE_RESULTS_ABILITY" || "EDIT_AUTO_APPROVED_CHANGE_TYPES",
  * //           ],
  * //         },
  * //       ],
+ * //       approvals: { // ApprovalStatuses
+ * //         "<keys>": { // ApprovalStatusDetails
+ * //           status: "APPROVED" || "DENIED" || "PENDING", // required
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

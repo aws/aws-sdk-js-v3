@@ -5,8 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetCollaborationChangeRequestInput, GetCollaborationChangeRequestOutput } from "../models/models_0";
-import { GetCollaborationChangeRequest$ } from "../schemas/schemas_0";
+import type { UpdateCollaborationChangeRequestInput, UpdateCollaborationChangeRequestOutput } from "../models/models_0";
+import { UpdateCollaborationChangeRequest$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -16,35 +16,36 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetCollaborationChangeRequestCommand}.
+ * The input for {@link UpdateCollaborationChangeRequestCommand}.
  */
-export interface GetCollaborationChangeRequestCommandInput extends GetCollaborationChangeRequestInput {}
+export interface UpdateCollaborationChangeRequestCommandInput extends UpdateCollaborationChangeRequestInput {}
 /**
  * @public
  *
- * The output of {@link GetCollaborationChangeRequestCommand}.
+ * The output of {@link UpdateCollaborationChangeRequestCommand}.
  */
-export interface GetCollaborationChangeRequestCommandOutput
-  extends GetCollaborationChangeRequestOutput,
+export interface UpdateCollaborationChangeRequestCommandOutput
+  extends UpdateCollaborationChangeRequestOutput,
     __MetadataBearer {}
 
 /**
- * <p>Retrieves detailed information about a specific collaboration change request.</p>
+ * <p>Updates an existing collaboration change request. This operation allows approval actions for pending change requests in collaborations (APPROVE, DENY, CANCEL, COMMIT).</p> <p>For change requests without automatic approval, a member in the collaboration can manually APPROVE or DENY a change request. The collaboration owner can manually CANCEL or COMMIT a change request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, GetCollaborationChangeRequestCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, GetCollaborationChangeRequestCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, UpdateCollaborationChangeRequestCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
+ * // const { CleanRoomsClient, UpdateCollaborationChangeRequestCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * // import type { CleanRoomsClientConfig } from "@aws-sdk/client-cleanrooms";
  * const config = {}; // type is CleanRoomsClientConfig
  * const client = new CleanRoomsClient(config);
- * const input = { // GetCollaborationChangeRequestInput
+ * const input = { // UpdateCollaborationChangeRequestInput
  *   collaborationIdentifier: "STRING_VALUE", // required
  *   changeRequestIdentifier: "STRING_VALUE", // required
+ *   action: "APPROVE" || "DENY" || "CANCEL" || "COMMIT", // required
  * };
- * const command = new GetCollaborationChangeRequestCommand(input);
+ * const command = new UpdateCollaborationChangeRequestCommand(input);
  * const response = await client.send(command);
- * // { // GetCollaborationChangeRequestOutput
+ * // { // UpdateCollaborationChangeRequestOutput
  * //   collaborationChangeRequest: { // CollaborationChangeRequest
  * //     id: "STRING_VALUE", // required
  * //     collaborationId: "STRING_VALUE", // required
@@ -84,14 +85,17 @@ export interface GetCollaborationChangeRequestCommandOutput
  *
  * ```
  *
- * @param GetCollaborationChangeRequestCommandInput - {@link GetCollaborationChangeRequestCommandInput}
- * @returns {@link GetCollaborationChangeRequestCommandOutput}
- * @see {@link GetCollaborationChangeRequestCommandInput} for command's `input` shape.
- * @see {@link GetCollaborationChangeRequestCommandOutput} for command's `response` shape.
+ * @param UpdateCollaborationChangeRequestCommandInput - {@link UpdateCollaborationChangeRequestCommandInput}
+ * @returns {@link UpdateCollaborationChangeRequestCommandOutput}
+ * @see {@link UpdateCollaborationChangeRequestCommandInput} for command's `input` shape.
+ * @see {@link UpdateCollaborationChangeRequestCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Caller does not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Unexpected error during processing of request.</p>
@@ -111,10 +115,10 @@ export interface GetCollaborationChangeRequestCommandOutput
  *
  * @public
  */
-export class GetCollaborationChangeRequestCommand extends $Command
+export class UpdateCollaborationChangeRequestCommand extends $Command
   .classBuilder<
-    GetCollaborationChangeRequestCommandInput,
-    GetCollaborationChangeRequestCommandOutput,
+    UpdateCollaborationChangeRequestCommandInput,
+    UpdateCollaborationChangeRequestCommandOutput,
     CleanRoomsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -123,19 +127,19 @@ export class GetCollaborationChangeRequestCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("AWSBastionControlPlaneServiceLambda", "GetCollaborationChangeRequest", {})
-  .n("CleanRoomsClient", "GetCollaborationChangeRequestCommand")
-  .sc(GetCollaborationChangeRequest$)
+  .s("AWSBastionControlPlaneServiceLambda", "UpdateCollaborationChangeRequest", {})
+  .n("CleanRoomsClient", "UpdateCollaborationChangeRequestCommand")
+  .sc(UpdateCollaborationChangeRequest$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetCollaborationChangeRequestInput;
-      output: GetCollaborationChangeRequestOutput;
+      input: UpdateCollaborationChangeRequestInput;
+      output: UpdateCollaborationChangeRequestOutput;
     };
     sdk: {
-      input: GetCollaborationChangeRequestCommandInput;
-      output: GetCollaborationChangeRequestCommandOutput;
+      input: UpdateCollaborationChangeRequestCommandInput;
+      output: UpdateCollaborationChangeRequestCommandOutput;
     };
   };
 }

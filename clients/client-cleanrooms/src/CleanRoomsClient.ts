@@ -304,6 +304,10 @@ import {
   UpdateAnalysisTemplateCommandOutput,
 } from "./commands/UpdateAnalysisTemplateCommand";
 import {
+  UpdateCollaborationChangeRequestCommandInput,
+  UpdateCollaborationChangeRequestCommandOutput,
+} from "./commands/UpdateCollaborationChangeRequestCommand";
+import {
   UpdateCollaborationCommandInput,
   UpdateCollaborationCommandOutput,
 } from "./commands/UpdateCollaborationCommand";
@@ -435,6 +439,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAnalysisTemplateCommandInput
+  | UpdateCollaborationChangeRequestCommandInput
   | UpdateCollaborationCommandInput
   | UpdateConfiguredAudienceModelAssociationCommandInput
   | UpdateConfiguredTableAnalysisRuleCommandInput
@@ -527,6 +532,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAnalysisTemplateCommandOutput
+  | UpdateCollaborationChangeRequestCommandOutput
   | UpdateCollaborationCommandOutput
   | UpdateConfiguredAudienceModelAssociationCommandOutput
   | UpdateConfiguredTableAnalysisRuleCommandOutput
