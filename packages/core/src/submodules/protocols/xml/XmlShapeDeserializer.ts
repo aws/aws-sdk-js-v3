@@ -6,6 +6,7 @@ import type { Schema, SerdeFunctions, ShapeDeserializer } from "@smithy/types";
 import { toUtf8 } from "@smithy/util-utf8";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
+import { UnionSerde } from "../UnionSerde";
 import type { XmlSettings } from "./XmlCodec";
 
 /**
@@ -117,15 +118,27 @@ export class XmlShapeDeserializer extends SerdeContextConfig implements ShapeDes
       }
 
       if (ns.isStructSchema()) {
+        const union = ns.isUnionSchema();
+        let unionSerde: UnionSerde;
+        if (union) {
+          unionSerde = new UnionSerde(value, buffer);
+        }
         for (const [memberName, memberSchema] of ns.structIterator()) {
           const memberTraits = memberSchema.getMergedTraits();
           const xmlObjectKey = !memberTraits.httpPayload
             ? memberSchema.getMemberTraits().xmlName ?? memberName
             : memberTraits.xmlName ?? memberSchema.getName()!;
 
+          if (union) {
+            unionSerde!.mark(xmlObjectKey);
+          }
+
           if (value[xmlObjectKey] != null) {
             buffer[memberName] = this.readSchema(memberSchema, value[xmlObjectKey]);
           }
+        }
+        if (union) {
+          unionSerde!.writeUnknown();
         }
         return buffer;
       }

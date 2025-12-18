@@ -19,6 +19,7 @@ import { fromBase64 } from "@smithy/util-base64";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
 import { deserializingStructIterator } from "../structIterator";
+import { UnionSerde } from "../UnionSerde";
 import { JsonSettings } from "./JsonCodec";
 import { jsonReviver } from "./jsonReviver";
 import { parseJsonBody } from "./parseJsonBody";
@@ -49,17 +50,27 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
 
     if (isObject) {
       if (ns.isStructSchema()) {
+        const union = ns.isUnionSchema();
         const out = {} as any;
+        let unionSerde: UnionSerde;
+        if (union) {
+          unionSerde = new UnionSerde(value, out);
+        }
         for (const [memberName, memberSchema] of deserializingStructIterator(
           ns,
           value,
           this.settings.jsonName ? "jsonName" : false
         )) {
           const fromKey = this.settings.jsonName ? memberSchema.getMergedTraits().jsonName ?? memberName : memberName;
-          const deserializedValue = this._read(memberSchema, (value as any)[fromKey]);
-          if (deserializedValue != null) {
-            out[memberName] = deserializedValue;
+          if (union) {
+            unionSerde!.mark(fromKey);
           }
+          if ((value as any)[fromKey] != null) {
+            out[memberName] = this._read(memberSchema, (value as any)[fromKey]);
+          }
+        }
+        if (union) {
+          unionSerde!.writeUnknown();
         }
         return out;
       }

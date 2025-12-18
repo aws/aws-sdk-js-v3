@@ -2,7 +2,7 @@ import { NumericValue } from "@smithy/core/serde";
 import type { TimestampEpochSecondsSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
-import { createNestingWidget, nestingWidget, widget } from "../test-schema.spec";
+import { createNestingWidget, nestingWidget, unionStruct, widget } from "../test-schema.spec";
 import { SinglePassJsonShapeSerializer } from "./experimental/SinglePassJsonShapeSerializer";
 import { JsonShapeSerializer } from "./JsonShapeSerializer";
 
@@ -29,6 +29,22 @@ describe(JsonShapeSerializer.name, () => {
     expect(serialization).toEqual(
       `{"blob":"AAAAAQ==","timestamp":0,"bigint":10000000000000000000000054321,"bigdecimal":0.10000000000000000000000054321}`
     );
+  });
+
+  it("serializes $unknown union members", () => {
+    serializer1.write(unionStruct, {
+      union: {
+        $unknown: [
+          "unknownKey",
+          {
+            timestamp: new Date(0),
+            blob: new Uint8Array([0, 1, 2, 3]),
+          },
+        ],
+      },
+    });
+    const serialization = serializer1.flush();
+    expect(serialization).toEqual(`{"union":{"unknownKey":{"timestamp":0,"blob":"AAECAw=="}}}`);
   });
 
   describe("performance baseline indicator", () => {
