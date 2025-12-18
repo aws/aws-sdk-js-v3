@@ -1195,7 +1195,7 @@ export var CompleteMultipartUploadRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [() => CompletedMultipartUpload$, { [_hP]: 1, [_xN]: _CMUo }],
+    [() => CompletedMultipartUpload$, { [_xN]: _CMUo, [_hP]: 1 }],
     [0, { [_hQ]: _uI }],
     [0, { [_hH]: _xacc }],
     [0, { [_hH]: _xacc_ }],
@@ -1426,7 +1426,7 @@ export var CreateBucketRequest$: StaticStructureSchema = [
   [
     [0, { [_hH]: _xaa }],
     [0, 1],
-    [() => CreateBucketConfiguration$, { [_hP]: 1, [_xN]: _CBC }],
+    [() => CreateBucketConfiguration$, { [_xN]: _CBC, [_hP]: 1 }],
     [0, { [_hH]: _xagfc }],
     [0, { [_hH]: _xagr }],
     [0, { [_hH]: _xagra }],
@@ -2346,7 +2346,7 @@ export var GetObjectLegalHoldOutput$: StaticStructureSchema = [
   _GOLHO,
   0,
   [_LH],
-  [[() => ObjectLockLegalHold$, { [_hP]: 1, [_xN]: _LH }]],
+  [[() => ObjectLockLegalHold$, { [_xN]: _LH, [_hP]: 1 }]],
 ];
 export var GetObjectLegalHoldRequest$: StaticStructureSchema = [
   3,
@@ -2527,7 +2527,7 @@ export var GetObjectRetentionOutput$: StaticStructureSchema = [
   _GORO,
   0,
   [_Ret],
-  [[() => ObjectLockRetention$, { [_hP]: 1, [_xN]: _Ret }]],
+  [[() => ObjectLockRetention$, { [_xN]: _Ret, [_hP]: 1 }]],
 ];
 export var GetObjectRetentionRequest$: StaticStructureSchema = [
   3,
@@ -3490,7 +3490,7 @@ export var PutBucketAclRequest$: StaticStructureSchema = [
   [_ACL_, _ACP, _B, _CMD, _CA, _GFC, _GR, _GRACP, _GW, _GWACP, _EBO],
   [
     [0, { [_hH]: _xaa }],
-    [() => AccessControlPolicy$, { [_hP]: 1, [_xN]: _ACP }],
+    [() => AccessControlPolicy$, { [_xN]: _ACP, [_hP]: 1 }],
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
@@ -3539,7 +3539,7 @@ export var PutBucketEncryptionRequest$: StaticStructureSchema = [
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
-    [() => ServerSideEncryptionConfiguration$, { [_hP]: 1, [_xN]: _SSEC }],
+    [() => ServerSideEncryptionConfiguration$, { [_xN]: _SSEC, [_hP]: 1 }],
     [0, { [_hH]: _xaebo }],
   ],
 ];
@@ -3586,7 +3586,7 @@ export var PutBucketLifecycleConfigurationRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, { [_hH]: _xasca }],
-    [() => BucketLifecycleConfiguration$, { [_hP]: 1, [_xN]: _LCi }],
+    [() => BucketLifecycleConfiguration$, { [_xN]: _LCi, [_hP]: 1 }],
     [0, { [_hH]: _xaebo }],
     [0, { [_hH]: _xatdmos }],
   ],
@@ -3626,7 +3626,7 @@ export var PutBucketNotificationConfigurationRequest$: StaticStructureSchema = [
   [_B, _NC, _EBO, _SDV],
   [
     [0, 1],
-    [() => NotificationConfiguration$, { [_hP]: 1, [_xN]: _NC }],
+    [() => NotificationConfiguration$, { [_xN]: _NC, [_hP]: 1 }],
     [0, { [_hH]: _xaebo }],
     [2, { [_hH]: _xasdv }],
   ],
@@ -3670,7 +3670,7 @@ export var PutBucketReplicationRequest$: StaticStructureSchema = [
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
-    [() => ReplicationConfiguration$, { [_hP]: 1, [_xN]: _RCe }],
+    [() => ReplicationConfiguration$, { [_xN]: _RCe, [_hP]: 1 }],
     [0, { [_hH]: _xabolt }],
     [0, { [_hH]: _xaebo }],
   ],
@@ -3741,7 +3741,7 @@ export var PutObjectAclRequest$: StaticStructureSchema = [
   [_ACL_, _ACP, _B, _CMD, _CA, _GFC, _GR, _GRACP, _GW, _GWACP, _K, _RP, _VI, _EBO],
   [
     [0, { [_hH]: _xaa }],
-    [() => AccessControlPolicy$, { [_hP]: 1, [_xN]: _ACP }],
+    [() => AccessControlPolicy$, { [_xN]: _ACP, [_hP]: 1 }],
     [0, 1],
     [0, { [_hH]: _CM }],
     [0, { [_hH]: _xasca }],
@@ -3766,7 +3766,7 @@ export var PutObjectLegalHoldRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [() => ObjectLockLegalHold$, { [_hP]: 1, [_xN]: _LH }],
+    [() => ObjectLockLegalHold$, { [_xN]: _LH, [_hP]: 1 }],
     [0, { [_hH]: _xarp }],
     [0, { [_hQ]: _vI }],
     [0, { [_hH]: _CM }],
@@ -3790,7 +3790,7 @@ export var PutObjectLockConfigurationRequest$: StaticStructureSchema = [
   [_B, _OLC, _RP, _To, _CMD, _CA, _EBO],
   [
     [0, 1],
-    [() => ObjectLockConfiguration$, { [_hP]: 1, [_xN]: _OLC }],
+    [() => ObjectLockConfiguration$, { [_xN]: _OLC, [_hP]: 1 }],
     [0, { [_hH]: _xarp }],
     [0, { [_hH]: _xabolt }],
     [0, { [_hH]: _CM }],
@@ -3944,7 +3944,7 @@ export var PutObjectRetentionRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [() => ObjectLockRetention$, { [_hP]: 1, [_xN]: _Ret }],
+    [() => ObjectLockRetention$, { [_xN]: _Ret, [_hP]: 1 }],
     [0, { [_hH]: _xarp }],
     [0, { [_hQ]: _vI }],
     [2, { [_hH]: _xabgr }],
@@ -5447,7 +5447,7 @@ export var WriteGetObjectResponse$: StaticOperationSchema = [
   9,
   n0,
   _WGOR,
-  { [_h]: ["POST", "/WriteGetObjectResponse", 200], [_en]: ["{RequestRoute}."] },
+  { [_en]: ["{RequestRoute}."], [_h]: ["POST", "/WriteGetObjectResponse", 200] },
   () => WriteGetObjectResponseRequest$,
   () => __Unit,
 ];

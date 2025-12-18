@@ -26,8 +26,8 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws/lambda-invoke-store": "^0.2.2",
-    "@smithy/protocol-http": "^5.3.6",
-    "@smithy/types": "^4.10.0",
+    "@smithy/protocol-http": "^5.3.7",
+    "@smithy/types": "^4.11.0",
     "tslib": "^2.6.2"
   },
   "engines": {
