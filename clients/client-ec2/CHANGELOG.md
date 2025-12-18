@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.955.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.954.0...v3.955.0) (2025-12-18)
+
+
+### Features
+
+* **client-ec2:** This release adds AvailabilityZoneId support for CreateFleet, ModifyFleet, DescribeFleets, RequestSpotFleet, ModifySpotFleetRequests and DescribeSpotFleetRequests APIs. ([4d1a66b](https://github.com/aws/aws-sdk-js-v3/commit/4d1a66b99fb9e1a3701abe4c9a7b3edd8c929872))
+
+
+
+
+
 # [3.954.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.953.0...v3.954.0) (2025-12-17)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.955.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.954.0...v3.955.0) (2025-12-18)
+
+
+### Features
+
+* **client-appstream:** Added support for new operating systems (1) Ubuntu 24.04 Pro LTS on Elastic fleets, and (2) Microsoft Server 2025 on Always-On and On-Demand fleets ([a94e6d5](https://github.com/aws/aws-sdk-js-v3/commit/a94e6d558fcc4160cde38324d2bd8e75b74a4279))
+* **client-arc-region-switch:** New API to list Route 53 health checks created by ARC region switch for a plan in a specific AWS Region using the Region switch Regional data plane. ([406035c](https://github.com/aws/aws-sdk-js-v3/commit/406035c40baa408d482b4df2230178a958421994))
+* **client-artifact:** Add support for ListReportVersions API  for the calling AWS account. ([8247b18](https://github.com/aws/aws-sdk-js-v3/commit/8247b1833b0e67fe3c0468d6700dac1a19c5cdcd))
+* **client-bedrock-agentcore-control:** Feature to support header exchanges between Bedrock AgentCore Gateway Targets and client, along with propagating query parameter to the configured targets. ([800275c](https://github.com/aws/aws-sdk-js-v3/commit/800275ca20dd7c1553af15c169dfc8c14e7b9e99))
+* **client-bedrock-data-automation:** Blueprint Optimization (BPO) is a new Amazon Bedrock Data Automation (BDA) capability that improves blueprint inference accuracy using example content assets and ground truth data. BPO works by generating better instructions for fields in the Blueprint using provided data. ([3f901e7](https://github.com/aws/aws-sdk-js-v3/commit/3f901e7c894f8ba74c23fca65825af3dd71af09d))
+* **client-cleanrooms:** Adding support for collaboration change requests requiring an approval workflow. Adding support for change requests that grant or revoke results receiver ability and modifying auto approved change types in an existing collaboration. ([2698793](https://github.com/aws/aws-sdk-js-v3/commit/269879328343e6d7c352e88a4e8ce9da407ceea9))
+* **client-ec2:** This release adds AvailabilityZoneId support for CreateFleet, ModifyFleet, DescribeFleets, RequestSpotFleet, ModifySpotFleetRequests and DescribeSpotFleetRequests APIs. ([4d1a66b](https://github.com/aws/aws-sdk-js-v3/commit/4d1a66b99fb9e1a3701abe4c9a7b3edd8c929872))
+* **client-ecr:** Adds support for ECR Create On Push ([620e820](https://github.com/aws/aws-sdk-js-v3/commit/620e820d6ba65e91a3d5d5e853dde4ba784f6212))
+* **client-ecs:** Adding support for Event Windows via a new ECS account setting "fargateEventWindows". When enabled, ECS Fargate will use the configured event window for patching tasks. Introducing "CapacityOptionType" for CreateCapacityProvider API, allowing support for Spot capacity for ECS Managed Instances. ([751c797](https://github.com/aws/aws-sdk-js-v3/commit/751c797f1652614513f5d79c2bd1d5df62c972ae))
+* **client-iot:** This release adds message batching for the IoT Rules Engine HTTP action. ([aa2dc06](https://github.com/aws/aws-sdk-js-v3/commit/aa2dc069c30add7d50562852f823a4bd7de03694))
+* **client-opensearch:** Amazon OpenSearch Service adds support for warm nodes, enabling new multi-tier architecture. ([e574a59](https://github.com/aws/aws-sdk-js-v3/commit/e574a5919ab2dd140ba95c152e65c5e89ebb0c2b))
+* **client-sesv2:** Amazon SES introduces Email Validation feature which checks email addresses for syntax errors, domain validity, and risky addresses to help maintain deliverability and protect sender reputation. SES also adds resource tagging and ABAC support for EmailTemplates and CustomVerificationEmailTemplates. ([7412e74](https://github.com/aws/aws-sdk-js-v3/commit/7412e741d8ccb28f4d43f4e10d7cd83fd0920e5e))
+* **client-ssm-sap:** Added "Stopping" for the HANA Database Status. ([393a851](https://github.com/aws/aws-sdk-js-v3/commit/393a851620c121bc91a5ea6e816f679472154399))
+* **clients:** update client endpoints as of 2025-12-18 ([1133521](https://github.com/aws/aws-sdk-js-v3/commit/113352182444589c1dcce6e81ed6da2c75293f6d))
+
+
+
+
+
 # [3.954.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.953.0...v3.954.0) (2025-12-17)
 
 

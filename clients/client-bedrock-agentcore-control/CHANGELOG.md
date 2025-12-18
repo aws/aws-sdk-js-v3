@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.955.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.954.0...v3.955.0) (2025-12-18)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Feature to support header exchanges between Bedrock AgentCore Gateway Targets and client, along with propagating query parameter to the configured targets. ([800275c](https://github.com/aws/aws-sdk-js-v3/commit/800275ca20dd7c1553af15c169dfc8c14e7b9e99))
+
+
+
+
+
 # [3.954.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.953.0...v3.954.0) (2025-12-17)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

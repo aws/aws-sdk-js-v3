@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.955.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.954.0...v3.955.0) (2025-12-18)
+
+
+### Features
+
+* **client-bedrock-data-automation:** Blueprint Optimization (BPO) is a new Amazon Bedrock Data Automation (BDA) capability that improves blueprint inference accuracy using example content assets and ground truth data. BPO works by generating better instructions for fields in the Blueprint using provided data. ([3f901e7](https://github.com/aws/aws-sdk-js-v3/commit/3f901e7c894f8ba74c23fca65825af3dd71af09d))
+
+
+
+
+
 # [3.954.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.953.0...v3.954.0) (2025-12-17)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-data-automation

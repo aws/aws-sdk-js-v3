@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.955.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.954.0...v3.955.0) (2025-12-18)
+
+
+### Features
+
+* **client-opensearch:** Amazon OpenSearch Service adds support for warm nodes, enabling new multi-tier architecture. ([e574a59](https://github.com/aws/aws-sdk-js-v3/commit/e574a5919ab2dd140ba95c152e65c5e89ebb0c2b))
+
+
+
+
+
 # [3.954.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.953.0...v3.954.0) (2025-12-17)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearch

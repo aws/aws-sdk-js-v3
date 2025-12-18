@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.955.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.954.0...v3.955.0) (2025-12-18)
+
+
+### Features
+
+* **client-ecr:** Adds support for ECR Create On Push ([620e820](https://github.com/aws/aws-sdk-js-v3/commit/620e820d6ba65e91a3d5d5e853dde4ba784f6212))
+
+
+
+
+
 # [3.954.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.953.0...v3.954.0) (2025-12-17)
 
 **Note:** Version bump only for package @aws-sdk/client-ecr
