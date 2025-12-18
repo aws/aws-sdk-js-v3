@@ -253,6 +253,14 @@ ListReports
 </details>
 <details>
 <summary>
+ListReportVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/artifact/command/ListReportVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-artifact/Interface/ListReportVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-artifact/Interface/ListReportVersionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 PutAccountSettings
 </summary>
 

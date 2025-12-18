@@ -22,6 +22,9 @@ const _LCARi = "ListCustomerAgreementsResponse";
 const _LR = "ListReports";
 const _LRR = "ListReportsRequest";
 const _LRRi = "ListReportsResponse";
+const _LRV = "ListReportVersions";
+const _LRVR = "ListReportVersionsRequest";
+const _LRVRi = "ListReportVersionsResponse";
 const _PAS = "PutAccountSettings";
 const _PASR = "PutAccountSettingsRequest";
 const _PASRu = "PutAccountSettingsResponse";
@@ -200,6 +203,19 @@ export var ListReportsRequest$: StaticStructureSchema = [
   ],
 ];
 export var ListReportsResponse$: StaticStructureSchema = [3, n0, _LRRi, 0, [_r, _nT], [() => ReportsList, 0]];
+export var ListReportVersionsRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _LRVR,
+  0,
+  [_rIe, _mR, _nT],
+  [
+    [0, { [_hQ]: _rIe }],
+    [1, { [_hQ]: _mR }],
+    [0, { [_hQ]: _nT }],
+  ],
+];
+export var ListReportVersionsResponse$: StaticStructureSchema = [3, n0, _LRVRi, 0, [_r, _nT], [() => ReportsList, 0]];
 export var PutAccountSettingsRequest$: StaticStructureSchema = [3, n0, _PASR, 0, [_nSS], [0]];
 export var PutAccountSettingsResponse$: StaticStructureSchema = [3, n0, _PASRu, 0, [_aS], [() => AccountSettings$]];
 export var ReportDetail$: StaticStructureSchema = [
@@ -308,6 +324,14 @@ export var ListReports$: StaticOperationSchema = [
   { [_h]: ["GET", "/v1/report/list", 200] },
   () => ListReportsRequest$,
   () => ListReportsResponse$,
+];
+export var ListReportVersions$: StaticOperationSchema = [
+  9,
+  n0,
+  _LRV,
+  { [_h]: ["GET", "/v1/report/listVersions", 200] },
+  () => ListReportVersionsRequest$,
+  () => ListReportVersionsResponse$,
 ];
 export var PutAccountSettings$: StaticOperationSchema = [
   9,

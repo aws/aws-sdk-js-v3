@@ -33,6 +33,10 @@ import {
   ListCustomerAgreementsCommand,
   ListCustomerAgreementsRequest$,
   ListCustomerAgreementsResponse$,
+  ListReportVersions$,
+  ListReportVersionsCommand,
+  ListReportVersionsRequest$,
+  ListReportVersionsResponse$,
   ListReports$,
   ListReportsCommand,
   ListReportsRequest$,
@@ -57,6 +61,7 @@ import {
   ValidationExceptionField$,
   ValidationExceptionReason,
   paginateListCustomerAgreements,
+  paginateListReportVersions,
   paginateListReports,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
@@ -76,6 +81,8 @@ assert(typeof ListCustomerAgreementsCommand === "function");
 assert(typeof ListCustomerAgreements$ === "object");
 assert(typeof ListReportsCommand === "function");
 assert(typeof ListReports$ === "object");
+assert(typeof ListReportVersionsCommand === "function");
+assert(typeof ListReportVersions$ === "object");
 assert(typeof PutAccountSettingsCommand === "function");
 assert(typeof PutAccountSettings$ === "object");
 // structural schemas
@@ -93,6 +100,8 @@ assert(typeof ListCustomerAgreementsRequest$ === "object");
 assert(typeof ListCustomerAgreementsResponse$ === "object");
 assert(typeof ListReportsRequest$ === "object");
 assert(typeof ListReportsResponse$ === "object");
+assert(typeof ListReportVersionsRequest$ === "object");
+assert(typeof ListReportVersionsResponse$ === "object");
 assert(typeof PutAccountSettingsRequest$ === "object");
 assert(typeof PutAccountSettingsResponse$ === "object");
 assert(typeof ReportDetail$ === "object");
@@ -124,5 +133,6 @@ assert(typeof ValidationException$ === "object");
 assert(ArtifactServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListCustomerAgreements === "function");
+assert(typeof paginateListReportVersions === "function");
 assert(typeof paginateListReports === "function");
 console.log(`Artifact index test passed.`);

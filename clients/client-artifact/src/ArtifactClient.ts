@@ -72,6 +72,7 @@ import {
   ListCustomerAgreementsCommandOutput,
 } from "./commands/ListCustomerAgreementsCommand";
 import { ListReportsCommandInput, ListReportsCommandOutput } from "./commands/ListReportsCommand";
+import { ListReportVersionsCommandInput, ListReportVersionsCommandOutput } from "./commands/ListReportVersionsCommand";
 import { PutAccountSettingsCommandInput, PutAccountSettingsCommandOutput } from "./commands/PutAccountSettingsCommand";
 import {
   ClientInputEndpointParameters,
@@ -93,6 +94,7 @@ export type ServiceInputTypes =
   | GetReportMetadataCommandInput
   | GetTermForReportCommandInput
   | ListCustomerAgreementsCommandInput
+  | ListReportVersionsCommandInput
   | ListReportsCommandInput
   | PutAccountSettingsCommandInput;
 
@@ -105,6 +107,7 @@ export type ServiceOutputTypes =
   | GetReportMetadataCommandOutput
   | GetTermForReportCommandOutput
   | ListCustomerAgreementsCommandOutput
+  | ListReportVersionsCommandOutput
   | ListReportsCommandOutput
   | PutAccountSettingsCommandOutput;
 

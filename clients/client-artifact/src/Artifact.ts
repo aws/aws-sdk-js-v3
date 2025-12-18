@@ -26,6 +26,11 @@ import {
 } from "./commands/ListCustomerAgreementsCommand";
 import { ListReportsCommand, ListReportsCommandInput, ListReportsCommandOutput } from "./commands/ListReportsCommand";
 import {
+  ListReportVersionsCommand,
+  ListReportVersionsCommandInput,
+  ListReportVersionsCommandOutput,
+} from "./commands/ListReportVersionsCommand";
+import {
   PutAccountSettingsCommand,
   PutAccountSettingsCommandInput,
   PutAccountSettingsCommandOutput,
@@ -38,6 +43,7 @@ const commands = {
   GetTermForReportCommand,
   ListCustomerAgreementsCommand,
   ListReportsCommand,
+  ListReportVersionsCommand,
   PutAccountSettingsCommand,
 };
 
@@ -133,6 +139,23 @@ export interface Artifact {
     args: ListReportsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListReportsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListReportVersionsCommand}
+   */
+  listReportVersions(
+    args: ListReportVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReportVersionsCommandOutput>;
+  listReportVersions(
+    args: ListReportVersionsCommandInput,
+    cb: (err: any, data?: ListReportVersionsCommandOutput) => void
+  ): void;
+  listReportVersions(
+    args: ListReportVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListReportVersionsCommandOutput) => void
   ): void;
 
   /**
