@@ -66,7 +66,7 @@ export interface DescribeApplicationsCommandOutput extends DescribeApplicationsR
  * //         S3Key: "STRING_VALUE",
  * //       },
  * //       Platforms: [ // Platforms
- * //         "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8",
+ * //         "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "WINDOWS_SERVER_2025" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8" || "UBUNTU_PRO_2404",
  * //       ],
  * //       InstanceFamilies: [ // StringList
  * //         "STRING_VALUE",

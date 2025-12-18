@@ -90,7 +90,7 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataB
  *   ],
  *   IamRoleArn: "STRING_VALUE",
  *   StreamView: "APP" || "DESKTOP",
- *   Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8",
+ *   Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "WINDOWS_SERVER_2025" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8" || "UBUNTU_PRO_2404",
  *   MaxConcurrentSessions: Number("int"),
  *   UsbDeviceFilterStrings: [ // UsbDeviceFilterStrings
  *     "STRING_VALUE",
@@ -152,7 +152,7 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataB
  * //     IdleDisconnectTimeoutInSeconds: Number("int"),
  * //     IamRoleArn: "STRING_VALUE",
  * //     StreamView: "APP" || "DESKTOP",
- * //     Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8",
+ * //     Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "WINDOWS_SERVER_2025" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8" || "UBUNTU_PRO_2404",
  * //     MaxConcurrentSessions: Number("int"),
  * //     UsbDeviceFilterStrings: [ // UsbDeviceFilterStrings
  * //       "STRING_VALUE",
