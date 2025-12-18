@@ -35,7 +35,7 @@ $ du -sh node_modules
 17M    node_modules
 ```
 
-The install size on disk is larger, as it’s the actual size on disk which depends on blocks are allocated. It may be different on your machine, but the relative difference between the sizes would be similar.
+The install size on disk is larger, as it’s the actual size on disk which depends on how blocks are allocated. It may be different on your machine, but the relative difference between the sizes would be similar.
 
 Most of AWS SDK for JavaScript applications use one to three clients. Even if you install the five most popular clients, the install size is less than a third of that in v2.
 
