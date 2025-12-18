@@ -2,7 +2,7 @@ import { NumericValue } from "@smithy/core/serde";
 import type { TimestampDateTimeSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
-import { createNestingWidget, nestingWidget, widget } from "../test-schema.spec";
+import { createNestingWidget, nestingWidget, unionStruct, unionStructControl, widget } from "../test-schema.spec";
 import { XmlShapeDeserializer } from "./XmlShapeDeserializer";
 import { XmlShapeSerializer } from "./XmlShapeSerializer";
 
@@ -24,7 +24,7 @@ describe(XmlShapeDeserializer.name, () => {
     },
   } as any);
 
-  it("placeholder", async () => {
+  it("deserializes XML", async () => {
     const xml = `<Struct xmlns="namespace">
   <blob>QUFBQQ==</blob>
   <timestamp>0</timestamp>
@@ -38,6 +38,24 @@ describe(XmlShapeDeserializer.name, () => {
       bigint: BigInt("10000000000000000000000054321"),
       bigdecimal: new NumericValue("0.10000000000000000000000054321", "bigDecimal"),
     });
+  });
+
+  it("deserializes unknown union members", async () => {
+    const xml = `<UnionStruct xmlns="namespace"><union><UK>UV</UK></union></UnionStruct>`;
+    {
+      const deserialization = await deserializer.read(unionStruct, xml);
+      expect(deserialization).toEqual({
+        union: {
+          $unknown: ["UK", "UV"],
+        },
+      });
+    }
+    {
+      const deserialization = await deserializer.read(unionStructControl, xml);
+      expect(deserialization).toEqual({
+        union: {},
+      });
+    }
   });
 
   describe("performance baseline indicator", () => {

@@ -2,6 +2,7 @@ import { determineTimestampFormat } from "@smithy/core/protocols";
 import { NormalizedSchema } from "@smithy/core/schema";
 import { dateToUtcString, generateIdempotencyToken, LazyJsonString, NumericValue } from "@smithy/core/serde";
 import type {
+  DocumentSchema,
   Schema,
   ShapeSerializer,
   TimestampDateTimeSchema,
@@ -73,13 +74,22 @@ export class SinglePassJsonShapeSerializer extends SerdeContextConfig implements
       }
     } else if (ns.isStructSchema()) {
       b += "{";
+      let didWriteMember = false;
       for (const [name, member] of serializingStructIterator(ns, value)) {
         const item = (value as any)[name];
         const targetKey = this.settings.jsonName ? member.getMergedTraits().jsonName ?? name : name;
         const serializableValue = this.writeValue(member, item);
         if (item != null || member.isIdempotencyToken()) {
+          didWriteMember = true;
           b += `"${targetKey}":${serializableValue}`;
           b += ",";
+        }
+      }
+      if (!didWriteMember && ns.isUnionSchema()) {
+        const { $unknown } = value as any;
+        if (Array.isArray($unknown)) {
+          const [k, v] = $unknown;
+          b += `"${k}":${this.writeValue(15 satisfies DocumentSchema, v)}`;
         }
       }
     } else if (ns.isMapSchema() || ns.isDocumentSchema()) {

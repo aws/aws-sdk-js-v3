@@ -3,9 +3,15 @@ import { NormalizedSchema } from "@smithy/core/schema";
 import { generateIdempotencyToken, NumericValue } from "@smithy/core/serde";
 import { dateToUtcString } from "@smithy/smithy-client";
 import type {
+  BlobSchema,
+  DocumentSchema,
+  ListSchemaModifier,
+  MapSchemaModifier,
   Schema,
   ShapeSerializer,
+  StringSchema,
   TimestampDateTimeSchema,
+  TimestampDefaultSchema,
   TimestampEpochSecondsSchema,
   TimestampHttpDateSchema,
 } from "@smithy/types";
@@ -74,7 +80,18 @@ export class QueryShapeSerializer extends SerdeContextConfig implements ShapeSer
         }
       }
     } else if (ns.isDocumentSchema()) {
-      throw new Error(`@aws-sdk/core/protocols - QuerySerializer unsupported document type ${ns.getName(true)}`);
+      if (Array.isArray(value)) {
+        this.write((64 satisfies ListSchemaModifier) | (15 satisfies DocumentSchema), value, prefix);
+      } else if (value instanceof Date) {
+        this.write(4 satisfies TimestampDefaultSchema, value, prefix);
+      } else if (value instanceof Uint8Array) {
+        this.write(21 satisfies BlobSchema, value, prefix);
+      } else if (value && typeof value === "object") {
+        this.write((128 satisfies MapSchemaModifier) | (15 satisfies DocumentSchema), value, prefix);
+      } else {
+        this.writeKey(prefix);
+        this.writeValue(String(value));
+      }
     } else if (ns.isListSchema()) {
       if (Array.isArray(value)) {
         if (value.length === 0) {
@@ -120,6 +137,7 @@ export class QueryShapeSerializer extends SerdeContextConfig implements ShapeSer
       }
     } else if (ns.isStructSchema()) {
       if (value && typeof value === "object") {
+        let didWriteMember = false;
         for (const [memberName, member] of serializingStructIterator(ns, value)) {
           if ((value as any)[memberName] == null && !member.isIdempotencyToken()) {
             continue;
@@ -127,6 +145,15 @@ export class QueryShapeSerializer extends SerdeContextConfig implements ShapeSer
           const suffix = this.getKey(memberName, member.getMergedTraits().xmlName);
           const key = `${prefix}${suffix}`;
           this.write(member, (value as any)[memberName], key);
+          didWriteMember = true;
+        }
+        if (!didWriteMember && ns.isUnionSchema()) {
+          const { $unknown } = value as any;
+          if (Array.isArray($unknown)) {
+            const [k, v] = $unknown;
+            const key = `${prefix}${k}`;
+            this.write(15 satisfies DocumentSchema, v, key);
+          }
         }
       }
     } else if (ns.isUnitSchema()) {
