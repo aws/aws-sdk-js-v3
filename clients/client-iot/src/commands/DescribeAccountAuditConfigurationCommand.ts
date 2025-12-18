@@ -5,8 +5,10 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import type { DescribeAccountAuditConfigurationRequest } from "../models/models_0";
-import type { DescribeAccountAuditConfigurationResponse } from "../models/models_1";
+import type {
+  DescribeAccountAuditConfigurationRequest,
+  DescribeAccountAuditConfigurationResponse,
+} from "../models/models_1";
 import { DescribeAccountAuditConfiguration$ } from "../schemas/schemas_0";
 
 /**

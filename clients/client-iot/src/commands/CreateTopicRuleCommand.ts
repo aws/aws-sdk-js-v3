@@ -215,6 +215,12 @@ export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
  *               roleArn: "STRING_VALUE", // required
  *             },
  *           },
+ *           enableBatching: true || false,
+ *           batchConfig: { // BatchConfig
+ *             maxBatchOpenMs: Number("int"),
+ *             maxBatchSize: Number("int"),
+ *             maxBatchSizeBytes: Number("int"),
+ *           },
  *         },
  *         kafka: { // KafkaAction
  *           destinationArn: "STRING_VALUE", // required
@@ -423,6 +429,12 @@ export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
  *             serviceName: "STRING_VALUE", // required
  *             roleArn: "STRING_VALUE", // required
  *           },
+ *         },
+ *         enableBatching: true || false,
+ *         batchConfig: {
+ *           maxBatchOpenMs: Number("int"),
+ *           maxBatchSize: Number("int"),
+ *           maxBatchSizeBytes: Number("int"),
  *         },
  *       },
  *       kafka: {

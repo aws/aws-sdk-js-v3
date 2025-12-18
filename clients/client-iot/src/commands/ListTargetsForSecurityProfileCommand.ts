@@ -5,7 +5,8 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import type { ListTargetsForSecurityProfileRequest, ListTargetsForSecurityProfileResponse } from "../models/models_1";
+import type { ListTargetsForSecurityProfileRequest } from "../models/models_1";
+import type { ListTargetsForSecurityProfileResponse } from "../models/models_2";
 import { ListTargetsForSecurityProfile$ } from "../schemas/schemas_0";
 
 /**

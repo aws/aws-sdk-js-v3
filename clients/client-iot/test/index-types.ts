@@ -955,6 +955,7 @@ export type {
   AwsJobRateIncreaseCriteria,
   AwsJobTimeoutConfig,
   AwsJsonSubstitutionCommandPreprocessorConfig,
+  BatchConfig,
   Behavior,
   BehaviorCriteria,
   BehaviorModelTrainingSummary,

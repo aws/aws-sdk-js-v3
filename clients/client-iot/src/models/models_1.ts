@@ -118,6 +118,11 @@ import {
 /**
  * @public
  */
+export interface DescribeAccountAuditConfigurationRequest {}
+
+/**
+ * @public
+ */
 export interface DescribeAccountAuditConfigurationResponse {
   /**
    * <p>The ARN of the role that grants permission to IoT to access information
@@ -8608,22 +8613,4 @@ export interface ListTargetsForSecurityProfileRequest {
    * @public
    */
   maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTargetsForSecurityProfileResponse {
-  /**
-   * <p>The thing groups to which the security profile is attached.</p>
-   * @public
-   */
-  securityProfileTargets?: SecurityProfileTarget[] | undefined;
-
-  /**
-   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
-   *         additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
 }

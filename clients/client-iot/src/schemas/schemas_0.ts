@@ -79,7 +79,8 @@ const _Al = "Allowed";
 const _Au = "Authorizers";
 const _B = "Behavior";
 const _BAT = "BucketsAggregationType";
-const _BC = "BehaviorCriteria";
+const _BC = "BatchConfig";
+const _BCe = "BehaviorCriteria";
 const _BGM = "BillingGroupMetadata";
 const _BGNAAL = "BillingGroupNameAndArnList";
 const _BGP = "BillingGroupProperties";
@@ -1236,6 +1237,7 @@ const _aut = "authorizers";
 const _av = "average";
 const _b = "behavior";
 const _bAT = "bucketsAggregationType";
+const _bC = "batchConfig";
 const _bCT = "behaviorCriteriaType";
 const _bG = "billingGroups";
 const _bGA = "billingGroupArn";
@@ -1384,7 +1386,8 @@ const _do = "document";
 const _e = "elasticsearch";
 const _eA = "endpointAddress";
 const _eAr = "errorAction";
-const _eB = "endBehavior";
+const _eB = "enableBatching";
+const _eBn = "endBehavior";
 const _eC = "errorCode";
 const _eCFH = "enableCachingForHttp";
 const _eCv = "eventConfigurations";
@@ -1529,6 +1532,9 @@ const _lon = "longitude";
 const _m = "merge";
 const _mA = "metricArn";
 const _mB = "maxBuckets";
+const _mBOM = "maxBatchOpenMs";
+const _mBS = "maxBatchSize";
+const _mBSB = "maxBatchSizeBytes";
 const _mC = "mqttContext";
 const _mCV = "missingContextValues";
 const _mCq = "mqtt5Configuration";
@@ -2225,6 +2231,7 @@ export var AwsJobPresignedUrlConfig$: StaticStructureSchema = [3, n0, _AJPUC, 0,
 export var AwsJobRateIncreaseCriteria$: StaticStructureSchema = [3, n0, _AJRIC, 0, [_nONT, _nOST], [1, 1]];
 export var AwsJobTimeoutConfig$: StaticStructureSchema = [3, n0, _AJTC, 0, [_iPTIM], [1]];
 export var AwsJsonSubstitutionCommandPreprocessorConfig$: StaticStructureSchema = [3, n0, _AJSCPC, 0, [_oF], [0]];
+export var BatchConfig$: StaticStructureSchema = [3, n0, _BC, 0, [_mBOM, _mBS, _mBSB], [1, 1, 1]];
 export var Behavior$: StaticStructureSchema = [
   3,
   n0,
@@ -2236,7 +2243,7 @@ export var Behavior$: StaticStructureSchema = [
 export var BehaviorCriteria$: StaticStructureSchema = [
   3,
   n0,
-  _BC,
+  _BCe,
   0,
   [_cO, _va, _dS, _cDTA, _cDTC, _sTt, _mDC],
   [0, () => MetricValue$, 1, 1, 1, () => StatisticalThreshold$, () => MachineLearningDetectionConfig$],
@@ -3809,8 +3816,8 @@ export var HttpAction$: StaticStructureSchema = [
   n0,
   _HA,
   0,
-  [_ur, _cU, _he, _au],
-  [0, 0, () => HeaderList, () => HttpAuthorization$],
+  [_ur, _cU, _he, _au, _eB, _bC],
+  [0, 0, () => HeaderList, () => HttpAuthorization$, 2, () => BatchConfig$],
 ];
 export var HttpActionHeader$: StaticStructureSchema = [3, n0, _HAH, 0, [_ke, _va], [0, 0]];
 export var HttpAuthorization$: StaticStructureSchema = [3, n0, _HAt, 0, [_sig], [() => SigV4Authorization$]];
@@ -5453,7 +5460,7 @@ export var SchedulingConfig$: StaticStructureSchema = [
   n0,
   _SC,
   0,
-  [_sT, _eT, _eB, _mW],
+  [_sT, _eT, _eBn, _mW],
   [0, 0, 0, () => MaintenanceWindows],
 ];
 export var SearchIndexRequest$: StaticStructureSchema = [3, n0, _SIR, 0, [_iN, _qS, _nT, _mR, _qV], [0, 0, 0, 1, 0]];

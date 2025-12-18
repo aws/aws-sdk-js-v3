@@ -461,6 +461,33 @@ export interface HttpAuthorization {
 }
 
 /**
+ * <p>Configuration settings for batching.</p>
+ * @public
+ */
+export interface BatchConfig {
+  /**
+   * <p>The maximum amount of time (in milliseconds) that an outgoing call waits for other calls
+   *          with which it batches messages of the same type. The higher the setting, the longer the
+   *          latency of the batched HTTP Action will be.</p>
+   * @public
+   */
+  maxBatchOpenMs?: number | undefined;
+
+  /**
+   * <p>The maximum number of messages that are batched together in a single action
+   *          execution.</p>
+   * @public
+   */
+  maxBatchSize?: number | undefined;
+
+  /**
+   * <p>Maximum size of a message batch, in bytes.</p>
+   * @public
+   */
+  maxBatchSizeBytes?: number | undefined;
+}
+
+/**
  * <p>The HTTP action header.</p>
  * @public
  */
@@ -513,6 +540,19 @@ export interface HttpAction {
    * @public
    */
   auth?: HttpAuthorization | undefined;
+
+  /**
+   * <p>Whether to process the HTTP action messages into a single request. Value can be true or false.</p>
+   * @public
+   */
+  enableBatching?: boolean | undefined;
+
+  /**
+   * <p>The configuration settings for batching. For more information, see <a href="/iot/latest/developerguide/http_batching.html">Batching
+   *             HTTP action messages</a>.</p>
+   * @public
+   */
+  batchConfig?: BatchConfig | undefined;
 }
 
 /**
@@ -7774,8 +7814,3 @@ export interface DeprecateThingTypeRequest {
  * @public
  */
 export interface DeprecateThingTypeResponse {}
-
-/**
- * @public
- */
-export interface DescribeAccountAuditConfigurationRequest {}

@@ -85,6 +85,7 @@ import {
   AwsJobRateIncreaseCriteria$,
   AwsJobTimeoutConfig$,
   AwsJsonSubstitutionCommandPreprocessorConfig$,
+  BatchConfig$,
   Behavior$,
   BehaviorCriteria$,
   BehaviorCriteriaType,
@@ -2114,6 +2115,7 @@ assert(typeof AwsJobPresignedUrlConfig$ === "object");
 assert(typeof AwsJobRateIncreaseCriteria$ === "object");
 assert(typeof AwsJobTimeoutConfig$ === "object");
 assert(typeof AwsJsonSubstitutionCommandPreprocessorConfig$ === "object");
+assert(typeof BatchConfig$ === "object");
 assert(typeof Behavior$ === "object");
 assert(typeof BehaviorCriteria$ === "object");
 assert(typeof BehaviorModelTrainingSummary$ === "object");

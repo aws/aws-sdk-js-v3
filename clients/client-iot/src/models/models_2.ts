@@ -75,7 +75,26 @@ import {
   type ViolationEventOccurrenceRange,
   Configuration,
   GroupNameAndArn,
+  SecurityProfileTarget,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListTargetsForSecurityProfileResponse {
+  /**
+   * <p>The thing groups to which the security profile is attached.</p>
+   * @public
+   */
+  securityProfileTargets?: SecurityProfileTarget[] | undefined;
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
+   *         additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * @public
