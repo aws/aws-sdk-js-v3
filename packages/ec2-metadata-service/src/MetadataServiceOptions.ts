@@ -42,7 +42,7 @@ export interface MetadataServiceOptions {
    */
   tokenTtl?: number;
   /**
-   * the port for the endpoint, defaulting to 80.
+   * the port for the endpoint. If not specified, uses the default port for the protocol (80 for HTTP, 443 for HTTPS).
    * can also be provided as a part of the endpoint URL, though an explicit config value will take precedence.
    */
   port?: number;

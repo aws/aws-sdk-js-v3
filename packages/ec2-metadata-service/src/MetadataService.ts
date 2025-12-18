@@ -49,14 +49,14 @@ export class MetadataService {
   }
 
   private resolvePort(endpointUrl: URL): number | undefined {
-    // Priority: explicit port option > port from endpoint URL > default (80)
+    // Priority: explicit port option > port from endpoint URL > protocol default (undefined lets URL handle it)
     if (this.port !== undefined) {
       return this.port;
     }
     if (endpointUrl.port) {
       return parseInt(endpointUrl.port);
     }
-    return 80;
+    return undefined;
   }
 
   private createBackoffFunction(
