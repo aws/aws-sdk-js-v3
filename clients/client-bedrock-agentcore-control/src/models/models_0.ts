@@ -3872,6 +3872,30 @@ export interface CredentialProviderConfiguration {
 }
 
 /**
+ * <p>Configuration for HTTP header and query parameter propagation between the gateway and target servers.</p>
+ * @public
+ */
+export interface MetadataConfiguration {
+  /**
+   * <p>A list of HTTP headers that are allowed to be propagated from incoming client requests to the target.</p>
+   * @public
+   */
+  allowedRequestHeaders?: string[] | undefined;
+
+  /**
+   * <p>A list of URL query parameters that are allowed to be propagated from incoming gateway URL to the target.</p>
+   * @public
+   */
+  allowedQueryParameters?: string[] | undefined;
+
+  /**
+   * <p>A list of HTTP headers that are allowed to be propagated from the target response back to the client.</p>
+   * @public
+   */
+  allowedResponseHeaders?: string[] | undefined;
+}
+
+/**
  * <p>Specifies which operations from an API Gateway REST API are exposed as tools. Tool names and descriptions are derived from the operationId and description fields in the API's exported OpenAPI specification.</p>
  * @public
  */
@@ -9505,33 +9529,4 @@ export interface GetPolicyResponse {
    * @public
    */
   statusReasons: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPoliciesRequest {
-  /**
-   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicies.html">ListPolicies</a> call. Use this token to retrieve the next page of results when the response is paginated.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of policies to return in a single response. If not specified, the default is 10 policies per page, with a maximum of 100 per page.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The identifier of the policy engine whose policies to retrieve.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>Optional filter to list policies that apply to a specific resource scope or resource type. This helps narrow down policy results to those relevant for particular Amazon Web Services resources, agent tools, or operational contexts within the policy engine ecosystem.</p>
-   * @public
-   */
-  targetResourceScope?: string | undefined;
 }

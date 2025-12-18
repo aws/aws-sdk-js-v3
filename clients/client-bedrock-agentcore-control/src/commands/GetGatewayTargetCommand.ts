@@ -163,6 +163,17 @@ export interface GetGatewayTargetCommandOutput extends GetGatewayTargetResponse,
  * //     },
  * //   ],
  * //   lastSynchronizedAt: new Date("TIMESTAMP"),
+ * //   metadataConfiguration: { // MetadataConfiguration
+ * //     allowedRequestHeaders: [ // AllowedRequestHeaders
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     allowedQueryParameters: [ // AllowedQueryParameters
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     allowedResponseHeaders: [ // AllowedResponseHeaders
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
  * // };
  *
  * ```

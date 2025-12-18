@@ -167,6 +167,17 @@ export interface SynchronizeGatewayTargetsCommandOutput extends SynchronizeGatew
  * //         },
  * //       ],
  * //       lastSynchronizedAt: new Date("TIMESTAMP"),
+ * //       metadataConfiguration: { // MetadataConfiguration
+ * //         allowedRequestHeaders: [ // AllowedRequestHeaders
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         allowedQueryParameters: [ // AllowedQueryParameters
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         allowedResponseHeaders: [ // AllowedResponseHeaders
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * // };

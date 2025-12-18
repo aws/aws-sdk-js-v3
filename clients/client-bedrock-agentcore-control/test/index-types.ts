@@ -516,6 +516,7 @@ export type {
   MemorySummary,
   MessageBasedTrigger,
   MessageBasedTriggerInput,
+  MetadataConfiguration,
   MicrosoftOauth2ProviderConfigInput,
   MicrosoftOauth2ProviderConfigOutput,
   ModifyConsolidationConfiguration,

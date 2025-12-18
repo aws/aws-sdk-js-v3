@@ -394,6 +394,7 @@ import {
   MemorySummary$,
   MessageBasedTrigger$,
   MessageBasedTriggerInput$,
+  MetadataConfiguration$,
   MicrosoftOauth2ProviderConfigInput$,
   MicrosoftOauth2ProviderConfigOutput$,
   ModifyConsolidationConfiguration$,
@@ -998,6 +999,7 @@ assert(typeof MemoryStrategyInput$ === "object");
 assert(typeof MemorySummary$ === "object");
 assert(typeof MessageBasedTrigger$ === "object");
 assert(typeof MessageBasedTriggerInput$ === "object");
+assert(typeof MetadataConfiguration$ === "object");
 assert(typeof MicrosoftOauth2ProviderConfigInput$ === "object");
 assert(typeof MicrosoftOauth2ProviderConfigOutput$ === "object");
 assert(typeof ModifyConsolidationConfiguration$ === "object");

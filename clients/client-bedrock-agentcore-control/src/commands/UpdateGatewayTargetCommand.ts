@@ -149,6 +149,17 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  *       },
  *     },
  *   ],
+ *   metadataConfiguration: { // MetadataConfiguration
+ *     allowedRequestHeaders: [ // AllowedRequestHeaders
+ *       "STRING_VALUE",
+ *     ],
+ *     allowedQueryParameters: [ // AllowedQueryParameters
+ *       "STRING_VALUE",
+ *     ],
+ *     allowedResponseHeaders: [ // AllowedResponseHeaders
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new UpdateGatewayTargetCommand(input);
  * const response = await client.send(command);
@@ -268,6 +279,17 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  * //     },
  * //   ],
  * //   lastSynchronizedAt: new Date("TIMESTAMP"),
+ * //   metadataConfiguration: { // MetadataConfiguration
+ * //     allowedRequestHeaders: [ // AllowedRequestHeaders
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     allowedQueryParameters: [ // AllowedQueryParameters
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     allowedResponseHeaders: [ // AllowedResponseHeaders
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
  * // };
  *
  * ```

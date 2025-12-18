@@ -149,6 +149,17 @@ export interface CreateGatewayTargetCommandOutput extends CreateGatewayTargetRes
  *       },
  *     },
  *   ],
+ *   metadataConfiguration: { // MetadataConfiguration
+ *     allowedRequestHeaders: [ // AllowedRequestHeaders
+ *       "STRING_VALUE",
+ *     ],
+ *     allowedQueryParameters: [ // AllowedQueryParameters
+ *       "STRING_VALUE",
+ *     ],
+ *     allowedResponseHeaders: [ // AllowedResponseHeaders
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new CreateGatewayTargetCommand(input);
  * const response = await client.send(command);
@@ -268,6 +279,17 @@ export interface CreateGatewayTargetCommandOutput extends CreateGatewayTargetRes
  * //     },
  * //   ],
  * //   lastSynchronizedAt: new Date("TIMESTAMP"),
+ * //   metadataConfiguration: { // MetadataConfiguration
+ * //     allowedRequestHeaders: [ // AllowedRequestHeaders
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     allowedQueryParameters: [ // AllowedQueryParameters
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     allowedResponseHeaders: [ // AllowedResponseHeaders
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
  * // };
  *
  * ```

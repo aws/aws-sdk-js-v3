@@ -315,6 +315,7 @@ const _LWIRi = "ListWorkloadIdentitiesResponse";
 const _M = "Memory";
 const _MBT = "MessageBasedTrigger";
 const _MBTI = "MessageBasedTriggerInput";
+const _MC = "MetadataConfiguration";
 const _MCC = "ModifyConsolidationConfiguration";
 const _MCPGC = "MCPGatewayConfiguration";
 const _MEC = "ModifyExtractionConfiguration";
@@ -496,10 +497,13 @@ const _aKSA = "apiKeySecretArn";
 const _aMRF = "additionalModelRequestFields";
 const _aMS = "addMemoryStrategies";
 const _aOPC = "atlassianOauth2ProviderConfig";
+const _aQP = "allowedQueryParameters";
 const _aR = "agentRuntimes";
 const _aRA = "agentRuntimeArn";
 const _aRAg = "agentRuntimeArtifact";
 const _aREA = "agentRuntimeEndpointArn";
+const _aRH = "allowedRequestHeaders";
+const _aRHl = "allowedResponseHeaders";
 const _aRI = "agentRuntimeId";
 const _aRN = "agentRuntimeName";
 const _aRORU = "allowedResourceOauth2ReturnUrls";
@@ -645,8 +649,9 @@ const _la = "lambda";
 const _le = "level";
 const _m = "message";
 const _mBT = "messageBasedTrigger";
-const _mC = "modelConfig";
+const _mC = "metadataConfiguration";
 const _mCe = "messageCount";
+const _mCo = "modelConfig";
 const _mERA = "memoryExecutionRoleArn";
 const _mI = "modelId";
 const _mIe = "memoryId";
@@ -1114,7 +1119,7 @@ export var CreateGatewayTargetRequest$: StaticStructureSchema = [
   n0,
   _CGTR,
   0,
-  [_gIa, _n, _d, _cTl, _tC, _cPC],
+  [_gIa, _n, _d, _cTl, _tC, _cPC, _mC],
   [
     [0, 1],
     [() => TargetName, 0],
@@ -1122,6 +1127,7 @@ export var CreateGatewayTargetRequest$: StaticStructureSchema = [
     [0, 4],
     [() => TargetConfiguration$, 0],
     [() => CredentialProviderConfigurations, 0],
+    () => MetadataConfiguration$,
   ],
 ];
 export var CreateGatewayTargetResponse$: StaticStructureSchema = [
@@ -1129,7 +1135,7 @@ export var CreateGatewayTargetResponse$: StaticStructureSchema = [
   n0,
   _CGTRr,
   0,
-  [_gA, _tI, _cA, _uA, _s, _sR, _n, _d, _tC, _cPC, _lSA],
+  [_gA, _tI, _cA, _uA, _s, _sR, _n, _d, _tC, _cPC, _lSA, _mC],
   [
     0,
     0,
@@ -1142,6 +1148,7 @@ export var CreateGatewayTargetResponse$: StaticStructureSchema = [
     [() => TargetConfiguration$, 0],
     [() => CredentialProviderConfigurations, 0],
     5,
+    () => MetadataConfiguration$,
   ],
 ];
 export var CreateMemoryInput$: StaticStructureSchema = [
@@ -1525,7 +1532,7 @@ export var GatewayTarget$: StaticStructureSchema = [
   n0,
   _GT,
   0,
-  [_gA, _tI, _cA, _uA, _s, _sR, _n, _d, _tC, _cPC, _lSA],
+  [_gA, _tI, _cA, _uA, _s, _sR, _n, _d, _tC, _cPC, _lSA, _mC],
   [
     0,
     0,
@@ -1538,6 +1545,7 @@ export var GatewayTarget$: StaticStructureSchema = [
     [() => TargetConfiguration$, 0],
     [() => CredentialProviderConfigurations, 0],
     5,
+    () => MetadataConfiguration$,
   ],
 ];
 export var GetAgentRuntimeEndpointRequest$: StaticStructureSchema = [
@@ -1691,7 +1699,7 @@ export var GetGatewayTargetResponse$: StaticStructureSchema = [
   n0,
   _GGTRe,
   0,
-  [_gA, _tI, _cA, _uA, _s, _sR, _n, _d, _tC, _cPC, _lSA],
+  [_gA, _tI, _cA, _uA, _s, _sR, _n, _d, _tC, _cPC, _lSA, _mC],
   [
     0,
     0,
@@ -1704,6 +1712,7 @@ export var GetGatewayTargetResponse$: StaticStructureSchema = [
     [() => TargetConfiguration$, 0],
     [() => CredentialProviderConfigurations, 0],
     5,
+    () => MetadataConfiguration$,
   ],
 ];
 export var GetMemoryInput$: StaticStructureSchema = [3, n0, _GMI, 0, [_mIe], [[0, 1]]];
@@ -2167,7 +2176,7 @@ export var LlmAsAJudgeEvaluatorConfig$: StaticStructureSchema = [
   n0,
   _LAAJEC,
   0,
-  [_ins, _rS, _mC],
+  [_ins, _rS, _mCo],
   [[() => EvaluatorInstructions, 0], () => RatingScale$, () => EvaluatorModelConfig$],
 ];
 export var MCPGatewayConfiguration$: StaticStructureSchema = [3, n0, _MCPGC, 0, [_sV, _ins, _sT], [64 | 0, 0, 0]];
@@ -2192,6 +2201,14 @@ export var MemoryStrategy$: StaticStructureSchema = [
 export var MemorySummary$: StaticStructureSchema = [3, n0, _MSe, 0, [_a, _i, _s, _cA, _uA], [0, 0, 0, 4, 4]];
 export var MessageBasedTrigger$: StaticStructureSchema = [3, n0, _MBT, 0, [_mCe], [1]];
 export var MessageBasedTriggerInput$: StaticStructureSchema = [3, n0, _MBTI, 0, [_mCe], [1]];
+export var MetadataConfiguration$: StaticStructureSchema = [
+  3,
+  n0,
+  _MC,
+  0,
+  [_aRH, _aQP, _aRHl],
+  [64 | 0, 64 | 0, 64 | 0],
+];
 export var MicrosoftOauth2ProviderConfigInput$: StaticStructureSchema = [
   3,
   n0,
@@ -2688,7 +2705,7 @@ export var UpdateGatewayTargetRequest$: StaticStructureSchema = [
   n0,
   _UGTR,
   0,
-  [_gIa, _tI, _n, _d, _tC, _cPC],
+  [_gIa, _tI, _n, _d, _tC, _cPC, _mC],
   [
     [0, 1],
     [0, 1],
@@ -2696,6 +2713,7 @@ export var UpdateGatewayTargetRequest$: StaticStructureSchema = [
     [() => TargetDescription, 0],
     [() => TargetConfiguration$, 0],
     [() => CredentialProviderConfigurations, 0],
+    () => MetadataConfiguration$,
   ],
 ];
 export var UpdateGatewayTargetResponse$: StaticStructureSchema = [
@@ -2703,7 +2721,7 @@ export var UpdateGatewayTargetResponse$: StaticStructureSchema = [
   n0,
   _UGTRp,
   0,
-  [_gA, _tI, _cA, _uA, _s, _sR, _n, _d, _tC, _cPC, _lSA],
+  [_gA, _tI, _cA, _uA, _s, _sR, _n, _d, _tC, _cPC, _lSA, _mC],
   [
     0,
     0,
@@ -2716,6 +2734,7 @@ export var UpdateGatewayTargetResponse$: StaticStructureSchema = [
     [() => TargetConfiguration$, 0],
     [() => CredentialProviderConfigurations, 0],
     5,
+    () => MetadataConfiguration$,
   ],
 ];
 export var UpdateMemoryInput$: StaticStructureSchema = [
@@ -2889,6 +2908,9 @@ var AgentRuntimeEndpoints: StaticListSchema = [1, n0, _AREg, 0, [() => AgentRunt
 var AgentRuntimes: StaticListSchema = [1, n0, _ARg, 0, [() => AgentRuntime$, 0]];
 var AllowedAudienceList = 64 | 0;
 var AllowedClientsList = 64 | 0;
+var AllowedQueryParameters = 64 | 0;
+var AllowedRequestHeaders = 64 | 0;
+var AllowedResponseHeaders = 64 | 0;
 var AllowedScopesType = 64 | 0;
 var ApiGatewayToolFilters: StaticListSchema = [1, n0, _AGTFp, 0, () => ApiGatewayToolFilter$];
 var ApiGatewayToolOverrides: StaticListSchema = [1, n0, _AGTOp, 0, () => ApiGatewayToolOverride$];
