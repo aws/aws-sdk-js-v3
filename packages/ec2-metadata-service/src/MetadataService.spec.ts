@@ -326,7 +326,7 @@ describe("MetadataService Custom Ports", () => {
     await metadataService.fetchMetadataToken();
 
     const requestArg = mockHandle.mock.calls[0][0];
-    expect(requestArg.port).toBe(80); // default
+    expect(requestArg.port).toBe(undefined); // protocol default
     expect(requestArg.hostname).toBe("169.254.169.254");
   });
 
