@@ -64,6 +64,6 @@ $ node cache-v3.js
 { noOfFilesInCache: 8, bytesInCache: 26127 }
 ```
 
-In the above code samples, we compare the number of files and bytes loaded in cache when importing equivalent credential providers. In v2, there are 53 files loaded in cache with total size of 398 kB. While in v3, there are only 9 files loaded in cache, which total size of 26 kB.
+In the above code samples, we compare the number of files and bytes loaded in cache when importing equivalent credential providers. In v2, there are 53 files loaded in cache with total size of 398 kB. While in v3, there are only 8 files loaded in cache, which total size of 26 kB.
 
 If you’re bundling your application, the Dynamic imports are not supported by default in some old versions of bundlers. For example, if your setup is using `@babel/core@<7.8.0`, you need to explicitly add `@babel/plugin-syntax-dynamic-import` plugin to transform the code.
