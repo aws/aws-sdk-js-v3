@@ -23391,7 +23391,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/crc64-nvme@workspace:packages/crc64-nvme"
   dependencies:
-    "@smithy/types": "npm:^4.10.0"
+    "@smithy/types": "npm:^4.11.0"
     "@smithy/util-base64": "npm:^4.3.0"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
