@@ -1,5 +1,5 @@
 import { toBase64 } from "@smithy/util-base64";
-import { describe, expect, test } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import { Crc64Nvme } from "./Crc64Nvme";
 
@@ -51,7 +51,7 @@ const TEST_VECTORS = [
 ];
 
 describe(Crc64Nvme.name, () => {
-  test.each(TEST_VECTORS)("$description", async (vector) => {
+  it.each(TEST_VECTORS)("$description", async (vector) => {
     const crc = new Crc64Nvme();
     crc.update(new TextEncoder().encode(vector.input));
     const digest = await crc.digest();
@@ -60,7 +60,7 @@ describe(Crc64Nvme.name, () => {
     expect(hex).toBe(vector.expected);
   });
 
-  test("empty input", async () => {
+  it("empty input", async () => {
     const crc = new Crc64Nvme();
     const digest = await crc.digest();
 
@@ -69,7 +69,7 @@ describe(Crc64Nvme.name, () => {
     expect(toBase64(digest)).toBe("AAAAAAAAAAA=");
   });
 
-  test.each([
+  it.each([
     { byte: 0x00, expected: "1dpQR+/shyg=" },
     { byte: 0x01, expected: "qrSgj9/ZDlE=" },
     { byte: 0xff, expected: "/wAAAAAAAAA=" },
@@ -84,7 +84,7 @@ describe(Crc64Nvme.name, () => {
     expect(hex).toBe(expected);
   });
 
-  test("reset functionality", async () => {
+  it("reset functionality", async () => {
     const crc = new Crc64Nvme();
     const input = new TextEncoder().encode("test data");
 
@@ -100,7 +100,7 @@ describe(Crc64Nvme.name, () => {
     expect(digest1).toBe(digest2);
   });
 
-  test("multiple updates equivalent to single update", async () => {
+  it("multiple updates equivalent to single update", async () => {
     const input = new TextEncoder().encode("The quick brown fox");
 
     // Single update
@@ -118,7 +118,7 @@ describe(Crc64Nvme.name, () => {
     expect(digest1).toBe(digest2);
   });
 
-  test("incremental updates", async () => {
+  it("incremental updates", async () => {
     const crc = new Crc64Nvme();
     const textEncoder = new TextEncoder();
 
@@ -131,7 +131,7 @@ describe(Crc64Nvme.name, () => {
     expect(digest).toBe("rosUhgp5mIg=");
   });
 
-  test("digest returns Uint8Array of length 8", async () => {
+  it("digest returns Uint8Array of length 8", async () => {
     const crc = new Crc64Nvme();
     const digest = await crc.digest();
 
@@ -139,7 +139,7 @@ describe(Crc64Nvme.name, () => {
     expect(digest.length).toBe(8);
   });
 
-  test("digest does not mutate state", async () => {
+  it("digest does not mutate state", async () => {
     const crc = new Crc64Nvme();
     crc.update(new TextEncoder().encode("test"));
 
@@ -149,7 +149,7 @@ describe(Crc64Nvme.name, () => {
     expect(digest1).toBe(digest2);
   });
 
-  test("consistent across multiple instances", async () => {
+  it("consistent across multiple instances", async () => {
     const input = new TextEncoder().encode("consistency test");
 
     const crc1 = new Crc64Nvme();
@@ -163,7 +163,7 @@ describe(Crc64Nvme.name, () => {
     expect(digest1).toBe(digest2);
   });
 
-  test("empty updates between data", async () => {
+  it("empty updates between data", async () => {
     const crc1 = new Crc64Nvme();
     crc1.update(new TextEncoder().encode("hello"));
     crc1.update(new Uint8Array(0)); // Empty update
