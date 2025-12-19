@@ -304,6 +304,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -711,41 +712,41 @@ var RegionMapInput: StaticMapSchema = [2, n0, _RMI, 0, 0, () => RegionMapInputVa
 var SsmParameters: StaticMapSchema = [2, n0, _SP, 0, 0, 64 | 0];
 var TagMap = 128 | 0;
 var TagMapUpdate = 128 | 0;
-export var Action$: StaticStructureSchema = [3, n0, _A, 0, [_sAs], [() => SsmAutomation$]];
-export var AttributeValueList$: StaticStructureSchema = [3, n0, _AVL, 0, [_sV, _iV], [64 | 0, 64 | 1]];
-export var AutomationExecution$: StaticStructureSchema = [3, n0, _AE, 0, [_sEA], [0]];
-export var ChatChannel$: StaticStructureSchema = [3, n0, _CC, 0, [_em, _cS], [() => EmptyChatChannel$, 64 | 0]];
-export var Condition$: StaticStructureSchema = [3, n0, _C, 0, [_b, _af, _eq], [4, 4, () => AttributeValueList$]];
-export var DynamicSsmParameterValue$: StaticStructureSchema = [3, n0, _DSPV, 0, [_va], [0]];
-export var EventReference$: StaticStructureSchema = [3, n0, _ER, 0, [_re, _rII], [0, 0]];
-export var FindingDetails$: StaticStructureSchema = [
-  3,
+export var Action$: StaticUnionSchema = [4, n0, _A, 0, [_sAs], [() => SsmAutomation$]];
+export var AttributeValueList$: StaticUnionSchema = [4, n0, _AVL, 0, [_sV, _iV], [64 | 0, 64 | 1]];
+export var AutomationExecution$: StaticUnionSchema = [4, n0, _AE, 0, [_sEA], [0]];
+export var ChatChannel$: StaticUnionSchema = [4, n0, _CC, 0, [_em, _cS], [() => EmptyChatChannel$, 64 | 0]];
+export var Condition$: StaticUnionSchema = [4, n0, _C, 0, [_b, _af, _eq], [4, 4, () => AttributeValueList$]];
+export var DynamicSsmParameterValue$: StaticUnionSchema = [4, n0, _DSPV, 0, [_va], [0]];
+export var EventReference$: StaticUnionSchema = [4, n0, _ER, 0, [_re, _rII], [0, 0]];
+export var FindingDetails$: StaticUnionSchema = [
+  4,
   n0,
   _FD,
   0,
   [_cDD, _cFSU],
   [() => CodeDeployDeployment$, () => CloudFormationStackUpdate$],
 ];
-export var Integration$: StaticStructureSchema = [3, n0, _In, 0, [_pDC], [() => PagerDutyConfiguration$]];
-export var ItemValue$: StaticStructureSchema = [
-  3,
+export var Integration$: StaticUnionSchema = [4, n0, _In, 0, [_pDC], [() => PagerDutyConfiguration$]];
+export var ItemValue$: StaticUnionSchema = [
+  4,
   n0,
   _IV,
   0,
   [_a, _u, _mD, _pDID],
   [0, 0, 0, () => PagerDutyIncidentDetail$],
 ];
-export var NotificationTargetItem$: StaticStructureSchema = [3, n0, _NTI, 0, [_sTA], [0]];
-export var RelatedItemsUpdate$: StaticStructureSchema = [
-  3,
+export var NotificationTargetItem$: StaticUnionSchema = [4, n0, _NTI, 0, [_sTA], [0]];
+export var RelatedItemsUpdate$: StaticUnionSchema = [
+  4,
   n0,
   _RIU,
   0,
   [_iTA, _iTR],
   [() => RelatedItem$, () => ItemIdentifier$],
 ];
-export var UpdateReplicationSetAction$: StaticStructureSchema = [
-  3,
+export var UpdateReplicationSetAction$: StaticUnionSchema = [
+  4,
   n0,
   _URSA,
   0,

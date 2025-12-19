@@ -102,7 +102,13 @@ const n0 = "com.amazonaws.controlcatalog";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type {
+  StaticErrorSchema,
+  StaticListSchema,
+  StaticOperationSchema,
+  StaticStructureSchema,
+  StaticUnionSchema,
+} from "@smithy/types";
 
 import { ControlCatalogServiceException } from "../models/ControlCatalogServiceException";
 import {
@@ -269,8 +275,8 @@ var ImplementationTypeFilterList = 64 | 0;
 var MappingTypeFilterList = 64 | 0;
 var ObjectiveResourceFilterList: StaticListSchema = [1, n0, _ORFL, 0, () => ObjectiveResourceFilter$];
 var ObjectiveSummaryList: StaticListSchema = [1, n0, _OSL, 0, () => ObjectiveSummary$];
-export var Mapping$: StaticStructureSchema = [
-  3,
+export var Mapping$: StaticUnionSchema = [
+  4,
   n0,
   _Ma,
   0,

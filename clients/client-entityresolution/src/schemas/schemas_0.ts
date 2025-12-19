@@ -349,6 +349,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { EntityResolutionServiceException } from "../models/EntityResolutionServiceException";
@@ -1165,8 +1166,8 @@ var UniqueIdList = 64 | 0;
 var RecordAttributeMap: StaticMapSchema = [2, n0, _RAM, 8, 0, 0];
 var RecordAttributeMapString255: StaticMapSchema = [2, n0, _RAMS, 8, 0, 0];
 var TagMap = 128 | 0;
-export var ProviderEndpointConfiguration$: StaticStructureSchema = [
-  3,
+export var ProviderEndpointConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _PEC,
   0,

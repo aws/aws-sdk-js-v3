@@ -266,7 +266,13 @@ const n0 = "com.amazonaws.costoptimizationhub";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type {
+  StaticErrorSchema,
+  StaticListSchema,
+  StaticOperationSchema,
+  StaticStructureSchema,
+  StaticUnionSchema,
+} from "@smithy/types";
 
 import { CostOptimizationHubServiceException } from "../models/CostOptimizationHubServiceException";
 import {
@@ -850,8 +856,8 @@ var SummaryMetricsList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
 var UsageList: StaticListSchema = [1, n0, _UL, 0, () => Usage$];
 var ValidationExceptionDetails: StaticListSchema = [1, n0, _VEDa, 0, () => ValidationExceptionDetail$];
-export var ResourceDetails$: StaticStructureSchema = [
-  3,
+export var ResourceDetails$: StaticUnionSchema = [
+  4,
   n0,
   _RD,
   0,

@@ -74,11 +74,11 @@ const _hH = "httpHeader";
 const _hQ = "httpQuery";
 const _mR = "maxResults";
 const _pT = "pageToken";
-const _s = "streaming";
+const _s = "sensitive";
 const _sBI = "startingBlockIndex";
-const _se = "sensitive";
-const _ser = "server";
+const _se = "server";
 const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.ebs";
+const _st = "streaming";
 const _xaC = "x-amz-ChangedBlocksCount";
 const _xaCA = "x-amz-Checksum-Algorithm";
 const _xaCAM = "x-amz-Checksum-Aggregation-Method";
@@ -110,7 +110,7 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var BlockData: StaticSimpleSchema = [0, n0, _BD, { [_s]: 1, [_se]: 1 }, 42];
+var BlockData: StaticSimpleSchema = [0, n0, _BD, { [_s]: 1, [_st]: 1 }, 42];
 var KmsKeyArn: StaticSimpleSchema = [0, n0, _KKA, 8, 0];
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M, _R], [0, 0]];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
@@ -160,7 +160,7 @@ export var GetSnapshotBlockResponse$: StaticStructureSchema = [
     [0, { [_hH]: _xaCA }],
   ],
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _ser, [_hE]: 500 }, [_M], [0]];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListChangedBlocksRequest$: StaticStructureSchema = [
   3,

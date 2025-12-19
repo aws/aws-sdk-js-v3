@@ -342,6 +342,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1070,10 +1071,10 @@ var BatchParametersMap = 128 | 0;
 var HeaderParametersMap: StaticMapSchema = [2, n0, _HPM, 0, [0, 0], [() => HeaderValue, 0]];
 var QueryStringParametersMap: StaticMapSchema = [2, n0, _QSPM, 0, [0, 0], [() => QueryStringValue, 0]];
 var TagMap: StaticMapSchema = [2, n0, _TM, 0, [0, 0], [() => TagValue, 0]];
-export var MQBrokerAccessCredentials$: StaticStructureSchema = [3, n0, _MQBAC, 0, [_BA], [0]];
-export var MSKAccessCredentials$: StaticStructureSchema = [3, n0, _MSKAC, 0, [_SSA, _CCTA], [0, 0]];
-export var SelfManagedKafkaAccessConfigurationCredentials$: StaticStructureSchema = [
-  3,
+export var MQBrokerAccessCredentials$: StaticUnionSchema = [4, n0, _MQBAC, 0, [_BA], [0]];
+export var MSKAccessCredentials$: StaticUnionSchema = [4, n0, _MSKAC, 0, [_SSA, _CCTA], [0, 0]];
+export var SelfManagedKafkaAccessConfigurationCredentials$: StaticUnionSchema = [
+  4,
   n0,
   _SMKACC,
   0,

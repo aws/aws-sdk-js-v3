@@ -404,7 +404,7 @@ export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`Throttling`, 400] },
+  { [_aQE]: [`Throttling`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];

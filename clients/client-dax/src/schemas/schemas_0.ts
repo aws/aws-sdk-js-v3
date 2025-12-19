@@ -268,7 +268,7 @@ export var ClusterAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _CAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ClusterAlreadyExists`, 400] },
+  { [_aQE]: [`ClusterAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -277,7 +277,7 @@ export var ClusterNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _CNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ClusterNotFound`, 404] },
+  { [_aQE]: [`ClusterNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -286,7 +286,7 @@ export var ClusterQuotaForCustomerExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _CQFCEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ClusterQuotaForCustomerExceeded`, 400] },
+  { [_aQE]: [`ClusterQuotaForCustomerExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -395,7 +395,7 @@ export var InsufficientClusterCapacityFault$: StaticErrorSchema = [
   -3,
   n0,
   _ICCF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InsufficientClusterCapacity`, 400] },
+  { [_aQE]: [`InsufficientClusterCapacity`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -404,7 +404,7 @@ export var InvalidARNFault$: StaticErrorSchema = [
   -3,
   n0,
   _IARNF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidARN`, 400] },
+  { [_aQE]: [`InvalidARN`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -413,7 +413,7 @@ export var InvalidClusterStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _ICSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidClusterState`, 400] },
+  { [_aQE]: [`InvalidClusterState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -422,7 +422,7 @@ export var InvalidParameterCombinationException$: StaticErrorSchema = [
   -3,
   n0,
   _IPCE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameterCombination`, 400] },
+  { [_aQE]: [`InvalidParameterCombination`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -431,7 +431,7 @@ export var InvalidParameterGroupStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IPGSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameterGroupState`, 400] },
+  { [_aQE]: [`InvalidParameterGroupState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -440,7 +440,7 @@ export var InvalidParameterValueException$: StaticErrorSchema = [
   -3,
   n0,
   _IPVE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameterValue`, 400] },
+  { [_aQE]: [`InvalidParameterValue`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -449,7 +449,7 @@ export var InvalidSubnet$: StaticErrorSchema = [
   -3,
   n0,
   _IS,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidSubnet`, 400] },
+  { [_aQE]: [`InvalidSubnet`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -458,7 +458,7 @@ export var InvalidVPCNetworkStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IVPCNSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidVPCNetworkStateFault`, 400] },
+  { [_aQE]: [`InvalidVPCNetworkStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -477,7 +477,7 @@ export var NodeNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _NNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`NodeNotFound`, 404] },
+  { [_aQE]: [`NodeNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -486,7 +486,7 @@ export var NodeQuotaForClusterExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _NQFCEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`NodeQuotaForClusterExceeded`, 400] },
+  { [_aQE]: [`NodeQuotaForClusterExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -495,7 +495,7 @@ export var NodeQuotaForCustomerExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _NQFCEFo,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`NodeQuotaForCustomerExceeded`, 400] },
+  { [_aQE]: [`NodeQuotaForCustomerExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -515,7 +515,7 @@ export var ParameterGroupAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _PGAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ParameterGroupAlreadyExists`, 400] },
+  { [_aQE]: [`ParameterGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -524,7 +524,7 @@ export var ParameterGroupNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _PGNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ParameterGroupNotFound`, 404] },
+  { [_aQE]: [`ParameterGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -533,7 +533,7 @@ export var ParameterGroupQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _PGQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ParameterGroupQuotaExceeded`, 400] },
+  { [_aQE]: [`ParameterGroupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -547,7 +547,7 @@ export var ServiceLinkedRoleNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _SLRNFF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ServiceLinkedRoleNotFoundFault`, 400] },
+  { [_aQE]: [`ServiceLinkedRoleNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -556,7 +556,7 @@ export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  { [_e]: _c, [_hE]: 402, [_aQE]: [`ServiceQuotaExceeded`, 402] },
+  { [_aQE]: [`ServiceQuotaExceeded`, 402], [_e]: _c, [_hE]: 402 },
   [],
   [],
 ];
@@ -576,7 +576,7 @@ export var SubnetGroupAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _SGAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetGroupAlreadyExists`, 400] },
+  { [_aQE]: [`SubnetGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -585,7 +585,7 @@ export var SubnetGroupInUseFault$: StaticErrorSchema = [
   -3,
   n0,
   _SGIUF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetGroupInUse`, 400] },
+  { [_aQE]: [`SubnetGroupInUse`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -594,7 +594,7 @@ export var SubnetGroupNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _SGNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`SubnetGroupNotFoundFault`, 404] },
+  { [_aQE]: [`SubnetGroupNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -603,7 +603,7 @@ export var SubnetGroupQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _SGQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetGroupQuotaExceeded`, 400] },
+  { [_aQE]: [`SubnetGroupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -612,7 +612,7 @@ export var SubnetInUse$: StaticErrorSchema = [
   -3,
   n0,
   _SIU,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetInUse`, 400] },
+  { [_aQE]: [`SubnetInUse`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -621,7 +621,7 @@ export var SubnetNotAllowedFault$: StaticErrorSchema = [
   -3,
   n0,
   _SNAF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetNotAllowedFault`, 400] },
+  { [_aQE]: [`SubnetNotAllowedFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -630,7 +630,7 @@ export var SubnetQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _SQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetQuotaExceededFault`, 400] },
+  { [_aQE]: [`SubnetQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -640,7 +640,7 @@ export var TagNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _TNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`TagNotFound`, 404] },
+  { [_aQE]: [`TagNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -649,7 +649,7 @@ export var TagQuotaPerResourceExceeded$: StaticErrorSchema = [
   -3,
   n0,
   _TQPRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TagQuotaPerResourceExceeded`, 400] },
+  { [_aQE]: [`TagQuotaPerResourceExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];

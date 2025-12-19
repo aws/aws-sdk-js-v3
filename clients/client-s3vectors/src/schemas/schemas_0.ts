@@ -146,6 +146,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -336,7 +337,7 @@ var QueryVectorsOutputList: StaticListSchema = [1, n0, _QVOL, 0, () => QueryOutp
 var TagKeyList = 64 | 0;
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
 var TagsMap = 128 | 0;
-export var VectorData$: StaticStructureSchema = [3, n0, _VD, 0, [_fl], [64 | 1]];
+export var VectorData$: StaticUnionSchema = [4, n0, _VD, 0, [_fl], [64 | 1]];
 export var CreateIndex$: StaticOperationSchema = [
   9,
   n0,

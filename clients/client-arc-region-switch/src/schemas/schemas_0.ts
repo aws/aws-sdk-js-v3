@@ -256,6 +256,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { ARCRegionSwitchServiceException } from "../models/ARCRegionSwitchServiceException";
@@ -609,8 +610,8 @@ var KubernetesScalingApplication: StaticMapSchema = [2, n0, _KSAu, 0, 0, () => R
 var RegionalScalingResource: StaticMapSchema = [2, n0, _RSR, 0, 0, () => KubernetesScalingResource$];
 var RegionAndRoutingControls: StaticMapSchema = [2, n0, _RARC, 0, 0, () => ArcRoutingControlStates];
 var Tags = 128 | 0;
-export var ExecutionBlockConfiguration$: StaticStructureSchema = [
-  3,
+export var ExecutionBlockConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _EBC,
   0,

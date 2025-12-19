@@ -1974,7 +1974,7 @@ export var AssociateTrackerConsumer$: StaticOperationSchema = [
   9,
   n0,
   _ATC,
-  { [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/consumers", 200], [_en]: ["cp.tracking."] },
+  { [_en]: ["cp.tracking."], [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/consumers", 200] },
   () => AssociateTrackerConsumerRequest$,
   () => AssociateTrackerConsumerResponse$,
 ];
@@ -1982,7 +1982,7 @@ export var BatchDeleteDevicePositionHistory$: StaticOperationSchema = [
   9,
   n0,
   _BDDPH,
-  { [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/delete-positions", 200], [_en]: ["tracking."] },
+  { [_en]: ["tracking."], [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/delete-positions", 200] },
   () => BatchDeleteDevicePositionHistoryRequest$,
   () => BatchDeleteDevicePositionHistoryResponse$,
 ];
@@ -1990,7 +1990,7 @@ export var BatchDeleteGeofence$: StaticOperationSchema = [
   9,
   n0,
   _BDG,
-  { [_h]: ["POST", "/geofencing/v0/collections/{CollectionName}/delete-geofences", 200], [_en]: ["geofencing."] },
+  { [_en]: ["geofencing."], [_h]: ["POST", "/geofencing/v0/collections/{CollectionName}/delete-geofences", 200] },
   () => BatchDeleteGeofenceRequest$,
   () => BatchDeleteGeofenceResponse$,
 ];
@@ -1998,7 +1998,7 @@ export var BatchEvaluateGeofences$: StaticOperationSchema = [
   9,
   n0,
   _BEGa,
-  { [_h]: ["POST", "/geofencing/v0/collections/{CollectionName}/positions", 200], [_en]: ["geofencing."] },
+  { [_en]: ["geofencing."], [_h]: ["POST", "/geofencing/v0/collections/{CollectionName}/positions", 200] },
   () => BatchEvaluateGeofencesRequest$,
   () => BatchEvaluateGeofencesResponse$,
 ];
@@ -2006,7 +2006,7 @@ export var BatchGetDevicePosition$: StaticOperationSchema = [
   9,
   n0,
   _BGDP,
-  { [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/get-positions", 200], [_en]: ["tracking."] },
+  { [_en]: ["tracking."], [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/get-positions", 200] },
   () => BatchGetDevicePositionRequest$,
   () => BatchGetDevicePositionResponse$,
 ];
@@ -2014,7 +2014,7 @@ export var BatchPutGeofence$: StaticOperationSchema = [
   9,
   n0,
   _BPG,
-  { [_h]: ["POST", "/geofencing/v0/collections/{CollectionName}/put-geofences", 200], [_en]: ["geofencing."] },
+  { [_en]: ["geofencing."], [_h]: ["POST", "/geofencing/v0/collections/{CollectionName}/put-geofences", 200] },
   () => BatchPutGeofenceRequest$,
   () => BatchPutGeofenceResponse$,
 ];
@@ -2022,7 +2022,7 @@ export var BatchUpdateDevicePosition$: StaticOperationSchema = [
   9,
   n0,
   _BUDP,
-  { [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/positions", 200], [_en]: ["tracking."] },
+  { [_en]: ["tracking."], [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/positions", 200] },
   () => BatchUpdateDevicePositionRequest$,
   () => BatchUpdateDevicePositionResponse$,
 ];
@@ -2030,7 +2030,7 @@ export var CalculateRoute$: StaticOperationSchema = [
   9,
   n0,
   _CR,
-  { [_h]: ["POST", "/routes/v0/calculators/{CalculatorName}/calculate/route", 200], [_en]: ["routes."] },
+  { [_en]: ["routes."], [_h]: ["POST", "/routes/v0/calculators/{CalculatorName}/calculate/route", 200] },
   () => CalculateRouteRequest$,
   () => CalculateRouteResponse$,
 ];
@@ -2038,7 +2038,7 @@ export var CalculateRouteMatrix$: StaticOperationSchema = [
   9,
   n0,
   _CRM,
-  { [_h]: ["POST", "/routes/v0/calculators/{CalculatorName}/calculate/route-matrix", 200], [_en]: ["routes."] },
+  { [_en]: ["routes."], [_h]: ["POST", "/routes/v0/calculators/{CalculatorName}/calculate/route-matrix", 200] },
   () => CalculateRouteMatrixRequest$,
   () => CalculateRouteMatrixResponse$,
 ];
@@ -2046,7 +2046,7 @@ export var CreateGeofenceCollection$: StaticOperationSchema = [
   9,
   n0,
   _CGC,
-  { [_h]: ["POST", "/geofencing/v0/collections", 200], [_en]: ["cp.geofencing."] },
+  { [_en]: ["cp.geofencing."], [_h]: ["POST", "/geofencing/v0/collections", 200] },
   () => CreateGeofenceCollectionRequest$,
   () => CreateGeofenceCollectionResponse$,
 ];
@@ -2054,7 +2054,7 @@ export var CreateKey$: StaticOperationSchema = [
   9,
   n0,
   _CK,
-  { [_h]: ["POST", "/metadata/v0/keys", 200], [_en]: ["cp.metadata."] },
+  { [_en]: ["cp.metadata."], [_h]: ["POST", "/metadata/v0/keys", 200] },
   () => CreateKeyRequest$,
   () => CreateKeyResponse$,
 ];
@@ -2062,7 +2062,7 @@ export var CreateMap$: StaticOperationSchema = [
   9,
   n0,
   _CM,
-  { [_h]: ["POST", "/maps/v0/maps", 200], [_en]: ["cp.maps."] },
+  { [_en]: ["cp.maps."], [_h]: ["POST", "/maps/v0/maps", 200] },
   () => CreateMapRequest$,
   () => CreateMapResponse$,
 ];
@@ -2070,7 +2070,7 @@ export var CreatePlaceIndex$: StaticOperationSchema = [
   9,
   n0,
   _CPI,
-  { [_h]: ["POST", "/places/v0/indexes", 200], [_en]: ["cp.places."] },
+  { [_en]: ["cp.places."], [_h]: ["POST", "/places/v0/indexes", 200] },
   () => CreatePlaceIndexRequest$,
   () => CreatePlaceIndexResponse$,
 ];
@@ -2078,7 +2078,7 @@ export var CreateRouteCalculator$: StaticOperationSchema = [
   9,
   n0,
   _CRC,
-  { [_h]: ["POST", "/routes/v0/calculators", 200], [_en]: ["cp.routes."] },
+  { [_en]: ["cp.routes."], [_h]: ["POST", "/routes/v0/calculators", 200] },
   () => CreateRouteCalculatorRequest$,
   () => CreateRouteCalculatorResponse$,
 ];
@@ -2086,7 +2086,7 @@ export var CreateTracker$: StaticOperationSchema = [
   9,
   n0,
   _CTr,
-  { [_h]: ["POST", "/tracking/v0/trackers", 200], [_en]: ["cp.tracking."] },
+  { [_en]: ["cp.tracking."], [_h]: ["POST", "/tracking/v0/trackers", 200] },
   () => CreateTrackerRequest$,
   () => CreateTrackerResponse$,
 ];
@@ -2094,7 +2094,7 @@ export var DeleteGeofenceCollection$: StaticOperationSchema = [
   9,
   n0,
   _DGC,
-  { [_h]: ["DELETE", "/geofencing/v0/collections/{CollectionName}", 200], [_en]: ["cp.geofencing."] },
+  { [_en]: ["cp.geofencing."], [_h]: ["DELETE", "/geofencing/v0/collections/{CollectionName}", 200] },
   () => DeleteGeofenceCollectionRequest$,
   () => DeleteGeofenceCollectionResponse$,
 ];
@@ -2102,7 +2102,7 @@ export var DeleteKey$: StaticOperationSchema = [
   9,
   n0,
   _DK,
-  { [_h]: ["DELETE", "/metadata/v0/keys/{KeyName}", 200], [_en]: ["cp.metadata."] },
+  { [_en]: ["cp.metadata."], [_h]: ["DELETE", "/metadata/v0/keys/{KeyName}", 200] },
   () => DeleteKeyRequest$,
   () => DeleteKeyResponse$,
 ];
@@ -2110,7 +2110,7 @@ export var DeleteMap$: StaticOperationSchema = [
   9,
   n0,
   _DM,
-  { [_h]: ["DELETE", "/maps/v0/maps/{MapName}", 200], [_en]: ["cp.maps."] },
+  { [_en]: ["cp.maps."], [_h]: ["DELETE", "/maps/v0/maps/{MapName}", 200] },
   () => DeleteMapRequest$,
   () => DeleteMapResponse$,
 ];
@@ -2118,7 +2118,7 @@ export var DeletePlaceIndex$: StaticOperationSchema = [
   9,
   n0,
   _DPI,
-  { [_h]: ["DELETE", "/places/v0/indexes/{IndexName}", 200], [_en]: ["cp.places."] },
+  { [_en]: ["cp.places."], [_h]: ["DELETE", "/places/v0/indexes/{IndexName}", 200] },
   () => DeletePlaceIndexRequest$,
   () => DeletePlaceIndexResponse$,
 ];
@@ -2126,7 +2126,7 @@ export var DeleteRouteCalculator$: StaticOperationSchema = [
   9,
   n0,
   _DRC,
-  { [_h]: ["DELETE", "/routes/v0/calculators/{CalculatorName}", 200], [_en]: ["cp.routes."] },
+  { [_en]: ["cp.routes."], [_h]: ["DELETE", "/routes/v0/calculators/{CalculatorName}", 200] },
   () => DeleteRouteCalculatorRequest$,
   () => DeleteRouteCalculatorResponse$,
 ];
@@ -2134,7 +2134,7 @@ export var DeleteTracker$: StaticOperationSchema = [
   9,
   n0,
   _DTe,
-  { [_h]: ["DELETE", "/tracking/v0/trackers/{TrackerName}", 200], [_en]: ["cp.tracking."] },
+  { [_en]: ["cp.tracking."], [_h]: ["DELETE", "/tracking/v0/trackers/{TrackerName}", 200] },
   () => DeleteTrackerRequest$,
   () => DeleteTrackerResponse$,
 ];
@@ -2142,7 +2142,7 @@ export var DescribeGeofenceCollection$: StaticOperationSchema = [
   9,
   n0,
   _DGCe,
-  { [_h]: ["GET", "/geofencing/v0/collections/{CollectionName}", 200], [_en]: ["cp.geofencing."] },
+  { [_en]: ["cp.geofencing."], [_h]: ["GET", "/geofencing/v0/collections/{CollectionName}", 200] },
   () => DescribeGeofenceCollectionRequest$,
   () => DescribeGeofenceCollectionResponse$,
 ];
@@ -2150,7 +2150,7 @@ export var DescribeKey$: StaticOperationSchema = [
   9,
   n0,
   _DKe,
-  { [_h]: ["GET", "/metadata/v0/keys/{KeyName}", 200], [_en]: ["cp.metadata."] },
+  { [_en]: ["cp.metadata."], [_h]: ["GET", "/metadata/v0/keys/{KeyName}", 200] },
   () => DescribeKeyRequest$,
   () => DescribeKeyResponse$,
 ];
@@ -2158,7 +2158,7 @@ export var DescribeMap$: StaticOperationSchema = [
   9,
   n0,
   _DMe,
-  { [_h]: ["GET", "/maps/v0/maps/{MapName}", 200], [_en]: ["cp.maps."] },
+  { [_en]: ["cp.maps."], [_h]: ["GET", "/maps/v0/maps/{MapName}", 200] },
   () => DescribeMapRequest$,
   () => DescribeMapResponse$,
 ];
@@ -2166,7 +2166,7 @@ export var DescribePlaceIndex$: StaticOperationSchema = [
   9,
   n0,
   _DPIe,
-  { [_h]: ["GET", "/places/v0/indexes/{IndexName}", 200], [_en]: ["cp.places."] },
+  { [_en]: ["cp.places."], [_h]: ["GET", "/places/v0/indexes/{IndexName}", 200] },
   () => DescribePlaceIndexRequest$,
   () => DescribePlaceIndexResponse$,
 ];
@@ -2174,7 +2174,7 @@ export var DescribeRouteCalculator$: StaticOperationSchema = [
   9,
   n0,
   _DRCe,
-  { [_h]: ["GET", "/routes/v0/calculators/{CalculatorName}", 200], [_en]: ["cp.routes."] },
+  { [_en]: ["cp.routes."], [_h]: ["GET", "/routes/v0/calculators/{CalculatorName}", 200] },
   () => DescribeRouteCalculatorRequest$,
   () => DescribeRouteCalculatorResponse$,
 ];
@@ -2182,7 +2182,7 @@ export var DescribeTracker$: StaticOperationSchema = [
   9,
   n0,
   _DTes,
-  { [_h]: ["GET", "/tracking/v0/trackers/{TrackerName}", 200], [_en]: ["cp.tracking."] },
+  { [_en]: ["cp.tracking."], [_h]: ["GET", "/tracking/v0/trackers/{TrackerName}", 200] },
   () => DescribeTrackerRequest$,
   () => DescribeTrackerResponse$,
 ];
@@ -2190,7 +2190,7 @@ export var DisassociateTrackerConsumer$: StaticOperationSchema = [
   9,
   n0,
   _DTC,
-  { [_h]: ["DELETE", "/tracking/v0/trackers/{TrackerName}/consumers/{ConsumerArn}", 200], [_en]: ["cp.tracking."] },
+  { [_en]: ["cp.tracking."], [_h]: ["DELETE", "/tracking/v0/trackers/{TrackerName}/consumers/{ConsumerArn}", 200] },
   () => DisassociateTrackerConsumerRequest$,
   () => DisassociateTrackerConsumerResponse$,
 ];
@@ -2210,8 +2210,8 @@ export var GetDevicePosition$: StaticOperationSchema = [
   n0,
   _GDP,
   {
-    [_h]: ["GET", "/tracking/v0/trackers/{TrackerName}/devices/{DeviceId}/positions/latest", 200],
     [_en]: ["tracking."],
+    [_h]: ["GET", "/tracking/v0/trackers/{TrackerName}/devices/{DeviceId}/positions/latest", 200],
   },
   () => GetDevicePositionRequest$,
   () => GetDevicePositionResponse$,
@@ -2231,7 +2231,7 @@ export var GetGeofence$: StaticOperationSchema = [
   9,
   n0,
   _GGe,
-  { [_h]: ["GET", "/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}", 200], [_en]: ["geofencing."] },
+  { [_en]: ["geofencing."], [_h]: ["GET", "/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}", 200] },
   () => GetGeofenceRequest$,
   () => GetGeofenceResponse$,
 ];
@@ -2239,7 +2239,7 @@ export var GetMapGlyphs$: StaticOperationSchema = [
   9,
   n0,
   _GMG,
-  { [_h]: ["GET", "/maps/v0/maps/{MapName}/glyphs/{FontStack}/{FontUnicodeRange}", 200], [_en]: ["maps."] },
+  { [_en]: ["maps."], [_h]: ["GET", "/maps/v0/maps/{MapName}/glyphs/{FontStack}/{FontUnicodeRange}", 200] },
   () => GetMapGlyphsRequest$,
   () => GetMapGlyphsResponse$,
 ];
@@ -2247,7 +2247,7 @@ export var GetMapSprites$: StaticOperationSchema = [
   9,
   n0,
   _GMS,
-  { [_h]: ["GET", "/maps/v0/maps/{MapName}/sprites/{FileName}", 200], [_en]: ["maps."] },
+  { [_en]: ["maps."], [_h]: ["GET", "/maps/v0/maps/{MapName}/sprites/{FileName}", 200] },
   () => GetMapSpritesRequest$,
   () => GetMapSpritesResponse$,
 ];
@@ -2255,7 +2255,7 @@ export var GetMapStyleDescriptor$: StaticOperationSchema = [
   9,
   n0,
   _GMSD,
-  { [_h]: ["GET", "/maps/v0/maps/{MapName}/style-descriptor", 200], [_en]: ["maps."] },
+  { [_en]: ["maps."], [_h]: ["GET", "/maps/v0/maps/{MapName}/style-descriptor", 200] },
   () => GetMapStyleDescriptorRequest$,
   () => GetMapStyleDescriptorResponse$,
 ];
@@ -2263,7 +2263,7 @@ export var GetMapTile$: StaticOperationSchema = [
   9,
   n0,
   _GMT,
-  { [_h]: ["GET", "/maps/v0/maps/{MapName}/tiles/{Z}/{X}/{Y}", 200], [_en]: ["maps."] },
+  { [_en]: ["maps."], [_h]: ["GET", "/maps/v0/maps/{MapName}/tiles/{Z}/{X}/{Y}", 200] },
   () => GetMapTileRequest$,
   () => GetMapTileResponse$,
 ];
@@ -2271,7 +2271,7 @@ export var GetPlace$: StaticOperationSchema = [
   9,
   n0,
   _GPe,
-  { [_h]: ["GET", "/places/v0/indexes/{IndexName}/places/{PlaceId}", 200], [_en]: ["places."] },
+  { [_en]: ["places."], [_h]: ["GET", "/places/v0/indexes/{IndexName}/places/{PlaceId}", 200] },
   () => GetPlaceRequest$,
   () => GetPlaceResponse$,
 ];
@@ -2311,7 +2311,7 @@ export var ListMaps$: StaticOperationSchema = [
   9,
   n0,
   _LM,
-  { [_h]: ["POST", "/maps/v0/list-maps", 200], [_en]: ["cp.maps."] },
+  { [_en]: ["cp.maps."], [_h]: ["POST", "/maps/v0/list-maps", 200] },
   () => ListMapsRequest$,
   () => ListMapsResponse$,
 ];
@@ -2319,7 +2319,7 @@ export var ListPlaceIndexes$: StaticOperationSchema = [
   9,
   n0,
   _LPI,
-  { [_h]: ["POST", "/places/v0/list-indexes", 200], [_en]: ["cp.places."] },
+  { [_en]: ["cp.places."], [_h]: ["POST", "/places/v0/list-indexes", 200] },
   () => ListPlaceIndexesRequest$,
   () => ListPlaceIndexesResponse$,
 ];
@@ -2327,7 +2327,7 @@ export var ListRouteCalculators$: StaticOperationSchema = [
   9,
   n0,
   _LRC,
-  { [_h]: ["POST", "/routes/v0/list-calculators", 200], [_en]: ["cp.routes."] },
+  { [_en]: ["cp.routes."], [_h]: ["POST", "/routes/v0/list-calculators", 200] },
   () => ListRouteCalculatorsRequest$,
   () => ListRouteCalculatorsResponse$,
 ];
@@ -2335,7 +2335,7 @@ export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  { [_h]: ["GET", "/tags/{ResourceArn}", 200], [_en]: ["cp.metadata."] },
+  { [_en]: ["cp.metadata."], [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceRequest$,
   () => ListTagsForResourceResponse$,
 ];
@@ -2359,7 +2359,7 @@ export var PutGeofence$: StaticOperationSchema = [
   9,
   n0,
   _PGu,
-  { [_h]: ["PUT", "/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}", 200], [_en]: ["geofencing."] },
+  { [_en]: ["geofencing."], [_h]: ["PUT", "/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}", 200] },
   () => PutGeofenceRequest$,
   () => PutGeofenceResponse$,
 ];
@@ -2367,7 +2367,7 @@ export var SearchPlaceIndexForPosition$: StaticOperationSchema = [
   9,
   n0,
   _SPIFP,
-  { [_h]: ["POST", "/places/v0/indexes/{IndexName}/search/position", 200], [_en]: ["places."] },
+  { [_en]: ["places."], [_h]: ["POST", "/places/v0/indexes/{IndexName}/search/position", 200] },
   () => SearchPlaceIndexForPositionRequest$,
   () => SearchPlaceIndexForPositionResponse$,
 ];
@@ -2375,7 +2375,7 @@ export var SearchPlaceIndexForSuggestions$: StaticOperationSchema = [
   9,
   n0,
   _SPIFS,
-  { [_h]: ["POST", "/places/v0/indexes/{IndexName}/search/suggestions", 200], [_en]: ["places."] },
+  { [_en]: ["places."], [_h]: ["POST", "/places/v0/indexes/{IndexName}/search/suggestions", 200] },
   () => SearchPlaceIndexForSuggestionsRequest$,
   () => SearchPlaceIndexForSuggestionsResponse$,
 ];
@@ -2383,7 +2383,7 @@ export var SearchPlaceIndexForText$: StaticOperationSchema = [
   9,
   n0,
   _SPIFT,
-  { [_h]: ["POST", "/places/v0/indexes/{IndexName}/search/text", 200], [_en]: ["places."] },
+  { [_en]: ["places."], [_h]: ["POST", "/places/v0/indexes/{IndexName}/search/text", 200] },
   () => SearchPlaceIndexForTextRequest$,
   () => SearchPlaceIndexForTextResponse$,
 ];
@@ -2391,7 +2391,7 @@ export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  { [_h]: ["POST", "/tags/{ResourceArn}", 200], [_en]: ["cp.metadata."] },
+  { [_en]: ["cp.metadata."], [_h]: ["POST", "/tags/{ResourceArn}", 200] },
   () => TagResourceRequest$,
   () => TagResourceResponse$,
 ];
@@ -2399,7 +2399,7 @@ export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200], [_en]: ["cp.metadata."] },
+  { [_en]: ["cp.metadata."], [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
   () => UntagResourceRequest$,
   () => UntagResourceResponse$,
 ];
@@ -2407,7 +2407,7 @@ export var UpdateGeofenceCollection$: StaticOperationSchema = [
   9,
   n0,
   _UGC,
-  { [_h]: ["PATCH", "/geofencing/v0/collections/{CollectionName}", 200], [_en]: ["cp.geofencing."] },
+  { [_en]: ["cp.geofencing."], [_h]: ["PATCH", "/geofencing/v0/collections/{CollectionName}", 200] },
   () => UpdateGeofenceCollectionRequest$,
   () => UpdateGeofenceCollectionResponse$,
 ];
@@ -2415,7 +2415,7 @@ export var UpdateKey$: StaticOperationSchema = [
   9,
   n0,
   _UK,
-  { [_h]: ["PATCH", "/metadata/v0/keys/{KeyName}", 200], [_en]: ["cp.metadata."] },
+  { [_en]: ["cp.metadata."], [_h]: ["PATCH", "/metadata/v0/keys/{KeyName}", 200] },
   () => UpdateKeyRequest$,
   () => UpdateKeyResponse$,
 ];
@@ -2423,7 +2423,7 @@ export var UpdateMap$: StaticOperationSchema = [
   9,
   n0,
   _UM,
-  { [_h]: ["PATCH", "/maps/v0/maps/{MapName}", 200], [_en]: ["cp.maps."] },
+  { [_en]: ["cp.maps."], [_h]: ["PATCH", "/maps/v0/maps/{MapName}", 200] },
   () => UpdateMapRequest$,
   () => UpdateMapResponse$,
 ];
@@ -2431,7 +2431,7 @@ export var UpdatePlaceIndex$: StaticOperationSchema = [
   9,
   n0,
   _UPI,
-  { [_h]: ["PATCH", "/places/v0/indexes/{IndexName}", 200], [_en]: ["cp.places."] },
+  { [_en]: ["cp.places."], [_h]: ["PATCH", "/places/v0/indexes/{IndexName}", 200] },
   () => UpdatePlaceIndexRequest$,
   () => UpdatePlaceIndexResponse$,
 ];
@@ -2439,7 +2439,7 @@ export var UpdateRouteCalculator$: StaticOperationSchema = [
   9,
   n0,
   _URC,
-  { [_h]: ["PATCH", "/routes/v0/calculators/{CalculatorName}", 200], [_en]: ["cp.routes."] },
+  { [_en]: ["cp.routes."], [_h]: ["PATCH", "/routes/v0/calculators/{CalculatorName}", 200] },
   () => UpdateRouteCalculatorRequest$,
   () => UpdateRouteCalculatorResponse$,
 ];
@@ -2447,7 +2447,7 @@ export var UpdateTracker$: StaticOperationSchema = [
   9,
   n0,
   _UTp,
-  { [_h]: ["PATCH", "/tracking/v0/trackers/{TrackerName}", 200], [_en]: ["cp.tracking."] },
+  { [_en]: ["cp.tracking."], [_h]: ["PATCH", "/tracking/v0/trackers/{TrackerName}", 200] },
   () => UpdateTrackerRequest$,
   () => UpdateTrackerResponse$,
 ];
@@ -2455,7 +2455,7 @@ export var VerifyDevicePosition$: StaticOperationSchema = [
   9,
   n0,
   _VDP,
-  { [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/positions/verify", 200], [_en]: ["tracking."] },
+  { [_en]: ["tracking."], [_h]: ["POST", "/tracking/v0/trackers/{TrackerName}/positions/verify", 200] },
   () => VerifyDevicePositionRequest$,
   () => VerifyDevicePositionResponse$,
 ];

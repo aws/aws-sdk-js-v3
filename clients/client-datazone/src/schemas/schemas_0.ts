@@ -1597,6 +1597,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { DataZoneServiceException } from "../models/DataZoneServiceException";
@@ -3006,7 +3007,7 @@ export var DeleteDataSourceInput$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iTd]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iTd]: 1 }],
     [2, { [_hQ]: _rPORF }],
   ],
 ];
@@ -3072,7 +3073,7 @@ export var DeleteDomainInput$: StaticStructureSchema = [
   [_i, _cT, _sDC],
   [
     [0, 1],
-    [0, { [_iTd]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iTd]: 1 }],
     [2, { [_hQ]: _sDC }],
   ],
 ];
@@ -3293,7 +3294,7 @@ export var DeleteTimeSeriesDataPointsInput$: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, { [_hQ]: _fN }],
-    [0, { [_iTd]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iTd]: 1 }],
   ],
 ];
 export var DeleteTimeSeriesDataPointsOutput$: StaticStructureSchema = [3, n0, _DTSDPO, 0, [], []];
@@ -6206,7 +6207,7 @@ export var UpdateDomainInput$: StaticStructureSchema = [
   _UDI,
   0,
   [_i, _de, _sSO, _dER, _sRe, _n, _cT],
-  [[0, 1], 0, () => SingleSignOn$, 0, 0, 0, [0, { [_iTd]: 1, [_hQ]: _cT }]],
+  [[0, 1], 0, () => SingleSignOn$, 0, 0, 0, [0, { [_hQ]: _cT, [_iTd]: 1 }]],
 ];
 export var UpdateDomainOutput$: StaticStructureSchema = [
   3,
@@ -6797,26 +6798,26 @@ var RegionalParameterMap: StaticMapSchema = [2, n0, _RPM, 0, 0, 128 | 0];
 var Tags = 128 | 0;
 var TokenUrlParametersMap = 128 | 0;
 var TrackingAssets: StaticMapSchema = [2, n0, _TA, 0, 0, 64 | 0];
-export var AccountSource$: StaticStructureSchema = [
-  3,
+export var AccountSource$: StaticUnionSchema = [
+  4,
   n0,
   _ASc,
   0,
   [_acc, _cAPH],
   [[() => AccountInfoList, 0], () => CustomAccountPoolHandler$],
 ];
-export var ActionParameters$: StaticStructureSchema = [3, n0, _APc, 0, [_aCL], [() => AwsConsoleLinkParameters$]];
-export var AssetFilterConfiguration$: StaticStructureSchema = [
-  3,
+export var ActionParameters$: StaticUnionSchema = [4, n0, _APc, 0, [_aCL], [() => AwsConsoleLinkParameters$]];
+export var AssetFilterConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _AFC,
   0,
   [_cCo, _rCo],
   [() => ColumnFilterConfiguration$, () => RowFilterConfiguration$],
 ];
-export var AwsAccount$: StaticStructureSchema = [3, n0, _AA, 0, [_aAI, _aAIP], [0, 0]];
-export var ConnectionPropertiesInput$: StaticStructureSchema = [
-  3,
+export var AwsAccount$: StaticUnionSchema = [4, n0, _AA, 0, [_aAI, _aAIP], [0, 0]];
+export var ConnectionPropertiesInput$: StaticUnionSchema = [
+  4,
   n0,
   _CPIo,
   0,
@@ -6834,8 +6835,8 @@ export var ConnectionPropertiesInput$: StaticStructureSchema = [
     () => MlflowPropertiesInput$,
   ],
 ];
-export var ConnectionPropertiesOutput$: StaticStructureSchema = [
-  3,
+export var ConnectionPropertiesOutput$: StaticUnionSchema = [
+  4,
   n0,
   _CPOo,
   0,
@@ -6853,8 +6854,8 @@ export var ConnectionPropertiesOutput$: StaticStructureSchema = [
     () => MlflowPropertiesOutput$,
   ],
 ];
-export var ConnectionPropertiesPatch$: StaticStructureSchema = [
-  3,
+export var ConnectionPropertiesPatch$: StaticUnionSchema = [
+  4,
   n0,
   _CPP,
   0,
@@ -6870,53 +6871,46 @@ export var ConnectionPropertiesPatch$: StaticStructureSchema = [
     () => MlflowPropertiesPatch$,
   ],
 ];
-export var DataSourceConfigurationInput$: StaticStructureSchema = [
-  3,
+export var DataSourceConfigurationInput$: StaticUnionSchema = [
+  4,
   n0,
   _DSCI,
   0,
   [_gRC, _rRC, _sMRC],
   [() => GlueRunConfigurationInput$, () => RedshiftRunConfigurationInput$, () => SageMakerRunConfigurationInput$],
 ];
-export var DataSourceConfigurationOutput$: StaticStructureSchema = [
-  3,
+export var DataSourceConfigurationOutput$: StaticUnionSchema = [
+  4,
   n0,
   _DSCO,
   0,
   [_gRC, _rRC, _sMRC],
   [() => GlueRunConfigurationOutput$, () => RedshiftRunConfigurationOutput$, () => SageMakerRunConfigurationOutput$],
 ];
-export var DomainUnitGrantFilter$: StaticStructureSchema = [
-  3,
-  n0,
-  _DUGF,
-  0,
-  [_aDUGF],
-  [() => AllDomainUnitsGrantFilter$],
-];
-export var DomainUnitOwnerProperties$: StaticStructureSchema = [
-  3,
+export var DomainUnitGrantFilter$: StaticUnionSchema = [4, n0, _DUGF, 0, [_aDUGF], [() => AllDomainUnitsGrantFilter$]];
+export var DomainUnitOwnerProperties$: StaticUnionSchema = [
+  4,
   n0,
   _DUOP,
   0,
   [_use, _g],
   [() => DomainUnitUserProperties$, () => DomainUnitGroupProperties$],
 ];
-export var EventSummary$: StaticStructureSchema = [3, n0, _ESv, 0, [_oLRES], [() => OpenLineageRunEventSummary$]];
-export var FilterClause$: StaticStructureSchema = [
-  3,
+export var EventSummary$: StaticUnionSchema = [4, n0, _ESv, 0, [_oLRES], [() => OpenLineageRunEventSummary$]];
+export var FilterClause$: StaticUnionSchema = [
+  4,
   n0,
   _FCi,
   0,
   [_fil, _an, _or_],
   [() => Filter$, () => FilterList, () => FilterList],
 ];
-export var GrantedEntity$: StaticStructureSchema = [3, n0, _GE, 0, [_l], [() => ListingRevision$]];
-export var GrantedEntityInput$: StaticStructureSchema = [3, n0, _GEIr, 0, [_l], [() => ListingRevisionInput$]];
-export var GroupPolicyGrantPrincipal$: StaticStructureSchema = [3, n0, _GPGP, 0, [_gIr], [0]];
-export var JobRunDetails$: StaticStructureSchema = [3, n0, _JRD, 0, [_lRD], [() => LineageRunDetails$]];
-export var ListingItem$: StaticStructureSchema = [
-  3,
+export var GrantedEntity$: StaticUnionSchema = [4, n0, _GE, 0, [_l], [() => ListingRevision$]];
+export var GrantedEntityInput$: StaticUnionSchema = [4, n0, _GEIr, 0, [_l], [() => ListingRevisionInput$]];
+export var GroupPolicyGrantPrincipal$: StaticUnionSchema = [4, n0, _GPGP, 0, [_gIr], [0]];
+export var JobRunDetails$: StaticUnionSchema = [4, n0, _JRD, 0, [_lRD], [() => LineageRunDetails$]];
+export var ListingItem$: StaticUnionSchema = [
+  4,
   n0,
   _LIi,
   0,
@@ -6926,36 +6920,29 @@ export var ListingItem$: StaticStructureSchema = [
     [() => DataProductListing$, 0],
   ],
 ];
-export var MatchRationaleItem$: StaticStructureSchema = [3, n0, _MRI, 0, [_tM], [() => TextMatches]];
-export var Member$: StaticStructureSchema = [3, n0, _Me, 0, [_uI, _gIr], [0, 0]];
-export var MemberDetails$: StaticStructureSchema = [
-  3,
-  n0,
-  _MD,
-  0,
-  [_use, _g],
-  [() => UserDetails$, () => GroupDetails$],
-];
-export var Model$: StaticStructureSchema = [3, n0, _Mo, 8, [_smi], [0]];
-export var OwnerProperties$: StaticStructureSchema = [
-  3,
+export var MatchRationaleItem$: StaticUnionSchema = [4, n0, _MRI, 0, [_tM], [() => TextMatches]];
+export var Member$: StaticUnionSchema = [4, n0, _Me, 0, [_uI, _gIr], [0, 0]];
+export var MemberDetails$: StaticUnionSchema = [4, n0, _MD, 0, [_use, _g], [() => UserDetails$, () => GroupDetails$]];
+export var Model$: StaticUnionSchema = [4, n0, _Mo, 8, [_smi], [0]];
+export var OwnerProperties$: StaticUnionSchema = [
+  4,
   n0,
   _OP,
   0,
   [_use, _g],
   [() => OwnerUserProperties$, () => OwnerGroupProperties$],
 ];
-export var OwnerPropertiesOutput$: StaticStructureSchema = [
-  3,
+export var OwnerPropertiesOutput$: StaticUnionSchema = [
+  4,
   n0,
   _OPO,
   0,
   [_use, _g],
   [() => OwnerUserPropertiesOutput$, () => OwnerGroupPropertiesOutput$],
 ];
-export var Permissions$: StaticStructureSchema = [3, n0, _Pe, 0, [_s_], [64 | 0]];
-export var PolicyGrantDetail$: StaticStructureSchema = [
-  3,
+export var Permissions$: StaticUnionSchema = [4, n0, _Pe, 0, [_s_], [64 | 0]];
+export var PolicyGrantDetail$: StaticUnionSchema = [
+  4,
   n0,
   _PGD,
   0,
@@ -6977,8 +6964,8 @@ export var PolicyGrantDetail$: StaticStructureSchema = [
     () => UseAssetTypePolicyGrantDetail$,
   ],
 ];
-export var PolicyGrantPrincipal$: StaticStructureSchema = [
-  3,
+export var PolicyGrantPrincipal$: StaticUnionSchema = [
+  4,
   n0,
   _PGP,
   0,
@@ -6990,44 +6977,37 @@ export var PolicyGrantPrincipal$: StaticStructureSchema = [
     () => DomainUnitPolicyGrantPrincipal$,
   ],
 ];
-export var ProjectGrantFilter$: StaticStructureSchema = [3, n0, _PGF, 0, [_dUF], [() => DomainUnitFilterForProject$]];
-export var ProvisioningConfiguration$: StaticStructureSchema = [
-  3,
+export var ProjectGrantFilter$: StaticUnionSchema = [4, n0, _PGF, 0, [_dUF], [() => DomainUnitFilterForProject$]];
+export var ProvisioningConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _PCr,
   0,
   [_lFC],
   [() => LakeFormationConfiguration$],
 ];
-export var ProvisioningProperties$: StaticStructureSchema = [3, n0, _PP, 0, [_cF], [() => CloudFormationProperties$]];
-export var RedshiftCredentials$: StaticStructureSchema = [
-  3,
-  n0,
-  _RCed,
-  8,
-  [_sA, _uPs],
-  [0, [() => UsernamePassword$, 0]],
-];
-export var RedshiftStorage$: StaticStructureSchema = [
-  3,
+export var ProvisioningProperties$: StaticUnionSchema = [4, n0, _PP, 0, [_cF], [() => CloudFormationProperties$]];
+export var RedshiftCredentials$: StaticUnionSchema = [4, n0, _RCed, 8, [_sA, _uPs], [0, [() => UsernamePassword$, 0]]];
+export var RedshiftStorage$: StaticUnionSchema = [
+  4,
   n0,
   _RSe,
   0,
   [_rCS, _rSS],
   [() => RedshiftClusterStorage$, () => RedshiftServerlessStorage$],
 ];
-export var RedshiftStorageProperties$: StaticStructureSchema = [3, n0, _RSP, 0, [_cNl, _wN], [0, 0]];
-export var Region$: StaticStructureSchema = [3, n0, _Re, 0, [_rN, _rNP], [0, 0]];
-export var RowFilter$: StaticStructureSchema = [
-  3,
+export var RedshiftStorageProperties$: StaticUnionSchema = [4, n0, _RSP, 0, [_cNl, _wN], [0, 0]];
+export var Region$: StaticUnionSchema = [4, n0, _Re, 0, [_rN, _rNP], [0, 0]];
+export var RowFilter$: StaticUnionSchema = [
+  4,
   n0,
   _RF,
   0,
   [_exp, _an, _or_],
   [() => RowFilterExpression$, () => RowFilterList, () => RowFilterList],
 ];
-export var RowFilterExpression$: StaticStructureSchema = [
-  3,
+export var RowFilterExpression$: StaticUnionSchema = [
+  4,
   n0,
   _RFE,
   0,
@@ -7047,17 +7027,17 @@ export var RowFilterExpression$: StaticStructureSchema = [
     () => NotLikeExpression$,
   ],
 ];
-export var RuleDetail$: StaticStructureSchema = [
-  3,
+export var RuleDetail$: StaticUnionSchema = [
+  4,
   n0,
   _RD,
   0,
   [_mFED, _gTED],
   [() => MetadataFormEnforcementDetail$, () => GlossaryTermEnforcementDetail$],
 ];
-export var RuleTarget$: StaticStructureSchema = [3, n0, _RTu, 0, [_dUT], [() => DomainUnitTarget$]];
-export var SearchInventoryResultItem$: StaticStructureSchema = [
-  3,
+export var RuleTarget$: StaticUnionSchema = [4, n0, _RTu, 0, [_dUT], [() => DomainUnitTarget$]];
+export var SearchInventoryResultItem$: StaticUnionSchema = [
+  4,
   n0,
   _SIRIe,
   0,
@@ -7069,8 +7049,8 @@ export var SearchInventoryResultItem$: StaticStructureSchema = [
     [() => DataProductResultItem$, 0],
   ],
 ];
-export var SearchResultItem$: StaticStructureSchema = [
-  3,
+export var SearchResultItem$: StaticUnionSchema = [
+  4,
   n0,
   _SRIe,
   0,
@@ -7080,8 +7060,8 @@ export var SearchResultItem$: StaticStructureSchema = [
     [() => DataProductListingItem$, 0],
   ],
 ];
-export var SearchTypesResultItem$: StaticStructureSchema = [
-  3,
+export var SearchTypesResultItem$: StaticUnionSchema = [
+  4,
   n0,
   _STRIe,
   0,
@@ -7092,16 +7072,16 @@ export var SearchTypesResultItem$: StaticStructureSchema = [
     [() => LineageNodeTypeItem$, 0],
   ],
 ];
-export var SelfGrantStatusOutput$: StaticStructureSchema = [
-  3,
+export var SelfGrantStatusOutput$: StaticUnionSchema = [
+  4,
   n0,
   _SGSO,
   0,
   [_gSGS, _rSGS],
   [() => GlueSelfGrantStatusOutput$, () => RedshiftSelfGrantStatusOutput$],
 ];
-export var SubscribedListingItem$: StaticStructureSchema = [
-  3,
+export var SubscribedListingItem$: StaticUnionSchema = [
+  4,
   n0,
   _SLIubs,
   0,
@@ -7111,8 +7091,8 @@ export var SubscribedListingItem$: StaticStructureSchema = [
     [() => SubscribedProductListing$, 0],
   ],
 ];
-export var SubscribedPrincipal$: StaticStructureSchema = [
-  3,
+export var SubscribedPrincipal$: StaticUnionSchema = [
+  4,
   n0,
   _SPub,
   0,
@@ -7123,24 +7103,24 @@ export var SubscribedPrincipal$: StaticStructureSchema = [
     [() => SubscribedGroup$, 0],
   ],
 ];
-export var SubscribedPrincipalInput$: StaticStructureSchema = [
-  3,
+export var SubscribedPrincipalInput$: StaticUnionSchema = [
+  4,
   n0,
   _SPIubs,
   0,
   [_proj, _use, _g],
   [() => SubscribedProjectInput$, () => SubscribedUserInput$, () => SubscribedGroupInput$],
 ];
-export var UserPolicyGrantPrincipal$: StaticStructureSchema = [
-  3,
+export var UserPolicyGrantPrincipal$: StaticUnionSchema = [
+  4,
   n0,
   _UPGP,
   0,
   [_uI, _aUGF],
   [0, () => AllUsersGrantFilter$],
 ];
-export var UserProfileDetails$: StaticStructureSchema = [
-  3,
+export var UserProfileDetails$: StaticUnionSchema = [
+  4,
   n0,
   _UPD,
   0,

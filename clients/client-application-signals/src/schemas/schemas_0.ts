@@ -281,6 +281,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { ApplicationSignalsServiceException } from "../models/ApplicationSignalsServiceException";
@@ -298,7 +299,7 @@ export var AccessDeniedException$: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`AccessDenied`, 403] },
+  { [_aQE]: [`AccessDenied`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
   [0],
 ];
@@ -872,7 +873,7 @@ export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ValidationError`, 400] },
+  { [_aQE]: [`ValidationError`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -936,24 +937,24 @@ var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
 var AttributeMap = 128 | 0;
 var Attributes = 128 | 0;
 var DataMap = 128 | 0;
-export var AuditTargetEntity$: StaticStructureSchema = [
-  3,
+export var AuditTargetEntity$: StaticUnionSchema = [
+  4,
   n0,
   _ATE,
   0,
   [_Se, _Sl, _SOe, _C],
   [() => ServiceEntity$, () => ServiceLevelObjectiveEntity$, () => ServiceOperationEntity$, () => CanaryEntity$],
 ];
-export var Interval$: StaticStructureSchema = [
-  3,
+export var Interval$: StaticUnionSchema = [
+  4,
   n0,
   _In,
   0,
   [_RIo, _CI],
   [() => RollingInterval$, () => CalendarInterval$],
 ];
-export var MonitoredRequestCountMetricDataQueries$: StaticStructureSchema = [
-  3,
+export var MonitoredRequestCountMetricDataQueries$: StaticUnionSchema = [
+  4,
   n0,
   _MRCMDQ,
   0,

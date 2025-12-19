@@ -385,6 +385,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { AmplifyUIBuilderServiceException } from "../models/AmplifyUIBuilderServiceException";
@@ -617,7 +618,7 @@ export var CreateComponentRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
     [() => CreateComponentData$, 16],
   ],
 ];
@@ -650,7 +651,7 @@ export var CreateFormRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
     [() => CreateFormData$, 16],
   ],
 ];
@@ -672,7 +673,7 @@ export var CreateThemeRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
     [() => CreateThemeData$, 16],
   ],
 ];
@@ -1128,7 +1129,7 @@ export var StartCodegenJobRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
     [() => StartCodegenJobData$, 16],
   ],
 ];
@@ -1193,7 +1194,7 @@ export var UpdateComponentRequest$: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
     [() => UpdateComponentData$, 16],
   ],
 ];
@@ -1216,7 +1217,7 @@ export var UpdateFormRequest$: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
     [() => UpdateFormData$, 16],
   ],
 ];
@@ -1239,7 +1240,7 @@ export var UpdateThemeRequest$: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
     [() => UpdateThemeData$, 16],
   ],
 ];
@@ -1314,24 +1315,17 @@ var FormInputBindingProperties: StaticMapSchema = [2, n0, _FIBP, 0, 0, () => For
 var ReactCodegenDependencies = 128 | 0;
 var SectionalElementMap: StaticMapSchema = [2, n0, _SEM, 0, 0, () => SectionalElement$];
 var Tags = 128 | 0;
-export var ApiConfiguration$: StaticStructureSchema = [
-  3,
+export var ApiConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _AC,
   0,
   [_gQLC, _dSC, _nAC],
   [() => GraphQLRenderConfig$, () => DataStoreRenderConfig$, () => NoApiRenderConfig$],
 ];
-export var CodegenJobRenderConfig$: StaticStructureSchema = [
-  3,
-  n0,
-  _CJRC,
-  0,
-  [_rea],
-  [() => ReactStartCodegenJobData$],
-];
-export var FieldPosition$: StaticStructureSchema = [3, n0, _FP, 0, [_fix, _rOi, _be], [0, 0, 0]];
-export var FormStyleConfig$: StaticStructureSchema = [3, n0, _FSC, 0, [_tR, _val], [0, 0]];
+export var CodegenJobRenderConfig$: StaticUnionSchema = [4, n0, _CJRC, 0, [_rea], [() => ReactStartCodegenJobData$]];
+export var FieldPosition$: StaticUnionSchema = [4, n0, _FP, 0, [_fix, _rOi, _be], [0, 0, 0]];
+export var FormStyleConfig$: StaticUnionSchema = [4, n0, _FSC, 0, [_tR, _val], [0, 0]];
 export var CreateComponent$: StaticOperationSchema = [
   9,
   n0,

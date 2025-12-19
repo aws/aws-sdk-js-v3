@@ -526,6 +526,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -553,7 +554,7 @@ export var AccessDeniedException$: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`AccessDenied`, 403] },
+  { [_aQE]: [`AccessDenied`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
   [0],
 ];
@@ -1204,7 +1205,7 @@ export var ServiceUnavailableException$: StaticErrorSchema = [
   -3,
   n0,
   _SUE,
-  { [_e]: _s, [_hE]: 503, [_aQE]: [`ServiceUnavailable`, 503] },
+  { [_aQE]: [`ServiceUnavailable`, 503], [_e]: _s, [_hE]: 503 },
   [_M],
   [0],
 ];
@@ -1428,72 +1429,65 @@ var SubnetIds = 64 | 0;
 var TagKeys = 64 | 0;
 var Tags: StaticListSchema = [1, n0, _T, 0, () => Tag$];
 var WorkflowSteps: StaticListSchema = [1, n0, _WSo, 0, () => WorkflowStep$];
-export var ConnectorEgressConfig$: StaticStructureSchema = [
-  3,
+export var ConnectorEgressConfig$: StaticUnionSchema = [
+  4,
   n0,
   _CEC,
   0,
   [_VL],
   [() => ConnectorVpcLatticeEgressConfig$],
 ];
-export var DescribedConnectorEgressConfig$: StaticStructureSchema = [
-  3,
+export var DescribedConnectorEgressConfig$: StaticUnionSchema = [
+  4,
   n0,
   _DCEC,
   0,
   [_VL],
   [() => DescribedConnectorVpcLatticeEgressConfig$],
 ];
-export var DescribedWebAppEndpointDetails$: StaticStructureSchema = [
-  3,
+export var DescribedWebAppEndpointDetails$: StaticUnionSchema = [
+  4,
   n0,
   _DWAED,
   0,
   [_Vp],
   [() => DescribedWebAppVpcConfig$],
 ];
-export var DescribedWebAppIdentityProviderDetails$: StaticStructureSchema = [
-  3,
+export var DescribedWebAppIdentityProviderDetails$: StaticUnionSchema = [
+  4,
   n0,
   _DWAIPD,
   0,
   [_ICC],
   [() => DescribedIdentityCenterConfig$],
 ];
-export var UpdateConnectorEgressConfig$: StaticStructureSchema = [
-  3,
+export var UpdateConnectorEgressConfig$: StaticUnionSchema = [
+  4,
   n0,
   _UCEC,
   0,
   [_VL],
   [() => UpdateConnectorVpcLatticeEgressConfig$],
 ];
-export var UpdateWebAppEndpointDetails$: StaticStructureSchema = [
-  3,
-  n0,
-  _UWAED,
-  0,
-  [_Vp],
-  [() => UpdateWebAppVpcConfig$],
-];
-export var UpdateWebAppIdentityProviderDetails$: StaticStructureSchema = [
-  3,
+export var UpdateWebAppEndpointDetails$: StaticUnionSchema = [4, n0, _UWAED, 0, [_Vp], [() => UpdateWebAppVpcConfig$]];
+export var UpdateWebAppIdentityProviderDetails$: StaticUnionSchema = [
+  4,
   n0,
   _UWAIPD,
   0,
   [_ICC],
   [() => UpdateWebAppIdentityCenterConfig$],
 ];
-export var WebAppEndpointDetails$: StaticStructureSchema = [3, n0, _WAED, 0, [_Vp], [() => WebAppVpcConfig$]];
-export var WebAppIdentityProviderDetails$: StaticStructureSchema = [
-  3,
+export var WebAppEndpointDetails$: StaticUnionSchema = [4, n0, _WAED, 0, [_Vp], [() => WebAppVpcConfig$]];
+export var WebAppIdentityProviderDetails$: StaticUnionSchema = [
+  4,
   n0,
   _WAIPD,
   0,
   [_ICC],
   [() => IdentityCenterConfig$],
 ];
-export var WebAppUnits$: StaticStructureSchema = [3, n0, _WAU, 0, [_Prov], [1]];
+export var WebAppUnits$: StaticUnionSchema = [4, n0, _WAU, 0, [_Prov], [1]];
 export var CreateAccess$: StaticOperationSchema = [
   9,
   n0,

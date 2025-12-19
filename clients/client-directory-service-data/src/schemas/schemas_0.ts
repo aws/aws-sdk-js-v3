@@ -125,6 +125,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { DirectoryServiceDataServiceException } from "../models/DirectoryServiceDataServiceException";
@@ -468,8 +469,8 @@ var StringSetAttributeValue: StaticListSchema = [1, n0, _SSAV, 8, [() => StringA
 var UserList: StaticListSchema = [1, n0, _UL, 0, [() => User$, 0]];
 var UserSummaryList: StaticListSchema = [1, n0, _USL, 0, [() => UserSummary$, 0]];
 var Attributes: StaticMapSchema = [2, n0, _A, 0, [0, 0], [() => AttributeValue$, 0]];
-export var AttributeValue$: StaticStructureSchema = [
-  3,
+export var AttributeValue$: StaticUnionSchema = [
+  4,
   n0,
   _AV,
   0,

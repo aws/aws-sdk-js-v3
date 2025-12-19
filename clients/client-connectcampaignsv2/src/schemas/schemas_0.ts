@@ -303,6 +303,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { ConnectCampaignsV2ServiceException } from "../models/ConnectCampaignsV2ServiceException";
@@ -918,8 +919,8 @@ var Attributes: StaticMapSchema = [2, n0, _A, 8, 0, 0];
 var DailyHours: StaticMapSchema = [2, n0, _DH, 0, 0, () => TimeRangeList];
 var ObjectTypeNamesMap = 128 | 0;
 var TagMap = 128 | 0;
-export var ChannelSubtypeParameters$: StaticStructureSchema = [
-  3,
+export var ChannelSubtypeParameters$: StaticUnionSchema = [
+  4,
   n0,
   _CSP,
   0,
@@ -931,18 +932,18 @@ export var ChannelSubtypeParameters$: StaticStructureSchema = [
     [() => WhatsAppChannelSubtypeParameters$, 0],
   ],
 ];
-export var CommunicationLimits$: StaticStructureSchema = [3, n0, _CLo, 0, [_cLL], [() => CommunicationLimitList]];
-export var EmailOutboundMode$: StaticStructureSchema = [3, n0, _EOM, 0, [_ag], [() => AgentlessConfig$]];
-export var IntegrationConfig$: StaticStructureSchema = [
-  3,
+export var CommunicationLimits$: StaticUnionSchema = [4, n0, _CLo, 0, [_cLL], [() => CommunicationLimitList]];
+export var EmailOutboundMode$: StaticUnionSchema = [4, n0, _EOM, 0, [_ag], [() => AgentlessConfig$]];
+export var IntegrationConfig$: StaticUnionSchema = [
+  4,
   n0,
   _ICn,
   0,
   [_cP, _qC, _l],
   [() => CustomerProfilesIntegrationConfig$, () => QConnectIntegrationConfig$, () => LambdaIntegrationConfig$],
 ];
-export var IntegrationIdentifier$: StaticStructureSchema = [
-  3,
+export var IntegrationIdentifier$: StaticUnionSchema = [
+  4,
   n0,
   _II,
   0,
@@ -953,27 +954,27 @@ export var IntegrationIdentifier$: StaticStructureSchema = [
     () => LambdaIntegrationIdentifier$,
   ],
 ];
-export var IntegrationSummary$: StaticStructureSchema = [
-  3,
+export var IntegrationSummary$: StaticUnionSchema = [
+  4,
   n0,
   _IS,
   0,
   [_cP, _qC, _l],
   [() => CustomerProfilesIntegrationSummary$, () => QConnectIntegrationSummary$, () => LambdaIntegrationSummary$],
 ];
-export var OpenHours$: StaticStructureSchema = [3, n0, _OH, 0, [_dH], [() => DailyHours]];
-export var RestrictedPeriods$: StaticStructureSchema = [3, n0, _RPe, 0, [_rPL], [() => RestrictedPeriodList]];
-export var SmsOutboundMode$: StaticStructureSchema = [3, n0, _SOM, 0, [_ag], [() => AgentlessConfig$]];
-export var Source$: StaticStructureSchema = [3, n0, _So, 0, [_cPSA, _eTv], [0, () => EventTrigger$]];
-export var TelephonyOutboundMode$: StaticStructureSchema = [
-  3,
+export var OpenHours$: StaticUnionSchema = [4, n0, _OH, 0, [_dH], [() => DailyHours]];
+export var RestrictedPeriods$: StaticUnionSchema = [4, n0, _RPe, 0, [_rPL], [() => RestrictedPeriodList]];
+export var SmsOutboundMode$: StaticUnionSchema = [4, n0, _SOM, 0, [_ag], [() => AgentlessConfig$]];
+export var Source$: StaticUnionSchema = [4, n0, _So, 0, [_cPSA, _eTv], [0, () => EventTrigger$]];
+export var TelephonyOutboundMode$: StaticUnionSchema = [
+  4,
   n0,
   _TOM,
   0,
   [_p, _pr, _ag, _pre],
   [() => ProgressiveConfig$, () => PredictiveConfig$, () => AgentlessConfig$, () => PreviewConfig$],
 ];
-export var WhatsAppOutboundMode$: StaticStructureSchema = [3, n0, _WAOM, 0, [_ag], [() => AgentlessConfig$]];
+export var WhatsAppOutboundMode$: StaticUnionSchema = [4, n0, _WAOM, 0, [_ag], [() => AgentlessConfig$]];
 export var CreateCampaign$: StaticOperationSchema = [
   9,
   n0,

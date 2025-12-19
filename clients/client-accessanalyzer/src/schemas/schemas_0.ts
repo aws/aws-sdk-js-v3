@@ -480,6 +480,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { AccessAnalyzerServiceException } from "../models/AccessAnalyzerServiceException";
@@ -663,7 +664,7 @@ export var DeleteAnalyzerRequest$: StaticStructureSchema = [
   [_aN, _cTl],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
   ],
 ];
 export var DeleteArchiveRuleRequest$: StaticStructureSchema = [
@@ -675,7 +676,7 @@ export var DeleteArchiveRuleRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
   ],
 ];
 export var DynamodbStreamConfiguration$: StaticStructureSchema = [3, n0, _DSC, 0, [_sP], [0]];
@@ -1399,17 +1400,17 @@ var S3ExpressDirectoryAccessPointConfigurationsMap: StaticMapSchema = [
   () => S3ExpressDirectoryAccessPointConfiguration$,
 ];
 var TagsMap = 128 | 0;
-export var AclGrantee$: StaticStructureSchema = [3, n0, _AG, 0, [_i, _u], [0, 0]];
-export var AnalyzerConfiguration$: StaticStructureSchema = [
-  3,
+export var AclGrantee$: StaticUnionSchema = [4, n0, _AG, 0, [_i, _u], [0, 0]];
+export var AnalyzerConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _AC,
   0,
   [_uAn, _iAn],
   [() => UnusedAccessConfiguration$, () => InternalAccessConfiguration$],
 ];
-export var Configuration$: StaticStructureSchema = [
-  3,
+export var Configuration$: StaticUnionSchema = [
+  4,
   n0,
   _Co,
   0,
@@ -1431,8 +1432,8 @@ export var Configuration$: StaticStructureSchema = [
     () => DynamodbTableConfiguration$,
   ],
 ];
-export var FindingDetails$: StaticStructureSchema = [
-  3,
+export var FindingDetails$: StaticUnionSchema = [
+  4,
   n0,
   _FD,
   0,
@@ -1446,8 +1447,8 @@ export var FindingDetails$: StaticStructureSchema = [
     () => UnusedIamUserPasswordDetails$,
   ],
 ];
-export var FindingsStatistics$: StaticStructureSchema = [
-  3,
+export var FindingsStatistics$: StaticUnionSchema = [
+  4,
   n0,
   _FSin,
   0,
@@ -1458,25 +1459,18 @@ export var FindingsStatistics$: StaticStructureSchema = [
     () => UnusedAccessFindingsStatistics$,
   ],
 ];
-export var NetworkOriginConfiguration$: StaticStructureSchema = [
-  3,
+export var NetworkOriginConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _NOC,
   0,
   [_vC, _iCn],
   [() => VpcConfiguration$, () => InternetConfiguration$],
 ];
-export var PathElement$: StaticStructureSchema = [3, n0, _PE, 0, [_ind, _k, _su, _v], [1, 0, () => Substring$, 0]];
-export var RdsDbClusterSnapshotAttributeValue$: StaticStructureSchema = [3, n0, _RDCSAV, 0, [_aI], [64 | 0]];
-export var RdsDbSnapshotAttributeValue$: StaticStructureSchema = [3, n0, _RDSAV, 0, [_aI], [64 | 0]];
-export var RecommendedStep$: StaticStructureSchema = [
-  3,
-  n0,
-  _RSe,
-  0,
-  [_uPRS],
-  [() => UnusedPermissionsRecommendedStep$],
-];
+export var PathElement$: StaticUnionSchema = [4, n0, _PE, 0, [_ind, _k, _su, _v], [1, 0, () => Substring$, 0]];
+export var RdsDbClusterSnapshotAttributeValue$: StaticUnionSchema = [4, n0, _RDCSAV, 0, [_aI], [64 | 0]];
+export var RdsDbSnapshotAttributeValue$: StaticUnionSchema = [4, n0, _RDSAV, 0, [_aI], [64 | 0]];
+export var RecommendedStep$: StaticUnionSchema = [4, n0, _RSe, 0, [_uPRS], [() => UnusedPermissionsRecommendedStep$]];
 export var ApplyArchiveRule$: StaticOperationSchema = [
   9,
   n0,

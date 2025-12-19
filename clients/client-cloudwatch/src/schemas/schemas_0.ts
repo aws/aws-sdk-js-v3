@@ -427,7 +427,7 @@ export var ConcurrentModificationException$: StaticErrorSchema = [
   -3,
   n0,
   _CME,
-  { [_e]: _c, [_hE]: 429, [_aQE]: [`ConcurrentModificationException`, 429] },
+  { [_aQE]: [`ConcurrentModificationException`, 429], [_e]: _c, [_hE]: 429 },
   [_M],
   [0],
 ];
@@ -439,7 +439,7 @@ export var DashboardInvalidInputError$: StaticErrorSchema = [
   -3,
   n0,
   _DIIE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameterInput`, 400] },
+  { [_aQE]: [`InvalidParameterInput`, 400], [_e]: _c, [_hE]: 400 },
   [_m, _dVM],
   [0, () => DashboardValidationMessages],
 ];
@@ -448,7 +448,7 @@ export var DashboardNotFoundError$: StaticErrorSchema = [
   -3,
   n0,
   _DNFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourceNotFound`, 404] },
+  { [_aQE]: [`ResourceNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -652,7 +652,7 @@ export var InternalServiceFault$: StaticErrorSchema = [
   -3,
   n0,
   _ISF,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`InternalServiceError`, 500] },
+  { [_aQE]: [`InternalServiceError`, 500], [_e]: _s, [_hE]: 500 },
   [_M],
   [0],
 ];
@@ -661,7 +661,7 @@ export var InvalidFormatFault$: StaticErrorSchema = [
   -3,
   n0,
   _IFF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidFormat`, 400] },
+  { [_aQE]: [`InvalidFormat`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -670,7 +670,7 @@ export var InvalidNextToken$: StaticErrorSchema = [
   -3,
   n0,
   _INT,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidNextToken`, 400] },
+  { [_aQE]: [`InvalidNextToken`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -679,7 +679,7 @@ export var InvalidParameterCombinationException$: StaticErrorSchema = [
   -3,
   n0,
   _IPCE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameterCombination`, 400] },
+  { [_aQE]: [`InvalidParameterCombination`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -688,7 +688,7 @@ export var InvalidParameterValueException$: StaticErrorSchema = [
   -3,
   n0,
   _IPVE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameterValue`, 400] },
+  { [_aQE]: [`InvalidParameterValue`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -698,7 +698,7 @@ export var LimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`LimitExceededException`, 400] },
+  { [_aQE]: [`LimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -707,7 +707,7 @@ export var LimitExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _LEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`LimitExceeded`, 400] },
+  { [_aQE]: [`LimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -872,7 +872,7 @@ export var MissingRequiredParameterException$: StaticErrorSchema = [
   -3,
   n0,
   _MRPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`MissingParameter`, 400] },
+  { [_aQE]: [`MissingParameter`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -980,7 +980,7 @@ export var ResourceNotFound$: StaticErrorSchema = [
   -3,
   n0,
   _RNF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourceNotFound`, 404] },
+  { [_aQE]: [`ResourceNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -989,7 +989,7 @@ export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourceNotFoundException`, 404] },
+  { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_RT, _RI, _M],
   [0, 0, 0],
 ];

@@ -131,6 +131,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -358,8 +359,8 @@ var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => Val
 var ChatTokenAttributes: StaticMapSchema = [2, n0, _CTA, 8, 0, 0];
 var EventAttributes = 128 | 0;
 var Tags = 128 | 0;
-export var DestinationConfiguration$: StaticStructureSchema = [
-  3,
+export var DestinationConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _DC,
   0,

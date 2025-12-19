@@ -685,7 +685,7 @@ export var PutRumEvents$: StaticOperationSchema = [
   9,
   n0,
   _PRE,
-  { [_h]: ["POST", "/appmonitors/{Id}/", 200], [_en]: ["dataplane."] },
+  { [_en]: ["dataplane."], [_h]: ["POST", "/appmonitors/{Id}/", 200] },
   () => PutRumEventsRequest$,
   () => PutRumEventsResponse$,
 ];

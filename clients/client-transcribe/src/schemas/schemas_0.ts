@@ -310,6 +310,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1127,8 +1128,8 @@ var VocabularyFilters: StaticListSchema = [1, n0, _VF, 0, () => VocabularyFilter
 var Words = 64 | 0;
 var KMSEncryptionContextMap = 128 | 0;
 var LanguageIdSettingsMap: StaticMapSchema = [2, n0, _LISM, 0, 0, () => LanguageIdSettings$];
-export var Rule$: StaticStructureSchema = [
-  3,
+export var Rule$: StaticUnionSchema = [
+  4,
   n0,
   _Ru,
   0,

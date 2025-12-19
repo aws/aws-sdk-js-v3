@@ -3366,7 +3366,7 @@ export var CreateChannelPlacementGroupRequest$: StaticStructureSchema = [
     [0, 1],
     [0, { [_jN]: _n }],
     [64 | 0, { [_jN]: _no }],
-    [0, { [_jN]: _rIe, [_iTd]: 1 }],
+    [0, { [_iTd]: 1, [_jN]: _rIe }],
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
@@ -3402,7 +3402,7 @@ export var CreateChannelRequest$: StaticStructureSchema = [
     [0, { [_jN]: _lL }],
     [() => MaintenanceCreateSettings$, { [_jN]: _ma }],
     [0, { [_jN]: _n }],
-    [0, { [_jN]: _rIe, [_iTd]: 1 }],
+    [0, { [_iTd]: 1, [_jN]: _rIe }],
     [0, { [_jN]: _re }],
     [0, { [_jN]: _rA }],
     [128 | 0, { [_jN]: _ta }],
@@ -3430,7 +3430,7 @@ export var CreateCloudWatchAlarmTemplateGroupRequest$: StaticStructureSchema = [
     [0, { [_jN]: _desc }],
     [0, { [_jN]: _n }],
     [128 | 0, { [_jN]: _ta }],
-    [0, { [_jN]: _rIe, [_iTd]: 1 }],
+    [0, { [_iTd]: 1, [_jN]: _rIe }],
   ],
 ];
 export var CreateCloudWatchAlarmTemplateGroupResponse$: StaticStructureSchema = [
@@ -3469,7 +3469,7 @@ export var CreateCloudWatchAlarmTemplateRequest$: StaticStructureSchema = [
     [0, { [_jN]: _tRT }],
     [1, { [_jN]: _th }],
     [0, { [_jN]: _tMD }],
-    [0, { [_jN]: _rIe, [_iTd]: 1 }],
+    [0, { [_iTd]: 1, [_jN]: _rIe }],
   ],
 ];
 export var CreateCloudWatchAlarmTemplateResponse$: StaticStructureSchema = [
@@ -3509,7 +3509,7 @@ export var CreateClusterRequest$: StaticStructureSchema = [
     [0, { [_jN]: _iRA }],
     [0, { [_jN]: _n }],
     [() => ClusterNetworkSettingsCreateRequest$, { [_jN]: _nS }],
-    [0, { [_jN]: _rIe, [_iTd]: 1 }],
+    [0, { [_iTd]: 1, [_jN]: _rIe }],
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
@@ -3540,7 +3540,7 @@ export var CreateEventBridgeRuleTemplateGroupRequest$: StaticStructureSchema = [
     [0, { [_jN]: _desc }],
     [0, { [_jN]: _n }],
     [128 | 0, { [_jN]: _ta }],
-    [0, { [_jN]: _rIe, [_iTd]: 1 }],
+    [0, { [_iTd]: 1, [_jN]: _rIe }],
   ],
 ];
 export var CreateEventBridgeRuleTemplateGroupResponse$: StaticStructureSchema = [
@@ -3572,7 +3572,7 @@ export var CreateEventBridgeRuleTemplateRequest$: StaticStructureSchema = [
     [0, { [_jN]: _gIr }],
     [0, { [_jN]: _n }],
     [128 | 0, { [_jN]: _ta }],
-    [0, { [_jN]: _rIe, [_iTd]: 1 }],
+    [0, { [_iTd]: 1, [_jN]: _rIe }],
   ],
 ];
 export var CreateEventBridgeRuleTemplateResponse$: StaticStructureSchema = [
@@ -3606,7 +3606,7 @@ export var CreateInputRequest$: StaticStructureSchema = [
     [64 | 0, { [_jN]: _iSG }],
     [() => __listOfMediaConnectFlowRequest, { [_jN]: _mCF }],
     [0, { [_jN]: _n }],
-    [0, { [_jN]: _rIe, [_iTd]: 1 }],
+    [0, { [_iTd]: 1, [_jN]: _rIe }],
     [0, { [_jN]: _rA }],
     [() => __listOfInputSourceRequest, { [_jN]: _so }],
     [128 | 0, { [_jN]: _ta }],
@@ -3650,7 +3650,7 @@ export var CreateMultiplexProgramRequest$: StaticStructureSchema = [
     [0, 1],
     [() => MultiplexProgramSettings$, { [_jN]: _mPS }],
     [0, { [_jN]: _pNr }],
-    [0, { [_jN]: _rIe, [_iTd]: 1 }],
+    [0, { [_iTd]: 1, [_jN]: _rIe }],
   ],
 ];
 export var CreateMultiplexProgramResponse$: StaticStructureSchema = [
@@ -3671,7 +3671,7 @@ export var CreateMultiplexRequest$: StaticStructureSchema = [
     [64 | 0, { [_jN]: _aZ }],
     [() => MultiplexSettings$, { [_jN]: _mSul }],
     [0, { [_jN]: _n }],
-    [0, { [_jN]: _rIe, [_iTd]: 1 }],
+    [0, { [_iTd]: 1, [_jN]: _rIe }],
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
@@ -3692,7 +3692,7 @@ export var CreateNetworkRequest$: StaticStructureSchema = [
   [
     [() => __listOfIpPoolCreateRequest, { [_jN]: _iPp }],
     [0, { [_jN]: _n }],
-    [0, { [_jN]: _rIe, [_iTd]: 1 }],
+    [0, { [_iTd]: 1, [_jN]: _rIe }],
     [() => __listOfRouteCreateRequest, { [_jN]: _ro }],
     [128 | 0, { [_jN]: _ta }],
   ],
@@ -3724,7 +3724,7 @@ export var CreateNodeRegistrationScriptRequest$: StaticStructureSchema = [
     [0, { [_jN]: _i }],
     [0, { [_jN]: _n }],
     [() => __listOfNodeInterfaceMapping, { [_jN]: _nIM }],
-    [0, { [_jN]: _rIe, [_iTd]: 1 }],
+    [0, { [_iTd]: 1, [_jN]: _rIe }],
     [0, { [_jN]: _rol }],
   ],
 ];
@@ -3746,7 +3746,7 @@ export var CreateNodeRequest$: StaticStructureSchema = [
     [0, 1],
     [0, { [_jN]: _n }],
     [() => __listOfNodeInterfaceMappingCreateRequest, { [_jN]: _nIM }],
-    [0, { [_jN]: _rIe, [_iTd]: 1 }],
+    [0, { [_iTd]: 1, [_jN]: _rIe }],
     [0, { [_jN]: _rol }],
     [128 | 0, { [_jN]: _ta }],
   ],
@@ -3779,7 +3779,7 @@ export var CreatePartnerInputRequest$: StaticStructureSchema = [
   [_IIn, _RIe, _Ta],
   [
     [0, 1],
-    [0, { [_jN]: _rIe, [_iTd]: 1 }],
+    [0, { [_iTd]: 1, [_jN]: _rIe }],
     [128 | 0, { [_jN]: _ta }],
   ],
 ];
@@ -3800,7 +3800,7 @@ export var CreateSdiSourceRequest$: StaticStructureSchema = [
   [
     [0, { [_jN]: _mo }],
     [0, { [_jN]: _n }],
-    [0, { [_jN]: _rIe, [_iTd]: 1 }],
+    [0, { [_iTd]: 1, [_jN]: _rIe }],
     [128 | 0, { [_jN]: _ta }],
     [0, { [_jN]: _ty }],
   ],
@@ -3826,7 +3826,7 @@ export var CreateSignalMapRequest$: StaticStructureSchema = [
     [64 | 0, { [_jN]: _eBRTGI }],
     [0, { [_jN]: _n }],
     [128 | 0, { [_jN]: _ta }],
-    [0, { [_jN]: _rIe, [_iTd]: 1 }],
+    [0, { [_iTd]: 1, [_jN]: _rIe }],
   ],
 ];
 export var CreateSignalMapResponse$: StaticStructureSchema = [
@@ -4267,7 +4267,7 @@ export var DescribeInputDeviceThumbnailResponse$: StaticStructureSchema = [
   0,
   [_Bo, _CTo, _CL, _ETa, _LM],
   [
-    [() => InputDeviceThumbnail, { [_jN]: _bo, [_hP]: 1 }],
+    [() => InputDeviceThumbnail, { [_hP]: 1, [_jN]: _bo }],
     [0, { [_hH]: _CT_ }],
     [1, { [_hH]: _CL_ }],
     [0, { [_hH]: _ETa }],
@@ -7549,7 +7549,7 @@ export var PurchaseOfferingRequest$: StaticStructureSchema = [
     [0, { [_jN]: _n }],
     [0, 1],
     [() => RenewalSettings$, { [_jN]: _rSen }],
-    [0, { [_jN]: _rIe, [_iTd]: 1 }],
+    [0, { [_iTd]: 1, [_jN]: _rIe }],
     [0, { [_jN]: _star }],
     [128 | 0, { [_jN]: _ta }],
   ],

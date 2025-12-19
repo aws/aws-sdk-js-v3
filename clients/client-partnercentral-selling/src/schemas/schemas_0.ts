@@ -445,6 +445,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1595,8 +1596,8 @@ var TaskStatuses = 64 | 0;
 var UseCases = 64 | 0;
 var ValidationExceptionErrorList: StaticListSchema = [1, n0, _VEEL, 0, () => ValidationExceptionError$];
 var AmountMap: StaticMapSchema = [2, n0, _AMm, 0, [0, 0], [() => MonetaryAmount, 0]];
-export var EngagementContextPayload$: StaticStructureSchema = [
-  3,
+export var EngagementContextPayload$: StaticUnionSchema = [
+  4,
   n0,
   _ECP,
   0,
@@ -1606,8 +1607,8 @@ export var EngagementContextPayload$: StaticStructureSchema = [
     [() => LeadContext$, 0],
   ],
 ];
-export var Payload$: StaticStructureSchema = [
-  3,
+export var Payload$: StaticUnionSchema = [
+  4,
   n0,
   _Pay,
   0,
@@ -1617,17 +1618,17 @@ export var Payload$: StaticStructureSchema = [
     [() => LeadInvitationPayload$, 0],
   ],
 ];
-export var Receiver$: StaticStructureSchema = [3, n0, _Rec, 0, [_Ac], [[() => AccountReceiver$, 0]]];
-export var ResourceSnapshotPayload$: StaticStructureSchema = [
-  3,
+export var Receiver$: StaticUnionSchema = [4, n0, _Rec, 0, [_Ac], [[() => AccountReceiver$, 0]]];
+export var ResourceSnapshotPayload$: StaticUnionSchema = [
+  4,
   n0,
   _RSP,
   0,
   [_OSpp],
   [[() => OpportunitySummaryView$, 0]],
 ];
-export var UpdateEngagementContextPayload$: StaticStructureSchema = [
-  3,
+export var UpdateEngagementContextPayload$: StaticUnionSchema = [
+  4,
   n0,
   _UECP,
   0,

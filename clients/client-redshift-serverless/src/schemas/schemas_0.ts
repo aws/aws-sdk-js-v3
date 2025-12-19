@@ -458,6 +458,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1312,15 +1313,8 @@ var VpcSecurityGroupIdList = 64 | 0;
 var VpcSecurityGroupMembershipList: StaticListSchema = [1, n0, _VSGML, 0, () => VpcSecurityGroupMembership$];
 var WorkgroupList: StaticListSchema = [1, n0, _WL, 0, () => Workgroup$];
 var WorkgroupNameList = 64 | 0;
-export var Schedule$: StaticStructureSchema = [3, n0, _Sc, 0, [_at, _cr], [4, 0]];
-export var TargetAction$: StaticStructureSchema = [
-  3,
-  n0,
-  _TA,
-  0,
-  [_cS],
-  [() => CreateSnapshotScheduleActionParameters$],
-];
+export var Schedule$: StaticUnionSchema = [4, n0, _Sc, 0, [_at, _cr], [4, 0]];
+export var TargetAction$: StaticUnionSchema = [4, n0, _TA, 0, [_cS], [() => CreateSnapshotScheduleActionParameters$]];
 export var ConvertRecoveryPointToSnapshot$: StaticOperationSchema = [
   9,
   n0,

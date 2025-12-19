@@ -639,7 +639,7 @@ export var RequestError$: StaticErrorSchema = [
   -3,
   n0,
   _RE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`RequestError`, 400] },
+  { [_aQE]: [`RequestError`, 400], [_e]: _c, [_hE]: 400 },
   [_M, _TEC],
   [0, 0],
 ];
@@ -684,7 +684,7 @@ export var ServiceFault$: StaticErrorSchema = [
   -3,
   n0,
   _SF,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`ServiceFault`, 500] },
+  { [_aQE]: [`ServiceFault`, 500], [_e]: _s, [_hE]: 500 },
   [_M, _TEC],
   [0, 0],
 ];

@@ -646,7 +646,7 @@ export var DeleteLensInput$: StaticStructureSchema = [
   [_LAen, _CRT, _LS],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _CRT }],
+    [0, { [_hQ]: _CRT, [_iT]: 1 }],
     [0, { [_hQ]: _LS }],
   ],
 ];
@@ -659,7 +659,7 @@ export var DeleteLensShareInput$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _CRT }],
+    [0, { [_hQ]: _CRT, [_iT]: 1 }],
   ],
 ];
 export var DeleteProfileInput$: StaticStructureSchema = [
@@ -670,7 +670,7 @@ export var DeleteProfileInput$: StaticStructureSchema = [
   [_PAr, _CRT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _CRT }],
+    [0, { [_hQ]: _CRT, [_iT]: 1 }],
   ],
 ];
 export var DeleteProfileShareInput$: StaticStructureSchema = [
@@ -682,7 +682,7 @@ export var DeleteProfileShareInput$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _CRT }],
+    [0, { [_hQ]: _CRT, [_iT]: 1 }],
   ],
 ];
 export var DeleteReviewTemplateInput$: StaticStructureSchema = [
@@ -693,7 +693,7 @@ export var DeleteReviewTemplateInput$: StaticStructureSchema = [
   [_TA, _CRT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _CRT }],
+    [0, { [_hQ]: _CRT, [_iT]: 1 }],
   ],
 ];
 export var DeleteTemplateShareInput$: StaticStructureSchema = [
@@ -705,7 +705,7 @@ export var DeleteTemplateShareInput$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _CRT }],
+    [0, { [_hQ]: _CRT, [_iT]: 1 }],
   ],
 ];
 export var DeleteWorkloadInput$: StaticStructureSchema = [
@@ -716,7 +716,7 @@ export var DeleteWorkloadInput$: StaticStructureSchema = [
   [_WI, _CRT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _CRT }],
+    [0, { [_hQ]: _CRT, [_iT]: 1 }],
   ],
 ];
 export var DeleteWorkloadShareInput$: StaticStructureSchema = [
@@ -728,7 +728,7 @@ export var DeleteWorkloadShareInput$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _CRT }],
+    [0, { [_hQ]: _CRT, [_iT]: 1 }],
   ],
 ];
 export var DisassociateLensesInput$: StaticStructureSchema = [3, n0, _DLIi, 0, [_WI, _LA], [[0, 1], 64 | 0]];

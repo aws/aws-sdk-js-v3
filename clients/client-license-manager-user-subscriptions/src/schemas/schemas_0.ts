@@ -157,6 +157,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -490,23 +491,16 @@ var StringList = 64 | 0;
 var Subnets = 64 | 0;
 var TagKeyList: StaticListSchema = [1, n0, _TKL, 8, 0];
 var Tags: StaticMapSchema = [2, n0, _T, 8, 0, 0];
-export var CredentialsProvider$: StaticStructureSchema = [
-  3,
+export var CredentialsProvider$: StaticUnionSchema = [
+  4,
   n0,
   _CP,
   0,
   [_SMCP],
   [() => SecretsManagerCredentialsProvider$],
 ];
-export var IdentityProvider$: StaticStructureSchema = [
-  3,
-  n0,
-  _IP,
-  0,
-  [_ADIP],
-  [() => ActiveDirectoryIdentityProvider$],
-];
-export var ServerSettings$: StaticStructureSchema = [3, n0, _SS, 0, [_RSS], [() => RdsSalSettings$]];
+export var IdentityProvider$: StaticUnionSchema = [4, n0, _IP, 0, [_ADIP], [() => ActiveDirectoryIdentityProvider$]];
+export var ServerSettings$: StaticUnionSchema = [4, n0, _SS, 0, [_RSS], [() => RdsSalSettings$]];
 export var AssociateUser$: StaticOperationSchema = [
   9,
   n0,

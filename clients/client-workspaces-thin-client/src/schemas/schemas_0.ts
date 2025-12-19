@@ -218,7 +218,7 @@ export var DeleteDeviceRequest$: StaticStructureSchema = [
   [_i, _cT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeleteDeviceResponse$: StaticStructureSchema = [3, n0, _DDRe, 0, [], []];
@@ -230,7 +230,7 @@ export var DeleteEnvironmentRequest$: StaticStructureSchema = [
   [_i, _cT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeleteEnvironmentResponse$: StaticStructureSchema = [3, n0, _DERe, 0, [], []];
@@ -537,7 +537,7 @@ export var CreateEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _CEr,
-  { [_h]: ["POST", "/environments", 201], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/environments", 201] },
   () => CreateEnvironmentRequest$,
   () => CreateEnvironmentResponse$,
 ];
@@ -545,7 +545,7 @@ export var DeleteDevice$: StaticOperationSchema = [
   9,
   n0,
   _DD,
-  { [_h]: ["DELETE", "/devices/{id}", 204], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["DELETE", "/devices/{id}", 204] },
   () => DeleteDeviceRequest$,
   () => DeleteDeviceResponse$,
 ];
@@ -553,7 +553,7 @@ export var DeleteEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _DEe,
-  { [_h]: ["DELETE", "/environments/{id}", 204], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["DELETE", "/environments/{id}", 204] },
   () => DeleteEnvironmentRequest$,
   () => DeleteEnvironmentResponse$,
 ];
@@ -561,7 +561,7 @@ export var DeregisterDevice$: StaticOperationSchema = [
   9,
   n0,
   _DDe,
-  { [_h]: ["POST", "/deregister-device/{id}", 202], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/deregister-device/{id}", 202] },
   () => DeregisterDeviceRequest$,
   () => DeregisterDeviceResponse$,
 ];
@@ -569,7 +569,7 @@ export var GetDevice$: StaticOperationSchema = [
   9,
   n0,
   _GD,
-  { [_h]: ["GET", "/devices/{id}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["GET", "/devices/{id}", 200] },
   () => GetDeviceRequest$,
   () => GetDeviceResponse$,
 ];
@@ -577,7 +577,7 @@ export var GetEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _GE,
-  { [_h]: ["GET", "/environments/{id}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["GET", "/environments/{id}", 200] },
   () => GetEnvironmentRequest$,
   () => GetEnvironmentResponse$,
 ];
@@ -585,7 +585,7 @@ export var GetSoftwareSet$: StaticOperationSchema = [
   9,
   n0,
   _GSS,
-  { [_h]: ["GET", "/softwaresets/{id}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["GET", "/softwaresets/{id}", 200] },
   () => GetSoftwareSetRequest$,
   () => GetSoftwareSetResponse$,
 ];
@@ -593,7 +593,7 @@ export var ListDevices$: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  { [_h]: ["GET", "/devices", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["GET", "/devices", 200] },
   () => ListDevicesRequest$,
   () => ListDevicesResponse$,
 ];
@@ -601,7 +601,7 @@ export var ListEnvironments$: StaticOperationSchema = [
   9,
   n0,
   _LE,
-  { [_h]: ["GET", "/environments", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["GET", "/environments", 200] },
   () => ListEnvironmentsRequest$,
   () => ListEnvironmentsResponse$,
 ];
@@ -609,7 +609,7 @@ export var ListSoftwareSets$: StaticOperationSchema = [
   9,
   n0,
   _LSS,
-  { [_h]: ["GET", "/softwaresets", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["GET", "/softwaresets", 200] },
   () => ListSoftwareSetsRequest$,
   () => ListSoftwareSetsResponse$,
 ];
@@ -617,7 +617,7 @@ export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  { [_h]: ["GET", "/tags/{resourceArn}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest$,
   () => ListTagsForResourceResponse$,
 ];
@@ -625,7 +625,7 @@ export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  { [_h]: ["POST", "/tags/{resourceArn}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/tags/{resourceArn}", 200] },
   () => TagResourceRequest$,
   () => TagResourceResponse$,
 ];
@@ -633,7 +633,7 @@ export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  { [_h]: ["DELETE", "/tags/{resourceArn}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["DELETE", "/tags/{resourceArn}", 200] },
   () => UntagResourceRequest$,
   () => UntagResourceResponse$,
 ];
@@ -641,7 +641,7 @@ export var UpdateDevice$: StaticOperationSchema = [
   9,
   n0,
   _UD,
-  { [_h]: ["PATCH", "/devices/{id}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["PATCH", "/devices/{id}", 200] },
   () => UpdateDeviceRequest$,
   () => UpdateDeviceResponse$,
 ];
@@ -649,7 +649,7 @@ export var UpdateEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _UE,
-  { [_h]: ["PATCH", "/environments/{id}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["PATCH", "/environments/{id}", 200] },
   () => UpdateEnvironmentRequest$,
   () => UpdateEnvironmentResponse$,
 ];
@@ -657,7 +657,7 @@ export var UpdateSoftwareSet$: StaticOperationSchema = [
   9,
   n0,
   _USS,
-  { [_h]: ["PATCH", "/softwaresets/{id}", 204], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["PATCH", "/softwaresets/{id}", 204] },
   () => UpdateSoftwareSetRequest$,
   () => UpdateSoftwareSetResponse$,
 ];

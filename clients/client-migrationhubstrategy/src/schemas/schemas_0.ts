@@ -343,6 +343,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -870,18 +871,18 @@ var SourceCodeRepositories: StaticListSchema = [1, n0, _SCRo, 0, () => SourceCod
 var TargetDatabaseEngines = 64 | 0;
 var VcenterBasedRemoteInfoList: StaticListSchema = [1, n0, _VBRIL, 0, () => VcenterBasedRemoteInfo$];
 var VersionControlInfoList: StaticListSchema = [1, n0, _VCIL, 0, () => VersionControlInfo$];
-export var AnalysisStatusUnion$: StaticStructureSchema = [3, n0, _ASU, 0, [_rAS, _sCODAS], [0, 0]];
-export var AnalyzerNameUnion$: StaticStructureSchema = [3, n0, _ANU, 0, [_bAN, _rTAN, _sCAN], [0, 0, 0]];
-export var DatabaseMigrationPreference$: StaticStructureSchema = [
-  3,
+export var AnalysisStatusUnion$: StaticUnionSchema = [4, n0, _ASU, 0, [_rAS, _sCODAS], [0, 0]];
+export var AnalyzerNameUnion$: StaticUnionSchema = [4, n0, _ANU, 0, [_bAN, _rTAN, _sCAN], [0, 0, 0]];
+export var DatabaseMigrationPreference$: StaticUnionSchema = [
+  4,
   n0,
   _DMP,
   0,
   [_he, _ho, _nP],
   [() => Heterogeneous$, () => Homogeneous$, () => NoDatabaseMigrationPreference$],
 ];
-export var ManagementPreference$: StaticStructureSchema = [
-  3,
+export var ManagementPreference$: StaticUnionSchema = [
+  4,
   n0,
   _MP,
   0,

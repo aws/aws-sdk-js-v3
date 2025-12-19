@@ -271,6 +271,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -854,7 +855,7 @@ var ExportFilterPerLabelMap: StaticMapSchema = [2, n0, _EFPLM, 0, 0, () => Expor
 var ExportFilterPropertyMap: StaticMapSchema = [2, n0, _EFPM, 0, 0, () => ExportFilterPropertyAttributes$];
 var LongValuedMap = 128 | 1;
 var TagMap = 128 | 0;
-export var ImportOptions$: StaticStructureSchema = [3, n0, _IO, 0, [_ne], [() => NeptuneImportOptions$]];
+export var ImportOptions$: StaticUnionSchema = [4, n0, _IO, 0, [_ne], [() => NeptuneImportOptions$]];
 export var CancelExportTask$: StaticOperationSchema = [
   9,
   n0,
@@ -939,7 +940,7 @@ export var ExecuteQuery$: StaticOperationSchema = [
   9,
   n0,
   _EQ,
-  { [_h]: ["POST", "/queries", 200], [_en]: ["{graphIdentifier}."] },
+  { [_en]: ["{graphIdentifier}."], [_h]: ["POST", "/queries", 200] },
   () => ExecuteQueryInput$,
   () => ExecuteQueryOutput$,
 ];

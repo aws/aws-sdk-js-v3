@@ -156,6 +156,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { BackupSearchServiceException } from "../models/BackupSearchServiceException";
@@ -459,9 +460,9 @@ var StringConditionList: StaticListSchema = [1, n0, _SCL, 0, () => StringConditi
 var TagKeys = 64 | 0;
 var TimeConditionList: StaticListSchema = [1, n0, _TCL, 0, () => TimeCondition$];
 var TagMap: StaticMapSchema = [2, n0, _TM, { [_sp]: 1 }, 0, 0];
-export var ExportSpecification$: StaticStructureSchema = [3, n0, _ES, 0, [_sES], [() => S3ExportSpecification$]];
-export var ResultItem$: StaticStructureSchema = [
-  3,
+export var ExportSpecification$: StaticUnionSchema = [4, n0, _ES, 0, [_sES], [() => S3ExportSpecification$]];
+export var ResultItem$: StaticUnionSchema = [
+  4,
   n0,
   _RI,
   0,

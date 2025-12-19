@@ -652,7 +652,7 @@ export var DeleteKxClusterRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
   ],
 ];
 export var DeleteKxClusterResponse$: StaticStructureSchema = [3, n0, _DKCRe, 0, [], []];
@@ -665,7 +665,7 @@ export var DeleteKxDatabaseRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
   ],
 ];
 export var DeleteKxDatabaseResponse$: StaticStructureSchema = [3, n0, _DKDRe, 0, [], []];
@@ -679,7 +679,7 @@ export var DeleteKxDataviewRequest$: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
   ],
 ];
 export var DeleteKxDataviewResponse$: StaticStructureSchema = [3, n0, _DKDRele, 0, [], []];
@@ -691,7 +691,7 @@ export var DeleteKxEnvironmentRequest$: StaticStructureSchema = [
   [_eI, _cTl],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
   ],
 ];
 export var DeleteKxEnvironmentResponse$: StaticStructureSchema = [3, n0, _DKERe, 0, [], []];
@@ -704,7 +704,7 @@ export var DeleteKxScalingGroupRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
   ],
 ];
 export var DeleteKxScalingGroupResponse$: StaticStructureSchema = [3, n0, _DKSGRe, 0, [], []];
@@ -717,7 +717,7 @@ export var DeleteKxUserRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
   ],
 ];
 export var DeleteKxUserResponse$: StaticStructureSchema = [3, n0, _DKURe, 0, [], []];
@@ -730,7 +730,7 @@ export var DeleteKxVolumeRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
   ],
 ];
 export var DeleteKxVolumeResponse$: StaticStructureSchema = [3, n0, _DKVRe, 0, [], []];

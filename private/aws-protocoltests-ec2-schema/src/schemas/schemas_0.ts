@@ -335,7 +335,7 @@ export var XmlListsOutput$: StaticStructureSchema = [
     [1, n1, _NSL, 0, 64 | 0],
     [() => RenamedListMembers, { [_xN]: _r }],
     [() => RenamedListMembers, { [_xF]: 1 }],
-    [() => RenamedListMembers, { [_xN]: _cN, [_xF]: 1 }],
+    [() => RenamedListMembers, { [_xF]: 1, [_xN]: _cN }],
     [() => ListWithMemberNamespace, { [_xF]: 1 }],
     [() => ListWithNamespace, { [_xF]: 1 }],
     [() => StructureList, { [_xN]: _mSL }],

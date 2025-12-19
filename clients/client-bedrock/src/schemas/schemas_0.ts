@@ -1224,6 +1224,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { BedrockServiceException } from "../models/BedrockServiceException";
@@ -4463,16 +4464,16 @@ var Validators: StaticListSchema = [1, n0, _Va, 0, () => Validator$];
 var AdditionalModelRequestFields = 128 | 15;
 var ModelCustomizationHyperParameters = 128 | 0;
 var RequestMetadataMap: StaticMapSchema = [2, n0, _RMM, 8, 0, 0];
-export var AutomatedEvaluationCustomMetricSource$: StaticStructureSchema = [
-  3,
+export var AutomatedEvaluationCustomMetricSource$: StaticUnionSchema = [
+  4,
   n0,
   _AECMS,
   0,
   [_cMD],
   [[() => CustomMetricDefinition$, 0]],
 ];
-export var AutomatedReasoningCheckFinding$: StaticStructureSchema = [
-  3,
+export var AutomatedReasoningCheckFinding$: StaticUnionSchema = [
+  4,
   n0,
   _ARCF,
   0,
@@ -4487,8 +4488,8 @@ export var AutomatedReasoningCheckFinding$: StaticStructureSchema = [
     () => AutomatedReasoningCheckNoTranslationsFinding$,
   ],
 ];
-export var AutomatedReasoningPolicyAnnotation$: StaticStructureSchema = [
-  3,
+export var AutomatedReasoningPolicyAnnotation$: StaticUnionSchema = [
+  4,
   n0,
   _ARPA,
   0,
@@ -4509,8 +4510,8 @@ export var AutomatedReasoningPolicyAnnotation$: StaticStructureSchema = [
     [() => AutomatedReasoningPolicyIngestContentAnnotation$, 0],
   ],
 ];
-export var AutomatedReasoningPolicyBuildResultAssets$: StaticStructureSchema = [
-  3,
+export var AutomatedReasoningPolicyBuildResultAssets$: StaticUnionSchema = [
+  4,
   n0,
   _ARPBRA,
   0,
@@ -4523,16 +4524,16 @@ export var AutomatedReasoningPolicyBuildResultAssets$: StaticStructureSchema = [
     [() => AutomatedReasoningPolicyScenarios$, 0],
   ],
 ];
-export var AutomatedReasoningPolicyBuildStepContext$: StaticStructureSchema = [
-  3,
+export var AutomatedReasoningPolicyBuildStepContext$: StaticUnionSchema = [
+  4,
   n0,
   _ARPBSC,
   0,
   [_pl, _mu],
   [() => AutomatedReasoningPolicyPlanning$, [() => AutomatedReasoningPolicyMutation$, 0]],
 ];
-export var AutomatedReasoningPolicyDefinitionElement$: StaticStructureSchema = [
-  3,
+export var AutomatedReasoningPolicyDefinitionElement$: StaticUnionSchema = [
+  4,
   n0,
   _ARPDE,
   0,
@@ -4543,8 +4544,8 @@ export var AutomatedReasoningPolicyDefinitionElement$: StaticStructureSchema = [
     [() => AutomatedReasoningPolicyDefinitionRule$, 0],
   ],
 ];
-export var AutomatedReasoningPolicyMutation$: StaticStructureSchema = [
-  3,
+export var AutomatedReasoningPolicyMutation$: StaticUnionSchema = [
+  4,
   n0,
   _ARPM,
   0,
@@ -4561,8 +4562,8 @@ export var AutomatedReasoningPolicyMutation$: StaticStructureSchema = [
     () => AutomatedReasoningPolicyDeleteRuleMutation$,
   ],
 ];
-export var AutomatedReasoningPolicyTypeValueAnnotation$: StaticStructureSchema = [
-  3,
+export var AutomatedReasoningPolicyTypeValueAnnotation$: StaticUnionSchema = [
+  4,
   n0,
   _ARPTVA,
   0,
@@ -4573,8 +4574,8 @@ export var AutomatedReasoningPolicyTypeValueAnnotation$: StaticStructureSchema =
     () => AutomatedReasoningPolicyDeleteTypeValue$,
   ],
 ];
-export var AutomatedReasoningPolicyWorkflowTypeContent$: StaticStructureSchema = [
-  3,
+export var AutomatedReasoningPolicyWorkflowTypeContent$: StaticUnionSchema = [
+  4,
   n0,
   _ARPWTC,
   0,
@@ -4584,17 +4585,17 @@ export var AutomatedReasoningPolicyWorkflowTypeContent$: StaticStructureSchema =
     [() => AutomatedReasoningPolicyBuildWorkflowRepairContent$, 0],
   ],
 ];
-export var CustomizationConfig$: StaticStructureSchema = [
-  3,
+export var CustomizationConfig$: StaticUnionSchema = [
+  4,
   n0,
   _CC,
   0,
   [_dC, _rCf],
   [() => DistillationConfig$, () => RFTConfig$],
 ];
-export var EndpointConfig$: StaticStructureSchema = [3, n0, _EC, 0, [_sMa], [() => SageMakerEndpoint$]];
-export var EvaluationConfig$: StaticStructureSchema = [
-  3,
+export var EndpointConfig$: StaticUnionSchema = [4, n0, _EC, 0, [_sMa], [() => SageMakerEndpoint$]];
+export var EvaluationConfig$: StaticUnionSchema = [
+  4,
   n0,
   _ECv,
   0,
@@ -4604,9 +4605,9 @@ export var EvaluationConfig$: StaticStructureSchema = [
     [() => HumanEvaluationConfig$, 0],
   ],
 ];
-export var EvaluationDatasetLocation$: StaticStructureSchema = [3, n0, _EDL, 0, [_sU], [0]];
-export var EvaluationInferenceConfig$: StaticStructureSchema = [
-  3,
+export var EvaluationDatasetLocation$: StaticUnionSchema = [4, n0, _EDL, 0, [_sU], [0]];
+export var EvaluationInferenceConfig$: StaticUnionSchema = [
+  4,
   n0,
   _EIC,
   0,
@@ -4616,28 +4617,28 @@ export var EvaluationInferenceConfig$: StaticStructureSchema = [
     [() => RagConfigs, 0],
   ],
 ];
-export var EvaluationModelConfig$: StaticStructureSchema = [
-  3,
+export var EvaluationModelConfig$: StaticUnionSchema = [
+  4,
   n0,
   _EMCv,
   0,
   [_bM, _pIS],
   [[() => EvaluationBedrockModel$, 0], () => EvaluationPrecomputedInferenceSource$],
 ];
-export var EvaluationPrecomputedRagSourceConfig$: StaticStructureSchema = [
-  3,
+export var EvaluationPrecomputedRagSourceConfig$: StaticUnionSchema = [
+  4,
   n0,
   _EPRSCv,
   0,
   [_rSC, _rAGSC],
   [() => EvaluationPrecomputedRetrieveSourceConfig$, () => EvaluationPrecomputedRetrieveAndGenerateSourceConfig$],
 ];
-export var EvaluatorModelConfig$: StaticStructureSchema = [3, n0, _EMCva, 0, [_bEM], [() => BedrockEvaluatorModels]];
-export var GraderConfig$: StaticStructureSchema = [3, n0, _GCr, 0, [_lG], [() => LambdaGraderConfig$]];
-export var InferenceProfileModelSource$: StaticStructureSchema = [3, n0, _IPMS, 0, [_cF], [0]];
-export var InvocationLogSource$: StaticStructureSchema = [3, n0, _ILS, 0, [_sU], [0]];
-export var KnowledgeBaseConfig$: StaticStructureSchema = [
-  3,
+export var EvaluatorModelConfig$: StaticUnionSchema = [4, n0, _EMCva, 0, [_bEM], [() => BedrockEvaluatorModels]];
+export var GraderConfig$: StaticUnionSchema = [4, n0, _GCr, 0, [_lG], [() => LambdaGraderConfig$]];
+export var InferenceProfileModelSource$: StaticUnionSchema = [4, n0, _IPMS, 0, [_cF], [0]];
+export var InvocationLogSource$: StaticUnionSchema = [4, n0, _ILS, 0, [_sU], [0]];
+export var KnowledgeBaseConfig$: StaticUnionSchema = [
+  4,
   n0,
   _KBC,
   0,
@@ -4647,34 +4648,34 @@ export var KnowledgeBaseConfig$: StaticStructureSchema = [
     [() => RetrieveAndGenerateConfiguration$, 0],
   ],
 ];
-export var ModelDataSource$: StaticStructureSchema = [3, n0, _MDS, 0, [_sDS], [() => S3DataSource$]];
-export var ModelInvocationJobInputDataConfig$: StaticStructureSchema = [
-  3,
+export var ModelDataSource$: StaticUnionSchema = [4, n0, _MDS, 0, [_sDS], [() => S3DataSource$]];
+export var ModelInvocationJobInputDataConfig$: StaticUnionSchema = [
+  4,
   n0,
   _MIJIDC,
   0,
   [_sIDC],
   [() => ModelInvocationJobS3InputDataConfig$],
 ];
-export var ModelInvocationJobOutputDataConfig$: StaticStructureSchema = [
-  3,
+export var ModelInvocationJobOutputDataConfig$: StaticUnionSchema = [
+  4,
   n0,
   _MIJODC,
   0,
   [_sODC],
   [() => ModelInvocationJobS3OutputDataConfig$],
 ];
-export var RAGConfig$: StaticStructureSchema = [
-  3,
+export var RAGConfig$: StaticUnionSchema = [
+  4,
   n0,
   _RAGCo,
   0,
   [_kBCn, _pRSC],
   [[() => KnowledgeBaseConfig$, 0], () => EvaluationPrecomputedRagSourceConfig$],
 ];
-export var RatingScaleItemValue$: StaticStructureSchema = [3, n0, _RSIV, 0, [_sV, _fV], [0, 1]];
-export var RequestMetadataFilters$: StaticStructureSchema = [
-  3,
+export var RatingScaleItemValue$: StaticUnionSchema = [4, n0, _RSIV, 0, [_sV, _fV], [0, 1]];
+export var RequestMetadataFilters$: StaticUnionSchema = [
+  4,
   n0,
   _RMF,
   0,
@@ -4686,8 +4687,8 @@ export var RequestMetadataFilters$: StaticStructureSchema = [
     [() => RequestMetadataFiltersList, 0],
   ],
 ];
-export var RerankingMetadataSelectiveModeConfiguration$: StaticStructureSchema = [
-  3,
+export var RerankingMetadataSelectiveModeConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _RMSMC,
   0,
@@ -4697,8 +4698,8 @@ export var RerankingMetadataSelectiveModeConfiguration$: StaticStructureSchema =
     [() => FieldsForReranking, 0],
   ],
 ];
-export var RetrievalFilter$: StaticStructureSchema = [
-  3,
+export var RetrievalFilter$: StaticUnionSchema = [
+  4,
   n0,
   _RF,
   8,

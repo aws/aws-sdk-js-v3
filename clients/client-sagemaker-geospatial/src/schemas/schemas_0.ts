@@ -264,6 +264,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -741,9 +742,9 @@ var VectorEnrichmentJobList: StaticListSchema = [1, n0, _VEJL, 0, () => ListVect
 var ZonalStatisticsListInput = 64 | 0;
 var AssetsMap: StaticMapSchema = [2, n0, _AM, 0, 0, () => AssetValue$];
 var Tags = 128 | 0;
-export var AreaOfInterest$: StaticStructureSchema = [3, n0, _AOI, 0, [_AOIG], [[() => AreaOfInterestGeometry$, 0]]];
-export var AreaOfInterestGeometry$: StaticStructureSchema = [
-  3,
+export var AreaOfInterest$: StaticUnionSchema = [4, n0, _AOI, 0, [_AOIG], [[() => AreaOfInterestGeometry$, 0]]];
+export var AreaOfInterestGeometry$: StaticUnionSchema = [
+  4,
   n0,
   _AOIG,
   0,
@@ -753,8 +754,8 @@ export var AreaOfInterestGeometry$: StaticStructureSchema = [
     [() => MultiPolygonGeometryInput$, 0],
   ],
 ];
-export var JobConfigInput$: StaticStructureSchema = [
-  3,
+export var JobConfigInput$: StaticUnionSchema = [
+  4,
   n0,
   _JCI,
   0,
@@ -771,8 +772,8 @@ export var JobConfigInput$: StaticStructureSchema = [
     () => LandCoverSegmentationConfigInput$,
   ],
 ];
-export var Property$: StaticStructureSchema = [
-  3,
+export var Property$: StaticUnionSchema = [
+  4,
   n0,
   _Pro,
   0,
@@ -786,16 +787,16 @@ export var Property$: StaticStructureSchema = [
     () => LandsatCloudCoverLandInput$,
   ],
 ];
-export var VectorEnrichmentJobConfig$: StaticStructureSchema = [
-  3,
+export var VectorEnrichmentJobConfig$: StaticUnionSchema = [
+  4,
   n0,
   _VEJC,
   0,
   [_RGC, _MMC],
   [() => ReverseGeocodingConfig$, () => MapMatchingConfig$],
 ];
-export var VectorEnrichmentJobDataSourceConfigInput$: StaticStructureSchema = [
-  3,
+export var VectorEnrichmentJobDataSourceConfigInput$: StaticUnionSchema = [
+  4,
   n0,
   _VEJDSCI,
   0,

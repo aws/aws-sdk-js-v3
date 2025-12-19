@@ -660,6 +660,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -2433,15 +2434,15 @@ var SchemaItem = 128 | 0;
 var TagMap = 128 | 0;
 var WorkflowMetadata = 128 | 0;
 var WorkflowParameterTemplate: StaticMapSchema = [2, n0, _WPT, 0, 0, () => WorkflowParameter$];
-export var FormatOptions$: StaticStructureSchema = [3, n0, _FO, 0, [_tO, _vOc], [() => TsvOptions$, () => VcfOptions$]];
-export var ReferenceItem$: StaticStructureSchema = [3, n0, _RI, 0, [_rAe], [0]];
-export var StoreOptions$: StaticStructureSchema = [3, n0, _SO, 0, [_tSO], [() => TsvStoreOptions$]];
-export var VersionOptions$: StaticStructureSchema = [3, n0, _VOe, 0, [_tVO], [() => TsvVersionOptions$]];
+export var FormatOptions$: StaticUnionSchema = [4, n0, _FO, 0, [_tO, _vOc], [() => TsvOptions$, () => VcfOptions$]];
+export var ReferenceItem$: StaticUnionSchema = [4, n0, _RI, 0, [_rAe], [0]];
+export var StoreOptions$: StaticUnionSchema = [4, n0, _SO, 0, [_tSO], [() => TsvStoreOptions$]];
+export var VersionOptions$: StaticUnionSchema = [4, n0, _VOe, 0, [_tVO], [() => TsvVersionOptions$]];
 export var AbortMultipartReadSetUpload$: StaticOperationSchema = [
   9,
   n0,
   _AMRSU,
-  { [_ht]: ["DELETE", "/sequencestore/{sequenceStoreId}/upload/{uploadId}/abort", 200], [_end]: ["control-storage-"] },
+  { [_end]: ["control-storage-"], [_ht]: ["DELETE", "/sequencestore/{sequenceStoreId}/upload/{uploadId}/abort", 200] },
   () => AbortMultipartReadSetUploadRequest$,
   () => AbortMultipartReadSetUploadResponse$,
 ];
@@ -2449,7 +2450,7 @@ export var AcceptShare$: StaticOperationSchema = [
   9,
   n0,
   _AS,
-  { [_ht]: ["POST", "/share/{shareId}", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["POST", "/share/{shareId}", 200] },
   () => AcceptShareRequest$,
   () => AcceptShareResponse$,
 ];
@@ -2457,7 +2458,7 @@ export var BatchDeleteReadSet$: StaticOperationSchema = [
   9,
   n0,
   _BDRS,
-  { [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/readset/batch/delete", 200], [_end]: ["control-storage-"] },
+  { [_end]: ["control-storage-"], [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/readset/batch/delete", 200] },
   () => BatchDeleteReadSetRequest$,
   () => BatchDeleteReadSetResponse$,
 ];
@@ -2465,7 +2466,7 @@ export var CancelAnnotationImportJob$: StaticOperationSchema = [
   9,
   n0,
   _CAIJ,
-  { [_ht]: ["DELETE", "/import/annotation/{jobId}", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["DELETE", "/import/annotation/{jobId}", 200] },
   () => CancelAnnotationImportRequest$,
   () => CancelAnnotationImportResponse$,
 ];
@@ -2473,7 +2474,7 @@ export var CancelRun$: StaticOperationSchema = [
   9,
   n0,
   _CR,
-  { [_ht]: ["POST", "/run/{id}/cancel", 202], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["POST", "/run/{id}/cancel", 202] },
   () => CancelRunRequest$,
   () => __Unit,
 ];
@@ -2481,7 +2482,7 @@ export var CancelVariantImportJob$: StaticOperationSchema = [
   9,
   n0,
   _CVIJ,
-  { [_ht]: ["DELETE", "/import/variant/{jobId}", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["DELETE", "/import/variant/{jobId}", 200] },
   () => CancelVariantImportRequest$,
   () => CancelVariantImportResponse$,
 ];
@@ -2489,7 +2490,7 @@ export var CompleteMultipartReadSetUpload$: StaticOperationSchema = [
   9,
   n0,
   _CMRSU,
-  { [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/upload/{uploadId}/complete", 200], [_end]: ["storage-"] },
+  { [_end]: ["storage-"], [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/upload/{uploadId}/complete", 200] },
   () => CompleteMultipartReadSetUploadRequest$,
   () => CompleteMultipartReadSetUploadResponse$,
 ];
@@ -2497,7 +2498,7 @@ export var CreateAnnotationStore$: StaticOperationSchema = [
   9,
   n0,
   _CAS,
-  { [_ht]: ["POST", "/annotationStore", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["POST", "/annotationStore", 200] },
   () => CreateAnnotationStoreRequest$,
   () => CreateAnnotationStoreResponse$,
 ];
@@ -2505,7 +2506,7 @@ export var CreateAnnotationStoreVersion$: StaticOperationSchema = [
   9,
   n0,
   _CASV,
-  { [_ht]: ["POST", "/annotationStore/{name}/version", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["POST", "/annotationStore/{name}/version", 200] },
   () => CreateAnnotationStoreVersionRequest$,
   () => CreateAnnotationStoreVersionResponse$,
 ];
@@ -2513,7 +2514,7 @@ export var CreateMultipartReadSetUpload$: StaticOperationSchema = [
   9,
   n0,
   _CMRSUr,
-  { [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/upload", 200], [_end]: ["control-storage-"] },
+  { [_end]: ["control-storage-"], [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/upload", 200] },
   () => CreateMultipartReadSetUploadRequest$,
   () => CreateMultipartReadSetUploadResponse$,
 ];
@@ -2521,7 +2522,7 @@ export var CreateReferenceStore$: StaticOperationSchema = [
   9,
   n0,
   _CRS,
-  { [_ht]: ["POST", "/referencestore", 200], [_end]: ["control-storage-"] },
+  { [_end]: ["control-storage-"], [_ht]: ["POST", "/referencestore", 200] },
   () => CreateReferenceStoreRequest$,
   () => CreateReferenceStoreResponse$,
 ];
@@ -2529,7 +2530,7 @@ export var CreateRunCache$: StaticOperationSchema = [
   9,
   n0,
   _CRC,
-  { [_ht]: ["POST", "/runCache", 201], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["POST", "/runCache", 201] },
   () => CreateRunCacheRequest$,
   () => CreateRunCacheResponse$,
 ];
@@ -2537,7 +2538,7 @@ export var CreateRunGroup$: StaticOperationSchema = [
   9,
   n0,
   _CRG,
-  { [_ht]: ["POST", "/runGroup", 201], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["POST", "/runGroup", 201] },
   () => CreateRunGroupRequest$,
   () => CreateRunGroupResponse$,
 ];
@@ -2545,7 +2546,7 @@ export var CreateSequenceStore$: StaticOperationSchema = [
   9,
   n0,
   _CSS,
-  { [_ht]: ["POST", "/sequencestore", 200], [_end]: ["control-storage-"] },
+  { [_end]: ["control-storage-"], [_ht]: ["POST", "/sequencestore", 200] },
   () => CreateSequenceStoreRequest$,
   () => CreateSequenceStoreResponse$,
 ];
@@ -2553,7 +2554,7 @@ export var CreateShare$: StaticOperationSchema = [
   9,
   n0,
   _CS,
-  { [_ht]: ["POST", "/share", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["POST", "/share", 200] },
   () => CreateShareRequest$,
   () => CreateShareResponse$,
 ];
@@ -2561,7 +2562,7 @@ export var CreateVariantStore$: StaticOperationSchema = [
   9,
   n0,
   _CVS,
-  { [_ht]: ["POST", "/variantStore", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["POST", "/variantStore", 200] },
   () => CreateVariantStoreRequest$,
   () => CreateVariantStoreResponse$,
 ];
@@ -2569,7 +2570,7 @@ export var CreateWorkflow$: StaticOperationSchema = [
   9,
   n0,
   _CW,
-  { [_ht]: ["POST", "/workflow", 201], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["POST", "/workflow", 201] },
   () => CreateWorkflowRequest$,
   () => CreateWorkflowResponse$,
 ];
@@ -2577,7 +2578,7 @@ export var CreateWorkflowVersion$: StaticOperationSchema = [
   9,
   n0,
   _CWV,
-  { [_ht]: ["POST", "/workflow/{workflowId}/version", 201], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["POST", "/workflow/{workflowId}/version", 201] },
   () => CreateWorkflowVersionRequest$,
   () => CreateWorkflowVersionResponse$,
 ];
@@ -2585,7 +2586,7 @@ export var DeleteAnnotationStore$: StaticOperationSchema = [
   9,
   n0,
   _DAS,
-  { [_ht]: ["DELETE", "/annotationStore/{name}", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["DELETE", "/annotationStore/{name}", 200] },
   () => DeleteAnnotationStoreRequest$,
   () => DeleteAnnotationStoreResponse$,
 ];
@@ -2593,7 +2594,7 @@ export var DeleteAnnotationStoreVersions$: StaticOperationSchema = [
   9,
   n0,
   _DASV,
-  { [_ht]: ["POST", "/annotationStore/{name}/versions/delete", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["POST", "/annotationStore/{name}/versions/delete", 200] },
   () => DeleteAnnotationStoreVersionsRequest$,
   () => DeleteAnnotationStoreVersionsResponse$,
 ];
@@ -2601,7 +2602,7 @@ export var DeleteReference$: StaticOperationSchema = [
   9,
   n0,
   _DRe,
-  { [_ht]: ["DELETE", "/referencestore/{referenceStoreId}/reference/{id}", 200], [_end]: ["control-storage-"] },
+  { [_end]: ["control-storage-"], [_ht]: ["DELETE", "/referencestore/{referenceStoreId}/reference/{id}", 200] },
   () => DeleteReferenceRequest$,
   () => DeleteReferenceResponse$,
 ];
@@ -2609,7 +2610,7 @@ export var DeleteReferenceStore$: StaticOperationSchema = [
   9,
   n0,
   _DRS,
-  { [_ht]: ["DELETE", "/referencestore/{id}", 200], [_end]: ["control-storage-"] },
+  { [_end]: ["control-storage-"], [_ht]: ["DELETE", "/referencestore/{id}", 200] },
   () => DeleteReferenceStoreRequest$,
   () => DeleteReferenceStoreResponse$,
 ];
@@ -2617,7 +2618,7 @@ export var DeleteRun$: StaticOperationSchema = [
   9,
   n0,
   _DRel,
-  { [_ht]: ["DELETE", "/run/{id}", 202], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["DELETE", "/run/{id}", 202] },
   () => DeleteRunRequest$,
   () => __Unit,
 ];
@@ -2625,7 +2626,7 @@ export var DeleteRunCache$: StaticOperationSchema = [
   9,
   n0,
   _DRC,
-  { [_ht]: ["DELETE", "/runCache/{id}", 202], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["DELETE", "/runCache/{id}", 202] },
   () => DeleteRunCacheRequest$,
   () => __Unit,
 ];
@@ -2633,7 +2634,7 @@ export var DeleteRunGroup$: StaticOperationSchema = [
   9,
   n0,
   _DRG,
-  { [_ht]: ["DELETE", "/runGroup/{id}", 202], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["DELETE", "/runGroup/{id}", 202] },
   () => DeleteRunGroupRequest$,
   () => __Unit,
 ];
@@ -2641,7 +2642,7 @@ export var DeleteS3AccessPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DSAP,
-  { [_ht]: ["DELETE", "/s3accesspolicy/{s3AccessPointArn}", 200], [_end]: ["control-storage-"] },
+  { [_end]: ["control-storage-"], [_ht]: ["DELETE", "/s3accesspolicy/{s3AccessPointArn}", 200] },
   () => DeleteS3AccessPolicyRequest$,
   () => DeleteS3AccessPolicyResponse$,
 ];
@@ -2649,7 +2650,7 @@ export var DeleteSequenceStore$: StaticOperationSchema = [
   9,
   n0,
   _DSS,
-  { [_ht]: ["DELETE", "/sequencestore/{id}", 200], [_end]: ["control-storage-"] },
+  { [_end]: ["control-storage-"], [_ht]: ["DELETE", "/sequencestore/{id}", 200] },
   () => DeleteSequenceStoreRequest$,
   () => DeleteSequenceStoreResponse$,
 ];
@@ -2657,7 +2658,7 @@ export var DeleteShare$: StaticOperationSchema = [
   9,
   n0,
   _DS,
-  { [_ht]: ["DELETE", "/share/{shareId}", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["DELETE", "/share/{shareId}", 200] },
   () => DeleteShareRequest$,
   () => DeleteShareResponse$,
 ];
@@ -2665,7 +2666,7 @@ export var DeleteVariantStore$: StaticOperationSchema = [
   9,
   n0,
   _DVS,
-  { [_ht]: ["DELETE", "/variantStore/{name}", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["DELETE", "/variantStore/{name}", 200] },
   () => DeleteVariantStoreRequest$,
   () => DeleteVariantStoreResponse$,
 ];
@@ -2673,7 +2674,7 @@ export var DeleteWorkflow$: StaticOperationSchema = [
   9,
   n0,
   _DW,
-  { [_ht]: ["DELETE", "/workflow/{id}", 202], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["DELETE", "/workflow/{id}", 202] },
   () => DeleteWorkflowRequest$,
   () => __Unit,
 ];
@@ -2681,7 +2682,7 @@ export var DeleteWorkflowVersion$: StaticOperationSchema = [
   9,
   n0,
   _DWV,
-  { [_ht]: ["DELETE", "/workflow/{workflowId}/version/{versionName}", 202], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["DELETE", "/workflow/{workflowId}/version/{versionName}", 202] },
   () => DeleteWorkflowVersionRequest$,
   () => __Unit,
 ];
@@ -2689,7 +2690,7 @@ export var GetAnnotationImportJob$: StaticOperationSchema = [
   9,
   n0,
   _GAIJ,
-  { [_ht]: ["GET", "/import/annotation/{jobId}", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["GET", "/import/annotation/{jobId}", 200] },
   () => GetAnnotationImportRequest$,
   () => GetAnnotationImportResponse$,
 ];
@@ -2705,7 +2706,7 @@ export var GetAnnotationStoreVersion$: StaticOperationSchema = [
   9,
   n0,
   _GASV,
-  { [_ht]: ["GET", "/annotationStore/{name}/version/{versionName}", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["GET", "/annotationStore/{name}/version/{versionName}", 200] },
   () => GetAnnotationStoreVersionRequest$,
   () => GetAnnotationStoreVersionResponse$,
 ];
@@ -2713,7 +2714,7 @@ export var GetReadSet$: StaticOperationSchema = [
   9,
   n0,
   _GRS,
-  { [_ht]: ["GET", "/sequencestore/{sequenceStoreId}/readset/{id}", 200], [_end]: ["storage-"] },
+  { [_end]: ["storage-"], [_ht]: ["GET", "/sequencestore/{sequenceStoreId}/readset/{id}", 200] },
   () => GetReadSetRequest$,
   () => GetReadSetResponse$,
 ];
@@ -2745,7 +2746,7 @@ export var GetReadSetMetadata$: StaticOperationSchema = [
   9,
   n0,
   _GRSM,
-  { [_ht]: ["GET", "/sequencestore/{sequenceStoreId}/readset/{id}/metadata", 200], [_end]: ["control-storage-"] },
+  { [_end]: ["control-storage-"], [_ht]: ["GET", "/sequencestore/{sequenceStoreId}/readset/{id}/metadata", 200] },
   () => GetReadSetMetadataRequest$,
   () => GetReadSetMetadataResponse$,
 ];
@@ -2753,7 +2754,7 @@ export var GetReference$: StaticOperationSchema = [
   9,
   n0,
   _GR,
-  { [_ht]: ["GET", "/referencestore/{referenceStoreId}/reference/{id}", 200], [_end]: ["storage-"] },
+  { [_end]: ["storage-"], [_ht]: ["GET", "/referencestore/{referenceStoreId}/reference/{id}", 200] },
   () => GetReferenceRequest$,
   () => GetReferenceResponse$,
 ];
@@ -2769,7 +2770,7 @@ export var GetReferenceMetadata$: StaticOperationSchema = [
   9,
   n0,
   _GRM,
-  { [_ht]: ["GET", "/referencestore/{referenceStoreId}/reference/{id}/metadata", 200], [_end]: ["control-storage-"] },
+  { [_end]: ["control-storage-"], [_ht]: ["GET", "/referencestore/{referenceStoreId}/reference/{id}/metadata", 200] },
   () => GetReferenceMetadataRequest$,
   () => GetReferenceMetadataResponse$,
 ];
@@ -2777,7 +2778,7 @@ export var GetReferenceStore$: StaticOperationSchema = [
   9,
   n0,
   _GRSe,
-  { [_ht]: ["GET", "/referencestore/{id}", 200], [_end]: ["control-storage-"] },
+  { [_end]: ["control-storage-"], [_ht]: ["GET", "/referencestore/{id}", 200] },
   () => GetReferenceStoreRequest$,
   () => GetReferenceStoreResponse$,
 ];
@@ -2785,7 +2786,7 @@ export var GetRun$: StaticOperationSchema = [
   9,
   n0,
   _GRe,
-  { [_ht]: ["GET", "/run/{id}", 200], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["GET", "/run/{id}", 200] },
   () => GetRunRequest$,
   () => GetRunResponse$,
 ];
@@ -2793,7 +2794,7 @@ export var GetRunCache$: StaticOperationSchema = [
   9,
   n0,
   _GRC,
-  { [_ht]: ["GET", "/runCache/{id}", 200], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["GET", "/runCache/{id}", 200] },
   () => GetRunCacheRequest$,
   () => GetRunCacheResponse$,
 ];
@@ -2801,7 +2802,7 @@ export var GetRunGroup$: StaticOperationSchema = [
   9,
   n0,
   _GRG,
-  { [_ht]: ["GET", "/runGroup/{id}", 200], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["GET", "/runGroup/{id}", 200] },
   () => GetRunGroupRequest$,
   () => GetRunGroupResponse$,
 ];
@@ -2809,7 +2810,7 @@ export var GetRunTask$: StaticOperationSchema = [
   9,
   n0,
   _GRT,
-  { [_ht]: ["GET", "/run/{id}/task/{taskId}", 200], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["GET", "/run/{id}/task/{taskId}", 200] },
   () => GetRunTaskRequest$,
   () => GetRunTaskResponse$,
 ];
@@ -2817,7 +2818,7 @@ export var GetS3AccessPolicy$: StaticOperationSchema = [
   9,
   n0,
   _GSAP,
-  { [_ht]: ["GET", "/s3accesspolicy/{s3AccessPointArn}", 200], [_end]: ["control-storage-"] },
+  { [_end]: ["control-storage-"], [_ht]: ["GET", "/s3accesspolicy/{s3AccessPointArn}", 200] },
   () => GetS3AccessPolicyRequest$,
   () => GetS3AccessPolicyResponse$,
 ];
@@ -2825,7 +2826,7 @@ export var GetSequenceStore$: StaticOperationSchema = [
   9,
   n0,
   _GSS,
-  { [_ht]: ["GET", "/sequencestore/{id}", 200], [_end]: ["control-storage-"] },
+  { [_end]: ["control-storage-"], [_ht]: ["GET", "/sequencestore/{id}", 200] },
   () => GetSequenceStoreRequest$,
   () => GetSequenceStoreResponse$,
 ];
@@ -2833,7 +2834,7 @@ export var GetShare$: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  { [_ht]: ["GET", "/share/{shareId}", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["GET", "/share/{shareId}", 200] },
   () => GetShareRequest$,
   () => GetShareResponse$,
 ];
@@ -2841,7 +2842,7 @@ export var GetVariantImportJob$: StaticOperationSchema = [
   9,
   n0,
   _GVIJ,
-  { [_ht]: ["GET", "/import/variant/{jobId}", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["GET", "/import/variant/{jobId}", 200] },
   () => GetVariantImportRequest$,
   () => GetVariantImportResponse$,
 ];
@@ -2857,7 +2858,7 @@ export var GetWorkflow$: StaticOperationSchema = [
   9,
   n0,
   _GW,
-  { [_ht]: ["GET", "/workflow/{id}", 200], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["GET", "/workflow/{id}", 200] },
   () => GetWorkflowRequest$,
   () => GetWorkflowResponse$,
 ];
@@ -2865,7 +2866,7 @@ export var GetWorkflowVersion$: StaticOperationSchema = [
   9,
   n0,
   _GWV,
-  { [_ht]: ["GET", "/workflow/{workflowId}/version/{versionName}", 200], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["GET", "/workflow/{workflowId}/version/{versionName}", 200] },
   () => GetWorkflowVersionRequest$,
   () => GetWorkflowVersionResponse$,
 ];
@@ -2873,7 +2874,7 @@ export var ListAnnotationImportJobs$: StaticOperationSchema = [
   9,
   n0,
   _LAIJ,
-  { [_ht]: ["POST", "/import/annotations", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["POST", "/import/annotations", 200] },
   () => ListAnnotationImportJobsRequest$,
   () => ListAnnotationImportJobsResponse$,
 ];
@@ -2889,7 +2890,7 @@ export var ListAnnotationStoreVersions$: StaticOperationSchema = [
   9,
   n0,
   _LASV,
-  { [_ht]: ["POST", "/annotationStore/{name}/versions", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["POST", "/annotationStore/{name}/versions", 200] },
   () => ListAnnotationStoreVersionsRequest$,
   () => ListAnnotationStoreVersionsResponse$,
 ];
@@ -2969,7 +2970,7 @@ export var ListRunCaches$: StaticOperationSchema = [
   9,
   n0,
   _LRC,
-  { [_ht]: ["GET", "/runCache", 200], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["GET", "/runCache", 200] },
   () => ListRunCachesRequest$,
   () => ListRunCachesResponse$,
 ];
@@ -2977,7 +2978,7 @@ export var ListRunGroups$: StaticOperationSchema = [
   9,
   n0,
   _LRG,
-  { [_ht]: ["GET", "/runGroup", 200], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["GET", "/runGroup", 200] },
   () => ListRunGroupsRequest$,
   () => ListRunGroupsResponse$,
 ];
@@ -2985,7 +2986,7 @@ export var ListRuns$: StaticOperationSchema = [
   9,
   n0,
   _LRi,
-  { [_ht]: ["GET", "/run", 200], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["GET", "/run", 200] },
   () => ListRunsRequest$,
   () => ListRunsResponse$,
 ];
@@ -2993,7 +2994,7 @@ export var ListRunTasks$: StaticOperationSchema = [
   9,
   n0,
   _LRT,
-  { [_ht]: ["GET", "/run/{id}/task", 200], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["GET", "/run/{id}/task", 200] },
   () => ListRunTasksRequest$,
   () => ListRunTasksResponse$,
 ];
@@ -3009,7 +3010,7 @@ export var ListShares$: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  { [_ht]: ["POST", "/shares", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["POST", "/shares", 200] },
   () => ListSharesRequest$,
   () => ListSharesResponse$,
 ];
@@ -3017,7 +3018,7 @@ export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  { [_ht]: ["GET", "/tags/{resourceArn}", 200], [_end]: ["tags-"] },
+  { [_end]: ["tags-"], [_ht]: ["GET", "/tags/{resourceArn}", 200] },
   () => ListTagsForResourceRequest$,
   () => ListTagsForResourceResponse$,
 ];
@@ -3025,7 +3026,7 @@ export var ListVariantImportJobs$: StaticOperationSchema = [
   9,
   n0,
   _LVIJ,
-  { [_ht]: ["POST", "/import/variants", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["POST", "/import/variants", 200] },
   () => ListVariantImportJobsRequest$,
   () => ListVariantImportJobsResponse$,
 ];
@@ -3041,7 +3042,7 @@ export var ListWorkflows$: StaticOperationSchema = [
   9,
   n0,
   _LW,
-  { [_ht]: ["GET", "/workflow", 200], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["GET", "/workflow", 200] },
   () => ListWorkflowsRequest$,
   () => ListWorkflowsResponse$,
 ];
@@ -3049,7 +3050,7 @@ export var ListWorkflowVersions$: StaticOperationSchema = [
   9,
   n0,
   _LWV,
-  { [_ht]: ["GET", "/workflow/{workflowId}/version", 200], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["GET", "/workflow/{workflowId}/version", 200] },
   () => ListWorkflowVersionsRequest$,
   () => ListWorkflowVersionsResponse$,
 ];
@@ -3057,7 +3058,7 @@ export var PutS3AccessPolicy$: StaticOperationSchema = [
   9,
   n0,
   _PSAP,
-  { [_ht]: ["PUT", "/s3accesspolicy/{s3AccessPointArn}", 200], [_end]: ["control-storage-"] },
+  { [_end]: ["control-storage-"], [_ht]: ["PUT", "/s3accesspolicy/{s3AccessPointArn}", 200] },
   () => PutS3AccessPolicyRequest$,
   () => PutS3AccessPolicyResponse$,
 ];
@@ -3065,7 +3066,7 @@ export var StartAnnotationImportJob$: StaticOperationSchema = [
   9,
   n0,
   _SAIJ,
-  { [_ht]: ["POST", "/import/annotation", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["POST", "/import/annotation", 200] },
   () => StartAnnotationImportRequest$,
   () => StartAnnotationImportResponse$,
 ];
@@ -3073,7 +3074,7 @@ export var StartReadSetActivationJob$: StaticOperationSchema = [
   9,
   n0,
   _SRSAJ,
-  { [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/activationjob", 200], [_end]: ["control-storage-"] },
+  { [_end]: ["control-storage-"], [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/activationjob", 200] },
   () => StartReadSetActivationJobRequest$,
   () => StartReadSetActivationJobResponse$,
 ];
@@ -3081,7 +3082,7 @@ export var StartReadSetExportJob$: StaticOperationSchema = [
   9,
   n0,
   _SRSEJ,
-  { [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/exportjob", 200], [_end]: ["control-storage-"] },
+  { [_end]: ["control-storage-"], [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/exportjob", 200] },
   () => StartReadSetExportJobRequest$,
   () => StartReadSetExportJobResponse$,
 ];
@@ -3089,7 +3090,7 @@ export var StartReadSetImportJob$: StaticOperationSchema = [
   9,
   n0,
   _SRSIJ,
-  { [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/importjob", 200], [_end]: ["control-storage-"] },
+  { [_end]: ["control-storage-"], [_ht]: ["POST", "/sequencestore/{sequenceStoreId}/importjob", 200] },
   () => StartReadSetImportJobRequest$,
   () => StartReadSetImportJobResponse$,
 ];
@@ -3097,7 +3098,7 @@ export var StartReferenceImportJob$: StaticOperationSchema = [
   9,
   n0,
   _SRIJ,
-  { [_ht]: ["POST", "/referencestore/{referenceStoreId}/importjob", 200], [_end]: ["control-storage-"] },
+  { [_end]: ["control-storage-"], [_ht]: ["POST", "/referencestore/{referenceStoreId}/importjob", 200] },
   () => StartReferenceImportJobRequest$,
   () => StartReferenceImportJobResponse$,
 ];
@@ -3105,7 +3106,7 @@ export var StartRun$: StaticOperationSchema = [
   9,
   n0,
   _SRt,
-  { [_ht]: ["POST", "/run", 201], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["POST", "/run", 201] },
   () => StartRunRequest$,
   () => StartRunResponse$,
 ];
@@ -3113,7 +3114,7 @@ export var StartVariantImportJob$: StaticOperationSchema = [
   9,
   n0,
   _SVIJ,
-  { [_ht]: ["POST", "/import/variant", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["POST", "/import/variant", 200] },
   () => StartVariantImportRequest$,
   () => StartVariantImportResponse$,
 ];
@@ -3121,7 +3122,7 @@ export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  { [_ht]: ["POST", "/tags/{resourceArn}", 204], [_end]: ["tags-"] },
+  { [_end]: ["tags-"], [_ht]: ["POST", "/tags/{resourceArn}", 204] },
   () => TagResourceRequest$,
   () => TagResourceResponse$,
 ];
@@ -3129,7 +3130,7 @@ export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  { [_ht]: ["DELETE", "/tags/{resourceArn}", 204], [_end]: ["tags-"] },
+  { [_end]: ["tags-"], [_ht]: ["DELETE", "/tags/{resourceArn}", 204] },
   () => UntagResourceRequest$,
   () => UntagResourceResponse$,
 ];
@@ -3137,7 +3138,7 @@ export var UpdateAnnotationStore$: StaticOperationSchema = [
   9,
   n0,
   _UAS,
-  { [_ht]: ["POST", "/annotationStore/{name}", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["POST", "/annotationStore/{name}", 200] },
   () => UpdateAnnotationStoreRequest$,
   () => UpdateAnnotationStoreResponse$,
 ];
@@ -3145,7 +3146,7 @@ export var UpdateAnnotationStoreVersion$: StaticOperationSchema = [
   9,
   n0,
   _UASV,
-  { [_ht]: ["POST", "/annotationStore/{name}/version/{versionName}", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["POST", "/annotationStore/{name}/version/{versionName}", 200] },
   () => UpdateAnnotationStoreVersionRequest$,
   () => UpdateAnnotationStoreVersionResponse$,
 ];
@@ -3153,7 +3154,7 @@ export var UpdateRunCache$: StaticOperationSchema = [
   9,
   n0,
   _URC,
-  { [_ht]: ["POST", "/runCache/{id}", 202], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["POST", "/runCache/{id}", 202] },
   () => UpdateRunCacheRequest$,
   () => __Unit,
 ];
@@ -3161,7 +3162,7 @@ export var UpdateRunGroup$: StaticOperationSchema = [
   9,
   n0,
   _URG,
-  { [_ht]: ["POST", "/runGroup/{id}", 202], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["POST", "/runGroup/{id}", 202] },
   () => UpdateRunGroupRequest$,
   () => __Unit,
 ];
@@ -3169,7 +3170,7 @@ export var UpdateSequenceStore$: StaticOperationSchema = [
   9,
   n0,
   _USS,
-  { [_ht]: ["PATCH", "/sequencestore/{id}", 200], [_end]: ["control-storage-"] },
+  { [_end]: ["control-storage-"], [_ht]: ["PATCH", "/sequencestore/{id}", 200] },
   () => UpdateSequenceStoreRequest$,
   () => UpdateSequenceStoreResponse$,
 ];
@@ -3177,7 +3178,7 @@ export var UpdateVariantStore$: StaticOperationSchema = [
   9,
   n0,
   _UVS,
-  { [_ht]: ["POST", "/variantStore/{name}", 200], [_end]: ["analytics-"] },
+  { [_end]: ["analytics-"], [_ht]: ["POST", "/variantStore/{name}", 200] },
   () => UpdateVariantStoreRequest$,
   () => UpdateVariantStoreResponse$,
 ];
@@ -3185,7 +3186,7 @@ export var UpdateWorkflow$: StaticOperationSchema = [
   9,
   n0,
   _UW,
-  { [_ht]: ["POST", "/workflow/{id}", 202], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["POST", "/workflow/{id}", 202] },
   () => UpdateWorkflowRequest$,
   () => __Unit,
 ];
@@ -3193,7 +3194,7 @@ export var UpdateWorkflowVersion$: StaticOperationSchema = [
   9,
   n0,
   _UWV,
-  { [_ht]: ["POST", "/workflow/{workflowId}/version/{versionName}", 202], [_end]: ["workflows-"] },
+  { [_end]: ["workflows-"], [_ht]: ["POST", "/workflow/{workflowId}/version/{versionName}", 202] },
   () => UpdateWorkflowVersionRequest$,
   () => __Unit,
 ];
@@ -3201,7 +3202,7 @@ export var UploadReadSetPart$: StaticOperationSchema = [
   9,
   n0,
   _URSP,
-  { [_ht]: ["PUT", "/sequencestore/{sequenceStoreId}/upload/{uploadId}/part", 200], [_end]: ["storage-"] },
+  { [_end]: ["storage-"], [_ht]: ["PUT", "/sequencestore/{sequenceStoreId}/upload/{uploadId}/part", 200] },
   () => UploadReadSetPartRequest$,
   () => UploadReadSetPartResponse$,
 ];

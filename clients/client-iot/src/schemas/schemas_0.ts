@@ -1955,6 +1955,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -2089,7 +2090,7 @@ export var AssociateSbomWithPackageVersionRequest$: StaticStructureSchema = [
   _ASWPVR,
   0,
   [_pN, _vN, _sb, _cT],
-  [[0, 1], [0, 1], () => Sbom$, [0, { [_iT]: 1, [_hQ]: _cT }]],
+  [[0, 1], [0, 1], () => Sbom$, [0, { [_hQ]: _cT, [_iT]: 1 }]],
 ];
 export var AssociateSbomWithPackageVersionResponse$: StaticStructureSchema = [
   3,
@@ -2630,7 +2631,7 @@ export var CreatePackageRequest$: StaticStructureSchema = [
   _CPR,
   0,
   [_pN, _d, _tag, _cT],
-  [[0, 1], [() => ResourceDescription, 0], 128 | 0, [0, { [_iT]: 1, [_hQ]: _cT }]],
+  [[0, 1], [() => ResourceDescription, 0], 128 | 0, [0, { [_hQ]: _cT, [_iT]: 1 }]],
 ];
 export var CreatePackageResponse$: StaticStructureSchema = [
   3,
@@ -2654,7 +2655,7 @@ export var CreatePackageVersionRequest$: StaticStructureSchema = [
     () => PackageVersionArtifact$,
     [() => PackageVersionRecipe, 0],
     128 | 0,
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var CreatePackageVersionResponse$: StaticStructureSchema = [
@@ -2981,7 +2982,7 @@ export var DeletePackageRequest$: StaticStructureSchema = [
   [_pN, _cT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeletePackageResponse$: StaticStructureSchema = [3, n0, _DPRe, 0, [], []];
@@ -2994,7 +2995,7 @@ export var DeletePackageVersionRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeletePackageVersionResponse$: StaticStructureSchema = [3, n0, _DPVRe, 0, [], []];
@@ -3547,7 +3548,7 @@ export var DisassociateSbomFromPackageVersionRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DisassociateSbomFromPackageVersionResponse$: StaticStructureSchema = [3, n0, _DSFPVRi, 0, [], []];
@@ -5956,7 +5957,7 @@ export var UpdatePackageConfigurationRequest$: StaticStructureSchema = [
   _UPCR,
   0,
   [_vUBJC, _cT],
-  [() => VersionUpdateByJobsConfig$, [0, { [_iT]: 1, [_hQ]: _cT }]],
+  [() => VersionUpdateByJobsConfig$, [0, { [_hQ]: _cT, [_iT]: 1 }]],
 ];
 export var UpdatePackageConfigurationResponse$: StaticStructureSchema = [3, n0, _UPCRp, 0, [], []];
 export var UpdatePackageRequest$: StaticStructureSchema = [
@@ -5965,7 +5966,7 @@ export var UpdatePackageRequest$: StaticStructureSchema = [
   _UPR,
   0,
   [_pN, _d, _dVN, _uDV, _cT],
-  [[0, 1], [() => ResourceDescription, 0], 0, 2, [0, { [_iT]: 1, [_hQ]: _cT }]],
+  [[0, 1], [() => ResourceDescription, 0], 0, 2, [0, { [_hQ]: _cT, [_iT]: 1 }]],
 ];
 export var UpdatePackageResponse$: StaticStructureSchema = [3, n0, _UPRp, 0, [], []];
 export var UpdatePackageVersionRequest$: StaticStructureSchema = [
@@ -5982,7 +5983,7 @@ export var UpdatePackageVersionRequest$: StaticStructureSchema = [
     () => PackageVersionArtifact$,
     0,
     [() => PackageVersionRecipe, 0],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var UpdatePackageVersionResponse$: StaticStructureSchema = [3, n0, _UPVRp, 0, [], []];
@@ -6324,7 +6325,7 @@ var ResourceArns = 128 | 0;
 var ResourceAttributes: StaticMapSchema = [2, n0, _RAe, 8, 0, 0];
 var StringMap = 128 | 0;
 var TagMap = 128 | 0;
-export var AssetPropertyVariant$: StaticStructureSchema = [3, n0, _APVs, 0, [_sVtri, _iV, _dVo, _bV], [0, 0, 0, 0]];
+export var AssetPropertyVariant$: StaticUnionSchema = [4, n0, _APVs, 0, [_sVtri, _iV, _dVo, _bV], [0, 0, 0, 0]];
 export var AcceptCertificateTransfer$: StaticOperationSchema = [
   9,
   n0,

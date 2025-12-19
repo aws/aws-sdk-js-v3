@@ -225,6 +225,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -794,9 +795,9 @@ var WorkflowStepsSummaryList: StaticListSchema = [1, n0, _WSSL, 0, () => Workflo
 var StepInputParameters: StaticMapSchema = [2, n0, _SIP, 8, 0, () => StepInput$];
 var StringMap = 128 | 0;
 var TagMap = 128 | 0;
-export var StepInput$: StaticStructureSchema = [3, n0, _SI, 0, [_iV, _sV, _lOSV, _mOSV], [1, 0, 64 | 0, 128 | 0]];
-export var TemplateSource$: StaticStructureSchema = [3, n0, _TSe, 0, [_wIo], [0]];
-export var WorkflowStepOutputUnion$: StaticStructureSchema = [3, n0, _WSOU, 0, [_iV, _sV, _lOSVi], [1, 0, 64 | 0]];
+export var StepInput$: StaticUnionSchema = [4, n0, _SI, 0, [_iV, _sV, _lOSV, _mOSV], [1, 0, 64 | 0, 128 | 0]];
+export var TemplateSource$: StaticUnionSchema = [4, n0, _TSe, 0, [_wIo], [0]];
+export var WorkflowStepOutputUnion$: StaticUnionSchema = [4, n0, _WSOU, 0, [_iV, _sV, _lOSVi], [1, 0, 64 | 0]];
 export var CreateTemplate$: StaticOperationSchema = [
   9,
   n0,

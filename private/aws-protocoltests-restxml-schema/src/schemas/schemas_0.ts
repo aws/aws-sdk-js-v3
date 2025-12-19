@@ -432,6 +432,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { ComplexError, InvalidGreeting } from "../models/errors";
@@ -543,7 +544,7 @@ export var FlattenedXmlMapWithXmlNameRequest$: StaticStructureSchema = [
   _FXMWXNR,
   0,
   [_mM],
-  [[() => FlattenedXmlMapWithXmlNameInputOutputMap, { [_xN]: _KVP, [_xF]: 1 }]],
+  [[() => FlattenedXmlMapWithXmlNameInputOutputMap, { [_xF]: 1, [_xN]: _KVP }]],
 ];
 export var FlattenedXmlMapWithXmlNameResponse$: StaticStructureSchema = [
   3,
@@ -551,7 +552,7 @@ export var FlattenedXmlMapWithXmlNameResponse$: StaticStructureSchema = [
   _FXMWXNRl,
   0,
   [_mM],
-  [[() => FlattenedXmlMapWithXmlNameInputOutputMap, { [_xN]: _KVP, [_xF]: 1 }]],
+  [[() => FlattenedXmlMapWithXmlNameInputOutputMap, { [_xF]: 1, [_xN]: _KVP }]],
 ];
 export var FlattenedXmlMapWithXmlNamespaceOutput$: StaticStructureSchema = [
   3,
@@ -559,7 +560,7 @@ export var FlattenedXmlMapWithXmlNamespaceOutput$: StaticStructureSchema = [
   _FXMWXNO,
   0,
   [_mM],
-  [[() => FlattenedXmlMapWithXmlNamespaceOutputMap, { [_xN]: _KVP, [_xF]: 1, [_xNm]: [_, _hm] }]],
+  [[() => FlattenedXmlMapWithXmlNamespaceOutputMap, { [_xF]: 1, [_xN]: _KVP, [_xNm]: [_, _hm] }]],
 ];
 export var FractionalSecondsOutput$: StaticStructureSchema = [3, n1, _FSO, 0, [_d], [5]];
 export var GreetingWithErrorsOutput$: StaticStructureSchema = [3, n1, _GWEO, 0, [_g], [[0, { [_hH]: _XG }]]];
@@ -838,7 +839,7 @@ export var QueryIdempotencyTokenAutoFillInput$: StaticStructureSchema = [
   _QITAFI,
   0,
   [_to],
-  [[0, { [_iT]: 1, [_hQ]: _to }]],
+  [[0, { [_hQ]: _to, [_iT]: 1 }]],
 ];
 export var QueryParamsAsStringListMapInput$: StaticStructureSchema = [
   3,
@@ -960,7 +961,7 @@ export var XmlAttributesPayloadRequest$: StaticStructureSchema = [
   _XAPR,
   0,
   [_f, _at],
-  [0, [0, { [_xN]: _te, [_xA]: 1 }]],
+  [0, [0, { [_xA]: 1, [_xN]: _te }]],
 ];
 export var XmlAttributesPayloadResponse$: StaticStructureSchema = [
   3,
@@ -968,7 +969,7 @@ export var XmlAttributesPayloadResponse$: StaticStructureSchema = [
   _XAPRm,
   0,
   [_f, _at],
-  [0, [0, { [_xN]: _te, [_xA]: 1 }]],
+  [0, [0, { [_xA]: 1, [_xN]: _te }]],
 ];
 export var XmlAttributesRequest$: StaticStructureSchema = [
   3,
@@ -976,7 +977,7 @@ export var XmlAttributesRequest$: StaticStructureSchema = [
   _XAR,
   0,
   [_f, _at],
-  [0, [0, { [_xN]: _te, [_xA]: 1 }]],
+  [0, [0, { [_xA]: 1, [_xN]: _te }]],
 ];
 export var XmlAttributesResponse$: StaticStructureSchema = [
   3,
@@ -984,7 +985,7 @@ export var XmlAttributesResponse$: StaticStructureSchema = [
   _XARm,
   0,
   [_f, _at],
-  [0, [0, { [_xN]: _te, [_xA]: 1 }]],
+  [0, [0, { [_xA]: 1, [_xN]: _te }]],
 ];
 export var XmlBlobsRequest$: StaticStructureSchema = [3, n1, _XBR, 0, [_da], [21]];
 export var XmlBlobsResponse$: StaticStructureSchema = [3, n1, _XBRm, 0, [_da], [21]];
@@ -1007,7 +1008,7 @@ export var XmlEmptyListsRequest$: StaticStructureSchema = [
     [1, n0, _NSL, 0, 64 | 0],
     [() => RenamedListMembers, { [_xN]: _r }],
     [() => RenamedListMembers, { [_xF]: 1 }],
-    [() => RenamedListMembers, { [_xN]: _cN, [_xF]: 1 }],
+    [() => RenamedListMembers, { [_xF]: 1, [_xN]: _cN }],
     [() => ListWithMemberNamespace, { [_xF]: 1 }],
     [() => ListWithNamespace, { [_xF]: 1 }],
     [() => StructureList, { [_xN]: _mSL }],
@@ -1031,7 +1032,7 @@ export var XmlEmptyListsResponse$: StaticStructureSchema = [
     [1, n0, _NSL, 0, 64 | 0],
     [() => RenamedListMembers, { [_xN]: _r }],
     [() => RenamedListMembers, { [_xF]: 1 }],
-    [() => RenamedListMembers, { [_xN]: _cN, [_xF]: 1 }],
+    [() => RenamedListMembers, { [_xF]: 1, [_xN]: _cN }],
     [() => ListWithMemberNamespace, { [_xF]: 1 }],
     [() => ListWithNamespace, { [_xF]: 1 }],
     [() => StructureList, { [_xN]: _mSL }],
@@ -1091,7 +1092,7 @@ export var XmlListsRequest$: StaticStructureSchema = [
     [1, n0, _NSL, 0, 64 | 0],
     [() => RenamedListMembers, { [_xN]: _r }],
     [() => RenamedListMembers, { [_xF]: 1 }],
-    [() => RenamedListMembers, { [_xN]: _cN, [_xF]: 1 }],
+    [() => RenamedListMembers, { [_xF]: 1, [_xN]: _cN }],
     [() => ListWithMemberNamespace, { [_xF]: 1 }],
     [() => ListWithNamespace, { [_xF]: 1 }],
     [() => StructureList, { [_xN]: _mSL }],
@@ -1115,7 +1116,7 @@ export var XmlListsResponse$: StaticStructureSchema = [
     [1, n0, _NSL, 0, 64 | 0],
     [() => RenamedListMembers, { [_xN]: _r }],
     [() => RenamedListMembers, { [_xF]: 1 }],
-    [() => RenamedListMembers, { [_xN]: _cN, [_xF]: 1 }],
+    [() => RenamedListMembers, { [_xF]: 1, [_xN]: _cN }],
     [() => ListWithMemberNamespace, { [_xF]: 1 }],
     [() => ListWithNamespace, { [_xF]: 1 }],
     [() => StructureList, { [_xN]: _mSL }],
@@ -1146,7 +1147,7 @@ export var XmlMapWithXmlNamespaceRequest$: StaticStructureSchema = [
   _XMWXNR,
   0,
   [_mM],
-  [[() => XmlMapWithXmlNamespaceInputOutputMap, { [_xNm]: [_, _hm], [_xN]: _KVP }]],
+  [[() => XmlMapWithXmlNamespaceInputOutputMap, { [_xN]: _KVP, [_xNm]: [_, _hm] }]],
 ];
 export var XmlMapWithXmlNamespaceResponse$: StaticStructureSchema = [
   3,
@@ -1154,7 +1155,7 @@ export var XmlMapWithXmlNamespaceResponse$: StaticStructureSchema = [
   _XMWXNRm,
   0,
   [_mM],
-  [[() => XmlMapWithXmlNamespaceInputOutputMap, { [_xNm]: [_, _hm], [_xN]: _KVP }]],
+  [[() => XmlMapWithXmlNamespaceInputOutputMap, { [_xN]: _KVP, [_xNm]: [_, _hm] }]],
 ];
 export var XmlNamespaceNested$: StaticStructureSchema = [
   3,
@@ -1250,8 +1251,8 @@ var FlattenedXmlMapWithXmlNamespaceOutputMap: StaticMapSchema = [
   n1,
   _FXMWXNOM,
   0,
-  [0, { [_xNm]: [_, _hk], [_xN]: _K }],
-  [0, { [_xNm]: [_, _hv], [_xN]: _V }],
+  [0, { [_xN]: _K, [_xNm]: [_, _hk] }],
+  [0, { [_xN]: _V, [_xNm]: [_, _hv] }],
 ];
 var FooPrefixHeaders = 128 | 0;
 var NestedMap: StaticMapSchema = [2, n1, _NM, 0, 0, 128 | 0];
@@ -1278,16 +1279,16 @@ var XmlMapWithXmlNamespaceInputOutputMap: StaticMapSchema = [
   n1,
   _XMWXNIOM,
   0,
-  [0, { [_xNm]: [_, _hk], [_xN]: _K }],
-  [0, { [_xNm]: [_, _hv], [_xN]: _V }],
+  [0, { [_xN]: _K, [_xNm]: [_, _hk] }],
+  [0, { [_xN]: _V, [_xNm]: [_, _hv] }],
 ];
 var FooEnumMap = 128 | 0;
 var IntegerEnumMap = 128 | 1;
 var StringListMap: StaticMapSchema = [2, n0, _SLM, 0, 0, 64 | 0];
 var StringMap = 128 | 0;
-export var UnionPayload$: StaticStructureSchema = [3, n1, _UP, 0, [_g], [0]];
-export var XmlUnionShape$: StaticStructureSchema = [
-  3,
+export var UnionPayload$: StaticUnionSchema = [4, n1, _UP, 0, [_g], [0]];
+export var XmlUnionShape$: StaticUnionSchema = [
+  4,
   n1,
   _XUS,
   0,
@@ -1354,7 +1355,7 @@ export var EndpointOperation$: StaticOperationSchema = [
   9,
   n1,
   _EO,
-  { [_http_]: ["POST", "/EndpointOperation", 200], [_end]: ["foo."] },
+  { [_end]: ["foo."], [_http_]: ["POST", "/EndpointOperation", 200] },
   () => __Unit,
   () => __Unit,
 ];
@@ -1362,7 +1363,7 @@ export var EndpointWithHostLabelHeaderOperation$: StaticOperationSchema = [
   9,
   n1,
   _EWHLHO,
-  { [_http_]: ["POST", "/EndpointWithHostLabelHeaderOperation", 200], [_end]: ["{accountId}."] },
+  { [_end]: ["{accountId}."], [_http_]: ["POST", "/EndpointWithHostLabelHeaderOperation", 200] },
   () => HostLabelHeaderInput$,
   () => __Unit,
 ];
@@ -1370,7 +1371,7 @@ export var EndpointWithHostLabelOperation$: StaticOperationSchema = [
   9,
   n1,
   _EWHLO,
-  { [_http_]: ["POST", "/EndpointWithHostLabelOperation", 200], [_end]: ["foo.{label}."] },
+  { [_end]: ["foo.{label}."], [_http_]: ["POST", "/EndpointWithHostLabelOperation", 200] },
   () => EndpointWithHostLabelOperationRequest$,
   () => __Unit,
 ];

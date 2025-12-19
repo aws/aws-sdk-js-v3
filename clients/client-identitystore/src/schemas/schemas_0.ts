@@ -164,6 +164,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -651,15 +652,15 @@ var PhoneNumbers: StaticListSchema = [1, n0, _PN, 0, [() => PhoneNumber$, 0]];
 var Photos: StaticListSchema = [1, n0, _Ph, 0, [() => Photo$, 0]];
 var Users: StaticListSchema = [1, n0, _U, 0, [() => User$, 0]];
 var Extensions = 128 | 15;
-export var AlternateIdentifier$: StaticStructureSchema = [
-  3,
+export var AlternateIdentifier$: StaticUnionSchema = [
+  4,
   n0,
   _AI,
   0,
   [_EIx, _UAn],
   [[() => ExternalId$, 0], () => UniqueAttribute$],
 ];
-export var MemberId$: StaticStructureSchema = [3, n0, _MI, 0, [_UI], [0]];
+export var MemberId$: StaticUnionSchema = [4, n0, _MI, 0, [_UI], [0]];
 export var CreateGroup$: StaticOperationSchema = [9, n0, _CG, 0, () => CreateGroupRequest$, () => CreateGroupResponse$];
 export var CreateGroupMembership$: StaticOperationSchema = [
   9,

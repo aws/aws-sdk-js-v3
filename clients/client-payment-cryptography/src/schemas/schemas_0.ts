@@ -230,6 +230,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -535,9 +536,9 @@ var TagKeys = 64 | 0;
 var Tags: StaticListSchema = [1, n0, _T, 0, () => Tag$];
 var OptionalBlocks: StaticMapSchema = [2, n0, _OB, 0, [() => OptionalBlockId, 0], [() => OptionalBlockValue, 0]];
 var ReplicationStatus: StaticMapSchema = [2, n0, _RS, 0, 0, () => ReplicationStatusType$];
-export var DiffieHellmanDerivationData$: StaticStructureSchema = [3, n0, _DHDD, 0, [_SI], [0]];
-export var ExportKeyMaterial$: StaticStructureSchema = [
-  3,
+export var DiffieHellmanDerivationData$: StaticUnionSchema = [4, n0, _DHDD, 0, [_SI], [0]];
+export var ExportKeyMaterial$: StaticUnionSchema = [
+  4,
   n0,
   _EKM,
   0,
@@ -550,8 +551,8 @@ export var ExportKeyMaterial$: StaticStructureSchema = [
     () => ExportAs2805KeyCryptogram$,
   ],
 ];
-export var ImportKeyMaterial$: StaticStructureSchema = [
-  3,
+export var ImportKeyMaterial$: StaticUnionSchema = [
+  4,
   n0,
   _IKM,
   0,

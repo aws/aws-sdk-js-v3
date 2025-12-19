@@ -787,6 +787,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1005,7 +1006,7 @@ export var CreateBucketRequest$: StaticStructureSchema = [
   [
     [0, { [_hH]: _xaa }],
     [0, 1],
-    [() => CreateBucketConfiguration$, { [_xN]: _CBC, [_hP]: 1 }],
+    [() => CreateBucketConfiguration$, { [_hP]: 1, [_xN]: _CBC }],
     [0, { [_hH]: _xagfc }],
     [0, { [_hH]: _xagr }],
     [0, { [_hH]: _xagra }],
@@ -2262,7 +2263,7 @@ export var ListStorageLensConfigurationsResult$: StaticStructureSchema = [
   _LSLCRi,
   { [_xN]: _LSLCRis },
   [_NT, _SLCL],
-  [0, [() => StorageLensConfigurationList, { [_xN]: _SLC, [_xF]: 1 }]],
+  [0, [() => StorageLensConfigurationList, { [_xF]: 1, [_xN]: _SLC }]],
 ];
 export var ListStorageLensGroupEntry$: StaticStructureSchema = [3, n0, _LSLGE, 0, [_N, _SLGA, _HR], [0, 0, 0]];
 export var ListStorageLensGroupsRequest$: StaticStructureSchema = [
@@ -2282,7 +2283,7 @@ export var ListStorageLensGroupsResult$: StaticStructureSchema = [
   _LSLGRi,
   0,
   [_NT, _SLGLt],
-  [0, [() => StorageLensGroupList, { [_xN]: _SLG, [_xF]: 1 }]],
+  [0, [() => StorageLensGroupList, { [_xF]: 1, [_xN]: _SLG }]],
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [
   3,
@@ -2453,7 +2454,7 @@ export var PutBucketLifecycleConfigurationRequest$: StaticStructureSchema = [
   [
     [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
-    [() => LifecycleConfiguration$, { [_xN]: _LCi, [_hP]: 1 }],
+    [() => LifecycleConfiguration$, { [_hP]: 1, [_xN]: _LCi }],
   ],
 ];
 export var PutBucketPolicyRequest$: StaticStructureSchema = [
@@ -2473,7 +2474,7 @@ export var PutBucketReplicationRequest$: StaticStructureSchema = [
   [
     [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
-    [() => ReplicationConfiguration$, { [_xN]: _RC, [_hP]: 1 }],
+    [() => ReplicationConfiguration$, { [_hP]: 1, [_xN]: _RC }],
   ],
 ];
 export var PutBucketTaggingRequest$: StaticStructureSchema = [
@@ -2485,7 +2486,7 @@ export var PutBucketTaggingRequest$: StaticStructureSchema = [
   [
     [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
-    [() => Tagging$, { [_xN]: _Tagg, [_hP]: 1 }],
+    [() => Tagging$, { [_hP]: 1, [_xN]: _Tagg }],
   ],
 ];
 export var PutBucketVersioningRequest$: StaticStructureSchema = [
@@ -2498,7 +2499,7 @@ export var PutBucketVersioningRequest$: StaticStructureSchema = [
     [0, { [_hL]: 1, [_hH]: _xaai }],
     [0, 1],
     [0, { [_hH]: _xam }],
-    [() => VersioningConfiguration$, { [_xN]: _VCe, [_hP]: 1 }],
+    [() => VersioningConfiguration$, { [_hP]: 1, [_xN]: _VCe }],
   ],
 ];
 export var PutJobTaggingRequest$: StaticStructureSchema = [
@@ -2527,7 +2528,7 @@ export var PutPublicAccessBlockRequest$: StaticStructureSchema = [
   0,
   [_PABC, _AI],
   [
-    [() => PublicAccessBlockConfiguration$, { [_xN]: _PABC, [_hP]: 1 }],
+    [() => PublicAccessBlockConfiguration$, { [_hP]: 1, [_xN]: _PABC }],
     [0, { [_hL]: 1, [_hH]: _xaai }],
   ],
 ];
@@ -3049,16 +3050,9 @@ var TransitionList: StaticListSchema = [1, n0, _TLr, 0, [() => Transition$, { [_
 var Endpoints = 128 | 0;
 var S3UserMetadata = 128 | 0;
 var UserArguments = 128 | 0;
-export var JobManifestGenerator$: StaticStructureSchema = [
-  3,
-  n0,
-  _JMG,
-  0,
-  [_SJMG],
-  [[() => S3JobManifestGenerator$, 0]],
-];
-export var ObjectEncryptionFilter$: StaticStructureSchema = [
-  3,
+export var JobManifestGenerator$: StaticUnionSchema = [4, n0, _JMG, 0, [_SJMG], [[() => S3JobManifestGenerator$, 0]]];
+export var ObjectEncryptionFilter$: StaticUnionSchema = [
+  4,
   n0,
   _OEF,
   0,
@@ -3071,8 +3065,8 @@ export var ObjectEncryptionFilter$: StaticStructureSchema = [
     [() => NotSSEFilter$, { [_xN]: _NS }],
   ],
 ];
-export var ObjectLambdaContentTransformation$: StaticStructureSchema = [
-  3,
+export var ObjectLambdaContentTransformation$: StaticUnionSchema = [
+  4,
   n0,
   _OLCT,
   0,

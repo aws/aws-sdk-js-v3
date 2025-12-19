@@ -227,6 +227,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { EMRServerlessServiceException } from "../models/EMRServerlessServiceException";
@@ -714,8 +715,8 @@ var SensitivePropertiesMap: StaticMapSchema = [2, n0, _SPM, 8, 0, 0];
 var TagMap = 128 | 0;
 var WorkerTypeSpecificationInputMap: StaticMapSchema = [2, n0, _WTSIM, 0, 0, () => WorkerTypeSpecificationInput$];
 var WorkerTypeSpecificationMap: StaticMapSchema = [2, n0, _WTSM, 0, 0, () => WorkerTypeSpecification$];
-export var JobDriver$: StaticStructureSchema = [
-  3,
+export var JobDriver$: StaticUnionSchema = [
+  4,
   n0,
   _JD,
   0,

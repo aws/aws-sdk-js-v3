@@ -237,6 +237,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -917,15 +918,15 @@ var VpcSecurityGroupIdList = 64 | 0;
 var VpcSubnetIdList = 64 | 0;
 var RequestTagMap = 128 | 0;
 var ResponseTagMap = 128 | 0;
-export var _Parameters$: StaticStructureSchema = [
-  3,
+export var _Parameters$: StaticUnionSchema = [
+  4,
   n0,
   _Pa,
   0,
   [_IDB, _IDBC, _IDBE],
   [() => InfluxDBv2Parameters$, () => InfluxDBv3CoreParameters$, () => InfluxDBv3EnterpriseParameters$],
 ];
-export var PercentOrAbsoluteLong$: StaticStructureSchema = [3, n0, _POAL, 0, [_pe, _ab], [0, 1]];
+export var PercentOrAbsoluteLong$: StaticUnionSchema = [4, n0, _POAL, 0, [_pe, _ab], [0, 1]];
 export var CreateDbCluster$: StaticOperationSchema = [
   9,
   n0,

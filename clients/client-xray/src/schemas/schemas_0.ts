@@ -424,6 +424,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1101,10 +1102,10 @@ var UnprocessedTraceSegmentList: StaticListSchema = [1, n0, _UTSL, 0, () => Unpr
 var ValuesWithServiceIds: StaticListSchema = [1, n0, _VWSIa, 0, () => ValueWithServiceIds$];
 var Annotations: StaticMapSchema = [2, n0, _An, 0, 0, () => ValuesWithServiceIds];
 var AttributeMap = 128 | 0;
-export var AnnotationValue$: StaticStructureSchema = [3, n0, _AV, 0, [_NV, _BV, _SV], [1, 2, 0]];
-export var IndexingRuleValue$: StaticStructureSchema = [3, n0, _IRV, 0, [_Pro], [() => ProbabilisticRuleValue$]];
-export var IndexingRuleValueUpdate$: StaticStructureSchema = [
-  3,
+export var AnnotationValue$: StaticUnionSchema = [4, n0, _AV, 0, [_NV, _BV, _SV], [1, 2, 0]];
+export var IndexingRuleValue$: StaticUnionSchema = [4, n0, _IRV, 0, [_Pro], [() => ProbabilisticRuleValue$]];
+export var IndexingRuleValueUpdate$: StaticUnionSchema = [
+  4,
   n0,
   _IRVU,
   0,

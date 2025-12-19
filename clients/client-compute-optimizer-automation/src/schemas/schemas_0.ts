@@ -226,7 +226,13 @@ const n0 = "com.amazonaws.computeoptimizerautomation";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type {
+  StaticErrorSchema,
+  StaticListSchema,
+  StaticOperationSchema,
+  StaticStructureSchema,
+  StaticUnionSchema,
+} from "@smithy/types";
 
 import { ComputeOptimizerAutomationServiceException } from "../models/ComputeOptimizerAutomationServiceException";
 import {
@@ -708,7 +714,7 @@ var StringList = 64 | 0;
 var SummaryDimensions: StaticListSchema = [1, n0, _SDu, 0, () => SummaryDimension$];
 var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
-export var ResourceDetails$: StaticStructureSchema = [3, n0, _RD, 0, [_eV], [() => EbsVolume$]];
+export var ResourceDetails$: StaticUnionSchema = [4, n0, _RD, 0, [_eV], [() => EbsVolume$]];
 export var AssociateAccounts$: StaticOperationSchema = [
   9,
   n0,

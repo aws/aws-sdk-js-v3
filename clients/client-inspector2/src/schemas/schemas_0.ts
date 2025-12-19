@@ -989,6 +989,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -2923,8 +2924,8 @@ var VulnIdList = 64 | 0;
 var CisTagMap = 128 | 0;
 var TagMap = 128 | 0;
 var TargetResourceTags: StaticMapSchema = [2, n0, _TRT, 0, 0, 64 | 0];
-export var AggregationRequest$: StaticStructureSchema = [
-  3,
+export var AggregationRequest$: StaticUnionSchema = [
+  4,
   n0,
   _AR,
   0,
@@ -2944,8 +2945,8 @@ export var AggregationRequest$: StaticStructureSchema = [
     () => CodeRepositoryAggregation$,
   ],
 ];
-export var AggregationResponse$: StaticStructureSchema = [
-  3,
+export var AggregationResponse$: StaticUnionSchema = [
+  4,
   n0,
   _ARg,
   0,
@@ -2965,33 +2966,33 @@ export var AggregationResponse$: StaticStructureSchema = [
     () => CodeRepositoryAggregationResponse$,
   ],
 ];
-export var ClusterMetadata$: StaticStructureSchema = [
-  3,
+export var ClusterMetadata$: StaticUnionSchema = [
+  4,
   n0,
   _CM,
   0,
   [_aEMD, _aEMDw],
   [() => AwsEcsMetadataDetails$, () => AwsEksMetadataDetails$],
 ];
-export var CodeSecurityResource$: StaticStructureSchema = [3, n0, _CSRo, 0, [_pI], [0]];
-export var CreateIntegrationDetail$: StaticStructureSchema = [
-  3,
+export var CodeSecurityResource$: StaticUnionSchema = [4, n0, _CSRo, 0, [_pI], [0]];
+export var CreateIntegrationDetail$: StaticUnionSchema = [
+  4,
   n0,
   _CID,
   0,
   [_gSM],
   [[() => CreateGitLabSelfManagedIntegrationDetail$, 0]],
 ];
-export var Schedule$: StaticStructureSchema = [
-  3,
+export var Schedule$: StaticUnionSchema = [
+  4,
   n0,
   _Sc,
   0,
   [_oT, _dai, _w, _mo],
   [() => OneTimeSchedule$, () => DailySchedule$, () => WeeklySchedule$, () => MonthlySchedule$],
 ];
-export var UpdateIntegrationDetails$: StaticStructureSchema = [
-  3,
+export var UpdateIntegrationDetails$: StaticUnionSchema = [
+  4,
   n0,
   _UID,
   0,

@@ -721,6 +721,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -3032,8 +3033,8 @@ var EnvironmentVariables: StaticMapSchema = [
   [() => EnvironmentVariableValue, 0],
 ];
 var Tags = 128 | 0;
-export var InvokeWithResponseStreamResponseEvent$: StaticStructureSchema = [
-  3,
+export var InvokeWithResponseStreamResponseEvent$: StaticUnionSchema = [
+  4,
   n0,
   _IWRSRE,
   { [_s]: 1 },

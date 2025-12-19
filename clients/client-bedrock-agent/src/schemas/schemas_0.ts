@@ -984,6 +984,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { BedrockAgentServiceException } from "../models/BedrockAgentServiceException";
@@ -3356,19 +3357,19 @@ var ActionGroupSignatureParams = 128 | 0;
 var AdditionalModelRequestFields = 128 | 15;
 var ParameterMap: StaticMapSchema = [2, n0, _PM, 0, 0, () => ParameterDetail$];
 var TagsMap = 128 | 0;
-export var ActionGroupExecutor$: StaticStructureSchema = [3, n0, _AGE, 0, [_lam, _cCu], [0, 0]];
-export var APISchema$: StaticStructureSchema = [3, n0, _APIS, 0, [_s_, _pa], [() => S3Identifier$, [() => Payload, 0]]];
-export var ContentBlock$: StaticStructureSchema = [3, n0, _CBo, 8, [_tex, _cP], [0, () => CachePointBlock$]];
-export var FlowConnectionConfiguration$: StaticStructureSchema = [
-  3,
+export var ActionGroupExecutor$: StaticUnionSchema = [4, n0, _AGE, 0, [_lam, _cCu], [0, 0]];
+export var APISchema$: StaticUnionSchema = [4, n0, _APIS, 0, [_s_, _pa], [() => S3Identifier$, [() => Payload, 0]]];
+export var ContentBlock$: StaticUnionSchema = [4, n0, _CBo, 8, [_tex, _cP], [0, () => CachePointBlock$]];
+export var FlowConnectionConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _FCC,
   0,
   [_da, _condi],
   [() => FlowDataConnectionConfiguration$, () => FlowConditionalConnectionConfiguration$],
 ];
-export var FlowNodeConfiguration$: StaticStructureSchema = [
-  3,
+export var FlowNodeConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _FNC,
   0,
@@ -3392,8 +3393,8 @@ export var FlowNodeConfiguration$: StaticStructureSchema = [
     [() => LoopControllerFlowNodeConfiguration$, 0],
   ],
 ];
-export var FlowValidationDetails$: StaticStructureSchema = [
-  3,
+export var FlowValidationDetails$: StaticUnionSchema = [
+  4,
   n0,
   _FVD,
   0,
@@ -3468,27 +3469,27 @@ export var FlowValidationDetails$: StaticStructureSchema = [
     () => InvalidLoopBoundaryFlowValidationDetails$,
   ],
 ];
-export var FunctionSchema$: StaticStructureSchema = [3, n0, _FSu, 0, [_fu], [() => Functions]];
-export var OrchestrationExecutor$: StaticStructureSchema = [3, n0, _OE, 0, [_lam], [0]];
-export var PromptFlowNodeSourceConfiguration$: StaticStructureSchema = [
-  3,
+export var FunctionSchema$: StaticUnionSchema = [4, n0, _FSu, 0, [_fu], [() => Functions]];
+export var OrchestrationExecutor$: StaticUnionSchema = [4, n0, _OE, 0, [_lam], [0]];
+export var PromptFlowNodeSourceConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _PFNSC,
   0,
   [_res, _inl],
   [() => PromptFlowNodeResourceConfiguration$, [() => PromptFlowNodeInlineConfiguration$, 0]],
 ];
-export var PromptGenAiResource$: StaticStructureSchema = [3, n0, _PGAR, 8, [_ag], [[() => PromptAgentResource$, 0]]];
-export var PromptInferenceConfiguration$: StaticStructureSchema = [
-  3,
+export var PromptGenAiResource$: StaticUnionSchema = [4, n0, _PGAR, 8, [_ag], [[() => PromptAgentResource$, 0]]];
+export var PromptInferenceConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _PIC,
   0,
   [_tex],
   [() => PromptModelInferenceConfiguration$],
 ];
-export var PromptTemplateConfiguration$: StaticStructureSchema = [
-  3,
+export var PromptTemplateConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _PTC,
   0,
@@ -3498,8 +3499,8 @@ export var PromptTemplateConfiguration$: StaticStructureSchema = [
     [() => ChatPromptTemplateConfiguration$, 0],
   ],
 ];
-export var RerankingMetadataSelectiveModeConfiguration$: StaticStructureSchema = [
-  3,
+export var RerankingMetadataSelectiveModeConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _RMSMC,
   0,
@@ -3509,40 +3510,33 @@ export var RerankingMetadataSelectiveModeConfiguration$: StaticStructureSchema =
     [() => FieldsForReranking, 0],
   ],
 ];
-export var RetrievalFlowNodeServiceConfiguration$: StaticStructureSchema = [
-  3,
+export var RetrievalFlowNodeServiceConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _RFNSCe,
   0,
   [_s_],
   [() => RetrievalFlowNodeS3Configuration$],
 ];
-export var StorageFlowNodeServiceConfiguration$: StaticStructureSchema = [
-  3,
+export var StorageFlowNodeServiceConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _SFNSCt,
   0,
   [_s_],
   [() => StorageFlowNodeS3Configuration$],
 ];
-export var SystemContentBlock$: StaticStructureSchema = [3, n0, _SCBy, 8, [_tex, _cP], [0, () => CachePointBlock$]];
-export var Tool$: StaticStructureSchema = [
-  3,
-  n0,
-  _Too,
-  0,
-  [_tS, _cP],
-  [() => ToolSpecification$, () => CachePointBlock$],
-];
-export var ToolChoice$: StaticStructureSchema = [
-  3,
+export var SystemContentBlock$: StaticUnionSchema = [4, n0, _SCBy, 8, [_tex, _cP], [0, () => CachePointBlock$]];
+export var Tool$: StaticUnionSchema = [4, n0, _Too, 0, [_tS, _cP], [() => ToolSpecification$, () => CachePointBlock$]];
+export var ToolChoice$: StaticUnionSchema = [
+  4,
   n0,
   _TCo,
   8,
   [_au, _an, _too],
   [() => AutoToolChoice$, () => AnyToolChoice$, () => SpecificToolChoice$],
 ];
-export var ToolInputSchema$: StaticStructureSchema = [3, n0, _TIS, 0, [_j], [15]];
+export var ToolInputSchema$: StaticUnionSchema = [4, n0, _TIS, 0, [_j], [15]];
 export var AssociateAgentCollaborator$: StaticOperationSchema = [
   9,
   n0,

@@ -137,7 +137,13 @@ const n0 = "com.amazonaws.redshiftdata";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type {
+  StaticErrorSchema,
+  StaticListSchema,
+  StaticOperationSchema,
+  StaticStructureSchema,
+  StaticUnionSchema,
+} from "@smithy/types";
 
 import {
   ActiveSessionsExceededException,
@@ -333,8 +339,8 @@ var StatementList: StaticListSchema = [1, n0, _SL, 0, () => StatementData$];
 var StatementStringList = 64 | 0;
 var SubStatementList: StaticListSchema = [1, n0, _SSL, 0, () => SubStatementData$];
 var TableList: StaticListSchema = [1, n0, _TL, 0, () => TableMember$];
-export var Field$: StaticStructureSchema = [3, n0, _F, 0, [_iN, _bV, _lV, _dV, _sV, _bVl], [2, 2, 1, 1, 0, 21]];
-export var QueryRecords$: StaticStructureSchema = [3, n0, _QR, 0, [_CSVR], [0]];
+export var Field$: StaticUnionSchema = [4, n0, _F, 0, [_iN, _bV, _lV, _dV, _sV, _bVl], [2, 2, 1, 1, 0, 21]];
+export var QueryRecords$: StaticUnionSchema = [4, n0, _QR, 0, [_CSVR], [0]];
 export var BatchExecuteStatement$: StaticOperationSchema = [
   9,
   n0,

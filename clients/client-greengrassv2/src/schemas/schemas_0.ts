@@ -937,7 +937,7 @@ export var UpdateConnectivityInfoRequest$: StaticStructureSchema = [
   0,
   [_tN, _cI],
   [
-    [0, { [_jN]: _TN, [_hL]: 1 }],
+    [0, { [_hL]: 1, [_jN]: _TN }],
     [() => connectivityInfoList, { [_jN]: _CI }],
   ],
 ];

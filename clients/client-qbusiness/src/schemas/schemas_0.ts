@@ -862,6 +862,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1072,7 +1073,7 @@ export var ChatInput$: StaticStructureSchema = [
     [64 | 0, { [_hQ]: _uG }],
     [0, { [_hQ]: _cI }],
     [0, { [_hQ]: _pMI }],
-    [0, { [_iTd]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iTd]: 1 }],
     [() => ChatInputStream$, 16],
   ],
 ];
@@ -2778,9 +2779,9 @@ var DocumentAttributeBoostingOverrideMap: StaticMapSchema = [
 ];
 var ResponseConfigurations: StaticMapSchema = [2, n0, _RCes, 0, 0, () => ResponseConfiguration$];
 var StringAttributeValueBoosting = 128 | 0;
-export var APISchema$: StaticStructureSchema = [3, n0, _APIS, 0, [_pa, _s_], [[() => Payload, 0], () => S3$]];
-export var ChatInputStream$: StaticStructureSchema = [
-  3,
+export var APISchema$: StaticUnionSchema = [4, n0, _APIS, 0, [_pa, _s_], [[() => Payload, 0], () => S3$]];
+export var ChatInputStream$: StaticUnionSchema = [
+  4,
   n0,
   _CIS,
   { [_str]: 1 },
@@ -2794,9 +2795,9 @@ export var ChatInputStream$: StaticStructureSchema = [
     () => AuthChallengeResponseEvent$,
   ],
 ];
-export var ChatModeConfiguration$: StaticStructureSchema = [3, n0, _CMCh, 0, [_pCl], [() => PluginConfiguration$]];
-export var ChatOutputStream$: StaticStructureSchema = [
-  3,
+export var ChatModeConfiguration$: StaticUnionSchema = [4, n0, _CMCh, 0, [_pCl], [() => PluginConfiguration$]];
+export var ChatOutputStream$: StaticUnionSchema = [
+  4,
   n0,
   _COS,
   { [_str]: 1 },
@@ -2809,18 +2810,18 @@ export var ChatOutputStream$: StaticStructureSchema = [
     () => AuthChallengeRequestEvent$,
   ],
 ];
-export var ContentSource$: StaticStructureSchema = [3, n0, _CSo, 0, [_ret], [() => RetrieverContentSource$]];
-export var CopyFromSource$: StaticStructureSchema = [3, n0, _CFS, 0, [_conve], [() => ConversationSource$]];
-export var DataAccessorAuthenticationConfiguration$: StaticStructureSchema = [
-  3,
+export var ContentSource$: StaticUnionSchema = [4, n0, _CSo, 0, [_ret], [() => RetrieverContentSource$]];
+export var CopyFromSource$: StaticUnionSchema = [4, n0, _CFS, 0, [_conve], [() => ConversationSource$]];
+export var DataAccessorAuthenticationConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _DAAC,
   0,
   [_iTTIC],
   [() => DataAccessorIdcTrustedTokenIssuerConfiguration$],
 ];
-export var DocumentAttributeBoostingConfiguration$: StaticStructureSchema = [
-  3,
+export var DocumentAttributeBoostingConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _DABCo,
   0,
@@ -2832,18 +2833,18 @@ export var DocumentAttributeBoostingConfiguration$: StaticStructureSchema = [
     () => StringListAttributeBoostingConfiguration$,
   ],
 ];
-export var DocumentAttributeValue$: StaticStructureSchema = [3, n0, _DAV, 0, [_sV, _sLV, _lV, _dVa], [0, 64 | 0, 1, 4]];
-export var DocumentContent$: StaticStructureSchema = [3, n0, _DC, 0, [_bl, _s_], [21, () => S3$]];
-export var IdentityProviderConfiguration$: StaticStructureSchema = [
-  3,
+export var DocumentAttributeValue$: StaticUnionSchema = [4, n0, _DAV, 0, [_sV, _sLV, _lV, _dVa], [0, 64 | 0, 1, 4]];
+export var DocumentContent$: StaticUnionSchema = [4, n0, _DC, 0, [_bl, _s_], [21, () => S3$]];
+export var IdentityProviderConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _IPC,
   0,
   [_sCa, _oIDCC],
   [() => SamlProviderConfiguration$, () => OpenIDConnectProviderConfiguration$],
 ];
-export var PluginAuthConfiguration$: StaticStructureSchema = [
-  3,
+export var PluginAuthConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _PAC,
   0,
@@ -2855,47 +2856,33 @@ export var PluginAuthConfiguration$: StaticStructureSchema = [
     () => IdcAuthConfiguration$,
   ],
 ];
-export var Principal$: StaticStructureSchema = [
-  3,
-  n0,
-  _Pri,
-  0,
-  [_use, _gr],
-  [() => PrincipalUser$, () => PrincipalGroup$],
-];
-export var RetrieverConfiguration$: StaticStructureSchema = [
-  3,
+export var Principal$: StaticUnionSchema = [4, n0, _Pri, 0, [_use, _gr], [() => PrincipalUser$, () => PrincipalGroup$]];
+export var RetrieverConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _RCet,
   0,
   [_nIC, _kIC],
   [() => NativeIndexConfiguration$, () => KendraIndexConfiguration$],
 ];
-export var RuleConfiguration$: StaticStructureSchema = [
-  3,
+export var RuleConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _RCu,
   0,
   [_cBR, _cRR],
   [() => ContentBlockerRule$, () => ContentRetrievalRule$],
 ];
-export var SourceDetails$: StaticStructureSchema = [
-  3,
+export var SourceDetails$: StaticUnionSchema = [
+  4,
   n0,
   _SDo,
   0,
   [_iSD, _aSD, _vSD],
   [() => ImageSourceDetails$, () => AudioSourceDetails$, () => VideoSourceDetails$],
 ];
-export var SubscriptionPrincipal$: StaticStructureSchema = [3, n0, _SP, 0, [_use, _gr], [0, 0]];
-export var WebExperienceAuthConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _WEAC,
-  0,
-  [_sCa],
-  [() => SamlConfiguration$],
-];
+export var SubscriptionPrincipal$: StaticUnionSchema = [4, n0, _SP, 0, [_use, _gr], [0, 0]];
+export var WebExperienceAuthConfiguration$: StaticUnionSchema = [4, n0, _WEAC, 0, [_sCa], [() => SamlConfiguration$]];
 export var AssociatePermission$: StaticOperationSchema = [
   9,
   n0,

@@ -522,6 +522,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1932,8 +1933,8 @@ var ServiceTemplateVersionSummaryList: StaticListSchema = [1, n0, _STVSL, 0, [()
 var SyncBlockerContexts: StaticListSchema = [1, n0, _SBCy, 0, () => SyncBlockerContext$];
 var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
-export var DeploymentState$: StaticStructureSchema = [
-  3,
+export var DeploymentState$: StaticUnionSchema = [
+  4,
   n0,
   _DSe,
   0,
@@ -1945,7 +1946,7 @@ export var DeploymentState$: StaticStructureSchema = [
     [() => ComponentState$, 0],
   ],
 ];
-export var TemplateVersionSourceInput$: StaticStructureSchema = [3, n0, _TVSI, 0, [_s_], [() => S3ObjectSource$]];
+export var TemplateVersionSourceInput$: StaticUnionSchema = [4, n0, _TVSI, 0, [_s_], [() => S3ObjectSource$]];
 export var AcceptEnvironmentAccountConnection$: StaticOperationSchema = [
   9,
   n0,

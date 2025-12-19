@@ -3447,6 +3447,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { ConflictException, ResourceInUse, ResourceLimitExceeded, ResourceNotFound } from "../models/errors";
@@ -12503,8 +12504,8 @@ var TrainingEnvironmentMap = 128 | 0;
 var TransformEnvironmentMap = 128 | 0;
 var TrialComponentArtifacts: StaticMapSchema = [2, n0, _TCAri, 0, 0, () => TrialComponentArtifact$];
 var TrialComponentParameters: StaticMapSchema = [2, n0, _TCP, 0, 0, () => TrialComponentParameterValue$];
-export var AutoMLProblemTypeConfig$: StaticStructureSchema = [
-  3,
+export var AutoMLProblemTypeConfig$: StaticUnionSchema = [
+  4,
   n0,
   _AMLPTC,
   0,
@@ -12517,57 +12518,57 @@ export var AutoMLProblemTypeConfig$: StaticStructureSchema = [
     () => TextGenerationJobConfig$,
   ],
 ];
-export var AutoMLProblemTypeResolvedAttributes$: StaticStructureSchema = [
-  3,
+export var AutoMLProblemTypeResolvedAttributes$: StaticUnionSchema = [
+  4,
   n0,
   _AMLPTRA,
   0,
   [_TRA, _TGRA],
   [() => TabularResolvedAttributes$, () => TextGenerationResolvedAttributes$],
 ];
-export var ClusterInstanceStorageConfig$: StaticStructureSchema = [
-  3,
+export var ClusterInstanceStorageConfig$: StaticUnionSchema = [
+  4,
   n0,
   _CISCl,
   0,
   [_EVC],
   [() => ClusterEbsVolumeConfig$],
 ];
-export var CollectionConfig$: StaticStructureSchema = [3, n0, _CColle, 0, [_VCe], [() => VectorConfig$]];
-export var CustomFileSystem$: StaticStructureSchema = [
-  3,
+export var CollectionConfig$: StaticUnionSchema = [4, n0, _CColle, 0, [_VCe], [() => VectorConfig$]];
+export var CustomFileSystem$: StaticUnionSchema = [
+  4,
   n0,
   _CFSu,
   0,
   [_EFSFS, _FSLFS, _SFS],
   [() => EFSFileSystem$, () => FSxLustreFileSystem$, () => S3FileSystem$],
 ];
-export var CustomFileSystemConfig$: StaticStructureSchema = [
-  3,
+export var CustomFileSystemConfig$: StaticUnionSchema = [
+  4,
   n0,
   _CFSCu,
   0,
   [_EFSFSC, _FSLFSC, _SFSC],
   [() => EFSFileSystemConfig$, () => FSxLustreFileSystemConfig$, () => S3FileSystemConfig$],
 ];
-export var EventMetadata$: StaticStructureSchema = [
-  3,
+export var EventMetadata$: StaticUnionSchema = [
+  4,
   n0,
   _EMv,
   0,
   [_Cl, _IGn, _IGS, _Ins],
   [() => ClusterMetadata$, () => InstanceGroupMetadata$, () => InstanceGroupScalingMetadata$, () => InstanceMetadata$],
 ];
-export var MetricSpecification$: StaticStructureSchema = [
-  3,
+export var MetricSpecification$: StaticUnionSchema = [
+  4,
   n0,
   _MSet,
   0,
   [_Pre, _Cu],
   [() => PredefinedMetricSpecification$, () => CustomizedMetricSpecification$],
 ];
-export var OptimizationConfig$: StaticStructureSchema = [
-  3,
+export var OptimizationConfig$: StaticUnionSchema = [
+  4,
   n0,
   _OCpti,
   0,
@@ -12579,15 +12580,15 @@ export var OptimizationConfig$: StaticStructureSchema = [
     () => ModelSpeculativeDecodingConfig$,
   ],
 ];
-export var ScalingPolicy$: StaticStructureSchema = [
-  3,
+export var ScalingPolicy$: StaticUnionSchema = [
+  4,
   n0,
   _SPc,
   0,
   [_TTa],
   [() => TargetTrackingScalingPolicyConfiguration$],
 ];
-export var TrialComponentParameterValue$: StaticStructureSchema = [3, n0, _TCPV, 0, [_SV, _NV], [0, 1]];
+export var TrialComponentParameterValue$: StaticUnionSchema = [4, n0, _TCPV, 0, [_SV, _NV], [0, 1]];
 export var AddAssociation$: StaticOperationSchema = [
   9,
   n0,

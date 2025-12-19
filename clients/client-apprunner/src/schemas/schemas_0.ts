@@ -545,7 +545,7 @@ export var InternalServiceErrorException$: StaticErrorSchema = [
   -3,
   n0,
   _ISEE,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`InternalServiceError`, 500] },
+  { [_aQE]: [`InternalServiceError`, 500], [_e]: _s, [_hE]: 500 },
   [_Me],
   [0],
 ];
@@ -554,7 +554,7 @@ export var InvalidRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _IRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidRequest`, 400] },
+  { [_aQE]: [`InvalidRequest`, 400], [_e]: _c, [_hE]: 400 },
   [_Me],
   [0],
 ];
@@ -563,7 +563,7 @@ export var InvalidStateException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidState`, 400] },
+  { [_aQE]: [`InvalidState`, 400], [_e]: _c, [_hE]: 400 },
   [_Me],
   [0],
 ];
@@ -695,7 +695,7 @@ export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceNotfound`, 400] },
+  { [_aQE]: [`ResourceNotfound`, 400], [_e]: _c, [_hE]: 400 },
   [_Me],
   [0],
 ];
@@ -731,7 +731,7 @@ export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  { [_e]: _c, [_hE]: 402, [_aQE]: [`ServiceQuotaExceeded`, 402] },
+  { [_aQE]: [`ServiceQuotaExceeded`, 402], [_e]: _c, [_hE]: 402 },
   [_Me],
   [0],
 ];

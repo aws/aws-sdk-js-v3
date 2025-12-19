@@ -398,6 +398,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1022,24 +1023,24 @@ var TLEDataList: StaticListSchema = [1, n0, _TLEDL, 0, () => TLEData$];
 var VersionStringList = 64 | 0;
 var SignatureMap = 128 | 2;
 var TagsMap = 128 | 0;
-export var AzElSegmentsData$: StaticStructureSchema = [
-  3,
+export var AzElSegmentsData$: StaticUnionSchema = [
+  4,
   n0,
   _AESD,
   0,
   [_sO, _aED],
   [() => S3Object$, () => AzElSegments$],
 ];
-export var ConfigDetails$: StaticStructureSchema = [
-  3,
+export var ConfigDetails$: StaticUnionSchema = [
+  4,
   n0,
   _CDon,
   0,
   [_eD, _aDDD, _sRD],
   [() => EndpointDetails$, () => AntennaDemodDecodeDetails$, () => S3RecordingDetails$],
 ];
-export var ConfigTypeData$: StaticStructureSchema = [
-  3,
+export var ConfigTypeData$: StaticUnionSchema = [
+  4,
   n0,
   _CTD,
   0,
@@ -1054,42 +1055,35 @@ export var ConfigTypeData$: StaticStructureSchema = [
     () => S3RecordingConfig$,
   ],
 ];
-export var CreateEndpointDetails$: StaticStructureSchema = [
-  3,
+export var CreateEndpointDetails$: StaticUnionSchema = [
+  4,
   n0,
   _CED,
   0,
   [_uAGSAE, _dAGSAE],
   [() => UplinkAwsGroundStationAgentEndpoint$, () => DownlinkAwsGroundStationAgentEndpoint$],
 ];
-export var DownlinkDataflowDetails$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDD,
-  0,
-  [_aCD],
-  [() => DownlinkConnectionDetails$],
-];
-export var EphemerisData$: StaticStructureSchema = [
-  3,
+export var DownlinkDataflowDetails$: StaticUnionSchema = [4, n0, _DDD, 0, [_aCD], [() => DownlinkConnectionDetails$]];
+export var EphemerisData$: StaticUnionSchema = [
+  4,
   n0,
   _EDph,
   0,
   [_tl, _o, _aE],
   [() => TLEEphemeris$, () => OEMEphemeris$, () => AzElEphemeris$],
 ];
-export var EphemerisFilter$: StaticStructureSchema = [3, n0, _EF, 0, [_aE], [() => AzElEphemerisFilter$]];
-export var EphemerisTypeDescription$: StaticStructureSchema = [
-  3,
+export var EphemerisFilter$: StaticUnionSchema = [4, n0, _EF, 0, [_aE], [() => AzElEphemerisFilter$]];
+export var EphemerisTypeDescription$: StaticUnionSchema = [
+  4,
   n0,
   _ETD,
   0,
   [_tl, _o, _aE],
   [() => EphemerisDescription$, () => EphemerisDescription$, () => EphemerisDescription$],
 ];
-export var KmsKey$: StaticStructureSchema = [3, n0, _KK, 0, [_kKA, _kAA, _kAN], [0, 0, 0]];
-export var ProgramTrackSettings$: StaticStructureSchema = [3, n0, _PTS, 0, [_aE], [() => AzElProgramTrackSettings$]];
-export var UplinkDataflowDetails$: StaticStructureSchema = [3, n0, _UDD, 0, [_aCD], [() => UplinkConnectionDetails$]];
+export var KmsKey$: StaticUnionSchema = [4, n0, _KK, 0, [_kKA, _kAA, _kAN], [0, 0, 0]];
+export var ProgramTrackSettings$: StaticUnionSchema = [4, n0, _PTS, 0, [_aE], [() => AzElProgramTrackSettings$]];
+export var UplinkDataflowDetails$: StaticUnionSchema = [4, n0, _UDD, 0, [_aCD], [() => UplinkConnectionDetails$]];
 export var CancelContact$: StaticOperationSchema = [
   9,
   n0,

@@ -831,7 +831,7 @@ export var AlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _AEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`AlreadyExistsException`, 400] },
+  { [_aQE]: [`AlreadyExistsException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -871,7 +871,7 @@ export var CFNRegistryException$: StaticErrorSchema = [
   -3,
   n0,
   _CFNRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CFNRegistryException`, 400] },
+  { [_aQE]: [`CFNRegistryException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -905,7 +905,7 @@ export var ChangeSetNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _CSNFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ChangeSetNotFound`, 404] },
+  { [_aQE]: [`ChangeSetNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -922,7 +922,7 @@ export var ConcurrentResourcesLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _CRLEE,
-  { [_e]: _c, [_hE]: 429, [_aQE]: [`ConcurrentResourcesLimitExceeded`, 429] },
+  { [_aQE]: [`ConcurrentResourcesLimitExceeded`, 429], [_e]: _c, [_hE]: 429 },
   [_M],
   [0],
 ];
@@ -973,7 +973,7 @@ export var CreatedButModifiedException$: StaticErrorSchema = [
   -3,
   n0,
   _CBME,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`CreatedButModifiedException`, 409] },
+  { [_aQE]: [`CreatedButModifiedException`, 409], [_e]: _c, [_hE]: 409 },
   [_M],
   [0],
 ];
@@ -1395,7 +1395,7 @@ export var GeneratedTemplateNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _GTNFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`GeneratedTemplateNotFound`, 404] },
+  { [_aQE]: [`GeneratedTemplateNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -1435,7 +1435,7 @@ export var HookResultNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _HRNFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`HookResultNotFound`, 404] },
+  { [_aQE]: [`HookResultNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -1462,7 +1462,7 @@ export var InsufficientCapabilitiesException$: StaticErrorSchema = [
   -3,
   n0,
   _ICE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InsufficientCapabilitiesException`, 400] },
+  { [_aQE]: [`InsufficientCapabilitiesException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1471,7 +1471,7 @@ export var InvalidChangeSetStatusException$: StaticErrorSchema = [
   -3,
   n0,
   _ICSSE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidChangeSetStatus`, 400] },
+  { [_aQE]: [`InvalidChangeSetStatus`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1480,7 +1480,7 @@ export var InvalidOperationException$: StaticErrorSchema = [
   -3,
   n0,
   _IOE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidOperationException`, 400] },
+  { [_aQE]: [`InvalidOperationException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1489,7 +1489,7 @@ export var InvalidStateTransitionException$: StaticErrorSchema = [
   -3,
   n0,
   _ISTE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidStateTransition`, 400] },
+  { [_aQE]: [`InvalidStateTransition`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1498,7 +1498,7 @@ export var LimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`LimitExceededException`, 400] },
+  { [_aQE]: [`LimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1721,7 +1721,7 @@ export var NameAlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _NAEE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`NameAlreadyExistsException`, 409] },
+  { [_aQE]: [`NameAlreadyExistsException`, 409], [_e]: _c, [_hE]: 409 },
   [_M],
   [0],
 ];
@@ -1767,7 +1767,7 @@ export var OperationIdAlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _OIAEE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`OperationIdAlreadyExistsException`, 409] },
+  { [_aQE]: [`OperationIdAlreadyExistsException`, 409], [_e]: _c, [_hE]: 409 },
   [_M],
   [0],
 ];
@@ -1776,7 +1776,7 @@ export var OperationInProgressException$: StaticErrorSchema = [
   -3,
   n0,
   _OIPE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`OperationInProgressException`, 409] },
+  { [_aQE]: [`OperationInProgressException`, 409], [_e]: _c, [_hE]: 409 },
   [_M],
   [0],
 ];
@@ -1785,7 +1785,7 @@ export var OperationNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _ONFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`OperationNotFoundException`, 404] },
+  { [_aQE]: [`OperationNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -1795,7 +1795,7 @@ export var OperationStatusCheckFailedException$: StaticErrorSchema = [
   -3,
   n0,
   _OSCFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ConditionalCheckFailed`, 400] },
+  { [_aQE]: [`ConditionalCheckFailed`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1906,7 +1906,7 @@ export var ResourceScanInProgressException$: StaticErrorSchema = [
   -3,
   n0,
   _RSIPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceScanInProgress`, 400] },
+  { [_aQE]: [`ResourceScanInProgress`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1915,7 +1915,7 @@ export var ResourceScanLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _RSLEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceScanLimitExceeded`, 400] },
+  { [_aQE]: [`ResourceScanLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1924,7 +1924,7 @@ export var ResourceScanNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RSNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceScanNotFound`, 400] },
+  { [_aQE]: [`ResourceScanNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -2053,7 +2053,7 @@ export var StackInstanceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _SINFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`StackInstanceNotFoundException`, 404] },
+  { [_aQE]: [`StackInstanceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -2078,7 +2078,7 @@ export var StackNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _SNFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`StackNotFoundException`, 404] },
+  { [_aQE]: [`StackNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -2095,7 +2095,7 @@ export var StackRefactorNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _SRNFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`StackRefactorNotFoundException`, 404] },
+  { [_aQE]: [`StackRefactorNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -2181,7 +2181,7 @@ export var StackSetNotEmptyException$: StaticErrorSchema = [
   -3,
   n0,
   _SSNEE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`StackSetNotEmptyException`, 409] },
+  { [_aQE]: [`StackSetNotEmptyException`, 409], [_e]: _c, [_hE]: 409 },
   [_M],
   [0],
 ];
@@ -2190,7 +2190,7 @@ export var StackSetNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _SSNFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`StackSetNotFoundException`, 404] },
+  { [_aQE]: [`StackSetNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -2263,7 +2263,7 @@ export var StaleRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _SRE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`StaleRequestException`, 409] },
+  { [_aQE]: [`StaleRequestException`, 409], [_e]: _c, [_hE]: 409 },
   [_M],
   [0],
 ];
@@ -2291,7 +2291,7 @@ export var TokenAlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _TAEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TokenAlreadyExistsException`, 400] },
+  { [_aQE]: [`TokenAlreadyExistsException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -2316,7 +2316,7 @@ export var TypeConfigurationNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _TCNFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`TypeConfigurationNotFoundException`, 404] },
+  { [_aQE]: [`TypeConfigurationNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -2326,7 +2326,7 @@ export var TypeNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _TNFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`TypeNotFoundException`, 404] },
+  { [_aQE]: [`TypeNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];

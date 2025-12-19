@@ -173,6 +173,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -417,7 +418,7 @@ var TagKeyList: StaticListSchema = [1, n0, _TKL, 0, [() => TagKey, 0]];
 var TagList: StaticListSchema = [1, n0, _TL, 0, [() => Tag$, 0]];
 var TrustAnchorDetails: StaticListSchema = [1, n0, _TADr, 0, () => TrustAnchorDetail$];
 var InstancePropertyMap = 128 | 0;
-export var SourceData$: StaticStructureSchema = [3, n0, _SDo, 0, [_xCD, _aPA], [0, 0]];
+export var SourceData$: StaticUnionSchema = [4, n0, _SDo, 0, [_xCD, _aPA], [0, 0]];
 export var CreateProfile$: StaticOperationSchema = [
   9,
   n0,

@@ -131,7 +131,13 @@ const n0 = "com.amazonaws.rdsdata";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type {
+  StaticErrorSchema,
+  StaticListSchema,
+  StaticOperationSchema,
+  StaticStructureSchema,
+  StaticUnionSchema,
+} from "@smithy/types";
 
 import {
   AccessDeniedException,
@@ -255,24 +261,24 @@ var SqlRecords: StaticListSchema = [1, n0, _SR, 0, () => FieldList];
 var SqlStatementResults: StaticListSchema = [1, n0, _SSRq, 0, () => SqlStatementResult$];
 var StringArray = 64 | 0;
 var UpdateResults: StaticListSchema = [1, n0, _URp, 0, () => UpdateResult$];
-export var ArrayValue$: StaticStructureSchema = [
-  3,
+export var ArrayValue$: StaticUnionSchema = [
+  4,
   n0,
   _AV,
   0,
   [_bV, _lV, _dV, _sV, _aV],
   [64 | 2, 64 | 1, 64 | 1, 64 | 0, () => ArrayOfArray],
 ];
-export var Field$: StaticStructureSchema = [
-  3,
+export var Field$: StaticUnionSchema = [
+  4,
   n0,
   _F,
   0,
   [_iN, _bVo, _lVo, _dVo, _sVt, _bVl, _aVr],
   [2, 2, 1, 1, 0, 21, () => ArrayValue$],
 ];
-export var Value$: StaticStructureSchema = [
-  3,
+export var Value$: StaticUnionSchema = [
+  4,
   n0,
   _V,
   0,

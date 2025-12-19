@@ -515,7 +515,7 @@ export var CreateCliToken$: StaticOperationSchema = [
   9,
   n0,
   _CCT,
-  { [_h]: ["POST", "/clitoken/{Name}", 200], [_en]: ["env."] },
+  { [_en]: ["env."], [_h]: ["POST", "/clitoken/{Name}", 200] },
   () => CreateCliTokenRequest$,
   () => CreateCliTokenResponse$,
 ];
@@ -523,7 +523,7 @@ export var CreateEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _CE,
-  { [_h]: ["PUT", "/environments/{Name}", 200], [_en]: ["api."] },
+  { [_en]: ["api."], [_h]: ["PUT", "/environments/{Name}", 200] },
   () => CreateEnvironmentInput$,
   () => CreateEnvironmentOutput$,
 ];
@@ -531,7 +531,7 @@ export var CreateWebLoginToken$: StaticOperationSchema = [
   9,
   n0,
   _CWLT,
-  { [_h]: ["POST", "/webtoken/{Name}", 200], [_en]: ["env."] },
+  { [_en]: ["env."], [_h]: ["POST", "/webtoken/{Name}", 200] },
   () => CreateWebLoginTokenRequest$,
   () => CreateWebLoginTokenResponse$,
 ];
@@ -539,7 +539,7 @@ export var DeleteEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _DE,
-  { [_h]: ["DELETE", "/environments/{Name}", 200], [_en]: ["api."] },
+  { [_en]: ["api."], [_h]: ["DELETE", "/environments/{Name}", 200] },
   () => DeleteEnvironmentInput$,
   () => DeleteEnvironmentOutput$,
 ];
@@ -547,7 +547,7 @@ export var GetEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _GE,
-  { [_h]: ["GET", "/environments/{Name}", 200], [_en]: ["api."] },
+  { [_en]: ["api."], [_h]: ["GET", "/environments/{Name}", 200] },
   () => GetEnvironmentInput$,
   () => GetEnvironmentOutput$,
 ];
@@ -555,7 +555,7 @@ export var InvokeRestApi$: StaticOperationSchema = [
   9,
   n0,
   _IRA,
-  { [_h]: ["POST", "/restapi/{Name}", 200], [_en]: ["env."] },
+  { [_en]: ["env."], [_h]: ["POST", "/restapi/{Name}", 200] },
   () => InvokeRestApiRequest$,
   () => InvokeRestApiResponse$,
 ];
@@ -563,7 +563,7 @@ export var ListEnvironments$: StaticOperationSchema = [
   9,
   n0,
   _LE,
-  { [_h]: ["GET", "/environments", 200], [_en]: ["api."] },
+  { [_en]: ["api."], [_h]: ["GET", "/environments", 200] },
   () => ListEnvironmentsInput$,
   () => ListEnvironmentsOutput$,
 ];
@@ -571,7 +571,7 @@ export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  { [_h]: ["GET", "/tags/{ResourceArn}", 200], [_en]: ["api."] },
+  { [_en]: ["api."], [_h]: ["GET", "/tags/{ResourceArn}", 200] },
   () => ListTagsForResourceInput$,
   () => ListTagsForResourceOutput$,
 ];
@@ -579,7 +579,7 @@ export var PublishMetrics$: StaticOperationSchema = [
   9,
   n0,
   _PM,
-  { [_h]: ["POST", "/metrics/environments/{EnvironmentName}", 200], [_en]: ["ops."] },
+  { [_en]: ["ops."], [_h]: ["POST", "/metrics/environments/{EnvironmentName}", 200] },
   () => PublishMetricsInput$,
   () => PublishMetricsOutput$,
 ];
@@ -587,7 +587,7 @@ export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  { [_h]: ["POST", "/tags/{ResourceArn}", 200], [_en]: ["api."] },
+  { [_en]: ["api."], [_h]: ["POST", "/tags/{ResourceArn}", 200] },
   () => TagResourceInput$,
   () => TagResourceOutput$,
 ];
@@ -595,7 +595,7 @@ export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  { [_h]: ["DELETE", "/tags/{ResourceArn}", 200], [_en]: ["api."] },
+  { [_en]: ["api."], [_h]: ["DELETE", "/tags/{ResourceArn}", 200] },
   () => UntagResourceInput$,
   () => UntagResourceOutput$,
 ];
@@ -603,7 +603,7 @@ export var UpdateEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _UEp,
-  { [_h]: ["PATCH", "/environments/{Name}", 200], [_en]: ["api."] },
+  { [_en]: ["api."], [_h]: ["PATCH", "/environments/{Name}", 200] },
   () => UpdateEnvironmentInput$,
   () => UpdateEnvironmentOutput$,
 ];

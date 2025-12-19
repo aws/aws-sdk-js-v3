@@ -586,7 +586,7 @@ export var AllocationIdNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _AINFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`AllocationIdNotFound`, 400] },
+  { [_aQE]: [`AllocationIdNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -595,7 +595,7 @@ export var ALPNPolicyNotSupportedException$: StaticErrorSchema = [
   -3,
   n0,
   _ALPNPNSE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ALPNPolicyNotFound`, 400] },
+  { [_aQE]: [`ALPNPolicyNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -629,7 +629,7 @@ export var AvailabilityZoneNotSupportedException$: StaticErrorSchema = [
   -3,
   n0,
   _AZNSE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`AvailabilityZoneNotSupported`, 400] },
+  { [_aQE]: [`AvailabilityZoneNotSupported`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -638,7 +638,7 @@ export var CaCertificatesBundleNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _CCBNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CaCertificatesBundleNotFound`, 400] },
+  { [_aQE]: [`CaCertificatesBundleNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -647,7 +647,7 @@ export var CapacityDecreaseRequestsLimitExceededException$: StaticErrorSchema = 
   -3,
   n0,
   _CDRLEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CapacityDecreaseRequestLimitExceeded`, 400] },
+  { [_aQE]: [`CapacityDecreaseRequestLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -659,7 +659,7 @@ export var CapacityReservationPendingException$: StaticErrorSchema = [
   -3,
   n0,
   _CRPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CapacityReservationPending`, 400] },
+  { [_aQE]: [`CapacityReservationPending`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -669,7 +669,7 @@ export var CapacityUnitsLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _CULEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CapacityUnitsLimitExceeded`, 400] },
+  { [_aQE]: [`CapacityUnitsLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -679,7 +679,7 @@ export var CertificateNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _CNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CertificateNotFound`, 400] },
+  { [_aQE]: [`CertificateNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -734,7 +734,7 @@ export var DeleteAssociationSameAccountException$: StaticErrorSchema = [
   -3,
   n0,
   _DASAE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DeleteAssociationSameAccount`, 400] },
+  { [_aQE]: [`DeleteAssociationSameAccount`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -923,7 +923,7 @@ export var DuplicateListenerException$: StaticErrorSchema = [
   -3,
   n0,
   _DLE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DuplicateListener`, 400] },
+  { [_aQE]: [`DuplicateListener`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -932,7 +932,7 @@ export var DuplicateLoadBalancerNameException$: StaticErrorSchema = [
   -3,
   n0,
   _DLBNE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DuplicateLoadBalancerName`, 400] },
+  { [_aQE]: [`DuplicateLoadBalancerName`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -941,7 +941,7 @@ export var DuplicateTagKeysException$: StaticErrorSchema = [
   -3,
   n0,
   _DTKE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DuplicateTagKeys`, 400] },
+  { [_aQE]: [`DuplicateTagKeys`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -950,7 +950,7 @@ export var DuplicateTargetGroupNameException$: StaticErrorSchema = [
   -3,
   n0,
   _DTGNE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DuplicateTargetGroupName`, 400] },
+  { [_aQE]: [`DuplicateTargetGroupName`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -959,7 +959,7 @@ export var DuplicateTrustStoreNameException$: StaticErrorSchema = [
   -3,
   n0,
   _DTSNE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DuplicateTrustStoreName`, 400] },
+  { [_aQE]: [`DuplicateTrustStoreName`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -983,7 +983,7 @@ export var HealthUnavailableException$: StaticErrorSchema = [
   -3,
   n0,
   _HUE,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`HealthUnavailable`, 500] },
+  { [_aQE]: [`HealthUnavailable`, 500], [_e]: _s, [_hE]: 500 },
   [_M],
   [0],
 ];
@@ -996,7 +996,7 @@ export var IncompatibleProtocolsException$: StaticErrorSchema = [
   -3,
   n0,
   _IPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`IncompatibleProtocols`, 400] },
+  { [_aQE]: [`IncompatibleProtocols`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1005,7 +1005,7 @@ export var InsufficientCapacityException$: StaticErrorSchema = [
   -3,
   n0,
   _ICE,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`InsufficientCapacity`, 500] },
+  { [_aQE]: [`InsufficientCapacity`, 500], [_e]: _s, [_hE]: 500 },
   [_M],
   [0],
 ];
@@ -1014,7 +1014,7 @@ export var InvalidCaCertificatesBundleException$: StaticErrorSchema = [
   -3,
   n0,
   _ICCBE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidCaCertificatesBundle`, 400] },
+  { [_aQE]: [`InvalidCaCertificatesBundle`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1023,7 +1023,7 @@ export var InvalidConfigurationRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _ICRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidConfigurationRequest`, 400] },
+  { [_aQE]: [`InvalidConfigurationRequest`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1032,7 +1032,7 @@ export var InvalidLoadBalancerActionException$: StaticErrorSchema = [
   -3,
   n0,
   _ILBAE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidLoadBalancerAction`, 400] },
+  { [_aQE]: [`InvalidLoadBalancerAction`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1041,7 +1041,7 @@ export var InvalidRevocationContentException$: StaticErrorSchema = [
   -3,
   n0,
   _IRCE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidRevocationContent`, 400] },
+  { [_aQE]: [`InvalidRevocationContent`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1050,7 +1050,7 @@ export var InvalidSchemeException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidScheme`, 400] },
+  { [_aQE]: [`InvalidScheme`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1059,7 +1059,7 @@ export var InvalidSecurityGroupException$: StaticErrorSchema = [
   -3,
   n0,
   _ISGE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidSecurityGroup`, 400] },
+  { [_aQE]: [`InvalidSecurityGroup`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1068,7 +1068,7 @@ export var InvalidSubnetException$: StaticErrorSchema = [
   -3,
   n0,
   _ISEn,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidSubnet`, 400] },
+  { [_aQE]: [`InvalidSubnet`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1077,7 +1077,7 @@ export var InvalidTargetException$: StaticErrorSchema = [
   -3,
   n0,
   _ITE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidTarget`, 400] },
+  { [_aQE]: [`InvalidTarget`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1113,7 +1113,7 @@ export var ListenerNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _LNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ListenerNotFound`, 400] },
+  { [_aQE]: [`ListenerNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1132,7 +1132,7 @@ export var LoadBalancerNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _LBNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`LoadBalancerNotFound`, 400] },
+  { [_aQE]: [`LoadBalancerNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1261,7 +1261,7 @@ export var OperationNotPermittedException$: StaticErrorSchema = [
   -3,
   n0,
   _ONPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`OperationNotPermitted`, 400] },
+  { [_aQE]: [`OperationNotPermitted`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1271,7 +1271,7 @@ export var PriorityInUseException$: StaticErrorSchema = [
   -3,
   n0,
   _PIUE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`PriorityInUse`, 400] },
+  { [_aQE]: [`PriorityInUse`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1280,7 +1280,7 @@ export var PriorRequestNotCompleteException$: StaticErrorSchema = [
   -3,
   n0,
   _PRNCE,
-  { [_e]: _c, [_hE]: 429, [_aQE]: [`PriorRequestNotComplete`, 429] },
+  { [_aQE]: [`PriorRequestNotComplete`, 429], [_e]: _c, [_hE]: 429 },
   [_M],
   [0],
 ];
@@ -1321,7 +1321,7 @@ export var ResourceInUseException$: StaticErrorSchema = [
   -3,
   n0,
   _RIUE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceInUse`, 400] },
+  { [_aQE]: [`ResourceInUse`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1330,7 +1330,7 @@ export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceNotFound`, 400] },
+  { [_aQE]: [`ResourceNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1340,7 +1340,7 @@ export var RevocationContentNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RCNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`RevocationContentNotFound`, 400] },
+  { [_aQE]: [`RevocationContentNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1349,7 +1349,7 @@ export var RevocationIdNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RINFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`RevocationIdNotFound`, 400] },
+  { [_aQE]: [`RevocationIdNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1385,7 +1385,7 @@ export var RuleNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFEu,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`RuleNotFound`, 400] },
+  { [_aQE]: [`RuleNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1434,7 +1434,7 @@ export var SSLPolicyNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _SSLPNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SSLPolicyNotFound`, 400] },
+  { [_aQE]: [`SSLPolicyNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1444,7 +1444,7 @@ export var SubnetNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _SNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetNotFound`, 400] },
+  { [_aQE]: [`SubnetNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1464,7 +1464,7 @@ export var TargetGroupAssociationLimitException$: StaticErrorSchema = [
   -3,
   n0,
   _TGALE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TargetGroupAssociationLimit`, 400] },
+  { [_aQE]: [`TargetGroupAssociationLimit`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1474,7 +1474,7 @@ export var TargetGroupNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _TGNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TargetGroupNotFound`, 400] },
+  { [_aQE]: [`TargetGroupNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1494,7 +1494,7 @@ export var TooManyActionsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMAE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyActions`, 400] },
+  { [_aQE]: [`TooManyActions`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1503,7 +1503,7 @@ export var TooManyCertificatesException$: StaticErrorSchema = [
   -3,
   n0,
   _TMCE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyCertificates`, 400] },
+  { [_aQE]: [`TooManyCertificates`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1512,7 +1512,7 @@ export var TooManyListenersException$: StaticErrorSchema = [
   -3,
   n0,
   _TMLE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyListeners`, 400] },
+  { [_aQE]: [`TooManyListeners`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1521,7 +1521,7 @@ export var TooManyLoadBalancersException$: StaticErrorSchema = [
   -3,
   n0,
   _TMLBE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyLoadBalancers`, 400] },
+  { [_aQE]: [`TooManyLoadBalancers`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1530,7 +1530,7 @@ export var TooManyRegistrationsForTargetIdException$: StaticErrorSchema = [
   -3,
   n0,
   _TMRFTIE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyRegistrationsForTargetId`, 400] },
+  { [_aQE]: [`TooManyRegistrationsForTargetId`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1539,7 +1539,7 @@ export var TooManyRulesException$: StaticErrorSchema = [
   -3,
   n0,
   _TMRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyRules`, 400] },
+  { [_aQE]: [`TooManyRules`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1548,7 +1548,7 @@ export var TooManyTagsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMTE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyTags`, 400] },
+  { [_aQE]: [`TooManyTags`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1557,7 +1557,7 @@ export var TooManyTargetGroupsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMTGE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyTargetGroups`, 400] },
+  { [_aQE]: [`TooManyTargetGroups`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1566,7 +1566,7 @@ export var TooManyTargetsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMTEo,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyTargets`, 400] },
+  { [_aQE]: [`TooManyTargets`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1575,7 +1575,7 @@ export var TooManyTrustStoreRevocationEntriesException$: StaticErrorSchema = [
   -3,
   n0,
   _TMTSREE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyTrustStoreRevocationEntries`, 400] },
+  { [_aQE]: [`TooManyTrustStoreRevocationEntries`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1587,7 +1587,7 @@ export var TooManyTrustStoresException$: StaticErrorSchema = [
   -3,
   n0,
   _TMTSE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyTrustStores`, 400] },
+  { [_aQE]: [`TooManyTrustStores`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1596,7 +1596,7 @@ export var TooManyUniqueTargetGroupsPerLoadBalancerException$: StaticErrorSchema
   -3,
   n0,
   _TMUTGPLBE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyUniqueTargetGroupsPerLoadBalancer`, 400] },
+  { [_aQE]: [`TooManyUniqueTargetGroupsPerLoadBalancer`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1610,7 +1610,7 @@ export var TrustStoreAssociationNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _TSANFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`AssociationNotFound`, 400] },
+  { [_aQE]: [`AssociationNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1619,7 +1619,7 @@ export var TrustStoreInUseException$: StaticErrorSchema = [
   -3,
   n0,
   _TSIUE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TrustStoreInUse`, 400] },
+  { [_aQE]: [`TrustStoreInUse`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1628,7 +1628,7 @@ export var TrustStoreNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _TSNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TrustStoreNotFound`, 400] },
+  { [_aQE]: [`TrustStoreNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1637,7 +1637,7 @@ export var TrustStoreNotReadyException$: StaticErrorSchema = [
   -3,
   n0,
   _TSNRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TrustStoreNotReady`, 400] },
+  { [_aQE]: [`TrustStoreNotReady`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1647,7 +1647,7 @@ export var UnsupportedProtocolException$: StaticErrorSchema = [
   -3,
   n0,
   _UPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`UnsupportedProtocol`, 400] },
+  { [_aQE]: [`UnsupportedProtocol`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];

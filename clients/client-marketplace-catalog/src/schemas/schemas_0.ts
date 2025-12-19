@@ -243,6 +243,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -890,8 +891,8 @@ var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
 var ValueList = 64 | 0;
 var EntityDetails: StaticMapSchema = [2, n0, _ED, 0, 0, () => EntityDetail$];
 var Errors: StaticMapSchema = [2, n0, _E, 0, 0, () => BatchDescribeErrorDetail$];
-export var EntityTypeFilters$: StaticStructureSchema = [
-  3,
+export var EntityTypeFilters$: StaticUnionSchema = [
+  4,
   n0,
   _ETF,
   0,
@@ -907,8 +908,8 @@ export var EntityTypeFilters$: StaticStructureSchema = [
     () => OfferSetFilters$,
   ],
 ];
-export var EntityTypeSort$: StaticStructureSchema = [
-  3,
+export var EntityTypeSort$: StaticUnionSchema = [
+  4,
   n0,
   _ETS,
   0,

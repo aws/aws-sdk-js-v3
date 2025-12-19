@@ -120,6 +120,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { BCMDashboardsServiceException } from "../models/BCMDashboardsServiceException";
@@ -292,16 +293,16 @@ var StringList = 64 | 0;
 var WidgetConfigList: StaticListSchema = [1, n0, _WCL, 0, () => WidgetConfig$];
 var WidgetList: StaticListSchema = [1, n0, _WL, 0, () => Widget$];
 var GraphDisplayConfigMap: StaticMapSchema = [2, n0, _GDCM, 0, 0, () => GraphDisplayConfig$];
-export var DisplayConfig$: StaticStructureSchema = [
-  3,
+export var DisplayConfig$: StaticUnionSchema = [
+  4,
   n0,
   _DC,
   0,
   [_gr, _tab],
   [() => GraphDisplayConfigMap, () => TableDisplayConfigStruct$],
 ];
-export var QueryParameters$: StaticStructureSchema = [
-  3,
+export var QueryParameters$: StaticUnionSchema = [
+  4,
   n0,
   _QP,
   0,

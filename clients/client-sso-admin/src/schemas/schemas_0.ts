@@ -394,6 +394,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1314,25 +1315,25 @@ var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
 var TokenIssuerAudiences = 64 | 0;
 var TrustedTokenIssuerList: StaticListSchema = [1, n0, _TTIL, 0, () => TrustedTokenIssuerMetadata$];
 var ResourceServerScopes: StaticMapSchema = [2, n0, _RSS, 0, 0, () => ResourceServerScopeDetails$];
-export var AuthenticationMethod$: StaticStructureSchema = [3, n0, _AM, 0, [_Ia], [() => IamAuthenticationMethod$]];
-export var Grant$: StaticStructureSchema = [
-  3,
+export var AuthenticationMethod$: StaticUnionSchema = [4, n0, _AM, 0, [_Ia], [() => IamAuthenticationMethod$]];
+export var Grant$: StaticUnionSchema = [
+  4,
   n0,
   _G,
   0,
   [_AC, _JB, _RT, _TEo],
   [() => AuthorizationCodeGrant$, () => JwtBearerGrant$, () => RefreshTokenGrant$, () => TokenExchangeGrant$],
 ];
-export var TrustedTokenIssuerConfiguration$: StaticStructureSchema = [
-  3,
+export var TrustedTokenIssuerConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _TTIC,
   0,
   [_OJC],
   [() => OidcJwtConfiguration$],
 ];
-export var TrustedTokenIssuerUpdateConfiguration$: StaticStructureSchema = [
-  3,
+export var TrustedTokenIssuerUpdateConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _TTIUC,
   0,

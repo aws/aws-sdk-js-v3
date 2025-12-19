@@ -286,6 +286,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { AmpServiceException } from "../models/AmpServiceException";
@@ -474,7 +475,7 @@ export var DeleteAlertManagerDefinitionRequest$: StaticStructureSchema = [
   [_wI, _cT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeleteAnomalyDetectorRequest$: StaticStructureSchema = [
@@ -486,7 +487,7 @@ export var DeleteAnomalyDetectorRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeleteLoggingConfigurationRequest$: StaticStructureSchema = [
@@ -497,7 +498,7 @@ export var DeleteLoggingConfigurationRequest$: StaticStructureSchema = [
   [_wI, _cT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeleteQueryLoggingConfigurationRequest$: StaticStructureSchema = [
@@ -508,7 +509,7 @@ export var DeleteQueryLoggingConfigurationRequest$: StaticStructureSchema = [
   [_wI, _cT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeleteResourcePolicyRequest$: StaticStructureSchema = [
@@ -519,7 +520,7 @@ export var DeleteResourcePolicyRequest$: StaticStructureSchema = [
   [_wI, _cT, _rIe],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
     [0, { [_hQ]: _rIe }],
   ],
 ];
@@ -532,7 +533,7 @@ export var DeleteRuleGroupsNamespaceRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeleteScraperLoggingConfigurationRequest$: StaticStructureSchema = [
@@ -543,7 +544,7 @@ export var DeleteScraperLoggingConfigurationRequest$: StaticStructureSchema = [
   [_sI, _cT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeleteScraperRequest$: StaticStructureSchema = [
@@ -554,7 +555,7 @@ export var DeleteScraperRequest$: StaticStructureSchema = [
   [_sI, _cT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeleteScraperResponse$: StaticStructureSchema = [3, n0, _DSRe, 0, [_sI, _s], [0, () => ScraperStatus$]];
@@ -566,7 +567,7 @@ export var DeleteWorkspaceRequest$: StaticStructureSchema = [
   [_wI, _cT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DescribeAlertManagerDefinitionRequest$: StaticStructureSchema = [3, n0, _DAMDRe, 0, [_wI], [[0, 1]]];
@@ -1085,34 +1086,20 @@ var PrometheusMetricLabelMap = 128 | 0;
 var ScraperFilters: StaticMapSchema = [2, n0, _SF, 0, 0, 64 | 0];
 var StringMap = 128 | 0;
 var TagMap = 128 | 0;
-export var AnomalyDetectorConfiguration$: StaticStructureSchema = [
-  3,
+export var AnomalyDetectorConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _ADC,
   0,
   [_rCF],
   [() => RandomCutForestConfiguration$],
 ];
-export var AnomalyDetectorMissingDataAction$: StaticStructureSchema = [3, n0, _ADMDA, 0, [_mAA, _sk], [2, 2]];
-export var Destination$: StaticStructureSchema = [3, n0, _D, 0, [_aC], [() => AmpConfiguration$]];
-export var IgnoreNearExpected$: StaticStructureSchema = [3, n0, _INE, 0, [_am, _ra], [1, 1]];
-export var ScrapeConfiguration$: StaticStructureSchema = [3, n0, _SCcr, 0, [_cB], [21]];
-export var ScraperLoggingDestination$: StaticStructureSchema = [
-  3,
-  n0,
-  _SLD,
-  0,
-  [_cWL],
-  [() => CloudWatchLogDestination$],
-];
-export var Source$: StaticStructureSchema = [
-  3,
-  n0,
-  _S,
-  0,
-  [_eC, _vC],
-  [() => EksConfiguration$, () => VpcConfiguration$],
-];
+export var AnomalyDetectorMissingDataAction$: StaticUnionSchema = [4, n0, _ADMDA, 0, [_mAA, _sk], [2, 2]];
+export var Destination$: StaticUnionSchema = [4, n0, _D, 0, [_aC], [() => AmpConfiguration$]];
+export var IgnoreNearExpected$: StaticUnionSchema = [4, n0, _INE, 0, [_am, _ra], [1, 1]];
+export var ScrapeConfiguration$: StaticUnionSchema = [4, n0, _SCcr, 0, [_cB], [21]];
+export var ScraperLoggingDestination$: StaticUnionSchema = [4, n0, _SLD, 0, [_cWL], [() => CloudWatchLogDestination$]];
+export var Source$: StaticUnionSchema = [4, n0, _S, 0, [_eC, _vC], [() => EksConfiguration$, () => VpcConfiguration$]];
 export var CreateAlertManagerDefinition$: StaticOperationSchema = [
   9,
   n0,

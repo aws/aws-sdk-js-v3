@@ -373,6 +373,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1171,16 +1172,16 @@ var TagKeyList = 64 | 0;
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
 var BatchJobParametersMap = 128 | 0;
 var TagMap = 128 | 0;
-export var BatchJobDefinition$: StaticStructureSchema = [
-  3,
+export var BatchJobDefinition$: StaticUnionSchema = [
+  4,
   n0,
   _BJDa,
   0,
   [_fBJD, _sBJD],
   [() => FileBatchJobDefinition$, () => ScriptBatchJobDefinition$],
 ];
-export var BatchJobIdentifier$: StaticStructureSchema = [
-  3,
+export var BatchJobIdentifier$: StaticUnionSchema = [
+  4,
   n0,
   _BJI,
   0,
@@ -1192,29 +1193,29 @@ export var BatchJobIdentifier$: StaticStructureSchema = [
     () => RestartBatchJobIdentifier$,
   ],
 ];
-export var DatasetDetailOrgAttributes$: StaticStructureSchema = [
-  3,
+export var DatasetDetailOrgAttributes$: StaticUnionSchema = [
+  4,
   n0,
   _DDOA,
   0,
   [_v, _g, _po, _ps],
   [() => VsamDetailAttributes$, () => GdgDetailAttributes$, () => PoDetailAttributes$, () => PsDetailAttributes$],
 ];
-export var DataSetExportConfig$: StaticStructureSchema = [3, n0, _DSEC, 0, [_sL, _dSat], [0, () => DataSetExportList]];
-export var DataSetImportConfig$: StaticStructureSchema = [3, n0, _DSIC, 0, [_sL, _dSat], [0, () => DataSetImportList]];
-export var DatasetOrgAttributes$: StaticStructureSchema = [
-  3,
+export var DataSetExportConfig$: StaticUnionSchema = [4, n0, _DSEC, 0, [_sL, _dSat], [0, () => DataSetExportList]];
+export var DataSetImportConfig$: StaticUnionSchema = [4, n0, _DSIC, 0, [_sL, _dSat], [0, () => DataSetImportList]];
+export var DatasetOrgAttributes$: StaticUnionSchema = [
+  4,
   n0,
   _DOA,
   0,
   [_v, _g, _po, _ps],
   [() => VsamAttributes$, () => GdgAttributes$, () => PoAttributes$, () => PsAttributes$],
 ];
-export var Definition$: StaticStructureSchema = [3, n0, _D, 0, [_sL, _con], [0, 0]];
-export var ExternalLocation$: StaticStructureSchema = [3, n0, _EL, 0, [_sL], [0]];
-export var JobIdentifier$: StaticStructureSchema = [3, n0, _JI, 0, [_fN, _sNc], [0, 0]];
-export var StorageConfiguration$: StaticStructureSchema = [
-  3,
+export var Definition$: StaticUnionSchema = [4, n0, _D, 0, [_sL, _con], [0, 0]];
+export var ExternalLocation$: StaticUnionSchema = [4, n0, _EL, 0, [_sL], [0]];
+export var JobIdentifier$: StaticUnionSchema = [4, n0, _JI, 0, [_fN, _sNc], [0, 0]];
+export var StorageConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _SC,
   0,

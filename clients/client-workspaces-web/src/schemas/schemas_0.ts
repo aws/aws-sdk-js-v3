@@ -506,6 +506,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1770,9 +1771,9 @@ var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => Val
 var EncryptionContextMap = 128 | 0;
 var IdentityProviderDetails: StaticMapSchema = [2, n0, _IPD, 8, 0, 0];
 var LocalizedBrandingStringMap: StaticMapSchema = [2, n0, _LBSM, 0, 0, () => LocalizedBrandingStrings$];
-export var EventFilter$: StaticStructureSchema = [3, n0, _EF, 0, [_al, _in], [() => __Unit, 64 | 0]];
-export var IconImageInput$: StaticStructureSchema = [3, n0, _III, 0, [_blo, _sU], [[() => IconImage, 0], 0]];
-export var WallpaperImageInput$: StaticStructureSchema = [3, n0, _WII, 0, [_blo, _sU], [[() => WallpaperImage, 0], 0]];
+export var EventFilter$: StaticUnionSchema = [4, n0, _EF, 0, [_al, _in], [() => __Unit, 64 | 0]];
+export var IconImageInput$: StaticUnionSchema = [4, n0, _III, 0, [_blo, _sU], [[() => IconImage, 0], 0]];
+export var WallpaperImageInput$: StaticUnionSchema = [4, n0, _WII, 0, [_blo, _sU], [[() => WallpaperImage, 0], 0]];
 export var AssociateBrowserSettings$: StaticOperationSchema = [
   9,
   n0,

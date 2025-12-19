@@ -1495,7 +1495,7 @@ export var SendApiAsset$: StaticOperationSchema = [
   9,
   n0,
   _SAA,
-  { [_h]: ["POST", "/v1", 200], [_en]: ["api-fulfill."] },
+  { [_en]: ["api-fulfill."], [_h]: ["POST", "/v1", 200] },
   () => SendApiAssetRequest$,
   () => SendApiAssetResponse$,
 ];

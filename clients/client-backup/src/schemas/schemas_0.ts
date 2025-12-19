@@ -987,7 +987,7 @@ export var ConflictException$: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`ConflictException`, 409] },
+  { [_aQE]: [`ConflictException`, 409], [_e]: _c, [_hE]: 409 },
   [_C, _M, _T, _Co],
   [0, 0, 0, 0],
 ];

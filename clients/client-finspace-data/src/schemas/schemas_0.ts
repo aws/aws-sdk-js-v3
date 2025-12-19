@@ -376,7 +376,7 @@ export var DeleteDatasetRequest$: StaticStructureSchema = [
   0,
   [_cT, _dI],
   [
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
     [0, 1],
   ],
 ];
@@ -389,7 +389,7 @@ export var DeletePermissionGroupRequest$: StaticStructureSchema = [
   [_pGI, _cT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeletePermissionGroupResponse$: StaticStructureSchema = [3, n0, _DPGRe, 0, [_pGI], [0]];
@@ -414,7 +414,7 @@ export var DisassociateUserFromPermissionGroupRequest$: StaticStructureSchema = 
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DisassociateUserFromPermissionGroupResponse$: StaticStructureSchema = [3, n0, _DUFPGRi, 0, [_sC], [[1, 32]]];

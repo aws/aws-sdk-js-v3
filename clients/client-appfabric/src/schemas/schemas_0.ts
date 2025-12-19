@@ -221,6 +221,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { AppFabricServiceException } from "../models/AppFabricServiceException";
@@ -692,8 +693,8 @@ var TaskIdList = 64 | 0;
 var UserAccessResultsList: StaticListSchema = [1, n0, _UARL, 0, [() => UserAccessResultItem$, 0]];
 var UserAccessTasksList: StaticListSchema = [1, n0, _UATL, 0, () => UserAccessTaskItem$];
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
-export var Credential$: StaticStructureSchema = [
-  3,
+export var Credential$: StaticUnionSchema = [
+  4,
   n0,
   _C,
   0,
@@ -703,17 +704,17 @@ export var Credential$: StaticStructureSchema = [
     [() => ApiKeyCredential$, 0],
   ],
 ];
-export var Destination$: StaticStructureSchema = [3, n0, _D, 0, [_sB, _fS], [() => S3Bucket$, () => FirehoseStream$]];
-export var DestinationConfiguration$: StaticStructureSchema = [
-  3,
+export var Destination$: StaticUnionSchema = [4, n0, _D, 0, [_sB, _fS], [() => S3Bucket$, () => FirehoseStream$]];
+export var DestinationConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _DC,
   0,
   [_aL],
   [() => AuditLogDestinationConfiguration$],
 ];
-export var ProcessingConfiguration$: StaticStructureSchema = [
-  3,
+export var ProcessingConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _PC,
   0,

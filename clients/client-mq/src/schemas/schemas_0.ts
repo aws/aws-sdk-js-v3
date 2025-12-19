@@ -491,7 +491,7 @@ export var CreateBrokerRequest$: StaticStructureSchema = [
     [2, { [_jN]: _aMVU }],
     [0, { [_jN]: _bN }],
     [() => ConfigurationId$, { [_jN]: _co }],
-    [0, { [_jN]: _cRI, [_iT]: 1 }],
+    [0, { [_iT]: 1, [_jN]: _cRI }],
     [0, { [_jN]: _dM }],
     [() => EncryptionOptions$, { [_jN]: _eO }],
     [0, { [_jN]: _eT }],

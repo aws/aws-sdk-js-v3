@@ -242,6 +242,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -851,7 +852,7 @@ var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => Val
 var VpceIds = 64 | 0;
 var WorkspaceList: StaticListSchema = [1, n0, _WL, 0, [() => WorkspaceSummary$, 0]];
 var TagMap = 128 | 0;
-export var IdpMetadata$: StaticStructureSchema = [3, n0, _IM, 0, [_ur, _x], [0, 0]];
+export var IdpMetadata$: StaticUnionSchema = [4, n0, _IM, 0, [_ur, _x], [0, 0]];
 export var AssociateLicense$: StaticOperationSchema = [
   9,
   n0,

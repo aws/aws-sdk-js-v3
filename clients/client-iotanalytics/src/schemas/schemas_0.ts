@@ -363,6 +363,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1106,8 +1107,8 @@ var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
 var Variables: StaticListSchema = [1, n0, _Va, 0, () => Variable$];
 var AttributeNameMapping = 128 | 0;
-export var DatastoreStorage$: StaticStructureSchema = [
-  3,
+export var DatastoreStorage$: StaticUnionSchema = [
+  4,
   n0,
   _DSatast,
   0,

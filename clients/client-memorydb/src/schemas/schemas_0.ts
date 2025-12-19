@@ -494,7 +494,7 @@ export var ACLAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _ACLAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ACLAlreadyExists`, 400] },
+  { [_aQE]: [`ACLAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -503,7 +503,7 @@ export var ACLNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _ACLNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ACLNotFound`, 404] },
+  { [_aQE]: [`ACLNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -513,7 +513,7 @@ export var ACLQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _ACLQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ACLQuotaExceeded`, 400] },
+  { [_aQE]: [`ACLQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -523,7 +523,7 @@ export var APICallRateForCustomerExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _APICRFCEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`APICallRateForCustomerExceeded`, 400] },
+  { [_aQE]: [`APICallRateForCustomerExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -624,7 +624,7 @@ export var ClusterAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _CAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ClusterAlreadyExists`, 400] },
+  { [_aQE]: [`ClusterAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -641,7 +641,7 @@ export var ClusterNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _CNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ClusterNotFound`, 404] },
+  { [_aQE]: [`ClusterNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -658,7 +658,7 @@ export var ClusterQuotaForCustomerExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _CQFCEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ClusterQuotaForCustomerExceeded`, 400] },
+  { [_aQE]: [`ClusterQuotaForCustomerExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -800,7 +800,7 @@ export var DefaultUserRequired$: StaticErrorSchema = [
   -3,
   n0,
   _DUR,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DefaultUserRequired`, 400] },
+  { [_aQE]: [`DefaultUserRequired`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1014,7 +1014,7 @@ export var DuplicateUserNameFault$: StaticErrorSchema = [
   -3,
   n0,
   _DUNF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DuplicateUserName`, 400] },
+  { [_aQE]: [`DuplicateUserName`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1029,7 +1029,7 @@ export var InsufficientClusterCapacityFault$: StaticErrorSchema = [
   -3,
   n0,
   _ICCF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InsufficientClusterCapacity`, 400] },
+  { [_aQE]: [`InsufficientClusterCapacity`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1038,7 +1038,7 @@ export var InvalidACLStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IACLSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidACLState`, 400] },
+  { [_aQE]: [`InvalidACLState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1047,7 +1047,7 @@ export var InvalidARNFault$: StaticErrorSchema = [
   -3,
   n0,
   _IARNF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidARN`, 400] },
+  { [_aQE]: [`InvalidARN`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1056,7 +1056,7 @@ export var InvalidClusterStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _ICSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidClusterState`, 400] },
+  { [_aQE]: [`InvalidClusterState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1065,7 +1065,7 @@ export var InvalidCredentialsException$: StaticErrorSchema = [
   -3,
   n0,
   _ICE,
-  { [_e]: _c, [_hE]: 408, [_aQE]: [`InvalidCredentialsException`, 408] },
+  { [_aQE]: [`InvalidCredentialsException`, 408], [_e]: _c, [_hE]: 408 },
   [_m],
   [0],
 ];
@@ -1074,7 +1074,7 @@ export var InvalidKMSKeyFault$: StaticErrorSchema = [
   -3,
   n0,
   _IKMSKF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidKMSKeyFault`, 400] },
+  { [_aQE]: [`InvalidKMSKeyFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1083,7 +1083,7 @@ export var InvalidMultiRegionClusterStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IMRCSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidMultiRegionClusterState`, 400] },
+  { [_aQE]: [`InvalidMultiRegionClusterState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1092,7 +1092,7 @@ export var InvalidNodeStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _INSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidNodeState`, 400] },
+  { [_aQE]: [`InvalidNodeState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1101,7 +1101,7 @@ export var InvalidParameterCombinationException$: StaticErrorSchema = [
   -3,
   n0,
   _IPCE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameterCombination`, 400] },
+  { [_aQE]: [`InvalidParameterCombination`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1110,7 +1110,7 @@ export var InvalidParameterGroupStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IPGSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameterGroupState`, 400] },
+  { [_aQE]: [`InvalidParameterGroupState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1119,7 +1119,7 @@ export var InvalidParameterValueException$: StaticErrorSchema = [
   -3,
   n0,
   _IPVE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameterValue`, 400] },
+  { [_aQE]: [`InvalidParameterValue`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1128,7 +1128,7 @@ export var InvalidSnapshotStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _ISSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidSnapshotState`, 400] },
+  { [_aQE]: [`InvalidSnapshotState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1137,7 +1137,7 @@ export var InvalidSubnet$: StaticErrorSchema = [
   -3,
   n0,
   _IS,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidSubnet`, 400] },
+  { [_aQE]: [`InvalidSubnet`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1146,7 +1146,7 @@ export var InvalidUserStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IUSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidUserState`, 400] },
+  { [_aQE]: [`InvalidUserState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1155,7 +1155,7 @@ export var InvalidVPCNetworkStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IVPCNSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidVPCNetworkStateFault`, 400] },
+  { [_aQE]: [`InvalidVPCNetworkStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1192,7 +1192,7 @@ export var MultiRegionClusterAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _MRCAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`MultiRegionClusterAlreadyExistsFault`, 400] },
+  { [_aQE]: [`MultiRegionClusterAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1201,7 +1201,7 @@ export var MultiRegionClusterNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _MRCNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`MultiRegionClusterNotFound`, 404] },
+  { [_aQE]: [`MultiRegionClusterNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -1219,7 +1219,7 @@ export var MultiRegionParameterGroupNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _MRPGNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`MultiRegionParameterGroupNotFoundFault`, 404] },
+  { [_aQE]: [`MultiRegionParameterGroupNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -1229,7 +1229,7 @@ export var NodeQuotaForClusterExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _NQFCEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`NodeQuotaForClusterExceeded`, 400] },
+  { [_aQE]: [`NodeQuotaForClusterExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1238,7 +1238,7 @@ export var NodeQuotaForCustomerExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _NQFCEFo,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`NodeQuotaForCustomerExceeded`, 400] },
+  { [_aQE]: [`NodeQuotaForCustomerExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1247,7 +1247,7 @@ export var NoOperationFault$: StaticErrorSchema = [
   -3,
   n0,
   _NOF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`NoOperationFault`, 400] },
+  { [_aQE]: [`NoOperationFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1258,7 +1258,7 @@ export var ParameterGroupAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _PGAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ParameterGroupAlreadyExists`, 400] },
+  { [_aQE]: [`ParameterGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1267,7 +1267,7 @@ export var ParameterGroupNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _PGNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ParameterGroupNotFound`, 404] },
+  { [_aQE]: [`ParameterGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -1276,7 +1276,7 @@ export var ParameterGroupQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _PGQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ParameterGroupQuotaExceeded`, 400] },
+  { [_aQE]: [`ParameterGroupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1314,7 +1314,7 @@ export var ReservedNodeAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _RNAEF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ReservedNodeAlreadyExists`, 404] },
+  { [_aQE]: [`ReservedNodeAlreadyExists`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -1323,7 +1323,7 @@ export var ReservedNodeNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _RNNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ReservedNodeNotFound`, 404] },
+  { [_aQE]: [`ReservedNodeNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -1332,7 +1332,7 @@ export var ReservedNodeQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _RNQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ReservedNodeQuotaExceeded`, 400] },
+  { [_aQE]: [`ReservedNodeQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1349,7 +1349,7 @@ export var ReservedNodesOfferingNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _RNONFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ReservedNodesOfferingNotFound`, 404] },
+  { [_aQE]: [`ReservedNodesOfferingNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -1362,7 +1362,7 @@ export var ServiceLinkedRoleNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _SLRNFF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ServiceLinkedRoleNotFoundFault`, 400] },
+  { [_aQE]: [`ServiceLinkedRoleNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1379,7 +1379,7 @@ export var ServiceUpdateNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _SUNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ServiceUpdateNotFoundFault`, 404] },
+  { [_aQE]: [`ServiceUpdateNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -1407,7 +1407,7 @@ export var ShardNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _SNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ShardNotFoundFault`, 404] },
+  { [_aQE]: [`ShardNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -1416,7 +1416,7 @@ export var ShardsPerClusterQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _SPCQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ShardsPerClusterQuotaExceeded`, 400] },
+  { [_aQE]: [`ShardsPerClusterQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1434,7 +1434,7 @@ export var SnapshotAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _SAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SnapshotAlreadyExistsFault`, 400] },
+  { [_aQE]: [`SnapshotAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1443,7 +1443,7 @@ export var SnapshotNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _SNFFn,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`SnapshotNotFoundFault`, 404] },
+  { [_aQE]: [`SnapshotNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -1452,7 +1452,7 @@ export var SnapshotQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _SQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SnapshotQuotaExceededFault`, 400] },
+  { [_aQE]: [`SnapshotQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1470,7 +1470,7 @@ export var SubnetGroupAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _SGAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetGroupAlreadyExists`, 400] },
+  { [_aQE]: [`SubnetGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1479,7 +1479,7 @@ export var SubnetGroupInUseFault$: StaticErrorSchema = [
   -3,
   n0,
   _SGIUF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetGroupInUse`, 400] },
+  { [_aQE]: [`SubnetGroupInUse`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1488,7 +1488,7 @@ export var SubnetGroupNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _SGNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`SubnetGroupNotFoundFault`, 404] },
+  { [_aQE]: [`SubnetGroupNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -1497,7 +1497,7 @@ export var SubnetGroupQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _SGQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetGroupQuotaExceeded`, 400] },
+  { [_aQE]: [`SubnetGroupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1506,7 +1506,7 @@ export var SubnetInUse$: StaticErrorSchema = [
   -3,
   n0,
   _SIU,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetInUse`, 400] },
+  { [_aQE]: [`SubnetInUse`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1515,7 +1515,7 @@ export var SubnetNotAllowedFault$: StaticErrorSchema = [
   -3,
   n0,
   _SNAF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetNotAllowedFault`, 400] },
+  { [_aQE]: [`SubnetNotAllowedFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1524,7 +1524,7 @@ export var SubnetQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _SQEFu,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetQuotaExceededFault`, 400] },
+  { [_aQE]: [`SubnetQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1534,7 +1534,7 @@ export var TagNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _TNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`TagNotFound`, 404] },
+  { [_aQE]: [`TagNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -1543,7 +1543,7 @@ export var TagQuotaPerResourceExceeded$: StaticErrorSchema = [
   -3,
   n0,
   _TQPRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TagQuotaPerResourceExceeded`, 400] },
+  { [_aQE]: [`TagQuotaPerResourceExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1554,7 +1554,7 @@ export var TestFailoverNotAvailableFault$: StaticErrorSchema = [
   -3,
   n0,
   _TFNAF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TestFailoverNotAvailableFault`, 400] },
+  { [_aQE]: [`TestFailoverNotAvailableFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1645,7 +1645,7 @@ export var UserAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _UAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`UserAlreadyExists`, 400] },
+  { [_aQE]: [`UserAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1654,7 +1654,7 @@ export var UserNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _UNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`UserNotFound`, 404] },
+  { [_aQE]: [`UserNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -1663,7 +1663,7 @@ export var UserQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _UQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`UserQuotaExceeded`, 400] },
+  { [_aQE]: [`UserQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];

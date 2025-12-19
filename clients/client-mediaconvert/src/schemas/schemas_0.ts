@@ -2532,7 +2532,7 @@ export var CreateJobRequest$: StaticStructureSchema = [
   [
     [() => AccelerationSettings$, { [_jN]: _aScc }],
     [0, { [_jN]: _bTS }],
-    [0, { [_jN]: _cRT, [_iT]: 1 }],
+    [0, { [_iT]: 1, [_jN]: _cRT }],
     [() => __listOfHopDestination, { [_jN]: _hD }],
     [0, { [_jN]: _jEV }],
     [0, { [_jN]: _jT }],

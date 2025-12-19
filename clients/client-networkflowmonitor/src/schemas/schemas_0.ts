@@ -198,6 +198,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -654,7 +655,7 @@ var WorkloadInsightsTopContributorsRowList: StaticListSchema = [
 var WorkloadInsightsTopContributorsTimestampsList = 64 | 4;
 var WorkloadInsightsTopContributorsValuesList = 64 | 1;
 var TagMap = 128 | 0;
-export var TargetId$: StaticStructureSchema = [3, n0, _TIa, 0, [_aI], [0]];
+export var TargetId$: StaticUnionSchema = [4, n0, _TIa, 0, [_aI], [0]];
 export var CreateMonitor$: StaticOperationSchema = [
   9,
   n0,

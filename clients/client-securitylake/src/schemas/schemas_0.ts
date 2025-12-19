@@ -241,7 +241,13 @@ const n0 = "com.amazonaws.securitylake";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type {
+  StaticErrorSchema,
+  StaticListSchema,
+  StaticOperationSchema,
+  StaticStructureSchema,
+  StaticUnionSchema,
+} from "@smithy/types";
 
 import {
   AccessDeniedException,
@@ -655,16 +661,16 @@ var RegionList = 64 | 0;
 var SubscriberResourceList: StaticListSchema = [1, n0, _SRL, 0, () => SubscriberResource$];
 var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
-export var LogSourceResource$: StaticStructureSchema = [
-  3,
+export var LogSourceResource$: StaticUnionSchema = [
+  4,
   n0,
   _LSRo,
   0,
   [_aLS, _cLS],
   [() => AwsLogSourceResource$, () => CustomLogSourceResource$],
 ];
-export var NotificationConfiguration$: StaticStructureSchema = [
-  3,
+export var NotificationConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _NC,
   0,

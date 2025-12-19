@@ -63,7 +63,7 @@ export var AccessDeniedException$: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`BCMRecommendedActionsAccessDenied`, 403] },
+  { [_aQE]: [`BCMRecommendedActionsAccessDenied`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0],
 ];
@@ -73,7 +73,7 @@ export var InternalServerException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`BCMRecommendedActionsInternalServer`, 500] },
+  { [_aQE]: [`BCMRecommendedActionsInternalServer`, 500], [_e]: _s, [_hE]: 500 },
   [_m],
   [0],
 ];
@@ -107,7 +107,7 @@ export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  { [_e]: _c, [_hE]: 429, [_aQE]: [`BCMRecommendedActionsThrottling`, 429] },
+  { [_aQE]: [`BCMRecommendedActionsThrottling`, 429], [_e]: _c, [_hE]: 429 },
   [_m],
   [0],
 ];
@@ -116,7 +116,7 @@ export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`BCMRecommendedActionsValidation`, 400] },
+  { [_aQE]: [`BCMRecommendedActionsValidation`, 400], [_e]: _c, [_hE]: 400 },
   [_m, _r, _fL],
   [0, 0, () => ValidationExceptionFieldList],
 ];

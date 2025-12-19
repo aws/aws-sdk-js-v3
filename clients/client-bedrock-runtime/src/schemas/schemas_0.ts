@@ -456,6 +456,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { BedrockRuntimeServiceException } from "../models/BedrockRuntimeServiceException";
@@ -1284,18 +1285,18 @@ var GuardrailAssessmentListMap: StaticMapSchema = [2, n0, _GALM, 0, [0, 0], [() 
 var GuardrailAssessmentMap: StaticMapSchema = [2, n0, _GAM, 0, [0, 0], [() => GuardrailAssessment$, 0]];
 var PromptVariableMap: StaticMapSchema = [2, n0, _PVM, 8, 0, () => PromptVariableValues$];
 var RequestMetadata: StaticMapSchema = [2, n0, _RM, 8, 0, 0];
-export var AsyncInvokeOutputDataConfig$: StaticStructureSchema = [
-  3,
+export var AsyncInvokeOutputDataConfig$: StaticUnionSchema = [
+  4,
   n0,
   _AIODC,
   0,
   [_sODC],
   [() => AsyncInvokeS3OutputDataConfig$],
 ];
-export var AudioSource$: StaticStructureSchema = [3, n0, _AS, 8, [_b, _sL], [21, () => S3Location$]];
-export var CitationGeneratedContent$: StaticStructureSchema = [3, n0, _CGC, 0, [_te], [0]];
-export var CitationLocation$: StaticStructureSchema = [
-  3,
+export var AudioSource$: StaticUnionSchema = [4, n0, _AS, 8, [_b, _sL], [21, () => S3Location$]];
+export var CitationGeneratedContent$: StaticUnionSchema = [4, n0, _CGC, 0, [_te], [0]];
+export var CitationLocation$: StaticUnionSchema = [
+  4,
   n0,
   _CL,
   0,
@@ -1308,9 +1309,9 @@ export var CitationLocation$: StaticStructureSchema = [
     () => SearchResultLocation$,
   ],
 ];
-export var CitationSourceContent$: StaticStructureSchema = [3, n0, _CSC, 0, [_te], [0]];
-export var ContentBlock$: StaticStructureSchema = [
-  3,
+export var CitationSourceContent$: StaticUnionSchema = [4, n0, _CSC, 0, [_te], [0]];
+export var ContentBlock$: StaticUnionSchema = [
+  4,
   n0,
   _CBo,
   0,
@@ -1330,8 +1331,8 @@ export var ContentBlock$: StaticStructureSchema = [
     () => SearchResultBlock$,
   ],
 ];
-export var ContentBlockDelta$: StaticStructureSchema = [
-  3,
+export var ContentBlockDelta$: StaticUnionSchema = [
+  4,
   n0,
   _CBD,
   0,
@@ -1345,17 +1346,17 @@ export var ContentBlockDelta$: StaticStructureSchema = [
     [() => ImageBlockDelta$, 0],
   ],
 ];
-export var ContentBlockStart$: StaticStructureSchema = [
-  3,
+export var ContentBlockStart$: StaticUnionSchema = [
+  4,
   n0,
   _CBS,
   0,
   [_tU, _tR, _ima],
   [() => ToolUseBlockStart$, () => ToolResultBlockStart$, () => ImageBlockStart$],
 ];
-export var ConverseOutput$: StaticStructureSchema = [3, n0, _CO, 0, [_m], [[() => Message$, 0]]];
-export var ConverseStreamOutput$: StaticStructureSchema = [
-  3,
+export var ConverseOutput$: StaticUnionSchema = [4, n0, _CO, 0, [_m], [[() => Message$, 0]]];
+export var ConverseStreamOutput$: StaticUnionSchema = [
+  4,
   n0,
   _CSO,
   { [_stre]: 1 },
@@ -1374,8 +1375,8 @@ export var ConverseStreamOutput$: StaticStructureSchema = [
     [() => ServiceUnavailableException$, 0],
   ],
 ];
-export var CountTokensInput$: StaticStructureSchema = [
-  3,
+export var CountTokensInput$: StaticUnionSchema = [
+  4,
   n0,
   _CTI,
   0,
@@ -1385,17 +1386,17 @@ export var CountTokensInput$: StaticStructureSchema = [
     [() => ConverseTokensRequest$, 0],
   ],
 ];
-export var DocumentContentBlock$: StaticStructureSchema = [3, n0, _DCBo, 0, [_te], [0]];
-export var DocumentSource$: StaticStructureSchema = [
-  3,
+export var DocumentContentBlock$: StaticUnionSchema = [4, n0, _DCBo, 0, [_te], [0]];
+export var DocumentSource$: StaticUnionSchema = [
+  4,
   n0,
   _DS,
   0,
   [_b, _sL, _te, _co],
   [21, () => S3Location$, 0, () => DocumentContentBlocks],
 ];
-export var GuardrailAutomatedReasoningFinding$: StaticStructureSchema = [
-  3,
+export var GuardrailAutomatedReasoningFinding$: StaticUnionSchema = [
+  4,
   n0,
   _GARF,
   0,
@@ -1410,35 +1411,35 @@ export var GuardrailAutomatedReasoningFinding$: StaticStructureSchema = [
     () => GuardrailAutomatedReasoningNoTranslationsFinding$,
   ],
 ];
-export var GuardrailContentBlock$: StaticStructureSchema = [
-  3,
+export var GuardrailContentBlock$: StaticUnionSchema = [
+  4,
   n0,
   _GCB,
   0,
   [_te, _ima],
   [() => GuardrailTextBlock$, [() => GuardrailImageBlock$, 0]],
 ];
-export var GuardrailConverseContentBlock$: StaticStructureSchema = [
-  3,
+export var GuardrailConverseContentBlock$: StaticUnionSchema = [
+  4,
   n0,
   _GCCB,
   0,
   [_te, _ima],
   [() => GuardrailConverseTextBlock$, [() => GuardrailConverseImageBlock$, 0]],
 ];
-export var GuardrailConverseImageSource$: StaticStructureSchema = [3, n0, _GCIS, 8, [_b], [21]];
-export var GuardrailImageSource$: StaticStructureSchema = [3, n0, _GIS, 8, [_b], [21]];
-export var ImageSource$: StaticStructureSchema = [3, n0, _IS, 8, [_b, _sL], [21, () => S3Location$]];
-export var InvokeModelWithBidirectionalStreamInput$: StaticStructureSchema = [
-  3,
+export var GuardrailConverseImageSource$: StaticUnionSchema = [4, n0, _GCIS, 8, [_b], [21]];
+export var GuardrailImageSource$: StaticUnionSchema = [4, n0, _GIS, 8, [_b], [21]];
+export var ImageSource$: StaticUnionSchema = [4, n0, _IS, 8, [_b, _sL], [21, () => S3Location$]];
+export var InvokeModelWithBidirectionalStreamInput$: StaticUnionSchema = [
+  4,
   n0,
   _IMWBSI,
   { [_stre]: 1 },
   [_ch],
   [[() => BidirectionalInputPayloadPart$, 0]],
 ];
-export var InvokeModelWithBidirectionalStreamOutput$: StaticStructureSchema = [
-  3,
+export var InvokeModelWithBidirectionalStreamOutput$: StaticUnionSchema = [
+  4,
   n0,
   _IMWBSO,
   { [_stre]: 1 },
@@ -1453,18 +1454,18 @@ export var InvokeModelWithBidirectionalStreamOutput$: StaticStructureSchema = [
     [() => ServiceUnavailableException$, 0],
   ],
 ];
-export var PromptVariableValues$: StaticStructureSchema = [3, n0, _PVV, 0, [_te], [0]];
-export var ReasoningContentBlock$: StaticStructureSchema = [
-  3,
+export var PromptVariableValues$: StaticUnionSchema = [4, n0, _PVV, 0, [_te], [0]];
+export var ReasoningContentBlock$: StaticUnionSchema = [
+  4,
   n0,
   _RCB,
   8,
   [_rT, _rCe],
   [[() => ReasoningTextBlock$, 0], 21],
 ];
-export var ReasoningContentBlockDelta$: StaticStructureSchema = [3, n0, _RCBD, 8, [_te, _rCe, _si], [0, 21, 0]];
-export var ResponseStream$: StaticStructureSchema = [
-  3,
+export var ReasoningContentBlockDelta$: StaticUnionSchema = [4, n0, _RCBD, 8, [_te, _rCe, _si], [0, 21, 0]];
+export var ResponseStream$: StaticUnionSchema = [
+  4,
   n0,
   _RS,
   { [_stre]: 1 },
@@ -1479,41 +1480,41 @@ export var ResponseStream$: StaticStructureSchema = [
     [() => ServiceUnavailableException$, 0],
   ],
 ];
-export var SystemContentBlock$: StaticStructureSchema = [
-  3,
+export var SystemContentBlock$: StaticUnionSchema = [
+  4,
   n0,
   _SCBy,
   0,
   [_te, _gCua, _cPa],
   [0, [() => GuardrailConverseContentBlock$, 0], () => CachePointBlock$],
 ];
-export var Tool$: StaticStructureSchema = [
-  3,
+export var Tool$: StaticUnionSchema = [
+  4,
   n0,
   _Too,
   0,
   [_tS, _sTy, _cPa],
   [() => ToolSpecification$, () => SystemTool$, () => CachePointBlock$],
 ];
-export var ToolChoice$: StaticStructureSchema = [
-  3,
+export var ToolChoice$: StaticUnionSchema = [
+  4,
   n0,
   _TCo,
   0,
   [_aut, _an, _tool],
   [() => AutoToolChoice$, () => AnyToolChoice$, () => SpecificToolChoice$],
 ];
-export var ToolInputSchema$: StaticStructureSchema = [3, n0, _TIS, 0, [_j], [15]];
-export var ToolResultBlockDelta$: StaticStructureSchema = [3, n0, _TRBDo, 0, [_te, _j], [0, 15]];
-export var ToolResultContentBlock$: StaticStructureSchema = [
-  3,
+export var ToolInputSchema$: StaticUnionSchema = [4, n0, _TIS, 0, [_j], [15]];
+export var ToolResultBlockDelta$: StaticUnionSchema = [4, n0, _TRBDo, 0, [_te, _j], [0, 15]];
+export var ToolResultContentBlock$: StaticUnionSchema = [
+  4,
   n0,
   _TRCBo,
   0,
   [_j, _te, _ima, _doc, _vi, _sRe],
   [15, 0, [() => ImageBlock$, 0], () => DocumentBlock$, () => VideoBlock$, () => SearchResultBlock$],
 ];
-export var VideoSource$: StaticStructureSchema = [3, n0, _VS, 0, [_b, _sL], [21, () => S3Location$]];
+export var VideoSource$: StaticUnionSchema = [4, n0, _VS, 0, [_b, _sL], [21, () => S3Location$]];
 export var ApplyGuardrail$: StaticOperationSchema = [
   9,
   n0,

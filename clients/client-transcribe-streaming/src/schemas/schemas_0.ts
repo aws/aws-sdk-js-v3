@@ -210,6 +210,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -744,16 +745,16 @@ var StringList = 64 | 0;
 var TimestampRanges: StaticListSchema = [1, n0, _TR, 0, () => TimestampRange$];
 var KMSEncryptionContextMap = 128 | 0;
 var MatchedCategoryDetails: StaticMapSchema = [2, n0, _MCD, 0, 0, () => PointsOfInterest$];
-export var AudioStream$: StaticStructureSchema = [
-  3,
+export var AudioStream$: StaticUnionSchema = [
+  4,
   n0,
   _AS,
   { [_st]: 1 },
   [_AE, _CEo],
   [[() => AudioEvent$, 0], () => ConfigurationEvent$],
 ];
-export var CallAnalyticsTranscriptResultStream$: StaticStructureSchema = [
-  3,
+export var CallAnalyticsTranscriptResultStream$: StaticUnionSchema = [
+  4,
   n0,
   _CATRS,
   { [_st]: 1 },
@@ -768,8 +769,8 @@ export var CallAnalyticsTranscriptResultStream$: StaticStructureSchema = [
     [() => ServiceUnavailableException$, 0],
   ],
 ];
-export var MedicalScribeInputStream$: StaticStructureSchema = [
-  3,
+export var MedicalScribeInputStream$: StaticUnionSchema = [
+  4,
   n0,
   _MSIS,
   { [_st]: 1 },
@@ -780,8 +781,8 @@ export var MedicalScribeInputStream$: StaticStructureSchema = [
     [() => MedicalScribeConfigurationEvent$, 0],
   ],
 ];
-export var MedicalScribeResultStream$: StaticStructureSchema = [
-  3,
+export var MedicalScribeResultStream$: StaticUnionSchema = [
+  4,
   n0,
   _MSRS,
   { [_st]: 1 },
@@ -795,8 +796,8 @@ export var MedicalScribeResultStream$: StaticStructureSchema = [
     [() => ServiceUnavailableException$, 0],
   ],
 ];
-export var MedicalTranscriptResultStream$: StaticStructureSchema = [
-  3,
+export var MedicalTranscriptResultStream$: StaticUnionSchema = [
+  4,
   n0,
   _MTRS,
   { [_st]: 1 },
@@ -810,8 +811,8 @@ export var MedicalTranscriptResultStream$: StaticStructureSchema = [
     [() => ServiceUnavailableException$, 0],
   ],
 ];
-export var TranscriptResultStream$: StaticStructureSchema = [
-  3,
+export var TranscriptResultStream$: StaticUnionSchema = [
+  4,
   n0,
   _TRS,
   { [_st]: 1 },

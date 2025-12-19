@@ -169,6 +169,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -456,8 +457,8 @@ var ToolSpecs: StaticListSchema = [1, n0, _TSo, 0, [() => ToolSpec$, 0]];
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
 var WorkflowDefinitionSummaries: StaticListSchema = [1, n0, _WDSo, 0, () => WorkflowDefinitionSummary$];
 var WorkflowRunSummaries: StaticListSchema = [1, n0, _WRSo, 0, () => WorkflowRunSummary$];
-export var CallResultContent$: StaticStructureSchema = [3, n0, _CRCa, 8, [_te], [0]];
-export var ToolInputSchema$: StaticStructureSchema = [3, n0, _TIS, 8, [_j], [15]];
+export var CallResultContent$: StaticUnionSchema = [4, n0, _CRCa, 8, [_te], [0]];
+export var ToolInputSchema$: StaticUnionSchema = [4, n0, _TIS, 8, [_j], [15]];
 export var CreateAct$: StaticOperationSchema = [
   9,
   n0,
