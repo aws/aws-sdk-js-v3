@@ -5349,8 +5349,6 @@ export interface StartChatContactRequest {
 
   /**
    * <p>A list of participant types to automatically disconnect when the end customer ends the chat session, allowing them to continue through disconnect flows such as surveys or feedback forms.</p>
-   *          <p>Valid value: <code>AGENT</code>.</p>
-   *          <p>With the <code>DisconnectOnCustomerExit</code> parameter, you can configure automatic agent disconnection when end customers end the chat, ensuring that disconnect flows are triggered consistently regardless of which participant disconnects first.</p>
    * @public
    */
   DisconnectOnCustomerExit?: DisconnectOnCustomerExitParticipantType[] | undefined;
@@ -5501,8 +5499,8 @@ export interface StartOutboundChatContactRequest {
    *                <p>Attribute keys can include only alphanumeric, <code>-</code>, and <code>_</code>.</p>
    *             </li>
    *             <li>
-   *                <p>This field can be used to show channel subtype, such as <code>connect:Guide</code> and
-   *       <code>connect:SMS</code>.</p>
+   *                <p>This field can be used to show channel subtype, such as <code>connect:SMS</code> and
+   *       <code>connect:WhatsApp</code>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -5613,7 +5611,7 @@ export interface StartOutboundChatContactRequest {
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided,
-   *    the AWS SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with
+   *    the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with
    *     idempotent APIs</a>. The token is valid for 7 days after creation. If a contact is already started, the contact
    *    ID is returned.</p>
    * @public

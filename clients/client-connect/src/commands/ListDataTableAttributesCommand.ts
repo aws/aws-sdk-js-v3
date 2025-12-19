@@ -28,7 +28,7 @@ export interface ListDataTableAttributesCommandOutput extends ListDataTableAttri
 
 /**
  * <p>Returns all attributes for a specified data table. A maximum of 100 attributes per data table is allowed.
- *    Customers can request an increase by using AWS Service Quotas. The response can be filtered by specific attribute IDs
+ *    Customers can request an increase by using Amazon Web Services Service Quotas. The response can be filtered by specific attribute IDs
  *    for CloudFormation integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -92,13 +92,20 @@ export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataR
  *     AgentStatuses: [ // AgentStatuses
  *       "STRING_VALUE",
  *     ],
+ *     Subtypes: [ // Subtypes
+ *       "STRING_VALUE",
+ *     ],
+ *     ValidationTestTypes: [ // ValidationTestTypes
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   Groupings: [ // Groupings
- *     "QUEUE" || "CHANNEL" || "ROUTING_PROFILE" || "ROUTING_STEP_EXPRESSION" || "AGENT_STATUS",
+ *     "QUEUE" || "CHANNEL" || "ROUTING_PROFILE" || "ROUTING_STEP_EXPRESSION" || "AGENT_STATUS" || "SUBTYPE" || "VALIDATION_TEST_TYPE",
  *   ],
  *   CurrentMetrics: [ // CurrentMetrics // required
  *     { // CurrentMetric
  *       Name: "AGENTS_ONLINE" || "AGENTS_AVAILABLE" || "AGENTS_ON_CALL" || "AGENTS_NON_PRODUCTIVE" || "AGENTS_AFTER_CONTACT_WORK" || "AGENTS_ERROR" || "AGENTS_STAFFED" || "CONTACTS_IN_QUEUE" || "OLDEST_CONTACT_AGE" || "CONTACTS_SCHEDULED" || "AGENTS_ON_CONTACT" || "SLOTS_ACTIVE" || "SLOTS_AVAILABLE",
+ *       MetricId: "STRING_VALUE",
  *       Unit: "SECONDS" || "COUNT" || "PERCENT",
  *     },
  *   ],
@@ -132,11 +139,14 @@ export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataR
  * //           Arn: "STRING_VALUE",
  * //           Id: "STRING_VALUE",
  * //         },
+ * //         Subtype: "STRING_VALUE",
+ * //         ValidationTestType: "STRING_VALUE",
  * //       },
  * //       Collections: [ // CurrentMetricDataCollections
  * //         { // CurrentMetricData
  * //           Metric: { // CurrentMetric
  * //             Name: "AGENTS_ONLINE" || "AGENTS_AVAILABLE" || "AGENTS_ON_CALL" || "AGENTS_NON_PRODUCTIVE" || "AGENTS_AFTER_CONTACT_WORK" || "AGENTS_ERROR" || "AGENTS_STAFFED" || "CONTACTS_IN_QUEUE" || "OLDEST_CONTACT_AGE" || "CONTACTS_SCHEDULED" || "AGENTS_ON_CONTACT" || "SLOTS_ACTIVE" || "SLOTS_AVAILABLE",
+ * //             MetricId: "STRING_VALUE",
  * //             Unit: "SECONDS" || "COUNT" || "PERCENT",
  * //           },
  * //           Value: Number("double"),

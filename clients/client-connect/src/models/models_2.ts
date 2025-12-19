@@ -2006,7 +2006,7 @@ export interface ListPhoneNumbersV2Request {
    * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
    *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
    *     instance ID</a> in the Amazon Resource Name (ARN) of the instance. If both <code>TargetArn</code> and <code>InstanceId</code> are not provided, this API lists
-   *    numbers claimed to all the Amazon Connect instances belonging to your account in the same AWS Region as the request.</p>
+   *    numbers claimed to all the Amazon Connect instances belonging to your account in the same Amazon Web Services Region as the request.</p>
    * @public
    */
   InstanceId?: string | undefined;
@@ -4752,7 +4752,7 @@ export interface WorkspaceSummary {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The AWS Region where the workspace was last modified.</p>
+   * <p>The Amazon Web Services Region where the workspace was last modified.</p>
    * @public
    */
   LastModifiedRegion?: string | undefined;

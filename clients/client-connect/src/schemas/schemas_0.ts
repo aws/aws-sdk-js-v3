@@ -1477,10 +1477,10 @@ const _MFV = "MetricFilterV2";
 const _MFVL = "MetricFiltersV2List";
 const _MFVe = "MetricFilterValues";
 const _MFe = "MetricFilters";
-const _MI = "MediaItem";
-const _MIe = "MeetingId";
+const _MI = "MetricId";
+const _MIe = "MediaItem";
+const _MIee = "MeetingId";
 const _MIet = "MetricInterval";
-const _MIetr = "MetricId";
 const _ML = "MinLength";
 const _MLIC = "MessageLengthInChars";
 const _MLa = "MaxLength";
@@ -2158,8 +2158,9 @@ const _Step = "Step";
 const _Str = "Strict";
 const _Stri = "String";
 const _Su = "Successful";
-const _Sub = "Subject";
-const _Subt = "Subtype";
+const _Sub = "Subtype";
+const _Subj = "Subject";
+const _Subt = "Subtypes";
 const _T = "Type";
 const _TA = "TargetArn";
 const _TACL = "TagAndConditionList";
@@ -2492,6 +2493,8 @@ const _VSi = "ViewSummary";
 const _VSo = "VocabularySummary";
 const _VT = "ValueType";
 const _VTC = "ViewTypeCondition";
+const _VTT = "ValidationTestType";
+const _VTTa = "ValidationTestTypes";
 const _VV = "ViewVersion";
 const _VVS = "ViewVersionSummary";
 const _VVSL = "ViewVersionSummaryList";
@@ -3995,7 +3998,7 @@ export var Credentials$: StaticStructureSchema = [
   [[() => SecurityToken, 0], 4, [() => SecurityToken, 0], 4],
 ];
 export var CrossChannelBehavior$: StaticStructureSchema = [3, n0, _CCB, 0, [_BT], [0]];
-export var CurrentMetric$: StaticStructureSchema = [3, n0, _CMur, 0, [_N, _Un], [0, 0]];
+export var CurrentMetric$: StaticStructureSchema = [3, n0, _CMur, 0, [_N, _MI, _Un], [0, 0, 0]];
 export var CurrentMetricData$: StaticStructureSchema = [3, n0, _CMD, 0, [_Met, _V], [() => CurrentMetric$, 1]];
 export var CurrentMetricResult$: StaticStructureSchema = [
   3,
@@ -5002,8 +5005,8 @@ export var Dimensions$: StaticStructureSchema = [
   n0,
   _Dim,
   0,
-  [_Q, _C, _RP, _RSE, _ASg],
-  [() => QueueReference$, 0, () => RoutingProfileReference$, 0, () => AgentStatusIdentifier$],
+  [_Q, _C, _RP, _RSE, _ASg, _Sub, _VTT],
+  [() => QueueReference$, 0, () => RoutingProfileReference$, 0, () => AgentStatusIdentifier$, 0, 0],
 ];
 export var DisassociateAnalyticsDataSetRequest$: StaticStructureSchema = [
   3,
@@ -5672,8 +5675,8 @@ export var Filters$: StaticStructureSchema = [
   n0,
   _Fil,
   0,
-  [_Qu, _Ch, _RPo, _RSEo, _ASge],
-  [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0],
+  [_Qu, _Ch, _RPo, _RSEo, _ASge, _Subt, _VTTa],
+  [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0],
 ];
 export var FilterV2$: StaticStructureSchema = [
   3,
@@ -6117,7 +6120,7 @@ export var InboundRawMessage$: StaticStructureSchema = [
   n0,
   _IRMn,
   0,
-  [_Sub, _B, _CTon, _He],
+  [_Subj, _B, _CTon, _He],
   [[() => InboundSubject, 0], [() => Body, 0], 0, 128 | 0],
 ];
 export var InputPredefinedAttributeConfiguration$: StaticStructureSchema = [3, n0, _IPAC, 0, [_EVVOA], [2]];
@@ -7366,14 +7369,14 @@ export var MediaConcurrency$: StaticStructureSchema = [
   [_C, _Conc, _CCB],
   [0, 1, () => CrossChannelBehavior$],
 ];
-export var MediaItem$: StaticStructureSchema = [3, n0, _MI, 0, [_T, _So], [0, 0]];
+export var MediaItem$: StaticStructureSchema = [3, n0, _MIe, 0, [_T, _So], [0, 0]];
 export var MediaPlacement$: StaticStructureSchema = [3, n0, _MPe, 0, [_AHU, _AFU, _SUi, _TCU, _EIU], [0, 0, 0, 0, 0]];
 export var Meeting$: StaticStructureSchema = [
   3,
   n0,
   _Me,
   0,
-  [_MRed, _MPe, _MF, _MIe],
+  [_MRed, _MPe, _MF, _MIee],
   [0, () => MediaPlacement$, () => MeetingFeaturesConfiguration$, 0],
 ];
 export var MeetingFeaturesConfiguration$: StaticStructureSchema = [3, n0, _MFC, 0, [_Au], [() => AudioFeatures$]];
@@ -7393,7 +7396,7 @@ export var MetricV2$: StaticStructureSchema = [
   n0,
   _MVe,
   0,
-  [_N, _Thr, _MIetr, _MFe],
+  [_N, _Thr, _MI, _MFe],
   [0, () => ThresholdCollections, 0, () => MetricFiltersV2List],
 ];
 export var MonitorContactRequest$: StaticStructureSchema = [
@@ -7467,7 +7470,7 @@ export var OutboundRawMessage$: StaticStructureSchema = [
   n0,
   _ORM,
   0,
-  [_Sub, _B, _CTon],
+  [_Subj, _B, _CTon],
   [[() => OutboundSubject, 0], [() => Body, 0], 0],
 ];
 export var OutboundStrategy$: StaticStructureSchema = [3, n0, _OSu, 0, [_T, _Conf], [0, () => OutboundStrategyConfig$]];
@@ -8466,7 +8469,7 @@ export var SendChatIntegrationEventRequest$: StaticStructureSchema = [
   n0,
   _SCIER,
   0,
-  [_SI, _DIe, _Subt, _Eve, _NSD],
+  [_SI, _DIe, _Sub, _Eve, _NSD],
   [0, 0, 0, () => ChatEvent$, () => NewSessionDetails$],
 ];
 export var SendChatIntegrationEventResponse$: StaticStructureSchema = [3, n0, _SCIERe, 0, [_ICI, _NCC], [0, 2]];
@@ -8475,7 +8478,7 @@ export var SendNotificationActionDefinition$: StaticStructureSchema = [
   n0,
   _SNAD,
   0,
-  [_DM, _Sub, _Co, _CTon, _Rec, _Exc],
+  [_DM, _Subj, _Co, _CTon, _Rec, _Exc],
   [0, 0, 0, 0, () => NotificationRecipientType$, () => NotificationRecipientType$],
 ];
 export var SendOutboundEmailRequest$: StaticStructureSchema = [
@@ -10209,6 +10212,7 @@ var SingleSelectOptions = 64 | 0;
 var SlaFieldValueUnionList: StaticListSchema = [1, n0, _SFVUL, 0, () => FieldValueUnion$];
 var StateTransitions: StaticListSchema = [1, n0, _STt, 0, () => StateTransition$];
 var Steps: StaticListSchema = [1, n0, _Ste, 0, () => Step$];
+var Subtypes = 64 | 0;
 var SuccessfulBatchAssociationSummaryList: StaticListSchema = [
   1,
   n0,
@@ -10254,6 +10258,7 @@ var UserSearchConditionList: StaticListSchema = [1, n0, _USCL, 0, () => UserSear
 var UserSearchSummaryList: StaticListSchema = [1, n0, _USSL, 0, [() => UserSearchSummary$, 0]];
 var UserSummaryList: StaticListSchema = [1, n0, _USL, 0, () => UserSummary$];
 var ValidationEnumValues = 64 | 0;
+var ValidationTestTypes = 64 | 0;
 var ValueList = 64 | 0;
 var ViewActions: StaticListSchema = [1, n0, _VAi, 0, [() => ViewAction, 0]];
 var ViewSearchConditionList: StaticListSchema = [1, n0, _VSCL, 0, () => ViewSearchCriteria$];
