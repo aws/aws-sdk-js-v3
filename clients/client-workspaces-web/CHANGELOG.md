@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.956.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.955.0...v3.956.0) (2025-12-19)
+
+
+### Features
+
+* **client-workspaces-web:** Add support for WebAuthn under user settings. ([a42b84c](https://github.com/aws/aws-sdk-js-v3/commit/a42b84c4b37df5991fee1011d4b96aa97f07eae0))
+
+
+
+
+
 # [3.955.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.954.0...v3.955.0) (2025-12-18)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces-web

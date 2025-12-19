@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.956.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.955.0...v3.956.0) (2025-12-19)
+
+
+### Features
+
+* **client-emr-serverless:** Added JobLevelCostAllocationConfiguration field to enable cost allocation reporting at the job level, providing more granular visibility into EMR Serverless charges ([e95db23](https://github.com/aws/aws-sdk-js-v3/commit/e95db23897aa1702fbf3182edf62290fc3f4380c))
+
+
+
+
+
 # [3.955.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.954.0...v3.955.0) (2025-12-18)
 
 **Note:** Version bump only for package @aws-sdk/client-emr-serverless

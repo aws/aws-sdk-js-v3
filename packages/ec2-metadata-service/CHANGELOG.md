@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.956.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.955.0...v3.956.0) (2025-12-19)
+
+
+### Bug Fixes
+
+* **ec2-metadata-service:** add configurable options for ttl and port precedence ([#7584](https://github.com/aws/aws-sdk-js-v3/issues/7584)) ([184cf70](https://github.com/aws/aws-sdk-js-v3/commit/184cf70c01d130602cdba48a43c8bc95e07bd9a6))
+
+
+
+
+
 # [3.955.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.954.0...v3.955.0) (2025-12-18)
 
 **Note:** Version bump only for package @aws-sdk/ec2-metadata-service

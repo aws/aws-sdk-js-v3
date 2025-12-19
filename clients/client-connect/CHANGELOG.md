@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.956.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.955.0...v3.956.0) (2025-12-19)
+
+
+### Features
+
+* **client-connect:** Adding support for Custom Metrics and Pre-Defined Attributes to GetCurrentMetricData API. ([43dab92](https://github.com/aws/aws-sdk-js-v3/commit/43dab9254a46158c0ed8a750e24c295312b6ec6b))
+
+
+
+
+
 # [3.955.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.954.0...v3.955.0) (2025-12-18)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

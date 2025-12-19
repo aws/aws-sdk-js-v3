@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-protocoltests-restjson-apigateway",
   "description": "@aws-sdk/aws-protocoltests-restjson-apigateway client",
-  "version": "3.955.0",
+  "version": "3.956.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",

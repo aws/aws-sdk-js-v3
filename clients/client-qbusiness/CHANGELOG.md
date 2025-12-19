@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.956.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.955.0...v3.956.0) (2025-12-19)
+
+
+### Features
+
+* **client-qbusiness:** It is a internal bug fix for region expansion ([42a80dd](https://github.com/aws/aws-sdk-js-v3/commit/42a80dd7efebe6799e2ee739e9f74e44fc9f7cec))
+
+
+
+
+
 # [3.955.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.954.0...v3.955.0) (2025-12-18)
 
 **Note:** Version bump only for package @aws-sdk/client-qbusiness

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.956.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.955.0...v3.956.0) (2025-12-19)
+
+
+### Bug Fixes
+
+* **core/protocols:** $unknown union member support ([#7593](https://github.com/aws/aws-sdk-js-v3/issues/7593)) ([596fc40](https://github.com/aws/aws-sdk-js-v3/commit/596fc405be9f9d1748fea3ded85f9d203003666f))
+* **ec2-metadata-service:** add configurable options for ttl and port precedence ([#7584](https://github.com/aws/aws-sdk-js-v3/issues/7584)) ([184cf70](https://github.com/aws/aws-sdk-js-v3/commit/184cf70c01d130602cdba48a43c8bc95e07bd9a6))
+
+
+### Features
+
+* **client-arc-region-switch:** Automatic Plan Execution Reports allow customers to maintain a concise record of their Region switch Plan executions.  This enables customer SREs and leadership to have a clear view of their recovery posture based on the generated reports for their Plan executions. ([33dbf8d](https://github.com/aws/aws-sdk-js-v3/commit/33dbf8d8aa3c815a784a316fab6dfb496c243b1a))
+* **client-connect:** Adding support for Custom Metrics and Pre-Defined Attributes to GetCurrentMetricData API. ([43dab92](https://github.com/aws/aws-sdk-js-v3/commit/43dab9254a46158c0ed8a750e24c295312b6ec6b))
+* **client-emr-serverless:** Added JobLevelCostAllocationConfiguration field to enable cost allocation reporting at the job level, providing more granular visibility into EMR Serverless charges ([e95db23](https://github.com/aws/aws-sdk-js-v3/commit/e95db23897aa1702fbf3182edf62290fc3f4380c))
+* **client-iot:** This release adds event-based logging feature that enables granular event logging controls for AWS IoT logs. ([bbbf580](https://github.com/aws/aws-sdk-js-v3/commit/bbbf580bcffd7c2cfa3e8c539d9b0188f1d0afe7))
+* **client-qbusiness:** It is a internal bug fix for region expansion ([42a80dd](https://github.com/aws/aws-sdk-js-v3/commit/42a80dd7efebe6799e2ee739e9f74e44fc9f7cec))
+* **client-wickr:** AWS Wickr now provides a suite of admin APIs to allow you to programmatically manage secure communication for Wickr networks at scale. These APIs enable you to automate administrative workflows including user lifecycle management, network configuration, and security group administration. ([d105e0e](https://github.com/aws/aws-sdk-js-v3/commit/d105e0efbabeebec5ce8383f79a2b0b696b47920))
+* **client-workspaces-web:** Add support for WebAuthn under user settings. ([a42b84c](https://github.com/aws/aws-sdk-js-v3/commit/a42b84c4b37df5991fee1011d4b96aa97f07eae0))
+* **clients:** update client endpoints as of 2025-12-19 ([e0360a8](https://github.com/aws/aws-sdk-js-v3/commit/e0360a8f973179af0f19c9c7cb71a96fc69da66e))
+
+
+
+
+
 # [3.955.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.954.0...v3.955.0) (2025-12-18)
 
 
