@@ -181,7 +181,7 @@ describe(Crc64Nvme.name, () => {
 
   it("compares checksum with reference CRC64NVME implementation in CRT", async () => {
     const size = 10 * 1024 * 1024;
-    const chunkSize = 65536;
+    const chunkSize = 1024;
     const chunk = new Uint8Array(chunkSize);
 
     const crc64NvmeJs = new Crc64Nvme();
