@@ -29,7 +29,7 @@ const generateCRC64NVMETable = (): Uint32Array[] => {
   return tables;
 };
 
-export const CRC64_NVME_REVERSED_TABLE = generateCRC64NVMETable();
+const CRC64_NVME_REVERSED_TABLE = generateCRC64NVMETable();
 const t0 = CRC64_NVME_REVERSED_TABLE[0];
 const t1 = CRC64_NVME_REVERSED_TABLE[1];
 const t2 = CRC64_NVME_REVERSED_TABLE[2];
