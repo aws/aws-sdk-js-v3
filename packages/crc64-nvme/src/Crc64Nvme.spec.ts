@@ -1,4 +1,6 @@
+import { CrtCrc64Nvme } from "@aws-sdk/crc64-nvme-crt";
 import { toBase64 } from "@smithy/util-base64";
+import { getRandomValues } from "crypto";
 import { describe, expect, it } from "vitest";
 
 import { Crc64Nvme } from "./Crc64Nvme";
@@ -175,5 +177,28 @@ describe(Crc64Nvme.name, () => {
     const digest2 = toBase64(await crc2.digest());
 
     expect(digest1).toBe(digest2);
+  });
+
+  it("compares checksum with reference CRC64NVME implementation in CRT", async () => {
+    const size = 10 * 1024 * 1024;
+    const chunkSize = 65536;
+    const chunk = new Uint8Array(chunkSize);
+
+    const crc64NvmeJs = new Crc64Nvme();
+    const crc64NvmeCrt = new CrtCrc64Nvme();
+
+    for (let i = 0; i < size; i += chunkSize) {
+      getRandomValues(chunk);
+
+      crc64NvmeJs.update(chunk);
+      crc64NvmeCrt.update(chunk);
+
+      const digestJs = await crc64NvmeJs.digest();
+      const digestCrt = await crc64NvmeCrt.digest();
+
+      if (digestJs.toString() !== digestCrt.toString()) {
+        throw new Error(`The digest was computed differently for "${toBase64(chunk)}"`);
+      }
+    }
   });
 });

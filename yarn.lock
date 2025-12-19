@@ -23369,7 +23369,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/crc64-nvme-crt@workspace:packages/crc64-nvme-crt":
+"@aws-sdk/crc64-nvme-crt@npm:*, @aws-sdk/crc64-nvme-crt@workspace:packages/crc64-nvme-crt":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/crc64-nvme-crt@workspace:packages/crc64-nvme-crt"
   dependencies:
@@ -23391,6 +23391,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/crc64-nvme@workspace:packages/crc64-nvme"
   dependencies:
+    "@aws-sdk/crc64-nvme-crt": "npm:*"
     "@smithy/types": "npm:^4.11.0"
     "@smithy/util-base64": "npm:^4.3.0"
     "@tsconfig/recommended": "npm:1.0.1"
