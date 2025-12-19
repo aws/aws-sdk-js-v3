@@ -534,6 +534,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1587,7 +1588,7 @@ var WavesList: StaticListSchema = [1, n0, _WL, 0, [() => Wave$, 0]];
 var SsmDocumentExternalParameters: StaticMapSchema = [2, n0, _SDEP, 0, 0, () => SsmExternalParameter$];
 var SsmDocumentParameters: StaticMapSchema = [2, n0, _SDP, 0, 0, () => SsmParameterStoreParameters];
 var TagsMap: StaticMapSchema = [2, n0, _TM, 8, 0, 0];
-export var SsmExternalParameter$: StaticStructureSchema = [3, n0, _SEP, 0, [_dP], [0]];
+export var SsmExternalParameter$: StaticUnionSchema = [4, n0, _SEP, 0, [_dP], [0]];
 export var ArchiveApplication$: StaticOperationSchema = [
   9,
   n0,

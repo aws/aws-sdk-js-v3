@@ -236,7 +236,7 @@ export var InternalServerException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  { [_e]: _se, [_hE]: 500, [_aQE]: [`InternalServerException`, 500] },
+  { [_aQE]: [`InternalServerException`, 500], [_e]: _se, [_hE]: 500 },
   [_m],
   [0],
 ];
@@ -255,7 +255,7 @@ export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  { [_e]: _cl, [_hE]: 404, [_aQE]: [`ResourceNotFoundException`, 404] },
+  { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _cl, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -305,7 +305,7 @@ export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  { [_e]: _cl, [_hE]: 402, [_aQE]: [`ServiceQuotaExceededException`, 402] },
+  { [_aQE]: [`ServiceQuotaExceededException`, 402], [_e]: _cl, [_hE]: 402 },
   [_m],
   [0],
 ];
@@ -318,7 +318,7 @@ export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  { [_e]: _cl, [_hE]: 400, [_aQE]: [`ValidationException`, 400] },
+  { [_aQE]: [`ValidationException`, 400], [_e]: _cl, [_hE]: 400 },
   [_m],
   [0],
 ];

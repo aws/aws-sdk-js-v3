@@ -145,6 +145,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { ComplexError, ErrorWithMembers, ErrorWithoutMembers, FooError, InvalidGreeting } from "../models/errors";
@@ -313,8 +314,8 @@ var FooEnumMap = 128 | 0;
 var IntegerEnumMap = 128 | 1;
 var SparseStringMap: StaticMapSchema = [2, n1, _SSM, { [_sp]: 1 }, 0, 0];
 var StringMap = 128 | 0;
-export var MyUnion$: StaticStructureSchema = [
-  3,
+export var MyUnion$: StaticUnionSchema = [
+  4,
   n0,
   _MU,
   0,

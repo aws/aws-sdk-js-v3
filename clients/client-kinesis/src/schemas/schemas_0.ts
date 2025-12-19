@@ -246,6 +246,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -602,8 +603,8 @@ var StreamSummaryList: StaticListSchema = [1, n0, _SSL, 0, () => StreamSummary$]
 var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
 var TagMap = 128 | 0;
-export var SubscribeToShardEventStream$: StaticStructureSchema = [
-  3,
+export var SubscribeToShardEventStream$: StaticUnionSchema = [
+  4,
   n0,
   _STSES,
   { [_st]: 1 },

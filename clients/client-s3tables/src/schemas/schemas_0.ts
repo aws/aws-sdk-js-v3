@@ -271,6 +271,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -959,23 +960,23 @@ var TableMaintenanceConfiguration: StaticMapSchema = [2, n0, _TMC, 0, 0, () => T
 var TableMaintenanceJobStatus: StaticMapSchema = [2, n0, _TMJS, 0, 0, () => TableMaintenanceJobStatusValue$];
 var TableProperties = 128 | 0;
 var Tags = 128 | 0;
-export var TableBucketMaintenanceSettings$: StaticStructureSchema = [
-  3,
+export var TableBucketMaintenanceSettings$: StaticUnionSchema = [
+  4,
   n0,
   _TBMS,
   0,
   [_iUFR],
   [() => IcebergUnreferencedFileRemovalSettings$],
 ];
-export var TableMaintenanceSettings$: StaticStructureSchema = [
-  3,
+export var TableMaintenanceSettings$: StaticUnionSchema = [
+  4,
   n0,
   _TMS,
   0,
   [_iC, _iSM],
   [() => IcebergCompactionSettings$, () => IcebergSnapshotManagementSettings$],
 ];
-export var TableMetadata$: StaticStructureSchema = [3, n0, _TM, 0, [_ic], [() => IcebergMetadata$]];
+export var TableMetadata$: StaticUnionSchema = [4, n0, _TM, 0, [_ic], [() => IcebergMetadata$]];
 export var CreateNamespace$: StaticOperationSchema = [
   9,
   n0,

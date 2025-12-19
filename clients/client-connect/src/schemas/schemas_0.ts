@@ -2591,6 +2591,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { ConnectServiceException } from "../models/ConnectServiceException";
@@ -2654,7 +2655,7 @@ export var AccessDeniedException$: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`AccessDeniedException`, 403] },
+  { [_aQE]: [`AccessDeniedException`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
   [0],
 ];
@@ -3526,7 +3527,7 @@ export var ContactNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _CNFE,
-  { [_e]: _c, [_hE]: 410, [_aQE]: [`ContactNotFoundException`, 410] },
+  { [_aQE]: [`ContactNotFoundException`, 410], [_e]: _c, [_hE]: 410 },
   [_M],
   [0],
 ];
@@ -4293,7 +4294,7 @@ export var DeleteInstanceRequest$: StaticStructureSchema = [
   [_II, _CT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeleteIntegrationAssociationRequest$: StaticStructureSchema = [
@@ -4990,7 +4991,7 @@ export var DestinationNotAllowedException$: StaticErrorSchema = [
   -3,
   n0,
   _DNAE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`DestinationNotAllowedException`, 403] },
+  { [_aQE]: [`DestinationNotAllowedException`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
   [0],
 ];
@@ -5021,7 +5022,7 @@ export var DisassociateApprovedOriginRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, { [_hQ]: _o }],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DisassociateBotRequest$: StaticStructureSchema = [
@@ -5064,7 +5065,7 @@ export var DisassociateInstanceStorageConfigRequest$: StaticStructureSchema = [
     [0, 1],
     [0, 1],
     [0, { [_hQ]: _rT }],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DisassociateLambdaFunctionRequest$: StaticStructureSchema = [
@@ -5076,7 +5077,7 @@ export var DisassociateLambdaFunctionRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, { [_hQ]: _fA }],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DisassociateLexBotRequest$: StaticStructureSchema = [
@@ -5089,7 +5090,7 @@ export var DisassociateLexBotRequest$: StaticStructureSchema = [
     [0, 1],
     [0, { [_hQ]: _bN }],
     [0, { [_hQ]: _lR }],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DisassociatePhoneNumberContactFlowRequest$: StaticStructureSchema = [
@@ -5128,7 +5129,7 @@ export var DisassociateSecurityKeyRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DisassociateSecurityProfilesRequest$: StaticStructureSchema = [
@@ -6203,7 +6204,7 @@ export var LimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  { [_e]: _c, [_hE]: 429, [_aQE]: [`LimitExceededException`, 429] },
+  { [_aQE]: [`LimitExceededException`, 429], [_e]: _c, [_hE]: 429 },
   [_M],
   [0],
 ];
@@ -7447,7 +7448,7 @@ export var OutboundContactNotPermittedException$: StaticErrorSchema = [
   -3,
   n0,
   _OCNPE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`OutboundContactNotPermittedException`, 403] },
+  { [_aQE]: [`OutboundContactNotPermittedException`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
   [0],
 ];
@@ -7791,7 +7792,7 @@ export var ReleasePhoneNumberRequest$: StaticStructureSchema = [
   [_PNI, _CT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var ReplicateInstanceRequest$: StaticStructureSchema = [
@@ -8852,7 +8853,7 @@ export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  { [_e]: _c, [_hE]: 429, [_aQE]: [`ThrottlingException`, 429] },
+  { [_aQE]: [`ThrottlingException`, 429], [_e]: _c, [_hE]: 429 },
   [_M],
   [0],
 ];
@@ -10312,50 +10313,50 @@ var SegmentAttributeValueMap: StaticMapSchema = [2, n0, _SAVM, 0, 0, () => Segme
 var TagMap = 128 | 0;
 var UrlMetadataSignedHeaders = 128 | 0;
 var UserTagMap = 128 | 0;
-export var ContactMetricValue$: StaticStructureSchema = [3, n0, _CMV, 0, [_Nu], [1]];
-export var CreatedByInfo$: StaticStructureSchema = [3, n0, _CBI, 0, [_CUA, _AWSIA], [0, 0]];
-export var EvaluationAnswerData$: StaticStructureSchema = [
-  3,
+export var ContactMetricValue$: StaticUnionSchema = [4, n0, _CMV, 0, [_Nu], [1]];
+export var CreatedByInfo$: StaticUnionSchema = [4, n0, _CBI, 0, [_CUA, _AWSIA], [0, 0]];
+export var EvaluationAnswerData$: StaticUnionSchema = [
+  4,
   n0,
   _EAD,
   0,
   [_SV, _NV, _SVt, _DTVa, _NA],
   [0, 1, 64 | 0, 0, 2],
 ];
-export var EvaluationFormItem$: StaticStructureSchema = [
-  3,
+export var EvaluationFormItem$: StaticUnionSchema = [
+  4,
   n0,
   _EFIv,
   0,
   [_Sec, _Que],
   [() => EvaluationFormSection$, () => EvaluationFormQuestion$],
 ];
-export var EvaluationFormItemEnablementConditionOperand$: StaticStructureSchema = [
-  3,
+export var EvaluationFormItemEnablementConditionOperand$: StaticUnionSchema = [
+  4,
   n0,
   _EFIECO,
   0,
   [_Exp, _Con],
   [() => EvaluationFormItemEnablementExpression$, () => EvaluationFormItemEnablementCondition$],
 ];
-export var EvaluationFormMultiSelectQuestionAutomationOption$: StaticStructureSchema = [
-  3,
+export var EvaluationFormMultiSelectQuestionAutomationOption$: StaticUnionSchema = [
+  4,
   n0,
   _EFMSQAO,
   0,
   [_RCu],
   [() => MultiSelectQuestionRuleCategoryAutomation$],
 ];
-export var EvaluationFormNumericQuestionAutomation$: StaticStructureSchema = [
-  3,
+export var EvaluationFormNumericQuestionAutomation$: StaticUnionSchema = [
+  4,
   n0,
   _EFNQA,
   0,
   [_PVro, _ASn],
   [() => NumericQuestionPropertyValueAutomation$, () => EvaluationFormQuestionAutomationAnswerSource$],
 ];
-export var EvaluationFormQuestionTypeProperties$: StaticStructureSchema = [
-  3,
+export var EvaluationFormQuestionTypeProperties$: StaticUnionSchema = [
+  4,
   n0,
   _EFQTP,
   0,
@@ -10367,29 +10368,29 @@ export var EvaluationFormQuestionTypeProperties$: StaticStructureSchema = [
     () => EvaluationFormMultiSelectQuestionProperties$,
   ],
 ];
-export var EvaluationFormSingleSelectQuestionAutomationOption$: StaticStructureSchema = [
-  3,
+export var EvaluationFormSingleSelectQuestionAutomationOption$: StaticUnionSchema = [
+  4,
   n0,
   _EFSSQAO,
   0,
   [_RCu],
   [() => SingleSelectQuestionRuleCategoryAutomation$],
 ];
-export var EvaluationQuestionAnswerAnalysisDetails$: StaticStructureSchema = [
-  3,
+export var EvaluationQuestionAnswerAnalysisDetails$: StaticUnionSchema = [
+  4,
   n0,
   _EQAAD,
   0,
   [_GAI, _CLo],
   [() => EvaluationGenAIAnswerAnalysisDetails$, () => EvaluationContactLensAnswerAnalysisDetails$],
 ];
-export var EvaluatorUserUnion$: StaticStructureSchema = [3, n0, _EUU, 0, [_CUA], [0]];
-export var InvalidRequestExceptionReason$: StaticStructureSchema = [3, n0, _IRER, 0, [_AFIRER], [0]];
-export var NextContactMetadata$: StaticStructureSchema = [3, n0, _NCM, 0, [_QCCD], [() => QuickConnectContactData$]];
-export var ParticipantTimerValue$: StaticStructureSchema = [3, n0, _PTV, 0, [_PTA, _PTDIM], [0, 1]];
-export var PredefinedAttributeValues$: StaticStructureSchema = [3, n0, _PAVre, 0, [_SLt], [64 | 0]];
-export var RealtimeContactAnalysisSegment$: StaticStructureSchema = [
-  3,
+export var EvaluatorUserUnion$: StaticUnionSchema = [4, n0, _EUU, 0, [_CUA], [0]];
+export var InvalidRequestExceptionReason$: StaticUnionSchema = [4, n0, _IRER, 0, [_AFIRER], [0]];
+export var NextContactMetadata$: StaticUnionSchema = [4, n0, _NCM, 0, [_QCCD], [() => QuickConnectContactData$]];
+export var ParticipantTimerValue$: StaticUnionSchema = [4, n0, _PTV, 0, [_PTA, _PTDIM], [0, 1]];
+export var PredefinedAttributeValues$: StaticUnionSchema = [4, n0, _PAVre, 0, [_SLt], [64 | 0]];
+export var RealtimeContactAnalysisSegment$: StaticUnionSchema = [
+  4,
   n0,
   _RCASe,
   0,
@@ -10403,9 +10404,9 @@ export var RealtimeContactAnalysisSegment$: StaticStructureSchema = [
     () => RealTimeContactAnalysisSegmentPostContactSummary$,
   ],
 ];
-export var RealTimeContactAnalysisTimeData$: StaticStructureSchema = [3, n0, _RTCATD, 0, [_ATb], [5]];
-export var ReferenceSummary$: StaticStructureSchema = [
-  3,
+export var RealTimeContactAnalysisTimeData$: StaticUnionSchema = [4, n0, _RTCATD, 0, [_ATb], [5]];
+export var ReferenceSummary$: StaticUnionSchema = [
+  4,
   n0,
   _RSe,
   0,
@@ -10421,9 +10422,9 @@ export var ReferenceSummary$: StaticStructureSchema = [
     () => EmailReference$,
   ],
 ];
-export var ServiceQuotaExceededExceptionReason$: StaticStructureSchema = [3, n0, _SQEER, 0, [_AFSQEER], [0]];
-export var UpdateParticipantRoleConfigChannelInfo$: StaticStructureSchema = [
-  3,
+export var ServiceQuotaExceededExceptionReason$: StaticUnionSchema = [4, n0, _SQEER, 0, [_AFSQEER], [0]];
+export var UpdateParticipantRoleConfigChannelInfo$: StaticUnionSchema = [
+  4,
   n0,
   _UPRCCI,
   0,

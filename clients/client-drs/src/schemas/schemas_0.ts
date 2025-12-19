@@ -482,6 +482,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { DrsServiceException } from "../models/DrsServiceException";
@@ -1409,8 +1410,8 @@ var TagsMap: StaticMapSchema = [2, n0, _TM, 8, 0, 0];
 var VolumeToConversionMap: StaticMapSchema = [2, n0, _VTCM, 0, 0, 128 | 0];
 var VolumeToProductCodes: StaticMapSchema = [2, n0, _VTPC, 0, 0, () => ProductCodes];
 var VolumeToSizeMap = 128 | 1;
-export var EventResourceData$: StaticStructureSchema = [3, n0, _ERD, 0, [_sND], [() => SourceNetworkData$]];
-export var ParticipatingResourceID$: StaticStructureSchema = [3, n0, _PRID, 0, [_sNID], [0]];
+export var EventResourceData$: StaticUnionSchema = [4, n0, _ERD, 0, [_sND], [() => SourceNetworkData$]];
+export var ParticipatingResourceID$: StaticUnionSchema = [4, n0, _PRID, 0, [_sNID], [0]];
 export var AssociateSourceNetworkStack$: StaticOperationSchema = [
   9,
   n0,

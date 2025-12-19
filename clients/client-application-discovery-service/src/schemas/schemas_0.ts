@@ -303,6 +303,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { ApplicationDiscoveryServiceServiceException } from "../models/ApplicationDiscoveryServiceServiceException";
@@ -751,8 +752,8 @@ var ToDeleteIdentifierList = 64 | 0;
 var Configuration = 128 | 0;
 var DescribeConfigurationsAttribute = 128 | 0;
 var SchemaStorageConfig = 128 | 0;
-export var ExportPreferences$: StaticStructureSchema = [
-  3,
+export var ExportPreferences$: StaticUnionSchema = [
+  4,
   n0,
   _EP,
   0,

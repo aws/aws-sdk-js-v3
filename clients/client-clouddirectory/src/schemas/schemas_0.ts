@@ -476,6 +476,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { CloudDirectoryServiceException } from "../models/CloudDirectoryServiceException";
@@ -1746,14 +1747,7 @@ var LinkNameToObjectIdentifierMap = 128 | 0;
 var ObjectIdentifierToLinkNameMap = 128 | 0;
 var RuleMap: StaticMapSchema = [2, n0, _RM, 0, 0, () => Rule$];
 var RuleParameterMap = 128 | 0;
-export var TypedAttributeValue$: StaticStructureSchema = [
-  3,
-  n0,
-  _TAV,
-  0,
-  [_SVt, _BV, _BVo, _NV, _DVa],
-  [0, 21, 2, 0, 4],
-];
+export var TypedAttributeValue$: StaticUnionSchema = [4, n0, _TAV, 0, [_SVt, _BV, _BVo, _NV, _DVa], [0, 21, 2, 0, 4]];
 export var AddFacetToObject$: StaticOperationSchema = [
   9,
   n0,

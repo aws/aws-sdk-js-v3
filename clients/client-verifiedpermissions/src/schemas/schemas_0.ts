@@ -335,6 +335,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1254,8 +1255,8 @@ var EntityAttributes: StaticMapSchema = [2, n0, _EA, 0, [0, 0], [() => Attribute
 var EntityCedarTags: StaticMapSchema = [2, n0, _ECT, 0, [0, 0], [() => CedarTagValue$, 0]];
 var RecordAttribute: StaticMapSchema = [2, n0, _RA, 0, [0, 0], [() => AttributeValue$, 0]];
 var TagMap = 128 | 0;
-export var AttributeValue$: StaticStructureSchema = [
-  3,
+export var AttributeValue$: StaticUnionSchema = [
+  4,
   n0,
   _AV,
   0,
@@ -1273,8 +1274,8 @@ export var AttributeValue$: StaticStructureSchema = [
     [() => Duration, 0],
   ],
 ];
-export var CedarTagValue$: StaticStructureSchema = [
-  3,
+export var CedarTagValue$: StaticUnionSchema = [
+  4,
   n0,
   _CTV,
   0,
@@ -1292,8 +1293,8 @@ export var CedarTagValue$: StaticStructureSchema = [
     [() => Duration, 0],
   ],
 ];
-export var Configuration$: StaticStructureSchema = [
-  3,
+export var Configuration$: StaticUnionSchema = [
+  4,
   n0,
   _Co,
   0,
@@ -1303,8 +1304,8 @@ export var Configuration$: StaticStructureSchema = [
     [() => OpenIdConnectConfiguration$, 0],
   ],
 ];
-export var ConfigurationDetail$: StaticStructureSchema = [
-  3,
+export var ConfigurationDetail$: StaticUnionSchema = [
+  4,
   n0,
   _CD,
   0,
@@ -1314,8 +1315,8 @@ export var ConfigurationDetail$: StaticStructureSchema = [
     [() => OpenIdConnectConfigurationDetail$, 0],
   ],
 ];
-export var ConfigurationItem$: StaticStructureSchema = [
-  3,
+export var ConfigurationItem$: StaticUnionSchema = [
+  4,
   n0,
   _CIo,
   0,
@@ -1325,8 +1326,8 @@ export var ConfigurationItem$: StaticStructureSchema = [
     [() => OpenIdConnectConfigurationItem$, 0],
   ],
 ];
-export var ContextDefinition$: StaticStructureSchema = [
-  3,
+export var ContextDefinition$: StaticUnionSchema = [
+  4,
   n0,
   _CDo,
   0,
@@ -1336,8 +1337,8 @@ export var ContextDefinition$: StaticStructureSchema = [
     [() => CedarJson, 0],
   ],
 ];
-export var EntitiesDefinition$: StaticStructureSchema = [
-  3,
+export var EntitiesDefinition$: StaticUnionSchema = [
+  4,
   n0,
   _ED,
   0,
@@ -1347,9 +1348,9 @@ export var EntitiesDefinition$: StaticStructureSchema = [
     [() => CedarJson, 0],
   ],
 ];
-export var EntityReference$: StaticStructureSchema = [3, n0, _ER, 0, [_u, _id], [2, [() => EntityIdentifier$, 0]]];
-export var OpenIdConnectTokenSelection$: StaticStructureSchema = [
-  3,
+export var EntityReference$: StaticUnionSchema = [4, n0, _ER, 0, [_u, _id], [2, [() => EntityIdentifier$, 0]]];
+export var OpenIdConnectTokenSelection$: StaticUnionSchema = [
+  4,
   n0,
   _OICTS,
   0,
@@ -1359,8 +1360,8 @@ export var OpenIdConnectTokenSelection$: StaticStructureSchema = [
     [() => OpenIdConnectIdentityTokenConfiguration$, 0],
   ],
 ];
-export var OpenIdConnectTokenSelectionDetail$: StaticStructureSchema = [
-  3,
+export var OpenIdConnectTokenSelectionDetail$: StaticUnionSchema = [
+  4,
   n0,
   _OICTSD,
   0,
@@ -1370,8 +1371,8 @@ export var OpenIdConnectTokenSelectionDetail$: StaticStructureSchema = [
     [() => OpenIdConnectIdentityTokenConfigurationDetail$, 0],
   ],
 ];
-export var OpenIdConnectTokenSelectionItem$: StaticStructureSchema = [
-  3,
+export var OpenIdConnectTokenSelectionItem$: StaticUnionSchema = [
+  4,
   n0,
   _OICTSI,
   0,
@@ -1381,8 +1382,8 @@ export var OpenIdConnectTokenSelectionItem$: StaticStructureSchema = [
     [() => OpenIdConnectIdentityTokenConfigurationItem$, 0],
   ],
 ];
-export var PolicyDefinition$: StaticStructureSchema = [
-  3,
+export var PolicyDefinition$: StaticUnionSchema = [
+  4,
   n0,
   _PD,
   0,
@@ -1392,8 +1393,8 @@ export var PolicyDefinition$: StaticStructureSchema = [
     [() => TemplateLinkedPolicyDefinition$, 0],
   ],
 ];
-export var PolicyDefinitionDetail$: StaticStructureSchema = [
-  3,
+export var PolicyDefinitionDetail$: StaticUnionSchema = [
+  4,
   n0,
   _PDD,
   0,
@@ -1403,8 +1404,8 @@ export var PolicyDefinitionDetail$: StaticStructureSchema = [
     [() => TemplateLinkedPolicyDefinitionDetail$, 0],
   ],
 ];
-export var PolicyDefinitionItem$: StaticStructureSchema = [
-  3,
+export var PolicyDefinitionItem$: StaticUnionSchema = [
+  4,
   n0,
   _PDI,
   0,
@@ -1414,9 +1415,9 @@ export var PolicyDefinitionItem$: StaticStructureSchema = [
     [() => TemplateLinkedPolicyDefinitionItem$, 0],
   ],
 ];
-export var SchemaDefinition$: StaticStructureSchema = [3, n0, _SD, 0, [_cJ], [[() => SchemaJson, 0]]];
-export var UpdateConfiguration$: StaticStructureSchema = [
-  3,
+export var SchemaDefinition$: StaticUnionSchema = [4, n0, _SD, 0, [_cJ], [[() => SchemaJson, 0]]];
+export var UpdateConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _UC,
   0,
@@ -1426,8 +1427,8 @@ export var UpdateConfiguration$: StaticStructureSchema = [
     [() => UpdateOpenIdConnectConfiguration$, 0],
   ],
 ];
-export var UpdateOpenIdConnectTokenSelection$: StaticStructureSchema = [
-  3,
+export var UpdateOpenIdConnectTokenSelection$: StaticUnionSchema = [
+  4,
   n0,
   _UOICTS,
   0,
@@ -1437,8 +1438,8 @@ export var UpdateOpenIdConnectTokenSelection$: StaticStructureSchema = [
     [() => UpdateOpenIdConnectIdentityTokenConfiguration$, 0],
   ],
 ];
-export var UpdatePolicyDefinition$: StaticStructureSchema = [
-  3,
+export var UpdatePolicyDefinition$: StaticUnionSchema = [
+  4,
   n0,
   _UPD,
   0,

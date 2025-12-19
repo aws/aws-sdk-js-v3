@@ -29405,7 +29405,7 @@ export var RunInstancesRequest$: StaticStructureSchema = [
     [2, { [_eQN]: `DisableApiTermination`, [_xN]: _dAT }],
     [0, { [_eQN]: `InstanceInitiatedShutdownBehavior`, [_xN]: _iISB }],
     [0, { [_eQN]: `PrivateIpAddress`, [_xN]: _pIAr }],
-    [0, { [_eQN]: `ClientToken`, [_xN]: _cT, [_iTd]: 1 }],
+    [0, { [_eQN]: `ClientToken`, [_iTd]: 1, [_xN]: _cT }],
     [0, { [_eQN]: `AdditionalInfo`, [_xN]: _aId }],
     [() => InstanceNetworkInterfaceSpecificationList, { [_eQN]: `NetworkInterface`, [_xN]: _nIe }],
     [() => IamInstanceProfileSpecification$, { [_eQN]: `IamInstanceProfile`, [_xN]: _iIP }],

@@ -439,6 +439,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1299,15 +1300,8 @@ var ParametersMap = 128 | 0;
 var QueryParameterMap = 128 | 0;
 var StorageOptimizerConfig = 128 | 0;
 var StorageOptimizerConfigMap: StaticMapSchema = [2, n0, _SOCM, 0, 0, 128 | 0];
-export var RedshiftScopeUnion$: StaticStructureSchema = [3, n0, _RSU, 0, [_RC], [() => RedshiftConnect$]];
-export var ServiceIntegrationUnion$: StaticStructureSchema = [
-  3,
-  n0,
-  _SIU,
-  0,
-  [_Red],
-  [() => RedshiftServiceIntegrations],
-];
+export var RedshiftScopeUnion$: StaticUnionSchema = [4, n0, _RSU, 0, [_RC], [() => RedshiftConnect$]];
+export var ServiceIntegrationUnion$: StaticUnionSchema = [4, n0, _SIU, 0, [_Red], [() => RedshiftServiceIntegrations]];
 export var AddLFTagsToResource$: StaticOperationSchema = [
   9,
   n0,
@@ -1536,7 +1530,7 @@ export var GetQueryState$: StaticOperationSchema = [
   9,
   n0,
   _GQS,
-  { [_h]: ["POST", "/GetQueryState", 200], [_en]: ["query-"] },
+  { [_en]: ["query-"], [_h]: ["POST", "/GetQueryState", 200] },
   () => GetQueryStateRequest$,
   () => GetQueryStateResponse$,
 ];
@@ -1544,7 +1538,7 @@ export var GetQueryStatistics$: StaticOperationSchema = [
   9,
   n0,
   _GQSe,
-  { [_h]: ["POST", "/GetQueryStatistics", 200], [_en]: ["query-"] },
+  { [_en]: ["query-"], [_h]: ["POST", "/GetQueryStatistics", 200] },
   () => GetQueryStatisticsRequest$,
   () => GetQueryStatisticsResponse$,
 ];
@@ -1584,7 +1578,7 @@ export var GetWorkUnitResults$: StaticOperationSchema = [
   9,
   n0,
   _GWURet,
-  { [_h]: ["POST", "/GetWorkUnitResults", 200], [_en]: ["data-"] },
+  { [_en]: ["data-"], [_h]: ["POST", "/GetWorkUnitResults", 200] },
   () => GetWorkUnitResultsRequest$,
   () => GetWorkUnitResultsResponse$,
 ];
@@ -1592,7 +1586,7 @@ export var GetWorkUnits$: StaticOperationSchema = [
   9,
   n0,
   _GWU,
-  { [_h]: ["POST", "/GetWorkUnits", 200], [_en]: ["query-"] },
+  { [_en]: ["query-"], [_h]: ["POST", "/GetWorkUnits", 200] },
   () => GetWorkUnitsRequest$,
   () => GetWorkUnitsResponse$,
 ];
@@ -1720,7 +1714,7 @@ export var StartQueryPlanning$: StaticOperationSchema = [
   9,
   n0,
   _SQP,
-  { [_h]: ["POST", "/StartQueryPlanning", 200], [_en]: ["query-"] },
+  { [_en]: ["query-"], [_h]: ["POST", "/StartQueryPlanning", 200] },
   () => StartQueryPlanningRequest$,
   () => StartQueryPlanningResponse$,
 ];

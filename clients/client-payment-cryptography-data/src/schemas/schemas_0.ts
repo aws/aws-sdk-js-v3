@@ -301,6 +301,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -955,16 +956,16 @@ export var PaymentCryptographyDataServiceException$: StaticErrorSchema = [
 ];
 TypeRegistry.for(_sm).registerError(PaymentCryptographyDataServiceException$, PaymentCryptographyDataServiceException);
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
-export var As2805KekValidationType$: StaticStructureSchema = [
-  3,
+export var As2805KekValidationType$: StaticUnionSchema = [
+  4,
   n0,
   _AKVT,
   0,
   [_KVR, _KVRe],
   [() => KekValidationRequest$, [() => KekValidationResponse$, 0]],
 ];
-export var CardGenerationAttributes$: StaticStructureSchema = [
-  3,
+export var CardGenerationAttributes$: StaticUnionSchema = [
+  4,
   n0,
   _CGA,
   0,
@@ -979,8 +980,8 @@ export var CardGenerationAttributes$: StaticStructureSchema = [
     [() => DynamicCardVerificationValue$, 0],
   ],
 ];
-export var CardVerificationAttributes$: StaticStructureSchema = [
-  3,
+export var CardVerificationAttributes$: StaticUnionSchema = [
+  4,
   n0,
   _CVA,
   0,
@@ -996,16 +997,16 @@ export var CardVerificationAttributes$: StaticStructureSchema = [
     [() => DiscoverDynamicCardVerificationCode$, 0],
   ],
 ];
-export var CryptogramAuthResponse$: StaticStructureSchema = [
-  3,
+export var CryptogramAuthResponse$: StaticUnionSchema = [
+  4,
   n0,
   _CAR,
   0,
   [_AM, _AMr],
   [() => CryptogramVerificationArpcMethod1$, [() => CryptogramVerificationArpcMethod2$, 0]],
 ];
-export var DerivationMethodAttributes$: StaticStructureSchema = [
-  3,
+export var DerivationMethodAttributes$: StaticUnionSchema = [
+  4,
   n0,
   _DMA,
   0,
@@ -1018,9 +1019,9 @@ export var DerivationMethodAttributes$: StaticStructureSchema = [
     [() => MasterCardAttributes$, 0],
   ],
 ];
-export var DiffieHellmanDerivationData$: StaticStructureSchema = [3, n0, _DHDD, 0, [_SI], [0]];
-export var EncryptionDecryptionAttributes$: StaticStructureSchema = [
-  3,
+export var DiffieHellmanDerivationData$: StaticUnionSchema = [4, n0, _DHDD, 0, [_SI], [0]];
+export var EncryptionDecryptionAttributes$: StaticUnionSchema = [
+  4,
   n0,
   _EDAn,
   0,
@@ -1032,25 +1033,25 @@ export var EncryptionDecryptionAttributes$: StaticStructureSchema = [
     [() => EmvEncryptionAttributes$, 0],
   ],
 ];
-export var IncomingKeyMaterial$: StaticStructureSchema = [
-  3,
+export var IncomingKeyMaterial$: StaticUnionSchema = [
+  4,
   n0,
   _IKM,
   0,
   [_DHTKB],
   [[() => IncomingDiffieHellmanTr31KeyBlock$, 0]],
 ];
-export var MacAttributes$: StaticStructureSchema = [
-  3,
+export var MacAttributes$: StaticUnionSchema = [
+  4,
   n0,
   _MA,
   0,
   [_Al, _EM, _DIA, _DIAu, _DC],
   [0, [() => MacAlgorithmEmv$, 0], () => MacAlgorithmDukpt$, () => MacAlgorithmDukpt$, () => MacAlgorithmDukpt$],
 ];
-export var OutgoingKeyMaterial$: StaticStructureSchema = [3, n0, _OKM, 0, [_TKB], [() => OutgoingTr31KeyBlock$]];
-export var PinData$: StaticStructureSchema = [
-  3,
+export var OutgoingKeyMaterial$: StaticUnionSchema = [4, n0, _OKM, 0, [_TKB], [() => OutgoingTr31KeyBlock$]];
+export var PinData$: StaticUnionSchema = [
+  4,
   n0,
   _PD,
   0,
@@ -1060,8 +1061,8 @@ export var PinData$: StaticStructureSchema = [
     [() => VerificationValueType, 0],
   ],
 ];
-export var PinGenerationAttributes$: StaticStructureSchema = [
-  3,
+export var PinGenerationAttributes$: StaticUnionSchema = [
+  4,
   n0,
   _PGA,
   0,
@@ -1075,8 +1076,8 @@ export var PinGenerationAttributes$: StaticStructureSchema = [
     [() => Ibm3624PinFromOffset$, 0],
   ],
 ];
-export var PinVerificationAttributes$: StaticStructureSchema = [
-  3,
+export var PinVerificationAttributes$: StaticUnionSchema = [
+  4,
   n0,
   _PVA,
   0,
@@ -1086,8 +1087,8 @@ export var PinVerificationAttributes$: StaticStructureSchema = [
     [() => Ibm3624PinVerification$, 0],
   ],
 ];
-export var ReEncryptionAttributes$: StaticStructureSchema = [
-  3,
+export var ReEncryptionAttributes$: StaticUnionSchema = [
+  4,
   n0,
   _REA,
   0,
@@ -1097,8 +1098,8 @@ export var ReEncryptionAttributes$: StaticStructureSchema = [
     [() => DukptEncryptionAttributes$, 0],
   ],
 ];
-export var SessionKeyDerivation$: StaticStructureSchema = [
-  3,
+export var SessionKeyDerivation$: StaticUnionSchema = [
+  4,
   n0,
   _SKD,
   0,
@@ -1111,16 +1112,16 @@ export var SessionKeyDerivation$: StaticStructureSchema = [
     [() => SessionKeyVisa$, 0],
   ],
 ];
-export var SessionKeyDerivationValue$: StaticStructureSchema = [
-  3,
+export var SessionKeyDerivationValue$: StaticUnionSchema = [
+  4,
   n0,
   _SKDV,
   0,
   [_AC, _ATC],
   [[() => ApplicationCryptogramType, 0], 0],
 ];
-export var TranslationIsoFormats$: StaticStructureSchema = [
-  3,
+export var TranslationIsoFormats$: StaticUnionSchema = [
+  4,
   n0,
   _TIF,
   0,
@@ -1133,8 +1134,8 @@ export var TranslationIsoFormats$: StaticStructureSchema = [
     [() => TranslationPinDataAs2805Format0$, 0],
   ],
 ];
-export var WrappedKeyMaterial$: StaticStructureSchema = [
-  3,
+export var WrappedKeyMaterial$: StaticUnionSchema = [
+  4,
   n0,
   _WKM,
   0,

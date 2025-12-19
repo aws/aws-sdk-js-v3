@@ -206,6 +206,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -671,17 +672,17 @@ var SubnetIdList = 64 | 0;
 var TagKeyList = 64 | 0;
 var ValueList = 64 | 0;
 var TagsMap = 128 | 0;
-export var Action$: StaticStructureSchema = [3, n0, _A, 0, [_nB, _hT], [() => NoBidAction$, () => HeaderTagAction$]];
-export var ManagedEndpointConfiguration$: StaticStructureSchema = [
-  3,
+export var Action$: StaticUnionSchema = [4, n0, _A, 0, [_nB, _hT], [() => NoBidAction$, () => HeaderTagAction$]];
+export var ManagedEndpointConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _MEC,
   0,
   [_aSG, _eE],
   [() => AutoScalingGroupsConfiguration$, [() => EksEndpointsConfiguration$, 0]],
 ];
-export var ModuleParameters$: StaticStructureSchema = [
-  3,
+export var ModuleParameters$: StaticUnionSchema = [
+  4,
   n0,
   _MP,
   0,

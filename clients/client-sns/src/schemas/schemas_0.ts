@@ -308,7 +308,7 @@ export var AuthorizationErrorException$: StaticErrorSchema = [
   -3,
   n0,
   _AEE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`AuthorizationError`, 403] },
+  { [_aQE]: [`AuthorizationError`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0],
 ];
@@ -317,7 +317,7 @@ export var BatchEntryIdsNotDistinctException$: StaticErrorSchema = [
   -3,
   n0,
   _BEINDE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`BatchEntryIdsNotDistinct`, 400] },
+  { [_aQE]: [`BatchEntryIdsNotDistinct`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -326,7 +326,7 @@ export var BatchRequestTooLongException$: StaticErrorSchema = [
   -3,
   n0,
   _BRTLE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`BatchRequestTooLong`, 400] },
+  { [_aQE]: [`BatchRequestTooLong`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -345,7 +345,7 @@ export var ConcurrentAccessException$: StaticErrorSchema = [
   -3,
   n0,
   _CAE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ConcurrentAccess`, 400] },
+  { [_aQE]: [`ConcurrentAccess`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -397,7 +397,7 @@ export var EmptyBatchRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _EBRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`EmptyBatchRequest`, 400] },
+  { [_aQE]: [`EmptyBatchRequest`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -407,7 +407,7 @@ export var EndpointDisabledException$: StaticErrorSchema = [
   -3,
   n0,
   _EDE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`EndpointDisabled`, 400] },
+  { [_aQE]: [`EndpointDisabled`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -416,7 +416,7 @@ export var FilterPolicyLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _FPLEE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`FilterPolicyLimitExceeded`, 403] },
+  { [_aQE]: [`FilterPolicyLimitExceeded`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0],
 ];
@@ -439,7 +439,7 @@ export var InternalErrorException$: StaticErrorSchema = [
   -3,
   n0,
   _IEE,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`InternalError`, 500] },
+  { [_aQE]: [`InternalError`, 500], [_e]: _s, [_hE]: 500 },
   [_m],
   [0],
 ];
@@ -448,7 +448,7 @@ export var InvalidBatchEntryIdException$: StaticErrorSchema = [
   -3,
   n0,
   _IBEIE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidBatchEntryId`, 400] },
+  { [_aQE]: [`InvalidBatchEntryId`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -457,7 +457,7 @@ export var InvalidParameterException$: StaticErrorSchema = [
   -3,
   n0,
   _IPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameter`, 400] },
+  { [_aQE]: [`InvalidParameter`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -466,7 +466,7 @@ export var InvalidParameterValueException$: StaticErrorSchema = [
   -3,
   n0,
   _IPVE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ParameterValueInvalid`, 400] },
+  { [_aQE]: [`ParameterValueInvalid`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -475,7 +475,7 @@ export var InvalidSecurityException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`InvalidSecurity`, 403] },
+  { [_aQE]: [`InvalidSecurity`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0],
 ];
@@ -484,7 +484,7 @@ export var InvalidStateException$: StaticErrorSchema = [
   -3,
   n0,
   _ISEn,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidState`, 400] },
+  { [_aQE]: [`InvalidState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -493,7 +493,7 @@ export var KMSAccessDeniedException$: StaticErrorSchema = [
   -3,
   n0,
   _KMSADE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`KMSAccessDenied`, 400] },
+  { [_aQE]: [`KMSAccessDenied`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -502,7 +502,7 @@ export var KMSDisabledException$: StaticErrorSchema = [
   -3,
   n0,
   _KMSDE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`KMSDisabled`, 400] },
+  { [_aQE]: [`KMSDisabled`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -511,7 +511,7 @@ export var KMSInvalidStateException$: StaticErrorSchema = [
   -3,
   n0,
   _KMSISE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`KMSInvalidState`, 400] },
+  { [_aQE]: [`KMSInvalidState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -520,7 +520,7 @@ export var KMSNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _KMSNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`KMSNotFound`, 400] },
+  { [_aQE]: [`KMSNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -529,7 +529,7 @@ export var KMSOptInRequired$: StaticErrorSchema = [
   -3,
   n0,
   _KMSOIR,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`KMSOptInRequired`, 403] },
+  { [_aQE]: [`KMSOptInRequired`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0],
 ];
@@ -538,7 +538,7 @@ export var KMSThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _KMSTE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`KMSThrottling`, 400] },
+  { [_aQE]: [`KMSThrottling`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -615,7 +615,7 @@ export var NotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _NFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`NotFound`, 404] },
+  { [_aQE]: [`NotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -624,7 +624,7 @@ export var OptedOutException$: StaticErrorSchema = [
   -3,
   n0,
   _OOE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`OptedOut`, 400] },
+  { [_aQE]: [`OptedOut`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -644,7 +644,7 @@ export var PlatformApplicationDisabledException$: StaticErrorSchema = [
   -3,
   n0,
   _PADE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`PlatformApplicationDisabled`, 400] },
+  { [_aQE]: [`PlatformApplicationDisabled`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -689,7 +689,7 @@ export var ReplayLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _RLEE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`ReplayLimitExceeded`, 403] },
+  { [_aQE]: [`ReplayLimitExceeded`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0],
 ];
@@ -698,7 +698,7 @@ export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourceNotFound`, 404] },
+  { [_aQE]: [`ResourceNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -721,7 +721,7 @@ export var StaleTagException$: StaticErrorSchema = [
   -3,
   n0,
   _STE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`StaleTag`, 400] },
+  { [_aQE]: [`StaleTag`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -733,7 +733,7 @@ export var SubscriptionLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SLEE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`SubscriptionLimitExceeded`, 403] },
+  { [_aQE]: [`SubscriptionLimitExceeded`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0],
 ];
@@ -743,7 +743,7 @@ export var TagLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _TLEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TagLimitExceeded`, 400] },
+  { [_aQE]: [`TagLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -752,7 +752,7 @@ export var TagPolicyException$: StaticErrorSchema = [
   -3,
   n0,
   _TPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TagPolicy`, 400] },
+  { [_aQE]: [`TagPolicy`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -763,7 +763,7 @@ export var ThrottledException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  { [_e]: _c, [_hE]: 429, [_aQE]: [`Throttled`, 429] },
+  { [_aQE]: [`Throttled`, 429], [_e]: _c, [_hE]: 429 },
   [_m],
   [0],
 ];
@@ -772,7 +772,7 @@ export var TooManyEntriesInBatchRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _TMEIBRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyEntriesInBatchRequest`, 400] },
+  { [_aQE]: [`TooManyEntriesInBatchRequest`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -782,7 +782,7 @@ export var TopicLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _TLEEo,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`TopicLimitExceeded`, 403] },
+  { [_aQE]: [`TopicLimitExceeded`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0],
 ];
@@ -794,7 +794,7 @@ export var UserErrorException$: StaticErrorSchema = [
   -3,
   n0,
   _UEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`UserError`, 400] },
+  { [_aQE]: [`UserError`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -803,7 +803,7 @@ export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ValidationException`, 400] },
+  { [_aQE]: [`ValidationException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];

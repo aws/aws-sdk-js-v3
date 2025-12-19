@@ -269,6 +269,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { AppConfigServiceException } from "../models/AppConfigServiceException";
@@ -912,7 +913,7 @@ var DynamicParameterMap: StaticMapSchema = [2, n0, _DPM, 8, 0, 0];
 var ParameterMap: StaticMapSchema = [2, n0, _PM, 0, 0, () => Parameter$];
 var ParameterValueMap = 128 | 0;
 var TagMap = 128 | 0;
-export var BadRequestDetails$: StaticStructureSchema = [3, n0, _BRD, 0, [_IC], [() => InvalidConfigurationDetailList]];
+export var BadRequestDetails$: StaticUnionSchema = [4, n0, _BRD, 0, [_IC], [() => InvalidConfigurationDetailList]];
 export var CreateApplication$: StaticOperationSchema = [
   9,
   n0,

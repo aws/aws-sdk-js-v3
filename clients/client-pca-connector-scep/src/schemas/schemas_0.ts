@@ -99,6 +99,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -259,7 +260,7 @@ var ChallengeMetadataList: StaticListSchema = [1, n0, _CML, 0, () => ChallengeMe
 var ConnectorList: StaticListSchema = [1, n0, _CL, 0, () => ConnectorSummary$];
 var TagKeyList = 64 | 0;
 var Tags = 128 | 0;
-export var MobileDeviceManagement$: StaticStructureSchema = [3, n0, _MDM, 0, [_In], [() => IntuneConfiguration$]];
+export var MobileDeviceManagement$: StaticUnionSchema = [4, n0, _MDM, 0, [_In], [() => IntuneConfiguration$]];
 export var CreateChallenge$: StaticOperationSchema = [
   9,
   n0,

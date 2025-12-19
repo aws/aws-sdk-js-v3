@@ -145,7 +145,13 @@ const n0 = "com.amazonaws.marketplaceagreement";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type {
+  StaticErrorSchema,
+  StaticListSchema,
+  StaticOperationSchema,
+  StaticStructureSchema,
+  StaticUnionSchema,
+} from "@smithy/types";
 
 import {
   AccessDeniedException,
@@ -319,8 +325,8 @@ var Resources: StaticListSchema = [1, n0, _Re, 0, () => Resource$];
 var ScheduleList: StaticListSchema = [1, n0, _SL, 0, () => ScheduleItem$];
 var UsageBasedRateCardList: StaticListSchema = [1, n0, _UBRCL, 0, () => UsageBasedRateCardItem$];
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
-export var AcceptedTerm$: StaticStructureSchema = [
-  3,
+export var AcceptedTerm$: StaticUnionSchema = [
+  4,
   n0,
   _AT,
   0,

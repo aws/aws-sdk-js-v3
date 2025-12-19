@@ -972,6 +972,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1722,7 +1723,7 @@ export var DeleteAccessPolicyRequest$: StaticStructureSchema = [
   [_aPIc, _cT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeleteAccessPolicyResponse$: StaticStructureSchema = [3, n0, _DAPRe, 0, [], []];
@@ -1735,7 +1736,7 @@ export var DeleteAssetModelCompositeModelRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
     [0, { [_hH]: _IM }],
     [0, { [_hH]: _INM }],
     [0, { [_hH]: _MFVT }],
@@ -1758,7 +1759,7 @@ export var DeleteAssetModelInterfaceRelationshipRequest$: StaticStructureSchema 
   [
     [0, 1],
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeleteAssetModelInterfaceRelationshipResponse$: StaticStructureSchema = [
@@ -1777,7 +1778,7 @@ export var DeleteAssetModelRequest$: StaticStructureSchema = [
   [_aMI, _cT, _iM, _iNM, _mFVT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
     [0, { [_hH]: _IM }],
     [0, { [_hH]: _INM }],
     [0, { [_hH]: _MFVT }],
@@ -1792,7 +1793,7 @@ export var DeleteAssetRequest$: StaticStructureSchema = [
   [_aIs, _cT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeleteAssetResponse$: StaticStructureSchema = [3, n0, _DARe, 0, [_aS], [() => AssetStatus$]];
@@ -1804,7 +1805,7 @@ export var DeleteComputationModelRequest$: StaticStructureSchema = [
   [_cMIo, _cT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeleteComputationModelResponse$: StaticStructureSchema = [
@@ -1823,7 +1824,7 @@ export var DeleteDashboardRequest$: StaticStructureSchema = [
   [_dI, _cT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeleteDashboardResponse$: StaticStructureSchema = [3, n0, _DDRe, 0, [], []];
@@ -1835,7 +1836,7 @@ export var DeleteDatasetRequest$: StaticStructureSchema = [
   [_dIa, _cT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeleteDatasetResponse$: StaticStructureSchema = [3, n0, _DDRele, 0, [_dSa], [() => DatasetStatus$]];
@@ -1848,7 +1849,7 @@ export var DeletePortalRequest$: StaticStructureSchema = [
   [_pIo, _cT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeletePortalResponse$: StaticStructureSchema = [3, n0, _DPRe, 0, [_pS], [() => PortalStatus$]];
@@ -1860,7 +1861,7 @@ export var DeleteProjectRequest$: StaticStructureSchema = [
   [_pIr, _cT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeleteProjectResponse$: StaticStructureSchema = [3, n0, _DPRele, 0, [], []];
@@ -3497,8 +3498,8 @@ var ExecutionDetails = 128 | 0;
 var ExecutionResult = 128 | 0;
 var PortalTypeConfiguration: StaticMapSchema = [2, n0, _PTC, 0, 0, () => PortalTypeEntry$];
 var TagMap = 128 | 0;
-export var ResponseStream$: StaticStructureSchema = [
-  3,
+export var ResponseStream$: StaticUnionSchema = [
+  4,
   n0,
   _RS,
   { [_str]: 1 },
@@ -3519,7 +3520,7 @@ export var AssociateAssets$: StaticOperationSchema = [
   9,
   n0,
   _AA,
-  { [_ht]: ["POST", "/assets/{assetId}/associate", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["POST", "/assets/{assetId}/associate", 200] },
   () => AssociateAssetsRequest$,
   () => __Unit,
 ];
@@ -3527,7 +3528,7 @@ export var AssociateTimeSeriesToAssetProperty$: StaticOperationSchema = [
   9,
   n0,
   _ATSTAP,
-  { [_ht]: ["POST", "/timeseries/associate", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["POST", "/timeseries/associate", 200] },
   () => AssociateTimeSeriesToAssetPropertyRequest$,
   () => __Unit,
 ];
@@ -3535,7 +3536,7 @@ export var BatchAssociateProjectAssets$: StaticOperationSchema = [
   9,
   n0,
   _BAPA,
-  { [_ht]: ["POST", "/projects/{projectId}/assets/associate", 200], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["POST", "/projects/{projectId}/assets/associate", 200] },
   () => BatchAssociateProjectAssetsRequest$,
   () => BatchAssociateProjectAssetsResponse$,
 ];
@@ -3543,7 +3544,7 @@ export var BatchDisassociateProjectAssets$: StaticOperationSchema = [
   9,
   n0,
   _BDPA,
-  { [_ht]: ["POST", "/projects/{projectId}/assets/disassociate", 200], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["POST", "/projects/{projectId}/assets/disassociate", 200] },
   () => BatchDisassociateProjectAssetsRequest$,
   () => BatchDisassociateProjectAssetsResponse$,
 ];
@@ -3551,7 +3552,7 @@ export var BatchGetAssetPropertyAggregates$: StaticOperationSchema = [
   9,
   n0,
   _BGAPA,
-  { [_ht]: ["POST", "/properties/batch/aggregates", 200], [_end]: ["data."] },
+  { [_end]: ["data."], [_ht]: ["POST", "/properties/batch/aggregates", 200] },
   () => BatchGetAssetPropertyAggregatesRequest$,
   () => BatchGetAssetPropertyAggregatesResponse$,
 ];
@@ -3559,7 +3560,7 @@ export var BatchGetAssetPropertyValue$: StaticOperationSchema = [
   9,
   n0,
   _BGAPV,
-  { [_ht]: ["POST", "/properties/batch/latest", 200], [_end]: ["data."] },
+  { [_end]: ["data."], [_ht]: ["POST", "/properties/batch/latest", 200] },
   () => BatchGetAssetPropertyValueRequest$,
   () => BatchGetAssetPropertyValueResponse$,
 ];
@@ -3567,7 +3568,7 @@ export var BatchGetAssetPropertyValueHistory$: StaticOperationSchema = [
   9,
   n0,
   _BGAPVH,
-  { [_ht]: ["POST", "/properties/batch/history", 200], [_end]: ["data."] },
+  { [_end]: ["data."], [_ht]: ["POST", "/properties/batch/history", 200] },
   () => BatchGetAssetPropertyValueHistoryRequest$,
   () => BatchGetAssetPropertyValueHistoryResponse$,
 ];
@@ -3575,7 +3576,7 @@ export var BatchPutAssetPropertyValue$: StaticOperationSchema = [
   9,
   n0,
   _BPAPV,
-  { [_ht]: ["POST", "/properties", 200], [_end]: ["data."] },
+  { [_end]: ["data."], [_ht]: ["POST", "/properties", 200] },
   () => BatchPutAssetPropertyValueRequest$,
   () => BatchPutAssetPropertyValueResponse$,
 ];
@@ -3583,7 +3584,7 @@ export var CreateAccessPolicy$: StaticOperationSchema = [
   9,
   n0,
   _CAP,
-  { [_ht]: ["POST", "/access-policies", 201], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["POST", "/access-policies", 201] },
   () => CreateAccessPolicyRequest$,
   () => CreateAccessPolicyResponse$,
 ];
@@ -3591,7 +3592,7 @@ export var CreateAsset$: StaticOperationSchema = [
   9,
   n0,
   _CA,
-  { [_ht]: ["POST", "/assets", 202], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["POST", "/assets", 202] },
   () => CreateAssetRequest$,
   () => CreateAssetResponse$,
 ];
@@ -3599,7 +3600,7 @@ export var CreateAssetModel$: StaticOperationSchema = [
   9,
   n0,
   _CAM,
-  { [_ht]: ["POST", "/asset-models", 202], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["POST", "/asset-models", 202] },
   () => CreateAssetModelRequest$,
   () => CreateAssetModelResponse$,
 ];
@@ -3607,7 +3608,7 @@ export var CreateAssetModelCompositeModel$: StaticOperationSchema = [
   9,
   n0,
   _CAMCM,
-  { [_ht]: ["POST", "/asset-models/{assetModelId}/composite-models", 202], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["POST", "/asset-models/{assetModelId}/composite-models", 202] },
   () => CreateAssetModelCompositeModelRequest$,
   () => CreateAssetModelCompositeModelResponse$,
 ];
@@ -3615,7 +3616,7 @@ export var CreateBulkImportJob$: StaticOperationSchema = [
   9,
   n0,
   _CBIJ,
-  { [_ht]: ["POST", "/jobs", 202], [_end]: ["data."] },
+  { [_end]: ["data."], [_ht]: ["POST", "/jobs", 202] },
   () => CreateBulkImportJobRequest$,
   () => CreateBulkImportJobResponse$,
 ];
@@ -3623,7 +3624,7 @@ export var CreateComputationModel$: StaticOperationSchema = [
   9,
   n0,
   _CCM,
-  { [_ht]: ["POST", "/computation-models", 202], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["POST", "/computation-models", 202] },
   () => CreateComputationModelRequest$,
   () => CreateComputationModelResponse$,
 ];
@@ -3631,7 +3632,7 @@ export var CreateDashboard$: StaticOperationSchema = [
   9,
   n0,
   _CDr,
-  { [_ht]: ["POST", "/dashboards", 201], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["POST", "/dashboards", 201] },
   () => CreateDashboardRequest$,
   () => CreateDashboardResponse$,
 ];
@@ -3639,7 +3640,7 @@ export var CreateDataset$: StaticOperationSchema = [
   9,
   n0,
   _CDre,
-  { [_ht]: ["POST", "/datasets", 202], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["POST", "/datasets", 202] },
   () => CreateDatasetRequest$,
   () => CreateDatasetResponse$,
 ];
@@ -3647,7 +3648,7 @@ export var CreateGateway$: StaticOperationSchema = [
   9,
   n0,
   _CG,
-  { [_ht]: ["POST", "/20200301/gateways", 201], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["POST", "/20200301/gateways", 201] },
   () => CreateGatewayRequest$,
   () => CreateGatewayResponse$,
 ];
@@ -3655,7 +3656,7 @@ export var CreatePortal$: StaticOperationSchema = [
   9,
   n0,
   _CP,
-  { [_ht]: ["POST", "/portals", 202], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["POST", "/portals", 202] },
   () => CreatePortalRequest$,
   () => CreatePortalResponse$,
 ];
@@ -3663,7 +3664,7 @@ export var CreateProject$: StaticOperationSchema = [
   9,
   n0,
   _CPr,
-  { [_ht]: ["POST", "/projects", 201], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["POST", "/projects", 201] },
   () => CreateProjectRequest$,
   () => CreateProjectResponse$,
 ];
@@ -3671,7 +3672,7 @@ export var DeleteAccessPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DAP,
-  { [_ht]: ["DELETE", "/access-policies/{accessPolicyId}", 204], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["DELETE", "/access-policies/{accessPolicyId}", 204] },
   () => DeleteAccessPolicyRequest$,
   () => DeleteAccessPolicyResponse$,
 ];
@@ -3679,7 +3680,7 @@ export var DeleteAsset$: StaticOperationSchema = [
   9,
   n0,
   _DA,
-  { [_ht]: ["DELETE", "/assets/{assetId}", 202], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["DELETE", "/assets/{assetId}", 202] },
   () => DeleteAssetRequest$,
   () => DeleteAssetResponse$,
 ];
@@ -3687,7 +3688,7 @@ export var DeleteAssetModel$: StaticOperationSchema = [
   9,
   n0,
   _DAM,
-  { [_ht]: ["DELETE", "/asset-models/{assetModelId}", 202], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["DELETE", "/asset-models/{assetModelId}", 202] },
   () => DeleteAssetModelRequest$,
   () => DeleteAssetModelResponse$,
 ];
@@ -3696,8 +3697,8 @@ export var DeleteAssetModelCompositeModel$: StaticOperationSchema = [
   n0,
   _DAMCM,
   {
-    [_ht]: ["DELETE", "/asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}", 202],
     [_end]: ["api."],
+    [_ht]: ["DELETE", "/asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}", 202],
   },
   () => DeleteAssetModelCompositeModelRequest$,
   () => DeleteAssetModelCompositeModelResponse$,
@@ -3707,12 +3708,12 @@ export var DeleteAssetModelInterfaceRelationship$: StaticOperationSchema = [
   n0,
   _DAMIR,
   {
+    [_end]: ["api."],
     [_ht]: [
       "DELETE",
       "/asset-models/{assetModelId}/interface/{interfaceAssetModelId}/asset-model-interface-relationship",
       202,
     ],
-    [_end]: ["api."],
   },
   () => DeleteAssetModelInterfaceRelationshipRequest$,
   () => DeleteAssetModelInterfaceRelationshipResponse$,
@@ -3721,7 +3722,7 @@ export var DeleteComputationModel$: StaticOperationSchema = [
   9,
   n0,
   _DCM,
-  { [_ht]: ["DELETE", "/computation-models/{computationModelId}", 202], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["DELETE", "/computation-models/{computationModelId}", 202] },
   () => DeleteComputationModelRequest$,
   () => DeleteComputationModelResponse$,
 ];
@@ -3729,7 +3730,7 @@ export var DeleteDashboard$: StaticOperationSchema = [
   9,
   n0,
   _DD,
-  { [_ht]: ["DELETE", "/dashboards/{dashboardId}", 204], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["DELETE", "/dashboards/{dashboardId}", 204] },
   () => DeleteDashboardRequest$,
   () => DeleteDashboardResponse$,
 ];
@@ -3737,7 +3738,7 @@ export var DeleteDataset$: StaticOperationSchema = [
   9,
   n0,
   _DDe,
-  { [_ht]: ["DELETE", "/datasets/{datasetId}", 202], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["DELETE", "/datasets/{datasetId}", 202] },
   () => DeleteDatasetRequest$,
   () => DeleteDatasetResponse$,
 ];
@@ -3745,7 +3746,7 @@ export var DeleteGateway$: StaticOperationSchema = [
   9,
   n0,
   _DG,
-  { [_ht]: ["DELETE", "/20200301/gateways/{gatewayId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["DELETE", "/20200301/gateways/{gatewayId}", 200] },
   () => DeleteGatewayRequest$,
   () => __Unit,
 ];
@@ -3753,7 +3754,7 @@ export var DeletePortal$: StaticOperationSchema = [
   9,
   n0,
   _DP,
-  { [_ht]: ["DELETE", "/portals/{portalId}", 202], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["DELETE", "/portals/{portalId}", 202] },
   () => DeletePortalRequest$,
   () => DeletePortalResponse$,
 ];
@@ -3761,7 +3762,7 @@ export var DeleteProject$: StaticOperationSchema = [
   9,
   n0,
   _DPe,
-  { [_ht]: ["DELETE", "/projects/{projectId}", 204], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["DELETE", "/projects/{projectId}", 204] },
   () => DeleteProjectRequest$,
   () => DeleteProjectResponse$,
 ];
@@ -3769,7 +3770,7 @@ export var DeleteTimeSeries$: StaticOperationSchema = [
   9,
   n0,
   _DTS,
-  { [_ht]: ["POST", "/timeseries/delete", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["POST", "/timeseries/delete", 200] },
   () => DeleteTimeSeriesRequest$,
   () => __Unit,
 ];
@@ -3777,7 +3778,7 @@ export var DescribeAccessPolicy$: StaticOperationSchema = [
   9,
   n0,
   _DAPe,
-  { [_ht]: ["GET", "/access-policies/{accessPolicyId}", 200], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["GET", "/access-policies/{accessPolicyId}", 200] },
   () => DescribeAccessPolicyRequest$,
   () => DescribeAccessPolicyResponse$,
 ];
@@ -3785,7 +3786,7 @@ export var DescribeAction$: StaticOperationSchema = [
   9,
   n0,
   _DAe,
-  { [_ht]: ["GET", "/actions/{actionId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/actions/{actionId}", 200] },
   () => DescribeActionRequest$,
   () => DescribeActionResponse$,
 ];
@@ -3793,7 +3794,7 @@ export var DescribeAsset$: StaticOperationSchema = [
   9,
   n0,
   _DAes,
-  { [_ht]: ["GET", "/assets/{assetId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/assets/{assetId}", 200] },
   () => DescribeAssetRequest$,
   () => DescribeAssetResponse$,
 ];
@@ -3801,7 +3802,7 @@ export var DescribeAssetCompositeModel$: StaticOperationSchema = [
   9,
   n0,
   _DACM,
-  { [_ht]: ["GET", "/assets/{assetId}/composite-models/{assetCompositeModelId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/assets/{assetId}/composite-models/{assetCompositeModelId}", 200] },
   () => DescribeAssetCompositeModelRequest$,
   () => DescribeAssetCompositeModelResponse$,
 ];
@@ -3809,7 +3810,7 @@ export var DescribeAssetModel$: StaticOperationSchema = [
   9,
   n0,
   _DAMe,
-  { [_ht]: ["GET", "/asset-models/{assetModelId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/asset-models/{assetModelId}", 200] },
   () => DescribeAssetModelRequest$,
   () => DescribeAssetModelResponse$,
 ];
@@ -3818,8 +3819,8 @@ export var DescribeAssetModelCompositeModel$: StaticOperationSchema = [
   n0,
   _DAMCMe,
   {
-    [_ht]: ["GET", "/asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}", 200],
     [_end]: ["api."],
+    [_ht]: ["GET", "/asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}", 200],
   },
   () => DescribeAssetModelCompositeModelRequest$,
   () => DescribeAssetModelCompositeModelResponse$,
@@ -3829,12 +3830,12 @@ export var DescribeAssetModelInterfaceRelationship$: StaticOperationSchema = [
   n0,
   _DAMIRe,
   {
+    [_end]: ["api."],
     [_ht]: [
       "GET",
       "/asset-models/{assetModelId}/interface/{interfaceAssetModelId}/asset-model-interface-relationship",
       200,
     ],
-    [_end]: ["api."],
   },
   () => DescribeAssetModelInterfaceRelationshipRequest$,
   () => DescribeAssetModelInterfaceRelationshipResponse$,
@@ -3843,7 +3844,7 @@ export var DescribeAssetProperty$: StaticOperationSchema = [
   9,
   n0,
   _DAPes,
-  { [_ht]: ["GET", "/assets/{assetId}/properties/{propertyId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/assets/{assetId}/properties/{propertyId}", 200] },
   () => DescribeAssetPropertyRequest$,
   () => DescribeAssetPropertyResponse$,
 ];
@@ -3851,7 +3852,7 @@ export var DescribeBulkImportJob$: StaticOperationSchema = [
   9,
   n0,
   _DBIJ,
-  { [_ht]: ["GET", "/jobs/{jobId}", 200], [_end]: ["data."] },
+  { [_end]: ["data."], [_ht]: ["GET", "/jobs/{jobId}", 200] },
   () => DescribeBulkImportJobRequest$,
   () => DescribeBulkImportJobResponse$,
 ];
@@ -3859,7 +3860,7 @@ export var DescribeComputationModel$: StaticOperationSchema = [
   9,
   n0,
   _DCMe,
-  { [_ht]: ["GET", "/computation-models/{computationModelId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/computation-models/{computationModelId}", 200] },
   () => DescribeComputationModelRequest$,
   () => DescribeComputationModelResponse$,
 ];
@@ -3867,7 +3868,7 @@ export var DescribeComputationModelExecutionSummary$: StaticOperationSchema = [
   9,
   n0,
   _DCMES,
-  { [_ht]: ["GET", "/computation-models/{computationModelId}/execution-summary", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/computation-models/{computationModelId}/execution-summary", 200] },
   () => DescribeComputationModelExecutionSummaryRequest$,
   () => DescribeComputationModelExecutionSummaryResponse$,
 ];
@@ -3875,7 +3876,7 @@ export var DescribeDashboard$: StaticOperationSchema = [
   9,
   n0,
   _DDes,
-  { [_ht]: ["GET", "/dashboards/{dashboardId}", 200], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["GET", "/dashboards/{dashboardId}", 200] },
   () => DescribeDashboardRequest$,
   () => DescribeDashboardResponse$,
 ];
@@ -3883,7 +3884,7 @@ export var DescribeDataset$: StaticOperationSchema = [
   9,
   n0,
   _DDesc,
-  { [_ht]: ["GET", "/datasets/{datasetId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/datasets/{datasetId}", 200] },
   () => DescribeDatasetRequest$,
   () => DescribeDatasetResponse$,
 ];
@@ -3891,7 +3892,7 @@ export var DescribeDefaultEncryptionConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DDEC,
-  { [_ht]: ["GET", "/configuration/account/encryption", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/configuration/account/encryption", 200] },
   () => DescribeDefaultEncryptionConfigurationRequest$,
   () => DescribeDefaultEncryptionConfigurationResponse$,
 ];
@@ -3899,7 +3900,7 @@ export var DescribeExecution$: StaticOperationSchema = [
   9,
   n0,
   _DEes,
-  { [_ht]: ["GET", "/executions/{executionId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/executions/{executionId}", 200] },
   () => DescribeExecutionRequest$,
   () => DescribeExecutionResponse$,
 ];
@@ -3907,7 +3908,7 @@ export var DescribeGateway$: StaticOperationSchema = [
   9,
   n0,
   _DGe,
-  { [_ht]: ["GET", "/20200301/gateways/{gatewayId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/20200301/gateways/{gatewayId}", 200] },
   () => DescribeGatewayRequest$,
   () => DescribeGatewayResponse$,
 ];
@@ -3915,7 +3916,7 @@ export var DescribeGatewayCapabilityConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DGCC,
-  { [_ht]: ["GET", "/20200301/gateways/{gatewayId}/capability/{capabilityNamespace}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/20200301/gateways/{gatewayId}/capability/{capabilityNamespace}", 200] },
   () => DescribeGatewayCapabilityConfigurationRequest$,
   () => DescribeGatewayCapabilityConfigurationResponse$,
 ];
@@ -3923,7 +3924,7 @@ export var DescribeLoggingOptions$: StaticOperationSchema = [
   9,
   n0,
   _DLO,
-  { [_ht]: ["GET", "/logging", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/logging", 200] },
   () => DescribeLoggingOptionsRequest$,
   () => DescribeLoggingOptionsResponse$,
 ];
@@ -3931,7 +3932,7 @@ export var DescribePortal$: StaticOperationSchema = [
   9,
   n0,
   _DPes,
-  { [_ht]: ["GET", "/portals/{portalId}", 200], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["GET", "/portals/{portalId}", 200] },
   () => DescribePortalRequest$,
   () => DescribePortalResponse$,
 ];
@@ -3939,7 +3940,7 @@ export var DescribeProject$: StaticOperationSchema = [
   9,
   n0,
   _DPesc,
-  { [_ht]: ["GET", "/projects/{projectId}", 200], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["GET", "/projects/{projectId}", 200] },
   () => DescribeProjectRequest$,
   () => DescribeProjectResponse$,
 ];
@@ -3947,7 +3948,7 @@ export var DescribeStorageConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _DSC,
-  { [_ht]: ["GET", "/configuration/account/storage", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/configuration/account/storage", 200] },
   () => DescribeStorageConfigurationRequest$,
   () => DescribeStorageConfigurationResponse$,
 ];
@@ -3955,7 +3956,7 @@ export var DescribeTimeSeries$: StaticOperationSchema = [
   9,
   n0,
   _DTSe,
-  { [_ht]: ["GET", "/timeseries/describe", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/timeseries/describe", 200] },
   () => DescribeTimeSeriesRequest$,
   () => DescribeTimeSeriesResponse$,
 ];
@@ -3963,7 +3964,7 @@ export var DisassociateAssets$: StaticOperationSchema = [
   9,
   n0,
   _DAi,
-  { [_ht]: ["POST", "/assets/{assetId}/disassociate", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["POST", "/assets/{assetId}/disassociate", 200] },
   () => DisassociateAssetsRequest$,
   () => __Unit,
 ];
@@ -3971,7 +3972,7 @@ export var DisassociateTimeSeriesFromAssetProperty$: StaticOperationSchema = [
   9,
   n0,
   _DTSFAP,
-  { [_ht]: ["POST", "/timeseries/disassociate", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["POST", "/timeseries/disassociate", 200] },
   () => DisassociateTimeSeriesFromAssetPropertyRequest$,
   () => __Unit,
 ];
@@ -3979,7 +3980,7 @@ export var ExecuteAction$: StaticOperationSchema = [
   9,
   n0,
   _EA,
-  { [_ht]: ["POST", "/actions", 202], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["POST", "/actions", 202] },
   () => ExecuteActionRequest$,
   () => ExecuteActionResponse$,
 ];
@@ -3987,7 +3988,7 @@ export var ExecuteQuery$: StaticOperationSchema = [
   9,
   n0,
   _EQ,
-  { [_ht]: ["POST", "/queries/execution", 200], [_end]: ["data."] },
+  { [_end]: ["data."], [_ht]: ["POST", "/queries/execution", 200] },
   () => ExecuteQueryRequest$,
   () => ExecuteQueryResponse$,
 ];
@@ -3995,7 +3996,7 @@ export var GetAssetPropertyAggregates$: StaticOperationSchema = [
   9,
   n0,
   _GAPA,
-  { [_ht]: ["GET", "/properties/aggregates", 200], [_end]: ["data."] },
+  { [_end]: ["data."], [_ht]: ["GET", "/properties/aggregates", 200] },
   () => GetAssetPropertyAggregatesRequest$,
   () => GetAssetPropertyAggregatesResponse$,
 ];
@@ -4003,7 +4004,7 @@ export var GetAssetPropertyValue$: StaticOperationSchema = [
   9,
   n0,
   _GAPV,
-  { [_ht]: ["GET", "/properties/latest", 200], [_end]: ["data."] },
+  { [_end]: ["data."], [_ht]: ["GET", "/properties/latest", 200] },
   () => GetAssetPropertyValueRequest$,
   () => GetAssetPropertyValueResponse$,
 ];
@@ -4011,7 +4012,7 @@ export var GetAssetPropertyValueHistory$: StaticOperationSchema = [
   9,
   n0,
   _GAPVH,
-  { [_ht]: ["GET", "/properties/history", 200], [_end]: ["data."] },
+  { [_end]: ["data."], [_ht]: ["GET", "/properties/history", 200] },
   () => GetAssetPropertyValueHistoryRequest$,
   () => GetAssetPropertyValueHistoryResponse$,
 ];
@@ -4019,7 +4020,7 @@ export var GetInterpolatedAssetPropertyValues$: StaticOperationSchema = [
   9,
   n0,
   _GIAPV,
-  { [_ht]: ["GET", "/properties/interpolated", 200], [_end]: ["data."] },
+  { [_end]: ["data."], [_ht]: ["GET", "/properties/interpolated", 200] },
   () => GetInterpolatedAssetPropertyValuesRequest$,
   () => GetInterpolatedAssetPropertyValuesResponse$,
 ];
@@ -4027,7 +4028,7 @@ export var InvokeAssistant$: StaticOperationSchema = [
   9,
   n0,
   _IA,
-  { [_ht]: ["POST", "/assistant/invocation", 200], [_end]: ["data."] },
+  { [_end]: ["data."], [_ht]: ["POST", "/assistant/invocation", 200] },
   () => InvokeAssistantRequest$,
   () => InvokeAssistantResponse$,
 ];
@@ -4035,7 +4036,7 @@ export var ListAccessPolicies$: StaticOperationSchema = [
   9,
   n0,
   _LAP,
-  { [_ht]: ["GET", "/access-policies", 200], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["GET", "/access-policies", 200] },
   () => ListAccessPoliciesRequest$,
   () => ListAccessPoliciesResponse$,
 ];
@@ -4043,7 +4044,7 @@ export var ListActions$: StaticOperationSchema = [
   9,
   n0,
   _LA,
-  { [_ht]: ["GET", "/actions", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/actions", 200] },
   () => ListActionsRequest$,
   () => ListActionsResponse$,
 ];
@@ -4051,7 +4052,7 @@ export var ListAssetModelCompositeModels$: StaticOperationSchema = [
   9,
   n0,
   _LAMCM,
-  { [_ht]: ["GET", "/asset-models/{assetModelId}/composite-models", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/asset-models/{assetModelId}/composite-models", 200] },
   () => ListAssetModelCompositeModelsRequest$,
   () => ListAssetModelCompositeModelsResponse$,
 ];
@@ -4059,7 +4060,7 @@ export var ListAssetModelProperties$: StaticOperationSchema = [
   9,
   n0,
   _LAMP,
-  { [_ht]: ["GET", "/asset-models/{assetModelId}/properties", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/asset-models/{assetModelId}/properties", 200] },
   () => ListAssetModelPropertiesRequest$,
   () => ListAssetModelPropertiesResponse$,
 ];
@@ -4067,7 +4068,7 @@ export var ListAssetModels$: StaticOperationSchema = [
   9,
   n0,
   _LAM,
-  { [_ht]: ["GET", "/asset-models", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/asset-models", 200] },
   () => ListAssetModelsRequest$,
   () => ListAssetModelsResponse$,
 ];
@@ -4075,7 +4076,7 @@ export var ListAssetProperties$: StaticOperationSchema = [
   9,
   n0,
   _LAPi,
-  { [_ht]: ["GET", "/assets/{assetId}/properties", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/assets/{assetId}/properties", 200] },
   () => ListAssetPropertiesRequest$,
   () => ListAssetPropertiesResponse$,
 ];
@@ -4083,7 +4084,7 @@ export var ListAssetRelationships$: StaticOperationSchema = [
   9,
   n0,
   _LARists,
-  { [_ht]: ["GET", "/assets/{assetId}/assetRelationships", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/assets/{assetId}/assetRelationships", 200] },
   () => ListAssetRelationshipsRequest$,
   () => ListAssetRelationshipsResponse$,
 ];
@@ -4091,7 +4092,7 @@ export var ListAssets$: StaticOperationSchema = [
   9,
   n0,
   _LAi,
-  { [_ht]: ["GET", "/assets", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/assets", 200] },
   () => ListAssetsRequest$,
   () => ListAssetsResponse$,
 ];
@@ -4099,7 +4100,7 @@ export var ListAssociatedAssets$: StaticOperationSchema = [
   9,
   n0,
   _LAA,
-  { [_ht]: ["GET", "/assets/{assetId}/hierarchies", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/assets/{assetId}/hierarchies", 200] },
   () => ListAssociatedAssetsRequest$,
   () => ListAssociatedAssetsResponse$,
 ];
@@ -4107,7 +4108,7 @@ export var ListBulkImportJobs$: StaticOperationSchema = [
   9,
   n0,
   _LBIJ,
-  { [_ht]: ["GET", "/jobs", 200], [_end]: ["data."] },
+  { [_end]: ["data."], [_ht]: ["GET", "/jobs", 200] },
   () => ListBulkImportJobsRequest$,
   () => ListBulkImportJobsResponse$,
 ];
@@ -4115,7 +4116,7 @@ export var ListCompositionRelationships$: StaticOperationSchema = [
   9,
   n0,
   _LCR,
-  { [_ht]: ["GET", "/asset-models/{assetModelId}/composition-relationships", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/asset-models/{assetModelId}/composition-relationships", 200] },
   () => ListCompositionRelationshipsRequest$,
   () => ListCompositionRelationshipsResponse$,
 ];
@@ -4123,7 +4124,7 @@ export var ListComputationModelDataBindingUsages$: StaticOperationSchema = [
   9,
   n0,
   _LCMDBU,
-  { [_ht]: ["POST", "/computation-models/data-binding-usages", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["POST", "/computation-models/data-binding-usages", 200] },
   () => ListComputationModelDataBindingUsagesRequest$,
   () => ListComputationModelDataBindingUsagesResponse$,
 ];
@@ -4131,7 +4132,7 @@ export var ListComputationModelResolveToResources$: StaticOperationSchema = [
   9,
   n0,
   _LCMRTR,
-  { [_ht]: ["GET", "/computation-models/{computationModelId}/resolve-to-resources", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/computation-models/{computationModelId}/resolve-to-resources", 200] },
   () => ListComputationModelResolveToResourcesRequest$,
   () => ListComputationModelResolveToResourcesResponse$,
 ];
@@ -4139,7 +4140,7 @@ export var ListComputationModels$: StaticOperationSchema = [
   9,
   n0,
   _LCM,
-  { [_ht]: ["GET", "/computation-models", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/computation-models", 200] },
   () => ListComputationModelsRequest$,
   () => ListComputationModelsResponse$,
 ];
@@ -4147,7 +4148,7 @@ export var ListDashboards$: StaticOperationSchema = [
   9,
   n0,
   _LD,
-  { [_ht]: ["GET", "/dashboards", 200], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["GET", "/dashboards", 200] },
   () => ListDashboardsRequest$,
   () => ListDashboardsResponse$,
 ];
@@ -4155,7 +4156,7 @@ export var ListDatasets$: StaticOperationSchema = [
   9,
   n0,
   _LDi,
-  { [_ht]: ["GET", "/datasets", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/datasets", 200] },
   () => ListDatasetsRequest$,
   () => ListDatasetsResponse$,
 ];
@@ -4163,7 +4164,7 @@ export var ListExecutions$: StaticOperationSchema = [
   9,
   n0,
   _LE,
-  { [_ht]: ["GET", "/executions", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/executions", 200] },
   () => ListExecutionsRequest$,
   () => ListExecutionsResponse$,
 ];
@@ -4171,7 +4172,7 @@ export var ListGateways$: StaticOperationSchema = [
   9,
   n0,
   _LG,
-  { [_ht]: ["GET", "/20200301/gateways", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/20200301/gateways", 200] },
   () => ListGatewaysRequest$,
   () => ListGatewaysResponse$,
 ];
@@ -4179,7 +4180,7 @@ export var ListInterfaceRelationships$: StaticOperationSchema = [
   9,
   n0,
   _LIR,
-  { [_ht]: ["GET", "/interface/{interfaceAssetModelId}/asset-models", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/interface/{interfaceAssetModelId}/asset-models", 200] },
   () => ListInterfaceRelationshipsRequest$,
   () => ListInterfaceRelationshipsResponse$,
 ];
@@ -4187,7 +4188,7 @@ export var ListPortals$: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  { [_ht]: ["GET", "/portals", 200], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["GET", "/portals", 200] },
   () => ListPortalsRequest$,
   () => ListPortalsResponse$,
 ];
@@ -4195,7 +4196,7 @@ export var ListProjectAssets$: StaticOperationSchema = [
   9,
   n0,
   _LPA,
-  { [_ht]: ["GET", "/projects/{projectId}/assets", 200], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["GET", "/projects/{projectId}/assets", 200] },
   () => ListProjectAssetsRequest$,
   () => ListProjectAssetsResponse$,
 ];
@@ -4203,7 +4204,7 @@ export var ListProjects$: StaticOperationSchema = [
   9,
   n0,
   _LPi,
-  { [_ht]: ["GET", "/projects", 200], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["GET", "/projects", 200] },
   () => ListProjectsRequest$,
   () => ListProjectsResponse$,
 ];
@@ -4211,7 +4212,7 @@ export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  { [_ht]: ["GET", "/tags", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/tags", 200] },
   () => ListTagsForResourceRequest$,
   () => ListTagsForResourceResponse$,
 ];
@@ -4219,7 +4220,7 @@ export var ListTimeSeries$: StaticOperationSchema = [
   9,
   n0,
   _LTS,
-  { [_ht]: ["GET", "/timeseries", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["GET", "/timeseries", 200] },
   () => ListTimeSeriesRequest$,
   () => ListTimeSeriesResponse$,
 ];
@@ -4228,12 +4229,12 @@ export var PutAssetModelInterfaceRelationship$: StaticOperationSchema = [
   n0,
   _PAMIR,
   {
+    [_end]: ["api."],
     [_ht]: [
       "PUT",
       "/asset-models/{assetModelId}/interface/{interfaceAssetModelId}/asset-model-interface-relationship",
       202,
     ],
-    [_end]: ["api."],
   },
   () => PutAssetModelInterfaceRelationshipRequest$,
   () => PutAssetModelInterfaceRelationshipResponse$,
@@ -4242,7 +4243,7 @@ export var PutDefaultEncryptionConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PDEC,
-  { [_ht]: ["POST", "/configuration/account/encryption", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["POST", "/configuration/account/encryption", 200] },
   () => PutDefaultEncryptionConfigurationRequest$,
   () => PutDefaultEncryptionConfigurationResponse$,
 ];
@@ -4250,7 +4251,7 @@ export var PutLoggingOptions$: StaticOperationSchema = [
   9,
   n0,
   _PLO,
-  { [_ht]: ["PUT", "/logging", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["PUT", "/logging", 200] },
   () => PutLoggingOptionsRequest$,
   () => PutLoggingOptionsResponse$,
 ];
@@ -4258,7 +4259,7 @@ export var PutStorageConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _PSC,
-  { [_ht]: ["POST", "/configuration/account/storage", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["POST", "/configuration/account/storage", 200] },
   () => PutStorageConfigurationRequest$,
   () => PutStorageConfigurationResponse$,
 ];
@@ -4266,7 +4267,7 @@ export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TRa,
-  { [_ht]: ["POST", "/tags", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["POST", "/tags", 200] },
   () => TagResourceRequest$,
   () => TagResourceResponse$,
 ];
@@ -4274,7 +4275,7 @@ export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  { [_ht]: ["DELETE", "/tags", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["DELETE", "/tags", 200] },
   () => UntagResourceRequest$,
   () => UntagResourceResponse$,
 ];
@@ -4282,7 +4283,7 @@ export var UpdateAccessPolicy$: StaticOperationSchema = [
   9,
   n0,
   _UAP,
-  { [_ht]: ["PUT", "/access-policies/{accessPolicyId}", 200], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["PUT", "/access-policies/{accessPolicyId}", 200] },
   () => UpdateAccessPolicyRequest$,
   () => UpdateAccessPolicyResponse$,
 ];
@@ -4290,7 +4291,7 @@ export var UpdateAsset$: StaticOperationSchema = [
   9,
   n0,
   _UA,
-  { [_ht]: ["PUT", "/assets/{assetId}", 202], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["PUT", "/assets/{assetId}", 202] },
   () => UpdateAssetRequest$,
   () => UpdateAssetResponse$,
 ];
@@ -4298,7 +4299,7 @@ export var UpdateAssetModel$: StaticOperationSchema = [
   9,
   n0,
   _UAM,
-  { [_ht]: ["PUT", "/asset-models/{assetModelId}", 202], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["PUT", "/asset-models/{assetModelId}", 202] },
   () => UpdateAssetModelRequest$,
   () => UpdateAssetModelResponse$,
 ];
@@ -4307,8 +4308,8 @@ export var UpdateAssetModelCompositeModel$: StaticOperationSchema = [
   n0,
   _UAMCM,
   {
-    [_ht]: ["PUT", "/asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}", 202],
     [_end]: ["api."],
+    [_ht]: ["PUT", "/asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}", 202],
   },
   () => UpdateAssetModelCompositeModelRequest$,
   () => UpdateAssetModelCompositeModelResponse$,
@@ -4317,7 +4318,7 @@ export var UpdateAssetProperty$: StaticOperationSchema = [
   9,
   n0,
   _UAPp,
-  { [_ht]: ["PUT", "/assets/{assetId}/properties/{propertyId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["PUT", "/assets/{assetId}/properties/{propertyId}", 200] },
   () => UpdateAssetPropertyRequest$,
   () => __Unit,
 ];
@@ -4325,7 +4326,7 @@ export var UpdateComputationModel$: StaticOperationSchema = [
   9,
   n0,
   _UCM,
-  { [_ht]: ["POST", "/computation-models/{computationModelId}", 202], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["POST", "/computation-models/{computationModelId}", 202] },
   () => UpdateComputationModelRequest$,
   () => UpdateComputationModelResponse$,
 ];
@@ -4333,7 +4334,7 @@ export var UpdateDashboard$: StaticOperationSchema = [
   9,
   n0,
   _UD,
-  { [_ht]: ["PUT", "/dashboards/{dashboardId}", 200], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["PUT", "/dashboards/{dashboardId}", 200] },
   () => UpdateDashboardRequest$,
   () => UpdateDashboardResponse$,
 ];
@@ -4341,7 +4342,7 @@ export var UpdateDataset$: StaticOperationSchema = [
   9,
   n0,
   _UDp,
-  { [_ht]: ["PUT", "/datasets/{datasetId}", 202], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["PUT", "/datasets/{datasetId}", 202] },
   () => UpdateDatasetRequest$,
   () => UpdateDatasetResponse$,
 ];
@@ -4349,7 +4350,7 @@ export var UpdateGateway$: StaticOperationSchema = [
   9,
   n0,
   _UG,
-  { [_ht]: ["PUT", "/20200301/gateways/{gatewayId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["PUT", "/20200301/gateways/{gatewayId}", 200] },
   () => UpdateGatewayRequest$,
   () => __Unit,
 ];
@@ -4357,7 +4358,7 @@ export var UpdateGatewayCapabilityConfiguration$: StaticOperationSchema = [
   9,
   n0,
   _UGCC,
-  { [_ht]: ["POST", "/20200301/gateways/{gatewayId}/capability", 201], [_end]: ["api."] },
+  { [_end]: ["api."], [_ht]: ["POST", "/20200301/gateways/{gatewayId}/capability", 201] },
   () => UpdateGatewayCapabilityConfigurationRequest$,
   () => UpdateGatewayCapabilityConfigurationResponse$,
 ];
@@ -4365,7 +4366,7 @@ export var UpdatePortal$: StaticOperationSchema = [
   9,
   n0,
   _UP,
-  { [_ht]: ["PUT", "/portals/{portalId}", 202], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["PUT", "/portals/{portalId}", 202] },
   () => UpdatePortalRequest$,
   () => UpdatePortalResponse$,
 ];
@@ -4373,7 +4374,7 @@ export var UpdateProject$: StaticOperationSchema = [
   9,
   n0,
   _UPp,
-  { [_ht]: ["PUT", "/projects/{projectId}", 200], [_end]: ["monitor."] },
+  { [_end]: ["monitor."], [_ht]: ["PUT", "/projects/{projectId}", 200] },
   () => UpdateProjectRequest$,
   () => UpdateProjectResponse$,
 ];

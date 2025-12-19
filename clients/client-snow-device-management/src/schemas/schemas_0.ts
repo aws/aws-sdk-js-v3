@@ -162,6 +162,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -386,7 +387,7 @@ var TagKeys = 64 | 0;
 var TargetList = 64 | 0;
 var TaskSummaryList: StaticListSchema = [1, n0, _TSL, 0, () => TaskSummary$];
 var TagMap = 128 | 0;
-export var Command$: StaticStructureSchema = [3, n0, _Co, 0, [_un, _re], [() => Unlock$, () => Reboot$]];
+export var Command$: StaticUnionSchema = [4, n0, _Co, 0, [_un, _re], [() => Unlock$, () => Reboot$]];
 export var CancelTask$: StaticOperationSchema = [
   9,
   n0,

@@ -786,6 +786,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -2614,9 +2615,9 @@ var AdvancedOptions = 128 | 0;
 var EndpointsMap = 128 | 0;
 var LimitsByRole: StaticMapSchema = [2, n0, _LBR, 0, 0, () => Limits$];
 var LogPublishingOptions: StaticMapSchema = [2, n0, _LPO, 0, 0, () => LogPublishingOption$];
-export var DataSourceType$: StaticStructureSchema = [3, n0, _DST, 0, [_SGDC], [() => S3GlueDataCatalog$]];
-export var DirectQueryDataSourceType$: StaticStructureSchema = [
-  3,
+export var DataSourceType$: StaticUnionSchema = [4, n0, _DST, 0, [_SGDC], [() => S3GlueDataCatalog$]];
+export var DirectQueryDataSourceType$: StaticUnionSchema = [
+  4,
   n0,
   _DQDST,
   0,

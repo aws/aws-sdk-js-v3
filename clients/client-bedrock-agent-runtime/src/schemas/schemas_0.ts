@@ -856,6 +856,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { BedrockAgentRuntimeServiceException } from "../models/BedrockAgentRuntimeServiceException";
@@ -2566,14 +2567,14 @@ var RetrievalResultMetadata: StaticMapSchema = [2, n0, _RRM, 8, 0, 15];
 var SessionAttributesMap = 128 | 0;
 var SessionMetadataMap = 128 | 0;
 var TagsMap = 128 | 0;
-export var ActionGroupExecutor$: StaticStructureSchema = [3, n0, _AGE, 0, [_lam, _cCu], [0, 0]];
-export var APISchema$: StaticStructureSchema = [3, n0, _APIS, 0, [_s_, _pa], [() => S3Identifier$, [() => Payload, 0]]];
-export var BedrockSessionContentBlock$: StaticStructureSchema = [3, n0, _BSCBe, 8, [_t, _ima], [0, () => ImageBlock$]];
-export var Caller$: StaticStructureSchema = [3, n0, _Ca, 0, [_aAA], [0]];
-export var ContentBlock$: StaticStructureSchema = [3, n0, _CBon, 8, [_t], [0]];
-export var FlowExecutionContent$: StaticStructureSchema = [3, n0, _FEC, 8, [_do], [15]];
-export var FlowExecutionEvent$: StaticStructureSchema = [
-  3,
+export var ActionGroupExecutor$: StaticUnionSchema = [4, n0, _AGE, 0, [_lam, _cCu], [0, 0]];
+export var APISchema$: StaticUnionSchema = [4, n0, _APIS, 0, [_s_, _pa], [() => S3Identifier$, [() => Payload, 0]]];
+export var BedrockSessionContentBlock$: StaticUnionSchema = [4, n0, _BSCBe, 8, [_t, _ima], [0, () => ImageBlock$]];
+export var Caller$: StaticUnionSchema = [4, n0, _Ca, 0, [_aAA], [0]];
+export var ContentBlock$: StaticUnionSchema = [4, n0, _CBon, 8, [_t], [0]];
+export var FlowExecutionContent$: StaticUnionSchema = [4, n0, _FEC, 8, [_do], [15]];
+export var FlowExecutionEvent$: StaticUnionSchema = [
+  4,
   n0,
   _FEElow,
   0,
@@ -2590,11 +2591,11 @@ export var FlowExecutionEvent$: StaticStructureSchema = [
     [() => NodeDependencyEvent$, 0],
   ],
 ];
-export var FlowInputContent$: StaticStructureSchema = [3, n0, _FIC, 8, [_do], [15]];
-export var FlowMultiTurnInputContent$: StaticStructureSchema = [3, n0, _FMTIC, 0, [_do], [15]];
-export var FlowOutputContent$: StaticStructureSchema = [3, n0, _FOC, 0, [_do], [15]];
-export var FlowResponseStream$: StaticStructureSchema = [
-  3,
+export var FlowInputContent$: StaticUnionSchema = [4, n0, _FIC, 8, [_do], [15]];
+export var FlowMultiTurnInputContent$: StaticUnionSchema = [4, n0, _FMTIC, 0, [_do], [15]];
+export var FlowOutputContent$: StaticUnionSchema = [4, n0, _FOC, 0, [_do], [15]];
+export var FlowResponseStream$: StaticUnionSchema = [
+  4,
   n0,
   _FRSl,
   { [_stre]: 1 },
@@ -2615,8 +2616,8 @@ export var FlowResponseStream$: StaticStructureSchema = [
     [() => FlowMultiTurnInputRequestEvent$, 0],
   ],
 ];
-export var FlowTrace$: StaticStructureSchema = [
-  3,
+export var FlowTrace$: StaticUnionSchema = [
+  4,
   n0,
   _FTl,
   8,
@@ -2629,13 +2630,13 @@ export var FlowTrace$: StaticStructureSchema = [
     [() => FlowTraceDependencyEvent$, 0],
   ],
 ];
-export var FlowTraceNodeInputContent$: StaticStructureSchema = [3, n0, _FTNIC, 8, [_do], [15]];
-export var FlowTraceNodeOutputContent$: StaticStructureSchema = [3, n0, _FTNOC, 0, [_do], [15]];
-export var FunctionSchema$: StaticStructureSchema = [3, n0, _FSu, 0, [_fu], [[() => Functions, 0]]];
-export var ImageInputSource$: StaticStructureSchema = [3, n0, _IIS, 0, [_by], [21]];
-export var ImageSource$: StaticStructureSchema = [3, n0, _ISm, 0, [_by, _sL], [21, () => S3Location$]];
-export var InlineAgentResponseStream$: StaticStructureSchema = [
-  3,
+export var FlowTraceNodeInputContent$: StaticUnionSchema = [4, n0, _FTNIC, 8, [_do], [15]];
+export var FlowTraceNodeOutputContent$: StaticUnionSchema = [4, n0, _FTNOC, 0, [_do], [15]];
+export var FunctionSchema$: StaticUnionSchema = [4, n0, _FSu, 0, [_fu], [[() => Functions, 0]]];
+export var ImageInputSource$: StaticUnionSchema = [4, n0, _IIS, 0, [_by], [21]];
+export var ImageSource$: StaticUnionSchema = [4, n0, _ISm, 0, [_by, _sL], [21, () => S3Location$]];
+export var InlineAgentResponseStream$: StaticUnionSchema = [
+  4,
   n0,
   _IARS,
   { [_stre]: 1 },
@@ -2656,9 +2657,9 @@ export var InlineAgentResponseStream$: StaticStructureSchema = [
     [() => InlineAgentFilePart$, 0],
   ],
 ];
-export var InputPrompt$: StaticStructureSchema = [3, n0, _IP, 0, [_tPe], [[() => TextPrompt$, 0]]];
-export var InvocationInputMember$: StaticStructureSchema = [
-  3,
+export var InputPrompt$: StaticUnionSchema = [4, n0, _IP, 0, [_tPe], [[() => TextPrompt$, 0]]];
+export var InvocationInputMember$: StaticUnionSchema = [
+  4,
   n0,
   _IIM,
   0,
@@ -2668,28 +2669,28 @@ export var InvocationInputMember$: StaticStructureSchema = [
     [() => FunctionInvocationInput$, 0],
   ],
 ];
-export var InvocationResultMember$: StaticStructureSchema = [
-  3,
+export var InvocationResultMember$: StaticUnionSchema = [
+  4,
   n0,
   _IRM,
   0,
   [_aR, _fRu],
   [[() => ApiResult$, 0], () => FunctionResult$],
 ];
-export var InvocationStepPayload$: StaticStructureSchema = [
-  3,
+export var InvocationStepPayload$: StaticUnionSchema = [
+  4,
   n0,
   _ISP,
   0,
   [_cB],
   [[() => BedrockSessionContentBlocks, 0]],
 ];
-export var Memory$: StaticStructureSchema = [3, n0, _Memo, 0, [_sSess], [() => MemorySessionSummary$]];
-export var NodeExecutionContent$: StaticStructureSchema = [3, n0, _NEC, 8, [_do], [15]];
-export var NodeTraceElements$: StaticStructureSchema = [3, n0, _NTE, 8, [_aT], [[() => AgentTraces, 0]]];
-export var OptimizedPrompt$: StaticStructureSchema = [3, n0, _OP, 0, [_tPe], [[() => TextPrompt$, 0]]];
-export var OptimizedPromptStream$: StaticStructureSchema = [
-  3,
+export var Memory$: StaticUnionSchema = [4, n0, _Memo, 0, [_sSess], [() => MemorySessionSummary$]];
+export var NodeExecutionContent$: StaticUnionSchema = [4, n0, _NEC, 8, [_do], [15]];
+export var NodeTraceElements$: StaticUnionSchema = [4, n0, _NTE, 8, [_aT], [[() => AgentTraces, 0]]];
+export var OptimizedPrompt$: StaticUnionSchema = [4, n0, _OP, 0, [_tPe], [[() => TextPrompt$, 0]]];
+export var OptimizedPromptStream$: StaticUnionSchema = [
+  4,
   n0,
   _OPS,
   { [_stre]: 1 },
@@ -2705,9 +2706,9 @@ export var OptimizedPromptStream$: StaticStructureSchema = [
     [() => BadGatewayException$, 0],
   ],
 ];
-export var OrchestrationExecutor$: StaticStructureSchema = [3, n0, _OE, 0, [_lam], [0]];
-export var OrchestrationTrace$: StaticStructureSchema = [
-  3,
+export var OrchestrationExecutor$: StaticUnionSchema = [4, n0, _OE, 0, [_lam], [0]];
+export var OrchestrationTrace$: StaticUnionSchema = [
+  4,
   n0,
   _OT,
   8,
@@ -2720,8 +2721,8 @@ export var OrchestrationTrace$: StaticStructureSchema = [
     [() => OrchestrationModelInvocationOutput$, 0],
   ],
 ];
-export var PostProcessingTrace$: StaticStructureSchema = [
-  3,
+export var PostProcessingTrace$: StaticUnionSchema = [
+  4,
   n0,
   _PPT,
   8,
@@ -2731,8 +2732,8 @@ export var PostProcessingTrace$: StaticStructureSchema = [
     [() => PostProcessingModelInvocationOutput$, 0],
   ],
 ];
-export var PreProcessingTrace$: StaticStructureSchema = [
-  3,
+export var PreProcessingTrace$: StaticUnionSchema = [
+  4,
   n0,
   _PPTr,
   8,
@@ -2742,16 +2743,16 @@ export var PreProcessingTrace$: StaticStructureSchema = [
     [() => PreProcessingModelInvocationOutput$, 0],
   ],
 ];
-export var ReasoningContentBlock$: StaticStructureSchema = [
-  3,
+export var ReasoningContentBlock$: StaticUnionSchema = [
+  4,
   n0,
   _RCB,
   8,
   [_rT, _rCed],
   [[() => ReasoningTextBlock$, 0], 21],
 ];
-export var RerankingMetadataSelectiveModeConfiguration$: StaticStructureSchema = [
-  3,
+export var RerankingMetadataSelectiveModeConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _RMSMC,
   0,
@@ -2761,8 +2762,8 @@ export var RerankingMetadataSelectiveModeConfiguration$: StaticStructureSchema =
     [() => FieldsForReranking, 0],
   ],
 ];
-export var ResponseStream$: StaticStructureSchema = [
-  3,
+export var ResponseStream$: StaticUnionSchema = [
+  4,
   n0,
   _RSes,
   { [_stre]: 1 },
@@ -2784,8 +2785,8 @@ export var ResponseStream$: StaticStructureSchema = [
     [() => FilePart$, 0],
   ],
 ];
-export var RetrievalFilter$: StaticStructureSchema = [
-  3,
+export var RetrievalFilter$: StaticUnionSchema = [
+  4,
   n0,
   _RF,
   8,
@@ -2806,8 +2807,8 @@ export var RetrievalFilter$: StaticStructureSchema = [
     [() => RetrievalFilterList, 0],
   ],
 ];
-export var RetrieveAndGenerateStreamResponseOutput$: StaticStructureSchema = [
-  3,
+export var RetrieveAndGenerateStreamResponseOutput$: StaticUnionSchema = [
+  4,
   n0,
   _RAGSRO,
   { [_stre]: 1 },
@@ -2827,8 +2828,8 @@ export var RetrieveAndGenerateStreamResponseOutput$: StaticStructureSchema = [
     [() => BadGatewayException$, 0],
   ],
 ];
-export var RoutingClassifierTrace$: StaticStructureSchema = [
-  3,
+export var RoutingClassifierTrace$: StaticUnionSchema = [
+  4,
   n0,
   _RCT,
   8,
@@ -2840,8 +2841,8 @@ export var RoutingClassifierTrace$: StaticStructureSchema = [
     [() => RoutingClassifierModelInvocationOutput$, 0],
   ],
 ];
-export var Trace$: StaticStructureSchema = [
-  3,
+export var Trace$: StaticUnionSchema = [
+  4,
   n0,
   _T,
   8,
@@ -2856,7 +2857,7 @@ export var Trace$: StaticStructureSchema = [
     [() => CustomOrchestrationTrace$, 0],
   ],
 ];
-export var TraceElements$: StaticStructureSchema = [3, n0, _TEr, 8, [_aT], [[() => AgentTraces, 0]]];
+export var TraceElements$: StaticUnionSchema = [4, n0, _TEr, 8, [_aT], [[() => AgentTraces, 0]]];
 export var CreateInvocation$: StaticOperationSchema = [
   9,
   n0,

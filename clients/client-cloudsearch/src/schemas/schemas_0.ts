@@ -358,7 +358,7 @@ export var DisabledOperationException$: StaticErrorSchema = [
   -3,
   n0,
   _DOE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`DisabledAction`, 409] },
+  { [_aQE]: [`DisabledAction`, 409], [_e]: _c, [_hE]: 409 },
   [_C, _M],
   [0, 0],
 ];
@@ -436,7 +436,7 @@ export var InternalException$: StaticErrorSchema = [
   -3,
   n0,
   _IE,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`InternalException`, 500] },
+  { [_aQE]: [`InternalException`, 500], [_e]: _s, [_hE]: 500 },
   [_C, _M],
   [0, 0],
 ];
@@ -446,7 +446,7 @@ export var InvalidTypeException$: StaticErrorSchema = [
   -3,
   n0,
   _ITE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`InvalidType`, 409] },
+  { [_aQE]: [`InvalidType`, 409], [_e]: _c, [_hE]: 409 },
   [_C, _M],
   [0, 0],
 ];
@@ -463,7 +463,7 @@ export var LimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`LimitExceeded`, 409] },
+  { [_aQE]: [`LimitExceeded`, 409], [_e]: _c, [_hE]: 409 },
   [_C, _M],
   [0, 0],
 ];
@@ -484,7 +484,7 @@ export var ResourceAlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _RAEE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`ResourceAlreadyExists`, 409] },
+  { [_aQE]: [`ResourceAlreadyExists`, 409], [_e]: _c, [_hE]: 409 },
   [_C, _M],
   [0, 0],
 ];
@@ -493,7 +493,7 @@ export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`ResourceNotFound`, 409] },
+  { [_aQE]: [`ResourceNotFound`, 409], [_e]: _c, [_hE]: 409 },
   [_C, _M],
   [0, 0],
 ];

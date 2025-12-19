@@ -218,6 +218,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { BraketServiceException } from "../models/BraketServiceException";
@@ -568,7 +569,7 @@ var String256List = 64 | 0;
 var TagKeys = 64 | 0;
 var HyperParameters = 128 | 0;
 var TagsMap = 128 | 0;
-export var ExperimentalCapabilities$: StaticStructureSchema = [3, n0, _EC, 0, [_en], [0]];
+export var ExperimentalCapabilities$: StaticUnionSchema = [4, n0, _EC, 0, [_en], [0]];
 export var CancelJob$: StaticOperationSchema = [
   9,
   n0,

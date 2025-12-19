@@ -192,7 +192,13 @@ const n0 = "com.amazonaws.partnercentralchannel";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type {
+  StaticErrorSchema,
+  StaticListSchema,
+  StaticOperationSchema,
+  StaticStructureSchema,
+  StaticUnionSchema,
+} from "@smithy/types";
 
 import {
   AccessDeniedException,
@@ -540,16 +546,16 @@ var ServicePeriodTypeList = 64 | 0;
 var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
-export var ChannelHandshakePayload$: StaticStructureSchema = [
-  3,
+export var ChannelHandshakePayload$: StaticUnionSchema = [
+  4,
   n0,
   _CHP,
   0,
   [_sSPP, _rSPP],
   [() => StartServicePeriodPayload$, () => RevokeServicePeriodPayload$],
 ];
-export var HandshakeDetail$: StaticStructureSchema = [
-  3,
+export var HandshakeDetail$: StaticUnionSchema = [
+  4,
   n0,
   _HD,
   0,
@@ -560,8 +566,8 @@ export var HandshakeDetail$: StaticStructureSchema = [
     () => ProgramManagementAccountHandshakeDetail$,
   ],
 ];
-export var ListChannelHandshakesTypeFilters$: StaticStructureSchema = [
-  3,
+export var ListChannelHandshakesTypeFilters$: StaticUnionSchema = [
+  4,
   n0,
   _LCHTF,
   0,
@@ -572,16 +578,16 @@ export var ListChannelHandshakesTypeFilters$: StaticStructureSchema = [
     () => ProgramManagementAccountTypeFilters$,
   ],
 ];
-export var ListChannelHandshakesTypeSort$: StaticStructureSchema = [
-  3,
+export var ListChannelHandshakesTypeSort$: StaticUnionSchema = [
+  4,
   n0,
   _LCHTS,
   0,
   [_sSPTS, _rSPTS, _pMATS],
   [() => StartServicePeriodTypeSort$, () => RevokeServicePeriodTypeSort$, () => ProgramManagementAccountTypeSort$],
 ];
-export var SupportPlan$: StaticStructureSchema = [
-  3,
+export var SupportPlan$: StaticUnionSchema = [
+  4,
   n0,
   _SP,
   0,

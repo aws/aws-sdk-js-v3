@@ -693,6 +693,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -2007,7 +2008,7 @@ var WorkspacesPoolIds = 64 | 0;
 var WorkspacesPools: StaticListSchema = [1, n0, _WPo, 0, () => WorkspacesPool$];
 var WorkspacesPoolSessions: StaticListSchema = [1, n0, _WPSo, 0, () => WorkspacesPoolSession$];
 var LoginMessage = 128 | 0;
-export var ImageSourceIdentifier$: StaticStructureSchema = [3, n0, _ISI, 0, [_EITI, _IBVA, _EII], [0, 0, 0]];
+export var ImageSourceIdentifier$: StaticUnionSchema = [4, n0, _ISI, 0, [_EITI, _IBVA, _EII], [0, 0, 0]];
 export var AcceptAccountLinkInvitation$: StaticOperationSchema = [
   9,
   n0,

@@ -245,7 +245,7 @@ export var AccessDeniedException$: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`InvoicingAccessDenied`, 403] },
+  { [_aQE]: [`InvoicingAccessDenied`, 403], [_e]: _c, [_hE]: 403 },
   [_m, _rN],
   [0, 0],
 ];
@@ -265,7 +265,7 @@ export var ConflictException$: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`InvoicingConflict`, 409] },
+  { [_aQE]: [`InvoicingConflict`, 409], [_e]: _c, [_hE]: 409 },
   [_m, _rI, _rT],
   [0, 0, 0],
 ];
@@ -356,7 +356,7 @@ export var InternalServerException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`InvoicingInternalServer`, 500] },
+  { [_aQE]: [`InvoicingInternalServer`, 500], [_e]: _s, [_hE]: 500 },
   [_rAS, _m],
   [[1, { [_hH]: _RA }], 0],
 ];
@@ -571,7 +571,7 @@ export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`InvoicingResourceNotFound`, 404] },
+  { [_aQE]: [`InvoicingResourceNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m, _rN],
   [0, 0],
 ];
@@ -581,7 +581,7 @@ export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  { [_e]: _c, [_hE]: 402, [_aQE]: [`InvoicingServiceQuotaExceeded`, 402] },
+  { [_aQE]: [`InvoicingServiceQuotaExceeded`, 402], [_e]: _c, [_hE]: 402 },
   [_m],
   [0],
 ];
@@ -611,7 +611,7 @@ export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  { [_e]: _c, [_hE]: 429, [_aQE]: [`InvoicingThrottling`, 429] },
+  { [_aQE]: [`InvoicingThrottling`, 429], [_e]: _c, [_hE]: 429 },
   [_m],
   [0],
 ];
@@ -640,7 +640,7 @@ export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvoicingValidation`, 400] },
+  { [_aQE]: [`InvoicingValidation`, 400], [_e]: _c, [_hE]: 400 },
   [_m, _rN, _r, _fL],
   [0, 0, 0, () => ValidationExceptionFieldList],
 ];

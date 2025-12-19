@@ -342,6 +342,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1069,12 +1070,12 @@ var FeatureToVariationMap = 128 | 0;
 var GroupToWeightMap = 128 | 1;
 var TagMap = 128 | 0;
 var TreatmentToWeightMap = 128 | 1;
-export var VariableValue$: StaticStructureSchema = [3, n0, _VV, 0, [_bV, _sV, _lV, _dVo], [2, 0, 1, 1]];
+export var VariableValue$: StaticUnionSchema = [4, n0, _VV, 0, [_bV, _sV, _lV, _dVo], [2, 0, 1, 1]];
 export var BatchEvaluateFeature$: StaticOperationSchema = [
   9,
   n0,
   _BEF,
-  { [_h]: ["POST", "/projects/{project}/evaluations", 200], [_en]: ["dataplane."] },
+  { [_en]: ["dataplane."], [_h]: ["POST", "/projects/{project}/evaluations", 200] },
   () => BatchEvaluateFeatureRequest$,
   () => BatchEvaluateFeatureResponse$,
 ];
@@ -1162,7 +1163,7 @@ export var EvaluateFeature$: StaticOperationSchema = [
   9,
   n0,
   _EF,
-  { [_h]: ["POST", "/projects/{project}/evaluations/{feature}", 200], [_en]: ["dataplane."] },
+  { [_en]: ["dataplane."], [_h]: ["POST", "/projects/{project}/evaluations/{feature}", 200] },
   () => EvaluateFeatureRequest$,
   () => EvaluateFeatureResponse$,
 ];
@@ -1274,7 +1275,7 @@ export var PutProjectEvents$: StaticOperationSchema = [
   9,
   n0,
   _PPE,
-  { [_h]: ["POST", "/events/projects/{project}", 200], [_en]: ["dataplane."] },
+  { [_en]: ["dataplane."], [_h]: ["POST", "/events/projects/{project}", 200] },
   () => PutProjectEventsRequest$,
   () => PutProjectEventsResponse$,
 ];

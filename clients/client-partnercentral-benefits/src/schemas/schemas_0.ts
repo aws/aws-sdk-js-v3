@@ -185,6 +185,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -483,8 +484,8 @@ var TagKeyList = 64 | 0;
 var Tags: StaticListSchema = [1, n0, _T, 0, () => Tag$];
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
 var Attributes = 128 | 0;
-export var FulfillmentDetails$: StaticStructureSchema = [
-  3,
+export var FulfillmentDetails$: StaticUnionSchema = [
+  4,
   n0,
   _FDul,
   0,

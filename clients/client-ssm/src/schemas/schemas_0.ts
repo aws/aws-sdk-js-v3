@@ -1471,6 +1471,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1648,7 +1649,7 @@ export var AlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _AEE,
-  { [_e]: _c, [_aQE]: [`AlreadyExistsException`, 400] },
+  { [_aQE]: [`AlreadyExistsException`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -1657,7 +1658,7 @@ export var AssociatedInstances$: StaticErrorSchema = [
   -3,
   n0,
   _AIs,
-  { [_e]: _c, [_aQE]: [`AssociatedInstances`, 400] },
+  { [_aQE]: [`AssociatedInstances`, 400], [_e]: _c },
   [],
   [],
 ];
@@ -1697,7 +1698,7 @@ export var AssociationAlreadyExists$: StaticErrorSchema = [
   -3,
   n0,
   _AAE,
-  { [_e]: _c, [_aQE]: [`AssociationAlreadyExists`, 400] },
+  { [_aQE]: [`AssociationAlreadyExists`, 400], [_e]: _c },
   [],
   [],
 ];
@@ -1774,7 +1775,7 @@ export var AssociationDoesNotExist$: StaticErrorSchema = [
   -3,
   n0,
   _ADNE,
-  { [_e]: _c, [_aQE]: [`AssociationDoesNotExist`, 404] },
+  { [_aQE]: [`AssociationDoesNotExist`, 404], [_e]: _c },
   [_M],
   [0],
 ];
@@ -1791,7 +1792,7 @@ export var AssociationExecutionDoesNotExist$: StaticErrorSchema = [
   -3,
   n0,
   _AEDNE,
-  { [_e]: _c, [_aQE]: [`AssociationExecutionDoesNotExist`, 404] },
+  { [_aQE]: [`AssociationExecutionDoesNotExist`, 404], [_e]: _c },
   [_M],
   [0],
 ];
@@ -1811,7 +1812,7 @@ export var AssociationLimitExceeded$: StaticErrorSchema = [
   -3,
   n0,
   _ALE,
-  { [_e]: _c, [_aQE]: [`AssociationLimitExceeded`, 400] },
+  { [_aQE]: [`AssociationLimitExceeded`, 400], [_e]: _c },
   [],
   [],
 ];
@@ -1851,7 +1852,7 @@ export var AssociationVersionLimitExceeded$: StaticErrorSchema = [
   -3,
   n0,
   _AVLE,
-  { [_e]: _c, [_aQE]: [`AssociationVersionLimitExceeded`, 400] },
+  { [_aQE]: [`AssociationVersionLimitExceeded`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -1863,7 +1864,7 @@ export var AutomationDefinitionNotApprovedException$: StaticErrorSchema = [
   -3,
   n0,
   _ADNAE,
-  { [_e]: _c, [_aQE]: [`AutomationDefinitionNotApproved`, 400] },
+  { [_aQE]: [`AutomationDefinitionNotApproved`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -1872,7 +1873,7 @@ export var AutomationDefinitionNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _ADNFE,
-  { [_e]: _c, [_aQE]: [`AutomationDefinitionNotFound`, 404] },
+  { [_aQE]: [`AutomationDefinitionNotFound`, 404], [_e]: _c },
   [_M],
   [0],
 ];
@@ -1881,7 +1882,7 @@ export var AutomationDefinitionVersionNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _ADVNFE,
-  { [_e]: _c, [_aQE]: [`AutomationDefinitionVersionNotFound`, 404] },
+  { [_aQE]: [`AutomationDefinitionVersionNotFound`, 404], [_e]: _c },
   [_M],
   [0],
 ];
@@ -1989,7 +1990,7 @@ export var AutomationExecutionLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _AELEE,
-  { [_e]: _c, [_aQE]: [`AutomationExecutionLimitExceeded`, 429] },
+  { [_aQE]: [`AutomationExecutionLimitExceeded`, 429], [_e]: _c },
   [_M],
   [0],
 ];
@@ -2073,7 +2074,7 @@ export var AutomationExecutionNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _AENFE,
-  { [_e]: _c, [_aQE]: [`AutomationExecutionNotFound`, 404] },
+  { [_aQE]: [`AutomationExecutionNotFound`, 404], [_e]: _c },
   [_M],
   [0],
 ];
@@ -2090,7 +2091,7 @@ export var AutomationStepNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _ASNFE,
-  { [_e]: _c, [_aQE]: [`AutomationStepNotFoundException`, 404] },
+  { [_aQE]: [`AutomationStepNotFoundException`, 404], [_e]: _c },
   [_M],
   [0],
 ];
@@ -2241,7 +2242,7 @@ export var ComplianceTypeCountLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _CTCLEE,
-  { [_e]: _c, [_aQE]: [`ComplianceTypeCountLimitExceeded`, 400] },
+  { [_aQE]: [`ComplianceTypeCountLimitExceeded`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -2443,7 +2444,7 @@ export var CustomSchemaCountLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _CSCLEE,
-  { [_e]: _c, [_aQE]: [`CustomSchemaCountLimitExceeded`, 400] },
+  { [_aQE]: [`CustomSchemaCountLimitExceeded`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3036,7 +3037,7 @@ export var DocumentAlreadyExists$: StaticErrorSchema = [
   -3,
   n0,
   _DAE,
-  { [_e]: _c, [_aQE]: [`DocumentAlreadyExists`, 400] },
+  { [_aQE]: [`DocumentAlreadyExists`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3126,7 +3127,7 @@ export var DocumentLimitExceeded$: StaticErrorSchema = [
   -3,
   n0,
   _DLE,
-  { [_e]: _c, [_aQE]: [`DocumentLimitExceeded`, 400] },
+  { [_aQE]: [`DocumentLimitExceeded`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3144,7 +3145,7 @@ export var DocumentPermissionLimit$: StaticErrorSchema = [
   -3,
   n0,
   _DPL,
-  { [_e]: _c, [_aQE]: [`DocumentPermissionLimit`, 400] },
+  { [_aQE]: [`DocumentPermissionLimit`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3179,7 +3180,7 @@ export var DocumentVersionLimitExceeded$: StaticErrorSchema = [
   -3,
   n0,
   _DVLE,
-  { [_e]: _c, [_aQE]: [`DocumentVersionLimitExceeded`, 400] },
+  { [_aQE]: [`DocumentVersionLimitExceeded`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3188,7 +3189,7 @@ export var DoesNotExistException$: StaticErrorSchema = [
   -3,
   n0,
   _DNEE,
-  { [_e]: _c, [_aQE]: [`DoesNotExistException`, 404] },
+  { [_aQE]: [`DoesNotExistException`, 404], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3197,7 +3198,7 @@ export var DuplicateDocumentContent$: StaticErrorSchema = [
   -3,
   n0,
   _DDC,
-  { [_e]: _c, [_aQE]: [`DuplicateDocumentContent`, 400] },
+  { [_aQE]: [`DuplicateDocumentContent`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3206,7 +3207,7 @@ export var DuplicateDocumentVersionName$: StaticErrorSchema = [
   -3,
   n0,
   _DDVN,
-  { [_e]: _c, [_aQE]: [`DuplicateDocumentVersionName`, 400] },
+  { [_aQE]: [`DuplicateDocumentVersionName`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3215,7 +3216,7 @@ export var DuplicateInstanceId$: StaticErrorSchema = [
   -3,
   n0,
   _DII,
-  { [_e]: _c, [_aQE]: [`DuplicateInstanceId`, 404] },
+  { [_aQE]: [`DuplicateInstanceId`, 404], [_e]: _c },
   [],
   [],
 ];
@@ -3241,7 +3242,7 @@ export var FeatureNotAvailableException$: StaticErrorSchema = [
   -3,
   n0,
   _FNAE,
-  { [_e]: _c, [_aQE]: [`FeatureNotAvailableException`, 400] },
+  { [_aQE]: [`FeatureNotAvailableException`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3557,7 +3558,7 @@ export var HierarchyLevelLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _HLLEE,
-  { [_e]: _c, [_aQE]: [`HierarchyLevelLimitExceededException`, 400] },
+  { [_aQE]: [`HierarchyLevelLimitExceededException`, 400], [_e]: _c },
   [_m],
   [0],
 ];
@@ -3566,7 +3567,7 @@ export var HierarchyTypeMismatchException$: StaticErrorSchema = [
   -3,
   n0,
   _HTME,
-  { [_e]: _c, [_aQE]: [`HierarchyTypeMismatchException`, 400] },
+  { [_aQE]: [`HierarchyTypeMismatchException`, 400], [_e]: _c },
   [_m],
   [0],
 ];
@@ -3575,7 +3576,7 @@ export var IdempotentParameterMismatch$: StaticErrorSchema = [
   -3,
   n0,
   _IPM,
-  { [_e]: _c, [_aQE]: [`IdempotentParameterMismatch`, 400] },
+  { [_aQE]: [`IdempotentParameterMismatch`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3584,7 +3585,7 @@ export var IncompatiblePolicyException$: StaticErrorSchema = [
   -3,
   n0,
   _IPE,
-  { [_e]: _c, [_aQE]: [`IncompatiblePolicyException`, 400] },
+  { [_aQE]: [`IncompatiblePolicyException`, 400], [_e]: _c },
   [_m],
   [0],
 ];
@@ -3806,7 +3807,7 @@ export var InternalServerError$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  { [_e]: _s, [_aQE]: [`InternalServerError`, 500] },
+  { [_aQE]: [`InternalServerError`, 500], [_e]: _s },
   [_M],
   [0],
 ];
@@ -3815,7 +3816,7 @@ export var InvalidActivation$: StaticErrorSchema = [
   -3,
   n0,
   _IAn,
-  { [_e]: _c, [_aQE]: [`InvalidActivation`, 404] },
+  { [_aQE]: [`InvalidActivation`, 404], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3824,7 +3825,7 @@ export var InvalidActivationId$: StaticErrorSchema = [
   -3,
   n0,
   _IAI,
-  { [_e]: _c, [_aQE]: [`InvalidActivationId`, 404] },
+  { [_aQE]: [`InvalidActivationId`, 404], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3833,7 +3834,7 @@ export var InvalidAggregatorException$: StaticErrorSchema = [
   -3,
   n0,
   _IAE,
-  { [_e]: _c, [_aQE]: [`InvalidAggregator`, 400] },
+  { [_aQE]: [`InvalidAggregator`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3842,7 +3843,7 @@ export var InvalidAllowedPatternException$: StaticErrorSchema = [
   -3,
   n0,
   _IAPE,
-  { [_e]: _c, [_aQE]: [`InvalidAllowedPatternException`, 400] },
+  { [_aQE]: [`InvalidAllowedPatternException`, 400], [_e]: _c },
   [_m],
   [0],
 ];
@@ -3851,7 +3852,7 @@ export var InvalidAssociation$: StaticErrorSchema = [
   -3,
   n0,
   _IAnv,
-  { [_e]: _c, [_aQE]: [`InvalidAssociation`, 400] },
+  { [_aQE]: [`InvalidAssociation`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3860,7 +3861,7 @@ export var InvalidAssociationVersion$: StaticErrorSchema = [
   -3,
   n0,
   _IAV,
-  { [_e]: _c, [_aQE]: [`InvalidAssociationVersion`, 400] },
+  { [_aQE]: [`InvalidAssociationVersion`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3869,7 +3870,7 @@ export var InvalidAutomationExecutionParametersException$: StaticErrorSchema = [
   -3,
   n0,
   _IAEPE,
-  { [_e]: _c, [_aQE]: [`InvalidAutomationExecutionParameters`, 400] },
+  { [_aQE]: [`InvalidAutomationExecutionParameters`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3881,7 +3882,7 @@ export var InvalidAutomationSignalException$: StaticErrorSchema = [
   -3,
   n0,
   _IASE,
-  { [_e]: _c, [_aQE]: [`InvalidAutomationSignalException`, 400] },
+  { [_aQE]: [`InvalidAutomationSignalException`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3890,7 +3891,7 @@ export var InvalidAutomationStatusUpdateException$: StaticErrorSchema = [
   -3,
   n0,
   _IASUE,
-  { [_e]: _c, [_aQE]: [`InvalidAutomationStatusUpdateException`, 400] },
+  { [_aQE]: [`InvalidAutomationStatusUpdateException`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3899,7 +3900,7 @@ export var InvalidCommandId$: StaticErrorSchema = [
   -3,
   n0,
   _ICI,
-  { [_e]: _c, [_aQE]: [`InvalidCommandId`, 404] },
+  { [_aQE]: [`InvalidCommandId`, 404], [_e]: _c },
   [],
   [],
 ];
@@ -3908,7 +3909,7 @@ export var InvalidDeleteInventoryParametersException$: StaticErrorSchema = [
   -3,
   n0,
   _IDIPE,
-  { [_e]: _c, [_aQE]: [`InvalidDeleteInventoryParameters`, 400] },
+  { [_aQE]: [`InvalidDeleteInventoryParameters`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3920,7 +3921,7 @@ export var InvalidDeletionIdException$: StaticErrorSchema = [
   -3,
   n0,
   _IDIE,
-  { [_e]: _c, [_aQE]: [`InvalidDeletionId`, 400] },
+  { [_aQE]: [`InvalidDeletionId`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3929,7 +3930,7 @@ export var InvalidDocument$: StaticErrorSchema = [
   -3,
   n0,
   _IDn,
-  { [_e]: _c, [_aQE]: [`InvalidDocument`, 404] },
+  { [_aQE]: [`InvalidDocument`, 404], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3938,7 +3939,7 @@ export var InvalidDocumentContent$: StaticErrorSchema = [
   -3,
   n0,
   _IDC,
-  { [_e]: _c, [_aQE]: [`InvalidDocumentContent`, 400] },
+  { [_aQE]: [`InvalidDocumentContent`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3947,7 +3948,7 @@ export var InvalidDocumentOperation$: StaticErrorSchema = [
   -3,
   n0,
   _IDO,
-  { [_e]: _c, [_aQE]: [`InvalidDocumentOperation`, 403] },
+  { [_aQE]: [`InvalidDocumentOperation`, 403], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3956,7 +3957,7 @@ export var InvalidDocumentSchemaVersion$: StaticErrorSchema = [
   -3,
   n0,
   _IDSV,
-  { [_e]: _c, [_aQE]: [`InvalidDocumentSchemaVersion`, 400] },
+  { [_aQE]: [`InvalidDocumentSchemaVersion`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3965,7 +3966,7 @@ export var InvalidDocumentType$: StaticErrorSchema = [
   -3,
   n0,
   _IDT,
-  { [_e]: _c, [_aQE]: [`InvalidDocumentType`, 400] },
+  { [_aQE]: [`InvalidDocumentType`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -3974,18 +3975,18 @@ export var InvalidDocumentVersion$: StaticErrorSchema = [
   -3,
   n0,
   _IDVn,
-  { [_e]: _c, [_aQE]: [`InvalidDocumentVersion`, 400] },
+  { [_aQE]: [`InvalidDocumentVersion`, 400], [_e]: _c },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidDocumentVersion$, InvalidDocumentVersion);
-export var InvalidFilter$: StaticErrorSchema = [-3, n0, _IF, { [_e]: _c, [_aQE]: [`InvalidFilter`, 441] }, [_M], [0]];
+export var InvalidFilter$: StaticErrorSchema = [-3, n0, _IF, { [_aQE]: [`InvalidFilter`, 441], [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidFilter$, InvalidFilter);
 export var InvalidFilterKey$: StaticErrorSchema = [
   -3,
   n0,
   _IFK,
-  { [_e]: _c, [_aQE]: [`InvalidFilterKey`, 400] },
+  { [_aQE]: [`InvalidFilterKey`, 400], [_e]: _c },
   [],
   [],
 ];
@@ -3994,7 +3995,7 @@ export var InvalidFilterOption$: StaticErrorSchema = [
   -3,
   n0,
   _IFO,
-  { [_e]: _c, [_aQE]: [`InvalidFilterOption`, 400] },
+  { [_aQE]: [`InvalidFilterOption`, 400], [_e]: _c },
   [_m],
   [0],
 ];
@@ -4003,7 +4004,7 @@ export var InvalidFilterValue$: StaticErrorSchema = [
   -3,
   n0,
   _IFV,
-  { [_e]: _c, [_aQE]: [`InvalidFilterValue`, 400] },
+  { [_aQE]: [`InvalidFilterValue`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -4012,7 +4013,7 @@ export var InvalidInstanceId$: StaticErrorSchema = [
   -3,
   n0,
   _III,
-  { [_e]: _c, [_aQE]: [`InvalidInstanceId`, 404] },
+  { [_aQE]: [`InvalidInstanceId`, 404], [_e]: _c },
   [_M],
   [0],
 ];
@@ -4021,7 +4022,7 @@ export var InvalidInstanceInformationFilterValue$: StaticErrorSchema = [
   -3,
   n0,
   _IIIFV,
-  { [_e]: _c, [_aQE]: [`InvalidInstanceInformationFilterValue`, 400] },
+  { [_aQE]: [`InvalidInstanceInformationFilterValue`, 400], [_e]: _c },
   [_m],
   [0],
 ];
@@ -4030,7 +4031,7 @@ export var InvalidInstancePropertyFilterValue$: StaticErrorSchema = [
   -3,
   n0,
   _IIPFV,
-  { [_e]: _c, [_aQE]: [`InvalidInstancePropertyFilterValue`, 400] },
+  { [_aQE]: [`InvalidInstancePropertyFilterValue`, 400], [_e]: _c },
   [_m],
   [0],
 ];
@@ -4039,7 +4040,7 @@ export var InvalidInventoryGroupException$: StaticErrorSchema = [
   -3,
   n0,
   _IIGE,
-  { [_e]: _c, [_aQE]: [`InvalidInventoryGroup`, 400] },
+  { [_aQE]: [`InvalidInventoryGroup`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -4048,7 +4049,7 @@ export var InvalidInventoryItemContextException$: StaticErrorSchema = [
   -3,
   n0,
   _IIICE,
-  { [_e]: _c, [_aQE]: [`InvalidInventoryItemContext`, 400] },
+  { [_aQE]: [`InvalidInventoryItemContext`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -4057,7 +4058,7 @@ export var InvalidInventoryRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _IIRE,
-  { [_e]: _c, [_aQE]: [`InvalidInventoryRequest`, 400] },
+  { [_aQE]: [`InvalidInventoryRequest`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -4066,18 +4067,18 @@ export var InvalidItemContentException$: StaticErrorSchema = [
   -3,
   n0,
   _IICE,
-  { [_e]: _c, [_aQE]: [`InvalidItemContent`, 400] },
+  { [_aQE]: [`InvalidItemContent`, 400], [_e]: _c },
   [_TN, _M],
   [0, 0],
 ];
 TypeRegistry.for(n0).registerError(InvalidItemContentException$, InvalidItemContentException);
-export var InvalidKeyId$: StaticErrorSchema = [-3, n0, _IKI, { [_e]: _c, [_aQE]: [`InvalidKeyId`, 400] }, [_m], [0]];
+export var InvalidKeyId$: StaticErrorSchema = [-3, n0, _IKI, { [_aQE]: [`InvalidKeyId`, 400], [_e]: _c }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InvalidKeyId$, InvalidKeyId);
 export var InvalidNextToken$: StaticErrorSchema = [
   -3,
   n0,
   _INT,
-  { [_e]: _c, [_aQE]: [`InvalidNextToken`, 400] },
+  { [_aQE]: [`InvalidNextToken`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -4086,7 +4087,7 @@ export var InvalidNotificationConfig$: StaticErrorSchema = [
   -3,
   n0,
   _INC,
-  { [_e]: _c, [_aQE]: [`InvalidNotificationConfig`, 400] },
+  { [_aQE]: [`InvalidNotificationConfig`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -4095,7 +4096,7 @@ export var InvalidOptionException$: StaticErrorSchema = [
   -3,
   n0,
   _IOE,
-  { [_e]: _c, [_aQE]: [`InvalidOption`, 400] },
+  { [_aQE]: [`InvalidOption`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -4104,7 +4105,7 @@ export var InvalidOutputFolder$: StaticErrorSchema = [
   -3,
   n0,
   _IOF,
-  { [_e]: _c, [_aQE]: [`InvalidOutputFolder`, 400] },
+  { [_aQE]: [`InvalidOutputFolder`, 400], [_e]: _c },
   [],
   [],
 ];
@@ -4113,7 +4114,7 @@ export var InvalidOutputLocation$: StaticErrorSchema = [
   -3,
   n0,
   _IOLn,
-  { [_e]: _c, [_aQE]: [`InvalidOutputLocation`, 400] },
+  { [_aQE]: [`InvalidOutputLocation`, 400], [_e]: _c },
   [],
   [],
 ];
@@ -4122,7 +4123,7 @@ export var InvalidParameters$: StaticErrorSchema = [
   -3,
   n0,
   _IP,
-  { [_e]: _c, [_aQE]: [`InvalidParameters`, 400] },
+  { [_aQE]: [`InvalidParameters`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -4131,7 +4132,7 @@ export var InvalidPermissionType$: StaticErrorSchema = [
   -3,
   n0,
   _IPT,
-  { [_e]: _c, [_aQE]: [`InvalidPermissionType`, 400] },
+  { [_aQE]: [`InvalidPermissionType`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -4140,7 +4141,7 @@ export var InvalidPluginName$: StaticErrorSchema = [
   -3,
   n0,
   _IPN,
-  { [_e]: _c, [_aQE]: [`InvalidPluginName`, 404] },
+  { [_aQE]: [`InvalidPluginName`, 404], [_e]: _c },
   [],
   [],
 ];
@@ -4149,7 +4150,7 @@ export var InvalidPolicyAttributeException$: StaticErrorSchema = [
   -3,
   n0,
   _IPAE,
-  { [_e]: _c, [_aQE]: [`InvalidPolicyAttributeException`, 400] },
+  { [_aQE]: [`InvalidPolicyAttributeException`, 400], [_e]: _c },
   [_m],
   [0],
 ];
@@ -4158,7 +4159,7 @@ export var InvalidPolicyTypeException$: StaticErrorSchema = [
   -3,
   n0,
   _IPTE,
-  { [_e]: _c, [_aQE]: [`InvalidPolicyTypeException`, 400] },
+  { [_aQE]: [`InvalidPolicyTypeException`, 400], [_e]: _c },
   [_m],
   [0],
 ];
@@ -4167,7 +4168,7 @@ export var InvalidResourceId$: StaticErrorSchema = [
   -3,
   n0,
   _IRI,
-  { [_e]: _c, [_aQE]: [`InvalidResourceId`, 400] },
+  { [_aQE]: [`InvalidResourceId`, 400], [_e]: _c },
   [],
   [],
 ];
@@ -4176,7 +4177,7 @@ export var InvalidResourceType$: StaticErrorSchema = [
   -3,
   n0,
   _IRT,
-  { [_e]: _c, [_aQE]: [`InvalidResourceType`, 400] },
+  { [_aQE]: [`InvalidResourceType`, 400], [_e]: _c },
   [],
   [],
 ];
@@ -4185,31 +4186,31 @@ export var InvalidResultAttributeException$: StaticErrorSchema = [
   -3,
   n0,
   _IRAE,
-  { [_e]: _c, [_aQE]: [`InvalidResultAttribute`, 400] },
+  { [_aQE]: [`InvalidResultAttribute`, 400], [_e]: _c },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidResultAttributeException$, InvalidResultAttributeException);
-export var InvalidRole$: StaticErrorSchema = [-3, n0, _IRnv, { [_e]: _c, [_aQE]: [`InvalidRole`, 400] }, [_M], [0]];
+export var InvalidRole$: StaticErrorSchema = [-3, n0, _IRnv, { [_aQE]: [`InvalidRole`, 400], [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidRole$, InvalidRole);
 export var InvalidSchedule$: StaticErrorSchema = [
   -3,
   n0,
   _ISnv,
-  { [_e]: _c, [_aQE]: [`InvalidSchedule`, 400] },
+  { [_aQE]: [`InvalidSchedule`, 400], [_e]: _c },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidSchedule$, InvalidSchedule);
-export var InvalidTag$: StaticErrorSchema = [-3, n0, _ITn, { [_e]: _c, [_aQE]: [`InvalidTag`, 400] }, [_M], [0]];
+export var InvalidTag$: StaticErrorSchema = [-3, n0, _ITn, { [_aQE]: [`InvalidTag`, 400], [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidTag$, InvalidTag);
-export var InvalidTarget$: StaticErrorSchema = [-3, n0, _ITnv, { [_e]: _c, [_aQE]: [`InvalidTarget`, 400] }, [_M], [0]];
+export var InvalidTarget$: StaticErrorSchema = [-3, n0, _ITnv, { [_aQE]: [`InvalidTarget`, 400], [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidTarget$, InvalidTarget);
 export var InvalidTargetMaps$: StaticErrorSchema = [
   -3,
   n0,
   _ITM,
-  { [_e]: _c, [_aQE]: [`InvalidTargetMaps`, 400] },
+  { [_aQE]: [`InvalidTargetMaps`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -4218,12 +4219,12 @@ export var InvalidTypeNameException$: StaticErrorSchema = [
   -3,
   n0,
   _ITNE,
-  { [_e]: _c, [_aQE]: [`InvalidTypeName`, 400] },
+  { [_aQE]: [`InvalidTypeName`, 400], [_e]: _c },
   [_M],
   [0],
 ];
 TypeRegistry.for(n0).registerError(InvalidTypeNameException$, InvalidTypeNameException);
-export var InvalidUpdate$: StaticErrorSchema = [-3, n0, _IU, { [_e]: _c, [_aQE]: [`InvalidUpdate`, 400] }, [_M], [0]];
+export var InvalidUpdate$: StaticErrorSchema = [-3, n0, _IU, { [_aQE]: [`InvalidUpdate`, 400], [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidUpdate$, InvalidUpdate);
 export var InventoryAggregator$: StaticStructureSchema = [
   3,
@@ -4296,7 +4297,7 @@ export var InvocationDoesNotExist$: StaticErrorSchema = [
   -3,
   n0,
   _IDNE,
-  { [_e]: _c, [_aQE]: [`InvocationDoesNotExist`, 400] },
+  { [_aQE]: [`InvocationDoesNotExist`, 400], [_e]: _c },
   [],
   [],
 ];
@@ -4305,7 +4306,7 @@ export var ItemContentMismatchException$: StaticErrorSchema = [
   -3,
   n0,
   _ICME,
-  { [_e]: _c, [_aQE]: [`ItemContentMismatch`, 400] },
+  { [_aQE]: [`ItemContentMismatch`, 400], [_e]: _c },
   [_TN, _M],
   [0, 0],
 ];
@@ -4314,7 +4315,7 @@ export var ItemSizeLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _ISLEE,
-  { [_e]: _c, [_aQE]: [`ItemSizeLimitExceeded`, 400] },
+  { [_aQE]: [`ItemSizeLimitExceeded`, 400], [_e]: _c },
   [_TN, _M],
   [0, 0],
 ];
@@ -4690,7 +4691,7 @@ export var MalformedResourcePolicyDocumentException$: StaticErrorSchema = [
   -3,
   n0,
   _MRPDE,
-  { [_e]: _c, [_aQE]: [`MalformedResourcePolicyDocumentException`, 400] },
+  { [_aQE]: [`MalformedResourcePolicyDocumentException`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -4699,7 +4700,7 @@ export var MaxDocumentSizeExceeded$: StaticErrorSchema = [
   -3,
   n0,
   _MDSE,
-  { [_e]: _c, [_aQE]: [`MaxDocumentSizeExceeded`, 400] },
+  { [_aQE]: [`MaxDocumentSizeExceeded`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -4736,7 +4737,7 @@ export var NoLongerSupportedException$: StaticErrorSchema = [
   -3,
   n0,
   _NLSE,
-  { [_e]: _c, [_aQE]: [`NoLongerSupported`, 400] },
+  { [_aQE]: [`NoLongerSupported`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -4812,7 +4813,7 @@ export var OpsItemAccessDeniedException$: StaticErrorSchema = [
   -3,
   n0,
   _OIADE,
-  { [_e]: _c, [_aQE]: [`OpsItemAccessDeniedException`, 403] },
+  { [_aQE]: [`OpsItemAccessDeniedException`, 403], [_e]: _c },
   [_M],
   [0],
 ];
@@ -4821,7 +4822,7 @@ export var OpsItemAlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _OIAEE,
-  { [_e]: _c, [_aQE]: [`OpsItemAlreadyExistsException`, 400] },
+  { [_aQE]: [`OpsItemAlreadyExistsException`, 400], [_e]: _c },
   [_M, _OII],
   [0, 0],
 ];
@@ -4830,7 +4831,7 @@ export var OpsItemConflictException$: StaticErrorSchema = [
   -3,
   n0,
   _OICE,
-  { [_e]: _c, [_aQE]: [`OpsItemConflictException`, 409] },
+  { [_aQE]: [`OpsItemConflictException`, 409], [_e]: _c },
   [_M],
   [0],
 ];
@@ -4851,7 +4852,7 @@ export var OpsItemInvalidParameterException$: StaticErrorSchema = [
   -3,
   n0,
   _OIIPE,
-  { [_e]: _c, [_aQE]: [`OpsItemInvalidParameterException`, 400] },
+  { [_aQE]: [`OpsItemInvalidParameterException`, 400], [_e]: _c },
   [_PNa, _M],
   [64 | 0, 0],
 ];
@@ -4860,7 +4861,7 @@ export var OpsItemLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _OILEE,
-  { [_e]: _c, [_aQE]: [`OpsItemLimitExceededException`, 400] },
+  { [_aQE]: [`OpsItemLimitExceededException`, 400], [_e]: _c },
   [_RTes, _Li, _LTi, _M],
   [64 | 0, 1, 0, 0],
 ];
@@ -4869,7 +4870,7 @@ export var OpsItemNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _OINFE,
-  { [_e]: _c, [_aQE]: [`OpsItemNotFoundException`, 400] },
+  { [_aQE]: [`OpsItemNotFoundException`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -4879,7 +4880,7 @@ export var OpsItemRelatedItemAlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _OIRIAEE,
-  { [_e]: _c, [_aQE]: [`OpsItemRelatedItemAlreadyExistsException`, 400] },
+  { [_aQE]: [`OpsItemRelatedItemAlreadyExistsException`, 400], [_e]: _c },
   [_M, _RU, _OII],
   [0, 0, 0],
 ];
@@ -4888,7 +4889,7 @@ export var OpsItemRelatedItemAssociationNotFoundException$: StaticErrorSchema = 
   -3,
   n0,
   _OIRIANFE,
-  { [_e]: _c, [_aQE]: [`OpsItemRelatedItemAssociationNotFoundException`, 400] },
+  { [_aQE]: [`OpsItemRelatedItemAssociationNotFoundException`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -4918,7 +4919,7 @@ export var OpsMetadataAlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _OMAEE,
-  { [_e]: _c, [_aQE]: [`OpsMetadataAlreadyExistsException`, 400] },
+  { [_aQE]: [`OpsMetadataAlreadyExistsException`, 400], [_e]: _c },
   [_m],
   [0],
 ];
@@ -4928,7 +4929,7 @@ export var OpsMetadataInvalidArgumentException$: StaticErrorSchema = [
   -3,
   n0,
   _OMIAE,
-  { [_e]: _c, [_aQE]: [`OpsMetadataInvalidArgumentException`, 400] },
+  { [_aQE]: [`OpsMetadataInvalidArgumentException`, 400], [_e]: _c },
   [_m],
   [0],
 ];
@@ -4937,7 +4938,7 @@ export var OpsMetadataKeyLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _OMKLEE,
-  { [_e]: _c, [_aQE]: [`OpsMetadataKeyLimitExceededException`, 429] },
+  { [_aQE]: [`OpsMetadataKeyLimitExceededException`, 429], [_e]: _c },
   [_m],
   [0],
 ];
@@ -4946,7 +4947,7 @@ export var OpsMetadataLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _OMLEE,
-  { [_e]: _c, [_aQE]: [`OpsMetadataLimitExceededException`, 429] },
+  { [_aQE]: [`OpsMetadataLimitExceededException`, 429], [_e]: _c },
   [_m],
   [0],
 ];
@@ -4955,7 +4956,7 @@ export var OpsMetadataNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _OMNFE,
-  { [_e]: _c, [_aQE]: [`OpsMetadataNotFoundException`, 404] },
+  { [_aQE]: [`OpsMetadataNotFoundException`, 404], [_e]: _c },
   [_m],
   [0],
 ];
@@ -4964,7 +4965,7 @@ export var OpsMetadataTooManyUpdatesException$: StaticErrorSchema = [
   -3,
   n0,
   _OMTMUE,
-  { [_e]: _c, [_aQE]: [`OpsMetadataTooManyUpdatesException`, 429] },
+  { [_aQE]: [`OpsMetadataTooManyUpdatesException`, 429], [_e]: _c },
   [_m],
   [0],
 ];
@@ -4983,7 +4984,7 @@ export var ParameterAlreadyExists$: StaticErrorSchema = [
   -3,
   n0,
   _PAE,
-  { [_e]: _c, [_aQE]: [`ParameterAlreadyExists`, 400] },
+  { [_aQE]: [`ParameterAlreadyExists`, 400], [_e]: _c },
   [_m],
   [0],
 ];
@@ -5001,7 +5002,7 @@ export var ParameterLimitExceeded$: StaticErrorSchema = [
   -3,
   n0,
   _PLE,
-  { [_e]: _c, [_aQE]: [`ParameterLimitExceeded`, 429] },
+  { [_aQE]: [`ParameterLimitExceeded`, 429], [_e]: _c },
   [_m],
   [0],
 ];
@@ -5010,7 +5011,7 @@ export var ParameterMaxVersionLimitExceeded$: StaticErrorSchema = [
   -3,
   n0,
   _PMVLE,
-  { [_e]: _c, [_aQE]: [`ParameterMaxVersionLimitExceeded`, 400] },
+  { [_aQE]: [`ParameterMaxVersionLimitExceeded`, 400], [_e]: _c },
   [_m],
   [0],
 ];
@@ -5027,7 +5028,7 @@ export var ParameterNotFound$: StaticErrorSchema = [
   -3,
   n0,
   _PNF,
-  { [_e]: _c, [_aQE]: [`ParameterNotFound`, 404] },
+  { [_aQE]: [`ParameterNotFound`, 404], [_e]: _c },
   [_m],
   [0],
 ];
@@ -5036,7 +5037,7 @@ export var ParameterPatternMismatchException$: StaticErrorSchema = [
   -3,
   n0,
   _PPME,
-  { [_e]: _c, [_aQE]: [`ParameterPatternMismatchException`, 400] },
+  { [_aQE]: [`ParameterPatternMismatchException`, 400], [_e]: _c },
   [_m],
   [0],
 ];
@@ -5047,7 +5048,7 @@ export var ParameterVersionLabelLimitExceeded$: StaticErrorSchema = [
   -3,
   n0,
   _PVLLE,
-  { [_e]: _c, [_aQE]: [`ParameterVersionLabelLimitExceeded`, 400] },
+  { [_aQE]: [`ParameterVersionLabelLimitExceeded`, 400], [_e]: _c },
   [_m],
   [0],
 ];
@@ -5056,7 +5057,7 @@ export var ParameterVersionNotFound$: StaticErrorSchema = [
   -3,
   n0,
   _PVNF,
-  { [_e]: _c, [_aQE]: [`ParameterVersionNotFound`, 400] },
+  { [_aQE]: [`ParameterVersionNotFound`, 400], [_e]: _c },
   [_m],
   [0],
 ];
@@ -5143,7 +5144,7 @@ export var PoliciesLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _PLEE,
-  { [_e]: _c, [_aQE]: [`PoliciesLimitExceededException`, 400] },
+  { [_aQE]: [`PoliciesLimitExceededException`, 400], [_e]: _c },
   [_m],
   [0],
 ];
@@ -5236,7 +5237,7 @@ export var ResourceDataSyncAlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _RDSAEE,
-  { [_e]: _c, [_aQE]: [`ResourceDataSyncAlreadyExists`, 400] },
+  { [_aQE]: [`ResourceDataSyncAlreadyExists`, 400], [_e]: _c },
   [_SN],
   [0],
 ];
@@ -5253,7 +5254,7 @@ export var ResourceDataSyncConflictException$: StaticErrorSchema = [
   -3,
   n0,
   _RDSCE,
-  { [_e]: _c, [_aQE]: [`ResourceDataSyncConflictException`, 409] },
+  { [_aQE]: [`ResourceDataSyncConflictException`, 409], [_e]: _c },
   [_M],
   [0],
 ];
@@ -5262,7 +5263,7 @@ export var ResourceDataSyncCountExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _RDSCEE,
-  { [_e]: _c, [_aQE]: [`ResourceDataSyncCountExceeded`, 400] },
+  { [_aQE]: [`ResourceDataSyncCountExceeded`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -5272,7 +5273,7 @@ export var ResourceDataSyncInvalidConfigurationException$: StaticErrorSchema = [
   -3,
   n0,
   _RDSICE,
-  { [_e]: _c, [_aQE]: [`ResourceDataSyncInvalidConfiguration`, 400] },
+  { [_aQE]: [`ResourceDataSyncInvalidConfiguration`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -5292,7 +5293,7 @@ export var ResourceDataSyncNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RDSNFE,
-  { [_e]: _c, [_aQE]: [`ResourceDataSyncNotFound`, 404] },
+  { [_aQE]: [`ResourceDataSyncNotFound`, 404], [_e]: _c },
   [_SN, _STy, _M],
   [0, 0, 0],
 ];
@@ -5326,7 +5327,7 @@ export var ResourceInUseException$: StaticErrorSchema = [
   -3,
   n0,
   _RIUE,
-  { [_e]: _c, [_aQE]: [`ResourceInUseException`, 400] },
+  { [_aQE]: [`ResourceInUseException`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -5335,7 +5336,7 @@ export var ResourceLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _RLEE,
-  { [_e]: _c, [_aQE]: [`ResourceLimitExceededException`, 400] },
+  { [_aQE]: [`ResourceLimitExceededException`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -5344,7 +5345,7 @@ export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  { [_e]: _c, [_aQE]: [`ResourceNotFoundException`, 404] },
+  { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _c },
   [_M],
   [0],
 ];
@@ -5353,7 +5354,7 @@ export var ResourcePolicyConflictException$: StaticErrorSchema = [
   -3,
   n0,
   _RPCE,
-  { [_e]: _c, [_aQE]: [`ResourcePolicyConflictException`, 400] },
+  { [_aQE]: [`ResourcePolicyConflictException`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -5362,7 +5363,7 @@ export var ResourcePolicyInvalidParameterException$: StaticErrorSchema = [
   -3,
   n0,
   _RPIPE,
-  { [_e]: _c, [_aQE]: [`ResourcePolicyInvalidParameterException`, 400] },
+  { [_aQE]: [`ResourcePolicyInvalidParameterException`, 400], [_e]: _c },
   [_PNa, _M],
   [64 | 0, 0],
 ];
@@ -5371,7 +5372,7 @@ export var ResourcePolicyLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _RPLEE,
-  { [_e]: _c, [_aQE]: [`ResourcePolicyLimitExceededException`, 400] },
+  { [_aQE]: [`ResourcePolicyLimitExceededException`, 400], [_e]: _c },
   [_Li, _LTi, _M],
   [1, 0, 0],
 ];
@@ -5380,7 +5381,7 @@ export var ResourcePolicyNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RPNFE,
-  { [_e]: _c, [_aQE]: [`ResourcePolicyNotFoundException`, 404] },
+  { [_aQE]: [`ResourcePolicyNotFoundException`, 404], [_e]: _c },
   [_M],
   [0],
 ];
@@ -5468,7 +5469,7 @@ export var ServiceSettingNotFound$: StaticErrorSchema = [
   -3,
   n0,
   _SSNF,
-  { [_e]: _c, [_aQE]: [`ServiceSettingNotFound`, 400] },
+  { [_aQE]: [`ServiceSettingNotFound`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -5553,7 +5554,7 @@ export var StartSessionRequest$: StaticStructureSchema = [
   [0, 0, 0, [2, n0, _SMP, 0, 0, 64 | 0]],
 ];
 export var StartSessionResponse$: StaticStructureSchema = [3, n0, _SSRt, 0, [_SIes, _TV, _SU], [0, 0, 0]];
-export var StatusUnchanged$: StaticErrorSchema = [-3, n0, _SUt, { [_e]: _c, [_aQE]: [`StatusUnchanged`, 400] }, [], []];
+export var StatusUnchanged$: StaticErrorSchema = [-3, n0, _SUt, { [_aQE]: [`StatusUnchanged`, 400], [_e]: _c }, [], []];
 TypeRegistry.for(n0).registerError(StatusUnchanged$, StatusUnchanged);
 export var StepExecution$: StaticStructureSchema = [
   3,
@@ -5620,7 +5621,7 @@ export var SubTypeCountLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _STCLEE,
-  { [_e]: _c, [_aQE]: [`SubTypeCountLimitExceeded`, 400] },
+  { [_aQE]: [`SubTypeCountLimitExceeded`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -5631,7 +5632,7 @@ export var TargetInUseException$: StaticErrorSchema = [
   -3,
   n0,
   _TIUE,
-  { [_e]: _c, [_aQE]: [`TargetInUseException`, 400] },
+  { [_aQE]: [`TargetInUseException`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -5648,7 +5649,7 @@ export var TargetNotConnected$: StaticErrorSchema = [
   -3,
   n0,
   _TNC,
-  { [_e]: _c, [_aQE]: [`TargetNotConnected`, 430] },
+  { [_aQE]: [`TargetNotConnected`, 430], [_e]: _c },
   [_M],
   [0],
 ];
@@ -5662,7 +5663,7 @@ export var TooManyTagsError$: StaticErrorSchema = [
   -3,
   n0,
   _TMTE,
-  { [_e]: _c, [_aQE]: [`TooManyTagsError`, 400] },
+  { [_aQE]: [`TooManyTagsError`, 400], [_e]: _c },
   [],
   [],
 ];
@@ -5671,7 +5672,7 @@ export var TooManyUpdates$: StaticErrorSchema = [
   -3,
   n0,
   _TMU,
-  { [_e]: _c, [_aQE]: [`TooManyUpdates`, 429] },
+  { [_aQE]: [`TooManyUpdates`, 429], [_e]: _c },
   [_M],
   [0],
 ];
@@ -5680,7 +5681,7 @@ export var TotalSizeLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _TSLEE,
-  { [_e]: _c, [_aQE]: [`TotalSizeLimitExceeded`, 400] },
+  { [_aQE]: [`TotalSizeLimitExceeded`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -5691,7 +5692,7 @@ export var UnsupportedCalendarException$: StaticErrorSchema = [
   -3,
   n0,
   _UCE,
-  { [_e]: _c, [_aQE]: [`UnsupportedCalendarException`, 400] },
+  { [_aQE]: [`UnsupportedCalendarException`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -5700,7 +5701,7 @@ export var UnsupportedFeatureRequiredException$: StaticErrorSchema = [
   -3,
   n0,
   _UFRE,
-  { [_e]: _c, [_aQE]: [`UnsupportedFeatureRequiredException`, 400] },
+  { [_aQE]: [`UnsupportedFeatureRequiredException`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -5709,7 +5710,7 @@ export var UnsupportedInventoryItemContextException$: StaticErrorSchema = [
   -3,
   n0,
   _UIICE,
-  { [_e]: _c, [_aQE]: [`UnsupportedInventoryItemContext`, 400] },
+  { [_aQE]: [`UnsupportedInventoryItemContext`, 400], [_e]: _c },
   [_TN, _M],
   [0, 0],
 ];
@@ -5718,7 +5719,7 @@ export var UnsupportedInventorySchemaVersionException$: StaticErrorSchema = [
   -3,
   n0,
   _UISVE,
-  { [_e]: _c, [_aQE]: [`UnsupportedInventorySchemaVersion`, 400] },
+  { [_aQE]: [`UnsupportedInventorySchemaVersion`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -5730,7 +5731,7 @@ export var UnsupportedOperatingSystem$: StaticErrorSchema = [
   -3,
   n0,
   _UOS,
-  { [_e]: _c, [_aQE]: [`UnsupportedOperatingSystem`, 400] },
+  { [_aQE]: [`UnsupportedOperatingSystem`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -5739,7 +5740,7 @@ export var UnsupportedOperationException$: StaticErrorSchema = [
   -3,
   n0,
   _UOE,
-  { [_e]: _c, [_aQE]: [`UnsupportedOperation`, 400] },
+  { [_aQE]: [`UnsupportedOperation`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -5748,7 +5749,7 @@ export var UnsupportedParameterType$: StaticErrorSchema = [
   -3,
   n0,
   _UPT,
-  { [_e]: _c, [_aQE]: [`UnsupportedParameterType`, 400] },
+  { [_aQE]: [`UnsupportedParameterType`, 400], [_e]: _c },
   [_m],
   [0],
 ];
@@ -5757,7 +5758,7 @@ export var UnsupportedPlatformType$: StaticErrorSchema = [
   -3,
   n0,
   _UPTn,
-  { [_e]: _c, [_aQE]: [`UnsupportedPlatformType`, 400] },
+  { [_aQE]: [`UnsupportedPlatformType`, 400], [_e]: _c },
   [_M],
   [0],
 ];
@@ -6008,7 +6009,7 @@ export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  { [_e]: _c, [_aQE]: [`ValidationException`, 400] },
+  { [_aQE]: [`ValidationException`, 400], [_e]: _c },
   [_M, _RCea],
   [0, 0],
 ];
@@ -6303,9 +6304,9 @@ var PatchPropertyEntry = 128 | 0;
 var SessionManagerParameters: StaticMapSchema = [2, n0, _SMP, 0, 0, 64 | 0];
 var StepPreviewMap = 128 | 1;
 var TargetMap: StaticMapSchema = [2, n0, _TMa, 0, 0, 64 | 0];
-export var ExecutionInputs$: StaticStructureSchema = [3, n0, _EIx, 0, [_Aut], [() => AutomationExecutionInputs$]];
-export var ExecutionPreview$: StaticStructureSchema = [3, n0, _EPx, 0, [_Aut], [() => AutomationExecutionPreview$]];
-export var NodeType$: StaticStructureSchema = [3, n0, _NTo, 0, [_Ins], [[() => InstanceInfo$, 0]]];
+export var ExecutionInputs$: StaticUnionSchema = [4, n0, _EIx, 0, [_Aut], [() => AutomationExecutionInputs$]];
+export var ExecutionPreview$: StaticUnionSchema = [4, n0, _EPx, 0, [_Aut], [() => AutomationExecutionPreview$]];
+export var NodeType$: StaticUnionSchema = [4, n0, _NTo, 0, [_Ins], [[() => InstanceInfo$, 0]]];
 export var AddTagsToResource$: StaticOperationSchema = [
   9,
   n0,

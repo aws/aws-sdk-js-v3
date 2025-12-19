@@ -463,6 +463,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1119,55 +1120,48 @@ var StringValueList = 64 | 0;
 var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
 var TrafficPolicyList: StaticListSchema = [1, n0, _TPL, 0, () => TrafficPolicy$];
-export var ArchiveBooleanToEvaluate$: StaticStructureSchema = [3, n0, _ABTE, 0, [_At], [0]];
-export var ArchiveFilterCondition$: StaticStructureSchema = [
-  3,
+export var ArchiveBooleanToEvaluate$: StaticUnionSchema = [4, n0, _ABTE, 0, [_At], [0]];
+export var ArchiveFilterCondition$: StaticUnionSchema = [
+  4,
   n0,
   _AFCr,
   0,
   [_SE, _BE],
   [() => ArchiveStringExpression$, () => ArchiveBooleanExpression$],
 ];
-export var ArchiveRetention$: StaticStructureSchema = [3, n0, _ARr, 0, [_RP], [0]];
-export var ArchiveStringToEvaluate$: StaticStructureSchema = [3, n0, _ASTE, 0, [_At], [0]];
-export var ExportDestinationConfiguration$: StaticStructureSchema = [
-  3,
+export var ArchiveRetention$: StaticUnionSchema = [4, n0, _ARr, 0, [_RP], [0]];
+export var ArchiveStringToEvaluate$: StaticUnionSchema = [4, n0, _ASTE, 0, [_At], [0]];
+export var ExportDestinationConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _EDC,
   0,
   [_S_],
   [() => S3ExportDestinationConfiguration$],
 ];
-export var IngressBooleanToEvaluate$: StaticStructureSchema = [
-  3,
+export var IngressBooleanToEvaluate$: StaticUnionSchema = [
+  4,
   n0,
   _IBTE,
   0,
   [_An, _IIAL],
   [() => IngressAnalysis$, () => IngressIsInAddressList$],
 ];
-export var IngressIpToEvaluate$: StaticStructureSchema = [3, n0, _IITE, 0, [_At], [0]];
-export var IngressIpv6ToEvaluate$: StaticStructureSchema = [3, n0, _IITEn, 0, [_At], [0]];
-export var IngressPointConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _IPC,
-  0,
-  [_SP, _SA],
-  [[() => SmtpPassword, 0], 0],
-];
-export var IngressStringToEvaluate$: StaticStructureSchema = [3, n0, _ISTE, 0, [_At, _An], [0, () => IngressAnalysis$]];
-export var IngressTlsProtocolToEvaluate$: StaticStructureSchema = [3, n0, _ITPTE, 0, [_At], [0]];
-export var NetworkConfiguration$: StaticStructureSchema = [
-  3,
+export var IngressIpToEvaluate$: StaticUnionSchema = [4, n0, _IITE, 0, [_At], [0]];
+export var IngressIpv6ToEvaluate$: StaticUnionSchema = [4, n0, _IITEn, 0, [_At], [0]];
+export var IngressPointConfiguration$: StaticUnionSchema = [4, n0, _IPC, 0, [_SP, _SA], [[() => SmtpPassword, 0], 0]];
+export var IngressStringToEvaluate$: StaticUnionSchema = [4, n0, _ISTE, 0, [_At, _An], [0, () => IngressAnalysis$]];
+export var IngressTlsProtocolToEvaluate$: StaticUnionSchema = [4, n0, _ITPTE, 0, [_At], [0]];
+export var NetworkConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _NC,
   0,
   [_PNCu, _PNC],
   [() => PublicNetworkConfiguration$, () => PrivateNetworkConfiguration$],
 ];
-export var PolicyCondition$: StaticStructureSchema = [
-  3,
+export var PolicyCondition$: StaticUnionSchema = [
+  4,
   n0,
   _PCo,
   0,
@@ -1180,9 +1174,9 @@ export var PolicyCondition$: StaticStructureSchema = [
     () => IngressBooleanExpression$,
   ],
 ];
-export var RelayAuthentication$: StaticStructureSchema = [3, n0, _RAela, 0, [_SA, _NA], [0, () => NoAuthentication$]];
-export var RuleAction$: StaticStructureSchema = [
-  3,
+export var RelayAuthentication$: StaticUnionSchema = [4, n0, _RAela, 0, [_SA, _NA], [0, () => NoAuthentication$]];
+export var RuleAction$: StaticUnionSchema = [
+  4,
   n0,
   _RAul,
   0,
@@ -1200,16 +1194,16 @@ export var RuleAction$: StaticStructureSchema = [
     () => SnsAction$,
   ],
 ];
-export var RuleBooleanToEvaluate$: StaticStructureSchema = [
-  3,
+export var RuleBooleanToEvaluate$: StaticUnionSchema = [
+  4,
   n0,
   _RBTE,
   0,
   [_At, _An, _IIAL],
   [0, () => Analysis$, () => RuleIsInAddressList$],
 ];
-export var RuleCondition$: StaticStructureSchema = [
-  3,
+export var RuleCondition$: StaticUnionSchema = [
+  4,
   n0,
   _RCu,
   0,
@@ -1223,10 +1217,10 @@ export var RuleCondition$: StaticStructureSchema = [
     () => RuleDmarcExpression$,
   ],
 ];
-export var RuleIpToEvaluate$: StaticStructureSchema = [3, n0, _RITE, 0, [_At], [0]];
-export var RuleNumberToEvaluate$: StaticStructureSchema = [3, n0, _RNTE, 0, [_At], [0]];
-export var RuleStringToEvaluate$: StaticStructureSchema = [3, n0, _RSTE, 0, [_At, _MHA, _An], [0, 0, () => Analysis$]];
-export var RuleVerdictToEvaluate$: StaticStructureSchema = [3, n0, _RVTE, 0, [_At, _An], [0, () => Analysis$]];
+export var RuleIpToEvaluate$: StaticUnionSchema = [4, n0, _RITE, 0, [_At], [0]];
+export var RuleNumberToEvaluate$: StaticUnionSchema = [4, n0, _RNTE, 0, [_At], [0]];
+export var RuleStringToEvaluate$: StaticUnionSchema = [4, n0, _RSTE, 0, [_At, _MHA, _An], [0, 0, () => Analysis$]];
+export var RuleVerdictToEvaluate$: StaticUnionSchema = [4, n0, _RVTE, 0, [_At, _An], [0, () => Analysis$]];
 export var CreateAddonInstance$: StaticOperationSchema = [
   9,
   n0,

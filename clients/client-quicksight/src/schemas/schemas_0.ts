@@ -3487,6 +3487,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -15099,8 +15100,8 @@ var TransformStepMap: StaticMapSchema = [2, n0, _TSM, 0, [0, 0], [() => Transfor
 var TypeParameters = 128 | 0;
 var VpcEndpointIdRestrictionRuleMap = 128 | 0;
 var VpcIdRestrictionRuleMap = 128 | 0;
-export var AuthenticationMetadata$: StaticStructureSchema = [
-  3,
+export var AuthenticationMetadata$: StaticUnionSchema = [
+  4,
   n0,
   _AM,
   0,
@@ -15114,24 +15115,24 @@ export var AuthenticationMetadata$: StaticStructureSchema = [
     () => IAMConnectionMetadata$,
   ],
 ];
-export var AuthorizationCodeGrantCredentialsDetails$: StaticStructureSchema = [
-  3,
+export var AuthorizationCodeGrantCredentialsDetails$: StaticUnionSchema = [
+  4,
   n0,
   _ACGCD,
   0,
   [_ACGD],
   [[() => AuthorizationCodeGrantDetails$, 0]],
 ];
-export var ClientCredentialsDetails$: StaticStructureSchema = [
-  3,
+export var ClientCredentialsDetails$: StaticUnionSchema = [
+  4,
   n0,
   _CCD,
   0,
   [_CCGD],
   [[() => ClientCredentialsGrantDetails$, 0]],
 ];
-export var DataSourceParameters$: StaticStructureSchema = [
-  3,
+export var DataSourceParameters$: StaticUnionSchema = [
+  4,
   n0,
   _DSP,
   0,
@@ -15204,25 +15205,25 @@ export var DataSourceParameters$: StaticStructureSchema = [
     () => QBusinessParameters$,
   ],
 ];
-export var GeocodePreferenceValue$: StaticStructureSchema = [
-  3,
+export var GeocodePreferenceValue$: StaticUnionSchema = [
+  4,
   n0,
   _GPV,
   0,
   [_GH, _Coo],
   [() => GeocoderHierarchy$, () => Coordinate$],
 ];
-export var ImageSource$: StaticStructureSchema = [3, n0, _ISmag, 0, [_PUu, _SU], [0, 0]];
-export var PhysicalTable$: StaticStructureSchema = [
-  3,
+export var ImageSource$: StaticUnionSchema = [4, n0, _ISmag, 0, [_PUu, _SU], [0, 0]];
+export var PhysicalTable$: StaticUnionSchema = [
+  4,
   n0,
   _PTh,
   0,
   [_RTel, _CSu, _SSo, _SST],
   [() => RelationalTable$, [() => CustomSql$, 0], () => S3Source$, () => SaaSTable$],
 ];
-export var ReadAuthenticationMetadata$: StaticStructureSchema = [
-  3,
+export var ReadAuthenticationMetadata$: StaticUnionSchema = [
+  4,
   n0,
   _RAM,
   0,
@@ -15236,24 +15237,24 @@ export var ReadAuthenticationMetadata$: StaticStructureSchema = [
     () => ReadIamConnectionMetadata$,
   ],
 ];
-export var ReadAuthorizationCodeGrantCredentialsDetails$: StaticStructureSchema = [
-  3,
+export var ReadAuthorizationCodeGrantCredentialsDetails$: StaticUnionSchema = [
+  4,
   n0,
   _RACGCD,
   0,
   [_RACGD],
   [() => ReadAuthorizationCodeGrantDetails$],
 ];
-export var ReadClientCredentialsDetails$: StaticStructureSchema = [
-  3,
+export var ReadClientCredentialsDetails$: StaticUnionSchema = [
+  4,
   n0,
   _RCCD,
   0,
   [_RCCGD],
   [() => ReadClientCredentialsGrantDetails$],
 ];
-export var TransformOperation$: StaticStructureSchema = [
-  3,
+export var TransformOperation$: StaticUnionSchema = [
+  4,
   n0,
   _TOra,
   0,
@@ -15269,8 +15270,8 @@ export var TransformOperation$: StaticStructureSchema = [
     () => OverrideDatasetParameterOperation$,
   ],
 ];
-export var UserIdentifier$: StaticStructureSchema = [
-  3,
+export var UserIdentifier$: StaticUnionSchema = [
+  4,
   n0,
   _UIs,
   0,

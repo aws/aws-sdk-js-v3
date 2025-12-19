@@ -223,6 +223,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -720,32 +721,32 @@ var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
 var ValidationErrorList: StaticListSchema = [1, n0, _VEL, 0, () => ValidationError$];
 var ConnectionTypeDetailMap: StaticMapSchema = [2, n0, _CTDM, 0, [0, 0], [() => ConnectionTypeDetail$, 0]];
 var ConnectionTypeSummaryMap: StaticMapSchema = [2, n0, _CTSM, 0, 0, () => ConnectionTypeSummary$];
-export var Participant$: StaticStructureSchema = [
-  3,
+export var Participant$: StaticUnionSchema = [
+  4,
   n0,
   _Pa,
   0,
   [_PP, _SP, _Ac],
   [() => PartnerProfileSummary$, () => SellerProfileSummary$, () => AccountSummary$],
 ];
-export var ValidationError$: StaticStructureSchema = [
-  3,
+export var ValidationError$: StaticUnionSchema = [
+  4,
   n0,
   _VEa,
   0,
   [_FVE, _BVE],
   [() => FieldValidationError$, () => BusinessValidationError$],
 ];
-export var VerificationDetails$: StaticStructureSchema = [
-  3,
+export var VerificationDetails$: StaticUnionSchema = [
+  4,
   n0,
   _VD,
   0,
   [_BVD, _RVD],
   [[() => BusinessVerificationDetails$, 0], () => RegistrantVerificationDetails$],
 ];
-export var VerificationResponseDetails$: StaticStructureSchema = [
-  3,
+export var VerificationResponseDetails$: StaticUnionSchema = [
+  4,
   n0,
   _VRD,
   0,

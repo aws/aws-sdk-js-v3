@@ -958,7 +958,7 @@ export var ConcurrentModificationException$: StaticErrorSchema = [
   -3,
   n0,
   _CME,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`ConcurrentModification`, 409] },
+  { [_aQE]: [`ConcurrentModification`, 409], [_e]: _c, [_hE]: 409 },
   [_m],
   [0],
 ];
@@ -1095,7 +1095,7 @@ export var CredentialReportExpiredException$: StaticErrorSchema = [
   -3,
   n0,
   _CREE,
-  { [_e]: _c, [_hE]: 410, [_aQE]: [`ReportExpired`, 410] },
+  { [_aQE]: [`ReportExpired`, 410], [_e]: _c, [_hE]: 410 },
   [_m],
   [0],
 ];
@@ -1104,7 +1104,7 @@ export var CredentialReportNotPresentException$: StaticErrorSchema = [
   -3,
   n0,
   _CRNPE,
-  { [_e]: _c, [_hE]: 410, [_aQE]: [`ReportNotPresent`, 410] },
+  { [_aQE]: [`ReportNotPresent`, 410], [_e]: _c, [_hE]: 410 },
   [_m],
   [0],
 ];
@@ -1113,7 +1113,7 @@ export var CredentialReportNotReadyException$: StaticErrorSchema = [
   -3,
   n0,
   _CRNRE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ReportInProgress`, 404] },
+  { [_aQE]: [`ReportInProgress`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -1141,7 +1141,7 @@ export var DeleteConflictException$: StaticErrorSchema = [
   -3,
   n0,
   _DCE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`DeleteConflict`, 409] },
+  { [_aQE]: [`DeleteConflict`, 409], [_e]: _c, [_hE]: 409 },
   [_m],
   [0],
 ];
@@ -1200,7 +1200,7 @@ export var DuplicateCertificateException$: StaticErrorSchema = [
   -3,
   n0,
   _DCEu,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`DuplicateCertificate`, 409] },
+  { [_aQE]: [`DuplicateCertificate`, 409], [_e]: _c, [_hE]: 409 },
   [_m],
   [0],
 ];
@@ -1209,7 +1209,7 @@ export var DuplicateSSHPublicKeyException$: StaticErrorSchema = [
   -3,
   n0,
   _DSSHPKE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DuplicateSSHPublicKey`, 400] },
+  { [_aQE]: [`DuplicateSSHPublicKey`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1238,7 +1238,7 @@ export var EntityAlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _EAEE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`EntityAlreadyExists`, 409] },
+  { [_aQE]: [`EntityAlreadyExists`, 409], [_e]: _c, [_hE]: 409 },
   [_m],
   [0],
 ];
@@ -1249,7 +1249,7 @@ export var EntityTemporarilyUnmodifiableException$: StaticErrorSchema = [
   -3,
   n0,
   _ETUE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`EntityTemporarilyUnmodifiable`, 409] },
+  { [_aQE]: [`EntityTemporarilyUnmodifiable`, 409], [_e]: _c, [_hE]: 409 },
   [_m],
   [0],
 ];
@@ -1277,7 +1277,7 @@ export var FeatureDisabledException$: StaticErrorSchema = [
   -3,
   n0,
   _FDE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`FeatureDisabled`, 404] },
+  { [_aQE]: [`FeatureDisabled`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -1286,7 +1286,7 @@ export var FeatureEnabledException$: StaticErrorSchema = [
   -3,
   n0,
   _FEE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`FeatureEnabled`, 409] },
+  { [_aQE]: [`FeatureEnabled`, 409], [_e]: _c, [_hE]: 409 },
   [_m],
   [0],
 ];
@@ -1510,7 +1510,7 @@ export var InvalidAuthenticationCodeException$: StaticErrorSchema = [
   -3,
   n0,
   _IACE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`InvalidAuthenticationCode`, 403] },
+  { [_aQE]: [`InvalidAuthenticationCode`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0],
 ];
@@ -1519,7 +1519,7 @@ export var InvalidCertificateException$: StaticErrorSchema = [
   -3,
   n0,
   _ICE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidCertificate`, 400] },
+  { [_aQE]: [`InvalidCertificate`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1528,7 +1528,7 @@ export var InvalidInputException$: StaticErrorSchema = [
   -3,
   n0,
   _IIE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidInput`, 400] },
+  { [_aQE]: [`InvalidInput`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1537,7 +1537,7 @@ export var InvalidPublicKeyException$: StaticErrorSchema = [
   -3,
   n0,
   _IPKE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidPublicKey`, 400] },
+  { [_aQE]: [`InvalidPublicKey`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1546,7 +1546,7 @@ export var InvalidUserTypeException$: StaticErrorSchema = [
   -3,
   n0,
   _IUTE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidUserType`, 400] },
+  { [_aQE]: [`InvalidUserType`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1555,7 +1555,7 @@ export var KeyPairMismatchException$: StaticErrorSchema = [
   -3,
   n0,
   _KPME,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`KeyPairMismatch`, 400] },
+  { [_aQE]: [`KeyPairMismatch`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1564,7 +1564,7 @@ export var LimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`LimitExceeded`, 409] },
+  { [_aQE]: [`LimitExceeded`, 409], [_e]: _c, [_hE]: 409 },
   [_m],
   [0],
 ];
@@ -1899,7 +1899,7 @@ export var MalformedCertificateException$: StaticErrorSchema = [
   -3,
   n0,
   _MCE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`MalformedCertificate`, 400] },
+  { [_aQE]: [`MalformedCertificate`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1908,7 +1908,7 @@ export var MalformedPolicyDocumentException$: StaticErrorSchema = [
   -3,
   n0,
   _MPDE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`MalformedPolicyDocument`, 400] },
+  { [_aQE]: [`MalformedPolicyDocument`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1926,7 +1926,7 @@ export var NoSuchEntityException$: StaticErrorSchema = [
   -3,
   n0,
   _NSEE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`NoSuchEntity`, 404] },
+  { [_aQE]: [`NoSuchEntity`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -1936,7 +1936,7 @@ export var OpenIdIdpCommunicationErrorException$: StaticErrorSchema = [
   -3,
   n0,
   _OIICEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`OpenIdIdpCommunicationError`, 400] },
+  { [_aQE]: [`OpenIdIdpCommunicationError`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1968,7 +1968,7 @@ export var PasswordPolicyViolationException$: StaticErrorSchema = [
   -3,
   n0,
   _PPVE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`PasswordPolicyViolation`, 400] },
+  { [_aQE]: [`PasswordPolicyViolation`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1987,7 +1987,7 @@ export var PolicyEvaluationException$: StaticErrorSchema = [
   -3,
   n0,
   _PEE,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`PolicyEvaluation`, 500] },
+  { [_aQE]: [`PolicyEvaluation`, 500], [_e]: _s, [_hE]: 500 },
   [_m],
   [0],
 ];
@@ -2005,7 +2005,7 @@ export var PolicyNotAttachableException$: StaticErrorSchema = [
   -3,
   n0,
   _PNAE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`PolicyNotAttachable`, 400] },
+  { [_aQE]: [`PolicyNotAttachable`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -2035,7 +2035,7 @@ export var ReportGenerationLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _RGLEE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`ReportGenerationLimitExceeded`, 409] },
+  { [_aQE]: [`ReportGenerationLimitExceeded`, 409], [_e]: _c, [_hE]: 409 },
   [_m],
   [0],
 ];
@@ -2114,7 +2114,7 @@ export var ServiceFailureException$: StaticErrorSchema = [
   -3,
   n0,
   _SFE,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`ServiceFailure`, 500] },
+  { [_aQE]: [`ServiceFailure`, 500], [_e]: _s, [_hE]: 500 },
   [_m],
   [0],
 ];
@@ -2131,7 +2131,7 @@ export var ServiceNotSupportedException$: StaticErrorSchema = [
   -3,
   n0,
   _SNSE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`NotSupportedService`, 404] },
+  { [_aQE]: [`NotSupportedService`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -2224,7 +2224,7 @@ export var UnmodifiableEntityException$: StaticErrorSchema = [
   -3,
   n0,
   _UEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`UnmodifiableEntity`, 400] },
+  { [_aQE]: [`UnmodifiableEntity`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -2233,7 +2233,7 @@ export var UnrecognizedPublicKeyEncodingException$: StaticErrorSchema = [
   -3,
   n0,
   _UPKEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`UnrecognizedPublicKeyEncoding`, 400] },
+  { [_aQE]: [`UnrecognizedPublicKeyEncoding`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];

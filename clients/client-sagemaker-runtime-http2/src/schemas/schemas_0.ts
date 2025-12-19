@@ -51,6 +51,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -144,16 +145,16 @@ export var SageMakerRuntimeHTTP2ServiceException$: StaticErrorSchema = [
   [],
 ];
 TypeRegistry.for(_sm).registerError(SageMakerRuntimeHTTP2ServiceException$, SageMakerRuntimeHTTP2ServiceException);
-export var RequestStreamEvent$: StaticStructureSchema = [
-  3,
+export var RequestStreamEvent$: StaticUnionSchema = [
+  4,
   n0,
   _RSE,
   { [_st]: 1 },
   [_PP],
   [[() => RequestPayloadPart$, 0]],
 ];
-export var ResponseStreamEvent$: StaticStructureSchema = [
-  3,
+export var ResponseStreamEvent$: StaticUnionSchema = [
+  4,
   n0,
   _RSEe,
   { [_st]: 1 },

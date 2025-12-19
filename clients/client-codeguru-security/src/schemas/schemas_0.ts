@@ -177,6 +177,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { CodeGuruSecurityServiceException } from "../models/CodeGuruSecurityServiceException";
@@ -486,7 +487,7 @@ var TagKeyList = 64 | 0;
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
 var RequestHeaderMap: StaticMapSchema = [2, n0, _RHM, 8, 0, 0];
 var TagMap = 128 | 0;
-export var ResourceId$: StaticStructureSchema = [3, n0, _RI, 0, [_cAI], [0]];
+export var ResourceId$: StaticUnionSchema = [4, n0, _RI, 0, [_cAI], [0]];
 export var BatchGetFindings$: StaticOperationSchema = [
   9,
   n0,

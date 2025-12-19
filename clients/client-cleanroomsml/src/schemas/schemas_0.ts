@@ -461,6 +461,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { CleanRoomsMLServiceException } from "../models/CleanRoomsMLServiceException";
@@ -1837,16 +1838,16 @@ var HyperParameters = 128 | 0;
 var InferenceEnvironmentMap = 128 | 0;
 var ParameterMap = 128 | 0;
 var TagMap = 128 | 0;
-export var ComputeConfiguration$: StaticStructureSchema = [3, n0, _CCo, 0, [_w], [() => WorkerComputeConfiguration$]];
-export var InputChannelDataSource$: StaticStructureSchema = [
-  3,
+export var ComputeConfiguration$: StaticUnionSchema = [4, n0, _CCo, 0, [_w], [() => WorkerComputeConfiguration$]];
+export var InputChannelDataSource$: StaticUnionSchema = [
+  4,
   n0,
   _ICDS,
   0,
   [_pQIP],
   [[() => ProtectedQueryInputParameters$, 0]],
 ];
-export var PrivacyBudgets$: StaticStructureSchema = [3, n0, _PB, 0, [_aB], [() => AccessBudgets]];
+export var PrivacyBudgets$: StaticUnionSchema = [4, n0, _PB, 0, [_aB], [() => AccessBudgets]];
 export var CancelTrainedModel$: StaticOperationSchema = [
   9,
   n0,

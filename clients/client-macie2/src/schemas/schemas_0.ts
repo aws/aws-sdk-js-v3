@@ -1345,7 +1345,7 @@ export var CreateAllowListRequest$: StaticStructureSchema = [
   0,
   [_cT, _cr, _d, _n, _t],
   [
-    [0, { [_jN]: _cT, [_iT]: 1 }],
+    [0, { [_iT]: 1, [_jN]: _cT }],
     [() => AllowListCriteria$, { [_jN]: _cr }],
     [0, { [_jN]: _d }],
     [0, { [_jN]: _n }],
@@ -1371,7 +1371,7 @@ export var CreateClassificationJobRequest$: StaticStructureSchema = [
   [_aLI, _cT, _cDII, _d, _iR, _jT, _mDII, _mDIS, _n, _sJD, _sP, _sF, _t],
   [
     [64 | 0, { [_jN]: _aLI }],
-    [0, { [_jN]: _cT, [_iT]: 1 }],
+    [0, { [_iT]: 1, [_jN]: _cT }],
     [64 | 0, { [_jN]: _cDII }],
     [0, { [_jN]: _d }],
     [2, { [_jN]: _iR }],
@@ -1403,7 +1403,7 @@ export var CreateCustomDataIdentifierRequest$: StaticStructureSchema = [
   0,
   [_cT, _d, _iW, _k, _mMD, _n, _r, _sL, _t],
   [
-    [0, { [_jN]: _cT, [_iT]: 1 }],
+    [0, { [_iT]: 1, [_jN]: _cT }],
     [0, { [_jN]: _d }],
     [64 | 0, { [_jN]: _iW }],
     [64 | 0, { [_jN]: _k }],
@@ -1430,7 +1430,7 @@ export var CreateFindingsFilterRequest$: StaticStructureSchema = [
   [_act, _cT, _d, _fC, _n, _po, _t],
   [
     [0, { [_jN]: _act }],
-    [0, { [_jN]: _cT, [_iT]: 1 }],
+    [0, { [_iT]: 1, [_jN]: _cT }],
     [0, { [_jN]: _d }],
     [() => FindingCriteria$, { [_jN]: _fC }],
     [0, { [_jN]: _n }],
@@ -1638,7 +1638,7 @@ export var DescribeClassificationJobResponse$: StaticStructureSchema = [
   [_aLI, _cT, _cA, _cDII, _d, _iR, _jA, _jI, _jS, _jT, _lRES, _lRT, _mDII, _mDIS, _n, _sJD, _sP, _sF, _st, _t, _uPD],
   [
     [64 | 0, { [_jN]: _aLI }],
-    [0, { [_jN]: _cT, [_iT]: 1 }],
+    [0, { [_iT]: 1, [_jN]: _cT }],
     [5, { [_jN]: _cA }],
     [64 | 0, { [_jN]: _cDII }],
     [0, { [_jN]: _d }],
@@ -1713,7 +1713,7 @@ export var EnableMacieRequest$: StaticStructureSchema = [
   0,
   [_cT, _fPF, _s],
   [
-    [0, { [_jN]: _cT, [_iT]: 1 }],
+    [0, { [_iT]: 1, [_jN]: _cT }],
     [0, { [_jN]: _fPF }],
     [0, { [_jN]: _s }],
   ],
@@ -1727,7 +1727,7 @@ export var EnableOrganizationAdminAccountRequest$: StaticStructureSchema = [
   [_aAId, _cT],
   [
     [0, { [_jN]: _aAId }],
-    [0, { [_jN]: _cT, [_iT]: 1 }],
+    [0, { [_iT]: 1, [_jN]: _cT }],
   ],
 ];
 export var EnableOrganizationAdminAccountResponse$: StaticStructureSchema = [3, n0, _EOAARn, 0, [], []];
@@ -2810,7 +2810,7 @@ export var PutFindingsPublicationConfigurationRequest$: StaticStructureSchema = 
   0,
   [_cT, _sHC],
   [
-    [0, { [_jN]: _cT, [_iT]: 1 }],
+    [0, { [_iT]: 1, [_jN]: _cT }],
     [() => SecurityHubConfiguration$, { [_jN]: _sHC }],
   ],
 ];
@@ -3571,7 +3571,7 @@ export var UpdateFindingsFilterRequest$: StaticStructureSchema = [
   [_act, _cT, _d, _fC, _i, _n, _po],
   [
     [0, { [_jN]: _act }],
-    [0, { [_jN]: _cT, [_iT]: 1 }],
+    [0, { [_iT]: 1, [_jN]: _cT }],
     [0, { [_jN]: _d }],
     [() => FindingCriteria$, { [_jN]: _fC }],
     [0, 1],

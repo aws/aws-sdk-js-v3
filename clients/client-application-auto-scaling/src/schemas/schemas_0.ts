@@ -217,7 +217,7 @@ export var ConcurrentUpdateException$: StaticErrorSchema = [
   -3,
   n0,
   _CUE,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`ConcurrentUpdateException`, 500] },
+  { [_aQE]: [`ConcurrentUpdateException`, 500], [_e]: _s, [_hE]: 500 },
   [_M],
   [0],
 ];
@@ -311,7 +311,7 @@ export var FailedResourceAccessException$: StaticErrorSchema = [
   -3,
   n0,
   _FRAE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`FailedResourceAccessException`, 400] },
+  { [_aQE]: [`FailedResourceAccessException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -336,7 +336,7 @@ export var InternalServiceException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`InternalServiceException`, 500] },
+  { [_aQE]: [`InternalServiceException`, 500], [_e]: _s, [_hE]: 500 },
   [_M],
   [0],
 ];
@@ -345,7 +345,7 @@ export var InvalidNextTokenException$: StaticErrorSchema = [
   -3,
   n0,
   _INTE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidNextTokenException`, 400] },
+  { [_aQE]: [`InvalidNextTokenException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -354,7 +354,7 @@ export var LimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`LimitExceededException`, 400] },
+  { [_aQE]: [`LimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -375,7 +375,7 @@ export var ObjectNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _ONFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ObjectNotFoundException`, 400] },
+  { [_aQE]: [`ObjectNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -598,7 +598,7 @@ export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ValidationException`, 400] },
+  { [_aQE]: [`ValidationException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];

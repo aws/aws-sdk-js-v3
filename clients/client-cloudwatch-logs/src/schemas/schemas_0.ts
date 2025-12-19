@@ -871,6 +871,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { CloudWatchLogsServiceException } from "../models/CloudWatchLogsServiceException";
@@ -2188,18 +2189,18 @@ var ExtractedValues = 128 | 0;
 var Histogram = 128 | 1;
 var LogRecord = 128 | 0;
 var Tags = 128 | 0;
-export var GetLogObjectResponseStream$: StaticStructureSchema = [
-  3,
+export var GetLogObjectResponseStream$: StaticUnionSchema = [
+  4,
   n0,
   _GLORS,
   { [_str]: 1 },
   [_fi, _ISEn],
   [() => FieldsData$, [() => InternalStreamingException$, 0]],
 ];
-export var IntegrationDetails$: StaticStructureSchema = [3, n0, _ID, 0, [_oSID], [() => OpenSearchIntegrationDetails$]];
-export var ResourceConfig$: StaticStructureSchema = [3, n0, _RC, 0, [_oSRC], [() => OpenSearchResourceConfig$]];
-export var StartLiveTailResponseStream$: StaticStructureSchema = [
-  3,
+export var IntegrationDetails$: StaticUnionSchema = [4, n0, _ID, 0, [_oSID], [() => OpenSearchIntegrationDetails$]];
+export var ResourceConfig$: StaticUnionSchema = [4, n0, _RC, 0, [_oSRC], [() => OpenSearchResourceConfig$]];
+export var StartLiveTailResponseStream$: StaticUnionSchema = [
+  4,
   n0,
   _SLTRS,
   { [_str]: 1 },

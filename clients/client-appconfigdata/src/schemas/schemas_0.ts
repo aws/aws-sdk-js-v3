@@ -53,6 +53,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { AppConfigDataServiceException } from "../models/AppConfigDataServiceException";
@@ -116,7 +117,7 @@ export var AppConfigDataServiceException$: StaticErrorSchema = [-3, _sm, "AppCon
 TypeRegistry.for(_sm).registerError(AppConfigDataServiceException$, AppConfigDataServiceException);
 var InvalidParameterMap: StaticMapSchema = [2, n0, _IPM, 0, 0, () => InvalidParameterDetail$];
 var StringMap = 128 | 0;
-export var BadRequestDetails$: StaticStructureSchema = [3, n0, _BRD, 0, [_IP], [() => InvalidParameterMap]];
+export var BadRequestDetails$: StaticUnionSchema = [4, n0, _BRD, 0, [_IP], [() => InvalidParameterMap]];
 export var GetLatestConfiguration$: StaticOperationSchema = [
   9,
   n0,

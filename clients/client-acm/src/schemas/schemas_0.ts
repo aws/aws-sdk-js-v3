@@ -188,7 +188,7 @@ export var AccessDeniedException$: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`AccessDenied`, 403] },
+  { [_aQE]: [`AccessDenied`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
   [0],
 ];
@@ -397,7 +397,7 @@ export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`Throttling`, 400] },
+  { [_aQE]: [`Throttling`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -416,7 +416,7 @@ export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VEa,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ValidationError`, 400] },
+  { [_aQE]: [`ValidationError`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];

@@ -610,7 +610,7 @@ export var AccessDeniedException$: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`ResourceAccessDenied`, 403] },
+  { [_aQE]: [`ResourceAccessDenied`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
   [0],
 ];
@@ -619,7 +619,7 @@ export var AccountHasOngoingImportException$: StaticErrorSchema = [
   -3,
   n0,
   _AHOIE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`AccountHasOngoingImport`, 400] },
+  { [_aQE]: [`AccountHasOngoingImport`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -628,7 +628,7 @@ export var AccountNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _ANFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`AccountNotFound`, 404] },
+  { [_aQE]: [`AccountNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -637,7 +637,7 @@ export var AccountNotRegisteredException$: StaticErrorSchema = [
   -3,
   n0,
   _ANRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`AccountNotRegistered`, 400] },
+  { [_aQE]: [`AccountNotRegistered`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -646,7 +646,7 @@ export var AccountRegisteredException$: StaticErrorSchema = [
   -3,
   n0,
   _ARE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`AccountRegistered`, 400] },
+  { [_aQE]: [`AccountRegistered`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -676,7 +676,7 @@ export var CannotDelegateManagementAccountException$: StaticErrorSchema = [
   -3,
   n0,
   _CDMAE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CannotDelegateManagementAccount`, 400] },
+  { [_aQE]: [`CannotDelegateManagementAccount`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -686,7 +686,7 @@ export var ChannelAlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _CAEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ChannelAlreadyExists`, 400] },
+  { [_aQE]: [`ChannelAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -695,7 +695,7 @@ export var ChannelARNInvalidException$: StaticErrorSchema = [
   -3,
   n0,
   _CARNIE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ChannelARNInvalid`, 400] },
+  { [_aQE]: [`ChannelARNInvalid`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -704,7 +704,7 @@ export var ChannelExistsForEDSException$: StaticErrorSchema = [
   -3,
   n0,
   _CEFEDSE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ChannelExistsForEDS`, 400] },
+  { [_aQE]: [`ChannelExistsForEDS`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -713,7 +713,7 @@ export var ChannelMaxLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _CMLEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ChannelMaxLimitExceeded`, 400] },
+  { [_aQE]: [`ChannelMaxLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -722,7 +722,7 @@ export var ChannelNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _CNFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ChannelNotFound`, 404] },
+  { [_aQE]: [`ChannelNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -731,7 +731,7 @@ export var CloudTrailAccessNotEnabledException$: StaticErrorSchema = [
   -3,
   n0,
   _CTANEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CloudTrailAccessNotEnabled`, 400] },
+  { [_aQE]: [`CloudTrailAccessNotEnabled`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -740,7 +740,7 @@ export var CloudTrailARNInvalidException$: StaticErrorSchema = [
   -3,
   n0,
   _CTARNIE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CloudTrailARNInvalid`, 400] },
+  { [_aQE]: [`CloudTrailARNInvalid`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -749,7 +749,7 @@ export var CloudTrailInvalidClientTokenIdException$: StaticErrorSchema = [
   -3,
   n0,
   _CTICTIE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CloudTrailInvalidClientTokenId`, 400] },
+  { [_aQE]: [`CloudTrailInvalidClientTokenId`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -758,7 +758,7 @@ export var CloudWatchLogsDeliveryUnavailableException$: StaticErrorSchema = [
   -3,
   n0,
   _CWLDUE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CloudWatchLogsDeliveryUnavailable`, 400] },
+  { [_aQE]: [`CloudWatchLogsDeliveryUnavailable`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -770,7 +770,7 @@ export var ConcurrentModificationException$: StaticErrorSchema = [
   -3,
   n0,
   _CME,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ConcurrentModification`, 400] },
+  { [_aQE]: [`ConcurrentModification`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -779,7 +779,7 @@ export var ConflictException$: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`ConflictException`, 409] },
+  { [_aQE]: [`ConflictException`, 409], [_e]: _c, [_hE]: 409 },
   [_M],
   [0],
 ];
@@ -855,7 +855,7 @@ export var DelegatedAdminAccountLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _DAALEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DelegatedAdminAccountLimitExceeded`, 400] },
+  { [_aQE]: [`DelegatedAdminAccountLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -918,7 +918,7 @@ export var EventDataStoreAlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _EDSAEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`EventDataStoreAlreadyExists`, 400] },
+  { [_aQE]: [`EventDataStoreAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -927,7 +927,7 @@ export var EventDataStoreARNInvalidException$: StaticErrorSchema = [
   -3,
   n0,
   _EDSARNIE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`EventDataStoreARNInvalid`, 400] },
+  { [_aQE]: [`EventDataStoreARNInvalid`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -936,7 +936,7 @@ export var EventDataStoreFederationEnabledException$: StaticErrorSchema = [
   -3,
   n0,
   _EDSFEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`EventDataStoreFederationEnabled`, 400] },
+  { [_aQE]: [`EventDataStoreFederationEnabled`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -945,7 +945,7 @@ export var EventDataStoreHasOngoingImportException$: StaticErrorSchema = [
   -3,
   n0,
   _EDSHOIE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`EventDataStoreHasOngoingImport`, 400] },
+  { [_aQE]: [`EventDataStoreHasOngoingImport`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -954,7 +954,7 @@ export var EventDataStoreMaxLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _EDSMLEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`EventDataStoreMaxLimitExceeded`, 400] },
+  { [_aQE]: [`EventDataStoreMaxLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -963,7 +963,7 @@ export var EventDataStoreNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _EDSNFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`EventDataStoreNotFound`, 404] },
+  { [_aQE]: [`EventDataStoreNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -972,7 +972,7 @@ export var EventDataStoreTerminationProtectedException$: StaticErrorSchema = [
   -3,
   n0,
   _EDSTPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`EventDataStoreTerminationProtectedException`, 400] },
+  { [_aQE]: [`EventDataStoreTerminationProtectedException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -994,7 +994,7 @@ export var GenerateResponseException$: StaticErrorSchema = [
   -3,
   n0,
   _GRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`GenerateResponse`, 400] },
+  { [_aQE]: [`GenerateResponse`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1103,7 +1103,7 @@ export var ImportNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _INFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ImportNotFound`, 404] },
+  { [_aQE]: [`ImportNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -1115,7 +1115,7 @@ export var InactiveEventDataStoreException$: StaticErrorSchema = [
   -3,
   n0,
   _IEDSE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InactiveEventDataStore`, 400] },
+  { [_aQE]: [`InactiveEventDataStore`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1124,7 +1124,7 @@ export var InactiveQueryException$: StaticErrorSchema = [
   -3,
   n0,
   _IQE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InactiveQuery`, 400] },
+  { [_aQE]: [`InactiveQuery`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1141,7 +1141,7 @@ export var InsightNotEnabledException$: StaticErrorSchema = [
   -3,
   n0,
   _INEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InsightNotEnabled`, 400] },
+  { [_aQE]: [`InsightNotEnabled`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1151,7 +1151,7 @@ export var InsufficientDependencyServiceAccessPermissionException$: StaticErrorS
   -3,
   n0,
   _IDSAPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InsufficientDependencyServiceAccessPermission`, 400] },
+  { [_aQE]: [`InsufficientDependencyServiceAccessPermission`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1163,7 +1163,7 @@ export var InsufficientEncryptionPolicyException$: StaticErrorSchema = [
   -3,
   n0,
   _IEPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InsufficientEncryptionPolicy`, 400] },
+  { [_aQE]: [`InsufficientEncryptionPolicy`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1172,7 +1172,7 @@ export var InsufficientIAMAccessPermissionException$: StaticErrorSchema = [
   -3,
   n0,
   _IIAMAPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InsufficientIAMAccessPermission`, 400] },
+  { [_aQE]: [`InsufficientIAMAccessPermission`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1181,7 +1181,7 @@ export var InsufficientS3BucketPolicyException$: StaticErrorSchema = [
   -3,
   n0,
   _ISBPE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`InsufficientS3BucketPolicy`, 403] },
+  { [_aQE]: [`InsufficientS3BucketPolicy`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
   [0],
 ];
@@ -1190,7 +1190,7 @@ export var InsufficientSnsTopicPolicyException$: StaticErrorSchema = [
   -3,
   n0,
   _ISTPE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`InsufficientSnsTopicPolicy`, 403] },
+  { [_aQE]: [`InsufficientSnsTopicPolicy`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
   [0],
 ];
@@ -1199,7 +1199,7 @@ export var InvalidCloudWatchLogsLogGroupArnException$: StaticErrorSchema = [
   -3,
   n0,
   _ICWLLGAE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidCloudWatchLogsLogGroupArn`, 400] },
+  { [_aQE]: [`InvalidCloudWatchLogsLogGroupArn`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1211,7 +1211,7 @@ export var InvalidCloudWatchLogsRoleArnException$: StaticErrorSchema = [
   -3,
   n0,
   _ICWLRAE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidCloudWatchLogsRoleArn`, 400] },
+  { [_aQE]: [`InvalidCloudWatchLogsRoleArn`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1220,7 +1220,7 @@ export var InvalidDateRangeException$: StaticErrorSchema = [
   -3,
   n0,
   _IDRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDateRange`, 400] },
+  { [_aQE]: [`InvalidDateRange`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1229,7 +1229,7 @@ export var InvalidEventCategoryException$: StaticErrorSchema = [
   -3,
   n0,
   _IECE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidEventCategory`, 400] },
+  { [_aQE]: [`InvalidEventCategory`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1238,7 +1238,7 @@ export var InvalidEventDataStoreCategoryException$: StaticErrorSchema = [
   -3,
   n0,
   _IEDSCE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidEventDataStoreCategory`, 400] },
+  { [_aQE]: [`InvalidEventDataStoreCategory`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1247,7 +1247,7 @@ export var InvalidEventDataStoreStatusException$: StaticErrorSchema = [
   -3,
   n0,
   _IEDSSE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidEventDataStoreStatus`, 400] },
+  { [_aQE]: [`InvalidEventDataStoreStatus`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1256,7 +1256,7 @@ export var InvalidEventSelectorsException$: StaticErrorSchema = [
   -3,
   n0,
   _IESE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidEventSelectors`, 400] },
+  { [_aQE]: [`InvalidEventSelectors`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1265,7 +1265,7 @@ export var InvalidHomeRegionException$: StaticErrorSchema = [
   -3,
   n0,
   _IHRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidHomeRegion`, 400] },
+  { [_aQE]: [`InvalidHomeRegion`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1274,7 +1274,7 @@ export var InvalidImportSourceException$: StaticErrorSchema = [
   -3,
   n0,
   _IISE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidImportSource`, 400] },
+  { [_aQE]: [`InvalidImportSource`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1283,7 +1283,7 @@ export var InvalidInsightSelectorsException$: StaticErrorSchema = [
   -3,
   n0,
   _IISEn,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidInsightSelectors`, 400] },
+  { [_aQE]: [`InvalidInsightSelectors`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1292,7 +1292,7 @@ export var InvalidKmsKeyIdException$: StaticErrorSchema = [
   -3,
   n0,
   _IKKIE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidKmsKeyId`, 400] },
+  { [_aQE]: [`InvalidKmsKeyId`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1301,7 +1301,7 @@ export var InvalidLookupAttributesException$: StaticErrorSchema = [
   -3,
   n0,
   _ILAE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidLookupAttributes`, 400] },
+  { [_aQE]: [`InvalidLookupAttributes`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1310,7 +1310,7 @@ export var InvalidMaxResultsException$: StaticErrorSchema = [
   -3,
   n0,
   _IMRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidMaxResults`, 400] },
+  { [_aQE]: [`InvalidMaxResults`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1319,7 +1319,7 @@ export var InvalidNextTokenException$: StaticErrorSchema = [
   -3,
   n0,
   _INTE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidNextToken`, 400] },
+  { [_aQE]: [`InvalidNextToken`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1328,7 +1328,7 @@ export var InvalidParameterCombinationException$: StaticErrorSchema = [
   -3,
   n0,
   _IPCE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameterCombinationError`, 400] },
+  { [_aQE]: [`InvalidParameterCombinationError`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1337,7 +1337,7 @@ export var InvalidParameterException$: StaticErrorSchema = [
   -3,
   n0,
   _IPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameter`, 400] },
+  { [_aQE]: [`InvalidParameter`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1346,7 +1346,7 @@ export var InvalidQueryStatementException$: StaticErrorSchema = [
   -3,
   n0,
   _IQSE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidQueryStatement`, 400] },
+  { [_aQE]: [`InvalidQueryStatement`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1355,7 +1355,7 @@ export var InvalidQueryStatusException$: StaticErrorSchema = [
   -3,
   n0,
   _IQSEn,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidQueryStatus`, 400] },
+  { [_aQE]: [`InvalidQueryStatus`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1364,7 +1364,7 @@ export var InvalidS3BucketNameException$: StaticErrorSchema = [
   -3,
   n0,
   _ISBNE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidS3BucketName`, 400] },
+  { [_aQE]: [`InvalidS3BucketName`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1373,7 +1373,7 @@ export var InvalidS3PrefixException$: StaticErrorSchema = [
   -3,
   n0,
   _ISPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidS3Prefix`, 400] },
+  { [_aQE]: [`InvalidS3Prefix`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1382,7 +1382,7 @@ export var InvalidSnsTopicNameException$: StaticErrorSchema = [
   -3,
   n0,
   _ISTNE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidSnsTopicName`, 400] },
+  { [_aQE]: [`InvalidSnsTopicName`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1391,7 +1391,7 @@ export var InvalidSourceException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidSource`, 400] },
+  { [_aQE]: [`InvalidSource`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1400,7 +1400,7 @@ export var InvalidTagParameterException$: StaticErrorSchema = [
   -3,
   n0,
   _ITPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidTagParameter`, 400] },
+  { [_aQE]: [`InvalidTagParameter`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1409,7 +1409,7 @@ export var InvalidTimeRangeException$: StaticErrorSchema = [
   -3,
   n0,
   _ITRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidTimeRange`, 400] },
+  { [_aQE]: [`InvalidTimeRange`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1418,7 +1418,7 @@ export var InvalidTokenException$: StaticErrorSchema = [
   -3,
   n0,
   _ITE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidToken`, 400] },
+  { [_aQE]: [`InvalidToken`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1427,7 +1427,7 @@ export var InvalidTrailNameException$: StaticErrorSchema = [
   -3,
   n0,
   _ITNE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidTrailName`, 400] },
+  { [_aQE]: [`InvalidTrailName`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1436,7 +1436,7 @@ export var KmsException$: StaticErrorSchema = [
   -3,
   n0,
   _KE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`KmsException`, 400] },
+  { [_aQE]: [`KmsException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1445,7 +1445,7 @@ export var KmsKeyDisabledException$: StaticErrorSchema = [
   -3,
   n0,
   _KKDE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`KmsKeyDisabled`, 400] },
+  { [_aQE]: [`KmsKeyDisabled`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1454,7 +1454,7 @@ export var KmsKeyNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _KKNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`KmsKeyNotFound`, 400] },
+  { [_aQE]: [`KmsKeyNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1537,7 +1537,7 @@ export var MaxConcurrentQueriesException$: StaticErrorSchema = [
   -3,
   n0,
   _MCQE,
-  { [_e]: _c, [_hE]: 429, [_aQE]: [`MaxConcurrentQueries`, 429] },
+  { [_aQE]: [`MaxConcurrentQueries`, 429], [_e]: _c, [_hE]: 429 },
   [_M],
   [0],
 ];
@@ -1546,7 +1546,7 @@ export var MaximumNumberOfTrailsExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _MNOTEE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`MaximumNumberOfTrailsExceeded`, 403] },
+  { [_aQE]: [`MaximumNumberOfTrailsExceeded`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
   [0],
 ];
@@ -1555,7 +1555,7 @@ export var NoManagementAccountSLRExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _NMASLREE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`NoManagementAccountSLRExists`, 403] },
+  { [_aQE]: [`NoManagementAccountSLRExists`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
   [0],
 ];
@@ -1564,7 +1564,7 @@ export var NotOrganizationManagementAccountException$: StaticErrorSchema = [
   -3,
   n0,
   _NOMAE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`NotOrganizationManagementAccount`, 403] },
+  { [_aQE]: [`NotOrganizationManagementAccount`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
   [0],
 ];
@@ -1576,7 +1576,7 @@ export var NotOrganizationMasterAccountException$: StaticErrorSchema = [
   -3,
   n0,
   _NOMAEo,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`NotOrganizationMasterAccount`, 400] },
+  { [_aQE]: [`NotOrganizationMasterAccount`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1585,7 +1585,7 @@ export var OperationNotPermittedException$: StaticErrorSchema = [
   -3,
   n0,
   _ONPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`OperationNotPermitted`, 400] },
+  { [_aQE]: [`OperationNotPermitted`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1594,7 +1594,7 @@ export var OrganizationNotInAllFeaturesModeException$: StaticErrorSchema = [
   -3,
   n0,
   _ONIAFME,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`OrganizationNotInAllFeaturesMode`, 400] },
+  { [_aQE]: [`OrganizationNotInAllFeaturesMode`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1606,7 +1606,7 @@ export var OrganizationsNotInUseException$: StaticErrorSchema = [
   -3,
   n0,
   _ONIUE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`OrganizationsNotInUse`, 404] },
+  { [_aQE]: [`OrganizationsNotInUse`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -1668,7 +1668,7 @@ export var QueryIdNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _QINFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`QueryIdNotFound`, 404] },
+  { [_aQE]: [`QueryIdNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -1701,7 +1701,7 @@ export var ResourceARNNotValidException$: StaticErrorSchema = [
   -3,
   n0,
   _RARNNVE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceARNNotValid`, 400] },
+  { [_aQE]: [`ResourceARNNotValid`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1710,7 +1710,7 @@ export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceNotFound`, 400] },
+  { [_aQE]: [`ResourceNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1719,7 +1719,7 @@ export var ResourcePolicyNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RPNFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourcePolicyNotFound`, 404] },
+  { [_aQE]: [`ResourcePolicyNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -1728,7 +1728,7 @@ export var ResourcePolicyNotValidException$: StaticErrorSchema = [
   -3,
   n0,
   _RPNVE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourcePolicyNotValid`, 400] },
+  { [_aQE]: [`ResourcePolicyNotValid`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1738,7 +1738,7 @@ export var ResourceTypeNotSupportedException$: StaticErrorSchema = [
   -3,
   n0,
   _RTNSE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceTypeNotSupported`, 400] },
+  { [_aQE]: [`ResourceTypeNotSupported`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1756,7 +1756,7 @@ export var S3BucketDoesNotExistException$: StaticErrorSchema = [
   -3,
   n0,
   _SBDNEE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`S3BucketDoesNotExist`, 404] },
+  { [_aQE]: [`S3BucketDoesNotExist`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -1783,7 +1783,7 @@ export var ServiceQuotaExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SQEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ServiceQuotaExceeded`, 400] },
+  { [_aQE]: [`ServiceQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1838,7 +1838,7 @@ export var TagsLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _TLEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TagsLimitExceeded`, 400] },
+  { [_aQE]: [`TagsLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1847,7 +1847,7 @@ export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  { [_e]: _c, [_hE]: 429, [_aQE]: [`ThrottlingException`, 429] },
+  { [_aQE]: [`ThrottlingException`, 429], [_e]: _c, [_hE]: 429 },
   [_M],
   [0],
 ];
@@ -1864,7 +1864,7 @@ export var TrailAlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _TAEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TrailAlreadyExists`, 400] },
+  { [_aQE]: [`TrailAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1874,7 +1874,7 @@ export var TrailNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _TNFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`TrailNotFound`, 404] },
+  { [_aQE]: [`TrailNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -1883,7 +1883,7 @@ export var TrailNotProvidedException$: StaticErrorSchema = [
   -3,
   n0,
   _TNPE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`TrailNotProvided`, 404] },
+  { [_aQE]: [`TrailNotProvided`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -1892,7 +1892,7 @@ export var UnsupportedOperationException$: StaticErrorSchema = [
   -3,
   n0,
   _UOE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`UnsupportedOperation`, 400] },
+  { [_aQE]: [`UnsupportedOperation`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];

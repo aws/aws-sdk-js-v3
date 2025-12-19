@@ -577,7 +577,7 @@ export var CodeBuildNotInServiceRegionException$: StaticErrorSchema = [
   -3,
   n0,
   _CBNISRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CodeBuildNotInServiceRegionException`, 400] },
+  { [_aQE]: [`CodeBuildNotInServiceRegionException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -919,7 +919,7 @@ export var InsufficientPrivilegesException$: StaticErrorSchema = [
   -3,
   n0,
   _IPE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`InsufficientPrivilegesException`, 403] },
+  { [_aQE]: [`InsufficientPrivilegesException`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0],
 ];
@@ -928,7 +928,7 @@ export var InvalidRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _IRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidRequestException`, 400] },
+  { [_aQE]: [`InvalidRequestException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1007,7 +1007,7 @@ export var ManagedActionInvalidStateException$: StaticErrorSchema = [
   -3,
   n0,
   _MAISE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ManagedActionInvalidStateException`, 400] },
+  { [_aQE]: [`ManagedActionInvalidStateException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1018,7 +1018,7 @@ export var OperationInProgressException$: StaticErrorSchema = [
   -3,
   n0,
   _OIPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`OperationInProgressFailure`, 400] },
+  { [_aQE]: [`OperationInProgressFailure`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1078,7 +1078,7 @@ export var PlatformVersionStillReferencedException$: StaticErrorSchema = [
   -3,
   n0,
   _PVSRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`PlatformVersionStillReferencedException`, 400] },
+  { [_aQE]: [`PlatformVersionStillReferencedException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1090,7 +1090,7 @@ export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceNotFoundException`, 400] },
+  { [_aQE]: [`ResourceNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1109,7 +1109,7 @@ export var ResourceTypeNotSupportedException$: StaticErrorSchema = [
   -3,
   n0,
   _RTNSE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceTypeNotSupportedException`, 400] },
+  { [_aQE]: [`ResourceTypeNotSupportedException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1129,7 +1129,7 @@ export var S3LocationNotInServiceRegionException$: StaticErrorSchema = [
   -3,
   n0,
   _SLNISRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`S3LocationNotInServiceRegionException`, 400] },
+  { [_aQE]: [`S3LocationNotInServiceRegionException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1138,7 +1138,7 @@ export var S3SubscriptionRequiredException$: StaticErrorSchema = [
   -3,
   n0,
   _SSRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`S3SubscriptionRequiredException`, 400] },
+  { [_aQE]: [`S3SubscriptionRequiredException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1158,7 +1158,7 @@ export var SourceBundleDeletionException$: StaticErrorSchema = [
   -3,
   n0,
   _SBDE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SourceBundleDeletionFailure`, 400] },
+  { [_aQE]: [`SourceBundleDeletionFailure`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1180,7 +1180,7 @@ export var TooManyApplicationsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMAE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyApplicationsException`, 400] },
+  { [_aQE]: [`TooManyApplicationsException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1191,7 +1191,7 @@ export var TooManyBucketsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMBE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyBucketsException`, 400] },
+  { [_aQE]: [`TooManyBucketsException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1200,7 +1200,7 @@ export var TooManyConfigurationTemplatesException$: StaticErrorSchema = [
   -3,
   n0,
   _TMCTE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyConfigurationTemplatesException`, 400] },
+  { [_aQE]: [`TooManyConfigurationTemplatesException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1209,7 +1209,7 @@ export var TooManyEnvironmentsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyEnvironmentsException`, 400] },
+  { [_aQE]: [`TooManyEnvironmentsException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1218,7 +1218,7 @@ export var TooManyPlatformsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyPlatformsException`, 400] },
+  { [_aQE]: [`TooManyPlatformsException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1227,7 +1227,7 @@ export var TooManyTagsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMTE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TooManyTagsException`, 400] },
+  { [_aQE]: [`TooManyTagsException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];

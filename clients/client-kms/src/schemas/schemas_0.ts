@@ -438,7 +438,7 @@ export var AlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _AEE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`AlreadyExists`, 409] },
+  { [_aQE]: [`AlreadyExists`, 409], [_e]: _c, [_hE]: 409 },
   [_m],
   [0],
 ];
@@ -449,7 +449,7 @@ export var CloudHsmClusterInUseException$: StaticErrorSchema = [
   -3,
   n0,
   _CHCIUE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CloudHsmClusterInUseException`, 400] },
+  { [_aQE]: [`CloudHsmClusterInUseException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -458,7 +458,7 @@ export var CloudHsmClusterInvalidConfigurationException$: StaticErrorSchema = [
   -3,
   n0,
   _CHCICE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CloudHsmClusterInvalidConfigurationException`, 400] },
+  { [_aQE]: [`CloudHsmClusterInvalidConfigurationException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -470,7 +470,7 @@ export var CloudHsmClusterNotActiveException$: StaticErrorSchema = [
   -3,
   n0,
   _CHCNAE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CloudHsmClusterNotActiveException`, 400] },
+  { [_aQE]: [`CloudHsmClusterNotActiveException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -479,7 +479,7 @@ export var CloudHsmClusterNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _CHCNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CloudHsmClusterNotFoundException`, 400] },
+  { [_aQE]: [`CloudHsmClusterNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -488,7 +488,7 @@ export var CloudHsmClusterNotRelatedException$: StaticErrorSchema = [
   -3,
   n0,
   _CHCNRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CloudHsmClusterNotRelatedException`, 400] },
+  { [_aQE]: [`CloudHsmClusterNotRelatedException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -497,7 +497,7 @@ export var ConflictException$: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`ConflictException`, 409] },
+  { [_aQE]: [`ConflictException`, 409], [_e]: _c, [_hE]: 409 },
   [_m],
   [0],
 ];
@@ -536,7 +536,7 @@ export var CustomKeyStoreHasCMKsException$: StaticErrorSchema = [
   -3,
   n0,
   _CKSHCMKE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CustomKeyStoreHasCMKsException`, 400] },
+  { [_aQE]: [`CustomKeyStoreHasCMKsException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -545,7 +545,7 @@ export var CustomKeyStoreInvalidStateException$: StaticErrorSchema = [
   -3,
   n0,
   _CKSISE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CustomKeyStoreInvalidStateException`, 400] },
+  { [_aQE]: [`CustomKeyStoreInvalidStateException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -554,7 +554,7 @@ export var CustomKeyStoreNameInUseException$: StaticErrorSchema = [
   -3,
   n0,
   _CKSNIUE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CustomKeyStoreNameInUseException`, 400] },
+  { [_aQE]: [`CustomKeyStoreNameInUseException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -563,7 +563,7 @@ export var CustomKeyStoreNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _CKSNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CustomKeyStoreNotFoundException`, 400] },
+  { [_aQE]: [`CustomKeyStoreNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -601,7 +601,7 @@ export var DependencyTimeoutException$: StaticErrorSchema = [
   -3,
   n0,
   _DTE,
-  { [_e]: _s, [_hE]: 503, [_aQE]: [`DependencyTimeout`, 503] },
+  { [_aQE]: [`DependencyTimeout`, 503], [_e]: _s, [_hE]: 503 },
   [_m],
   [0],
 ];
@@ -644,7 +644,7 @@ export var DisabledException$: StaticErrorSchema = [
   -3,
   n0,
   _DE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`Disabled`, 409] },
+  { [_aQE]: [`Disabled`, 409], [_e]: _c, [_hE]: 409 },
   [_m],
   [0],
 ];
@@ -657,7 +657,7 @@ export var DryRunOperationException$: StaticErrorSchema = [
   -3,
   n0,
   _DROE,
-  { [_e]: _c, [_hE]: 412, [_aQE]: [`DryRunOperation`, 412] },
+  { [_aQE]: [`DryRunOperation`, 412], [_e]: _c, [_hE]: 412 },
   [_m],
   [0],
 ];
@@ -677,7 +677,7 @@ export var ExpiredImportTokenException$: StaticErrorSchema = [
   -3,
   n0,
   _EITE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ExpiredImportTokenException`, 400] },
+  { [_aQE]: [`ExpiredImportTokenException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -822,7 +822,7 @@ export var IncorrectKeyException$: StaticErrorSchema = [
   -3,
   n0,
   _IKE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`IncorrectKeyException`, 400] },
+  { [_aQE]: [`IncorrectKeyException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -831,7 +831,7 @@ export var IncorrectKeyMaterialException$: StaticErrorSchema = [
   -3,
   n0,
   _IKME,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`IncorrectKeyMaterialException`, 400] },
+  { [_aQE]: [`IncorrectKeyMaterialException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -840,7 +840,7 @@ export var IncorrectTrustAnchorException$: StaticErrorSchema = [
   -3,
   n0,
   _ITAE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`IncorrectTrustAnchorException`, 400] },
+  { [_aQE]: [`IncorrectTrustAnchorException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -849,7 +849,7 @@ export var InvalidAliasNameException$: StaticErrorSchema = [
   -3,
   n0,
   _IANE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidAliasName`, 400] },
+  { [_aQE]: [`InvalidAliasName`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -858,7 +858,7 @@ export var InvalidArnException$: StaticErrorSchema = [
   -3,
   n0,
   _IAE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidArn`, 400] },
+  { [_aQE]: [`InvalidArn`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -867,7 +867,7 @@ export var InvalidCiphertextException$: StaticErrorSchema = [
   -3,
   n0,
   _ICE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidCiphertext`, 400] },
+  { [_aQE]: [`InvalidCiphertext`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -876,7 +876,7 @@ export var InvalidGrantIdException$: StaticErrorSchema = [
   -3,
   n0,
   _IGIE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidGrantId`, 400] },
+  { [_aQE]: [`InvalidGrantId`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -885,7 +885,7 @@ export var InvalidGrantTokenException$: StaticErrorSchema = [
   -3,
   n0,
   _IGTE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidGrantToken`, 400] },
+  { [_aQE]: [`InvalidGrantToken`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -894,7 +894,7 @@ export var InvalidImportTokenException$: StaticErrorSchema = [
   -3,
   n0,
   _IITE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidImportTokenException`, 400] },
+  { [_aQE]: [`InvalidImportTokenException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -903,7 +903,7 @@ export var InvalidKeyUsageException$: StaticErrorSchema = [
   -3,
   n0,
   _IKUE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidKeyUsage`, 400] },
+  { [_aQE]: [`InvalidKeyUsage`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -912,7 +912,7 @@ export var InvalidMarkerException$: StaticErrorSchema = [
   -3,
   n0,
   _IME,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidMarker`, 400] },
+  { [_aQE]: [`InvalidMarker`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -984,7 +984,7 @@ export var KeyUnavailableException$: StaticErrorSchema = [
   -3,
   n0,
   _KUE,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`KeyUnavailable`, 500] },
+  { [_aQE]: [`KeyUnavailable`, 500], [_e]: _s, [_hE]: 500 },
   [_m],
   [0],
 ];
@@ -993,7 +993,7 @@ export var KMSInternalException$: StaticErrorSchema = [
   -3,
   n0,
   _KMSIE,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`KMSInternal`, 500] },
+  { [_aQE]: [`KMSInternal`, 500], [_e]: _s, [_hE]: 500 },
   [_m],
   [0],
 ];
@@ -1002,7 +1002,7 @@ export var KMSInvalidMacException$: StaticErrorSchema = [
   -3,
   n0,
   _KMSIME,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`KMSInvalidMac`, 400] },
+  { [_aQE]: [`KMSInvalidMac`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1011,7 +1011,7 @@ export var KMSInvalidSignatureException$: StaticErrorSchema = [
   -3,
   n0,
   _KMSISE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`KMSInvalidSignature`, 400] },
+  { [_aQE]: [`KMSInvalidSignature`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1020,7 +1020,7 @@ export var KMSInvalidStateException$: StaticErrorSchema = [
   -3,
   n0,
   _KMSISEn,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`KMSInvalidStateException`, 409] },
+  { [_aQE]: [`KMSInvalidStateException`, 409], [_e]: _c, [_hE]: 409 },
   [_m],
   [0],
 ];
@@ -1029,7 +1029,7 @@ export var LimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`LimitExceeded`, 400] },
+  { [_aQE]: [`LimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1058,7 +1058,7 @@ export var MalformedPolicyDocumentException$: StaticErrorSchema = [
   -3,
   n0,
   _MPDE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`MalformedPolicyDocument`, 400] },
+  { [_aQE]: [`MalformedPolicyDocument`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1076,7 +1076,7 @@ export var NotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _NFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`NotFound`, 404] },
+  { [_aQE]: [`NotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -1150,7 +1150,7 @@ export var TagException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TagException`, 400] },
+  { [_aQE]: [`TagException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1160,7 +1160,7 @@ export var UnsupportedOperationException$: StaticErrorSchema = [
   -3,
   n0,
   _UOE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`UnsupportedOperation`, 400] },
+  { [_aQE]: [`UnsupportedOperation`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1200,7 +1200,7 @@ export var XksKeyAlreadyInUseException$: StaticErrorSchema = [
   -3,
   n0,
   _XKAIUE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`XksKeyAlreadyInUse`, 400] },
+  { [_aQE]: [`XksKeyAlreadyInUse`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1210,7 +1210,7 @@ export var XksKeyInvalidConfigurationException$: StaticErrorSchema = [
   -3,
   n0,
   _XKICE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`XksKeyInvalidConfiguration`, 400] },
+  { [_aQE]: [`XksKeyInvalidConfiguration`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1219,7 +1219,7 @@ export var XksKeyNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _XKNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`XksKeyNotFoundException`, 400] },
+  { [_aQE]: [`XksKeyNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1247,7 +1247,7 @@ export var XksProxyIncorrectAuthenticationCredentialException$: StaticErrorSchem
   -3,
   n0,
   _XPIACE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`XksProxyIncorrectAuthenticationCredentialException`, 400] },
+  { [_aQE]: [`XksProxyIncorrectAuthenticationCredentialException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1259,7 +1259,7 @@ export var XksProxyInvalidConfigurationException$: StaticErrorSchema = [
   -3,
   n0,
   _XPICE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`XksProxyInvalidConfigurationException`, 400] },
+  { [_aQE]: [`XksProxyInvalidConfigurationException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1268,7 +1268,7 @@ export var XksProxyInvalidResponseException$: StaticErrorSchema = [
   -3,
   n0,
   _XPIRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`XksProxyInvalidResponseException`, 400] },
+  { [_aQE]: [`XksProxyInvalidResponseException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1277,7 +1277,7 @@ export var XksProxyUriEndpointInUseException$: StaticErrorSchema = [
   -3,
   n0,
   _XPUEIUE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`XksProxyUriEndpointInUseException`, 400] },
+  { [_aQE]: [`XksProxyUriEndpointInUseException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1286,7 +1286,7 @@ export var XksProxyUriInUseException$: StaticErrorSchema = [
   -3,
   n0,
   _XPUIUE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`XksProxyUriInUseException`, 400] },
+  { [_aQE]: [`XksProxyUriInUseException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1295,7 +1295,7 @@ export var XksProxyUriUnreachableException$: StaticErrorSchema = [
   -3,
   n0,
   _XPUUE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`XksProxyUriUnreachableException`, 400] },
+  { [_aQE]: [`XksProxyUriUnreachableException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1304,7 +1304,7 @@ export var XksProxyVpcEndpointServiceInUseException$: StaticErrorSchema = [
   -3,
   n0,
   _XPVESIUE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`XksProxyVpcEndpointServiceInUseException`, 400] },
+  { [_aQE]: [`XksProxyVpcEndpointServiceInUseException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1313,7 +1313,7 @@ export var XksProxyVpcEndpointServiceInvalidConfigurationException$: StaticError
   -3,
   n0,
   _XPVESICE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`XksProxyVpcEndpointServiceInvalidConfigurationException`, 400] },
+  { [_aQE]: [`XksProxyVpcEndpointServiceInvalidConfigurationException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1325,7 +1325,7 @@ export var XksProxyVpcEndpointServiceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _XPVESNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`XksProxyVpcEndpointServiceNotFoundException`, 400] },
+  { [_aQE]: [`XksProxyVpcEndpointServiceNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];

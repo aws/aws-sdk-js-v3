@@ -551,7 +551,7 @@ export var IdempotentParameterMismatchException$: StaticErrorSchema = [
   -3,
   n0,
   _IPME,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`IdempotentParameterMismatch`, 400] },
+  { [_aQE]: [`IdempotentParameterMismatch`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -560,7 +560,7 @@ export var InvalidClientTokenException$: StaticErrorSchema = [
   -3,
   n0,
   _ICTE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidClientToken`, 400] },
+  { [_aQE]: [`InvalidClientToken`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -569,7 +569,7 @@ export var InvalidMaxResultsException$: StaticErrorSchema = [
   -3,
   n0,
   _IMRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidMaxResults`, 400] },
+  { [_aQE]: [`InvalidMaxResults`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -578,7 +578,7 @@ export var InvalidNextTokenException$: StaticErrorSchema = [
   -3,
   n0,
   _INTE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidNextToken`, 400] },
+  { [_aQE]: [`InvalidNextToken`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -587,7 +587,7 @@ export var InvalidParameterException$: StaticErrorSchema = [
   -3,
   n0,
   _IPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameter`, 400] },
+  { [_aQE]: [`InvalidParameter`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -596,7 +596,7 @@ export var InvalidPolicyException$: StaticErrorSchema = [
   -3,
   n0,
   _IPEn,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidPolicy`, 400] },
+  { [_aQE]: [`InvalidPolicy`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -605,7 +605,7 @@ export var InvalidResourceTypeException$: StaticErrorSchema = [
   -3,
   n0,
   _IRTE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidResourceType.Unknown`, 400] },
+  { [_aQE]: [`InvalidResourceType.Unknown`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -614,7 +614,7 @@ export var InvalidStateTransitionException$: StaticErrorSchema = [
   -3,
   n0,
   _ISTE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidStateTransitionException.Unknown`, 400] },
+  { [_aQE]: [`InvalidStateTransitionException.Unknown`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -739,7 +739,7 @@ export var MalformedArnException$: StaticErrorSchema = [
   -3,
   n0,
   _MAE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidArn.Malformed`, 400] },
+  { [_aQE]: [`InvalidArn.Malformed`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -748,7 +748,7 @@ export var MalformedPolicyTemplateException$: StaticErrorSchema = [
   -3,
   n0,
   _MPTE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`MalformedPolicyTemplateException`, 400] },
+  { [_aQE]: [`MalformedPolicyTemplateException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -757,7 +757,7 @@ export var MissingRequiredParameterException$: StaticErrorSchema = [
   -3,
   n0,
   _MRPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`MissingRequiredParameter`, 400] },
+  { [_aQE]: [`MissingRequiredParameter`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -766,7 +766,7 @@ export var OperationNotPermittedException$: StaticErrorSchema = [
   -3,
   n0,
   _ONPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`OperationNotPermitted`, 400] },
+  { [_aQE]: [`OperationNotPermitted`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -775,7 +775,7 @@ export var PermissionAlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _PAEE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`PermissionAlreadyExistsException`, 409] },
+  { [_aQE]: [`PermissionAlreadyExistsException`, 409], [_e]: _c, [_hE]: 409 },
   [_m],
   [0],
 ];
@@ -784,7 +784,7 @@ export var PermissionLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _PLEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`PermissionLimitExceededException`, 400] },
+  { [_aQE]: [`PermissionLimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -793,7 +793,7 @@ export var PermissionVersionsLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _PVLEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`PermissionVersionsLimitExceededException`, 400] },
+  { [_aQE]: [`PermissionVersionsLimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -876,7 +876,7 @@ export var ResourceArnNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RANFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidResourceArn.NotFound`, 400] },
+  { [_aQE]: [`InvalidResourceArn.NotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -909,7 +909,7 @@ export var ResourceShareInvitationAlreadyAcceptedException$: StaticErrorSchema =
   -3,
   n0,
   _RSIAAE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidResourceShareInvitationArn.AlreadyAccepted`, 400] },
+  { [_aQE]: [`InvalidResourceShareInvitationArn.AlreadyAccepted`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -921,7 +921,7 @@ export var ResourceShareInvitationAlreadyRejectedException$: StaticErrorSchema =
   -3,
   n0,
   _RSIARE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidResourceShareInvitationArn.AlreadyRejected`, 400] },
+  { [_aQE]: [`InvalidResourceShareInvitationArn.AlreadyRejected`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -933,7 +933,7 @@ export var ResourceShareInvitationArnNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RSIANFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidResourceShareInvitationArn.NotFound`, 400] },
+  { [_aQE]: [`InvalidResourceShareInvitationArn.NotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -945,7 +945,7 @@ export var ResourceShareInvitationExpiredException$: StaticErrorSchema = [
   -3,
   n0,
   _RSIEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidResourceShareInvitationArn.Expired`, 400] },
+  { [_aQE]: [`InvalidResourceShareInvitationArn.Expired`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -954,7 +954,7 @@ export var ResourceShareLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _RSLEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceShareLimitExceeded`, 400] },
+  { [_aQE]: [`ResourceShareLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -979,7 +979,7 @@ export var ServerInternalException$: StaticErrorSchema = [
   -3,
   n0,
   _SIE,
-  { [_e]: _se, [_hE]: 500, [_aQE]: [`InternalError`, 500] },
+  { [_aQE]: [`InternalError`, 500], [_e]: _se, [_hE]: 500 },
   [_m],
   [0],
 ];
@@ -989,7 +989,7 @@ export var ServiceUnavailableException$: StaticErrorSchema = [
   -3,
   n0,
   _SUE,
-  { [_e]: _se, [_hE]: 503, [_aQE]: [`Unavailable`, 503] },
+  { [_aQE]: [`Unavailable`, 503], [_e]: _se, [_hE]: 503 },
   [_m],
   [0],
 ];
@@ -1009,7 +1009,7 @@ export var TagLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _TLEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TagLimitExceeded`, 400] },
+  { [_aQE]: [`TagLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1018,7 +1018,7 @@ export var TagPolicyViolationException$: StaticErrorSchema = [
   -3,
   n0,
   _TPVE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TagPolicyViolation`, 400] },
+  { [_aQE]: [`TagPolicyViolation`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1029,7 +1029,7 @@ export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  { [_e]: _c, [_hE]: 429, [_aQE]: [`ThrottlingException`, 429] },
+  { [_aQE]: [`ThrottlingException`, 429], [_e]: _c, [_hE]: 429 },
   [_m],
   [0],
 ];
@@ -1038,7 +1038,7 @@ export var UnknownResourceException$: StaticErrorSchema = [
   -3,
   n0,
   _URE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidResourceShareArn.NotFound`, 400] },
+  { [_aQE]: [`InvalidResourceShareArn.NotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1047,7 +1047,7 @@ export var UnmatchedPolicyPermissionException$: StaticErrorSchema = [
   -3,
   n0,
   _UPPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`UnmatchedPolicyPermissionException`, 400] },
+  { [_aQE]: [`UnmatchedPolicyPermissionException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];

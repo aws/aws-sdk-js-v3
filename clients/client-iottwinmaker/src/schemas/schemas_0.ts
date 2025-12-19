@@ -450,6 +450,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1382,31 +1383,31 @@ var PropertyResponses: StaticMapSchema = [2, n0, _PRrop, 0, 0, () => PropertyRes
 var PropertyTableValue: StaticMapSchema = [2, n0, _PTV, 0, 0, () => DataValue$];
 var SceneMetadataMap = 128 | 0;
 var TagMap = 128 | 0;
-export var IotSiteWiseSourceConfigurationFilter$: StaticStructureSchema = [
-  3,
+export var IotSiteWiseSourceConfigurationFilter$: StaticUnionSchema = [
+  4,
   n0,
   _ISWSCFo,
   0,
   [_fBAM, _fBA],
   [() => FilterByAssetModel$, () => FilterByAsset$],
 ];
-export var IotTwinMakerSourceConfigurationFilter$: StaticStructureSchema = [
-  3,
+export var IotTwinMakerSourceConfigurationFilter$: StaticUnionSchema = [
+  4,
   n0,
   _ITMSCFo,
   0,
   [_fBCT, _fBE],
   [() => FilterByComponentType$, () => FilterByEntity$],
 ];
-export var ListComponentTypesFilter$: StaticStructureSchema = [3, n0, _LCTFi, 0, [_eF, _na, _iAs], [0, 0, 2]];
-export var ListEntitiesFilter$: StaticStructureSchema = [3, n0, _LEFi, 0, [_pEI, _cTI, _eIx], [0, 0, 0]];
-export var ListMetadataTransferJobsFilter$: StaticStructureSchema = [3, n0, _LMTJFi, 0, [_wI, _st], [0, 0]];
-export var SyncResourceFilter$: StaticStructureSchema = [3, n0, _SRFy, 0, [_st, _rTe, _rI, _eIx], [0, 0, 0, 0]];
+export var ListComponentTypesFilter$: StaticUnionSchema = [4, n0, _LCTFi, 0, [_eF, _na, _iAs], [0, 0, 2]];
+export var ListEntitiesFilter$: StaticUnionSchema = [4, n0, _LEFi, 0, [_pEI, _cTI, _eIx], [0, 0, 0]];
+export var ListMetadataTransferJobsFilter$: StaticUnionSchema = [4, n0, _LMTJFi, 0, [_wI, _st], [0, 0]];
+export var SyncResourceFilter$: StaticUnionSchema = [4, n0, _SRFy, 0, [_st, _rTe, _rI, _eIx], [0, 0, 0, 0]];
 export var BatchPutPropertyValues$: StaticOperationSchema = [
   9,
   n0,
   _BPPV,
-  { [_h]: ["POST", "/workspaces/{workspaceId}/entity-properties", 200], [_end]: ["data."] },
+  { [_end]: ["data."], [_h]: ["POST", "/workspaces/{workspaceId}/entity-properties", 200] },
   () => BatchPutPropertyValuesRequest$,
   () => BatchPutPropertyValuesResponse$,
 ];
@@ -1414,7 +1415,7 @@ export var CancelMetadataTransferJob$: StaticOperationSchema = [
   9,
   n0,
   _CMTJ,
-  { [_h]: ["PUT", "/metadata-transfer-jobs/{metadataTransferJobId}/cancel", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["PUT", "/metadata-transfer-jobs/{metadataTransferJobId}/cancel", 200] },
   () => CancelMetadataTransferJobRequest$,
   () => CancelMetadataTransferJobResponse$,
 ];
@@ -1422,7 +1423,7 @@ export var CreateComponentType$: StaticOperationSchema = [
   9,
   n0,
   _CCT,
-  { [_h]: ["POST", "/workspaces/{workspaceId}/component-types/{componentTypeId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/workspaces/{workspaceId}/component-types/{componentTypeId}", 200] },
   () => CreateComponentTypeRequest$,
   () => CreateComponentTypeResponse$,
 ];
@@ -1430,7 +1431,7 @@ export var CreateEntity$: StaticOperationSchema = [
   9,
   n0,
   _CEr,
-  { [_h]: ["POST", "/workspaces/{workspaceId}/entities", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/workspaces/{workspaceId}/entities", 200] },
   () => CreateEntityRequest$,
   () => CreateEntityResponse$,
 ];
@@ -1438,7 +1439,7 @@ export var CreateMetadataTransferJob$: StaticOperationSchema = [
   9,
   n0,
   _CMTJr,
-  { [_h]: ["POST", "/metadata-transfer-jobs", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/metadata-transfer-jobs", 200] },
   () => CreateMetadataTransferJobRequest$,
   () => CreateMetadataTransferJobResponse$,
 ];
@@ -1446,7 +1447,7 @@ export var CreateScene$: StaticOperationSchema = [
   9,
   n0,
   _CSr,
-  { [_h]: ["POST", "/workspaces/{workspaceId}/scenes", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/workspaces/{workspaceId}/scenes", 200] },
   () => CreateSceneRequest$,
   () => CreateSceneResponse$,
 ];
@@ -1454,7 +1455,7 @@ export var CreateSyncJob$: StaticOperationSchema = [
   9,
   n0,
   _CSJ,
-  { [_h]: ["POST", "/workspaces/{workspaceId}/sync-jobs/{syncSource}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/workspaces/{workspaceId}/sync-jobs/{syncSource}", 200] },
   () => CreateSyncJobRequest$,
   () => CreateSyncJobResponse$,
 ];
@@ -1462,7 +1463,7 @@ export var CreateWorkspace$: StaticOperationSchema = [
   9,
   n0,
   _CW,
-  { [_h]: ["POST", "/workspaces/{workspaceId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/workspaces/{workspaceId}", 200] },
   () => CreateWorkspaceRequest$,
   () => CreateWorkspaceResponse$,
 ];
@@ -1470,7 +1471,7 @@ export var DeleteComponentType$: StaticOperationSchema = [
   9,
   n0,
   _DCT,
-  { [_h]: ["DELETE", "/workspaces/{workspaceId}/component-types/{componentTypeId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["DELETE", "/workspaces/{workspaceId}/component-types/{componentTypeId}", 200] },
   () => DeleteComponentTypeRequest$,
   () => DeleteComponentTypeResponse$,
 ];
@@ -1478,7 +1479,7 @@ export var DeleteEntity$: StaticOperationSchema = [
   9,
   n0,
   _DE,
-  { [_h]: ["DELETE", "/workspaces/{workspaceId}/entities/{entityId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["DELETE", "/workspaces/{workspaceId}/entities/{entityId}", 200] },
   () => DeleteEntityRequest$,
   () => DeleteEntityResponse$,
 ];
@@ -1486,7 +1487,7 @@ export var DeleteScene$: StaticOperationSchema = [
   9,
   n0,
   _DS,
-  { [_h]: ["DELETE", "/workspaces/{workspaceId}/scenes/{sceneId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["DELETE", "/workspaces/{workspaceId}/scenes/{sceneId}", 200] },
   () => DeleteSceneRequest$,
   () => DeleteSceneResponse$,
 ];
@@ -1494,7 +1495,7 @@ export var DeleteSyncJob$: StaticOperationSchema = [
   9,
   n0,
   _DSJ,
-  { [_h]: ["DELETE", "/workspaces/{workspaceId}/sync-jobs/{syncSource}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["DELETE", "/workspaces/{workspaceId}/sync-jobs/{syncSource}", 200] },
   () => DeleteSyncJobRequest$,
   () => DeleteSyncJobResponse$,
 ];
@@ -1502,7 +1503,7 @@ export var DeleteWorkspace$: StaticOperationSchema = [
   9,
   n0,
   _DW,
-  { [_h]: ["DELETE", "/workspaces/{workspaceId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["DELETE", "/workspaces/{workspaceId}", 200] },
   () => DeleteWorkspaceRequest$,
   () => DeleteWorkspaceResponse$,
 ];
@@ -1510,7 +1511,7 @@ export var ExecuteQuery$: StaticOperationSchema = [
   9,
   n0,
   _EQ,
-  { [_h]: ["POST", "/queries/execution", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/queries/execution", 200] },
   () => ExecuteQueryRequest$,
   () => ExecuteQueryResponse$,
 ];
@@ -1518,7 +1519,7 @@ export var GetComponentType$: StaticOperationSchema = [
   9,
   n0,
   _GCT,
-  { [_h]: ["GET", "/workspaces/{workspaceId}/component-types/{componentTypeId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["GET", "/workspaces/{workspaceId}/component-types/{componentTypeId}", 200] },
   () => GetComponentTypeRequest$,
   () => GetComponentTypeResponse$,
 ];
@@ -1526,7 +1527,7 @@ export var GetEntity$: StaticOperationSchema = [
   9,
   n0,
   _GE,
-  { [_h]: ["GET", "/workspaces/{workspaceId}/entities/{entityId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["GET", "/workspaces/{workspaceId}/entities/{entityId}", 200] },
   () => GetEntityRequest$,
   () => GetEntityResponse$,
 ];
@@ -1534,7 +1535,7 @@ export var GetMetadataTransferJob$: StaticOperationSchema = [
   9,
   n0,
   _GMTJ,
-  { [_h]: ["GET", "/metadata-transfer-jobs/{metadataTransferJobId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["GET", "/metadata-transfer-jobs/{metadataTransferJobId}", 200] },
   () => GetMetadataTransferJobRequest$,
   () => GetMetadataTransferJobResponse$,
 ];
@@ -1542,7 +1543,7 @@ export var GetPricingPlan$: StaticOperationSchema = [
   9,
   n0,
   _GPP,
-  { [_h]: ["GET", "/pricingplan", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["GET", "/pricingplan", 200] },
   () => GetPricingPlanRequest$,
   () => GetPricingPlanResponse$,
 ];
@@ -1550,7 +1551,7 @@ export var GetPropertyValue$: StaticOperationSchema = [
   9,
   n0,
   _GPV,
-  { [_h]: ["POST", "/workspaces/{workspaceId}/entity-properties/value", 200], [_end]: ["data."] },
+  { [_end]: ["data."], [_h]: ["POST", "/workspaces/{workspaceId}/entity-properties/value", 200] },
   () => GetPropertyValueRequest$,
   () => GetPropertyValueResponse$,
 ];
@@ -1558,7 +1559,7 @@ export var GetPropertyValueHistory$: StaticOperationSchema = [
   9,
   n0,
   _GPVH,
-  { [_h]: ["POST", "/workspaces/{workspaceId}/entity-properties/history", 200], [_end]: ["data."] },
+  { [_end]: ["data."], [_h]: ["POST", "/workspaces/{workspaceId}/entity-properties/history", 200] },
   () => GetPropertyValueHistoryRequest$,
   () => GetPropertyValueHistoryResponse$,
 ];
@@ -1566,7 +1567,7 @@ export var GetScene$: StaticOperationSchema = [
   9,
   n0,
   _GS,
-  { [_h]: ["GET", "/workspaces/{workspaceId}/scenes/{sceneId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["GET", "/workspaces/{workspaceId}/scenes/{sceneId}", 200] },
   () => GetSceneRequest$,
   () => GetSceneResponse$,
 ];
@@ -1574,7 +1575,7 @@ export var GetSyncJob$: StaticOperationSchema = [
   9,
   n0,
   _GSJ,
-  { [_h]: ["GET", "/sync-jobs/{syncSource}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["GET", "/sync-jobs/{syncSource}", 200] },
   () => GetSyncJobRequest$,
   () => GetSyncJobResponse$,
 ];
@@ -1582,7 +1583,7 @@ export var GetWorkspace$: StaticOperationSchema = [
   9,
   n0,
   _GW,
-  { [_h]: ["GET", "/workspaces/{workspaceId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["GET", "/workspaces/{workspaceId}", 200] },
   () => GetWorkspaceRequest$,
   () => GetWorkspaceResponse$,
 ];
@@ -1590,7 +1591,7 @@ export var ListComponents$: StaticOperationSchema = [
   9,
   n0,
   _LC,
-  { [_h]: ["POST", "/workspaces/{workspaceId}/entities/{entityId}/components-list", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/workspaces/{workspaceId}/entities/{entityId}/components-list", 200] },
   () => ListComponentsRequest$,
   () => ListComponentsResponse$,
 ];
@@ -1598,7 +1599,7 @@ export var ListComponentTypes$: StaticOperationSchema = [
   9,
   n0,
   _LCT,
-  { [_h]: ["POST", "/workspaces/{workspaceId}/component-types-list", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/workspaces/{workspaceId}/component-types-list", 200] },
   () => ListComponentTypesRequest$,
   () => ListComponentTypesResponse$,
 ];
@@ -1606,7 +1607,7 @@ export var ListEntities$: StaticOperationSchema = [
   9,
   n0,
   _LE,
-  { [_h]: ["POST", "/workspaces/{workspaceId}/entities-list", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/workspaces/{workspaceId}/entities-list", 200] },
   () => ListEntitiesRequest$,
   () => ListEntitiesResponse$,
 ];
@@ -1614,7 +1615,7 @@ export var ListMetadataTransferJobs$: StaticOperationSchema = [
   9,
   n0,
   _LMTJ,
-  { [_h]: ["POST", "/metadata-transfer-jobs-list", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/metadata-transfer-jobs-list", 200] },
   () => ListMetadataTransferJobsRequest$,
   () => ListMetadataTransferJobsResponse$,
 ];
@@ -1622,7 +1623,7 @@ export var ListProperties$: StaticOperationSchema = [
   9,
   n0,
   _LP,
-  { [_h]: ["POST", "/workspaces/{workspaceId}/properties-list", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/workspaces/{workspaceId}/properties-list", 200] },
   () => ListPropertiesRequest$,
   () => ListPropertiesResponse$,
 ];
@@ -1630,7 +1631,7 @@ export var ListScenes$: StaticOperationSchema = [
   9,
   n0,
   _LS,
-  { [_h]: ["POST", "/workspaces/{workspaceId}/scenes-list", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/workspaces/{workspaceId}/scenes-list", 200] },
   () => ListScenesRequest$,
   () => ListScenesResponse$,
 ];
@@ -1638,7 +1639,7 @@ export var ListSyncJobs$: StaticOperationSchema = [
   9,
   n0,
   _LSJ,
-  { [_h]: ["POST", "/workspaces/{workspaceId}/sync-jobs-list", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/workspaces/{workspaceId}/sync-jobs-list", 200] },
   () => ListSyncJobsRequest$,
   () => ListSyncJobsResponse$,
 ];
@@ -1646,7 +1647,7 @@ export var ListSyncResources$: StaticOperationSchema = [
   9,
   n0,
   _LSRis,
-  { [_h]: ["POST", "/workspaces/{workspaceId}/sync-jobs/{syncSource}/resources-list", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/workspaces/{workspaceId}/sync-jobs/{syncSource}/resources-list", 200] },
   () => ListSyncResourcesRequest$,
   () => ListSyncResourcesResponse$,
 ];
@@ -1654,7 +1655,7 @@ export var ListTagsForResource$: StaticOperationSchema = [
   9,
   n0,
   _LTFR,
-  { [_h]: ["POST", "/tags-list", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/tags-list", 200] },
   () => ListTagsForResourceRequest$,
   () => ListTagsForResourceResponse$,
 ];
@@ -1662,7 +1663,7 @@ export var ListWorkspaces$: StaticOperationSchema = [
   9,
   n0,
   _LW,
-  { [_h]: ["POST", "/workspaces-list", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/workspaces-list", 200] },
   () => ListWorkspacesRequest$,
   () => ListWorkspacesResponse$,
 ];
@@ -1670,7 +1671,7 @@ export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  { [_h]: ["POST", "/tags", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/tags", 200] },
   () => TagResourceRequest$,
   () => TagResourceResponse$,
 ];
@@ -1678,7 +1679,7 @@ export var UntagResource$: StaticOperationSchema = [
   9,
   n0,
   _UR,
-  { [_h]: ["DELETE", "/tags", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["DELETE", "/tags", 200] },
   () => UntagResourceRequest$,
   () => UntagResourceResponse$,
 ];
@@ -1686,7 +1687,7 @@ export var UpdateComponentType$: StaticOperationSchema = [
   9,
   n0,
   _UCT,
-  { [_h]: ["PUT", "/workspaces/{workspaceId}/component-types/{componentTypeId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["PUT", "/workspaces/{workspaceId}/component-types/{componentTypeId}", 200] },
   () => UpdateComponentTypeRequest$,
   () => UpdateComponentTypeResponse$,
 ];
@@ -1694,7 +1695,7 @@ export var UpdateEntity$: StaticOperationSchema = [
   9,
   n0,
   _UE,
-  { [_h]: ["PUT", "/workspaces/{workspaceId}/entities/{entityId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["PUT", "/workspaces/{workspaceId}/entities/{entityId}", 200] },
   () => UpdateEntityRequest$,
   () => UpdateEntityResponse$,
 ];
@@ -1702,7 +1703,7 @@ export var UpdatePricingPlan$: StaticOperationSchema = [
   9,
   n0,
   _UPP,
-  { [_h]: ["POST", "/pricingplan", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["POST", "/pricingplan", 200] },
   () => UpdatePricingPlanRequest$,
   () => UpdatePricingPlanResponse$,
 ];
@@ -1710,7 +1711,7 @@ export var UpdateScene$: StaticOperationSchema = [
   9,
   n0,
   _US,
-  { [_h]: ["PUT", "/workspaces/{workspaceId}/scenes/{sceneId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["PUT", "/workspaces/{workspaceId}/scenes/{sceneId}", 200] },
   () => UpdateSceneRequest$,
   () => UpdateSceneResponse$,
 ];
@@ -1718,7 +1719,7 @@ export var UpdateWorkspace$: StaticOperationSchema = [
   9,
   n0,
   _UW,
-  { [_h]: ["PUT", "/workspaces/{workspaceId}", 200], [_end]: ["api."] },
+  { [_end]: ["api."], [_h]: ["PUT", "/workspaces/{workspaceId}", 200] },
   () => UpdateWorkspaceRequest$,
   () => UpdateWorkspaceResponse$,
 ];

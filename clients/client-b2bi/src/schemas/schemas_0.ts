@@ -296,6 +296,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { B2biServiceException } from "../models/B2biServiceException";
@@ -867,16 +868,16 @@ var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
 var TransformerList: StaticListSchema = [1, n0, _TLr, 0, () => TransformerSummary$];
 var ValidationMessages = 64 | 0;
 var X12ValidationRules: StaticListSchema = [1, n0, _XVR, 0, () => X12ValidationRule$];
-export var CapabilityConfiguration$: StaticStructureSchema = [3, n0, _CC, 0, [_ed], [() => EdiConfiguration$]];
-export var ConversionTargetFormatDetails$: StaticStructureSchema = [3, n0, _CTFD, 0, [_x], [() => X12Details$]];
-export var EdiType$: StaticStructureSchema = [3, n0, _ET, 0, [_xD], [() => X12Details$]];
-export var FormatOptions$: StaticStructureSchema = [3, n0, _FO, 0, [_x], [() => X12Details$]];
-export var InputFileSource$: StaticStructureSchema = [3, n0, _IFS, 0, [_fC], [0]];
-export var OutboundEdiOptions$: StaticStructureSchema = [3, n0, _OEO, 0, [_x], [() => X12Envelope$]];
-export var OutputSampleFileSource$: StaticStructureSchema = [3, n0, _OSFS, 0, [_fL], [() => S3Location$]];
-export var TemplateDetails$: StaticStructureSchema = [3, n0, _TD, 0, [_x], [() => X12Details$]];
-export var X12ValidationRule$: StaticStructureSchema = [
-  3,
+export var CapabilityConfiguration$: StaticUnionSchema = [4, n0, _CC, 0, [_ed], [() => EdiConfiguration$]];
+export var ConversionTargetFormatDetails$: StaticUnionSchema = [4, n0, _CTFD, 0, [_x], [() => X12Details$]];
+export var EdiType$: StaticUnionSchema = [4, n0, _ET, 0, [_xD], [() => X12Details$]];
+export var FormatOptions$: StaticUnionSchema = [4, n0, _FO, 0, [_x], [() => X12Details$]];
+export var InputFileSource$: StaticUnionSchema = [4, n0, _IFS, 0, [_fC], [0]];
+export var OutboundEdiOptions$: StaticUnionSchema = [4, n0, _OEO, 0, [_x], [() => X12Envelope$]];
+export var OutputSampleFileSource$: StaticUnionSchema = [4, n0, _OSFS, 0, [_fL], [() => S3Location$]];
+export var TemplateDetails$: StaticUnionSchema = [4, n0, _TD, 0, [_x], [() => X12Details$]];
+export var X12ValidationRule$: StaticUnionSchema = [
+  4,
   n0,
   _XVRa,
   0,

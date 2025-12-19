@@ -215,7 +215,7 @@ export var ExpiredTokenException$: StaticErrorSchema = [
   -3,
   n0,
   _ETE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ExpiredTokenException`, 400] },
+  { [_aQE]: [`ExpiredTokenException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -224,7 +224,7 @@ export var ExpiredTradeInTokenException$: StaticErrorSchema = [
   -3,
   n0,
   _ETITE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ExpiredTradeInTokenException`, 400] },
+  { [_aQE]: [`ExpiredTradeInTokenException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -288,7 +288,7 @@ export var IDPCommunicationErrorException$: StaticErrorSchema = [
   -3,
   n0,
   _IDPCEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`IDPCommunicationError`, 400] },
+  { [_aQE]: [`IDPCommunicationError`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -297,7 +297,7 @@ export var IDPRejectedClaimException$: StaticErrorSchema = [
   -3,
   n0,
   _IDPRCE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`IDPRejectedClaim`, 403] },
+  { [_aQE]: [`IDPRejectedClaim`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0],
 ];
@@ -306,7 +306,7 @@ export var InvalidAuthorizationMessageException$: StaticErrorSchema = [
   -3,
   n0,
   _IAME,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidAuthorizationMessageException`, 400] },
+  { [_aQE]: [`InvalidAuthorizationMessageException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -315,7 +315,7 @@ export var InvalidIdentityTokenException$: StaticErrorSchema = [
   -3,
   n0,
   _IITE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidIdentityToken`, 400] },
+  { [_aQE]: [`InvalidIdentityToken`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -324,7 +324,7 @@ export var JWTPayloadSizeExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _JWTPSEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`JWTPayloadSizeExceededException`, 400] },
+  { [_aQE]: [`JWTPayloadSizeExceededException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -333,7 +333,7 @@ export var MalformedPolicyDocumentException$: StaticErrorSchema = [
   -3,
   n0,
   _MPDE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`MalformedPolicyDocument`, 400] },
+  { [_aQE]: [`MalformedPolicyDocument`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -342,7 +342,7 @@ export var OutboundWebIdentityFederationDisabledException$: StaticErrorSchema = 
   -3,
   n0,
   _OWIFDE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`OutboundWebIdentityFederationDisabledException`, 403] },
+  { [_aQE]: [`OutboundWebIdentityFederationDisabledException`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0],
 ];
@@ -354,7 +354,7 @@ export var PackedPolicyTooLargeException$: StaticErrorSchema = [
   -3,
   n0,
   _PPTLE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`PackedPolicyTooLarge`, 400] },
+  { [_aQE]: [`PackedPolicyTooLarge`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -365,7 +365,7 @@ export var RegionDisabledException$: StaticErrorSchema = [
   -3,
   n0,
   _RDE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`RegionDisabledException`, 403] },
+  { [_aQE]: [`RegionDisabledException`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0],
 ];
@@ -374,7 +374,7 @@ export var SessionDurationEscalationException$: StaticErrorSchema = [
   -3,
   n0,
   _SDEE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`SessionDurationEscalationException`, 403] },
+  { [_aQE]: [`SessionDurationEscalationException`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0],
 ];

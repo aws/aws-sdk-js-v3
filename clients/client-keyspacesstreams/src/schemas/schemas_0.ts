@@ -114,6 +114,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -130,7 +131,7 @@ export var AccessDeniedException$: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`AccessDeniedException`, 403] },
+  { [_aQE]: [`AccessDeniedException`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0],
 ];
@@ -159,7 +160,7 @@ export var InternalServerException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  { [_e]: _se, [_hE]: 500, [_aQE]: [`InternalServerException`, 500] },
+  { [_aQE]: [`InternalServerException`, 500], [_e]: _se, [_hE]: 500 },
   [_m],
   [0],
 ];
@@ -203,7 +204,7 @@ export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourceNotFoundException`, 404] },
+  { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -216,7 +217,7 @@ export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  { [_e]: _c, [_hE]: 429, [_aQE]: [`ThrottlingException`, 429] },
+  { [_aQE]: [`ThrottlingException`, 429], [_e]: _c, [_hE]: 429 },
   [_m],
   [0],
 ];
@@ -225,7 +226,7 @@ export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ValidationException`, 400] },
+  { [_aQE]: [`ValidationException`, 400], [_e]: _c, [_hE]: 400 },
   [_m, _eC],
   [0, 0],
 ];
@@ -248,8 +249,8 @@ var StreamList: StaticListSchema = [1, n0, _SL, 0, () => _Stream$];
 var KeyspacesCells: StaticMapSchema = [2, n0, _KCe, 0, 0, () => KeyspacesCell$];
 var KeyspacesKeysMap: StaticMapSchema = [2, n0, _KKM, 0, 0, () => KeyspacesCellValue$];
 var KeyspacesUdtMap: StaticMapSchema = [2, n0, _KUM, 0, 0, () => KeyspacesCell$];
-export var KeyspacesCellValue$: StaticStructureSchema = [
-  3,
+export var KeyspacesCellValue$: StaticUnionSchema = [
+  4,
   n0,
   _KCV,
   0,

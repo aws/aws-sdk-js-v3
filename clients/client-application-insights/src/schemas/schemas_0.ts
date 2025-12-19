@@ -268,7 +268,7 @@ export var AccessDeniedException$: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`AccessDeniedException`, 403] },
+  { [_aQE]: [`AccessDeniedException`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
   [0],
 ];
@@ -309,7 +309,7 @@ export var BadRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _BRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`BadRequestException`, 400] },
+  { [_aQE]: [`BadRequestException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -433,7 +433,7 @@ export var InternalServerException$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`InternalServerException`, 500] },
+  { [_aQE]: [`InternalServerException`, 500], [_e]: _s, [_hE]: 500 },
   [_M],
   [0],
 ];
@@ -597,7 +597,7 @@ export var ResourceInUseException$: StaticErrorSchema = [
   -3,
   n0,
   _RIUE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceInUseException`, 400] },
+  { [_aQE]: [`ResourceInUseException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -606,7 +606,7 @@ export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourceNotFoundException`, 404] },
+  { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -671,7 +671,7 @@ export var ValidationException$: StaticErrorSchema = [
   -3,
   n0,
   _VE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ValidationException`, 400] },
+  { [_aQE]: [`ValidationException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];

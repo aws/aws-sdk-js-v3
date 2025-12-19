@@ -328,6 +328,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -973,8 +974,8 @@ var ValidationExceptionErrorArgumentList: StaticListSchema = [
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
 var TagMap = 128 | 0;
 var TemplateParametersMap: StaticMapSchema = [2, n0, _TPM, 0, [0, 0], [() => TemplateValue, 0]];
-export var ManifestOverridesPayload$: StaticStructureSchema = [3, n0, _MOP, 0, [_PD], [0]];
-export var ManifestPayload$: StaticStructureSchema = [3, n0, _MP, 0, [_PD], [0]];
+export var ManifestOverridesPayload$: StaticUnionSchema = [4, n0, _MOP, 0, [_PD], [0]];
+export var ManifestPayload$: StaticUnionSchema = [4, n0, _MP, 0, [_PD], [0]];
 export var CreateApplicationInstance$: StaticOperationSchema = [
   9,
   n0,

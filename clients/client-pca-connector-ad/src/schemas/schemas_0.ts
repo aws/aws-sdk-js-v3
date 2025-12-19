@@ -230,6 +230,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -774,10 +775,10 @@ var TagKeyList = 64 | 0;
 var TemplateList: StaticListSchema = [1, n0, _TL, 0, () => TemplateSummary$];
 var TemplateNameList = 64 | 0;
 var Tags = 128 | 0;
-export var ApplicationPolicy$: StaticStructureSchema = [3, n0, _APp, 0, [_PTo, _POI], [0, 0]];
-export var KeyUsageProperty$: StaticStructureSchema = [3, n0, _KUP, 0, [_PTr, _PF], [0, () => KeyUsagePropertyFlags$]];
-export var TemplateDefinition$: StaticStructureSchema = [
-  3,
+export var ApplicationPolicy$: StaticUnionSchema = [4, n0, _APp, 0, [_PTo, _POI], [0, 0]];
+export var KeyUsageProperty$: StaticUnionSchema = [4, n0, _KUP, 0, [_PTr, _PF], [0, () => KeyUsagePropertyFlags$]];
+export var TemplateDefinition$: StaticUnionSchema = [
+  4,
   n0,
   _TD,
   0,

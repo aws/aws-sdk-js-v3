@@ -143,6 +143,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { ComplexError, FooError, InvalidGreeting } from "../models/errors";
@@ -320,8 +321,8 @@ var DialogMap: StaticMapSchema = [2, n0, _DM, 0, 0, () => Dialog$];
 var RequiredStringMap = 128 | 0;
 var TestStringMap = 128 | 0;
 var StringMap = 128 | 0;
-export var MyUnion$: StaticStructureSchema = [
-  3,
+export var MyUnion$: StaticUnionSchema = [
+  4,
   n0,
   _MU,
   0,

@@ -1127,6 +1127,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -4301,8 +4302,8 @@ var CustomAttributes: StaticMapSchema = [2, n0, _CAu, 8, [0, 0], [() => MessageT
 var Headers = 128 | 0;
 var MessageMetadata = 128 | 0;
 var Tags = 128 | 0;
-export var AIAgentConfiguration$: StaticStructureSchema = [
-  3,
+export var AIAgentConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _AIAC,
   0,
@@ -4319,65 +4320,58 @@ export var AIAgentConfiguration$: StaticStructureSchema = [
     () => CaseSummarizationAIAgentConfiguration$,
   ],
 ];
-export var AIPromptInferenceConfiguration$: StaticStructureSchema = [
-  3,
+export var AIPromptInferenceConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _AIPIC,
   0,
   [_tAIPIC],
   [[() => TextAIPromptInferenceConfiguration$, 0]],
 ];
-export var AIPromptTemplateConfiguration$: StaticStructureSchema = [
-  3,
+export var AIPromptTemplateConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _AIPTC,
   0,
   [_tFAIPETC],
   [[() => TextFullAIPromptEditTemplateConfiguration$, 0]],
 ];
-export var AssistantAssociationInputData$: StaticStructureSchema = [
-  3,
+export var AssistantAssociationInputData$: StaticUnionSchema = [
+  4,
   n0,
   _AAID,
   0,
   [_kBI, _eBKBC],
   [0, () => ExternalBedrockKnowledgeBaseConfig$],
 ];
-export var AssistantAssociationOutputData$: StaticStructureSchema = [
-  3,
+export var AssistantAssociationOutputData$: StaticUnionSchema = [
+  4,
   n0,
   _AAOD,
   0,
   [_kBAn, _eBKBC],
   [() => KnowledgeBaseAssociationData$, () => ExternalBedrockKnowledgeBaseConfig$],
 ];
-export var AssociationConfigurationData$: StaticStructureSchema = [
-  3,
+export var AssociationConfigurationData$: StaticUnionSchema = [
+  4,
   n0,
   _ACD,
   0,
   [_kBACD],
   [() => KnowledgeBaseAssociationConfigurationData$],
 ];
-export var Configuration$: StaticStructureSchema = [3, n0, _Co, 0, [_cCon], [() => ConnectConfiguration$]];
-export var ContentAssociationContents$: StaticStructureSchema = [
-  3,
+export var Configuration$: StaticUnionSchema = [4, n0, _Co, 0, [_cCon], [() => ConnectConfiguration$]];
+export var ContentAssociationContents$: StaticUnionSchema = [
+  4,
   n0,
   _CAC,
   0,
   [_aCGA],
   [() => AmazonConnectGuideAssociationData$],
 ];
-export var ContentFeedbackData$: StaticStructureSchema = [
-  3,
-  n0,
-  _CFD,
-  0,
-  [_gCFD],
-  [() => GenerativeContentFeedbackData$],
-];
-export var DataDetails$: StaticStructureSchema = [
-  3,
+export var ContentFeedbackData$: StaticUnionSchema = [4, n0, _CFD, 0, [_gCFD], [() => GenerativeContentFeedbackData$]];
+export var DataDetails$: StaticUnionSchema = [
+  4,
   n0,
   _DD,
   0,
@@ -4397,41 +4391,41 @@ export var DataDetails$: StaticStructureSchema = [
     [() => NotesChunkDataDetails$, 0],
   ],
 ];
-export var DataReference$: StaticStructureSchema = [
-  3,
+export var DataReference$: StaticUnionSchema = [
+  4,
   n0,
   _DR,
   0,
   [_cR, _gR, _sMR],
   [() => ContentReference$, () => GenerativeReference$, () => SuggestedMessageReference$],
 ];
-export var KnowledgeSource$: StaticStructureSchema = [3, n0, _KS, 0, [_aAIss], [64 | 0]];
-export var ManagedSourceConfiguration$: StaticStructureSchema = [
-  3,
+export var KnowledgeSource$: StaticUnionSchema = [4, n0, _KS, 0, [_aAIss], [64 | 0]];
+export var ManagedSourceConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _MSC,
   0,
   [_wCC],
   [[() => WebCrawlerConfiguration$, 0]],
 ];
-export var MessageData$: StaticStructureSchema = [
-  3,
+export var MessageData$: StaticUnionSchema = [
+  4,
   n0,
   _MD,
   0,
   [_te, _tUR],
   [[() => TextMessage$, 0], () => ToolUseResultData$],
 ];
-export var MessageTemplateBodyContentProvider$: StaticStructureSchema = [
-  3,
+export var MessageTemplateBodyContentProvider$: StaticUnionSchema = [
+  4,
   n0,
   _MTBCP,
   0,
   [_con],
   [[() => NonEmptyUnlimitedString, 0]],
 ];
-export var MessageTemplateContentProvider$: StaticStructureSchema = [
-  3,
+export var MessageTemplateContentProvider$: StaticUnionSchema = [
+  4,
   n0,
   _MTCP,
   0,
@@ -4443,65 +4437,51 @@ export var MessageTemplateContentProvider$: StaticStructureSchema = [
     [() => PushMessageTemplateContent$, 0],
   ],
 ];
-export var MessageTemplateSourceConfiguration$: StaticStructureSchema = [
-  3,
+export var MessageTemplateSourceConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _MTSC,
   0,
   [_wA],
   [() => WhatsAppMessageTemplateSourceConfiguration$],
 ];
-export var MessageTemplateSourceConfigurationSummary$: StaticStructureSchema = [
-  3,
+export var MessageTemplateSourceConfigurationSummary$: StaticUnionSchema = [
+  4,
   n0,
   _MTSCS,
   0,
   [_wA],
   [[() => WhatsAppMessageTemplateSourceConfigurationSummary$, 0]],
 ];
-export var OrCondition$: StaticStructureSchema = [
-  3,
-  n0,
-  _OCr,
-  0,
-  [_aCn, _tCa],
-  [() => AndConditions, () => TagCondition$],
-];
-export var QueryCondition$: StaticStructureSchema = [3, n0, _QC, 0, [_si], [() => QueryConditionItem$]];
-export var QueryInputData$: StaticStructureSchema = [
-  3,
+export var OrCondition$: StaticUnionSchema = [4, n0, _OCr, 0, [_aCn, _tCa], [() => AndConditions, () => TagCondition$]];
+export var QueryCondition$: StaticUnionSchema = [4, n0, _QC, 0, [_si], [() => QueryConditionItem$]];
+export var QueryInputData$: StaticUnionSchema = [
+  4,
   n0,
   _QID,
   0,
   [_qTID, _iID, _cSID],
   [[() => QueryTextInputData$, 0], () => IntentInputData$, () => CaseSummarizationInputData$],
 ];
-export var QuickResponseContentProvider$: StaticStructureSchema = [
-  3,
+export var QuickResponseContentProvider$: StaticUnionSchema = [
+  4,
   n0,
   _QRCP,
   0,
   [_con],
   [[() => QuickResponseContent, 0]],
 ];
-export var QuickResponseDataProvider$: StaticStructureSchema = [
-  3,
-  n0,
-  _QRDP,
-  0,
-  [_con],
-  [[() => QuickResponseContent, 0]],
-];
-export var RecommendationTriggerData$: StaticStructureSchema = [
-  3,
+export var QuickResponseDataProvider$: StaticUnionSchema = [4, n0, _QRDP, 0, [_con], [[() => QuickResponseContent, 0]]];
+export var RecommendationTriggerData$: StaticUnionSchema = [
+  4,
   n0,
   _RTD,
   0,
   [_qu],
   [[() => QueryRecommendationTriggerData$, 0]],
 ];
-export var RetrievalFilterConfiguration$: StaticStructureSchema = [
-  3,
+export var RetrievalFilterConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _RFC,
   0,
@@ -4522,40 +4502,33 @@ export var RetrievalFilterConfiguration$: StaticStructureSchema = [
     () => FilterAttribute$,
   ],
 ];
-export var RuntimeSessionDataValue$: StaticStructureSchema = [
-  3,
-  n0,
-  _RSDV,
-  0,
-  [_sV],
-  [[() => NonEmptySensitiveString, 0]],
-];
-export var SourceConfiguration$: StaticStructureSchema = [
-  3,
+export var RuntimeSessionDataValue$: StaticUnionSchema = [4, n0, _RSDV, 0, [_sV], [[() => NonEmptySensitiveString, 0]]];
+export var SourceConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _SCo,
   0,
   [_aIp, _mSC],
   [() => AppIntegrationsConfiguration$, [() => ManagedSourceConfiguration$, 0]],
 ];
-export var SpanMessageValue$: StaticStructureSchema = [
-  3,
+export var SpanMessageValue$: StaticUnionSchema = [
+  4,
   n0,
   _SMV,
   0,
   [_te, _tUo, _tR],
   [[() => SpanTextValue$, 0], () => SpanToolUseValue$, [() => SpanToolResultValue$, 0]],
 ];
-export var TagFilter$: StaticStructureSchema = [
-  3,
+export var TagFilter$: StaticUnionSchema = [
+  4,
   n0,
   _TF,
   0,
   [_tCa, _aCn, _oCr],
   [() => TagCondition$, () => AndConditions, () => OrConditions],
 ];
-export var ToolOverrideInputValueConfiguration$: StaticStructureSchema = [
-  3,
+export var ToolOverrideInputValueConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _TOIVC,
   0,

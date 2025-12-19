@@ -392,6 +392,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { ConnectCasesServiceException } from "../models/ConnectCasesServiceException";
@@ -1156,74 +1157,67 @@ var TemplateStatusFilters = 64 | 0;
 var TemplateSummaryList: StaticListSchema = [1, n0, _TSL, 0, () => TemplateSummary$];
 var ValuesList = 64 | 0;
 var Tags: StaticMapSchema = [2, n0, _T, { [_sp]: 1 }, 0, 0];
-export var AuditEventFieldValueUnion$: StaticStructureSchema = [
-  3,
+export var AuditEventFieldValueUnion$: StaticUnionSchema = [
+  4,
   n0,
   _AEFVU,
   0,
   [_sV, _dVo, _bV, _eV, _uAV],
   [0, 1, 2, () => EmptyFieldValue$, 0],
 ];
-export var BooleanCondition$: StaticStructureSchema = [
-  3,
+export var BooleanCondition$: StaticUnionSchema = [
+  4,
   n0,
   _BC,
   0,
   [_eT, _nET],
   [() => BooleanOperands$, () => BooleanOperands$],
 ];
-export var CaseFilter$: StaticStructureSchema = [
-  3,
+export var CaseFilter$: StaticUnionSchema = [
+  4,
   n0,
   _CFa,
   0,
   [_fie, _no, _aA, _oA],
   [() => FieldFilter$, () => CaseFilter$, () => CaseFilterList, () => CaseFilterList],
 ];
-export var CaseRuleDetails$: StaticStructureSchema = [
-  3,
+export var CaseRuleDetails$: StaticUnionSchema = [
+  4,
   n0,
   _CRD,
   0,
   [_re, _fO, _h],
   [() => RequiredCaseRule$, () => FieldOptionsCaseRule$, () => HiddenCaseRule$],
 ];
-export var CustomFieldsFilter$: StaticStructureSchema = [
-  3,
+export var CustomFieldsFilter$: StaticUnionSchema = [
+  4,
   n0,
   _CFF,
   0,
   [_fie, _no, _aA, _oA],
   [() => FieldFilter$, () => CustomFieldsFilter$, () => CustomFieldsFilterList, () => CustomFieldsFilterList],
 ];
-export var FieldFilter$: StaticStructureSchema = [
-  3,
+export var FieldFilter$: StaticUnionSchema = [
+  4,
   n0,
   _FFi,
   0,
   [_eT, _cont, _gT, _gTOET, _lT, _lTOET],
   [() => FieldValue$, () => FieldValue$, () => FieldValue$, () => FieldValue$, () => FieldValue$, () => FieldValue$],
 ];
-export var FieldValueUnion$: StaticStructureSchema = [
-  3,
+export var FieldValueUnion$: StaticUnionSchema = [
+  4,
   n0,
   _FVU,
   0,
   [_sV, _dVo, _bV, _eV, _uAV],
   [0, 1, 2, () => EmptyFieldValue$, 0],
 ];
-export var LayoutContent$: StaticStructureSchema = [3, n0, _LCa, 0, [_ba], [() => BasicLayout$]];
-export var OperandOne$: StaticStructureSchema = [3, n0, _OO, 0, [_fI], [0]];
-export var OperandTwo$: StaticStructureSchema = [
-  3,
-  n0,
-  _OT,
-  0,
-  [_sV, _bV, _dVo, _eV],
-  [0, 2, 1, () => EmptyOperandValue$],
-];
-export var RelatedItemContent$: StaticStructureSchema = [
-  3,
+export var LayoutContent$: StaticUnionSchema = [4, n0, _LCa, 0, [_ba], [() => BasicLayout$]];
+export var OperandOne$: StaticUnionSchema = [4, n0, _OO, 0, [_fI], [0]];
+export var OperandTwo$: StaticUnionSchema = [4, n0, _OT, 0, [_sV, _bV, _dVo, _eV], [0, 2, 1, () => EmptyOperandValue$]];
+export var RelatedItemContent$: StaticUnionSchema = [
+  4,
   n0,
   _RIC,
   0,
@@ -1237,8 +1231,8 @@ export var RelatedItemContent$: StaticStructureSchema = [
     () => CustomContent$,
   ],
 ];
-export var RelatedItemInputContent$: StaticStructureSchema = [
-  3,
+export var RelatedItemInputContent$: StaticUnionSchema = [
+  4,
   n0,
   _RIIC,
   0,
@@ -1252,8 +1246,8 @@ export var RelatedItemInputContent$: StaticStructureSchema = [
     () => CustomInputContent$,
   ],
 ];
-export var RelatedItemTypeFilter$: StaticStructureSchema = [
-  3,
+export var RelatedItemTypeFilter$: StaticUnionSchema = [
+  4,
   n0,
   _RITF,
   0,
@@ -1267,9 +1261,9 @@ export var RelatedItemTypeFilter$: StaticStructureSchema = [
     () => CustomFilter$,
   ],
 ];
-export var Section$: StaticStructureSchema = [3, n0, _Se, 0, [_fG], [() => FieldGroup$]];
-export var SlaInputContent$: StaticStructureSchema = [3, n0, _SICl, 0, [_sIC], [[() => SlaInputConfiguration$, 0]]];
-export var UserUnion$: StaticStructureSchema = [3, n0, _UU, 0, [_uA, _cE], [0, [() => CustomEntity, 0]]];
+export var Section$: StaticUnionSchema = [4, n0, _Se, 0, [_fG], [() => FieldGroup$]];
+export var SlaInputContent$: StaticUnionSchema = [4, n0, _SICl, 0, [_sIC], [[() => SlaInputConfiguration$, 0]]];
+export var UserUnion$: StaticUnionSchema = [4, n0, _UU, 0, [_uA, _cE], [0, [() => CustomEntity, 0]]];
 export var BatchGetCaseRule$: StaticOperationSchema = [
   9,
   n0,

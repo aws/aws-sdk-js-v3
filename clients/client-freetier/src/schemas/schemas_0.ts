@@ -77,7 +77,13 @@ const n0 = "com.amazonaws.freetier";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type {
+  StaticErrorSchema,
+  StaticListSchema,
+  StaticOperationSchema,
+  StaticStructureSchema,
+  StaticUnionSchema,
+} from "@smithy/types";
 
 import {
   AccessDeniedException,
@@ -178,7 +184,7 @@ var FilterActivityStatuses = 64 | 0;
 var FreeTierUsages: StaticListSchema = [1, n0, _FTUr, 0, () => FreeTierUsage$];
 var MatchOptions = 64 | 0;
 var Values = 64 | 0;
-export var ActivityReward$: StaticStructureSchema = [3, n0, _AR, 0, [_cr], [() => MonetaryAmount$]];
+export var ActivityReward$: StaticUnionSchema = [4, n0, _AR, 0, [_cr], [() => MonetaryAmount$]];
 export var GetAccountActivity$: StaticOperationSchema = [
   9,
   n0,

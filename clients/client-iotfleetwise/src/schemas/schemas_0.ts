@@ -527,6 +527,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1562,58 +1563,58 @@ var VehicleStatusList: StaticListSchema = [1, n0, _VSL, 0, () => VehicleStatus$]
 var vehicleSummaries: StaticListSchema = [1, n0, _vS, 0, () => VehicleSummary$];
 var attributesMap = 128 | 0;
 var ModelSignalsMap = 128 | 0;
-export var CollectionScheme$: StaticStructureSchema = [
-  3,
+export var CollectionScheme$: StaticUnionSchema = [
+  4,
   n0,
   _CSo,
   0,
   [_tBCS, _cBCS],
   [() => TimeBasedCollectionScheme$, [() => ConditionBasedCollectionScheme$, 0]],
 ];
-export var DataDestinationConfig$: StaticStructureSchema = [
-  3,
+export var DataDestinationConfig$: StaticUnionSchema = [
+  4,
   n0,
   _DDCa,
   0,
   [_sCo, _tC, _mTC],
   [() => S3Config$, () => TimestreamConfig$, () => MqttTopicConfig$],
 ];
-export var FormattedVss$: StaticStructureSchema = [3, n0, _FV, 0, [_vJ], [0]];
-export var NetworkFileDefinition$: StaticStructureSchema = [3, n0, _NFDe, 0, [_cD], [() => CanDbcDefinition$]];
-export var Node$: StaticStructureSchema = [
-  3,
+export var FormattedVss$: StaticUnionSchema = [4, n0, _FV, 0, [_vJ], [0]];
+export var NetworkFileDefinition$: StaticUnionSchema = [4, n0, _NFDe, 0, [_cD], [() => CanDbcDefinition$]];
+export var Node$: StaticUnionSchema = [
+  4,
   n0,
   _No,
   0,
   [_b, _sen, _actu, _att, _st, _pro],
   [() => Branch$, () => Sensor$, () => Actuator$, () => Attribute$, () => CustomStruct$, () => CustomProperty$],
 ];
-export var PrimitiveMessageDefinition$: StaticStructureSchema = [
-  3,
+export var PrimitiveMessageDefinition$: StaticUnionSchema = [
+  4,
   n0,
   _PMD,
   0,
   [_rPMD],
   [() => ROS2PrimitiveMessageDefinition$],
 ];
-export var SignalFetchConfig$: StaticStructureSchema = [
-  3,
+export var SignalFetchConfig$: StaticUnionSchema = [
+  4,
   n0,
   _SFC,
   0,
   [_tBi, _cB],
   [() => TimeBasedSignalFetchConfig$, [() => ConditionBasedSignalFetchConfig$, 0]],
 ];
-export var StateTemplateUpdateStrategy$: StaticStructureSchema = [
-  3,
+export var StateTemplateUpdateStrategy$: StaticUnionSchema = [
+  4,
   n0,
   _STUS,
   0,
   [_pe, _oC],
   [() => PeriodicStateTemplateUpdateStrategy$, () => OnChangeStateTemplateUpdateStrategy$],
 ];
-export var StructuredMessage$: StaticStructureSchema = [
-  3,
+export var StructuredMessage$: StaticUnionSchema = [
+  4,
   n0,
   _SM,
   0,

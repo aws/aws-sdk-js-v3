@@ -117,7 +117,13 @@ const n0 = "com.amazonaws.healthlake";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type {
+  StaticErrorSchema,
+  StaticListSchema,
+  StaticOperationSchema,
+  StaticStructureSchema,
+  StaticUnionSchema,
+} from "@smithy/types";
 
 import {
   AccessDeniedException,
@@ -340,8 +346,8 @@ var ExportJobPropertiesList: StaticListSchema = [1, n0, _EJPL, 0, () => ExportJo
 var ImportJobPropertiesList: StaticListSchema = [1, n0, _IJPL, 0, () => ImportJobProperties$];
 var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
-export var InputDataConfig$: StaticStructureSchema = [3, n0, _IDC, 0, [_SU], [0]];
-export var OutputDataConfig$: StaticStructureSchema = [3, n0, _ODC, 0, [_SCo], [() => S3Configuration$]];
+export var InputDataConfig$: StaticUnionSchema = [4, n0, _IDC, 0, [_SU], [0]];
+export var OutputDataConfig$: StaticUnionSchema = [4, n0, _ODC, 0, [_SCo], [() => S3Configuration$]];
 export var CreateFHIRDatastore$: StaticOperationSchema = [
   9,
   n0,

@@ -661,6 +661,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { DynamoDBServiceException } from "../models/DynamoDBServiceException";
@@ -1914,7 +1915,7 @@ export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`Throttling`, 400] },
+  { [_aQE]: [`Throttling`, 400], [_e]: _c, [_hE]: 400 },
   [_m, _tR],
   [0, () => ThrottlingReasonList],
 ];
@@ -2312,8 +2313,8 @@ var KeyConditions: StaticMapSchema = [2, n0, _KC, 0, 0, () => Condition$];
 var MapAttributeValue: StaticMapSchema = [2, n0, _MAV, 0, 0, () => AttributeValue$];
 var PutItemInputAttributeMap: StaticMapSchema = [2, n0, _PIIAM, 0, 0, () => AttributeValue$];
 var SecondaryIndexesCapacityMap: StaticMapSchema = [2, n0, _SICM, 0, 0, () => Capacity$];
-export var AttributeValue$: StaticStructureSchema = [
-  3,
+export var AttributeValue$: StaticUnionSchema = [
+  4,
   n0,
   _AV,
   0,

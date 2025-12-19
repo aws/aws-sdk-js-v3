@@ -444,6 +444,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1596,26 +1597,26 @@ var TargetSummaryList: StaticListSchema = [1, n0, _TSL, 0, () => TargetSummary$]
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
 var WeightedTargetGroupList: StaticListSchema = [1, n0, _WTGL, 0, () => WeightedTargetGroup$];
 var TagMap = 128 | 0;
-export var HeaderMatchType$: StaticStructureSchema = [3, n0, _HMT, 0, [_ex, _pre, _con], [0, 0, 0]];
-export var Matcher$: StaticStructureSchema = [3, n0, _M, 0, [_hCt], [0]];
-export var PathMatchType$: StaticStructureSchema = [3, n0, _PMT, 0, [_ex, _pre], [0, 0]];
-export var ResourceConfigurationDefinition$: StaticStructureSchema = [
-  3,
+export var HeaderMatchType$: StaticUnionSchema = [4, n0, _HMT, 0, [_ex, _pre, _con], [0, 0, 0]];
+export var Matcher$: StaticUnionSchema = [4, n0, _M, 0, [_hCt], [0]];
+export var PathMatchType$: StaticUnionSchema = [4, n0, _PMT, 0, [_ex, _pre], [0, 0]];
+export var ResourceConfigurationDefinition$: StaticUnionSchema = [
+  4,
   n0,
   _RCD,
   0,
   [_dR, _iR, _aR],
   [() => DnsResource$, () => IpResource$, () => ArnResource$],
 ];
-export var RuleAction$: StaticStructureSchema = [
-  3,
+export var RuleAction$: StaticUnionSchema = [
+  4,
   n0,
   _RAu,
   0,
   [_f, _fRi],
   [() => ForwardAction$, () => FixedResponseAction$],
 ];
-export var RuleMatch$: StaticStructureSchema = [3, n0, _RM, 0, [_hMt], [() => HttpMatch$]];
+export var RuleMatch$: StaticUnionSchema = [4, n0, _RM, 0, [_hMt], [() => HttpMatch$]];
 export var BatchUpdateRule$: StaticOperationSchema = [
   9,
   n0,

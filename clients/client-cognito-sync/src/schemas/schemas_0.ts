@@ -162,7 +162,7 @@ export var AlreadyStreamedException$: StaticErrorSchema = [
   -3,
   n0,
   _ASE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`AlreadyStreamed`, 400] },
+  { [_aQE]: [`AlreadyStreamed`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -174,7 +174,7 @@ export var ConcurrentModificationException$: StaticErrorSchema = [
   -3,
   n0,
   _CME,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ConcurrentModification`, 400] },
+  { [_aQE]: [`ConcurrentModification`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -238,7 +238,7 @@ export var DuplicateRequestException$: StaticErrorSchema = [
   -3,
   n0,
   _DRE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DuplicateRequest`, 400] },
+  { [_aQE]: [`DuplicateRequest`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -269,7 +269,7 @@ export var InternalErrorException$: StaticErrorSchema = [
   -3,
   n0,
   _IEE,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`InternalError`, 500] },
+  { [_aQE]: [`InternalError`, 500], [_e]: _s, [_hE]: 500 },
   [_m],
   [0],
 ];
@@ -278,7 +278,7 @@ export var InvalidConfigurationException$: StaticErrorSchema = [
   -3,
   n0,
   _ICE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidConfiguration`, 400] },
+  { [_aQE]: [`InvalidConfiguration`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -287,7 +287,7 @@ export var InvalidLambdaFunctionOutputException$: StaticErrorSchema = [
   -3,
   n0,
   _ILFOE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidLambdaFunctionOutput`, 400] },
+  { [_aQE]: [`InvalidLambdaFunctionOutput`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -296,7 +296,7 @@ export var InvalidParameterException$: StaticErrorSchema = [
   -3,
   n0,
   _IPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameter`, 400] },
+  { [_aQE]: [`InvalidParameter`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -305,7 +305,7 @@ export var LambdaThrottledException$: StaticErrorSchema = [
   -3,
   n0,
   _LTE,
-  { [_e]: _c, [_hE]: 429, [_aQE]: [`LambdaThrottled`, 429] },
+  { [_aQE]: [`LambdaThrottled`, 429], [_e]: _c, [_hE]: 429 },
   [_m],
   [0],
 ];
@@ -314,7 +314,7 @@ export var LimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`LimitExceeded`, 400] },
+  { [_aQE]: [`LimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -380,7 +380,7 @@ export var NotAuthorizedException$: StaticErrorSchema = [
   -3,
   n0,
   _NAE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`NotAuthorizedError`, 403] },
+  { [_aQE]: [`NotAuthorizedError`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0],
 ];
@@ -401,7 +401,7 @@ export var ResourceConflictException$: StaticErrorSchema = [
   -3,
   n0,
   _RCE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`ResourceConflict`, 409] },
+  { [_aQE]: [`ResourceConflict`, 409], [_e]: _c, [_hE]: 409 },
   [_m],
   [0],
 ];
@@ -410,7 +410,7 @@ export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourceNotFound`, 404] },
+  { [_aQE]: [`ResourceNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -450,7 +450,7 @@ export var TooManyRequestsException$: StaticErrorSchema = [
   -3,
   n0,
   _TMRE,
-  { [_e]: _c, [_hE]: 429, [_aQE]: [`TooManyRequests`, 429] },
+  { [_aQE]: [`TooManyRequests`, 429], [_e]: _c, [_hE]: 429 },
   [_m],
   [0],
 ];

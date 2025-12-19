@@ -636,6 +636,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { EMRServiceException } from "../models/EMRServiceException";
@@ -1230,7 +1231,7 @@ export var InternalServerError$: StaticErrorSchema = [
   -3,
   n0,
   _ISE,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`InternalFailure`, 500] },
+  { [_aQE]: [`InternalFailure`, 500], [_e]: _s, [_hE]: 500 },
   [],
   [],
 ];
@@ -1909,7 +1910,7 @@ var XmlStringMaxLen256List = 64 | 0;
 var EnvironmentVariablesMap = 128 | 0;
 var LogTypesMap: StaticMapSchema = [2, n0, _LTM, 0, 0, 64 | 0];
 var StringMap = 128 | 0;
-export var Credentials$: StaticStructureSchema = [3, n0, _Cr, 0, [_UP], [[() => UsernamePassword$, 0]]];
+export var Credentials$: StaticUnionSchema = [4, n0, _Cr, 0, [_UP], [[() => UsernamePassword$, 0]]];
 export var AddInstanceFleet$: StaticOperationSchema = [
   9,
   n0,

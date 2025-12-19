@@ -147,7 +147,7 @@ export var DeleteClusterInput$: StaticStructureSchema = [
   [_i, _cT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _ct }],
+    [0, { [_hQ]: _ct, [_iT]: 1 }],
   ],
 ];
 export var DeleteClusterOutput$: StaticStructureSchema = [3, n0, _DCO, 0, [_i, _a, _s, _cTr], [0, 0, 0, 4]];
@@ -160,7 +160,7 @@ export var DeleteClusterPolicyInput$: StaticStructureSchema = [
   [
     [0, 1],
     [0, { [_hQ]: _epv }],
-    [0, { [_iT]: 1, [_hQ]: _ct }],
+    [0, { [_hQ]: _ct, [_iT]: 1 }],
   ],
 ];
 export var DeleteClusterPolicyOutput$: StaticStructureSchema = [3, n0, _DCPO, 0, [_pV], [0]];

@@ -1749,7 +1749,7 @@ export var AuthorizationAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _AAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`AuthorizationAlreadyExists`, 400] },
+  { [_aQE]: [`AuthorizationAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1758,7 +1758,7 @@ export var AuthorizationNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _ANFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`AuthorizationNotFound`, 404] },
+  { [_aQE]: [`AuthorizationNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -1767,7 +1767,7 @@ export var AuthorizationQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _AQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`AuthorizationQuotaExceeded`, 400] },
+  { [_aQE]: [`AuthorizationQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1810,7 +1810,7 @@ export var BackupPolicyNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _BPNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`BackupPolicyNotFoundFault`, 404] },
+  { [_aQE]: [`BackupPolicyNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -1827,7 +1827,7 @@ export var BlueGreenDeploymentAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _BGDAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`BlueGreenDeploymentAlreadyExistsFault`, 400] },
+  { [_aQE]: [`BlueGreenDeploymentAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1836,7 +1836,7 @@ export var BlueGreenDeploymentNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _BGDNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`BlueGreenDeploymentNotFoundFault`, 404] },
+  { [_aQE]: [`BlueGreenDeploymentNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -1864,7 +1864,7 @@ export var CertificateNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _CNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`CertificateNotFound`, 404] },
+  { [_aQE]: [`CertificateNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -1994,7 +1994,7 @@ export var CreateCustomDBEngineVersionFault$: StaticErrorSchema = [
   -3,
   n0,
   _CCDBEVF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CreateCustomDBEngineVersionFault`, 400] },
+  { [_aQE]: [`CreateCustomDBEngineVersionFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -2580,7 +2580,7 @@ export var CustomAvailabilityZoneNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _CAZNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`CustomAvailabilityZoneNotFound`, 404] },
+  { [_aQE]: [`CustomAvailabilityZoneNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -2589,7 +2589,7 @@ export var CustomDBEngineVersionAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _CDBEVAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CustomDBEngineVersionAlreadyExistsFault`, 400] },
+  { [_aQE]: [`CustomDBEngineVersionAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -2599,7 +2599,7 @@ export var CustomDBEngineVersionNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _CDBEVNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`CustomDBEngineVersionNotFoundFault`, 404] },
+  { [_aQE]: [`CustomDBEngineVersionNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -2608,7 +2608,7 @@ export var CustomDBEngineVersionQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _CDBEVQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CustomDBEngineVersionQuotaExceededFault`, 400] },
+  { [_aQE]: [`CustomDBEngineVersionQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -2797,7 +2797,7 @@ export var DBClusterAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBCAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBClusterAlreadyExistsFault`, 400] },
+  { [_aQE]: [`DBClusterAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -2876,7 +2876,7 @@ export var DBClusterAutomatedBackupNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBCABNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBClusterAutomatedBackupNotFoundFault`, 404] },
+  { [_aQE]: [`DBClusterAutomatedBackupNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -2885,7 +2885,7 @@ export var DBClusterAutomatedBackupQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBCABQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBClusterAutomatedBackupQuotaExceededFault`, 400] },
+  { [_aQE]: [`DBClusterAutomatedBackupQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -2913,7 +2913,7 @@ export var DBClusterBacktrackNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBCBNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBClusterBacktrackNotFoundFault`, 404] },
+  { [_aQE]: [`DBClusterBacktrackNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -2938,7 +2938,7 @@ export var DBClusterEndpointAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBCEAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBClusterEndpointAlreadyExistsFault`, 400] },
+  { [_aQE]: [`DBClusterEndpointAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -2955,7 +2955,7 @@ export var DBClusterEndpointNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBCENFF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBClusterEndpointNotFoundFault`, 400] },
+  { [_aQE]: [`DBClusterEndpointNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -2964,7 +2964,7 @@ export var DBClusterEndpointQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBCEQEF,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`DBClusterEndpointQuotaExceededFault`, 403] },
+  { [_aQE]: [`DBClusterEndpointQuotaExceededFault`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0],
 ];
@@ -2975,7 +2975,7 @@ export var DBClusterNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBCNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBClusterNotFoundFault`, 404] },
+  { [_aQE]: [`DBClusterNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -3002,7 +3002,7 @@ export var DBClusterParameterGroupNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBCPGNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBClusterParameterGroupNotFound`, 404] },
+  { [_aQE]: [`DBClusterParameterGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -3019,7 +3019,7 @@ export var DBClusterQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBCQEF,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`DBClusterQuotaExceededFault`, 403] },
+  { [_aQE]: [`DBClusterQuotaExceededFault`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0],
 ];
@@ -3029,7 +3029,7 @@ export var DBClusterRoleAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBCRAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBClusterRoleAlreadyExists`, 400] },
+  { [_aQE]: [`DBClusterRoleAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -3038,7 +3038,7 @@ export var DBClusterRoleNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBCRNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBClusterRoleNotFound`, 404] },
+  { [_aQE]: [`DBClusterRoleNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -3047,7 +3047,7 @@ export var DBClusterRoleQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBCRQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBClusterRoleQuotaExceeded`, 400] },
+  { [_aQE]: [`DBClusterRoleQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -3118,7 +3118,7 @@ export var DBClusterSnapshotAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBCSAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBClusterSnapshotAlreadyExistsFault`, 400] },
+  { [_aQE]: [`DBClusterSnapshotAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -3151,7 +3151,7 @@ export var DBClusterSnapshotNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBCSNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBClusterSnapshotNotFoundFault`, 404] },
+  { [_aQE]: [`DBClusterSnapshotNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -3443,7 +3443,7 @@ export var DBInstanceAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBIAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBInstanceAlreadyExists`, 400] },
+  { [_aQE]: [`DBInstanceAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -3536,7 +3536,7 @@ export var DBInstanceAutomatedBackupNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBIABNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBInstanceAutomatedBackupNotFound`, 404] },
+  { [_aQE]: [`DBInstanceAutomatedBackupNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -3545,7 +3545,7 @@ export var DBInstanceAutomatedBackupQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBIABQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBInstanceAutomatedBackupQuotaExceeded`, 400] },
+  { [_aQE]: [`DBInstanceAutomatedBackupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -3559,7 +3559,7 @@ export var DBInstanceNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBINFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBInstanceNotFound`, 404] },
+  { [_aQE]: [`DBInstanceNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -3568,7 +3568,7 @@ export var DBInstanceNotReadyFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBINRF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBInstanceNotReady`, 400] },
+  { [_aQE]: [`DBInstanceNotReady`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -3578,7 +3578,7 @@ export var DBInstanceRoleAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBIRAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBInstanceRoleAlreadyExists`, 400] },
+  { [_aQE]: [`DBInstanceRoleAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -3587,7 +3587,7 @@ export var DBInstanceRoleNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBIRNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBInstanceRoleNotFound`, 404] },
+  { [_aQE]: [`DBInstanceRoleNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -3596,7 +3596,7 @@ export var DBInstanceRoleQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBIRQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBInstanceRoleQuotaExceeded`, 400] },
+  { [_aQE]: [`DBInstanceRoleQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -3606,7 +3606,7 @@ export var DBLogFileNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBLFNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBLogFileNotFoundFault`, 404] },
+  { [_aQE]: [`DBLogFileNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -3624,7 +3624,7 @@ export var DBParameterGroupAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBPGAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBParameterGroupAlreadyExists`, 400] },
+  { [_aQE]: [`DBParameterGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -3642,7 +3642,7 @@ export var DBParameterGroupNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBPGNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBParameterGroupNotFound`, 404] },
+  { [_aQE]: [`DBParameterGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -3651,7 +3651,7 @@ export var DBParameterGroupQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBPGQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBParameterGroupQuotaExceeded`, 400] },
+  { [_aQE]: [`DBParameterGroupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -3677,7 +3677,7 @@ export var DBProxyAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBPAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBProxyAlreadyExistsFault`, 400] },
+  { [_aQE]: [`DBProxyAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -3694,7 +3694,7 @@ export var DBProxyEndpointAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBPEAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBProxyEndpointAlreadyExistsFault`, 400] },
+  { [_aQE]: [`DBProxyEndpointAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -3703,7 +3703,7 @@ export var DBProxyEndpointNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBPENFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBProxyEndpointNotFoundFault`, 404] },
+  { [_aQE]: [`DBProxyEndpointNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -3712,7 +3712,7 @@ export var DBProxyEndpointQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBPEQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBProxyEndpointQuotaExceededFault`, 400] },
+  { [_aQE]: [`DBProxyEndpointQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -3721,7 +3721,7 @@ export var DBProxyNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBPNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBProxyNotFoundFault`, 404] },
+  { [_aQE]: [`DBProxyNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -3730,7 +3730,7 @@ export var DBProxyQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBPQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBProxyQuotaExceededFault`, 400] },
+  { [_aQE]: [`DBProxyQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -3747,7 +3747,7 @@ export var DBProxyTargetAlreadyRegisteredFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBPTARF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBProxyTargetAlreadyRegisteredFault`, 400] },
+  { [_aQE]: [`DBProxyTargetAlreadyRegisteredFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -3764,7 +3764,7 @@ export var DBProxyTargetGroupNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBPTGNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBProxyTargetGroupNotFoundFault`, 404] },
+  { [_aQE]: [`DBProxyTargetGroupNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -3773,7 +3773,7 @@ export var DBProxyTargetNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBPTNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBProxyTargetNotFoundFault`, 404] },
+  { [_aQE]: [`DBProxyTargetNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -3828,7 +3828,7 @@ export var DBSecurityGroupAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBSGAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBSecurityGroupAlreadyExists`, 400] },
+  { [_aQE]: [`DBSecurityGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -3846,7 +3846,7 @@ export var DBSecurityGroupNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBSGNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBSecurityGroupNotFound`, 404] },
+  { [_aQE]: [`DBSecurityGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -3855,7 +3855,7 @@ export var DBSecurityGroupNotSupportedFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBSGNSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBSecurityGroupNotSupported`, 400] },
+  { [_aQE]: [`DBSecurityGroupNotSupported`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -3864,7 +3864,7 @@ export var DBSecurityGroupQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBSGQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`QuotaExceeded.DBSecurityGroup`, 400] },
+  { [_aQE]: [`QuotaExceeded.DBSecurityGroup`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -3881,7 +3881,7 @@ export var DBShardGroupAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBSGAEFh,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBShardGroupAlreadyExists`, 400] },
+  { [_aQE]: [`DBShardGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -3890,7 +3890,7 @@ export var DBShardGroupNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBSGNFFh,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBShardGroupNotFound`, 404] },
+  { [_aQE]: [`DBShardGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -3985,7 +3985,7 @@ export var DBSnapshotAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBSAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBSnapshotAlreadyExists`, 400] },
+  { [_aQE]: [`DBSnapshotAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -4011,7 +4011,7 @@ export var DBSnapshotNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBSNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBSnapshotNotFound`, 404] },
+  { [_aQE]: [`DBSnapshotNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -4028,7 +4028,7 @@ export var DBSnapshotTenantDatabaseNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBSTDNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBSnapshotTenantDatabaseNotFoundFault`, 404] },
+  { [_aQE]: [`DBSnapshotTenantDatabaseNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -4053,7 +4053,7 @@ export var DBSubnetGroupAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBSGAEFu,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBSubnetGroupAlreadyExists`, 400] },
+  { [_aQE]: [`DBSubnetGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -4062,7 +4062,7 @@ export var DBSubnetGroupDoesNotCoverEnoughAZs$: StaticErrorSchema = [
   -3,
   n0,
   _DBSGDNCEAZ,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBSubnetGroupDoesNotCoverEnoughAZs`, 400] },
+  { [_aQE]: [`DBSubnetGroupDoesNotCoverEnoughAZs`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -4079,7 +4079,7 @@ export var DBSubnetGroupNotAllowedFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBSGNAF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBSubnetGroupNotAllowedFault`, 400] },
+  { [_aQE]: [`DBSubnetGroupNotAllowedFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -4088,7 +4088,7 @@ export var DBSubnetGroupNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBSGNFFu,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DBSubnetGroupNotFoundFault`, 404] },
+  { [_aQE]: [`DBSubnetGroupNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -4097,7 +4097,7 @@ export var DBSubnetGroupQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBSGQEFu,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBSubnetGroupQuotaExceeded`, 400] },
+  { [_aQE]: [`DBSubnetGroupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -4106,7 +4106,7 @@ export var DBSubnetQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBSQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBSubnetQuotaExceededFault`, 400] },
+  { [_aQE]: [`DBSubnetQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -4115,7 +4115,7 @@ export var DBUpgradeDependencyFailureFault$: StaticErrorSchema = [
   -3,
   n0,
   _DBUDFF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`DBUpgradeDependencyFailure`, 400] },
+  { [_aQE]: [`DBUpgradeDependencyFailure`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -4700,7 +4700,7 @@ export var DomainNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _DNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`DomainNotFoundFault`, 404] },
+  { [_aQE]: [`DomainNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -4726,7 +4726,7 @@ export var Ec2ImagePropertiesNotSupportedFault$: StaticErrorSchema = [
   -3,
   n0,
   _EIPNSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`Ec2ImagePropertiesNotSupportedFault`, 400] },
+  { [_aQE]: [`Ec2ImagePropertiesNotSupportedFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -4780,7 +4780,7 @@ export var EventSubscriptionQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _ESQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`EventSubscriptionQuotaExceeded`, 400] },
+  { [_aQE]: [`EventSubscriptionQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -4805,7 +4805,7 @@ export var ExportTaskAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _ETAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ExportTaskAlreadyExists`, 400] },
+  { [_aQE]: [`ExportTaskAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -4814,7 +4814,7 @@ export var ExportTaskNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _ETNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ExportTaskNotFound`, 404] },
+  { [_aQE]: [`ExportTaskNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -4845,7 +4845,7 @@ export var GlobalClusterAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _GCAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`GlobalClusterAlreadyExistsFault`, 400] },
+  { [_aQE]: [`GlobalClusterAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -4862,7 +4862,7 @@ export var GlobalClusterNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _GCNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`GlobalClusterNotFoundFault`, 404] },
+  { [_aQE]: [`GlobalClusterNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -4871,7 +4871,7 @@ export var GlobalClusterQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _GCQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`GlobalClusterQuotaExceededFault`, 400] },
+  { [_aQE]: [`GlobalClusterQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -4888,7 +4888,7 @@ export var IamRoleMissingPermissionsFault$: StaticErrorSchema = [
   -3,
   n0,
   _IRMPF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`IamRoleMissingPermissions`, 400] },
+  { [_aQE]: [`IamRoleMissingPermissions`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -4897,7 +4897,7 @@ export var IamRoleNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _IRNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`IamRoleNotFound`, 404] },
+  { [_aQE]: [`IamRoleNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -4906,7 +4906,7 @@ export var InstanceQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _IQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InstanceQuotaExceeded`, 400] },
+  { [_aQE]: [`InstanceQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -4915,7 +4915,7 @@ export var InsufficientAvailableIPsInSubnetFault$: StaticErrorSchema = [
   -3,
   n0,
   _IAIPISF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InsufficientAvailableIPsInSubnetFault`, 400] },
+  { [_aQE]: [`InsufficientAvailableIPsInSubnetFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -4924,7 +4924,7 @@ export var InsufficientDBClusterCapacityFault$: StaticErrorSchema = [
   -3,
   n0,
   _IDBCCF,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`InsufficientDBClusterCapacityFault`, 403] },
+  { [_aQE]: [`InsufficientDBClusterCapacityFault`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0],
 ];
@@ -4933,7 +4933,7 @@ export var InsufficientDBInstanceCapacityFault$: StaticErrorSchema = [
   -3,
   n0,
   _IDBICF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InsufficientDBInstanceCapacity`, 400] },
+  { [_aQE]: [`InsufficientDBInstanceCapacity`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -4942,7 +4942,7 @@ export var InsufficientStorageClusterCapacityFault$: StaticErrorSchema = [
   -3,
   n0,
   _ISCCF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InsufficientStorageClusterCapacity`, 400] },
+  { [_aQE]: [`InsufficientStorageClusterCapacity`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -4959,7 +4959,7 @@ export var IntegrationAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _IAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`IntegrationAlreadyExistsFault`, 400] },
+  { [_aQE]: [`IntegrationAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -4968,7 +4968,7 @@ export var IntegrationConflictOperationFault$: StaticErrorSchema = [
   -3,
   n0,
   _ICOF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`IntegrationConflictOperationFault`, 400] },
+  { [_aQE]: [`IntegrationConflictOperationFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -4978,7 +4978,7 @@ export var IntegrationNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _INFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`IntegrationNotFoundFault`, 404] },
+  { [_aQE]: [`IntegrationNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -4987,7 +4987,7 @@ export var IntegrationQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _IQEFn,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`IntegrationQuotaExceededFault`, 400] },
+  { [_aQE]: [`IntegrationQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -4996,7 +4996,7 @@ export var InvalidBlueGreenDeploymentStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IBGDSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidBlueGreenDeploymentStateFault`, 400] },
+  { [_aQE]: [`InvalidBlueGreenDeploymentStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5005,7 +5005,7 @@ export var InvalidCustomDBEngineVersionStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _ICDBEVSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidCustomDBEngineVersionStateFault`, 400] },
+  { [_aQE]: [`InvalidCustomDBEngineVersionStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5014,7 +5014,7 @@ export var InvalidDBClusterAutomatedBackupStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IDBCABSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBClusterAutomatedBackupStateFault`, 400] },
+  { [_aQE]: [`InvalidDBClusterAutomatedBackupStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5026,7 +5026,7 @@ export var InvalidDBClusterCapacityFault$: StaticErrorSchema = [
   -3,
   n0,
   _IDBCCFn,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBClusterCapacityFault`, 400] },
+  { [_aQE]: [`InvalidDBClusterCapacityFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5035,7 +5035,7 @@ export var InvalidDBClusterEndpointStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IDBCESF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBClusterEndpointStateFault`, 400] },
+  { [_aQE]: [`InvalidDBClusterEndpointStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5044,7 +5044,7 @@ export var InvalidDBClusterSnapshotStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IDBCSSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBClusterSnapshotStateFault`, 400] },
+  { [_aQE]: [`InvalidDBClusterSnapshotStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5053,7 +5053,7 @@ export var InvalidDBClusterStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IDBCSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBClusterStateFault`, 400] },
+  { [_aQE]: [`InvalidDBClusterStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5062,7 +5062,7 @@ export var InvalidDBInstanceAutomatedBackupStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IDBIABSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBInstanceAutomatedBackupState`, 400] },
+  { [_aQE]: [`InvalidDBInstanceAutomatedBackupState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5074,7 +5074,7 @@ export var InvalidDBInstanceStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IDBISF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBInstanceState`, 400] },
+  { [_aQE]: [`InvalidDBInstanceState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5083,7 +5083,7 @@ export var InvalidDBParameterGroupStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IDBPGSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBParameterGroupState`, 400] },
+  { [_aQE]: [`InvalidDBParameterGroupState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5092,7 +5092,7 @@ export var InvalidDBProxyEndpointStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IDBPESF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBProxyEndpointStateFault`, 400] },
+  { [_aQE]: [`InvalidDBProxyEndpointStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5101,7 +5101,7 @@ export var InvalidDBProxyStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IDBPSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBProxyStateFault`, 400] },
+  { [_aQE]: [`InvalidDBProxyStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5110,7 +5110,7 @@ export var InvalidDBSecurityGroupStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IDBSGSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBSecurityGroupState`, 400] },
+  { [_aQE]: [`InvalidDBSecurityGroupState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5119,7 +5119,7 @@ export var InvalidDBShardGroupStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IDBSGSFn,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBShardGroupState`, 400] },
+  { [_aQE]: [`InvalidDBShardGroupState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5128,7 +5128,7 @@ export var InvalidDBSnapshotStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IDBSSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBSnapshotState`, 400] },
+  { [_aQE]: [`InvalidDBSnapshotState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5137,7 +5137,7 @@ export var InvalidDBSubnetGroupFault$: StaticErrorSchema = [
   -3,
   n0,
   _IDBSGF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBSubnetGroupFault`, 400] },
+  { [_aQE]: [`InvalidDBSubnetGroupFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5146,7 +5146,7 @@ export var InvalidDBSubnetGroupStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IDBSGSFnv,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBSubnetGroupStateFault`, 400] },
+  { [_aQE]: [`InvalidDBSubnetGroupStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5155,7 +5155,7 @@ export var InvalidDBSubnetStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IDBSSFn,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDBSubnetStateFault`, 400] },
+  { [_aQE]: [`InvalidDBSubnetStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5164,7 +5164,7 @@ export var InvalidEventSubscriptionStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IESSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidEventSubscriptionState`, 400] },
+  { [_aQE]: [`InvalidEventSubscriptionState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5173,7 +5173,7 @@ export var InvalidExportOnlyFault$: StaticErrorSchema = [
   -3,
   n0,
   _IEOF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidExportOnly`, 400] },
+  { [_aQE]: [`InvalidExportOnly`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5182,7 +5182,7 @@ export var InvalidExportSourceStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IESSFn,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidExportSourceState`, 400] },
+  { [_aQE]: [`InvalidExportSourceState`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5191,7 +5191,7 @@ export var InvalidExportTaskStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IETSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidExportTaskStateFault`, 400] },
+  { [_aQE]: [`InvalidExportTaskStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5200,7 +5200,7 @@ export var InvalidGlobalClusterStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IGCSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidGlobalClusterStateFault`, 400] },
+  { [_aQE]: [`InvalidGlobalClusterStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5209,7 +5209,7 @@ export var InvalidIntegrationStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IISF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidIntegrationStateFault`, 400] },
+  { [_aQE]: [`InvalidIntegrationStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5218,7 +5218,7 @@ export var InvalidOptionGroupStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IOGSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidOptionGroupStateFault`, 400] },
+  { [_aQE]: [`InvalidOptionGroupStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5227,7 +5227,7 @@ export var InvalidResourceStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IRSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidResourceStateFault`, 400] },
+  { [_aQE]: [`InvalidResourceStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5236,7 +5236,7 @@ export var InvalidRestoreFault$: StaticErrorSchema = [
   -3,
   n0,
   _IRF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidRestoreFault`, 400] },
+  { [_aQE]: [`InvalidRestoreFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5245,7 +5245,7 @@ export var InvalidS3BucketFault$: StaticErrorSchema = [
   -3,
   n0,
   _ISBF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidS3BucketFault`, 400] },
+  { [_aQE]: [`InvalidS3BucketFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5254,7 +5254,7 @@ export var InvalidSubnet$: StaticErrorSchema = [
   -3,
   n0,
   _ISn,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidSubnet`, 400] },
+  { [_aQE]: [`InvalidSubnet`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5263,7 +5263,7 @@ export var InvalidVPCNetworkStateFault$: StaticErrorSchema = [
   -3,
   n0,
   _IVPCNSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidVPCNetworkStateFault`, 400] },
+  { [_aQE]: [`InvalidVPCNetworkStateFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5274,7 +5274,7 @@ export var KMSKeyNotAccessibleFault$: StaticErrorSchema = [
   -3,
   n0,
   _KMSKNAF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`KMSKeyNotAccessibleFault`, 400] },
+  { [_aQE]: [`KMSKeyNotAccessibleFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5293,7 +5293,7 @@ export var MaxDBShardGroupLimitReached$: StaticErrorSchema = [
   -3,
   n0,
   _MDBSGLR,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`MaxDBShardGroupLimitReached`, 400] },
+  { [_aQE]: [`MaxDBShardGroupLimitReached`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5767,7 +5767,7 @@ export var NetworkTypeNotSupported$: StaticErrorSchema = [
   -3,
   n0,
   _NTNS,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`NetworkTypeNotSupported`, 400] },
+  { [_aQE]: [`NetworkTypeNotSupported`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5810,7 +5810,7 @@ export var OptionGroupAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _OGAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`OptionGroupAlreadyExistsFault`, 400] },
+  { [_aQE]: [`OptionGroupAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -5820,7 +5820,7 @@ export var OptionGroupNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _OGNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`OptionGroupNotFoundFault`, 404] },
+  { [_aQE]: [`OptionGroupNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -5871,7 +5871,7 @@ export var OptionGroupQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _OGQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`OptionGroupQuotaExceededFault`, 400] },
+  { [_aQE]: [`OptionGroupQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -6092,7 +6092,7 @@ export var PointInTimeRestoreNotEnabledFault$: StaticErrorSchema = [
   -3,
   n0,
   _PITRNEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`PointInTimeRestoreNotEnabled`, 400] },
+  { [_aQE]: [`PointInTimeRestoreNotEnabled`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -6120,7 +6120,7 @@ export var ProvisionedIopsNotAvailableInAZFault$: StaticErrorSchema = [
   -3,
   n0,
   _PINAIAZF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ProvisionedIopsNotAvailableInAZFault`, 400] },
+  { [_aQE]: [`ProvisionedIopsNotAvailableInAZFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -6209,7 +6209,7 @@ export var ReservedDBInstanceAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _RDBIAEF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ReservedDBInstanceAlreadyExists`, 404] },
+  { [_aQE]: [`ReservedDBInstanceAlreadyExists`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -6226,7 +6226,7 @@ export var ReservedDBInstanceNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _RDBINFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ReservedDBInstanceNotFound`, 404] },
+  { [_aQE]: [`ReservedDBInstanceNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -6235,7 +6235,7 @@ export var ReservedDBInstanceQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _RDBIQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ReservedDBInstanceQuotaExceeded`, 400] },
+  { [_aQE]: [`ReservedDBInstanceQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -6260,7 +6260,7 @@ export var ReservedDBInstancesOfferingNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _RDBIONFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ReservedDBInstancesOfferingNotFound`, 404] },
+  { [_aQE]: [`ReservedDBInstancesOfferingNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -6285,7 +6285,7 @@ export var ResourceNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _RNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourceNotFoundFault`, 404] },
+  { [_aQE]: [`ResourceNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -6967,7 +6967,7 @@ export var SharedSnapshotQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _SSQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SharedSnapshotQuotaExceeded`, 400] },
+  { [_aQE]: [`SharedSnapshotQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -6976,7 +6976,7 @@ export var SnapshotQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _SQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SnapshotQuotaExceeded`, 400] },
+  { [_aQE]: [`SnapshotQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -6985,7 +6985,7 @@ export var SNSInvalidTopicFault$: StaticErrorSchema = [
   -3,
   n0,
   _SNSITF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SNSInvalidTopic`, 400] },
+  { [_aQE]: [`SNSInvalidTopic`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -6994,7 +6994,7 @@ export var SNSNoAuthorizationFault$: StaticErrorSchema = [
   -3,
   n0,
   _SNSNAF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SNSNoAuthorization`, 400] },
+  { [_aQE]: [`SNSNoAuthorization`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -7003,7 +7003,7 @@ export var SNSTopicArnNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _SNSTANFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`SNSTopicArnNotFound`, 404] },
+  { [_aQE]: [`SNSTopicArnNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -7012,7 +7012,7 @@ export var SourceClusterNotSupportedFault$: StaticErrorSchema = [
   -3,
   n0,
   _SCNSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SourceClusterNotSupportedFault`, 400] },
+  { [_aQE]: [`SourceClusterNotSupportedFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -7021,7 +7021,7 @@ export var SourceDatabaseNotSupportedFault$: StaticErrorSchema = [
   -3,
   n0,
   _SDNSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SourceDatabaseNotSupportedFault`, 400] },
+  { [_aQE]: [`SourceDatabaseNotSupportedFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -7030,7 +7030,7 @@ export var SourceNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _SNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`SourceNotFound`, 404] },
+  { [_aQE]: [`SourceNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -7114,7 +7114,7 @@ export var StorageQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _SQEFt,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`StorageQuotaExceeded`, 400] },
+  { [_aQE]: [`StorageQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -7123,7 +7123,7 @@ export var StorageTypeNotAvailableFault$: StaticErrorSchema = [
   -3,
   n0,
   _STNAF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`StorageTypeNotAvailableFault`, 400] },
+  { [_aQE]: [`StorageTypeNotAvailableFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -7132,7 +7132,7 @@ export var StorageTypeNotSupportedFault$: StaticErrorSchema = [
   -3,
   n0,
   _STNSF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`StorageTypeNotSupported`, 400] },
+  { [_aQE]: [`StorageTypeNotSupported`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -7149,7 +7149,7 @@ export var SubnetAlreadyInUse$: StaticErrorSchema = [
   -3,
   n0,
   _SAIU,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubnetAlreadyInUse`, 400] },
+  { [_aQE]: [`SubnetAlreadyInUse`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -7158,7 +7158,7 @@ export var SubscriptionAlreadyExistFault$: StaticErrorSchema = [
   -3,
   n0,
   _SAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SubscriptionAlreadyExist`, 400] },
+  { [_aQE]: [`SubscriptionAlreadyExist`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -7167,7 +7167,7 @@ export var SubscriptionCategoryNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _SCNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`SubscriptionCategoryNotFound`, 404] },
+  { [_aQE]: [`SubscriptionCategoryNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -7176,7 +7176,7 @@ export var SubscriptionNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _SNFFu,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`SubscriptionNotFound`, 404] },
+  { [_aQE]: [`SubscriptionNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -7234,7 +7234,7 @@ export var TenantDatabaseAlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _TDAEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TenantDatabaseAlreadyExists`, 400] },
+  { [_aQE]: [`TenantDatabaseAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -7243,7 +7243,7 @@ export var TenantDatabaseNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _TDNFF,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`TenantDatabaseNotFound`, 404] },
+  { [_aQE]: [`TenantDatabaseNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];
@@ -7260,7 +7260,7 @@ export var TenantDatabaseQuotaExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _TDQEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TenantDatabaseQuotaExceeded`, 400] },
+  { [_aQE]: [`TenantDatabaseQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -7278,7 +7278,7 @@ export var UnsupportedDBEngineVersionFault$: StaticErrorSchema = [
   -3,
   n0,
   _UDBEVF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`UnsupportedDBEngineVersion`, 400] },
+  { [_aQE]: [`UnsupportedDBEngineVersion`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -7356,7 +7356,7 @@ export var VpcEncryptionControlViolationException$: StaticErrorSchema = [
   -3,
   n0,
   _VECVE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`VpcEncryptionControlViolationException`, 400] },
+  { [_aQE]: [`VpcEncryptionControlViolationException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];

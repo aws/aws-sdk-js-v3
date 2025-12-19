@@ -91,7 +91,13 @@ const n0 = "com.amazonaws.rekognitionstreaming";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type {
+  StaticErrorSchema,
+  StaticListSchema,
+  StaticOperationSchema,
+  StaticStructureSchema,
+  StaticUnionSchema,
+} from "@smithy/types";
 
 import {
   AccessDeniedException,
@@ -229,24 +235,24 @@ export var RekognitionStreamingServiceException$: StaticErrorSchema = [
 TypeRegistry.for(_sm).registerError(RekognitionStreamingServiceException$, RekognitionStreamingServiceException);
 var ColorComponentList = 64 | 1;
 var ColorSequences: StaticListSchema = [1, n0, _CSo, 0, () => ColorSequence$];
-export var ClientChallenge$: StaticStructureSchema = [
-  3,
+export var ClientChallenge$: StaticUnionSchema = [
+  4,
   n0,
   _CCl,
   0,
   [_FMALC, _FMC],
   [() => FaceMovementAndLightClientChallenge$, () => FaceMovementClientChallenge$],
 ];
-export var LivenessRequestStream$: StaticStructureSchema = [
-  3,
+export var LivenessRequestStream$: StaticUnionSchema = [
+  4,
   n0,
   _LRS,
   { [_st]: 1 },
   [_VEi, _CSIE],
   [() => VideoEvent$, () => ClientSessionInformationEvent$],
 ];
-export var LivenessResponseStream$: StaticStructureSchema = [
-  3,
+export var LivenessResponseStream$: StaticUnionSchema = [
+  4,
   n0,
   _LRSi,
   { [_st]: 1 },
@@ -262,8 +268,8 @@ export var LivenessResponseStream$: StaticStructureSchema = [
     [() => ServiceUnavailableException$, 0],
   ],
 ];
-export var ServerChallenge$: StaticStructureSchema = [
-  3,
+export var ServerChallenge$: StaticUnionSchema = [
+  4,
   n0,
   _SC,
   0,

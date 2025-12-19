@@ -824,6 +824,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { CleanRoomsServiceException } from "../models/CleanRoomsServiceException";
@@ -3351,9 +3352,9 @@ var ApprovalStatuses: StaticMapSchema = [2, n0, _ASp, 0, 0, () => ApprovalStatus
 var ParameterMap = 128 | 0;
 var SparkProperties = 128 | 0;
 var TagMap = 128 | 0;
-export var AnalysisRulePolicy$: StaticStructureSchema = [3, n0, _ARP, 0, [_v_], [() => AnalysisRulePolicyV1$]];
-export var AnalysisRulePolicyV1$: StaticStructureSchema = [
-  3,
+export var AnalysisRulePolicy$: StaticUnionSchema = [4, n0, _ARP, 0, [_v_], [() => AnalysisRulePolicyV1$]];
+export var AnalysisRulePolicyV1$: StaticUnionSchema = [
+  4,
   n0,
   _ARPV,
   0,
@@ -3365,65 +3366,65 @@ export var AnalysisRulePolicyV1$: StaticStructureSchema = [
     () => AnalysisRuleIdMappingTable$,
   ],
 ];
-export var AnalysisSource$: StaticStructureSchema = [
-  3,
+export var AnalysisSource$: StaticUnionSchema = [
+  4,
   n0,
   _ASn,
   0,
   [_te, _ar],
   [[() => AnalysisTemplateText, 0], () => AnalysisTemplateArtifacts$],
 ];
-export var AnalysisSourceMetadata$: StaticStructureSchema = [
-  3,
+export var AnalysisSourceMetadata$: StaticUnionSchema = [
+  4,
   n0,
   _ASM,
   0,
   [_ar],
   [() => AnalysisTemplateArtifactMetadata$],
 ];
-export var ChangeSpecification$: StaticStructureSchema = [
-  3,
+export var ChangeSpecification$: StaticUnionSchema = [
+  4,
   n0,
   _CSh,
   0,
   [_memb, _col],
   [() => MemberChangeSpecification$, () => CollaborationChangeSpecification$],
 ];
-export var ComputeConfiguration$: StaticStructureSchema = [3, n0, _CC, 0, [_w], [() => WorkerComputeConfiguration$]];
-export var ConfigurationDetails$: StaticStructureSchema = [
-  3,
+export var ComputeConfiguration$: StaticUnionSchema = [4, n0, _CC, 0, [_w], [() => WorkerComputeConfiguration$]];
+export var ConfigurationDetails$: StaticUnionSchema = [
+  4,
   n0,
   _CD,
   0,
   [_dACD],
   [() => DirectAnalysisConfigurationDetails$],
 ];
-export var ConfiguredTableAnalysisRulePolicy$: StaticStructureSchema = [
-  3,
+export var ConfiguredTableAnalysisRulePolicy$: StaticUnionSchema = [
+  4,
   n0,
   _CTARP,
   0,
   [_v_],
   [() => ConfiguredTableAnalysisRulePolicyV1$],
 ];
-export var ConfiguredTableAnalysisRulePolicyV1$: StaticStructureSchema = [
-  3,
+export var ConfiguredTableAnalysisRulePolicyV1$: StaticUnionSchema = [
+  4,
   n0,
   _CTARPV,
   0,
   [_li, _agg, _cu],
   [() => AnalysisRuleList$, () => AnalysisRuleAggregation$, () => AnalysisRuleCustom$],
 ];
-export var ConfiguredTableAssociationAnalysisRulePolicy$: StaticStructureSchema = [
-  3,
+export var ConfiguredTableAssociationAnalysisRulePolicy$: StaticUnionSchema = [
+  4,
   n0,
   _CTAARP,
   0,
   [_v_],
   [() => ConfiguredTableAssociationAnalysisRulePolicyV1$],
 ];
-export var ConfiguredTableAssociationAnalysisRulePolicyV1$: StaticStructureSchema = [
-  3,
+export var ConfiguredTableAssociationAnalysisRulePolicyV1$: StaticUnionSchema = [
+  4,
   n0,
   _CTAARPV,
   0,
@@ -3434,130 +3435,130 @@ export var ConfiguredTableAssociationAnalysisRulePolicyV1$: StaticStructureSchem
     () => ConfiguredTableAssociationAnalysisRuleCustom$,
   ],
 ];
-export var ConsolidatedPolicy$: StaticStructureSchema = [3, n0, _CP, 0, [_v_], [() => ConsolidatedPolicyV1$]];
-export var ConsolidatedPolicyV1$: StaticStructureSchema = [
-  3,
+export var ConsolidatedPolicy$: StaticUnionSchema = [4, n0, _CP, 0, [_v_], [() => ConsolidatedPolicyV1$]];
+export var ConsolidatedPolicyV1$: StaticUnionSchema = [
+  4,
   n0,
   _CPV,
   0,
   [_li, _agg, _cu],
   [() => ConsolidatedPolicyList$, () => ConsolidatedPolicyAggregation$, () => ConsolidatedPolicyCustom$],
 ];
-export var MembershipProtectedJobOutputConfiguration$: StaticStructureSchema = [
-  3,
+export var MembershipProtectedJobOutputConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _MPJOC,
   0,
   [_s_],
   [() => ProtectedJobS3OutputConfigurationInput$],
 ];
-export var MembershipProtectedQueryOutputConfiguration$: StaticStructureSchema = [
-  3,
+export var MembershipProtectedQueryOutputConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _MPQOC,
   0,
   [_s_],
   [() => ProtectedQueryS3OutputConfiguration$],
 ];
-export var PreviewPrivacyImpactParametersInput$: StaticStructureSchema = [
-  3,
+export var PreviewPrivacyImpactParametersInput$: StaticUnionSchema = [
+  4,
   n0,
   _PPIPI,
   0,
   [_dP],
   [() => DifferentialPrivacyPreviewParametersInput$],
 ];
-export var PrivacyBudget$: StaticStructureSchema = [
-  3,
+export var PrivacyBudget$: StaticUnionSchema = [
+  4,
   n0,
   _PB,
   0,
   [_dP, _aB],
   [() => DifferentialPrivacyPrivacyBudget$, () => AccessBudget$],
 ];
-export var PrivacyBudgetTemplateParametersInput$: StaticStructureSchema = [
-  3,
+export var PrivacyBudgetTemplateParametersInput$: StaticUnionSchema = [
+  4,
   n0,
   _PBTPI,
   0,
   [_dP, _aB],
   [() => DifferentialPrivacyTemplateParametersInput$, () => AccessBudgetsPrivacyTemplateParametersInput$],
 ];
-export var PrivacyBudgetTemplateParametersOutput$: StaticStructureSchema = [
-  3,
+export var PrivacyBudgetTemplateParametersOutput$: StaticUnionSchema = [
+  4,
   n0,
   _PBTPO,
   0,
   [_dP, _aB],
   [() => DifferentialPrivacyTemplateParametersOutput$, () => AccessBudgetsPrivacyTemplateParametersOutput$],
 ];
-export var PrivacyBudgetTemplateUpdateParameters$: StaticStructureSchema = [
-  3,
+export var PrivacyBudgetTemplateUpdateParameters$: StaticUnionSchema = [
+  4,
   n0,
   _PBTUP,
   0,
   [_dP, _aB],
   [() => DifferentialPrivacyTemplateUpdateParameters$, () => AccessBudgetsPrivacyTemplateUpdateParameters$],
 ];
-export var PrivacyImpact$: StaticStructureSchema = [3, n0, _PI, 0, [_dP], [() => DifferentialPrivacyPrivacyImpact$]];
-export var ProtectedJobComputeConfiguration$: StaticStructureSchema = [
-  3,
+export var PrivacyImpact$: StaticUnionSchema = [4, n0, _PI, 0, [_dP], [() => DifferentialPrivacyPrivacyImpact$]];
+export var ProtectedJobComputeConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _PJCC,
   0,
   [_w],
   [() => ProtectedJobWorkerComputeConfiguration$],
 ];
-export var ProtectedJobConfigurationDetails$: StaticStructureSchema = [
-  3,
+export var ProtectedJobConfigurationDetails$: StaticUnionSchema = [
+  4,
   n0,
   _PJCD,
   0,
   [_dACD],
   [() => ProtectedJobDirectAnalysisConfigurationDetails$],
 ];
-export var ProtectedJobOutput$: StaticStructureSchema = [
-  3,
+export var ProtectedJobOutput$: StaticUnionSchema = [
+  4,
   n0,
   _PJO,
   0,
   [_s_, _mLe],
   [() => ProtectedJobS3Output$, () => ProtectedJobMemberOutputList],
 ];
-export var ProtectedJobOutputConfigurationInput$: StaticStructureSchema = [
-  3,
+export var ProtectedJobOutputConfigurationInput$: StaticUnionSchema = [
+  4,
   n0,
   _PJOCI,
   0,
   [_memb],
   [() => ProtectedJobMemberOutputConfigurationInput$],
 ];
-export var ProtectedJobOutputConfigurationOutput$: StaticStructureSchema = [
-  3,
+export var ProtectedJobOutputConfigurationOutput$: StaticUnionSchema = [
+  4,
   n0,
   _PJOCO,
   0,
   [_s_, _memb],
   [() => ProtectedJobS3OutputConfigurationOutput$, () => ProtectedJobMemberOutputConfigurationOutput$],
 ];
-export var ProtectedQueryDistributeOutputConfigurationLocation$: StaticStructureSchema = [
-  3,
+export var ProtectedQueryDistributeOutputConfigurationLocation$: StaticUnionSchema = [
+  4,
   n0,
   _PQDOCLr,
   0,
   [_s_, _memb],
   [() => ProtectedQueryS3OutputConfiguration$, () => ProtectedQueryMemberOutputConfiguration$],
 ];
-export var ProtectedQueryOutput$: StaticStructureSchema = [
-  3,
+export var ProtectedQueryOutput$: StaticUnionSchema = [
+  4,
   n0,
   _PQO,
   0,
   [_s_, _mLe, _di],
   [() => ProtectedQueryS3Output$, () => ProtectedQueryMemberOutputList, () => ProtectedQueryDistributeOutput$],
 ];
-export var ProtectedQueryOutputConfiguration$: StaticStructureSchema = [
-  3,
+export var ProtectedQueryOutputConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _PQOC,
   0,
@@ -3568,33 +3569,26 @@ export var ProtectedQueryOutputConfiguration$: StaticStructureSchema = [
     () => ProtectedQueryDistributeOutputConfiguration$,
   ],
 ];
-export var QueryConstraint$: StaticStructureSchema = [3, n0, _QC, 0, [_rO], [() => QueryConstraintRequireOverlap$]];
-export var SchemaTypeProperties$: StaticStructureSchema = [
-  3,
+export var QueryConstraint$: StaticUnionSchema = [4, n0, _QC, 0, [_rO], [() => QueryConstraintRequireOverlap$]];
+export var SchemaTypeProperties$: StaticUnionSchema = [
+  4,
   n0,
   _STP,
   0,
   [_iMT],
   [() => IdMappingTableSchemaTypeProperties$],
 ];
-export var SnowflakeTableSchema$: StaticStructureSchema = [3, n0, _STS, 0, [_v_], [() => SnowflakeTableSchemaList]];
-export var SyntheticDataParameters$: StaticStructureSchema = [
-  3,
-  n0,
-  _SDP,
-  0,
-  [_mSDP],
-  [() => MLSyntheticDataParameters$],
-];
-export var TableReference$: StaticStructureSchema = [
-  3,
+export var SnowflakeTableSchema$: StaticUnionSchema = [4, n0, _STS, 0, [_v_], [() => SnowflakeTableSchemaList]];
+export var SyntheticDataParameters$: StaticUnionSchema = [4, n0, _SDP, 0, [_mSDP], [() => MLSyntheticDataParameters$]];
+export var TableReference$: StaticUnionSchema = [
+  4,
   n0,
   _TR,
   0,
   [_g, _sn, _at],
   [() => GlueTableReference$, () => SnowflakeTableReference$, () => AthenaTableReference$],
 ];
-export var WorkerComputeConfigurationProperties$: StaticStructureSchema = [3, n0, _WCCP, 0, [_spa], [128 | 0]];
+export var WorkerComputeConfigurationProperties$: StaticUnionSchema = [4, n0, _WCCP, 0, [_spa], [128 | 0]];
 export var BatchGetCollaborationAnalysisTemplate$: StaticOperationSchema = [
   9,
   n0,

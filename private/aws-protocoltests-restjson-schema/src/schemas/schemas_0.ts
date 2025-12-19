@@ -642,6 +642,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { ComplexError, ErrorEvent, FooError, InvalidGreeting, ServiceUnavailableError } from "../models/errors";
@@ -1383,7 +1384,7 @@ export var QueryIdempotencyTokenAutoFillInput$: StaticStructureSchema = [
   _QITAFI,
   0,
   [_to],
-  [[0, { [_iT]: 1, [_hQ]: _to }]],
+  [[0, { [_hQ]: _to, [_iT]: 1 }]],
 ];
 export var QueryParamsAsStringListMapInput$: StaticStructureSchema = [
   3,
@@ -1630,8 +1631,8 @@ var IntegerEnumMap = 128 | 1;
 var SparseStringMap: StaticMapSchema = [2, n1, _SSMpa, { [_sp]: 1 }, 0, 0];
 var StringListMap: StaticMapSchema = [2, n1, _SLM, 0, 0, 64 | 0];
 var StringMap = 128 | 0;
-export var EventStream$: StaticStructureSchema = [
-  3,
+export var EventStream$: StaticUnionSchema = [
+  4,
   n0,
   _ES,
   { [_s]: 1 },
@@ -1647,21 +1648,21 @@ export var EventStream$: StaticStructureSchema = [
     [() => ErrorEvent$, 0],
   ],
 ];
-export var MyUnion$: StaticStructureSchema = [
-  3,
+export var MyUnion$: StaticUnionSchema = [
+  4,
   n0,
   _MU,
   0,
   [_sV, _bVo, _nVu, _bVl, _tV, _eV, _lVi, _mV, _sVt, _rSV],
   [0, 2, 1, 21, 4, 0, 64 | 0, 128 | 0, () => GreetingStruct_n1$, () => GreetingStruct$],
 ];
-export var PayloadUnion$: StaticStructureSchema = [3, n0, _PU, 0, [_uM], [0]];
-export var PlayerAction$: StaticStructureSchema = [3, n0, _PA, 0, [_qu], [() => __Unit]];
-export var SimpleUnion$: StaticStructureSchema = [3, n0, _SU, 0, [_int, _str], [1, 0]];
-export var SingletonEventStream$: StaticStructureSchema = [3, n0, _SES, 0, [_si], [() => SingletonEvent$]];
-export var UnionPayload$: StaticStructureSchema = [3, n0, _UP, 0, [_g], [0]];
-export var UnionWithJsonName$: StaticStructureSchema = [
-  3,
+export var PayloadUnion$: StaticUnionSchema = [4, n0, _PU, 0, [_uM], [0]];
+export var PlayerAction$: StaticUnionSchema = [4, n0, _PA, 0, [_qu], [() => __Unit]];
+export var SimpleUnion$: StaticUnionSchema = [4, n0, _SU, 0, [_int, _str], [1, 0]];
+export var SingletonEventStream$: StaticUnionSchema = [4, n0, _SES, 0, [_si], [() => SingletonEvent$]];
+export var UnionPayload$: StaticUnionSchema = [4, n0, _UP, 0, [_g], [0]];
+export var UnionWithJsonName$: StaticUnionSchema = [
+  4,
   n0,
   _UWJN,
   0,
@@ -1768,7 +1769,7 @@ export var EndpointOperation$: StaticOperationSchema = [
   9,
   n0,
   _EO,
-  { [_ht]: ["POST", "/EndpointOperation", 200], [_end]: ["foo."] },
+  { [_end]: ["foo."], [_ht]: ["POST", "/EndpointOperation", 200] },
   () => __Unit,
   () => __Unit,
 ];
@@ -1776,7 +1777,7 @@ export var EndpointWithHostLabelOperation$: StaticOperationSchema = [
   9,
   n0,
   _EWHLO,
-  { [_ht]: ["POST", "/EndpointWithHostLabelOperation", 200], [_end]: ["foo.{label}."] },
+  { [_end]: ["foo.{label}."], [_ht]: ["POST", "/EndpointWithHostLabelOperation", 200] },
   () => HostLabelInput$,
   () => __Unit,
 ];

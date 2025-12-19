@@ -95,6 +95,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { DynamoDBStreamsServiceException } from "../models/DynamoDBStreamsServiceException";
@@ -181,8 +182,8 @@ var StreamList: StaticListSchema = [1, n0, _SLt, 0, () => _Stream$];
 var StringSetAttributeValue = 64 | 0;
 var AttributeMap: StaticMapSchema = [2, n0, _AM, 0, 0, () => AttributeValue$];
 var MapAttributeValue: StaticMapSchema = [2, n0, _MAV, 0, 0, () => AttributeValue$];
-export var AttributeValue$: StaticStructureSchema = [
-  3,
+export var AttributeValue$: StaticUnionSchema = [
+  4,
   n0,
   _AV,
   0,

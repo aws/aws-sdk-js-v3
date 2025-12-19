@@ -796,6 +796,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { CustomerProfilesServiceException } from "../models/CustomerProfilesServiceException";
@@ -3383,8 +3384,8 @@ var RecommenderContext: StaticMapSchema = [2, n0, _RCe, 8, 0, 0];
 var TagMap = 128 | 0;
 var TaskPropertiesMap = 128 | 0;
 var UpdateAttributes: StaticMapSchema = [2, n0, _UApd, 8, 0, 0];
-export var Dimension$: StaticStructureSchema = [
-  3,
+export var Dimension$: StaticUnionSchema = [
+  4,
   n0,
   _Dim,
   0,

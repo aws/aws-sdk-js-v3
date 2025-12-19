@@ -246,6 +246,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { EMRContainersServiceException } from "../models/EMRContainersServiceException";
@@ -776,8 +777,8 @@ var SensitivePropertiesMap: StaticMapSchema = [2, n0, _SPM, 8, 0, 0];
 var TagMap = 128 | 0;
 var TemplateParameterConfigurationMap: StaticMapSchema = [2, n0, _TPCM, 0, 0, () => TemplateParameterConfiguration$];
 var TemplateParameterInputMap = 128 | 0;
-export var ContainerInfo$: StaticStructureSchema = [3, n0, _CI, 0, [_eIk], [() => EksInfo$]];
-export var Credentials$: StaticStructureSchema = [3, n0, _Cr, 0, [_to], [[() => Token, 0]]];
+export var ContainerInfo$: StaticUnionSchema = [4, n0, _CI, 0, [_eIk], [() => EksInfo$]];
+export var Credentials$: StaticUnionSchema = [4, n0, _Cr, 0, [_to], [[() => Token, 0]]];
 export var CancelJobRun$: StaticOperationSchema = [
   9,
   n0,

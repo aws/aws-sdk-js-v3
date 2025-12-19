@@ -297,6 +297,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -927,16 +928,16 @@ var CardStatusMap: StaticMapSchema = [2, n0, _CSM, 0, 0, () => CardStatus$];
 var PresignedUrlFields = 128 | 0;
 var TagMap = 128 | 0;
 var Tags = 128 | 0;
-export var Card$: StaticStructureSchema = [
-  3,
+export var Card$: StaticUnionSchema = [
+  4,
   n0,
   _Ca,
   0,
   [_tI, _qQ, _qP, _fU, _fIo],
   [() => TextInputCard$, () => QQueryCard$, () => QPluginCard$, () => FileUploadCard$, () => FormInputCard$],
 ];
-export var CardInput$: StaticStructureSchema = [
-  3,
+export var CardInput$: StaticUnionSchema = [
+  4,
   n0,
   _CIa,
   0,
@@ -949,8 +950,8 @@ export var CardInput$: StaticStructureSchema = [
     () => FormInputCardInput$,
   ],
 ];
-export var DocumentAttributeValue$: StaticStructureSchema = [3, n0, _DAV, 0, [_sV, _sLV, _lV, _dVa], [0, 64 | 0, 1, 4]];
-export var PredictQAppInputOptions$: StaticStructureSchema = [3, n0, _PQAIO, 0, [_con, _pS], [() => MessageList, 0]];
+export var DocumentAttributeValue$: StaticUnionSchema = [4, n0, _DAV, 0, [_sV, _sLV, _lV, _dVa], [0, 64 | 0, 1, 4]];
+export var PredictQAppInputOptions$: StaticUnionSchema = [4, n0, _PQAIO, 0, [_con, _pS], [() => MessageList, 0]];
 export var AssociateLibraryItemReview$: StaticOperationSchema = [
   9,
   n0,

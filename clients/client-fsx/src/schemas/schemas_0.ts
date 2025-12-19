@@ -630,7 +630,7 @@ export var AccessPointAlreadyOwnedByYou$: StaticErrorSchema = [
   -3,
   n0,
   _APAOBY,
-  { [_xN]: _E, [_e]: _c, [_hE]: 409 },
+  { [_e]: _c, [_hE]: 409, [_xN]: _E },
   [_EC, _M],
   [0, 0],
 ];
@@ -1593,7 +1593,7 @@ export var InvalidAccessPoint$: StaticErrorSchema = [
   -3,
   n0,
   _IAP,
-  { [_xN]: _E, [_e]: _c, [_hE]: 400 },
+  { [_e]: _c, [_hE]: 400, [_xN]: _E },
   [_EC, _M],
   [0, 0],
 ];
@@ -1619,7 +1619,7 @@ export var InvalidPerUnitStorageThroughput$: StaticErrorSchema = [-3, n0, _IPUST
 TypeRegistry.for(n0).registerError(InvalidPerUnitStorageThroughput$, InvalidPerUnitStorageThroughput);
 export var InvalidRegion$: StaticErrorSchema = [-3, n0, _IR, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidRegion$, InvalidRegion);
-export var InvalidRequest$: StaticErrorSchema = [-3, n0, _IRn, { [_xN]: _E, [_e]: _c, [_hE]: 400 }, [_EC, _M], [0, 0]];
+export var InvalidRequest$: StaticErrorSchema = [-3, n0, _IRn, { [_e]: _c, [_hE]: 400, [_xN]: _E }, [_EC, _M], [0, 0]];
 TypeRegistry.for(n0).registerError(InvalidRequest$, InvalidRequest);
 export var InvalidSourceKmsKey$: StaticErrorSchema = [-3, n0, _ISKK, { [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(InvalidSourceKmsKey$, InvalidSourceKmsKey);
@@ -1991,7 +1991,7 @@ export var TooManyAccessPoints$: StaticErrorSchema = [
   -3,
   n0,
   _TMAP,
-  { [_xN]: _E, [_e]: _c, [_hE]: 400 },
+  { [_e]: _c, [_hE]: 400, [_xN]: _E },
   [_EC, _M],
   [0, 0],
 ];

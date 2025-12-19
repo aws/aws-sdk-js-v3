@@ -1159,6 +1159,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { DatabaseMigrationServiceServiceException } from "../models/DatabaseMigrationServiceServiceException";
@@ -3904,8 +3905,8 @@ var VpcSecurityGroupMembershipList: StaticListSchema = [
   0,
   [() => VpcSecurityGroupMembership$, { [_xN]: _VSGM }],
 ];
-export var DataProviderSettings$: StaticStructureSchema = [
-  3,
+export var DataProviderSettings$: StaticUnionSchema = [
+  4,
   n0,
   _DPSat,
   0,
@@ -3924,8 +3925,8 @@ export var DataProviderSettings$: StaticStructureSchema = [
     () => MongoDbDataProviderSettings$,
   ],
 ];
-export var ErrorDetails$: StaticStructureSchema = [3, n0, _ED, 0, [_dED], [() => DefaultErrorDetails$]];
-export var MetadataModelProperties$: StaticStructureSchema = [3, n0, _MMP, 0, [_SPt], [() => StatementProperties$]];
+export var ErrorDetails$: StaticUnionSchema = [4, n0, _ED, 0, [_dED], [() => DefaultErrorDetails$]];
+export var MetadataModelProperties$: StaticUnionSchema = [4, n0, _MMP, 0, [_SPt], [() => StatementProperties$]];
 export var AddTagsToResource$: StaticOperationSchema = [
   9,
   n0,

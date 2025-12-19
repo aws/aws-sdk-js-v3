@@ -346,6 +346,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1214,41 +1215,34 @@ var ContactAttributes: StaticMapSchema = [2, n0, _CA, 8, 0, 0];
 var ContentMetadata = 128 | 0;
 var Headers = 128 | 0;
 var Tags = 128 | 0;
-export var AssistantAssociationInputData$: StaticStructureSchema = [3, n0, _AAID, 0, [_kBI], [0]];
-export var AssistantAssociationOutputData$: StaticStructureSchema = [
-  3,
+export var AssistantAssociationInputData$: StaticUnionSchema = [4, n0, _AAID, 0, [_kBI], [0]];
+export var AssistantAssociationOutputData$: StaticUnionSchema = [
+  4,
   n0,
   _AAOD,
   0,
   [_kBAn],
   [() => KnowledgeBaseAssociationData$],
 ];
-export var Configuration$: StaticStructureSchema = [3, n0, _Co, 0, [_cC], [() => ConnectConfiguration$]];
-export var QuickResponseContentProvider$: StaticStructureSchema = [
-  3,
+export var Configuration$: StaticUnionSchema = [4, n0, _Co, 0, [_cC], [() => ConnectConfiguration$]];
+export var QuickResponseContentProvider$: StaticUnionSchema = [
+  4,
   n0,
   _QRCP,
   0,
   [_co],
   [[() => QuickResponseContent, 0]],
 ];
-export var QuickResponseDataProvider$: StaticStructureSchema = [
-  3,
-  n0,
-  _QRDP,
-  0,
-  [_co],
-  [[() => QuickResponseContent, 0]],
-];
-export var RecommendationTriggerData$: StaticStructureSchema = [
-  3,
+export var QuickResponseDataProvider$: StaticUnionSchema = [4, n0, _QRDP, 0, [_co], [[() => QuickResponseContent, 0]]];
+export var RecommendationTriggerData$: StaticUnionSchema = [
+  4,
   n0,
   _RTD,
   0,
   [_qu],
   [[() => QueryRecommendationTriggerData$, 0]],
 ];
-export var SourceConfiguration$: StaticStructureSchema = [3, n0, _SC, 0, [_aIp], [() => AppIntegrationsConfiguration$]];
+export var SourceConfiguration$: StaticUnionSchema = [4, n0, _SC, 0, [_aIp], [() => AppIntegrationsConfiguration$]];
 export var CreateAssistant$: StaticOperationSchema = [
   9,
   n0,

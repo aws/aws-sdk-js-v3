@@ -57,7 +57,7 @@ export var AuthException$: StaticErrorSchema = [
   -3,
   n0,
   _AE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`Forbidden`, 403] },
+  { [_aQE]: [`Forbidden`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
   [0],
 ];
@@ -66,7 +66,7 @@ export var EC2InstanceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _ECINFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`EC2InstanceNotFound`, 404] },
+  { [_aQE]: [`EC2InstanceNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0],
 ];
@@ -75,7 +75,7 @@ export var EC2InstanceStateInvalidException$: StaticErrorSchema = [
   -3,
   n0,
   _ECISIE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`EC2InstanceStateInvalid`, 400] },
+  { [_aQE]: [`EC2InstanceStateInvalid`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -84,7 +84,7 @@ export var EC2InstanceTypeInvalidException$: StaticErrorSchema = [
   -3,
   n0,
   _ECITIE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`EC2InstanceTypeInvalid`, 400] },
+  { [_aQE]: [`EC2InstanceTypeInvalid`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -93,7 +93,7 @@ export var EC2InstanceUnavailableException$: StaticErrorSchema = [
   -3,
   n0,
   _ECIUE,
-  { [_e]: _s, [_hE]: 503, [_aQE]: [`EC2InstanceUnavailable`, 503] },
+  { [_aQE]: [`EC2InstanceUnavailable`, 503], [_e]: _s, [_hE]: 503 },
   [_M],
   [0],
 ];
@@ -102,7 +102,7 @@ export var InvalidArgsException$: StaticErrorSchema = [
   -3,
   n0,
   _IAE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidArguments`, 400] },
+  { [_aQE]: [`InvalidArguments`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -129,7 +129,7 @@ export var SerialConsoleAccessDisabledException$: StaticErrorSchema = [
   -3,
   n0,
   _SCADE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`SerialConsoleAccessDisabled`, 403] },
+  { [_aQE]: [`SerialConsoleAccessDisabled`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
   [0],
 ];
@@ -138,7 +138,7 @@ export var SerialConsoleSessionLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _SCSLEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SerialConsoleSessionLimitExceeded`, 400] },
+  { [_aQE]: [`SerialConsoleSessionLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -150,7 +150,7 @@ export var SerialConsoleSessionUnavailableException$: StaticErrorSchema = [
   -3,
   n0,
   _SCSUE,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`SerialConsoleSessionUnavailable`, 500] },
+  { [_aQE]: [`SerialConsoleSessionUnavailable`, 500], [_e]: _s, [_hE]: 500 },
   [_M],
   [0],
 ];
@@ -159,7 +159,7 @@ export var SerialConsoleSessionUnsupportedException$: StaticErrorSchema = [
   -3,
   n0,
   _SCSUEe,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`SerialConsoleSessionUnsupported`, 400] },
+  { [_aQE]: [`SerialConsoleSessionUnsupported`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -168,7 +168,7 @@ export var ServiceException$: StaticErrorSchema = [
   -3,
   n0,
   _SE,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`InternalServerError`, 500] },
+  { [_aQE]: [`InternalServerError`, 500], [_e]: _s, [_hE]: 500 },
   [_M],
   [0],
 ];
@@ -177,7 +177,7 @@ export var ThrottlingException$: StaticErrorSchema = [
   -3,
   n0,
   _TE,
-  { [_e]: _c, [_hE]: 429, [_aQE]: [`TooManyRequests`, 429] },
+  { [_aQE]: [`TooManyRequests`, 429], [_e]: _c, [_hE]: 429 },
   [_M],
   [0],
 ];

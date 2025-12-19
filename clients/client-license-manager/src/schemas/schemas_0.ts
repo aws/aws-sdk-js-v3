@@ -517,7 +517,7 @@ export var AccessDeniedException$: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  { [_e]: _c, [_hE]: 401, [_aQE]: [`ServiceAccessDenied`, 401] },
+  { [_aQE]: [`ServiceAccessDenied`, 401], [_e]: _c, [_hE]: 401 },
   [_M],
   [0],
 ];
@@ -535,7 +535,7 @@ export var AuthorizationException$: StaticErrorSchema = [
   -3,
   n0,
   _AE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`AuthorizationFailure`, 403] },
+  { [_aQE]: [`AuthorizationFailure`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
   [0],
 ];
@@ -580,7 +580,7 @@ export var ConflictException$: StaticErrorSchema = [
   -3,
   n0,
   _CE,
-  { [_e]: _c, [_hE]: 409, [_aQE]: [`ConflictException`, 409] },
+  { [_aQE]: [`ConflictException`, 409], [_e]: _c, [_hE]: 409 },
   [_M],
   [0],
 ];
@@ -738,7 +738,7 @@ export var FailedDependencyException$: StaticErrorSchema = [
   -3,
   n0,
   _FDE,
-  { [_e]: _c, [_hE]: 424, [_aQE]: [`FailedDependency`, 424] },
+  { [_aQE]: [`FailedDependency`, 424], [_e]: _c, [_hE]: 424 },
   [_M, _EC],
   [0, 0],
 ];
@@ -748,7 +748,7 @@ export var FilterLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _FLEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`FilterLimitExceeded`, 400] },
+  { [_aQE]: [`FilterLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -878,7 +878,7 @@ export var InvalidParameterValueException$: StaticErrorSchema = [
   -3,
   n0,
   _IPVE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidParameterValueProvided`, 400] },
+  { [_aQE]: [`InvalidParameterValueProvided`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -887,7 +887,7 @@ export var InvalidResourceStateException$: StaticErrorSchema = [
   -3,
   n0,
   _IRSE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidResourceState`, 400] },
+  { [_aQE]: [`InvalidResourceState`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1018,7 +1018,7 @@ export var LicenseUsageException$: StaticErrorSchema = [
   -3,
   n0,
   _LUE,
-  { [_e]: _c, [_hE]: 412, [_aQE]: [`LicenseUsageFailure`, 412] },
+  { [_aQE]: [`LicenseUsageFailure`, 412], [_e]: _c, [_hE]: 412 },
   [_M],
   [0],
 ];
@@ -1333,7 +1333,7 @@ export var RateLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _RLEE,
-  { [_e]: _c, [_hE]: 429, [_aQE]: [`RateLimitExceeded`, 429] },
+  { [_aQE]: [`RateLimitExceeded`, 429], [_e]: _c, [_hE]: 429 },
   [_M],
   [0],
 ];
@@ -1373,7 +1373,7 @@ export var ResourceLimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _RLEEe,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceLimitExceeded`, 400] },
+  { [_aQE]: [`ResourceLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1382,7 +1382,7 @@ export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidResource.NotFound`, 400] },
+  { [_aQE]: [`InvalidResource.NotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0],
 ];
@@ -1401,7 +1401,7 @@ export var ServerInternalException$: StaticErrorSchema = [
   -3,
   n0,
   _SIE,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`InternalError`, 500] },
+  { [_aQE]: [`InternalError`, 500], [_e]: _s, [_hE]: 500 },
   [_M],
   [0],
 ];

@@ -1806,7 +1806,7 @@ export var PutIntegrationRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [0, 1],
-    [0, { [_jN]: _rHM, [_hL]: 1 }],
+    [0, { [_hL]: 1, [_jN]: _rHM }],
     0,
     [0, { [_jN]: _hM }],
     0,

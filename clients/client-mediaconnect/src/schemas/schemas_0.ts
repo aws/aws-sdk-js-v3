@@ -1105,6 +1105,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1710,7 +1711,7 @@ export var CreateRouterInputRequest$: StaticStructureSchema = [
     [() => RouterInputTransitEncryption$, { [_jN]: _tE }],
     [() => MaintenanceConfiguration$, { [_jN]: _mC }],
     [128 | 0, { [_jN]: _ta }],
-    [0, { [_jN]: _cT, [_iT]: 1 }],
+    [0, { [_iT]: 1, [_jN]: _cT }],
   ],
 ];
 export var CreateRouterInputResponse$: StaticStructureSchema = [
@@ -1732,7 +1733,7 @@ export var CreateRouterNetworkInterfaceRequest$: StaticStructureSchema = [
     [() => RouterNetworkInterfaceConfiguration$, { [_jN]: _con }],
     [0, { [_jN]: _rN }],
     [128 | 0, { [_jN]: _ta }],
-    [0, { [_jN]: _cT, [_iT]: 1 }],
+    [0, { [_iT]: 1, [_jN]: _cT }],
   ],
 ];
 export var CreateRouterNetworkInterfaceResponse$: StaticStructureSchema = [
@@ -1759,7 +1760,7 @@ export var CreateRouterOutputRequest$: StaticStructureSchema = [
     [0, { [_jN]: _aZ }],
     [() => MaintenanceConfiguration$, { [_jN]: _mC }],
     [128 | 0, { [_jN]: _ta }],
-    [0, { [_jN]: _cT, [_iT]: 1 }],
+    [0, { [_iT]: 1, [_jN]: _cT }],
   ],
 ];
 export var CreateRouterOutputResponse$: StaticStructureSchema = [
@@ -4671,8 +4672,8 @@ var RoutingScopeList = 64 | 0;
 var SecurityGroupIdList = 64 | 0;
 var StringList = 64 | 0;
 var __mapOfString = 128 | 0;
-export var FailoverRouterInputProtocolConfiguration$: StaticStructureSchema = [
-  3,
+export var FailoverRouterInputProtocolConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _FRIPC,
   0,
@@ -4684,8 +4685,8 @@ export var FailoverRouterInputProtocolConfiguration$: StaticStructureSchema = [
     [() => SrtCallerRouterInputConfiguration$, { [_jN]: _sC }],
   ],
 ];
-export var FlowTransitEncryptionKeyConfiguration$: StaticStructureSchema = [
-  3,
+export var FlowTransitEncryptionKeyConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _FTEKC,
   0,
@@ -4695,8 +4696,8 @@ export var FlowTransitEncryptionKeyConfiguration$: StaticStructureSchema = [
     [() => AutomaticEncryptionKeyConfiguration$, { [_jN]: _au }],
   ],
 ];
-export var MaintenanceConfiguration$: StaticStructureSchema = [
-  3,
+export var MaintenanceConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _MC,
   0,
@@ -4706,16 +4707,16 @@ export var MaintenanceConfiguration$: StaticStructureSchema = [
     [() => DefaultMaintenanceConfiguration$, { [_jN]: _def }],
   ],
 ];
-export var MaintenanceSchedule$: StaticStructureSchema = [
-  3,
+export var MaintenanceSchedule$: StaticUnionSchema = [
+  4,
   n0,
   _MSa,
   0,
   [_W],
   [[() => WindowMaintenanceSchedule$, { [_jN]: _w }]],
 ];
-export var MediaLiveTransitEncryptionKeyConfiguration$: StaticStructureSchema = [
-  3,
+export var MediaLiveTransitEncryptionKeyConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _MLTEKC,
   0,
@@ -4725,8 +4726,8 @@ export var MediaLiveTransitEncryptionKeyConfiguration$: StaticStructureSchema = 
     [() => AutomaticEncryptionKeyConfiguration$, { [_jN]: _au }],
   ],
 ];
-export var MergeRouterInputProtocolConfiguration$: StaticStructureSchema = [
-  3,
+export var MergeRouterInputProtocolConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _MRIPC,
   0,
@@ -4736,8 +4737,8 @@ export var MergeRouterInputProtocolConfiguration$: StaticStructureSchema = [
     [() => RistRouterInputConfiguration$, { [_jN]: _ri }],
   ],
 ];
-export var RouterInputConfiguration$: StaticStructureSchema = [
-  3,
+export var RouterInputConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _RIC,
   0,
@@ -4749,8 +4750,8 @@ export var RouterInputConfiguration$: StaticStructureSchema = [
     [() => MediaConnectFlowRouterInputConfiguration$, { [_jN]: _mCF }],
   ],
 ];
-export var RouterInputFilter$: StaticStructureSchema = [
-  3,
+export var RouterInputFilter$: StaticUnionSchema = [
+  4,
   n0,
   _RIF,
   0,
@@ -4763,16 +4764,16 @@ export var RouterInputFilter$: StaticStructureSchema = [
     [64 | 0, { [_jN]: _rSou }],
   ],
 ];
-export var RouterInputMetadata$: StaticStructureSchema = [
-  3,
+export var RouterInputMetadata$: StaticUnionSchema = [
+  4,
   n0,
   _RIMo,
   0,
   [_TSMI],
   [[() => TransportMediaInfo$, { [_jN]: _tSMI }]],
 ];
-export var RouterInputProtocolConfiguration$: StaticStructureSchema = [
-  3,
+export var RouterInputProtocolConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _RIPC,
   0,
@@ -4784,8 +4785,8 @@ export var RouterInputProtocolConfiguration$: StaticStructureSchema = [
     [() => SrtCallerRouterInputConfiguration$, { [_jN]: _sC }],
   ],
 ];
-export var RouterInputStreamDetails$: StaticStructureSchema = [
-  3,
+export var RouterInputStreamDetails$: StaticUnionSchema = [
+  4,
   n0,
   _RISD,
   0,
@@ -4797,8 +4798,8 @@ export var RouterInputStreamDetails$: StaticStructureSchema = [
     [() => MediaConnectFlowRouterInputStreamDetails$, { [_jN]: _mCF }],
   ],
 ];
-export var RouterInputTransitEncryptionKeyConfiguration$: StaticStructureSchema = [
-  3,
+export var RouterInputTransitEncryptionKeyConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _RITEKC,
   0,
@@ -4808,8 +4809,8 @@ export var RouterInputTransitEncryptionKeyConfiguration$: StaticStructureSchema 
     [() => AutomaticEncryptionKeyConfiguration$, { [_jN]: _au }],
   ],
 ];
-export var RouterNetworkInterfaceConfiguration$: StaticStructureSchema = [
-  3,
+export var RouterNetworkInterfaceConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _RNIC,
   0,
@@ -4819,8 +4820,8 @@ export var RouterNetworkInterfaceConfiguration$: StaticStructureSchema = [
     [() => VpcRouterNetworkInterfaceConfiguration$, { [_jN]: _v }],
   ],
 ];
-export var RouterNetworkInterfaceFilter$: StaticStructureSchema = [
-  3,
+export var RouterNetworkInterfaceFilter$: StaticUnionSchema = [
+  4,
   n0,
   _RNIF,
   0,
@@ -4831,8 +4832,8 @@ export var RouterNetworkInterfaceFilter$: StaticStructureSchema = [
     [64 | 0, { [_jN]: _nCa }],
   ],
 ];
-export var RouterOutputConfiguration$: StaticStructureSchema = [
-  3,
+export var RouterOutputConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _ROC,
   0,
@@ -4843,8 +4844,8 @@ export var RouterOutputConfiguration$: StaticStructureSchema = [
     [() => MediaLiveInputRouterOutputConfiguration$, { [_jN]: _mLI }],
   ],
 ];
-export var RouterOutputFilter$: StaticStructureSchema = [
-  3,
+export var RouterOutputFilter$: StaticUnionSchema = [
+  4,
   n0,
   _ROF,
   0,
@@ -4858,8 +4859,8 @@ export var RouterOutputFilter$: StaticStructureSchema = [
     [64 | 0, { [_jN]: _rSou }],
   ],
 ];
-export var RouterOutputProtocolConfiguration$: StaticStructureSchema = [
-  3,
+export var RouterOutputProtocolConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _ROPC,
   0,
@@ -4871,8 +4872,8 @@ export var RouterOutputProtocolConfiguration$: StaticStructureSchema = [
     [() => SrtCallerRouterOutputConfiguration$, { [_jN]: _sC }],
   ],
 ];
-export var RouterOutputStreamDetails$: StaticStructureSchema = [
-  3,
+export var RouterOutputStreamDetails$: StaticUnionSchema = [
+  4,
   n0,
   _ROSD,
   0,

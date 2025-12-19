@@ -501,7 +501,7 @@ export var AccountSendingPausedException$: StaticErrorSchema = [
   -3,
   n0,
   _ASPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`AccountSendingPausedException`, 400] },
+  { [_aQE]: [`AccountSendingPausedException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -511,7 +511,7 @@ export var AlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _AEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`AlreadyExists`, 400] },
+  { [_aQE]: [`AlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_N, _m],
   [0, 0],
 ];
@@ -539,7 +539,7 @@ export var CannotDeleteException$: StaticErrorSchema = [
   -3,
   n0,
   _CDE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CannotDelete`, 400] },
+  { [_aQE]: [`CannotDelete`, 400], [_e]: _c, [_hE]: 400 },
   [_N, _m],
   [0, 0],
 ];
@@ -560,7 +560,7 @@ export var ConfigurationSetAlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _CSAEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ConfigurationSetAlreadyExists`, 400] },
+  { [_aQE]: [`ConfigurationSetAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_CSN, _m],
   [0, 0],
 ];
@@ -569,7 +569,7 @@ export var ConfigurationSetDoesNotExistException$: StaticErrorSchema = [
   -3,
   n0,
   _CSDNEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ConfigurationSetDoesNotExist`, 400] },
+  { [_aQE]: [`ConfigurationSetDoesNotExist`, 400], [_e]: _c, [_hE]: 400 },
   [_CSN, _m],
   [0, 0],
 ];
@@ -578,7 +578,7 @@ export var ConfigurationSetSendingPausedException$: StaticErrorSchema = [
   -3,
   n0,
   _CSSPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ConfigurationSetSendingPausedException`, 400] },
+  { [_aQE]: [`ConfigurationSetSendingPausedException`, 400], [_e]: _c, [_hE]: 400 },
   [_CSN, _m],
   [0, 0],
 ];
@@ -632,7 +632,7 @@ export var CustomVerificationEmailInvalidContentException$: StaticErrorSchema = 
   -3,
   n0,
   _CVEICE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CustomVerificationEmailInvalidContent`, 400] },
+  { [_aQE]: [`CustomVerificationEmailInvalidContent`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -652,7 +652,7 @@ export var CustomVerificationEmailTemplateAlreadyExistsException$: StaticErrorSc
   -3,
   n0,
   _CVETAEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CustomVerificationEmailTemplateAlreadyExists`, 400] },
+  { [_aQE]: [`CustomVerificationEmailTemplateAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_CVETN, _m],
   [0, 0],
 ];
@@ -664,7 +664,7 @@ export var CustomVerificationEmailTemplateDoesNotExistException$: StaticErrorSch
   -3,
   n0,
   _CVETDNEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`CustomVerificationEmailTemplateDoesNotExist`, 400] },
+  { [_aQE]: [`CustomVerificationEmailTemplateDoesNotExist`, 400], [_e]: _c, [_hE]: 400 },
   [_CVETN, _m],
   [0, 0],
 ];
@@ -748,7 +748,7 @@ export var EventDestinationAlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _EDAEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`EventDestinationAlreadyExists`, 400] },
+  { [_aQE]: [`EventDestinationAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_CSN, _EDN, _m],
   [0, 0, 0],
 ];
@@ -757,7 +757,7 @@ export var EventDestinationDoesNotExistException$: StaticErrorSchema = [
   -3,
   n0,
   _EDDNEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`EventDestinationDoesNotExist`, 400] },
+  { [_aQE]: [`EventDestinationDoesNotExist`, 400], [_e]: _c, [_hE]: 400 },
   [_CSN, _EDN, _m],
   [0, 0, 0],
 ];
@@ -767,7 +767,7 @@ export var FromEmailAddressNotVerifiedException$: StaticErrorSchema = [
   -3,
   n0,
   _FEANVE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`FromEmailAddressNotVerified`, 400] },
+  { [_aQE]: [`FromEmailAddressNotVerified`, 400], [_e]: _c, [_hE]: 400 },
   [_FEA, _m],
   [0, 0],
 ];
@@ -846,7 +846,7 @@ export var InvalidCloudWatchDestinationException$: StaticErrorSchema = [
   -3,
   n0,
   _ICWDE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidCloudWatchDestination`, 400] },
+  { [_aQE]: [`InvalidCloudWatchDestination`, 400], [_e]: _c, [_hE]: 400 },
   [_CSN, _EDN, _m],
   [0, 0, 0],
 ];
@@ -855,7 +855,7 @@ export var InvalidConfigurationSetException$: StaticErrorSchema = [
   -3,
   n0,
   _ICSE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidConfigurationSet`, 400] },
+  { [_aQE]: [`InvalidConfigurationSet`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -864,7 +864,7 @@ export var InvalidDeliveryOptionsException$: StaticErrorSchema = [
   -3,
   n0,
   _IDOE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidDeliveryOptions`, 400] },
+  { [_aQE]: [`InvalidDeliveryOptions`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -873,7 +873,7 @@ export var InvalidFirehoseDestinationException$: StaticErrorSchema = [
   -3,
   n0,
   _IFDE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidFirehoseDestination`, 400] },
+  { [_aQE]: [`InvalidFirehoseDestination`, 400], [_e]: _c, [_hE]: 400 },
   [_CSN, _EDN, _m],
   [0, 0, 0],
 ];
@@ -882,7 +882,7 @@ export var InvalidLambdaFunctionException$: StaticErrorSchema = [
   -3,
   n0,
   _ILFE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidLambdaFunction`, 400] },
+  { [_aQE]: [`InvalidLambdaFunction`, 400], [_e]: _c, [_hE]: 400 },
   [_FA, _m],
   [0, 0],
 ];
@@ -891,7 +891,7 @@ export var InvalidPolicyException$: StaticErrorSchema = [
   -3,
   n0,
   _IPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidPolicy`, 400] },
+  { [_aQE]: [`InvalidPolicy`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -900,7 +900,7 @@ export var InvalidRenderingParameterException$: StaticErrorSchema = [
   -3,
   n0,
   _IRPE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidRenderingParameter`, 400] },
+  { [_aQE]: [`InvalidRenderingParameter`, 400], [_e]: _c, [_hE]: 400 },
   [_TN, _m],
   [0, 0],
 ];
@@ -909,7 +909,7 @@ export var InvalidS3ConfigurationException$: StaticErrorSchema = [
   -3,
   n0,
   _ISCE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidS3Configuration`, 400] },
+  { [_aQE]: [`InvalidS3Configuration`, 400], [_e]: _c, [_hE]: 400 },
   [_Bu, _m],
   [0, 0],
 ];
@@ -918,7 +918,7 @@ export var InvalidSNSDestinationException$: StaticErrorSchema = [
   -3,
   n0,
   _ISNSDE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidSNSDestination`, 400] },
+  { [_aQE]: [`InvalidSNSDestination`, 400], [_e]: _c, [_hE]: 400 },
   [_CSN, _EDN, _m],
   [0, 0, 0],
 ];
@@ -927,7 +927,7 @@ export var InvalidSnsTopicException$: StaticErrorSchema = [
   -3,
   n0,
   _ISTE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidSnsTopic`, 400] },
+  { [_aQE]: [`InvalidSnsTopic`, 400], [_e]: _c, [_hE]: 400 },
   [_To, _m],
   [0, 0],
 ];
@@ -936,7 +936,7 @@ export var InvalidTemplateException$: StaticErrorSchema = [
   -3,
   n0,
   _ITE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidTemplate`, 400] },
+  { [_aQE]: [`InvalidTemplate`, 400], [_e]: _c, [_hE]: 400 },
   [_TN, _m],
   [0, 0],
 ];
@@ -945,7 +945,7 @@ export var InvalidTrackingOptionsException$: StaticErrorSchema = [
   -3,
   n0,
   _ITOE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidTrackingOptions`, 400] },
+  { [_aQE]: [`InvalidTrackingOptions`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -956,7 +956,7 @@ export var LimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`LimitExceeded`, 400] },
+  { [_aQE]: [`LimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1015,7 +1015,7 @@ export var MailFromDomainNotVerifiedException$: StaticErrorSchema = [
   -3,
   n0,
   _MFDNVE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`MailFromDomainNotVerifiedException`, 400] },
+  { [_aQE]: [`MailFromDomainNotVerifiedException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1026,7 +1026,7 @@ export var MessageRejected$: StaticErrorSchema = [
   -3,
   n0,
   _MRe,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`MessageRejected`, 400] },
+  { [_aQE]: [`MessageRejected`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1036,7 +1036,7 @@ export var MissingRenderingAttributeException$: StaticErrorSchema = [
   -3,
   n0,
   _MRAE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`MissingRenderingAttribute`, 400] },
+  { [_aQE]: [`MissingRenderingAttribute`, 400], [_e]: _c, [_hE]: 400 },
   [_TN, _m],
   [0, 0],
 ];
@@ -1045,7 +1045,7 @@ export var ProductionAccessNotGrantedException$: StaticErrorSchema = [
   -3,
   n0,
   _PANGE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ProductionAccessNotGranted`, 400] },
+  { [_aQE]: [`ProductionAccessNotGranted`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1105,7 +1105,7 @@ export var RuleDoesNotExistException$: StaticErrorSchema = [
   -3,
   n0,
   _RDNEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`RuleDoesNotExist`, 400] },
+  { [_aQE]: [`RuleDoesNotExist`, 400], [_e]: _c, [_hE]: 400 },
   [_N, _m],
   [0, 0],
 ];
@@ -1114,7 +1114,7 @@ export var RuleSetDoesNotExistException$: StaticErrorSchema = [
   -3,
   n0,
   _RSDNEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`RuleSetDoesNotExist`, 400] },
+  { [_aQE]: [`RuleSetDoesNotExist`, 400], [_e]: _c, [_hE]: 400 },
   [_N, _m],
   [0, 0],
 ];
@@ -1211,7 +1211,7 @@ export var TemplateDoesNotExistException$: StaticErrorSchema = [
   -3,
   n0,
   _TDNEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TemplateDoesNotExist`, 400] },
+  { [_aQE]: [`TemplateDoesNotExist`, 400], [_e]: _c, [_hE]: 400 },
   [_TN, _m],
   [0, 0],
 ];
@@ -1224,7 +1224,7 @@ export var TrackingOptionsAlreadyExistsException$: StaticErrorSchema = [
   -3,
   n0,
   _TOAEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TrackingOptionsAlreadyExistsException`, 400] },
+  { [_aQE]: [`TrackingOptionsAlreadyExistsException`, 400], [_e]: _c, [_hE]: 400 },
   [_CSN, _m],
   [0, 0],
 ];
@@ -1233,7 +1233,7 @@ export var TrackingOptionsDoesNotExistException$: StaticErrorSchema = [
   -3,
   n0,
   _TODNEE,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`TrackingOptionsDoesNotExistException`, 400] },
+  { [_aQE]: [`TrackingOptionsDoesNotExistException`, 400], [_e]: _c, [_hE]: 400 },
   [_CSN, _m],
   [0, 0],
 ];

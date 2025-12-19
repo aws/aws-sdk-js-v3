@@ -178,6 +178,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -462,8 +463,8 @@ var SlotHintsIntentMap: StaticMapSchema = [2, n0, _SHIM, 0, 0, () => SlotHintsSl
 var SlotHintsSlotMap: StaticMapSchema = [2, n0, _SHSM, 0, 0, () => RuntimeHintDetails$];
 var Slots: StaticMapSchema = [2, n0, _Sl, 0, 0, () => Slot$];
 var StringMap = 128 | 0;
-export var StartConversationRequestEventStream$: StaticStructureSchema = [
-  3,
+export var StartConversationRequestEventStream$: StaticUnionSchema = [
+  4,
   n0,
   _SCRES,
   { [_s]: 1 },
@@ -477,8 +478,8 @@ export var StartConversationRequestEventStream$: StaticStructureSchema = [
     () => DisconnectionEvent$,
   ],
 ];
-export var StartConversationResponseEventStream$: StaticStructureSchema = [
-  3,
+export var StartConversationResponseEventStream$: StaticUnionSchema = [
+  4,
   n0,
   _SCRESt,
   { [_s]: 1 },

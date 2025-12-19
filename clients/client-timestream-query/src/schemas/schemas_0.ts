@@ -241,7 +241,7 @@ export var AccessDeniedException$: StaticErrorSchema = [
   -3,
   n0,
   _ADE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`AccessDenied`, 403] },
+  { [_aQE]: [`AccessDenied`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
   [0],
 ];

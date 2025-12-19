@@ -812,6 +812,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { BedrockAgentCoreControlServiceException } from "../models/BedrockAgentCoreControlServiceException";
@@ -1299,7 +1300,7 @@ export var DeleteAgentRuntimeEndpointRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [() => EndpointName, 1],
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
   ],
 ];
 export var DeleteAgentRuntimeEndpointResponse$: StaticStructureSchema = [
@@ -1318,7 +1319,7 @@ export var DeleteAgentRuntimeRequest$: StaticStructureSchema = [
   [_aRI, _cTl],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
   ],
 ];
 export var DeleteAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _DARRe, 0, [_s, _aRI], [0, 0]];
@@ -1332,7 +1333,7 @@ export var DeleteBrowserRequest$: StaticStructureSchema = [
   [_bI, _cTl],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
   ],
 ];
 export var DeleteBrowserResponse$: StaticStructureSchema = [3, n0, _DBRe, 0, [_bI, _s, _lUA], [0, 0, 5]];
@@ -1344,7 +1345,7 @@ export var DeleteCodeInterpreterRequest$: StaticStructureSchema = [
   [_cII, _cTl],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
   ],
 ];
 export var DeleteCodeInterpreterResponse$: StaticStructureSchema = [3, n0, _DCIRe, 0, [_cII, _s, _lUA], [0, 0, 5]];
@@ -1378,7 +1379,7 @@ export var DeleteMemoryInput$: StaticStructureSchema = [
   0,
   [_cTl, _mIe],
   [
-    [0, { [_iT]: 1, [_hQ]: _cTl }],
+    [0, { [_hQ]: _cTl, [_iT]: 1 }],
     [0, 1],
   ],
 ];
@@ -2970,51 +2971,51 @@ var EnvironmentVariablesMap: StaticMapSchema = [2, n0, _EVM, 8, 0, 0];
 var OAuthCustomParameters: StaticMapSchema = [2, n0, _OACPu, 0, [0, 0], [() => OAuthCustomParametersValue, 0]];
 var SchemaProperties: StaticMapSchema = [2, n0, _SP, 0, 0, () => SchemaDefinition$];
 var TagsMap = 128 | 0;
-export var AgentRuntimeArtifact$: StaticStructureSchema = [
-  3,
+export var AgentRuntimeArtifact$: StaticUnionSchema = [
+  4,
   n0,
   _ARA,
   0,
   [_cCo, _cCod],
   [() => ContainerConfiguration$, () => CodeConfiguration$],
 ];
-export var ApiSchemaConfiguration$: StaticStructureSchema = [
-  3,
+export var ApiSchemaConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _ASC,
   0,
   [_s_, _iPn],
   [() => S3Configuration$, [() => InlinePayload, 0]],
 ];
-export var AuthorizerConfiguration$: StaticStructureSchema = [
-  3,
+export var AuthorizerConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _AC,
   0,
   [_cJWTA],
   [() => CustomJWTAuthorizerConfiguration$],
 ];
-export var ClaimMatchValueType$: StaticStructureSchema = [3, n0, _CMVT, 0, [_mVS, _mVSL], [0, 64 | 0]];
-export var Code$: StaticStructureSchema = [3, n0, _C, 0, [_s_], [() => S3Location$]];
-export var ConsolidationConfiguration$: StaticStructureSchema = [
-  3,
+export var ClaimMatchValueType$: StaticUnionSchema = [4, n0, _CMVT, 0, [_mVS, _mVSL], [0, 64 | 0]];
+export var Code$: StaticUnionSchema = [4, n0, _C, 0, [_s_], [() => S3Location$]];
+export var ConsolidationConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _CCon,
   0,
   [_cCC],
   [[() => CustomConsolidationConfiguration$, 0]],
 ];
-export var Content$: StaticStructureSchema = [3, n0, _Co, 0, [_rTa], [0]];
-export var CredentialProvider$: StaticStructureSchema = [
-  3,
+export var Content$: StaticUnionSchema = [4, n0, _Co, 0, [_rTa], [0]];
+export var CredentialProvider$: StaticUnionSchema = [
+  4,
   n0,
   _CPr,
   0,
   [_oCP, _aKCP],
   [[() => OAuthCredentialProvider$, 0], () => GatewayApiKeyCredentialProvider$],
 ];
-export var CustomConfigurationInput$: StaticStructureSchema = [
-  3,
+export var CustomConfigurationInput$: StaticUnionSchema = [
+  4,
   n0,
   _CCI,
   0,
@@ -3027,8 +3028,8 @@ export var CustomConfigurationInput$: StaticStructureSchema = [
     () => SelfManagedConfigurationInput$,
   ],
 ];
-export var CustomConsolidationConfiguration$: StaticStructureSchema = [
-  3,
+export var CustomConsolidationConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _CCC,
   0,
@@ -3040,8 +3041,8 @@ export var CustomConsolidationConfiguration$: StaticStructureSchema = [
     [() => EpisodicConsolidationOverride$, 0],
   ],
 ];
-export var CustomConsolidationConfigurationInput$: StaticStructureSchema = [
-  3,
+export var CustomConsolidationConfigurationInput$: StaticUnionSchema = [
+  4,
   n0,
   _CCCI,
   0,
@@ -3053,8 +3054,8 @@ export var CustomConsolidationConfigurationInput$: StaticStructureSchema = [
     [() => EpisodicOverrideConsolidationConfigurationInput$, 0],
   ],
 ];
-export var CustomExtractionConfiguration$: StaticStructureSchema = [
-  3,
+export var CustomExtractionConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _CEC,
   0,
@@ -3065,8 +3066,8 @@ export var CustomExtractionConfiguration$: StaticStructureSchema = [
     [() => EpisodicExtractionOverride$, 0],
   ],
 ];
-export var CustomExtractionConfigurationInput$: StaticStructureSchema = [
-  3,
+export var CustomExtractionConfigurationInput$: StaticUnionSchema = [
+  4,
   n0,
   _CECI,
   0,
@@ -3077,60 +3078,46 @@ export var CustomExtractionConfigurationInput$: StaticStructureSchema = [
     [() => EpisodicOverrideExtractionConfigurationInput$, 0],
   ],
 ];
-export var CustomReflectionConfiguration$: StaticStructureSchema = [
-  3,
+export var CustomReflectionConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _CRC,
   0,
   [_eRO],
   [[() => EpisodicReflectionOverride$, 0]],
 ];
-export var CustomReflectionConfigurationInput$: StaticStructureSchema = [
-  3,
+export var CustomReflectionConfigurationInput$: StaticUnionSchema = [
+  4,
   n0,
   _CRCI,
   0,
   [_eRO],
   [[() => EpisodicOverrideReflectionConfigurationInput$, 0]],
 ];
-export var DataSourceConfig$: StaticStructureSchema = [3, n0, _DSC, 0, [_cWL], [() => CloudWatchLogsInputConfig$]];
-export var EvaluatorConfig$: StaticStructureSchema = [3, n0, _EC, 0, [_lAAJ], [[() => LlmAsAJudgeEvaluatorConfig$, 0]]];
-export var EvaluatorModelConfig$: StaticStructureSchema = [
-  3,
-  n0,
-  _EMC,
-  0,
-  [_bEMC],
-  [() => BedrockEvaluatorModelConfig$],
-];
-export var EvaluatorReference$: StaticStructureSchema = [3, n0, _ER, 0, [_eI], [0]];
-export var ExtractionConfiguration$: StaticStructureSchema = [
-  3,
+export var DataSourceConfig$: StaticUnionSchema = [4, n0, _DSC, 0, [_cWL], [() => CloudWatchLogsInputConfig$]];
+export var EvaluatorConfig$: StaticUnionSchema = [4, n0, _EC, 0, [_lAAJ], [[() => LlmAsAJudgeEvaluatorConfig$, 0]]];
+export var EvaluatorModelConfig$: StaticUnionSchema = [4, n0, _EMC, 0, [_bEMC], [() => BedrockEvaluatorModelConfig$]];
+export var EvaluatorReference$: StaticUnionSchema = [4, n0, _ER, 0, [_eI], [0]];
+export var ExtractionConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _ECx,
   0,
   [_cEC],
   [[() => CustomExtractionConfiguration$, 0]],
 ];
-export var FilterValue$: StaticStructureSchema = [3, n0, _FV, 0, [_sVt, _dV, _bV], [0, 1, 2]];
-export var GatewayProtocolConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _GPC,
-  0,
-  [_mc],
-  [() => MCPGatewayConfiguration$],
-];
-export var InterceptorConfiguration$: StaticStructureSchema = [
-  3,
+export var FilterValue$: StaticUnionSchema = [4, n0, _FV, 0, [_sVt, _dV, _bV], [0, 1, 2]];
+export var GatewayProtocolConfiguration$: StaticUnionSchema = [4, n0, _GPC, 0, [_mc], [() => MCPGatewayConfiguration$]];
+export var InterceptorConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _ICnt,
   0,
   [_la],
   [() => LambdaInterceptorConfiguration$],
 ];
-export var McpTargetConfiguration$: StaticStructureSchema = [
-  3,
+export var McpTargetConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _MTC,
   0,
@@ -3143,8 +3130,8 @@ export var McpTargetConfiguration$: StaticStructureSchema = [
     () => ApiGatewayTargetConfiguration$,
   ],
 ];
-export var MemoryStrategyInput$: StaticStructureSchema = [
-  3,
+export var MemoryStrategyInput$: StaticUnionSchema = [
+  4,
   n0,
   _MSI,
   0,
@@ -3157,40 +3144,40 @@ export var MemoryStrategyInput$: StaticStructureSchema = [
     [() => EpisodicMemoryStrategyInput$, 0],
   ],
 ];
-export var ModifyConsolidationConfiguration$: StaticStructureSchema = [
-  3,
+export var ModifyConsolidationConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _MCC,
   0,
   [_cCC],
   [[() => CustomConsolidationConfigurationInput$, 0]],
 ];
-export var ModifyExtractionConfiguration$: StaticStructureSchema = [
-  3,
+export var ModifyExtractionConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _MEC,
   0,
   [_cEC],
   [[() => CustomExtractionConfigurationInput$, 0]],
 ];
-export var ModifyReflectionConfiguration$: StaticStructureSchema = [
-  3,
+export var ModifyReflectionConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _MRC,
   0,
   [_eRC, _cRC],
   [() => EpisodicReflectionConfigurationInput$, [() => CustomReflectionConfigurationInput$, 0]],
 ];
-export var Oauth2Discovery$: StaticStructureSchema = [
-  3,
+export var Oauth2Discovery$: StaticUnionSchema = [
+  4,
   n0,
   _OD,
   0,
   [_dU, _aSM],
   [0, () => Oauth2AuthorizationServerMetadata$],
 ];
-export var Oauth2ProviderConfigInput$: StaticStructureSchema = [
-  3,
+export var Oauth2ProviderConfigInput$: StaticUnionSchema = [
+  4,
   n0,
   _OPCI,
   0,
@@ -3207,8 +3194,8 @@ export var Oauth2ProviderConfigInput$: StaticStructureSchema = [
     [() => IncludedOauth2ProviderConfigInput$, 0],
   ],
 ];
-export var Oauth2ProviderConfigOutput$: StaticStructureSchema = [
-  3,
+export var Oauth2ProviderConfigOutput$: StaticUnionSchema = [
+  4,
   n0,
   _OPCO,
   0,
@@ -3225,44 +3212,44 @@ export var Oauth2ProviderConfigOutput$: StaticStructureSchema = [
     () => IncludedOauth2ProviderConfigOutput$,
   ],
 ];
-export var PolicyDefinition$: StaticStructureSchema = [3, n0, _PD, 0, [_ce], [() => CedarPolicy$]];
-export var RatingScale$: StaticStructureSchema = [
-  3,
+export var PolicyDefinition$: StaticUnionSchema = [4, n0, _PD, 0, [_ce], [() => CedarPolicy$]];
+export var RatingScale$: StaticUnionSchema = [
+  4,
   n0,
   _RS,
   0,
   [_nu, _ca],
   [() => NumericalScaleDefinitions, () => CategoricalScaleDefinitions],
 ];
-export var ReflectionConfiguration$: StaticStructureSchema = [
-  3,
+export var ReflectionConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _RCe,
   0,
   [_cRC, _eRC],
   [[() => CustomReflectionConfiguration$, 0], () => EpisodicReflectionConfiguration$],
 ];
-export var RequestHeaderConfiguration$: StaticStructureSchema = [3, n0, _RHC, 0, [_rHA], [64 | 0]];
-export var Resource$: StaticStructureSchema = [3, n0, _Re, 0, [_a], [0]];
-export var TargetConfiguration$: StaticStructureSchema = [3, n0, _TC, 0, [_mc], [[() => McpTargetConfiguration$, 0]]];
-export var ToolSchema$: StaticStructureSchema = [
-  3,
+export var RequestHeaderConfiguration$: StaticUnionSchema = [4, n0, _RHC, 0, [_rHA], [64 | 0]];
+export var Resource$: StaticUnionSchema = [4, n0, _Re, 0, [_a], [0]];
+export var TargetConfiguration$: StaticUnionSchema = [4, n0, _TC, 0, [_mc], [[() => McpTargetConfiguration$, 0]]];
+export var ToolSchema$: StaticUnionSchema = [
+  4,
   n0,
   _TSo,
   0,
   [_s_, _iPn],
   [() => S3Configuration$, () => ToolDefinitions],
 ];
-export var TriggerCondition$: StaticStructureSchema = [
-  3,
+export var TriggerCondition$: StaticUnionSchema = [
+  4,
   n0,
   _TCr,
   0,
   [_mBT, _tBT, _tBTi],
   [() => MessageBasedTrigger$, () => TokenBasedTrigger$, () => TimeBasedTrigger$],
 ];
-export var TriggerConditionInput$: StaticStructureSchema = [
-  3,
+export var TriggerConditionInput$: StaticUnionSchema = [
+  4,
   n0,
   _TCI,
   0,

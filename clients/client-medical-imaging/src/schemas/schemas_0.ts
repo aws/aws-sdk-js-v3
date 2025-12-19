@@ -203,6 +203,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -687,9 +688,9 @@ var SearchByAttributeValues: StaticListSchema = [1, n0, _SBAV, 0, [() => SearchB
 var SearchFilters: StaticListSchema = [1, n0, _SFe, 0, [() => SearchFilter$, 0]];
 var TagKeyList = 64 | 0;
 var TagMap = 128 | 0;
-export var MetadataUpdates$: StaticStructureSchema = [3, n0, _MU, 0, [_DICOMU, _rTVI], [[() => DICOMUpdates$, 0], 0]];
-export var SearchByAttributeValue$: StaticStructureSchema = [
-  3,
+export var MetadataUpdates$: StaticUnionSchema = [4, n0, _MU, 0, [_DICOMU, _rTVI], [[() => DICOMUpdates$, 0], 0]];
+export var SearchByAttributeValue$: StaticUnionSchema = [
+  4,
   n0,
   _SBAVe,
   0,
@@ -710,7 +711,7 @@ export var CopyImageSet$: StaticOperationSchema = [
   9,
   n0,
   _CIS,
-  { [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{sourceImageSetId}/copyImageSet", 200], [_en]: ["runtime-"] },
+  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{sourceImageSetId}/copyImageSet", 200] },
   () => CopyImageSetRequest$,
   () => CopyImageSetResponse$,
 ];
@@ -734,7 +735,7 @@ export var DeleteImageSet$: StaticOperationSchema = [
   9,
   n0,
   _DIS,
-  { [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/deleteImageSet", 200], [_en]: ["runtime-"] },
+  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/deleteImageSet", 200] },
   () => DeleteImageSetRequest$,
   () => DeleteImageSetResponse$,
 ];
@@ -758,7 +759,7 @@ export var GetImageFrame$: StaticOperationSchema = [
   9,
   n0,
   _GIF,
-  { [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/getImageFrame", 200], [_en]: ["runtime-"] },
+  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/getImageFrame", 200] },
   () => GetImageFrameRequest$,
   () => GetImageFrameResponse$,
 ];
@@ -766,7 +767,7 @@ export var GetImageSet$: StaticOperationSchema = [
   9,
   n0,
   _GIS,
-  { [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/getImageSet", 200], [_en]: ["runtime-"] },
+  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/getImageSet", 200] },
   () => GetImageSetRequest$,
   () => GetImageSetResponse$,
 ];
@@ -774,7 +775,7 @@ export var GetImageSetMetadata$: StaticOperationSchema = [
   9,
   n0,
   _GISM,
-  { [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/getImageSetMetadata", 200], [_en]: ["runtime-"] },
+  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/getImageSetMetadata", 200] },
   () => GetImageSetMetadataRequest$,
   () => GetImageSetMetadataResponse$,
 ];
@@ -798,7 +799,7 @@ export var ListImageSetVersions$: StaticOperationSchema = [
   9,
   n0,
   _LISV,
-  { [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/listImageSetVersions", 200], [_en]: ["runtime-"] },
+  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/listImageSetVersions", 200] },
   () => ListImageSetVersionsRequest$,
   () => ListImageSetVersionsResponse$,
 ];
@@ -814,7 +815,7 @@ export var SearchImageSets$: StaticOperationSchema = [
   9,
   n0,
   _SIS,
-  { [_h]: ["POST", "/datastore/{datastoreId}/searchImageSets", 200], [_en]: ["runtime-"] },
+  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/searchImageSets", 200] },
   () => SearchImageSetsRequest$,
   () => SearchImageSetsResponse$,
 ];
@@ -846,7 +847,7 @@ export var UpdateImageSetMetadata$: StaticOperationSchema = [
   9,
   n0,
   _UISM,
-  { [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/updateImageSetMetadata", 200], [_en]: ["runtime-"] },
+  { [_en]: ["runtime-"], [_h]: ["POST", "/datastore/{datastoreId}/imageSet/{imageSetId}/updateImageSetMetadata", 200] },
   () => UpdateImageSetMetadataRequest$,
   () => UpdateImageSetMetadataResponse$,
 ];

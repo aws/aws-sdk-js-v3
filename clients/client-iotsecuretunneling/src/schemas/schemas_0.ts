@@ -104,7 +104,7 @@ export var LimitExceededException$: StaticErrorSchema = [
   -3,
   n0,
   _LEE,
-  { [_e]: _c, [_hE]: 403, [_aQE]: [`LimitExceededException`, 403] },
+  { [_aQE]: [`LimitExceededException`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0],
 ];
@@ -144,7 +144,7 @@ export var ResourceNotFoundException$: StaticErrorSchema = [
   -3,
   n0,
   _RNFE,
-  { [_e]: _c, [_hE]: 404, [_aQE]: [`ResourceNotFoundException`, 404] },
+  { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
   [0],
 ];

@@ -286,7 +286,7 @@ export var CreateProfilingGroupRequest$: StaticStructureSchema = [
   _CPGR,
   0,
   [_pGN, _cP, _cT, _aOC, _t],
-  [0, 0, [0, { [_iT]: 1, [_hQ]: _cT }], () => AgentOrchestrationConfig$, 128 | 0],
+  [0, 0, [0, { [_hQ]: _cT, [_iT]: 1 }], () => AgentOrchestrationConfig$, 128 | 0],
 ];
 export var CreateProfilingGroupResponse$: StaticStructureSchema = [
   3,
@@ -480,7 +480,7 @@ export var PostAgentProfileRequest$: StaticStructureSchema = [
   [
     [0, 1],
     [21, 16],
-    [0, { [_iT]: 1, [_hQ]: _pTr }],
+    [0, { [_hQ]: _pTr, [_iT]: 1 }],
     [0, { [_hH]: _CT }],
   ],
 ];

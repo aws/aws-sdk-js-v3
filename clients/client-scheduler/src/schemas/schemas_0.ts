@@ -188,7 +188,7 @@ export var DeleteScheduleGroupInput$: StaticStructureSchema = [
   [_N, _CT],
   [
     [0, 1],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeleteScheduleGroupOutput$: StaticStructureSchema = [3, n0, _DSGO, 0, [], []];
@@ -201,7 +201,7 @@ export var DeleteScheduleInput$: StaticStructureSchema = [
   [
     [0, 1],
     [0, { [_hQ]: _gN }],
-    [0, { [_iT]: 1, [_hQ]: _cT }],
+    [0, { [_hQ]: _cT, [_iT]: 1 }],
   ],
 ];
 export var DeleteScheduleOutput$: StaticStructureSchema = [3, n0, _DSO, 0, [], []];

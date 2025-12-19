@@ -612,7 +612,7 @@ export var ActiveInstanceRefreshNotFoundFault$: StaticErrorSchema = [
   -3,
   n0,
   _AIRNFF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ActiveInstanceRefreshNotFound`, 400] },
+  { [_aQE]: [`ActiveInstanceRefreshNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -634,7 +634,7 @@ export var AlreadyExistsFault$: StaticErrorSchema = [
   -3,
   n0,
   _AEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`AlreadyExists`, 400] },
+  { [_aQE]: [`AlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1173,7 +1173,7 @@ export var IdempotentParameterMismatchError$: StaticErrorSchema = [
   -3,
   n0,
   _IPME,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`IdempotentParameterMismatch`, 400] },
+  { [_aQE]: [`IdempotentParameterMismatch`, 400], [_e]: _c, [_hE]: 400 },
   [_Mes],
   [0],
 ];
@@ -1224,7 +1224,7 @@ export var InstanceRefreshInProgressFault$: StaticErrorSchema = [
   -3,
   n0,
   _IRIPF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InstanceRefreshInProgress`, 400] },
+  { [_aQE]: [`InstanceRefreshInProgress`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1312,7 +1312,7 @@ export var InvalidNextToken$: StaticErrorSchema = [
   -3,
   n0,
   _INT,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`InvalidNextToken`, 400] },
+  { [_aQE]: [`InvalidNextToken`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1321,7 +1321,7 @@ export var IrreversibleInstanceRefreshFault$: StaticErrorSchema = [
   -3,
   n0,
   _IIRF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`IrreversibleInstanceRefresh`, 400] },
+  { [_aQE]: [`IrreversibleInstanceRefresh`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1447,7 +1447,7 @@ export var LimitExceededFault$: StaticErrorSchema = [
   -3,
   n0,
   _LEF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`LimitExceeded`, 400] },
+  { [_aQE]: [`LimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1623,7 +1623,7 @@ export var ResourceContentionFault$: StaticErrorSchema = [
   -3,
   n0,
   _RCF,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`ResourceContention`, 500] },
+  { [_aQE]: [`ResourceContention`, 500], [_e]: _s, [_hE]: 500 },
   [_m],
   [0],
 ];
@@ -1632,7 +1632,7 @@ export var ResourceInUseFault$: StaticErrorSchema = [
   -3,
   n0,
   _RIUF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ResourceInUse`, 400] },
+  { [_aQE]: [`ResourceInUse`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1652,7 +1652,7 @@ export var ScalingActivityInProgressFault$: StaticErrorSchema = [
   -3,
   n0,
   _SAIPF,
-  { [_e]: _c, [_hE]: 400, [_aQE]: [`ScalingActivityInProgress`, 400] },
+  { [_aQE]: [`ScalingActivityInProgress`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0],
 ];
@@ -1711,7 +1711,7 @@ export var ServiceLinkedRoleFailure$: StaticErrorSchema = [
   -3,
   n0,
   _SLRF,
-  { [_e]: _s, [_hE]: 500, [_aQE]: [`ServiceLinkedRoleFailure`, 500] },
+  { [_aQE]: [`ServiceLinkedRoleFailure`, 500], [_e]: _s, [_hE]: 500 },
   [_m],
   [0],
 ];

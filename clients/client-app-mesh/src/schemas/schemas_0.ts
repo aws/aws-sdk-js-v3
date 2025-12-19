@@ -430,7 +430,13 @@ const n0 = "com.amazonaws.appmesh";
 
 // smithy-typescript generated code
 import { TypeRegistry } from "@smithy/core/schema";
-import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, StaticStructureSchema } from "@smithy/types";
+import type {
+  StaticErrorSchema,
+  StaticListSchema,
+  StaticOperationSchema,
+  StaticStructureSchema,
+  StaticUnionSchema,
+} from "@smithy/types";
 
 import { AppMeshServiceException } from "../models/AppMeshServiceException";
 import {
@@ -1586,99 +1592,92 @@ var VirtualRouterList: StaticListSchema = [1, n0, _VRLi, 0, () => VirtualRouterR
 var VirtualRouterListeners: StaticListSchema = [1, n0, _VRLir, 0, () => VirtualRouterListener$];
 var VirtualServiceList: StaticListSchema = [1, n0, _VSL, 0, () => VirtualServiceRef$];
 var WeightedTargets: StaticListSchema = [1, n0, _WTe, 0, () => WeightedTarget$];
-export var AccessLog$: StaticStructureSchema = [3, n0, _AL, 0, [_fi], [() => FileAccessLog$]];
-export var Backend$: StaticStructureSchema = [3, n0, _Ba, 0, [_vS], [() => VirtualServiceBackend$]];
-export var ClientTlsCertificate$: StaticStructureSchema = [
-  3,
+export var AccessLog$: StaticUnionSchema = [4, n0, _AL, 0, [_fi], [() => FileAccessLog$]];
+export var Backend$: StaticUnionSchema = [4, n0, _Ba, 0, [_vS], [() => VirtualServiceBackend$]];
+export var ClientTlsCertificate$: StaticUnionSchema = [
+  4,
   n0,
   _CTC,
   0,
   [_fi, _sd],
   [() => ListenerTlsFileCertificate$, () => ListenerTlsSdsCertificate$],
 ];
-export var GrpcMetadataMatchMethod$: StaticStructureSchema = [
-  3,
+export var GrpcMetadataMatchMethod$: StaticUnionSchema = [
+  4,
   n0,
   _GMMM,
   0,
   [_ex, _reg, _ra, _pre, _su],
   [0, 0, () => MatchRange$, 0, 0],
 ];
-export var GrpcRouteMetadataMatchMethod$: StaticStructureSchema = [
-  3,
+export var GrpcRouteMetadataMatchMethod$: StaticUnionSchema = [
+  4,
   n0,
   _GRMMM,
   0,
   [_ex, _reg, _ra, _pre, _su],
   [0, 0, () => MatchRange$, 0, 0],
 ];
-export var HeaderMatchMethod$: StaticStructureSchema = [
-  3,
+export var HeaderMatchMethod$: StaticUnionSchema = [
+  4,
   n0,
   _HMM,
   0,
   [_ex, _reg, _ra, _pre, _su],
   [0, 0, () => MatchRange$, 0, 0],
 ];
-export var ListenerTimeout$: StaticStructureSchema = [
-  3,
+export var ListenerTimeout$: StaticUnionSchema = [
+  4,
   n0,
   _LTi,
   0,
   [_tc, _ht, _htt, _g],
   [() => TcpTimeout$, () => HttpTimeout$, () => HttpTimeout$, () => GrpcTimeout$],
 ];
-export var ListenerTlsCertificate$: StaticStructureSchema = [
-  3,
+export var ListenerTlsCertificate$: StaticUnionSchema = [
+  4,
   n0,
   _LTC,
   0,
   [_acm, _fi, _sd],
   [() => ListenerTlsAcmCertificate$, () => ListenerTlsFileCertificate$, () => ListenerTlsSdsCertificate$],
 ];
-export var ListenerTlsValidationContextTrust$: StaticStructureSchema = [
-  3,
+export var ListenerTlsValidationContextTrust$: StaticUnionSchema = [
+  4,
   n0,
   _LTVCT,
   0,
   [_fi, _sd],
   [() => TlsValidationContextFileTrust$, () => TlsValidationContextSdsTrust$],
 ];
-export var LoggingFormat$: StaticStructureSchema = [3, n0, _LF, 0, [_te, _j], [0, () => JsonFormat]];
-export var ServiceDiscovery$: StaticStructureSchema = [
-  3,
+export var LoggingFormat$: StaticUnionSchema = [4, n0, _LF, 0, [_te, _j], [0, () => JsonFormat]];
+export var ServiceDiscovery$: StaticUnionSchema = [
+  4,
   n0,
   _SD,
   0,
   [_d, _aCM],
   [() => DnsServiceDiscovery$, () => AwsCloudMapServiceDiscovery$],
 ];
-export var TlsValidationContextTrust$: StaticStructureSchema = [
-  3,
+export var TlsValidationContextTrust$: StaticUnionSchema = [
+  4,
   n0,
   _TVCT,
   0,
   [_acm, _fi, _sd],
   [() => TlsValidationContextAcmTrust$, () => TlsValidationContextFileTrust$, () => TlsValidationContextSdsTrust$],
 ];
-export var VirtualGatewayAccessLog$: StaticStructureSchema = [
-  3,
-  n0,
-  _VGAL,
-  0,
-  [_fi],
-  [() => VirtualGatewayFileAccessLog$],
-];
-export var VirtualGatewayClientTlsCertificate$: StaticStructureSchema = [
-  3,
+export var VirtualGatewayAccessLog$: StaticUnionSchema = [4, n0, _VGAL, 0, [_fi], [() => VirtualGatewayFileAccessLog$]];
+export var VirtualGatewayClientTlsCertificate$: StaticUnionSchema = [
+  4,
   n0,
   _VGCTC,
   0,
   [_fi, _sd],
   [() => VirtualGatewayListenerTlsFileCertificate$, () => VirtualGatewayListenerTlsSdsCertificate$],
 ];
-export var VirtualGatewayConnectionPool$: StaticStructureSchema = [
-  3,
+export var VirtualGatewayConnectionPool$: StaticUnionSchema = [
+  4,
   n0,
   _VGCPi,
   0,
@@ -1689,8 +1688,8 @@ export var VirtualGatewayConnectionPool$: StaticStructureSchema = [
     () => VirtualGatewayGrpcConnectionPool$,
   ],
 ];
-export var VirtualGatewayListenerTlsCertificate$: StaticStructureSchema = [
-  3,
+export var VirtualGatewayListenerTlsCertificate$: StaticUnionSchema = [
+  4,
   n0,
   _VGLTC,
   0,
@@ -1701,16 +1700,16 @@ export var VirtualGatewayListenerTlsCertificate$: StaticStructureSchema = [
     () => VirtualGatewayListenerTlsSdsCertificate$,
   ],
 ];
-export var VirtualGatewayListenerTlsValidationContextTrust$: StaticStructureSchema = [
-  3,
+export var VirtualGatewayListenerTlsValidationContextTrust$: StaticUnionSchema = [
+  4,
   n0,
   _VGLTVCT,
   0,
   [_fi, _sd],
   [() => VirtualGatewayTlsValidationContextFileTrust$, () => VirtualGatewayTlsValidationContextSdsTrust$],
 ];
-export var VirtualGatewayTlsValidationContextTrust$: StaticStructureSchema = [
-  3,
+export var VirtualGatewayTlsValidationContextTrust$: StaticUnionSchema = [
+  4,
   n0,
   _VGTVCT,
   0,
@@ -1721,8 +1720,8 @@ export var VirtualGatewayTlsValidationContextTrust$: StaticStructureSchema = [
     () => VirtualGatewayTlsValidationContextSdsTrust$,
   ],
 ];
-export var VirtualNodeConnectionPool$: StaticStructureSchema = [
-  3,
+export var VirtualNodeConnectionPool$: StaticUnionSchema = [
+  4,
   n0,
   _VNCP,
   0,
@@ -1734,8 +1733,8 @@ export var VirtualNodeConnectionPool$: StaticStructureSchema = [
     () => VirtualNodeGrpcConnectionPool$,
   ],
 ];
-export var VirtualServiceProvider$: StaticStructureSchema = [
-  3,
+export var VirtualServiceProvider$: StaticUnionSchema = [
+  4,
   n0,
   _VSP,
   0,

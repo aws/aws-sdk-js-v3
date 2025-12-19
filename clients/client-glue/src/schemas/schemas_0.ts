@@ -2350,6 +2350,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -7728,7 +7729,7 @@ var StringToStringMap = 128 | 0;
 var TagsMap = 128 | 0;
 var TokenUrlParametersMap = 128 | 0;
 var WorkflowRunProperties = 128 | 0;
-export var TableOptimizerVpcConfiguration$: StaticStructureSchema = [3, n0, _TOVC, 0, [_gCN], [0]];
+export var TableOptimizerVpcConfiguration$: StaticUnionSchema = [4, n0, _TOVC, 0, [_gCN], [0]];
 export var BatchCreatePartition$: StaticOperationSchema = [
   9,
   n0,

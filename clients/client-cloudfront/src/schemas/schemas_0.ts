@@ -1180,6 +1180,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { CloudFrontServiceException } from "../models/CloudFrontServiceException";
@@ -1759,7 +1760,7 @@ export var CreateCachePolicyRequest$: StaticStructureSchema = [
   _CCPR,
   0,
   [_CPC],
-  [[() => CachePolicyConfig$, { [_xN]: _CPC, [_hP]: 1 }]],
+  [[() => CachePolicyConfig$, { [_hP]: 1, [_xN]: _CPC }]],
 ];
 export var CreateCachePolicyResult$: StaticStructureSchema = [
   3,
@@ -1779,7 +1780,7 @@ export var CreateCloudFrontOriginAccessIdentityRequest$: StaticStructureSchema =
   _CCFOAIR,
   0,
   [_CFOAIC],
-  [[() => CloudFrontOriginAccessIdentityConfig$, { [_xN]: _CFOAIC, [_hP]: 1 }]],
+  [[() => CloudFrontOriginAccessIdentityConfig$, { [_hP]: 1, [_xN]: _CFOAIC }]],
 ];
 export var CreateCloudFrontOriginAccessIdentityResult$: StaticStructureSchema = [
   3,
@@ -1838,7 +1839,7 @@ export var CreateContinuousDeploymentPolicyRequest$: StaticStructureSchema = [
   _CCDPR,
   0,
   [_CDPC],
-  [[() => ContinuousDeploymentPolicyConfig$, { [_xN]: _CDPC, [_hP]: 1 }]],
+  [[() => ContinuousDeploymentPolicyConfig$, { [_hP]: 1, [_xN]: _CDPC }]],
 ];
 export var CreateContinuousDeploymentPolicyResult$: StaticStructureSchema = [
   3,
@@ -1858,7 +1859,7 @@ export var CreateDistributionRequest$: StaticStructureSchema = [
   _CDRr,
   0,
   [_DC],
-  [[() => DistributionConfig$, { [_xN]: _DC, [_hP]: 1 }]],
+  [[() => DistributionConfig$, { [_hP]: 1, [_xN]: _DC }]],
 ];
 export var CreateDistributionResult$: StaticStructureSchema = [
   3,
@@ -1907,7 +1908,7 @@ export var CreateDistributionWithTagsRequest$: StaticStructureSchema = [
   _CDWTR,
   0,
   [_DCWT],
-  [[() => DistributionConfigWithTags$, { [_xN]: _DCWT, [_hP]: 1 }]],
+  [[() => DistributionConfigWithTags$, { [_hP]: 1, [_xN]: _DCWT }]],
 ];
 export var CreateDistributionWithTagsResult$: StaticStructureSchema = [
   3,
@@ -1927,7 +1928,7 @@ export var CreateFieldLevelEncryptionConfigRequest$: StaticStructureSchema = [
   _CFLECR,
   0,
   [_FLEC],
-  [[() => FieldLevelEncryptionConfig$, { [_xN]: _FLEC, [_hP]: 1 }]],
+  [[() => FieldLevelEncryptionConfig$, { [_hP]: 1, [_xN]: _FLEC }]],
 ];
 export var CreateFieldLevelEncryptionConfigResult$: StaticStructureSchema = [
   3,
@@ -1947,7 +1948,7 @@ export var CreateFieldLevelEncryptionProfileRequest$: StaticStructureSchema = [
   _CFLEPR,
   0,
   [_FLEPC],
-  [[() => FieldLevelEncryptionProfileConfig$, { [_xN]: _FLEPC, [_hP]: 1 }]],
+  [[() => FieldLevelEncryptionProfileConfig$, { [_hP]: 1, [_xN]: _FLEPC }]],
 ];
 export var CreateFieldLevelEncryptionProfileResult$: StaticStructureSchema = [
   3,
@@ -1989,7 +1990,7 @@ export var CreateInvalidationForDistributionTenantRequest$: StaticStructureSchem
   [_Id, _IB],
   [
     [0, 1],
-    [() => InvalidationBatch$, { [_xN]: _IB, [_hP]: 1 }],
+    [() => InvalidationBatch$, { [_hP]: 1, [_xN]: _IB }],
   ],
 ];
 export var CreateInvalidationForDistributionTenantResult$: StaticStructureSchema = [
@@ -2011,7 +2012,7 @@ export var CreateInvalidationRequest$: StaticStructureSchema = [
   [_DI, _IB],
   [
     [0, 1],
-    [() => InvalidationBatch$, { [_xN]: _IB, [_hP]: 1 }],
+    [() => InvalidationBatch$, { [_hP]: 1, [_xN]: _IB }],
   ],
 ];
 export var CreateInvalidationResult$: StaticStructureSchema = [
@@ -2031,7 +2032,7 @@ export var CreateKeyGroupRequest$: StaticStructureSchema = [
   _CKGR,
   0,
   [_KGC],
-  [[() => KeyGroupConfig$, { [_xN]: _KGC, [_hP]: 1 }]],
+  [[() => KeyGroupConfig$, { [_hP]: 1, [_xN]: _KGC }]],
 ];
 export var CreateKeyGroupResult$: StaticStructureSchema = [
   3,
@@ -2073,7 +2074,7 @@ export var CreateMonitoringSubscriptionRequest$: StaticStructureSchema = [
   [_DI, _MS],
   [
     [0, 1],
-    [() => MonitoringSubscription$, { [_xN]: _MS, [_hP]: 1 }],
+    [() => MonitoringSubscription$, { [_hP]: 1, [_xN]: _MS }],
   ],
 ];
 export var CreateMonitoringSubscriptionResult$: StaticStructureSchema = [
@@ -2090,7 +2091,7 @@ export var CreateOriginAccessControlRequest$: StaticStructureSchema = [
   _COACR,
   0,
   [_OACC],
-  [[() => OriginAccessControlConfig$, { [_xN]: _OACC, [_hP]: 1 }]],
+  [[() => OriginAccessControlConfig$, { [_hP]: 1, [_xN]: _OACC }]],
 ];
 export var CreateOriginAccessControlResult$: StaticStructureSchema = [
   3,
@@ -2110,7 +2111,7 @@ export var CreateOriginRequestPolicyRequest$: StaticStructureSchema = [
   _CORPR,
   0,
   [_ORPC],
-  [[() => OriginRequestPolicyConfig$, { [_xN]: _ORPC, [_hP]: 1 }]],
+  [[() => OriginRequestPolicyConfig$, { [_hP]: 1, [_xN]: _ORPC }]],
 ];
 export var CreateOriginRequestPolicyResult$: StaticStructureSchema = [
   3,
@@ -2130,7 +2131,7 @@ export var CreatePublicKeyRequest$: StaticStructureSchema = [
   _CPKR,
   0,
   [_PKC],
-  [[() => PublicKeyConfig$, { [_xN]: _PKC, [_hP]: 1 }]],
+  [[() => PublicKeyConfig$, { [_hP]: 1, [_xN]: _PKC }]],
 ];
 export var CreatePublicKeyResult$: StaticStructureSchema = [
   3,
@@ -2166,7 +2167,7 @@ export var CreateResponseHeadersPolicyRequest$: StaticStructureSchema = [
   _CRHPR,
   0,
   [_RHPC],
-  [[() => ResponseHeadersPolicyConfig$, { [_xN]: _RHPC, [_hP]: 1 }]],
+  [[() => ResponseHeadersPolicyConfig$, { [_hP]: 1, [_xN]: _RHPC }]],
 ];
 export var CreateResponseHeadersPolicyResult$: StaticStructureSchema = [
   3,
@@ -2186,7 +2187,7 @@ export var CreateStreamingDistributionRequest$: StaticStructureSchema = [
   _CSDR,
   0,
   [_SDC],
-  [[() => StreamingDistributionConfig$, { [_xN]: _SDC, [_hP]: 1 }]],
+  [[() => StreamingDistributionConfig$, { [_hP]: 1, [_xN]: _SDC }]],
 ];
 export var CreateStreamingDistributionResult$: StaticStructureSchema = [
   3,
@@ -2206,7 +2207,7 @@ export var CreateStreamingDistributionWithTagsRequest$: StaticStructureSchema = 
   _CSDWTR,
   0,
   [_SDCWT],
-  [[() => StreamingDistributionConfigWithTags$, { [_xN]: _SDCWT, [_hP]: 1 }]],
+  [[() => StreamingDistributionConfigWithTags$, { [_hP]: 1, [_xN]: _SDCWT }]],
 ];
 export var CreateStreamingDistributionWithTagsResult$: StaticStructureSchema = [
   3,
@@ -3687,7 +3688,7 @@ export var ListAnycastIpListsResult$: StaticStructureSchema = [
   _LAILRi,
   0,
   [_AILn],
-  [[() => AnycastIpListCollection$, { [_xN]: _AILC, [_hP]: 1 }]],
+  [[() => AnycastIpListCollection$, { [_hP]: 1, [_xN]: _AILC }]],
 ];
 export var ListCachePoliciesRequest$: StaticStructureSchema = [
   3,
@@ -4953,7 +4954,7 @@ export var TagResourceRequest$: StaticStructureSchema = [
   [_Res, _Ta],
   [
     [0, { [_hQ]: _Res }],
-    [() => Tags$, { [_xN]: _Ta, [_hP]: 1 }],
+    [() => Tags$, { [_hP]: 1, [_xN]: _Ta }],
   ],
 ];
 export var Tags$: StaticStructureSchema = [3, n0, _Ta, 0, [_I], [[() => TagList, 0]]];
@@ -5393,7 +5394,7 @@ export var UntagResourceRequest$: StaticStructureSchema = [
   [_Res, _TK],
   [
     [0, { [_hQ]: _Res }],
-    [() => TagKeys$, { [_xN]: _TK, [_hP]: 1 }],
+    [() => TagKeys$, { [_hP]: 1, [_xN]: _TK }],
   ],
 ];
 export var UpdateAnycastIpListRequest$: StaticStructureSchema = [
@@ -5422,7 +5423,7 @@ export var UpdateCachePolicyRequest$: StaticStructureSchema = [
   0,
   [_CPC, _Id, _IM],
   [
-    [() => CachePolicyConfig$, { [_xN]: _CPC, [_hP]: 1 }],
+    [() => CachePolicyConfig$, { [_hP]: 1, [_xN]: _CPC }],
     [0, 1],
     [0, { [_hH]: _IM_ }],
   ],
@@ -5445,7 +5446,7 @@ export var UpdateCloudFrontOriginAccessIdentityRequest$: StaticStructureSchema =
   0,
   [_CFOAIC, _Id, _IM],
   [
-    [() => CloudFrontOriginAccessIdentityConfig$, { [_xN]: _CFOAIC, [_hP]: 1 }],
+    [() => CloudFrontOriginAccessIdentityConfig$, { [_hP]: 1, [_xN]: _CFOAIC }],
     [0, 1],
     [0, { [_hH]: _IM_ }],
   ],
@@ -5511,7 +5512,7 @@ export var UpdateContinuousDeploymentPolicyRequest$: StaticStructureSchema = [
   0,
   [_CDPC, _Id, _IM],
   [
-    [() => ContinuousDeploymentPolicyConfig$, { [_xN]: _CDPC, [_hP]: 1 }],
+    [() => ContinuousDeploymentPolicyConfig$, { [_hP]: 1, [_xN]: _CDPC }],
     [0, 1],
     [0, { [_hH]: _IM_ }],
   ],
@@ -5534,7 +5535,7 @@ export var UpdateDistributionRequest$: StaticStructureSchema = [
   0,
   [_DC, _Id, _IM],
   [
-    [() => DistributionConfig$, { [_xN]: _DC, [_hP]: 1 }],
+    [() => DistributionConfig$, { [_hP]: 1, [_xN]: _DC }],
     [0, 1],
     [0, { [_hH]: _IM_ }],
   ],
@@ -5625,7 +5626,7 @@ export var UpdateFieldLevelEncryptionConfigRequest$: StaticStructureSchema = [
   0,
   [_FLEC, _Id, _IM],
   [
-    [() => FieldLevelEncryptionConfig$, { [_xN]: _FLEC, [_hP]: 1 }],
+    [() => FieldLevelEncryptionConfig$, { [_hP]: 1, [_xN]: _FLEC }],
     [0, 1],
     [0, { [_hH]: _IM_ }],
   ],
@@ -5648,7 +5649,7 @@ export var UpdateFieldLevelEncryptionProfileRequest$: StaticStructureSchema = [
   0,
   [_FLEPC, _Id, _IM],
   [
-    [() => FieldLevelEncryptionProfileConfig$, { [_xN]: _FLEPC, [_hP]: 1 }],
+    [() => FieldLevelEncryptionProfileConfig$, { [_hP]: 1, [_xN]: _FLEPC }],
     [0, 1],
     [0, { [_hH]: _IM_ }],
   ],
@@ -5695,7 +5696,7 @@ export var UpdateKeyGroupRequest$: StaticStructureSchema = [
   0,
   [_KGC, _Id, _IM],
   [
-    [() => KeyGroupConfig$, { [_xN]: _KGC, [_hP]: 1 }],
+    [() => KeyGroupConfig$, { [_hP]: 1, [_xN]: _KGC }],
     [0, 1],
     [0, { [_hH]: _IM_ }],
   ],
@@ -5737,7 +5738,7 @@ export var UpdateOriginAccessControlRequest$: StaticStructureSchema = [
   0,
   [_OACC, _Id, _IM],
   [
-    [() => OriginAccessControlConfig$, { [_xN]: _OACC, [_hP]: 1 }],
+    [() => OriginAccessControlConfig$, { [_hP]: 1, [_xN]: _OACC }],
     [0, 1],
     [0, { [_hH]: _IM_ }],
   ],
@@ -5760,7 +5761,7 @@ export var UpdateOriginRequestPolicyRequest$: StaticStructureSchema = [
   0,
   [_ORPC, _Id, _IM],
   [
-    [() => OriginRequestPolicyConfig$, { [_xN]: _ORPC, [_hP]: 1 }],
+    [() => OriginRequestPolicyConfig$, { [_hP]: 1, [_xN]: _ORPC }],
     [0, 1],
     [0, { [_hH]: _IM_ }],
   ],
@@ -5783,7 +5784,7 @@ export var UpdatePublicKeyRequest$: StaticStructureSchema = [
   0,
   [_PKC, _Id, _IM],
   [
-    [() => PublicKeyConfig$, { [_xN]: _PKC, [_hP]: 1 }],
+    [() => PublicKeyConfig$, { [_hP]: 1, [_xN]: _PKC }],
     [0, 1],
     [0, { [_hH]: _IM_ }],
   ],
@@ -5822,7 +5823,7 @@ export var UpdateResponseHeadersPolicyRequest$: StaticStructureSchema = [
   0,
   [_RHPC, _Id, _IM],
   [
-    [() => ResponseHeadersPolicyConfig$, { [_xN]: _RHPC, [_hP]: 1 }],
+    [() => ResponseHeadersPolicyConfig$, { [_hP]: 1, [_xN]: _RHPC }],
     [0, 1],
     [0, { [_hH]: _IM_ }],
   ],
@@ -5845,7 +5846,7 @@ export var UpdateStreamingDistributionRequest$: StaticStructureSchema = [
   0,
   [_SDC, _Id, _IM],
   [
-    [() => StreamingDistributionConfig$, { [_xN]: _SDC, [_hP]: 1 }],
+    [() => StreamingDistributionConfig$, { [_hP]: 1, [_xN]: _SDC }],
     [0, 1],
     [0, { [_hH]: _IM_ }],
   ],
@@ -5891,7 +5892,7 @@ export var UpdateVpcOriginRequest$: StaticStructureSchema = [
   0,
   [_VOEC, _Id, _IM],
   [
-    [() => VpcOriginEndpointConfig$, { [_xN]: _VOEC, [_hP]: 1 }],
+    [() => VpcOriginEndpointConfig$, { [_hP]: 1, [_xN]: _VOEC }],
     [0, 1],
     [0, { [_hH]: _IM_ }],
   ],
@@ -6117,8 +6118,8 @@ var TrustedKeyGroupIdList: StaticListSchema = [1, n0, _TKGIL, 0, [0, { [_xN]: _K
 var TrustStoreList: StaticListSchema = [1, n0, _TSL, 0, [() => TrustStoreSummary$, { [_xN]: _TSS }]];
 var ValidationTokenDetailList: StaticListSchema = [1, n0, _VTDL, 0, () => ValidationTokenDetail$];
 var VpcOriginSummaryList: StaticListSchema = [1, n0, _VOSL, 0, [() => VpcOriginSummary$, { [_xN]: _VOS }]];
-export var CaCertificatesBundleSource$: StaticStructureSchema = [
-  3,
+export var CaCertificatesBundleSource$: StaticUnionSchema = [
+  4,
   n0,
   _CCBS,
   0,

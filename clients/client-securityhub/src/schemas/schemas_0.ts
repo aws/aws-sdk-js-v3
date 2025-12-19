@@ -3431,6 +3431,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -11601,8 +11602,8 @@ var ParameterDefinitions: StaticMapSchema = [2, n0, _PDar, 0, 0, () => Parameter
 var _Parameters: StaticMapSchema = [2, n0, _Para, 0, 0, () => ParameterConfiguration$];
 var StandardsInputParameterMap = 128 | 0;
 var TagMap = 128 | 0;
-export var ConfigurationOptions$: StaticStructureSchema = [
-  3,
+export var ConfigurationOptions$: StaticUnionSchema = [
+  4,
   n0,
   _COon,
   0,
@@ -11618,41 +11619,41 @@ export var ConfigurationOptions$: StaticStructureSchema = [
     () => EnumListConfigurationOptions$,
   ],
 ];
-export var Criteria$: StaticStructureSchema = [3, n0, _Cr, 0, [_OFC], [() => OcsfFindingFilters$]];
-export var ParameterValue$: StaticStructureSchema = [
-  3,
+export var Criteria$: StaticUnionSchema = [4, n0, _Cr, 0, [_OFC], [() => OcsfFindingFilters$]];
+export var ParameterValue$: StaticUnionSchema = [
+  4,
   n0,
   _PVa,
   0,
   [_Inte, _ILnt, _Dou, _Str, _SLtr, _Bo, _Enu, _ELnu],
   [1, 64 | 1, 1, 0, 64 | 0, 2, 0, 64 | 0],
 ];
-export var Policy$: StaticStructureSchema = [3, n0, _Pol, 0, [_SH], [() => SecurityHubPolicy$]];
-export var ProviderConfiguration$: StaticStructureSchema = [
-  3,
+export var Policy$: StaticUnionSchema = [4, n0, _Pol, 0, [_SH], [() => SecurityHubPolicy$]];
+export var ProviderConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _PCro,
   0,
   [_JC, _SNer],
   [() => JiraCloudProviderConfiguration$, () => ServiceNowProviderConfiguration$],
 ];
-export var ProviderDetail$: StaticStructureSchema = [
-  3,
+export var ProviderDetail$: StaticUnionSchema = [
+  4,
   n0,
   _PD,
   0,
   [_JC, _SNer],
   [() => JiraCloudDetail$, () => ServiceNowDetail$],
 ];
-export var ProviderUpdateConfiguration$: StaticStructureSchema = [
-  3,
+export var ProviderUpdateConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _PUC,
   0,
   [_JC, _SNer],
   [() => JiraCloudUpdateConfiguration$, () => ServiceNowUpdateConfiguration$],
 ];
-export var Target$: StaticStructureSchema = [3, n0, _Ta, 0, [_AIc, _OUI, _RIoo], [0, 0, 0]];
+export var Target$: StaticUnionSchema = [4, n0, _Ta, 0, [_AIc, _OUI, _RIoo], [0, 0, 0]];
 export var AcceptAdministratorInvitation$: StaticOperationSchema = [
   9,
   n0,

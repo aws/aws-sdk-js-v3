@@ -238,7 +238,7 @@ export var ComplexError$: StaticErrorSchema = [
 ];
 TypeRegistry.for(n0).registerError(ComplexError$, ComplexError);
 export var ComplexNestedErrorData$: StaticStructureSchema = [3, n0, _CNED, 0, [_F], [0]];
-export var CustomCodeError$: StaticErrorSchema = [-3, n0, _CCE, { [_e]: _c, [_aQE]: [`Customized`, 402] }, [_M], [0]];
+export var CustomCodeError$: StaticErrorSchema = [-3, n0, _CCE, { [_aQE]: [`Customized`, 402], [_e]: _c }, [_M], [0]];
 TypeRegistry.for(n0).registerError(CustomCodeError$, CustomCodeError);
 export var DatetimeOffsetsOutput$: StaticStructureSchema = [3, n0, _DOO, 0, [_d], [5]];
 export var EmptyInputAndEmptyOutputInput$: StaticStructureSchema = [3, n0, _EIAEOI, 0, [], []];
@@ -250,7 +250,7 @@ export var FlattenedXmlMapWithXmlNameOutput$: StaticStructureSchema = [
   _FXMWXNO,
   0,
   [_mM],
-  [[() => FlattenedXmlMapWithXmlNameOutputMap, { [_xN]: _KVP, [_xF]: 1 }]],
+  [[() => FlattenedXmlMapWithXmlNameOutputMap, { [_xF]: 1, [_xN]: _KVP }]],
 ];
 export var FlattenedXmlMapWithXmlNamespaceOutput$: StaticStructureSchema = [
   3,
@@ -258,7 +258,7 @@ export var FlattenedXmlMapWithXmlNamespaceOutput$: StaticStructureSchema = [
   _FXMWXNOl,
   0,
   [_mM],
-  [[() => FlattenedXmlMapWithXmlNamespaceOutputMap, { [_xN]: _KVP, [_xF]: 1, [_xNm]: [_, _hm] }]],
+  [[() => FlattenedXmlMapWithXmlNamespaceOutputMap, { [_xF]: 1, [_xN]: _KVP, [_xNm]: [_, _hm] }]],
 ];
 export var FractionalSecondsOutput$: StaticStructureSchema = [3, n0, _FSO, 0, [_d], [5]];
 export var GreetingWithErrorsOutput$: StaticStructureSchema = [3, n0, _GWEO, 0, [_g], [0]];
@@ -291,7 +291,7 @@ export var QueryListsInput$: StaticStructureSchema = [
     () => GreetingList,
     [64 | 0, { [_xF]: 1 }],
     [() => ListWithXmlName, 0],
-    [() => ListWithXmlName, { [_xN]: _H, [_xF]: 1 }],
+    [() => ListWithXmlName, { [_xF]: 1, [_xN]: _H }],
     () => NestedStructWithList$,
   ],
 ];
@@ -307,7 +307,7 @@ export var QueryMapsInput$: StaticStructureSchema = [
     () => ComplexMap,
     [() => MapWithXmlName, 0],
     [128 | 0, { [_xF]: 1 }],
-    [() => MapWithXmlName, { [_xN]: _H, [_xF]: 1 }],
+    [() => MapWithXmlName, { [_xF]: 1, [_xN]: _H }],
     [2, n0, _MOL, 0, 0, 64 | 0],
     () => NestedStructWithMap$,
   ],
@@ -399,7 +399,7 @@ export var XmlListsOutput$: StaticStructureSchema = [
     [1, n1, _NSL, 0, 64 | 0],
     [() => RenamedListMembers, { [_xN]: _r }],
     [() => RenamedListMembers, { [_xF]: 1 }],
-    [() => RenamedListMembers, { [_xN]: _cN, [_xF]: 1 }],
+    [() => RenamedListMembers, { [_xF]: 1, [_xN]: _cN }],
     [() => ListWithMemberNamespace, { [_xF]: 1 }],
     [() => ListWithNamespace, { [_xF]: 1 }],
     [() => StructureList, { [_xN]: _mSL }],
@@ -476,8 +476,8 @@ var FlattenedXmlMapWithXmlNamespaceOutputMap: StaticMapSchema = [
   n0,
   _FXMWXNOMl,
   0,
-  [0, { [_xNm]: [_, _hk], [_xN]: _K }],
-  [0, { [_xNm]: [_, _hv], [_xN]: _V }],
+  [0, { [_xN]: _K, [_xNm]: [_, _hk] }],
+  [0, { [_xN]: _V, [_xNm]: [_, _hv] }],
 ];
 var MapOfLists: StaticMapSchema = [2, n0, _MOL, 0, 0, 64 | 0];
 var MapWithXmlName: StaticMapSchema = [2, n0, _MWXN, 0, [0, { [_xN]: _K }], [0, { [_xN]: _V }]];

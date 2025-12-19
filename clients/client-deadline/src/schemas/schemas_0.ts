@@ -868,6 +868,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { DeadlineServiceException } from "../models/DeadlineServiceException";
@@ -3357,8 +3358,8 @@ var Tags = 128 | 0;
 var TaskParameters: StaticMapSchema = [2, n0, _TP, 8, [0, 0], [() => TaskParameterValue$, 0]];
 var TaskRunStatusCounts = 128 | 1;
 var UpdatedSessionActions: StaticMapSchema = [2, n0, _USA, 0, [0, 0], [() => UpdatedSessionActionInfo$, 0]];
-export var AssignedSessionActionDefinition$: StaticStructureSchema = [
-  3,
+export var AssignedSessionActionDefinition$: StaticUnionSchema = [
+  4,
   n0,
   _ASAD,
   0,
@@ -3370,25 +3371,25 @@ export var AssignedSessionActionDefinition$: StaticStructureSchema = [
     () => AssignedSyncInputJobAttachmentsSessionActionDefinition$,
   ],
 ];
-export var BudgetSchedule$: StaticStructureSchema = [3, n0, _BSud, 0, [_fix], [() => FixedBudgetSchedule$]];
-export var FleetConfiguration$: StaticStructureSchema = [
-  3,
+export var BudgetSchedule$: StaticUnionSchema = [4, n0, _BSud, 0, [_fix], [() => FixedBudgetSchedule$]];
+export var FleetConfiguration$: StaticUnionSchema = [
+  4,
   n0,
   _FCl,
   0,
   [_cM, _sME],
   [() => CustomerManagedFleetConfiguration$, () => ServiceManagedEc2FleetConfiguration$],
 ];
-export var GetJobEntityError$: StaticStructureSchema = [
-  3,
+export var GetJobEntityError$: StaticUnionSchema = [
+  4,
   n0,
   _GJEE,
   0,
   [_jD, _jAD, _sD, _eD],
   [() => JobDetailsError$, () => JobAttachmentDetailsError$, () => StepDetailsError$, () => EnvironmentDetailsError$],
 ];
-export var JobEntity$: StaticStructureSchema = [
-  3,
+export var JobEntity$: StaticUnionSchema = [
+  4,
   n0,
   _JE,
   0,
@@ -3400,8 +3401,8 @@ export var JobEntity$: StaticStructureSchema = [
     [() => EnvironmentDetailsEntity$, 0],
   ],
 ];
-export var JobEntityIdentifiersUnion$: StaticStructureSchema = [
-  3,
+export var JobEntityIdentifiersUnion$: StaticUnionSchema = [
+  4,
   n0,
   _JEIU,
   0,
@@ -3413,9 +3414,9 @@ export var JobEntityIdentifiersUnion$: StaticStructureSchema = [
     () => EnvironmentDetailsIdentifiers$,
   ],
 ];
-export var JobParameter$: StaticStructureSchema = [3, n0, _JPo, 0, [_in, _flo, _str, _pa], [0, 0, 0, 0]];
-export var SearchFilterExpression$: StaticStructureSchema = [
-  3,
+export var JobParameter$: StaticUnionSchema = [4, n0, _JPo, 0, [_in, _flo, _str, _pa], [0, 0, 0, 0]];
+export var SearchFilterExpression$: StaticUnionSchema = [
+  4,
   n0,
   _SFEea,
   0,
@@ -3428,16 +3429,16 @@ export var SearchFilterExpression$: StaticStructureSchema = [
     () => SearchGroupedFilterExpressions$,
   ],
 ];
-export var SearchSortExpression$: StaticStructureSchema = [
-  3,
+export var SearchSortExpression$: StaticUnionSchema = [
+  4,
   n0,
   _SSEe,
   0,
   [_uJF, _fSi, _pSar],
   [() => UserJobsFirst$, () => FieldSortExpression$, () => ParameterSortExpression$],
 ];
-export var SessionActionDefinition$: StaticStructureSchema = [
-  3,
+export var SessionActionDefinition$: StaticUnionSchema = [
+  4,
   n0,
   _SAD,
   0,
@@ -3449,8 +3450,8 @@ export var SessionActionDefinition$: StaticStructureSchema = [
     () => SyncInputJobAttachmentsSessionActionDefinition$,
   ],
 ];
-export var SessionActionDefinitionSummary$: StaticStructureSchema = [
-  3,
+export var SessionActionDefinitionSummary$: StaticUnionSchema = [
+  4,
   n0,
   _SADS,
   0,
@@ -3462,9 +3463,9 @@ export var SessionActionDefinitionSummary$: StaticStructureSchema = [
     () => SyncInputJobAttachmentsSessionActionDefinitionSummary$,
   ],
 ];
-export var SessionsStatisticsResources$: StaticStructureSchema = [3, n0, _SSRes, 0, [_qIu, _fIle], [64 | 0, 64 | 0]];
-export var TaskParameterValue$: StaticStructureSchema = [3, n0, _TPV, 8, [_in, _flo, _str, _pa, _cI], [0, 0, 0, 0, 0]];
-export var UsageTrackingResource$: StaticStructureSchema = [3, n0, _UTRs, 0, [_qI], [0]];
+export var SessionsStatisticsResources$: StaticUnionSchema = [4, n0, _SSRes, 0, [_qIu, _fIle], [64 | 0, 64 | 0]];
+export var TaskParameterValue$: StaticUnionSchema = [4, n0, _TPV, 8, [_in, _flo, _str, _pa, _cI], [0, 0, 0, 0, 0]];
+export var UsageTrackingResource$: StaticUnionSchema = [4, n0, _UTRs, 0, [_qI], [0]];
 export var AssociateMemberToFarm$: StaticOperationSchema = [
   9,
   n0,
@@ -3504,7 +3505,7 @@ export var AssumeFleetRoleForRead$: StaticOperationSchema = [
   9,
   n0,
   _AFRFR,
-  { [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/read-roles", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/read-roles", 200] },
   () => AssumeFleetRoleForReadRequest$,
   () => AssumeFleetRoleForReadResponse$,
 ];
@@ -3513,8 +3514,8 @@ export var AssumeFleetRoleForWorker$: StaticOperationSchema = [
   n0,
   _AFRFW,
   {
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}/fleet-roles", 200],
     [_end]: ["scheduling."],
+    [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}/fleet-roles", 200],
   },
   () => AssumeFleetRoleForWorkerRequest$,
   () => AssumeFleetRoleForWorkerResponse$,
@@ -3523,7 +3524,7 @@ export var AssumeQueueRoleForRead$: StaticOperationSchema = [
   9,
   n0,
   _AQRFR,
-  { [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/read-roles", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/read-roles", 200] },
   () => AssumeQueueRoleForReadRequest$,
   () => AssumeQueueRoleForReadResponse$,
 ];
@@ -3531,7 +3532,7 @@ export var AssumeQueueRoleForUser$: StaticOperationSchema = [
   9,
   n0,
   _AQRFU,
-  { [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/user-roles", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/user-roles", 200] },
   () => AssumeQueueRoleForUserRequest$,
   () => AssumeQueueRoleForUserResponse$,
 ];
@@ -3540,8 +3541,8 @@ export var AssumeQueueRoleForWorker$: StaticOperationSchema = [
   n0,
   _AQRFW,
   {
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}/queue-roles", 200],
     [_end]: ["scheduling."],
+    [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}/queue-roles", 200],
   },
   () => AssumeQueueRoleForWorkerRequest$,
   () => AssumeQueueRoleForWorkerResponse$,
@@ -3561,7 +3562,7 @@ export var CopyJobTemplate$: StaticOperationSchema = [
   9,
   n0,
   _CJT,
-  { [_h]: ["POST", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/template", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/template", 200] },
   () => CopyJobTemplateRequest$,
   () => CopyJobTemplateResponse$,
 ];
@@ -3569,7 +3570,7 @@ export var CreateBudget$: StaticOperationSchema = [
   9,
   n0,
   _CB,
-  { [_h]: ["POST", "/2023-10-12/farms/{farmId}/budgets", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/farms/{farmId}/budgets", 200] },
   () => CreateBudgetRequest$,
   () => CreateBudgetResponse$,
 ];
@@ -3593,7 +3594,7 @@ export var CreateJob$: StaticOperationSchema = [
   9,
   n0,
   _CJ,
-  { [_h]: ["POST", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs", 201], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs", 201] },
   () => CreateJobRequest$,
   () => CreateJobResponse$,
 ];
@@ -3609,7 +3610,7 @@ export var CreateLimit$: StaticOperationSchema = [
   9,
   n0,
   _CL,
-  { [_h]: ["POST", "/2023-10-12/farms/{farmId}/limits", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/farms/{farmId}/limits", 200] },
   () => CreateLimitRequest$,
   () => CreateLimitResponse$,
 ];
@@ -3633,7 +3634,7 @@ export var CreateQueueEnvironment$: StaticOperationSchema = [
   9,
   n0,
   _CQE,
-  { [_h]: ["POST", "/2023-10-12/farms/{farmId}/queues/{queueId}/environments", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/farms/{farmId}/queues/{queueId}/environments", 200] },
   () => CreateQueueEnvironmentRequest$,
   () => CreateQueueEnvironmentResponse$,
 ];
@@ -3641,7 +3642,7 @@ export var CreateQueueFleetAssociation$: StaticOperationSchema = [
   9,
   n0,
   _CQFA,
-  { [_h]: ["PUT", "/2023-10-12/farms/{farmId}/queue-fleet-associations", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["PUT", "/2023-10-12/farms/{farmId}/queue-fleet-associations", 200] },
   () => CreateQueueFleetAssociationRequest$,
   () => CreateQueueFleetAssociationResponse$,
 ];
@@ -3649,7 +3650,7 @@ export var CreateQueueLimitAssociation$: StaticOperationSchema = [
   9,
   n0,
   _CQLA,
-  { [_h]: ["PUT", "/2023-10-12/farms/{farmId}/queue-limit-associations", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["PUT", "/2023-10-12/farms/{farmId}/queue-limit-associations", 200] },
   () => CreateQueueLimitAssociationRequest$,
   () => CreateQueueLimitAssociationResponse$,
 ];
@@ -3657,7 +3658,7 @@ export var CreateStorageProfile$: StaticOperationSchema = [
   9,
   n0,
   _CSP,
-  { [_h]: ["POST", "/2023-10-12/farms/{farmId}/storage-profiles", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/farms/{farmId}/storage-profiles", 200] },
   () => CreateStorageProfileRequest$,
   () => CreateStorageProfileResponse$,
 ];
@@ -3673,7 +3674,7 @@ export var DeleteBudget$: StaticOperationSchema = [
   9,
   n0,
   _DB,
-  { [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/budgets/{budgetId}", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/budgets/{budgetId}", 200] },
   () => DeleteBudgetRequest$,
   () => DeleteBudgetResponse$,
 ];
@@ -3681,7 +3682,7 @@ export var DeleteFarm$: StaticOperationSchema = [
   9,
   n0,
   _DF,
-  { [_h]: ["DELETE", "/2023-10-12/farms/{farmId}", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["DELETE", "/2023-10-12/farms/{farmId}", 200] },
   () => DeleteFarmRequest$,
   () => DeleteFarmResponse$,
 ];
@@ -3689,7 +3690,7 @@ export var DeleteFleet$: StaticOperationSchema = [
   9,
   n0,
   _DFe,
-  { [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/fleets/{fleetId}", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/fleets/{fleetId}", 200] },
   () => DeleteFleetRequest$,
   () => DeleteFleetResponse$,
 ];
@@ -3705,7 +3706,7 @@ export var DeleteLimit$: StaticOperationSchema = [
   9,
   n0,
   _DL,
-  { [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/limits/{limitId}", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/limits/{limitId}", 200] },
   () => DeleteLimitRequest$,
   () => DeleteLimitResponse$,
 ];
@@ -3732,7 +3733,7 @@ export var DeleteQueue$: StaticOperationSchema = [
   9,
   n0,
   _DQ,
-  { [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/queues/{queueId}", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/queues/{queueId}", 200] },
   () => DeleteQueueRequest$,
   () => DeleteQueueResponse$,
 ];
@@ -3741,8 +3742,8 @@ export var DeleteQueueEnvironment$: StaticOperationSchema = [
   n0,
   _DQE,
   {
-    [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/queues/{queueId}/environments/{queueEnvironmentId}", 200],
     [_end]: ["management."],
+    [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/queues/{queueId}/environments/{queueEnvironmentId}", 200],
   },
   () => DeleteQueueEnvironmentRequest$,
   () => DeleteQueueEnvironmentResponse$,
@@ -3752,8 +3753,8 @@ export var DeleteQueueFleetAssociation$: StaticOperationSchema = [
   n0,
   _DQFA,
   {
-    [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/queue-fleet-associations/{queueId}/{fleetId}", 200],
     [_end]: ["management."],
+    [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/queue-fleet-associations/{queueId}/{fleetId}", 200],
   },
   () => DeleteQueueFleetAssociationRequest$,
   () => DeleteQueueFleetAssociationResponse$,
@@ -3763,8 +3764,8 @@ export var DeleteQueueLimitAssociation$: StaticOperationSchema = [
   n0,
   _DQLA,
   {
-    [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/queue-limit-associations/{queueId}/{limitId}", 200],
     [_end]: ["management."],
+    [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/queue-limit-associations/{queueId}/{limitId}", 200],
   },
   () => DeleteQueueLimitAssociationRequest$,
   () => DeleteQueueLimitAssociationResponse$,
@@ -3773,7 +3774,7 @@ export var DeleteStorageProfile$: StaticOperationSchema = [
   9,
   n0,
   _DSP,
-  { [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/storage-profiles/{storageProfileId}", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/storage-profiles/{storageProfileId}", 200] },
   () => DeleteStorageProfileRequest$,
   () => DeleteStorageProfileResponse$,
 ];
@@ -3781,7 +3782,7 @@ export var DeleteWorker$: StaticOperationSchema = [
   9,
   n0,
   _DW,
-  { [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["DELETE", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}", 200] },
   () => DeleteWorkerRequest$,
   () => DeleteWorkerResponse$,
 ];
@@ -3830,7 +3831,7 @@ export var GetBudget$: StaticOperationSchema = [
   9,
   n0,
   _GB,
-  { [_h]: ["GET", "/2023-10-12/farms/{farmId}/budgets/{budgetId}", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/budgets/{budgetId}", 200] },
   () => GetBudgetRequest$,
   () => GetBudgetResponse$,
 ];
@@ -3838,7 +3839,7 @@ export var GetFarm$: StaticOperationSchema = [
   9,
   n0,
   _GF,
-  { [_h]: ["GET", "/2023-10-12/farms/{farmId}", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}", 200] },
   () => GetFarmRequest$,
   () => GetFarmResponse$,
 ];
@@ -3870,7 +3871,7 @@ export var GetLimit$: StaticOperationSchema = [
   9,
   n0,
   _GL,
-  { [_h]: ["GET", "/2023-10-12/farms/{farmId}/limits/{limitId}", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/limits/{limitId}", 200] },
   () => GetLimitRequest$,
   () => GetLimitResponse$,
 ];
@@ -3895,8 +3896,8 @@ export var GetQueueEnvironment$: StaticOperationSchema = [
   n0,
   _GQE,
   {
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/environments/{queueEnvironmentId}", 200],
     [_end]: ["management."],
+    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/environments/{queueEnvironmentId}", 200],
   },
   () => GetQueueEnvironmentRequest$,
   () => GetQueueEnvironmentResponse$,
@@ -3928,8 +3929,8 @@ export var GetSession$: StaticOperationSchema = [
   n0,
   _GS,
   {
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/sessions/{sessionId}", 200],
     [_end]: ["management."],
+    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/sessions/{sessionId}", 200],
   },
   () => GetSessionRequest$,
   () => GetSessionResponse$,
@@ -3939,8 +3940,8 @@ export var GetSessionAction$: StaticOperationSchema = [
   n0,
   _GSA,
   {
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/session-actions/{sessionActionId}", 200],
     [_end]: ["management."],
+    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/session-actions/{sessionActionId}", 200],
   },
   () => GetSessionActionRequest$,
   () => GetSessionActionResponse$,
@@ -3958,8 +3959,8 @@ export var GetStep$: StaticOperationSchema = [
   n0,
   _GSe,
   {
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/steps/{stepId}", 200],
     [_end]: ["management."],
+    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/steps/{stepId}", 200],
   },
   () => GetStepRequest$,
   () => GetStepResponse$,
@@ -3968,7 +3969,7 @@ export var GetStorageProfile$: StaticOperationSchema = [
   9,
   n0,
   _GSP,
-  { [_h]: ["GET", "/2023-10-12/farms/{farmId}/storage-profiles/{storageProfileId}", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/storage-profiles/{storageProfileId}", 200] },
   () => GetStorageProfileRequest$,
   () => GetStorageProfileResponse$,
 ];
@@ -3977,8 +3978,8 @@ export var GetStorageProfileForQueue$: StaticOperationSchema = [
   n0,
   _GSPFQ,
   {
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/storage-profiles/{storageProfileId}", 200],
     [_end]: ["management."],
+    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/storage-profiles/{storageProfileId}", 200],
   },
   () => GetStorageProfileForQueueRequest$,
   () => GetStorageProfileForQueueResponse$,
@@ -3988,8 +3989,8 @@ export var GetTask$: StaticOperationSchema = [
   n0,
   _GT,
   {
-    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/steps/{stepId}/tasks/{taskId}", 200],
     [_end]: ["management."],
+    [_h]: ["GET", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/steps/{stepId}/tasks/{taskId}", 200],
   },
   () => GetTaskRequest$,
   () => GetTaskResponse$,
@@ -3998,7 +3999,7 @@ export var GetWorker$: StaticOperationSchema = [
   9,
   n0,
   _GW,
-  { [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}", 200] },
   () => GetWorkerRequest$,
   () => GetWorkerResponse$,
 ];
@@ -4299,7 +4300,7 @@ export var StartSessionsStatisticsAggregation$: StaticOperationSchema = [
   9,
   n0,
   _SSSA,
-  { [_h]: ["POST", "/2023-10-12/farms/{farmId}/sessions-statistics-aggregation", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/farms/{farmId}/sessions-statistics-aggregation", 200] },
   () => StartSessionsStatisticsAggregationRequest$,
   () => StartSessionsStatisticsAggregationResponse$,
 ];
@@ -4307,7 +4308,7 @@ export var TagResource$: StaticOperationSchema = [
   9,
   n0,
   _TR,
-  { [_h]: ["POST", "/2023-10-12/tags/{resourceArn}", 204], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["POST", "/2023-10-12/tags/{resourceArn}", 204] },
   () => TagResourceRequest$,
   () => TagResourceResponse$,
 ];
@@ -4323,7 +4324,7 @@ export var UpdateBudget$: StaticOperationSchema = [
   9,
   n0,
   _UB,
-  { [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/budgets/{budgetId}", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/budgets/{budgetId}", 200] },
   () => UpdateBudgetRequest$,
   () => UpdateBudgetResponse$,
 ];
@@ -4331,7 +4332,7 @@ export var UpdateFarm$: StaticOperationSchema = [
   9,
   n0,
   _UF,
-  { [_h]: ["PATCH", "/2023-10-12/farms/{farmId}", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["PATCH", "/2023-10-12/farms/{farmId}", 200] },
   () => UpdateFarmRequest$,
   () => UpdateFarmResponse$,
 ];
@@ -4339,7 +4340,7 @@ export var UpdateFleet$: StaticOperationSchema = [
   9,
   n0,
   _UFp,
-  { [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/fleets/{fleetId}", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/fleets/{fleetId}", 200] },
   () => UpdateFleetRequest$,
   () => UpdateFleetResponse$,
 ];
@@ -4347,7 +4348,7 @@ export var UpdateJob$: StaticOperationSchema = [
   9,
   n0,
   _UJ,
-  { [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}", 200] },
   () => UpdateJobRequest$,
   () => UpdateJobResponse$,
 ];
@@ -4355,7 +4356,7 @@ export var UpdateLimit$: StaticOperationSchema = [
   9,
   n0,
   _UL,
-  { [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/limits/{limitId}", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/limits/{limitId}", 200] },
   () => UpdateLimitRequest$,
   () => UpdateLimitResponse$,
 ];
@@ -4371,7 +4372,7 @@ export var UpdateQueue$: StaticOperationSchema = [
   9,
   n0,
   _UQ,
-  { [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queues/{queueId}", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queues/{queueId}", 200] },
   () => UpdateQueueRequest$,
   () => UpdateQueueResponse$,
 ];
@@ -4380,8 +4381,8 @@ export var UpdateQueueEnvironment$: StaticOperationSchema = [
   n0,
   _UQE,
   {
-    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queues/{queueId}/environments/{queueEnvironmentId}", 200],
     [_end]: ["management."],
+    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queues/{queueId}/environments/{queueEnvironmentId}", 200],
   },
   () => UpdateQueueEnvironmentRequest$,
   () => UpdateQueueEnvironmentResponse$,
@@ -4391,8 +4392,8 @@ export var UpdateQueueFleetAssociation$: StaticOperationSchema = [
   n0,
   _UQFA,
   {
-    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queue-fleet-associations/{queueId}/{fleetId}", 200],
     [_end]: ["management."],
+    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queue-fleet-associations/{queueId}/{fleetId}", 200],
   },
   () => UpdateQueueFleetAssociationRequest$,
   () => UpdateQueueFleetAssociationResponse$,
@@ -4402,8 +4403,8 @@ export var UpdateQueueLimitAssociation$: StaticOperationSchema = [
   n0,
   _UQLA,
   {
-    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queue-limit-associations/{queueId}/{limitId}", 200],
     [_end]: ["management."],
+    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queue-limit-associations/{queueId}/{limitId}", 200],
   },
   () => UpdateQueueLimitAssociationRequest$,
   () => UpdateQueueLimitAssociationResponse$,
@@ -4413,8 +4414,8 @@ export var UpdateSession$: StaticOperationSchema = [
   n0,
   _US,
   {
-    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/sessions/{sessionId}", 200],
     [_end]: ["management."],
+    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/sessions/{sessionId}", 200],
   },
   () => UpdateSessionRequest$,
   () => UpdateSessionResponse$,
@@ -4424,8 +4425,8 @@ export var UpdateStep$: StaticOperationSchema = [
   n0,
   _USp,
   {
-    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/steps/{stepId}", 200],
     [_end]: ["management."],
+    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/steps/{stepId}", 200],
   },
   () => UpdateStepRequest$,
   () => UpdateStepResponse$,
@@ -4434,7 +4435,7 @@ export var UpdateStorageProfile$: StaticOperationSchema = [
   9,
   n0,
   _USP,
-  { [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/storage-profiles/{storageProfileId}", 200], [_end]: ["management."] },
+  { [_end]: ["management."], [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/storage-profiles/{storageProfileId}", 200] },
   () => UpdateStorageProfileRequest$,
   () => UpdateStorageProfileResponse$,
 ];
@@ -4443,8 +4444,8 @@ export var UpdateTask$: StaticOperationSchema = [
   n0,
   _UT,
   {
-    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/steps/{stepId}/tasks/{taskId}", 200],
     [_end]: ["management."],
+    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/steps/{stepId}/tasks/{taskId}", 200],
   },
   () => UpdateTaskRequest$,
   () => UpdateTaskResponse$,
@@ -4453,7 +4454,7 @@ export var UpdateWorker$: StaticOperationSchema = [
   9,
   n0,
   _UW,
-  { [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}", 200], [_end]: ["scheduling."] },
+  { [_end]: ["scheduling."], [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}", 200] },
   () => UpdateWorkerRequest$,
   () => UpdateWorkerResponse$,
 ];
@@ -4462,8 +4463,8 @@ export var UpdateWorkerSchedule$: StaticOperationSchema = [
   n0,
   _UWS,
   {
-    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}/schedule", 200],
     [_end]: ["scheduling."],
+    [_h]: ["PATCH", "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}/schedule", 200],
   },
   () => UpdateWorkerScheduleRequest$,
   () => UpdateWorkerScheduleResponse$,

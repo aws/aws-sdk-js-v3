@@ -97,6 +97,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { BedrockDataAutomationRuntimeServiceException } from "../models/BedrockDataAutomationRuntimeServiceException";
@@ -239,7 +240,7 @@ var OutputSegmentList: StaticListSchema = [1, n0, _OSL, 0, () => OutputSegment$]
 var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
 var EncryptionContextMap = 128 | 0;
-export var VideoSegmentConfiguration$: StaticStructureSchema = [3, n0, _VSC, 0, [_tS], [() => TimestampSegment$]];
+export var VideoSegmentConfiguration$: StaticUnionSchema = [4, n0, _VSC, 0, [_tS], [() => TimestampSegment$]];
 export var GetDataAutomationStatus$: StaticOperationSchema = [
   9,
   n0,

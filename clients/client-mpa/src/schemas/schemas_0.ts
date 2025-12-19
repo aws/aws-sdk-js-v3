@@ -196,6 +196,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -646,18 +647,18 @@ var PolicyVersions: StaticListSchema = [1, n0, _PVo, 0, () => PolicyVersionSumma
 var TagKeyList: StaticListSchema = [1, n0, _TKL, 8, [() => TagKey, 0]];
 var SessionMetadata: StaticMapSchema = [2, n0, _SMe, 8, [() => SessionKey, 0], [() => SessionValue, 0]];
 var Tags: StaticMapSchema = [2, n0, _T, 8, [() => TagKey, 0], [() => TagValue, 0]];
-export var ApprovalStrategy$: StaticStructureSchema = [3, n0, _AS, 0, [_MN], [() => MofNApprovalStrategy$]];
-export var ApprovalStrategyResponse$: StaticStructureSchema = [3, n0, _ASR, 0, [_MN], [() => MofNApprovalStrategy$]];
-export var IdentitySourceParametersForGet$: StaticStructureSchema = [
-  3,
+export var ApprovalStrategy$: StaticUnionSchema = [4, n0, _AS, 0, [_MN], [() => MofNApprovalStrategy$]];
+export var ApprovalStrategyResponse$: StaticUnionSchema = [4, n0, _ASR, 0, [_MN], [() => MofNApprovalStrategy$]];
+export var IdentitySourceParametersForGet$: StaticUnionSchema = [
+  4,
   n0,
   _ISPFG,
   0,
   [_IIC],
   [() => IamIdentityCenterForGet$],
 ];
-export var IdentitySourceParametersForList$: StaticStructureSchema = [
-  3,
+export var IdentitySourceParametersForList$: StaticUnionSchema = [
+  4,
   n0,
   _ISPFL,
   0,

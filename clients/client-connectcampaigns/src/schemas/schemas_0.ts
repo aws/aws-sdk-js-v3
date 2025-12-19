@@ -155,6 +155,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { ConnectCampaignsServiceException } from "../models/ConnectCampaignsServiceException";
@@ -447,8 +448,8 @@ var SuccessfulRequestList: StaticListSchema = [1, n0, _SRL, 0, () => SuccessfulR
 var TagKeyList = 64 | 0;
 var Attributes: StaticMapSchema = [2, n0, _A, 8, 0, 0];
 var TagMap = 128 | 0;
-export var DialerConfig$: StaticStructureSchema = [
-  3,
+export var DialerConfig$: StaticUnionSchema = [
+  4,
   n0,
   _DC,
   0,
