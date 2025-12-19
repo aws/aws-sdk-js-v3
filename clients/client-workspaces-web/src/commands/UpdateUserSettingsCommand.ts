@@ -99,6 +99,7 @@ export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsRespo
  *     colorTheme: "Light" || "Dark",
  *     termsOfService: "STRING_VALUE",
  *   },
+ *   webAuthnAllowed: "STRING_VALUE",
  * };
  * const command = new UpdateUserSettingsCommand(input);
  * const response = await client.send(command);
@@ -175,6 +176,7 @@ export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsRespo
  * //       colorTheme: "Light" || "Dark", // required
  * //       termsOfService: "STRING_VALUE",
  * //     },
+ * //     webAuthnAllowed: "STRING_VALUE",
  * //   },
  * // };
  *

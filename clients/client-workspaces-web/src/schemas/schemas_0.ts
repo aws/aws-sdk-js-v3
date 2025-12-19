@@ -493,6 +493,7 @@ const _uSA = "userSettingsArn";
 const _vI = "vpcId";
 const _vM = "visualMode";
 const _w = "wallpaper";
+const _wAA = "webAuthnAllowed";
 const _wCFP = "webContentFilteringPolicy";
 const _wT = "welcomeText";
 const n0 = "com.amazonaws.workspacesweb";
@@ -835,7 +836,7 @@ export var CreateUserSettingsRequest$: StaticStructureSchema = [
   n0,
   _CUSR,
   0,
-  [_cA, _pAa, _dA, _uA, _pAr, _ta, _dTIM, _iDTIM, _cTl, _cSC, _cMK, _aEC, _dLA, _tC, _bCI],
+  [_cA, _pAa, _dA, _uA, _pAr, _ta, _dTIM, _iDTIM, _cTl, _cSC, _cMK, _aEC, _dLA, _tC, _bCI, _wAA],
   [
     0,
     0,
@@ -852,6 +853,7 @@ export var CreateUserSettingsRequest$: StaticStructureSchema = [
     0,
     () => ToolbarConfiguration$,
     [() => BrandingConfigurationCreateInput$, 0],
+    0,
   ],
 ];
 export var CreateUserSettingsResponse$: StaticStructureSchema = [3, n0, _CUSRr, 0, [_uSA], [0]];
@@ -1652,7 +1654,7 @@ export var UpdateUserSettingsRequest$: StaticStructureSchema = [
   n0,
   _UUSR,
   0,
-  [_uSA, _cA, _pAa, _dA, _uA, _pAr, _dTIM, _iDTIM, _cTl, _cSC, _dLA, _tC, _bCI],
+  [_uSA, _cA, _pAa, _dA, _uA, _pAr, _dTIM, _iDTIM, _cTl, _cSC, _dLA, _tC, _bCI, _wAA],
   [
     [0, 1],
     0,
@@ -1667,6 +1669,7 @@ export var UpdateUserSettingsRequest$: StaticStructureSchema = [
     0,
     () => ToolbarConfiguration$,
     [() => BrandingConfigurationUpdateInput$, 0],
+    0,
   ],
 ];
 export var UpdateUserSettingsResponse$: StaticStructureSchema = [3, n0, _UUSRp, 0, [_uS], [[() => UserSettings$, 0]]];
@@ -1677,7 +1680,7 @@ export var UserSettings$: StaticStructureSchema = [
   n0,
   _US,
   0,
-  [_uSA, _aPA, _cA, _pAa, _dA, _uA, _pAr, _dTIM, _iDTIM, _cSC, _cMK, _aEC, _dLA, _tC, _bC],
+  [_uSA, _aPA, _cA, _pAa, _dA, _uA, _pAr, _dTIM, _iDTIM, _cSC, _cMK, _aEC, _dLA, _tC, _bC, _wAA],
   [
     0,
     64 | 0,
@@ -1694,6 +1697,7 @@ export var UserSettings$: StaticStructureSchema = [
     0,
     () => ToolbarConfiguration$,
     [() => BrandingConfiguration$, 0],
+    0,
   ],
 ];
 export var UserSettingsSummary$: StaticStructureSchema = [
@@ -1701,7 +1705,7 @@ export var UserSettingsSummary$: StaticStructureSchema = [
   n0,
   _USS,
   0,
-  [_uSA, _cA, _pAa, _dA, _uA, _pAr, _dTIM, _iDTIM, _cSC, _dLA, _tC, _bC],
+  [_uSA, _cA, _pAa, _dA, _uA, _pAr, _dTIM, _iDTIM, _cSC, _dLA, _tC, _bC, _wAA],
   [
     0,
     0,
@@ -1715,6 +1719,7 @@ export var UserSettingsSummary$: StaticStructureSchema = [
     0,
     () => ToolbarConfiguration$,
     [() => BrandingConfiguration$, 0],
+    0,
   ],
 ];
 export var ValidationException$: StaticErrorSchema = [

@@ -108,6 +108,7 @@ export interface CreateUserSettingsCommandOutput extends CreateUserSettingsRespo
  *     colorTheme: "Light" || "Dark", // required
  *     termsOfService: "STRING_VALUE",
  *   },
+ *   webAuthnAllowed: "STRING_VALUE",
  * };
  * const command = new CreateUserSettingsCommand(input);
  * const response = await client.send(command);

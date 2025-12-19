@@ -3848,6 +3848,12 @@ export interface CreateUserSettingsRequest {
    * @public
    */
   brandingConfigurationInput?: BrandingConfigurationCreateInput | undefined;
+
+  /**
+   * <p>Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.</p>
+   * @public
+   */
+  webAuthnAllowed?: EnabledType | undefined;
 }
 
 /**
@@ -3982,6 +3988,12 @@ export interface UserSettings {
    * @public
    */
   brandingConfiguration?: BrandingConfiguration | undefined;
+
+  /**
+   * <p>Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.</p>
+   * @public
+   */
+  webAuthnAllowed?: EnabledType | undefined;
 }
 
 /**
@@ -4088,6 +4100,12 @@ export interface UserSettingsSummary {
    * @public
    */
   brandingConfiguration?: BrandingConfiguration | undefined;
+
+  /**
+   * <p>Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.</p>
+   * @public
+   */
+  webAuthnAllowed?: EnabledType | undefined;
 }
 
 /**
@@ -4230,6 +4248,12 @@ export interface UpdateUserSettingsRequest {
    * @public
    */
   brandingConfigurationInput?: BrandingConfigurationUpdateInput | undefined;
+
+  /**
+   * <p>Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.</p>
+   * @public
+   */
+  webAuthnAllowed?: EnabledType | undefined;
 }
 
 /**

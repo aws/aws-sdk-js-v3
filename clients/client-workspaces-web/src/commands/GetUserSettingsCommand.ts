@@ -114,6 +114,7 @@ export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, _
  * //       colorTheme: "Light" || "Dark", // required
  * //       termsOfService: "STRING_VALUE",
  * //     },
+ * //     webAuthnAllowed: "STRING_VALUE",
  * //   },
  * // };
  *
