@@ -589,5 +589,8 @@
   },
   "@aws-sdk/dynamodb-codec": {
     "DynamoDBJsonCodec": "function, since <=3.0.0"
+  },
+  "@aws-sdk/crc64-nvme": {
+    "Crc64Nvme": "function, since <=3.955.0"
   }
 }
