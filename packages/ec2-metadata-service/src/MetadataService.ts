@@ -16,7 +16,7 @@ export class MetadataService {
   private retries: number;
   private backoffFn: (numFailures: number) => Promise<void> | number;
   private tokenTtl: number;
-  // can be set explicitly, or extracted from endpoint, or use a default value (80). See `resolvePort()` below.
+  // can be set explicitly, or extracted from endpoint, or use a default value. See `resolvePort()` below.
   private port?: number;
 
   /**
