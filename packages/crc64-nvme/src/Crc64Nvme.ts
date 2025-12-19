@@ -29,15 +29,16 @@ const generateCRC64NVMETable = (): Uint32Array[] => {
   return tables;
 };
 
-const CRC64_NVME_REVERSED_TABLE = generateCRC64NVMETable();
-const t0 = CRC64_NVME_REVERSED_TABLE[0];
-const t1 = CRC64_NVME_REVERSED_TABLE[1];
-const t2 = CRC64_NVME_REVERSED_TABLE[2];
-const t3 = CRC64_NVME_REVERSED_TABLE[3];
-const t4 = CRC64_NVME_REVERSED_TABLE[4];
-const t5 = CRC64_NVME_REVERSED_TABLE[5];
-const t6 = CRC64_NVME_REVERSED_TABLE[6];
-const t7 = CRC64_NVME_REVERSED_TABLE[7];
+let CRC64_NVME_REVERSED_TABLE: Uint32Array[];
+let t0: Uint32Array, t1: Uint32Array, t2: Uint32Array, t3: Uint32Array;
+let t4: Uint32Array, t5: Uint32Array, t6: Uint32Array, t7: Uint32Array;
+
+const ensureTablesInitialized = () => {
+  if (!CRC64_NVME_REVERSED_TABLE) {
+    CRC64_NVME_REVERSED_TABLE = generateCRC64NVMETable();
+    [t0, t1, t2, t3, t4, t5, t6, t7] = CRC64_NVME_REVERSED_TABLE;
+  }
+};
 
 /**
  * Implements CRC-64/NVME checksum algorithm.
@@ -59,6 +60,7 @@ export class Crc64Nvme implements Checksum {
   private c2 = 0;
 
   constructor() {
+    ensureTablesInitialized();
     this.reset();
   }
 
