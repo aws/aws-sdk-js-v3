@@ -616,12 +616,12 @@ export namespace APISchema {
 }
 
 /**
- * <p>The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight as the identity provider. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/create-quicksight-integrated-application.html">Creating an Amazon QuickSight integrated application</a>.</p>
+ * <p>The Amazon Quick Suite configuration for an Amazon Q Business application that uses Quick Suite as the identity provider. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/create-quicksight-integrated-application.html">Creating an Amazon Quick Suite integrated application</a>.</p>
  * @public
  */
 export interface QuickSightConfiguration {
   /**
-   * <p>The Amazon QuickSight namespace that is used as the identity provider. For more information about QuickSight namespaces, see <a href="https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html">Namespace operations</a>. </p>
+   * <p>The Amazon Quick Suite namespace that is used as the identity provider. For more information about Quick Suite namespaces, see <a href="https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html">Namespace operations</a>. </p>
    * @public
    */
   clientNamespace: string | undefined;
@@ -669,7 +669,7 @@ export interface Application {
   identityType?: IdentityType | undefined;
 
   /**
-   * <p>The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight as the identity provider.</p>
+   * <p>The Amazon Quick Suite configuration for an Amazon Q Business application that uses Quick Suite as the identity provider.</p>
    * @public
    */
   quickSightConfiguration?: QuickSightConfiguration | undefined;
@@ -824,7 +824,7 @@ export interface CreateApplicationRequest {
   personalizationConfiguration?: PersonalizationConfiguration | undefined;
 
   /**
-   * <p>The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight for authentication. This configuration is required if your application uses QuickSight as the identity provider. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/create-quicksight-integrated-application.html">Creating an Amazon QuickSight integrated application</a>.</p>
+   * <p>The Amazon Quick Suite configuration for an Amazon Q Business application that uses Quick Suite for authentication. This configuration is required if your application uses Quick Suite as the identity provider. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/create-quicksight-integrated-application.html">Creating an Amazon Quick Suite integrated application</a>.</p>
    * @public
    */
   quickSightConfiguration?: QuickSightConfiguration | undefined;
@@ -1289,7 +1289,7 @@ export interface GetApplicationResponse {
   clientIdsForOIDC?: string[] | undefined;
 
   /**
-   * <p>The Amazon QuickSight authentication configuration for the Amazon Q Business application.</p>
+   * <p>The Amazon Quick Suite authentication configuration for the Amazon Q Business application.</p>
    * @public
    */
   quickSightConfiguration?: QuickSightConfiguration | undefined;
