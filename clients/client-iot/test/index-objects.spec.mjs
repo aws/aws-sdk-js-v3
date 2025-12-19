@@ -1052,6 +1052,7 @@ import {
   ListViolationEventsResponse$,
   LocationAction$,
   LocationTimestamp$,
+  LogEventConfiguration$,
   LogLevel,
   LogTarget$,
   LogTargetConfiguration$,
@@ -2598,6 +2599,7 @@ assert(typeof ListViolationEventsRequest$ === "object");
 assert(typeof ListViolationEventsResponse$ === "object");
 assert(typeof LocationAction$ === "object");
 assert(typeof LocationTimestamp$ === "object");
+assert(typeof LogEventConfiguration$ === "object");
 assert(typeof LoggingOptionsPayload$ === "object");
 assert(typeof LogTarget$ === "object");
 assert(typeof LogTargetConfiguration$ === "object");

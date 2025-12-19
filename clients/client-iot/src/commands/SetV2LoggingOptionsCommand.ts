@@ -41,6 +41,13 @@ export interface SetV2LoggingOptionsCommandOutput extends __MetadataBearer {}
  *   roleArn: "STRING_VALUE",
  *   defaultLogLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED",
  *   disableAllLogs: true || false,
+ *   eventConfigurations: [ // LogEventConfigurations
+ *     { // LogEventConfiguration
+ *       eventType: "STRING_VALUE", // required
+ *       logLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED",
+ *       logDestination: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new SetV2LoggingOptionsCommand(input);
  * const response = await client.send(command);

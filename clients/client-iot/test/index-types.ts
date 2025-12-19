@@ -1438,6 +1438,7 @@ export type {
   ListViolationEventsResponse,
   LocationAction,
   LocationTimestamp,
+  LogEventConfiguration,
   LoggingOptionsPayload,
   LogTarget,
   LogTargetConfiguration,

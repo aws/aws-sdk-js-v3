@@ -5072,7 +5072,47 @@ export interface GetTopicRuleDestinationResponse {
 /**
  * @public
  */
-export interface GetV2LoggingOptionsRequest {}
+export interface GetV2LoggingOptionsRequest {
+  /**
+   * <p>
+   *          The flag is used to get all the event types and their respective configuration that event-based logging supports.
+   *       </p>
+   * @public
+   */
+  verbose?: boolean | undefined;
+}
+
+/**
+ * <p>
+ *          Configuration for event-based logging that specifies which event types to log and their logging settings. Used for account-level logging overrides.
+ *       </p>
+ * @public
+ */
+export interface LogEventConfiguration {
+  /**
+   * <p>
+   *          The type of event to log. These include event types like Connect, Publish, and Disconnect.
+   *       </p>
+   * @public
+   */
+  eventType: string | undefined;
+
+  /**
+   * <p>
+   *          The logging level for the specified event type. Determines the verbosity of log messages generated for this event type.
+   *       </p>
+   * @public
+   */
+  logLevel?: LogLevel | undefined;
+
+  /**
+   * <p>
+   *          CloudWatch Log Group for event-based logging. Specifies where log events should be sent. The log destination for event-based logging overrides default Log Group for the specified event type and applies to all resources associated with that event.
+   *       </p>
+   * @public
+   */
+  logDestination?: string | undefined;
+}
 
 /**
  * @public
@@ -5095,6 +5135,14 @@ export interface GetV2LoggingOptionsResponse {
    * @public
    */
   disableAllLogs?: boolean | undefined;
+
+  /**
+   * <p>
+   *          The list of event configurations that override account-level logging.
+   *       </p>
+   * @public
+   */
+  eventConfigurations?: LogEventConfiguration[] | undefined;
 }
 
 /**
@@ -8590,27 +8638,4 @@ export interface ListTargetsForPolicyResponse {
    * @public
    */
   nextMarker?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTargetsForSecurityProfileRequest {
-  /**
-   * <p>The security profile.</p>
-   * @public
-   */
-  securityProfileName: string | undefined;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
 }

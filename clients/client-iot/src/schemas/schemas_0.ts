@@ -681,6 +681,8 @@ const _LDMATR = "ListDetectMitigationActionsTasksRequest";
 const _LDMATRi = "ListDetectMitigationActionsTasksResponse";
 const _LDR = "ListDimensionsRequest";
 const _LDRi = "ListDimensionsResponse";
+const _LEC = "LogEventConfiguration";
+const _LECo = "LogEventConfigurations";
 const _LEE = "LimitExceededException";
 const _LFM = "ListFleetMetrics";
 const _LFMR = "ListFleetMetricsRequest";
@@ -1413,6 +1415,7 @@ const _eT = "endTime";
 const _eTS = "executionTimeoutSeconds";
 const _eTn = "encryptionType";
 const _eTnd = "endpointType";
+const _eTv = "eventType";
 const _eV = "expectedVersion";
 const _en = "enabled";
 const _end = "endpoint";
@@ -1512,6 +1515,7 @@ const _kV = "keyValue";
 const _ka = "kafka";
 const _ke = "key";
 const _l = "lambda";
+const _lD = "logDestination";
 const _lFA = "lambdaFunctionArn";
 const _lGN = "logGroupName";
 const _lL = "logLevel";
@@ -1938,7 +1942,8 @@ const _val = "validity";
 const _vali = "valid";
 const _var = "variance";
 const _ve = "version";
-const _ver = "versions";
+const _ver = "verbose";
+const _vers = "versions";
 const _wFDCC = "waitingForDataCollectionChecks";
 const _xaip = "x-amzn-iot-principal";
 const _xaip_ = "x-amzn-iot-policy";
@@ -3809,8 +3814,15 @@ export var GetTopicRuleDestinationResponse$: StaticStructureSchema = [
 ];
 export var GetTopicRuleRequest$: StaticStructureSchema = [3, n0, _GTRR, 0, [_rN], [[0, 1]]];
 export var GetTopicRuleResponse$: StaticStructureSchema = [3, n0, _GTRRe, 0, [_rAu, _ru], [0, () => TopicRule$]];
-export var GetV2LoggingOptionsRequest$: StaticStructureSchema = [3, n0, _GVLOR, 0, [], []];
-export var GetV2LoggingOptionsResponse$: StaticStructureSchema = [3, n0, _GVLORe, 0, [_rA, _dLL, _dAL], [0, 0, 2]];
+export var GetV2LoggingOptionsRequest$: StaticStructureSchema = [3, n0, _GVLOR, 0, [_ver], [[2, { [_hQ]: _ver }]]];
+export var GetV2LoggingOptionsResponse$: StaticStructureSchema = [
+  3,
+  n0,
+  _GVLORe,
+  0,
+  [_rA, _dLL, _dAL, _eCv],
+  [0, 0, 2, () => LogEventConfigurations],
+];
 export var GroupNameAndArn$: StaticStructureSchema = [3, n0, _GNAA, 0, [_gN, _gA], [0, 0]];
 export var HttpAction$: StaticStructureSchema = [
   3,
@@ -4733,7 +4745,7 @@ export var ListProvisioningTemplateVersionsResponse$: StaticStructureSchema = [
   n0,
   _LPTVRist,
   0,
-  [_ver, _nT],
+  [_vers, _nT],
   [() => ProvisioningTemplateVersionListing, 0],
 ];
 export var ListRelatedResourcesForAuditFindingRequest$: StaticStructureSchema = [
@@ -5164,6 +5176,7 @@ export var LocationAction$: StaticStructureSchema = [
   [0, 0, 0, () => LocationTimestamp$, 0, 0],
 ];
 export var LocationTimestamp$: StaticStructureSchema = [3, n0, _LT, 0, [_va, _u], [0, 0]];
+export var LogEventConfiguration$: StaticStructureSchema = [3, n0, _LEC, 0, [_eTv, _lL, _lD], [0, 0, 0]];
 export var LoggingOptionsPayload$: StaticStructureSchema = [3, n0, _LOP, 0, [_rA, _lL], [0, 0]];
 export var LogTarget$: StaticStructureSchema = [3, n0, _LTo, 0, [_tTa, _tNa], [0, 0]];
 export var LogTargetConfiguration$: StaticStructureSchema = [3, n0, _LTC, 0, [_lT, _lL], [() => LogTarget$, 0]];
@@ -5511,7 +5524,14 @@ export var SetLoggingOptionsRequest$: StaticStructureSchema = [
   [[() => LoggingOptionsPayload$, 16]],
 ];
 export var SetV2LoggingLevelRequest$: StaticStructureSchema = [3, n0, _SVLLR, 0, [_lT, _lL], [() => LogTarget$, 0]];
-export var SetV2LoggingOptionsRequest$: StaticStructureSchema = [3, n0, _SVLOR, 0, [_rA, _dLL, _dAL], [0, 0, 2]];
+export var SetV2LoggingOptionsRequest$: StaticStructureSchema = [
+  3,
+  n0,
+  _SVLOR,
+  0,
+  [_rA, _dLL, _dAL, _eCv],
+  [0, 0, 2, () => LogEventConfigurations],
+];
 export var SigningProfileParameter$: StaticStructureSchema = [3, n0, _SPP, 0, [_cAe, _pl, _cPOD], [0, 0, 0]];
 export var SigV4Authorization$: StaticStructureSchema = [3, n0, _SVA, 0, [_sRi, _sNe, _rA], [0, 0, 0]];
 export var SnsAction$: StaticStructureSchema = [3, n0, _SAn, 0, [_tAa, _rA, _mF], [0, 0, 0]];
@@ -6227,6 +6247,7 @@ var JobSummaryList: StaticListSchema = [1, n0, _JSL, 0, () => JobSummary$];
 var JobTargets = 64 | 0;
 var JobTemplateSummaryList: StaticListSchema = [1, n0, _JTSL, 0, () => JobTemplateSummary$];
 var KafkaHeaders: StaticListSchema = [1, n0, _KH, 0, () => KafkaActionHeader$];
+var LogEventConfigurations: StaticListSchema = [1, n0, _LECo, 0, () => LogEventConfiguration$];
 var LogTargetConfigurations: StaticListSchema = [1, n0, _LTCo, 0, () => LogTargetConfiguration$];
 var MaintenanceWindows: StaticListSchema = [1, n0, _MWa, 0, () => MaintenanceWindow$];
 var ManagedJobTemplatesSummaryList: StaticListSchema = [1, n0, _MJTSL, 0, () => ManagedJobTemplateSummary$];

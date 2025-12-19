@@ -75,8 +75,32 @@ import {
   type ViolationEventOccurrenceRange,
   Configuration,
   GroupNameAndArn,
+  LogEventConfiguration,
   SecurityProfileTarget,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListTargetsForSecurityProfileRequest {
+  /**
+   * <p>The security profile.</p>
+   * @public
+   */
+  securityProfileName: string | undefined;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
 
 /**
  * @public
@@ -1815,6 +1839,14 @@ export interface SetV2LoggingOptionsRequest {
    * @public
    */
   disableAllLogs?: boolean | undefined;
+
+  /**
+   * <p>
+   *          The list of event configurations that override account-level logging.
+   *       </p>
+   * @public
+   */
+  eventConfigurations?: LogEventConfiguration[] | undefined;
 }
 
 /**

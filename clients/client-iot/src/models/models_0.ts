@@ -548,8 +548,8 @@ export interface HttpAction {
   enableBatching?: boolean | undefined;
 
   /**
-   * <p>The configuration settings for batching. For more information, see <a href="/iot/latest/developerguide/http_batching.html">Batching
-   *             HTTP action messages</a>.</p>
+   * <p>The configuration settings for batching. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/http_batching.html">
+   *          Batching HTTP action messages</a>.</p>
    * @public
    */
   batchConfig?: BatchConfig | undefined;

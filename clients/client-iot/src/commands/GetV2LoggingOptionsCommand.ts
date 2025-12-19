@@ -37,13 +37,22 @@ export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsRes
  * // import type { IoTClientConfig } from "@aws-sdk/client-iot";
  * const config = {}; // type is IoTClientConfig
  * const client = new IoTClient(config);
- * const input = {};
+ * const input = { // GetV2LoggingOptionsRequest
+ *   verbose: true || false,
+ * };
  * const command = new GetV2LoggingOptionsCommand(input);
  * const response = await client.send(command);
  * // { // GetV2LoggingOptionsResponse
  * //   roleArn: "STRING_VALUE",
  * //   defaultLogLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED",
  * //   disableAllLogs: true || false,
+ * //   eventConfigurations: [ // LogEventConfigurations
+ * //     { // LogEventConfiguration
+ * //       eventType: "STRING_VALUE", // required
+ * //       logLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED",
+ * //       logDestination: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -88,7 +97,7 @@ export class GetV2LoggingOptionsCommand extends $Command
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: {};
+      input: GetV2LoggingOptionsRequest;
       output: GetV2LoggingOptionsResponse;
     };
     sdk: {
