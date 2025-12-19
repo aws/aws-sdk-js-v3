@@ -15,6 +15,9 @@ export class MetadataService {
   private config: Promise<MetadataServiceOptions>;
   private retries: number;
   private backoffFn: (numFailures: number) => Promise<void> | number;
+  private tokenTtl: number;
+  // can be set explicitly, or extracted from endpoint, or use a default value. See `resolvePort()` below.
+  private port?: number;
 
   /**
    * Creates a new MetadataService object with a given set of options.
@@ -34,6 +37,26 @@ export class MetadataService {
     this.disableFetchToken = options?.disableFetchToken || false;
     this.retries = options?.retries ?? 3;
     this.backoffFn = this.createBackoffFunction(options?.backoff);
+    this.tokenTtl = this.validateTokenTtl(options?.tokenTtl ?? 21600);
+    this.port = options?.port;
+  }
+
+  private validateTokenTtl(tokenTtl: number): number {
+    if (!Number.isInteger(tokenTtl) || tokenTtl <= 0) {
+      throw new Error("tokenTtl must be a positive integer");
+    }
+    return tokenTtl;
+  }
+
+  private resolvePort(endpointUrl: URL): number | undefined {
+    // Priority: explicit port option > port from endpoint URL > protocol default (undefined lets URL handle it)
+    if (this.port !== undefined) {
+      return this.port;
+    }
+    if (endpointUrl.port) {
+      return parseInt(endpointUrl.port);
+    }
+    return undefined;
   }
 
   private createBackoffFunction(
@@ -129,7 +152,7 @@ export class MetadataService {
         hostname: endpointUrl.hostname,
         path: endpointUrl.pathname + path,
         protocol: endpointUrl.protocol,
-        port: endpointUrl.port ? parseInt(endpointUrl.port) : undefined,
+        port: this.resolvePort(endpointUrl),
       });
       try {
         const { response } = await handler.handle(request, {} as HttpHandlerOptions);
@@ -170,12 +193,12 @@ export class MetadataService {
     const tokenRequest = new HttpRequest({
       method: "PUT",
       headers: {
-        "x-aws-ec2-metadata-token-ttl-seconds": "21600", // 6 hours;
+        "x-aws-ec2-metadata-token-ttl-seconds": String(this.tokenTtl),
       },
       hostname: endpointUrl.hostname,
       path: "/latest/api/token",
       protocol: endpointUrl.protocol,
-      port: endpointUrl.port ? parseInt(endpointUrl.port) : undefined,
+      port: this.resolvePort(endpointUrl),
     });
     try {
       const { response } = await handler.handle(tokenRequest, {} as HttpHandlerOptions);
