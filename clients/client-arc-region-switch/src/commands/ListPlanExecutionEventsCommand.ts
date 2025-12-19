@@ -53,9 +53,9 @@ export interface ListPlanExecutionEventsCommandOutput extends ListPlanExecutionE
  * //   items: [ // ExecutionEventList
  * //     { // ExecutionEvent
  * //       timestamp: new Date("TIMESTAMP"),
- * //       type: "unknown" || "executionPending" || "executionStarted" || "executionSucceeded" || "executionFailed" || "executionPausing" || "executionPaused" || "executionCanceling" || "executionCanceled" || "executionPendingApproval" || "executionBehaviorChangedToUngraceful" || "executionBehaviorChangedToGraceful" || "executionPendingChildPlanManualApproval" || "executionSuccessMonitoringApplicationHealth" || "stepStarted" || "stepUpdate" || "stepSucceeded" || "stepFailed" || "stepSkipped" || "stepPausedByError" || "stepPausedByOperator" || "stepCanceled" || "stepPendingApproval" || "stepExecutionBehaviorChangedToUngraceful" || "stepPendingApplicationHealthMonitor",
+ * //       type: "unknown" || "executionPending" || "executionStarted" || "executionSucceeded" || "executionFailed" || "executionPausing" || "executionPaused" || "executionCanceling" || "executionCanceled" || "executionPendingApproval" || "executionBehaviorChangedToUngraceful" || "executionBehaviorChangedToGraceful" || "executionPendingChildPlanManualApproval" || "executionSuccessMonitoringApplicationHealth" || "stepStarted" || "stepUpdate" || "stepSucceeded" || "stepFailed" || "stepSkipped" || "stepPausedByError" || "stepPausedByOperator" || "stepCanceled" || "stepPendingApproval" || "stepExecutionBehaviorChangedToUngraceful" || "stepPendingApplicationHealthMonitor" || "planEvaluationWarning",
  * //       stepName: "STRING_VALUE",
- * //       executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck",
+ * //       executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb",
  * //       resources: [ // Resources
  * //         "STRING_VALUE",
  * //       ],

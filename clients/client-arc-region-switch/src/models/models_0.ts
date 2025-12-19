@@ -3,6 +3,8 @@ import {
   AlarmCondition,
   AlarmType,
   Approval,
+  DocumentDbDefaultBehavior,
+  DocumentDbUngracefulBehavior,
   Ec2AsgCapacityMonitoringApproach,
   EcsCapacityMonitoringApproach,
   EksCapacityMonitoringApproach,
@@ -12,6 +14,7 @@ import {
   ExecutionEventType,
   ExecutionMode,
   ExecutionState,
+  FailedReportErrorCode,
   GlobalAuroraDefaultBehavior,
   GlobalAuroraUngracefulBehavior,
   LambdaUngracefulBehavior,
@@ -416,6 +419,107 @@ export interface GetPlanExecutionRequest {
 }
 
 /**
+ * <p>Information about a report generation that failed.</p>
+ * @public
+ */
+export interface FailedReportOutput {
+  /**
+   * <p>The error code for the failed report generation.</p>
+   * @public
+   */
+  errorCode?: FailedReportErrorCode | undefined;
+
+  /**
+   * <p>The error message for the failed report generation.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+}
+
+/**
+ * <p>Information about a report delivered to Amazon S3.</p>
+ * @public
+ */
+export interface S3ReportOutput {
+  /**
+   * <p>The S3 object key where the generated report is stored.</p>
+   * @public
+   */
+  s3ObjectKey?: string | undefined;
+}
+
+/**
+ * <p>The output location or cause of a failure in report generation.</p>
+ * @public
+ */
+export type ReportOutput =
+  | ReportOutput.FailedReportOutputMember
+  | ReportOutput.S3ReportOutputMember
+  | ReportOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ReportOutput {
+  /**
+   * <p>Information about a report delivered to Amazon S3.</p>
+   * @public
+   */
+  export interface S3ReportOutputMember {
+    s3ReportOutput: S3ReportOutput;
+    failedReportOutput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The details about a failed report generation.</p>
+   * @public
+   */
+  export interface FailedReportOutputMember {
+    s3ReportOutput?: never;
+    failedReportOutput: FailedReportOutput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3ReportOutput?: never;
+    failedReportOutput?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3ReportOutput: (value: S3ReportOutput) => T;
+    failedReportOutput: (value: FailedReportOutput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Information about a generated execution report.</p>
+ * @public
+ */
+export interface GeneratedReport {
+  /**
+   * <p>The timestamp when the report was generated.</p>
+   * @public
+   */
+  reportGenerationTime?: Date | undefined;
+
+  /**
+   * <p>The output location or cause of a failure in report generation.</p>
+   * @public
+   */
+  reportOutput?: ReportOutput | undefined;
+}
+
+/**
  * <p>An Amazon CloudWatch alarm associated with a Region switch plan. These alarms can be used to trigger automatic execution of the plan.</p>
  * @public
  */
@@ -443,6 +547,75 @@ export interface AssociatedAlarm {
    * @public
    */
   alarmType: AlarmType | undefined;
+}
+
+/**
+ * <p>Configuration for delivering generated reports to an Amazon S3 bucket.</p>
+ * @public
+ */
+export interface S3ReportOutputConfiguration {
+  /**
+   * <p>The S3 bucket name and optional prefix where reports are stored. Format: bucket-name or bucket-name/prefix.</p>
+   * @public
+   */
+  bucketPath?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the S3 bucket. Required to ensure the bucket is still owned by the same expected owner at generation time.</p>
+   * @public
+   */
+  bucketOwner?: string | undefined;
+}
+
+/**
+ * <p>Configuration for report output destinations used in a Region switch plan.</p>
+ * @public
+ */
+export type ReportOutputConfiguration =
+  | ReportOutputConfiguration.S3ConfigurationMember
+  | ReportOutputConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ReportOutputConfiguration {
+  /**
+   * <p>Configuration for delivering reports to an Amazon S3 bucket.</p>
+   * @public
+   */
+  export interface S3ConfigurationMember {
+    s3Configuration: S3ReportOutputConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3Configuration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3Configuration: (value: S3ReportOutputConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration for automatic report generation for plan executions. When configured, Region switch automatically generates a report after each plan execution that includes execution events, plan configuration, and CloudWatch alarm states.</p>
+ * @public
+ */
+export interface ReportConfiguration {
+  /**
+   * <p>The output configuration for the report.</p>
+   * @public
+   */
+  reportOutput?: ReportOutputConfiguration[] | undefined;
 }
 
 /**
@@ -617,6 +790,66 @@ export interface CustomActionLambdaConfiguration {
    * @public
    */
   ungraceful?: LambdaUngraceful | undefined;
+}
+
+/**
+ * <p>Configuration for handling failures when performing operations on DocumentDB global clusters.</p>
+ * @public
+ */
+export interface DocumentDbUngraceful {
+  /**
+   * <p>The settings for ungraceful execution.</p>
+   * @public
+   */
+  ungraceful?: DocumentDbUngracefulBehavior | undefined;
+}
+
+/**
+ * <p>Configuration for Amazon DocumentDB global clusters used in a Region switch plan.</p>
+ * @public
+ */
+export interface DocumentDbConfiguration {
+  /**
+   * <p>The timeout value specified for the configuration.</p>
+   * @public
+   */
+  timeoutMinutes?: number | undefined;
+
+  /**
+   * <p>The cross account role for the configuration.</p>
+   * @public
+   */
+  crossAccountRole?: string | undefined;
+
+  /**
+   * <p>The external ID (secret key) for the configuration.</p>
+   * @public
+   */
+  externalId?: string | undefined;
+
+  /**
+   * <p>The behavior for a global cluster, that is, only allow switchover or also allow failover.</p>
+   * @public
+   */
+  behavior: DocumentDbDefaultBehavior | undefined;
+
+  /**
+   * <p>The settings for ungraceful execution.</p>
+   * @public
+   */
+  ungraceful?: DocumentDbUngraceful | undefined;
+
+  /**
+   * <p>The global cluster identifier for a DocumentDB global cluster.</p>
+   * @public
+   */
+  globalClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The database cluster Amazon Resource Names (ARNs) for a DocumentDB global cluster.</p>
+   * @public
+   */
+  databaseClusterArns: string[] | undefined;
 }
 
 /**
@@ -1720,6 +1953,7 @@ export interface UpdatePlanExecutionStepResponse {}
 export type ExecutionBlockConfiguration =
   | ExecutionBlockConfiguration.ArcRoutingControlConfigMember
   | ExecutionBlockConfiguration.CustomActionLambdaConfigMember
+  | ExecutionBlockConfiguration.DocumentDbConfigMember
   | ExecutionBlockConfiguration.Ec2AsgCapacityIncreaseConfigMember
   | ExecutionBlockConfiguration.EcsCapacityIncreaseConfigMember
   | ExecutionBlockConfiguration.EksResourceScalingConfigMember
@@ -1749,6 +1983,7 @@ export namespace ExecutionBlockConfiguration {
     ecsCapacityIncreaseConfig?: never;
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig?: never;
+    documentDbConfig?: never;
     $unknown?: never;
   }
 
@@ -1767,6 +2002,7 @@ export namespace ExecutionBlockConfiguration {
     ecsCapacityIncreaseConfig?: never;
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig?: never;
+    documentDbConfig?: never;
     $unknown?: never;
   }
 
@@ -1785,6 +2021,7 @@ export namespace ExecutionBlockConfiguration {
     ecsCapacityIncreaseConfig?: never;
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig?: never;
+    documentDbConfig?: never;
     $unknown?: never;
   }
 
@@ -1803,6 +2040,7 @@ export namespace ExecutionBlockConfiguration {
     ecsCapacityIncreaseConfig?: never;
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig?: never;
+    documentDbConfig?: never;
     $unknown?: never;
   }
 
@@ -1821,6 +2059,7 @@ export namespace ExecutionBlockConfiguration {
     ecsCapacityIncreaseConfig?: never;
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig?: never;
+    documentDbConfig?: never;
     $unknown?: never;
   }
 
@@ -1839,6 +2078,7 @@ export namespace ExecutionBlockConfiguration {
     ecsCapacityIncreaseConfig?: never;
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig?: never;
+    documentDbConfig?: never;
     $unknown?: never;
   }
 
@@ -1857,6 +2097,7 @@ export namespace ExecutionBlockConfiguration {
     ecsCapacityIncreaseConfig?: never;
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig?: never;
+    documentDbConfig?: never;
     $unknown?: never;
   }
 
@@ -1875,6 +2116,7 @@ export namespace ExecutionBlockConfiguration {
     ecsCapacityIncreaseConfig: EcsCapacityIncreaseConfiguration;
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig?: never;
+    documentDbConfig?: never;
     $unknown?: never;
   }
 
@@ -1893,6 +2135,7 @@ export namespace ExecutionBlockConfiguration {
     ecsCapacityIncreaseConfig?: never;
     eksResourceScalingConfig: EksResourceScalingConfiguration;
     route53HealthCheckConfig?: never;
+    documentDbConfig?: never;
     $unknown?: never;
   }
 
@@ -1911,6 +2154,26 @@ export namespace ExecutionBlockConfiguration {
     ecsCapacityIncreaseConfig?: never;
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig: Route53HealthCheckConfiguration;
+    documentDbConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for Amazon DocumentDB global clusters used in a Region switch plan.</p>
+   * @public
+   */
+  export interface DocumentDbConfigMember {
+    customActionLambdaConfig?: never;
+    ec2AsgCapacityIncreaseConfig?: never;
+    executionApprovalConfig?: never;
+    arcRoutingControlConfig?: never;
+    globalAuroraConfig?: never;
+    parallelConfig?: never;
+    regionSwitchPlanConfig?: never;
+    ecsCapacityIncreaseConfig?: never;
+    eksResourceScalingConfig?: never;
+    route53HealthCheckConfig?: never;
+    documentDbConfig: DocumentDbConfiguration;
     $unknown?: never;
   }
 
@@ -1928,6 +2191,7 @@ export namespace ExecutionBlockConfiguration {
     ecsCapacityIncreaseConfig?: never;
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig?: never;
+    documentDbConfig?: never;
     $unknown: [string, any];
   }
 
@@ -1946,6 +2210,7 @@ export namespace ExecutionBlockConfiguration {
     ecsCapacityIncreaseConfig: (value: EcsCapacityIncreaseConfiguration) => T;
     eksResourceScalingConfig: (value: EksResourceScalingConfiguration) => T;
     route53HealthCheckConfig: (value: Route53HealthCheckConfiguration) => T;
+    documentDbConfig: (value: DocumentDbConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2063,6 +2328,12 @@ export interface CreatePlanRequest {
   triggers?: Trigger[] | undefined;
 
   /**
+   * <p>Configuration for automatic report generation for plan executions. When configured, Region switch automatically generates a report after each plan execution that includes execution events, plan configuration, and CloudWatch alarm states.</p>
+   * @public
+   */
+  reportConfiguration?: ReportConfiguration | undefined;
+
+  /**
    * <p>The name of a Region switch plan.</p>
    * @public
    */
@@ -2139,6 +2410,12 @@ export interface Plan {
    * @public
    */
   triggers?: Trigger[] | undefined;
+
+  /**
+   * <p>The report configuration for a plan.</p>
+   * @public
+   */
+  reportConfiguration?: ReportConfiguration | undefined;
 
   /**
    * <p>The name for a plan.</p>
@@ -2228,6 +2505,12 @@ export interface UpdatePlanRequest {
    * @public
    */
   triggers?: Trigger[] | undefined;
+
+  /**
+   * <p>The updated report configuration for the plan.</p>
+   * @public
+   */
+  reportConfiguration?: ReportConfiguration | undefined;
 }
 
 /**
@@ -2328,6 +2611,12 @@ export interface GetPlanExecutionResponse {
    * @public
    */
   actualRecoveryTime?: string | undefined;
+
+  /**
+   * <p>Information about the location of a generated report, or the cause of its failure.</p>
+   * @public
+   */
+  generatedReportDetails?: GeneratedReport[] | undefined;
 
   /**
    * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>

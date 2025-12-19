@@ -30,6 +30,10 @@ import {
   DeletePlanCommand,
   DeletePlanRequest$,
   DeletePlanResponse$,
+  DocumentDbConfiguration$,
+  DocumentDbDefaultBehavior,
+  DocumentDbUngraceful$,
+  DocumentDbUngracefulBehavior,
   Ec2AsgCapacityIncreaseConfiguration$,
   Ec2AsgCapacityMonitoringApproach,
   Ec2Ungraceful$,
@@ -49,6 +53,9 @@ import {
   ExecutionEventType,
   ExecutionMode,
   ExecutionState,
+  FailedReportErrorCode,
+  FailedReportOutput$,
+  GeneratedReport$,
   GetPlan$,
   GetPlanCommand,
   GetPlanEvaluationStatus$,
@@ -114,6 +121,9 @@ import {
   RecoveryApproach,
   RegionSwitchPlanConfiguration$,
   RegionToRunIn,
+  ReportConfiguration$,
+  ReportOutput$,
+  ReportOutputConfiguration$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResourceWarning$,
@@ -123,6 +133,8 @@ import {
   Route53HealthCheckStatus,
   Route53ResourceRecordSet$,
   RoutingControlStateChange,
+  S3ReportOutput$,
+  S3ReportOutputConfiguration$,
   Service$,
   StartPlanExecution$,
   StartPlanExecutionCommand,
@@ -233,6 +245,8 @@ assert(typeof CreatePlanResponse$ === "object");
 assert(typeof CustomActionLambdaConfiguration$ === "object");
 assert(typeof DeletePlanRequest$ === "object");
 assert(typeof DeletePlanResponse$ === "object");
+assert(typeof DocumentDbConfiguration$ === "object");
+assert(typeof DocumentDbUngraceful$ === "object");
 assert(typeof Ec2AsgCapacityIncreaseConfiguration$ === "object");
 assert(typeof Ec2Ungraceful$ === "object");
 assert(typeof EcsCapacityIncreaseConfiguration$ === "object");
@@ -243,6 +257,8 @@ assert(typeof EksResourceScalingUngraceful$ === "object");
 assert(typeof ExecutionApprovalConfiguration$ === "object");
 assert(typeof ExecutionBlockConfiguration$ === "object");
 assert(typeof ExecutionEvent$ === "object");
+assert(typeof FailedReportOutput$ === "object");
+assert(typeof GeneratedReport$ === "object");
 assert(typeof GetPlanEvaluationStatusRequest$ === "object");
 assert(typeof GetPlanEvaluationStatusResponse$ === "object");
 assert(typeof GetPlanExecutionRequest$ === "object");
@@ -275,10 +291,15 @@ assert(typeof MinimalWorkflow$ === "object");
 assert(typeof ParallelExecutionBlockConfiguration$ === "object");
 assert(typeof Plan$ === "object");
 assert(typeof RegionSwitchPlanConfiguration$ === "object");
+assert(typeof ReportConfiguration$ === "object");
+assert(typeof ReportOutput$ === "object");
+assert(typeof ReportOutputConfiguration$ === "object");
 assert(typeof ResourceWarning$ === "object");
 assert(typeof Route53HealthCheck$ === "object");
 assert(typeof Route53HealthCheckConfiguration$ === "object");
 assert(typeof Route53ResourceRecordSet$ === "object");
+assert(typeof S3ReportOutput$ === "object");
+assert(typeof S3ReportOutputConfiguration$ === "object");
 assert(typeof Service$ === "object");
 assert(typeof StartPlanExecutionRequest$ === "object");
 assert(typeof StartPlanExecutionResponse$ === "object");
@@ -301,6 +322,8 @@ assert(typeof Workflow$ === "object");
 assert(typeof AlarmCondition === "object");
 assert(typeof AlarmType === "object");
 assert(typeof Approval === "object");
+assert(typeof DocumentDbDefaultBehavior === "object");
+assert(typeof DocumentDbUngracefulBehavior === "object");
 assert(typeof Ec2AsgCapacityMonitoringApproach === "object");
 assert(typeof EcsCapacityMonitoringApproach === "object");
 assert(typeof EksCapacityMonitoringApproach === "object");
@@ -310,6 +333,7 @@ assert(typeof ExecutionBlockType === "object");
 assert(typeof ExecutionEventType === "object");
 assert(typeof ExecutionMode === "object");
 assert(typeof ExecutionState === "object");
+assert(typeof FailedReportErrorCode === "object");
 assert(typeof GlobalAuroraDefaultBehavior === "object");
 assert(typeof GlobalAuroraUngracefulBehavior === "object");
 assert(typeof LambdaUngracefulBehavior === "object");

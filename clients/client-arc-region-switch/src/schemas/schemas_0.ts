@@ -19,6 +19,8 @@ const _CPER = "CancelPlanExecutionRequest";
 const _CPERa = "CancelPlanExecutionResponse";
 const _CPR = "CreatePlanRequest";
 const _CPRr = "CreatePlanResponse";
+const _DDC = "DocumentDbConfiguration";
+const _DDU = "DocumentDbUngraceful";
 const _DP = "DeletePlan";
 const _DPR = "DeletePlanRequest";
 const _DPRe = "DeletePlanResponse";
@@ -34,6 +36,7 @@ const _ERSC = "EksResourceScalingConfiguration";
 const _ERSU = "EksResourceScalingUngraceful";
 const _EU = "Ec2Ungraceful";
 const _EUc = "EcsUngraceful";
+const _FRO = "FailedReportOutput";
 const _GAC = "GlobalAuroraConfiguration";
 const _GAU = "GlobalAuroraUngraceful";
 const _GP = "GetPlan";
@@ -48,6 +51,8 @@ const _GPIRR = "GetPlanInRegionRequest";
 const _GPIRRe = "GetPlanInRegionResponse";
 const _GPR = "GetPlanRequest";
 const _GPRe = "GetPlanResponse";
+const _GR = "GeneratedReport";
+const _GRD = "GeneratedReportDetails";
 const _IAE = "IllegalArgumentException";
 const _ISE = "IllegalStateException";
 const _ISEn = "InternalServerException";
@@ -85,10 +90,14 @@ const _PEBC = "ParallelExecutionBlockConfiguration";
 const _PL = "PlanList";
 const _PW = "PlanWarnings";
 const _RARC = "RegionAndRoutingControls";
+const _RC = "ReportConfiguration";
 const _RHC = "Route53HealthCheck";
 const _RHCC = "Route53HealthCheckConfiguration";
 const _RHCL = "Route53HealthCheckList";
 const _RNFE = "ResourceNotFoundException";
+const _RO = "ReportOutput";
+const _ROC = "ReportOutputConfiguration";
+const _ROL = "ReportOutputList";
 const _RRRS = "Route53ResourceRecordSet";
 const _RRRSL = "Route53ResourceRecordSetList";
 const _RSPC = "RegionSwitchPlanConfiguration";
@@ -99,6 +108,8 @@ const _SL = "ServiceList";
 const _SPE = "StartPlanExecution";
 const _SPER = "StartPlanExecutionRequest";
 const _SPERt = "StartPlanExecutionResponse";
+const _SRO = "S3ReportOutput";
+const _SROC = "S3ReportOutputConfiguration";
 const _SS = "StepState";
 const _SSt = "StepStates";
 const _St = "Step";
@@ -139,6 +150,8 @@ const _ac = "action";
 const _ap = "approval";
 const _as = "asgs";
 const _b = "behavior";
+const _bO = "bucketOwner";
+const _bP = "bucketPath";
 const _c = "comment";
 const _cA = "clusterArn";
 const _cALC = "customActionLambdaConfig";
@@ -149,6 +162,7 @@ const _co = "conditions";
 const _con = "condition";
 const _d = "description";
 const _dCA = "databaseClusterArns";
+const _dDC = "documentDbConfig";
 const _dR = "deactivateRegion";
 const _e = "error";
 const _eA = "executionAction";
@@ -158,17 +172,21 @@ const _eBC = "executionBlockConfiguration";
 const _eBT = "executionBlockType";
 const _eC = "eksClusters";
 const _eCIC = "ecsCapacityIncreaseConfig";
+const _eCr = "errorCode";
 const _eI = "executionId";
 const _eIv = "eventId";
 const _eIx = "externalId";
+const _eM = "errorMessage";
 const _eR = "executionRegion";
 const _eRSC = "eksResourceScalingConfig";
 const _eRx = "executionRole";
 const _eS = "executionState";
 const _eSv = "evaluationState";
 const _eT = "endTime";
+const _fRO = "failedReportOutput";
 const _gAC = "globalAuroraConfig";
 const _gCI = "globalClusterIdentifier";
+const _gRD = "generatedReportDetails";
 const _hC = "healthChecks";
 const _hCI = "healthCheckId";
 const _hE = "httpError";
@@ -201,11 +219,14 @@ const _r = "regions";
 const _rA = "recoveryApproach";
 const _rARC = "regionAndRoutingControls";
 const _rAe = "resourceArn";
+const _rC = "reportConfiguration";
 const _rCA = "routingControlArn";
+const _rGT = "reportGenerationTime";
 const _rHCC = "route53HealthCheckConfig";
 const _rI = "resourceIdentifier";
 const _rIM = "retryIntervalMinutes";
 const _rN = "recordName";
+const _rO = "reportOutput";
 const _rS = "recordSets";
 const _rSI = "recordSetIdentifier";
 const _rSPC = "regionSwitchPlanConfig";
@@ -217,9 +238,12 @@ const _re = "resources";
 const _reg = "region";
 const _s = "state";
 const _sA = "serviceArn";
+const _sC = "s3Configuration";
 const _sM = "stepMode";
 const _sN = "stepName";
+const _sOK = "s3ObjectKey";
 const _sR = "scalingResources";
+const _sRO = "s3ReportOutput";
 const _sS = "stepStates";
 const _sT = "startTime";
 const _se = "services";
@@ -314,8 +338,21 @@ export var CreatePlanRequest$: StaticStructureSchema = [
   n0,
   _CPR,
   0,
-  [_d, _w, _eRx, _rTOM, _aA, _t, _n, _r, _rA, _pR, _ta],
-  [0, () => WorkflowList, 0, 1, () => AssociatedAlarmMap, () => TriggerList, 0, 64 | 0, 0, 0, 128 | 0],
+  [_d, _w, _eRx, _rTOM, _aA, _t, _rC, _n, _r, _rA, _pR, _ta],
+  [
+    0,
+    () => WorkflowList,
+    0,
+    1,
+    () => AssociatedAlarmMap,
+    () => TriggerList,
+    () => ReportConfiguration$,
+    0,
+    64 | 0,
+    0,
+    0,
+    128 | 0,
+  ],
 ];
 export var CreatePlanResponse$: StaticStructureSchema = [3, n0, _CPRr, 0, [_p], [() => Plan$]];
 export var CustomActionLambdaConfiguration$: StaticStructureSchema = [
@@ -328,6 +365,15 @@ export var CustomActionLambdaConfiguration$: StaticStructureSchema = [
 ];
 export var DeletePlanRequest$: StaticStructureSchema = [3, n0, _DPR, 0, [_a], [0]];
 export var DeletePlanResponse$: StaticStructureSchema = [3, n0, _DPRe, 0, [], []];
+export var DocumentDbConfiguration$: StaticStructureSchema = [
+  3,
+  n0,
+  _DDC,
+  0,
+  [_tM, _cAR, _eIx, _b, _u, _gCI, _dCA],
+  [1, 0, 0, 0, () => DocumentDbUngraceful$, 0, 64 | 0],
+];
+export var DocumentDbUngraceful$: StaticStructureSchema = [3, n0, _DDU, 0, [_u], [0]];
 export var Ec2AsgCapacityIncreaseConfiguration$: StaticStructureSchema = [
   3,
   n0,
@@ -373,6 +419,8 @@ export var ExecutionEvent$: StaticStructureSchema = [
   [_ti, _ty, _sN, _eBT, _re, _e, _d, _eIv, _pEI],
   [4, 0, 0, 0, 64 | 0, 0, 0, 0, 0],
 ];
+export var FailedReportOutput$: StaticStructureSchema = [3, n0, _FRO, 0, [_eCr, _eM], [0, 0]];
+export var GeneratedReport$: StaticStructureSchema = [3, n0, _GR, 0, [_rGT, _rO], [4, () => ReportOutput$]];
 export var GetPlanEvaluationStatusRequest$: StaticStructureSchema = [3, n0, _GPESR, 0, [_pA, _mR, _nT], [0, 1, 0]];
 export var GetPlanEvaluationStatusResponse$: StaticStructureSchema = [
   3,
@@ -388,8 +436,8 @@ export var GetPlanExecutionResponse$: StaticStructureSchema = [
   n0,
   _GPERe,
   0,
-  [_pA, _eI, _v, _uA, _c, _sT, _eT, _m, _eS, _eA, _eR, _sS, _p, _aRT, _nT],
-  [0, 0, 0, 4, 0, 4, 4, 0, 0, 0, 0, () => StepStates, () => Plan$, 0, 0],
+  [_pA, _eI, _v, _uA, _c, _sT, _eT, _m, _eS, _eA, _eR, _sS, _p, _aRT, _gRD, _nT],
+  [0, 0, 0, 4, 0, 4, 4, 0, 0, 0, 0, () => StepStates, () => Plan$, 0, () => GeneratedReportDetails, 0],
 ];
 export var GetPlanInRegionRequest$: StaticStructureSchema = [3, n0, _GPIRR, 0, [_a], [0]];
 export var GetPlanInRegionResponse$: StaticStructureSchema = [3, n0, _GPIRRe, 0, [_p], [() => Plan$]];
@@ -484,10 +532,27 @@ export var Plan$: StaticStructureSchema = [
   n0,
   _P,
   0,
-  [_a, _d, _w, _eRx, _rTOM, _aA, _t, _n, _r, _rA, _pR, _o, _v, _uA],
-  [0, 0, () => WorkflowList, 0, 1, () => AssociatedAlarmMap, () => TriggerList, 0, 64 | 0, 0, 0, 0, 0, 4],
+  [_a, _d, _w, _eRx, _rTOM, _aA, _t, _rC, _n, _r, _rA, _pR, _o, _v, _uA],
+  [
+    0,
+    0,
+    () => WorkflowList,
+    0,
+    1,
+    () => AssociatedAlarmMap,
+    () => TriggerList,
+    () => ReportConfiguration$,
+    0,
+    64 | 0,
+    0,
+    0,
+    0,
+    0,
+    4,
+  ],
 ];
 export var RegionSwitchPlanConfiguration$: StaticStructureSchema = [3, n0, _RSPC, 0, [_cAR, _eIx, _a], [0, 0, 0]];
+export var ReportConfiguration$: StaticStructureSchema = [3, n0, _RC, 0, [_rO], [() => ReportOutputList]];
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _cl, [_hE]: 404 }, [_me], [0]];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceWarning$: StaticStructureSchema = [
@@ -515,6 +580,8 @@ export var Route53HealthCheckConfiguration$: StaticStructureSchema = [
   [1, 0, 0, 0, 0, () => Route53ResourceRecordSetList],
 ];
 export var Route53ResourceRecordSet$: StaticStructureSchema = [3, n0, _RRRS, 0, [_rSI, _reg], [0, 0]];
+export var S3ReportOutput$: StaticStructureSchema = [3, n0, _SRO, 0, [_sOK], [0]];
+export var S3ReportOutputConfiguration$: StaticStructureSchema = [3, n0, _SROC, 0, [_bP, _bO], [0, 0]];
 export var Service$: StaticStructureSchema = [3, n0, _S, 0, [_cAR, _eIx, _cA, _sA], [0, 0, 0, 0]];
 export var StartPlanExecutionRequest$: StaticStructureSchema = [
   3,
@@ -570,8 +637,8 @@ export var UpdatePlanRequest$: StaticStructureSchema = [
   n0,
   _UPR,
   0,
-  [_a, _d, _w, _eRx, _rTOM, _aA, _t],
-  [0, 0, () => WorkflowList, 0, 1, () => AssociatedAlarmMap, () => TriggerList],
+  [_a, _d, _w, _eRx, _rTOM, _aA, _t, _rC],
+  [0, 0, () => WorkflowList, 0, 1, () => AssociatedAlarmMap, () => TriggerList, () => ReportConfiguration$],
 ];
 export var UpdatePlanResponse$: StaticStructureSchema = [3, n0, _UPRp, 0, [_p], [() => Plan$]];
 export var Workflow$: StaticStructureSchema = [3, n0, _W, 0, [_st, _wTA, _wTR, _wD], [() => Steps, 0, 0, 0]];
@@ -588,13 +655,16 @@ var AbbreviatedExecutionsList: StaticListSchema = [1, n0, _AEL, 0, () => Abbrevi
 var ArcRoutingControlStates: StaticListSchema = [1, n0, _ARCSr, 0, () => ArcRoutingControlState$];
 var AsgList: StaticListSchema = [1, n0, _AL, 0, () => Asg$];
 var AuroraClusterArns = 64 | 0;
+var DocumentDbClusterArns = 64 | 0;
 var EksClusters: StaticListSchema = [1, n0, _ECk, 0, () => EksCluster$];
 var ExecutionEventList: StaticListSchema = [1, n0, _EEL, 0, () => ExecutionEvent$];
+var GeneratedReportDetails: StaticListSchema = [1, n0, _GRD, 0, () => GeneratedReport$];
 var KubernetesScalingApps: StaticListSchema = [1, n0, _KSA, 0, () => KubernetesScalingApplication];
 var LambdaList: StaticListSchema = [1, n0, _LL, 0, () => Lambdas$];
 var PlanList: StaticListSchema = [1, n0, _PL, 0, () => AbbreviatedPlan$];
 var PlanWarnings: StaticListSchema = [1, n0, _PW, 0, () => ResourceWarning$];
 var RegionList = 64 | 0;
+var ReportOutputList: StaticListSchema = [1, n0, _ROL, 0, () => ReportOutputConfiguration$];
 var Resources = 64 | 0;
 var Route53HealthCheckList: StaticListSchema = [1, n0, _RHCL, 0, () => Route53HealthCheck$];
 var Route53ResourceRecordSetList: StaticListSchema = [1, n0, _RRRSL, 0, () => Route53ResourceRecordSet$];
@@ -615,7 +685,7 @@ export var ExecutionBlockConfiguration$: StaticUnionSchema = [
   n0,
   _EBC,
   0,
-  [_cALC, _eACIC, _eAC, _aRCC, _gAC, _pC, _rSPC, _eCIC, _eRSC, _rHCC],
+  [_cALC, _eACIC, _eAC, _aRCC, _gAC, _pC, _rSPC, _eCIC, _eRSC, _rHCC, _dDC],
   [
     () => CustomActionLambdaConfiguration$,
     () => Ec2AsgCapacityIncreaseConfiguration$,
@@ -627,7 +697,24 @@ export var ExecutionBlockConfiguration$: StaticUnionSchema = [
     () => EcsCapacityIncreaseConfiguration$,
     () => EksResourceScalingConfiguration$,
     () => Route53HealthCheckConfiguration$,
+    () => DocumentDbConfiguration$,
   ],
+];
+export var ReportOutput$: StaticUnionSchema = [
+  4,
+  n0,
+  _RO,
+  0,
+  [_sRO, _fRO],
+  [() => S3ReportOutput$, () => FailedReportOutput$],
+];
+export var ReportOutputConfiguration$: StaticUnionSchema = [
+  4,
+  n0,
+  _ROC,
+  0,
+  [_sC],
+  [() => S3ReportOutputConfiguration$],
 ];
 export var ApprovePlanExecutionStep$: StaticOperationSchema = [
   9,

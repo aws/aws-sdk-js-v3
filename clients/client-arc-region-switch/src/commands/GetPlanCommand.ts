@@ -249,8 +249,21 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  * //                           },
  * //                         ],
  * //                       },
+ * //                       documentDbConfig: { // DocumentDbConfiguration
+ * //                         timeoutMinutes: Number("int"),
+ * //                         crossAccountRole: "STRING_VALUE",
+ * //                         externalId: "STRING_VALUE",
+ * //                         behavior: "switchoverOnly" || "failover", // required
+ * //                         ungraceful: { // DocumentDbUngraceful
+ * //                           ungraceful: "failover",
+ * //                         },
+ * //                         globalClusterIdentifier: "STRING_VALUE", // required
+ * //                         databaseClusterArns: [ // DocumentDbClusterArns // required
+ * //                           "STRING_VALUE",
+ * //                         ],
+ * //                       },
  * //                     },
- * //                     executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck", // required
+ * //                     executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb", // required
  * //                   },
  * //                 ],
  * //               },
@@ -318,8 +331,21 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  * //                   },
  * //                 ],
  * //               },
+ * //               documentDbConfig: {
+ * //                 timeoutMinutes: Number("int"),
+ * //                 crossAccountRole: "STRING_VALUE",
+ * //                 externalId: "STRING_VALUE",
+ * //                 behavior: "switchoverOnly" || "failover", // required
+ * //                 ungraceful: {
+ * //                   ungraceful: "failover",
+ * //                 },
+ * //                 globalClusterIdentifier: "STRING_VALUE", // required
+ * //                 databaseClusterArns: [ // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
  * //             },
- * //             executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck", // required
+ * //             executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb", // required
  * //           },
  * //         ],
  * //         workflowTargetAction: "activate" || "deactivate", // required
@@ -351,6 +377,16 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  * //         minDelayMinutesBetweenExecutions: Number("int"), // required
  * //       },
  * //     ],
+ * //     reportConfiguration: { // ReportConfiguration
+ * //       reportOutput: [ // ReportOutputList
+ * //         { // ReportOutputConfiguration Union: only one key present
+ * //           s3Configuration: { // S3ReportOutputConfiguration
+ * //             bucketPath: "STRING_VALUE",
+ * //             bucketOwner: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
  * //     name: "STRING_VALUE", // required
  * //     regions: [ // RegionList // required
  * //       "STRING_VALUE",
