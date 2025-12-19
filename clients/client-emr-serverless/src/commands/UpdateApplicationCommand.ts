@@ -135,6 +135,9 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *     identityCenterInstanceArn: "STRING_VALUE",
  *     userBackgroundSessionsEnabled: true || false,
  *   },
+ *   jobLevelCostAllocationConfiguration: { // JobLevelCostAllocationConfiguration
+ *     enabled: true || false,
+ *   },
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
@@ -249,6 +252,9 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * //       identityCenterInstanceArn: "STRING_VALUE",
  * //       identityCenterApplicationArn: "STRING_VALUE",
  * //       userBackgroundSessionsEnabled: true || false,
+ * //     },
+ * //     jobLevelCostAllocationConfiguration: { // JobLevelCostAllocationConfiguration
+ * //       enabled: true || false,
  * //     },
  * //   },
  * // };

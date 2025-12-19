@@ -153,6 +153,9 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //       identityCenterApplicationArn: "STRING_VALUE",
  * //       userBackgroundSessionsEnabled: true || false,
  * //     },
+ * //     jobLevelCostAllocationConfiguration: { // JobLevelCostAllocationConfiguration
+ * //       enabled: true || false,
+ * //     },
  * //   },
  * // };
  *

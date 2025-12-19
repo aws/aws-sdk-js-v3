@@ -47,6 +47,7 @@ import {
   InternalServerException,
   InternalServerException$,
   JobDriver$,
+  JobLevelCostAllocationConfiguration$,
   JobRun$,
   JobRunAttemptSummary$,
   JobRunExecutionIamPolicy$,
@@ -182,6 +183,7 @@ assert(typeof ImageConfigurationInput$ === "object");
 assert(typeof InitialCapacityConfig$ === "object");
 assert(typeof InteractiveConfiguration$ === "object");
 assert(typeof JobDriver$ === "object");
+assert(typeof JobLevelCostAllocationConfiguration$ === "object");
 assert(typeof JobRun$ === "object");
 assert(typeof JobRunAttemptSummary$ === "object");
 assert(typeof JobRunExecutionIamPolicy$ === "object");

@@ -139,6 +139,9 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *     identityCenterInstanceArn: "STRING_VALUE",
  *     userBackgroundSessionsEnabled: true || false,
  *   },
+ *   jobLevelCostAllocationConfiguration: { // JobLevelCostAllocationConfiguration
+ *     enabled: true || false,
+ *   },
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);

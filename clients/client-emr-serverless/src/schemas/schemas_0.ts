@@ -41,6 +41,7 @@ const _ICn = "InteractiveConfiguration";
 const _ISE = "InternalServerException";
 const _ISP = "InitScriptPath";
 const _JD = "JobDriver";
+const _JLCAC = "JobLevelCostAllocationConfiguration";
 const _JR = "JobRun";
 const _JRA = "JobRunAttempts";
 const _JRAS = "JobRunAttemptSummary";
@@ -152,6 +153,7 @@ const _iTM = "idleTimeoutMinutes";
 const _iU = "imageUri";
 const _jCA = "jobCreatedAt";
 const _jD = "jobDriver";
+const _jLCAC = "jobLevelCostAllocationConfiguration";
 const _jR = "jobRun";
 const _jRA = "jobRunAttempts";
 const _jRI = "jobRunId";
@@ -275,6 +277,7 @@ export var Application$: StaticStructureSchema = [
     _iCn,
     _sC,
     _iCC,
+    _jLCAC,
   ],
   [
     0,
@@ -300,6 +303,7 @@ export var Application$: StaticStructureSchema = [
     () => InteractiveConfiguration$,
     () => SchedulerConfiguration$,
     () => IdentityCenterConfiguration$,
+    () => JobLevelCostAllocationConfiguration$,
   ],
 ];
 export var ApplicationSummary$: StaticStructureSchema = [
@@ -356,7 +360,7 @@ export var CreateApplicationRequest$: StaticStructureSchema = [
   n0,
   _CAR,
   0,
-  [_n, _rL, _t, _cT, _iC, _mC, _ta, _aSC, _aSCu, _nC, _ar, _iCm, _wTS, _rC, _mCo, _iCn, _sC, _iCC],
+  [_n, _rL, _t, _cT, _iC, _mC, _ta, _aSC, _aSCu, _nC, _ar, _iCm, _wTS, _rC, _mCo, _iCn, _sC, _iCC, _jLCAC],
   [
     0,
     0,
@@ -376,6 +380,7 @@ export var CreateApplicationRequest$: StaticStructureSchema = [
     () => InteractiveConfiguration$,
     () => SchedulerConfiguration$,
     () => IdentityCenterConfigurationInput$,
+    () => JobLevelCostAllocationConfiguration$,
   ],
 ];
 export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr, 0, [_aI, _n, _a], [0, 0, 0]];
@@ -437,6 +442,7 @@ export var InitialCapacityConfig$: StaticStructureSchema = [
 export var InteractiveConfiguration$: StaticStructureSchema = [3, n0, _ICn, 0, [_sE, _lEE], [2, 2]];
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_er]: _se, [_hE]: 500 }, [_m], [0]];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var JobLevelCostAllocationConfiguration$: StaticStructureSchema = [3, n0, _JLCAC, 0, [_e], [2]];
 export var JobRun$: StaticStructureSchema = [
   3,
   n0,
@@ -662,7 +668,7 @@ export var UpdateApplicationRequest$: StaticStructureSchema = [
   n0,
   _UAR,
   0,
-  [_aI, _cT, _iC, _mC, _aSC, _aSCu, _nC, _ar, _iCm, _wTS, _iCn, _rL, _rC, _mCo, _sC, _iCC],
+  [_aI, _cT, _iC, _mC, _aSC, _aSCu, _nC, _ar, _iCm, _wTS, _iCn, _rL, _rC, _mCo, _sC, _iCC, _jLCAC],
   [
     [0, 1],
     [0, 4],
@@ -680,6 +686,7 @@ export var UpdateApplicationRequest$: StaticStructureSchema = [
     () => MonitoringConfiguration$,
     () => SchedulerConfiguration$,
     () => IdentityCenterConfigurationInput$,
+    () => JobLevelCostAllocationConfiguration$,
   ],
 ];
 export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp, 0, [_ap], [[() => Application$, 0]]];

@@ -140,6 +140,18 @@ export interface InteractiveConfiguration {
 }
 
 /**
+ * <p>The configuration object that enables job level cost allocation.</p>
+ * @public
+ */
+export interface JobLevelCostAllocationConfiguration {
+  /**
+   * <p>Enables job level cost allocation for the application.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+}
+
+/**
  * <p>The maximum allowed cumulative resources for an application. No new resources will be created once the limit is hit.</p>
  * @public
  */
@@ -1403,6 +1415,12 @@ export interface Application {
    * @public
    */
   identityCenterConfiguration?: IdentityCenterConfiguration | undefined;
+
+  /**
+   * <p>The configuration object that enables job level cost allocation.</p>
+   * @public
+   */
+  jobLevelCostAllocationConfiguration?: JobLevelCostAllocationConfiguration | undefined;
 }
 
 /**
@@ -1534,6 +1552,12 @@ export interface CreateApplicationRequest {
    * @public
    */
   identityCenterConfiguration?: IdentityCenterConfigurationInput | undefined;
+
+  /**
+   * <p>The configuration object that enables job level cost allocation.</p>
+   * @public
+   */
+  jobLevelCostAllocationConfiguration?: JobLevelCostAllocationConfiguration | undefined;
 }
 
 /**
@@ -1635,6 +1659,12 @@ export interface UpdateApplicationRequest {
    * @public
    */
   identityCenterConfiguration?: IdentityCenterConfigurationInput | undefined;
+
+  /**
+   * <p>The configuration object that enables job level cost allocation.</p>
+   * @public
+   */
+  jobLevelCostAllocationConfiguration?: JobLevelCostAllocationConfiguration | undefined;
 }
 
 /**

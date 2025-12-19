@@ -81,6 +81,7 @@ export type {
   InitialCapacityConfig,
   InteractiveConfiguration,
   JobDriver,
+  JobLevelCostAllocationConfiguration,
   JobRun,
   JobRunAttemptSummary,
   JobRunExecutionIamPolicy,
