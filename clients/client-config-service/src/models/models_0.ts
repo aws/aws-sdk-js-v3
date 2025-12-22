@@ -1166,7 +1166,7 @@ export interface ConfigurationRecorder {
    *             <p>
    *                <b>Keep Minimum Permisions When Reusing an IAM role</b>
    *             </p>
-   *             <p>If you use an Amazon Web Services service that uses Config, such as Security Hub or
+   *             <p>If you use an Amazon Web Services service that uses Config, such as Security Hub CSPM or
    * 				Control Tower, and an IAM role has already been created, make sure that the
    * 				IAM role that you use when setting up Config keeps the same minimum
    * 				permissions as the pre-existing IAM role. You must do this to ensure that the
