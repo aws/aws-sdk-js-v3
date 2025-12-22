@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.957.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.956.0...v3.957.0) (2025-12-22)
+
+
+### Bug Fixes
+
+* **middleware-flexible-checksums:** advise user on InvalidChunkSizeError ([#7598](https://github.com/aws/aws-sdk-js-v3/issues/7598)) ([6fa3b4c](https://github.com/aws/aws-sdk-js-v3/commit/6fa3b4ccc643ebc6ade6146e5326a7d89bad1185))
+
+
+### Features
+
+* **middleware-flexible-checksums:** use CRC64NVME JS implementation if CRT is not available ([#7595](https://github.com/aws/aws-sdk-js-v3/issues/7595)) ([4c6ad40](https://github.com/aws/aws-sdk-js-v3/commit/4c6ad409225bc9b8db2d024f6de7136d64117bcb))
+
+
+
+
+
 # [3.956.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.955.0...v3.956.0) (2025-12-19)
 
 **Note:** Version bump only for package @aws-sdk/middleware-flexible-checksums

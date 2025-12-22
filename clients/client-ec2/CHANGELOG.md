@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.957.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.956.0...v3.957.0) (2025-12-22)
+
+
+### Features
+
+* **client-ec2:** Adds support for linkedGroupId on the CreatePlacementGroup and DescribePlacementGroups APIs. The linkedGroupId parameter is reserved for future use. ([a492f73](https://github.com/aws/aws-sdk-js-v3/commit/a492f73438968bb208451503d32d196d2ff65a26))
+
+
+
+
+
 # [3.956.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.955.0...v3.956.0) (2025-12-19)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

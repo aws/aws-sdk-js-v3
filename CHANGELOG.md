@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.957.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.956.0...v3.957.0) (2025-12-22)
+
+
+### Bug Fixes
+
+* **middleware-flexible-checksums:** advise user on InvalidChunkSizeError ([#7598](https://github.com/aws/aws-sdk-js-v3/issues/7598)) ([6fa3b4c](https://github.com/aws/aws-sdk-js-v3/commit/6fa3b4ccc643ebc6ade6146e5326a7d89bad1185))
+
+
+### Features
+
+* **client-config-service:** Added supported resourceTypes for Config from July to November 2025 ([2c7dab2](https://github.com/aws/aws-sdk-js-v3/commit/2c7dab27221af3ac083ace712056d3d369652f60))
+* **client-ec2:** Adds support for linkedGroupId on the CreatePlacementGroup and DescribePlacementGroups APIs. The linkedGroupId parameter is reserved for future use. ([a492f73](https://github.com/aws/aws-sdk-js-v3/commit/a492f73438968bb208451503d32d196d2ff65a26))
+* **client-guardduty:** Make accountIds a required field in GetRemainingFreeTrialDays API to reflect service behavior. ([53e59c6](https://github.com/aws/aws-sdk-js-v3/commit/53e59c65fa7408042eb0427ca9804b4498006c59))
+* **middleware-flexible-checksums:** use CRC64NVME JS implementation if CRT is not available ([#7595](https://github.com/aws/aws-sdk-js-v3/issues/7595)) ([4c6ad40](https://github.com/aws/aws-sdk-js-v3/commit/4c6ad409225bc9b8db2d024f6de7136d64117bcb))
+
+
+
+
+
 # [3.956.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.955.0...v3.956.0) (2025-12-19)
 
 

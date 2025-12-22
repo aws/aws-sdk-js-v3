@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.957.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.956.0...v3.957.0) (2025-12-22)
+
+
+### Features
+
+* **client-guardduty:** Make accountIds a required field in GetRemainingFreeTrialDays API to reflect service behavior. ([53e59c6](https://github.com/aws/aws-sdk-js-v3/commit/53e59c65fa7408042eb0427ca9804b4498006c59))
+
+
+
+
+
 # [3.956.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.955.0...v3.956.0) (2025-12-19)
 
 **Note:** Version bump only for package @aws-sdk/client-guardduty

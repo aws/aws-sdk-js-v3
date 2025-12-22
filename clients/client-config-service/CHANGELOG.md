@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.957.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.956.0...v3.957.0) (2025-12-22)
+
+
+### Features
+
+* **client-config-service:** Added supported resourceTypes for Config from July to November 2025 ([2c7dab2](https://github.com/aws/aws-sdk-js-v3/commit/2c7dab27221af3ac083ace712056d3d369652f60))
+
+
+
+
+
 # [3.956.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.955.0...v3.956.0) (2025-12-19)
 
 **Note:** Version bump only for package @aws-sdk/client-config-service
