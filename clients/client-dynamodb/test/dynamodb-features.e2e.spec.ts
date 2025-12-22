@@ -1,22 +1,15 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { DynamoDB, waitUntilTableExists } from "@aws-sdk/client-dynamodb";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
-describe("DynamoDB Tables Features", () => {
+describe(DynamoDB.name, () => {
   let client: DynamoDB;
-  let region: string;
   let sharedTableName: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new DynamoDB({ region });
+    client = new DynamoDB({ region: "us-west-2", maxAttempts: 10 });
 
     // Create shared table for tests
-    sharedTableName = `aws-sdk-js-integration`;
+    sharedTableName = `aws-sdk-js-integration-${Date.now()}`;
     await client.createTable({
       TableName: sharedTableName,
       AttributeDefinitions: [{ AttributeName: "id", AttributeType: "S" }],

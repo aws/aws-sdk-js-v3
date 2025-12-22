@@ -1,19 +1,23 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { SQS } from "@aws-sdk/client-sqs";
-import { beforeAll, describe, expect, test as it } from "vitest";
+import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
-describe("SQS Messages", () => {
+describe(SQS.name, () => {
   let client: SQS;
-  let region: string;
-  let queueUrl: string;
+  const createdQueues: string[] = [];
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
+    client = new SQS({ region: "us-west-2" });
+  });
 
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new SQS({ region });
+  afterAll(async () => {
+    // Cleanup all created queues
+    for (const queueUrl of createdQueues) {
+      try {
+        await client.deleteQueue({ QueueUrl: queueUrl });
+      } catch (error) {
+        console.warn(`Failed to delete queue ${queueUrl}:`, error);
+      }
+    }
   });
 
   describe("Send an SQS message", () => {
@@ -23,9 +27,9 @@ describe("SQS Messages", () => {
         QueueName: `aws-js-sdk-${Date.now()}`,
       });
 
-      queueUrl = createResult.QueueUrl || "";
+      const queueUrl = createResult.QueueUrl || "";
+      createdQueues.push(queueUrl);
 
-      // Send message "HELLO"
       const sendResult = await client.sendMessage({
         QueueUrl: queueUrl,
         MessageBody: "HELLO",
@@ -34,18 +38,15 @@ describe("SQS Messages", () => {
       // Result should include a message ID
       expect(sendResult.MessageId!.length).toBeGreaterThan(0);
 
-      // Result should have MD5 digest of "eb61eead90e3b899c6bcbe27ac581660"
       expect(sendResult.MD5OfMessageBody).toBe("eb61eead90e3b899c6bcbe27ac581660");
 
       // Eventually receive "HELLO" from the queue
       const receiveResult = await client.receiveMessage({
         QueueUrl: queueUrl,
+        WaitTimeSeconds: 20,
       });
 
       expect(receiveResult.Messages?.[0]?.Body).toBe("HELLO");
-
-      // Cleanup
-      await client.deleteQueue({ QueueUrl: queueUrl });
     });
   });
 
@@ -56,7 +57,8 @@ describe("SQS Messages", () => {
         QueueName: `aws-js-sdk-${Date.now()}`,
       });
 
-      queueUrl = createResult.QueueUrl || "";
+      const queueUrl = createResult.QueueUrl || "";
+      createdQueues.push(queueUrl);
 
       // Send message "HELLO" with binary attribute.
       const sendResult = await client.sendMessage({
@@ -73,13 +75,13 @@ describe("SQS Messages", () => {
       // Result should include a message ID
       expect(sendResult.MessageId!.length).toBeGreaterThan(0);
 
-      // Result should have MD5 digest of "eb61eead90e3b899c6bcbe27ac581660"
       expect(sendResult.MD5OfMessageBody).toBe("eb61eead90e3b899c6bcbe27ac581660");
 
       // Eventually receive "HELLO" from the queue with binary attribute
       const receiveResult = await client.receiveMessage({
         QueueUrl: queueUrl,
         MessageAttributeNames: ["binary"],
+        WaitTimeSeconds: 20,
       });
 
       expect(receiveResult.Messages?.[0]?.Body).toBe("HELLO");
@@ -87,9 +89,6 @@ describe("SQS Messages", () => {
       // Verify binary attribute matches original: "1,2,3"
       const binaryValue = receiveResult.Messages?.[0]?.MessageAttributes?.binary?.BinaryValue;
       expect(binaryValue!.toString()).toBe("1,2,3");
-
-      // Cleanup
-      await client.deleteQueue({ QueueUrl: queueUrl });
     });
   });
 });

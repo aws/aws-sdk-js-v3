@@ -1,18 +1,11 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { EMR } from "@aws-sdk/client-emr";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("Amazon Elastic MapReduce Features", () => {
+describe(EMR.name, () => {
   let client: EMR;
-  let region: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new EMR({ region });
+    client = new EMR({ region: "us-west-2" });
   });
 
   describe("Making a request", () => {

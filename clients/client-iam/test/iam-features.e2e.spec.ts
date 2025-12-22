@@ -1,18 +1,33 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { IAM } from "@aws-sdk/client-iam";
-import { beforeAll, describe, expect, test as it } from "vitest";
+import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
-describe("IAM Features", () => {
+describe(IAM.name, () => {
   let client: IAM;
-  let region: string;
+  const createdUsers: string[] = [];
+  const createdRoles: string[] = [];
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
+    client = new IAM({ region: "us-west-2" });
+  });
 
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
+  afterAll(async () => {
+    // Cleanup all created users
+    for (const username of createdUsers) {
+      try {
+        await client.deleteUser({ UserName: username });
+      } catch (error) {
+        console.warn(`Failed to delete user ${username}:`, error);
+      }
+    }
 
-    client = new IAM({ region });
+    // Cleanup all created roles
+    for (const roleName of createdRoles) {
+      try {
+        await client.deleteRole({ RoleName: roleName });
+      } catch (error) {
+        console.warn(`Failed to delete role ${roleName}:`, error);
+      }
+    }
   });
 
   describe("Users", () => {
@@ -22,10 +37,9 @@ describe("IAM Features", () => {
       const result = await client.createUser({
         UserName: username,
       });
+      createdUsers.push(username);
 
       expect(result.User?.UserName).toBe(username);
-
-      await client.deleteUser({ UserName: username });
     });
   });
 
@@ -40,10 +54,9 @@ describe("IAM Features", () => {
           Statement: [{ Effect: "Allow", Principal: { Service: "ec2.amazonaws.com" }, Action: "sts:AssumeRole" }],
         }),
       });
+      createdRoles.push(roleName);
 
       expect(result.Role?.RoleName).toBe(roleName);
-
-      await client.deleteRole({ RoleName: roleName });
     });
   });
 
@@ -52,16 +65,13 @@ describe("IAM Features", () => {
       const username = `js-test-dupe-${Date.now()}`;
 
       await client.createUser({ UserName: username });
+      createdUsers.push(username);
 
-      try {
-        await expect(client.createUser({ UserName: username })).rejects.toThrow(
-          expect.objectContaining({
-            name: "EntityAlreadyExistsException",
-          })
-        );
-      } finally {
-        await client.deleteUser({ UserName: username });
-      }
+      await expect(client.createUser({ UserName: username })).rejects.toThrow(
+        expect.objectContaining({
+          name: "EntityAlreadyExistsException",
+        })
+      );
     });
   });
 });

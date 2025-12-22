@@ -1,19 +1,26 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { paginateDescribeReservedDBInstancesOfferings, RDS } from "@aws-sdk/client-rds";
-import { beforeAll, describe, expect, test as it } from "vitest";
+import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
-describe("Amazon Relational Database Service Features", () => {
+describe(RDS.name, () => {
   let client: RDS;
-  let region: string;
   let dbSecurityGroupName: string;
+  const createdSecurityGroups: string[] = [];
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
+    client = new RDS({ region: "us-west-2" });
+  });
 
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new RDS({ region });
+  afterAll(async () => {
+    // Cleanup all created security groups
+    for (const groupName of createdSecurityGroups) {
+      try {
+        await client.deleteDBSecurityGroup({
+          DBSecurityGroupName: groupName,
+        });
+      } catch (error) {
+        console.warn(`Failed to delete security group ${groupName}:`, error);
+      }
+    }
   });
 
   describe("Describe DB security group", () => {
@@ -27,6 +34,7 @@ describe("Amazon Relational Database Service Features", () => {
         DBSecurityGroupName: dbSecurityGroupName,
         DBSecurityGroupDescription: expectedDescription,
       });
+      createdSecurityGroups.push(dbSecurityGroupName);
 
       expect(createResult.$metadata?.httpStatusCode).toBe(200);
       expect(createResult.DBSecurityGroup?.DBSecurityGroupName).toBe(dbSecurityGroupName);
@@ -43,11 +51,6 @@ describe("Amazon Relational Database Service Features", () => {
       );
 
       expect(foundGroup?.DBSecurityGroupDescription).toBe(expectedDescription);
-
-      // Cleanup - delete security group
-      await client.deleteDBSecurityGroup({
-        DBSecurityGroupName: dbSecurityGroupName,
-      });
     });
   });
 

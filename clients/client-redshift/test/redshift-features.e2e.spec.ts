@@ -1,18 +1,11 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { Redshift } from "@aws-sdk/client-redshift";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("Amazon Redshift Features", () => {
+describe(Redshift.name, () => {
   let client: Redshift;
-  let region: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new Redshift({ region });
+    client = new Redshift({ region: "us-west-2" });
   });
 
   describe("Describe cluster parameter groups", () => {

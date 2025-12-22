@@ -1,19 +1,12 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { ElastiCache } from "@aws-sdk/client-elasticache";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("Amazon ElastiCache Features", () => {
+describe(ElastiCache.name, () => {
   let client: ElastiCache;
-  let region: string;
   let cacheParameterGroupName: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new ElastiCache({ region });
+    client = new ElastiCache({ region: "us-west-2" });
   });
 
   describe("Creating and deleting cache parameter groups", () => {

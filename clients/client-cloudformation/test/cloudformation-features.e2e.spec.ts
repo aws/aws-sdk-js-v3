@@ -1,26 +1,17 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { CloudFormation, paginateListStacks } from "@aws-sdk/client-cloudformation";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("@aws-sdk/client-cloudformation", () => {
+describe(CloudFormation.name, () => {
   let client: CloudFormation;
-  let region: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new CloudFormation({ region });
+    client = new CloudFormation({ region: "us-west-2" });
   });
 
   describe("Describing stacks", () => {
     it("should return stacks list when describe stacks is called", async () => {
       const result = await client.describeStacks({});
 
-      expect(result).toBeDefined();
-      expect(result.Stacks).toBeDefined();
       expect(Array.isArray(result.Stacks)).toBe(true);
     });
   });
@@ -55,7 +46,6 @@ describe("@aws-sdk/client-cloudformation", () => {
       }
 
       expect(pageCount).toBeGreaterThanOrEqual(1);
-      expect(lastPage).toBeDefined();
       expect(lastPage?.NextToken).toBeUndefined(); // The last page must not contain a marker
     });
   });

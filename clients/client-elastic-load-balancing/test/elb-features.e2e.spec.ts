@@ -1,18 +1,11 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { ElasticLoadBalancing } from "@aws-sdk/client-elastic-load-balancing";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("Elastic Load Balancing Features", () => {
+describe(ElasticLoadBalancing.name, () => {
   let client: ElasticLoadBalancing;
-  let region: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new ElasticLoadBalancing({ region });
+    client = new ElasticLoadBalancing({ region: "us-west-2" });
   });
 
   describe("Making a request", () => {

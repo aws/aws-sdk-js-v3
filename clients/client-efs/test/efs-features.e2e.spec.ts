@@ -1,18 +1,11 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { EFS } from "@aws-sdk/client-efs";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("Amazon Elastic File System Features", () => {
+describe(EFS.name, () => {
   let client: EFS;
-  let region: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new EFS({ region });
+    client = new EFS({ region: "us-west-2" });
   });
 
   describe("Listing file systems", () => {

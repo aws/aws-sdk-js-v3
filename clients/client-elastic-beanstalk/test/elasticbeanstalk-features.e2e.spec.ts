@@ -1,19 +1,12 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { ElasticBeanstalk } from "@aws-sdk/client-elastic-beanstalk";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("AWS Elastic Beanstalk Features", () => {
+describe(ElasticBeanstalk.name, () => {
   let client: ElasticBeanstalk;
-  let region: string;
   let applicationName: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new ElasticBeanstalk({ region });
+    client = new ElasticBeanstalk({ region: "us-west-2" });
   });
 
   describe("Creating applications and application versions", () => {
@@ -59,7 +52,7 @@ describe("AWS Elastic Beanstalk Features", () => {
   });
 
   describe("Error handling", () => {
-    it("should contain validation error for empty application name", async () => {
+    it("should return ValidationError for empty application name", async () => {
       await expect(
         client.createApplication({
           ApplicationName: "",
@@ -68,6 +61,7 @@ describe("AWS Elastic Beanstalk Features", () => {
       ).rejects.toThrow(
         expect.objectContaining({
           name: "ValidationError",
+          message: expect.stringContaining("Value '' at 'applicationName'"),
         })
       );
     });

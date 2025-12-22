@@ -1,18 +1,11 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { GameLift } from "@aws-sdk/client-gamelift";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("Amazon GameLift Features", () => {
+describe(GameLift.name, () => {
   let client: GameLift;
-  let region: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new GameLift({ region });
+    client = new GameLift({ region: "us-west-2" });
   });
 
   describe("Making a request", () => {

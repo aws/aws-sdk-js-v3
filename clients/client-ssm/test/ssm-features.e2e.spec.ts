@@ -1,18 +1,11 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { SSM } from "@aws-sdk/client-ssm";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("AWS Simple Systems Management Features", () => {
+describe(SSM.name, () => {
   let client: SSM;
-  let region: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new SSM({ region });
+    client = new SSM({ region: "us-west-2" });
   });
 
   describe("Listing Documents", () => {

@@ -1,18 +1,11 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { Route53 } from "@aws-sdk/client-route-53";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("Amazon Route 53 Features", () => {
+describe(Route53.name, () => {
   let client: Route53;
-  let region: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new Route53({ region });
+    client = new Route53({ region: "us-west-2" });
   });
 
   describe("Making a request", () => {

@@ -1,18 +1,11 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { CodeCommit, RepositoryDoesNotExistException } from "@aws-sdk/client-codecommit";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("AWS CodeCommit Features", () => {
+describe(CodeCommit.name, () => {
   let client: CodeCommit;
-  let region: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new CodeCommit({ region });
+    client = new CodeCommit({ region: "us-west-2" });
   });
 
   describe("List repositories", () => {

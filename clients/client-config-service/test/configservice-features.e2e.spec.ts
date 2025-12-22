@@ -1,18 +1,11 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { ConfigService } from "@aws-sdk/client-config-service";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("AWS Config Features", () => {
+describe(ConfigService.name, () => {
   let client: ConfigService;
-  let region: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new ConfigService({ region });
+    client = new ConfigService({ region: "us-west-2" });
   });
 
   describe("Listing delivery channels", () => {

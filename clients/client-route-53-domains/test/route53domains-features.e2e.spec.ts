@@ -1,19 +1,12 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { Route53Domains } from "@aws-sdk/client-route-53-domains";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("Amazon Route 53 Domains Features", () => {
+describe(Route53Domains.name, () => {
   let client: Route53Domains;
-  let region: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
     // Requests for domain registration only available in us-east-1
-    region = "us-east-1";
-
-    client = new Route53Domains({ region });
+    client = new Route53Domains({ region: "us-east-1" });
   });
 
   describe("Feature", () => {

@@ -1,18 +1,11 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { CloudTrail } from "@aws-sdk/client-cloudtrail";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("@aws-sdk/client-cloudtrail", () => {
+describe(CloudTrail.name, () => {
   let client: CloudTrail;
-  let region: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new CloudTrail({ region });
+    client = new CloudTrail({ region: "us-west-2" });
   });
 
   describe("Describe trails", () => {

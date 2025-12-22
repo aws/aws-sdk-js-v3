@@ -1,18 +1,11 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { ACM } from "@aws-sdk/client-acm";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("@aws-sdk/client-acm", () => {
+describe(ACM.name, () => {
   let client: ACM;
-  let region: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new ACM({ region });
+    client = new ACM({ region: "us-west-2" });
   });
 
   describe("Making a request to ACM service", () => {

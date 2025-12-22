@@ -1,19 +1,12 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { SNS } from "@aws-sdk/client-sns";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("Simple Notification Service Features", () => {
+describe(SNS.name, () => {
   let client: SNS;
-  let region: string;
   let topicArn: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new SNS({ region });
+    client = new SNS({ region: "us-west-2" });
   });
 
   describe("Topics", () => {

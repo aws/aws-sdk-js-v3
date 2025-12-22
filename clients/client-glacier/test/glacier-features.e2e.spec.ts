@@ -1,26 +1,35 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { Glacier } from "@aws-sdk/client-glacier";
-import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
+import { afterAll, afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
-describe("Amazon Glacier Features", () => {
+describe(Glacier.name, () => {
   let client: Glacier;
-  let region: string;
   let vaultName: string;
+  const createdArchives: string[] = [];
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new Glacier({ region });
-    vaultName = `aws-js-sdk-integration`;
+    client = new Glacier({ region: "us-west-2" });
+    vaultName = `aws-js-sdk-integration-${Date.now()}`;
 
     // Create vault
     await client.createVault({
       accountId: "",
       vaultName: vaultName,
     });
+  });
+
+  afterEach(async () => {
+    for (const archiveId of createdArchives) {
+      try {
+        await client.deleteArchive({
+          accountId: "",
+          vaultName: vaultName,
+          archiveId: archiveId,
+        });
+      } catch (error) {
+        // Ignore deletion errors
+      }
+    }
+    createdArchives.length = 0;
   });
 
   afterAll(async () => {
@@ -58,17 +67,12 @@ describe("Amazon Glacier Features", () => {
     });
 
     expect(uploadResult.archiveId).toBeDefined();
-    expect(uploadResult.checksum).toBeDefined();
     expect(uploadResult.checksum).toBe("6faefade5a638cd3545d638dd5754763658e32209e69420cb559b7650d4bf93a");
 
-    // Delete archive
-    const deleteResult = await client.deleteArchive({
-      accountId: "",
-      vaultName: vaultName,
-      archiveId: uploadResult.archiveId!,
-    });
-
-    expect(deleteResult.$metadata?.httpStatusCode).toBe(204);
+    // Store for cleanup
+    if (uploadResult.archiveId) {
+      createdArchives.push(uploadResult.archiveId);
+    }
   });
 
   it("should complete multi-part upload with chunks", async () => {
@@ -115,15 +119,12 @@ describe("Amazon Glacier Features", () => {
 
     expect(completeResult.$metadata?.httpStatusCode).toBe(201);
     expect(completeResult.archiveId).toBeDefined();
-    expect(completeResult.checksum).toBeDefined();
     expect(completeResult.checksum).toBe("86118ad0c187fd240db59a37360e0e7f8a3a0c608eed740b4cd7b4271ab45171");
 
-    // Delete multipart archive
-    await client.deleteArchive({
-      accountId: "",
-      vaultName: vaultName,
-      archiveId: completeResult.archiveId!,
-    });
+    // Store for cleanup
+    if (completeResult.archiveId) {
+      createdArchives.push(completeResult.archiveId);
+    }
   });
 
   describe("Error handling", () => {

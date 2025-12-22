@@ -1,19 +1,12 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { CloudWatchLogs, InvalidParameterException } from "@aws-sdk/client-cloudwatch-logs";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
-describe("CloudWatch Logs Features", () => {
+describe(CloudWatchLogs.name, () => {
   let client: CloudWatchLogs;
-  let region: string;
   const createdLogGroups: string[] = [];
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new CloudWatchLogs({ region });
+    client = new CloudWatchLogs({ region: "us-west-2" });
   });
 
   const generateLogGroupName = (prefix: string) => {

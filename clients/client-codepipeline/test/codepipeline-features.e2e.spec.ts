@@ -1,18 +1,11 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { CodePipeline } from "@aws-sdk/client-codepipeline";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("@aws-sdk/client-codepipeline", () => {
+describe(CodePipeline.name, () => {
   let client: CodePipeline;
-  let region: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new CodePipeline({ region });
+    client = new CodePipeline({ region: "us-west-2" });
   });
 
   describe("Listing Pipelines", () => {

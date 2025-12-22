@@ -1,18 +1,11 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { DirectConnect } from "@aws-sdk/client-direct-connect";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("AWS Direct Connect", () => {
+describe(DirectConnect.name, () => {
   let client: DirectConnect;
-  let region: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new DirectConnect({ region });
+    client = new DirectConnect({ region: "us-west-2" });
   });
 
   describe("describe connections", () => {

@@ -1,18 +1,11 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { APIGateway } from "@aws-sdk/client-api-gateway";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("@aws-sdk/client-api-gateway", () => {
+describe(APIGateway.name, () => {
   let client: APIGateway;
-  let region: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new APIGateway({ region });
+    client = new APIGateway({ region: "us-west-2" });
   });
 
   describe("Making a request", () => {

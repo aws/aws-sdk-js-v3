@@ -1,18 +1,11 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { CloudWatchEvents } from "@aws-sdk/client-cloudwatch-events";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("@aws-sdk/client-cloudwatch-events", () => {
+describe(CloudWatchEvents.name, () => {
   let client: CloudWatchEvents;
-  let region: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new CloudWatchEvents({ region });
+    client = new CloudWatchEvents({ region: "us-west-2" });
   });
 
   describe("Making a request", () => {

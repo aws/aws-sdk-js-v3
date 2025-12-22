@@ -1,18 +1,11 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { DataPipeline } from "@aws-sdk/client-data-pipeline";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("AWS Data Pipeline Features", () => {
+describe(DataPipeline.name, () => {
   let client: DataPipeline;
-  let region: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new DataPipeline({ region });
+    client = new DataPipeline({ region: "us-west-2" });
   });
 
   describe("Listing pipelines", () => {

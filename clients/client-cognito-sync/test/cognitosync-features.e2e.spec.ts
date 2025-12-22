@@ -2,7 +2,7 @@ import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { CognitoSync } from "@aws-sdk/client-cognito-sync";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("Amazon Cognito Sync Features", () => {
+describe(CognitoSync.name, () => {
   let client: CognitoSync;
   let region: string;
 

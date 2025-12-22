@@ -2,7 +2,7 @@ import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { CognitoIdentity } from "@aws-sdk/client-cognito-identity";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
-describe("@aws-sdk/client-cognito-identity", () => {
+describe(CognitoIdentity.name, () => {
   let client: CognitoIdentity;
   let region: string;
   let createdIdentityPoolId: string;
@@ -42,7 +42,6 @@ describe("@aws-sdk/client-cognito-identity", () => {
         IdentityPoolId: createdIdentityPoolId,
       });
 
-      expect(describeResult).toBeDefined();
       expect(describeResult.IdentityPoolId).toBe(createdIdentityPoolId);
     });
   });

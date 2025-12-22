@@ -1,18 +1,11 @@
-import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { STS } from "@aws-sdk/client-sts";
 import { beforeAll, describe, expect, test as it } from "vitest";
 
-describe("AWS Security Token Service Features", () => {
+describe(STS.name, () => {
   let client: STS;
-  let region: string;
 
   beforeAll(async () => {
-    const e2eTestResourcesEnv = await getE2eTestResources();
-    Object.assign(process.env, e2eTestResourcesEnv);
-
-    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-
-    client = new STS({ region });
+    client = new STS({ region: "us-west-2" });
   });
 
   describe("Get caller identity", () => {
