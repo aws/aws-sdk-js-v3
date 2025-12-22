@@ -35,6 +35,9 @@
     "rimraf": "3.0.2",
     "typescript": "~5.8.3"
   },
+  "peerDependencies": {
+    "@aws-sdk/crc64-nvme-crt": "*"
+  },
   "engines": {
     "node": ">=18.0.0"
   },

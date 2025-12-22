@@ -23451,6 +23451,8 @@ __metadata:
     rimraf: "npm:3.0.2"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
+  peerDependencies:
+    "@aws-sdk/crc64-nvme-crt": "*"
   languageName: unknown
   linkType: soft
 
