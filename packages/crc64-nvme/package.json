@@ -28,7 +28,6 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@aws-sdk/crc64-nvme-crt": "*",
     "@smithy/util-base64": "^4.3.0",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",

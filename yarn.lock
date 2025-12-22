@@ -23421,12 +23421,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/crc64-nvme-crt@npm:*, @aws-sdk/crc64-nvme-crt@workspace:packages/crc64-nvme-crt":
+"@aws-sdk/crc64-nvme-crt@workspace:packages/crc64-nvme-crt":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/crc64-nvme-crt@workspace:packages/crc64-nvme-crt"
   dependencies:
+    "@aws-sdk/crc64-nvme": "npm:*"
     "@aws-sdk/crt-loader": "npm:*"
-    "@aws-sdk/middleware-flexible-checksums": "npm:*"
     "@smithy/types": "npm:^4.11.0"
     "@smithy/util-base64": "npm:^4.3.0"
     "@smithy/util-utf8": "npm:^4.2.0"
@@ -23439,11 +23439,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/crc64-nvme@workspace:packages/crc64-nvme":
+"@aws-sdk/crc64-nvme@npm:*, @aws-sdk/crc64-nvme@workspace:packages/crc64-nvme":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/crc64-nvme@workspace:packages/crc64-nvme"
   dependencies:
-    "@aws-sdk/crc64-nvme-crt": "npm:*"
     "@smithy/types": "npm:^4.11.0"
     "@smithy/util-base64": "npm:^4.3.0"
     "@tsconfig/recommended": "npm:1.0.1"
@@ -23949,6 +23948,7 @@ __metadata:
     "@aws-crypto/crc32c": "npm:5.2.0"
     "@aws-crypto/util": "npm:5.2.0"
     "@aws-sdk/core": "npm:*"
+    "@aws-sdk/crc64-nvme": "npm:*"
     "@aws-sdk/types": "npm:*"
     "@smithy/is-array-buffer": "npm:^4.2.0"
     "@smithy/node-config-provider": "npm:^4.3.7"

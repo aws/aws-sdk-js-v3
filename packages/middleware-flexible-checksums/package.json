@@ -38,6 +38,7 @@
     "@aws-crypto/crc32c": "5.2.0",
     "@aws-crypto/util": "5.2.0",
     "@aws-sdk/core": "*",
+    "@aws-sdk/crc64-nvme": "*",
     "@aws-sdk/types": "*",
     "@smithy/is-array-buffer": "^4.2.0",
     "@smithy/node-config-provider": "^4.3.7",
