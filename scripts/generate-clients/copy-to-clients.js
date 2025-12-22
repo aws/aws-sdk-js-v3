@@ -66,7 +66,7 @@ const mergeManifest = (fromContent = {}, toContent = {}, parentKey = "root") => 
       }
 
       if (name === "scripts" && !fromContent[name]["build:include:deps"]) {
-        fromContent[name]["build:include:deps"] = "lerna run --scope $npm_package_name --include-dependencies build";
+        fromContent[name]["build:include:deps"] = `yarn g:turbo run build -F="${fromContent.name}"`;
       }
 
       merged[name] = mergeManifest(fromContent[name], toContent[name], name);

@@ -6,7 +6,7 @@
     "build": "exit 0",
     "build:cjs": "exit 0",
     "build:es": "exit 0",
-    "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
+    "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "exit 0",
     "build:types:downlevel": "exit 0",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
