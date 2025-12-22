@@ -199,7 +199,10 @@ export class GetBucketReplicationCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
+    ];
   })
   .s("AmazonS3", "GetBucketReplication", {})
   .n("S3Client", "GetBucketReplicationCommand")

@@ -190,7 +190,7 @@ export class CreateBucketMetadataConfigurationCommand extends $Command
     return [
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
+        requestAlgorithmMember: {'httpHeader': 'x-amz-sdk-checksum-algorithm', 'name': 'ChecksumAlgorithm'},
         requestChecksumRequired: true,
       }),
     ];

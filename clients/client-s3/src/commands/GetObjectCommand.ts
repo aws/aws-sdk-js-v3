@@ -380,8 +380,8 @@ export class GetObjectCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
         requestChecksumRequired: false,
-        requestValidationModeMember: "ChecksumMode",
-        responseAlgorithms: ["CRC64NVME", "CRC32", "CRC32C", "SHA256", "SHA1"],
+        requestValidationModeMember: 'ChecksumMode',
+        'responseAlgorithms': ['CRC64NVME', 'CRC32', 'CRC32C', 'SHA256', 'SHA1'],
       }),
       getSsecPlugin(config),
       getS3ExpiresMiddlewarePlugin(config),

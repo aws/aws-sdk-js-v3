@@ -99,13 +99,13 @@ const createEndpointRuleSetHttpAuthSchemeParametersProvider =
   > =>
   async (config: TConfig, context: TContext, input: TInput): Promise<TParameters> => {
     if (!input) {
-      throw new Error(`Could not find \`input\` for \`defaultEndpointRuleSetHttpAuthSchemeParametersProvider\``);
+      throw new Error("Could not find `input` for `defaultEndpointRuleSetHttpAuthSchemeParametersProvider`");
     }
     const defaultParameters = await defaultHttpAuthSchemeParametersProvider(config, context, input);
     const instructionsFn = (getSmithyContext(context) as EndpointRuleSetSmithyContext)?.commandInstance?.constructor
       ?.getEndpointParameterInstructions;
     if (!instructionsFn) {
-      throw new Error(`getEndpointParameterInstructions() is not defined on \`${context.commandName!}\``);
+      throw new Error(`getEndpointParameterInstructions() is not defined on '${context.commandName!}'`);
     }
     const endpointParameters = await resolveParams(
       input as Record<string, unknown>,
@@ -124,11 +124,9 @@ const _defaultS3HttpAuthSchemeParametersProvider = async (
 ): Promise<_S3HttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 /**
@@ -226,7 +224,7 @@ const createEndpointRuleSetHttpAuthSchemeProvider = <
       const { name: resolvedName, properties = {}, ...rest } = scheme;
       const name = resolvedName.toLowerCase();
       if (resolvedName !== name) {
-        console.warn(`HttpAuthScheme has been normalized with lowercasing: \`${resolvedName}\` to \`${name}\``);
+        console.warn(`HttpAuthScheme has been normalized with lowercasing: '${resolvedName}' to '${name}'`);
       }
       let schemeId;
       if (name === "sigv4a") {
@@ -242,11 +240,11 @@ const createEndpointRuleSetHttpAuthSchemeProvider = <
       } else if (name.startsWith("sigv4")) {
         schemeId = "aws.auth#sigv4";
       } else {
-        throw new Error(`Unknown HttpAuthScheme found in \`@smithy.rules#endpointRuleSet\`: \`${name}\``);
+        throw new Error(`Unknown HttpAuthScheme found in '@smithy.rules#endpointRuleSet': '${name}'`);
       }
       const createOption = createHttpAuthOptionFunctions[schemeId];
       if (!createOption) {
-        throw new Error(`Could not find HttpAuthOption create function for \`${schemeId}\``);
+        throw new Error(`Could not find HttpAuthOption create function for '${schemeId}'`);
       }
       const option = createOption(authParameters);
       option.schemeId = schemeId;
@@ -276,12 +274,10 @@ const _defaultS3HttpAuthSchemeProvider: _S3HttpAuthSchemeProvider = (authParamet
  */
 export const defaultS3HttpAuthSchemeProvider: S3HttpAuthSchemeProvider = createEndpointRuleSetHttpAuthSchemeProvider(
   defaultEndpointResolver,
-  _defaultS3HttpAuthSchemeProvider,
-  {
+  _defaultS3HttpAuthSchemeProvider, {
     "aws.auth#sigv4": createAwsAuthSigv4HttpAuthOption,
     "aws.auth#sigv4a": createAwsAuthSigv4aHttpAuthOption,
-  }
-);
+  });
 
 /**
  * @public

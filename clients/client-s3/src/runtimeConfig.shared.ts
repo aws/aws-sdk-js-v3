@@ -29,12 +29,14 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
       },
       {
         schemeId: "aws.auth#sigv4a",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4a"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4a"),
         signer: new AwsSdkSigV4ASigner(),
       },
     ],

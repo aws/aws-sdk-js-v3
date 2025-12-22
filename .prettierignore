@@ -4,5 +4,6 @@ CHANGELOG.md
 **/*.hbs
 **/*/report.md
 clients/*/src/endpoint/ruleset.ts
+clients/**/*.*
 packages/nested-clients/src/submodules/*/endpoint/ruleset.ts
 **/*.java

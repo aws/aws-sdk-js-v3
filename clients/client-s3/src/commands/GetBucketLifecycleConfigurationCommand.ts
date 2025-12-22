@@ -25,9 +25,7 @@ export interface GetBucketLifecycleConfigurationCommandInput extends GetBucketLi
  *
  * The output of {@link GetBucketLifecycleConfigurationCommand}.
  */
-export interface GetBucketLifecycleConfigurationCommandOutput
-  extends GetBucketLifecycleConfigurationOutput,
-    __MetadataBearer {}
+export interface GetBucketLifecycleConfigurationCommandOutput extends GetBucketLifecycleConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the lifecycle configuration information set on the bucket. For information about lifecycle
@@ -252,7 +250,10 @@ export class GetBucketLifecycleConfigurationCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
+    ];
   })
   .s("AmazonS3", "GetBucketLifecycleConfiguration", {})
   .n("S3Client", "GetBucketLifecycleConfigurationCommand")

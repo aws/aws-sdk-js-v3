@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link DeleteBucketMetadataTableConfigurationCommand}.
  */
-export interface DeleteBucketMetadataTableConfigurationCommandInput
-  extends DeleteBucketMetadataTableConfigurationRequest {}
+export interface DeleteBucketMetadataTableConfigurationCommandInput extends DeleteBucketMetadataTableConfigurationRequest {}
 /**
  * @public
  *

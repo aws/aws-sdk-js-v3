@@ -22,16 +22,13 @@ export { $Command };
  *
  * The input for {@link GetBucketIntelligentTieringConfigurationCommand}.
  */
-export interface GetBucketIntelligentTieringConfigurationCommandInput
-  extends GetBucketIntelligentTieringConfigurationRequest {}
+export interface GetBucketIntelligentTieringConfigurationCommandInput extends GetBucketIntelligentTieringConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link GetBucketIntelligentTieringConfigurationCommand}.
  */
-export interface GetBucketIntelligentTieringConfigurationCommandOutput
-  extends GetBucketIntelligentTieringConfigurationOutput,
-    __MetadataBearer {}
+export interface GetBucketIntelligentTieringConfigurationCommandOutput extends GetBucketIntelligentTieringConfigurationOutput, __MetadataBearer {}
 
 /**
  * <note>
@@ -134,7 +131,10 @@ export class GetBucketIntelligentTieringConfigurationCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
+    ];
   })
   .s("AmazonS3", "GetBucketIntelligentTieringConfiguration", {})
   .n("S3Client", "GetBucketIntelligentTieringConfigurationCommand")

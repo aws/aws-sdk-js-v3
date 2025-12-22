@@ -645,8 +645,14 @@ export interface S3 {
   /**
    * @see {@link CopyObjectCommand}
    */
-  copyObject(args: CopyObjectCommandInput, options?: __HttpHandlerOptions): Promise<CopyObjectCommandOutput>;
-  copyObject(args: CopyObjectCommandInput, cb: (err: any, data?: CopyObjectCommandOutput) => void): void;
+  copyObject(
+    args: CopyObjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CopyObjectCommandOutput>;
+  copyObject(
+    args: CopyObjectCommandInput,
+    cb: (err: any, data?: CopyObjectCommandOutput) => void
+  ): void;
   copyObject(
     args: CopyObjectCommandInput,
     options: __HttpHandlerOptions,
@@ -656,8 +662,14 @@ export interface S3 {
   /**
    * @see {@link CreateBucketCommand}
    */
-  createBucket(args: CreateBucketCommandInput, options?: __HttpHandlerOptions): Promise<CreateBucketCommandOutput>;
-  createBucket(args: CreateBucketCommandInput, cb: (err: any, data?: CreateBucketCommandOutput) => void): void;
+  createBucket(
+    args: CreateBucketCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBucketCommandOutput>;
+  createBucket(
+    args: CreateBucketCommandInput,
+    cb: (err: any, data?: CreateBucketCommandOutput) => void
+  ): void;
   createBucket(
     args: CreateBucketCommandInput,
     options: __HttpHandlerOptions,
@@ -718,8 +730,14 @@ export interface S3 {
   /**
    * @see {@link CreateSessionCommand}
    */
-  createSession(args: CreateSessionCommandInput, options?: __HttpHandlerOptions): Promise<CreateSessionCommandOutput>;
-  createSession(args: CreateSessionCommandInput, cb: (err: any, data?: CreateSessionCommandOutput) => void): void;
+  createSession(
+    args: CreateSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSessionCommandOutput>;
+  createSession(
+    args: CreateSessionCommandInput,
+    cb: (err: any, data?: CreateSessionCommandOutput) => void
+  ): void;
   createSession(
     args: CreateSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -729,8 +747,14 @@ export interface S3 {
   /**
    * @see {@link DeleteBucketCommand}
    */
-  deleteBucket(args: DeleteBucketCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBucketCommandOutput>;
-  deleteBucket(args: DeleteBucketCommandInput, cb: (err: any, data?: DeleteBucketCommandOutput) => void): void;
+  deleteBucket(
+    args: DeleteBucketCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBucketCommandOutput>;
+  deleteBucket(
+    args: DeleteBucketCommandInput,
+    cb: (err: any, data?: DeleteBucketCommandOutput) => void
+  ): void;
   deleteBucket(
     args: DeleteBucketCommandInput,
     options: __HttpHandlerOptions,
@@ -978,8 +1002,14 @@ export interface S3 {
   /**
    * @see {@link DeleteObjectCommand}
    */
-  deleteObject(args: DeleteObjectCommandInput, options?: __HttpHandlerOptions): Promise<DeleteObjectCommandOutput>;
-  deleteObject(args: DeleteObjectCommandInput, cb: (err: any, data?: DeleteObjectCommandOutput) => void): void;
+  deleteObject(
+    args: DeleteObjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteObjectCommandOutput>;
+  deleteObject(
+    args: DeleteObjectCommandInput,
+    cb: (err: any, data?: DeleteObjectCommandOutput) => void
+  ): void;
   deleteObject(
     args: DeleteObjectCommandInput,
     options: __HttpHandlerOptions,
@@ -989,8 +1019,14 @@ export interface S3 {
   /**
    * @see {@link DeleteObjectsCommand}
    */
-  deleteObjects(args: DeleteObjectsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteObjectsCommandOutput>;
-  deleteObjects(args: DeleteObjectsCommandInput, cb: (err: any, data?: DeleteObjectsCommandOutput) => void): void;
+  deleteObjects(
+    args: DeleteObjectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteObjectsCommandOutput>;
+  deleteObjects(
+    args: DeleteObjectsCommandInput,
+    cb: (err: any, data?: DeleteObjectsCommandOutput) => void
+  ): void;
   deleteObjects(
     args: DeleteObjectsCommandInput,
     options: __HttpHandlerOptions,
@@ -1034,8 +1070,14 @@ export interface S3 {
   /**
    * @see {@link GetBucketAbacCommand}
    */
-  getBucketAbac(args: GetBucketAbacCommandInput, options?: __HttpHandlerOptions): Promise<GetBucketAbacCommandOutput>;
-  getBucketAbac(args: GetBucketAbacCommandInput, cb: (err: any, data?: GetBucketAbacCommandOutput) => void): void;
+  getBucketAbac(
+    args: GetBucketAbacCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBucketAbacCommandOutput>;
+  getBucketAbac(
+    args: GetBucketAbacCommandInput,
+    cb: (err: any, data?: GetBucketAbacCommandOutput) => void
+  ): void;
   getBucketAbac(
     args: GetBucketAbacCommandInput,
     options: __HttpHandlerOptions,
@@ -1062,8 +1104,14 @@ export interface S3 {
   /**
    * @see {@link GetBucketAclCommand}
    */
-  getBucketAcl(args: GetBucketAclCommandInput, options?: __HttpHandlerOptions): Promise<GetBucketAclCommandOutput>;
-  getBucketAcl(args: GetBucketAclCommandInput, cb: (err: any, data?: GetBucketAclCommandOutput) => void): void;
+  getBucketAcl(
+    args: GetBucketAclCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBucketAclCommandOutput>;
+  getBucketAcl(
+    args: GetBucketAclCommandInput,
+    cb: (err: any, data?: GetBucketAclCommandOutput) => void
+  ): void;
   getBucketAcl(
     args: GetBucketAclCommandInput,
     options: __HttpHandlerOptions,
@@ -1090,8 +1138,14 @@ export interface S3 {
   /**
    * @see {@link GetBucketCorsCommand}
    */
-  getBucketCors(args: GetBucketCorsCommandInput, options?: __HttpHandlerOptions): Promise<GetBucketCorsCommandOutput>;
-  getBucketCors(args: GetBucketCorsCommandInput, cb: (err: any, data?: GetBucketCorsCommandOutput) => void): void;
+  getBucketCors(
+    args: GetBucketCorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBucketCorsCommandOutput>;
+  getBucketCors(
+    args: GetBucketCorsCommandInput,
+    cb: (err: any, data?: GetBucketCorsCommandOutput) => void
+  ): void;
   getBucketCors(
     args: GetBucketCorsCommandInput,
     options: __HttpHandlerOptions,
@@ -1292,7 +1346,10 @@ export interface S3 {
     args: GetBucketPolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetBucketPolicyCommandOutput>;
-  getBucketPolicy(args: GetBucketPolicyCommandInput, cb: (err: any, data?: GetBucketPolicyCommandOutput) => void): void;
+  getBucketPolicy(
+    args: GetBucketPolicyCommandInput,
+    cb: (err: any, data?: GetBucketPolicyCommandOutput) => void
+  ): void;
   getBucketPolicy(
     args: GetBucketPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -1404,8 +1461,14 @@ export interface S3 {
   /**
    * @see {@link GetObjectCommand}
    */
-  getObject(args: GetObjectCommandInput, options?: __HttpHandlerOptions): Promise<GetObjectCommandOutput>;
-  getObject(args: GetObjectCommandInput, cb: (err: any, data?: GetObjectCommandOutput) => void): void;
+  getObject(
+    args: GetObjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetObjectCommandOutput>;
+  getObject(
+    args: GetObjectCommandInput,
+    cb: (err: any, data?: GetObjectCommandOutput) => void
+  ): void;
   getObject(
     args: GetObjectCommandInput,
     options: __HttpHandlerOptions,
@@ -1415,8 +1478,14 @@ export interface S3 {
   /**
    * @see {@link GetObjectAclCommand}
    */
-  getObjectAcl(args: GetObjectAclCommandInput, options?: __HttpHandlerOptions): Promise<GetObjectAclCommandOutput>;
-  getObjectAcl(args: GetObjectAclCommandInput, cb: (err: any, data?: GetObjectAclCommandOutput) => void): void;
+  getObjectAcl(
+    args: GetObjectAclCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetObjectAclCommandOutput>;
+  getObjectAcl(
+    args: GetObjectAclCommandInput,
+    cb: (err: any, data?: GetObjectAclCommandOutput) => void
+  ): void;
   getObjectAcl(
     args: GetObjectAclCommandInput,
     options: __HttpHandlerOptions,
@@ -1545,8 +1614,14 @@ export interface S3 {
   /**
    * @see {@link HeadBucketCommand}
    */
-  headBucket(args: HeadBucketCommandInput, options?: __HttpHandlerOptions): Promise<HeadBucketCommandOutput>;
-  headBucket(args: HeadBucketCommandInput, cb: (err: any, data?: HeadBucketCommandOutput) => void): void;
+  headBucket(
+    args: HeadBucketCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HeadBucketCommandOutput>;
+  headBucket(
+    args: HeadBucketCommandInput,
+    cb: (err: any, data?: HeadBucketCommandOutput) => void
+  ): void;
   headBucket(
     args: HeadBucketCommandInput,
     options: __HttpHandlerOptions,
@@ -1556,8 +1631,14 @@ export interface S3 {
   /**
    * @see {@link HeadObjectCommand}
    */
-  headObject(args: HeadObjectCommandInput, options?: __HttpHandlerOptions): Promise<HeadObjectCommandOutput>;
-  headObject(args: HeadObjectCommandInput, cb: (err: any, data?: HeadObjectCommandOutput) => void): void;
+  headObject(
+    args: HeadObjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HeadObjectCommandOutput>;
+  headObject(
+    args: HeadObjectCommandInput,
+    cb: (err: any, data?: HeadObjectCommandOutput) => void
+  ): void;
   headObject(
     args: HeadObjectCommandInput,
     options: __HttpHandlerOptions,
@@ -1636,8 +1717,14 @@ export interface S3 {
    * @see {@link ListBucketsCommand}
    */
   listBuckets(): Promise<ListBucketsCommandOutput>;
-  listBuckets(args: ListBucketsCommandInput, options?: __HttpHandlerOptions): Promise<ListBucketsCommandOutput>;
-  listBuckets(args: ListBucketsCommandInput, cb: (err: any, data?: ListBucketsCommandOutput) => void): void;
+  listBuckets(
+    args: ListBucketsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBucketsCommandOutput>;
+  listBuckets(
+    args: ListBucketsCommandInput,
+    cb: (err: any, data?: ListBucketsCommandOutput) => void
+  ): void;
   listBuckets(
     args: ListBucketsCommandInput,
     options: __HttpHandlerOptions,
@@ -1682,8 +1769,14 @@ export interface S3 {
   /**
    * @see {@link ListObjectsCommand}
    */
-  listObjects(args: ListObjectsCommandInput, options?: __HttpHandlerOptions): Promise<ListObjectsCommandOutput>;
-  listObjects(args: ListObjectsCommandInput, cb: (err: any, data?: ListObjectsCommandOutput) => void): void;
+  listObjects(
+    args: ListObjectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListObjectsCommandOutput>;
+  listObjects(
+    args: ListObjectsCommandInput,
+    cb: (err: any, data?: ListObjectsCommandOutput) => void
+  ): void;
   listObjects(
     args: ListObjectsCommandInput,
     options: __HttpHandlerOptions,
@@ -1693,8 +1786,14 @@ export interface S3 {
   /**
    * @see {@link ListObjectsV2Command}
    */
-  listObjectsV2(args: ListObjectsV2CommandInput, options?: __HttpHandlerOptions): Promise<ListObjectsV2CommandOutput>;
-  listObjectsV2(args: ListObjectsV2CommandInput, cb: (err: any, data?: ListObjectsV2CommandOutput) => void): void;
+  listObjectsV2(
+    args: ListObjectsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListObjectsV2CommandOutput>;
+  listObjectsV2(
+    args: ListObjectsV2CommandInput,
+    cb: (err: any, data?: ListObjectsV2CommandOutput) => void
+  ): void;
   listObjectsV2(
     args: ListObjectsV2CommandInput,
     options: __HttpHandlerOptions,
@@ -1721,8 +1820,14 @@ export interface S3 {
   /**
    * @see {@link ListPartsCommand}
    */
-  listParts(args: ListPartsCommandInput, options?: __HttpHandlerOptions): Promise<ListPartsCommandOutput>;
-  listParts(args: ListPartsCommandInput, cb: (err: any, data?: ListPartsCommandOutput) => void): void;
+  listParts(
+    args: ListPartsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPartsCommandOutput>;
+  listParts(
+    args: ListPartsCommandInput,
+    cb: (err: any, data?: ListPartsCommandOutput) => void
+  ): void;
   listParts(
     args: ListPartsCommandInput,
     options: __HttpHandlerOptions,
@@ -1732,8 +1837,14 @@ export interface S3 {
   /**
    * @see {@link PutBucketAbacCommand}
    */
-  putBucketAbac(args: PutBucketAbacCommandInput, options?: __HttpHandlerOptions): Promise<PutBucketAbacCommandOutput>;
-  putBucketAbac(args: PutBucketAbacCommandInput, cb: (err: any, data?: PutBucketAbacCommandOutput) => void): void;
+  putBucketAbac(
+    args: PutBucketAbacCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutBucketAbacCommandOutput>;
+  putBucketAbac(
+    args: PutBucketAbacCommandInput,
+    cb: (err: any, data?: PutBucketAbacCommandOutput) => void
+  ): void;
   putBucketAbac(
     args: PutBucketAbacCommandInput,
     options: __HttpHandlerOptions,
@@ -1760,8 +1871,14 @@ export interface S3 {
   /**
    * @see {@link PutBucketAclCommand}
    */
-  putBucketAcl(args: PutBucketAclCommandInput, options?: __HttpHandlerOptions): Promise<PutBucketAclCommandOutput>;
-  putBucketAcl(args: PutBucketAclCommandInput, cb: (err: any, data?: PutBucketAclCommandOutput) => void): void;
+  putBucketAcl(
+    args: PutBucketAclCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutBucketAclCommandOutput>;
+  putBucketAcl(
+    args: PutBucketAclCommandInput,
+    cb: (err: any, data?: PutBucketAclCommandOutput) => void
+  ): void;
   putBucketAcl(
     args: PutBucketAclCommandInput,
     options: __HttpHandlerOptions,
@@ -1788,8 +1905,14 @@ export interface S3 {
   /**
    * @see {@link PutBucketCorsCommand}
    */
-  putBucketCors(args: PutBucketCorsCommandInput, options?: __HttpHandlerOptions): Promise<PutBucketCorsCommandOutput>;
-  putBucketCors(args: PutBucketCorsCommandInput, cb: (err: any, data?: PutBucketCorsCommandOutput) => void): void;
+  putBucketCors(
+    args: PutBucketCorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutBucketCorsCommandOutput>;
+  putBucketCors(
+    args: PutBucketCorsCommandInput,
+    cb: (err: any, data?: PutBucketCorsCommandOutput) => void
+  ): void;
   putBucketCors(
     args: PutBucketCorsCommandInput,
     options: __HttpHandlerOptions,
@@ -1939,7 +2062,10 @@ export interface S3 {
     args: PutBucketPolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutBucketPolicyCommandOutput>;
-  putBucketPolicy(args: PutBucketPolicyCommandInput, cb: (err: any, data?: PutBucketPolicyCommandOutput) => void): void;
+  putBucketPolicy(
+    args: PutBucketPolicyCommandInput,
+    cb: (err: any, data?: PutBucketPolicyCommandOutput) => void
+  ): void;
   putBucketPolicy(
     args: PutBucketPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -2034,8 +2160,14 @@ export interface S3 {
   /**
    * @see {@link PutObjectCommand}
    */
-  putObject(args: PutObjectCommandInput, options?: __HttpHandlerOptions): Promise<PutObjectCommandOutput>;
-  putObject(args: PutObjectCommandInput, cb: (err: any, data?: PutObjectCommandOutput) => void): void;
+  putObject(
+    args: PutObjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutObjectCommandOutput>;
+  putObject(
+    args: PutObjectCommandInput,
+    cb: (err: any, data?: PutObjectCommandOutput) => void
+  ): void;
   putObject(
     args: PutObjectCommandInput,
     options: __HttpHandlerOptions,
@@ -2045,8 +2177,14 @@ export interface S3 {
   /**
    * @see {@link PutObjectAclCommand}
    */
-  putObjectAcl(args: PutObjectAclCommandInput, options?: __HttpHandlerOptions): Promise<PutObjectAclCommandOutput>;
-  putObjectAcl(args: PutObjectAclCommandInput, cb: (err: any, data?: PutObjectAclCommandOutput) => void): void;
+  putObjectAcl(
+    args: PutObjectAclCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutObjectAclCommandOutput>;
+  putObjectAcl(
+    args: PutObjectAclCommandInput,
+    cb: (err: any, data?: PutObjectAclCommandOutput) => void
+  ): void;
   putObjectAcl(
     args: PutObjectAclCommandInput,
     options: __HttpHandlerOptions,
@@ -2141,8 +2279,14 @@ export interface S3 {
   /**
    * @see {@link RenameObjectCommand}
    */
-  renameObject(args: RenameObjectCommandInput, options?: __HttpHandlerOptions): Promise<RenameObjectCommandOutput>;
-  renameObject(args: RenameObjectCommandInput, cb: (err: any, data?: RenameObjectCommandOutput) => void): void;
+  renameObject(
+    args: RenameObjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RenameObjectCommandOutput>;
+  renameObject(
+    args: RenameObjectCommandInput,
+    cb: (err: any, data?: RenameObjectCommandOutput) => void
+  ): void;
   renameObject(
     args: RenameObjectCommandInput,
     options: __HttpHandlerOptions,
@@ -2152,8 +2296,14 @@ export interface S3 {
   /**
    * @see {@link RestoreObjectCommand}
    */
-  restoreObject(args: RestoreObjectCommandInput, options?: __HttpHandlerOptions): Promise<RestoreObjectCommandOutput>;
-  restoreObject(args: RestoreObjectCommandInput, cb: (err: any, data?: RestoreObjectCommandOutput) => void): void;
+  restoreObject(
+    args: RestoreObjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreObjectCommandOutput>;
+  restoreObject(
+    args: RestoreObjectCommandInput,
+    cb: (err: any, data?: RestoreObjectCommandOutput) => void
+  ): void;
   restoreObject(
     args: RestoreObjectCommandInput,
     options: __HttpHandlerOptions,
@@ -2214,8 +2364,14 @@ export interface S3 {
   /**
    * @see {@link UploadPartCommand}
    */
-  uploadPart(args: UploadPartCommandInput, options?: __HttpHandlerOptions): Promise<UploadPartCommandOutput>;
-  uploadPart(args: UploadPartCommandInput, cb: (err: any, data?: UploadPartCommandOutput) => void): void;
+  uploadPart(
+    args: UploadPartCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UploadPartCommandOutput>;
+  uploadPart(
+    args: UploadPartCommandInput,
+    cb: (err: any, data?: UploadPartCommandOutput) => void
+  ): void;
   uploadPart(
     args: UploadPartCommandInput,
     options: __HttpHandlerOptions,
@@ -2229,7 +2385,10 @@ export interface S3 {
     args: UploadPartCopyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UploadPartCopyCommandOutput>;
-  uploadPartCopy(args: UploadPartCopyCommandInput, cb: (err: any, data?: UploadPartCopyCommandOutput) => void): void;
+  uploadPartCopy(
+    args: UploadPartCopyCommandInput,
+    cb: (err: any, data?: UploadPartCopyCommandOutput) => void
+  ): void;
   uploadPartCopy(
     args: UploadPartCopyCommandInput,
     options: __HttpHandlerOptions,

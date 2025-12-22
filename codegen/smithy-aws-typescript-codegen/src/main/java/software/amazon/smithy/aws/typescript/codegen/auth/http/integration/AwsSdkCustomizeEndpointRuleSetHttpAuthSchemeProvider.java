@@ -282,34 +282,31 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                                 THttpAuthSchemeParameters & TEndpointParameters,
                                 TInput
                               > =>
-                                async (config: TConfig, context: TContext, input: TInput): Promise<TParameters> => {
-                                  if (!input) {
-                                    throw new Error(`Could not find \\`input\\` for \
-                            \\`defaultEndpointRuleSetHttpAuthSchemeParametersProvider\\``);
-                                  }
-                                  const defaultParameters = \
-                            await defaultHttpAuthSchemeParametersProvider(config, context, input);
-                                  const instructionsFn = (getSmithyContext(context) as \
-                            EndpointRuleSetSmithyContext)?.commandInstance?.constructor
-                                    ?.getEndpointParameterInstructions;
-                                  if (!instructionsFn) {
-                                    throw new Error(`getEndpointParameterInstructions() is not defined on \
-                            \\`$${context.commandName!}\\``);
-                                  }
-                                  const endpointParameters = await resolveParams(
-                                    input as Record<string, unknown>,
-                                    { getEndpointParameterInstructions: instructionsFn! },
-                                    config as Record<string, unknown>
-                                  );
-                                  return Object.assign(defaultParameters, endpointParameters) as TParameters;
-                                };""");
+                              async (config: TConfig, context: TContext, input: TInput): Promise<TParameters> => {
+                                if (!input) {
+                                  throw new Error("Could not find `input` for `defaultEndpointRuleSetHttpAuthSchemeParametersProvider`");
+                                }
+                                const defaultParameters = await defaultHttpAuthSchemeParametersProvider(config, context, input);
+                                const instructionsFn = (getSmithyContext(context) as EndpointRuleSetSmithyContext)?.commandInstance?.constructor
+                                  ?.getEndpointParameterInstructions;
+                                if (!instructionsFn) {
+                                  throw new Error(`getEndpointParameterInstructions() is not defined on '$${context.commandName!}'`);
+                                }
+                                const endpointParameters = await resolveParams(
+                                  input as Record<string, unknown>,
+                                  { getEndpointParameterInstructions: instructionsFn! },
+                                  config as Record<string, unknown>
+                                );
+                                return Object.assign(defaultParameters, endpointParameters) as TParameters;
+                              };""");
                     w.writeDocs("@internal");
                     w.openBlock(
                         """
-                        const _default$LHttpAuthSchemeParametersProvider = async (\
-                        config: $LResolvedConfig, \
-                        context: HandlerExecutionContext, \
-                        input: object): Promise<_$LHttpAuthSchemeParameters> => {""",
+                        const _default$LHttpAuthSchemeParametersProvider = async (
+                          config: $LResolvedConfig,
+                          context: HandlerExecutionContext,
+                          input: object
+                        ): Promise<_$LHttpAuthSchemeParameters> => {""",
                         "};",
                         serviceName,
                         serviceSymbol.getName(),
@@ -326,9 +323,8 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                     w.writeDocs("@internal");
                     w.write(
                         """
-                        export const default$LHttpAuthSchemeParametersProvider: \
-                        $LHttpAuthSchemeParametersProvider = createEndpointRuleSetHttpAuthSchemeParametersProvider(\
-                        _default$LHttpAuthSchemeParametersProvider);
+                        export const default$LHttpAuthSchemeParametersProvider: $LHttpAuthSchemeParametersProvider =
+                          createEndpointRuleSetHttpAuthSchemeParametersProvider(_default$LHttpAuthSchemeParametersProvider);
                         """,
                         serviceName,
                         serviceName,
@@ -410,7 +406,7 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                             interface EndpointRuleSetHttpAuthSchemeProvider<
                               EndpointParametersT extends EndpointParameters,
                               HttpAuthSchemeParametersT extends HttpAuthSchemeParameters
-                            > extends HttpAuthSchemeProvider<EndpointParametersT & HttpAuthSchemeParametersT> { }""");
+                            > extends HttpAuthSchemeProvider<EndpointParametersT & HttpAuthSchemeParametersT> {}""");
                     w.addDependency(TypeScriptDependency.SMITHY_TYPES);
                     w.addImport("SignatureV4MultiRegion", null, AwsDependency.SIGNATURE_V4_MULTIREGION);
                     w.addImport("Logger", null, TypeScriptDependency.SMITHY_TYPES);
@@ -418,7 +414,7 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                     w.writeDocs("@internal");
                     w.write("""
                             interface DefaultEndpointResolver<EndpointParametersT extends EndpointParameters> {
-                              (params: EndpointParametersT, context?: { logger?: Logger; }): EndpointV2;
+                              (params: EndpointParametersT, context?: { logger?: Logger }): EndpointV2;
                             }""");
                     w.addImport("HttpAuthSchemeId", null, TypeScriptDependency.SMITHY_TYPES);
                     w.writeDocs("@internal");
@@ -449,13 +445,12 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                               const { name: resolvedName, properties = {}, ...rest } = scheme;
                               const name = resolvedName.toLowerCase();
                               if (resolvedName !== name) {
-                                console.warn(`HttpAuthScheme has been normalized with lowercasing: \
-                        \\`$${resolvedName}\\` to \\`$${name}\\``);
+                                console.warn(`HttpAuthScheme has been normalized with lowercasing: '$${resolvedName}' to '$${name}'`);
                               }
                               let schemeId;
                               if (name === "sigv4a") {
                                 schemeId = "aws.auth#sigv4a";
-                                const sigv4Present = authSchemes.find(s => {
+                                const sigv4Present = authSchemes.find((s) => {
                                   const name = s.name.toLowerCase();
                                   return name !== "sigv4a" && name.startsWith("sigv4");
                                 });
@@ -466,37 +461,33 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                               } else if (name.startsWith("sigv4")) {
                                 schemeId = "aws.auth#sigv4";
                               } else {
-                                throw new Error(`Unknown HttpAuthScheme found in \
-                        \\`@smithy.rules#endpointRuleSet\\`: \\`$${name}\\``);
+                                throw new Error(`Unknown HttpAuthScheme found in '@smithy.rules#endpointRuleSet': '$${name}'`);
                               }
                               const createOption = createHttpAuthOptionFunctions[schemeId];
                               if (!createOption) {
-                                throw new Error(`Could not find HttpAuthOption create function for \
-                        \\`$${schemeId}\\``);
+                                throw new Error(`Could not find HttpAuthOption create function for '$${schemeId}'`);
                               }
                               const option = createOption(authParameters);
                               option.schemeId = schemeId;
-                              option.signingProperties = { ...(option.signingProperties || {}), \
-                        ...rest, ...properties };
+                              option.signingProperties = { ...(option.signingProperties || {}), ...rest, ...properties };
                               options.push(option);
                             }
                             return options;
                           };
 
                           return endpointRuleSetHttpAuthSchemeProvider;
-                        }"""
+                        };"""
                     );
                     w.writeDocs("@internal");
                     w.openBlock(
                         """
-                        const _default$LHttpAuthSchemeProvider: _$LHttpAuthSchemeProvider = \
-                        (authParameters) => {""",
+                        const _default$LHttpAuthSchemeProvider: _$LHttpAuthSchemeProvider = (authParameters) => {""",
                         "};",
                         serviceName,
                         serviceName,
                         () -> {
                             w.write("const options: HttpAuthOption[] = [];");
-                            w.openBlock("switch (authParameters.operation) {", "};", () -> {
+                            w.openBlock("switch (authParameters.operation) {", "}", () -> {
                                 var serviceAuthSchemes = serviceIndex.getEffectiveAuthSchemes(
                                     s.getService(),
                                     AuthSchemeMode.NO_AUTH_AWARE
@@ -523,7 +514,7 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                                     if (AuthUtils.areHttpAuthSchemesEqual(serviceAuthSchemes, operationAuthSchemes)) {
                                         continue;
                                     }
-                                    w.openBlock("case $S: {", "};", operationShapeId.getName(), () -> {
+                                    w.openBlock("case $S: {", "}", operationShapeId.getName(), () -> {
                                         operationAuthSchemes.keySet().forEach(shapeId -> {
                                             w.write(
                                                 "options.push(create$LHttpAuthOption(authParameters));",
@@ -533,7 +524,7 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                                         w.write("break;");
                                     });
                                 }
-                                w.openBlock("default: {", "};", () -> {
+                                w.openBlock("default: {", "}", () -> {
                                     serviceAuthSchemes.keySet().forEach(shapeId -> {
                                         w.write(
                                             "options.push(create$LHttpAuthOption(authParameters));",
@@ -551,14 +542,14 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                         /**
                          * @internal
                          */
-                        export const default$LHttpAuthSchemeProvider: $LHttpAuthSchemeProvider = \
-                        createEndpointRuleSetHttpAuthSchemeProvider(\
-                        defaultEndpointResolver, \
-                        _default$LHttpAuthSchemeProvider, """,
+                        export const default$LHttpAuthSchemeProvider: $LHttpAuthSchemeProvider = createEndpointRuleSetHttpAuthSchemeProvider(
+                          defaultEndpointResolver,
+                          _default$LHttpAuthSchemeProvider,\s""",
                         serviceName,
                         serviceName,
                         serviceName
                     );
+                    w.indent();
                     w.openBlock("{", "});", () -> {
                         for (HttpAuthScheme scheme : effectiveHttpAuthSchemes.values()) {
                             w.write(
@@ -568,6 +559,7 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                             );
                         }
                     });
+                    w.dedent();
                 }
             }
         );
