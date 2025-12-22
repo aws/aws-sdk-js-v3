@@ -1,14 +1,27 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.40.0 (2025-12-22)
+
+### Features
+
+- Upgraded to smithy-typescript 0.40.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0400-2025-12-22))
+- Upgraded smithy version to 1.65.0 ([#7588](https://github.com/aws/aws-sdk-js-v3/pull/7588))
+
 ## 0.39.1 (2025-12-10)
+
+### Features
 
 - Upgraded to smithy-typescript 0.39.1 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0391-2025-12-10))
 
 ## 0.39.0 (2025-12-05)
 
+### Features
+
 - Upgraded to smithy-typescript 0.39.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0390-2025-12-05))
 
 ## 0.38.0 (2025-11-20)
+
+### Features
 
 - Upgraded to smithy-typescript 0.38.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0380-2025-11-20))
 - Includes upgrade of smithy to 1.64.0
