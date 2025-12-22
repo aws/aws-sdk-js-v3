@@ -39,7 +39,7 @@ export interface GetRemainingFreeTrialDaysCommandOutput extends GetRemainingFree
  * const client = new GuardDutyClient(config);
  * const input = { // GetRemainingFreeTrialDaysRequest
  *   DetectorId: "STRING_VALUE", // required
- *   AccountIds: [ // AccountIds
+ *   AccountIds: [ // AccountIds // required
  *     "STRING_VALUE",
  *   ],
  * };
