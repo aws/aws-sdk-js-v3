@@ -665,7 +665,6 @@ bindings to be included as a dependency with your application. This functionalit
 - [Amazon S3 Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html)
 - [Amazon S3 Object Integrity](https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html)
 - [Amazon CloudFront-KeyValueStore](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-kvp.html)
-- [Amazon S3 CRC64-NVME checksums](https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html)
 
 If the required AWS Common Runtime components are not installed, you will receive an error like:
 
@@ -681,6 +680,10 @@ https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-
 
 indicating that the required dependency is missing to use the associated functionality. To install this dependency, follow
 the provided [instructions](#installing-the-aws-common-runtime-crt-dependency).
+
+For [Amazon S3 CRC64-NVME checksums](https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html),
+we include JavaScript implementation by default, but you can optionally install and include `"@aws-sdk/crc64-nvme-crt"`
+on Node.js runtime for improved performance.
 
 #### Installing the AWS Common Runtime (CRT) Dependency
 
