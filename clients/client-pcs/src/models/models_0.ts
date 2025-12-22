@@ -25,7 +25,7 @@ export interface Accounting {
   defaultPurgeTimeInDays?: number | undefined;
 
   /**
-   * <p>The default value for <code>mode</code> is <code>STANDARD</code>. A value of <code>STANDARD</code> means Slurm accounting is enabled.</p>
+   * <p>The default value for <code>mode</code> is <code>NONE</code>. A value of <code>STANDARD</code> means Slurm accounting is enabled.</p>
    * @public
    */
   mode: AccountingMode | undefined;
@@ -43,7 +43,7 @@ export interface AccountingRequest {
   defaultPurgeTimeInDays?: number | undefined;
 
   /**
-   * <p>The default value for <code>mode</code> is <code>STANDARD</code>. A value of <code>STANDARD</code> means Slurm accounting is enabled.</p>
+   * <p>The default value for <code>mode</code> is <code>NONE</code>. A value of <code>STANDARD</code> means Slurm accounting is enabled.</p>
    * @public
    */
   mode: AccountingMode | undefined;
@@ -693,7 +693,7 @@ export interface SchedulerRequest {
  */
 export interface SlurmRestRequest {
   /**
-   * <p>The default value for <code>mode</code> is <code>STANDARD</code>. A value of <code>STANDARD</code> means the Slurm REST API is enabled.</p>
+   * <p>The default value for <code>mode</code> is <code>NONE</code>. A value of <code>STANDARD</code> means the Slurm REST API is enabled.</p>
    * @public
    */
   mode: SlurmRestMode | undefined;
@@ -873,18 +873,18 @@ export interface SlurmAuthKey {
 }
 
 /**
- * <p>The JWT key stored in AWS Secrets Manager for Slurm REST API authentication.</p>
+ * <p>The JWT key stored in Amazon Web Services Secrets Manager for Slurm REST API authentication.</p>
  * @public
  */
 export interface JwtKey {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the JWT key.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret containing the JWT key.</p>
    * @public
    */
   secretArn: string | undefined;
 
   /**
-   * <p>The version of the AWS Secrets Manager secret containing the JWT key.</p>
+   * <p>The version of the Amazon Web Services Secrets Manager secret containing the JWT key.</p>
    * @public
    */
   secretVersion: string | undefined;
@@ -908,7 +908,7 @@ export interface JwtAuth {
  */
 export interface SlurmRest {
   /**
-   * <p>The default value for <code>mode</code> is <code>STANDARD</code>. A value of <code>STANDARD</code> means the Slurm REST API is enabled.</p>
+   * <p>The default value for <code>mode</code> is <code>NONE</code>. A value of <code>STANDARD</code> means the Slurm REST API is enabled.</p>
    * @public
    */
   mode: SlurmRestMode | undefined;
@@ -1573,7 +1573,7 @@ export interface UpdateAccountingRequest {
   defaultPurgeTimeInDays?: number | undefined;
 
   /**
-   * <p>The default value for <code>mode</code> is <code>STANDARD</code>. A value of <code>STANDARD</code> means Slurm accounting is enabled.</p>
+   * <p>The default value for <code>mode</code> is <code>NONE</code>. A value of <code>STANDARD</code> means Slurm accounting is enabled.</p>
    * @public
    */
   mode?: AccountingMode | undefined;
@@ -1585,7 +1585,7 @@ export interface UpdateAccountingRequest {
  */
 export interface UpdateSlurmRestRequest {
   /**
-   * <p>The default value for <code>mode</code> is <code>STANDARD</code>. A value of <code>STANDARD</code> means the Slurm REST API is enabled.</p>
+   * <p>The default value for <code>mode</code> is <code>NONE</code>. A value of <code>STANDARD</code> means the Slurm REST API is enabled.</p>
    * @public
    */
   mode?: SlurmRestMode | undefined;
