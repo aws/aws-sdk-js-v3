@@ -6,7 +6,7 @@
     "build:cjs": "node ../../scripts/compilation/inline signature-v4-multi-region",
     "build:es": "tsc -p tsconfig.es.json",
     "build:browser": "node ./test-browser/browser-build/esbuild",
-    "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
+    "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",

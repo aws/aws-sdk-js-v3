@@ -24,6 +24,7 @@
     "clear-build-info": "rimraf ./packages/**/*.tsbuildinfo ./clients/**/*.tsbuildinfo  ./lib/**/*.tsbuildinfo ./private/**/*.tsbuildinfo",
     "copy-models": "node ./scripts/copy-models",
     "extract:docs": "node ./scripts/extract-docs/index.js",
+    "g:turbo": "cd $INIT_CWD && turbo",
     "g:vitest": "cd $INIT_CWD && vitest",
     "g:jest": "cd $INIT_CWD && jest",
     "generate-clients": "node ./scripts/generate-clients",
