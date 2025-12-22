@@ -3486,6 +3486,7 @@ const _LG = "LocalGateways";
 const _LGA = "LogGroupArn";
 const _LGI = "LocalGatewayId";
 const _LGIS = "LocalGatewayIdSet";
+const _LGIi = "LinkedGroupId";
 const _LGIo = "LocalGatewayIds";
 const _LGN = "LogGroupName";
 const _LGR = "LocalGatewayRoute";
@@ -6889,6 +6890,7 @@ const _lFA = "lambdaFunctionArn";
 const _lG = "launchGroup";
 const _lGA = "logGroupArn";
 const _lGI = "localGatewayId";
+const _lGIi = "linkedGroupId";
 const _lGN = "logGroupName";
 const _lGRT = "localGatewayRouteTable";
 const _lGRTA = "localGatewayRouteTableArn";
@@ -11709,10 +11711,11 @@ export var CreatePlacementGroupRequest$: StaticStructureSchema = [
   n0,
   _CPGR,
   0,
-  [_PCa, _TS, _SLp, _DR, _GN, _Str],
+  [_PCa, _TS, _SLp, _LGIi, _DR, _GN, _Str],
   [
     1,
     [() => TagSpecificationList, { [_xN]: _TSa }],
+    0,
     0,
     [2, { [_eQN]: `DryRun`, [_xN]: _dR }],
     [0, { [_eQN]: `GroupName`, [_xN]: _gN }],
@@ -27378,7 +27381,7 @@ export var PlacementGroup$: StaticStructureSchema = [
   n0,
   _PG,
   0,
-  [_GN, _St, _Str, _PCa, _GIr, _T, _GA, _SLp],
+  [_GN, _St, _Str, _PCa, _GIr, _T, _GA, _SLp, _LGIi],
   [
     [0, { [_eQN]: `GroupName`, [_xN]: _gN }],
     [0, { [_eQN]: `State`, [_xN]: _st }],
@@ -27388,6 +27391,7 @@ export var PlacementGroup$: StaticStructureSchema = [
     [() => TagList, { [_eQN]: `TagSet`, [_xN]: _tS }],
     [0, { [_eQN]: `GroupArn`, [_xN]: _gA }],
     [0, { [_eQN]: `SpreadLevel`, [_xN]: _sLp }],
+    [0, { [_eQN]: `LinkedGroupId`, [_xN]: _lGIi }],
   ],
 ];
 export var PlacementGroupInfo$: StaticStructureSchema = [

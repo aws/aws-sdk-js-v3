@@ -12436,6 +12436,12 @@ export interface CreatePlacementGroupRequest {
   SpreadLevel?: SpreadLevel | undefined;
 
   /**
+   * <p>Reserved for future use.</p>
+   * @public
+   */
+  LinkedGroupId?: string | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the operation, without actually making the
    *   request, and provides an error response. If you have the required permissions, the error response is
    *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -12512,6 +12518,12 @@ export interface PlacementGroup {
    * @public
    */
   SpreadLevel?: SpreadLevel | undefined;
+
+  /**
+   * <p>Reserved for future use.</p>
+   * @public
+   */
+  LinkedGroupId?: string | undefined;
 }
 
 /**
