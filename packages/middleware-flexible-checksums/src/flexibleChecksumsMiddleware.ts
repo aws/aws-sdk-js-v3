@@ -157,14 +157,29 @@ export const flexibleChecksumsMiddleware =
       }
     }
 
-    const result = await next({
-      ...args,
-      request: {
-        ...request,
-        headers: updatedHeaders,
-        body: updatedBody,
-      },
-    });
+    try {
+      const result = await next({
+        ...args,
+        request: {
+          ...request,
+          headers: updatedHeaders,
+          body: updatedBody,
+        },
+      });
 
-    return result;
+      return result;
+    } catch (e: unknown) {
+      if (e instanceof Error && e.name === "InvalidChunkSizeError") {
+        try {
+          if (!e.message.endsWith(".")) {
+            e.message += ".";
+          }
+          e.message +=
+            " Set [requestStreamBufferSize=number e.g. 65_536] in client constructor to instruct AWS SDK to buffer your input stream.";
+        } catch (ignored) {
+          // e.g. message property unwritable.
+        }
+      }
+      throw e;
+    }
   };

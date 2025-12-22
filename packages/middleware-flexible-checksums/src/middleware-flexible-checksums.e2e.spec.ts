@@ -102,7 +102,8 @@ describe("S3 checksums", () => {
         })
         .catch((e) => {
           expect(String(e)).toContain(
-            "InvalidChunkSizeError: Only the last chunk is allowed to have a size less than 8192 bytes"
+            "InvalidChunkSizeError: Only the last chunk is allowed to have a size less than 8192 bytes. " +
+              "Set [requestStreamBufferSize=number e.g. 65_536] in client constructor to instruct AWS SDK to buffer your input stream."
           );
         });
       expect.hasAssertions();
