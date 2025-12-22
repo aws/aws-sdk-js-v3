@@ -70,7 +70,8 @@ describe("SQS Queues", () => {
         (result) => {
           const queueUrls = result.QueueUrls || [];
           return createdQueues.every((createdQueue) => queueUrls.includes(createdQueue));
-        }
+        },
+        { maxTime: 15 }
       );
 
       // Check that created queues exist in the list
