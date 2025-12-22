@@ -1,8 +1,8 @@
 import { AwsCrc32c } from "@aws-crypto/crc32c";
+import { crc64NvmeCrtContainer } from "@aws-sdk/crc64-nvme";
 import { describe, expect, test as it, vi } from "vitest";
 
 import { ChecksumAlgorithm } from "./constants";
-import { crc64NvmeCrtContainer } from "./crc64-nvme-crt-container";
 import { getCrc32ChecksumAlgorithmFunction } from "./getCrc32ChecksumAlgorithmFunction";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 

@@ -1,9 +1,9 @@
 import { AwsCrc32c } from "@aws-crypto/crc32c";
+import { crc64NvmeCrtContainer } from "@aws-sdk/crc64-nvme";
 import { ChecksumConstructor, HashConstructor } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";
-import { crc64NvmeCrtContainer } from "./crc64-nvme-crt-container";
 import { getCrc32ChecksumAlgorithmFunction } from "./getCrc32ChecksumAlgorithmFunction";
 
 /**

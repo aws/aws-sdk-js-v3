@@ -207,7 +207,6 @@
     "NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS": "object, since <=3.930.0",
     "RequestChecksumCalculation": "object, since <=3.930.0",
     "ResponseChecksumValidation": "object, since <=3.930.0",
-    "crc64NvmeCrtContainer": "object, since <=3.930.0",
     "flexibleChecksumsMiddleware": "function, since <=3.930.0",
     "flexibleChecksumsMiddlewareOptions": "object, since <=3.930.0",
     "getFlexibleChecksumsPlugin": "function, since <=3.930.0",
@@ -591,6 +590,7 @@
     "DynamoDBJsonCodec": "function, since <=3.0.0"
   },
   "@aws-sdk/crc64-nvme": {
-    "Crc64Nvme": "function, since <=3.955.0"
+    "Crc64Nvme": "function, since <=3.955.0",
+    "crc64NvmeCrtContainer": "object, since <=3.956.0"
   }
 }
