@@ -27,9 +27,7 @@ export interface DeleteResourceEndpointAssociationCommandInput extends DeleteRes
  *
  * The output of {@link DeleteResourceEndpointAssociationCommand}.
  */
-export interface DeleteResourceEndpointAssociationCommandOutput
-  extends DeleteResourceEndpointAssociationResponse,
-    __MetadataBearer {}
+export interface DeleteResourceEndpointAssociationCommandOutput extends DeleteResourceEndpointAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates the resource configuration from the resource VPC endpoint.</p>

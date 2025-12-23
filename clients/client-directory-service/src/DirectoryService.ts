@@ -468,8 +468,14 @@ export interface DirectoryService {
   /**
    * @see {@link AddIpRoutesCommand}
    */
-  addIpRoutes(args: AddIpRoutesCommandInput, options?: __HttpHandlerOptions): Promise<AddIpRoutesCommandOutput>;
-  addIpRoutes(args: AddIpRoutesCommandInput, cb: (err: any, data?: AddIpRoutesCommandOutput) => void): void;
+  addIpRoutes(
+    args: AddIpRoutesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddIpRoutesCommandOutput>;
+  addIpRoutes(
+    args: AddIpRoutesCommandInput,
+    cb: (err: any, data?: AddIpRoutesCommandOutput) => void
+  ): void;
   addIpRoutes(
     args: AddIpRoutesCommandInput,
     options: __HttpHandlerOptions,
@@ -479,8 +485,14 @@ export interface DirectoryService {
   /**
    * @see {@link AddRegionCommand}
    */
-  addRegion(args: AddRegionCommandInput, options?: __HttpHandlerOptions): Promise<AddRegionCommandOutput>;
-  addRegion(args: AddRegionCommandInput, cb: (err: any, data?: AddRegionCommandOutput) => void): void;
+  addRegion(
+    args: AddRegionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddRegionCommandOutput>;
+  addRegion(
+    args: AddRegionCommandInput,
+    cb: (err: any, data?: AddRegionCommandOutput) => void
+  ): void;
   addRegion(
     args: AddRegionCommandInput,
     options: __HttpHandlerOptions,
@@ -541,8 +553,14 @@ export interface DirectoryService {
   /**
    * @see {@link CreateAliasCommand}
    */
-  createAlias(args: CreateAliasCommandInput, options?: __HttpHandlerOptions): Promise<CreateAliasCommandOutput>;
-  createAlias(args: CreateAliasCommandInput, cb: (err: any, data?: CreateAliasCommandOutput) => void): void;
+  createAlias(
+    args: CreateAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAliasCommandOutput>;
+  createAlias(
+    args: CreateAliasCommandInput,
+    cb: (err: any, data?: CreateAliasCommandOutput) => void
+  ): void;
   createAlias(
     args: CreateAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -556,7 +574,10 @@ export interface DirectoryService {
     args: CreateComputerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateComputerCommandOutput>;
-  createComputer(args: CreateComputerCommandInput, cb: (err: any, data?: CreateComputerCommandOutput) => void): void;
+  createComputer(
+    args: CreateComputerCommandInput,
+    cb: (err: any, data?: CreateComputerCommandOutput) => void
+  ): void;
   createComputer(
     args: CreateComputerCommandInput,
     options: __HttpHandlerOptions,
@@ -587,7 +608,10 @@ export interface DirectoryService {
     args: CreateDirectoryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDirectoryCommandOutput>;
-  createDirectory(args: CreateDirectoryCommandInput, cb: (err: any, data?: CreateDirectoryCommandOutput) => void): void;
+  createDirectory(
+    args: CreateDirectoryCommandInput,
+    cb: (err: any, data?: CreateDirectoryCommandOutput) => void
+  ): void;
   createDirectory(
     args: CreateDirectoryCommandInput,
     options: __HttpHandlerOptions,
@@ -601,7 +625,10 @@ export interface DirectoryService {
     args: CreateHybridADCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateHybridADCommandOutput>;
-  createHybridAD(args: CreateHybridADCommandInput, cb: (err: any, data?: CreateHybridADCommandOutput) => void): void;
+  createHybridAD(
+    args: CreateHybridADCommandInput,
+    cb: (err: any, data?: CreateHybridADCommandOutput) => void
+  ): void;
   createHybridAD(
     args: CreateHybridADCommandInput,
     options: __HttpHandlerOptions,
@@ -649,7 +676,10 @@ export interface DirectoryService {
     args: CreateSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateSnapshotCommandOutput>;
-  createSnapshot(args: CreateSnapshotCommandInput, cb: (err: any, data?: CreateSnapshotCommandOutput) => void): void;
+  createSnapshot(
+    args: CreateSnapshotCommandInput,
+    cb: (err: any, data?: CreateSnapshotCommandOutput) => void
+  ): void;
   createSnapshot(
     args: CreateSnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -659,8 +689,14 @@ export interface DirectoryService {
   /**
    * @see {@link CreateTrustCommand}
    */
-  createTrust(args: CreateTrustCommandInput, options?: __HttpHandlerOptions): Promise<CreateTrustCommandOutput>;
-  createTrust(args: CreateTrustCommandInput, cb: (err: any, data?: CreateTrustCommandOutput) => void): void;
+  createTrust(
+    args: CreateTrustCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTrustCommandOutput>;
+  createTrust(
+    args: CreateTrustCommandInput,
+    cb: (err: any, data?: CreateTrustCommandOutput) => void
+  ): void;
   createTrust(
     args: CreateTrustCommandInput,
     options: __HttpHandlerOptions,
@@ -708,7 +744,10 @@ export interface DirectoryService {
     args: DeleteDirectoryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDirectoryCommandOutput>;
-  deleteDirectory(args: DeleteDirectoryCommandInput, cb: (err: any, data?: DeleteDirectoryCommandOutput) => void): void;
+  deleteDirectory(
+    args: DeleteDirectoryCommandInput,
+    cb: (err: any, data?: DeleteDirectoryCommandOutput) => void
+  ): void;
   deleteDirectory(
     args: DeleteDirectoryCommandInput,
     options: __HttpHandlerOptions,
@@ -739,7 +778,10 @@ export interface DirectoryService {
     args: DeleteSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteSnapshotCommandOutput>;
-  deleteSnapshot(args: DeleteSnapshotCommandInput, cb: (err: any, data?: DeleteSnapshotCommandOutput) => void): void;
+  deleteSnapshot(
+    args: DeleteSnapshotCommandInput,
+    cb: (err: any, data?: DeleteSnapshotCommandOutput) => void
+  ): void;
   deleteSnapshot(
     args: DeleteSnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -749,8 +791,14 @@ export interface DirectoryService {
   /**
    * @see {@link DeleteTrustCommand}
    */
-  deleteTrust(args: DeleteTrustCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTrustCommandOutput>;
-  deleteTrust(args: DeleteTrustCommandInput, cb: (err: any, data?: DeleteTrustCommandOutput) => void): void;
+  deleteTrust(
+    args: DeleteTrustCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTrustCommandOutput>;
+  deleteTrust(
+    args: DeleteTrustCommandInput,
+    cb: (err: any, data?: DeleteTrustCommandOutput) => void
+  ): void;
   deleteTrust(
     args: DeleteTrustCommandInput,
     options: __HttpHandlerOptions,
@@ -987,7 +1035,10 @@ export interface DirectoryService {
     args: DescribeRegionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeRegionsCommandOutput>;
-  describeRegions(args: DescribeRegionsCommandInput, cb: (err: any, data?: DescribeRegionsCommandOutput) => void): void;
+  describeRegions(
+    args: DescribeRegionsCommandInput,
+    cb: (err: any, data?: DescribeRegionsCommandOutput) => void
+  ): void;
   describeRegions(
     args: DescribeRegionsCommandInput,
     options: __HttpHandlerOptions,
@@ -1054,7 +1105,10 @@ export interface DirectoryService {
     args: DescribeTrustsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeTrustsCommandOutput>;
-  describeTrusts(args: DescribeTrustsCommandInput, cb: (err: any, data?: DescribeTrustsCommandOutput) => void): void;
+  describeTrusts(
+    args: DescribeTrustsCommandInput,
+    cb: (err: any, data?: DescribeTrustsCommandOutput) => void
+  ): void;
   describeTrusts(
     args: DescribeTrustsCommandInput,
     options: __HttpHandlerOptions,
@@ -1132,8 +1186,14 @@ export interface DirectoryService {
   /**
    * @see {@link DisableLDAPSCommand}
    */
-  disableLDAPS(args: DisableLDAPSCommandInput, options?: __HttpHandlerOptions): Promise<DisableLDAPSCommandOutput>;
-  disableLDAPS(args: DisableLDAPSCommandInput, cb: (err: any, data?: DisableLDAPSCommandOutput) => void): void;
+  disableLDAPS(
+    args: DisableLDAPSCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableLDAPSCommandOutput>;
+  disableLDAPS(
+    args: DisableLDAPSCommandInput,
+    cb: (err: any, data?: DisableLDAPSCommandOutput) => void
+  ): void;
   disableLDAPS(
     args: DisableLDAPSCommandInput,
     options: __HttpHandlerOptions,
@@ -1143,8 +1203,14 @@ export interface DirectoryService {
   /**
    * @see {@link DisableRadiusCommand}
    */
-  disableRadius(args: DisableRadiusCommandInput, options?: __HttpHandlerOptions): Promise<DisableRadiusCommandOutput>;
-  disableRadius(args: DisableRadiusCommandInput, cb: (err: any, data?: DisableRadiusCommandOutput) => void): void;
+  disableRadius(
+    args: DisableRadiusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableRadiusCommandOutput>;
+  disableRadius(
+    args: DisableRadiusCommandInput,
+    cb: (err: any, data?: DisableRadiusCommandOutput) => void
+  ): void;
   disableRadius(
     args: DisableRadiusCommandInput,
     options: __HttpHandlerOptions,
@@ -1154,8 +1220,14 @@ export interface DirectoryService {
   /**
    * @see {@link DisableSsoCommand}
    */
-  disableSso(args: DisableSsoCommandInput, options?: __HttpHandlerOptions): Promise<DisableSsoCommandOutput>;
-  disableSso(args: DisableSsoCommandInput, cb: (err: any, data?: DisableSsoCommandOutput) => void): void;
+  disableSso(
+    args: DisableSsoCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableSsoCommandOutput>;
+  disableSso(
+    args: DisableSsoCommandInput,
+    cb: (err: any, data?: DisableSsoCommandOutput) => void
+  ): void;
   disableSso(
     args: DisableSsoCommandInput,
     options: __HttpHandlerOptions,
@@ -1216,8 +1288,14 @@ export interface DirectoryService {
   /**
    * @see {@link EnableLDAPSCommand}
    */
-  enableLDAPS(args: EnableLDAPSCommandInput, options?: __HttpHandlerOptions): Promise<EnableLDAPSCommandOutput>;
-  enableLDAPS(args: EnableLDAPSCommandInput, cb: (err: any, data?: EnableLDAPSCommandOutput) => void): void;
+  enableLDAPS(
+    args: EnableLDAPSCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableLDAPSCommandOutput>;
+  enableLDAPS(
+    args: EnableLDAPSCommandInput,
+    cb: (err: any, data?: EnableLDAPSCommandOutput) => void
+  ): void;
   enableLDAPS(
     args: EnableLDAPSCommandInput,
     options: __HttpHandlerOptions,
@@ -1227,8 +1305,14 @@ export interface DirectoryService {
   /**
    * @see {@link EnableRadiusCommand}
    */
-  enableRadius(args: EnableRadiusCommandInput, options?: __HttpHandlerOptions): Promise<EnableRadiusCommandOutput>;
-  enableRadius(args: EnableRadiusCommandInput, cb: (err: any, data?: EnableRadiusCommandOutput) => void): void;
+  enableRadius(
+    args: EnableRadiusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableRadiusCommandOutput>;
+  enableRadius(
+    args: EnableRadiusCommandInput,
+    cb: (err: any, data?: EnableRadiusCommandOutput) => void
+  ): void;
   enableRadius(
     args: EnableRadiusCommandInput,
     options: __HttpHandlerOptions,
@@ -1238,8 +1322,14 @@ export interface DirectoryService {
   /**
    * @see {@link EnableSsoCommand}
    */
-  enableSso(args: EnableSsoCommandInput, options?: __HttpHandlerOptions): Promise<EnableSsoCommandOutput>;
-  enableSso(args: EnableSsoCommandInput, cb: (err: any, data?: EnableSsoCommandOutput) => void): void;
+  enableSso(
+    args: EnableSsoCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableSsoCommandOutput>;
+  enableSso(
+    args: EnableSsoCommandInput,
+    cb: (err: any, data?: EnableSsoCommandOutput) => void
+  ): void;
   enableSso(
     args: EnableSsoCommandInput,
     options: __HttpHandlerOptions,
@@ -1319,8 +1409,14 @@ export interface DirectoryService {
   /**
    * @see {@link ListIpRoutesCommand}
    */
-  listIpRoutes(args: ListIpRoutesCommandInput, options?: __HttpHandlerOptions): Promise<ListIpRoutesCommandOutput>;
-  listIpRoutes(args: ListIpRoutesCommandInput, cb: (err: any, data?: ListIpRoutesCommandOutput) => void): void;
+  listIpRoutes(
+    args: ListIpRoutesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIpRoutesCommandOutput>;
+  listIpRoutes(
+    args: ListIpRoutesCommandInput,
+    cb: (err: any, data?: ListIpRoutesCommandOutput) => void
+  ): void;
   listIpRoutes(
     args: ListIpRoutesCommandInput,
     options: __HttpHandlerOptions,
@@ -1437,7 +1533,10 @@ export interface DirectoryService {
     args: RemoveIpRoutesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RemoveIpRoutesCommandOutput>;
-  removeIpRoutes(args: RemoveIpRoutesCommandInput, cb: (err: any, data?: RemoveIpRoutesCommandOutput) => void): void;
+  removeIpRoutes(
+    args: RemoveIpRoutesCommandInput,
+    cb: (err: any, data?: RemoveIpRoutesCommandOutput) => void
+  ): void;
   removeIpRoutes(
     args: RemoveIpRoutesCommandInput,
     options: __HttpHandlerOptions,
@@ -1447,8 +1546,14 @@ export interface DirectoryService {
   /**
    * @see {@link RemoveRegionCommand}
    */
-  removeRegion(args: RemoveRegionCommandInput, options?: __HttpHandlerOptions): Promise<RemoveRegionCommandOutput>;
-  removeRegion(args: RemoveRegionCommandInput, cb: (err: any, data?: RemoveRegionCommandOutput) => void): void;
+  removeRegion(
+    args: RemoveRegionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveRegionCommandOutput>;
+  removeRegion(
+    args: RemoveRegionCommandInput,
+    cb: (err: any, data?: RemoveRegionCommandOutput) => void
+  ): void;
   removeRegion(
     args: RemoveRegionCommandInput,
     options: __HttpHandlerOptions,
@@ -1513,7 +1618,10 @@ export interface DirectoryService {
     args: ShareDirectoryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ShareDirectoryCommandOutput>;
-  shareDirectory(args: ShareDirectoryCommandInput, cb: (err: any, data?: ShareDirectoryCommandOutput) => void): void;
+  shareDirectory(
+    args: ShareDirectoryCommandInput,
+    cb: (err: any, data?: ShareDirectoryCommandOutput) => void
+  ): void;
   shareDirectory(
     args: ShareDirectoryCommandInput,
     options: __HttpHandlerOptions,
@@ -1613,7 +1721,10 @@ export interface DirectoryService {
     args: UpdateHybridADCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateHybridADCommandOutput>;
-  updateHybridAD(args: UpdateHybridADCommandInput, cb: (err: any, data?: UpdateHybridADCommandOutput) => void): void;
+  updateHybridAD(
+    args: UpdateHybridADCommandInput,
+    cb: (err: any, data?: UpdateHybridADCommandOutput) => void
+  ): void;
   updateHybridAD(
     args: UpdateHybridADCommandInput,
     options: __HttpHandlerOptions,
@@ -1640,8 +1751,14 @@ export interface DirectoryService {
   /**
    * @see {@link UpdateRadiusCommand}
    */
-  updateRadius(args: UpdateRadiusCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRadiusCommandOutput>;
-  updateRadius(args: UpdateRadiusCommandInput, cb: (err: any, data?: UpdateRadiusCommandOutput) => void): void;
+  updateRadius(
+    args: UpdateRadiusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRadiusCommandOutput>;
+  updateRadius(
+    args: UpdateRadiusCommandInput,
+    cb: (err: any, data?: UpdateRadiusCommandOutput) => void
+  ): void;
   updateRadius(
     args: UpdateRadiusCommandInput,
     options: __HttpHandlerOptions,
@@ -1655,7 +1772,10 @@ export interface DirectoryService {
     args: UpdateSettingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateSettingsCommandOutput>;
-  updateSettings(args: UpdateSettingsCommandInput, cb: (err: any, data?: UpdateSettingsCommandOutput) => void): void;
+  updateSettings(
+    args: UpdateSettingsCommandInput,
+    cb: (err: any, data?: UpdateSettingsCommandOutput) => void
+  ): void;
   updateSettings(
     args: UpdateSettingsCommandInput,
     options: __HttpHandlerOptions,
@@ -1665,8 +1785,14 @@ export interface DirectoryService {
   /**
    * @see {@link UpdateTrustCommand}
    */
-  updateTrust(args: UpdateTrustCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTrustCommandOutput>;
-  updateTrust(args: UpdateTrustCommandInput, cb: (err: any, data?: UpdateTrustCommandOutput) => void): void;
+  updateTrust(
+    args: UpdateTrustCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTrustCommandOutput>;
+  updateTrust(
+    args: UpdateTrustCommandInput,
+    cb: (err: any, data?: UpdateTrustCommandOutput) => void
+  ): void;
   updateTrust(
     args: UpdateTrustCommandInput,
     options: __HttpHandlerOptions,
@@ -1676,8 +1802,14 @@ export interface DirectoryService {
   /**
    * @see {@link VerifyTrustCommand}
    */
-  verifyTrust(args: VerifyTrustCommandInput, options?: __HttpHandlerOptions): Promise<VerifyTrustCommandOutput>;
-  verifyTrust(args: VerifyTrustCommandInput, cb: (err: any, data?: VerifyTrustCommandOutput) => void): void;
+  verifyTrust(
+    args: VerifyTrustCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<VerifyTrustCommandOutput>;
+  verifyTrust(
+    args: VerifyTrustCommandInput,
+    cb: (err: any, data?: VerifyTrustCommandOutput) => void
+  ): void;
   verifyTrust(
     args: VerifyTrustCommandInput,
     options: __HttpHandlerOptions,

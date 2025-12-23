@@ -459,7 +459,10 @@ export interface Personalize {
     args: CreateCampaignCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateCampaignCommandOutput>;
-  createCampaign(args: CreateCampaignCommandInput, cb: (err: any, data?: CreateCampaignCommandOutput) => void): void;
+  createCampaign(
+    args: CreateCampaignCommandInput,
+    cb: (err: any, data?: CreateCampaignCommandOutput) => void
+  ): void;
   createCampaign(
     args: CreateCampaignCommandInput,
     options: __HttpHandlerOptions,
@@ -486,8 +489,14 @@ export interface Personalize {
   /**
    * @see {@link CreateDatasetCommand}
    */
-  createDataset(args: CreateDatasetCommandInput, options?: __HttpHandlerOptions): Promise<CreateDatasetCommandOutput>;
-  createDataset(args: CreateDatasetCommandInput, cb: (err: any, data?: CreateDatasetCommandOutput) => void): void;
+  createDataset(
+    args: CreateDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDatasetCommandOutput>;
+  createDataset(
+    args: CreateDatasetCommandInput,
+    cb: (err: any, data?: CreateDatasetCommandOutput) => void
+  ): void;
   createDataset(
     args: CreateDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -565,8 +574,14 @@ export interface Personalize {
   /**
    * @see {@link CreateFilterCommand}
    */
-  createFilter(args: CreateFilterCommandInput, options?: __HttpHandlerOptions): Promise<CreateFilterCommandOutput>;
-  createFilter(args: CreateFilterCommandInput, cb: (err: any, data?: CreateFilterCommandOutput) => void): void;
+  createFilter(
+    args: CreateFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFilterCommandOutput>;
+  createFilter(
+    args: CreateFilterCommandInput,
+    cb: (err: any, data?: CreateFilterCommandOutput) => void
+  ): void;
   createFilter(
     args: CreateFilterCommandInput,
     options: __HttpHandlerOptions,
@@ -610,8 +625,14 @@ export interface Personalize {
   /**
    * @see {@link CreateSchemaCommand}
    */
-  createSchema(args: CreateSchemaCommandInput, options?: __HttpHandlerOptions): Promise<CreateSchemaCommandOutput>;
-  createSchema(args: CreateSchemaCommandInput, cb: (err: any, data?: CreateSchemaCommandOutput) => void): void;
+  createSchema(
+    args: CreateSchemaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSchemaCommandOutput>;
+  createSchema(
+    args: CreateSchemaCommandInput,
+    cb: (err: any, data?: CreateSchemaCommandOutput) => void
+  ): void;
   createSchema(
     args: CreateSchemaCommandInput,
     options: __HttpHandlerOptions,
@@ -625,7 +646,10 @@ export interface Personalize {
     args: CreateSolutionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateSolutionCommandOutput>;
-  createSolution(args: CreateSolutionCommandInput, cb: (err: any, data?: CreateSolutionCommandOutput) => void): void;
+  createSolution(
+    args: CreateSolutionCommandInput,
+    cb: (err: any, data?: CreateSolutionCommandOutput) => void
+  ): void;
   createSolution(
     args: CreateSolutionCommandInput,
     options: __HttpHandlerOptions,
@@ -656,7 +680,10 @@ export interface Personalize {
     args: DeleteCampaignCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteCampaignCommandOutput>;
-  deleteCampaign(args: DeleteCampaignCommandInput, cb: (err: any, data?: DeleteCampaignCommandOutput) => void): void;
+  deleteCampaign(
+    args: DeleteCampaignCommandInput,
+    cb: (err: any, data?: DeleteCampaignCommandOutput) => void
+  ): void;
   deleteCampaign(
     args: DeleteCampaignCommandInput,
     options: __HttpHandlerOptions,
@@ -666,8 +693,14 @@ export interface Personalize {
   /**
    * @see {@link DeleteDatasetCommand}
    */
-  deleteDataset(args: DeleteDatasetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDatasetCommandOutput>;
-  deleteDataset(args: DeleteDatasetCommandInput, cb: (err: any, data?: DeleteDatasetCommandOutput) => void): void;
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDatasetCommandOutput>;
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    cb: (err: any, data?: DeleteDatasetCommandOutput) => void
+  ): void;
   deleteDataset(
     args: DeleteDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -711,8 +744,14 @@ export interface Personalize {
   /**
    * @see {@link DeleteFilterCommand}
    */
-  deleteFilter(args: DeleteFilterCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFilterCommandOutput>;
-  deleteFilter(args: DeleteFilterCommandInput, cb: (err: any, data?: DeleteFilterCommandOutput) => void): void;
+  deleteFilter(
+    args: DeleteFilterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFilterCommandOutput>;
+  deleteFilter(
+    args: DeleteFilterCommandInput,
+    cb: (err: any, data?: DeleteFilterCommandOutput) => void
+  ): void;
   deleteFilter(
     args: DeleteFilterCommandInput,
     options: __HttpHandlerOptions,
@@ -756,8 +795,14 @@ export interface Personalize {
   /**
    * @see {@link DeleteSchemaCommand}
    */
-  deleteSchema(args: DeleteSchemaCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSchemaCommandOutput>;
-  deleteSchema(args: DeleteSchemaCommandInput, cb: (err: any, data?: DeleteSchemaCommandOutput) => void): void;
+  deleteSchema(
+    args: DeleteSchemaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSchemaCommandOutput>;
+  deleteSchema(
+    args: DeleteSchemaCommandInput,
+    cb: (err: any, data?: DeleteSchemaCommandOutput) => void
+  ): void;
   deleteSchema(
     args: DeleteSchemaCommandInput,
     options: __HttpHandlerOptions,
@@ -771,7 +816,10 @@ export interface Personalize {
     args: DeleteSolutionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteSolutionCommandOutput>;
-  deleteSolution(args: DeleteSolutionCommandInput, cb: (err: any, data?: DeleteSolutionCommandOutput) => void): void;
+  deleteSolution(
+    args: DeleteSolutionCommandInput,
+    cb: (err: any, data?: DeleteSolutionCommandOutput) => void
+  ): void;
   deleteSolution(
     args: DeleteSolutionCommandInput,
     options: __HttpHandlerOptions,
@@ -870,7 +918,10 @@ export interface Personalize {
     args: DescribeDatasetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDatasetCommandOutput>;
-  describeDataset(args: DescribeDatasetCommandInput, cb: (err: any, data?: DescribeDatasetCommandOutput) => void): void;
+  describeDataset(
+    args: DescribeDatasetCommandInput,
+    cb: (err: any, data?: DescribeDatasetCommandOutput) => void
+  ): void;
   describeDataset(
     args: DescribeDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -969,7 +1020,10 @@ export interface Personalize {
     args: DescribeFilterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeFilterCommandOutput>;
-  describeFilter(args: DescribeFilterCommandInput, cb: (err: any, data?: DescribeFilterCommandOutput) => void): void;
+  describeFilter(
+    args: DescribeFilterCommandInput,
+    cb: (err: any, data?: DescribeFilterCommandOutput) => void
+  ): void;
   describeFilter(
     args: DescribeFilterCommandInput,
     options: __HttpHandlerOptions,
@@ -1000,7 +1054,10 @@ export interface Personalize {
     args: DescribeRecipeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeRecipeCommandOutput>;
-  describeRecipe(args: DescribeRecipeCommandInput, cb: (err: any, data?: DescribeRecipeCommandOutput) => void): void;
+  describeRecipe(
+    args: DescribeRecipeCommandInput,
+    cb: (err: any, data?: DescribeRecipeCommandOutput) => void
+  ): void;
   describeRecipe(
     args: DescribeRecipeCommandInput,
     options: __HttpHandlerOptions,
@@ -1031,7 +1088,10 @@ export interface Personalize {
     args: DescribeSchemaCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeSchemaCommandOutput>;
-  describeSchema(args: DescribeSchemaCommandInput, cb: (err: any, data?: DescribeSchemaCommandOutput) => void): void;
+  describeSchema(
+    args: DescribeSchemaCommandInput,
+    cb: (err: any, data?: DescribeSchemaCommandOutput) => void
+  ): void;
   describeSchema(
     args: DescribeSchemaCommandInput,
     options: __HttpHandlerOptions,
@@ -1129,8 +1189,14 @@ export interface Personalize {
    * @see {@link ListCampaignsCommand}
    */
   listCampaigns(): Promise<ListCampaignsCommandOutput>;
-  listCampaigns(args: ListCampaignsCommandInput, options?: __HttpHandlerOptions): Promise<ListCampaignsCommandOutput>;
-  listCampaigns(args: ListCampaignsCommandInput, cb: (err: any, data?: ListCampaignsCommandOutput) => void): void;
+  listCampaigns(
+    args: ListCampaignsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCampaignsCommandOutput>;
+  listCampaigns(
+    args: ListCampaignsCommandInput,
+    cb: (err: any, data?: ListCampaignsCommandOutput) => void
+  ): void;
   listCampaigns(
     args: ListCampaignsCommandInput,
     options: __HttpHandlerOptions,
@@ -1213,8 +1279,14 @@ export interface Personalize {
    * @see {@link ListDatasetsCommand}
    */
   listDatasets(): Promise<ListDatasetsCommandOutput>;
-  listDatasets(args: ListDatasetsCommandInput, options?: __HttpHandlerOptions): Promise<ListDatasetsCommandOutput>;
-  listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatasetsCommandOutput>;
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    cb: (err: any, data?: ListDatasetsCommandOutput) => void
+  ): void;
   listDatasets(
     args: ListDatasetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1243,8 +1315,14 @@ export interface Personalize {
    * @see {@link ListFiltersCommand}
    */
   listFilters(): Promise<ListFiltersCommandOutput>;
-  listFilters(args: ListFiltersCommandInput, options?: __HttpHandlerOptions): Promise<ListFiltersCommandOutput>;
-  listFilters(args: ListFiltersCommandInput, cb: (err: any, data?: ListFiltersCommandOutput) => void): void;
+  listFilters(
+    args: ListFiltersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFiltersCommandOutput>;
+  listFilters(
+    args: ListFiltersCommandInput,
+    cb: (err: any, data?: ListFiltersCommandOutput) => void
+  ): void;
   listFilters(
     args: ListFiltersCommandInput,
     options: __HttpHandlerOptions,
@@ -1291,8 +1369,14 @@ export interface Personalize {
    * @see {@link ListRecipesCommand}
    */
   listRecipes(): Promise<ListRecipesCommandOutput>;
-  listRecipes(args: ListRecipesCommandInput, options?: __HttpHandlerOptions): Promise<ListRecipesCommandOutput>;
-  listRecipes(args: ListRecipesCommandInput, cb: (err: any, data?: ListRecipesCommandOutput) => void): void;
+  listRecipes(
+    args: ListRecipesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRecipesCommandOutput>;
+  listRecipes(
+    args: ListRecipesCommandInput,
+    cb: (err: any, data?: ListRecipesCommandOutput) => void
+  ): void;
   listRecipes(
     args: ListRecipesCommandInput,
     options: __HttpHandlerOptions,
@@ -1321,8 +1405,14 @@ export interface Personalize {
    * @see {@link ListSchemasCommand}
    */
   listSchemas(): Promise<ListSchemasCommandOutput>;
-  listSchemas(args: ListSchemasCommandInput, options?: __HttpHandlerOptions): Promise<ListSchemasCommandOutput>;
-  listSchemas(args: ListSchemasCommandInput, cb: (err: any, data?: ListSchemasCommandOutput) => void): void;
+  listSchemas(
+    args: ListSchemasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSchemasCommandOutput>;
+  listSchemas(
+    args: ListSchemasCommandInput,
+    cb: (err: any, data?: ListSchemasCommandOutput) => void
+  ): void;
   listSchemas(
     args: ListSchemasCommandInput,
     options: __HttpHandlerOptions,
@@ -1333,8 +1423,14 @@ export interface Personalize {
    * @see {@link ListSolutionsCommand}
    */
   listSolutions(): Promise<ListSolutionsCommandOutput>;
-  listSolutions(args: ListSolutionsCommandInput, options?: __HttpHandlerOptions): Promise<ListSolutionsCommandOutput>;
-  listSolutions(args: ListSolutionsCommandInput, cb: (err: any, data?: ListSolutionsCommandOutput) => void): void;
+  listSolutions(
+    args: ListSolutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSolutionsCommandOutput>;
+  listSolutions(
+    args: ListSolutionsCommandInput,
+    cb: (err: any, data?: ListSolutionsCommandOutput) => void
+  ): void;
   listSolutions(
     args: ListSolutionsCommandInput,
     options: __HttpHandlerOptions,
@@ -1400,7 +1496,10 @@ export interface Personalize {
     args: StopRecommenderCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopRecommenderCommandOutput>;
-  stopRecommender(args: StopRecommenderCommandInput, cb: (err: any, data?: StopRecommenderCommandOutput) => void): void;
+  stopRecommender(
+    args: StopRecommenderCommandInput,
+    cb: (err: any, data?: StopRecommenderCommandOutput) => void
+  ): void;
   stopRecommender(
     args: StopRecommenderCommandInput,
     options: __HttpHandlerOptions,
@@ -1427,8 +1526,14 @@ export interface Personalize {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1438,8 +1543,14 @@ export interface Personalize {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1453,7 +1564,10 @@ export interface Personalize {
     args: UpdateCampaignCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateCampaignCommandOutput>;
-  updateCampaign(args: UpdateCampaignCommandInput, cb: (err: any, data?: UpdateCampaignCommandOutput) => void): void;
+  updateCampaign(
+    args: UpdateCampaignCommandInput,
+    cb: (err: any, data?: UpdateCampaignCommandOutput) => void
+  ): void;
   updateCampaign(
     args: UpdateCampaignCommandInput,
     options: __HttpHandlerOptions,
@@ -1463,8 +1577,14 @@ export interface Personalize {
   /**
    * @see {@link UpdateDatasetCommand}
    */
-  updateDataset(args: UpdateDatasetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateDatasetCommandOutput>;
-  updateDataset(args: UpdateDatasetCommandInput, cb: (err: any, data?: UpdateDatasetCommandOutput) => void): void;
+  updateDataset(
+    args: UpdateDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDatasetCommandOutput>;
+  updateDataset(
+    args: UpdateDatasetCommandInput,
+    cb: (err: any, data?: UpdateDatasetCommandOutput) => void
+  ): void;
   updateDataset(
     args: UpdateDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -1513,7 +1633,10 @@ export interface Personalize {
     args: UpdateSolutionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateSolutionCommandOutput>;
-  updateSolution(args: UpdateSolutionCommandInput, cb: (err: any, data?: UpdateSolutionCommandOutput) => void): void;
+  updateSolution(
+    args: UpdateSolutionCommandInput,
+    cb: (err: any, data?: UpdateSolutionCommandOutput) => void
+  ): void;
   updateSolution(
     args: UpdateSolutionCommandInput,
     options: __HttpHandlerOptions,

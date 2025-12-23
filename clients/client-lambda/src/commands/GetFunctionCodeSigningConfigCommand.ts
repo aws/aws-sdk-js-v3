@@ -24,9 +24,7 @@ export interface GetFunctionCodeSigningConfigCommandInput extends GetFunctionCod
  *
  * The output of {@link GetFunctionCodeSigningConfigCommand}.
  */
-export interface GetFunctionCodeSigningConfigCommandOutput
-  extends GetFunctionCodeSigningConfigResponse,
-    __MetadataBearer {}
+export interface GetFunctionCodeSigningConfigCommandOutput extends GetFunctionCodeSigningConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the code signing configuration for the specified function.</p>

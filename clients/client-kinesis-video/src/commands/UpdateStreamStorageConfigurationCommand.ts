@@ -24,9 +24,7 @@ export interface UpdateStreamStorageConfigurationCommandInput extends UpdateStre
  *
  * The output of {@link UpdateStreamStorageConfigurationCommand}.
  */
-export interface UpdateStreamStorageConfigurationCommandOutput
-  extends UpdateStreamStorageConfigurationOutput,
-    __MetadataBearer {}
+export interface UpdateStreamStorageConfigurationCommandOutput extends UpdateStreamStorageConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the storage configuration for an existing Kinesis video stream.</p>

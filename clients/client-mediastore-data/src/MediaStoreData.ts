@@ -29,8 +29,14 @@ export interface MediaStoreData {
   /**
    * @see {@link DeleteObjectCommand}
    */
-  deleteObject(args: DeleteObjectCommandInput, options?: __HttpHandlerOptions): Promise<DeleteObjectCommandOutput>;
-  deleteObject(args: DeleteObjectCommandInput, cb: (err: any, data?: DeleteObjectCommandOutput) => void): void;
+  deleteObject(
+    args: DeleteObjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteObjectCommandOutput>;
+  deleteObject(
+    args: DeleteObjectCommandInput,
+    cb: (err: any, data?: DeleteObjectCommandOutput) => void
+  ): void;
   deleteObject(
     args: DeleteObjectCommandInput,
     options: __HttpHandlerOptions,
@@ -44,7 +50,10 @@ export interface MediaStoreData {
     args: DescribeObjectCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeObjectCommandOutput>;
-  describeObject(args: DescribeObjectCommandInput, cb: (err: any, data?: DescribeObjectCommandOutput) => void): void;
+  describeObject(
+    args: DescribeObjectCommandInput,
+    cb: (err: any, data?: DescribeObjectCommandOutput) => void
+  ): void;
   describeObject(
     args: DescribeObjectCommandInput,
     options: __HttpHandlerOptions,
@@ -54,8 +63,14 @@ export interface MediaStoreData {
   /**
    * @see {@link GetObjectCommand}
    */
-  getObject(args: GetObjectCommandInput, options?: __HttpHandlerOptions): Promise<GetObjectCommandOutput>;
-  getObject(args: GetObjectCommandInput, cb: (err: any, data?: GetObjectCommandOutput) => void): void;
+  getObject(
+    args: GetObjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetObjectCommandOutput>;
+  getObject(
+    args: GetObjectCommandInput,
+    cb: (err: any, data?: GetObjectCommandOutput) => void
+  ): void;
   getObject(
     args: GetObjectCommandInput,
     options: __HttpHandlerOptions,
@@ -66,8 +81,14 @@ export interface MediaStoreData {
    * @see {@link ListItemsCommand}
    */
   listItems(): Promise<ListItemsCommandOutput>;
-  listItems(args: ListItemsCommandInput, options?: __HttpHandlerOptions): Promise<ListItemsCommandOutput>;
-  listItems(args: ListItemsCommandInput, cb: (err: any, data?: ListItemsCommandOutput) => void): void;
+  listItems(
+    args: ListItemsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListItemsCommandOutput>;
+  listItems(
+    args: ListItemsCommandInput,
+    cb: (err: any, data?: ListItemsCommandOutput) => void
+  ): void;
   listItems(
     args: ListItemsCommandInput,
     options: __HttpHandlerOptions,
@@ -77,8 +98,14 @@ export interface MediaStoreData {
   /**
    * @see {@link PutObjectCommand}
    */
-  putObject(args: PutObjectCommandInput, options?: __HttpHandlerOptions): Promise<PutObjectCommandOutput>;
-  putObject(args: PutObjectCommandInput, cb: (err: any, data?: PutObjectCommandOutput) => void): void;
+  putObject(
+    args: PutObjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutObjectCommandOutput>;
+  putObject(
+    args: PutObjectCommandInput,
+    cb: (err: any, data?: PutObjectCommandOutput) => void
+  ): void;
   putObject(
     args: PutObjectCommandInput,
     options: __HttpHandlerOptions,

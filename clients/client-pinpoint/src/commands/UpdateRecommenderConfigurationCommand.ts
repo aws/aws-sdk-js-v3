@@ -24,9 +24,7 @@ export interface UpdateRecommenderConfigurationCommandInput extends UpdateRecomm
  *
  * The output of {@link UpdateRecommenderConfigurationCommand}.
  */
-export interface UpdateRecommenderConfigurationCommandOutput
-  extends UpdateRecommenderConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateRecommenderConfigurationCommandOutput extends UpdateRecommenderConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an Amazon Pinpoint configuration for a recommender model.</p>

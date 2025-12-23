@@ -3424,7 +3424,7 @@ export interface PredictInput {
 
 /**
  * <p>The output from a <code>Predict</code> operation: </p>
- *
+ * 		
  * 		       <ul>
  *             <li>
  * 				           <p>
@@ -3442,13 +3442,13 @@ export interface PredictInput {
  *             <li>
  * 				           <p>
  * 				              <code>PredictedScores</code> - Contains the raw classification score corresponding to each label.
- * 				</p>
+ * 				</p>				
  * 			         </li>
  *             <li>
  * 				           <p>
  * 				              <code>PredictedValue</code> - Present for a <code>REGRESSION</code>
  *                   <code>MLModel</code> request.
- * 				</p>
+ * 				</p>				
  * 			         </li>
  *          </ul>
  * @public
@@ -3487,7 +3487,7 @@ export interface Prediction {
 export interface PredictOutput {
   /**
    * <p>The output from a <code>Predict</code> operation: </p>
-   *
+   * 		
    * 		       <ul>
    *             <li>
    * 				           <p>
@@ -3505,13 +3505,13 @@ export interface PredictOutput {
    *             <li>
    * 				           <p>
    * 				              <code>PredictedScores</code> - Contains the raw classification score corresponding to each label.
-   * 				</p>
+   * 				</p>				
    * 			         </li>
    *             <li>
    * 				           <p>
    * 				              <code>PredictedValue</code> - Present for a <code>REGRESSION</code>
    *                   <code>MLModel</code> request.
-   * 				</p>
+   * 				</p>				
    * 			         </li>
    *          </ul>
    * @public

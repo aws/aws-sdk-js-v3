@@ -27,9 +27,7 @@ export interface AcceptEnvironmentAccountConnectionCommandInput extends AcceptEn
  *
  * The output of {@link AcceptEnvironmentAccountConnectionCommand}.
  */
-export interface AcceptEnvironmentAccountConnectionCommandOutput
-  extends AcceptEnvironmentAccountConnectionOutput,
-    __MetadataBearer {}
+export interface AcceptEnvironmentAccountConnectionCommandOutput extends AcceptEnvironmentAccountConnectionOutput, __MetadataBearer {}
 
 /**
  * <p>In a management account, an environment account connection request is accepted. When the environment account connection request is accepted, Proton

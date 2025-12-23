@@ -27,9 +27,7 @@ export interface CreateDataRepositoryAssociationCommandInput extends CreateDataR
  *
  * The output of {@link CreateDataRepositoryAssociationCommand}.
  */
-export interface CreateDataRepositoryAssociationCommandOutput
-  extends CreateDataRepositoryAssociationResponse,
-    __MetadataBearer {}
+export interface CreateDataRepositoryAssociationCommandOutput extends CreateDataRepositoryAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon FSx for Lustre data repository association (DRA). A data

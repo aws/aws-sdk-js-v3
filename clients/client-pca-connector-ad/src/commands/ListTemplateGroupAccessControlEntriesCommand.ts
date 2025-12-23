@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListTemplateGroupAccessControlEntriesCommand}.
  */
-export interface ListTemplateGroupAccessControlEntriesCommandInput
-  extends ListTemplateGroupAccessControlEntriesRequest {}
+export interface ListTemplateGroupAccessControlEntriesCommandInput extends ListTemplateGroupAccessControlEntriesRequest {}
 /**
  * @public
  *
  * The output of {@link ListTemplateGroupAccessControlEntriesCommand}.
  */
-export interface ListTemplateGroupAccessControlEntriesCommandOutput
-  extends ListTemplateGroupAccessControlEntriesResponse,
-    __MetadataBearer {}
+export interface ListTemplateGroupAccessControlEntriesCommandOutput extends ListTemplateGroupAccessControlEntriesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists group access control entries you created. </p>

@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link GetProtectConfigurationCountryRuleSetCommand}.
  */
-export interface GetProtectConfigurationCountryRuleSetCommandInput
-  extends GetProtectConfigurationCountryRuleSetRequest {}
+export interface GetProtectConfigurationCountryRuleSetCommandInput extends GetProtectConfigurationCountryRuleSetRequest {}
 /**
  * @public
  *
  * The output of {@link GetProtectConfigurationCountryRuleSetCommand}.
  */
-export interface GetProtectConfigurationCountryRuleSetCommandOutput
-  extends GetProtectConfigurationCountryRuleSetResult,
-    __MetadataBearer {}
+export interface GetProtectConfigurationCountryRuleSetCommandOutput extends GetProtectConfigurationCountryRuleSetResult, __MetadataBearer {}
 
 /**
  * <p>Retrieve the CountryRuleSet for the specified NumberCapability from a protect configuration.</p>

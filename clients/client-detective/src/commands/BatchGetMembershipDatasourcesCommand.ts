@@ -24,9 +24,7 @@ export interface BatchGetMembershipDatasourcesCommandInput extends BatchGetMembe
  *
  * The output of {@link BatchGetMembershipDatasourcesCommand}.
  */
-export interface BatchGetMembershipDatasourcesCommandOutput
-  extends BatchGetMembershipDatasourcesResponse,
-    __MetadataBearer {}
+export interface BatchGetMembershipDatasourcesCommandOutput extends BatchGetMembershipDatasourcesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information on the data source package history for an account.</p>

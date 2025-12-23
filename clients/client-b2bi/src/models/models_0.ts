@@ -252,7 +252,9 @@ export interface X12Details {
  * <p>Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
  * @public
  */
-export type EdiType = EdiType.X12DetailsMember | EdiType.$UnknownMember;
+export type EdiType =
+  | EdiType.X12DetailsMember
+  | EdiType.$UnknownMember;
 
 /**
  * @public
@@ -325,7 +327,9 @@ export interface EdiConfiguration {
  * <p>A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
  * @public
  */
-export type CapabilityConfiguration = CapabilityConfiguration.EdiMember | CapabilityConfiguration.$UnknownMember;
+export type CapabilityConfiguration =
+  | CapabilityConfiguration.EdiMember
+  | CapabilityConfiguration.$UnknownMember;
 
 /**
  * @public
@@ -695,7 +699,9 @@ export interface UpdateCapabilityResponse {
  * <p>A data structure that contains the information to use when generating a mapping template.</p>
  * @public
  */
-export type TemplateDetails = TemplateDetails.X12Member | TemplateDetails.$UnknownMember;
+export type TemplateDetails =
+  | TemplateDetails.X12Member
+  | TemplateDetails.$UnknownMember;
 
 /**
  * @public
@@ -1114,7 +1120,9 @@ export interface X12Envelope {
  * <p>A container for outbound EDI options.</p>
  * @public
  */
-export type OutboundEdiOptions = OutboundEdiOptions.X12Member | OutboundEdiOptions.$UnknownMember;
+export type OutboundEdiOptions =
+  | OutboundEdiOptions.X12Member
+  | OutboundEdiOptions.$UnknownMember;
 
 /**
  * @public
@@ -2006,7 +2014,9 @@ export interface TagResourceRequest {
  * <p>The input file to use for an outbound transformation.</p>
  * @public
  */
-export type InputFileSource = InputFileSource.FileContentMember | InputFileSource.$UnknownMember;
+export type InputFileSource =
+  | InputFileSource.FileContentMember
+  | InputFileSource.$UnknownMember;
 
 /**
  * @public
@@ -2100,7 +2110,9 @@ export namespace ConversionTargetFormatDetails {
  * <p>Container for the location of a sample file used for outbound transformations.</p>
  * @public
  */
-export type OutputSampleFileSource = OutputSampleFileSource.FileLocationMember | OutputSampleFileSource.$UnknownMember;
+export type OutputSampleFileSource =
+  | OutputSampleFileSource.FileLocationMember
+  | OutputSampleFileSource.$UnknownMember;
 
 /**
  * @public
@@ -2288,7 +2300,9 @@ export interface TestParsingResponse {
  * <p>A structure that contains the X12 transaction set and version.</p>
  * @public
  */
-export type FormatOptions = FormatOptions.X12Member | FormatOptions.$UnknownMember;
+export type FormatOptions =
+  | FormatOptions.X12Member
+  | FormatOptions.$UnknownMember;
 
 /**
  * @public

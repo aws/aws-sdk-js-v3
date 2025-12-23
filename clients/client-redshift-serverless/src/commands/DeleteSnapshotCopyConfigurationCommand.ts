@@ -31,9 +31,7 @@ export interface DeleteSnapshotCopyConfigurationCommandInput extends DeleteSnaps
  *
  * The output of {@link DeleteSnapshotCopyConfigurationCommand}.
  */
-export interface DeleteSnapshotCopyConfigurationCommandOutput
-  extends DeleteSnapshotCopyConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteSnapshotCopyConfigurationCommandOutput extends DeleteSnapshotCopyConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a snapshot copy configuration</p>

@@ -27,9 +27,7 @@ export interface DeleteNetworkInterfacePermissionCommandInput extends DeleteNetw
  *
  * The output of {@link DeleteNetworkInterfacePermissionCommand}.
  */
-export interface DeleteNetworkInterfacePermissionCommandOutput
-  extends DeleteNetworkInterfacePermissionResult,
-    __MetadataBearer {}
+export interface DeleteNetworkInterfacePermissionCommandOutput extends DeleteNetworkInterfacePermissionResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a permission for a network interface. By default, you cannot delete the

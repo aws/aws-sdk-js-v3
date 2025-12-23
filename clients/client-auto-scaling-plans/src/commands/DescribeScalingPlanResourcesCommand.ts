@@ -28,9 +28,7 @@ export interface DescribeScalingPlanResourcesCommandInput extends DescribeScalin
  *
  * The output of {@link DescribeScalingPlanResourcesCommand}.
  */
-export interface DescribeScalingPlanResourcesCommandOutput
-  extends DescribeScalingPlanResourcesResponse,
-    __MetadataBearer {}
+export interface DescribeScalingPlanResourcesCommandOutput extends DescribeScalingPlanResourcesResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the scalable resources in the specified scaling plan.</p>

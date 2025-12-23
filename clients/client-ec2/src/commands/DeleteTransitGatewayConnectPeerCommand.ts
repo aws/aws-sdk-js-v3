@@ -24,9 +24,7 @@ export interface DeleteTransitGatewayConnectPeerCommandInput extends DeleteTrans
  *
  * The output of {@link DeleteTransitGatewayConnectPeerCommand}.
  */
-export interface DeleteTransitGatewayConnectPeerCommandOutput
-  extends DeleteTransitGatewayConnectPeerResult,
-    __MetadataBearer {}
+export interface DeleteTransitGatewayConnectPeerCommandOutput extends DeleteTransitGatewayConnectPeerResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Connect peer.</p>

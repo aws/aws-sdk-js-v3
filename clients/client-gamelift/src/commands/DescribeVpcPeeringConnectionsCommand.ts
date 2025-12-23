@@ -24,9 +24,7 @@ export interface DescribeVpcPeeringConnectionsCommandInput extends DescribeVpcPe
  *
  * The output of {@link DescribeVpcPeeringConnectionsCommand}.
  */
-export interface DescribeVpcPeeringConnectionsCommandOutput
-  extends DescribeVpcPeeringConnectionsOutput,
-    __MetadataBearer {}
+export interface DescribeVpcPeeringConnectionsCommandOutput extends DescribeVpcPeeringConnectionsOutput, __MetadataBearer {}
 
 /**
  * <p>

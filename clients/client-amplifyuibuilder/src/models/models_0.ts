@@ -486,7 +486,9 @@ export interface ReactStartCodegenJobData {
  * <p>Describes the configuration information for rendering the UI component associated with the code generation job.</p>
  * @public
  */
-export type CodegenJobRenderConfig = CodegenJobRenderConfig.ReactMember | CodegenJobRenderConfig.$UnknownMember;
+export type CodegenJobRenderConfig =
+  | CodegenJobRenderConfig.ReactMember
+  | CodegenJobRenderConfig.$UnknownMember;
 
 /**
  * @public

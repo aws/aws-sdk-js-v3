@@ -24,9 +24,7 @@ export interface CreatePullRequestApprovalRuleCommandInput extends CreatePullReq
  *
  * The output of {@link CreatePullRequestApprovalRuleCommand}.
  */
-export interface CreatePullRequestApprovalRuleCommandOutput
-  extends CreatePullRequestApprovalRuleOutput,
-    __MetadataBearer {}
+export interface CreatePullRequestApprovalRuleCommandOutput extends CreatePullRequestApprovalRuleOutput, __MetadataBearer {}
 
 /**
  * <p>Creates an approval rule for a pull request.</p>

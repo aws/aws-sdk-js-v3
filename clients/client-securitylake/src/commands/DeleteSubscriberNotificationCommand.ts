@@ -24,9 +24,7 @@ export interface DeleteSubscriberNotificationCommandInput extends DeleteSubscrib
  *
  * The output of {@link DeleteSubscriberNotificationCommand}.
  */
-export interface DeleteSubscriberNotificationCommandOutput
-  extends DeleteSubscriberNotificationResponse,
-    __MetadataBearer {}
+export interface DeleteSubscriberNotificationCommandOutput extends DeleteSubscriberNotificationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified subscription notification in Amazon Security Lake for the organization

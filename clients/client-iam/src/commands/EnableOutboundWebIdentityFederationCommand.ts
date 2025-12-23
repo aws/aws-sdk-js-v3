@@ -24,9 +24,7 @@ export interface EnableOutboundWebIdentityFederationCommandInput {}
  *
  * The output of {@link EnableOutboundWebIdentityFederationCommand}.
  */
-export interface EnableOutboundWebIdentityFederationCommandOutput
-  extends EnableOutboundWebIdentityFederationResponse,
-    __MetadataBearer {}
+export interface EnableOutboundWebIdentityFederationCommandOutput extends EnableOutboundWebIdentityFederationResponse, __MetadataBearer {}
 
 /**
  * <p>Enables the outbound identity federation feature for your Amazon Web Services account. When enabled, IAM principals in your account

@@ -15,6 +15,7 @@ import {
   ListRoutingControlsCommand,
   ListRoutingControlsRequest$,
   ListRoutingControlsResponse$,
+  paginateListRoutingControls,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   Route53RecoveryCluster,
@@ -39,7 +40,6 @@ import {
   ValidationException$,
   ValidationExceptionField$,
   ValidationExceptionReason,
-  paginateListRoutingControls,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

@@ -27,9 +27,7 @@ export interface ModifyInstanceNetworkPerformanceOptionsCommandInput extends Mod
  *
  * The output of {@link ModifyInstanceNetworkPerformanceOptionsCommand}.
  */
-export interface ModifyInstanceNetworkPerformanceOptionsCommandOutput
-  extends ModifyInstanceNetworkPerformanceResult,
-    __MetadataBearer {}
+export interface ModifyInstanceNetworkPerformanceOptionsCommandOutput extends ModifyInstanceNetworkPerformanceResult, __MetadataBearer {}
 
 /**
  * <p>Change the configuration of the network performance options for an existing

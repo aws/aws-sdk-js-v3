@@ -143,184 +143,188 @@ import {
 import { SavingsplansServiceException } from "../models/SavingsplansServiceException";
 
 /* eslint no-var: 0 */
-export var CreateSavingsPlanRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CSPR,
+export var CreateSavingsPlanRequest$: StaticStructureSchema = [3, n0, _CSPR,
   0,
   [_sPOI, _c, _uPA, _pT, _cT, _t],
-  [0, 0, 0, 4, [0, 4], 128 | 0],
+  [0, 0, 0, 4, [0, 4], 128 | 0]
 ];
-export var CreateSavingsPlanResponse$: StaticStructureSchema = [3, n0, _CSPRr, 0, [_sPI], [0]];
-export var DeleteQueuedSavingsPlanRequest$: StaticStructureSchema = [3, n0, _DQSPR, 0, [_sPI], [0]];
-export var DeleteQueuedSavingsPlanResponse$: StaticStructureSchema = [3, n0, _DQSPRe, 0, [], []];
-export var DescribeSavingsPlanRatesRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSPRR,
+export var CreateSavingsPlanResponse$: StaticStructureSchema = [3, n0, _CSPRr,
+  0,
+  [_sPI],
+  [0]
+];
+export var DeleteQueuedSavingsPlanRequest$: StaticStructureSchema = [3, n0, _DQSPR,
+  0,
+  [_sPI],
+  [0]
+];
+export var DeleteQueuedSavingsPlanResponse$: StaticStructureSchema = [3, n0, _DQSPRe,
+  0,
+  [],
+  []
+];
+export var DescribeSavingsPlanRatesRequest$: StaticStructureSchema = [3, n0, _DSPRR,
   0,
   [_sPI, _f, _nT, _mR],
-  [0, () => SavingsPlanRateFilterList, 0, 1],
+  [0, () => SavingsPlanRateFilterList, 0, 1]
 ];
-export var DescribeSavingsPlanRatesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSPRRe,
+export var DescribeSavingsPlanRatesResponse$: StaticStructureSchema = [3, n0, _DSPRRe,
   0,
   [_sPI, _sR, _nT],
-  [0, () => SavingsPlanRateList, 0],
+  [0, () => SavingsPlanRateList, 0]
 ];
-export var DescribeSavingsPlansOfferingRatesRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSPORR,
+export var DescribeSavingsPlansOfferingRatesRequest$: StaticStructureSchema = [3, n0, _DSPORR,
   0,
   [_sPOIa, _sPPO, _sPT, _p, _sC, _uT, _o, _f, _nT, _mR],
-  [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => SavingsPlanOfferingRateFiltersList, 0, 1],
+  [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => SavingsPlanOfferingRateFiltersList, 0, 1]
 ];
-export var DescribeSavingsPlansOfferingRatesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSPORRe,
+export var DescribeSavingsPlansOfferingRatesResponse$: StaticStructureSchema = [3, n0, _DSPORRe,
   0,
   [_sR, _nT],
-  [() => SavingsPlanOfferingRatesList, 0],
+  [() => SavingsPlanOfferingRatesList, 0]
 ];
-export var DescribeSavingsPlansOfferingsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSPOR,
+export var DescribeSavingsPlansOfferingsRequest$: StaticStructureSchema = [3, n0, _DSPOR,
   0,
   [_oI, _pO, _pTr, _pTl, _d, _cu, _de, _sC, _uT, _o, _f, _nT, _mR],
-  [
-    64 | 0,
-    64 | 0,
-    0,
-    64 | 0,
-    64 | 1,
-    64 | 0,
-    64 | 0,
-    64 | 0,
-    64 | 0,
-    64 | 0,
-    () => SavingsPlanOfferingFiltersList,
-    0,
-    1,
-  ],
+  [64 | 0, 64 | 0, 0, 64 | 0, 64 | 1, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => SavingsPlanOfferingFiltersList, 0, 1]
 ];
-export var DescribeSavingsPlansOfferingsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSPORe,
+export var DescribeSavingsPlansOfferingsResponse$: StaticStructureSchema = [3, n0, _DSPORe,
   0,
   [_sR, _nT],
-  [() => SavingsPlanOfferingsList, 0],
+  [() => SavingsPlanOfferingsList, 0]
 ];
-export var DescribeSavingsPlansRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSPR,
+export var DescribeSavingsPlansRequest$: StaticStructureSchema = [3, n0, _DSPR,
   0,
   [_sPA, _sPIa, _nT, _mR, _s, _f],
-  [64 | 0, 64 | 0, 0, 1, 64 | 0, () => SavingsPlanFilterList],
+  [64 | 0, 64 | 0, 0, 1, 64 | 0, () => SavingsPlanFilterList]
 ];
-export var DescribeSavingsPlansResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSPRe,
+export var DescribeSavingsPlansResponse$: StaticStructureSchema = [3, n0, _DSPRe,
   0,
   [_sP, _nT],
-  [() => SavingsPlanList, 0],
+  [() => SavingsPlanList, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_aQE]: [`InternalServerException`, 500], [_e]: _se, [_hE]: 500 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [0]];
-export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [128 | 0]];
-export var ParentSavingsPlanOffering$: StaticStructureSchema = [
-  3,
-  n0,
-  _PSPO,
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
+  0,
+  [_rA],
+  [0]
+];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
+  0,
+  [_t],
+  [128 | 0]
+];
+export var ParentSavingsPlanOffering$: StaticStructureSchema = [3, n0, _PSPO,
   0,
   [_oIf, _pOa, _pTla, _dS, _cur, _pD],
-  [0, 0, 0, 1, 0, 0],
+  [0, 0, 0, 1, 0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFE,
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
   { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _cl, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ReturnSavingsPlanRequest$: StaticStructureSchema = [3, n0, _RSPR, 0, [_sPI, _cT], [0, [0, 4]]];
-export var ReturnSavingsPlanResponse$: StaticStructureSchema = [3, n0, _RSPRe, 0, [_sPI], [0]];
-export var SavingsPlan$: StaticStructureSchema = [
-  3,
-  n0,
-  _SP,
+export var ReturnSavingsPlanRequest$: StaticStructureSchema = [3, n0, _RSPR,
+  0,
+  [_sPI, _cT],
+  [0, [0, 4]]
+];
+export var ReturnSavingsPlanResponse$: StaticStructureSchema = [3, n0, _RSPRe,
+  0,
+  [_sPI],
+  [0]
+];
+export var SavingsPlan$: StaticStructureSchema = [3, n0, _SP,
   0,
   [_oIf, _sPI, _sPAa, _des, _st, _en, _sta, _r, _eIF, _sPTa, _pOa, _pTro, _cur, _c, _uPA, _rPA, _tDIS, _t, _rU],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, 1, 128 | 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, 1, 128 | 0, 0]
 ];
-export var SavingsPlanFilter$: StaticStructureSchema = [3, n0, _SPF, 0, [_n, _v], [0, 64 | 0]];
-export var SavingsPlanOffering$: StaticStructureSchema = [
-  3,
-  n0,
-  _SPO,
+export var SavingsPlanFilter$: StaticStructureSchema = [3, n0, _SPF,
+  0,
+  [_n, _v],
+  [0, 64 | 0]
+];
+export var SavingsPlanOffering$: StaticStructureSchema = [3, n0, _SPO,
   0,
   [_oIf, _pTro, _pTla, _des, _pOa, _dS, _cur, _sCe, _uTs, _op, _pr],
-  [0, 64 | 0, 0, 0, 0, 1, 0, 0, 0, 0, () => SavingsPlanOfferingPropertyList],
+  [0, 64 | 0, 0, 0, 0, 1, 0, 0, 0, 0, () => SavingsPlanOfferingPropertyList]
 ];
-export var SavingsPlanOfferingFilterElement$: StaticStructureSchema = [3, n0, _SPOFE, 0, [_n, _v], [0, 64 | 0]];
-export var SavingsPlanOfferingProperty$: StaticStructureSchema = [3, n0, _SPOP, 0, [_n, _va], [0, 0]];
-export var SavingsPlanOfferingRate$: StaticStructureSchema = [
-  3,
-  n0,
-  _SPOR,
+export var SavingsPlanOfferingFilterElement$: StaticStructureSchema = [3, n0, _SPOFE,
+  0,
+  [_n, _v],
+  [0, 64 | 0]
+];
+export var SavingsPlanOfferingProperty$: StaticStructureSchema = [3, n0, _SPOP,
+  0,
+  [_n, _va],
+  [0, 0]
+];
+export var SavingsPlanOfferingRate$: StaticStructureSchema = [3, n0, _SPOR,
   0,
   [_sPO, _ra, _u, _pTr, _sCe, _uTs, _op, _pr],
-  [() => ParentSavingsPlanOffering$, 0, 0, 0, 0, 0, 0, () => SavingsPlanOfferingRatePropertyList],
+  [() => ParentSavingsPlanOffering$, 0, 0, 0, 0, 0, 0, () => SavingsPlanOfferingRatePropertyList]
 ];
-export var SavingsPlanOfferingRateFilterElement$: StaticStructureSchema = [3, n0, _SPORFE, 0, [_n, _v], [0, 64 | 0]];
-export var SavingsPlanOfferingRateProperty$: StaticStructureSchema = [3, n0, _SPORP, 0, [_n, _va], [0, 0]];
-export var SavingsPlanRate$: StaticStructureSchema = [
-  3,
-  n0,
-  _SPR,
+export var SavingsPlanOfferingRateFilterElement$: StaticStructureSchema = [3, n0, _SPORFE,
+  0,
+  [_n, _v],
+  [0, 64 | 0]
+];
+export var SavingsPlanOfferingRateProperty$: StaticStructureSchema = [3, n0, _SPORP,
+  0,
+  [_n, _va],
+  [0, 0]
+];
+export var SavingsPlanRate$: StaticStructureSchema = [3, n0, _SPR,
   0,
   [_ra, _cur, _u, _pTr, _sCe, _uTs, _op, _pr],
-  [0, 0, 0, 0, 0, 0, 0, () => SavingsPlanRatePropertyList],
+  [0, 0, 0, 0, 0, 0, 0, () => SavingsPlanRatePropertyList]
 ];
-export var SavingsPlanRateFilter$: StaticStructureSchema = [3, n0, _SPRF, 0, [_n, _v], [0, 64 | 0]];
-export var SavingsPlanRateProperty$: StaticStructureSchema = [3, n0, _SPRP, 0, [_n, _va], [0, 0]];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEE,
+export var SavingsPlanRateFilter$: StaticStructureSchema = [3, n0, _SPRF,
+  0,
+  [_n, _v],
+  [0, 64 | 0]
+];
+export var SavingsPlanRateProperty$: StaticStructureSchema = [3, n0, _SPRP,
+  0,
+  [_n, _va],
+  [0, 0]
+];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   { [_aQE]: [`ServiceQuotaExceededException`, 402], [_e]: _cl, [_hE]: 402 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [0, 128 | 0]];
-export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [0, 64 | 0]];
-export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var ValidationException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
+  0,
+  [_rA, _t],
+  [0, 128 | 0]
+];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
+  0,
+  [],
+  []
+];
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
+  0,
+  [_rA, _tK],
+  [0, 64 | 0]
+];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
+  0,
+  [],
+  []
+];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_aQE]: [`ValidationException`, 400], [_e]: _cl, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var SavingsplansServiceException$: StaticErrorSchema = [-3, _sm, "SavingsplansServiceException", 0, [], []];
@@ -331,28 +335,44 @@ var FilterValuesList = 64 | 0;
 var ListOfStrings = 64 | 0;
 var SavingsPlanArnList = 64 | 0;
 var SavingsPlanDescriptionsList = 64 | 0;
-var SavingsPlanFilterList: StaticListSchema = [1, n0, _SPFL, 0, () => SavingsPlanFilter$];
-var SavingsPlanIdList = 64 | 0;
-var SavingsPlanList: StaticListSchema = [1, n0, _SPL, 0, () => SavingsPlan$];
-var SavingsPlanOfferingFiltersList: StaticListSchema = [1, n0, _SPOFL, 0, () => SavingsPlanOfferingFilterElement$];
-var SavingsPlanOfferingPropertyList: StaticListSchema = [1, n0, _SPOPL, 0, () => SavingsPlanOfferingProperty$];
-var SavingsPlanOfferingRateFiltersList: StaticListSchema = [
-  1,
-  n0,
-  _SPORFL,
-  0,
-  () => SavingsPlanOfferingRateFilterElement$,
+var SavingsPlanFilterList: StaticListSchema = [1, n0, _SPFL,
+  0, () => SavingsPlanFilter$
 ];
-var SavingsPlanOfferingRatePropertyList: StaticListSchema = [1, n0, _SPORPL, 0, () => SavingsPlanOfferingRateProperty$];
-var SavingsPlanOfferingRatesList: StaticListSchema = [1, n0, _SPORL, 0, () => SavingsPlanOfferingRate$];
-var SavingsPlanOfferingsList: StaticListSchema = [1, n0, _SPOL, 0, () => SavingsPlanOffering$];
+var SavingsPlanIdList = 64 | 0;
+var SavingsPlanList: StaticListSchema = [1, n0, _SPL,
+  0, () => SavingsPlan$
+];
+var SavingsPlanOfferingFiltersList: StaticListSchema = [1, n0, _SPOFL,
+  0, () => SavingsPlanOfferingFilterElement$
+];
+var SavingsPlanOfferingPropertyList: StaticListSchema = [1, n0, _SPOPL,
+  0, () => SavingsPlanOfferingProperty$
+];
+var SavingsPlanOfferingRateFiltersList: StaticListSchema = [1, n0, _SPORFL,
+  0, () => SavingsPlanOfferingRateFilterElement$
+];
+var SavingsPlanOfferingRatePropertyList: StaticListSchema = [1, n0, _SPORPL,
+  0, () => SavingsPlanOfferingRateProperty$
+];
+var SavingsPlanOfferingRatesList: StaticListSchema = [1, n0, _SPORL,
+  0, () => SavingsPlanOfferingRate$
+];
+var SavingsPlanOfferingsList: StaticListSchema = [1, n0, _SPOL,
+  0, () => SavingsPlanOffering$
+];
 var SavingsPlanOperationList = 64 | 0;
 var SavingsPlanPaymentOptionList = 64 | 0;
 var SavingsPlanProductTypeList = 64 | 0;
-var SavingsPlanRateFilterList: StaticListSchema = [1, n0, _SPRFL, 0, () => SavingsPlanRateFilter$];
-var SavingsPlanRateList: StaticListSchema = [1, n0, _SPRL, 0, () => SavingsPlanRate$];
+var SavingsPlanRateFilterList: StaticListSchema = [1, n0, _SPRFL,
+  0, () => SavingsPlanRateFilter$
+];
+var SavingsPlanRateList: StaticListSchema = [1, n0, _SPRL,
+  0, () => SavingsPlanRate$
+];
 var SavingsPlanRateOperationList = 64 | 0;
-var SavingsPlanRatePropertyList: StaticListSchema = [1, n0, _SPRPL, 0, () => SavingsPlanRateProperty$];
+var SavingsPlanRatePropertyList: StaticListSchema = [1, n0, _SPRPL,
+  0, () => SavingsPlanRateProperty$
+];
 var SavingsPlanRateServiceCodeList = 64 | 0;
 var SavingsPlanRateUsageTypeList = 64 | 0;
 var SavingsPlanServiceCodeList = 64 | 0;
@@ -362,83 +382,33 @@ var SavingsPlanUsageTypeList = 64 | 0;
 var TagKeyList = 64 | 0;
 var UUIDs = 64 | 0;
 var TagMap = 128 | 0;
-export var CreateSavingsPlan$: StaticOperationSchema = [
-  9,
-  n0,
-  _CSP,
-  { [_h]: ["POST", "/CreateSavingsPlan", 200] },
-  () => CreateSavingsPlanRequest$,
-  () => CreateSavingsPlanResponse$,
+export var CreateSavingsPlan$: StaticOperationSchema = [9, n0, _CSP,
+  { [_h]: ["POST", "/CreateSavingsPlan", 200] }, () => CreateSavingsPlanRequest$, () => CreateSavingsPlanResponse$
 ];
-export var DeleteQueuedSavingsPlan$: StaticOperationSchema = [
-  9,
-  n0,
-  _DQSP,
-  { [_h]: ["POST", "/DeleteQueuedSavingsPlan", 200] },
-  () => DeleteQueuedSavingsPlanRequest$,
-  () => DeleteQueuedSavingsPlanResponse$,
+export var DeleteQueuedSavingsPlan$: StaticOperationSchema = [9, n0, _DQSP,
+  { [_h]: ["POST", "/DeleteQueuedSavingsPlan", 200] }, () => DeleteQueuedSavingsPlanRequest$, () => DeleteQueuedSavingsPlanResponse$
 ];
-export var DescribeSavingsPlanRates$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSPRes,
-  { [_h]: ["POST", "/DescribeSavingsPlanRates", 200] },
-  () => DescribeSavingsPlanRatesRequest$,
-  () => DescribeSavingsPlanRatesResponse$,
+export var DescribeSavingsPlanRates$: StaticOperationSchema = [9, n0, _DSPRes,
+  { [_h]: ["POST", "/DescribeSavingsPlanRates", 200] }, () => DescribeSavingsPlanRatesRequest$, () => DescribeSavingsPlanRatesResponse$
 ];
-export var DescribeSavingsPlans$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSP,
-  { [_h]: ["POST", "/DescribeSavingsPlans", 200] },
-  () => DescribeSavingsPlansRequest$,
-  () => DescribeSavingsPlansResponse$,
+export var DescribeSavingsPlans$: StaticOperationSchema = [9, n0, _DSP,
+  { [_h]: ["POST", "/DescribeSavingsPlans", 200] }, () => DescribeSavingsPlansRequest$, () => DescribeSavingsPlansResponse$
 ];
-export var DescribeSavingsPlansOfferingRates$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSPORes,
-  { [_h]: ["POST", "/DescribeSavingsPlansOfferingRates", 200] },
-  () => DescribeSavingsPlansOfferingRatesRequest$,
-  () => DescribeSavingsPlansOfferingRatesResponse$,
+export var DescribeSavingsPlansOfferingRates$: StaticOperationSchema = [9, n0, _DSPORes,
+  { [_h]: ["POST", "/DescribeSavingsPlansOfferingRates", 200] }, () => DescribeSavingsPlansOfferingRatesRequest$, () => DescribeSavingsPlansOfferingRatesResponse$
 ];
-export var DescribeSavingsPlansOfferings$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSPO,
-  { [_h]: ["POST", "/DescribeSavingsPlansOfferings", 200] },
-  () => DescribeSavingsPlansOfferingsRequest$,
-  () => DescribeSavingsPlansOfferingsResponse$,
+export var DescribeSavingsPlansOfferings$: StaticOperationSchema = [9, n0, _DSPO,
+  { [_h]: ["POST", "/DescribeSavingsPlansOfferings", 200] }, () => DescribeSavingsPlansOfferingsRequest$, () => DescribeSavingsPlansOfferingsResponse$
 ];
-export var ListTagsForResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  { [_h]: ["POST", "/ListTagsForResource", 200] },
-  () => ListTagsForResourceRequest$,
-  () => ListTagsForResourceResponse$,
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  { [_h]: ["POST", "/ListTagsForResource", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
-export var ReturnSavingsPlan$: StaticOperationSchema = [
-  9,
-  n0,
-  _RSP,
-  { [_h]: ["POST", "/ReturnSavingsPlan", 200] },
-  () => ReturnSavingsPlanRequest$,
-  () => ReturnSavingsPlanResponse$,
+export var ReturnSavingsPlan$: StaticOperationSchema = [9, n0, _RSP,
+  { [_h]: ["POST", "/ReturnSavingsPlan", 200] }, () => ReturnSavingsPlanRequest$, () => ReturnSavingsPlanResponse$
 ];
-export var TagResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _TR,
-  { [_h]: ["POST", "/TagResource", 200] },
-  () => TagResourceRequest$,
-  () => TagResourceResponse$,
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  { [_h]: ["POST", "/TagResource", 200] }, () => TagResourceRequest$, () => TagResourceResponse$
 ];
-export var UntagResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  { [_h]: ["POST", "/UntagResource", 200] },
-  () => UntagResourceRequest$,
-  () => UntagResourceResponse$,
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  { [_h]: ["POST", "/UntagResource", 200] }, () => UntagResourceRequest$, () => UntagResourceResponse$
 ];

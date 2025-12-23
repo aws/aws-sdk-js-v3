@@ -24,9 +24,7 @@ export interface StartDocumentClassificationJobCommandInput extends StartDocumen
  *
  * The output of {@link StartDocumentClassificationJobCommand}.
  */
-export interface StartDocumentClassificationJobCommandOutput
-  extends StartDocumentClassificationJobResponse,
-    __MetadataBearer {}
+export interface StartDocumentClassificationJobCommandOutput extends StartDocumentClassificationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous document classification job using a custom classification model.  Use the

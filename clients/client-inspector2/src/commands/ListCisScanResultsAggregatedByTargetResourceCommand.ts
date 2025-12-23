@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListCisScanResultsAggregatedByTargetResourceCommand}.
  */
-export interface ListCisScanResultsAggregatedByTargetResourceCommandInput
-  extends ListCisScanResultsAggregatedByTargetResourceRequest {}
+export interface ListCisScanResultsAggregatedByTargetResourceCommandInput extends ListCisScanResultsAggregatedByTargetResourceRequest {}
 /**
  * @public
  *
  * The output of {@link ListCisScanResultsAggregatedByTargetResourceCommand}.
  */
-export interface ListCisScanResultsAggregatedByTargetResourceCommandOutput
-  extends ListCisScanResultsAggregatedByTargetResourceResponse,
-    __MetadataBearer {}
+export interface ListCisScanResultsAggregatedByTargetResourceCommandOutput extends ListCisScanResultsAggregatedByTargetResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Lists scan results aggregated by a target resource.</p>

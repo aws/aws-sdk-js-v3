@@ -28,9 +28,7 @@ export interface DescribeTrustStoreRevocationsCommandInput extends DescribeTrust
  *
  * The output of {@link DescribeTrustStoreRevocationsCommand}.
  */
-export interface DescribeTrustStoreRevocationsCommandOutput
-  extends DescribeTrustStoreRevocationsOutput,
-    __MetadataBearer {}
+export interface DescribeTrustStoreRevocationsCommandOutput extends DescribeTrustStoreRevocationsOutput, __MetadataBearer {}
 
 /**
  * <p>Describes the revocation files in use by the specified trust store or revocation

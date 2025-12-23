@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutApplicationAssignmentConfigurationCommand}.
  */
-export interface PutApplicationAssignmentConfigurationCommandInput
-  extends PutApplicationAssignmentConfigurationRequest {}
+export interface PutApplicationAssignmentConfigurationCommandInput extends PutApplicationAssignmentConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link PutApplicationAssignmentConfigurationCommand}.
  */
-export interface PutApplicationAssignmentConfigurationCommandOutput
-  extends PutApplicationAssignmentConfigurationResponse,
-    __MetadataBearer {}
+export interface PutApplicationAssignmentConfigurationCommandOutput extends PutApplicationAssignmentConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Configure how users gain access to an application. If <code>AssignmentsRequired</code> is <code>true</code> (default value), users don’t have access to the application unless an assignment is created using the <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html">CreateApplicationAssignment API</a>. If <code>false</code>, all users have access to the application. If an assignment is created using <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html">CreateApplicationAssignment</a>., the user retains access if <code>AssignmentsRequired</code> is set to <code>true</code>. </p>

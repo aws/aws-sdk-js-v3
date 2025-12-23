@@ -7,7 +7,6 @@
 AWS SDK for JavaScript SSMGuiConnect Client for Node.js, Browser and React Native.
 
 <fullname>AWS Systems Manager GUI Connect</fullname>
-
 <p>Systems Manager GUI Connect, a component of Fleet Manager, lets you connect to your Window
 Server-type Amazon Elastic Compute Cloud (Amazon EC2) instances using the Remote Desktop Protocol (RDP). GUI
 Connect, which is powered by <a href="https://docs.aws.amazon.com/dcv/latest/adminguide/what-is-dcv.html">Amazon DCV</a>, provides you
@@ -33,10 +32,8 @@ Amazon Web Services Systems Manager</a>
 </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-ssm-guiconnect
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-ssm-guiconnect`
 - `yarn add @aws-sdk/client-ssm-guiconnect`
 - `pnpm add @aws-sdk/client-ssm-guiconnect`
@@ -72,9 +69,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new SSMGuiConnectClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new GetConnectionRecordingPreferencesCommand(params);
 ```
 
@@ -233,7 +228,6 @@ DeleteConnectionRecordingPreferences
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-guiconnect/command/DeleteConnectionRecordingPreferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-guiconnect/Interface/DeleteConnectionRecordingPreferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-guiconnect/Interface/DeleteConnectionRecordingPreferencesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +235,6 @@ GetConnectionRecordingPreferences
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-guiconnect/command/GetConnectionRecordingPreferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-guiconnect/Interface/GetConnectionRecordingPreferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-guiconnect/Interface/GetConnectionRecordingPreferencesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,5 +242,4 @@ UpdateConnectionRecordingPreferences
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-guiconnect/command/UpdateConnectionRecordingPreferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-guiconnect/Interface/UpdateConnectionRecordingPreferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-guiconnect/Interface/UpdateConnectionRecordingPreferencesCommandOutput/)
-
 </details>

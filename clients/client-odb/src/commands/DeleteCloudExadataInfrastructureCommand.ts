@@ -24,9 +24,7 @@ export interface DeleteCloudExadataInfrastructureCommandInput extends DeleteClou
  *
  * The output of {@link DeleteCloudExadataInfrastructureCommand}.
  */
-export interface DeleteCloudExadataInfrastructureCommandOutput
-  extends DeleteCloudExadataInfrastructureOutput,
-    __MetadataBearer {}
+export interface DeleteCloudExadataInfrastructureCommandOutput extends DeleteCloudExadataInfrastructureOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Exadata infrastructure. Before you use this operation, make sure to delete all of the VM clusters that are hosted on this Exadata infrastructure.</p>

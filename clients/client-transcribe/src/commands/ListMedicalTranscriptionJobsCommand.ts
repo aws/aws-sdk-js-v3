@@ -24,9 +24,7 @@ export interface ListMedicalTranscriptionJobsCommandInput extends ListMedicalTra
  *
  * The output of {@link ListMedicalTranscriptionJobsCommand}.
  */
-export interface ListMedicalTranscriptionJobsCommandOutput
-  extends ListMedicalTranscriptionJobsResponse,
-    __MetadataBearer {}
+export interface ListMedicalTranscriptionJobsCommandOutput extends ListMedicalTranscriptionJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a list of medical transcription jobs that match the specified criteria. If no

@@ -24,9 +24,7 @@ export interface AssociateDelegateToResourceCommandInput extends AssociateDelega
  *
  * The output of {@link AssociateDelegateToResourceCommand}.
  */
-export interface AssociateDelegateToResourceCommandOutput
-  extends AssociateDelegateToResourceResponse,
-    __MetadataBearer {}
+export interface AssociateDelegateToResourceCommandOutput extends AssociateDelegateToResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a member (user or group) to the resource's set of delegates.</p>

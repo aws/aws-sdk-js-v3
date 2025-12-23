@@ -27,9 +27,7 @@ export interface UpdateDashboardPublishedVersionCommandInput extends UpdateDashb
  *
  * The output of {@link UpdateDashboardPublishedVersionCommand}.
  */
-export interface UpdateDashboardPublishedVersionCommandOutput
-  extends UpdateDashboardPublishedVersionResponse,
-    __MetadataBearer {}
+export interface UpdateDashboardPublishedVersionCommandOutput extends UpdateDashboardPublishedVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the published version of a dashboard.</p>

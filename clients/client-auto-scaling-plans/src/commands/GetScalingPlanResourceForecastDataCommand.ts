@@ -31,9 +31,7 @@ export interface GetScalingPlanResourceForecastDataCommandInput extends GetScali
  *
  * The output of {@link GetScalingPlanResourceForecastDataCommand}.
  */
-export interface GetScalingPlanResourceForecastDataCommandOutput
-  extends GetScalingPlanResourceForecastDataResponse,
-    __MetadataBearer {}
+export interface GetScalingPlanResourceForecastDataCommandOutput extends GetScalingPlanResourceForecastDataResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the forecast data for a scalable resource.</p>

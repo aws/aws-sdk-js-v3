@@ -24,9 +24,7 @@ export interface DescribeLaunchTemplateVersionsCommandInput extends DescribeLaun
  *
  * The output of {@link DescribeLaunchTemplateVersionsCommand}.
  */
-export interface DescribeLaunchTemplateVersionsCommandOutput
-  extends DescribeLaunchTemplateVersionsResult,
-    __MetadataBearer {}
+export interface DescribeLaunchTemplateVersionsCommandOutput extends DescribeLaunchTemplateVersionsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more versions of a specified launch template. You can describe all

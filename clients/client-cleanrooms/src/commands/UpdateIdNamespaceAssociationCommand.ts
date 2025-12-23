@@ -24,9 +24,7 @@ export interface UpdateIdNamespaceAssociationCommandInput extends UpdateIdNamesp
  *
  * The output of {@link UpdateIdNamespaceAssociationCommand}.
  */
-export interface UpdateIdNamespaceAssociationCommandOutput
-  extends UpdateIdNamespaceAssociationOutput,
-    __MetadataBearer {}
+export interface UpdateIdNamespaceAssociationCommandOutput extends UpdateIdNamespaceAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Provides the details that are necessary to update an ID namespace association.</p>

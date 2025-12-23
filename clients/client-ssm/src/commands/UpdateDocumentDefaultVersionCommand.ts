@@ -24,9 +24,7 @@ export interface UpdateDocumentDefaultVersionCommandInput extends UpdateDocument
  *
  * The output of {@link UpdateDocumentDefaultVersionCommand}.
  */
-export interface UpdateDocumentDefaultVersionCommandOutput
-  extends UpdateDocumentDefaultVersionResult,
-    __MetadataBearer {}
+export interface UpdateDocumentDefaultVersionCommandOutput extends UpdateDocumentDefaultVersionResult, __MetadataBearer {}
 
 /**
  * <p>Set the default version of a document. </p>

@@ -9,8 +9,8 @@ import {
   OperationOutput as __OperationOutput,
   OperationSerializer as __OperationSerializer,
   SerializationException as __SerializationException,
-  ServerSerdeContext as __ServerSerdeContext,
   ServerSerdeContext,
+  ServerSerdeContext as __ServerSerdeContext,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
   SmithyFrameworkException as __SmithyFrameworkException,
@@ -30,55 +30,46 @@ import {
 } from "../../protocols/Aws_restJson1";
 import { RestJsonService } from "../RestJsonService";
 
-export type SparseJsonMaps<Context> = __Operation<SparseJsonMapsServerInput, SparseJsonMapsServerOutput, Context>;
+export type SparseJsonMaps<Context> = __Operation<SparseJsonMapsServerInput, SparseJsonMapsServerOutput, Context>
 
 export interface SparseJsonMapsServerInput extends SparseJsonMapsInputOutput {}
 export namespace SparseJsonMapsServerInput {
   /**
    * @internal
    */
-  export const validate: (obj: Parameters<typeof SparseJsonMapsInputOutput.validate>[0]) => __ValidationFailure[] =
-    SparseJsonMapsInputOutput.validate;
+  export const validate: (obj: Parameters<typeof SparseJsonMapsInputOutput.validate>[0]) => __ValidationFailure[] = SparseJsonMapsInputOutput.validate;
 }
 export interface SparseJsonMapsServerOutput extends SparseJsonMapsInputOutput {}
 
 export type SparseJsonMapsErrors = never;
 
-export class SparseJsonMapsSerializer
-  implements __OperationSerializer<RestJsonService<any>, "SparseJsonMaps", SparseJsonMapsErrors>
-{
+export class SparseJsonMapsSerializer implements __OperationSerializer<RestJsonService<any>, "SparseJsonMaps", SparseJsonMapsErrors> {
   serialize = serializeSparseJsonMapsResponse;
   deserialize = deserializeSparseJsonMapsRequest;
 
   isOperationError(error: any): error is SparseJsonMapsErrors {
     return false;
-  }
+  };
 
   serializeError(error: SparseJsonMapsErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     throw error;
   }
+
 }
 
-export const getSparseJsonMapsHandler = <Context>(
-  operation: __Operation<SparseJsonMapsServerInput, SparseJsonMapsServerOutput, Context>,
-  customizer: __ValidationCustomizer<"SparseJsonMaps">
-): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+export const getSparseJsonMapsHandler = <Context>(operation: __Operation<SparseJsonMapsServerInput, SparseJsonMapsServerOutput, Context>, customizer: __ValidationCustomizer<"SparseJsonMaps">): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
   const mux = new httpbinding.HttpBindingMux<"RestJson", "SparseJsonMaps">([
     new httpbinding.UriSpec<"RestJson", "SparseJsonMaps">(
-      "POST",
-      [{ type: "path_literal", value: "SparseJsonMaps" }],
-      [],
-      { service: "RestJson", operation: "SparseJsonMaps" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "SparseJsonMaps" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "SparseJsonMaps" }),
   ]);
-  return new SparseJsonMapsHandler(
-    operation,
-    mux,
-    new SparseJsonMapsSerializer(),
-    serializeFrameworkException,
-    customizer
-  );
-};
+  return new SparseJsonMapsHandler(operation, mux, new SparseJsonMapsSerializer(), serializeFrameworkException, customizer);
+}
 
 const serdeContextBase = {
   base64Encoder: toBase64,
@@ -87,7 +78,7 @@ const serdeContextBase = {
   utf8Decoder: fromUtf8,
   streamCollector: streamCollector,
   requestHandler: new NodeHttpHandler(),
-  disableHostPrefix: true,
+  disableHostPrefix: true
 };
 async function handle<S, O extends keyof S & string, Context>(
   request: __HttpRequest,
@@ -102,30 +93,29 @@ async function handle<S, O extends keyof S & string, Context>(
   let input;
   try {
     input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request),
-      ...serdeContextBase,
+      endpoint: () => Promise.resolve(request), ...serdeContextBase
     });
   } catch (error: unknown) {
     if (__isFrameworkException(error)) {
       return serializeFrameworkException(error, serdeContextBase);
-    }
+    };
     return serializeFrameworkException(new __SerializationException(), serdeContextBase);
   }
   try {
-    const validationFailures = validationFn(input);
+    let validationFailures = validationFn(input);
     if (validationFailures && validationFailures.length > 0) {
-      const validationException = validationCustomizer({ operation: operationName }, validationFailures);
+      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
       if (validationException) {
         return serializer.serializeError(validationException, serdeContextBase);
       }
     }
-    const output = await operation(input, context);
+    let output = await operation(input, context);
     return serializer.serialize(output, serdeContextBase);
-  } catch (error: unknown) {
+  } catch(error: unknown) {
     if (serializer.isOperationError(error)) {
       return serializer.serializeError(error, serdeContextBase);
     }
-    console.log("Received an unexpected error", error);
+    console.log('Received an unexpected error', error);
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
@@ -133,10 +123,7 @@ export class SparseJsonMapsHandler<Context> implements __ServiceHandler<Context>
   private readonly operation: __Operation<SparseJsonMapsServerInput, SparseJsonMapsServerOutput, Context>;
   private readonly mux: __Mux<"RestJson", "SparseJsonMaps">;
   private readonly serializer: __OperationSerializer<RestJsonService<Context>, "SparseJsonMaps", SparseJsonMapsErrors>;
-  private readonly serializeFrameworkException: (
-    e: __SmithyFrameworkException,
-    ctx: __ServerSerdeContext
-  ) => Promise<__HttpResponse>;
+  private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<"SparseJsonMaps">;
   /**
    * Construct a SparseJsonMaps handler.
@@ -163,20 +150,9 @@ export class SparseJsonMapsHandler<Context> implements __ServiceHandler<Context>
   async handle(request: __HttpRequest, context: Context): Promise<__HttpResponse> {
     const target = this.mux.match(request);
     if (target === undefined) {
-      console.log(
-        "Received a request that did not match aws.protocoltests.restjson#RestJson.SparseJsonMaps. This indicates a misconfiguration."
-      );
+      console.log('Received a request that did not match aws.protocoltests.restjson#RestJson.SparseJsonMaps. This indicates a misconfiguration.');
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
-    return handle(
-      request,
-      context,
-      "SparseJsonMaps",
-      this.serializer,
-      this.operation,
-      this.serializeFrameworkException,
-      SparseJsonMapsServerInput.validate,
-      this.validationCustomizer
-    );
+    return handle(request, context, "SparseJsonMaps", this.serializer, this.operation, this.serializeFrameworkException, SparseJsonMapsServerInput.validate, this.validationCustomizer);
   }
 }

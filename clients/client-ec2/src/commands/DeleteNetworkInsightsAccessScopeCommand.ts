@@ -27,9 +27,7 @@ export interface DeleteNetworkInsightsAccessScopeCommandInput extends DeleteNetw
  *
  * The output of {@link DeleteNetworkInsightsAccessScopeCommand}.
  */
-export interface DeleteNetworkInsightsAccessScopeCommandOutput
-  extends DeleteNetworkInsightsAccessScopeResult,
-    __MetadataBearer {}
+export interface DeleteNetworkInsightsAccessScopeCommandOutput extends DeleteNetworkInsightsAccessScopeResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Network Access Scope.</p>

@@ -24,9 +24,7 @@ export interface CreateApplicationAssignmentCommandInput extends CreateApplicati
  *
  * The output of {@link CreateApplicationAssignmentCommand}.
  */
-export interface CreateApplicationAssignmentCommandOutput
-  extends CreateApplicationAssignmentResponse,
-    __MetadataBearer {}
+export interface CreateApplicationAssignmentCommandOutput extends CreateApplicationAssignmentResponse, __MetadataBearer {}
 
 /**
  * <p>Grant application access to a user or group.</p>

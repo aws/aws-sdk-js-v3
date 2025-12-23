@@ -27,9 +27,7 @@ export interface GetConfigurationSetEventDestinationsCommandInput extends GetCon
  *
  * The output of {@link GetConfigurationSetEventDestinationsCommand}.
  */
-export interface GetConfigurationSetEventDestinationsCommandOutput
-  extends GetConfigurationSetEventDestinationsResponse,
-    __MetadataBearer {}
+export interface GetConfigurationSetEventDestinationsCommandOutput extends GetConfigurationSetEventDestinationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve a list of event destinations that are associated with a configuration

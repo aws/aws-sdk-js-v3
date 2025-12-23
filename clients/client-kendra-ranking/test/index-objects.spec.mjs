@@ -29,6 +29,7 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  paginateListRescoreExecutionPlans,
   Rescore$,
   RescoreCommand,
   RescoreExecutionPlanStatus,
@@ -58,7 +59,6 @@ import {
   UpdateRescoreExecutionPlanRequest$,
   ValidationException,
   ValidationException$,
-  paginateListRescoreExecutionPlans,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

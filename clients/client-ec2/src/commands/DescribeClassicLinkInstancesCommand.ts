@@ -24,9 +24,7 @@ export interface DescribeClassicLinkInstancesCommandInput extends DescribeClassi
  *
  * The output of {@link DescribeClassicLinkInstancesCommand}.
  */
-export interface DescribeClassicLinkInstancesCommandOutput
-  extends DescribeClassicLinkInstancesResult,
-    __MetadataBearer {}
+export interface DescribeClassicLinkInstancesCommandOutput extends DescribeClassicLinkInstancesResult, __MetadataBearer {}
 
 /**
  * <note>

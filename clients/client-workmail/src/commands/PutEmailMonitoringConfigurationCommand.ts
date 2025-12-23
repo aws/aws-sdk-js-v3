@@ -27,9 +27,7 @@ export interface PutEmailMonitoringConfigurationCommandInput extends PutEmailMon
  *
  * The output of {@link PutEmailMonitoringConfigurationCommand}.
  */
-export interface PutEmailMonitoringConfigurationCommandOutput
-  extends PutEmailMonitoringConfigurationResponse,
-    __MetadataBearer {}
+export interface PutEmailMonitoringConfigurationCommandOutput extends PutEmailMonitoringConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates the email monitoring configuration for a specified organization.</p>

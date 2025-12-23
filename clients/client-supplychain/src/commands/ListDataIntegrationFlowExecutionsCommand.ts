@@ -27,9 +27,7 @@ export interface ListDataIntegrationFlowExecutionsCommandInput extends ListDataI
  *
  * The output of {@link ListDataIntegrationFlowExecutionsCommand}.
  */
-export interface ListDataIntegrationFlowExecutionsCommandOutput
-  extends ListDataIntegrationFlowExecutionsResponse,
-    __MetadataBearer {}
+export interface ListDataIntegrationFlowExecutionsCommandOutput extends ListDataIntegrationFlowExecutionsResponse, __MetadataBearer {}
 
 /**
  * <p>List flow executions.</p>

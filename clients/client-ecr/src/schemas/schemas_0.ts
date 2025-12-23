@@ -567,1479 +567,1433 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var Attribute$: StaticStructureSchema = [3, n0, _A, 0, [_k, _v], [0, 0]];
-export var AuthorizationData$: StaticStructureSchema = [3, n0, _AD, 0, [_aT, _eA, _pE], [0, 4, 0]];
-export var AwsEcrContainerImageDetails$: StaticStructureSchema = [
-  3,
-  n0,
-  _AECID,
+export var Attribute$: StaticStructureSchema = [3, n0, _A,
+  0,
+  [_k, _v],
+  [0, 0]
+];
+export var AuthorizationData$: StaticStructureSchema = [3, n0, _AD,
+  0,
+  [_aT, _eA, _pE],
+  [0, 4, 0]
+];
+export var AwsEcrContainerImageDetails$: StaticStructureSchema = [3, n0, _AECID,
   0,
   [_a, _au, _iH, _iT, _p, _pA, _lIUA, _iUC, _r, _rN],
-  [0, 0, 0, 64 | 0, 0, 4, 4, 1, 0, 0],
+  [0, 0, 0, 64 | 0, 0, 4, 4, 1, 0, 0]
 ];
-export var BatchCheckLayerAvailabilityRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _BCLAR,
+export var BatchCheckLayerAvailabilityRequest$: StaticStructureSchema = [3, n0, _BCLAR,
   0,
   [_rI, _rN, _lD],
-  [0, 0, 64 | 0],
+  [0, 0, 64 | 0]
 ];
-export var BatchCheckLayerAvailabilityResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _BCLARa,
+export var BatchCheckLayerAvailabilityResponse$: StaticStructureSchema = [3, n0, _BCLARa,
   0,
   [_l, _f],
-  [() => LayerList, () => LayerFailureList],
+  [() => LayerList, () => LayerFailureList]
 ];
-export var BatchDeleteImageRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _BDIR,
+export var BatchDeleteImageRequest$: StaticStructureSchema = [3, n0, _BDIR,
   0,
   [_rI, _rN, _iI],
-  [0, 0, () => ImageIdentifierList],
+  [0, 0, () => ImageIdentifierList]
 ];
-export var BatchDeleteImageResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _BDIRa,
+export var BatchDeleteImageResponse$: StaticStructureSchema = [3, n0, _BDIRa,
   0,
   [_iI, _f],
-  [() => ImageIdentifierList, () => ImageFailureList],
+  [() => ImageIdentifierList, () => ImageFailureList]
 ];
-export var BatchGetImageRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _BGIR,
+export var BatchGetImageRequest$: StaticStructureSchema = [3, n0, _BGIR,
   0,
   [_rI, _rN, _iI, _aMT],
-  [0, 0, () => ImageIdentifierList, 64 | 0],
+  [0, 0, () => ImageIdentifierList, 64 | 0]
 ];
-export var BatchGetImageResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _BGIRa,
+export var BatchGetImageResponse$: StaticStructureSchema = [3, n0, _BGIRa,
   0,
   [_i, _f],
-  [() => ImageList, () => ImageFailureList],
+  [() => ImageList, () => ImageFailureList]
 ];
-export var BatchGetRepositoryScanningConfigurationRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _BGRSCR,
+export var BatchGetRepositoryScanningConfigurationRequest$: StaticStructureSchema = [3, n0, _BGRSCR,
   0,
   [_rNe],
-  [64 | 0],
+  [64 | 0]
 ];
-export var BatchGetRepositoryScanningConfigurationResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _BGRSCRa,
+export var BatchGetRepositoryScanningConfigurationResponse$: StaticStructureSchema = [3, n0, _BGRSCRa,
   0,
   [_sC, _f],
-  [() => RepositoryScanningConfigurationList, () => RepositoryScanningConfigurationFailureList],
+  [() => RepositoryScanningConfigurationList, () => RepositoryScanningConfigurationFailureList]
 ];
-export var BlockedByOrganizationPolicyException$: StaticErrorSchema = [-3, n0, _BBOPE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(BlockedByOrganizationPolicyException$, BlockedByOrganizationPolicyException);
-export var CompleteLayerUploadRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CLUR,
-  0,
-  [_rI, _rN, _uI, _lD],
-  [0, 0, 0, 64 | 0],
-];
-export var CompleteLayerUploadResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CLURo,
-  0,
-  [_rI, _rN, _uI, _lDa],
-  [0, 0, 0, 0],
-];
-export var CreatePullThroughCacheRuleRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CPTCRR,
-  0,
-  [_eRP, _uRU, _rI, _uR, _cA, _cRA, _uRP],
-  [0, 0, 0, 0, 0, 0, 0],
-];
-export var CreatePullThroughCacheRuleResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CPTCRRr,
-  0,
-  [_eRP, _uRU, _cAr, _rI, _uR, _cA, _cRA, _uRP],
-  [0, 0, 4, 0, 0, 0, 0, 0],
-];
-export var CreateRepositoryCreationTemplateRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CRCTR,
-  0,
-  [_pr, _d, _eC, _rT, _iTM, _iTMEF, _rP, _lP, _aF, _cRA],
-  [
-    0,
-    0,
-    () => EncryptionConfigurationForRepositoryCreationTemplate$,
-    () => TagList,
-    0,
-    () => ImageTagMutabilityExclusionFilters,
-    0,
-    0,
-    64 | 0,
-    0,
-  ],
-];
-export var CreateRepositoryCreationTemplateResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CRCTRr,
-  0,
-  [_rI, _rCT],
-  [0, () => RepositoryCreationTemplate$],
-];
-export var CreateRepositoryRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CRR,
-  0,
-  [_rI, _rN, _t, _iTM, _iTMEF, _iSC, _eC],
-  [
-    0,
-    0,
-    () => TagList,
-    0,
-    () => ImageTagMutabilityExclusionFilters,
-    () => ImageScanningConfiguration$,
-    () => EncryptionConfiguration$,
-  ],
-];
-export var CreateRepositoryResponse$: StaticStructureSchema = [3, n0, _CRRr, 0, [_re], [() => Repository$]];
-export var CvssScore$: StaticStructureSchema = [3, n0, _CS, 0, [_bS, _sV, _s, _ve], [1, 0, 0, 0]];
-export var CvssScoreAdjustment$: StaticStructureSchema = [3, n0, _CSA, 0, [_me, _rea], [0, 0]];
-export var CvssScoreDetails$: StaticStructureSchema = [
-  3,
-  n0,
-  _CSD,
-  0,
-  [_ad, _sc, _sS, _sV, _ve],
-  [() => CvssScoreAdjustmentList, 1, 0, 0, 0],
-];
-export var DeleteLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _DLPR, 0, [_rI, _rN], [0, 0]];
-export var DeleteLifecyclePolicyResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DLPRe,
-  0,
-  [_rI, _rN, _lPT, _lEA],
-  [0, 0, 0, 4],
-];
-export var DeletePullThroughCacheRuleRequest$: StaticStructureSchema = [3, n0, _DPTCRR, 0, [_eRP, _rI], [0, 0]];
-export var DeletePullThroughCacheRuleResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DPTCRRe,
-  0,
-  [_eRP, _uRU, _cAr, _rI, _cA, _cRA, _uRP],
-  [0, 0, 4, 0, 0, 0, 0],
-];
-export var DeleteRegistryPolicyRequest$: StaticStructureSchema = [3, n0, _DRPR, 0, [], []];
-export var DeleteRegistryPolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe, 0, [_rI, _pT], [0, 0]];
-export var DeleteRepositoryCreationTemplateRequest$: StaticStructureSchema = [3, n0, _DRCTR, 0, [_pr], [0]];
-export var DeleteRepositoryCreationTemplateResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DRCTRe,
-  0,
-  [_rI, _rCT],
-  [0, () => RepositoryCreationTemplate$],
-];
-export var DeleteRepositoryPolicyRequest$: StaticStructureSchema = [3, n0, _DRPRel, 0, [_rI, _rN], [0, 0]];
-export var DeleteRepositoryPolicyResponse$: StaticStructureSchema = [3, n0, _DRPRele, 0, [_rI, _rN, _pT], [0, 0, 0]];
-export var DeleteRepositoryRequest$: StaticStructureSchema = [3, n0, _DRR, 0, [_rI, _rN, _fo], [0, 0, 2]];
-export var DeleteRepositoryResponse$: StaticStructureSchema = [3, n0, _DRRe, 0, [_re], [() => Repository$]];
-export var DeleteSigningConfigurationRequest$: StaticStructureSchema = [3, n0, _DSCR, 0, [], []];
-export var DeleteSigningConfigurationResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSCRe,
-  0,
-  [_rI, _sCi],
-  [0, () => SigningConfiguration$],
-];
-export var DeregisterPullTimeUpdateExclusionRequest$: StaticStructureSchema = [3, n0, _DPTUER, 0, [_pAr], [0]];
-export var DeregisterPullTimeUpdateExclusionResponse$: StaticStructureSchema = [3, n0, _DPTUERe, 0, [_pAr], [0]];
-export var DescribeImageReplicationStatusRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DIRSR,
-  0,
-  [_rN, _iIm, _rI],
-  [0, () => ImageIdentifier$, 0],
-];
-export var DescribeImageReplicationStatusResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DIRSRe,
-  0,
-  [_rN, _iIm, _rS],
-  [0, () => ImageIdentifier$, () => ImageReplicationStatusList],
-];
-export var DescribeImageScanFindingsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DISFR,
-  0,
-  [_rI, _rN, _iIm, _nT, _mR],
-  [0, 0, () => ImageIdentifier$, 0, 1],
-];
-export var DescribeImageScanFindingsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DISFRe,
-  0,
-  [_rI, _rN, _iIm, _iSS, _iSF, _nT],
-  [0, 0, () => ImageIdentifier$, () => ImageScanStatus$, () => ImageScanFindings$, 0],
-];
-export var DescribeImagesFilter$: StaticStructureSchema = [3, n0, _DIF, 0, [_tS, _iS], [0, 0]];
-export var DescribeImageSigningStatusRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DISSR,
-  0,
-  [_rN, _iIm, _rI],
-  [0, () => ImageIdentifier$, 0],
-];
-export var DescribeImageSigningStatusResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DISSRe,
-  0,
-  [_rN, _iIm, _rI, _sSi],
-  [0, () => ImageIdentifier$, 0, () => ImageSigningStatusList],
-];
-export var DescribeImagesRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DIR,
-  0,
-  [_rI, _rN, _iI, _nT, _mR, _fi],
-  [0, 0, () => ImageIdentifierList, 0, 1, () => DescribeImagesFilter$],
-];
-export var DescribeImagesResponse$: StaticStructureSchema = [3, n0, _DIRe, 0, [_iD, _nT], [() => ImageDetailList, 0]];
-export var DescribePullThroughCacheRulesRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DPTCRRes,
-  0,
-  [_rI, _eRPc, _nT, _mR],
-  [0, 64 | 0, 0, 1],
-];
-export var DescribePullThroughCacheRulesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DPTCRResc,
-  0,
-  [_pTCR, _nT],
-  [() => PullThroughCacheRuleList, 0],
-];
-export var DescribeRegistryRequest$: StaticStructureSchema = [3, n0, _DRRes, 0, [], []];
-export var DescribeRegistryResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DRResc,
-  0,
-  [_rI, _rC],
-  [0, () => ReplicationConfiguration$],
-];
-export var DescribeRepositoriesRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DRRescr,
-  0,
-  [_rI, _rNe, _nT, _mR],
-  [0, 64 | 0, 0, 1],
-];
-export var DescribeRepositoriesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DRRescri,
-  0,
-  [_rep, _nT],
-  [() => RepositoryList, 0],
-];
-export var DescribeRepositoryCreationTemplatesRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DRCTRes,
-  0,
-  [_pre, _nT, _mR],
-  [64 | 0, 0, 1],
-];
-export var DescribeRepositoryCreationTemplatesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DRCTResc,
-  0,
-  [_rI, _rCTe, _nT],
-  [0, () => RepositoryCreationTemplateList, 0],
-];
-export var EmptyUploadException$: StaticErrorSchema = [-3, n0, _EUE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(EmptyUploadException$, EmptyUploadException);
-export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC, 0, [_eT, _kK], [0, 0]];
-export var EncryptionConfigurationForRepositoryCreationTemplate$: StaticStructureSchema = [
-  3,
-  n0,
-  _ECFRCT,
-  0,
-  [_eT, _kK],
-  [0, 0],
-];
-export var EnhancedImageScanFinding$: StaticStructureSchema = [
-  3,
-  n0,
-  _EISF,
-  0,
-  [_aAI, _d, _fA, _fOA, _lOA, _pVD, _rem, _res, _sc, _sD, _se, _st, _ti, _ty, _uA, _fAi, _eAx],
-  [
-    0,
-    0,
-    0,
-    4,
-    4,
-    () => PackageVulnerabilityDetails$,
-    () => Remediation$,
-    () => ResourceList,
-    1,
-    () => ScoreDetails$,
-    0,
-    0,
-    0,
-    0,
-    4,
-    0,
-    0,
-  ],
-];
-export var ExclusionAlreadyExistsException$: StaticErrorSchema = [-3, n0, _EAEE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ExclusionAlreadyExistsException$, ExclusionAlreadyExistsException);
-export var ExclusionNotFoundException$: StaticErrorSchema = [-3, n0, _ENFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ExclusionNotFoundException$, ExclusionNotFoundException);
-export var GetAccountSettingRequest$: StaticStructureSchema = [3, n0, _GASR, 0, [_n], [0]];
-export var GetAccountSettingResponse$: StaticStructureSchema = [3, n0, _GASRe, 0, [_n, _v], [0, 0]];
-export var GetAuthorizationTokenRequest$: StaticStructureSchema = [3, n0, _GATR, 0, [_rIe], [64 | 0]];
-export var GetAuthorizationTokenResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GATRe,
-  0,
-  [_aD],
-  [() => AuthorizationDataList],
-];
-export var GetDownloadUrlForLayerRequest$: StaticStructureSchema = [3, n0, _GDUFLR, 0, [_rI, _rN, _lDa], [0, 0, 0]];
-export var GetDownloadUrlForLayerResponse$: StaticStructureSchema = [3, n0, _GDUFLRe, 0, [_dU, _lDa], [0, 0]];
-export var GetLifecyclePolicyPreviewRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _GLPPR,
-  0,
-  [_rI, _rN, _iI, _nT, _mR, _fi],
-  [0, 0, () => ImageIdentifierList, 0, 1, () => LifecyclePolicyPreviewFilter$],
-];
-export var GetLifecyclePolicyPreviewResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GLPPRe,
-  0,
-  [_rI, _rN, _lPT, _st, _nT, _pR, _su],
-  [0, 0, 0, 0, 0, () => LifecyclePolicyPreviewResultList, () => LifecyclePolicyPreviewSummary$],
-];
-export var GetLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _GLPR, 0, [_rI, _rN], [0, 0]];
-export var GetLifecyclePolicyResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GLPRe,
-  0,
-  [_rI, _rN, _lPT, _lEA],
-  [0, 0, 0, 4],
-];
-export var GetRegistryPolicyRequest$: StaticStructureSchema = [3, n0, _GRPR, 0, [], []];
-export var GetRegistryPolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe, 0, [_rI, _pT], [0, 0]];
-export var GetRegistryScanningConfigurationRequest$: StaticStructureSchema = [3, n0, _GRSCR, 0, [], []];
-export var GetRegistryScanningConfigurationResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GRSCRe,
-  0,
-  [_rI, _sCc],
-  [0, () => RegistryScanningConfiguration$],
-];
-export var GetRepositoryPolicyRequest$: StaticStructureSchema = [3, n0, _GRPRet, 0, [_rI, _rN], [0, 0]];
-export var GetRepositoryPolicyResponse$: StaticStructureSchema = [3, n0, _GRPRete, 0, [_rI, _rN, _pT], [0, 0, 0]];
-export var GetSigningConfigurationRequest$: StaticStructureSchema = [3, n0, _GSCR, 0, [], []];
-export var GetSigningConfigurationResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GSCRe,
-  0,
-  [_rI, _sCi],
-  [0, () => SigningConfiguration$],
-];
-export var Image$: StaticStructureSchema = [
-  3,
-  n0,
-  _I,
-  0,
-  [_rI, _rN, _iIm, _iM, _iMMT],
-  [0, 0, () => ImageIdentifier$, 0, 0],
-];
-export var ImageAlreadyExistsException$: StaticErrorSchema = [-3, n0, _IAEE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ImageAlreadyExistsException$, ImageAlreadyExistsException);
-export var ImageArchivedException$: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ImageArchivedException$, ImageArchivedException);
-export var ImageDetail$: StaticStructureSchema = [
-  3,
-  n0,
-  _ID,
-  0,
-  [_rI, _rN, _iDm, _iT, _iSIB, _iPA, _iSS, _iSFS, _iMMT, _aMTr, _lRPT, _sMD, _iS, _lAA, _lAAa],
-  [0, 0, 0, 64 | 0, 1, 4, () => ImageScanStatus$, () => ImageScanFindingsSummary$, 0, 0, 4, 0, 0, 4, 4],
-];
-export var ImageDigestDoesNotMatchException$: StaticErrorSchema = [-3, n0, _IDDNME, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ImageDigestDoesNotMatchException$, ImageDigestDoesNotMatchException);
-export var ImageFailure$: StaticStructureSchema = [3, n0, _IF, 0, [_iIm, _fC, _fR], [() => ImageIdentifier$, 0, 0]];
-export var ImageIdentifier$: StaticStructureSchema = [3, n0, _II, 0, [_iDm, _iTm], [0, 0]];
-export var ImageNotFoundException$: StaticErrorSchema = [-3, n0, _INFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ImageNotFoundException$, ImageNotFoundException);
-export var ImageReferrer$: StaticStructureSchema = [
-  3,
-  n0,
-  _IR,
-  0,
-  [_di, _mT, _aTr, _si, _an, _aS],
-  [0, 0, 0, 1, 128 | 0, 0],
-];
-export var ImageReplicationStatus$: StaticStructureSchema = [3, n0, _IRS, 0, [_reg, _rI, _st, _fC], [0, 0, 0, 0]];
-export var ImageScanFinding$: StaticStructureSchema = [
-  3,
-  n0,
-  _ISF,
-  0,
-  [_n, _d, _u, _se, _at],
-  [0, 0, 0, 0, () => AttributeList],
-];
-export var ImageScanFindings$: StaticStructureSchema = [
-  3,
-  n0,
-  _ISFm,
-  0,
-  [_iSCA, _vSUA, _fSC, _fin, _eF],
-  [4, 4, 128 | 1, () => ImageScanFindingList, () => EnhancedImageScanFindingList],
-];
-export var ImageScanFindingsSummary$: StaticStructureSchema = [3, n0, _ISFS, 0, [_iSCA, _vSUA, _fSC], [4, 4, 128 | 1]];
-export var ImageScanningConfiguration$: StaticStructureSchema = [3, n0, _ISC, 0, [_sOP], [2]];
-export var ImageScanStatus$: StaticStructureSchema = [3, n0, _ISS, 0, [_st, _d], [0, 0]];
-export var ImageSigningStatus$: StaticStructureSchema = [3, n0, _ISSm, 0, [_sPA, _fC, _fR, _st], [0, 0, 0, 0]];
-export var ImageStorageClassUpdateNotSupportedException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISCUNSE,
+export var BlockedByOrganizationPolicyException$: StaticErrorSchema = [-3, n0, _BBOPE,
   { [_e]: _c },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(
-  ImageStorageClassUpdateNotSupportedException$,
-  ImageStorageClassUpdateNotSupportedException
-);
-export var ImageTagAlreadyExistsException$: StaticErrorSchema = [-3, n0, _ITAEE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ImageTagAlreadyExistsException$, ImageTagAlreadyExistsException);
-export var ImageTagMutabilityExclusionFilter$: StaticStructureSchema = [3, n0, _ITMEF, 0, [_fT, _fi], [0, 0]];
-export var InitiateLayerUploadRequest$: StaticStructureSchema = [3, n0, _ILUR, 0, [_rI, _rN], [0, 0]];
-export var InitiateLayerUploadResponse$: StaticStructureSchema = [3, n0, _ILURn, 0, [_uI, _pS], [0, 1]];
-export var InvalidLayerException$: StaticErrorSchema = [-3, n0, _ILE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InvalidLayerException$, InvalidLayerException);
-export var InvalidLayerPartException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ILPE,
-  { [_e]: _c },
-  [_rI, _rN, _uI, _lVBR, _m],
-  [0, 0, 0, 1, 0],
-];
-TypeRegistry.for(n0).registerError(InvalidLayerPartException$, InvalidLayerPartException);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
-export var InvalidTagParameterException$: StaticErrorSchema = [-3, n0, _ITPE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InvalidTagParameterException$, InvalidTagParameterException);
-export var KmsException$: StaticErrorSchema = [-3, n0, _KE, { [_e]: _c }, [_m, _kE], [0, 0]];
-TypeRegistry.for(n0).registerError(KmsException$, KmsException);
-export var Layer$: StaticStructureSchema = [3, n0, _L, 0, [_lDa, _lA, _lS, _mT], [0, 0, 1, 0]];
-export var LayerAlreadyExistsException$: StaticErrorSchema = [-3, n0, _LAEE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(LayerAlreadyExistsException$, LayerAlreadyExistsException);
-export var LayerFailure$: StaticStructureSchema = [3, n0, _LF, 0, [_lDa, _fC, _fR], [0, 0, 0]];
-export var LayerInaccessibleException$: StaticErrorSchema = [-3, n0, _LIE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(LayerInaccessibleException$, LayerInaccessibleException);
-export var LayerPartTooSmallException$: StaticErrorSchema = [-3, n0, _LPTSE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(LayerPartTooSmallException$, LayerPartTooSmallException);
-export var LayersNotFoundException$: StaticErrorSchema = [-3, n0, _LNFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(LayersNotFoundException$, LayersNotFoundException);
-export var LifecyclePolicyNotFoundException$: StaticErrorSchema = [-3, n0, _LPNFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(LifecyclePolicyNotFoundException$, LifecyclePolicyNotFoundException);
-export var LifecyclePolicyPreviewFilter$: StaticStructureSchema = [3, n0, _LPPF, 0, [_tS], [0]];
-export var LifecyclePolicyPreviewInProgressException$: StaticErrorSchema = [-3, n0, _LPPIPE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(
-  LifecyclePolicyPreviewInProgressException$,
-  LifecyclePolicyPreviewInProgressException
-);
-export var LifecyclePolicyPreviewNotFoundException$: StaticErrorSchema = [-3, n0, _LPPNFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(LifecyclePolicyPreviewNotFoundException$, LifecyclePolicyPreviewNotFoundException);
-export var LifecyclePolicyPreviewResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _LPPR,
+TypeRegistry.for(n0).registerError(BlockedByOrganizationPolicyException$, BlockedByOrganizationPolicyException);
+export var CompleteLayerUploadRequest$: StaticStructureSchema = [3, n0, _CLUR,
   0,
-  [_iT, _iDm, _iPA, _ac, _aRP, _sCt],
-  [64 | 0, 0, 4, () => LifecyclePolicyRuleAction$, 1, 0],
+  [_rI, _rN, _uI, _lD],
+  [0, 0, 0, 64 | 0]
 ];
-export var LifecyclePolicyPreviewSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _LPPS,
+export var CompleteLayerUploadResponse$: StaticStructureSchema = [3, n0, _CLURo,
   0,
-  [_eITC, _tITC],
-  [1, () => TransitioningImageTotalCounts],
+  [_rI, _rN, _uI, _lDa],
+  [0, 0, 0, 0]
 ];
-export var LifecyclePolicyRuleAction$: StaticStructureSchema = [3, n0, _LPRA, 0, [_ty, _tSC], [0, 0]];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
-export var ListImageReferrersFilter$: StaticStructureSchema = [3, n0, _LIRF, 0, [_aTrt, _aS], [64 | 0, 0]];
-export var ListImageReferrersRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LIRR,
+export var CreatePullThroughCacheRuleRequest$: StaticStructureSchema = [3, n0, _CPTCRR,
   0,
-  [_rI, _rN, _sI, _fi, _nT, _mR],
-  [0, 0, () => SubjectIdentifier$, () => ListImageReferrersFilter$, 0, 1],
+  [_eRP, _uRU, _rI, _uR, _cA, _cRA, _uRP],
+  [0, 0, 0, 0, 0, 0, 0]
 ];
-export var ListImageReferrersResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LIRRi,
+export var CreatePullThroughCacheRuleResponse$: StaticStructureSchema = [3, n0, _CPTCRRr,
   0,
-  [_ref, _nT],
-  [() => ImageReferrerList, 0],
+  [_eRP, _uRU, _cAr, _rI, _uR, _cA, _cRA, _uRP],
+  [0, 0, 4, 0, 0, 0, 0, 0]
 ];
-export var ListImagesFilter$: StaticStructureSchema = [3, n0, _LIF, 0, [_tS, _iS], [0, 0]];
-export var ListImagesRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LIR,
-  0,
-  [_rI, _rN, _nT, _mR, _fi],
-  [0, 0, 0, 1, () => ListImagesFilter$],
-];
-export var ListImagesResponse$: StaticStructureSchema = [3, n0, _LIRi, 0, [_iI, _nT], [() => ImageIdentifierList, 0]];
-export var ListPullTimeUpdateExclusionsRequest$: StaticStructureSchema = [3, n0, _LPTUER, 0, [_mR, _nT], [1, 0]];
-export var ListPullTimeUpdateExclusionsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LPTUERi,
-  0,
-  [_pTUE, _nT],
-  [64 | 0, 0],
-];
-export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rA], [0]];
-export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [() => TagList]];
-export var PackageVulnerabilityDetails$: StaticStructureSchema = [
-  3,
-  n0,
-  _PVD,
-  0,
-  [_cv, _rU, _rV, _s, _sU, _vCA, _vS, _vUA, _vI, _vP],
-  [() => CvssScoreList, 64 | 0, 64 | 0, 0, 0, 4, 0, 4, 0, () => VulnerablePackagesList],
-];
-export var PullThroughCacheRule$: StaticStructureSchema = [
-  3,
-  n0,
-  _PTCR,
-  0,
-  [_eRP, _uRU, _cAr, _rI, _cA, _cRA, _uRP, _uR, _uA],
-  [0, 0, 4, 0, 0, 0, 0, 0, 4],
-];
-export var PullThroughCacheRuleAlreadyExistsException$: StaticErrorSchema = [-3, n0, _PTCRAEE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(
-  PullThroughCacheRuleAlreadyExistsException$,
-  PullThroughCacheRuleAlreadyExistsException
-);
-export var PullThroughCacheRuleNotFoundException$: StaticErrorSchema = [-3, n0, _PTCRNFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(PullThroughCacheRuleNotFoundException$, PullThroughCacheRuleNotFoundException);
-export var PutAccountSettingRequest$: StaticStructureSchema = [3, n0, _PASR, 0, [_n, _v], [0, 0]];
-export var PutAccountSettingResponse$: StaticStructureSchema = [3, n0, _PASRu, 0, [_n, _v], [0, 0]];
-export var PutImageRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _PIR,
-  0,
-  [_rI, _rN, _iM, _iMMT, _iTm, _iDm],
-  [0, 0, 0, 0, 0, 0],
-];
-export var PutImageResponse$: StaticStructureSchema = [3, n0, _PIRu, 0, [_im], [() => Image$]];
-export var PutImageScanningConfigurationRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _PISCR,
-  0,
-  [_rI, _rN, _iSC],
-  [0, 0, () => ImageScanningConfiguration$],
-];
-export var PutImageScanningConfigurationResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _PISCRu,
-  0,
-  [_rI, _rN, _iSC],
-  [0, 0, () => ImageScanningConfiguration$],
-];
-export var PutImageTagMutabilityRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _PITMR,
-  0,
-  [_rI, _rN, _iTM, _iTMEF],
-  [0, 0, 0, () => ImageTagMutabilityExclusionFilters],
-];
-export var PutImageTagMutabilityResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _PITMRu,
-  0,
-  [_rI, _rN, _iTM, _iTMEF],
-  [0, 0, 0, () => ImageTagMutabilityExclusionFilters],
-];
-export var PutLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _PLPR, 0, [_rI, _rN, _lPT], [0, 0, 0]];
-export var PutLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _PLPRu, 0, [_rI, _rN, _lPT], [0, 0, 0]];
-export var PutRegistryPolicyRequest$: StaticStructureSchema = [3, n0, _PRPR, 0, [_pT], [0]];
-export var PutRegistryPolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu, 0, [_rI, _pT], [0, 0]];
-export var PutRegistryScanningConfigurationRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _PRSCR,
-  0,
-  [_sT, _ru],
-  [0, () => RegistryScanningRuleList],
-];
-export var PutRegistryScanningConfigurationResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _PRSCRu,
-  0,
-  [_rSC],
-  [() => RegistryScanningConfiguration$],
-];
-export var PutReplicationConfigurationRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _PRCR,
-  0,
-  [_rC],
-  [() => ReplicationConfiguration$],
-];
-export var PutReplicationConfigurationResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _PRCRu,
-  0,
-  [_rC],
-  [() => ReplicationConfiguration$],
-];
-export var PutSigningConfigurationRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _PSCR,
-  0,
-  [_sCi],
-  [() => SigningConfiguration$],
-];
-export var PutSigningConfigurationResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _PSCRu,
-  0,
-  [_sCi],
-  [() => SigningConfiguration$],
-];
-export var Recommendation$: StaticStructureSchema = [3, n0, _R, 0, [_ur, _te], [0, 0]];
-export var ReferencedImagesNotFoundException$: StaticErrorSchema = [-3, n0, _RINFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ReferencedImagesNotFoundException$, ReferencedImagesNotFoundException);
-export var RegisterPullTimeUpdateExclusionRequest$: StaticStructureSchema = [3, n0, _RPTUER, 0, [_pAr], [0]];
-export var RegisterPullTimeUpdateExclusionResponse$: StaticStructureSchema = [3, n0, _RPTUERe, 0, [_pAr, _cAr], [0, 4]];
-export var RegistryPolicyNotFoundException$: StaticErrorSchema = [-3, n0, _RPNFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(RegistryPolicyNotFoundException$, RegistryPolicyNotFoundException);
-export var RegistryScanningConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _RSC,
-  0,
-  [_sT, _ru],
-  [0, () => RegistryScanningRuleList],
-];
-export var RegistryScanningRule$: StaticStructureSchema = [
-  3,
-  n0,
-  _RSR,
-  0,
-  [_sF, _rF],
-  [0, () => ScanningRepositoryFilterList],
-];
-export var Remediation$: StaticStructureSchema = [3, n0, _Re, 0, [_rec], [() => Recommendation$]];
-export var ReplicationConfiguration$: StaticStructureSchema = [3, n0, _RC, 0, [_ru], [() => ReplicationRuleList]];
-export var ReplicationDestination$: StaticStructureSchema = [3, n0, _RD, 0, [_reg, _rI], [0, 0]];
-export var ReplicationRule$: StaticStructureSchema = [
-  3,
-  n0,
-  _RR,
-  0,
-  [_de, _rF],
-  [() => ReplicationDestinationList, () => RepositoryFilterList],
-];
-export var Repository$: StaticStructureSchema = [
-  3,
-  n0,
-  _Rep,
-  0,
-  [_rAe, _rI, _rN, _rUe, _cAr, _iTM, _iTMEF, _iSC, _eC],
-  [
-    0,
-    0,
-    0,
-    0,
-    4,
-    0,
-    () => ImageTagMutabilityExclusionFilters,
-    () => ImageScanningConfiguration$,
-    () => EncryptionConfiguration$,
-  ],
-];
-export var RepositoryAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(RepositoryAlreadyExistsException$, RepositoryAlreadyExistsException);
-export var RepositoryCreationTemplate$: StaticStructureSchema = [
-  3,
-  n0,
-  _RCT,
-  0,
-  [_pr, _d, _eC, _rT, _iTM, _iTMEF, _rP, _lP, _aF, _cRA, _cAr, _uA],
-  [
-    0,
-    0,
-    () => EncryptionConfigurationForRepositoryCreationTemplate$,
-    () => TagList,
-    0,
-    () => ImageTagMutabilityExclusionFilters,
-    0,
-    0,
-    64 | 0,
-    0,
-    4,
-    4,
-  ],
-];
-export var RepositoryFilter$: StaticStructureSchema = [3, n0, _RF, 0, [_fi, _fT], [0, 0]];
-export var RepositoryNotEmptyException$: StaticErrorSchema = [-3, n0, _RNEE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(RepositoryNotEmptyException$, RepositoryNotEmptyException);
-export var RepositoryNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(RepositoryNotFoundException$, RepositoryNotFoundException);
-export var RepositoryPolicyNotFoundException$: StaticErrorSchema = [-3, n0, _RPNFEe, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(RepositoryPolicyNotFoundException$, RepositoryPolicyNotFoundException);
-export var RepositoryScanningConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _RSCe,
-  0,
-  [_rAe, _rN, _sOP, _sF, _aSF],
-  [0, 0, 2, 0, () => ScanningRepositoryFilterList],
-];
-export var RepositoryScanningConfigurationFailure$: StaticStructureSchema = [
-  3,
-  n0,
-  _RSCF,
-  0,
-  [_rN, _fC, _fR],
-  [0, 0, 0],
-];
-export var Resource$: StaticStructureSchema = [
-  3,
-  n0,
-  _Res,
-  0,
-  [_det, _id, _t, _ty],
-  [() => ResourceDetails$, 0, 128 | 0, 0],
-];
-export var ResourceDetails$: StaticStructureSchema = [3, n0, _RDe, 0, [_aECI], [() => AwsEcrContainerImageDetails$]];
-export var ScanningRepositoryFilter$: StaticStructureSchema = [3, n0, _SRF, 0, [_fi, _fT], [0, 0]];
-export var ScanNotFoundException$: StaticErrorSchema = [-3, n0, _SNFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ScanNotFoundException$, ScanNotFoundException);
-export var ScoreDetails$: StaticStructureSchema = [3, n0, _SD, 0, [_cv], [() => CvssScoreDetails$]];
-export var SecretNotFoundException$: StaticErrorSchema = [-3, n0, _SNFEe, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(SecretNotFoundException$, SecretNotFoundException);
-export var ServerException$: StaticErrorSchema = [-3, n0, _SE, { [_e]: _ser }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ServerException$, ServerException);
-export var SetRepositoryPolicyRequest$: StaticStructureSchema = [3, n0, _SRPR, 0, [_rI, _rN, _pT, _fo], [0, 0, 0, 2]];
-export var SetRepositoryPolicyResponse$: StaticStructureSchema = [3, n0, _SRPRe, 0, [_rI, _rN, _pT], [0, 0, 0]];
-export var SigningConfiguration$: StaticStructureSchema = [3, n0, _SC, 0, [_ru], [() => SigningRuleList]];
-export var SigningConfigurationNotFoundException$: StaticErrorSchema = [-3, n0, _SCNFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(SigningConfigurationNotFoundException$, SigningConfigurationNotFoundException);
-export var SigningRepositoryFilter$: StaticStructureSchema = [3, n0, _SRFi, 0, [_fi, _fT], [0, 0]];
-export var SigningRule$: StaticStructureSchema = [3, n0, _SR, 0, [_sPA, _rF], [0, () => SigningRepositoryFilterList]];
-export var StartImageScanRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _SISR,
-  0,
-  [_rI, _rN, _iIm],
-  [0, 0, () => ImageIdentifier$],
-];
-export var StartImageScanResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _SISRt,
-  0,
-  [_rI, _rN, _iIm, _iSS],
-  [0, 0, () => ImageIdentifier$, () => ImageScanStatus$],
-];
-export var StartLifecyclePolicyPreviewRequest$: StaticStructureSchema = [3, n0, _SLPPR, 0, [_rI, _rN, _lPT], [0, 0, 0]];
-export var StartLifecyclePolicyPreviewResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _SLPPRt,
-  0,
-  [_rI, _rN, _lPT, _st],
-  [0, 0, 0, 0],
-];
-export var SubjectIdentifier$: StaticStructureSchema = [3, n0, _SI, 0, [_iDm], [0]];
-export var Tag$: StaticStructureSchema = [3, n0, _T, 0, [_K, _V], [0, 0]];
-export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rA, _t], [0, () => TagList]];
-export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TemplateAlreadyExistsException$: StaticErrorSchema = [-3, n0, _TAEE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(TemplateAlreadyExistsException$, TemplateAlreadyExistsException);
-export var TemplateNotFoundException$: StaticErrorSchema = [-3, n0, _TNFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(TemplateNotFoundException$, TemplateNotFoundException);
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
-export var TransitioningImageTotalCount$: StaticStructureSchema = [3, n0, _TITC, 0, [_tSC, _iTC], [0, 1]];
-export var UnableToAccessSecretException$: StaticErrorSchema = [-3, n0, _UTASE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UnableToAccessSecretException$, UnableToAccessSecretException);
-export var UnableToDecryptSecretValueException$: StaticErrorSchema = [-3, n0, _UTDSVE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UnableToDecryptSecretValueException$, UnableToDecryptSecretValueException);
-export var UnableToGetUpstreamImageException$: StaticErrorSchema = [-3, n0, _UTGUIE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UnableToGetUpstreamImageException$, UnableToGetUpstreamImageException);
-export var UnableToGetUpstreamLayerException$: StaticErrorSchema = [-3, n0, _UTGULE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UnableToGetUpstreamLayerException$, UnableToGetUpstreamLayerException);
-export var UnsupportedImageTypeException$: StaticErrorSchema = [-3, n0, _UITE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UnsupportedImageTypeException$, UnsupportedImageTypeException);
-export var UnsupportedUpstreamRegistryException$: StaticErrorSchema = [-3, n0, _UURE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UnsupportedUpstreamRegistryException$, UnsupportedUpstreamRegistryException);
-export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_rA, _tK], [0, 64 | 0]];
-export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateImageStorageClassRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UISCR,
-  0,
-  [_rI, _rN, _iIm, _tSC],
-  [0, 0, () => ImageIdentifier$, 0],
-];
-export var UpdateImageStorageClassResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _UISCRp,
-  0,
-  [_rI, _rN, _iIm, _iS],
-  [0, 0, () => ImageIdentifier$, 0],
-];
-export var UpdatePullThroughCacheRuleRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UPTCRR,
-  0,
-  [_rI, _eRP, _cA, _cRA],
-  [0, 0, 0, 0],
-];
-export var UpdatePullThroughCacheRuleResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _UPTCRRp,
-  0,
-  [_eRP, _rI, _uA, _cA, _cRA, _uRP],
-  [0, 0, 4, 0, 0, 0],
-];
-export var UpdateRepositoryCreationTemplateRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _URCTR,
+export var CreateRepositoryCreationTemplateRequest$: StaticStructureSchema = [3, n0, _CRCTR,
   0,
   [_pr, _d, _eC, _rT, _iTM, _iTMEF, _rP, _lP, _aF, _cRA],
-  [
-    0,
-    0,
-    () => EncryptionConfigurationForRepositoryCreationTemplate$,
-    () => TagList,
-    0,
-    () => ImageTagMutabilityExclusionFilters,
-    0,
-    0,
-    64 | 0,
-    0,
-  ],
+  [0, 0, () => EncryptionConfigurationForRepositoryCreationTemplate$, () => TagList, 0, () => ImageTagMutabilityExclusionFilters, 0, 0, 64 | 0, 0]
 ];
-export var UpdateRepositoryCreationTemplateResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _URCTRp,
+export var CreateRepositoryCreationTemplateResponse$: StaticStructureSchema = [3, n0, _CRCTRr,
   0,
   [_rI, _rCT],
-  [0, () => RepositoryCreationTemplate$],
+  [0, () => RepositoryCreationTemplate$]
 ];
-export var UploadLayerPartRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _ULPR,
+export var CreateRepositoryRequest$: StaticStructureSchema = [3, n0, _CRR,
+  0,
+  [_rI, _rN, _t, _iTM, _iTMEF, _iSC, _eC],
+  [0, 0, () => TagList, 0, () => ImageTagMutabilityExclusionFilters, () => ImageScanningConfiguration$, () => EncryptionConfiguration$]
+];
+export var CreateRepositoryResponse$: StaticStructureSchema = [3, n0, _CRRr,
+  0,
+  [_re],
+  [() => Repository$]
+];
+export var CvssScore$: StaticStructureSchema = [3, n0, _CS,
+  0,
+  [_bS, _sV, _s, _ve],
+  [1, 0, 0, 0]
+];
+export var CvssScoreAdjustment$: StaticStructureSchema = [3, n0, _CSA,
+  0,
+  [_me, _rea],
+  [0, 0]
+];
+export var CvssScoreDetails$: StaticStructureSchema = [3, n0, _CSD,
+  0,
+  [_ad, _sc, _sS, _sV, _ve],
+  [() => CvssScoreAdjustmentList, 1, 0, 0, 0]
+];
+export var DeleteLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _DLPR,
+  0,
+  [_rI, _rN],
+  [0, 0]
+];
+export var DeleteLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _DLPRe,
+  0,
+  [_rI, _rN, _lPT, _lEA],
+  [0, 0, 0, 4]
+];
+export var DeletePullThroughCacheRuleRequest$: StaticStructureSchema = [3, n0, _DPTCRR,
+  0,
+  [_eRP, _rI],
+  [0, 0]
+];
+export var DeletePullThroughCacheRuleResponse$: StaticStructureSchema = [3, n0, _DPTCRRe,
+  0,
+  [_eRP, _uRU, _cAr, _rI, _cA, _cRA, _uRP],
+  [0, 0, 4, 0, 0, 0, 0]
+];
+export var DeleteRegistryPolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
+  0,
+  [],
+  []
+];
+export var DeleteRegistryPolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe,
+  0,
+  [_rI, _pT],
+  [0, 0]
+];
+export var DeleteRepositoryCreationTemplateRequest$: StaticStructureSchema = [3, n0, _DRCTR,
+  0,
+  [_pr],
+  [0]
+];
+export var DeleteRepositoryCreationTemplateResponse$: StaticStructureSchema = [3, n0, _DRCTRe,
+  0,
+  [_rI, _rCT],
+  [0, () => RepositoryCreationTemplate$]
+];
+export var DeleteRepositoryPolicyRequest$: StaticStructureSchema = [3, n0, _DRPRel,
+  0,
+  [_rI, _rN],
+  [0, 0]
+];
+export var DeleteRepositoryPolicyResponse$: StaticStructureSchema = [3, n0, _DRPRele,
+  0,
+  [_rI, _rN, _pT],
+  [0, 0, 0]
+];
+export var DeleteRepositoryRequest$: StaticStructureSchema = [3, n0, _DRR,
+  0,
+  [_rI, _rN, _fo],
+  [0, 0, 2]
+];
+export var DeleteRepositoryResponse$: StaticStructureSchema = [3, n0, _DRRe,
+  0,
+  [_re],
+  [() => Repository$]
+];
+export var DeleteSigningConfigurationRequest$: StaticStructureSchema = [3, n0, _DSCR,
+  0,
+  [],
+  []
+];
+export var DeleteSigningConfigurationResponse$: StaticStructureSchema = [3, n0, _DSCRe,
+  0,
+  [_rI, _sCi],
+  [0, () => SigningConfiguration$]
+];
+export var DeregisterPullTimeUpdateExclusionRequest$: StaticStructureSchema = [3, n0, _DPTUER,
+  0,
+  [_pAr],
+  [0]
+];
+export var DeregisterPullTimeUpdateExclusionResponse$: StaticStructureSchema = [3, n0, _DPTUERe,
+  0,
+  [_pAr],
+  [0]
+];
+export var DescribeImageReplicationStatusRequest$: StaticStructureSchema = [3, n0, _DIRSR,
+  0,
+  [_rN, _iIm, _rI],
+  [0, () => ImageIdentifier$, 0]
+];
+export var DescribeImageReplicationStatusResponse$: StaticStructureSchema = [3, n0, _DIRSRe,
+  0,
+  [_rN, _iIm, _rS],
+  [0, () => ImageIdentifier$, () => ImageReplicationStatusList]
+];
+export var DescribeImageScanFindingsRequest$: StaticStructureSchema = [3, n0, _DISFR,
+  0,
+  [_rI, _rN, _iIm, _nT, _mR],
+  [0, 0, () => ImageIdentifier$, 0, 1]
+];
+export var DescribeImageScanFindingsResponse$: StaticStructureSchema = [3, n0, _DISFRe,
+  0,
+  [_rI, _rN, _iIm, _iSS, _iSF, _nT],
+  [0, 0, () => ImageIdentifier$, () => ImageScanStatus$, () => ImageScanFindings$, 0]
+];
+export var DescribeImagesFilter$: StaticStructureSchema = [3, n0, _DIF,
+  0,
+  [_tS, _iS],
+  [0, 0]
+];
+export var DescribeImageSigningStatusRequest$: StaticStructureSchema = [3, n0, _DISSR,
+  0,
+  [_rN, _iIm, _rI],
+  [0, () => ImageIdentifier$, 0]
+];
+export var DescribeImageSigningStatusResponse$: StaticStructureSchema = [3, n0, _DISSRe,
+  0,
+  [_rN, _iIm, _rI, _sSi],
+  [0, () => ImageIdentifier$, 0, () => ImageSigningStatusList]
+];
+export var DescribeImagesRequest$: StaticStructureSchema = [3, n0, _DIR,
+  0,
+  [_rI, _rN, _iI, _nT, _mR, _fi],
+  [0, 0, () => ImageIdentifierList, 0, 1, () => DescribeImagesFilter$]
+];
+export var DescribeImagesResponse$: StaticStructureSchema = [3, n0, _DIRe,
+  0,
+  [_iD, _nT],
+  [() => ImageDetailList, 0]
+];
+export var DescribePullThroughCacheRulesRequest$: StaticStructureSchema = [3, n0, _DPTCRRes,
+  0,
+  [_rI, _eRPc, _nT, _mR],
+  [0, 64 | 0, 0, 1]
+];
+export var DescribePullThroughCacheRulesResponse$: StaticStructureSchema = [3, n0, _DPTCRResc,
+  0,
+  [_pTCR, _nT],
+  [() => PullThroughCacheRuleList, 0]
+];
+export var DescribeRegistryRequest$: StaticStructureSchema = [3, n0, _DRRes,
+  0,
+  [],
+  []
+];
+export var DescribeRegistryResponse$: StaticStructureSchema = [3, n0, _DRResc,
+  0,
+  [_rI, _rC],
+  [0, () => ReplicationConfiguration$]
+];
+export var DescribeRepositoriesRequest$: StaticStructureSchema = [3, n0, _DRRescr,
+  0,
+  [_rI, _rNe, _nT, _mR],
+  [0, 64 | 0, 0, 1]
+];
+export var DescribeRepositoriesResponse$: StaticStructureSchema = [3, n0, _DRRescri,
+  0,
+  [_rep, _nT],
+  [() => RepositoryList, 0]
+];
+export var DescribeRepositoryCreationTemplatesRequest$: StaticStructureSchema = [3, n0, _DRCTRes,
+  0,
+  [_pre, _nT, _mR],
+  [64 | 0, 0, 1]
+];
+export var DescribeRepositoryCreationTemplatesResponse$: StaticStructureSchema = [3, n0, _DRCTResc,
+  0,
+  [_rI, _rCTe, _nT],
+  [0, () => RepositoryCreationTemplateList, 0]
+];
+export var EmptyUploadException$: StaticErrorSchema = [-3, n0, _EUE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(EmptyUploadException$, EmptyUploadException);
+export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
+  0,
+  [_eT, _kK],
+  [0, 0]
+];
+export var EncryptionConfigurationForRepositoryCreationTemplate$: StaticStructureSchema = [3, n0, _ECFRCT,
+  0,
+  [_eT, _kK],
+  [0, 0]
+];
+export var EnhancedImageScanFinding$: StaticStructureSchema = [3, n0, _EISF,
+  0,
+  [_aAI, _d, _fA, _fOA, _lOA, _pVD, _rem, _res, _sc, _sD, _se, _st, _ti, _ty, _uA, _fAi, _eAx],
+  [0, 0, 0, 4, 4, () => PackageVulnerabilityDetails$, () => Remediation$, () => ResourceList, 1, () => ScoreDetails$, 0, 0, 0, 0, 4, 0, 0]
+];
+export var ExclusionAlreadyExistsException$: StaticErrorSchema = [-3, n0, _EAEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ExclusionAlreadyExistsException$, ExclusionAlreadyExistsException);
+export var ExclusionNotFoundException$: StaticErrorSchema = [-3, n0, _ENFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ExclusionNotFoundException$, ExclusionNotFoundException);
+export var GetAccountSettingRequest$: StaticStructureSchema = [3, n0, _GASR,
+  0,
+  [_n],
+  [0]
+];
+export var GetAccountSettingResponse$: StaticStructureSchema = [3, n0, _GASRe,
+  0,
+  [_n, _v],
+  [0, 0]
+];
+export var GetAuthorizationTokenRequest$: StaticStructureSchema = [3, n0, _GATR,
+  0,
+  [_rIe],
+  [64 | 0]
+];
+export var GetAuthorizationTokenResponse$: StaticStructureSchema = [3, n0, _GATRe,
+  0,
+  [_aD],
+  [() => AuthorizationDataList]
+];
+export var GetDownloadUrlForLayerRequest$: StaticStructureSchema = [3, n0, _GDUFLR,
+  0,
+  [_rI, _rN, _lDa],
+  [0, 0, 0]
+];
+export var GetDownloadUrlForLayerResponse$: StaticStructureSchema = [3, n0, _GDUFLRe,
+  0,
+  [_dU, _lDa],
+  [0, 0]
+];
+export var GetLifecyclePolicyPreviewRequest$: StaticStructureSchema = [3, n0, _GLPPR,
+  0,
+  [_rI, _rN, _iI, _nT, _mR, _fi],
+  [0, 0, () => ImageIdentifierList, 0, 1, () => LifecyclePolicyPreviewFilter$]
+];
+export var GetLifecyclePolicyPreviewResponse$: StaticStructureSchema = [3, n0, _GLPPRe,
+  0,
+  [_rI, _rN, _lPT, _st, _nT, _pR, _su],
+  [0, 0, 0, 0, 0, () => LifecyclePolicyPreviewResultList, () => LifecyclePolicyPreviewSummary$]
+];
+export var GetLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _GLPR,
+  0,
+  [_rI, _rN],
+  [0, 0]
+];
+export var GetLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _GLPRe,
+  0,
+  [_rI, _rN, _lPT, _lEA],
+  [0, 0, 0, 4]
+];
+export var GetRegistryPolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
+  0,
+  [],
+  []
+];
+export var GetRegistryPolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
+  0,
+  [_rI, _pT],
+  [0, 0]
+];
+export var GetRegistryScanningConfigurationRequest$: StaticStructureSchema = [3, n0, _GRSCR,
+  0,
+  [],
+  []
+];
+export var GetRegistryScanningConfigurationResponse$: StaticStructureSchema = [3, n0, _GRSCRe,
+  0,
+  [_rI, _sCc],
+  [0, () => RegistryScanningConfiguration$]
+];
+export var GetRepositoryPolicyRequest$: StaticStructureSchema = [3, n0, _GRPRet,
+  0,
+  [_rI, _rN],
+  [0, 0]
+];
+export var GetRepositoryPolicyResponse$: StaticStructureSchema = [3, n0, _GRPRete,
+  0,
+  [_rI, _rN, _pT],
+  [0, 0, 0]
+];
+export var GetSigningConfigurationRequest$: StaticStructureSchema = [3, n0, _GSCR,
+  0,
+  [],
+  []
+];
+export var GetSigningConfigurationResponse$: StaticStructureSchema = [3, n0, _GSCRe,
+  0,
+  [_rI, _sCi],
+  [0, () => SigningConfiguration$]
+];
+export var Image$: StaticStructureSchema = [3, n0, _I,
+  0,
+  [_rI, _rN, _iIm, _iM, _iMMT],
+  [0, 0, () => ImageIdentifier$, 0, 0]
+];
+export var ImageAlreadyExistsException$: StaticErrorSchema = [-3, n0, _IAEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ImageAlreadyExistsException$, ImageAlreadyExistsException);
+export var ImageArchivedException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ImageArchivedException$, ImageArchivedException);
+export var ImageDetail$: StaticStructureSchema = [3, n0, _ID,
+  0,
+  [_rI, _rN, _iDm, _iT, _iSIB, _iPA, _iSS, _iSFS, _iMMT, _aMTr, _lRPT, _sMD, _iS, _lAA, _lAAa],
+  [0, 0, 0, 64 | 0, 1, 4, () => ImageScanStatus$, () => ImageScanFindingsSummary$, 0, 0, 4, 0, 0, 4, 4]
+];
+export var ImageDigestDoesNotMatchException$: StaticErrorSchema = [-3, n0, _IDDNME,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ImageDigestDoesNotMatchException$, ImageDigestDoesNotMatchException);
+export var ImageFailure$: StaticStructureSchema = [3, n0, _IF,
+  0,
+  [_iIm, _fC, _fR],
+  [() => ImageIdentifier$, 0, 0]
+];
+export var ImageIdentifier$: StaticStructureSchema = [3, n0, _II,
+  0,
+  [_iDm, _iTm],
+  [0, 0]
+];
+export var ImageNotFoundException$: StaticErrorSchema = [-3, n0, _INFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ImageNotFoundException$, ImageNotFoundException);
+export var ImageReferrer$: StaticStructureSchema = [3, n0, _IR,
+  0,
+  [_di, _mT, _aTr, _si, _an, _aS],
+  [0, 0, 0, 1, 128 | 0, 0]
+];
+export var ImageReplicationStatus$: StaticStructureSchema = [3, n0, _IRS,
+  0,
+  [_reg, _rI, _st, _fC],
+  [0, 0, 0, 0]
+];
+export var ImageScanFinding$: StaticStructureSchema = [3, n0, _ISF,
+  0,
+  [_n, _d, _u, _se, _at],
+  [0, 0, 0, 0, () => AttributeList]
+];
+export var ImageScanFindings$: StaticStructureSchema = [3, n0, _ISFm,
+  0,
+  [_iSCA, _vSUA, _fSC, _fin, _eF],
+  [4, 4, 128 | 1, () => ImageScanFindingList, () => EnhancedImageScanFindingList]
+];
+export var ImageScanFindingsSummary$: StaticStructureSchema = [3, n0, _ISFS,
+  0,
+  [_iSCA, _vSUA, _fSC],
+  [4, 4, 128 | 1]
+];
+export var ImageScanningConfiguration$: StaticStructureSchema = [3, n0, _ISC,
+  0,
+  [_sOP],
+  [2]
+];
+export var ImageScanStatus$: StaticStructureSchema = [3, n0, _ISS,
+  0,
+  [_st, _d],
+  [0, 0]
+];
+export var ImageSigningStatus$: StaticStructureSchema = [3, n0, _ISSm,
+  0,
+  [_sPA, _fC, _fR, _st],
+  [0, 0, 0, 0]
+];
+export var ImageStorageClassUpdateNotSupportedException$: StaticErrorSchema = [-3, n0, _ISCUNSE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ImageStorageClassUpdateNotSupportedException$, ImageStorageClassUpdateNotSupportedException);
+export var ImageTagAlreadyExistsException$: StaticErrorSchema = [-3, n0, _ITAEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ImageTagAlreadyExistsException$, ImageTagAlreadyExistsException);
+export var ImageTagMutabilityExclusionFilter$: StaticStructureSchema = [3, n0, _ITMEF,
+  0,
+  [_fT, _fi],
+  [0, 0]
+];
+export var InitiateLayerUploadRequest$: StaticStructureSchema = [3, n0, _ILUR,
+  0,
+  [_rI, _rN],
+  [0, 0]
+];
+export var InitiateLayerUploadResponse$: StaticStructureSchema = [3, n0, _ILURn,
+  0,
+  [_uI, _pS],
+  [0, 1]
+];
+export var InvalidLayerException$: StaticErrorSchema = [-3, n0, _ILE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidLayerException$, InvalidLayerException);
+export var InvalidLayerPartException$: StaticErrorSchema = [-3, n0, _ILPE,
+  { [_e]: _c },
+  [_rI, _rN, _uI, _lVBR, _m],
+  [0, 0, 0, 1, 0]
+];
+TypeRegistry.for(n0).registerError(InvalidLayerPartException$, InvalidLayerPartException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
+export var InvalidTagParameterException$: StaticErrorSchema = [-3, n0, _ITPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidTagParameterException$, InvalidTagParameterException);
+export var KmsException$: StaticErrorSchema = [-3, n0, _KE,
+  { [_e]: _c },
+  [_m, _kE],
+  [0, 0]
+];
+TypeRegistry.for(n0).registerError(KmsException$, KmsException);
+export var Layer$: StaticStructureSchema = [3, n0, _L,
+  0,
+  [_lDa, _lA, _lS, _mT],
+  [0, 0, 1, 0]
+];
+export var LayerAlreadyExistsException$: StaticErrorSchema = [-3, n0, _LAEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(LayerAlreadyExistsException$, LayerAlreadyExistsException);
+export var LayerFailure$: StaticStructureSchema = [3, n0, _LF,
+  0,
+  [_lDa, _fC, _fR],
+  [0, 0, 0]
+];
+export var LayerInaccessibleException$: StaticErrorSchema = [-3, n0, _LIE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(LayerInaccessibleException$, LayerInaccessibleException);
+export var LayerPartTooSmallException$: StaticErrorSchema = [-3, n0, _LPTSE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(LayerPartTooSmallException$, LayerPartTooSmallException);
+export var LayersNotFoundException$: StaticErrorSchema = [-3, n0, _LNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(LayersNotFoundException$, LayersNotFoundException);
+export var LifecyclePolicyNotFoundException$: StaticErrorSchema = [-3, n0, _LPNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(LifecyclePolicyNotFoundException$, LifecyclePolicyNotFoundException);
+export var LifecyclePolicyPreviewFilter$: StaticStructureSchema = [3, n0, _LPPF,
+  0,
+  [_tS],
+  [0]
+];
+export var LifecyclePolicyPreviewInProgressException$: StaticErrorSchema = [-3, n0, _LPPIPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(LifecyclePolicyPreviewInProgressException$, LifecyclePolicyPreviewInProgressException);
+export var LifecyclePolicyPreviewNotFoundException$: StaticErrorSchema = [-3, n0, _LPPNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(LifecyclePolicyPreviewNotFoundException$, LifecyclePolicyPreviewNotFoundException);
+export var LifecyclePolicyPreviewResult$: StaticStructureSchema = [3, n0, _LPPR,
+  0,
+  [_iT, _iDm, _iPA, _ac, _aRP, _sCt],
+  [64 | 0, 0, 4, () => LifecyclePolicyRuleAction$, 1, 0]
+];
+export var LifecyclePolicyPreviewSummary$: StaticStructureSchema = [3, n0, _LPPS,
+  0,
+  [_eITC, _tITC],
+  [1, () => TransitioningImageTotalCounts]
+];
+export var LifecyclePolicyRuleAction$: StaticStructureSchema = [3, n0, _LPRA,
+  0,
+  [_ty, _tSC],
+  [0, 0]
+];
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var ListImageReferrersFilter$: StaticStructureSchema = [3, n0, _LIRF,
+  0,
+  [_aTrt, _aS],
+  [64 | 0, 0]
+];
+export var ListImageReferrersRequest$: StaticStructureSchema = [3, n0, _LIRR,
+  0,
+  [_rI, _rN, _sI, _fi, _nT, _mR],
+  [0, 0, () => SubjectIdentifier$, () => ListImageReferrersFilter$, 0, 1]
+];
+export var ListImageReferrersResponse$: StaticStructureSchema = [3, n0, _LIRRi,
+  0,
+  [_ref, _nT],
+  [() => ImageReferrerList, 0]
+];
+export var ListImagesFilter$: StaticStructureSchema = [3, n0, _LIF,
+  0,
+  [_tS, _iS],
+  [0, 0]
+];
+export var ListImagesRequest$: StaticStructureSchema = [3, n0, _LIR,
+  0,
+  [_rI, _rN, _nT, _mR, _fi],
+  [0, 0, 0, 1, () => ListImagesFilter$]
+];
+export var ListImagesResponse$: StaticStructureSchema = [3, n0, _LIRi,
+  0,
+  [_iI, _nT],
+  [() => ImageIdentifierList, 0]
+];
+export var ListPullTimeUpdateExclusionsRequest$: StaticStructureSchema = [3, n0, _LPTUER,
+  0,
+  [_mR, _nT],
+  [1, 0]
+];
+export var ListPullTimeUpdateExclusionsResponse$: StaticStructureSchema = [3, n0, _LPTUERi,
+  0,
+  [_pTUE, _nT],
+  [64 | 0, 0]
+];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
+  0,
+  [_rA],
+  [0]
+];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
+  0,
+  [_t],
+  [() => TagList]
+];
+export var PackageVulnerabilityDetails$: StaticStructureSchema = [3, n0, _PVD,
+  0,
+  [_cv, _rU, _rV, _s, _sU, _vCA, _vS, _vUA, _vI, _vP],
+  [() => CvssScoreList, 64 | 0, 64 | 0, 0, 0, 4, 0, 4, 0, () => VulnerablePackagesList]
+];
+export var PullThroughCacheRule$: StaticStructureSchema = [3, n0, _PTCR,
+  0,
+  [_eRP, _uRU, _cAr, _rI, _cA, _cRA, _uRP, _uR, _uA],
+  [0, 0, 4, 0, 0, 0, 0, 0, 4]
+];
+export var PullThroughCacheRuleAlreadyExistsException$: StaticErrorSchema = [-3, n0, _PTCRAEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(PullThroughCacheRuleAlreadyExistsException$, PullThroughCacheRuleAlreadyExistsException);
+export var PullThroughCacheRuleNotFoundException$: StaticErrorSchema = [-3, n0, _PTCRNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(PullThroughCacheRuleNotFoundException$, PullThroughCacheRuleNotFoundException);
+export var PutAccountSettingRequest$: StaticStructureSchema = [3, n0, _PASR,
+  0,
+  [_n, _v],
+  [0, 0]
+];
+export var PutAccountSettingResponse$: StaticStructureSchema = [3, n0, _PASRu,
+  0,
+  [_n, _v],
+  [0, 0]
+];
+export var PutImageRequest$: StaticStructureSchema = [3, n0, _PIR,
+  0,
+  [_rI, _rN, _iM, _iMMT, _iTm, _iDm],
+  [0, 0, 0, 0, 0, 0]
+];
+export var PutImageResponse$: StaticStructureSchema = [3, n0, _PIRu,
+  0,
+  [_im],
+  [() => Image$]
+];
+export var PutImageScanningConfigurationRequest$: StaticStructureSchema = [3, n0, _PISCR,
+  0,
+  [_rI, _rN, _iSC],
+  [0, 0, () => ImageScanningConfiguration$]
+];
+export var PutImageScanningConfigurationResponse$: StaticStructureSchema = [3, n0, _PISCRu,
+  0,
+  [_rI, _rN, _iSC],
+  [0, 0, () => ImageScanningConfiguration$]
+];
+export var PutImageTagMutabilityRequest$: StaticStructureSchema = [3, n0, _PITMR,
+  0,
+  [_rI, _rN, _iTM, _iTMEF],
+  [0, 0, 0, () => ImageTagMutabilityExclusionFilters]
+];
+export var PutImageTagMutabilityResponse$: StaticStructureSchema = [3, n0, _PITMRu,
+  0,
+  [_rI, _rN, _iTM, _iTMEF],
+  [0, 0, 0, () => ImageTagMutabilityExclusionFilters]
+];
+export var PutLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _PLPR,
+  0,
+  [_rI, _rN, _lPT],
+  [0, 0, 0]
+];
+export var PutLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _PLPRu,
+  0,
+  [_rI, _rN, _lPT],
+  [0, 0, 0]
+];
+export var PutRegistryPolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
+  0,
+  [_pT],
+  [0]
+];
+export var PutRegistryPolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
+  0,
+  [_rI, _pT],
+  [0, 0]
+];
+export var PutRegistryScanningConfigurationRequest$: StaticStructureSchema = [3, n0, _PRSCR,
+  0,
+  [_sT, _ru],
+  [0, () => RegistryScanningRuleList]
+];
+export var PutRegistryScanningConfigurationResponse$: StaticStructureSchema = [3, n0, _PRSCRu,
+  0,
+  [_rSC],
+  [() => RegistryScanningConfiguration$]
+];
+export var PutReplicationConfigurationRequest$: StaticStructureSchema = [3, n0, _PRCR,
+  0,
+  [_rC],
+  [() => ReplicationConfiguration$]
+];
+export var PutReplicationConfigurationResponse$: StaticStructureSchema = [3, n0, _PRCRu,
+  0,
+  [_rC],
+  [() => ReplicationConfiguration$]
+];
+export var PutSigningConfigurationRequest$: StaticStructureSchema = [3, n0, _PSCR,
+  0,
+  [_sCi],
+  [() => SigningConfiguration$]
+];
+export var PutSigningConfigurationResponse$: StaticStructureSchema = [3, n0, _PSCRu,
+  0,
+  [_sCi],
+  [() => SigningConfiguration$]
+];
+export var Recommendation$: StaticStructureSchema = [3, n0, _R,
+  0,
+  [_ur, _te],
+  [0, 0]
+];
+export var ReferencedImagesNotFoundException$: StaticErrorSchema = [-3, n0, _RINFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ReferencedImagesNotFoundException$, ReferencedImagesNotFoundException);
+export var RegisterPullTimeUpdateExclusionRequest$: StaticStructureSchema = [3, n0, _RPTUER,
+  0,
+  [_pAr],
+  [0]
+];
+export var RegisterPullTimeUpdateExclusionResponse$: StaticStructureSchema = [3, n0, _RPTUERe,
+  0,
+  [_pAr, _cAr],
+  [0, 4]
+];
+export var RegistryPolicyNotFoundException$: StaticErrorSchema = [-3, n0, _RPNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(RegistryPolicyNotFoundException$, RegistryPolicyNotFoundException);
+export var RegistryScanningConfiguration$: StaticStructureSchema = [3, n0, _RSC,
+  0,
+  [_sT, _ru],
+  [0, () => RegistryScanningRuleList]
+];
+export var RegistryScanningRule$: StaticStructureSchema = [3, n0, _RSR,
+  0,
+  [_sF, _rF],
+  [0, () => ScanningRepositoryFilterList]
+];
+export var Remediation$: StaticStructureSchema = [3, n0, _Re,
+  0,
+  [_rec],
+  [() => Recommendation$]
+];
+export var ReplicationConfiguration$: StaticStructureSchema = [3, n0, _RC,
+  0,
+  [_ru],
+  [() => ReplicationRuleList]
+];
+export var ReplicationDestination$: StaticStructureSchema = [3, n0, _RD,
+  0,
+  [_reg, _rI],
+  [0, 0]
+];
+export var ReplicationRule$: StaticStructureSchema = [3, n0, _RR,
+  0,
+  [_de, _rF],
+  [() => ReplicationDestinationList, () => RepositoryFilterList]
+];
+export var Repository$: StaticStructureSchema = [3, n0, _Rep,
+  0,
+  [_rAe, _rI, _rN, _rUe, _cAr, _iTM, _iTMEF, _iSC, _eC],
+  [0, 0, 0, 0, 4, 0, () => ImageTagMutabilityExclusionFilters, () => ImageScanningConfiguration$, () => EncryptionConfiguration$]
+];
+export var RepositoryAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(RepositoryAlreadyExistsException$, RepositoryAlreadyExistsException);
+export var RepositoryCreationTemplate$: StaticStructureSchema = [3, n0, _RCT,
+  0,
+  [_pr, _d, _eC, _rT, _iTM, _iTMEF, _rP, _lP, _aF, _cRA, _cAr, _uA],
+  [0, 0, () => EncryptionConfigurationForRepositoryCreationTemplate$, () => TagList, 0, () => ImageTagMutabilityExclusionFilters, 0, 0, 64 | 0, 0, 4, 4]
+];
+export var RepositoryFilter$: StaticStructureSchema = [3, n0, _RF,
+  0,
+  [_fi, _fT],
+  [0, 0]
+];
+export var RepositoryNotEmptyException$: StaticErrorSchema = [-3, n0, _RNEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(RepositoryNotEmptyException$, RepositoryNotEmptyException);
+export var RepositoryNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(RepositoryNotFoundException$, RepositoryNotFoundException);
+export var RepositoryPolicyNotFoundException$: StaticErrorSchema = [-3, n0, _RPNFEe,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(RepositoryPolicyNotFoundException$, RepositoryPolicyNotFoundException);
+export var RepositoryScanningConfiguration$: StaticStructureSchema = [3, n0, _RSCe,
+  0,
+  [_rAe, _rN, _sOP, _sF, _aSF],
+  [0, 0, 2, 0, () => ScanningRepositoryFilterList]
+];
+export var RepositoryScanningConfigurationFailure$: StaticStructureSchema = [3, n0, _RSCF,
+  0,
+  [_rN, _fC, _fR],
+  [0, 0, 0]
+];
+export var Resource$: StaticStructureSchema = [3, n0, _Res,
+  0,
+  [_det, _id, _t, _ty],
+  [() => ResourceDetails$, 0, 128 | 0, 0]
+];
+export var ResourceDetails$: StaticStructureSchema = [3, n0, _RDe,
+  0,
+  [_aECI],
+  [() => AwsEcrContainerImageDetails$]
+];
+export var ScanningRepositoryFilter$: StaticStructureSchema = [3, n0, _SRF,
+  0,
+  [_fi, _fT],
+  [0, 0]
+];
+export var ScanNotFoundException$: StaticErrorSchema = [-3, n0, _SNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ScanNotFoundException$, ScanNotFoundException);
+export var ScoreDetails$: StaticStructureSchema = [3, n0, _SD,
+  0,
+  [_cv],
+  [() => CvssScoreDetails$]
+];
+export var SecretNotFoundException$: StaticErrorSchema = [-3, n0, _SNFEe,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(SecretNotFoundException$, SecretNotFoundException);
+export var ServerException$: StaticErrorSchema = [-3, n0, _SE,
+  { [_e]: _ser },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ServerException$, ServerException);
+export var SetRepositoryPolicyRequest$: StaticStructureSchema = [3, n0, _SRPR,
+  0,
+  [_rI, _rN, _pT, _fo],
+  [0, 0, 0, 2]
+];
+export var SetRepositoryPolicyResponse$: StaticStructureSchema = [3, n0, _SRPRe,
+  0,
+  [_rI, _rN, _pT],
+  [0, 0, 0]
+];
+export var SigningConfiguration$: StaticStructureSchema = [3, n0, _SC,
+  0,
+  [_ru],
+  [() => SigningRuleList]
+];
+export var SigningConfigurationNotFoundException$: StaticErrorSchema = [-3, n0, _SCNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(SigningConfigurationNotFoundException$, SigningConfigurationNotFoundException);
+export var SigningRepositoryFilter$: StaticStructureSchema = [3, n0, _SRFi,
+  0,
+  [_fi, _fT],
+  [0, 0]
+];
+export var SigningRule$: StaticStructureSchema = [3, n0, _SR,
+  0,
+  [_sPA, _rF],
+  [0, () => SigningRepositoryFilterList]
+];
+export var StartImageScanRequest$: StaticStructureSchema = [3, n0, _SISR,
+  0,
+  [_rI, _rN, _iIm],
+  [0, 0, () => ImageIdentifier$]
+];
+export var StartImageScanResponse$: StaticStructureSchema = [3, n0, _SISRt,
+  0,
+  [_rI, _rN, _iIm, _iSS],
+  [0, 0, () => ImageIdentifier$, () => ImageScanStatus$]
+];
+export var StartLifecyclePolicyPreviewRequest$: StaticStructureSchema = [3, n0, _SLPPR,
+  0,
+  [_rI, _rN, _lPT],
+  [0, 0, 0]
+];
+export var StartLifecyclePolicyPreviewResponse$: StaticStructureSchema = [3, n0, _SLPPRt,
+  0,
+  [_rI, _rN, _lPT, _st],
+  [0, 0, 0, 0]
+];
+export var SubjectIdentifier$: StaticStructureSchema = [3, n0, _SI,
+  0,
+  [_iDm],
+  [0]
+];
+export var Tag$: StaticStructureSchema = [3, n0, _T,
+  0,
+  [_K, _V],
+  [0, 0]
+];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
+  0,
+  [_rA, _t],
+  [0, () => TagList]
+];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
+  0,
+  [],
+  []
+];
+export var TemplateAlreadyExistsException$: StaticErrorSchema = [-3, n0, _TAEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TemplateAlreadyExistsException$, TemplateAlreadyExistsException);
+export var TemplateNotFoundException$: StaticErrorSchema = [-3, n0, _TNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TemplateNotFoundException$, TemplateNotFoundException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
+export var TransitioningImageTotalCount$: StaticStructureSchema = [3, n0, _TITC,
+  0,
+  [_tSC, _iTC],
+  [0, 1]
+];
+export var UnableToAccessSecretException$: StaticErrorSchema = [-3, n0, _UTASE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(UnableToAccessSecretException$, UnableToAccessSecretException);
+export var UnableToDecryptSecretValueException$: StaticErrorSchema = [-3, n0, _UTDSVE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(UnableToDecryptSecretValueException$, UnableToDecryptSecretValueException);
+export var UnableToGetUpstreamImageException$: StaticErrorSchema = [-3, n0, _UTGUIE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(UnableToGetUpstreamImageException$, UnableToGetUpstreamImageException);
+export var UnableToGetUpstreamLayerException$: StaticErrorSchema = [-3, n0, _UTGULE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(UnableToGetUpstreamLayerException$, UnableToGetUpstreamLayerException);
+export var UnsupportedImageTypeException$: StaticErrorSchema = [-3, n0, _UITE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(UnsupportedImageTypeException$, UnsupportedImageTypeException);
+export var UnsupportedUpstreamRegistryException$: StaticErrorSchema = [-3, n0, _UURE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(UnsupportedUpstreamRegistryException$, UnsupportedUpstreamRegistryException);
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
+  0,
+  [_rA, _tK],
+  [0, 64 | 0]
+];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
+  0,
+  [],
+  []
+];
+export var UpdateImageStorageClassRequest$: StaticStructureSchema = [3, n0, _UISCR,
+  0,
+  [_rI, _rN, _iIm, _tSC],
+  [0, 0, () => ImageIdentifier$, 0]
+];
+export var UpdateImageStorageClassResponse$: StaticStructureSchema = [3, n0, _UISCRp,
+  0,
+  [_rI, _rN, _iIm, _iS],
+  [0, 0, () => ImageIdentifier$, 0]
+];
+export var UpdatePullThroughCacheRuleRequest$: StaticStructureSchema = [3, n0, _UPTCRR,
+  0,
+  [_rI, _eRP, _cA, _cRA],
+  [0, 0, 0, 0]
+];
+export var UpdatePullThroughCacheRuleResponse$: StaticStructureSchema = [3, n0, _UPTCRRp,
+  0,
+  [_eRP, _rI, _uA, _cA, _cRA, _uRP],
+  [0, 0, 4, 0, 0, 0]
+];
+export var UpdateRepositoryCreationTemplateRequest$: StaticStructureSchema = [3, n0, _URCTR,
+  0,
+  [_pr, _d, _eC, _rT, _iTM, _iTMEF, _rP, _lP, _aF, _cRA],
+  [0, 0, () => EncryptionConfigurationForRepositoryCreationTemplate$, () => TagList, 0, () => ImageTagMutabilityExclusionFilters, 0, 0, 64 | 0, 0]
+];
+export var UpdateRepositoryCreationTemplateResponse$: StaticStructureSchema = [3, n0, _URCTRp,
+  0,
+  [_rI, _rCT],
+  [0, () => RepositoryCreationTemplate$]
+];
+export var UploadLayerPartRequest$: StaticStructureSchema = [3, n0, _ULPR,
   0,
   [_rI, _rN, _uI, _pFB, _pLB, _lPB],
-  [0, 0, 0, 1, 1, 21],
+  [0, 0, 0, 1, 1, 21]
 ];
-export var UploadLayerPartResponse$: StaticStructureSchema = [3, n0, _ULPRp, 0, [_rI, _rN, _uI, _lBR], [0, 0, 0, 1]];
-export var UploadNotFoundException$: StaticErrorSchema = [-3, n0, _UNFE, { [_e]: _c }, [_m], [0]];
+export var UploadLayerPartResponse$: StaticStructureSchema = [3, n0, _ULPRp,
+  0,
+  [_rI, _rN, _uI, _lBR],
+  [0, 0, 0, 1]
+];
+export var UploadNotFoundException$: StaticErrorSchema = [-3, n0, _UNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(UploadNotFoundException$, UploadNotFoundException);
-export var ValidatePullThroughCacheRuleRequest$: StaticStructureSchema = [3, n0, _VPTCRR, 0, [_eRP, _rI], [0, 0]];
-export var ValidatePullThroughCacheRuleResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _VPTCRRa,
+export var ValidatePullThroughCacheRuleRequest$: StaticStructureSchema = [3, n0, _VPTCRR,
+  0,
+  [_eRP, _rI],
+  [0, 0]
+];
+export var ValidatePullThroughCacheRuleResponse$: StaticStructureSchema = [3, n0, _VPTCRRa,
   0,
   [_eRP, _rI, _uRU, _cA, _cRA, _uRP, _iV, _fa],
-  [0, 0, 0, 0, 0, 0, 2, 0],
+  [0, 0, 0, 0, 0, 0, 2, 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var VulnerablePackage$: StaticStructureSchema = [
-  3,
-  n0,
-  _VP,
+export var VulnerablePackage$: StaticStructureSchema = [3, n0, _VP,
   0,
   [_ar, _ep, _fP, _n, _pM, _rel, _sLH, _ve, _fIV],
-  [0, 1, 0, 0, 0, 0, 0, 0, 0],
+  [0, 1, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var ECRServiceException$: StaticErrorSchema = [-3, _sm, "ECRServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(ECRServiceException$, ECRServiceException);
 var ArtifactTypeList = 64 | 0;
-var AttributeList: StaticListSchema = [1, n0, _AL, 0, () => Attribute$];
-var AuthorizationDataList: StaticListSchema = [1, n0, _ADL, 0, () => AuthorizationData$];
+var AttributeList: StaticListSchema = [1, n0, _AL,
+  0, () => Attribute$
+];
+var AuthorizationDataList: StaticListSchema = [1, n0, _ADL,
+  0, () => AuthorizationData$
+];
 var BatchedOperationLayerDigestList = 64 | 0;
-var CvssScoreAdjustmentList: StaticListSchema = [1, n0, _CSAL, 0, () => CvssScoreAdjustment$];
-var CvssScoreList: StaticListSchema = [1, n0, _CSL, 0, () => CvssScore$];
-var EnhancedImageScanFindingList: StaticListSchema = [1, n0, _EISFL, 0, () => EnhancedImageScanFinding$];
+var CvssScoreAdjustmentList: StaticListSchema = [1, n0, _CSAL,
+  0, () => CvssScoreAdjustment$
+];
+var CvssScoreList: StaticListSchema = [1, n0, _CSL,
+  0, () => CvssScore$
+];
+var EnhancedImageScanFindingList: StaticListSchema = [1, n0, _EISFL,
+  0, () => EnhancedImageScanFinding$
+];
 var GetAuthorizationTokenRegistryIdList = 64 | 0;
-var ImageDetailList: StaticListSchema = [1, n0, _IDL, 0, () => ImageDetail$];
-var ImageFailureList: StaticListSchema = [1, n0, _IFL, 0, () => ImageFailure$];
-var ImageIdentifierList: StaticListSchema = [1, n0, _IIL, 0, () => ImageIdentifier$];
-var ImageList: StaticListSchema = [1, n0, _IL, 0, () => Image$];
-var ImageReferrerList: StaticListSchema = [1, n0, _IRL, 0, () => ImageReferrer$];
-var ImageReplicationStatusList: StaticListSchema = [1, n0, _IRSL, 0, () => ImageReplicationStatus$];
-var ImageScanFindingList: StaticListSchema = [1, n0, _ISFL, 0, () => ImageScanFinding$];
-var ImageSigningStatusList: StaticListSchema = [1, n0, _ISSL, 0, () => ImageSigningStatus$];
+var ImageDetailList: StaticListSchema = [1, n0, _IDL,
+  0, () => ImageDetail$
+];
+var ImageFailureList: StaticListSchema = [1, n0, _IFL,
+  0, () => ImageFailure$
+];
+var ImageIdentifierList: StaticListSchema = [1, n0, _IIL,
+  0, () => ImageIdentifier$
+];
+var ImageList: StaticListSchema = [1, n0, _IL,
+  0, () => Image$
+];
+var ImageReferrerList: StaticListSchema = [1, n0, _IRL,
+  0, () => ImageReferrer$
+];
+var ImageReplicationStatusList: StaticListSchema = [1, n0, _IRSL,
+  0, () => ImageReplicationStatus$
+];
+var ImageScanFindingList: StaticListSchema = [1, n0, _ISFL,
+  0, () => ImageScanFinding$
+];
+var ImageSigningStatusList: StaticListSchema = [1, n0, _ISSL,
+  0, () => ImageSigningStatus$
+];
 var ImageTagList = 64 | 0;
-var ImageTagMutabilityExclusionFilters: StaticListSchema = [
-  1,
-  n0,
-  _ITMEFm,
-  0,
-  () => ImageTagMutabilityExclusionFilter$,
+var ImageTagMutabilityExclusionFilters: StaticListSchema = [1, n0, _ITMEFm,
+  0, () => ImageTagMutabilityExclusionFilter$
 ];
 var ImageTagsList = 64 | 0;
 var LayerDigestList = 64 | 0;
-var LayerFailureList: StaticListSchema = [1, n0, _LFL, 0, () => LayerFailure$];
-var LayerList: StaticListSchema = [1, n0, _LL, 0, () => Layer$];
-var LifecyclePolicyPreviewResultList: StaticListSchema = [1, n0, _LPPRL, 0, () => LifecyclePolicyPreviewResult$];
+var LayerFailureList: StaticListSchema = [1, n0, _LFL,
+  0, () => LayerFailure$
+];
+var LayerList: StaticListSchema = [1, n0, _LL,
+  0, () => Layer$
+];
+var LifecyclePolicyPreviewResultList: StaticListSchema = [1, n0, _LPPRL,
+  0, () => LifecyclePolicyPreviewResult$
+];
 var MediaTypeList = 64 | 0;
 var PrefixList = 64 | 0;
-var PullThroughCacheRuleList: StaticListSchema = [1, n0, _PTCRL, 0, () => PullThroughCacheRule$];
+var PullThroughCacheRuleList: StaticListSchema = [1, n0, _PTCRL,
+  0, () => PullThroughCacheRule$
+];
 var PullThroughCacheRuleRepositoryPrefixList = 64 | 0;
 var PullTimeUpdateExclusionList = 64 | 0;
 var RCTAppliedForList = 64 | 0;
 var ReferenceUrlsList = 64 | 0;
-var RegistryScanningRuleList: StaticListSchema = [1, n0, _RSRL, 0, () => RegistryScanningRule$];
-var RelatedVulnerabilitiesList = 64 | 0;
-var ReplicationDestinationList: StaticListSchema = [1, n0, _RDL, 0, () => ReplicationDestination$];
-var ReplicationRuleList: StaticListSchema = [1, n0, _RRL, 0, () => ReplicationRule$];
-var RepositoryCreationTemplateList: StaticListSchema = [1, n0, _RCTL, 0, () => RepositoryCreationTemplate$];
-var RepositoryFilterList: StaticListSchema = [1, n0, _RFL, 0, () => RepositoryFilter$];
-var RepositoryList: StaticListSchema = [1, n0, _RL, 0, () => Repository$];
-var RepositoryNameList = 64 | 0;
-var RepositoryScanningConfigurationFailureList: StaticListSchema = [
-  1,
-  n0,
-  _RSCFL,
-  0,
-  () => RepositoryScanningConfigurationFailure$,
+var RegistryScanningRuleList: StaticListSchema = [1, n0, _RSRL,
+  0, () => RegistryScanningRule$
 ];
-var RepositoryScanningConfigurationList: StaticListSchema = [1, n0, _RSCL, 0, () => RepositoryScanningConfiguration$];
-var ResourceList: StaticListSchema = [1, n0, _RLe, 0, () => Resource$];
+var RelatedVulnerabilitiesList = 64 | 0;
+var ReplicationDestinationList: StaticListSchema = [1, n0, _RDL,
+  0, () => ReplicationDestination$
+];
+var ReplicationRuleList: StaticListSchema = [1, n0, _RRL,
+  0, () => ReplicationRule$
+];
+var RepositoryCreationTemplateList: StaticListSchema = [1, n0, _RCTL,
+  0, () => RepositoryCreationTemplate$
+];
+var RepositoryFilterList: StaticListSchema = [1, n0, _RFL,
+  0, () => RepositoryFilter$
+];
+var RepositoryList: StaticListSchema = [1, n0, _RL,
+  0, () => Repository$
+];
+var RepositoryNameList = 64 | 0;
+var RepositoryScanningConfigurationFailureList: StaticListSchema = [1, n0, _RSCFL,
+  0, () => RepositoryScanningConfigurationFailure$
+];
+var RepositoryScanningConfigurationList: StaticListSchema = [1, n0, _RSCL,
+  0, () => RepositoryScanningConfiguration$
+];
+var ResourceList: StaticListSchema = [1, n0, _RLe,
+  0, () => Resource$
+];
 var ScanningConfigurationRepositoryNameList = 64 | 0;
-var ScanningRepositoryFilterList: StaticListSchema = [1, n0, _SRFL, 0, () => ScanningRepositoryFilter$];
-var SigningRepositoryFilterList: StaticListSchema = [1, n0, _SRFLi, 0, () => SigningRepositoryFilter$];
-var SigningRuleList: StaticListSchema = [1, n0, _SRL, 0, () => SigningRule$];
+var ScanningRepositoryFilterList: StaticListSchema = [1, n0, _SRFL,
+  0, () => ScanningRepositoryFilter$
+];
+var SigningRepositoryFilterList: StaticListSchema = [1, n0, _SRFLi,
+  0, () => SigningRepositoryFilter$
+];
+var SigningRuleList: StaticListSchema = [1, n0, _SRL,
+  0, () => SigningRule$
+];
 var TagKeyList = 64 | 0;
-var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
-var TransitioningImageTotalCounts: StaticListSchema = [1, n0, _TITCr, 0, () => TransitioningImageTotalCount$];
-var VulnerablePackagesList: StaticListSchema = [1, n0, _VPL, 0, () => VulnerablePackage$];
+var TagList: StaticListSchema = [1, n0, _TL,
+  0, () => Tag$
+];
+var TransitioningImageTotalCounts: StaticListSchema = [1, n0, _TITCr,
+  0, () => TransitioningImageTotalCount$
+];
+var VulnerablePackagesList: StaticListSchema = [1, n0, _VPL,
+  0, () => VulnerablePackage$
+];
 var Annotations = 128 | 0;
 var FindingSeverityCounts = 128 | 1;
 var Tags = 128 | 0;
-export var BatchCheckLayerAvailability$: StaticOperationSchema = [
-  9,
-  n0,
-  _BCLA,
-  0,
-  () => BatchCheckLayerAvailabilityRequest$,
-  () => BatchCheckLayerAvailabilityResponse$,
+export var BatchCheckLayerAvailability$: StaticOperationSchema = [9, n0, _BCLA,
+  0, () => BatchCheckLayerAvailabilityRequest$, () => BatchCheckLayerAvailabilityResponse$
 ];
-export var BatchDeleteImage$: StaticOperationSchema = [
-  9,
-  n0,
-  _BDI,
-  0,
-  () => BatchDeleteImageRequest$,
-  () => BatchDeleteImageResponse$,
+export var BatchDeleteImage$: StaticOperationSchema = [9, n0, _BDI,
+  0, () => BatchDeleteImageRequest$, () => BatchDeleteImageResponse$
 ];
-export var BatchGetImage$: StaticOperationSchema = [
-  9,
-  n0,
-  _BGI,
-  0,
-  () => BatchGetImageRequest$,
-  () => BatchGetImageResponse$,
+export var BatchGetImage$: StaticOperationSchema = [9, n0, _BGI,
+  0, () => BatchGetImageRequest$, () => BatchGetImageResponse$
 ];
-export var BatchGetRepositoryScanningConfiguration$: StaticOperationSchema = [
-  9,
-  n0,
-  _BGRSC,
-  0,
-  () => BatchGetRepositoryScanningConfigurationRequest$,
-  () => BatchGetRepositoryScanningConfigurationResponse$,
+export var BatchGetRepositoryScanningConfiguration$: StaticOperationSchema = [9, n0, _BGRSC,
+  0, () => BatchGetRepositoryScanningConfigurationRequest$, () => BatchGetRepositoryScanningConfigurationResponse$
 ];
-export var CompleteLayerUpload$: StaticOperationSchema = [
-  9,
-  n0,
-  _CLU,
-  0,
-  () => CompleteLayerUploadRequest$,
-  () => CompleteLayerUploadResponse$,
+export var CompleteLayerUpload$: StaticOperationSchema = [9, n0, _CLU,
+  0, () => CompleteLayerUploadRequest$, () => CompleteLayerUploadResponse$
 ];
-export var CreatePullThroughCacheRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _CPTCR,
-  0,
-  () => CreatePullThroughCacheRuleRequest$,
-  () => CreatePullThroughCacheRuleResponse$,
+export var CreatePullThroughCacheRule$: StaticOperationSchema = [9, n0, _CPTCR,
+  0, () => CreatePullThroughCacheRuleRequest$, () => CreatePullThroughCacheRuleResponse$
 ];
-export var CreateRepository$: StaticOperationSchema = [
-  9,
-  n0,
-  _CR,
-  0,
-  () => CreateRepositoryRequest$,
-  () => CreateRepositoryResponse$,
+export var CreateRepository$: StaticOperationSchema = [9, n0, _CR,
+  0, () => CreateRepositoryRequest$, () => CreateRepositoryResponse$
 ];
-export var CreateRepositoryCreationTemplate$: StaticOperationSchema = [
-  9,
-  n0,
-  _CRCT,
-  0,
-  () => CreateRepositoryCreationTemplateRequest$,
-  () => CreateRepositoryCreationTemplateResponse$,
+export var CreateRepositoryCreationTemplate$: StaticOperationSchema = [9, n0, _CRCT,
+  0, () => CreateRepositoryCreationTemplateRequest$, () => CreateRepositoryCreationTemplateResponse$
 ];
-export var DeleteLifecyclePolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _DLP,
-  0,
-  () => DeleteLifecyclePolicyRequest$,
-  () => DeleteLifecyclePolicyResponse$,
+export var DeleteLifecyclePolicy$: StaticOperationSchema = [9, n0, _DLP,
+  0, () => DeleteLifecyclePolicyRequest$, () => DeleteLifecyclePolicyResponse$
 ];
-export var DeletePullThroughCacheRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _DPTCR,
-  0,
-  () => DeletePullThroughCacheRuleRequest$,
-  () => DeletePullThroughCacheRuleResponse$,
+export var DeletePullThroughCacheRule$: StaticOperationSchema = [9, n0, _DPTCR,
+  0, () => DeletePullThroughCacheRuleRequest$, () => DeletePullThroughCacheRuleResponse$
 ];
-export var DeleteRegistryPolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRP,
-  0,
-  () => DeleteRegistryPolicyRequest$,
-  () => DeleteRegistryPolicyResponse$,
+export var DeleteRegistryPolicy$: StaticOperationSchema = [9, n0, _DRP,
+  0, () => DeleteRegistryPolicyRequest$, () => DeleteRegistryPolicyResponse$
 ];
-export var DeleteRepository$: StaticOperationSchema = [
-  9,
-  n0,
-  _DR,
-  0,
-  () => DeleteRepositoryRequest$,
-  () => DeleteRepositoryResponse$,
+export var DeleteRepository$: StaticOperationSchema = [9, n0, _DR,
+  0, () => DeleteRepositoryRequest$, () => DeleteRepositoryResponse$
 ];
-export var DeleteRepositoryCreationTemplate$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRCT,
-  0,
-  () => DeleteRepositoryCreationTemplateRequest$,
-  () => DeleteRepositoryCreationTemplateResponse$,
+export var DeleteRepositoryCreationTemplate$: StaticOperationSchema = [9, n0, _DRCT,
+  0, () => DeleteRepositoryCreationTemplateRequest$, () => DeleteRepositoryCreationTemplateResponse$
 ];
-export var DeleteRepositoryPolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRPe,
-  0,
-  () => DeleteRepositoryPolicyRequest$,
-  () => DeleteRepositoryPolicyResponse$,
+export var DeleteRepositoryPolicy$: StaticOperationSchema = [9, n0, _DRPe,
+  0, () => DeleteRepositoryPolicyRequest$, () => DeleteRepositoryPolicyResponse$
 ];
-export var DeleteSigningConfiguration$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSC,
-  0,
-  () => DeleteSigningConfigurationRequest$,
-  () => DeleteSigningConfigurationResponse$,
+export var DeleteSigningConfiguration$: StaticOperationSchema = [9, n0, _DSC,
+  0, () => DeleteSigningConfigurationRequest$, () => DeleteSigningConfigurationResponse$
 ];
-export var DeregisterPullTimeUpdateExclusion$: StaticOperationSchema = [
-  9,
-  n0,
-  _DPTUE,
-  0,
-  () => DeregisterPullTimeUpdateExclusionRequest$,
-  () => DeregisterPullTimeUpdateExclusionResponse$,
+export var DeregisterPullTimeUpdateExclusion$: StaticOperationSchema = [9, n0, _DPTUE,
+  0, () => DeregisterPullTimeUpdateExclusionRequest$, () => DeregisterPullTimeUpdateExclusionResponse$
 ];
-export var DescribeImageReplicationStatus$: StaticOperationSchema = [
-  9,
-  n0,
-  _DIRS,
-  0,
-  () => DescribeImageReplicationStatusRequest$,
-  () => DescribeImageReplicationStatusResponse$,
+export var DescribeImageReplicationStatus$: StaticOperationSchema = [9, n0, _DIRS,
+  0, () => DescribeImageReplicationStatusRequest$, () => DescribeImageReplicationStatusResponse$
 ];
-export var DescribeImages$: StaticOperationSchema = [
-  9,
-  n0,
-  _DI,
-  0,
-  () => DescribeImagesRequest$,
-  () => DescribeImagesResponse$,
+export var DescribeImages$: StaticOperationSchema = [9, n0, _DI,
+  0, () => DescribeImagesRequest$, () => DescribeImagesResponse$
 ];
-export var DescribeImageScanFindings$: StaticOperationSchema = [
-  9,
-  n0,
-  _DISF,
-  0,
-  () => DescribeImageScanFindingsRequest$,
-  () => DescribeImageScanFindingsResponse$,
+export var DescribeImageScanFindings$: StaticOperationSchema = [9, n0, _DISF,
+  0, () => DescribeImageScanFindingsRequest$, () => DescribeImageScanFindingsResponse$
 ];
-export var DescribeImageSigningStatus$: StaticOperationSchema = [
-  9,
-  n0,
-  _DISS,
-  0,
-  () => DescribeImageSigningStatusRequest$,
-  () => DescribeImageSigningStatusResponse$,
+export var DescribeImageSigningStatus$: StaticOperationSchema = [9, n0, _DISS,
+  0, () => DescribeImageSigningStatusRequest$, () => DescribeImageSigningStatusResponse$
 ];
-export var DescribePullThroughCacheRules$: StaticOperationSchema = [
-  9,
-  n0,
-  _DPTCRe,
-  0,
-  () => DescribePullThroughCacheRulesRequest$,
-  () => DescribePullThroughCacheRulesResponse$,
+export var DescribePullThroughCacheRules$: StaticOperationSchema = [9, n0, _DPTCRe,
+  0, () => DescribePullThroughCacheRulesRequest$, () => DescribePullThroughCacheRulesResponse$
 ];
-export var DescribeRegistry$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRe,
-  0,
-  () => DescribeRegistryRequest$,
-  () => DescribeRegistryResponse$,
+export var DescribeRegistry$: StaticOperationSchema = [9, n0, _DRe,
+  0, () => DescribeRegistryRequest$, () => DescribeRegistryResponse$
 ];
-export var DescribeRepositories$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRes,
-  0,
-  () => DescribeRepositoriesRequest$,
-  () => DescribeRepositoriesResponse$,
+export var DescribeRepositories$: StaticOperationSchema = [9, n0, _DRes,
+  0, () => DescribeRepositoriesRequest$, () => DescribeRepositoriesResponse$
 ];
-export var DescribeRepositoryCreationTemplates$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRCTe,
-  0,
-  () => DescribeRepositoryCreationTemplatesRequest$,
-  () => DescribeRepositoryCreationTemplatesResponse$,
+export var DescribeRepositoryCreationTemplates$: StaticOperationSchema = [9, n0, _DRCTe,
+  0, () => DescribeRepositoryCreationTemplatesRequest$, () => DescribeRepositoryCreationTemplatesResponse$
 ];
-export var GetAccountSetting$: StaticOperationSchema = [
-  9,
-  n0,
-  _GAS,
-  0,
-  () => GetAccountSettingRequest$,
-  () => GetAccountSettingResponse$,
+export var GetAccountSetting$: StaticOperationSchema = [9, n0, _GAS,
+  0, () => GetAccountSettingRequest$, () => GetAccountSettingResponse$
 ];
-export var GetAuthorizationToken$: StaticOperationSchema = [
-  9,
-  n0,
-  _GAT,
-  0,
-  () => GetAuthorizationTokenRequest$,
-  () => GetAuthorizationTokenResponse$,
+export var GetAuthorizationToken$: StaticOperationSchema = [9, n0, _GAT,
+  0, () => GetAuthorizationTokenRequest$, () => GetAuthorizationTokenResponse$
 ];
-export var GetDownloadUrlForLayer$: StaticOperationSchema = [
-  9,
-  n0,
-  _GDUFL,
-  0,
-  () => GetDownloadUrlForLayerRequest$,
-  () => GetDownloadUrlForLayerResponse$,
+export var GetDownloadUrlForLayer$: StaticOperationSchema = [9, n0, _GDUFL,
+  0, () => GetDownloadUrlForLayerRequest$, () => GetDownloadUrlForLayerResponse$
 ];
-export var GetLifecyclePolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _GLP,
-  0,
-  () => GetLifecyclePolicyRequest$,
-  () => GetLifecyclePolicyResponse$,
+export var GetLifecyclePolicy$: StaticOperationSchema = [9, n0, _GLP,
+  0, () => GetLifecyclePolicyRequest$, () => GetLifecyclePolicyResponse$
 ];
-export var GetLifecyclePolicyPreview$: StaticOperationSchema = [
-  9,
-  n0,
-  _GLPP,
-  0,
-  () => GetLifecyclePolicyPreviewRequest$,
-  () => GetLifecyclePolicyPreviewResponse$,
+export var GetLifecyclePolicyPreview$: StaticOperationSchema = [9, n0, _GLPP,
+  0, () => GetLifecyclePolicyPreviewRequest$, () => GetLifecyclePolicyPreviewResponse$
 ];
-export var GetRegistryPolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRP,
-  0,
-  () => GetRegistryPolicyRequest$,
-  () => GetRegistryPolicyResponse$,
+export var GetRegistryPolicy$: StaticOperationSchema = [9, n0, _GRP,
+  0, () => GetRegistryPolicyRequest$, () => GetRegistryPolicyResponse$
 ];
-export var GetRegistryScanningConfiguration$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRSC,
-  0,
-  () => GetRegistryScanningConfigurationRequest$,
-  () => GetRegistryScanningConfigurationResponse$,
+export var GetRegistryScanningConfiguration$: StaticOperationSchema = [9, n0, _GRSC,
+  0, () => GetRegistryScanningConfigurationRequest$, () => GetRegistryScanningConfigurationResponse$
 ];
-export var GetRepositoryPolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRPe,
-  0,
-  () => GetRepositoryPolicyRequest$,
-  () => GetRepositoryPolicyResponse$,
+export var GetRepositoryPolicy$: StaticOperationSchema = [9, n0, _GRPe,
+  0, () => GetRepositoryPolicyRequest$, () => GetRepositoryPolicyResponse$
 ];
-export var GetSigningConfiguration$: StaticOperationSchema = [
-  9,
-  n0,
-  _GSC,
-  0,
-  () => GetSigningConfigurationRequest$,
-  () => GetSigningConfigurationResponse$,
+export var GetSigningConfiguration$: StaticOperationSchema = [9, n0, _GSC,
+  0, () => GetSigningConfigurationRequest$, () => GetSigningConfigurationResponse$
 ];
-export var InitiateLayerUpload$: StaticOperationSchema = [
-  9,
-  n0,
-  _ILU,
-  0,
-  () => InitiateLayerUploadRequest$,
-  () => InitiateLayerUploadResponse$,
+export var InitiateLayerUpload$: StaticOperationSchema = [9, n0, _ILU,
+  0, () => InitiateLayerUploadRequest$, () => InitiateLayerUploadResponse$
 ];
-export var ListImageReferrers$: StaticOperationSchema = [
-  9,
-  n0,
-  _LIRis,
-  0,
-  () => ListImageReferrersRequest$,
-  () => ListImageReferrersResponse$,
+export var ListImageReferrers$: StaticOperationSchema = [9, n0, _LIRis,
+  0, () => ListImageReferrersRequest$, () => ListImageReferrersResponse$
 ];
-export var ListImages$: StaticOperationSchema = [9, n0, _LI, 0, () => ListImagesRequest$, () => ListImagesResponse$];
-export var ListPullTimeUpdateExclusions$: StaticOperationSchema = [
-  9,
-  n0,
-  _LPTUE,
-  0,
-  () => ListPullTimeUpdateExclusionsRequest$,
-  () => ListPullTimeUpdateExclusionsResponse$,
+export var ListImages$: StaticOperationSchema = [9, n0, _LI,
+  0, () => ListImagesRequest$, () => ListImagesResponse$
 ];
-export var ListTagsForResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  0,
-  () => ListTagsForResourceRequest$,
-  () => ListTagsForResourceResponse$,
+export var ListPullTimeUpdateExclusions$: StaticOperationSchema = [9, n0, _LPTUE,
+  0, () => ListPullTimeUpdateExclusionsRequest$, () => ListPullTimeUpdateExclusionsResponse$
 ];
-export var PutAccountSetting$: StaticOperationSchema = [
-  9,
-  n0,
-  _PAS,
-  0,
-  () => PutAccountSettingRequest$,
-  () => PutAccountSettingResponse$,
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  0, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
-export var PutImage$: StaticOperationSchema = [9, n0, _PI, 0, () => PutImageRequest$, () => PutImageResponse$];
-export var PutImageScanningConfiguration$: StaticOperationSchema = [
-  9,
-  n0,
-  _PISC,
-  0,
-  () => PutImageScanningConfigurationRequest$,
-  () => PutImageScanningConfigurationResponse$,
+export var PutAccountSetting$: StaticOperationSchema = [9, n0, _PAS,
+  0, () => PutAccountSettingRequest$, () => PutAccountSettingResponse$
 ];
-export var PutImageTagMutability$: StaticOperationSchema = [
-  9,
-  n0,
-  _PITM,
-  0,
-  () => PutImageTagMutabilityRequest$,
-  () => PutImageTagMutabilityResponse$,
+export var PutImage$: StaticOperationSchema = [9, n0, _PI,
+  0, () => PutImageRequest$, () => PutImageResponse$
 ];
-export var PutLifecyclePolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _PLP,
-  0,
-  () => PutLifecyclePolicyRequest$,
-  () => PutLifecyclePolicyResponse$,
+export var PutImageScanningConfiguration$: StaticOperationSchema = [9, n0, _PISC,
+  0, () => PutImageScanningConfigurationRequest$, () => PutImageScanningConfigurationResponse$
 ];
-export var PutRegistryPolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _PRP,
-  0,
-  () => PutRegistryPolicyRequest$,
-  () => PutRegistryPolicyResponse$,
+export var PutImageTagMutability$: StaticOperationSchema = [9, n0, _PITM,
+  0, () => PutImageTagMutabilityRequest$, () => PutImageTagMutabilityResponse$
 ];
-export var PutRegistryScanningConfiguration$: StaticOperationSchema = [
-  9,
-  n0,
-  _PRSC,
-  0,
-  () => PutRegistryScanningConfigurationRequest$,
-  () => PutRegistryScanningConfigurationResponse$,
+export var PutLifecyclePolicy$: StaticOperationSchema = [9, n0, _PLP,
+  0, () => PutLifecyclePolicyRequest$, () => PutLifecyclePolicyResponse$
 ];
-export var PutReplicationConfiguration$: StaticOperationSchema = [
-  9,
-  n0,
-  _PRC,
-  0,
-  () => PutReplicationConfigurationRequest$,
-  () => PutReplicationConfigurationResponse$,
+export var PutRegistryPolicy$: StaticOperationSchema = [9, n0, _PRP,
+  0, () => PutRegistryPolicyRequest$, () => PutRegistryPolicyResponse$
 ];
-export var PutSigningConfiguration$: StaticOperationSchema = [
-  9,
-  n0,
-  _PSC,
-  0,
-  () => PutSigningConfigurationRequest$,
-  () => PutSigningConfigurationResponse$,
+export var PutRegistryScanningConfiguration$: StaticOperationSchema = [9, n0, _PRSC,
+  0, () => PutRegistryScanningConfigurationRequest$, () => PutRegistryScanningConfigurationResponse$
 ];
-export var RegisterPullTimeUpdateExclusion$: StaticOperationSchema = [
-  9,
-  n0,
-  _RPTUE,
-  0,
-  () => RegisterPullTimeUpdateExclusionRequest$,
-  () => RegisterPullTimeUpdateExclusionResponse$,
+export var PutReplicationConfiguration$: StaticOperationSchema = [9, n0, _PRC,
+  0, () => PutReplicationConfigurationRequest$, () => PutReplicationConfigurationResponse$
 ];
-export var SetRepositoryPolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _SRP,
-  0,
-  () => SetRepositoryPolicyRequest$,
-  () => SetRepositoryPolicyResponse$,
+export var PutSigningConfiguration$: StaticOperationSchema = [9, n0, _PSC,
+  0, () => PutSigningConfigurationRequest$, () => PutSigningConfigurationResponse$
 ];
-export var StartImageScan$: StaticOperationSchema = [
-  9,
-  n0,
-  _SIS,
-  0,
-  () => StartImageScanRequest$,
-  () => StartImageScanResponse$,
+export var RegisterPullTimeUpdateExclusion$: StaticOperationSchema = [9, n0, _RPTUE,
+  0, () => RegisterPullTimeUpdateExclusionRequest$, () => RegisterPullTimeUpdateExclusionResponse$
 ];
-export var StartLifecyclePolicyPreview$: StaticOperationSchema = [
-  9,
-  n0,
-  _SLPP,
-  0,
-  () => StartLifecyclePolicyPreviewRequest$,
-  () => StartLifecyclePolicyPreviewResponse$,
+export var SetRepositoryPolicy$: StaticOperationSchema = [9, n0, _SRP,
+  0, () => SetRepositoryPolicyRequest$, () => SetRepositoryPolicyResponse$
 ];
-export var TagResource$: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest$, () => TagResourceResponse$];
-export var UntagResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  0,
-  () => UntagResourceRequest$,
-  () => UntagResourceResponse$,
+export var StartImageScan$: StaticOperationSchema = [9, n0, _SIS,
+  0, () => StartImageScanRequest$, () => StartImageScanResponse$
 ];
-export var UpdateImageStorageClass$: StaticOperationSchema = [
-  9,
-  n0,
-  _UISC,
-  0,
-  () => UpdateImageStorageClassRequest$,
-  () => UpdateImageStorageClassResponse$,
+export var StartLifecyclePolicyPreview$: StaticOperationSchema = [9, n0, _SLPP,
+  0, () => StartLifecyclePolicyPreviewRequest$, () => StartLifecyclePolicyPreviewResponse$
 ];
-export var UpdatePullThroughCacheRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _UPTCR,
-  0,
-  () => UpdatePullThroughCacheRuleRequest$,
-  () => UpdatePullThroughCacheRuleResponse$,
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  0, () => TagResourceRequest$, () => TagResourceResponse$
 ];
-export var UpdateRepositoryCreationTemplate$: StaticOperationSchema = [
-  9,
-  n0,
-  _URCT,
-  0,
-  () => UpdateRepositoryCreationTemplateRequest$,
-  () => UpdateRepositoryCreationTemplateResponse$,
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  0, () => UntagResourceRequest$, () => UntagResourceResponse$
 ];
-export var UploadLayerPart$: StaticOperationSchema = [
-  9,
-  n0,
-  _ULP,
-  0,
-  () => UploadLayerPartRequest$,
-  () => UploadLayerPartResponse$,
+export var UpdateImageStorageClass$: StaticOperationSchema = [9, n0, _UISC,
+  0, () => UpdateImageStorageClassRequest$, () => UpdateImageStorageClassResponse$
 ];
-export var ValidatePullThroughCacheRule$: StaticOperationSchema = [
-  9,
-  n0,
-  _VPTCR,
-  0,
-  () => ValidatePullThroughCacheRuleRequest$,
-  () => ValidatePullThroughCacheRuleResponse$,
+export var UpdatePullThroughCacheRule$: StaticOperationSchema = [9, n0, _UPTCR,
+  0, () => UpdatePullThroughCacheRuleRequest$, () => UpdatePullThroughCacheRuleResponse$
+];
+export var UpdateRepositoryCreationTemplate$: StaticOperationSchema = [9, n0, _URCT,
+  0, () => UpdateRepositoryCreationTemplateRequest$, () => UpdateRepositoryCreationTemplateResponse$
+];
+export var UploadLayerPart$: StaticOperationSchema = [9, n0, _ULP,
+  0, () => UploadLayerPartRequest$, () => UploadLayerPartResponse$
+];
+export var ValidatePullThroughCacheRule$: StaticOperationSchema = [9, n0, _VPTCR,
+  0, () => ValidatePullThroughCacheRuleRequest$, () => ValidatePullThroughCacheRuleResponse$
 ];

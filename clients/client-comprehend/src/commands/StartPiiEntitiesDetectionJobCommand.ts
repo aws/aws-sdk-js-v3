@@ -24,9 +24,7 @@ export interface StartPiiEntitiesDetectionJobCommandInput extends StartPiiEntiti
  *
  * The output of {@link StartPiiEntitiesDetectionJobCommand}.
  */
-export interface StartPiiEntitiesDetectionJobCommandOutput
-  extends StartPiiEntitiesDetectionJobResponse,
-    __MetadataBearer {}
+export interface StartPiiEntitiesDetectionJobCommandOutput extends StartPiiEntitiesDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous PII entity detection job for a collection of documents.</p>

@@ -27,9 +27,7 @@ export interface CreateTransitGatewayVpcAttachmentCommandInput extends CreateTra
  *
  * The output of {@link CreateTransitGatewayVpcAttachmentCommand}.
  */
-export interface CreateTransitGatewayVpcAttachmentCommandOutput
-  extends CreateTransitGatewayVpcAttachmentResult,
-    __MetadataBearer {}
+export interface CreateTransitGatewayVpcAttachmentCommandOutput extends CreateTransitGatewayVpcAttachmentResult, __MetadataBearer {}
 
 /**
  * <p>Attaches the specified VPC to the specified transit gateway.</p>

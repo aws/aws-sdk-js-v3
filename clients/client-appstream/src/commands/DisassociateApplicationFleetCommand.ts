@@ -24,9 +24,7 @@ export interface DisassociateApplicationFleetCommandInput extends DisassociateAp
  *
  * The output of {@link DisassociateApplicationFleetCommand}.
  */
-export interface DisassociateApplicationFleetCommandOutput
-  extends DisassociateApplicationFleetResult,
-    __MetadataBearer {}
+export interface DisassociateApplicationFleetCommandOutput extends DisassociateApplicationFleetResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified application from the fleet.</p>

@@ -24,9 +24,7 @@ export interface CreateCoreDefinitionVersionCommandInput extends CreateCoreDefin
  *
  * The output of {@link CreateCoreDefinitionVersionCommand}.
  */
-export interface CreateCoreDefinitionVersionCommandOutput
-  extends CreateCoreDefinitionVersionResponse,
-    __MetadataBearer {}
+export interface CreateCoreDefinitionVersionCommandOutput extends CreateCoreDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Creates a version of a core definition that has already been defined. Greengrass groups must each contain exactly one Greengrass core.

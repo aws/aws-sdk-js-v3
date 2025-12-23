@@ -31,9 +31,7 @@ export interface ListCrossAccountResourceAccountsCommandInput extends ListCrossA
  *
  * The output of {@link ListCrossAccountResourceAccountsCommand}.
  */
-export interface ListCrossAccountResourceAccountsCommandOutput
-  extends ListCrossAccountResourceAccountsResponse,
-    __MetadataBearer {}
+export interface ListCrossAccountResourceAccountsCommandOutput extends ListCrossAccountResourceAccountsResponse, __MetadataBearer {}
 
 /**
  * <p>List the accounts that have cross-account resources.</p>

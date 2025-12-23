@@ -146,7 +146,9 @@ export interface CreateMonitorOutput {
  * <p>A target ID is an internally-generated identifier for a target. A target allows you to identify all the resources in a Network Flow Monitor scope. Currently, a target is always an Amazon Web Services account.</p>
  * @public
  */
-export type TargetId = TargetId.AccountIdMember | TargetId.$UnknownMember;
+export type TargetId =
+  | TargetId.AccountIdMember
+  | TargetId.$UnknownMember;
 
 /**
  * @public

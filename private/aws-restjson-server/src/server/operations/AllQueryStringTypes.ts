@@ -9,8 +9,8 @@ import {
   OperationOutput as __OperationOutput,
   OperationSerializer as __OperationSerializer,
   SerializationException as __SerializationException,
-  ServerSerdeContext as __ServerSerdeContext,
   ServerSerdeContext,
+  ServerSerdeContext as __ServerSerdeContext,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
   SmithyFrameworkException as __SmithyFrameworkException,
@@ -30,59 +30,46 @@ import {
 } from "../../protocols/Aws_restJson1";
 import { RestJsonService } from "../RestJsonService";
 
-export type AllQueryStringTypes<Context> = __Operation<
-  AllQueryStringTypesServerInput,
-  AllQueryStringTypesServerOutput,
-  Context
->;
+export type AllQueryStringTypes<Context> = __Operation<AllQueryStringTypesServerInput, AllQueryStringTypesServerOutput, Context>
 
 export interface AllQueryStringTypesServerInput extends AllQueryStringTypesInput {}
 export namespace AllQueryStringTypesServerInput {
   /**
    * @internal
    */
-  export const validate: (obj: Parameters<typeof AllQueryStringTypesInput.validate>[0]) => __ValidationFailure[] =
-    AllQueryStringTypesInput.validate;
+  export const validate: (obj: Parameters<typeof AllQueryStringTypesInput.validate>[0]) => __ValidationFailure[] = AllQueryStringTypesInput.validate;
 }
 export interface AllQueryStringTypesServerOutput {}
 
 export type AllQueryStringTypesErrors = never;
 
-export class AllQueryStringTypesSerializer
-  implements __OperationSerializer<RestJsonService<any>, "AllQueryStringTypes", AllQueryStringTypesErrors>
-{
+export class AllQueryStringTypesSerializer implements __OperationSerializer<RestJsonService<any>, "AllQueryStringTypes", AllQueryStringTypesErrors> {
   serialize = serializeAllQueryStringTypesResponse;
   deserialize = deserializeAllQueryStringTypesRequest;
 
   isOperationError(error: any): error is AllQueryStringTypesErrors {
     return false;
-  }
+  };
 
   serializeError(error: AllQueryStringTypesErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     throw error;
   }
+
 }
 
-export const getAllQueryStringTypesHandler = <Context>(
-  operation: __Operation<AllQueryStringTypesServerInput, AllQueryStringTypesServerOutput, Context>,
-  customizer: __ValidationCustomizer<"AllQueryStringTypes">
-): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+export const getAllQueryStringTypesHandler = <Context>(operation: __Operation<AllQueryStringTypesServerInput, AllQueryStringTypesServerOutput, Context>, customizer: __ValidationCustomizer<"AllQueryStringTypes">): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
   const mux = new httpbinding.HttpBindingMux<"RestJson", "AllQueryStringTypes">([
     new httpbinding.UriSpec<"RestJson", "AllQueryStringTypes">(
-      "GET",
-      [{ type: "path_literal", value: "AllQueryStringTypesInput" }],
-      [],
-      { service: "RestJson", operation: "AllQueryStringTypes" }
-    ),
+      'GET',
+      [
+        { type: 'path_literal', value: "AllQueryStringTypesInput" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "AllQueryStringTypes" }),
   ]);
-  return new AllQueryStringTypesHandler(
-    operation,
-    mux,
-    new AllQueryStringTypesSerializer(),
-    serializeFrameworkException,
-    customizer
-  );
-};
+  return new AllQueryStringTypesHandler(operation, mux, new AllQueryStringTypesSerializer(), serializeFrameworkException, customizer);
+}
 
 const serdeContextBase = {
   base64Encoder: toBase64,
@@ -91,7 +78,7 @@ const serdeContextBase = {
   utf8Decoder: fromUtf8,
   streamCollector: streamCollector,
   requestHandler: new NodeHttpHandler(),
-  disableHostPrefix: true,
+  disableHostPrefix: true
 };
 async function handle<S, O extends keyof S & string, Context>(
   request: __HttpRequest,
@@ -106,45 +93,37 @@ async function handle<S, O extends keyof S & string, Context>(
   let input;
   try {
     input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request),
-      ...serdeContextBase,
+      endpoint: () => Promise.resolve(request), ...serdeContextBase
     });
   } catch (error: unknown) {
     if (__isFrameworkException(error)) {
       return serializeFrameworkException(error, serdeContextBase);
-    }
+    };
     return serializeFrameworkException(new __SerializationException(), serdeContextBase);
   }
   try {
-    const validationFailures = validationFn(input);
+    let validationFailures = validationFn(input);
     if (validationFailures && validationFailures.length > 0) {
-      const validationException = validationCustomizer({ operation: operationName }, validationFailures);
+      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
       if (validationException) {
         return serializer.serializeError(validationException, serdeContextBase);
       }
     }
-    const output = await operation(input, context);
+    let output = await operation(input, context);
     return serializer.serialize(output, serdeContextBase);
-  } catch (error: unknown) {
+  } catch(error: unknown) {
     if (serializer.isOperationError(error)) {
       return serializer.serializeError(error, serdeContextBase);
     }
-    console.log("Received an unexpected error", error);
+    console.log('Received an unexpected error', error);
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
 export class AllQueryStringTypesHandler<Context> implements __ServiceHandler<Context> {
   private readonly operation: __Operation<AllQueryStringTypesServerInput, AllQueryStringTypesServerOutput, Context>;
   private readonly mux: __Mux<"RestJson", "AllQueryStringTypes">;
-  private readonly serializer: __OperationSerializer<
-    RestJsonService<Context>,
-    "AllQueryStringTypes",
-    AllQueryStringTypesErrors
-  >;
-  private readonly serializeFrameworkException: (
-    e: __SmithyFrameworkException,
-    ctx: __ServerSerdeContext
-  ) => Promise<__HttpResponse>;
+  private readonly serializer: __OperationSerializer<RestJsonService<Context>, "AllQueryStringTypes", AllQueryStringTypesErrors>;
+  private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<"AllQueryStringTypes">;
   /**
    * Construct a AllQueryStringTypes handler.
@@ -171,20 +150,9 @@ export class AllQueryStringTypesHandler<Context> implements __ServiceHandler<Con
   async handle(request: __HttpRequest, context: Context): Promise<__HttpResponse> {
     const target = this.mux.match(request);
     if (target === undefined) {
-      console.log(
-        "Received a request that did not match aws.protocoltests.restjson#RestJson.AllQueryStringTypes. This indicates a misconfiguration."
-      );
+      console.log('Received a request that did not match aws.protocoltests.restjson#RestJson.AllQueryStringTypes. This indicates a misconfiguration.');
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
-    return handle(
-      request,
-      context,
-      "AllQueryStringTypes",
-      this.serializer,
-      this.operation,
-      this.serializeFrameworkException,
-      AllQueryStringTypesServerInput.validate,
-      this.validationCustomizer
-    );
+    return handle(request, context, "AllQueryStringTypes", this.serializer, this.operation, this.serializeFrameworkException, AllQueryStringTypesServerInput.validate, this.validationCustomizer);
   }
 }

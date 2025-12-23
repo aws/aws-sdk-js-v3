@@ -24,9 +24,7 @@ export interface PutRepositoryPermissionsPolicyCommandInput extends PutRepositor
  *
  * The output of {@link PutRepositoryPermissionsPolicyCommand}.
  */
-export interface PutRepositoryPermissionsPolicyCommandOutput
-  extends PutRepositoryPermissionsPolicyResult,
-    __MetadataBearer {}
+export interface PutRepositoryPermissionsPolicyCommandOutput extends PutRepositoryPermissionsPolicyResult, __MetadataBearer {}
 
 /**
  * <p>

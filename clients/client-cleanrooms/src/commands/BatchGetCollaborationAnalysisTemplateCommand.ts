@@ -27,9 +27,7 @@ export interface BatchGetCollaborationAnalysisTemplateCommandInput extends Batch
  *
  * The output of {@link BatchGetCollaborationAnalysisTemplateCommand}.
  */
-export interface BatchGetCollaborationAnalysisTemplateCommandOutput
-  extends BatchGetCollaborationAnalysisTemplateOutput,
-    __MetadataBearer {}
+export interface BatchGetCollaborationAnalysisTemplateCommandOutput extends BatchGetCollaborationAnalysisTemplateOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves multiple analysis templates within a collaboration by their Amazon Resource Names (ARNs).</p>

@@ -24,9 +24,7 @@ export interface CancelDeclarativePoliciesReportCommandInput extends CancelDecla
  *
  * The output of {@link CancelDeclarativePoliciesReportCommand}.
  */
-export interface CancelDeclarativePoliciesReportCommandOutput
-  extends CancelDeclarativePoliciesReportResult,
-    __MetadataBearer {}
+export interface CancelDeclarativePoliciesReportCommandOutput extends CancelDeclarativePoliciesReportResult, __MetadataBearer {}
 
 /**
  * <p>Cancels the generation of an account status report.</p>

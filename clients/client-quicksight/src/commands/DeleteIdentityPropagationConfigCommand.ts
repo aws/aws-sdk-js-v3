@@ -27,9 +27,7 @@ export interface DeleteIdentityPropagationConfigCommandInput extends DeleteIdent
  *
  * The output of {@link DeleteIdentityPropagationConfigCommand}.
  */
-export interface DeleteIdentityPropagationConfigCommandOutput
-  extends DeleteIdentityPropagationConfigResponse,
-    __MetadataBearer {}
+export interface DeleteIdentityPropagationConfigCommandOutput extends DeleteIdentityPropagationConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes all access scopes and authorized targets that are associated with a service from the Quick Sight IAM Identity Center application.</p>

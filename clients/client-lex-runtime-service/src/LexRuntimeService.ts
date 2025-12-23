@@ -25,8 +25,14 @@ export interface LexRuntimeService {
   /**
    * @see {@link DeleteSessionCommand}
    */
-  deleteSession(args: DeleteSessionCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSessionCommandOutput>;
-  deleteSession(args: DeleteSessionCommandInput, cb: (err: any, data?: DeleteSessionCommandOutput) => void): void;
+  deleteSession(
+    args: DeleteSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSessionCommandOutput>;
+  deleteSession(
+    args: DeleteSessionCommandInput,
+    cb: (err: any, data?: DeleteSessionCommandOutput) => void
+  ): void;
   deleteSession(
     args: DeleteSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -36,8 +42,14 @@ export interface LexRuntimeService {
   /**
    * @see {@link GetSessionCommand}
    */
-  getSession(args: GetSessionCommandInput, options?: __HttpHandlerOptions): Promise<GetSessionCommandOutput>;
-  getSession(args: GetSessionCommandInput, cb: (err: any, data?: GetSessionCommandOutput) => void): void;
+  getSession(
+    args: GetSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSessionCommandOutput>;
+  getSession(
+    args: GetSessionCommandInput,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
   getSession(
     args: GetSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -47,8 +59,14 @@ export interface LexRuntimeService {
   /**
    * @see {@link PostContentCommand}
    */
-  postContent(args: PostContentCommandInput, options?: __HttpHandlerOptions): Promise<PostContentCommandOutput>;
-  postContent(args: PostContentCommandInput, cb: (err: any, data?: PostContentCommandOutput) => void): void;
+  postContent(
+    args: PostContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PostContentCommandOutput>;
+  postContent(
+    args: PostContentCommandInput,
+    cb: (err: any, data?: PostContentCommandOutput) => void
+  ): void;
   postContent(
     args: PostContentCommandInput,
     options: __HttpHandlerOptions,
@@ -58,8 +76,14 @@ export interface LexRuntimeService {
   /**
    * @see {@link PostTextCommand}
    */
-  postText(args: PostTextCommandInput, options?: __HttpHandlerOptions): Promise<PostTextCommandOutput>;
-  postText(args: PostTextCommandInput, cb: (err: any, data?: PostTextCommandOutput) => void): void;
+  postText(
+    args: PostTextCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PostTextCommandOutput>;
+  postText(
+    args: PostTextCommandInput,
+    cb: (err: any, data?: PostTextCommandOutput) => void
+  ): void;
   postText(
     args: PostTextCommandInput,
     options: __HttpHandlerOptions,
@@ -69,8 +93,14 @@ export interface LexRuntimeService {
   /**
    * @see {@link PutSessionCommand}
    */
-  putSession(args: PutSessionCommandInput, options?: __HttpHandlerOptions): Promise<PutSessionCommandOutput>;
-  putSession(args: PutSessionCommandInput, cb: (err: any, data?: PutSessionCommandOutput) => void): void;
+  putSession(
+    args: PutSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutSessionCommandOutput>;
+  putSession(
+    args: PutSessionCommandInput,
+    cb: (err: any, data?: PutSessionCommandOutput) => void
+  ): void;
   putSession(
     args: PutSessionCommandInput,
     options: __HttpHandlerOptions,

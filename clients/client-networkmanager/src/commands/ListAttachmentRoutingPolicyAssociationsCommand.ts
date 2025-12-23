@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListAttachmentRoutingPolicyAssociationsCommand}.
  */
-export interface ListAttachmentRoutingPolicyAssociationsCommandInput
-  extends ListAttachmentRoutingPolicyAssociationsRequest {}
+export interface ListAttachmentRoutingPolicyAssociationsCommandInput extends ListAttachmentRoutingPolicyAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListAttachmentRoutingPolicyAssociationsCommand}.
  */
-export interface ListAttachmentRoutingPolicyAssociationsCommandOutput
-  extends ListAttachmentRoutingPolicyAssociationsResponse,
-    __MetadataBearer {}
+export interface ListAttachmentRoutingPolicyAssociationsCommandOutput extends ListAttachmentRoutingPolicyAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the routing policy associations for attachments in a core network.</p>

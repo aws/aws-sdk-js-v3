@@ -27,9 +27,7 @@ export interface ListServiceNetworkVpcAssociationsCommandInput extends ListServi
  *
  * The output of {@link ListServiceNetworkVpcAssociationsCommand}.
  */
-export interface ListServiceNetworkVpcAssociationsCommandOutput
-  extends ListServiceNetworkVpcAssociationsResponse,
-    __MetadataBearer {}
+export interface ListServiceNetworkVpcAssociationsCommandOutput extends ListServiceNetworkVpcAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the associations between a service network and a VPC. You can filter the list either by VPC or service network. You must provide either the ID of the service network identifier or the ID of the VPC.</p>

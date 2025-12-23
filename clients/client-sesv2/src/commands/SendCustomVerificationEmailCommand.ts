@@ -24,9 +24,7 @@ export interface SendCustomVerificationEmailCommandInput extends SendCustomVerif
  *
  * The output of {@link SendCustomVerificationEmailCommand}.
  */
-export interface SendCustomVerificationEmailCommandOutput
-  extends SendCustomVerificationEmailResponse,
-    __MetadataBearer {}
+export interface SendCustomVerificationEmailCommandOutput extends SendCustomVerificationEmailResponse, __MetadataBearer {}
 
 /**
  * <p>Adds an email address to the list of identities for your Amazon SES account in the current

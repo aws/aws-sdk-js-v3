@@ -31,9 +31,7 @@ export interface DisassociateWhatsAppBusinessAccountCommandInput extends Disasso
  *
  * The output of {@link DisassociateWhatsAppBusinessAccountCommand}.
  */
-export interface DisassociateWhatsAppBusinessAccountCommandOutput
-  extends DisassociateWhatsAppBusinessAccountOutput,
-    __MetadataBearer {}
+export interface DisassociateWhatsAppBusinessAccountCommandOutput extends DisassociateWhatsAppBusinessAccountOutput, __MetadataBearer {}
 
 /**
  * <p>Disassociate a WhatsApp Business Account (WABA) from your Amazon Web Services account.</p>

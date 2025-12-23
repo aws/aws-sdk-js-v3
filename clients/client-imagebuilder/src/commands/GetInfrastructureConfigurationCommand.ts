@@ -24,9 +24,7 @@ export interface GetInfrastructureConfigurationCommandInput extends GetInfrastru
  *
  * The output of {@link GetInfrastructureConfigurationCommand}.
  */
-export interface GetInfrastructureConfigurationCommandOutput
-  extends GetInfrastructureConfigurationResponse,
-    __MetadataBearer {}
+export interface GetInfrastructureConfigurationCommandOutput extends GetInfrastructureConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets an infrastructure configuration.</p>

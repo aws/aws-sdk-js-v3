@@ -29,48 +29,60 @@ import { PalindromeException } from "../models/errors";
 /**
  * serializeAws_restJson1EchoCommand
  */
-export const se_EchoCommand = async (input: EchoCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
+export const se_EchoCommand = async (
+  input: EchoCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = {
-    "content-type": "application/json",
+    'content-type': 'application/json',
   };
   b.bp("/echo");
   let body: any;
-  body = JSON.stringify(
-    take(input, {
-      string: [],
-    })
-  );
-  b.m("POST").h(headers).b(body);
+  body = JSON.stringify(take(input, {
+    'string': [],
+  }));
+  b.m("POST")
+  .h(headers)
+  .b(body);
   return b.build();
 };
 
 /**
  * serializeAws_restJson1LengthCommand
  */
-export const se_LengthCommand = async (input: LengthCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
+export const se_LengthCommand = async (
+  input: LengthCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = {
+  };
   b.bp("/length/{string}");
-  b.p("string", () => input.string!, "{string}", false);
+  b.p('string', () => input.string!, '{string}', false)
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET")
+  .h(headers)
+  .b(body);
   return b.build();
 };
 
 /**
  * deserializeAws_restJson1EchoCommand
  */
-export const de_EchoCommand = async (output: __HttpResponse, context: __SerdeContext): Promise<EchoCommandOutput> => {
+export const de_EchoCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EchoCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull((__expectObject(await parseBody(output.body, context))), "body");
   const doc = take(data, {
-    string: __expectString,
+    'string': __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -89,9 +101,9 @@ export const de_LengthCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull((__expectObject(await parseBody(output.body, context))), "body");
   const doc = take(data, {
-    length: __expectInt32,
+    'length': __expectInt32,
   });
   Object.assign(contents, doc);
   return contents;
@@ -100,10 +112,13 @@ export const de_LengthCommand = async (
 /**
  * deserialize_Aws_restJson1CommandError
  */
-const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
+const de_CommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext,
+): Promise<never> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseErrorBody(output.body, context),
+    body: await parseErrorBody(output.body, context)
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -115,37 +130,39 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
       return throwDefaultError({
         output,
         parsedBody,
-        errorCode,
+        errorCode
       }) as never;
   }
-};
+}
 
 const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1PalindromeExceptionRes
  */
-const de_PalindromeExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<PalindromeException> => {
-  const contents: any = map({});
+const de_PalindromeExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PalindromeException> => {
+  const contents: any = map({
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
-    message: __expectString,
+    'message': __expectString,
   });
   Object.assign(contents, doc);
   const exception = new PalindromeException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...contents,
+    ...contents
   });
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId:
-    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
+  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
-  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> => collectBody(streamBody, context).then(body => context.utf8Encoder(body))

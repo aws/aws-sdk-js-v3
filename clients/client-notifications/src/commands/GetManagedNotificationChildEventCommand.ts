@@ -27,9 +27,7 @@ export interface GetManagedNotificationChildEventCommandInput extends GetManaged
  *
  * The output of {@link GetManagedNotificationChildEventCommand}.
  */
-export interface GetManagedNotificationChildEventCommandOutput
-  extends GetManagedNotificationChildEventResponse,
-    __MetadataBearer {}
+export interface GetManagedNotificationChildEventCommandOutput extends GetManagedNotificationChildEventResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the child event of a specific given <code>ManagedNotificationEvent</code>.</p>

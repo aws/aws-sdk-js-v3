@@ -132,6 +132,8 @@ import {
   OfferTargetingFilter$,
   OfferTargetingString,
   OwnershipType,
+  paginateListChangeSets,
+  paginateListEntities,
   PutResourcePolicy$,
   PutResourcePolicyCommand,
   PutResourcePolicyRequest$,
@@ -194,8 +196,6 @@ import {
   UntagResourceResponse$,
   ValidationException,
   ValidationException$,
-  paginateListChangeSets,
-  paginateListEntities,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

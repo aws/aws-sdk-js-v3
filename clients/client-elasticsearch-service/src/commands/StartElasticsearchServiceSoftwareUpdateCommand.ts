@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link StartElasticsearchServiceSoftwareUpdateCommand}.
  */
-export interface StartElasticsearchServiceSoftwareUpdateCommandInput
-  extends StartElasticsearchServiceSoftwareUpdateRequest {}
+export interface StartElasticsearchServiceSoftwareUpdateCommandInput extends StartElasticsearchServiceSoftwareUpdateRequest {}
 /**
  * @public
  *
  * The output of {@link StartElasticsearchServiceSoftwareUpdateCommand}.
  */
-export interface StartElasticsearchServiceSoftwareUpdateCommandOutput
-  extends StartElasticsearchServiceSoftwareUpdateResponse,
-    __MetadataBearer {}
+export interface StartElasticsearchServiceSoftwareUpdateCommandOutput extends StartElasticsearchServiceSoftwareUpdateResponse, __MetadataBearer {}
 
 /**
  * <p>Schedules a service software update for an Amazon ES domain.</p>

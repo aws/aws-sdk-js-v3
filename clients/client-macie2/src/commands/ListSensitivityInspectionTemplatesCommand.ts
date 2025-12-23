@@ -27,9 +27,7 @@ export interface ListSensitivityInspectionTemplatesCommandInput extends ListSens
  *
  * The output of {@link ListSensitivityInspectionTemplatesCommand}.
  */
-export interface ListSensitivityInspectionTemplatesCommandOutput
-  extends ListSensitivityInspectionTemplatesResponse,
-    __MetadataBearer {}
+export interface ListSensitivityInspectionTemplatesCommandOutput extends ListSensitivityInspectionTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a subset of information about the sensitivity inspection template for an account.</p>

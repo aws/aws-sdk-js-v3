@@ -27,9 +27,7 @@ export interface DescribeDefaultClusterParametersCommandInput extends DescribeDe
  *
  * The output of {@link DescribeDefaultClusterParametersCommand}.
  */
-export interface DescribeDefaultClusterParametersCommandOutput
-  extends DescribeDefaultClusterParametersResult,
-    __MetadataBearer {}
+export interface DescribeDefaultClusterParametersCommandOutput extends DescribeDefaultClusterParametersResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of parameter settings for the specified parameter group

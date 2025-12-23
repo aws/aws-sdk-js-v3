@@ -27,9 +27,7 @@ export interface DisassociateIdentityProviderConfigCommandInput extends Disassoc
  *
  * The output of {@link DisassociateIdentityProviderConfigCommand}.
  */
-export interface DisassociateIdentityProviderConfigCommandOutput
-  extends DisassociateIdentityProviderConfigResponse,
-    __MetadataBearer {}
+export interface DisassociateIdentityProviderConfigCommandOutput extends DisassociateIdentityProviderConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates an identity provider configuration from a cluster.</p>

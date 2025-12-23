@@ -31,9 +31,7 @@ export interface CreateDataIntegrationAssociationCommandInput extends CreateData
  *
  * The output of {@link CreateDataIntegrationAssociationCommand}.
  */
-export interface CreateDataIntegrationAssociationCommandOutput
-  extends CreateDataIntegrationAssociationResponse,
-    __MetadataBearer {}
+export interface CreateDataIntegrationAssociationCommandOutput extends CreateDataIntegrationAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates and persists a DataIntegrationAssociation resource.</p>

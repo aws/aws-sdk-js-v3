@@ -24,9 +24,7 @@ export interface DeleteConfiguredTableAssociationCommandInput extends DeleteConf
  *
  * The output of {@link DeleteConfiguredTableAssociationCommand}.
  */
-export interface DeleteConfiguredTableAssociationCommandOutput
-  extends DeleteConfiguredTableAssociationOutput,
-    __MetadataBearer {}
+export interface DeleteConfiguredTableAssociationCommandOutput extends DeleteConfiguredTableAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a configured table association.</p>

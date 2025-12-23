@@ -27,9 +27,7 @@ export interface GetEnvironmentBlueprintConfigurationCommandInput extends GetEnv
  *
  * The output of {@link GetEnvironmentBlueprintConfigurationCommand}.
  */
-export interface GetEnvironmentBlueprintConfigurationCommandOutput
-  extends GetEnvironmentBlueprintConfigurationOutput,
-    __MetadataBearer {}
+export interface GetEnvironmentBlueprintConfigurationCommandOutput extends GetEnvironmentBlueprintConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the blueprint configuration in Amazon DataZone.</p>

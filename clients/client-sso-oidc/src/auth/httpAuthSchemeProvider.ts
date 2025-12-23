@@ -46,11 +46,9 @@ export const defaultSSOOIDCHttpAuthSchemeParametersProvider = async (
 ): Promise<SSOOIDCHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -93,15 +91,15 @@ export const defaultSSOOIDCHttpAuthSchemeProvider: SSOOIDCHttpAuthSchemeProvider
     case "CreateToken": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     case "RegisterClient": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     case "StartDeviceAuthorization": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     default: {
       options.push(createAwsAuthSigv4HttpAuthOption(authParameters));
     }

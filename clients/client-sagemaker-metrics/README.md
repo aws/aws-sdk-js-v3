@@ -17,10 +17,8 @@ Use these APIs to put and retrieve (get) features related to your training run.<
 </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-sagemaker-metrics
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-sagemaker-metrics`
 - `yarn add @aws-sdk/client-sagemaker-metrics`
 - `pnpm add @aws-sdk/client-sagemaker-metrics`
@@ -56,9 +54,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new SageMakerMetricsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new BatchGetMetricsCommand(params);
 ```
 
@@ -217,7 +213,6 @@ BatchGetMetrics
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-metrics/command/BatchGetMetricsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-metrics/Interface/BatchGetMetricsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-metrics/Interface/BatchGetMetricsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,5 +220,4 @@ BatchPutMetrics
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-metrics/command/BatchPutMetricsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-metrics/Interface/BatchPutMetricsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-metrics/Interface/BatchPutMetricsCommandOutput/)
-
 </details>

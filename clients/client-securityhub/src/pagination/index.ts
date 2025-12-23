@@ -1,24 +1,15 @@
-export * from "./DescribeActionTargetsPaginator";
-
-export * from "./DescribeProductsPaginator";
-
-export * from "./DescribeProductsV2Paginator";
-
-export * from "./DescribeStandardsControlsPaginator";
-
-export * from "./DescribeStandardsPaginator";
-
-export * from "./GetEnabledStandardsPaginator";
-
-export * from "./GetFindingHistoryPaginator";
-
-export * from "./GetFindingsPaginator";
-
-export * from "./GetFindingsTrendsV2Paginator";
-
-export * from "./GetFindingsV2Paginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeActionTargetsPaginator";
+export * from "./DescribeProductsPaginator";
+export * from "./DescribeProductsV2Paginator";
+export * from "./DescribeStandardsPaginator";
+export * from "./DescribeStandardsControlsPaginator";
+export * from "./GetEnabledStandardsPaginator";
+export * from "./GetFindingHistoryPaginator";
+export * from "./GetFindingsPaginator";
+export * from "./GetFindingsTrendsV2Paginator";
+export * from "./GetFindingsV2Paginator";
 export * from "./GetInsightsPaginator";
 export * from "./GetResourcesTrendsV2Paginator";
 export * from "./GetResourcesV2Paginator";

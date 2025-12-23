@@ -24,9 +24,7 @@ export interface DescribeAlertManagerDefinitionCommandInput extends DescribeAler
  *
  * The output of {@link DescribeAlertManagerDefinitionCommand}.
  */
-export interface DescribeAlertManagerDefinitionCommandOutput
-  extends DescribeAlertManagerDefinitionResponse,
-    __MetadataBearer {}
+export interface DescribeAlertManagerDefinitionCommandOutput extends DescribeAlertManagerDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the full information about the alert manager definition for a workspace.</p>

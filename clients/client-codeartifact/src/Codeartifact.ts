@@ -325,8 +325,14 @@ export interface Codeartifact {
   /**
    * @see {@link CreateDomainCommand}
    */
-  createDomain(args: CreateDomainCommandInput, options?: __HttpHandlerOptions): Promise<CreateDomainCommandOutput>;
-  createDomain(args: CreateDomainCommandInput, cb: (err: any, data?: CreateDomainCommandOutput) => void): void;
+  createDomain(
+    args: CreateDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDomainCommandOutput>;
+  createDomain(
+    args: CreateDomainCommandInput,
+    cb: (err: any, data?: CreateDomainCommandOutput) => void
+  ): void;
   createDomain(
     args: CreateDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -370,8 +376,14 @@ export interface Codeartifact {
   /**
    * @see {@link DeleteDomainCommand}
    */
-  deleteDomain(args: DeleteDomainCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDomainCommandOutput>;
-  deleteDomain(args: DeleteDomainCommandInput, cb: (err: any, data?: DeleteDomainCommandOutput) => void): void;
+  deleteDomain(
+    args: DeleteDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDomainCommandOutput>;
+  deleteDomain(
+    args: DeleteDomainCommandInput,
+    cb: (err: any, data?: DeleteDomainCommandOutput) => void
+  ): void;
   deleteDomain(
     args: DeleteDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -398,8 +410,14 @@ export interface Codeartifact {
   /**
    * @see {@link DeletePackageCommand}
    */
-  deletePackage(args: DeletePackageCommandInput, options?: __HttpHandlerOptions): Promise<DeletePackageCommandOutput>;
-  deletePackage(args: DeletePackageCommandInput, cb: (err: any, data?: DeletePackageCommandOutput) => void): void;
+  deletePackage(
+    args: DeletePackageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePackageCommandOutput>;
+  deletePackage(
+    args: DeletePackageCommandInput,
+    cb: (err: any, data?: DeletePackageCommandOutput) => void
+  ): void;
   deletePackage(
     args: DeletePackageCommandInput,
     options: __HttpHandlerOptions,
@@ -481,7 +499,10 @@ export interface Codeartifact {
     args: DescribeDomainCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDomainCommandOutput>;
-  describeDomain(args: DescribeDomainCommandInput, cb: (err: any, data?: DescribeDomainCommandOutput) => void): void;
+  describeDomain(
+    args: DescribeDomainCommandInput,
+    cb: (err: any, data?: DescribeDomainCommandOutput) => void
+  ): void;
   describeDomain(
     args: DescribeDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -495,7 +516,10 @@ export interface Codeartifact {
     args: DescribePackageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribePackageCommandOutput>;
-  describePackage(args: DescribePackageCommandInput, cb: (err: any, data?: DescribePackageCommandOutput) => void): void;
+  describePackage(
+    args: DescribePackageCommandInput,
+    cb: (err: any, data?: DescribePackageCommandOutput) => void
+  ): void;
   describePackage(
     args: DescribePackageCommandInput,
     options: __HttpHandlerOptions,
@@ -744,8 +768,14 @@ export interface Codeartifact {
    * @see {@link ListDomainsCommand}
    */
   listDomains(): Promise<ListDomainsCommandOutput>;
-  listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
-  listDomains(args: ListDomainsCommandInput, cb: (err: any, data?: ListDomainsCommandOutput) => void): void;
+  listDomains(
+    args: ListDomainsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDomainsCommandOutput>;
+  listDomains(
+    args: ListDomainsCommandInput,
+    cb: (err: any, data?: ListDomainsCommandOutput) => void
+  ): void;
   listDomains(
     args: ListDomainsCommandInput,
     options: __HttpHandlerOptions,
@@ -772,8 +802,14 @@ export interface Codeartifact {
   /**
    * @see {@link ListPackagesCommand}
    */
-  listPackages(args: ListPackagesCommandInput, options?: __HttpHandlerOptions): Promise<ListPackagesCommandOutput>;
-  listPackages(args: ListPackagesCommandInput, cb: (err: any, data?: ListPackagesCommandOutput) => void): void;
+  listPackages(
+    args: ListPackagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPackagesCommandOutput>;
+  listPackages(
+    args: ListPackagesCommandInput,
+    cb: (err: any, data?: ListPackagesCommandOutput) => void
+  ): void;
   listPackages(
     args: ListPackagesCommandInput,
     options: __HttpHandlerOptions,
@@ -971,8 +1007,14 @@ export interface Codeartifact {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -982,8 +1024,14 @@ export interface Codeartifact {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

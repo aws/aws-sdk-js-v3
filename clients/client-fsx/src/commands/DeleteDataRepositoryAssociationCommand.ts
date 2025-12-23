@@ -27,9 +27,7 @@ export interface DeleteDataRepositoryAssociationCommandInput extends DeleteDataR
  *
  * The output of {@link DeleteDataRepositoryAssociationCommand}.
  */
-export interface DeleteDataRepositoryAssociationCommandOutput
-  extends DeleteDataRepositoryAssociationResponse,
-    __MetadataBearer {}
+export interface DeleteDataRepositoryAssociationCommandOutput extends DeleteDataRepositoryAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a data repository association on an Amazon FSx for Lustre

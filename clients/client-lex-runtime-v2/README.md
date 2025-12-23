@@ -9,10 +9,8 @@ AWS SDK for JavaScript LexRuntimeV2 Client for Node.js, Browser and React Native
 <p>This section contains documentation for the Amazon Lex V2 Runtime V2 API operations.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-lex-runtime-v2
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-lex-runtime-v2`
 - `yarn add @aws-sdk/client-lex-runtime-v2`
 - `pnpm add @aws-sdk/client-lex-runtime-v2`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new LexRuntimeV2Client({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new GetSessionCommand(params);
 ```
 
@@ -209,7 +205,6 @@ DeleteSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-runtime-v2/command/DeleteSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-v2/Interface/DeleteSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-v2/Interface/DeleteSessionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ GetSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-runtime-v2/command/GetSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-v2/Interface/GetSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-v2/Interface/GetSessionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ PutSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-runtime-v2/command/PutSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-v2/Interface/PutSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-v2/Interface/PutSessionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ RecognizeText
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-runtime-v2/command/RecognizeTextCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-v2/Interface/RecognizeTextCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-v2/Interface/RecognizeTextCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +233,6 @@ RecognizeUtterance
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-runtime-v2/command/RecognizeUtteranceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-v2/Interface/RecognizeUtteranceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-v2/Interface/RecognizeUtteranceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,5 +240,4 @@ StartConversation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-runtime-v2/command/StartConversationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-v2/Interface/StartConversationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-v2/Interface/StartConversationCommandOutput/)
-
 </details>

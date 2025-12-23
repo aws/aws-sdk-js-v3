@@ -27,9 +27,7 @@ export interface UnassignPrivateNatGatewayAddressCommandInput extends UnassignPr
  *
  * The output of {@link UnassignPrivateNatGatewayAddressCommand}.
  */
-export interface UnassignPrivateNatGatewayAddressCommandOutput
-  extends UnassignPrivateNatGatewayAddressResult,
-    __MetadataBearer {}
+export interface UnassignPrivateNatGatewayAddressCommandOutput extends UnassignPrivateNatGatewayAddressResult, __MetadataBearer {}
 
 /**
  * <p>Unassigns secondary private IPv4 addresses from a private NAT gateway. You cannot unassign your primary private IP. For more information,

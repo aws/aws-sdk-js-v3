@@ -27,9 +27,7 @@ export interface ListPipelineParametersForExecutionCommandInput extends ListPipe
  *
  * The output of {@link ListPipelineParametersForExecutionCommand}.
  */
-export interface ListPipelineParametersForExecutionCommandOutput
-  extends ListPipelineParametersForExecutionResponse,
-    __MetadataBearer {}
+export interface ListPipelineParametersForExecutionCommandOutput extends ListPipelineParametersForExecutionResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of parameters for a pipeline execution.</p>

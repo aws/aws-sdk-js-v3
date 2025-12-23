@@ -47,10 +47,8 @@ Guide</i>.</p>
 IAM Identity Center?</a> in the <i>IAM Identity Center User Guide</i>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-sso-oidc
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-sso-oidc`
 - `yarn add @aws-sdk/client-sso-oidc`
 - `pnpm add @aws-sdk/client-sso-oidc`
@@ -86,9 +84,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new SSOOIDCClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new CreateTokenCommand(params);
 ```
 
@@ -247,7 +243,6 @@ CreateToken
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sso-oidc/command/CreateTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso-oidc/Interface/CreateTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso-oidc/Interface/CreateTokenCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -255,7 +250,6 @@ CreateTokenWithIAM
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sso-oidc/command/CreateTokenWithIAMCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso-oidc/Interface/CreateTokenWithIAMCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso-oidc/Interface/CreateTokenWithIAMCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -263,7 +257,6 @@ RegisterClient
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sso-oidc/command/RegisterClientCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso-oidc/Interface/RegisterClientCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso-oidc/Interface/RegisterClientCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -271,5 +264,4 @@ StartDeviceAuthorization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sso-oidc/command/StartDeviceAuthorizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso-oidc/Interface/StartDeviceAuthorizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sso-oidc/Interface/StartDeviceAuthorizationCommandOutput/)
-
 </details>

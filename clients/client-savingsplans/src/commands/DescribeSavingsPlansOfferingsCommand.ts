@@ -24,9 +24,7 @@ export interface DescribeSavingsPlansOfferingsCommandInput extends DescribeSavin
  *
  * The output of {@link DescribeSavingsPlansOfferingsCommand}.
  */
-export interface DescribeSavingsPlansOfferingsCommandOutput
-  extends DescribeSavingsPlansOfferingsResponse,
-    __MetadataBearer {}
+export interface DescribeSavingsPlansOfferingsCommandOutput extends DescribeSavingsPlansOfferingsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the offerings for the specified Savings Plans.</p>

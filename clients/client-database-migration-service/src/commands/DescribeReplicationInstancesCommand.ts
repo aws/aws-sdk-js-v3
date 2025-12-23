@@ -28,9 +28,7 @@ export interface DescribeReplicationInstancesCommandInput extends DescribeReplic
  *
  * The output of {@link DescribeReplicationInstancesCommand}.
  */
-export interface DescribeReplicationInstancesCommandOutput
-  extends DescribeReplicationInstancesResponse,
-    __MetadataBearer {}
+export interface DescribeReplicationInstancesCommandOutput extends DescribeReplicationInstancesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about replication instances for your account in the current

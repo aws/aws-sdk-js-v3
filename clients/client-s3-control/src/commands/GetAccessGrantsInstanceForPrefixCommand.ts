@@ -29,9 +29,7 @@ export interface GetAccessGrantsInstanceForPrefixCommandInput extends GetAccessG
  *
  * The output of {@link GetAccessGrantsInstanceForPrefixCommand}.
  */
-export interface GetAccessGrantsInstanceForPrefixCommandOutput
-  extends GetAccessGrantsInstanceForPrefixResult,
-    __MetadataBearer {}
+export interface GetAccessGrantsInstanceForPrefixCommandOutput extends GetAccessGrantsInstanceForPrefixResult, __MetadataBearer {}
 
 /**
  * <p>Retrieve the S3 Access Grants instance that contains a particular prefix.  </p>

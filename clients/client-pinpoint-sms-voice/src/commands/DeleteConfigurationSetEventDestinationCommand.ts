@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DeleteConfigurationSetEventDestinationCommand}.
  */
-export interface DeleteConfigurationSetEventDestinationCommandInput
-  extends DeleteConfigurationSetEventDestinationRequest {}
+export interface DeleteConfigurationSetEventDestinationCommandInput extends DeleteConfigurationSetEventDestinationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteConfigurationSetEventDestinationCommand}.
  */
-export interface DeleteConfigurationSetEventDestinationCommandOutput
-  extends DeleteConfigurationSetEventDestinationResponse,
-    __MetadataBearer {}
+export interface DeleteConfigurationSetEventDestinationCommandOutput extends DeleteConfigurationSetEventDestinationResponse, __MetadataBearer {}
 
 /**
  * Deletes an event destination in a configuration set.

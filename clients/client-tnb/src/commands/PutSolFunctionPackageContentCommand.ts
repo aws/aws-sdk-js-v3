@@ -31,9 +31,7 @@ export interface PutSolFunctionPackageContentCommandInput extends PutSolFunction
  *
  * The output of {@link PutSolFunctionPackageContentCommand}.
  */
-export interface PutSolFunctionPackageContentCommandOutput
-  extends PutSolFunctionPackageContentOutput,
-    __MetadataBearer {}
+export interface PutSolFunctionPackageContentCommandOutput extends PutSolFunctionPackageContentOutput, __MetadataBearer {}
 
 /**
  * <p>Uploads the contents of a function package.</p>

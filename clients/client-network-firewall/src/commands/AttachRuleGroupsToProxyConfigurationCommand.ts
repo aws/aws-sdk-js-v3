@@ -31,9 +31,7 @@ export interface AttachRuleGroupsToProxyConfigurationCommandInput extends Attach
  *
  * The output of {@link AttachRuleGroupsToProxyConfigurationCommand}.
  */
-export interface AttachRuleGroupsToProxyConfigurationCommandOutput
-  extends AttachRuleGroupsToProxyConfigurationResponse,
-    __MetadataBearer {}
+export interface AttachRuleGroupsToProxyConfigurationCommandOutput extends AttachRuleGroupsToProxyConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Attaches <a>ProxyRuleGroup</a> resources to a <a>ProxyConfiguration</a>

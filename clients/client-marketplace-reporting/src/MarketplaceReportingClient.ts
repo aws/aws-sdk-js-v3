@@ -78,12 +78,14 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = GetBuyerDashboardCommandInput;
+export type ServiceInputTypes =
+  | GetBuyerDashboardCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = GetBuyerDashboardCommandOutput;
+export type ServiceOutputTypes =
+  | GetBuyerDashboardCommandOutput;
 
 /**
  * @public

@@ -19,8 +19,7 @@ export { $Command };
  *
  * The input for {@link UpdateBucketMetadataJournalTableConfigurationCommand}.
  */
-export interface UpdateBucketMetadataJournalTableConfigurationCommandInput
-  extends UpdateBucketMetadataJournalTableConfigurationRequest {}
+export interface UpdateBucketMetadataJournalTableConfigurationCommandInput extends UpdateBucketMetadataJournalTableConfigurationRequest {}
 /**
  * @public
  *
@@ -122,7 +121,7 @@ export class UpdateBucketMetadataJournalTableConfigurationCommand extends $Comma
     return [
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
+        requestAlgorithmMember: {'httpHeader': 'x-amz-sdk-checksum-algorithm', 'name': 'ChecksumAlgorithm'},
         requestChecksumRequired: true,
       }),
     ];

@@ -26,9 +26,7 @@ export interface GetMultiRegionAccessPointRoutesCommandInput extends GetMultiReg
  *
  * The output of {@link GetMultiRegionAccessPointRoutesCommand}.
  */
-export interface GetMultiRegionAccessPointRoutesCommandOutput
-  extends GetMultiRegionAccessPointRoutesResult,
-    __MetadataBearer {}
+export interface GetMultiRegionAccessPointRoutesCommandOutput extends GetMultiRegionAccessPointRoutesResult, __MetadataBearer {}
 
 /**
  * <note>

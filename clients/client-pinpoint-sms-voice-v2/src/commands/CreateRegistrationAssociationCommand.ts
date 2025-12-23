@@ -28,9 +28,7 @@ export interface CreateRegistrationAssociationCommandInput extends CreateRegistr
  *
  * The output of {@link CreateRegistrationAssociationCommand}.
  */
-export interface CreateRegistrationAssociationCommandOutput
-  extends CreateRegistrationAssociationResult,
-    __MetadataBearer {}
+export interface CreateRegistrationAssociationCommandOutput extends CreateRegistrationAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Associate the registration with an origination identity such as a phone number or sender ID.</p>

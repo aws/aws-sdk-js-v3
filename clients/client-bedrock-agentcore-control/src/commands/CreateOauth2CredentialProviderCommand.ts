@@ -28,9 +28,7 @@ export interface CreateOauth2CredentialProviderCommandInput extends CreateOauth2
  *
  * The output of {@link CreateOauth2CredentialProviderCommand}.
  */
-export interface CreateOauth2CredentialProviderCommandOutput
-  extends CreateOauth2CredentialProviderResponse,
-    __MetadataBearer {}
+export interface CreateOauth2CredentialProviderCommandOutput extends CreateOauth2CredentialProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new OAuth2 credential provider.</p>

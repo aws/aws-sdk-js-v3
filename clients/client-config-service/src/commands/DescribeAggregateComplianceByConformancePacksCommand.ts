@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeAggregateComplianceByConformancePacksCommand}.
  */
-export interface DescribeAggregateComplianceByConformancePacksCommandInput
-  extends DescribeAggregateComplianceByConformancePacksRequest {}
+export interface DescribeAggregateComplianceByConformancePacksCommandInput extends DescribeAggregateComplianceByConformancePacksRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeAggregateComplianceByConformancePacksCommand}.
  */
-export interface DescribeAggregateComplianceByConformancePacksCommandOutput
-  extends DescribeAggregateComplianceByConformancePacksResponse,
-    __MetadataBearer {}
+export interface DescribeAggregateComplianceByConformancePacksCommandOutput extends DescribeAggregateComplianceByConformancePacksResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the existing and deleted conformance packs and their associated compliance status with the count of compliant and noncompliant Config rules within each

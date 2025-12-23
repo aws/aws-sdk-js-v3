@@ -27,9 +27,7 @@ export interface GetDataLakeOrganizationConfigurationCommandInput extends GetDat
  *
  * The output of {@link GetDataLakeOrganizationConfigurationCommand}.
  */
-export interface GetDataLakeOrganizationConfigurationCommandOutput
-  extends GetDataLakeOrganizationConfigurationResponse,
-    __MetadataBearer {}
+export interface GetDataLakeOrganizationConfigurationCommandOutput extends GetDataLakeOrganizationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the configuration that will be automatically set up for accounts added to the

@@ -24,9 +24,7 @@ export interface GetServiceSyncBlockerSummaryCommandInput extends GetServiceSync
  *
  * The output of {@link GetServiceSyncBlockerSummaryCommand}.
  */
-export interface GetServiceSyncBlockerSummaryCommandOutput
-  extends GetServiceSyncBlockerSummaryOutput,
-    __MetadataBearer {}
+export interface GetServiceSyncBlockerSummaryCommandOutput extends GetServiceSyncBlockerSummaryOutput, __MetadataBearer {}
 
 /**
  * <p>Get detailed data for the service sync blocker summary.</p>

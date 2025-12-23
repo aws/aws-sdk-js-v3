@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link RegisterDataLakeDelegatedAdministratorCommand}.
  */
-export interface RegisterDataLakeDelegatedAdministratorCommandInput
-  extends RegisterDataLakeDelegatedAdministratorRequest {}
+export interface RegisterDataLakeDelegatedAdministratorCommandInput extends RegisterDataLakeDelegatedAdministratorRequest {}
 /**
  * @public
  *
  * The output of {@link RegisterDataLakeDelegatedAdministratorCommand}.
  */
-export interface RegisterDataLakeDelegatedAdministratorCommandOutput
-  extends RegisterDataLakeDelegatedAdministratorResponse,
-    __MetadataBearer {}
+export interface RegisterDataLakeDelegatedAdministratorCommandOutput extends RegisterDataLakeDelegatedAdministratorResponse, __MetadataBearer {}
 
 /**
  * <p>Designates the Amazon Security Lake delegated administrator account for the organization. This

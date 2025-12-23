@@ -10,9 +10,9 @@ const checkState = async (client: SageMakerClient, input: DescribeEndpointComman
     const result: any = await client.send(new DescribeEndpointCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.EndpointStatus;
-      };
+      }
       if (returnComparator() === "Failed") {
         return { state: WaiterState.FAILURE, reason };
       }

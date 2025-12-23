@@ -26,9 +26,7 @@ export interface PutBucketLifecycleConfigurationCommandInput extends PutBucketLi
  *
  * The output of {@link PutBucketLifecycleConfigurationCommand}.
  */
-export interface PutBucketLifecycleConfigurationCommandOutput
-  extends PutBucketLifecycleConfigurationOutput,
-    __MetadataBearer {}
+export interface PutBucketLifecycleConfigurationCommandOutput extends PutBucketLifecycleConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle
@@ -298,7 +296,7 @@ export class PutBucketLifecycleConfigurationCommand extends $Command
     return [
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
+        requestAlgorithmMember: {'httpHeader': 'x-amz-sdk-checksum-algorithm', 'name': 'ChecksumAlgorithm'},
         requestChecksumRequired: true,
       }),
       getThrow200ExceptionsPlugin(config),

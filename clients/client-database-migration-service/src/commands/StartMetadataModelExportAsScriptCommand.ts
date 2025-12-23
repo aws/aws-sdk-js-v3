@@ -31,9 +31,7 @@ export interface StartMetadataModelExportAsScriptCommandInput extends StartMetad
  *
  * The output of {@link StartMetadataModelExportAsScriptCommand}.
  */
-export interface StartMetadataModelExportAsScriptCommandOutput
-  extends StartMetadataModelExportAsScriptResponse,
-    __MetadataBearer {}
+export interface StartMetadataModelExportAsScriptCommandOutput extends StartMetadataModelExportAsScriptResponse, __MetadataBearer {}
 
 /**
  * <p>Saves your converted code to a file as a SQL script, and stores this file on your Amazon S3

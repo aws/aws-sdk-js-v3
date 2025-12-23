@@ -27,9 +27,7 @@ export interface ListTrafficPolicyInstancesByPolicyCommandInput extends ListTraf
  *
  * The output of {@link ListTrafficPolicyInstancesByPolicyCommand}.
  */
-export interface ListTrafficPolicyInstancesByPolicyCommandOutput
-  extends ListTrafficPolicyInstancesByPolicyResponse,
-    __MetadataBearer {}
+export interface ListTrafficPolicyInstancesByPolicyCommandOutput extends ListTrafficPolicyInstancesByPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about the traffic policy instances that you created by using a

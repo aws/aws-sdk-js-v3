@@ -24,9 +24,7 @@ export interface ListChatResponseConfigurationsCommandInput extends ListChatResp
  *
  * The output of {@link ListChatResponseConfigurationsCommand}.
  */
-export interface ListChatResponseConfigurationsCommandOutput
-  extends ListChatResponseConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListChatResponseConfigurationsCommandOutput extends ListChatResponseConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of all chat response configurations available in a specified Amazon Q Business application. This operation returns summary information about each configuration to help administrators manage and select appropriate response settings.</p>

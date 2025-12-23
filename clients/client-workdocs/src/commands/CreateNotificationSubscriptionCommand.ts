@@ -24,9 +24,7 @@ export interface CreateNotificationSubscriptionCommandInput extends CreateNotifi
  *
  * The output of {@link CreateNotificationSubscriptionCommand}.
  */
-export interface CreateNotificationSubscriptionCommandOutput
-  extends CreateNotificationSubscriptionResponse,
-    __MetadataBearer {}
+export interface CreateNotificationSubscriptionCommandOutput extends CreateNotificationSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a

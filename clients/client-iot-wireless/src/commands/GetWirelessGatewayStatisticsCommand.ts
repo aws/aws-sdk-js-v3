@@ -24,9 +24,7 @@ export interface GetWirelessGatewayStatisticsCommandInput extends GetWirelessGat
  *
  * The output of {@link GetWirelessGatewayStatisticsCommand}.
  */
-export interface GetWirelessGatewayStatisticsCommandOutput
-  extends GetWirelessGatewayStatisticsResponse,
-    __MetadataBearer {}
+export interface GetWirelessGatewayStatisticsCommandOutput extends GetWirelessGatewayStatisticsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets operating information about a wireless gateway.</p>

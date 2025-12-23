@@ -24,9 +24,7 @@ export interface DescribeModelBiasJobDefinitionCommandInput extends DescribeMode
  *
  * The output of {@link DescribeModelBiasJobDefinitionCommand}.
  */
-export interface DescribeModelBiasJobDefinitionCommandOutput
-  extends DescribeModelBiasJobDefinitionResponse,
-    __MetadataBearer {}
+export interface DescribeModelBiasJobDefinitionCommandOutput extends DescribeModelBiasJobDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a description of a model bias job definition.</p>

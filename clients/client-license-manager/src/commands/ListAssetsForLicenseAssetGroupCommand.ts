@@ -28,9 +28,7 @@ export interface ListAssetsForLicenseAssetGroupCommandInput extends ListAssetsFo
  *
  * The output of {@link ListAssetsForLicenseAssetGroupCommand}.
  */
-export interface ListAssetsForLicenseAssetGroupCommandOutput
-  extends ListAssetsForLicenseAssetGroupResponse,
-    __MetadataBearer {}
+export interface ListAssetsForLicenseAssetGroupCommandOutput extends ListAssetsForLicenseAssetGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Lists assets for a license asset group.</p>

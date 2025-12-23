@@ -24,9 +24,7 @@ export interface PutDedicatedIpWarmupAttributesCommandInput extends PutDedicated
  *
  * The output of {@link PutDedicatedIpWarmupAttributesCommand}.
  */
-export interface PutDedicatedIpWarmupAttributesCommandOutput
-  extends PutDedicatedIpWarmupAttributesResponse,
-    __MetadataBearer {}
+export interface PutDedicatedIpWarmupAttributesCommandOutput extends PutDedicatedIpWarmupAttributesResponse, __MetadataBearer {}
 
 /**
  * <p></p>

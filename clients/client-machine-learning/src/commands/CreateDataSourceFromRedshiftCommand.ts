@@ -28,9 +28,7 @@ export interface CreateDataSourceFromRedshiftCommandInput extends CreateDataSour
  *
  * The output of {@link CreateDataSourceFromRedshiftCommand}.
  */
-export interface CreateDataSourceFromRedshiftCommandOutput
-  extends CreateDataSourceFromRedshiftOutput,
-    __MetadataBearer {}
+export interface CreateDataSourceFromRedshiftCommandOutput extends CreateDataSourceFromRedshiftOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a <code>DataSource</code> from a database hosted on an Amazon Redshift cluster. A

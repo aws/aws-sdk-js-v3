@@ -24,9 +24,7 @@ export interface UpdateCostCategoryDefinitionCommandInput extends UpdateCostCate
  *
  * The output of {@link UpdateCostCategoryDefinitionCommand}.
  */
-export interface UpdateCostCategoryDefinitionCommandOutput
-  extends UpdateCostCategoryDefinitionResponse,
-    __MetadataBearer {}
+export interface UpdateCostCategoryDefinitionCommandOutput extends UpdateCostCategoryDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing cost category. Changes made to the cost category rules will be used to

@@ -24,9 +24,7 @@ export interface ListAllowedNodeTypeModificationsCommandInput extends ListAllowe
  *
  * The output of {@link ListAllowedNodeTypeModificationsCommand}.
  */
-export interface ListAllowedNodeTypeModificationsCommandOutput
-  extends AllowedNodeTypeModificationsMessage,
-    __MetadataBearer {}
+export interface ListAllowedNodeTypeModificationsCommandOutput extends AllowedNodeTypeModificationsMessage, __MetadataBearer {}
 
 /**
  * <p>Lists all available node types that you can scale with your cluster's replication

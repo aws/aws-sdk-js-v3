@@ -24,9 +24,7 @@ export interface ListHITsForQualificationTypeCommandInput extends ListHITsForQua
  *
  * The output of {@link ListHITsForQualificationTypeCommand}.
  */
-export interface ListHITsForQualificationTypeCommandOutput
-  extends ListHITsForQualificationTypeResponse,
-    __MetadataBearer {}
+export interface ListHITsForQualificationTypeCommandOutput extends ListHITsForQualificationTypeResponse, __MetadataBearer {}
 
 /**
  * <p>

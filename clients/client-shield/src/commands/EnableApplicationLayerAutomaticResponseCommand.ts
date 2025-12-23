@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link EnableApplicationLayerAutomaticResponseCommand}.
  */
-export interface EnableApplicationLayerAutomaticResponseCommandInput
-  extends EnableApplicationLayerAutomaticResponseRequest {}
+export interface EnableApplicationLayerAutomaticResponseCommandInput extends EnableApplicationLayerAutomaticResponseRequest {}
 /**
  * @public
  *
  * The output of {@link EnableApplicationLayerAutomaticResponseCommand}.
  */
-export interface EnableApplicationLayerAutomaticResponseCommandOutput
-  extends EnableApplicationLayerAutomaticResponseResponse,
-    __MetadataBearer {}
+export interface EnableApplicationLayerAutomaticResponseCommandOutput extends EnableApplicationLayerAutomaticResponseResponse, __MetadataBearer {}
 
 /**
  * <p>Enable the Shield Advanced automatic application layer DDoS mitigation for the protected resource. </p>

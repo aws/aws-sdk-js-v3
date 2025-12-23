@@ -27,9 +27,7 @@ export interface DeleteEnforcedGuardrailConfigurationCommandInput extends Delete
  *
  * The output of {@link DeleteEnforcedGuardrailConfigurationCommand}.
  */
-export interface DeleteEnforcedGuardrailConfigurationCommandOutput
-  extends DeleteEnforcedGuardrailConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteEnforcedGuardrailConfigurationCommandOutput extends DeleteEnforcedGuardrailConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the account-level enforced guardrail configuration.</p>

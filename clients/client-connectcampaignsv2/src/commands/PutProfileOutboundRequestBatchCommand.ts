@@ -28,9 +28,7 @@ export interface PutProfileOutboundRequestBatchCommandInput extends PutProfileOu
  *
  * The output of {@link PutProfileOutboundRequestBatchCommand}.
  */
-export interface PutProfileOutboundRequestBatchCommandOutput
-  extends PutProfileOutboundRequestBatchResponse,
-    __MetadataBearer {}
+export interface PutProfileOutboundRequestBatchCommandOutput extends PutProfileOutboundRequestBatchResponse, __MetadataBearer {}
 
 /**
  * Takes in a list of profile outbound requests to be placed as part of an outbound campaign. This API is idempotent.

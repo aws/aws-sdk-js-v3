@@ -24,9 +24,7 @@ export interface DescribeMlflowTrackingServerCommandInput extends DescribeMlflow
  *
  * The output of {@link DescribeMlflowTrackingServerCommand}.
  */
-export interface DescribeMlflowTrackingServerCommandOutput
-  extends DescribeMlflowTrackingServerResponse,
-    __MetadataBearer {}
+export interface DescribeMlflowTrackingServerCommandOutput extends DescribeMlflowTrackingServerResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about an MLflow Tracking Server.</p>

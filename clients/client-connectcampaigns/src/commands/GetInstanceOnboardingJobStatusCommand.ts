@@ -28,9 +28,7 @@ export interface GetInstanceOnboardingJobStatusCommandInput extends GetInstanceO
  *
  * The output of {@link GetInstanceOnboardingJobStatusCommand}.
  */
-export interface GetInstanceOnboardingJobStatusCommandOutput
-  extends GetInstanceOnboardingJobStatusResponse,
-    __MetadataBearer {}
+export interface GetInstanceOnboardingJobStatusCommandOutput extends GetInstanceOnboardingJobStatusResponse, __MetadataBearer {}
 
 /**
  * Get the specific instance onboarding job status.

@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link AssociateConfigurationItemsToApplicationCommand}.
  */
-export interface AssociateConfigurationItemsToApplicationCommandInput
-  extends AssociateConfigurationItemsToApplicationRequest {}
+export interface AssociateConfigurationItemsToApplicationCommandInput extends AssociateConfigurationItemsToApplicationRequest {}
 /**
  * @public
  *
  * The output of {@link AssociateConfigurationItemsToApplicationCommand}.
  */
-export interface AssociateConfigurationItemsToApplicationCommandOutput
-  extends AssociateConfigurationItemsToApplicationResponse,
-    __MetadataBearer {}
+export interface AssociateConfigurationItemsToApplicationCommandOutput extends AssociateConfigurationItemsToApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Associates one or more configuration items with an application.</p>

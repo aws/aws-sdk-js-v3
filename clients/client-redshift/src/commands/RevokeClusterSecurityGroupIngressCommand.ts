@@ -27,9 +27,7 @@ export interface RevokeClusterSecurityGroupIngressCommandInput extends RevokeClu
  *
  * The output of {@link RevokeClusterSecurityGroupIngressCommand}.
  */
-export interface RevokeClusterSecurityGroupIngressCommandOutput
-  extends RevokeClusterSecurityGroupIngressResult,
-    __MetadataBearer {}
+export interface RevokeClusterSecurityGroupIngressCommandOutput extends RevokeClusterSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
  * <p>Revokes an ingress rule in an Amazon Redshift security group for a previously authorized

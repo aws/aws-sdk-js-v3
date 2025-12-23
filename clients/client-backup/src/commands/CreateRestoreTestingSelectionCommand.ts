@@ -24,9 +24,7 @@ export interface CreateRestoreTestingSelectionCommandInput extends CreateRestore
  *
  * The output of {@link CreateRestoreTestingSelectionCommand}.
  */
-export interface CreateRestoreTestingSelectionCommandOutput
-  extends CreateRestoreTestingSelectionOutput,
-    __MetadataBearer {}
+export interface CreateRestoreTestingSelectionCommandOutput extends CreateRestoreTestingSelectionOutput, __MetadataBearer {}
 
 /**
  * <p>This request can be sent after CreateRestoreTestingPlan request

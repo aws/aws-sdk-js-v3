@@ -24,9 +24,7 @@ export interface ModifyVerifiedAccessGroupPolicyCommandInput extends ModifyVerif
  *
  * The output of {@link ModifyVerifiedAccessGroupPolicyCommand}.
  */
-export interface ModifyVerifiedAccessGroupPolicyCommandOutput
-  extends ModifyVerifiedAccessGroupPolicyResult,
-    __MetadataBearer {}
+export interface ModifyVerifiedAccessGroupPolicyCommandOutput extends ModifyVerifiedAccessGroupPolicyResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the specified Amazon Web Services Verified Access group policy.</p>

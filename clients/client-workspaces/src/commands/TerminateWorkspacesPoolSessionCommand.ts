@@ -24,9 +24,7 @@ export interface TerminateWorkspacesPoolSessionCommandInput extends TerminateWor
  *
  * The output of {@link TerminateWorkspacesPoolSessionCommand}.
  */
-export interface TerminateWorkspacesPoolSessionCommandOutput
-  extends TerminateWorkspacesPoolSessionResult,
-    __MetadataBearer {}
+export interface TerminateWorkspacesPoolSessionCommandOutput extends TerminateWorkspacesPoolSessionResult, __MetadataBearer {}
 
 /**
  * <p>Terminates the pool session.</p>

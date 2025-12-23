@@ -31,9 +31,7 @@ export interface CancelParticipantAuthenticationCommandInput extends CancelParti
  *
  * The output of {@link CancelParticipantAuthenticationCommand}.
  */
-export interface CancelParticipantAuthenticationCommandOutput
-  extends CancelParticipantAuthenticationResponse,
-    __MetadataBearer {}
+export interface CancelParticipantAuthenticationCommandOutput extends CancelParticipantAuthenticationResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels the authentication session. The opted out branch of the Authenticate Customer

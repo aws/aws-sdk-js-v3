@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchDisassociateAssessmentReportEvidenceCommand}.
  */
-export interface BatchDisassociateAssessmentReportEvidenceCommandInput
-  extends BatchDisassociateAssessmentReportEvidenceRequest {}
+export interface BatchDisassociateAssessmentReportEvidenceCommandInput extends BatchDisassociateAssessmentReportEvidenceRequest {}
 /**
  * @public
  *
  * The output of {@link BatchDisassociateAssessmentReportEvidenceCommand}.
  */
-export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
-  extends BatchDisassociateAssessmentReportEvidenceResponse,
-    __MetadataBearer {}
+export interface BatchDisassociateAssessmentReportEvidenceCommandOutput extends BatchDisassociateAssessmentReportEvidenceResponse, __MetadataBearer {}
 
 /**
  * <p> Disassociates a list of evidence from an assessment report in Audit Manager.

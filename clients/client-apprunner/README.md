@@ -7,7 +7,6 @@
 AWS SDK for JavaScript AppRunner Client for Node.js, Browser and React Native.
 
 <fullname>App Runner</fullname>
-
 <p>App Runner is an application service that provides a fast, simple, and cost-effective way to go directly from an existing container image or source code
 to a running service in the Amazon Web Services Cloud in seconds. You don't need to learn new technologies, decide which compute service to use, or understand how to
 provision and configure Amazon Web Services resources.</p>
@@ -26,10 +25,8 @@ Amazon Web Services</a>.</p>
 endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-apprunner
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-apprunner`
 - `yarn add @aws-sdk/client-apprunner`
 - `pnpm add @aws-sdk/client-apprunner`
@@ -65,9 +62,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new AppRunnerClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListConnectionsCommand(params);
 ```
 
@@ -226,7 +221,6 @@ AssociateCustomDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/AssociateCustomDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/AssociateCustomDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/AssociateCustomDomainCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -234,7 +228,6 @@ CreateAutoScalingConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/CreateAutoScalingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/CreateAutoScalingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/CreateAutoScalingConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -242,7 +235,6 @@ CreateConnection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/CreateConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/CreateConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/CreateConnectionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -250,7 +242,6 @@ CreateObservabilityConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/CreateObservabilityConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/CreateObservabilityConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/CreateObservabilityConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -258,7 +249,6 @@ CreateService
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/CreateServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/CreateServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/CreateServiceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -266,7 +256,6 @@ CreateVpcConnector
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/CreateVpcConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/CreateVpcConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/CreateVpcConnectorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -274,7 +263,6 @@ CreateVpcIngressConnection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/CreateVpcIngressConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/CreateVpcIngressConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/CreateVpcIngressConnectionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -282,7 +270,6 @@ DeleteAutoScalingConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/DeleteAutoScalingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DeleteAutoScalingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DeleteAutoScalingConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -290,7 +277,6 @@ DeleteConnection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/DeleteConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DeleteConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DeleteConnectionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -298,7 +284,6 @@ DeleteObservabilityConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/DeleteObservabilityConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DeleteObservabilityConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DeleteObservabilityConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -306,7 +291,6 @@ DeleteService
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/DeleteServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DeleteServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DeleteServiceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -314,7 +298,6 @@ DeleteVpcConnector
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/DeleteVpcConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DeleteVpcConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DeleteVpcConnectorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -322,7 +305,6 @@ DeleteVpcIngressConnection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/DeleteVpcIngressConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DeleteVpcIngressConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DeleteVpcIngressConnectionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -330,7 +312,6 @@ DescribeAutoScalingConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/DescribeAutoScalingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DescribeAutoScalingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DescribeAutoScalingConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -338,7 +319,6 @@ DescribeCustomDomains
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/DescribeCustomDomainsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DescribeCustomDomainsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DescribeCustomDomainsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -346,7 +326,6 @@ DescribeObservabilityConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/DescribeObservabilityConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DescribeObservabilityConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DescribeObservabilityConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -354,7 +333,6 @@ DescribeService
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/DescribeServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DescribeServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DescribeServiceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -362,7 +340,6 @@ DescribeVpcConnector
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/DescribeVpcConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DescribeVpcConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DescribeVpcConnectorCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -370,7 +347,6 @@ DescribeVpcIngressConnection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/DescribeVpcIngressConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DescribeVpcIngressConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DescribeVpcIngressConnectionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -378,7 +354,6 @@ DisassociateCustomDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/DisassociateCustomDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DisassociateCustomDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/DisassociateCustomDomainCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -386,7 +361,6 @@ ListAutoScalingConfigurations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/ListAutoScalingConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/ListAutoScalingConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/ListAutoScalingConfigurationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -394,7 +368,6 @@ ListConnections
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/ListConnectionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/ListConnectionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/ListConnectionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -402,7 +375,6 @@ ListObservabilityConfigurations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/ListObservabilityConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/ListObservabilityConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/ListObservabilityConfigurationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -410,7 +382,6 @@ ListOperations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/ListOperationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/ListOperationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/ListOperationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -418,7 +389,6 @@ ListServices
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/ListServicesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/ListServicesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/ListServicesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -426,7 +396,6 @@ ListServicesForAutoScalingConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/ListServicesForAutoScalingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/ListServicesForAutoScalingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/ListServicesForAutoScalingConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -434,7 +403,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -442,7 +410,6 @@ ListVpcConnectors
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/ListVpcConnectorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/ListVpcConnectorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/ListVpcConnectorsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -450,7 +417,6 @@ ListVpcIngressConnections
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/ListVpcIngressConnectionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/ListVpcIngressConnectionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/ListVpcIngressConnectionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -458,7 +424,6 @@ PauseService
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/PauseServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/PauseServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/PauseServiceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -466,7 +431,6 @@ ResumeService
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/ResumeServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/ResumeServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/ResumeServiceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -474,7 +438,6 @@ StartDeployment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/StartDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/StartDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/StartDeploymentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -482,7 +445,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -490,7 +452,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -498,7 +459,6 @@ UpdateDefaultAutoScalingConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/UpdateDefaultAutoScalingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/UpdateDefaultAutoScalingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/UpdateDefaultAutoScalingConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -506,7 +466,6 @@ UpdateService
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/UpdateServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/UpdateServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/UpdateServiceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -514,5 +473,4 @@ UpdateVpcIngressConnection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/apprunner/command/UpdateVpcIngressConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/UpdateVpcIngressConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-apprunner/Interface/UpdateVpcIngressConnectionCommandOutput/)
-
 </details>

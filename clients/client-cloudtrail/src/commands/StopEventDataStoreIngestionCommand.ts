@@ -24,9 +24,7 @@ export interface StopEventDataStoreIngestionCommandInput extends StopEventDataSt
  *
  * The output of {@link StopEventDataStoreIngestionCommand}.
  */
-export interface StopEventDataStoreIngestionCommandOutput
-  extends StopEventDataStoreIngestionResponse,
-    __MetadataBearer {}
+export interface StopEventDataStoreIngestionCommandOutput extends StopEventDataStoreIngestionResponse, __MetadataBearer {}
 
 /**
  * <p>Stops the ingestion of live events on an event data store specified as either an ARN or the ID portion of the ARN. To stop ingestion, the event data store <code>Status</code> must be <code>ENABLED</code>

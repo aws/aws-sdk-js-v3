@@ -24,9 +24,7 @@ export interface UpdatePullRequestDescriptionCommandInput extends UpdatePullRequ
  *
  * The output of {@link UpdatePullRequestDescriptionCommand}.
  */
-export interface UpdatePullRequestDescriptionCommandOutput
-  extends UpdatePullRequestDescriptionOutput,
-    __MetadataBearer {}
+export interface UpdatePullRequestDescriptionCommandOutput extends UpdatePullRequestDescriptionOutput, __MetadataBearer {}
 
 /**
  * <p>Replaces the contents of the description of a pull request.</p>

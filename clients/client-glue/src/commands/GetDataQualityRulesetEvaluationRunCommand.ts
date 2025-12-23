@@ -27,9 +27,7 @@ export interface GetDataQualityRulesetEvaluationRunCommandInput extends GetDataQ
  *
  * The output of {@link GetDataQualityRulesetEvaluationRunCommand}.
  */
-export interface GetDataQualityRulesetEvaluationRunCommandOutput
-  extends GetDataQualityRulesetEvaluationRunResponse,
-    __MetadataBearer {}
+export interface GetDataQualityRulesetEvaluationRunCommandOutput extends GetDataQualityRulesetEvaluationRunResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a specific run where a ruleset is evaluated against a data source.</p>

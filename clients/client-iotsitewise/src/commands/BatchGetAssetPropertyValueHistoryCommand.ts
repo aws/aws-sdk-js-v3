@@ -27,9 +27,7 @@ export interface BatchGetAssetPropertyValueHistoryCommandInput extends BatchGetA
  *
  * The output of {@link BatchGetAssetPropertyValueHistoryCommand}.
  */
-export interface BatchGetAssetPropertyValueHistoryCommandOutput
-  extends BatchGetAssetPropertyValueHistoryResponse,
-    __MetadataBearer {}
+export interface BatchGetAssetPropertyValueHistoryCommandOutput extends BatchGetAssetPropertyValueHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the historical values for one or more asset properties. For more information, see

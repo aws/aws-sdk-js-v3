@@ -674,7 +674,9 @@ export namespace ConsolidatedPolicyV1 {
  * <p>Controls on the analysis specifications that can be run on a configured table.</p>
  * @public
  */
-export type ConsolidatedPolicy = ConsolidatedPolicy.V1Member | ConsolidatedPolicy.$UnknownMember;
+export type ConsolidatedPolicy =
+  | ConsolidatedPolicy.V1Member
+  | ConsolidatedPolicy.$UnknownMember;
 
 /**
  * @public
@@ -813,7 +815,9 @@ export interface QueryConstraintRequireOverlap {
  * <p>Provides any necessary query constraint information.</p>
  * @public
  */
-export type QueryConstraint = QueryConstraint.RequireOverlapMember | QueryConstraint.$UnknownMember;
+export type QueryConstraint =
+  | QueryConstraint.RequireOverlapMember
+  | QueryConstraint.$UnknownMember;
 
 /**
  * @public
@@ -991,7 +995,9 @@ export namespace AnalysisRulePolicyV1 {
  * <p>Controls on the query specifications that can be run on configured table.</p>
  * @public
  */
-export type AnalysisRulePolicy = AnalysisRulePolicy.V1Member | AnalysisRulePolicy.$UnknownMember;
+export type AnalysisRulePolicy =
+  | AnalysisRulePolicy.V1Member
+  | AnalysisRulePolicy.$UnknownMember;
 
 /**
  * @public
@@ -1148,7 +1154,10 @@ export interface AnalysisTemplateArtifacts {
  * <p>The structure that defines the body of the analysis template.</p>
  * @public
  */
-export type AnalysisSource = AnalysisSource.ArtifactsMember | AnalysisSource.TextMember | AnalysisSource.$UnknownMember;
+export type AnalysisSource =
+  | AnalysisSource.ArtifactsMember
+  | AnalysisSource.TextMember
+  | AnalysisSource.$UnknownMember;
 
 /**
  * @public
@@ -1228,7 +1237,9 @@ export interface AnalysisTemplateArtifactMetadata {
  * <p>The analysis source metadata.</p>
  * @public
  */
-export type AnalysisSourceMetadata = AnalysisSourceMetadata.ArtifactsMember | AnalysisSourceMetadata.$UnknownMember;
+export type AnalysisSourceMetadata =
+  | AnalysisSourceMetadata.ArtifactsMember
+  | AnalysisSourceMetadata.$UnknownMember;
 
 /**
  * @public
@@ -2173,7 +2184,9 @@ export interface IdMappingTableSchemaTypeProperties {
  * <p>Information about the schema type properties.</p>
  * @public
  */
-export type SchemaTypeProperties = SchemaTypeProperties.IdMappingTableMember | SchemaTypeProperties.$UnknownMember;
+export type SchemaTypeProperties =
+  | SchemaTypeProperties.IdMappingTableMember
+  | SchemaTypeProperties.$UnknownMember;
 
 /**
  * @public
@@ -3902,9 +3915,7 @@ export interface ListCollaborationConfiguredAudienceModelAssociationsOutput {
    * <p>The metadata of the configured audience model association within a collaboration.</p>
    * @public
    */
-  collaborationConfiguredAudienceModelAssociationSummaries:
-    | CollaborationConfiguredAudienceModelAssociationSummary[]
-    | undefined;
+  collaborationConfiguredAudienceModelAssociationSummaries: CollaborationConfiguredAudienceModelAssociationSummary[] | undefined;
 
   /**
    * <p>The pagination token that's used to fetch the next set of results.</p>
@@ -5642,7 +5653,9 @@ export interface SnowflakeTableSchemaV1 {
  * <p> The schema of a Snowflake table.</p>
  * @public
  */
-export type SnowflakeTableSchema = SnowflakeTableSchema.V1Member | SnowflakeTableSchema.$UnknownMember;
+export type SnowflakeTableSchema =
+  | SnowflakeTableSchema.V1Member
+  | SnowflakeTableSchema.$UnknownMember;
 
 /**
  * @public
@@ -8103,7 +8116,9 @@ export interface WorkerComputeConfiguration {
  * <p> The configuration of the compute resources for an analysis with the Spark analytics engine.</p>
  * @public
  */
-export type ComputeConfiguration = ComputeConfiguration.WorkerMember | ComputeConfiguration.$UnknownMember;
+export type ComputeConfiguration =
+  | ComputeConfiguration.WorkerMember
+  | ComputeConfiguration.$UnknownMember;
 
 /**
  * @public

@@ -24,9 +24,7 @@ export interface GetWorkUnitResultsCommandInput extends GetWorkUnitResultsReques
  *
  * The output of {@link GetWorkUnitResultsCommand}.
  */
-export interface GetWorkUnitResultsCommandOutput
-  extends Omit<GetWorkUnitResultsResponse, "ResultStream">,
-    __MetadataBearer {
+export interface GetWorkUnitResultsCommandOutput extends Omit<GetWorkUnitResultsResponse, "ResultStream">, __MetadataBearer {
   ResultStream?: StreamingBlobPayloadOutputTypes;
 }
 

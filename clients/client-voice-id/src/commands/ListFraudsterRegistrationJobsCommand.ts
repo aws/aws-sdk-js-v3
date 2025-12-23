@@ -24,9 +24,7 @@ export interface ListFraudsterRegistrationJobsCommandInput extends ListFraudster
  *
  * The output of {@link ListFraudsterRegistrationJobsCommand}.
  */
-export interface ListFraudsterRegistrationJobsCommandOutput
-  extends ListFraudsterRegistrationJobsResponse,
-    __MetadataBearer {}
+export interface ListFraudsterRegistrationJobsCommandOutput extends ListFraudsterRegistrationJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the fraudster registration jobs in the domain with the given

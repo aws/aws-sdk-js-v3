@@ -64,10 +64,8 @@ Organizations</a> in the <i>Amazon Web Services Marketplace Buyer Guide</i>.</p>
 </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-marketplace-reporting
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-marketplace-reporting`
 - `yarn add @aws-sdk/client-marketplace-reporting`
 - `pnpm add @aws-sdk/client-marketplace-reporting`
@@ -103,9 +101,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new MarketplaceReportingClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new GetBuyerDashboardCommand(params);
 ```
 
@@ -264,5 +260,4 @@ GetBuyerDashboard
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-reporting/command/GetBuyerDashboardCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-reporting/Interface/GetBuyerDashboardCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-reporting/Interface/GetBuyerDashboardCommandOutput/)
-
 </details>

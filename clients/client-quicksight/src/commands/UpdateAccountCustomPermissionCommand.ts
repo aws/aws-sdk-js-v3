@@ -24,9 +24,7 @@ export interface UpdateAccountCustomPermissionCommandInput extends UpdateAccount
  *
  * The output of {@link UpdateAccountCustomPermissionCommand}.
  */
-export interface UpdateAccountCustomPermissionCommandOutput
-  extends UpdateAccountCustomPermissionResponse,
-    __MetadataBearer {}
+export interface UpdateAccountCustomPermissionCommandOutput extends UpdateAccountCustomPermissionResponse, __MetadataBearer {}
 
 /**
  * <p>Applies a custom permissions profile to an account.</p>

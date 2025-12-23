@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeCapacityReservationBillingRequestsCommand}.
  */
-export interface DescribeCapacityReservationBillingRequestsCommandInput
-  extends DescribeCapacityReservationBillingRequestsRequest {}
+export interface DescribeCapacityReservationBillingRequestsCommandInput extends DescribeCapacityReservationBillingRequestsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeCapacityReservationBillingRequestsCommand}.
  */
-export interface DescribeCapacityReservationBillingRequestsCommandOutput
-  extends DescribeCapacityReservationBillingRequestsResult,
-    __MetadataBearer {}
+export interface DescribeCapacityReservationBillingRequestsCommandOutput extends DescribeCapacityReservationBillingRequestsResult, __MetadataBearer {}
 
 /**
  * <p>Describes a request to assign the billing of the unused capacity of a Capacity

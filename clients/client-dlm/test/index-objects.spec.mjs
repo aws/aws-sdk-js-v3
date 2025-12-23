@@ -1,4 +1,5 @@
 import {
+  _Parameters$,
   Action$,
   ArchiveRetainRule$,
   ArchiveRule$,
@@ -12,9 +13,6 @@ import {
   CrossRegionCopyRetainRule$,
   CrossRegionCopyRule$,
   CrossRegionCopyTarget$,
-  DLM,
-  DLMClient,
-  DLMServiceException,
   DefaultPoliciesTypeValues,
   DefaultPolicyTypeValues,
   DeleteLifecyclePolicy$,
@@ -22,6 +20,9 @@ import {
   DeleteLifecyclePolicyRequest$,
   DeleteLifecyclePolicyResponse$,
   DeprecateRule$,
+  DLM,
+  DLMClient,
+  DLMServiceException,
   EncryptionConfiguration$,
   EventParameters$,
   EventSource$,
@@ -81,7 +82,6 @@ import {
   UpdateLifecyclePolicyCommand,
   UpdateLifecyclePolicyRequest$,
   UpdateLifecyclePolicyResponse$,
-  _Parameters$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

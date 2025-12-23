@@ -24,9 +24,7 @@ export interface DeleteColumnStatisticsForTableCommandInput extends DeleteColumn
  *
  * The output of {@link DeleteColumnStatisticsForTableCommand}.
  */
-export interface DeleteColumnStatisticsForTableCommandOutput
-  extends DeleteColumnStatisticsForTableResponse,
-    __MetadataBearer {}
+export interface DeleteColumnStatisticsForTableCommandOutput extends DeleteColumnStatisticsForTableResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves table statistics of columns.</p>

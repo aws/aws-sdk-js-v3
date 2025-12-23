@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { MarketplaceCommerceAnalyticsServiceException as __BaseException } from "./MarketplaceCommerceAnalyticsServiceException";
+import {
+  MarketplaceCommerceAnalyticsServiceException as __BaseException,
+} from "./MarketplaceCommerceAnalyticsServiceException";
 
 /**
  * This exception is thrown when an internal service error occurs.

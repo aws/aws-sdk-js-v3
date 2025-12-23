@@ -27,9 +27,7 @@ export interface DescribeMaintenanceWindowScheduleCommandInput extends DescribeM
  *
  * The output of {@link DescribeMaintenanceWindowScheduleCommand}.
  */
-export interface DescribeMaintenanceWindowScheduleCommandOutput
-  extends DescribeMaintenanceWindowScheduleResult,
-    __MetadataBearer {}
+export interface DescribeMaintenanceWindowScheduleCommandOutput extends DescribeMaintenanceWindowScheduleResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about upcoming executions of a maintenance window.</p>

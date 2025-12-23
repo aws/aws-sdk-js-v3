@@ -31,9 +31,7 @@ export interface SetLoadBalancerListenerSSLCertificateCommandInput extends SetLo
  *
  * The output of {@link SetLoadBalancerListenerSSLCertificateCommand}.
  */
-export interface SetLoadBalancerListenerSSLCertificateCommandOutput
-  extends SetLoadBalancerListenerSSLCertificateOutput,
-    __MetadataBearer {}
+export interface SetLoadBalancerListenerSSLCertificateCommandOutput extends SetLoadBalancerListenerSSLCertificateOutput, __MetadataBearer {}
 
 /**
  * <p>Sets the certificate that terminates the specified listener's SSL connections. The specified certificate replaces any prior certificate that was used on the same load balancer and port.</p>

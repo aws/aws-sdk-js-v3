@@ -1763,7 +1763,9 @@ export interface Elevation {
  * <p>Program track settings for an antenna during a contact.</p>
  * @public
  */
-export type ProgramTrackSettings = ProgramTrackSettings.AzElMember | ProgramTrackSettings.$UnknownMember;
+export type ProgramTrackSettings =
+  | ProgramTrackSettings.AzElMember
+  | ProgramTrackSettings.$UnknownMember;
 
 /**
  * @public
@@ -1926,7 +1928,9 @@ export interface DescribeContactResponse {
  * <p>Filter for selecting contacts that use a specific ephemeris".</p>
  * @public
  */
-export type EphemerisFilter = EphemerisFilter.AzElMember | EphemerisFilter.$UnknownMember;
+export type EphemerisFilter =
+  | EphemerisFilter.AzElMember
+  | EphemerisFilter.$UnknownMember;
 
 /**
  * @public

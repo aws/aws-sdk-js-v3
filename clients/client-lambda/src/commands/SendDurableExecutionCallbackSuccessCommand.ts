@@ -19,10 +19,7 @@ export { $Command };
 /**
  * @public
  */
-export type SendDurableExecutionCallbackSuccessCommandInputType = Omit<
-  SendDurableExecutionCallbackSuccessRequest,
-  "Result"
-> & {
+export type SendDurableExecutionCallbackSuccessCommandInputType = Omit<SendDurableExecutionCallbackSuccessRequest, "Result"> & {
   Result?: BlobPayloadInputTypes;
 };
 
@@ -31,16 +28,13 @@ export type SendDurableExecutionCallbackSuccessCommandInputType = Omit<
  *
  * The input for {@link SendDurableExecutionCallbackSuccessCommand}.
  */
-export interface SendDurableExecutionCallbackSuccessCommandInput
-  extends SendDurableExecutionCallbackSuccessCommandInputType {}
+export interface SendDurableExecutionCallbackSuccessCommandInput extends SendDurableExecutionCallbackSuccessCommandInputType {}
 /**
  * @public
  *
  * The output of {@link SendDurableExecutionCallbackSuccessCommand}.
  */
-export interface SendDurableExecutionCallbackSuccessCommandOutput
-  extends SendDurableExecutionCallbackSuccessResponse,
-    __MetadataBearer {}
+export interface SendDurableExecutionCallbackSuccessCommandOutput extends SendDurableExecutionCallbackSuccessResponse, __MetadataBearer {}
 
 /**
  * <p>Sends a successful completion response for a callback operation in a durable execution. Use this API when an external system has successfully completed a callback operation.</p>

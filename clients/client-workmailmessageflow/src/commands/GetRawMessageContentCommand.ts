@@ -28,9 +28,7 @@ export interface GetRawMessageContentCommandInput extends GetRawMessageContentRe
  *
  * The output of {@link GetRawMessageContentCommand}.
  */
-export interface GetRawMessageContentCommandOutput
-  extends Omit<GetRawMessageContentResponse, "messageContent">,
-    __MetadataBearer {
+export interface GetRawMessageContentCommandOutput extends Omit<GetRawMessageContentResponse, "messageContent">, __MetadataBearer {
   messageContent: StreamingBlobPayloadOutputTypes;
 }
 

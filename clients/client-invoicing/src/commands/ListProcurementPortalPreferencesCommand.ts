@@ -27,9 +27,7 @@ export interface ListProcurementPortalPreferencesCommandInput extends ListProcur
  *
  * The output of {@link ListProcurementPortalPreferencesCommand}.
  */
-export interface ListProcurementPortalPreferencesCommandOutput
-  extends ListProcurementPortalPreferencesResponse,
-    __MetadataBearer {}
+export interface ListProcurementPortalPreferencesCommandOutput extends ListProcurementPortalPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of procurement portal preferences associated with the Amazon Web Services account.</p>

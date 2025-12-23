@@ -27,9 +27,7 @@ export interface DeleteRepositoryPermissionsPolicyCommandInput extends DeleteRep
  *
  * The output of {@link DeleteRepositoryPermissionsPolicyCommand}.
  */
-export interface DeleteRepositoryPermissionsPolicyCommandOutput
-  extends DeleteRepositoryPermissionsPolicyResult,
-    __MetadataBearer {}
+export interface DeleteRepositoryPermissionsPolicyCommandOutput extends DeleteRepositoryPermissionsPolicyResult, __MetadataBearer {}
 
 /**
  * <p>

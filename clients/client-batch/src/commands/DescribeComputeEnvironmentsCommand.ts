@@ -24,9 +24,7 @@ export interface DescribeComputeEnvironmentsCommandInput extends DescribeCompute
  *
  * The output of {@link DescribeComputeEnvironmentsCommand}.
  */
-export interface DescribeComputeEnvironmentsCommandOutput
-  extends DescribeComputeEnvironmentsResponse,
-    __MetadataBearer {}
+export interface DescribeComputeEnvironmentsCommandOutput extends DescribeComputeEnvironmentsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your compute environments.</p>

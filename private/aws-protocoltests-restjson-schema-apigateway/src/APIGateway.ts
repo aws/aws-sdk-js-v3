@@ -18,8 +18,14 @@ export interface APIGateway {
    * @see {@link GetRestApisCommand}
    */
   getRestApis(): Promise<GetRestApisCommandOutput>;
-  getRestApis(args: GetRestApisCommandInput, options?: __HttpHandlerOptions): Promise<GetRestApisCommandOutput>;
-  getRestApis(args: GetRestApisCommandInput, cb: (err: any, data?: GetRestApisCommandOutput) => void): void;
+  getRestApis(
+    args: GetRestApisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRestApisCommandOutput>;
+  getRestApis(
+    args: GetRestApisCommandInput,
+    cb: (err: any, data?: GetRestApisCommandOutput) => void
+  ): void;
   getRestApis(
     args: GetRestApisCommandInput,
     options: __HttpHandlerOptions,

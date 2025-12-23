@@ -27,9 +27,7 @@ export interface PutEnvironmentBlueprintConfigurationCommandInput extends PutEnv
  *
  * The output of {@link PutEnvironmentBlueprintConfigurationCommand}.
  */
-export interface PutEnvironmentBlueprintConfigurationCommandOutput
-  extends PutEnvironmentBlueprintConfigurationOutput,
-    __MetadataBearer {}
+export interface PutEnvironmentBlueprintConfigurationCommandOutput extends PutEnvironmentBlueprintConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Writes the configuration for the specified environment blueprint in Amazon DataZone.</p>

@@ -10,25 +10,25 @@ const checkState = async (client: EKSClient, input: DescribeClusterCommandInput)
     const result: any = await client.send(new DescribeClusterCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.cluster.status;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.cluster.status;
-      };
+      }
       if (returnComparator() === "CREATING") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.cluster.status;
-      };
+      }
       if (returnComparator() === "PENDING") {
         return { state: WaiterState.FAILURE, reason };
       }

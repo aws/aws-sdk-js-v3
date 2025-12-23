@@ -24,9 +24,7 @@ export interface AssociateServiceQuotaTemplateCommandInput extends AssociateServ
  *
  * The output of {@link AssociateServiceQuotaTemplateCommand}.
  */
-export interface AssociateServiceQuotaTemplateCommandOutput
-  extends AssociateServiceQuotaTemplateResponse,
-    __MetadataBearer {}
+export interface AssociateServiceQuotaTemplateCommandOutput extends AssociateServiceQuotaTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Associates your quota request template with your organization. When a new

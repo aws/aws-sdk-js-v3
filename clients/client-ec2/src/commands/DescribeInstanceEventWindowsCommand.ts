@@ -24,9 +24,7 @@ export interface DescribeInstanceEventWindowsCommandInput extends DescribeInstan
  *
  * The output of {@link DescribeInstanceEventWindowsCommand}.
  */
-export interface DescribeInstanceEventWindowsCommandOutput
-  extends DescribeInstanceEventWindowsResult,
-    __MetadataBearer {}
+export interface DescribeInstanceEventWindowsCommandOutput extends DescribeInstanceEventWindowsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified event windows or all event windows.</p>

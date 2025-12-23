@@ -53,6 +53,10 @@ import {
   ListWorkloadsCommand,
   ListWorkloadsInput$,
   ListWorkloadsOutput$,
+  paginateListDeploymentEvents,
+  paginateListDeployments,
+  paginateListWorkloadDeploymentPatterns,
+  paginateListWorkloads,
   ResourceLimitException,
   ResourceLimitException$,
   ResourceNotFoundException,
@@ -73,10 +77,6 @@ import {
   WorkloadDeploymentPatternDataSummary$,
   WorkloadDeploymentPatternStatus,
   WorkloadStatus,
-  paginateListDeploymentEvents,
-  paginateListDeployments,
-  paginateListWorkloadDeploymentPatterns,
-  paginateListWorkloads,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

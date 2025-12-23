@@ -24,9 +24,7 @@ export interface GetContextKeysForPrincipalPolicyCommandInput extends GetContext
  *
  * The output of {@link GetContextKeysForPrincipalPolicyCommand}.
  */
-export interface GetContextKeysForPrincipalPolicyCommandOutput
-  extends GetContextKeysForPolicyResponse,
-    __MetadataBearer {}
+export interface GetContextKeysForPrincipalPolicyCommandOutput extends GetContextKeysForPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of all of the context keys referenced in all the IAM policies that are

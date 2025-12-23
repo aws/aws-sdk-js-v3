@@ -17,6 +17,8 @@ import {
   Logout$,
   LogoutCommand,
   LogoutRequest$,
+  paginateListAccountRoles,
+  paginateListAccounts,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   RoleCredentials$,
@@ -28,8 +30,6 @@ import {
   TooManyRequestsException$,
   UnauthorizedException,
   UnauthorizedException$,
-  paginateListAccountRoles,
-  paginateListAccounts,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

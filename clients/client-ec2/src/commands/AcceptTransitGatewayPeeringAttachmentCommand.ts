@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AcceptTransitGatewayPeeringAttachmentCommand}.
  */
-export interface AcceptTransitGatewayPeeringAttachmentCommandInput
-  extends AcceptTransitGatewayPeeringAttachmentRequest {}
+export interface AcceptTransitGatewayPeeringAttachmentCommandInput extends AcceptTransitGatewayPeeringAttachmentRequest {}
 /**
  * @public
  *
  * The output of {@link AcceptTransitGatewayPeeringAttachmentCommand}.
  */
-export interface AcceptTransitGatewayPeeringAttachmentCommandOutput
-  extends AcceptTransitGatewayPeeringAttachmentResult,
-    __MetadataBearer {}
+export interface AcceptTransitGatewayPeeringAttachmentCommandOutput extends AcceptTransitGatewayPeeringAttachmentResult, __MetadataBearer {}
 
 /**
  * <p>Accepts a transit gateway peering attachment request. The peering attachment must be

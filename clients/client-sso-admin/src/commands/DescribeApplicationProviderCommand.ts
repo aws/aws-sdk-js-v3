@@ -24,9 +24,7 @@ export interface DescribeApplicationProviderCommandInput extends DescribeApplica
  *
  * The output of {@link DescribeApplicationProviderCommand}.
  */
-export interface DescribeApplicationProviderCommandOutput
-  extends DescribeApplicationProviderResponse,
-    __MetadataBearer {}
+export interface DescribeApplicationProviderCommandOutput extends DescribeApplicationProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details about a provider that can be used to connect an Amazon Web Services managed application or customer managed application to IAM Identity Center.</p>

@@ -27,9 +27,7 @@ export interface GenerateEmbedUrlForRegisteredUserCommandInput extends GenerateE
  *
  * The output of {@link GenerateEmbedUrlForRegisteredUserCommand}.
  */
-export interface GenerateEmbedUrlForRegisteredUserCommandOutput
-  extends GenerateEmbedUrlForRegisteredUserResponse,
-    __MetadataBearer {}
+export interface GenerateEmbedUrlForRegisteredUserCommandOutput extends GenerateEmbedUrlForRegisteredUserResponse, __MetadataBearer {}
 
 /**
  * <p>Generates an embed URL that you can use to embed an Amazon Quick Suite experience

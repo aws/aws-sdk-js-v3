@@ -27,9 +27,7 @@ export interface StartDashboardSnapshotJobScheduleCommandInput extends StartDash
  *
  * The output of {@link StartDashboardSnapshotJobScheduleCommand}.
  */
-export interface StartDashboardSnapshotJobScheduleCommandOutput
-  extends StartDashboardSnapshotJobScheduleResponse,
-    __MetadataBearer {}
+export interface StartDashboardSnapshotJobScheduleCommandOutput extends StartDashboardSnapshotJobScheduleResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous job that runs an existing dashboard schedule and sends the dashboard snapshot through email. </p>

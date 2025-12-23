@@ -24,9 +24,7 @@ export interface DescribeBotResourceGenerationCommandInput extends DescribeBotRe
  *
  * The output of {@link DescribeBotResourceGenerationCommand}.
  */
-export interface DescribeBotResourceGenerationCommandOutput
-  extends DescribeBotResourceGenerationResponse,
-    __MetadataBearer {}
+export interface DescribeBotResourceGenerationCommandOutput extends DescribeBotResourceGenerationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a request to generate a bot through natural language description, made through

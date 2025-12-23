@@ -9,8 +9,8 @@ import {
   OperationOutput as __OperationOutput,
   OperationSerializer as __OperationSerializer,
   SerializationException as __SerializationException,
-  ServerSerdeContext as __ServerSerdeContext,
   ServerSerdeContext,
+  ServerSerdeContext as __ServerSerdeContext,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
   SmithyFrameworkException as __SmithyFrameworkException,
@@ -30,61 +30,47 @@ import {
 } from "../../protocols/Aws_restJson1";
 import { RestJsonService } from "../RestJsonService";
 
-export type MalformedTimestampQueryEpoch<Context> = __Operation<
-  MalformedTimestampQueryEpochServerInput,
-  MalformedTimestampQueryEpochServerOutput,
-  Context
->;
+export type MalformedTimestampQueryEpoch<Context> = __Operation<MalformedTimestampQueryEpochServerInput, MalformedTimestampQueryEpochServerOutput, Context>
 
 export interface MalformedTimestampQueryEpochServerInput extends MalformedTimestampQueryEpochInput {}
 export namespace MalformedTimestampQueryEpochServerInput {
   /**
    * @internal
    */
-  export const validate: (
-    obj: Parameters<typeof MalformedTimestampQueryEpochInput.validate>[0]
-  ) => __ValidationFailure[] = MalformedTimestampQueryEpochInput.validate;
+  export const validate: (obj: Parameters<typeof MalformedTimestampQueryEpochInput.validate>[0]) => __ValidationFailure[] = MalformedTimestampQueryEpochInput.validate;
 }
 export interface MalformedTimestampQueryEpochServerOutput {}
 
 export type MalformedTimestampQueryEpochErrors = never;
 
-export class MalformedTimestampQueryEpochSerializer
-  implements
-    __OperationSerializer<RestJsonService<any>, "MalformedTimestampQueryEpoch", MalformedTimestampQueryEpochErrors>
-{
+export class MalformedTimestampQueryEpochSerializer implements __OperationSerializer<RestJsonService<any>, "MalformedTimestampQueryEpoch", MalformedTimestampQueryEpochErrors> {
   serialize = serializeMalformedTimestampQueryEpochResponse;
   deserialize = deserializeMalformedTimestampQueryEpochRequest;
 
   isOperationError(error: any): error is MalformedTimestampQueryEpochErrors {
     return false;
-  }
+  };
 
   serializeError(error: MalformedTimestampQueryEpochErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     throw error;
   }
+
 }
 
-export const getMalformedTimestampQueryEpochHandler = <Context>(
-  operation: __Operation<MalformedTimestampQueryEpochServerInput, MalformedTimestampQueryEpochServerOutput, Context>,
-  customizer: __ValidationCustomizer<"MalformedTimestampQueryEpoch">
-): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+export const getMalformedTimestampQueryEpochHandler = <Context>(operation: __Operation<MalformedTimestampQueryEpochServerInput, MalformedTimestampQueryEpochServerOutput, Context>, customizer: __ValidationCustomizer<"MalformedTimestampQueryEpoch">): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
   const mux = new httpbinding.HttpBindingMux<"RestJson", "MalformedTimestampQueryEpoch">([
     new httpbinding.UriSpec<"RestJson", "MalformedTimestampQueryEpoch">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedTimestampQueryEpoch" }],
-      [{ type: "query", key: "timestamp" }],
-      { service: "RestJson", operation: "MalformedTimestampQueryEpoch" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedTimestampQueryEpoch" },
+      ],
+      [
+        { type: 'query', key: "timestamp" },
+      ],
+      { service: "RestJson", operation: "MalformedTimestampQueryEpoch" }),
   ]);
-  return new MalformedTimestampQueryEpochHandler(
-    operation,
-    mux,
-    new MalformedTimestampQueryEpochSerializer(),
-    serializeFrameworkException,
-    customizer
-  );
-};
+  return new MalformedTimestampQueryEpochHandler(operation, mux, new MalformedTimestampQueryEpochSerializer(), serializeFrameworkException, customizer);
+}
 
 const serdeContextBase = {
   base64Encoder: toBase64,
@@ -93,7 +79,7 @@ const serdeContextBase = {
   utf8Decoder: fromUtf8,
   streamCollector: streamCollector,
   requestHandler: new NodeHttpHandler(),
-  disableHostPrefix: true,
+  disableHostPrefix: true
 };
 async function handle<S, O extends keyof S & string, Context>(
   request: __HttpRequest,
@@ -108,49 +94,37 @@ async function handle<S, O extends keyof S & string, Context>(
   let input;
   try {
     input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request),
-      ...serdeContextBase,
+      endpoint: () => Promise.resolve(request), ...serdeContextBase
     });
   } catch (error: unknown) {
     if (__isFrameworkException(error)) {
       return serializeFrameworkException(error, serdeContextBase);
-    }
+    };
     return serializeFrameworkException(new __SerializationException(), serdeContextBase);
   }
   try {
-    const validationFailures = validationFn(input);
+    let validationFailures = validationFn(input);
     if (validationFailures && validationFailures.length > 0) {
-      const validationException = validationCustomizer({ operation: operationName }, validationFailures);
+      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
       if (validationException) {
         return serializer.serializeError(validationException, serdeContextBase);
       }
     }
-    const output = await operation(input, context);
+    let output = await operation(input, context);
     return serializer.serialize(output, serdeContextBase);
-  } catch (error: unknown) {
+  } catch(error: unknown) {
     if (serializer.isOperationError(error)) {
       return serializer.serializeError(error, serdeContextBase);
     }
-    console.log("Received an unexpected error", error);
+    console.log('Received an unexpected error', error);
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
 export class MalformedTimestampQueryEpochHandler<Context> implements __ServiceHandler<Context> {
-  private readonly operation: __Operation<
-    MalformedTimestampQueryEpochServerInput,
-    MalformedTimestampQueryEpochServerOutput,
-    Context
-  >;
+  private readonly operation: __Operation<MalformedTimestampQueryEpochServerInput, MalformedTimestampQueryEpochServerOutput, Context>;
   private readonly mux: __Mux<"RestJson", "MalformedTimestampQueryEpoch">;
-  private readonly serializer: __OperationSerializer<
-    RestJsonService<Context>,
-    "MalformedTimestampQueryEpoch",
-    MalformedTimestampQueryEpochErrors
-  >;
-  private readonly serializeFrameworkException: (
-    e: __SmithyFrameworkException,
-    ctx: __ServerSerdeContext
-  ) => Promise<__HttpResponse>;
+  private readonly serializer: __OperationSerializer<RestJsonService<Context>, "MalformedTimestampQueryEpoch", MalformedTimestampQueryEpochErrors>;
+  private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<"MalformedTimestampQueryEpoch">;
   /**
    * Construct a MalformedTimestampQueryEpoch handler.
@@ -164,11 +138,7 @@ export class MalformedTimestampQueryEpochHandler<Context> implements __ServiceHa
   constructor(
     operation: __Operation<MalformedTimestampQueryEpochServerInput, MalformedTimestampQueryEpochServerOutput, Context>,
     mux: __Mux<"RestJson", "MalformedTimestampQueryEpoch">,
-    serializer: __OperationSerializer<
-      RestJsonService<Context>,
-      "MalformedTimestampQueryEpoch",
-      MalformedTimestampQueryEpochErrors
-    >,
+    serializer: __OperationSerializer<RestJsonService<Context>, "MalformedTimestampQueryEpoch", MalformedTimestampQueryEpochErrors>,
     serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>,
     validationCustomizer: __ValidationCustomizer<"MalformedTimestampQueryEpoch">
   ) {
@@ -181,20 +151,9 @@ export class MalformedTimestampQueryEpochHandler<Context> implements __ServiceHa
   async handle(request: __HttpRequest, context: Context): Promise<__HttpResponse> {
     const target = this.mux.match(request);
     if (target === undefined) {
-      console.log(
-        "Received a request that did not match aws.protocoltests.restjson#RestJson.MalformedTimestampQueryEpoch. This indicates a misconfiguration."
-      );
+      console.log('Received a request that did not match aws.protocoltests.restjson#RestJson.MalformedTimestampQueryEpoch. This indicates a misconfiguration.');
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
-    return handle(
-      request,
-      context,
-      "MalformedTimestampQueryEpoch",
-      this.serializer,
-      this.operation,
-      this.serializeFrameworkException,
-      MalformedTimestampQueryEpochServerInput.validate,
-      this.validationCustomizer
-    );
+    return handle(request, context, "MalformedTimestampQueryEpoch", this.serializer, this.operation, this.serializeFrameworkException, MalformedTimestampQueryEpochServerInput.validate, this.validationCustomizer);
   }
 }

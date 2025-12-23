@@ -31,9 +31,7 @@ export interface PutAttachmentRoutingPolicyLabelCommandInput extends PutAttachme
  *
  * The output of {@link PutAttachmentRoutingPolicyLabelCommand}.
  */
-export interface PutAttachmentRoutingPolicyLabelCommandOutput
-  extends PutAttachmentRoutingPolicyLabelResponse,
-    __MetadataBearer {}
+export interface PutAttachmentRoutingPolicyLabelCommandOutput extends PutAttachmentRoutingPolicyLabelResponse, __MetadataBearer {}
 
 /**
  * <p>Applies a routing policy label to an attachment for traffic routing decisions.</p>

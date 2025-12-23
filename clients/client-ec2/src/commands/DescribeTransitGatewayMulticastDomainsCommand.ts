@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeTransitGatewayMulticastDomainsCommand}.
  */
-export interface DescribeTransitGatewayMulticastDomainsCommandInput
-  extends DescribeTransitGatewayMulticastDomainsRequest {}
+export interface DescribeTransitGatewayMulticastDomainsCommandInput extends DescribeTransitGatewayMulticastDomainsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeTransitGatewayMulticastDomainsCommand}.
  */
-export interface DescribeTransitGatewayMulticastDomainsCommandOutput
-  extends DescribeTransitGatewayMulticastDomainsResult,
-    __MetadataBearer {}
+export interface DescribeTransitGatewayMulticastDomainsCommandOutput extends DescribeTransitGatewayMulticastDomainsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more transit gateway multicast domains.</p>

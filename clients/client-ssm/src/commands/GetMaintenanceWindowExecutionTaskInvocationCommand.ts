@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetMaintenanceWindowExecutionTaskInvocationCommand}.
  */
-export interface GetMaintenanceWindowExecutionTaskInvocationCommandInput
-  extends GetMaintenanceWindowExecutionTaskInvocationRequest {}
+export interface GetMaintenanceWindowExecutionTaskInvocationCommandInput extends GetMaintenanceWindowExecutionTaskInvocationRequest {}
 /**
  * @public
  *
  * The output of {@link GetMaintenanceWindowExecutionTaskInvocationCommand}.
  */
-export interface GetMaintenanceWindowExecutionTaskInvocationCommandOutput
-  extends GetMaintenanceWindowExecutionTaskInvocationResult,
-    __MetadataBearer {}
+export interface GetMaintenanceWindowExecutionTaskInvocationCommandOutput extends GetMaintenanceWindowExecutionTaskInvocationResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a specific task running on a specific target.</p>

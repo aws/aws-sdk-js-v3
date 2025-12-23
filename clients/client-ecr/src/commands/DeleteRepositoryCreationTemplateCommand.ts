@@ -27,9 +27,7 @@ export interface DeleteRepositoryCreationTemplateCommandInput extends DeleteRepo
  *
  * The output of {@link DeleteRepositoryCreationTemplateCommand}.
  */
-export interface DeleteRepositoryCreationTemplateCommandOutput
-  extends DeleteRepositoryCreationTemplateResponse,
-    __MetadataBearer {}
+export interface DeleteRepositoryCreationTemplateCommandOutput extends DeleteRepositoryCreationTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a repository creation template.</p>

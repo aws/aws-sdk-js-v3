@@ -24,9 +24,7 @@ export interface DescribeSecurityGroupReferencesCommandInput extends DescribeSec
  *
  * The output of {@link DescribeSecurityGroupReferencesCommand}.
  */
-export interface DescribeSecurityGroupReferencesCommandOutput
-  extends DescribeSecurityGroupReferencesResult,
-    __MetadataBearer {}
+export interface DescribeSecurityGroupReferencesCommandOutput extends DescribeSecurityGroupReferencesResult, __MetadataBearer {}
 
 /**
  * <p>Describes the VPCs on the other side of a VPC peering or Transit Gateway connection that are referencing the security groups you've specified in this request.</p>

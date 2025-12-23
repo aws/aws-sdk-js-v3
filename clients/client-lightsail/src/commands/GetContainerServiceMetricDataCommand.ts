@@ -24,9 +24,7 @@ export interface GetContainerServiceMetricDataCommandInput extends GetContainerS
  *
  * The output of {@link GetContainerServiceMetricDataCommand}.
  */
-export interface GetContainerServiceMetricDataCommandOutput
-  extends GetContainerServiceMetricDataResult,
-    __MetadataBearer {}
+export interface GetContainerServiceMetricDataCommandOutput extends GetContainerServiceMetricDataResult, __MetadataBearer {}
 
 /**
  * <p>Returns the data points of a specific metric of your Amazon Lightsail container

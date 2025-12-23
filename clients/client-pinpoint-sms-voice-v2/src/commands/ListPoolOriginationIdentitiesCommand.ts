@@ -28,9 +28,7 @@ export interface ListPoolOriginationIdentitiesCommandInput extends ListPoolOrigi
  *
  * The output of {@link ListPoolOriginationIdentitiesCommand}.
  */
-export interface ListPoolOriginationIdentitiesCommandOutput
-  extends ListPoolOriginationIdentitiesResult,
-    __MetadataBearer {}
+export interface ListPoolOriginationIdentitiesCommandOutput extends ListPoolOriginationIdentitiesResult, __MetadataBearer {}
 
 /**
  * <p>Lists all associated origination identities in your pool.</p> <p>If you specify filters, the output includes information for only those origination identities that meet the filter criteria.</p>

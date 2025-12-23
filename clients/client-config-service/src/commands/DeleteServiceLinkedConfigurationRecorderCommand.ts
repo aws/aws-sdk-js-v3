@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteServiceLinkedConfigurationRecorderCommand}.
  */
-export interface DeleteServiceLinkedConfigurationRecorderCommandInput
-  extends DeleteServiceLinkedConfigurationRecorderRequest {}
+export interface DeleteServiceLinkedConfigurationRecorderCommandInput extends DeleteServiceLinkedConfigurationRecorderRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteServiceLinkedConfigurationRecorderCommand}.
  */
-export interface DeleteServiceLinkedConfigurationRecorderCommandOutput
-  extends DeleteServiceLinkedConfigurationRecorderResponse,
-    __MetadataBearer {}
+export interface DeleteServiceLinkedConfigurationRecorderCommandOutput extends DeleteServiceLinkedConfigurationRecorderResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing service-linked configuration recorder.</p>

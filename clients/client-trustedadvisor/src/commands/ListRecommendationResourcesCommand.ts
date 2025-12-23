@@ -28,9 +28,7 @@ export interface ListRecommendationResourcesCommandInput extends ListRecommendat
  *
  * The output of {@link ListRecommendationResourcesCommand}.
  */
-export interface ListRecommendationResourcesCommandOutput
-  extends ListRecommendationResourcesResponse,
-    __MetadataBearer {}
+export interface ListRecommendationResourcesCommandOutput extends ListRecommendationResourcesResponse, __MetadataBearer {}
 
 /**
  * <p>List Resources of a Recommendation</p>

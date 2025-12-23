@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeConfigurationAggregatorSourcesStatusCommand}.
  */
-export interface DescribeConfigurationAggregatorSourcesStatusCommandInput
-  extends DescribeConfigurationAggregatorSourcesStatusRequest {}
+export interface DescribeConfigurationAggregatorSourcesStatusCommandInput extends DescribeConfigurationAggregatorSourcesStatusRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeConfigurationAggregatorSourcesStatusCommand}.
  */
-export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput
-  extends DescribeConfigurationAggregatorSourcesStatusResponse,
-    __MetadataBearer {}
+export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput extends DescribeConfigurationAggregatorSourcesStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Returns status information for sources within an aggregator.

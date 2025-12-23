@@ -24,9 +24,7 @@ export interface StartFraudsterRegistrationJobCommandInput extends StartFraudste
  *
  * The output of {@link StartFraudsterRegistrationJobCommand}.
  */
-export interface StartFraudsterRegistrationJobCommandOutput
-  extends StartFraudsterRegistrationJobResponse,
-    __MetadataBearer {}
+export interface StartFraudsterRegistrationJobCommandOutput extends StartFraudsterRegistrationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a new batch fraudster registration job using provided details.</p>

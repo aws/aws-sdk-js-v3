@@ -27,9 +27,7 @@ export interface PutDataQualityProfileAnnotationCommandInput extends PutDataQual
  *
  * The output of {@link PutDataQualityProfileAnnotationCommand}.
  */
-export interface PutDataQualityProfileAnnotationCommandOutput
-  extends PutDataQualityProfileAnnotationResponse,
-    __MetadataBearer {}
+export interface PutDataQualityProfileAnnotationCommandOutput extends PutDataQualityProfileAnnotationResponse, __MetadataBearer {}
 
 /**
  * <p>Annotate all datapoints for a Profile.</p>

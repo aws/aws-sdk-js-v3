@@ -31,9 +31,7 @@ export interface ListConnectInstanceIntegrationsCommandInput extends ListConnect
  *
  * The output of {@link ListConnectInstanceIntegrationsCommand}.
  */
-export interface ListConnectInstanceIntegrationsCommandOutput
-  extends ListConnectInstanceIntegrationsResponse,
-    __MetadataBearer {}
+export interface ListConnectInstanceIntegrationsCommandOutput extends ListConnectInstanceIntegrationsResponse, __MetadataBearer {}
 
 /**
  * Provides summary information about the integration under the specified Connect instance.

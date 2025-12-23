@@ -7,6 +7,6 @@ export * from "./ListParticipantEventsPaginator";
 export * from "./ListParticipantReplicasPaginator";
 export * from "./ListParticipantsPaginator";
 export * from "./ListPublicKeysPaginator";
-export * from "./ListStageSessionsPaginator";
 export * from "./ListStagesPaginator";
+export * from "./ListStageSessionsPaginator";
 export * from "./ListStorageConfigurationsPaginator";

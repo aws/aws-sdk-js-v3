@@ -28,9 +28,7 @@ export interface SetPrincipalTagAttributeMapCommandInput extends SetPrincipalTag
  *
  * The output of {@link SetPrincipalTagAttributeMapCommand}.
  */
-export interface SetPrincipalTagAttributeMapCommandOutput
-  extends SetPrincipalTagAttributeMapResponse,
-    __MetadataBearer {}
+export interface SetPrincipalTagAttributeMapCommandOutput extends SetPrincipalTagAttributeMapResponse, __MetadataBearer {}
 
 /**
  * <p>You can use this operation to use default (username and clientID) attribute or custom

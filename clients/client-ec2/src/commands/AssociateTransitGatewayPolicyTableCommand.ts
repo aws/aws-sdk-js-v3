@@ -27,9 +27,7 @@ export interface AssociateTransitGatewayPolicyTableCommandInput extends Associat
  *
  * The output of {@link AssociateTransitGatewayPolicyTableCommand}.
  */
-export interface AssociateTransitGatewayPolicyTableCommandOutput
-  extends AssociateTransitGatewayPolicyTableResult,
-    __MetadataBearer {}
+export interface AssociateTransitGatewayPolicyTableCommandOutput extends AssociateTransitGatewayPolicyTableResult, __MetadataBearer {}
 
 /**
  * <p>Associates the specified transit gateway attachment with a transit gateway policy table.</p>

@@ -27,9 +27,7 @@ export interface StopColumnStatisticsTaskRunScheduleCommandInput extends StopCol
  *
  * The output of {@link StopColumnStatisticsTaskRunScheduleCommand}.
  */
-export interface StopColumnStatisticsTaskRunScheduleCommandOutput
-  extends StopColumnStatisticsTaskRunScheduleResponse,
-    __MetadataBearer {}
+export interface StopColumnStatisticsTaskRunScheduleCommandOutput extends StopColumnStatisticsTaskRunScheduleResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a column statistics task run schedule.</p>

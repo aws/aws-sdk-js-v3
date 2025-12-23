@@ -24,9 +24,7 @@ export interface ListEntityRecognizerSummariesCommandInput extends ListEntityRec
  *
  * The output of {@link ListEntityRecognizerSummariesCommand}.
  */
-export interface ListEntityRecognizerSummariesCommandOutput
-  extends ListEntityRecognizerSummariesResponse,
-    __MetadataBearer {}
+export interface ListEntityRecognizerSummariesCommandOutput extends ListEntityRecognizerSummariesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of summaries for the entity recognizers that you have created.</p>

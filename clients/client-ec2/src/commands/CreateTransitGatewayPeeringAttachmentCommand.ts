@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateTransitGatewayPeeringAttachmentCommand}.
  */
-export interface CreateTransitGatewayPeeringAttachmentCommandInput
-  extends CreateTransitGatewayPeeringAttachmentRequest {}
+export interface CreateTransitGatewayPeeringAttachmentCommandInput extends CreateTransitGatewayPeeringAttachmentRequest {}
 /**
  * @public
  *
  * The output of {@link CreateTransitGatewayPeeringAttachmentCommand}.
  */
-export interface CreateTransitGatewayPeeringAttachmentCommandOutput
-  extends CreateTransitGatewayPeeringAttachmentResult,
-    __MetadataBearer {}
+export interface CreateTransitGatewayPeeringAttachmentCommandOutput extends CreateTransitGatewayPeeringAttachmentResult, __MetadataBearer {}
 
 /**
  * <p>Requests a transit gateway peering attachment between the specified transit gateway

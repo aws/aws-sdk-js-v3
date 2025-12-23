@@ -27,9 +27,7 @@ export interface ListSlackWorkspaceConfigurationsCommandInput extends ListSlackW
  *
  * The output of {@link ListSlackWorkspaceConfigurationsCommand}.
  */
-export interface ListSlackWorkspaceConfigurationsCommandOutput
-  extends ListSlackWorkspaceConfigurationsResult,
-    __MetadataBearer {}
+export interface ListSlackWorkspaceConfigurationsCommandOutput extends ListSlackWorkspaceConfigurationsResult, __MetadataBearer {}
 
 /**
  * <p>Lists the Slack workspace configurations for an Amazon Web Services account.</p>

@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { KinesisVideoWebRTCStorageServiceException as __BaseException } from "./KinesisVideoWebRTCStorageServiceException";
+import {
+  KinesisVideoWebRTCStorageServiceException as __BaseException,
+} from "./KinesisVideoWebRTCStorageServiceException";
 
 /**
  * <p>You do not have required permissions to perform this operation.</p>

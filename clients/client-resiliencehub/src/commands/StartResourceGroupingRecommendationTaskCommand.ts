@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link StartResourceGroupingRecommendationTaskCommand}.
  */
-export interface StartResourceGroupingRecommendationTaskCommandInput
-  extends StartResourceGroupingRecommendationTaskRequest {}
+export interface StartResourceGroupingRecommendationTaskCommandInput extends StartResourceGroupingRecommendationTaskRequest {}
 /**
  * @public
  *
  * The output of {@link StartResourceGroupingRecommendationTaskCommand}.
  */
-export interface StartResourceGroupingRecommendationTaskCommandOutput
-  extends StartResourceGroupingRecommendationTaskResponse,
-    __MetadataBearer {}
+export interface StartResourceGroupingRecommendationTaskCommandOutput extends StartResourceGroupingRecommendationTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Starts grouping recommendation task.</p>

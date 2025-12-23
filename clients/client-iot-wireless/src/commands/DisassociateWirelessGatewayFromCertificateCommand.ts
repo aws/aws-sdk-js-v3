@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateWirelessGatewayFromCertificateCommand}.
  */
-export interface DisassociateWirelessGatewayFromCertificateCommandInput
-  extends DisassociateWirelessGatewayFromCertificateRequest {}
+export interface DisassociateWirelessGatewayFromCertificateCommandInput extends DisassociateWirelessGatewayFromCertificateRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateWirelessGatewayFromCertificateCommand}.
  */
-export interface DisassociateWirelessGatewayFromCertificateCommandOutput
-  extends DisassociateWirelessGatewayFromCertificateResponse,
-    __MetadataBearer {}
+export interface DisassociateWirelessGatewayFromCertificateCommandOutput extends DisassociateWirelessGatewayFromCertificateResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a wireless gateway from its currently associated certificate.</p>

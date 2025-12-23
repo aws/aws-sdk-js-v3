@@ -27,9 +27,7 @@ export interface GetEventBridgeRuleTemplateGroupCommandInput extends GetEventBri
  *
  * The output of {@link GetEventBridgeRuleTemplateGroupCommand}.
  */
-export interface GetEventBridgeRuleTemplateGroupCommandOutput
-  extends GetEventBridgeRuleTemplateGroupResponse,
-    __MetadataBearer {}
+export interface GetEventBridgeRuleTemplateGroupCommandOutput extends GetEventBridgeRuleTemplateGroupResponse, __MetadataBearer {}
 
 /**
  * Retrieves the specified eventbridge rule template group.

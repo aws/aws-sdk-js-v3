@@ -27,9 +27,7 @@ export interface DescribeEgressOnlyInternetGatewaysCommandInput extends Describe
  *
  * The output of {@link DescribeEgressOnlyInternetGatewaysCommand}.
  */
-export interface DescribeEgressOnlyInternetGatewaysCommandOutput
-  extends DescribeEgressOnlyInternetGatewaysResult,
-    __MetadataBearer {}
+export interface DescribeEgressOnlyInternetGatewaysCommandOutput extends DescribeEgressOnlyInternetGatewaysResult, __MetadataBearer {}
 
 /**
  * <p>Describes your egress-only internet gateways. The default is to describe all your egress-only internet gateways.

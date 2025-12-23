@@ -27,9 +27,7 @@ export interface ListEnforcedGuardrailsConfigurationCommandInput extends ListEnf
  *
  * The output of {@link ListEnforcedGuardrailsConfigurationCommand}.
  */
-export interface ListEnforcedGuardrailsConfigurationCommandOutput
-  extends ListEnforcedGuardrailsConfigurationResponse,
-    __MetadataBearer {}
+export interface ListEnforcedGuardrailsConfigurationCommandOutput extends ListEnforcedGuardrailsConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the account-level enforced guardrail configurations.</p>

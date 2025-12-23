@@ -24,9 +24,7 @@ export interface GetComponentVersionArtifactCommandInput extends GetComponentVer
  *
  * The output of {@link GetComponentVersionArtifactCommand}.
  */
-export interface GetComponentVersionArtifactCommandOutput
-  extends GetComponentVersionArtifactResponse,
-    __MetadataBearer {}
+export interface GetComponentVersionArtifactCommandOutput extends GetComponentVersionArtifactResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the pre-signed URL to download a public or a Lambda component artifact. Core devices

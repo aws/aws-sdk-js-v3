@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeDirectConnectGatewayAssociationProposalsCommand}.
  */
-export interface DescribeDirectConnectGatewayAssociationProposalsCommandInput
-  extends DescribeDirectConnectGatewayAssociationProposalsRequest {}
+export interface DescribeDirectConnectGatewayAssociationProposalsCommandInput extends DescribeDirectConnectGatewayAssociationProposalsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeDirectConnectGatewayAssociationProposalsCommand}.
  */
-export interface DescribeDirectConnectGatewayAssociationProposalsCommandOutput
-  extends DescribeDirectConnectGatewayAssociationProposalsResult,
-    __MetadataBearer {}
+export interface DescribeDirectConnectGatewayAssociationProposalsCommandOutput extends DescribeDirectConnectGatewayAssociationProposalsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more association proposals for connection between a virtual private gateway or transit gateway and a Direct Connect gateway. </p>

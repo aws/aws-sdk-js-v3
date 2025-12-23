@@ -215,7 +215,10 @@ export interface XRay {
     args: BatchGetTracesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchGetTracesCommandOutput>;
-  batchGetTraces(args: BatchGetTracesCommandInput, cb: (err: any, data?: BatchGetTracesCommandOutput) => void): void;
+  batchGetTraces(
+    args: BatchGetTracesCommandInput,
+    cb: (err: any, data?: BatchGetTracesCommandOutput) => void
+  ): void;
   batchGetTraces(
     args: BatchGetTracesCommandInput,
     options: __HttpHandlerOptions,
@@ -242,8 +245,14 @@ export interface XRay {
   /**
    * @see {@link CreateGroupCommand}
    */
-  createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
-  createGroup(args: CreateGroupCommandInput, cb: (err: any, data?: CreateGroupCommandOutput) => void): void;
+  createGroup(
+    args: CreateGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGroupCommandOutput>;
+  createGroup(
+    args: CreateGroupCommandInput,
+    cb: (err: any, data?: CreateGroupCommandOutput) => void
+  ): void;
   createGroup(
     args: CreateGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -271,8 +280,14 @@ export interface XRay {
    * @see {@link DeleteGroupCommand}
    */
   deleteGroup(): Promise<DeleteGroupCommandOutput>;
-  deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
-  deleteGroup(args: DeleteGroupCommandInput, cb: (err: any, data?: DeleteGroupCommandOutput) => void): void;
+  deleteGroup(
+    args: DeleteGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGroupCommandOutput>;
+  deleteGroup(
+    args: DeleteGroupCommandInput,
+    cb: (err: any, data?: DeleteGroupCommandOutput) => void
+  ): void;
   deleteGroup(
     args: DeleteGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -336,8 +351,14 @@ export interface XRay {
    * @see {@link GetGroupCommand}
    */
   getGroup(): Promise<GetGroupCommandOutput>;
-  getGroup(args: GetGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetGroupCommandOutput>;
-  getGroup(args: GetGroupCommandInput, cb: (err: any, data?: GetGroupCommandOutput) => void): void;
+  getGroup(
+    args: GetGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGroupCommandOutput>;
+  getGroup(
+    args: GetGroupCommandInput,
+    cb: (err: any, data?: GetGroupCommandOutput) => void
+  ): void;
   getGroup(
     args: GetGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -348,8 +369,14 @@ export interface XRay {
    * @see {@link GetGroupsCommand}
    */
   getGroups(): Promise<GetGroupsCommandOutput>;
-  getGroups(args: GetGroupsCommandInput, options?: __HttpHandlerOptions): Promise<GetGroupsCommandOutput>;
-  getGroups(args: GetGroupsCommandInput, cb: (err: any, data?: GetGroupsCommandOutput) => void): void;
+  getGroups(
+    args: GetGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGroupsCommandOutput>;
+  getGroups(
+    args: GetGroupsCommandInput,
+    cb: (err: any, data?: GetGroupsCommandOutput) => void
+  ): void;
   getGroups(
     args: GetGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -377,8 +404,14 @@ export interface XRay {
   /**
    * @see {@link GetInsightCommand}
    */
-  getInsight(args: GetInsightCommandInput, options?: __HttpHandlerOptions): Promise<GetInsightCommandOutput>;
-  getInsight(args: GetInsightCommandInput, cb: (err: any, data?: GetInsightCommandOutput) => void): void;
+  getInsight(
+    args: GetInsightCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInsightCommandOutput>;
+  getInsight(
+    args: GetInsightCommandInput,
+    cb: (err: any, data?: GetInsightCommandOutput) => void
+  ): void;
   getInsight(
     args: GetInsightCommandInput,
     options: __HttpHandlerOptions,
@@ -513,7 +546,10 @@ export interface XRay {
     args: GetServiceGraphCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetServiceGraphCommandOutput>;
-  getServiceGraph(args: GetServiceGraphCommandInput, cb: (err: any, data?: GetServiceGraphCommandOutput) => void): void;
+  getServiceGraph(
+    args: GetServiceGraphCommandInput,
+    cb: (err: any, data?: GetServiceGraphCommandOutput) => void
+  ): void;
   getServiceGraph(
     args: GetServiceGraphCommandInput,
     options: __HttpHandlerOptions,
@@ -540,8 +576,14 @@ export interface XRay {
   /**
    * @see {@link GetTraceGraphCommand}
    */
-  getTraceGraph(args: GetTraceGraphCommandInput, options?: __HttpHandlerOptions): Promise<GetTraceGraphCommandOutput>;
-  getTraceGraph(args: GetTraceGraphCommandInput, cb: (err: any, data?: GetTraceGraphCommandOutput) => void): void;
+  getTraceGraph(
+    args: GetTraceGraphCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTraceGraphCommandOutput>;
+  getTraceGraph(
+    args: GetTraceGraphCommandInput,
+    cb: (err: any, data?: GetTraceGraphCommandOutput) => void
+  ): void;
   getTraceGraph(
     args: GetTraceGraphCommandInput,
     options: __HttpHandlerOptions,
@@ -723,8 +765,14 @@ export interface XRay {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -734,8 +782,14 @@ export interface XRay {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -746,8 +800,14 @@ export interface XRay {
    * @see {@link UpdateGroupCommand}
    */
   updateGroup(): Promise<UpdateGroupCommandOutput>;
-  updateGroup(args: UpdateGroupCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGroupCommandOutput>;
-  updateGroup(args: UpdateGroupCommandInput, cb: (err: any, data?: UpdateGroupCommandOutput) => void): void;
+  updateGroup(
+    args: UpdateGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGroupCommandOutput>;
+  updateGroup(
+    args: UpdateGroupCommandInput,
+    cb: (err: any, data?: UpdateGroupCommandOutput) => void
+  ): void;
   updateGroup(
     args: UpdateGroupCommandInput,
     options: __HttpHandlerOptions,

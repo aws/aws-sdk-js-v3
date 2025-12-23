@@ -24,9 +24,7 @@ export interface DisassociateIamRoleFromResourceCommandInput extends Disassociat
  *
  * The output of {@link DisassociateIamRoleFromResourceCommand}.
  */
-export interface DisassociateIamRoleFromResourceCommandOutput
-  extends DisassociateIamRoleFromResourceOutput,
-    __MetadataBearer {}
+export interface DisassociateIamRoleFromResourceCommandOutput extends DisassociateIamRoleFromResourceOutput, __MetadataBearer {}
 
 /**
  * <p>Disassociates an Amazon Web Services Identity and Access Management (IAM) service role from a specified resource to disable Amazon Web Services service integration.</p>

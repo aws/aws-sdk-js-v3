@@ -24,9 +24,7 @@ export interface GetBillOfMaterialsImportJobCommandInput extends GetBillOfMateri
  *
  * The output of {@link GetBillOfMaterialsImportJobCommand}.
  */
-export interface GetBillOfMaterialsImportJobCommandOutput
-  extends GetBillOfMaterialsImportJobResponse,
-    __MetadataBearer {}
+export interface GetBillOfMaterialsImportJobCommandOutput extends GetBillOfMaterialsImportJobResponse, __MetadataBearer {}
 
 /**
  * <p>Get status and details of a BillOfMaterialsImportJob.</p>

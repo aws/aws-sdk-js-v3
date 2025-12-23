@@ -31,9 +31,7 @@ export interface ListProfileResourceAssociationsCommandInput extends ListProfile
  *
  * The output of {@link ListProfileResourceAssociationsCommand}.
  */
-export interface ListProfileResourceAssociationsCommandOutput
-  extends ListProfileResourceAssociationsResponse,
-    __MetadataBearer {}
+export interface ListProfileResourceAssociationsCommandOutput extends ListProfileResourceAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>

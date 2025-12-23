@@ -24,9 +24,7 @@ export interface ListAppVersionResourceMappingsCommandInput extends ListAppVersi
  *
  * The output of {@link ListAppVersionResourceMappingsCommand}.
  */
-export interface ListAppVersionResourceMappingsCommandOutput
-  extends ListAppVersionResourceMappingsResponse,
-    __MetadataBearer {}
+export interface ListAppVersionResourceMappingsCommandOutput extends ListAppVersionResourceMappingsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists how the resources in an application version are mapped/sourced from. Mappings can be

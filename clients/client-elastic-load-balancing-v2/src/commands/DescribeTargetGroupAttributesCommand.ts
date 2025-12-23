@@ -28,9 +28,7 @@ export interface DescribeTargetGroupAttributesCommandInput extends DescribeTarge
  *
  * The output of {@link DescribeTargetGroupAttributesCommand}.
  */
-export interface DescribeTargetGroupAttributesCommandOutput
-  extends DescribeTargetGroupAttributesOutput,
-    __MetadataBearer {}
+export interface DescribeTargetGroupAttributesCommandOutput extends DescribeTargetGroupAttributesOutput, __MetadataBearer {}
 
 /**
  * <p>Describes the attributes for the specified target group.</p>

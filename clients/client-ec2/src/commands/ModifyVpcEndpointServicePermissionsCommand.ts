@@ -27,9 +27,7 @@ export interface ModifyVpcEndpointServicePermissionsCommandInput extends ModifyV
  *
  * The output of {@link ModifyVpcEndpointServicePermissionsCommand}.
  */
-export interface ModifyVpcEndpointServicePermissionsCommandOutput
-  extends ModifyVpcEndpointServicePermissionsResult,
-    __MetadataBearer {}
+export interface ModifyVpcEndpointServicePermissionsCommandOutput extends ModifyVpcEndpointServicePermissionsResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions

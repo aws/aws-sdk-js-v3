@@ -10,9 +10,9 @@ const checkState = async (client: EC2Client, input: GetPasswordDataCommandInput)
     const result: any = await client.send(new GetPasswordDataCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
-        return result.PasswordData.length > 0.0;
-      };
+      let returnComparator = () => {
+        return (result.PasswordData.length > 0.0);
+      }
       if (returnComparator() == true) {
         return { state: WaiterState.SUCCESS, reason };
       }

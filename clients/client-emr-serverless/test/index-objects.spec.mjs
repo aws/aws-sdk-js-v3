@@ -74,6 +74,9 @@ import {
   MaximumAllowedResources$,
   MonitoringConfiguration$,
   NetworkConfiguration$,
+  paginateListApplications,
+  paginateListJobRunAttempts,
+  paginateListJobRuns,
   PrometheusMonitoringConfiguration$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
@@ -114,9 +117,6 @@ import {
   WorkerResourceConfig$,
   WorkerTypeSpecification$,
   WorkerTypeSpecificationInput$,
-  paginateListApplications,
-  paginateListJobRunAttempts,
-  paginateListJobRuns,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

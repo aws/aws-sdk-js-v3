@@ -492,10 +492,8 @@ export class TransactGetItemsCommand extends $Command
   >()
   .ep({
     ...commonParams,
-    ResourceArnList: {
-      type: "operationContextParams",
-      get: (input?: any) => input?.TransactItems?.map((obj: any) => obj?.Get?.TableName),
-    },
+    ResourceArnList: { type: "operationContextParams", get: (input?: any) => input?.TransactItems?.map((obj: any) => obj?.Get?.TableName) },
+
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];

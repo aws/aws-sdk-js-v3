@@ -128,6 +128,12 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceInput$,
   ListTagsForResourceOutput$,
+  paginateListBaselines,
+  paginateListControlOperations,
+  paginateListEnabledBaselines,
+  paginateListEnabledControls,
+  paginateListLandingZoneOperations,
+  paginateListLandingZones,
   Region$,
   RemediationType,
   ResetEnabledBaseline$,
@@ -170,12 +176,6 @@ import {
   UpdateLandingZoneOutput$,
   ValidationException,
   ValidationException$,
-  paginateListBaselines,
-  paginateListControlOperations,
-  paginateListEnabledBaselines,
-  paginateListEnabledControls,
-  paginateListLandingZoneOperations,
-  paginateListLandingZones,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

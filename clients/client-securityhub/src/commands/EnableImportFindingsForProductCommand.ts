@@ -24,9 +24,7 @@ export interface EnableImportFindingsForProductCommandInput extends EnableImport
  *
  * The output of {@link EnableImportFindingsForProductCommand}.
  */
-export interface EnableImportFindingsForProductCommandOutput
-  extends EnableImportFindingsForProductResponse,
-    __MetadataBearer {}
+export interface EnableImportFindingsForProductCommandOutput extends EnableImportFindingsForProductResponse, __MetadataBearer {}
 
 /**
  * <p>Enables the integration of a partner product with Security Hub. Integrated products send

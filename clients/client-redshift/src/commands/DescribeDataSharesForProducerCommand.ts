@@ -24,9 +24,7 @@ export interface DescribeDataSharesForProducerCommandInput extends DescribeDataS
  *
  * The output of {@link DescribeDataSharesForProducerCommand}.
  */
-export interface DescribeDataSharesForProducerCommandOutput
-  extends DescribeDataSharesForProducerResult,
-    __MetadataBearer {}
+export interface DescribeDataSharesForProducerCommandOutput extends DescribeDataSharesForProducerResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of datashares when the account identifier being called is a producer account identifier.</p>

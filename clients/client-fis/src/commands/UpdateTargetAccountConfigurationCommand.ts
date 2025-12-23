@@ -27,9 +27,7 @@ export interface UpdateTargetAccountConfigurationCommandInput extends UpdateTarg
  *
  * The output of {@link UpdateTargetAccountConfigurationCommand}.
  */
-export interface UpdateTargetAccountConfigurationCommandOutput
-  extends UpdateTargetAccountConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateTargetAccountConfigurationCommandOutput extends UpdateTargetAccountConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the target account configuration for the specified experiment template.</p>

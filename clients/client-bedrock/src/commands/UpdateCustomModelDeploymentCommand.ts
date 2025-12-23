@@ -24,9 +24,7 @@ export interface UpdateCustomModelDeploymentCommandInput extends UpdateCustomMod
  *
  * The output of {@link UpdateCustomModelDeploymentCommand}.
  */
-export interface UpdateCustomModelDeploymentCommandOutput
-  extends UpdateCustomModelDeploymentResponse,
-    __MetadataBearer {}
+export interface UpdateCustomModelDeploymentCommandOutput extends UpdateCustomModelDeploymentResponse, __MetadataBearer {}
 
 /**
  * <p> Updates a custom model deployment with a new custom model. This allows you to deploy updated models without creating new deployment endpoints. </p>

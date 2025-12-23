@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ValidateTelemetryPipelineConfigurationCommand}.
  */
-export interface ValidateTelemetryPipelineConfigurationCommandInput
-  extends ValidateTelemetryPipelineConfigurationInput {}
+export interface ValidateTelemetryPipelineConfigurationCommandInput extends ValidateTelemetryPipelineConfigurationInput {}
 /**
  * @public
  *
  * The output of {@link ValidateTelemetryPipelineConfigurationCommand}.
  */
-export interface ValidateTelemetryPipelineConfigurationCommandOutput
-  extends ValidateTelemetryPipelineConfigurationOutput,
-    __MetadataBearer {}
+export interface ValidateTelemetryPipelineConfigurationCommandOutput extends ValidateTelemetryPipelineConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Validates a pipeline configuration without creating the pipeline. This operation checks the configuration for syntax errors and compatibility issues.</p>

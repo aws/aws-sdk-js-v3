@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link PutVoiceConnectorTerminationCredentialsCommand}.
  */
-export interface PutVoiceConnectorTerminationCredentialsCommandInput
-  extends PutVoiceConnectorTerminationCredentialsRequest {}
+export interface PutVoiceConnectorTerminationCredentialsCommandInput extends PutVoiceConnectorTerminationCredentialsRequest {}
 /**
  * @public
  *

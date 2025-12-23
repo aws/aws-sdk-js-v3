@@ -24,9 +24,7 @@ export interface GetColumnStatisticsTaskRunsCommandInput extends GetColumnStatis
  *
  * The output of {@link GetColumnStatisticsTaskRunsCommand}.
  */
-export interface GetColumnStatisticsTaskRunsCommandOutput
-  extends GetColumnStatisticsTaskRunsResponse,
-    __MetadataBearer {}
+export interface GetColumnStatisticsTaskRunsCommandOutput extends GetColumnStatisticsTaskRunsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about all runs associated with the specified table.</p>

@@ -27,9 +27,7 @@ export interface PutConfigurationSetSendingOptionsCommandInput extends PutConfig
  *
  * The output of {@link PutConfigurationSetSendingOptionsCommand}.
  */
-export interface PutConfigurationSetSendingOptionsCommandOutput
-  extends PutConfigurationSetSendingOptionsResponse,
-    __MetadataBearer {}
+export interface PutConfigurationSetSendingOptionsCommandOutput extends PutConfigurationSetSendingOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Enable or disable email sending for messages that use a particular configuration set

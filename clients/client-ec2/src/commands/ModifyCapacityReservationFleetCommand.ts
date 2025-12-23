@@ -24,9 +24,7 @@ export interface ModifyCapacityReservationFleetCommandInput extends ModifyCapaci
  *
  * The output of {@link ModifyCapacityReservationFleetCommand}.
  */
-export interface ModifyCapacityReservationFleetCommandOutput
-  extends ModifyCapacityReservationFleetResult,
-    __MetadataBearer {}
+export interface ModifyCapacityReservationFleetCommandOutput extends ModifyCapacityReservationFleetResult, __MetadataBearer {}
 
 /**
  * <p>Modifies a Capacity Reservation Fleet.</p>

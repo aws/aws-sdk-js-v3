@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchDisassociateClientDeviceFromCoreDeviceCommand}.
  */
-export interface BatchDisassociateClientDeviceFromCoreDeviceCommandInput
-  extends BatchDisassociateClientDeviceFromCoreDeviceRequest {}
+export interface BatchDisassociateClientDeviceFromCoreDeviceCommandInput extends BatchDisassociateClientDeviceFromCoreDeviceRequest {}
 /**
  * @public
  *
  * The output of {@link BatchDisassociateClientDeviceFromCoreDeviceCommand}.
  */
-export interface BatchDisassociateClientDeviceFromCoreDeviceCommandOutput
-  extends BatchDisassociateClientDeviceFromCoreDeviceResponse,
-    __MetadataBearer {}
+export interface BatchDisassociateClientDeviceFromCoreDeviceCommandOutput extends BatchDisassociateClientDeviceFromCoreDeviceResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a list of client devices from a core device. After you disassociate a client

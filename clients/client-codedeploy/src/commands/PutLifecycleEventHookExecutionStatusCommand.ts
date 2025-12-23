@@ -27,9 +27,7 @@ export interface PutLifecycleEventHookExecutionStatusCommandInput extends PutLif
  *
  * The output of {@link PutLifecycleEventHookExecutionStatusCommand}.
  */
-export interface PutLifecycleEventHookExecutionStatusCommandOutput
-  extends PutLifecycleEventHookExecutionStatusOutput,
-    __MetadataBearer {}
+export interface PutLifecycleEventHookExecutionStatusCommandOutput extends PutLifecycleEventHookExecutionStatusOutput, __MetadataBearer {}
 
 /**
  * <p> Sets the result of a Lambda validation function. The function validates

@@ -24,9 +24,7 @@ export interface ListExperimentResolvedTargetsCommandInput extends ListExperimen
  *
  * The output of {@link ListExperimentResolvedTargetsCommand}.
  */
-export interface ListExperimentResolvedTargetsCommandOutput
-  extends ListExperimentResolvedTargetsResponse,
-    __MetadataBearer {}
+export interface ListExperimentResolvedTargetsCommandOutput extends ListExperimentResolvedTargetsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the resolved targets information of the specified experiment.</p>

@@ -24,9 +24,7 @@ export interface BatchDetectDominantLanguageCommandInput extends BatchDetectDomi
  *
  * The output of {@link BatchDetectDominantLanguageCommand}.
  */
-export interface BatchDetectDominantLanguageCommandOutput
-  extends BatchDetectDominantLanguageResponse,
-    __MetadataBearer {}
+export interface BatchDetectDominantLanguageCommandOutput extends BatchDetectDominantLanguageResponse, __MetadataBearer {}
 
 /**
  * <p>Determines the dominant language of the input text for a batch of documents. For a list

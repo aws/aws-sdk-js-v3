@@ -15,6 +15,7 @@ import {
   ListRecommendedActionsRequest$,
   ListRecommendedActionsResponse$,
   MatchOption,
+  paginateListRecommendedActions,
   RecommendedAction$,
   RequestFilter$,
   Severity,
@@ -24,7 +25,6 @@ import {
   ValidationException$,
   ValidationExceptionField$,
   ValidationExceptionReason,
-  paginateListRecommendedActions,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

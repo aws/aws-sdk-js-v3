@@ -35,7 +35,9 @@ export interface RequestPayloadPart {
  * <p>Request stream event union.</p>
  * @public
  */
-export type RequestStreamEvent = RequestStreamEvent.PayloadPartMember | RequestStreamEvent.$UnknownMember;
+export type RequestStreamEvent =
+  | RequestStreamEvent.PayloadPartMember
+  | RequestStreamEvent.$UnknownMember;
 
 /**
  * @public

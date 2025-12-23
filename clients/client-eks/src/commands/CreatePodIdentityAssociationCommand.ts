@@ -24,9 +24,7 @@ export interface CreatePodIdentityAssociationCommandInput extends CreatePodIdent
  *
  * The output of {@link CreatePodIdentityAssociationCommand}.
  */
-export interface CreatePodIdentityAssociationCommandOutput
-  extends CreatePodIdentityAssociationResponse,
-    __MetadataBearer {}
+export interface CreatePodIdentityAssociationCommandOutput extends CreatePodIdentityAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an EKS Pod Identity association between a service account in an Amazon EKS cluster and an IAM role

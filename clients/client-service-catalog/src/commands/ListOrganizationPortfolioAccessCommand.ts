@@ -28,9 +28,7 @@ export interface ListOrganizationPortfolioAccessCommandInput extends ListOrganiz
  *
  * The output of {@link ListOrganizationPortfolioAccessCommand}.
  */
-export interface ListOrganizationPortfolioAccessCommandOutput
-  extends ListOrganizationPortfolioAccessOutput,
-    __MetadataBearer {}
+export interface ListOrganizationPortfolioAccessCommandOutput extends ListOrganizationPortfolioAccessOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the organization nodes that have access to the specified portfolio. This API can

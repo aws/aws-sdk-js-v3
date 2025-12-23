@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link RegisterSlackWorkspaceForOrganizationCommand}.
  */
-export interface RegisterSlackWorkspaceForOrganizationCommandInput
-  extends RegisterSlackWorkspaceForOrganizationRequest {}
+export interface RegisterSlackWorkspaceForOrganizationCommandInput extends RegisterSlackWorkspaceForOrganizationRequest {}
 /**
  * @public
  *
  * The output of {@link RegisterSlackWorkspaceForOrganizationCommand}.
  */
-export interface RegisterSlackWorkspaceForOrganizationCommandOutput
-  extends RegisterSlackWorkspaceForOrganizationResult,
-    __MetadataBearer {}
+export interface RegisterSlackWorkspaceForOrganizationCommandOutput extends RegisterSlackWorkspaceForOrganizationResult, __MetadataBearer {}
 
 /**
  * <p>Registers a Slack workspace for your Amazon Web Services account. To call this API, your account must be

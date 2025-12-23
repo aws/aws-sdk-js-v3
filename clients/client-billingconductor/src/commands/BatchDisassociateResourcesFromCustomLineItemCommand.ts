@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link BatchDisassociateResourcesFromCustomLineItemCommand}.
  */
-export interface BatchDisassociateResourcesFromCustomLineItemCommandInput
-  extends BatchDisassociateResourcesFromCustomLineItemInput {}
+export interface BatchDisassociateResourcesFromCustomLineItemCommandInput extends BatchDisassociateResourcesFromCustomLineItemInput {}
 /**
  * @public
  *
  * The output of {@link BatchDisassociateResourcesFromCustomLineItemCommand}.
  */
-export interface BatchDisassociateResourcesFromCustomLineItemCommandOutput
-  extends BatchDisassociateResourcesFromCustomLineItemOutput,
-    __MetadataBearer {}
+export interface BatchDisassociateResourcesFromCustomLineItemCommandOutput extends BatchDisassociateResourcesFromCustomLineItemOutput, __MetadataBearer {}
 
 /**
  * <p> Disassociates a batch of resources from a percentage custom line item. </p>

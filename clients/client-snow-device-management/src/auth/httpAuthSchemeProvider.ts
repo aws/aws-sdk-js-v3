@@ -49,17 +49,13 @@ export const defaultSnowDeviceManagementHttpAuthSchemeParametersProvider = async
 ): Promise<SnowDeviceManagementHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: SnowDeviceManagementHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: SnowDeviceManagementHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface SnowDeviceManagementHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultSnowDeviceManagementHttpAuthSchemeProvider: SnowDeviceManagementHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultSnowDeviceManagementHttpAuthSchemeProvider: SnowDeviceManagementHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

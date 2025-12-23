@@ -27,9 +27,7 @@ export interface DescribePiiEntitiesDetectionJobCommandInput extends DescribePii
  *
  * The output of {@link DescribePiiEntitiesDetectionJobCommand}.
  */
-export interface DescribePiiEntitiesDetectionJobCommandOutput
-  extends DescribePiiEntitiesDetectionJobResponse,
-    __MetadataBearer {}
+export interface DescribePiiEntitiesDetectionJobCommandOutput extends DescribePiiEntitiesDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a PII entities detection job. For example, you can use

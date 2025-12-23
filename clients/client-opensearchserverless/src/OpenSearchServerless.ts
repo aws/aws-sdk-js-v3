@@ -340,8 +340,14 @@ export interface OpenSearchServerless {
   /**
    * @see {@link CreateIndexCommand}
    */
-  createIndex(args: CreateIndexCommandInput, options?: __HttpHandlerOptions): Promise<CreateIndexCommandOutput>;
-  createIndex(args: CreateIndexCommandInput, cb: (err: any, data?: CreateIndexCommandOutput) => void): void;
+  createIndex(
+    args: CreateIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIndexCommandOutput>;
+  createIndex(
+    args: CreateIndexCommandInput,
+    cb: (err: any, data?: CreateIndexCommandOutput) => void
+  ): void;
   createIndex(
     args: CreateIndexCommandInput,
     options: __HttpHandlerOptions,
@@ -453,8 +459,14 @@ export interface OpenSearchServerless {
   /**
    * @see {@link DeleteIndexCommand}
    */
-  deleteIndex(args: DeleteIndexCommandInput, options?: __HttpHandlerOptions): Promise<DeleteIndexCommandOutput>;
-  deleteIndex(args: DeleteIndexCommandInput, cb: (err: any, data?: DeleteIndexCommandOutput) => void): void;
+  deleteIndex(
+    args: DeleteIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIndexCommandOutput>;
+  deleteIndex(
+    args: DeleteIndexCommandInput,
+    cb: (err: any, data?: DeleteIndexCommandOutput) => void
+  ): void;
   deleteIndex(
     args: DeleteIndexCommandInput,
     options: __HttpHandlerOptions,
@@ -536,7 +548,10 @@ export interface OpenSearchServerless {
     args: GetAccessPolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAccessPolicyCommandOutput>;
-  getAccessPolicy(args: GetAccessPolicyCommandInput, cb: (err: any, data?: GetAccessPolicyCommandOutput) => void): void;
+  getAccessPolicy(
+    args: GetAccessPolicyCommandInput,
+    cb: (err: any, data?: GetAccessPolicyCommandOutput) => void
+  ): void;
   getAccessPolicy(
     args: GetAccessPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -564,8 +579,14 @@ export interface OpenSearchServerless {
   /**
    * @see {@link GetIndexCommand}
    */
-  getIndex(args: GetIndexCommandInput, options?: __HttpHandlerOptions): Promise<GetIndexCommandOutput>;
-  getIndex(args: GetIndexCommandInput, cb: (err: any, data?: GetIndexCommandOutput) => void): void;
+  getIndex(
+    args: GetIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIndexCommandOutput>;
+  getIndex(
+    args: GetIndexCommandInput,
+    cb: (err: any, data?: GetIndexCommandOutput) => void
+  ): void;
   getIndex(
     args: GetIndexCommandInput,
     options: __HttpHandlerOptions,
@@ -649,7 +670,10 @@ export interface OpenSearchServerless {
     args: ListCollectionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListCollectionsCommandOutput>;
-  listCollections(args: ListCollectionsCommandInput, cb: (err: any, data?: ListCollectionsCommandOutput) => void): void;
+  listCollections(
+    args: ListCollectionsCommandInput,
+    cb: (err: any, data?: ListCollectionsCommandOutput) => void
+  ): void;
   listCollections(
     args: ListCollectionsCommandInput,
     options: __HttpHandlerOptions,
@@ -745,8 +769,14 @@ export interface OpenSearchServerless {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -756,8 +786,14 @@ export interface OpenSearchServerless {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -819,8 +855,14 @@ export interface OpenSearchServerless {
   /**
    * @see {@link UpdateIndexCommand}
    */
-  updateIndex(args: UpdateIndexCommandInput, options?: __HttpHandlerOptions): Promise<UpdateIndexCommandOutput>;
-  updateIndex(args: UpdateIndexCommandInput, cb: (err: any, data?: UpdateIndexCommandOutput) => void): void;
+  updateIndex(
+    args: UpdateIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateIndexCommandOutput>;
+  updateIndex(
+    args: UpdateIndexCommandInput,
+    cb: (err: any, data?: UpdateIndexCommandOutput) => void
+  ): void;
   updateIndex(
     args: UpdateIndexCommandInput,
     options: __HttpHandlerOptions,

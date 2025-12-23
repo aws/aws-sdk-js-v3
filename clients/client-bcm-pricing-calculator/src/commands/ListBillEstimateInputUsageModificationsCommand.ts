@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListBillEstimateInputUsageModificationsCommand}.
  */
-export interface ListBillEstimateInputUsageModificationsCommandInput
-  extends ListBillEstimateInputUsageModificationsRequest {}
+export interface ListBillEstimateInputUsageModificationsCommandInput extends ListBillEstimateInputUsageModificationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListBillEstimateInputUsageModificationsCommand}.
  */
-export interface ListBillEstimateInputUsageModificationsCommandOutput
-  extends ListBillEstimateInputUsageModificationsResponse,
-    __MetadataBearer {}
+export interface ListBillEstimateInputUsageModificationsCommandOutput extends ListBillEstimateInputUsageModificationsResponse, __MetadataBearer {}
 
 /**
  * <p> Lists the input usage modifications associated with a bill estimate. </p>

@@ -24,9 +24,7 @@ export interface GetCollaborationMLInputChannelCommandInput extends GetCollabora
  *
  * The output of {@link GetCollaborationMLInputChannelCommand}.
  */
-export interface GetCollaborationMLInputChannelCommandOutput
-  extends GetCollaborationMLInputChannelResponse,
-    __MetadataBearer {}
+export interface GetCollaborationMLInputChannelCommandOutput extends GetCollaborationMLInputChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a specific ML input channel in a collaboration.</p>

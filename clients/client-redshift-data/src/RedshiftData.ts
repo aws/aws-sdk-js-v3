@@ -90,7 +90,10 @@ export interface RedshiftData {
     args: CancelStatementCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CancelStatementCommandOutput>;
-  cancelStatement(args: CancelStatementCommandInput, cb: (err: any, data?: CancelStatementCommandOutput) => void): void;
+  cancelStatement(
+    args: CancelStatementCommandInput,
+    cb: (err: any, data?: CancelStatementCommandOutput) => void
+  ): void;
   cancelStatement(
     args: CancelStatementCommandInput,
     options: __HttpHandlerOptions,
@@ -117,8 +120,14 @@ export interface RedshiftData {
   /**
    * @see {@link DescribeTableCommand}
    */
-  describeTable(args: DescribeTableCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTableCommandOutput>;
-  describeTable(args: DescribeTableCommandInput, cb: (err: any, data?: DescribeTableCommandOutput) => void): void;
+  describeTable(
+    args: DescribeTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTableCommandOutput>;
+  describeTable(
+    args: DescribeTableCommandInput,
+    cb: (err: any, data?: DescribeTableCommandOutput) => void
+  ): void;
   describeTable(
     args: DescribeTableCommandInput,
     options: __HttpHandlerOptions,
@@ -179,8 +188,14 @@ export interface RedshiftData {
   /**
    * @see {@link ListDatabasesCommand}
    */
-  listDatabases(args: ListDatabasesCommandInput, options?: __HttpHandlerOptions): Promise<ListDatabasesCommandOutput>;
-  listDatabases(args: ListDatabasesCommandInput, cb: (err: any, data?: ListDatabasesCommandOutput) => void): void;
+  listDatabases(
+    args: ListDatabasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatabasesCommandOutput>;
+  listDatabases(
+    args: ListDatabasesCommandInput,
+    cb: (err: any, data?: ListDatabasesCommandOutput) => void
+  ): void;
   listDatabases(
     args: ListDatabasesCommandInput,
     options: __HttpHandlerOptions,
@@ -190,8 +205,14 @@ export interface RedshiftData {
   /**
    * @see {@link ListSchemasCommand}
    */
-  listSchemas(args: ListSchemasCommandInput, options?: __HttpHandlerOptions): Promise<ListSchemasCommandOutput>;
-  listSchemas(args: ListSchemasCommandInput, cb: (err: any, data?: ListSchemasCommandOutput) => void): void;
+  listSchemas(
+    args: ListSchemasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSchemasCommandOutput>;
+  listSchemas(
+    args: ListSchemasCommandInput,
+    cb: (err: any, data?: ListSchemasCommandOutput) => void
+  ): void;
   listSchemas(
     args: ListSchemasCommandInput,
     options: __HttpHandlerOptions,
@@ -206,7 +227,10 @@ export interface RedshiftData {
     args: ListStatementsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListStatementsCommandOutput>;
-  listStatements(args: ListStatementsCommandInput, cb: (err: any, data?: ListStatementsCommandOutput) => void): void;
+  listStatements(
+    args: ListStatementsCommandInput,
+    cb: (err: any, data?: ListStatementsCommandOutput) => void
+  ): void;
   listStatements(
     args: ListStatementsCommandInput,
     options: __HttpHandlerOptions,
@@ -216,8 +240,14 @@ export interface RedshiftData {
   /**
    * @see {@link ListTablesCommand}
    */
-  listTables(args: ListTablesCommandInput, options?: __HttpHandlerOptions): Promise<ListTablesCommandOutput>;
-  listTables(args: ListTablesCommandInput, cb: (err: any, data?: ListTablesCommandOutput) => void): void;
+  listTables(
+    args: ListTablesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTablesCommandOutput>;
+  listTables(
+    args: ListTablesCommandInput,
+    cb: (err: any, data?: ListTablesCommandOutput) => void
+  ): void;
   listTables(
     args: ListTablesCommandInput,
     options: __HttpHandlerOptions,

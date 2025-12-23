@@ -31,9 +31,7 @@ export interface GetLicenseManagerReportGeneratorCommandInput extends GetLicense
  *
  * The output of {@link GetLicenseManagerReportGeneratorCommand}.
  */
-export interface GetLicenseManagerReportGeneratorCommandOutput
-  extends GetLicenseManagerReportGeneratorResponse,
-    __MetadataBearer {}
+export interface GetLicenseManagerReportGeneratorCommandOutput extends GetLicenseManagerReportGeneratorResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about the specified report generator.</p>

@@ -24,9 +24,7 @@ export interface GetDistributionTenantByDomainCommandInput extends GetDistributi
  *
  * The output of {@link GetDistributionTenantByDomainCommand}.
  */
-export interface GetDistributionTenantByDomainCommandOutput
-  extends GetDistributionTenantByDomainResult,
-    __MetadataBearer {}
+export interface GetDistributionTenantByDomainCommandOutput extends GetDistributionTenantByDomainResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about a distribution tenant by the associated domain.</p>

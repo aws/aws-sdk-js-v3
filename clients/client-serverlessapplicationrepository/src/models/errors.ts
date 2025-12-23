@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ServerlessApplicationRepositoryServiceException as __BaseException } from "./ServerlessApplicationRepositoryServiceException";
+import {
+  ServerlessApplicationRepositoryServiceException as __BaseException,
+} from "./ServerlessApplicationRepositoryServiceException";
 
 /**
  * <p>One of the parameters in the request is invalid.</p>

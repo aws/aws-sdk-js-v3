@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link BatchGetCalculatedAttributeForProfileCommand}.
  */
-export interface BatchGetCalculatedAttributeForProfileCommandInput
-  extends BatchGetCalculatedAttributeForProfileRequest {}
+export interface BatchGetCalculatedAttributeForProfileCommandInput extends BatchGetCalculatedAttributeForProfileRequest {}
 /**
  * @public
  *
  * The output of {@link BatchGetCalculatedAttributeForProfileCommand}.
  */
-export interface BatchGetCalculatedAttributeForProfileCommandOutput
-  extends BatchGetCalculatedAttributeForProfileResponse,
-    __MetadataBearer {}
+export interface BatchGetCalculatedAttributeForProfileCommandOutput extends BatchGetCalculatedAttributeForProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Fetch the possible attribute values given the attribute name.</p>

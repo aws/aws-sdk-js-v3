@@ -27,9 +27,7 @@ export interface DescribeResourceCollectionHealthCommandInput extends DescribeRe
  *
  * The output of {@link DescribeResourceCollectionHealthCommand}.
  */
-export interface DescribeResourceCollectionHealthCommandOutput
-  extends DescribeResourceCollectionHealthResponse,
-    __MetadataBearer {}
+export interface DescribeResourceCollectionHealthCommandOutput extends DescribeResourceCollectionHealthResponse, __MetadataBearer {}
 
 /**
  * <p> Returns the number of open proactive insights, open reactive insights, and the Mean Time to Recover (MTTR)

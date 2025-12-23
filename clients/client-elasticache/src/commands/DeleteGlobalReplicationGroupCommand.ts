@@ -24,9 +24,7 @@ export interface DeleteGlobalReplicationGroupCommandInput extends DeleteGlobalRe
  *
  * The output of {@link DeleteGlobalReplicationGroupCommand}.
  */
-export interface DeleteGlobalReplicationGroupCommandOutput
-  extends DeleteGlobalReplicationGroupResult,
-    __MetadataBearer {}
+export interface DeleteGlobalReplicationGroupCommandOutput extends DeleteGlobalReplicationGroupResult, __MetadataBearer {}
 
 /**
  * <p>Deleting a Global datastore is a two-step process: </p>

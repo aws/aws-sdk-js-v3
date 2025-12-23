@@ -27,9 +27,7 @@ export interface PutConfigurationSetDeliveryOptionsCommandInput extends PutConfi
  *
  * The output of {@link PutConfigurationSetDeliveryOptionsCommand}.
  */
-export interface PutConfigurationSetDeliveryOptionsCommandOutput
-  extends PutConfigurationSetDeliveryOptionsResponse,
-    __MetadataBearer {}
+export interface PutConfigurationSetDeliveryOptionsCommandOutput extends PutConfigurationSetDeliveryOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Associate a configuration set with a dedicated IP pool. You can use dedicated IP pools

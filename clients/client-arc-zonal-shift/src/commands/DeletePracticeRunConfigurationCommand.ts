@@ -24,9 +24,7 @@ export interface DeletePracticeRunConfigurationCommandInput extends DeletePracti
  *
  * The output of {@link DeletePracticeRunConfigurationCommand}.
  */
-export interface DeletePracticeRunConfigurationCommandOutput
-  extends DeletePracticeRunConfigurationResponse,
-    __MetadataBearer {}
+export interface DeletePracticeRunConfigurationCommandOutput extends DeletePracticeRunConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the practice run configuration for a resource. Before you can delete a practice run configuration for a resource., you must disable zonal autoshift for the resource. Practice runs must be configured for zonal autoshift to be enabled.</p>

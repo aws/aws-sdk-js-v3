@@ -27,9 +27,7 @@ export interface ValidateSecurityProfileBehaviorsCommandInput extends ValidateSe
  *
  * The output of {@link ValidateSecurityProfileBehaviorsCommand}.
  */
-export interface ValidateSecurityProfileBehaviorsCommandOutput
-  extends ValidateSecurityProfileBehaviorsResponse,
-    __MetadataBearer {}
+export interface ValidateSecurityProfileBehaviorsCommandOutput extends ValidateSecurityProfileBehaviorsResponse, __MetadataBearer {}
 
 /**
  * <p>Validates a Device Defender security profile behaviors specification.</p>

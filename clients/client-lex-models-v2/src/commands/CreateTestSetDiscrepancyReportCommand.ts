@@ -24,9 +24,7 @@ export interface CreateTestSetDiscrepancyReportCommandInput extends CreateTestSe
  *
  * The output of {@link CreateTestSetDiscrepancyReportCommand}.
  */
-export interface CreateTestSetDiscrepancyReportCommandOutput
-  extends CreateTestSetDiscrepancyReportResponse,
-    __MetadataBearer {}
+export interface CreateTestSetDiscrepancyReportCommandOutput extends CreateTestSetDiscrepancyReportResponse, __MetadataBearer {}
 
 /**
  * <p>Create a report that describes the differences between the bot and the test set.</p>

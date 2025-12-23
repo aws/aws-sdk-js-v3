@@ -59,7 +59,6 @@ import {
   UserProfileType,
   UserSearchType,
 } from "./enums";
-
 import {
   type AccountSource,
   type ActionParameters,
@@ -4221,7 +4220,9 @@ export interface LineageRunDetails {
  * <p>The details of a job run.</p>
  * @public
  */
-export type JobRunDetails = JobRunDetails.LineageRunDetailsMember | JobRunDetails.$UnknownMember;
+export type JobRunDetails =
+  | JobRunDetails.LineageRunDetailsMember
+  | JobRunDetails.$UnknownMember;
 
 /**
  * @public
@@ -7188,7 +7189,9 @@ export interface OpenLineageRunEventSummary {
  * <p>The event summary.</p>
  * @public
  */
-export type EventSummary = EventSummary.OpenLineageRunEventSummaryMember | EventSummary.$UnknownMember;
+export type EventSummary =
+  | EventSummary.OpenLineageRunEventSummaryMember
+  | EventSummary.$UnknownMember;
 
 /**
  * @public
@@ -7787,7 +7790,10 @@ export interface UserDetails {
  * <p>The details about a project member.</p>
  * @public
  */
-export type MemberDetails = MemberDetails.GroupMember | MemberDetails.UserMember | MemberDetails.$UnknownMember;
+export type MemberDetails =
+  | MemberDetails.GroupMember
+  | MemberDetails.UserMember
+  | MemberDetails.$UnknownMember;
 
 /**
  * @public

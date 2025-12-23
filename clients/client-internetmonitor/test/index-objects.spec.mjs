@@ -38,8 +38,8 @@ import {
   GetQueryStatusOutput$,
   HealthEvent$,
   HealthEventImpactType,
-  HealthEventStatus,
   HealthEventsConfig$,
+  HealthEventStatus,
   ImpactedLocation$,
   InternalServerErrorException,
   InternalServerErrorException$,
@@ -82,6 +82,10 @@ import {
   NotFoundException,
   NotFoundException$,
   Operator,
+  paginateGetQueryResults,
+  paginateListHealthEvents,
+  paginateListInternetEvents,
+  paginateListMonitors,
   PerformanceMeasurement$,
   QueryField$,
   QueryStatus,
@@ -117,10 +121,6 @@ import {
   UpdateMonitorOutput$,
   ValidationException,
   ValidationException$,
-  paginateGetQueryResults,
-  paginateListHealthEvents,
-  paginateListInternetEvents,
-  paginateListMonitors,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

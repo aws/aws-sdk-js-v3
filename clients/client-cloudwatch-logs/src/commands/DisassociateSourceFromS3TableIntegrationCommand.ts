@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DisassociateSourceFromS3TableIntegrationCommand}.
  */
-export interface DisassociateSourceFromS3TableIntegrationCommandInput
-  extends DisassociateSourceFromS3TableIntegrationRequest {}
+export interface DisassociateSourceFromS3TableIntegrationCommandInput extends DisassociateSourceFromS3TableIntegrationRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateSourceFromS3TableIntegrationCommand}.
  */
-export interface DisassociateSourceFromS3TableIntegrationCommandOutput
-  extends DisassociateSourceFromS3TableIntegrationResponse,
-    __MetadataBearer {}
+export interface DisassociateSourceFromS3TableIntegrationCommandOutput extends DisassociateSourceFromS3TableIntegrationResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a data source from an S3 Table Integration, removing query access and

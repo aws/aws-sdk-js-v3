@@ -10,49 +10,49 @@ const checkState = async (client: DeadlineClient, input: GetJobCommandInput): Pr
     const result: any = await client.send(new GetJobCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.lifecycleStatus;
-      };
+      }
       if (returnComparator() === "CREATE_COMPLETE") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.lifecycleStatus;
-      };
+      }
       if (returnComparator() === "UPDATE_IN_PROGRESS") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.lifecycleStatus;
-      };
+      }
       if (returnComparator() === "UPDATE_FAILED") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.lifecycleStatus;
-      };
+      }
       if (returnComparator() === "UPDATE_SUCCEEDED") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.lifecycleStatus;
-      };
+      }
       if (returnComparator() === "UPLOAD_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.lifecycleStatus;
-      };
+      }
       if (returnComparator() === "CREATE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

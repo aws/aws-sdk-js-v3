@@ -28,9 +28,7 @@ export interface GetAWSOrganizationsAccessStatusCommandInput extends GetAWSOrgan
  *
  * The output of {@link GetAWSOrganizationsAccessStatusCommand}.
  */
-export interface GetAWSOrganizationsAccessStatusCommandOutput
-  extends GetAWSOrganizationsAccessStatusOutput,
-    __MetadataBearer {}
+export interface GetAWSOrganizationsAccessStatusCommandOutput extends GetAWSOrganizationsAccessStatusOutput, __MetadataBearer {}
 
 /**
  * <p>Get the Access Status for Organizations portfolio share feature. This API can only be

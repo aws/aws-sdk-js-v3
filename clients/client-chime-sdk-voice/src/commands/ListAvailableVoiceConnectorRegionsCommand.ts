@@ -24,9 +24,7 @@ export interface ListAvailableVoiceConnectorRegionsCommandInput {}
  *
  * The output of {@link ListAvailableVoiceConnectorRegionsCommand}.
  */
-export interface ListAvailableVoiceConnectorRegionsCommandOutput
-  extends ListAvailableVoiceConnectorRegionsResponse,
-    __MetadataBearer {}
+export interface ListAvailableVoiceConnectorRegionsCommandOutput extends ListAvailableVoiceConnectorRegionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the available AWS Regions in which you can create an Amazon Chime SDK Voice Connector.</p>

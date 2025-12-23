@@ -27,9 +27,7 @@ export interface UpdateAccessControlConfigurationCommandInput extends UpdateAcce
  *
  * The output of {@link UpdateAccessControlConfigurationCommand}.
  */
-export interface UpdateAccessControlConfigurationCommandOutput
-  extends UpdateAccessControlConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateAccessControlConfigurationCommandOutput extends UpdateAccessControlConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an access control configuration for your documents in an index. This includes

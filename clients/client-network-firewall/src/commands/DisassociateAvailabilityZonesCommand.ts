@@ -28,9 +28,7 @@ export interface DisassociateAvailabilityZonesCommandInput extends DisassociateA
  *
  * The output of {@link DisassociateAvailabilityZonesCommand}.
  */
-export interface DisassociateAvailabilityZonesCommandOutput
-  extends DisassociateAvailabilityZonesResponse,
-    __MetadataBearer {}
+export interface DisassociateAvailabilityZonesCommandOutput extends DisassociateAvailabilityZonesResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the specified Availability Zone associations from a transit gateway-attached firewall. This removes the firewall endpoints from these Availability Zones and stops traffic filtering in those zones. Before removing an Availability Zone, ensure you've updated your transit gateway route tables to redirect traffic appropriately.</p>

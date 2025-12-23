@@ -67,7 +67,6 @@ import {
   WordCloudWordPadding,
   WordCloudWordScaling,
 } from "./enums";
-
 import {
   type AxisDisplayOptions,
   type BarChartConfiguration,

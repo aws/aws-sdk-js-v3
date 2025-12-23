@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link GetECSServiceRecommendationProjectedMetricsCommand}.
  */
-export interface GetECSServiceRecommendationProjectedMetricsCommandInput
-  extends GetECSServiceRecommendationProjectedMetricsRequest {}
+export interface GetECSServiceRecommendationProjectedMetricsCommandInput extends GetECSServiceRecommendationProjectedMetricsRequest {}
 /**
  * @public
  *
  * The output of {@link GetECSServiceRecommendationProjectedMetricsCommand}.
  */
-export interface GetECSServiceRecommendationProjectedMetricsCommandOutput
-  extends GetECSServiceRecommendationProjectedMetricsResponse,
-    __MetadataBearer {}
+export interface GetECSServiceRecommendationProjectedMetricsCommandOutput extends GetECSServiceRecommendationProjectedMetricsResponse, __MetadataBearer {}
 
 /**
  * <p>

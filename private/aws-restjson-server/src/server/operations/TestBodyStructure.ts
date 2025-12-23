@@ -9,8 +9,8 @@ import {
   OperationOutput as __OperationOutput,
   OperationSerializer as __OperationSerializer,
   SerializationException as __SerializationException,
-  ServerSerdeContext as __ServerSerdeContext,
   ServerSerdeContext,
+  ServerSerdeContext as __ServerSerdeContext,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
   SmithyFrameworkException as __SmithyFrameworkException,
@@ -30,57 +30,46 @@ import {
 } from "../../protocols/Aws_restJson1";
 import { RestJsonService } from "../RestJsonService";
 
-export type TestBodyStructure<Context> = __Operation<
-  TestBodyStructureServerInput,
-  TestBodyStructureServerOutput,
-  Context
->;
+export type TestBodyStructure<Context> = __Operation<TestBodyStructureServerInput, TestBodyStructureServerOutput, Context>
 
 export interface TestBodyStructureServerInput extends TestBodyStructureInputOutput {}
 export namespace TestBodyStructureServerInput {
   /**
    * @internal
    */
-  export const validate: (obj: Parameters<typeof TestBodyStructureInputOutput.validate>[0]) => __ValidationFailure[] =
-    TestBodyStructureInputOutput.validate;
+  export const validate: (obj: Parameters<typeof TestBodyStructureInputOutput.validate>[0]) => __ValidationFailure[] = TestBodyStructureInputOutput.validate;
 }
 export interface TestBodyStructureServerOutput extends TestBodyStructureInputOutput {}
 
 export type TestBodyStructureErrors = never;
 
-export class TestBodyStructureSerializer
-  implements __OperationSerializer<RestJsonService<any>, "TestBodyStructure", TestBodyStructureErrors>
-{
+export class TestBodyStructureSerializer implements __OperationSerializer<RestJsonService<any>, "TestBodyStructure", TestBodyStructureErrors> {
   serialize = serializeTestBodyStructureResponse;
   deserialize = deserializeTestBodyStructureRequest;
 
   isOperationError(error: any): error is TestBodyStructureErrors {
     return false;
-  }
+  };
 
   serializeError(error: TestBodyStructureErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     throw error;
   }
+
 }
 
-export const getTestBodyStructureHandler = <Context>(
-  operation: __Operation<TestBodyStructureServerInput, TestBodyStructureServerOutput, Context>,
-  customizer: __ValidationCustomizer<"TestBodyStructure">
-): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+export const getTestBodyStructureHandler = <Context>(operation: __Operation<TestBodyStructureServerInput, TestBodyStructureServerOutput, Context>, customizer: __ValidationCustomizer<"TestBodyStructure">): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
   const mux = new httpbinding.HttpBindingMux<"RestJson", "TestBodyStructure">([
-    new httpbinding.UriSpec<"RestJson", "TestBodyStructure">("POST", [{ type: "path_literal", value: "body" }], [], {
-      service: "RestJson",
-      operation: "TestBodyStructure",
-    }),
+    new httpbinding.UriSpec<"RestJson", "TestBodyStructure">(
+      'POST',
+      [
+        { type: 'path_literal', value: "body" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "TestBodyStructure" }),
   ]);
-  return new TestBodyStructureHandler(
-    operation,
-    mux,
-    new TestBodyStructureSerializer(),
-    serializeFrameworkException,
-    customizer
-  );
-};
+  return new TestBodyStructureHandler(operation, mux, new TestBodyStructureSerializer(), serializeFrameworkException, customizer);
+}
 
 const serdeContextBase = {
   base64Encoder: toBase64,
@@ -89,7 +78,7 @@ const serdeContextBase = {
   utf8Decoder: fromUtf8,
   streamCollector: streamCollector,
   requestHandler: new NodeHttpHandler(),
-  disableHostPrefix: true,
+  disableHostPrefix: true
 };
 async function handle<S, O extends keyof S & string, Context>(
   request: __HttpRequest,
@@ -104,45 +93,37 @@ async function handle<S, O extends keyof S & string, Context>(
   let input;
   try {
     input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request),
-      ...serdeContextBase,
+      endpoint: () => Promise.resolve(request), ...serdeContextBase
     });
   } catch (error: unknown) {
     if (__isFrameworkException(error)) {
       return serializeFrameworkException(error, serdeContextBase);
-    }
+    };
     return serializeFrameworkException(new __SerializationException(), serdeContextBase);
   }
   try {
-    const validationFailures = validationFn(input);
+    let validationFailures = validationFn(input);
     if (validationFailures && validationFailures.length > 0) {
-      const validationException = validationCustomizer({ operation: operationName }, validationFailures);
+      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
       if (validationException) {
         return serializer.serializeError(validationException, serdeContextBase);
       }
     }
-    const output = await operation(input, context);
+    let output = await operation(input, context);
     return serializer.serialize(output, serdeContextBase);
-  } catch (error: unknown) {
+  } catch(error: unknown) {
     if (serializer.isOperationError(error)) {
       return serializer.serializeError(error, serdeContextBase);
     }
-    console.log("Received an unexpected error", error);
+    console.log('Received an unexpected error', error);
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
 export class TestBodyStructureHandler<Context> implements __ServiceHandler<Context> {
   private readonly operation: __Operation<TestBodyStructureServerInput, TestBodyStructureServerOutput, Context>;
   private readonly mux: __Mux<"RestJson", "TestBodyStructure">;
-  private readonly serializer: __OperationSerializer<
-    RestJsonService<Context>,
-    "TestBodyStructure",
-    TestBodyStructureErrors
-  >;
-  private readonly serializeFrameworkException: (
-    e: __SmithyFrameworkException,
-    ctx: __ServerSerdeContext
-  ) => Promise<__HttpResponse>;
+  private readonly serializer: __OperationSerializer<RestJsonService<Context>, "TestBodyStructure", TestBodyStructureErrors>;
+  private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<"TestBodyStructure">;
   /**
    * Construct a TestBodyStructure handler.
@@ -169,20 +150,9 @@ export class TestBodyStructureHandler<Context> implements __ServiceHandler<Conte
   async handle(request: __HttpRequest, context: Context): Promise<__HttpResponse> {
     const target = this.mux.match(request);
     if (target === undefined) {
-      console.log(
-        "Received a request that did not match aws.protocoltests.restjson#RestJson.TestBodyStructure. This indicates a misconfiguration."
-      );
+      console.log('Received a request that did not match aws.protocoltests.restjson#RestJson.TestBodyStructure. This indicates a misconfiguration.');
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
-    return handle(
-      request,
-      context,
-      "TestBodyStructure",
-      this.serializer,
-      this.operation,
-      this.serializeFrameworkException,
-      TestBodyStructureServerInput.validate,
-      this.validationCustomizer
-    );
+    return handle(request, context, "TestBodyStructure", this.serializer, this.operation, this.serializeFrameworkException, TestBodyStructureServerInput.validate, this.validationCustomizer);
   }
 }

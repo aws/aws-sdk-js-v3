@@ -48,10 +48,8 @@ recovery readiness with Route 53 ARC, see the <a href="https://docs.aws.amazon.c
 </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-route53-recovery-cluster
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-route53-recovery-cluster`
 - `yarn add @aws-sdk/client-route53-recovery-cluster`
 - `pnpm add @aws-sdk/client-route53-recovery-cluster`
@@ -66,10 +64,7 @@ the commands you need, for example `ListRoutingControlsCommand`:
 
 ```js
 // ES5 example
-const {
-  Route53RecoveryClusterClient,
-  ListRoutingControlsCommand,
-} = require("@aws-sdk/client-route53-recovery-cluster");
+const { Route53RecoveryClusterClient, ListRoutingControlsCommand } = require("@aws-sdk/client-route53-recovery-cluster");
 ```
 
 ```ts
@@ -90,9 +85,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new Route53RecoveryClusterClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListRoutingControlsCommand(params);
 ```
 
@@ -251,7 +244,6 @@ GetRoutingControlState
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-cluster/command/GetRoutingControlStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-cluster/Interface/GetRoutingControlStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-cluster/Interface/GetRoutingControlStateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -259,7 +251,6 @@ ListRoutingControls
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-cluster/command/ListRoutingControlsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-cluster/Interface/ListRoutingControlsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-cluster/Interface/ListRoutingControlsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -267,7 +258,6 @@ UpdateRoutingControlState
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-cluster/command/UpdateRoutingControlStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-cluster/Interface/UpdateRoutingControlStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-cluster/Interface/UpdateRoutingControlStateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -275,5 +265,4 @@ UpdateRoutingControlStates
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-cluster/command/UpdateRoutingControlStatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-cluster/Interface/UpdateRoutingControlStatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-cluster/Interface/UpdateRoutingControlStatesCommandOutput/)
-
 </details>

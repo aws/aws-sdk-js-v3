@@ -24,9 +24,7 @@ export interface DisassociateEmailAddressAliasCommandInput extends DisassociateE
  *
  * The output of {@link DisassociateEmailAddressAliasCommand}.
  */
-export interface DisassociateEmailAddressAliasCommandOutput
-  extends DisassociateEmailAddressAliasResponse,
-    __MetadataBearer {}
+export interface DisassociateEmailAddressAliasCommandOutput extends DisassociateEmailAddressAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the alias association between two email addresses in an Amazon Connect instance. After

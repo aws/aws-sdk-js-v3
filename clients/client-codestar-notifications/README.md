@@ -86,10 +86,8 @@ your account. </p>
 </p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-codestar-notifications
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-codestar-notifications`
 - `yarn add @aws-sdk/client-codestar-notifications`
 - `pnpm add @aws-sdk/client-codestar-notifications`
@@ -125,9 +123,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new CodestarNotificationsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListTargetsCommand(params);
 ```
 
@@ -286,7 +282,6 @@ CreateNotificationRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codestar-notifications/command/CreateNotificationRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/CreateNotificationRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/CreateNotificationRuleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -294,7 +289,6 @@ DeleteNotificationRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codestar-notifications/command/DeleteNotificationRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/DeleteNotificationRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/DeleteNotificationRuleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -302,7 +296,6 @@ DeleteTarget
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codestar-notifications/command/DeleteTargetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/DeleteTargetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/DeleteTargetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -310,7 +303,6 @@ DescribeNotificationRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codestar-notifications/command/DescribeNotificationRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/DescribeNotificationRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/DescribeNotificationRuleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -318,7 +310,6 @@ ListEventTypes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codestar-notifications/command/ListEventTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/ListEventTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/ListEventTypesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -326,7 +317,6 @@ ListNotificationRules
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codestar-notifications/command/ListNotificationRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/ListNotificationRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/ListNotificationRulesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -334,7 +324,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codestar-notifications/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -342,7 +331,6 @@ ListTargets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codestar-notifications/command/ListTargetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/ListTargetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/ListTargetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -350,7 +338,6 @@ Subscribe
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codestar-notifications/command/SubscribeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/SubscribeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/SubscribeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -358,7 +345,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codestar-notifications/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -366,7 +352,6 @@ Unsubscribe
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codestar-notifications/command/UnsubscribeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/UnsubscribeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/UnsubscribeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -374,7 +359,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codestar-notifications/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -382,5 +366,4 @@ UpdateNotificationRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codestar-notifications/command/UpdateNotificationRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/UpdateNotificationRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codestar-notifications/Interface/UpdateNotificationRuleCommandOutput/)
-
 </details>

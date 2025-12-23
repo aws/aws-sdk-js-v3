@@ -27,9 +27,7 @@ export interface GetDataCatalogEncryptionSettingsCommandInput extends GetDataCat
  *
  * The output of {@link GetDataCatalogEncryptionSettingsCommand}.
  */
-export interface GetDataCatalogEncryptionSettingsCommandOutput
-  extends GetDataCatalogEncryptionSettingsResponse,
-    __MetadataBearer {}
+export interface GetDataCatalogEncryptionSettingsCommandOutput extends GetDataCatalogEncryptionSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the security configuration for a specified catalog.</p>

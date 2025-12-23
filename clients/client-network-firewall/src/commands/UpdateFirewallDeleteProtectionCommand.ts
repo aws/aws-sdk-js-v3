@@ -28,9 +28,7 @@ export interface UpdateFirewallDeleteProtectionCommandInput extends UpdateFirewa
  *
  * The output of {@link UpdateFirewallDeleteProtectionCommand}.
  */
-export interface UpdateFirewallDeleteProtectionCommandOutput
-  extends UpdateFirewallDeleteProtectionResponse,
-    __MetadataBearer {}
+export interface UpdateFirewallDeleteProtectionCommandOutput extends UpdateFirewallDeleteProtectionResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the flag, <code>DeleteProtection</code>, which indicates whether it is possible

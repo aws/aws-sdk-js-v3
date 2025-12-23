@@ -184,7 +184,10 @@ export interface ServerlessApplicationRepository {
     args: GetApplicationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetApplicationCommandOutput>;
-  getApplication(args: GetApplicationCommandInput, cb: (err: any, data?: GetApplicationCommandOutput) => void): void;
+  getApplication(
+    args: GetApplicationCommandInput,
+    cb: (err: any, data?: GetApplicationCommandOutput) => void
+  ): void;
   getApplication(
     args: GetApplicationCommandInput,
     options: __HttpHandlerOptions,
@@ -352,7 +355,5 @@ export interface ServerlessApplicationRepository {
  *  </ul>
  * @public
  */
-export class ServerlessApplicationRepository
-  extends ServerlessApplicationRepositoryClient
-  implements ServerlessApplicationRepository {}
+export class ServerlessApplicationRepository extends ServerlessApplicationRepositoryClient implements ServerlessApplicationRepository {}
 createAggregatedClient(commands, ServerlessApplicationRepository);

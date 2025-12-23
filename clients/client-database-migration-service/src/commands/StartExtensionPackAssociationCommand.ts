@@ -28,9 +28,7 @@ export interface StartExtensionPackAssociationCommandInput extends StartExtensio
  *
  * The output of {@link StartExtensionPackAssociationCommand}.
  */
-export interface StartExtensionPackAssociationCommandOutput
-  extends StartExtensionPackAssociationResponse,
-    __MetadataBearer {}
+export interface StartExtensionPackAssociationCommandOutput extends StartExtensionPackAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Applies the extension pack to your target database. An extension pack is an add-on

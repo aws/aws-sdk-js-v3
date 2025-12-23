@@ -24,9 +24,7 @@ export interface DeleteAssessmentFrameworkShareCommandInput extends DeleteAssess
  *
  * The output of {@link DeleteAssessmentFrameworkShareCommand}.
  */
-export interface DeleteAssessmentFrameworkShareCommandOutput
-  extends DeleteAssessmentFrameworkShareResponse,
-    __MetadataBearer {}
+export interface DeleteAssessmentFrameworkShareCommandOutput extends DeleteAssessmentFrameworkShareResponse, __MetadataBearer {}
 
 /**
  * <p> Deletes a share request for a custom framework in Audit Manager. </p>

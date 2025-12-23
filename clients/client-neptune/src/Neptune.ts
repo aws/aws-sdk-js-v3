@@ -554,7 +554,10 @@ export interface Neptune {
     args: CreateDBClusterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDBClusterCommandOutput>;
-  createDBCluster(args: CreateDBClusterCommandInput, cb: (err: any, data?: CreateDBClusterCommandOutput) => void): void;
+  createDBCluster(
+    args: CreateDBClusterCommandInput,
+    cb: (err: any, data?: CreateDBClusterCommandOutput) => void
+  ): void;
   createDBCluster(
     args: CreateDBClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -704,7 +707,10 @@ export interface Neptune {
     args: DeleteDBClusterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDBClusterCommandOutput>;
-  deleteDBCluster(args: DeleteDBClusterCommandInput, cb: (err: any, data?: DeleteDBClusterCommandOutput) => void): void;
+  deleteDBCluster(
+    args: DeleteDBClusterCommandInput,
+    cb: (err: any, data?: DeleteDBClusterCommandOutput) => void
+  ): void;
   deleteDBCluster(
     args: DeleteDBClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -1102,7 +1108,10 @@ export interface Neptune {
     args: DescribeEventsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeEventsCommandOutput>;
-  describeEvents(args: DescribeEventsCommandInput, cb: (err: any, data?: DescribeEventsCommandOutput) => void): void;
+  describeEvents(
+    args: DescribeEventsCommandInput,
+    cb: (err: any, data?: DescribeEventsCommandOutput) => void
+  ): void;
   describeEvents(
     args: DescribeEventsCommandInput,
     options: __HttpHandlerOptions,
@@ -1256,7 +1265,10 @@ export interface Neptune {
     args: ModifyDBClusterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ModifyDBClusterCommandOutput>;
-  modifyDBCluster(args: ModifyDBClusterCommandInput, cb: (err: any, data?: ModifyDBClusterCommandOutput) => void): void;
+  modifyDBCluster(
+    args: ModifyDBClusterCommandInput,
+    cb: (err: any, data?: ModifyDBClusterCommandOutput) => void
+  ): void;
   modifyDBCluster(
     args: ModifyDBClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -1576,7 +1588,10 @@ export interface Neptune {
     args: StartDBClusterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartDBClusterCommandOutput>;
-  startDBCluster(args: StartDBClusterCommandInput, cb: (err: any, data?: StartDBClusterCommandOutput) => void): void;
+  startDBCluster(
+    args: StartDBClusterCommandInput,
+    cb: (err: any, data?: StartDBClusterCommandOutput) => void
+  ): void;
   startDBCluster(
     args: StartDBClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -1586,8 +1601,14 @@ export interface Neptune {
   /**
    * @see {@link StopDBClusterCommand}
    */
-  stopDBCluster(args: StopDBClusterCommandInput, options?: __HttpHandlerOptions): Promise<StopDBClusterCommandOutput>;
-  stopDBCluster(args: StopDBClusterCommandInput, cb: (err: any, data?: StopDBClusterCommandOutput) => void): void;
+  stopDBCluster(
+    args: StopDBClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopDBClusterCommandOutput>;
+  stopDBCluster(
+    args: StopDBClusterCommandInput,
+    cb: (err: any, data?: StopDBClusterCommandOutput) => void
+  ): void;
   stopDBCluster(
     args: StopDBClusterCommandInput,
     options: __HttpHandlerOptions,

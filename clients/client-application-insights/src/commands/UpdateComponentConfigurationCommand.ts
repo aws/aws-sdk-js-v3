@@ -28,9 +28,7 @@ export interface UpdateComponentConfigurationCommandInput extends UpdateComponen
  *
  * The output of {@link UpdateComponentConfigurationCommand}.
  */
-export interface UpdateComponentConfigurationCommandOutput
-  extends UpdateComponentConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateComponentConfigurationCommandOutput extends UpdateComponentConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the monitoring configurations for the component. The configuration input

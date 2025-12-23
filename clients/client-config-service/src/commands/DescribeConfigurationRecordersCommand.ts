@@ -24,9 +24,7 @@ export interface DescribeConfigurationRecordersCommandInput extends DescribeConf
  *
  * The output of {@link DescribeConfigurationRecordersCommand}.
  */
-export interface DescribeConfigurationRecordersCommandOutput
-  extends DescribeConfigurationRecordersResponse,
-    __MetadataBearer {}
+export interface DescribeConfigurationRecordersCommandOutput extends DescribeConfigurationRecordersResponse, __MetadataBearer {}
 
 /**
  * <p>Returns details for the configuration recorder you specify.</p>

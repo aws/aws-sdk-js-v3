@@ -24,9 +24,7 @@ export interface GetAwsNetworkPerformanceDataCommandInput extends GetAwsNetworkP
  *
  * The output of {@link GetAwsNetworkPerformanceDataCommand}.
  */
-export interface GetAwsNetworkPerformanceDataCommandOutput
-  extends GetAwsNetworkPerformanceDataResult,
-    __MetadataBearer {}
+export interface GetAwsNetworkPerformanceDataCommandOutput extends GetAwsNetworkPerformanceDataResult, __MetadataBearer {}
 
 /**
  * <p>Gets network performance data.</p>

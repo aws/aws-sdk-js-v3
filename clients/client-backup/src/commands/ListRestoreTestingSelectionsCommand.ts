@@ -24,9 +24,7 @@ export interface ListRestoreTestingSelectionsCommandInput extends ListRestoreTes
  *
  * The output of {@link ListRestoreTestingSelectionsCommand}.
  */
-export interface ListRestoreTestingSelectionsCommandOutput
-  extends ListRestoreTestingSelectionsOutput,
-    __MetadataBearer {}
+export interface ListRestoreTestingSelectionsCommandOutput extends ListRestoreTestingSelectionsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of restore testing selections. Can be filtered

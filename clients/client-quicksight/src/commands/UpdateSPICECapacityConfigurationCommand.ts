@@ -27,9 +27,7 @@ export interface UpdateSPICECapacityConfigurationCommandInput extends UpdateSPIC
  *
  * The output of {@link UpdateSPICECapacityConfigurationCommand}.
  */
-export interface UpdateSPICECapacityConfigurationCommandOutput
-  extends UpdateSPICECapacityConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateSPICECapacityConfigurationCommandOutput extends UpdateSPICECapacityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the SPICE capacity configuration for a Quick Sight account.</p>

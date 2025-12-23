@@ -24,9 +24,7 @@ export interface CreateContainerGroupDefinitionCommandInput extends CreateContai
  *
  * The output of {@link CreateContainerGroupDefinitionCommand}.
  */
-export interface CreateContainerGroupDefinitionCommandOutput
-  extends CreateContainerGroupDefinitionOutput,
-    __MetadataBearer {}
+export interface CreateContainerGroupDefinitionCommandOutput extends CreateContainerGroupDefinitionOutput, __MetadataBearer {}
 
 /**
  * <p>

@@ -27,9 +27,7 @@ export interface DeleteSupplementalTaxRegistrationCommandInput extends DeleteSup
  *
  * The output of {@link DeleteSupplementalTaxRegistrationCommand}.
  */
-export interface DeleteSupplementalTaxRegistrationCommandOutput
-  extends DeleteSupplementalTaxRegistrationResponse,
-    __MetadataBearer {}
+export interface DeleteSupplementalTaxRegistrationCommandOutput extends DeleteSupplementalTaxRegistrationResponse, __MetadataBearer {}
 
 /**
  * <p>

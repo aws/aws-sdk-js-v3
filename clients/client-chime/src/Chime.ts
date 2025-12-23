@@ -442,7 +442,10 @@ export interface Chime {
     args: BatchUpdateUserCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchUpdateUserCommandOutput>;
-  batchUpdateUser(args: BatchUpdateUserCommandInput, cb: (err: any, data?: BatchUpdateUserCommandOutput) => void): void;
+  batchUpdateUser(
+    args: BatchUpdateUserCommandInput,
+    cb: (err: any, data?: BatchUpdateUserCommandOutput) => void
+  ): void;
   batchUpdateUser(
     args: BatchUpdateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -452,8 +455,14 @@ export interface Chime {
   /**
    * @see {@link CreateAccountCommand}
    */
-  createAccount(args: CreateAccountCommandInput, options?: __HttpHandlerOptions): Promise<CreateAccountCommandOutput>;
-  createAccount(args: CreateAccountCommandInput, cb: (err: any, data?: CreateAccountCommandOutput) => void): void;
+  createAccount(
+    args: CreateAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAccountCommandOutput>;
+  createAccount(
+    args: CreateAccountCommandInput,
+    cb: (err: any, data?: CreateAccountCommandOutput) => void
+  ): void;
   createAccount(
     args: CreateAccountCommandInput,
     options: __HttpHandlerOptions,
@@ -463,8 +472,14 @@ export interface Chime {
   /**
    * @see {@link CreateBotCommand}
    */
-  createBot(args: CreateBotCommandInput, options?: __HttpHandlerOptions): Promise<CreateBotCommandOutput>;
-  createBot(args: CreateBotCommandInput, cb: (err: any, data?: CreateBotCommandOutput) => void): void;
+  createBot(
+    args: CreateBotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBotCommandOutput>;
+  createBot(
+    args: CreateBotCommandInput,
+    cb: (err: any, data?: CreateBotCommandOutput) => void
+  ): void;
   createBot(
     args: CreateBotCommandInput,
     options: __HttpHandlerOptions,
@@ -508,8 +523,14 @@ export interface Chime {
   /**
    * @see {@link CreateRoomCommand}
    */
-  createRoom(args: CreateRoomCommandInput, options?: __HttpHandlerOptions): Promise<CreateRoomCommandOutput>;
-  createRoom(args: CreateRoomCommandInput, cb: (err: any, data?: CreateRoomCommandOutput) => void): void;
+  createRoom(
+    args: CreateRoomCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRoomCommandOutput>;
+  createRoom(
+    args: CreateRoomCommandInput,
+    cb: (err: any, data?: CreateRoomCommandOutput) => void
+  ): void;
   createRoom(
     args: CreateRoomCommandInput,
     options: __HttpHandlerOptions,
@@ -536,8 +557,14 @@ export interface Chime {
   /**
    * @see {@link CreateUserCommand}
    */
-  createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
-  createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
+  createUser(
+    args: CreateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUserCommandOutput>;
+  createUser(
+    args: CreateUserCommandInput,
+    cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): void;
   createUser(
     args: CreateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -547,8 +574,14 @@ export interface Chime {
   /**
    * @see {@link DeleteAccountCommand}
    */
-  deleteAccount(args: DeleteAccountCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAccountCommandOutput>;
-  deleteAccount(args: DeleteAccountCommandInput, cb: (err: any, data?: DeleteAccountCommandOutput) => void): void;
+  deleteAccount(
+    args: DeleteAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccountCommandOutput>;
+  deleteAccount(
+    args: DeleteAccountCommandInput,
+    cb: (err: any, data?: DeleteAccountCommandOutput) => void
+  ): void;
   deleteAccount(
     args: DeleteAccountCommandInput,
     options: __HttpHandlerOptions,
@@ -592,8 +625,14 @@ export interface Chime {
   /**
    * @see {@link DeleteRoomCommand}
    */
-  deleteRoom(args: DeleteRoomCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRoomCommandOutput>;
-  deleteRoom(args: DeleteRoomCommandInput, cb: (err: any, data?: DeleteRoomCommandOutput) => void): void;
+  deleteRoom(
+    args: DeleteRoomCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRoomCommandOutput>;
+  deleteRoom(
+    args: DeleteRoomCommandInput,
+    cb: (err: any, data?: DeleteRoomCommandOutput) => void
+  ): void;
   deleteRoom(
     args: DeleteRoomCommandInput,
     options: __HttpHandlerOptions,
@@ -654,8 +693,14 @@ export interface Chime {
   /**
    * @see {@link GetAccountCommand}
    */
-  getAccount(args: GetAccountCommandInput, options?: __HttpHandlerOptions): Promise<GetAccountCommandOutput>;
-  getAccount(args: GetAccountCommandInput, cb: (err: any, data?: GetAccountCommandOutput) => void): void;
+  getAccount(
+    args: GetAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccountCommandOutput>;
+  getAccount(
+    args: GetAccountCommandInput,
+    cb: (err: any, data?: GetAccountCommandOutput) => void
+  ): void;
   getAccount(
     args: GetAccountCommandInput,
     options: __HttpHandlerOptions,
@@ -682,8 +727,14 @@ export interface Chime {
   /**
    * @see {@link GetBotCommand}
    */
-  getBot(args: GetBotCommandInput, options?: __HttpHandlerOptions): Promise<GetBotCommandOutput>;
-  getBot(args: GetBotCommandInput, cb: (err: any, data?: GetBotCommandOutput) => void): void;
+  getBot(
+    args: GetBotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBotCommandOutput>;
+  getBot(
+    args: GetBotCommandInput,
+    cb: (err: any, data?: GetBotCommandOutput) => void
+  ): void;
   getBot(
     args: GetBotCommandInput,
     options: __HttpHandlerOptions,
@@ -732,7 +783,10 @@ export interface Chime {
     args: GetPhoneNumberCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetPhoneNumberCommandOutput>;
-  getPhoneNumber(args: GetPhoneNumberCommandInput, cb: (err: any, data?: GetPhoneNumberCommandOutput) => void): void;
+  getPhoneNumber(
+    args: GetPhoneNumberCommandInput,
+    cb: (err: any, data?: GetPhoneNumberCommandOutput) => void
+  ): void;
   getPhoneNumber(
     args: GetPhoneNumberCommandInput,
     options: __HttpHandlerOptions,
@@ -794,8 +848,14 @@ export interface Chime {
   /**
    * @see {@link GetRoomCommand}
    */
-  getRoom(args: GetRoomCommandInput, options?: __HttpHandlerOptions): Promise<GetRoomCommandOutput>;
-  getRoom(args: GetRoomCommandInput, cb: (err: any, data?: GetRoomCommandOutput) => void): void;
+  getRoom(
+    args: GetRoomCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRoomCommandOutput>;
+  getRoom(
+    args: GetRoomCommandInput,
+    cb: (err: any, data?: GetRoomCommandOutput) => void
+  ): void;
   getRoom(
     args: GetRoomCommandInput,
     options: __HttpHandlerOptions,
@@ -805,8 +865,14 @@ export interface Chime {
   /**
    * @see {@link GetUserCommand}
    */
-  getUser(args: GetUserCommandInput, options?: __HttpHandlerOptions): Promise<GetUserCommandOutput>;
-  getUser(args: GetUserCommandInput, cb: (err: any, data?: GetUserCommandOutput) => void): void;
+  getUser(
+    args: GetUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUserCommandOutput>;
+  getUser(
+    args: GetUserCommandInput,
+    cb: (err: any, data?: GetUserCommandOutput) => void
+  ): void;
   getUser(
     args: GetUserCommandInput,
     options: __HttpHandlerOptions,
@@ -820,7 +886,10 @@ export interface Chime {
     args: GetUserSettingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetUserSettingsCommandOutput>;
-  getUserSettings(args: GetUserSettingsCommandInput, cb: (err: any, data?: GetUserSettingsCommandOutput) => void): void;
+  getUserSettings(
+    args: GetUserSettingsCommandInput,
+    cb: (err: any, data?: GetUserSettingsCommandOutput) => void
+  ): void;
   getUserSettings(
     args: GetUserSettingsCommandInput,
     options: __HttpHandlerOptions,
@@ -830,8 +899,14 @@ export interface Chime {
   /**
    * @see {@link InviteUsersCommand}
    */
-  inviteUsers(args: InviteUsersCommandInput, options?: __HttpHandlerOptions): Promise<InviteUsersCommandOutput>;
-  inviteUsers(args: InviteUsersCommandInput, cb: (err: any, data?: InviteUsersCommandOutput) => void): void;
+  inviteUsers(
+    args: InviteUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InviteUsersCommandOutput>;
+  inviteUsers(
+    args: InviteUsersCommandInput,
+    cb: (err: any, data?: InviteUsersCommandOutput) => void
+  ): void;
   inviteUsers(
     args: InviteUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -842,8 +917,14 @@ export interface Chime {
    * @see {@link ListAccountsCommand}
    */
   listAccounts(): Promise<ListAccountsCommandOutput>;
-  listAccounts(args: ListAccountsCommandInput, options?: __HttpHandlerOptions): Promise<ListAccountsCommandOutput>;
-  listAccounts(args: ListAccountsCommandInput, cb: (err: any, data?: ListAccountsCommandOutput) => void): void;
+  listAccounts(
+    args: ListAccountsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccountsCommandOutput>;
+  listAccounts(
+    args: ListAccountsCommandInput,
+    cb: (err: any, data?: ListAccountsCommandOutput) => void
+  ): void;
   listAccounts(
     args: ListAccountsCommandInput,
     options: __HttpHandlerOptions,
@@ -853,8 +934,14 @@ export interface Chime {
   /**
    * @see {@link ListBotsCommand}
    */
-  listBots(args: ListBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListBotsCommandOutput>;
-  listBots(args: ListBotsCommandInput, cb: (err: any, data?: ListBotsCommandOutput) => void): void;
+  listBots(
+    args: ListBotsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBotsCommandOutput>;
+  listBots(
+    args: ListBotsCommandInput,
+    cb: (err: any, data?: ListBotsCommandOutput) => void
+  ): void;
   listBots(
     args: ListBotsCommandInput,
     options: __HttpHandlerOptions,
@@ -917,8 +1004,14 @@ export interface Chime {
   /**
    * @see {@link ListRoomsCommand}
    */
-  listRooms(args: ListRoomsCommandInput, options?: __HttpHandlerOptions): Promise<ListRoomsCommandOutput>;
-  listRooms(args: ListRoomsCommandInput, cb: (err: any, data?: ListRoomsCommandOutput) => void): void;
+  listRooms(
+    args: ListRoomsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRoomsCommandOutput>;
+  listRooms(
+    args: ListRoomsCommandInput,
+    cb: (err: any, data?: ListRoomsCommandOutput) => void
+  ): void;
   listRooms(
     args: ListRoomsCommandInput,
     options: __HttpHandlerOptions,
@@ -945,8 +1038,14 @@ export interface Chime {
   /**
    * @see {@link ListUsersCommand}
    */
-  listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
-  listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
+  listUsers(
+    args: ListUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUsersCommandOutput>;
+  listUsers(
+    args: ListUsersCommandInput,
+    cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
   listUsers(
     args: ListUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -956,8 +1055,14 @@ export interface Chime {
   /**
    * @see {@link LogoutUserCommand}
    */
-  logoutUser(args: LogoutUserCommandInput, options?: __HttpHandlerOptions): Promise<LogoutUserCommandOutput>;
-  logoutUser(args: LogoutUserCommandInput, cb: (err: any, data?: LogoutUserCommandOutput) => void): void;
+  logoutUser(
+    args: LogoutUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<LogoutUserCommandOutput>;
+  logoutUser(
+    args: LogoutUserCommandInput,
+    cb: (err: any, data?: LogoutUserCommandOutput) => void
+  ): void;
   logoutUser(
     args: LogoutUserCommandInput,
     options: __HttpHandlerOptions,
@@ -1104,8 +1209,14 @@ export interface Chime {
   /**
    * @see {@link UpdateAccountCommand}
    */
-  updateAccount(args: UpdateAccountCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAccountCommandOutput>;
-  updateAccount(args: UpdateAccountCommandInput, cb: (err: any, data?: UpdateAccountCommandOutput) => void): void;
+  updateAccount(
+    args: UpdateAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccountCommandOutput>;
+  updateAccount(
+    args: UpdateAccountCommandInput,
+    cb: (err: any, data?: UpdateAccountCommandOutput) => void
+  ): void;
   updateAccount(
     args: UpdateAccountCommandInput,
     options: __HttpHandlerOptions,
@@ -1132,8 +1243,14 @@ export interface Chime {
   /**
    * @see {@link UpdateBotCommand}
    */
-  updateBot(args: UpdateBotCommandInput, options?: __HttpHandlerOptions): Promise<UpdateBotCommandOutput>;
-  updateBot(args: UpdateBotCommandInput, cb: (err: any, data?: UpdateBotCommandOutput) => void): void;
+  updateBot(
+    args: UpdateBotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBotCommandOutput>;
+  updateBot(
+    args: UpdateBotCommandInput,
+    cb: (err: any, data?: UpdateBotCommandOutput) => void
+  ): void;
   updateBot(
     args: UpdateBotCommandInput,
     options: __HttpHandlerOptions,
@@ -1195,8 +1312,14 @@ export interface Chime {
   /**
    * @see {@link UpdateRoomCommand}
    */
-  updateRoom(args: UpdateRoomCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRoomCommandOutput>;
-  updateRoom(args: UpdateRoomCommandInput, cb: (err: any, data?: UpdateRoomCommandOutput) => void): void;
+  updateRoom(
+    args: UpdateRoomCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRoomCommandOutput>;
+  updateRoom(
+    args: UpdateRoomCommandInput,
+    cb: (err: any, data?: UpdateRoomCommandOutput) => void
+  ): void;
   updateRoom(
     args: UpdateRoomCommandInput,
     options: __HttpHandlerOptions,
@@ -1223,8 +1346,14 @@ export interface Chime {
   /**
    * @see {@link UpdateUserCommand}
    */
-  updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
-  updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
+  updateUser(
+    args: UpdateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUserCommandOutput>;
+  updateUser(
+    args: UpdateUserCommandInput,
+    cb: (err: any, data?: UpdateUserCommandOutput) => void
+  ): void;
   updateUser(
     args: UpdateUserCommandInput,
     options: __HttpHandlerOptions,

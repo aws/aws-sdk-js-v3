@@ -360,8 +360,14 @@ export interface GlobalAccelerator {
   /**
    * @see {@link AddEndpointsCommand}
    */
-  addEndpoints(args: AddEndpointsCommandInput, options?: __HttpHandlerOptions): Promise<AddEndpointsCommandOutput>;
-  addEndpoints(args: AddEndpointsCommandInput, cb: (err: any, data?: AddEndpointsCommandOutput) => void): void;
+  addEndpoints(
+    args: AddEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddEndpointsCommandOutput>;
+  addEndpoints(
+    args: AddEndpointsCommandInput,
+    cb: (err: any, data?: AddEndpointsCommandOutput) => void
+  ): void;
   addEndpoints(
     args: AddEndpointsCommandInput,
     options: __HttpHandlerOptions,
@@ -511,7 +517,10 @@ export interface GlobalAccelerator {
     args: CreateListenerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateListenerCommandOutput>;
-  createListener(args: CreateListenerCommandInput, cb: (err: any, data?: CreateListenerCommandOutput) => void): void;
+  createListener(
+    args: CreateListenerCommandInput,
+    cb: (err: any, data?: CreateListenerCommandOutput) => void
+  ): void;
   createListener(
     args: CreateListenerCommandInput,
     options: __HttpHandlerOptions,
@@ -627,7 +636,10 @@ export interface GlobalAccelerator {
     args: DeleteListenerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteListenerCommandOutput>;
-  deleteListener(args: DeleteListenerCommandInput, cb: (err: any, data?: DeleteListenerCommandOutput) => void): void;
+  deleteListener(
+    args: DeleteListenerCommandInput,
+    cb: (err: any, data?: DeleteListenerCommandOutput) => void
+  ): void;
   deleteListener(
     args: DeleteListenerCommandInput,
     options: __HttpHandlerOptions,
@@ -847,7 +859,10 @@ export interface GlobalAccelerator {
     args: ListByoipCidrsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListByoipCidrsCommandOutput>;
-  listByoipCidrs(args: ListByoipCidrsCommandInput, cb: (err: any, data?: ListByoipCidrsCommandOutput) => void): void;
+  listByoipCidrs(
+    args: ListByoipCidrsCommandInput,
+    cb: (err: any, data?: ListByoipCidrsCommandOutput) => void
+  ): void;
   listByoipCidrs(
     args: ListByoipCidrsCommandInput,
     options: __HttpHandlerOptions,
@@ -1013,8 +1028,14 @@ export interface GlobalAccelerator {
   /**
    * @see {@link ListListenersCommand}
    */
-  listListeners(args: ListListenersCommandInput, options?: __HttpHandlerOptions): Promise<ListListenersCommandOutput>;
-  listListeners(args: ListListenersCommandInput, cb: (err: any, data?: ListListenersCommandOutput) => void): void;
+  listListeners(
+    args: ListListenersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListListenersCommandOutput>;
+  listListeners(
+    args: ListListenersCommandInput,
+    cb: (err: any, data?: ListListenersCommandOutput) => void
+  ): void;
   listListeners(
     args: ListListenersCommandInput,
     options: __HttpHandlerOptions,
@@ -1079,7 +1100,10 @@ export interface GlobalAccelerator {
     args: RemoveEndpointsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RemoveEndpointsCommandOutput>;
-  removeEndpoints(args: RemoveEndpointsCommandInput, cb: (err: any, data?: RemoveEndpointsCommandOutput) => void): void;
+  removeEndpoints(
+    args: RemoveEndpointsCommandInput,
+    cb: (err: any, data?: RemoveEndpointsCommandOutput) => void
+  ): void;
   removeEndpoints(
     args: RemoveEndpointsCommandInput,
     options: __HttpHandlerOptions,
@@ -1089,8 +1113,14 @@ export interface GlobalAccelerator {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1100,8 +1130,14 @@ export interface GlobalAccelerator {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1234,7 +1270,10 @@ export interface GlobalAccelerator {
     args: UpdateListenerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateListenerCommandOutput>;
-  updateListener(args: UpdateListenerCommandInput, cb: (err: any, data?: UpdateListenerCommandOutput) => void): void;
+  updateListener(
+    args: UpdateListenerCommandInput,
+    cb: (err: any, data?: UpdateListenerCommandOutput) => void
+  ): void;
   updateListener(
     args: UpdateListenerCommandInput,
     options: __HttpHandlerOptions,

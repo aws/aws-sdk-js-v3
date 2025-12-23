@@ -27,9 +27,7 @@ export interface GetCustomVerificationEmailTemplateCommandInput extends GetCusto
  *
  * The output of {@link GetCustomVerificationEmailTemplateCommand}.
  */
-export interface GetCustomVerificationEmailTemplateCommandOutput
-  extends GetCustomVerificationEmailTemplateResponse,
-    __MetadataBearer {}
+export interface GetCustomVerificationEmailTemplateCommandOutput extends GetCustomVerificationEmailTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the custom email verification template for the template name you

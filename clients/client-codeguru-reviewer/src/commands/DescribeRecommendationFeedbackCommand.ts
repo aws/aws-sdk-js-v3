@@ -28,9 +28,7 @@ export interface DescribeRecommendationFeedbackCommandInput extends DescribeReco
  *
  * The output of {@link DescribeRecommendationFeedbackCommand}.
  */
-export interface DescribeRecommendationFeedbackCommandOutput
-  extends DescribeRecommendationFeedbackResponse,
-    __MetadataBearer {}
+export interface DescribeRecommendationFeedbackCommandOutput extends DescribeRecommendationFeedbackResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the customer feedback for a CodeGuru Reviewer recommendation.</p>

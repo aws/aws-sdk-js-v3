@@ -86,12 +86,16 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = GetRawMessageContentCommandInput | PutRawMessageContentCommandInput;
+export type ServiceInputTypes =
+  | GetRawMessageContentCommandInput
+  | PutRawMessageContentCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = GetRawMessageContentCommandOutput | PutRawMessageContentCommandOutput;
+export type ServiceOutputTypes =
+  | GetRawMessageContentCommandOutput
+  | PutRawMessageContentCommandOutput;
 
 /**
  * @public
@@ -247,6 +251,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * @internal
    */
   sdkStreamMixin?: __SdkStreamMixinInjector;
+
 }
 
 /**

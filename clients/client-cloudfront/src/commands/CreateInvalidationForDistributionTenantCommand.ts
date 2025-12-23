@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateInvalidationForDistributionTenantCommand}.
  */
-export interface CreateInvalidationForDistributionTenantCommandInput
-  extends CreateInvalidationForDistributionTenantRequest {}
+export interface CreateInvalidationForDistributionTenantCommandInput extends CreateInvalidationForDistributionTenantRequest {}
 /**
  * @public
  *
  * The output of {@link CreateInvalidationForDistributionTenantCommand}.
  */
-export interface CreateInvalidationForDistributionTenantCommandOutput
-  extends CreateInvalidationForDistributionTenantResult,
-    __MetadataBearer {}
+export interface CreateInvalidationForDistributionTenantCommandOutput extends CreateInvalidationForDistributionTenantResult, __MetadataBearer {}
 
 /**
  * <p>Creates an invalidation for a distribution tenant. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html">Invalidating files</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>

@@ -24,9 +24,7 @@ export interface AcceptAdministratorInvitationCommandInput extends AcceptAdminis
  *
  * The output of {@link AcceptAdministratorInvitationCommand}.
  */
-export interface AcceptAdministratorInvitationCommandOutput
-  extends AcceptAdministratorInvitationResponse,
-    __MetadataBearer {}
+export interface AcceptAdministratorInvitationCommandOutput extends AcceptAdministratorInvitationResponse, __MetadataBearer {}
 
 /**
  * <note>

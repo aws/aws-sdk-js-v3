@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ModifyTransitGatewayPrefixListReferenceCommand}.
  */
-export interface ModifyTransitGatewayPrefixListReferenceCommandInput
-  extends ModifyTransitGatewayPrefixListReferenceRequest {}
+export interface ModifyTransitGatewayPrefixListReferenceCommandInput extends ModifyTransitGatewayPrefixListReferenceRequest {}
 /**
  * @public
  *
  * The output of {@link ModifyTransitGatewayPrefixListReferenceCommand}.
  */
-export interface ModifyTransitGatewayPrefixListReferenceCommandOutput
-  extends ModifyTransitGatewayPrefixListReferenceResult,
-    __MetadataBearer {}
+export interface ModifyTransitGatewayPrefixListReferenceCommandOutput extends ModifyTransitGatewayPrefixListReferenceResult, __MetadataBearer {}
 
 /**
  * <p>Modifies a reference (route) to a prefix list in a specified transit gateway route table.</p>

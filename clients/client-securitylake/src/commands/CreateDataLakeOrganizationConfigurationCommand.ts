@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateDataLakeOrganizationConfigurationCommand}.
  */
-export interface CreateDataLakeOrganizationConfigurationCommandInput
-  extends CreateDataLakeOrganizationConfigurationRequest {}
+export interface CreateDataLakeOrganizationConfigurationCommandInput extends CreateDataLakeOrganizationConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateDataLakeOrganizationConfigurationCommand}.
  */
-export interface CreateDataLakeOrganizationConfigurationCommandOutput
-  extends CreateDataLakeOrganizationConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateDataLakeOrganizationConfigurationCommandOutput extends CreateDataLakeOrganizationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Automatically enables Amazon Security Lake for new member accounts in your organization.

@@ -31,9 +31,7 @@ export interface GetRegisteredSubscriptionProviderCommandInput extends GetRegist
  *
  * The output of {@link GetRegisteredSubscriptionProviderCommand}.
  */
-export interface GetRegisteredSubscriptionProviderCommandOutput
-  extends GetRegisteredSubscriptionProviderResponse,
-    __MetadataBearer {}
+export interface GetRegisteredSubscriptionProviderCommandOutput extends GetRegisteredSubscriptionProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Get details for a Bring Your Own License (BYOL) subscription that's registered to your account.</p>

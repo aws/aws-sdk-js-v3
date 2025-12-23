@@ -24,9 +24,7 @@ export interface DeleteTrafficDistributionGroupCommandInput extends DeleteTraffi
  *
  * The output of {@link DeleteTrafficDistributionGroupCommand}.
  */
-export interface DeleteTrafficDistributionGroupCommandOutput
-  extends DeleteTrafficDistributionGroupResponse,
-    __MetadataBearer {}
+export interface DeleteTrafficDistributionGroupCommandOutput extends DeleteTrafficDistributionGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a traffic distribution group. This API can be called only in the Region where the traffic distribution group is created.</p>

@@ -29,8 +29,14 @@ export interface GeoMaps {
   /**
    * @see {@link GetGlyphsCommand}
    */
-  getGlyphs(args: GetGlyphsCommandInput, options?: __HttpHandlerOptions): Promise<GetGlyphsCommandOutput>;
-  getGlyphs(args: GetGlyphsCommandInput, cb: (err: any, data?: GetGlyphsCommandOutput) => void): void;
+  getGlyphs(
+    args: GetGlyphsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGlyphsCommandOutput>;
+  getGlyphs(
+    args: GetGlyphsCommandInput,
+    cb: (err: any, data?: GetGlyphsCommandOutput) => void
+  ): void;
   getGlyphs(
     args: GetGlyphsCommandInput,
     options: __HttpHandlerOptions,
@@ -40,8 +46,14 @@ export interface GeoMaps {
   /**
    * @see {@link GetSpritesCommand}
    */
-  getSprites(args: GetSpritesCommandInput, options?: __HttpHandlerOptions): Promise<GetSpritesCommandOutput>;
-  getSprites(args: GetSpritesCommandInput, cb: (err: any, data?: GetSpritesCommandOutput) => void): void;
+  getSprites(
+    args: GetSpritesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSpritesCommandOutput>;
+  getSprites(
+    args: GetSpritesCommandInput,
+    cb: (err: any, data?: GetSpritesCommandOutput) => void
+  ): void;
   getSprites(
     args: GetSpritesCommandInput,
     options: __HttpHandlerOptions,
@@ -51,8 +63,14 @@ export interface GeoMaps {
   /**
    * @see {@link GetStaticMapCommand}
    */
-  getStaticMap(args: GetStaticMapCommandInput, options?: __HttpHandlerOptions): Promise<GetStaticMapCommandOutput>;
-  getStaticMap(args: GetStaticMapCommandInput, cb: (err: any, data?: GetStaticMapCommandOutput) => void): void;
+  getStaticMap(
+    args: GetStaticMapCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStaticMapCommandOutput>;
+  getStaticMap(
+    args: GetStaticMapCommandInput,
+    cb: (err: any, data?: GetStaticMapCommandOutput) => void
+  ): void;
   getStaticMap(
     args: GetStaticMapCommandInput,
     options: __HttpHandlerOptions,
@@ -79,8 +97,14 @@ export interface GeoMaps {
   /**
    * @see {@link GetTileCommand}
    */
-  getTile(args: GetTileCommandInput, options?: __HttpHandlerOptions): Promise<GetTileCommandOutput>;
-  getTile(args: GetTileCommandInput, cb: (err: any, data?: GetTileCommandOutput) => void): void;
+  getTile(
+    args: GetTileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTileCommandOutput>;
+  getTile(
+    args: GetTileCommandInput,
+    cb: (err: any, data?: GetTileCommandOutput) => void
+  ): void;
   getTile(
     args: GetTileCommandInput,
     options: __HttpHandlerOptions,

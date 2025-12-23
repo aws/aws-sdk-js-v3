@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DeleteAccountDefaultProtectConfigurationCommand}.
  */
-export interface DeleteAccountDefaultProtectConfigurationCommandInput
-  extends DeleteAccountDefaultProtectConfigurationRequest {}
+export interface DeleteAccountDefaultProtectConfigurationCommandInput extends DeleteAccountDefaultProtectConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteAccountDefaultProtectConfigurationCommand}.
  */
-export interface DeleteAccountDefaultProtectConfigurationCommandOutput
-  extends DeleteAccountDefaultProtectConfigurationResult,
-    __MetadataBearer {}
+export interface DeleteAccountDefaultProtectConfigurationCommandOutput extends DeleteAccountDefaultProtectConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Removes the current account default protect configuration.</p>

@@ -24,9 +24,7 @@ export interface CreateTransitVirtualInterfaceCommandInput extends CreateTransit
  *
  * The output of {@link CreateTransitVirtualInterfaceCommand}.
  */
-export interface CreateTransitVirtualInterfaceCommandOutput
-  extends CreateTransitVirtualInterfaceResult,
-    __MetadataBearer {}
+export interface CreateTransitVirtualInterfaceCommandOutput extends CreateTransitVirtualInterfaceResult, __MetadataBearer {}
 
 /**
  * <p>Creates a transit virtual interface. A transit virtual interface should be used to access one or more transit gateways associated with Direct Connect gateways. A transit virtual interface enables the connection of multiple VPCs attached to a transit gateway to a Direct Connect gateway.</p>

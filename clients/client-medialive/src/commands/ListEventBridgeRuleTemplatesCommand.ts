@@ -24,9 +24,7 @@ export interface ListEventBridgeRuleTemplatesCommandInput extends ListEventBridg
  *
  * The output of {@link ListEventBridgeRuleTemplatesCommand}.
  */
-export interface ListEventBridgeRuleTemplatesCommandOutput
-  extends ListEventBridgeRuleTemplatesResponse,
-    __MetadataBearer {}
+export interface ListEventBridgeRuleTemplatesCommandOutput extends ListEventBridgeRuleTemplatesResponse, __MetadataBearer {}
 
 /**
  * Lists eventbridge rule templates.

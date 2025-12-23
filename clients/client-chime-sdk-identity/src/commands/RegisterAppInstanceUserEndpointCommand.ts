@@ -31,9 +31,7 @@ export interface RegisterAppInstanceUserEndpointCommandInput extends RegisterApp
  *
  * The output of {@link RegisterAppInstanceUserEndpointCommand}.
  */
-export interface RegisterAppInstanceUserEndpointCommandOutput
-  extends RegisterAppInstanceUserEndpointResponse,
-    __MetadataBearer {}
+export interface RegisterAppInstanceUserEndpointCommandOutput extends RegisterAppInstanceUserEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Registers an endpoint under an Amazon Chime <code>AppInstanceUser</code>. The endpoint receives messages for a user. For push notifications, the endpoint is a mobile device used to receive mobile push notifications for a user.</p>

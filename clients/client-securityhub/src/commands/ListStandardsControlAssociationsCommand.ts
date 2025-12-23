@@ -27,9 +27,7 @@ export interface ListStandardsControlAssociationsCommandInput extends ListStanda
  *
  * The output of {@link ListStandardsControlAssociationsCommand}.
  */
-export interface ListStandardsControlAssociationsCommandOutput
-  extends ListStandardsControlAssociationsResponse,
-    __MetadataBearer {}
+export interface ListStandardsControlAssociationsCommandOutput extends ListStandardsControlAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>

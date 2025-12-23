@@ -28,9 +28,7 @@ export interface DescribeSubscriptionFiltersCommandInput extends DescribeSubscri
  *
  * The output of {@link DescribeSubscriptionFiltersCommand}.
  */
-export interface DescribeSubscriptionFiltersCommandOutput
-  extends DescribeSubscriptionFiltersResponse,
-    __MetadataBearer {}
+export interface DescribeSubscriptionFiltersCommandOutput extends DescribeSubscriptionFiltersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the subscription filters for the specified log group. You can list all the

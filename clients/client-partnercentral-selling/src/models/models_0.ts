@@ -2142,7 +2142,10 @@ export interface OpportunityInvitationPayload {
  * <p>Contains the data payload associated with the Engagement Invitation. This payload includes essential details related to the AWS opportunity and is used by partners to evaluate whether to accept or reject the engagement.</p>
  * @public
  */
-export type Payload = Payload.LeadInvitationMember | Payload.OpportunityInvitationMember | Payload.$UnknownMember;
+export type Payload =
+  | Payload.LeadInvitationMember
+  | Payload.OpportunityInvitationMember
+  | Payload.$UnknownMember;
 
 /**
  * @public
@@ -2192,7 +2195,9 @@ export namespace Payload {
  * <p>Represents the entity that received the Engagement Invitation, including account and company details. This field is essential for tracking the partner who is being invited to collaborate.</p>
  * @public
  */
-export type Receiver = Receiver.AccountMember | Receiver.$UnknownMember;
+export type Receiver =
+  | Receiver.AccountMember
+  | Receiver.$UnknownMember;
 
 /**
  * @public

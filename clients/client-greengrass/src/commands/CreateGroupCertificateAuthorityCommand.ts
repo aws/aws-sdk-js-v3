@@ -27,9 +27,7 @@ export interface CreateGroupCertificateAuthorityCommandInput extends CreateGroup
  *
  * The output of {@link CreateGroupCertificateAuthorityCommand}.
  */
-export interface CreateGroupCertificateAuthorityCommandOutput
-  extends CreateGroupCertificateAuthorityResponse,
-    __MetadataBearer {}
+export interface CreateGroupCertificateAuthorityCommandOutput extends CreateGroupCertificateAuthorityResponse, __MetadataBearer {}
 
 /**
  * Creates a CA for the group. If a CA already exists, it will rotate the existing CA.

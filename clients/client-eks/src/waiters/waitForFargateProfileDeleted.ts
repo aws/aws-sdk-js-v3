@@ -13,9 +13,9 @@ const checkState = async (client: EKSClient, input: DescribeFargateProfileComman
     const result: any = await client.send(new DescribeFargateProfileCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.fargateProfile.status;
-      };
+      }
       if (returnComparator() === "DELETE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

@@ -24,9 +24,7 @@ export interface ListAllowedRepositoriesForGroupCommandInput extends ListAllowed
  *
  * The output of {@link ListAllowedRepositoriesForGroupCommand}.
  */
-export interface ListAllowedRepositoriesForGroupCommandOutput
-  extends ListAllowedRepositoriesForGroupResult,
-    __MetadataBearer {}
+export interface ListAllowedRepositoriesForGroupCommandOutput extends ListAllowedRepositoriesForGroupResult, __MetadataBearer {}
 
 /**
  * <p>Lists the repositories in the added repositories list of the specified restriction type for a package group. For more information about restriction types

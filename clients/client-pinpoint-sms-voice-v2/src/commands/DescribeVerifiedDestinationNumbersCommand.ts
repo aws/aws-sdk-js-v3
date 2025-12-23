@@ -31,9 +31,7 @@ export interface DescribeVerifiedDestinationNumbersCommandInput extends Describe
  *
  * The output of {@link DescribeVerifiedDestinationNumbersCommand}.
  */
-export interface DescribeVerifiedDestinationNumbersCommandOutput
-  extends DescribeVerifiedDestinationNumbersResult,
-    __MetadataBearer {}
+export interface DescribeVerifiedDestinationNumbersCommandOutput extends DescribeVerifiedDestinationNumbersResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified verified destination numbers.</p>

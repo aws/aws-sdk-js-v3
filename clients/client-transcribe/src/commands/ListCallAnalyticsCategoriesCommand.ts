@@ -24,9 +24,7 @@ export interface ListCallAnalyticsCategoriesCommandInput extends ListCallAnalyti
  *
  * The output of {@link ListCallAnalyticsCategoriesCommand}.
  */
-export interface ListCallAnalyticsCategoriesCommandOutput
-  extends ListCallAnalyticsCategoriesResponse,
-    __MetadataBearer {}
+export interface ListCallAnalyticsCategoriesCommandOutput extends ListCallAnalyticsCategoriesResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a list of Call Analytics categories, including all rules that make up each

@@ -24,9 +24,7 @@ export interface DeleteChimeWebhookConfigurationCommandInput extends DeleteChime
  *
  * The output of {@link DeleteChimeWebhookConfigurationCommand}.
  */
-export interface DeleteChimeWebhookConfigurationCommandOutput
-  extends DeleteChimeWebhookConfigurationResult,
-    __MetadataBearer {}
+export interface DeleteChimeWebhookConfigurationCommandOutput extends DeleteChimeWebhookConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a Amazon Chime webhook configuration for AWS Chatbot.</p>

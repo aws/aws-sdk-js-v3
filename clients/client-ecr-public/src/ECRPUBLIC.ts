@@ -247,7 +247,10 @@ export interface ECRPUBLIC {
     args: DescribeImagesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeImagesCommandOutput>;
-  describeImages(args: DescribeImagesCommandInput, cb: (err: any, data?: DescribeImagesCommandOutput) => void): void;
+  describeImages(
+    args: DescribeImagesCommandInput,
+    cb: (err: any, data?: DescribeImagesCommandOutput) => void
+  ): void;
   describeImages(
     args: DescribeImagesCommandInput,
     options: __HttpHandlerOptions,
@@ -414,8 +417,14 @@ export interface ECRPUBLIC {
   /**
    * @see {@link PutImageCommand}
    */
-  putImage(args: PutImageCommandInput, options?: __HttpHandlerOptions): Promise<PutImageCommandOutput>;
-  putImage(args: PutImageCommandInput, cb: (err: any, data?: PutImageCommandOutput) => void): void;
+  putImage(
+    args: PutImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutImageCommandOutput>;
+  putImage(
+    args: PutImageCommandInput,
+    cb: (err: any, data?: PutImageCommandOutput) => void
+  ): void;
   putImage(
     args: PutImageCommandInput,
     options: __HttpHandlerOptions,
@@ -477,8 +486,14 @@ export interface ECRPUBLIC {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -488,8 +503,14 @@ export interface ECRPUBLIC {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -503,7 +524,10 @@ export interface ECRPUBLIC {
     args: UploadLayerPartCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UploadLayerPartCommandOutput>;
-  uploadLayerPart(args: UploadLayerPartCommandInput, cb: (err: any, data?: UploadLayerPartCommandOutput) => void): void;
+  uploadLayerPart(
+    args: UploadLayerPartCommandInput,
+    cb: (err: any, data?: UploadLayerPartCommandOutput) => void
+  ): void;
   uploadLayerPart(
     args: UploadLayerPartCommandInput,
     options: __HttpHandlerOptions,

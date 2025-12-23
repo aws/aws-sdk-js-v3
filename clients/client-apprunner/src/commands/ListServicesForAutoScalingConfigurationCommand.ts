@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListServicesForAutoScalingConfigurationCommand}.
  */
-export interface ListServicesForAutoScalingConfigurationCommandInput
-  extends ListServicesForAutoScalingConfigurationRequest {}
+export interface ListServicesForAutoScalingConfigurationCommandInput extends ListServicesForAutoScalingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link ListServicesForAutoScalingConfigurationCommand}.
  */
-export interface ListServicesForAutoScalingConfigurationCommandOutput
-  extends ListServicesForAutoScalingConfigurationResponse,
-    __MetadataBearer {}
+export interface ListServicesForAutoScalingConfigurationCommandOutput extends ListServicesForAutoScalingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the associated App Runner services using an auto scaling configuration.</p>

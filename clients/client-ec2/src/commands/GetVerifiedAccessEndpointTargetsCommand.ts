@@ -27,9 +27,7 @@ export interface GetVerifiedAccessEndpointTargetsCommandInput extends GetVerifie
  *
  * The output of {@link GetVerifiedAccessEndpointTargetsCommand}.
  */
-export interface GetVerifiedAccessEndpointTargetsCommandOutput
-  extends GetVerifiedAccessEndpointTargetsResult,
-    __MetadataBearer {}
+export interface GetVerifiedAccessEndpointTargetsCommandOutput extends GetVerifiedAccessEndpointTargetsResult, __MetadataBearer {}
 
 /**
  * <p>Gets the targets for the specified network CIDR endpoint for Verified Access.</p>

@@ -28,9 +28,7 @@ export interface GetInstanceCommunicationLimitsCommandInput extends GetInstanceC
  *
  * The output of {@link GetInstanceCommunicationLimitsCommand}.
  */
-export interface GetInstanceCommunicationLimitsCommandOutput
-  extends GetInstanceCommunicationLimitsResponse,
-    __MetadataBearer {}
+export interface GetInstanceCommunicationLimitsCommandOutput extends GetInstanceCommunicationLimitsResponse, __MetadataBearer {}
 
 /**
  * Get the instance communication limits.

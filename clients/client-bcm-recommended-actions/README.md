@@ -9,10 +9,8 @@ AWS SDK for JavaScript BCMRecommendedActions Client for Node.js, Browser and Rea
 <p>You can use the Billing and Cost Management Recommended Actions API to programmatically query your best practices and recommendations to optimize your costs.</p> <p>The Billing and Cost Management Recommended Actions API provides the following endpoint:</p> <ul> <li> <p> https://bcm-recommended-actions.us-east-1.api.aws</p> </li> </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-bcm-recommended-actions
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-bcm-recommended-actions`
 - `yarn add @aws-sdk/client-bcm-recommended-actions`
 - `pnpm add @aws-sdk/client-bcm-recommended-actions`
@@ -27,10 +25,7 @@ the commands you need, for example `ListRecommendedActionsCommand`:
 
 ```js
 // ES5 example
-const {
-  BCMRecommendedActionsClient,
-  ListRecommendedActionsCommand,
-} = require("@aws-sdk/client-bcm-recommended-actions");
+const { BCMRecommendedActionsClient, ListRecommendedActionsCommand } = require("@aws-sdk/client-bcm-recommended-actions");
 ```
 
 ```ts
@@ -51,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new BCMRecommendedActionsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListRecommendedActionsCommand(params);
 ```
 
@@ -212,5 +205,4 @@ ListRecommendedActions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-recommended-actions/command/ListRecommendedActionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-recommended-actions/Interface/ListRecommendedActionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-recommended-actions/Interface/ListRecommendedActionsCommandOutput/)
-
 </details>

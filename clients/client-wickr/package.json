@@ -10,9 +10,9 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
-    "test:index": "tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs",
     "extract:docs": "api-extractor run --local",
-    "generate:client": "node ../../scripts/generate-clients/single-service --solo wickr"
+    "generate:client": "node ../../scripts/generate-clients/single-service --solo wickr",
+    "test:index": "tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",

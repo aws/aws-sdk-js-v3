@@ -24,9 +24,7 @@ export interface ModifyInstanceMetadataOptionsCommandInput extends ModifyInstanc
  *
  * The output of {@link ModifyInstanceMetadataOptionsCommand}.
  */
-export interface ModifyInstanceMetadataOptionsCommandOutput
-  extends ModifyInstanceMetadataOptionsResult,
-    __MetadataBearer {}
+export interface ModifyInstanceMetadataOptionsCommandOutput extends ModifyInstanceMetadataOptionsResult, __MetadataBearer {}
 
 /**
  * <p>Modify the instance metadata parameters on a running or stopped instance. When you

@@ -43,13 +43,14 @@ import {
   LoggingConfiguration$,
   LoggingConfigurationInput$,
   LoggingLevel,
-  MWAA,
-  MWAAClient,
-  MWAAServiceException,
   MetricDatum$,
   ModuleLoggingConfiguration$,
   ModuleLoggingConfigurationInput$,
+  MWAA,
+  MWAAClient,
+  MWAAServiceException,
   NetworkConfiguration$,
+  paginateListEnvironments,
   PublishMetrics$,
   PublishMetricsCommand,
   PublishMetricsInput$,
@@ -82,7 +83,6 @@ import {
   ValidationException$,
   WebserverAccessMode,
   WorkerReplacementStrategy,
-  paginateListEnvironments,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

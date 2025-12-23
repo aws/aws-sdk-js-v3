@@ -27,9 +27,7 @@ export interface GetMaintenanceWindowExecutionTaskCommandInput extends GetMainte
  *
  * The output of {@link GetMaintenanceWindowExecutionTaskCommand}.
  */
-export interface GetMaintenanceWindowExecutionTaskCommandOutput
-  extends GetMaintenanceWindowExecutionTaskResult,
-    __MetadataBearer {}
+export interface GetMaintenanceWindowExecutionTaskCommandOutput extends GetMaintenanceWindowExecutionTaskResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the details about a specific task run as part of a maintenance window

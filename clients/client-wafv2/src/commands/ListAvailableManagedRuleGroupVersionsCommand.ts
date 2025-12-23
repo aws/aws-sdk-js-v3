@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListAvailableManagedRuleGroupVersionsCommand}.
  */
-export interface ListAvailableManagedRuleGroupVersionsCommandInput
-  extends ListAvailableManagedRuleGroupVersionsRequest {}
+export interface ListAvailableManagedRuleGroupVersionsCommandInput extends ListAvailableManagedRuleGroupVersionsRequest {}
 /**
  * @public
  *
  * The output of {@link ListAvailableManagedRuleGroupVersionsCommand}.
  */
-export interface ListAvailableManagedRuleGroupVersionsCommandOutput
-  extends ListAvailableManagedRuleGroupVersionsResponse,
-    __MetadataBearer {}
+export interface ListAvailableManagedRuleGroupVersionsCommandOutput extends ListAvailableManagedRuleGroupVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the available versions for the specified managed rule group. </p>

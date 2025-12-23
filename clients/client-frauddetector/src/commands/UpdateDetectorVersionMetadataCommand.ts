@@ -24,9 +24,7 @@ export interface UpdateDetectorVersionMetadataCommandInput extends UpdateDetecto
  *
  * The output of {@link UpdateDetectorVersionMetadataCommand}.
  */
-export interface UpdateDetectorVersionMetadataCommandOutput
-  extends UpdateDetectorVersionMetadataResult,
-    __MetadataBearer {}
+export interface UpdateDetectorVersionMetadataCommandOutput extends UpdateDetectorVersionMetadataResult, __MetadataBearer {}
 
 /**
  * <p>Updates the detector version's description. You can update the metadata for any detector version (<code>DRAFT, ACTIVE,</code> or

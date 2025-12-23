@@ -27,9 +27,7 @@ export interface DeleteLoadBalancerTlsCertificateCommandInput extends DeleteLoad
  *
  * The output of {@link DeleteLoadBalancerTlsCertificateCommand}.
  */
-export interface DeleteLoadBalancerTlsCertificateCommandOutput
-  extends DeleteLoadBalancerTlsCertificateResult,
-    __MetadataBearer {}
+export interface DeleteLoadBalancerTlsCertificateCommandOutput extends DeleteLoadBalancerTlsCertificateResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an SSL/TLS certificate associated with a Lightsail load balancer.</p>

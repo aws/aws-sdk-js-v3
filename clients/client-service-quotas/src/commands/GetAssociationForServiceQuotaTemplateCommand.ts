@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetAssociationForServiceQuotaTemplateCommand}.
  */
-export interface GetAssociationForServiceQuotaTemplateCommandInput
-  extends GetAssociationForServiceQuotaTemplateRequest {}
+export interface GetAssociationForServiceQuotaTemplateCommandInput extends GetAssociationForServiceQuotaTemplateRequest {}
 /**
  * @public
  *
  * The output of {@link GetAssociationForServiceQuotaTemplateCommand}.
  */
-export interface GetAssociationForServiceQuotaTemplateCommandOutput
-  extends GetAssociationForServiceQuotaTemplateResponse,
-    __MetadataBearer {}
+export interface GetAssociationForServiceQuotaTemplateCommandOutput extends GetAssociationForServiceQuotaTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the status of the association for the quota request template.</p>

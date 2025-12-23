@@ -27,9 +27,7 @@ export interface DeleteTenantResourceAssociationCommandInput extends DeleteTenan
  *
  * The output of {@link DeleteTenantResourceAssociationCommand}.
  */
-export interface DeleteTenantResourceAssociationCommandOutput
-  extends DeleteTenantResourceAssociationResponse,
-    __MetadataBearer {}
+export interface DeleteTenantResourceAssociationCommandOutput extends DeleteTenantResourceAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Delete an association between a tenant and a resource.</p>

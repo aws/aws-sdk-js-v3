@@ -27,9 +27,7 @@ export interface CreateVerifiedAccessTrustProviderCommandInput extends CreateVer
  *
  * The output of {@link CreateVerifiedAccessTrustProviderCommand}.
  */
-export interface CreateVerifiedAccessTrustProviderCommandOutput
-  extends CreateVerifiedAccessTrustProviderResult,
-    __MetadataBearer {}
+export interface CreateVerifiedAccessTrustProviderCommandOutput extends CreateVerifiedAccessTrustProviderResult, __MetadataBearer {}
 
 /**
  * <p>A trust provider is a third-party entity that creates, maintains, and manages identity

@@ -28,9 +28,7 @@ export interface SetLogDeliveryConfigurationCommandInput extends SetLogDeliveryC
  *
  * The output of {@link SetLogDeliveryConfigurationCommand}.
  */
-export interface SetLogDeliveryConfigurationCommandOutput
-  extends SetLogDeliveryConfigurationResponse,
-    __MetadataBearer {}
+export interface SetLogDeliveryConfigurationCommandOutput extends SetLogDeliveryConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Sets up or modifies the logging configuration of a user pool. User pools can export

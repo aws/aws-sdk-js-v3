@@ -24,9 +24,7 @@ export interface GetTrafficPolicyInstanceCountCommandInput extends GetTrafficPol
  *
  * The output of {@link GetTrafficPolicyInstanceCountCommand}.
  */
-export interface GetTrafficPolicyInstanceCountCommandOutput
-  extends GetTrafficPolicyInstanceCountResponse,
-    __MetadataBearer {}
+export interface GetTrafficPolicyInstanceCountCommandOutput extends GetTrafficPolicyInstanceCountResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the number of traffic policy instances that are associated with the current

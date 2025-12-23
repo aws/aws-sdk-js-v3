@@ -165,8 +165,14 @@ export interface Firehose {
   /**
    * @see {@link PutRecordCommand}
    */
-  putRecord(args: PutRecordCommandInput, options?: __HttpHandlerOptions): Promise<PutRecordCommandOutput>;
-  putRecord(args: PutRecordCommandInput, cb: (err: any, data?: PutRecordCommandOutput) => void): void;
+  putRecord(
+    args: PutRecordCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutRecordCommandOutput>;
+  putRecord(
+    args: PutRecordCommandInput,
+    cb: (err: any, data?: PutRecordCommandOutput) => void
+  ): void;
   putRecord(
     args: PutRecordCommandInput,
     options: __HttpHandlerOptions,
@@ -180,7 +186,10 @@ export interface Firehose {
     args: PutRecordBatchCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutRecordBatchCommandOutput>;
-  putRecordBatch(args: PutRecordBatchCommandInput, cb: (err: any, data?: PutRecordBatchCommandOutput) => void): void;
+  putRecordBatch(
+    args: PutRecordBatchCommandInput,
+    cb: (err: any, data?: PutRecordBatchCommandOutput) => void
+  ): void;
   putRecordBatch(
     args: PutRecordBatchCommandInput,
     options: __HttpHandlerOptions,

@@ -8,7 +8,16 @@ import { ruleSet } from "./ruleset";
 
 const cache = new EndpointCache({
   size: 50,
-  params: ["ConsumerARN", "Endpoint", "OperationType", "Region", "ResourceARN", "StreamARN", "UseDualStack", "UseFIPS"],
+  params: [
+    "ConsumerARN",
+    "Endpoint",
+    "OperationType",
+    "Region",
+    "ResourceARN",
+    "StreamARN",
+    "UseDualStack",
+    "UseFIPS",
+  ],
 });
 
 /**

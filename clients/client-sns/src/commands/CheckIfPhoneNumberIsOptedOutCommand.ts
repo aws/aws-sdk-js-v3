@@ -24,9 +24,7 @@ export interface CheckIfPhoneNumberIsOptedOutCommandInput extends CheckIfPhoneNu
  *
  * The output of {@link CheckIfPhoneNumberIsOptedOutCommand}.
  */
-export interface CheckIfPhoneNumberIsOptedOutCommandOutput
-  extends CheckIfPhoneNumberIsOptedOutResponse,
-    __MetadataBearer {}
+export interface CheckIfPhoneNumberIsOptedOutCommandOutput extends CheckIfPhoneNumberIsOptedOutResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts a phone number and indicates whether the phone holder has opted out of

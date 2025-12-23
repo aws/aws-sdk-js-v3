@@ -24,9 +24,7 @@ export interface DisassociateNatGatewayAddressCommandInput extends DisassociateN
  *
  * The output of {@link DisassociateNatGatewayAddressCommand}.
  */
-export interface DisassociateNatGatewayAddressCommandOutput
-  extends DisassociateNatGatewayAddressResult,
-    __MetadataBearer {}
+export interface DisassociateNatGatewayAddressCommandOutput extends DisassociateNatGatewayAddressResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway.

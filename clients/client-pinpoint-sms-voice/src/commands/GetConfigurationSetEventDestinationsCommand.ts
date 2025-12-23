@@ -31,9 +31,7 @@ export interface GetConfigurationSetEventDestinationsCommandInput extends GetCon
  *
  * The output of {@link GetConfigurationSetEventDestinationsCommand}.
  */
-export interface GetConfigurationSetEventDestinationsCommandOutput
-  extends GetConfigurationSetEventDestinationsResponse,
-    __MetadataBearer {}
+export interface GetConfigurationSetEventDestinationsCommandOutput extends GetConfigurationSetEventDestinationsResponse, __MetadataBearer {}
 
 /**
  * Obtain information about an event destination, including the types of events it reports, the Amazon Resource Name (ARN) of the destination, and the name of the event destination.

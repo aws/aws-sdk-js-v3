@@ -27,9 +27,7 @@ export interface DescribeDashboardSnapshotJobResultCommandInput extends Describe
  *
  * The output of {@link DescribeDashboardSnapshotJobResultCommand}.
  */
-export interface DescribeDashboardSnapshotJobResultCommandOutput
-  extends DescribeDashboardSnapshotJobResultResponse,
-    __MetadataBearer {}
+export interface DescribeDashboardSnapshotJobResultCommandOutput extends DescribeDashboardSnapshotJobResultResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the result of an existing snapshot job that has finished running.</p>

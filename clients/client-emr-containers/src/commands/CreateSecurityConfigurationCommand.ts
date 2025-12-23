@@ -24,9 +24,7 @@ export interface CreateSecurityConfigurationCommandInput extends CreateSecurityC
  *
  * The output of {@link CreateSecurityConfigurationCommand}.
  */
-export interface CreateSecurityConfigurationCommandOutput
-  extends CreateSecurityConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateSecurityConfigurationCommandOutput extends CreateSecurityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a security configuration. Security configurations in Amazon EMR on EKS are

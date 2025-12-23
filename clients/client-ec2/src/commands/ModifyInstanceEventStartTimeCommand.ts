@@ -24,9 +24,7 @@ export interface ModifyInstanceEventStartTimeCommandInput extends ModifyInstance
  *
  * The output of {@link ModifyInstanceEventStartTimeCommand}.
  */
-export interface ModifyInstanceEventStartTimeCommandOutput
-  extends ModifyInstanceEventStartTimeResult,
-    __MetadataBearer {}
+export interface ModifyInstanceEventStartTimeCommandOutput extends ModifyInstanceEventStartTimeResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the start time for a scheduled Amazon EC2 instance event.</p>

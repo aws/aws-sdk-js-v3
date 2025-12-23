@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchUpdateAutomatedDiscoveryAccountsCommand}.
  */
-export interface BatchUpdateAutomatedDiscoveryAccountsCommandInput
-  extends BatchUpdateAutomatedDiscoveryAccountsRequest {}
+export interface BatchUpdateAutomatedDiscoveryAccountsCommandInput extends BatchUpdateAutomatedDiscoveryAccountsRequest {}
 /**
  * @public
  *
  * The output of {@link BatchUpdateAutomatedDiscoveryAccountsCommand}.
  */
-export interface BatchUpdateAutomatedDiscoveryAccountsCommandOutput
-  extends BatchUpdateAutomatedDiscoveryAccountsResponse,
-    __MetadataBearer {}
+export interface BatchUpdateAutomatedDiscoveryAccountsCommandOutput extends BatchUpdateAutomatedDiscoveryAccountsResponse, __MetadataBearer {}
 
 /**
  * <p>Changes the status of automated sensitive data discovery for one or more accounts.</p>

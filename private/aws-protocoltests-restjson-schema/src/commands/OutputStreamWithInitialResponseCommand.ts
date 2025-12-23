@@ -28,9 +28,7 @@ export interface OutputStreamWithInitialResponseCommandInput {}
  *
  * The output of {@link OutputStreamWithInitialResponseCommand}.
  */
-export interface OutputStreamWithInitialResponseCommandOutput
-  extends OutputStreamWithInitialResponseOutput,
-    __MetadataBearer {}
+export interface OutputStreamWithInitialResponseCommandOutput extends OutputStreamWithInitialResponseOutput, __MetadataBearer {}
 
 /**
  * @public

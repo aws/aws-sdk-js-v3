@@ -27,9 +27,7 @@ export interface AssociateMulticastGroupWithFuotaTaskCommandInput extends Associ
  *
  * The output of {@link AssociateMulticastGroupWithFuotaTaskCommand}.
  */
-export interface AssociateMulticastGroupWithFuotaTaskCommandOutput
-  extends AssociateMulticastGroupWithFuotaTaskResponse,
-    __MetadataBearer {}
+export interface AssociateMulticastGroupWithFuotaTaskCommandOutput extends AssociateMulticastGroupWithFuotaTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Associate a multicast group with a FUOTA task.</p>

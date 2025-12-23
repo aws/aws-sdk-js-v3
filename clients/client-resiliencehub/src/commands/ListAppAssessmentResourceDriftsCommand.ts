@@ -27,9 +27,7 @@ export interface ListAppAssessmentResourceDriftsCommandInput extends ListAppAsse
  *
  * The output of {@link ListAppAssessmentResourceDriftsCommand}.
  */
-export interface ListAppAssessmentResourceDriftsCommandOutput
-  extends ListAppAssessmentResourceDriftsResponse,
-    __MetadataBearer {}
+export interface ListAppAssessmentResourceDriftsCommandOutput extends ListAppAssessmentResourceDriftsResponse, __MetadataBearer {}
 
 /**
  * <p>List of resource drifts that were detected while running an

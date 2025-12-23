@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListChannelMembershipsForAppInstanceUserCommand}.
  */
-export interface ListChannelMembershipsForAppInstanceUserCommandInput
-  extends ListChannelMembershipsForAppInstanceUserRequest {}
+export interface ListChannelMembershipsForAppInstanceUserCommandInput extends ListChannelMembershipsForAppInstanceUserRequest {}
 /**
  * @public
  *
  * The output of {@link ListChannelMembershipsForAppInstanceUserCommand}.
  */
-export interface ListChannelMembershipsForAppInstanceUserCommandOutput
-  extends ListChannelMembershipsForAppInstanceUserResponse,
-    __MetadataBearer {}
+export interface ListChannelMembershipsForAppInstanceUserCommandOutput extends ListChannelMembershipsForAppInstanceUserResponse, __MetadataBearer {}
 
 /**
  * <p> Lists all channels that an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> is a part of.

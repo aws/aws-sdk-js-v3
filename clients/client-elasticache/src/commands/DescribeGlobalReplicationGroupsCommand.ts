@@ -24,9 +24,7 @@ export interface DescribeGlobalReplicationGroupsCommandInput extends DescribeGlo
  *
  * The output of {@link DescribeGlobalReplicationGroupsCommand}.
  */
-export interface DescribeGlobalReplicationGroupsCommandOutput
-  extends DescribeGlobalReplicationGroupsResult,
-    __MetadataBearer {}
+export interface DescribeGlobalReplicationGroupsCommandOutput extends DescribeGlobalReplicationGroupsResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about a particular global replication group. If no identifier is

@@ -24,9 +24,7 @@ export interface GetWirelessDeviceImportTaskCommandInput extends GetWirelessDevi
  *
  * The output of {@link GetWirelessDeviceImportTaskCommand}.
  */
-export interface GetWirelessDeviceImportTaskCommandOutput
-  extends GetWirelessDeviceImportTaskResponse,
-    __MetadataBearer {}
+export interface GetWirelessDeviceImportTaskCommandOutput extends GetWirelessDeviceImportTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Get information about an import task and count of device onboarding summary

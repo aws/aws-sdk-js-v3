@@ -79,12 +79,16 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = BatchGetMetricsCommandInput | BatchPutMetricsCommandInput;
+export type ServiceInputTypes =
+  | BatchGetMetricsCommandInput
+  | BatchPutMetricsCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = BatchGetMetricsCommandOutput | BatchPutMetricsCommandOutput;
+export type ServiceOutputTypes =
+  | BatchGetMetricsCommandOutput
+  | BatchPutMetricsCommandOutput;
 
 /**
  * @public

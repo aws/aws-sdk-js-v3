@@ -27,9 +27,7 @@ export interface DescribeNetworkInterfaceAttributeCommandInput extends DescribeN
  *
  * The output of {@link DescribeNetworkInterfaceAttributeCommand}.
  */
-export interface DescribeNetworkInterfaceAttributeCommandOutput
-  extends DescribeNetworkInterfaceAttributeResult,
-    __MetadataBearer {}
+export interface DescribeNetworkInterfaceAttributeCommandOutput extends DescribeNetworkInterfaceAttributeResult, __MetadataBearer {}
 
 /**
  * <p>Describes a network interface attribute. You can specify only one attribute at a

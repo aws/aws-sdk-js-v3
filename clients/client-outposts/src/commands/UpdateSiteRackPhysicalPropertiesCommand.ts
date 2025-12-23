@@ -24,9 +24,7 @@ export interface UpdateSiteRackPhysicalPropertiesCommandInput extends UpdateSite
  *
  * The output of {@link UpdateSiteRackPhysicalPropertiesCommand}.
  */
-export interface UpdateSiteRackPhysicalPropertiesCommandOutput
-  extends UpdateSiteRackPhysicalPropertiesOutput,
-    __MetadataBearer {}
+export interface UpdateSiteRackPhysicalPropertiesCommandOutput extends UpdateSiteRackPhysicalPropertiesOutput, __MetadataBearer {}
 
 /**
  * <p>Update the physical and logistical details for a rack at a site. For more information

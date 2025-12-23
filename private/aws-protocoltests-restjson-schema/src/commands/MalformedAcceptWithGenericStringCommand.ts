@@ -28,9 +28,7 @@ export interface MalformedAcceptWithGenericStringCommandInput {}
  *
  * The output of {@link MalformedAcceptWithGenericStringCommand}.
  */
-export interface MalformedAcceptWithGenericStringCommandOutput
-  extends MalformedAcceptWithGenericStringOutput,
-    __MetadataBearer {}
+export interface MalformedAcceptWithGenericStringCommandOutput extends MalformedAcceptWithGenericStringOutput, __MetadataBearer {}
 
 /**
  * @public

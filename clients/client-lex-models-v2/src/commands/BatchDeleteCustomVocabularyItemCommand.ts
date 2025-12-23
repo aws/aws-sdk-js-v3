@@ -27,9 +27,7 @@ export interface BatchDeleteCustomVocabularyItemCommandInput extends BatchDelete
  *
  * The output of {@link BatchDeleteCustomVocabularyItemCommand}.
  */
-export interface BatchDeleteCustomVocabularyItemCommandOutput
-  extends BatchDeleteCustomVocabularyItemResponse,
-    __MetadataBearer {}
+export interface BatchDeleteCustomVocabularyItemCommandOutput extends BatchDeleteCustomVocabularyItemResponse, __MetadataBearer {}
 
 /**
  * <p>Delete a batch of custom vocabulary items for a given bot locale's

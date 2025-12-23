@@ -27,9 +27,7 @@ export interface GetServiceNetworkVpcAssociationCommandInput extends GetServiceN
  *
  * The output of {@link GetServiceNetworkVpcAssociationCommand}.
  */
-export interface GetServiceNetworkVpcAssociationCommandOutput
-  extends GetServiceNetworkVpcAssociationResponse,
-    __MetadataBearer {}
+export interface GetServiceNetworkVpcAssociationCommandOutput extends GetServiceNetworkVpcAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the specified association between a service network and a VPC.</p>

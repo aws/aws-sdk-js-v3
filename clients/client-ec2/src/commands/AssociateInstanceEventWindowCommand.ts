@@ -24,9 +24,7 @@ export interface AssociateInstanceEventWindowCommandInput extends AssociateInsta
  *
  * The output of {@link AssociateInstanceEventWindowCommand}.
  */
-export interface AssociateInstanceEventWindowCommandOutput
-  extends AssociateInstanceEventWindowResult,
-    __MetadataBearer {}
+export interface AssociateInstanceEventWindowCommandOutput extends AssociateInstanceEventWindowResult, __MetadataBearer {}
 
 /**
  * <p>Associates one or more targets with an event window. Only one type of target (instance

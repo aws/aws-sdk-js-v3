@@ -31,9 +31,7 @@ export interface UpdateApplicationResourceLifecycleCommandInput extends UpdateAp
  *
  * The output of {@link UpdateApplicationResourceLifecycleCommand}.
  */
-export interface UpdateApplicationResourceLifecycleCommandOutput
-  extends ApplicationResourceLifecycleDescriptionMessage,
-    __MetadataBearer {}
+export interface UpdateApplicationResourceLifecycleCommandOutput extends ApplicationResourceLifecycleDescriptionMessage, __MetadataBearer {}
 
 /**
  * <p>Modifies lifecycle settings for an application.</p>

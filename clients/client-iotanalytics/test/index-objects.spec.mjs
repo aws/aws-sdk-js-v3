@@ -162,6 +162,11 @@ import {
   MathActivity$,
   Message$,
   OutputFileUriValue$,
+  paginateListChannels,
+  paginateListDatasetContents,
+  paginateListDatasets,
+  paginateListDatastores,
+  paginateListPipelines,
   ParquetConfiguration$,
   Partition$,
   Pipeline$,
@@ -230,11 +235,6 @@ import {
   UpdatePipelineRequest$,
   Variable$,
   VersioningConfiguration$,
-  paginateListChannels,
-  paginateListDatasetContents,
-  paginateListDatasets,
-  paginateListDatastores,
-  paginateListPipelines,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

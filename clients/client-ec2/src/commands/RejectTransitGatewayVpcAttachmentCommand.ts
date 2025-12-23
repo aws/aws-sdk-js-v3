@@ -27,9 +27,7 @@ export interface RejectTransitGatewayVpcAttachmentCommandInput extends RejectTra
  *
  * The output of {@link RejectTransitGatewayVpcAttachmentCommand}.
  */
-export interface RejectTransitGatewayVpcAttachmentCommandOutput
-  extends RejectTransitGatewayVpcAttachmentResult,
-    __MetadataBearer {}
+export interface RejectTransitGatewayVpcAttachmentCommandOutput extends RejectTransitGatewayVpcAttachmentResult, __MetadataBearer {}
 
 /**
  * <p>Rejects a request to attach a VPC to a transit gateway.</p>

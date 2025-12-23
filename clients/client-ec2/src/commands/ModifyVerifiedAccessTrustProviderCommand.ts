@@ -27,9 +27,7 @@ export interface ModifyVerifiedAccessTrustProviderCommandInput extends ModifyVer
  *
  * The output of {@link ModifyVerifiedAccessTrustProviderCommand}.
  */
-export interface ModifyVerifiedAccessTrustProviderCommandOutput
-  extends ModifyVerifiedAccessTrustProviderResult,
-    __MetadataBearer {}
+export interface ModifyVerifiedAccessTrustProviderCommandOutput extends ModifyVerifiedAccessTrustProviderResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the configuration of the specified Amazon Web Services Verified Access trust provider.</p>

@@ -24,9 +24,7 @@ export interface ListRecommendationTemplatesCommandInput extends ListRecommendat
  *
  * The output of {@link ListRecommendationTemplatesCommand}.
  */
-export interface ListRecommendationTemplatesCommandOutput
-  extends ListRecommendationTemplatesResponse,
-    __MetadataBearer {}
+export interface ListRecommendationTemplatesCommandOutput extends ListRecommendationTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the recommendation templates for the Resilience Hub applications.</p>

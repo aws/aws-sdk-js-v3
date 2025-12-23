@@ -28,9 +28,7 @@ export interface GetApiKeyCredentialProviderCommandInput extends GetApiKeyCreden
  *
  * The output of {@link GetApiKeyCredentialProviderCommand}.
  */
-export interface GetApiKeyCredentialProviderCommandOutput
-  extends GetApiKeyCredentialProviderResponse,
-    __MetadataBearer {}
+export interface GetApiKeyCredentialProviderCommandOutput extends GetApiKeyCredentialProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about an API key credential provider.</p>

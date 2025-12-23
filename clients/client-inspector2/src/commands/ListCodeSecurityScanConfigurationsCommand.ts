@@ -27,9 +27,7 @@ export interface ListCodeSecurityScanConfigurationsCommandInput extends ListCode
  *
  * The output of {@link ListCodeSecurityScanConfigurationsCommand}.
  */
-export interface ListCodeSecurityScanConfigurationsCommandOutput
-  extends ListCodeSecurityScanConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListCodeSecurityScanConfigurationsCommandOutput extends ListCodeSecurityScanConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all code security scan configurations in your account.</p>

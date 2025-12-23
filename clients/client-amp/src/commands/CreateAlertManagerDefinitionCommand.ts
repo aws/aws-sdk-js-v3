@@ -24,9 +24,7 @@ export interface CreateAlertManagerDefinitionCommandInput extends CreateAlertMan
  *
  * The output of {@link CreateAlertManagerDefinitionCommand}.
  */
-export interface CreateAlertManagerDefinitionCommandOutput
-  extends CreateAlertManagerDefinitionResponse,
-    __MetadataBearer {}
+export interface CreateAlertManagerDefinitionCommandOutput extends CreateAlertManagerDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>The <code>CreateAlertManagerDefinition</code> operation creates the alert manager definition in a workspace. If a workspace already has an alert manager definition, don't use this operation to update it. Instead, use <code>PutAlertManagerDefinition</code>.</p>

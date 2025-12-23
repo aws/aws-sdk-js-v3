@@ -137,8 +137,14 @@ export interface EMRContainers {
   /**
    * @see {@link CancelJobRunCommand}
    */
-  cancelJobRun(args: CancelJobRunCommandInput, options?: __HttpHandlerOptions): Promise<CancelJobRunCommandOutput>;
-  cancelJobRun(args: CancelJobRunCommandInput, cb: (err: any, data?: CancelJobRunCommandOutput) => void): void;
+  cancelJobRun(
+    args: CancelJobRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelJobRunCommandOutput>;
+  cancelJobRun(
+    args: CancelJobRunCommandInput,
+    cb: (err: any, data?: CancelJobRunCommandOutput) => void
+  ): void;
   cancelJobRun(
     args: CancelJobRunCommandInput,
     options: __HttpHandlerOptions,
@@ -271,7 +277,10 @@ export interface EMRContainers {
     args: DescribeJobRunCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeJobRunCommandOutput>;
-  describeJobRun(args: DescribeJobRunCommandInput, cb: (err: any, data?: DescribeJobRunCommandOutput) => void): void;
+  describeJobRun(
+    args: DescribeJobRunCommandInput,
+    cb: (err: any, data?: DescribeJobRunCommandOutput) => void
+  ): void;
   describeJobRun(
     args: DescribeJobRunCommandInput,
     options: __HttpHandlerOptions,
@@ -366,8 +375,14 @@ export interface EMRContainers {
   /**
    * @see {@link ListJobRunsCommand}
    */
-  listJobRuns(args: ListJobRunsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobRunsCommandOutput>;
-  listJobRuns(args: ListJobRunsCommandInput, cb: (err: any, data?: ListJobRunsCommandOutput) => void): void;
+  listJobRuns(
+    args: ListJobRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobRunsCommandOutput>;
+  listJobRuns(
+    args: ListJobRunsCommandInput,
+    cb: (err: any, data?: ListJobRunsCommandOutput) => void
+  ): void;
   listJobRuns(
     args: ListJobRunsCommandInput,
     options: __HttpHandlerOptions,
@@ -465,8 +480,14 @@ export interface EMRContainers {
   /**
    * @see {@link StartJobRunCommand}
    */
-  startJobRun(args: StartJobRunCommandInput, options?: __HttpHandlerOptions): Promise<StartJobRunCommandOutput>;
-  startJobRun(args: StartJobRunCommandInput, cb: (err: any, data?: StartJobRunCommandOutput) => void): void;
+  startJobRun(
+    args: StartJobRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartJobRunCommandOutput>;
+  startJobRun(
+    args: StartJobRunCommandInput,
+    cb: (err: any, data?: StartJobRunCommandOutput) => void
+  ): void;
   startJobRun(
     args: StartJobRunCommandInput,
     options: __HttpHandlerOptions,
@@ -476,8 +497,14 @@ export interface EMRContainers {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -487,8 +514,14 @@ export interface EMRContainers {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

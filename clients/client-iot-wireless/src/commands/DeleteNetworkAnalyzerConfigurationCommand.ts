@@ -27,9 +27,7 @@ export interface DeleteNetworkAnalyzerConfigurationCommandInput extends DeleteNe
  *
  * The output of {@link DeleteNetworkAnalyzerConfigurationCommand}.
  */
-export interface DeleteNetworkAnalyzerConfigurationCommandOutput
-  extends DeleteNetworkAnalyzerConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteNetworkAnalyzerConfigurationCommandOutput extends DeleteNetworkAnalyzerConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a network analyzer configuration.</p>

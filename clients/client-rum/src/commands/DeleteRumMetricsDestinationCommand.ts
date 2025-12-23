@@ -24,9 +24,7 @@ export interface DeleteRumMetricsDestinationCommandInput extends DeleteRumMetric
  *
  * The output of {@link DeleteRumMetricsDestinationCommand}.
  */
-export interface DeleteRumMetricsDestinationCommandOutput
-  extends DeleteRumMetricsDestinationResponse,
-    __MetadataBearer {}
+export interface DeleteRumMetricsDestinationCommandOutput extends DeleteRumMetricsDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a destination for CloudWatch RUM extended metrics, so that the specified app monitor stops sending extended metrics to that destination.</p>

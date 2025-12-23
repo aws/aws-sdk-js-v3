@@ -24,9 +24,7 @@ export interface StartViewerSessionRevocationCommandInput extends StartViewerSes
  *
  * The output of {@link StartViewerSessionRevocationCommand}.
  */
-export interface StartViewerSessionRevocationCommandOutput
-  extends StartViewerSessionRevocationResponse,
-    __MetadataBearer {}
+export interface StartViewerSessionRevocationCommandOutput extends StartViewerSessionRevocationResponse, __MetadataBearer {}
 
 /**
  * <p>Starts the process of revoking the viewer session associated with a specified channel ARN

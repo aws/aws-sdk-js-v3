@@ -28,9 +28,7 @@ export interface DisassociateBudgetFromResourceCommandInput extends Disassociate
  *
  * The output of {@link DisassociateBudgetFromResourceCommand}.
  */
-export interface DisassociateBudgetFromResourceCommandOutput
-  extends DisassociateBudgetFromResourceOutput,
-    __MetadataBearer {}
+export interface DisassociateBudgetFromResourceCommandOutput extends DisassociateBudgetFromResourceOutput, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified budget from the specified resource.</p>

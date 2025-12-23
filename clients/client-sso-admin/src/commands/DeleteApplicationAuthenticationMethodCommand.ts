@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link DeleteApplicationAuthenticationMethodCommand}.
  */
-export interface DeleteApplicationAuthenticationMethodCommandInput
-  extends DeleteApplicationAuthenticationMethodRequest {}
+export interface DeleteApplicationAuthenticationMethodCommandInput extends DeleteApplicationAuthenticationMethodRequest {}
 /**
  * @public
  *

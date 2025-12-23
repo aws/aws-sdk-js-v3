@@ -27,9 +27,7 @@ export interface UpdateThingRuntimeConfigurationCommandInput extends UpdateThing
  *
  * The output of {@link UpdateThingRuntimeConfigurationCommand}.
  */
-export interface UpdateThingRuntimeConfigurationCommandOutput
-  extends UpdateThingRuntimeConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateThingRuntimeConfigurationCommandOutput extends UpdateThingRuntimeConfigurationResponse, __MetadataBearer {}
 
 /**
  * Updates the runtime configuration of a thing.

@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeReplicationTaskAssessmentResultsCommand}.
  */
-export interface DescribeReplicationTaskAssessmentResultsCommandInput
-  extends DescribeReplicationTaskAssessmentResultsMessage {}
+export interface DescribeReplicationTaskAssessmentResultsCommandInput extends DescribeReplicationTaskAssessmentResultsMessage {}
 /**
  * @public
  *
  * The output of {@link DescribeReplicationTaskAssessmentResultsCommand}.
  */
-export interface DescribeReplicationTaskAssessmentResultsCommandOutput
-  extends DescribeReplicationTaskAssessmentResultsResponse,
-    __MetadataBearer {}
+export interface DescribeReplicationTaskAssessmentResultsCommandOutput extends DescribeReplicationTaskAssessmentResultsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the task assessment results from the Amazon S3 bucket that DMS creates in your

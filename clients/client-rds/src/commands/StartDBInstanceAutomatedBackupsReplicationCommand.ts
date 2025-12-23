@@ -22,16 +22,13 @@ export { $Command };
  *
  * The input for {@link StartDBInstanceAutomatedBackupsReplicationCommand}.
  */
-export interface StartDBInstanceAutomatedBackupsReplicationCommandInput
-  extends StartDBInstanceAutomatedBackupsReplicationMessage {}
+export interface StartDBInstanceAutomatedBackupsReplicationCommandInput extends StartDBInstanceAutomatedBackupsReplicationMessage {}
 /**
  * @public
  *
  * The output of {@link StartDBInstanceAutomatedBackupsReplicationCommand}.
  */
-export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
-  extends StartDBInstanceAutomatedBackupsReplicationResult,
-    __MetadataBearer {}
+export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput extends StartDBInstanceAutomatedBackupsReplicationResult, __MetadataBearer {}
 
 /**
  * <p>Enables replication of automated backups to a different Amazon Web Services Region.</p>

@@ -28,9 +28,7 @@ export interface UpdateProgramManagementAccountCommandInput extends UpdateProgra
  *
  * The output of {@link UpdateProgramManagementAccountCommand}.
  */
-export interface UpdateProgramManagementAccountCommandOutput
-  extends UpdateProgramManagementAccountResponse,
-    __MetadataBearer {}
+export interface UpdateProgramManagementAccountCommandOutput extends UpdateProgramManagementAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the properties of a program management account.</p>

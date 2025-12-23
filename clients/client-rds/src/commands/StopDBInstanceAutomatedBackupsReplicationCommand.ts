@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link StopDBInstanceAutomatedBackupsReplicationCommand}.
  */
-export interface StopDBInstanceAutomatedBackupsReplicationCommandInput
-  extends StopDBInstanceAutomatedBackupsReplicationMessage {}
+export interface StopDBInstanceAutomatedBackupsReplicationCommandInput extends StopDBInstanceAutomatedBackupsReplicationMessage {}
 /**
  * @public
  *
  * The output of {@link StopDBInstanceAutomatedBackupsReplicationCommand}.
  */
-export interface StopDBInstanceAutomatedBackupsReplicationCommandOutput
-  extends StopDBInstanceAutomatedBackupsReplicationResult,
-    __MetadataBearer {}
+export interface StopDBInstanceAutomatedBackupsReplicationCommandOutput extends StopDBInstanceAutomatedBackupsReplicationResult, __MetadataBearer {}
 
 /**
  * <p>Stops automated backup replication for a DB instance.</p>

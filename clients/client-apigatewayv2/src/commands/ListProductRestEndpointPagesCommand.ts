@@ -24,9 +24,7 @@ export interface ListProductRestEndpointPagesCommandInput extends ListProductRes
  *
  * The output of {@link ListProductRestEndpointPagesCommand}.
  */
-export interface ListProductRestEndpointPagesCommandOutput
-  extends ListProductRestEndpointPagesResponse,
-    __MetadataBearer {}
+export interface ListProductRestEndpointPagesCommandOutput extends ListProductRestEndpointPagesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the product REST endpoint pages of a portal product.</p>

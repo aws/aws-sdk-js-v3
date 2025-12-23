@@ -27,9 +27,7 @@ export interface GenerateServiceLastAccessedDetailsCommandInput extends Generate
  *
  * The output of {@link GenerateServiceLastAccessedDetailsCommand}.
  */
-export interface GenerateServiceLastAccessedDetailsCommandOutput
-  extends GenerateServiceLastAccessedDetailsResponse,
-    __MetadataBearer {}
+export interface GenerateServiceLastAccessedDetailsCommandOutput extends GenerateServiceLastAccessedDetailsResponse, __MetadataBearer {}
 
 /**
  * <p>Generates a report that includes details about when an IAM resource (user, group,

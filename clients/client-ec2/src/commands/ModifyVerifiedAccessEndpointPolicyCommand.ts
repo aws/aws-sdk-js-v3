@@ -27,9 +27,7 @@ export interface ModifyVerifiedAccessEndpointPolicyCommandInput extends ModifyVe
  *
  * The output of {@link ModifyVerifiedAccessEndpointPolicyCommand}.
  */
-export interface ModifyVerifiedAccessEndpointPolicyCommandOutput
-  extends ModifyVerifiedAccessEndpointPolicyResult,
-    __MetadataBearer {}
+export interface ModifyVerifiedAccessEndpointPolicyCommandOutput extends ModifyVerifiedAccessEndpointPolicyResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the specified Amazon Web Services Verified Access endpoint policy.</p>

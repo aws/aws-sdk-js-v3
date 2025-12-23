@@ -7,17 +7,14 @@
 AWS SDK for JavaScript IoTSecureTunneling Client for Node.js, Browser and React Native.
 
 <fullname>IoT Secure Tunneling</fullname>
-
 <p>IoT Secure Tunneling creates remote connections to devices deployed in the
 field.</p>
 <p>For more information about how IoT Secure Tunneling works, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html">IoT
 Secure Tunneling</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-iotsecuretunneling
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-iotsecuretunneling`
 - `yarn add @aws-sdk/client-iotsecuretunneling`
 - `pnpm add @aws-sdk/client-iotsecuretunneling`
@@ -53,9 +50,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new IoTSecureTunnelingClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListTunnelsCommand(params);
 ```
 
@@ -214,7 +209,6 @@ CloseTunnel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsecuretunneling/command/CloseTunnelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsecuretunneling/Interface/CloseTunnelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsecuretunneling/Interface/CloseTunnelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -222,7 +216,6 @@ DescribeTunnel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsecuretunneling/command/DescribeTunnelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsecuretunneling/Interface/DescribeTunnelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsecuretunneling/Interface/DescribeTunnelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -230,7 +223,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsecuretunneling/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsecuretunneling/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsecuretunneling/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -238,7 +230,6 @@ ListTunnels
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsecuretunneling/command/ListTunnelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsecuretunneling/Interface/ListTunnelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsecuretunneling/Interface/ListTunnelsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -246,7 +237,6 @@ OpenTunnel
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsecuretunneling/command/OpenTunnelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsecuretunneling/Interface/OpenTunnelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsecuretunneling/Interface/OpenTunnelCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -254,7 +244,6 @@ RotateTunnelAccessToken
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsecuretunneling/command/RotateTunnelAccessTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsecuretunneling/Interface/RotateTunnelAccessTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsecuretunneling/Interface/RotateTunnelAccessTokenCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -262,7 +251,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsecuretunneling/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsecuretunneling/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsecuretunneling/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -270,5 +258,4 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsecuretunneling/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsecuretunneling/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsecuretunneling/Interface/UntagResourceCommandOutput/)
-
 </details>

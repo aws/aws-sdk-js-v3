@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ModifyVpcEndpointServiceConfigurationCommand}.
  */
-export interface ModifyVpcEndpointServiceConfigurationCommandInput
-  extends ModifyVpcEndpointServiceConfigurationRequest {}
+export interface ModifyVpcEndpointServiceConfigurationCommandInput extends ModifyVpcEndpointServiceConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link ModifyVpcEndpointServiceConfigurationCommand}.
  */
-export interface ModifyVpcEndpointServiceConfigurationCommandOutput
-  extends ModifyVpcEndpointServiceConfigurationResult,
-    __MetadataBearer {}
+export interface ModifyVpcEndpointServiceConfigurationCommandOutput extends ModifyVpcEndpointServiceConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the attributes of the specified VPC endpoint service configuration.</p>

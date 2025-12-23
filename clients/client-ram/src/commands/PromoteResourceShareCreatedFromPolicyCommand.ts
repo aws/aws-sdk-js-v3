@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PromoteResourceShareCreatedFromPolicyCommand}.
  */
-export interface PromoteResourceShareCreatedFromPolicyCommandInput
-  extends PromoteResourceShareCreatedFromPolicyRequest {}
+export interface PromoteResourceShareCreatedFromPolicyCommandInput extends PromoteResourceShareCreatedFromPolicyRequest {}
 /**
  * @public
  *
  * The output of {@link PromoteResourceShareCreatedFromPolicyCommand}.
  */
-export interface PromoteResourceShareCreatedFromPolicyCommandOutput
-  extends PromoteResourceShareCreatedFromPolicyResponse,
-    __MetadataBearer {}
+export interface PromoteResourceShareCreatedFromPolicyCommandOutput extends PromoteResourceShareCreatedFromPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>When you attach a resource-based policy to a resource, RAM automatically creates

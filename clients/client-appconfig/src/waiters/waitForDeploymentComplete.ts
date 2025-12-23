@@ -10,25 +10,25 @@ const checkState = async (client: AppConfigClient, input: GetDeploymentCommandIn
     const result: any = await client.send(new GetDeploymentCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "COMPLETE") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "ROLLED_BACK") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "REVERTED") {
         return { state: WaiterState.FAILURE, reason };
       }

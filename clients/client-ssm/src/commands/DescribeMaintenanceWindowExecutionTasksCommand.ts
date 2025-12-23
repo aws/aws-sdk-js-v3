@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeMaintenanceWindowExecutionTasksCommand}.
  */
-export interface DescribeMaintenanceWindowExecutionTasksCommandInput
-  extends DescribeMaintenanceWindowExecutionTasksRequest {}
+export interface DescribeMaintenanceWindowExecutionTasksCommandInput extends DescribeMaintenanceWindowExecutionTasksRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeMaintenanceWindowExecutionTasksCommand}.
  */
-export interface DescribeMaintenanceWindowExecutionTasksCommandOutput
-  extends DescribeMaintenanceWindowExecutionTasksResult,
-    __MetadataBearer {}
+export interface DescribeMaintenanceWindowExecutionTasksCommandOutput extends DescribeMaintenanceWindowExecutionTasksResult, __MetadataBearer {}
 
 /**
  * <p>For a given maintenance window execution, lists the tasks that were run.</p>

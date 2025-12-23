@@ -24,9 +24,7 @@ export interface ModifyDBClusterParameterGroupCommandInput extends ModifyDBClust
  *
  * The output of {@link ModifyDBClusterParameterGroupCommand}.
  */
-export interface ModifyDBClusterParameterGroupCommandOutput
-  extends DBClusterParameterGroupNameMessage,
-    __MetadataBearer {}
+export interface ModifyDBClusterParameterGroupCommandOutput extends DBClusterParameterGroupNameMessage, __MetadataBearer {}
 
 /**
  * <p>Modifies the parameters of a DB cluster parameter group. To modify more than one parameter,

@@ -24,9 +24,7 @@ export interface CreateExpressGatewayServiceCommandInput extends CreateExpressGa
  *
  * The output of {@link CreateExpressGatewayServiceCommand}.
  */
-export interface CreateExpressGatewayServiceCommandOutput
-  extends CreateExpressGatewayServiceResponse,
-    __MetadataBearer {}
+export interface CreateExpressGatewayServiceCommandOutput extends CreateExpressGatewayServiceResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Express service that simplifies deploying containerized web applications on

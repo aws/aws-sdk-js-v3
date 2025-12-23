@@ -60,7 +60,6 @@ import {
   ThingPrincipalType,
   VerificationState,
 } from "./enums";
-
 import {
   type AbortConfig,
   type AggregationType,

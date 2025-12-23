@@ -24,9 +24,7 @@ export interface DeleteContainerGroupDefinitionCommandInput extends DeleteContai
  *
  * The output of {@link DeleteContainerGroupDefinitionCommand}.
  */
-export interface DeleteContainerGroupDefinitionCommandOutput
-  extends DeleteContainerGroupDefinitionOutput,
-    __MetadataBearer {}
+export interface DeleteContainerGroupDefinitionCommandOutput extends DeleteContainerGroupDefinitionOutput, __MetadataBearer {}
 
 /**
  * <p>

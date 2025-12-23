@@ -28,10 +28,8 @@ developers, and publish new versions of applications. </p>
 </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-serverlessapplicationrepository
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-serverlessapplicationrepository`
 - `yarn add @aws-sdk/client-serverlessapplicationrepository`
 - `pnpm add @aws-sdk/client-serverlessapplicationrepository`
@@ -46,18 +44,12 @@ the commands you need, for example `ListApplicationsCommand`:
 
 ```js
 // ES5 example
-const {
-  ServerlessApplicationRepositoryClient,
-  ListApplicationsCommand,
-} = require("@aws-sdk/client-serverlessapplicationrepository");
+const { ServerlessApplicationRepositoryClient, ListApplicationsCommand } = require("@aws-sdk/client-serverlessapplicationrepository");
 ```
 
 ```ts
 // ES6+ example
-import {
-  ServerlessApplicationRepositoryClient,
-  ListApplicationsCommand,
-} from "@aws-sdk/client-serverlessapplicationrepository";
+import { ServerlessApplicationRepositoryClient, ListApplicationsCommand } from "@aws-sdk/client-serverlessapplicationrepository";
 ```
 
 ### Usage
@@ -73,9 +65,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new ServerlessApplicationRepositoryClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListApplicationsCommand(params);
 ```
 
@@ -234,7 +224,6 @@ CreateApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/serverlessapplicationrepository/command/CreateApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/CreateApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/CreateApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -242,7 +231,6 @@ CreateApplicationVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/serverlessapplicationrepository/command/CreateApplicationVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/CreateApplicationVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/CreateApplicationVersionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -250,7 +238,6 @@ CreateCloudFormationChangeSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/serverlessapplicationrepository/command/CreateCloudFormationChangeSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/CreateCloudFormationChangeSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/CreateCloudFormationChangeSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -258,7 +245,6 @@ CreateCloudFormationTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/serverlessapplicationrepository/command/CreateCloudFormationTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/CreateCloudFormationTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/CreateCloudFormationTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -266,7 +252,6 @@ DeleteApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/serverlessapplicationrepository/command/DeleteApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/DeleteApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/DeleteApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -274,7 +259,6 @@ GetApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/serverlessapplicationrepository/command/GetApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/GetApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/GetApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -282,7 +266,6 @@ GetApplicationPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/serverlessapplicationrepository/command/GetApplicationPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/GetApplicationPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/GetApplicationPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -290,7 +273,6 @@ GetCloudFormationTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/serverlessapplicationrepository/command/GetCloudFormationTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/GetCloudFormationTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/GetCloudFormationTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -298,7 +280,6 @@ ListApplicationDependencies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/serverlessapplicationrepository/command/ListApplicationDependenciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/ListApplicationDependenciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/ListApplicationDependenciesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -306,7 +287,6 @@ ListApplications
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/serverlessapplicationrepository/command/ListApplicationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/ListApplicationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/ListApplicationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -314,7 +294,6 @@ ListApplicationVersions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/serverlessapplicationrepository/command/ListApplicationVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/ListApplicationVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/ListApplicationVersionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -322,7 +301,6 @@ PutApplicationPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/serverlessapplicationrepository/command/PutApplicationPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/PutApplicationPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/PutApplicationPolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -330,7 +308,6 @@ UnshareApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/serverlessapplicationrepository/command/UnshareApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/UnshareApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/UnshareApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -338,5 +315,4 @@ UpdateApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/serverlessapplicationrepository/command/UpdateApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/UpdateApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-serverlessapplicationrepository/Interface/UpdateApplicationCommandOutput/)
-
 </details>

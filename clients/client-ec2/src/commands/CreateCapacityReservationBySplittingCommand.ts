@@ -27,9 +27,7 @@ export interface CreateCapacityReservationBySplittingCommandInput extends Create
  *
  * The output of {@link CreateCapacityReservationBySplittingCommand}.
  */
-export interface CreateCapacityReservationBySplittingCommandOutput
-  extends CreateCapacityReservationBySplittingResult,
-    __MetadataBearer {}
+export interface CreateCapacityReservationBySplittingCommandOutput extends CreateCapacityReservationBySplittingResult, __MetadataBearer {}
 
 /**
  * <p> Create a new Capacity Reservation by splitting the capacity of the source Capacity

@@ -24,9 +24,7 @@ export interface ListTestExecutionResultItemsCommandInput extends ListTestExecut
  *
  * The output of {@link ListTestExecutionResultItemsCommand}.
  */
-export interface ListTestExecutionResultItemsCommandOutput
-  extends ListTestExecutionResultItemsResponse,
-    __MetadataBearer {}
+export interface ListTestExecutionResultItemsCommandOutput extends ListTestExecutionResultItemsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of test execution result items.</p>

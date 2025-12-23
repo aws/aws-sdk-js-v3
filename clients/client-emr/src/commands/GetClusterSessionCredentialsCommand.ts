@@ -24,9 +24,7 @@ export interface GetClusterSessionCredentialsCommandInput extends GetClusterSess
  *
  * The output of {@link GetClusterSessionCredentialsCommand}.
  */
-export interface GetClusterSessionCredentialsCommandOutput
-  extends GetClusterSessionCredentialsOutput,
-    __MetadataBearer {}
+export interface GetClusterSessionCredentialsCommandOutput extends GetClusterSessionCredentialsOutput, __MetadataBearer {}
 
 /**
  * <p>Provides temporary, HTTP basic credentials that are associated with a given runtime

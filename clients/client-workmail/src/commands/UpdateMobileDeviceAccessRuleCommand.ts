@@ -24,9 +24,7 @@ export interface UpdateMobileDeviceAccessRuleCommandInput extends UpdateMobileDe
  *
  * The output of {@link UpdateMobileDeviceAccessRuleCommand}.
  */
-export interface UpdateMobileDeviceAccessRuleCommandOutput
-  extends UpdateMobileDeviceAccessRuleResponse,
-    __MetadataBearer {}
+export interface UpdateMobileDeviceAccessRuleCommandOutput extends UpdateMobileDeviceAccessRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a mobile device access rule for the specified WorkMail organization.</p>

@@ -24,9 +24,7 @@ export interface GetResourceDefinitionVersionCommandInput extends GetResourceDef
  *
  * The output of {@link GetResourceDefinitionVersionCommand}.
  */
-export interface GetResourceDefinitionVersionCommandOutput
-  extends GetResourceDefinitionVersionResponse,
-    __MetadataBearer {}
+export interface GetResourceDefinitionVersionCommandOutput extends GetResourceDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Retrieves information about a resource definition version, including which resources are included in the version.

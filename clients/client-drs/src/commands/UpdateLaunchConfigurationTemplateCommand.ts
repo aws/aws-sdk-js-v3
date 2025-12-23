@@ -27,9 +27,7 @@ export interface UpdateLaunchConfigurationTemplateCommandInput extends UpdateLau
  *
  * The output of {@link UpdateLaunchConfigurationTemplateCommand}.
  */
-export interface UpdateLaunchConfigurationTemplateCommandOutput
-  extends UpdateLaunchConfigurationTemplateResponse,
-    __MetadataBearer {}
+export interface UpdateLaunchConfigurationTemplateCommandOutput extends UpdateLaunchConfigurationTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing Launch Configuration Template by ID.</p>

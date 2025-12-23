@@ -24,9 +24,7 @@ export interface AcceptAdministratorInvitationCommandInput extends AcceptAdminis
  *
  * The output of {@link AcceptAdministratorInvitationCommand}.
  */
-export interface AcceptAdministratorInvitationCommandOutput
-  extends AcceptAdministratorInvitationResponse,
-    __MetadataBearer {}
+export interface AcceptAdministratorInvitationCommandOutput extends AcceptAdministratorInvitationResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts the invitation to be a member account and get monitored by a GuardDuty

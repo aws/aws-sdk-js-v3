@@ -24,9 +24,7 @@ export interface ValidateStateMachineDefinitionCommandInput extends ValidateStat
  *
  * The output of {@link ValidateStateMachineDefinitionCommand}.
  */
-export interface ValidateStateMachineDefinitionCommandOutput
-  extends ValidateStateMachineDefinitionOutput,
-    __MetadataBearer {}
+export interface ValidateStateMachineDefinitionCommandOutput extends ValidateStateMachineDefinitionOutput, __MetadataBearer {}
 
 /**
  * <p>Validates the syntax of a state machine definition specified in <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a> (ASL), a

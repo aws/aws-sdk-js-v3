@@ -183,10 +183,8 @@ and the SSO documentation for your SDK.</p>
 </note>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-codecatalyst
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-codecatalyst`
 - `yarn add @aws-sdk/client-codecatalyst`
 - `pnpm add @aws-sdk/client-codecatalyst`
@@ -222,9 +220,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new CodeCatalystClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListSpacesCommand(params);
 ```
 
@@ -383,7 +379,6 @@ CreateAccessToken
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/CreateAccessTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/CreateAccessTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/CreateAccessTokenCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -391,7 +386,6 @@ CreateDevEnvironment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/CreateDevEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/CreateDevEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/CreateDevEnvironmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -399,7 +393,6 @@ CreateProject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/CreateProjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/CreateProjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/CreateProjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -407,7 +400,6 @@ CreateSourceRepository
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/CreateSourceRepositoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/CreateSourceRepositoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/CreateSourceRepositoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -415,7 +407,6 @@ CreateSourceRepositoryBranch
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/CreateSourceRepositoryBranchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/CreateSourceRepositoryBranchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/CreateSourceRepositoryBranchCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -423,7 +414,6 @@ DeleteAccessToken
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/DeleteAccessTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/DeleteAccessTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/DeleteAccessTokenCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -431,7 +421,6 @@ DeleteDevEnvironment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/DeleteDevEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/DeleteDevEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/DeleteDevEnvironmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -439,7 +428,6 @@ DeleteProject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/DeleteProjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/DeleteProjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/DeleteProjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -447,7 +435,6 @@ DeleteSourceRepository
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/DeleteSourceRepositoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/DeleteSourceRepositoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/DeleteSourceRepositoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -455,7 +442,6 @@ DeleteSpace
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/DeleteSpaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/DeleteSpaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/DeleteSpaceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -463,7 +449,6 @@ GetDevEnvironment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/GetDevEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/GetDevEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/GetDevEnvironmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -471,7 +456,6 @@ GetProject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/GetProjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/GetProjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/GetProjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -479,7 +463,6 @@ GetSourceRepository
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/GetSourceRepositoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/GetSourceRepositoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/GetSourceRepositoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -487,7 +470,6 @@ GetSourceRepositoryCloneUrls
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/GetSourceRepositoryCloneUrlsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/GetSourceRepositoryCloneUrlsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/GetSourceRepositoryCloneUrlsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -495,7 +477,6 @@ GetSpace
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/GetSpaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/GetSpaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/GetSpaceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -503,7 +484,6 @@ GetSubscription
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/GetSubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/GetSubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/GetSubscriptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -511,7 +491,6 @@ GetUserDetails
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/GetUserDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/GetUserDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/GetUserDetailsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -519,7 +498,6 @@ GetWorkflow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/GetWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/GetWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/GetWorkflowCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -527,7 +505,6 @@ GetWorkflowRun
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/GetWorkflowRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/GetWorkflowRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/GetWorkflowRunCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -535,7 +512,6 @@ ListAccessTokens
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/ListAccessTokensCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/ListAccessTokensCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/ListAccessTokensCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -543,7 +519,6 @@ ListDevEnvironments
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/ListDevEnvironmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/ListDevEnvironmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/ListDevEnvironmentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -551,7 +526,6 @@ ListDevEnvironmentSessions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/ListDevEnvironmentSessionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/ListDevEnvironmentSessionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/ListDevEnvironmentSessionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -559,7 +533,6 @@ ListEventLogs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/ListEventLogsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/ListEventLogsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/ListEventLogsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -567,7 +540,6 @@ ListProjects
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/ListProjectsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/ListProjectsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/ListProjectsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -575,7 +547,6 @@ ListSourceRepositories
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/ListSourceRepositoriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/ListSourceRepositoriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/ListSourceRepositoriesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -583,7 +554,6 @@ ListSourceRepositoryBranches
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/ListSourceRepositoryBranchesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/ListSourceRepositoryBranchesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/ListSourceRepositoryBranchesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -591,7 +561,6 @@ ListSpaces
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/ListSpacesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/ListSpacesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/ListSpacesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -599,7 +568,6 @@ ListWorkflowRuns
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/ListWorkflowRunsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/ListWorkflowRunsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/ListWorkflowRunsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -607,7 +575,6 @@ ListWorkflows
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/ListWorkflowsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/ListWorkflowsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/ListWorkflowsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -615,7 +582,6 @@ StartDevEnvironment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/StartDevEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/StartDevEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/StartDevEnvironmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -623,7 +589,6 @@ StartDevEnvironmentSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/StartDevEnvironmentSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/StartDevEnvironmentSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/StartDevEnvironmentSessionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -631,7 +596,6 @@ StartWorkflowRun
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/StartWorkflowRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/StartWorkflowRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/StartWorkflowRunCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -639,7 +603,6 @@ StopDevEnvironment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/StopDevEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/StopDevEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/StopDevEnvironmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -647,7 +610,6 @@ StopDevEnvironmentSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/StopDevEnvironmentSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/StopDevEnvironmentSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/StopDevEnvironmentSessionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -655,7 +617,6 @@ UpdateDevEnvironment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/UpdateDevEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/UpdateDevEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/UpdateDevEnvironmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -663,7 +624,6 @@ UpdateProject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/UpdateProjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/UpdateProjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/UpdateProjectCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -671,7 +631,6 @@ UpdateSpace
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/UpdateSpaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/UpdateSpaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/UpdateSpaceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -679,5 +638,4 @@ VerifySession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecatalyst/command/VerifySessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/VerifySessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecatalyst/Interface/VerifySessionCommandOutput/)
-
 </details>

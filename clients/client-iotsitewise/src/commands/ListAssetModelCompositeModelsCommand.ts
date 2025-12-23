@@ -24,9 +24,7 @@ export interface ListAssetModelCompositeModelsCommandInput extends ListAssetMode
  *
  * The output of {@link ListAssetModelCompositeModelsCommand}.
  */
-export interface ListAssetModelCompositeModelsCommandOutput
-  extends ListAssetModelCompositeModelsResponse,
-    __MetadataBearer {}
+export interface ListAssetModelCompositeModelsCommandOutput extends ListAssetModelCompositeModelsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a paginated list of composite models associated with the asset model</p>

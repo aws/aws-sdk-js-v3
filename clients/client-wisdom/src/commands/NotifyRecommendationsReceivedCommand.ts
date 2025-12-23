@@ -24,9 +24,7 @@ export interface NotifyRecommendationsReceivedCommandInput extends NotifyRecomme
  *
  * The output of {@link NotifyRecommendationsReceivedCommand}.
  */
-export interface NotifyRecommendationsReceivedCommandOutput
-  extends NotifyRecommendationsReceivedResponse,
-    __MetadataBearer {}
+export interface NotifyRecommendationsReceivedCommandOutput extends NotifyRecommendationsReceivedResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the specified recommendations from the specified assistant's queue of newly

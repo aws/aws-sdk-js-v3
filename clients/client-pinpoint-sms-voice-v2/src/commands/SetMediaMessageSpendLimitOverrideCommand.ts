@@ -31,9 +31,7 @@ export interface SetMediaMessageSpendLimitOverrideCommandInput extends SetMediaM
  *
  * The output of {@link SetMediaMessageSpendLimitOverrideCommand}.
  */
-export interface SetMediaMessageSpendLimitOverrideCommandOutput
-  extends SetMediaMessageSpendLimitOverrideResult,
-    __MetadataBearer {}
+export interface SetMediaMessageSpendLimitOverrideCommandOutput extends SetMediaMessageSpendLimitOverrideResult, __MetadataBearer {}
 
 /**
  * <p>Sets an account level monthly spend limit override for sending MMS messages. The requested spend limit must be less than or equal to the <code>MaxLimit</code>, which is set by Amazon Web Services. </p>

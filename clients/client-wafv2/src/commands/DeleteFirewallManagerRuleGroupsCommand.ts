@@ -27,9 +27,7 @@ export interface DeleteFirewallManagerRuleGroupsCommandInput extends DeleteFirew
  *
  * The output of {@link DeleteFirewallManagerRuleGroupsCommand}.
  */
-export interface DeleteFirewallManagerRuleGroupsCommandOutput
-  extends DeleteFirewallManagerRuleGroupsResponse,
-    __MetadataBearer {}
+export interface DeleteFirewallManagerRuleGroupsCommandOutput extends DeleteFirewallManagerRuleGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes all rule groups that are managed by Firewall Manager from the specified <a>WebACL</a>. </p>

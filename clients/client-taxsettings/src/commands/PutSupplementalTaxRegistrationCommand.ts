@@ -24,9 +24,7 @@ export interface PutSupplementalTaxRegistrationCommandInput extends PutSupplemen
  *
  * The output of {@link PutSupplementalTaxRegistrationCommand}.
  */
-export interface PutSupplementalTaxRegistrationCommandOutput
-  extends PutSupplementalTaxRegistrationResponse,
-    __MetadataBearer {}
+export interface PutSupplementalTaxRegistrationCommandOutput extends PutSupplementalTaxRegistrationResponse, __MetadataBearer {}
 
 /**
  * <p>

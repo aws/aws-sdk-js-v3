@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListCoreNetworkPrefixListAssociationsCommand}.
  */
-export interface ListCoreNetworkPrefixListAssociationsCommandInput
-  extends ListCoreNetworkPrefixListAssociationsRequest {}
+export interface ListCoreNetworkPrefixListAssociationsCommandInput extends ListCoreNetworkPrefixListAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListCoreNetworkPrefixListAssociationsCommand}.
  */
-export interface ListCoreNetworkPrefixListAssociationsCommandOutput
-  extends ListCoreNetworkPrefixListAssociationsResponse,
-    __MetadataBearer {}
+export interface ListCoreNetworkPrefixListAssociationsCommandOutput extends ListCoreNetworkPrefixListAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the prefix list associations for a core network.</p>

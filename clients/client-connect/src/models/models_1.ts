@@ -61,7 +61,6 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./enums";
-
 import {
   type AgentConfig,
   type AgentQualityMetrics,
@@ -5700,7 +5699,9 @@ export interface GetContactMetricsRequest {
  * <p>Object which contains the number.</p>
  * @public
  */
-export type ContactMetricValue = ContactMetricValue.NumberMember | ContactMetricValue.$UnknownMember;
+export type ContactMetricValue =
+  | ContactMetricValue.NumberMember
+  | ContactMetricValue.$UnknownMember;
 
 /**
  * @public

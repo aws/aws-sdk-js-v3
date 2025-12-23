@@ -27,9 +27,7 @@ export interface GetReservedNodeExchangeOfferingsCommandInput extends GetReserve
  *
  * The output of {@link GetReservedNodeExchangeOfferingsCommand}.
  */
-export interface GetReservedNodeExchangeOfferingsCommandOutput
-  extends GetReservedNodeExchangeOfferingsOutputMessage,
-    __MetadataBearer {}
+export interface GetReservedNodeExchangeOfferingsCommandOutput extends GetReservedNodeExchangeOfferingsOutputMessage, __MetadataBearer {}
 
 /**
  * <p>Returns an array of DC2 ReservedNodeOfferings that matches the payment type, term,

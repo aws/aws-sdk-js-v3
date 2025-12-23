@@ -89,8 +89,14 @@ export interface Pricing {
   /**
    * @see {@link GetProductsCommand}
    */
-  getProducts(args: GetProductsCommandInput, options?: __HttpHandlerOptions): Promise<GetProductsCommandOutput>;
-  getProducts(args: GetProductsCommandInput, cb: (err: any, data?: GetProductsCommandOutput) => void): void;
+  getProducts(
+    args: GetProductsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProductsCommandOutput>;
+  getProducts(
+    args: GetProductsCommandInput,
+    cb: (err: any, data?: GetProductsCommandOutput) => void
+  ): void;
   getProducts(
     args: GetProductsCommandInput,
     options: __HttpHandlerOptions,
@@ -104,7 +110,10 @@ export interface Pricing {
     args: ListPriceListsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListPriceListsCommandOutput>;
-  listPriceLists(args: ListPriceListsCommandInput, cb: (err: any, data?: ListPriceListsCommandOutput) => void): void;
+  listPriceLists(
+    args: ListPriceListsCommandInput,
+    cb: (err: any, data?: ListPriceListsCommandOutput) => void
+  ): void;
   listPriceLists(
     args: ListPriceListsCommandInput,
     options: __HttpHandlerOptions,

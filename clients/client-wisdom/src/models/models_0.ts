@@ -1396,7 +1396,9 @@ export interface ConnectConfiguration {
  * <p>The configuration information of the external data source.</p>
  * @public
  */
-export type Configuration = Configuration.ConnectConfigurationMember | Configuration.$UnknownMember;
+export type Configuration =
+  | Configuration.ConnectConfigurationMember
+  | Configuration.$UnknownMember;
 
 /**
  * @public
@@ -1900,7 +1902,9 @@ export interface RenderingConfiguration {
  * <p>Configuration information about the external data source.</p>
  * @public
  */
-export type SourceConfiguration = SourceConfiguration.AppIntegrationsMember | SourceConfiguration.$UnknownMember;
+export type SourceConfiguration =
+  | SourceConfiguration.AppIntegrationsMember
+  | SourceConfiguration.$UnknownMember;
 
 /**
  * @public

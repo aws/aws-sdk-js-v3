@@ -22,8 +22,7 @@ export { $Command };
  *
  * The input for {@link CreateTemplateGroupAccessControlEntryCommand}.
  */
-export interface CreateTemplateGroupAccessControlEntryCommandInput
-  extends CreateTemplateGroupAccessControlEntryRequest {}
+export interface CreateTemplateGroupAccessControlEntryCommandInput extends CreateTemplateGroupAccessControlEntryRequest {}
 /**
  * @public
  *

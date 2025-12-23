@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link StartAutomatedReasoningPolicyBuildWorkflowCommand}.
  */
-export interface StartAutomatedReasoningPolicyBuildWorkflowCommandInput
-  extends StartAutomatedReasoningPolicyBuildWorkflowRequest {}
+export interface StartAutomatedReasoningPolicyBuildWorkflowCommandInput extends StartAutomatedReasoningPolicyBuildWorkflowRequest {}
 /**
  * @public
  *
  * The output of {@link StartAutomatedReasoningPolicyBuildWorkflowCommand}.
  */
-export interface StartAutomatedReasoningPolicyBuildWorkflowCommandOutput
-  extends StartAutomatedReasoningPolicyBuildWorkflowResponse,
-    __MetadataBearer {}
+export interface StartAutomatedReasoningPolicyBuildWorkflowCommandOutput extends StartAutomatedReasoningPolicyBuildWorkflowResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a new build workflow for an Automated Reasoning policy. This initiates the process of analyzing source documents and generating policy rules, variables, and types.</p>

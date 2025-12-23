@@ -24,9 +24,7 @@ export interface DeleteWorkspaceServiceAccountCommandInput extends DeleteWorkspa
  *
  * The output of {@link DeleteWorkspaceServiceAccountCommand}.
  */
-export interface DeleteWorkspaceServiceAccountCommandOutput
-  extends DeleteWorkspaceServiceAccountResponse,
-    __MetadataBearer {}
+export interface DeleteWorkspaceServiceAccountCommandOutput extends DeleteWorkspaceServiceAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a workspace service account from the workspace.</p>

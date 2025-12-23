@@ -703,7 +703,10 @@ export interface Deadline {
     args: CopyJobTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CopyJobTemplateCommandOutput>;
-  copyJobTemplate(args: CopyJobTemplateCommandInput, cb: (err: any, data?: CopyJobTemplateCommandOutput) => void): void;
+  copyJobTemplate(
+    args: CopyJobTemplateCommandInput,
+    cb: (err: any, data?: CopyJobTemplateCommandOutput) => void
+  ): void;
   copyJobTemplate(
     args: CopyJobTemplateCommandInput,
     options: __HttpHandlerOptions,
@@ -713,8 +716,14 @@ export interface Deadline {
   /**
    * @see {@link CreateBudgetCommand}
    */
-  createBudget(args: CreateBudgetCommandInput, options?: __HttpHandlerOptions): Promise<CreateBudgetCommandOutput>;
-  createBudget(args: CreateBudgetCommandInput, cb: (err: any, data?: CreateBudgetCommandOutput) => void): void;
+  createBudget(
+    args: CreateBudgetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBudgetCommandOutput>;
+  createBudget(
+    args: CreateBudgetCommandInput,
+    cb: (err: any, data?: CreateBudgetCommandOutput) => void
+  ): void;
   createBudget(
     args: CreateBudgetCommandInput,
     options: __HttpHandlerOptions,
@@ -724,8 +733,14 @@ export interface Deadline {
   /**
    * @see {@link CreateFarmCommand}
    */
-  createFarm(args: CreateFarmCommandInput, options?: __HttpHandlerOptions): Promise<CreateFarmCommandOutput>;
-  createFarm(args: CreateFarmCommandInput, cb: (err: any, data?: CreateFarmCommandOutput) => void): void;
+  createFarm(
+    args: CreateFarmCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFarmCommandOutput>;
+  createFarm(
+    args: CreateFarmCommandInput,
+    cb: (err: any, data?: CreateFarmCommandOutput) => void
+  ): void;
   createFarm(
     args: CreateFarmCommandInput,
     options: __HttpHandlerOptions,
@@ -735,8 +750,14 @@ export interface Deadline {
   /**
    * @see {@link CreateFleetCommand}
    */
-  createFleet(args: CreateFleetCommandInput, options?: __HttpHandlerOptions): Promise<CreateFleetCommandOutput>;
-  createFleet(args: CreateFleetCommandInput, cb: (err: any, data?: CreateFleetCommandOutput) => void): void;
+  createFleet(
+    args: CreateFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFleetCommandOutput>;
+  createFleet(
+    args: CreateFleetCommandInput,
+    cb: (err: any, data?: CreateFleetCommandOutput) => void
+  ): void;
   createFleet(
     args: CreateFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -746,8 +767,14 @@ export interface Deadline {
   /**
    * @see {@link CreateJobCommand}
    */
-  createJob(args: CreateJobCommandInput, options?: __HttpHandlerOptions): Promise<CreateJobCommandOutput>;
-  createJob(args: CreateJobCommandInput, cb: (err: any, data?: CreateJobCommandOutput) => void): void;
+  createJob(
+    args: CreateJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateJobCommandOutput>;
+  createJob(
+    args: CreateJobCommandInput,
+    cb: (err: any, data?: CreateJobCommandOutput) => void
+  ): void;
   createJob(
     args: CreateJobCommandInput,
     options: __HttpHandlerOptions,
@@ -774,8 +801,14 @@ export interface Deadline {
   /**
    * @see {@link CreateLimitCommand}
    */
-  createLimit(args: CreateLimitCommandInput, options?: __HttpHandlerOptions): Promise<CreateLimitCommandOutput>;
-  createLimit(args: CreateLimitCommandInput, cb: (err: any, data?: CreateLimitCommandOutput) => void): void;
+  createLimit(
+    args: CreateLimitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLimitCommandOutput>;
+  createLimit(
+    args: CreateLimitCommandInput,
+    cb: (err: any, data?: CreateLimitCommandOutput) => void
+  ): void;
   createLimit(
     args: CreateLimitCommandInput,
     options: __HttpHandlerOptions,
@@ -785,8 +818,14 @@ export interface Deadline {
   /**
    * @see {@link CreateMonitorCommand}
    */
-  createMonitor(args: CreateMonitorCommandInput, options?: __HttpHandlerOptions): Promise<CreateMonitorCommandOutput>;
-  createMonitor(args: CreateMonitorCommandInput, cb: (err: any, data?: CreateMonitorCommandOutput) => void): void;
+  createMonitor(
+    args: CreateMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMonitorCommandOutput>;
+  createMonitor(
+    args: CreateMonitorCommandInput,
+    cb: (err: any, data?: CreateMonitorCommandOutput) => void
+  ): void;
   createMonitor(
     args: CreateMonitorCommandInput,
     options: __HttpHandlerOptions,
@@ -796,8 +835,14 @@ export interface Deadline {
   /**
    * @see {@link CreateQueueCommand}
    */
-  createQueue(args: CreateQueueCommandInput, options?: __HttpHandlerOptions): Promise<CreateQueueCommandOutput>;
-  createQueue(args: CreateQueueCommandInput, cb: (err: any, data?: CreateQueueCommandOutput) => void): void;
+  createQueue(
+    args: CreateQueueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateQueueCommandOutput>;
+  createQueue(
+    args: CreateQueueCommandInput,
+    cb: (err: any, data?: CreateQueueCommandOutput) => void
+  ): void;
   createQueue(
     args: CreateQueueCommandInput,
     options: __HttpHandlerOptions,
@@ -875,8 +920,14 @@ export interface Deadline {
   /**
    * @see {@link CreateWorkerCommand}
    */
-  createWorker(args: CreateWorkerCommandInput, options?: __HttpHandlerOptions): Promise<CreateWorkerCommandOutput>;
-  createWorker(args: CreateWorkerCommandInput, cb: (err: any, data?: CreateWorkerCommandOutput) => void): void;
+  createWorker(
+    args: CreateWorkerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWorkerCommandOutput>;
+  createWorker(
+    args: CreateWorkerCommandInput,
+    cb: (err: any, data?: CreateWorkerCommandOutput) => void
+  ): void;
   createWorker(
     args: CreateWorkerCommandInput,
     options: __HttpHandlerOptions,
@@ -886,8 +937,14 @@ export interface Deadline {
   /**
    * @see {@link DeleteBudgetCommand}
    */
-  deleteBudget(args: DeleteBudgetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBudgetCommandOutput>;
-  deleteBudget(args: DeleteBudgetCommandInput, cb: (err: any, data?: DeleteBudgetCommandOutput) => void): void;
+  deleteBudget(
+    args: DeleteBudgetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBudgetCommandOutput>;
+  deleteBudget(
+    args: DeleteBudgetCommandInput,
+    cb: (err: any, data?: DeleteBudgetCommandOutput) => void
+  ): void;
   deleteBudget(
     args: DeleteBudgetCommandInput,
     options: __HttpHandlerOptions,
@@ -897,8 +954,14 @@ export interface Deadline {
   /**
    * @see {@link DeleteFarmCommand}
    */
-  deleteFarm(args: DeleteFarmCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFarmCommandOutput>;
-  deleteFarm(args: DeleteFarmCommandInput, cb: (err: any, data?: DeleteFarmCommandOutput) => void): void;
+  deleteFarm(
+    args: DeleteFarmCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFarmCommandOutput>;
+  deleteFarm(
+    args: DeleteFarmCommandInput,
+    cb: (err: any, data?: DeleteFarmCommandOutput) => void
+  ): void;
   deleteFarm(
     args: DeleteFarmCommandInput,
     options: __HttpHandlerOptions,
@@ -908,8 +971,14 @@ export interface Deadline {
   /**
    * @see {@link DeleteFleetCommand}
    */
-  deleteFleet(args: DeleteFleetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFleetCommandOutput>;
-  deleteFleet(args: DeleteFleetCommandInput, cb: (err: any, data?: DeleteFleetCommandOutput) => void): void;
+  deleteFleet(
+    args: DeleteFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFleetCommandOutput>;
+  deleteFleet(
+    args: DeleteFleetCommandInput,
+    cb: (err: any, data?: DeleteFleetCommandOutput) => void
+  ): void;
   deleteFleet(
     args: DeleteFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -936,8 +1005,14 @@ export interface Deadline {
   /**
    * @see {@link DeleteLimitCommand}
    */
-  deleteLimit(args: DeleteLimitCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLimitCommandOutput>;
-  deleteLimit(args: DeleteLimitCommandInput, cb: (err: any, data?: DeleteLimitCommandOutput) => void): void;
+  deleteLimit(
+    args: DeleteLimitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLimitCommandOutput>;
+  deleteLimit(
+    args: DeleteLimitCommandInput,
+    cb: (err: any, data?: DeleteLimitCommandOutput) => void
+  ): void;
   deleteLimit(
     args: DeleteLimitCommandInput,
     options: __HttpHandlerOptions,
@@ -964,8 +1039,14 @@ export interface Deadline {
   /**
    * @see {@link DeleteMonitorCommand}
    */
-  deleteMonitor(args: DeleteMonitorCommandInput, options?: __HttpHandlerOptions): Promise<DeleteMonitorCommandOutput>;
-  deleteMonitor(args: DeleteMonitorCommandInput, cb: (err: any, data?: DeleteMonitorCommandOutput) => void): void;
+  deleteMonitor(
+    args: DeleteMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMonitorCommandOutput>;
+  deleteMonitor(
+    args: DeleteMonitorCommandInput,
+    cb: (err: any, data?: DeleteMonitorCommandOutput) => void
+  ): void;
   deleteMonitor(
     args: DeleteMonitorCommandInput,
     options: __HttpHandlerOptions,
@@ -975,8 +1056,14 @@ export interface Deadline {
   /**
    * @see {@link DeleteQueueCommand}
    */
-  deleteQueue(args: DeleteQueueCommandInput, options?: __HttpHandlerOptions): Promise<DeleteQueueCommandOutput>;
-  deleteQueue(args: DeleteQueueCommandInput, cb: (err: any, data?: DeleteQueueCommandOutput) => void): void;
+  deleteQueue(
+    args: DeleteQueueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteQueueCommandOutput>;
+  deleteQueue(
+    args: DeleteQueueCommandInput,
+    cb: (err: any, data?: DeleteQueueCommandOutput) => void
+  ): void;
   deleteQueue(
     args: DeleteQueueCommandInput,
     options: __HttpHandlerOptions,
@@ -1054,8 +1141,14 @@ export interface Deadline {
   /**
    * @see {@link DeleteWorkerCommand}
    */
-  deleteWorker(args: DeleteWorkerCommandInput, options?: __HttpHandlerOptions): Promise<DeleteWorkerCommandOutput>;
-  deleteWorker(args: DeleteWorkerCommandInput, cb: (err: any, data?: DeleteWorkerCommandOutput) => void): void;
+  deleteWorker(
+    args: DeleteWorkerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWorkerCommandOutput>;
+  deleteWorker(
+    args: DeleteWorkerCommandInput,
+    cb: (err: any, data?: DeleteWorkerCommandOutput) => void
+  ): void;
   deleteWorker(
     args: DeleteWorkerCommandInput,
     options: __HttpHandlerOptions,
@@ -1133,8 +1226,14 @@ export interface Deadline {
   /**
    * @see {@link GetBudgetCommand}
    */
-  getBudget(args: GetBudgetCommandInput, options?: __HttpHandlerOptions): Promise<GetBudgetCommandOutput>;
-  getBudget(args: GetBudgetCommandInput, cb: (err: any, data?: GetBudgetCommandOutput) => void): void;
+  getBudget(
+    args: GetBudgetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBudgetCommandOutput>;
+  getBudget(
+    args: GetBudgetCommandInput,
+    cb: (err: any, data?: GetBudgetCommandOutput) => void
+  ): void;
   getBudget(
     args: GetBudgetCommandInput,
     options: __HttpHandlerOptions,
@@ -1144,8 +1243,14 @@ export interface Deadline {
   /**
    * @see {@link GetFarmCommand}
    */
-  getFarm(args: GetFarmCommandInput, options?: __HttpHandlerOptions): Promise<GetFarmCommandOutput>;
-  getFarm(args: GetFarmCommandInput, cb: (err: any, data?: GetFarmCommandOutput) => void): void;
+  getFarm(
+    args: GetFarmCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFarmCommandOutput>;
+  getFarm(
+    args: GetFarmCommandInput,
+    cb: (err: any, data?: GetFarmCommandOutput) => void
+  ): void;
   getFarm(
     args: GetFarmCommandInput,
     options: __HttpHandlerOptions,
@@ -1155,8 +1260,14 @@ export interface Deadline {
   /**
    * @see {@link GetFleetCommand}
    */
-  getFleet(args: GetFleetCommandInput, options?: __HttpHandlerOptions): Promise<GetFleetCommandOutput>;
-  getFleet(args: GetFleetCommandInput, cb: (err: any, data?: GetFleetCommandOutput) => void): void;
+  getFleet(
+    args: GetFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFleetCommandOutput>;
+  getFleet(
+    args: GetFleetCommandInput,
+    cb: (err: any, data?: GetFleetCommandOutput) => void
+  ): void;
   getFleet(
     args: GetFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -1166,8 +1277,14 @@ export interface Deadline {
   /**
    * @see {@link GetJobCommand}
    */
-  getJob(args: GetJobCommandInput, options?: __HttpHandlerOptions): Promise<GetJobCommandOutput>;
-  getJob(args: GetJobCommandInput, cb: (err: any, data?: GetJobCommandOutput) => void): void;
+  getJob(
+    args: GetJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetJobCommandOutput>;
+  getJob(
+    args: GetJobCommandInput,
+    cb: (err: any, data?: GetJobCommandOutput) => void
+  ): void;
   getJob(
     args: GetJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1194,8 +1311,14 @@ export interface Deadline {
   /**
    * @see {@link GetLimitCommand}
    */
-  getLimit(args: GetLimitCommandInput, options?: __HttpHandlerOptions): Promise<GetLimitCommandOutput>;
-  getLimit(args: GetLimitCommandInput, cb: (err: any, data?: GetLimitCommandOutput) => void): void;
+  getLimit(
+    args: GetLimitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLimitCommandOutput>;
+  getLimit(
+    args: GetLimitCommandInput,
+    cb: (err: any, data?: GetLimitCommandOutput) => void
+  ): void;
   getLimit(
     args: GetLimitCommandInput,
     options: __HttpHandlerOptions,
@@ -1205,8 +1328,14 @@ export interface Deadline {
   /**
    * @see {@link GetMonitorCommand}
    */
-  getMonitor(args: GetMonitorCommandInput, options?: __HttpHandlerOptions): Promise<GetMonitorCommandOutput>;
-  getMonitor(args: GetMonitorCommandInput, cb: (err: any, data?: GetMonitorCommandOutput) => void): void;
+  getMonitor(
+    args: GetMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMonitorCommandOutput>;
+  getMonitor(
+    args: GetMonitorCommandInput,
+    cb: (err: any, data?: GetMonitorCommandOutput) => void
+  ): void;
   getMonitor(
     args: GetMonitorCommandInput,
     options: __HttpHandlerOptions,
@@ -1216,8 +1345,14 @@ export interface Deadline {
   /**
    * @see {@link GetQueueCommand}
    */
-  getQueue(args: GetQueueCommandInput, options?: __HttpHandlerOptions): Promise<GetQueueCommandOutput>;
-  getQueue(args: GetQueueCommandInput, cb: (err: any, data?: GetQueueCommandOutput) => void): void;
+  getQueue(
+    args: GetQueueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQueueCommandOutput>;
+  getQueue(
+    args: GetQueueCommandInput,
+    cb: (err: any, data?: GetQueueCommandOutput) => void
+  ): void;
   getQueue(
     args: GetQueueCommandInput,
     options: __HttpHandlerOptions,
@@ -1278,8 +1413,14 @@ export interface Deadline {
   /**
    * @see {@link GetSessionCommand}
    */
-  getSession(args: GetSessionCommandInput, options?: __HttpHandlerOptions): Promise<GetSessionCommandOutput>;
-  getSession(args: GetSessionCommandInput, cb: (err: any, data?: GetSessionCommandOutput) => void): void;
+  getSession(
+    args: GetSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSessionCommandOutput>;
+  getSession(
+    args: GetSessionCommandInput,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
   getSession(
     args: GetSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -1323,8 +1464,14 @@ export interface Deadline {
   /**
    * @see {@link GetStepCommand}
    */
-  getStep(args: GetStepCommandInput, options?: __HttpHandlerOptions): Promise<GetStepCommandOutput>;
-  getStep(args: GetStepCommandInput, cb: (err: any, data?: GetStepCommandOutput) => void): void;
+  getStep(
+    args: GetStepCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStepCommandOutput>;
+  getStep(
+    args: GetStepCommandInput,
+    cb: (err: any, data?: GetStepCommandOutput) => void
+  ): void;
   getStep(
     args: GetStepCommandInput,
     options: __HttpHandlerOptions,
@@ -1368,8 +1515,14 @@ export interface Deadline {
   /**
    * @see {@link GetTaskCommand}
    */
-  getTask(args: GetTaskCommandInput, options?: __HttpHandlerOptions): Promise<GetTaskCommandOutput>;
-  getTask(args: GetTaskCommandInput, cb: (err: any, data?: GetTaskCommandOutput) => void): void;
+  getTask(
+    args: GetTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTaskCommandOutput>;
+  getTask(
+    args: GetTaskCommandInput,
+    cb: (err: any, data?: GetTaskCommandOutput) => void
+  ): void;
   getTask(
     args: GetTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -1379,8 +1532,14 @@ export interface Deadline {
   /**
    * @see {@link GetWorkerCommand}
    */
-  getWorker(args: GetWorkerCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkerCommandOutput>;
-  getWorker(args: GetWorkerCommandInput, cb: (err: any, data?: GetWorkerCommandOutput) => void): void;
+  getWorker(
+    args: GetWorkerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWorkerCommandOutput>;
+  getWorker(
+    args: GetWorkerCommandInput,
+    cb: (err: any, data?: GetWorkerCommandOutput) => void
+  ): void;
   getWorker(
     args: GetWorkerCommandInput,
     options: __HttpHandlerOptions,
@@ -1408,8 +1567,14 @@ export interface Deadline {
   /**
    * @see {@link ListBudgetsCommand}
    */
-  listBudgets(args: ListBudgetsCommandInput, options?: __HttpHandlerOptions): Promise<ListBudgetsCommandOutput>;
-  listBudgets(args: ListBudgetsCommandInput, cb: (err: any, data?: ListBudgetsCommandOutput) => void): void;
+  listBudgets(
+    args: ListBudgetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBudgetsCommandOutput>;
+  listBudgets(
+    args: ListBudgetsCommandInput,
+    cb: (err: any, data?: ListBudgetsCommandOutput) => void
+  ): void;
   listBudgets(
     args: ListBudgetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1423,7 +1588,10 @@ export interface Deadline {
     args: ListFarmMembersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListFarmMembersCommandOutput>;
-  listFarmMembers(args: ListFarmMembersCommandInput, cb: (err: any, data?: ListFarmMembersCommandOutput) => void): void;
+  listFarmMembers(
+    args: ListFarmMembersCommandInput,
+    cb: (err: any, data?: ListFarmMembersCommandOutput) => void
+  ): void;
   listFarmMembers(
     args: ListFarmMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -1434,8 +1602,14 @@ export interface Deadline {
    * @see {@link ListFarmsCommand}
    */
   listFarms(): Promise<ListFarmsCommandOutput>;
-  listFarms(args: ListFarmsCommandInput, options?: __HttpHandlerOptions): Promise<ListFarmsCommandOutput>;
-  listFarms(args: ListFarmsCommandInput, cb: (err: any, data?: ListFarmsCommandOutput) => void): void;
+  listFarms(
+    args: ListFarmsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFarmsCommandOutput>;
+  listFarms(
+    args: ListFarmsCommandInput,
+    cb: (err: any, data?: ListFarmsCommandOutput) => void
+  ): void;
   listFarms(
     args: ListFarmsCommandInput,
     options: __HttpHandlerOptions,
@@ -1462,8 +1636,14 @@ export interface Deadline {
   /**
    * @see {@link ListFleetsCommand}
    */
-  listFleets(args: ListFleetsCommandInput, options?: __HttpHandlerOptions): Promise<ListFleetsCommandOutput>;
-  listFleets(args: ListFleetsCommandInput, cb: (err: any, data?: ListFleetsCommandOutput) => void): void;
+  listFleets(
+    args: ListFleetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFleetsCommandOutput>;
+  listFleets(
+    args: ListFleetsCommandInput,
+    cb: (err: any, data?: ListFleetsCommandOutput) => void
+  ): void;
   listFleets(
     args: ListFleetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1477,7 +1657,10 @@ export interface Deadline {
     args: ListJobMembersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListJobMembersCommandOutput>;
-  listJobMembers(args: ListJobMembersCommandInput, cb: (err: any, data?: ListJobMembersCommandOutput) => void): void;
+  listJobMembers(
+    args: ListJobMembersCommandInput,
+    cb: (err: any, data?: ListJobMembersCommandOutput) => void
+  ): void;
   listJobMembers(
     args: ListJobMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -1504,8 +1687,14 @@ export interface Deadline {
   /**
    * @see {@link ListJobsCommand}
    */
-  listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
-  listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
+  listJobs(
+    args: ListJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobsCommandOutput>;
+  listJobs(
+    args: ListJobsCommandInput,
+    cb: (err: any, data?: ListJobsCommandOutput) => void
+  ): void;
   listJobs(
     args: ListJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -1533,8 +1722,14 @@ export interface Deadline {
   /**
    * @see {@link ListLimitsCommand}
    */
-  listLimits(args: ListLimitsCommandInput, options?: __HttpHandlerOptions): Promise<ListLimitsCommandOutput>;
-  listLimits(args: ListLimitsCommandInput, cb: (err: any, data?: ListLimitsCommandOutput) => void): void;
+  listLimits(
+    args: ListLimitsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLimitsCommandOutput>;
+  listLimits(
+    args: ListLimitsCommandInput,
+    cb: (err: any, data?: ListLimitsCommandOutput) => void
+  ): void;
   listLimits(
     args: ListLimitsCommandInput,
     options: __HttpHandlerOptions,
@@ -1562,8 +1757,14 @@ export interface Deadline {
    * @see {@link ListMonitorsCommand}
    */
   listMonitors(): Promise<ListMonitorsCommandOutput>;
-  listMonitors(args: ListMonitorsCommandInput, options?: __HttpHandlerOptions): Promise<ListMonitorsCommandOutput>;
-  listMonitors(args: ListMonitorsCommandInput, cb: (err: any, data?: ListMonitorsCommandOutput) => void): void;
+  listMonitors(
+    args: ListMonitorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMonitorsCommandOutput>;
+  listMonitors(
+    args: ListMonitorsCommandInput,
+    cb: (err: any, data?: ListMonitorsCommandOutput) => void
+  ): void;
   listMonitors(
     args: ListMonitorsCommandInput,
     options: __HttpHandlerOptions,
@@ -1641,8 +1842,14 @@ export interface Deadline {
   /**
    * @see {@link ListQueuesCommand}
    */
-  listQueues(args: ListQueuesCommandInput, options?: __HttpHandlerOptions): Promise<ListQueuesCommandOutput>;
-  listQueues(args: ListQueuesCommandInput, cb: (err: any, data?: ListQueuesCommandOutput) => void): void;
+  listQueues(
+    args: ListQueuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListQueuesCommandOutput>;
+  listQueues(
+    args: ListQueuesCommandInput,
+    cb: (err: any, data?: ListQueuesCommandOutput) => void
+  ): void;
   listQueues(
     args: ListQueuesCommandInput,
     options: __HttpHandlerOptions,
@@ -1669,8 +1876,14 @@ export interface Deadline {
   /**
    * @see {@link ListSessionsCommand}
    */
-  listSessions(args: ListSessionsCommandInput, options?: __HttpHandlerOptions): Promise<ListSessionsCommandOutput>;
-  listSessions(args: ListSessionsCommandInput, cb: (err: any, data?: ListSessionsCommandOutput) => void): void;
+  listSessions(
+    args: ListSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSessionsCommandOutput>;
+  listSessions(
+    args: ListSessionsCommandInput,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
+  ): void;
   listSessions(
     args: ListSessionsCommandInput,
     options: __HttpHandlerOptions,
@@ -1731,8 +1944,14 @@ export interface Deadline {
   /**
    * @see {@link ListStepsCommand}
    */
-  listSteps(args: ListStepsCommandInput, options?: __HttpHandlerOptions): Promise<ListStepsCommandOutput>;
-  listSteps(args: ListStepsCommandInput, cb: (err: any, data?: ListStepsCommandOutput) => void): void;
+  listSteps(
+    args: ListStepsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStepsCommandOutput>;
+  listSteps(
+    args: ListStepsCommandInput,
+    cb: (err: any, data?: ListStepsCommandOutput) => void
+  ): void;
   listSteps(
     args: ListStepsCommandInput,
     options: __HttpHandlerOptions,
@@ -1793,8 +2012,14 @@ export interface Deadline {
   /**
    * @see {@link ListTasksCommand}
    */
-  listTasks(args: ListTasksCommandInput, options?: __HttpHandlerOptions): Promise<ListTasksCommandOutput>;
-  listTasks(args: ListTasksCommandInput, cb: (err: any, data?: ListTasksCommandOutput) => void): void;
+  listTasks(
+    args: ListTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTasksCommandOutput>;
+  listTasks(
+    args: ListTasksCommandInput,
+    cb: (err: any, data?: ListTasksCommandOutput) => void
+  ): void;
   listTasks(
     args: ListTasksCommandInput,
     options: __HttpHandlerOptions,
@@ -1804,8 +2029,14 @@ export interface Deadline {
   /**
    * @see {@link ListWorkersCommand}
    */
-  listWorkers(args: ListWorkersCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkersCommandOutput>;
-  listWorkers(args: ListWorkersCommandInput, cb: (err: any, data?: ListWorkersCommandOutput) => void): void;
+  listWorkers(
+    args: ListWorkersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkersCommandOutput>;
+  listWorkers(
+    args: ListWorkersCommandInput,
+    cb: (err: any, data?: ListWorkersCommandOutput) => void
+  ): void;
   listWorkers(
     args: ListWorkersCommandInput,
     options: __HttpHandlerOptions,
@@ -1832,8 +2063,14 @@ export interface Deadline {
   /**
    * @see {@link SearchJobsCommand}
    */
-  searchJobs(args: SearchJobsCommandInput, options?: __HttpHandlerOptions): Promise<SearchJobsCommandOutput>;
-  searchJobs(args: SearchJobsCommandInput, cb: (err: any, data?: SearchJobsCommandOutput) => void): void;
+  searchJobs(
+    args: SearchJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchJobsCommandOutput>;
+  searchJobs(
+    args: SearchJobsCommandInput,
+    cb: (err: any, data?: SearchJobsCommandOutput) => void
+  ): void;
   searchJobs(
     args: SearchJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -1843,8 +2080,14 @@ export interface Deadline {
   /**
    * @see {@link SearchStepsCommand}
    */
-  searchSteps(args: SearchStepsCommandInput, options?: __HttpHandlerOptions): Promise<SearchStepsCommandOutput>;
-  searchSteps(args: SearchStepsCommandInput, cb: (err: any, data?: SearchStepsCommandOutput) => void): void;
+  searchSteps(
+    args: SearchStepsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchStepsCommandOutput>;
+  searchSteps(
+    args: SearchStepsCommandInput,
+    cb: (err: any, data?: SearchStepsCommandOutput) => void
+  ): void;
   searchSteps(
     args: SearchStepsCommandInput,
     options: __HttpHandlerOptions,
@@ -1854,8 +2097,14 @@ export interface Deadline {
   /**
    * @see {@link SearchTasksCommand}
    */
-  searchTasks(args: SearchTasksCommandInput, options?: __HttpHandlerOptions): Promise<SearchTasksCommandOutput>;
-  searchTasks(args: SearchTasksCommandInput, cb: (err: any, data?: SearchTasksCommandOutput) => void): void;
+  searchTasks(
+    args: SearchTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchTasksCommandOutput>;
+  searchTasks(
+    args: SearchTasksCommandInput,
+    cb: (err: any, data?: SearchTasksCommandOutput) => void
+  ): void;
   searchTasks(
     args: SearchTasksCommandInput,
     options: __HttpHandlerOptions,
@@ -1865,8 +2114,14 @@ export interface Deadline {
   /**
    * @see {@link SearchWorkersCommand}
    */
-  searchWorkers(args: SearchWorkersCommandInput, options?: __HttpHandlerOptions): Promise<SearchWorkersCommandOutput>;
-  searchWorkers(args: SearchWorkersCommandInput, cb: (err: any, data?: SearchWorkersCommandOutput) => void): void;
+  searchWorkers(
+    args: SearchWorkersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchWorkersCommandOutput>;
+  searchWorkers(
+    args: SearchWorkersCommandInput,
+    cb: (err: any, data?: SearchWorkersCommandOutput) => void
+  ): void;
   searchWorkers(
     args: SearchWorkersCommandInput,
     options: __HttpHandlerOptions,
@@ -1893,8 +2148,14 @@ export interface Deadline {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1904,8 +2165,14 @@ export interface Deadline {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1915,8 +2182,14 @@ export interface Deadline {
   /**
    * @see {@link UpdateBudgetCommand}
    */
-  updateBudget(args: UpdateBudgetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateBudgetCommandOutput>;
-  updateBudget(args: UpdateBudgetCommandInput, cb: (err: any, data?: UpdateBudgetCommandOutput) => void): void;
+  updateBudget(
+    args: UpdateBudgetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBudgetCommandOutput>;
+  updateBudget(
+    args: UpdateBudgetCommandInput,
+    cb: (err: any, data?: UpdateBudgetCommandOutput) => void
+  ): void;
   updateBudget(
     args: UpdateBudgetCommandInput,
     options: __HttpHandlerOptions,
@@ -1926,8 +2199,14 @@ export interface Deadline {
   /**
    * @see {@link UpdateFarmCommand}
    */
-  updateFarm(args: UpdateFarmCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFarmCommandOutput>;
-  updateFarm(args: UpdateFarmCommandInput, cb: (err: any, data?: UpdateFarmCommandOutput) => void): void;
+  updateFarm(
+    args: UpdateFarmCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFarmCommandOutput>;
+  updateFarm(
+    args: UpdateFarmCommandInput,
+    cb: (err: any, data?: UpdateFarmCommandOutput) => void
+  ): void;
   updateFarm(
     args: UpdateFarmCommandInput,
     options: __HttpHandlerOptions,
@@ -1937,8 +2216,14 @@ export interface Deadline {
   /**
    * @see {@link UpdateFleetCommand}
    */
-  updateFleet(args: UpdateFleetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFleetCommandOutput>;
-  updateFleet(args: UpdateFleetCommandInput, cb: (err: any, data?: UpdateFleetCommandOutput) => void): void;
+  updateFleet(
+    args: UpdateFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFleetCommandOutput>;
+  updateFleet(
+    args: UpdateFleetCommandInput,
+    cb: (err: any, data?: UpdateFleetCommandOutput) => void
+  ): void;
   updateFleet(
     args: UpdateFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -1948,8 +2233,14 @@ export interface Deadline {
   /**
    * @see {@link UpdateJobCommand}
    */
-  updateJob(args: UpdateJobCommandInput, options?: __HttpHandlerOptions): Promise<UpdateJobCommandOutput>;
-  updateJob(args: UpdateJobCommandInput, cb: (err: any, data?: UpdateJobCommandOutput) => void): void;
+  updateJob(
+    args: UpdateJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateJobCommandOutput>;
+  updateJob(
+    args: UpdateJobCommandInput,
+    cb: (err: any, data?: UpdateJobCommandOutput) => void
+  ): void;
   updateJob(
     args: UpdateJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1959,8 +2250,14 @@ export interface Deadline {
   /**
    * @see {@link UpdateLimitCommand}
    */
-  updateLimit(args: UpdateLimitCommandInput, options?: __HttpHandlerOptions): Promise<UpdateLimitCommandOutput>;
-  updateLimit(args: UpdateLimitCommandInput, cb: (err: any, data?: UpdateLimitCommandOutput) => void): void;
+  updateLimit(
+    args: UpdateLimitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLimitCommandOutput>;
+  updateLimit(
+    args: UpdateLimitCommandInput,
+    cb: (err: any, data?: UpdateLimitCommandOutput) => void
+  ): void;
   updateLimit(
     args: UpdateLimitCommandInput,
     options: __HttpHandlerOptions,
@@ -1970,8 +2267,14 @@ export interface Deadline {
   /**
    * @see {@link UpdateMonitorCommand}
    */
-  updateMonitor(args: UpdateMonitorCommandInput, options?: __HttpHandlerOptions): Promise<UpdateMonitorCommandOutput>;
-  updateMonitor(args: UpdateMonitorCommandInput, cb: (err: any, data?: UpdateMonitorCommandOutput) => void): void;
+  updateMonitor(
+    args: UpdateMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMonitorCommandOutput>;
+  updateMonitor(
+    args: UpdateMonitorCommandInput,
+    cb: (err: any, data?: UpdateMonitorCommandOutput) => void
+  ): void;
   updateMonitor(
     args: UpdateMonitorCommandInput,
     options: __HttpHandlerOptions,
@@ -1981,8 +2284,14 @@ export interface Deadline {
   /**
    * @see {@link UpdateQueueCommand}
    */
-  updateQueue(args: UpdateQueueCommandInput, options?: __HttpHandlerOptions): Promise<UpdateQueueCommandOutput>;
-  updateQueue(args: UpdateQueueCommandInput, cb: (err: any, data?: UpdateQueueCommandOutput) => void): void;
+  updateQueue(
+    args: UpdateQueueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQueueCommandOutput>;
+  updateQueue(
+    args: UpdateQueueCommandInput,
+    cb: (err: any, data?: UpdateQueueCommandOutput) => void
+  ): void;
   updateQueue(
     args: UpdateQueueCommandInput,
     options: __HttpHandlerOptions,
@@ -2043,8 +2352,14 @@ export interface Deadline {
   /**
    * @see {@link UpdateSessionCommand}
    */
-  updateSession(args: UpdateSessionCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSessionCommandOutput>;
-  updateSession(args: UpdateSessionCommandInput, cb: (err: any, data?: UpdateSessionCommandOutput) => void): void;
+  updateSession(
+    args: UpdateSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSessionCommandOutput>;
+  updateSession(
+    args: UpdateSessionCommandInput,
+    cb: (err: any, data?: UpdateSessionCommandOutput) => void
+  ): void;
   updateSession(
     args: UpdateSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -2054,8 +2369,14 @@ export interface Deadline {
   /**
    * @see {@link UpdateStepCommand}
    */
-  updateStep(args: UpdateStepCommandInput, options?: __HttpHandlerOptions): Promise<UpdateStepCommandOutput>;
-  updateStep(args: UpdateStepCommandInput, cb: (err: any, data?: UpdateStepCommandOutput) => void): void;
+  updateStep(
+    args: UpdateStepCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateStepCommandOutput>;
+  updateStep(
+    args: UpdateStepCommandInput,
+    cb: (err: any, data?: UpdateStepCommandOutput) => void
+  ): void;
   updateStep(
     args: UpdateStepCommandInput,
     options: __HttpHandlerOptions,
@@ -2082,8 +2403,14 @@ export interface Deadline {
   /**
    * @see {@link UpdateTaskCommand}
    */
-  updateTask(args: UpdateTaskCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTaskCommandOutput>;
-  updateTask(args: UpdateTaskCommandInput, cb: (err: any, data?: UpdateTaskCommandOutput) => void): void;
+  updateTask(
+    args: UpdateTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTaskCommandOutput>;
+  updateTask(
+    args: UpdateTaskCommandInput,
+    cb: (err: any, data?: UpdateTaskCommandOutput) => void
+  ): void;
   updateTask(
     args: UpdateTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -2093,8 +2420,14 @@ export interface Deadline {
   /**
    * @see {@link UpdateWorkerCommand}
    */
-  updateWorker(args: UpdateWorkerCommandInput, options?: __HttpHandlerOptions): Promise<UpdateWorkerCommandOutput>;
-  updateWorker(args: UpdateWorkerCommandInput, cb: (err: any, data?: UpdateWorkerCommandOutput) => void): void;
+  updateWorker(
+    args: UpdateWorkerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWorkerCommandOutput>;
+  updateWorker(
+    args: UpdateWorkerCommandInput,
+    cb: (err: any, data?: UpdateWorkerCommandOutput) => void
+  ): void;
   updateWorker(
     args: UpdateWorkerCommandInput,
     options: __HttpHandlerOptions,

@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeChannelModeratedByAppInstanceUserCommand}.
  */
-export interface DescribeChannelModeratedByAppInstanceUserCommandInput
-  extends DescribeChannelModeratedByAppInstanceUserRequest {}
+export interface DescribeChannelModeratedByAppInstanceUserCommandInput extends DescribeChannelModeratedByAppInstanceUserRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeChannelModeratedByAppInstanceUserCommand}.
  */
-export interface DescribeChannelModeratedByAppInstanceUserCommandOutput
-  extends DescribeChannelModeratedByAppInstanceUserResponse,
-    __MetadataBearer {}
+export interface DescribeChannelModeratedByAppInstanceUserCommandOutput extends DescribeChannelModeratedByAppInstanceUserResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the full details of a channel moderated by the specified

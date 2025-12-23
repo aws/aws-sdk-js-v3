@@ -9,8 +9,8 @@ import {
   OperationOutput as __OperationOutput,
   OperationSerializer as __OperationSerializer,
   SerializationException as __SerializationException,
-  ServerSerdeContext as __ServerSerdeContext,
   ServerSerdeContext,
+  ServerSerdeContext as __ServerSerdeContext,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
   SmithyFrameworkException as __SmithyFrameworkException,
@@ -30,11 +30,7 @@ import {
 } from "../../protocols/Aws_restJson1";
 import { RestJsonService } from "../RestJsonService";
 
-export type ResponseCodeRequired<Context> = __Operation<
-  ResponseCodeRequiredServerInput,
-  ResponseCodeRequiredServerOutput,
-  Context
->;
+export type ResponseCodeRequired<Context> = __Operation<ResponseCodeRequiredServerInput, ResponseCodeRequiredServerOutput, Context>
 
 export interface ResponseCodeRequiredServerInput {}
 export namespace ResponseCodeRequiredServerInput {
@@ -47,41 +43,33 @@ export interface ResponseCodeRequiredServerOutput extends ResponseCodeRequiredOu
 
 export type ResponseCodeRequiredErrors = never;
 
-export class ResponseCodeRequiredSerializer
-  implements __OperationSerializer<RestJsonService<any>, "ResponseCodeRequired", ResponseCodeRequiredErrors>
-{
+export class ResponseCodeRequiredSerializer implements __OperationSerializer<RestJsonService<any>, "ResponseCodeRequired", ResponseCodeRequiredErrors> {
   serialize = serializeResponseCodeRequiredResponse;
   deserialize = deserializeResponseCodeRequiredRequest;
 
   isOperationError(error: any): error is ResponseCodeRequiredErrors {
     return false;
-  }
+  };
 
   serializeError(error: ResponseCodeRequiredErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     throw error;
   }
+
 }
 
-export const getResponseCodeRequiredHandler = <Context>(
-  operation: __Operation<ResponseCodeRequiredServerInput, ResponseCodeRequiredServerOutput, Context>,
-  customizer: __ValidationCustomizer<"ResponseCodeRequired">
-): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+export const getResponseCodeRequiredHandler = <Context>(operation: __Operation<ResponseCodeRequiredServerInput, ResponseCodeRequiredServerOutput, Context>, customizer: __ValidationCustomizer<"ResponseCodeRequired">): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
   const mux = new httpbinding.HttpBindingMux<"RestJson", "ResponseCodeRequired">([
     new httpbinding.UriSpec<"RestJson", "ResponseCodeRequired">(
-      "GET",
-      [{ type: "path_literal", value: "responseCodeRequired" }],
-      [],
-      { service: "RestJson", operation: "ResponseCodeRequired" }
-    ),
+      'GET',
+      [
+        { type: 'path_literal', value: "responseCodeRequired" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "ResponseCodeRequired" }),
   ]);
-  return new ResponseCodeRequiredHandler(
-    operation,
-    mux,
-    new ResponseCodeRequiredSerializer(),
-    serializeFrameworkException,
-    customizer
-  );
-};
+  return new ResponseCodeRequiredHandler(operation, mux, new ResponseCodeRequiredSerializer(), serializeFrameworkException, customizer);
+}
 
 const serdeContextBase = {
   base64Encoder: toBase64,
@@ -90,7 +78,7 @@ const serdeContextBase = {
   utf8Decoder: fromUtf8,
   streamCollector: streamCollector,
   requestHandler: new NodeHttpHandler(),
-  disableHostPrefix: true,
+  disableHostPrefix: true
 };
 async function handle<S, O extends keyof S & string, Context>(
   request: __HttpRequest,
@@ -105,45 +93,37 @@ async function handle<S, O extends keyof S & string, Context>(
   let input;
   try {
     input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request),
-      ...serdeContextBase,
+      endpoint: () => Promise.resolve(request), ...serdeContextBase
     });
   } catch (error: unknown) {
     if (__isFrameworkException(error)) {
       return serializeFrameworkException(error, serdeContextBase);
-    }
+    };
     return serializeFrameworkException(new __SerializationException(), serdeContextBase);
   }
   try {
-    const validationFailures = validationFn(input);
+    let validationFailures = validationFn(input);
     if (validationFailures && validationFailures.length > 0) {
-      const validationException = validationCustomizer({ operation: operationName }, validationFailures);
+      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
       if (validationException) {
         return serializer.serializeError(validationException, serdeContextBase);
       }
     }
-    const output = await operation(input, context);
+    let output = await operation(input, context);
     return serializer.serialize(output, serdeContextBase);
-  } catch (error: unknown) {
+  } catch(error: unknown) {
     if (serializer.isOperationError(error)) {
       return serializer.serializeError(error, serdeContextBase);
     }
-    console.log("Received an unexpected error", error);
+    console.log('Received an unexpected error', error);
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
 export class ResponseCodeRequiredHandler<Context> implements __ServiceHandler<Context> {
   private readonly operation: __Operation<ResponseCodeRequiredServerInput, ResponseCodeRequiredServerOutput, Context>;
   private readonly mux: __Mux<"RestJson", "ResponseCodeRequired">;
-  private readonly serializer: __OperationSerializer<
-    RestJsonService<Context>,
-    "ResponseCodeRequired",
-    ResponseCodeRequiredErrors
-  >;
-  private readonly serializeFrameworkException: (
-    e: __SmithyFrameworkException,
-    ctx: __ServerSerdeContext
-  ) => Promise<__HttpResponse>;
+  private readonly serializer: __OperationSerializer<RestJsonService<Context>, "ResponseCodeRequired", ResponseCodeRequiredErrors>;
+  private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<"ResponseCodeRequired">;
   /**
    * Construct a ResponseCodeRequired handler.
@@ -170,20 +150,9 @@ export class ResponseCodeRequiredHandler<Context> implements __ServiceHandler<Co
   async handle(request: __HttpRequest, context: Context): Promise<__HttpResponse> {
     const target = this.mux.match(request);
     if (target === undefined) {
-      console.log(
-        "Received a request that did not match aws.protocoltests.restjson#RestJson.ResponseCodeRequired. This indicates a misconfiguration."
-      );
+      console.log('Received a request that did not match aws.protocoltests.restjson#RestJson.ResponseCodeRequired. This indicates a misconfiguration.');
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
-    return handle(
-      request,
-      context,
-      "ResponseCodeRequired",
-      this.serializer,
-      this.operation,
-      this.serializeFrameworkException,
-      ResponseCodeRequiredServerInput.validate,
-      this.validationCustomizer
-    );
+    return handle(request, context, "ResponseCodeRequired", this.serializer, this.operation, this.serializeFrameworkException, ResponseCodeRequiredServerInput.validate, this.validationCustomizer);
   }
 }

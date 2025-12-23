@@ -31,9 +31,7 @@ export interface AssociateBenefitApplicationResourceCommandInput extends Associa
  *
  * The output of {@link AssociateBenefitApplicationResourceCommand}.
  */
-export interface AssociateBenefitApplicationResourceCommandOutput
-  extends AssociateBenefitApplicationResourceOutput,
-    __MetadataBearer {}
+export interface AssociateBenefitApplicationResourceCommandOutput extends AssociateBenefitApplicationResourceOutput, __MetadataBearer {}
 
 /**
  * <p>Links an AWS resource to an existing benefit application for tracking and management purposes.</p>

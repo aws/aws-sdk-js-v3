@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchGetRepositoryScanningConfigurationCommand}.
  */
-export interface BatchGetRepositoryScanningConfigurationCommandInput
-  extends BatchGetRepositoryScanningConfigurationRequest {}
+export interface BatchGetRepositoryScanningConfigurationCommandInput extends BatchGetRepositoryScanningConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link BatchGetRepositoryScanningConfigurationCommand}.
  */
-export interface BatchGetRepositoryScanningConfigurationCommandOutput
-  extends BatchGetRepositoryScanningConfigurationResponse,
-    __MetadataBearer {}
+export interface BatchGetRepositoryScanningConfigurationCommandOutput extends BatchGetRepositoryScanningConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the scanning configuration for one or more repositories.</p>

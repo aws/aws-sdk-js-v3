@@ -31,9 +31,7 @@ export interface UpdateDirectConnectGatewayAttachmentCommandInput extends Update
  *
  * The output of {@link UpdateDirectConnectGatewayAttachmentCommand}.
  */
-export interface UpdateDirectConnectGatewayAttachmentCommandOutput
-  extends UpdateDirectConnectGatewayAttachmentResponse,
-    __MetadataBearer {}
+export interface UpdateDirectConnectGatewayAttachmentCommandOutput extends UpdateDirectConnectGatewayAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the edge locations associated with an Amazon Web Services Direct Connect gateway attachment. </p>

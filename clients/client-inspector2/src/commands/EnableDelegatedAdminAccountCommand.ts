@@ -24,9 +24,7 @@ export interface EnableDelegatedAdminAccountCommandInput extends EnableDelegated
  *
  * The output of {@link EnableDelegatedAdminAccountCommand}.
  */
-export interface EnableDelegatedAdminAccountCommandOutput
-  extends EnableDelegatedAdminAccountResponse,
-    __MetadataBearer {}
+export interface EnableDelegatedAdminAccountCommandOutput extends EnableDelegatedAdminAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Enables the Amazon Inspector delegated administrator for your Organizations organization.</p>

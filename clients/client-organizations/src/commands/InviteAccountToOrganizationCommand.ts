@@ -24,9 +24,7 @@ export interface InviteAccountToOrganizationCommandInput extends InviteAccountTo
  *
  * The output of {@link InviteAccountToOrganizationCommand}.
  */
-export interface InviteAccountToOrganizationCommandOutput
-  extends InviteAccountToOrganizationResponse,
-    __MetadataBearer {}
+export interface InviteAccountToOrganizationCommandOutput extends InviteAccountToOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Sends an invitation to another account to join your organization as a member account.

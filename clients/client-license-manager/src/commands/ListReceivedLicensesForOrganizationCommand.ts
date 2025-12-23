@@ -31,9 +31,7 @@ export interface ListReceivedLicensesForOrganizationCommandInput extends ListRec
  *
  * The output of {@link ListReceivedLicensesForOrganizationCommand}.
  */
-export interface ListReceivedLicensesForOrganizationCommandOutput
-  extends ListReceivedLicensesForOrganizationResponse,
-    __MetadataBearer {}
+export interface ListReceivedLicensesForOrganizationCommandOutput extends ListReceivedLicensesForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the licenses received for all accounts in the organization.</p>

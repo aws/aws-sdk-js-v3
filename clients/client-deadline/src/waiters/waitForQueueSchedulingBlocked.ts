@@ -10,9 +10,9 @@ const checkState = async (client: DeadlineClient, input: GetQueueCommandInput): 
     const result: any = await client.send(new GetQueueCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "SCHEDULING_BLOCKED") {
         return { state: WaiterState.SUCCESS, reason };
       }

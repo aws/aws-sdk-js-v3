@@ -24,9 +24,7 @@ export interface ListModelQualityJobDefinitionsCommandInput extends ListModelQua
  *
  * The output of {@link ListModelQualityJobDefinitionsCommand}.
  */
-export interface ListModelQualityJobDefinitionsCommandOutput
-  extends ListModelQualityJobDefinitionsResponse,
-    __MetadataBearer {}
+export interface ListModelQualityJobDefinitionsCommandOutput extends ListModelQualityJobDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of model quality monitoring job definitions in your account.</p>

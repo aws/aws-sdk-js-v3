@@ -24,9 +24,7 @@ export interface ListResourceComplianceSummariesCommandInput extends ListResourc
  *
  * The output of {@link ListResourceComplianceSummariesCommand}.
  */
-export interface ListResourceComplianceSummariesCommandOutput
-  extends ListResourceComplianceSummariesResult,
-    __MetadataBearer {}
+export interface ListResourceComplianceSummariesCommandOutput extends ListResourceComplianceSummariesResult, __MetadataBearer {}
 
 /**
  * <p>Returns a resource-level summary count. The summary includes information about compliant and

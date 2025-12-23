@@ -24,9 +24,7 @@ export interface DescribeDashboardDefinitionCommandInput extends DescribeDashboa
  *
  * The output of {@link DescribeDashboardDefinitionCommand}.
  */
-export interface DescribeDashboardDefinitionCommandOutput
-  extends DescribeDashboardDefinitionResponse,
-    __MetadataBearer {}
+export interface DescribeDashboardDefinitionCommandOutput extends DescribeDashboardDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a detailed description of the definition of a dashboard.</p>

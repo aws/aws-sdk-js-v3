@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetCollaborationIdNamespaceAssociationCommand}.
  */
-export interface GetCollaborationIdNamespaceAssociationCommandInput
-  extends GetCollaborationIdNamespaceAssociationInput {}
+export interface GetCollaborationIdNamespaceAssociationCommandInput extends GetCollaborationIdNamespaceAssociationInput {}
 /**
  * @public
  *
  * The output of {@link GetCollaborationIdNamespaceAssociationCommand}.
  */
-export interface GetCollaborationIdNamespaceAssociationCommandOutput
-  extends GetCollaborationIdNamespaceAssociationOutput,
-    __MetadataBearer {}
+export interface GetCollaborationIdNamespaceAssociationCommandOutput extends GetCollaborationIdNamespaceAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves an ID namespace association from a specific collaboration.</p>

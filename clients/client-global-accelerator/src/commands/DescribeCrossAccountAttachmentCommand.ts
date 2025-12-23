@@ -28,9 +28,7 @@ export interface DescribeCrossAccountAttachmentCommandInput extends DescribeCros
  *
  * The output of {@link DescribeCrossAccountAttachmentCommand}.
  */
-export interface DescribeCrossAccountAttachmentCommandOutput
-  extends DescribeCrossAccountAttachmentResponse,
-    __MetadataBearer {}
+export interface DescribeCrossAccountAttachmentCommandOutput extends DescribeCrossAccountAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Gets configuration information about a cross-account attachment.</p>

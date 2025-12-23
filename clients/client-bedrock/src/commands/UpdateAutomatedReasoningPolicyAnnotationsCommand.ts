@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateAutomatedReasoningPolicyAnnotationsCommand}.
  */
-export interface UpdateAutomatedReasoningPolicyAnnotationsCommandInput
-  extends UpdateAutomatedReasoningPolicyAnnotationsRequest {}
+export interface UpdateAutomatedReasoningPolicyAnnotationsCommandInput extends UpdateAutomatedReasoningPolicyAnnotationsRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateAutomatedReasoningPolicyAnnotationsCommand}.
  */
-export interface UpdateAutomatedReasoningPolicyAnnotationsCommandOutput
-  extends UpdateAutomatedReasoningPolicyAnnotationsResponse,
-    __MetadataBearer {}
+export interface UpdateAutomatedReasoningPolicyAnnotationsCommandOutput extends UpdateAutomatedReasoningPolicyAnnotationsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the annotations for an Automated Reasoning policy build workflow. This allows you to modify extracted rules, variables, and types before finalizing the policy.</p>

@@ -27,9 +27,7 @@ export interface UpdateFieldLevelEncryptionConfigCommandInput extends UpdateFiel
  *
  * The output of {@link UpdateFieldLevelEncryptionConfigCommand}.
  */
-export interface UpdateFieldLevelEncryptionConfigCommandOutput
-  extends UpdateFieldLevelEncryptionConfigResult,
-    __MetadataBearer {}
+export interface UpdateFieldLevelEncryptionConfigCommandOutput extends UpdateFieldLevelEncryptionConfigResult, __MetadataBearer {}
 
 /**
  * <p>Update a field-level encryption configuration.</p>

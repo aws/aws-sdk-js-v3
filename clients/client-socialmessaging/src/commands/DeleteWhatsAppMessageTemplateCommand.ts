@@ -28,9 +28,7 @@ export interface DeleteWhatsAppMessageTemplateCommandInput extends DeleteWhatsAp
  *
  * The output of {@link DeleteWhatsAppMessageTemplateCommand}.
  */
-export interface DeleteWhatsAppMessageTemplateCommandOutput
-  extends DeleteWhatsAppMessageTemplateOutput,
-    __MetadataBearer {}
+export interface DeleteWhatsAppMessageTemplateCommandOutput extends DeleteWhatsAppMessageTemplateOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a WhatsApp message template.</p>

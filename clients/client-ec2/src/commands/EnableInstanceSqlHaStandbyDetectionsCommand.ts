@@ -27,9 +27,7 @@ export interface EnableInstanceSqlHaStandbyDetectionsCommandInput extends Enable
  *
  * The output of {@link EnableInstanceSqlHaStandbyDetectionsCommand}.
  */
-export interface EnableInstanceSqlHaStandbyDetectionsCommandOutput
-  extends EnableInstanceSqlHaStandbyDetectionsResult,
-    __MetadataBearer {}
+export interface EnableInstanceSqlHaStandbyDetectionsCommandOutput extends EnableInstanceSqlHaStandbyDetectionsResult, __MetadataBearer {}
 
 /**
  * <p>Enable Amazon EC2 instances running in an SQL Server High Availability cluster for SQL Server High Availability

@@ -27,9 +27,7 @@ export interface DescribeCapacityReservationTopologyCommandInput extends Describ
  *
  * The output of {@link DescribeCapacityReservationTopologyCommand}.
  */
-export interface DescribeCapacityReservationTopologyCommandOutput
-  extends DescribeCapacityReservationTopologyResult,
-    __MetadataBearer {}
+export interface DescribeCapacityReservationTopologyCommandOutput extends DescribeCapacityReservationTopologyResult, __MetadataBearer {}
 
 /**
  * <p>Describes a tree-based hierarchy that represents the physical host placement of your

@@ -2364,7 +2364,10 @@ export interface GeneratePinDataInput {
  * <p>Parameters that are required to generate, translate, or verify PIN data.</p>
  * @public
  */
-export type PinData = PinData.PinOffsetMember | PinData.VerificationValueMember | PinData.$UnknownMember;
+export type PinData =
+  | PinData.PinOffsetMember
+  | PinData.VerificationValueMember
+  | PinData.$UnknownMember;
 
 /**
  * @public
@@ -2590,7 +2593,9 @@ export interface OutgoingTr31KeyBlock {
  * <p>Parameter information of the outgoing TR31WrappedKeyBlock containing the transaction key.</p>
  * @public
  */
-export type OutgoingKeyMaterial = OutgoingKeyMaterial.Tr31KeyBlockMember | OutgoingKeyMaterial.$UnknownMember;
+export type OutgoingKeyMaterial =
+  | OutgoingKeyMaterial.Tr31KeyBlockMember
+  | OutgoingKeyMaterial.$UnknownMember;
 
 /**
  * @public

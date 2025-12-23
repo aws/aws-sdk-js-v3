@@ -24,9 +24,7 @@ export interface UpdateTemplateActiveVersionCommandInput extends UpdateTemplateA
  *
  * The output of {@link UpdateTemplateActiveVersionCommand}.
  */
-export interface UpdateTemplateActiveVersionCommandOutput
-  extends UpdateTemplateActiveVersionResponse,
-    __MetadataBearer {}
+export interface UpdateTemplateActiveVersionCommandOutput extends UpdateTemplateActiveVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Changes the status of a specific version of a message template to <i>active</i>.</p>

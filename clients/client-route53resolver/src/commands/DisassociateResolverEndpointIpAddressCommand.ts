@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DisassociateResolverEndpointIpAddressCommand}.
  */
-export interface DisassociateResolverEndpointIpAddressCommandInput
-  extends DisassociateResolverEndpointIpAddressRequest {}
+export interface DisassociateResolverEndpointIpAddressCommandInput extends DisassociateResolverEndpointIpAddressRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateResolverEndpointIpAddressCommand}.
  */
-export interface DisassociateResolverEndpointIpAddressCommandOutput
-  extends DisassociateResolverEndpointIpAddressResponse,
-    __MetadataBearer {}
+export interface DisassociateResolverEndpointIpAddressCommandOutput extends DisassociateResolverEndpointIpAddressResponse, __MetadataBearer {}
 
 /**
  * <p>Removes IP addresses from an inbound or an outbound Resolver endpoint. If you want to remove more than one IP address,

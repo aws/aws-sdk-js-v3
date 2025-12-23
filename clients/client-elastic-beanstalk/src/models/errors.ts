@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ElasticBeanstalkSyntheticServiceException as __BaseException } from "./ElasticBeanstalkSyntheticServiceException";
+import {
+  ElasticBeanstalkSyntheticServiceException as __BaseException,
+} from "./ElasticBeanstalkSyntheticServiceException";
 
 /**
  * <p>The specified account does not have sufficient privileges for one or more AWS

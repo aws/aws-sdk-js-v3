@@ -24,9 +24,7 @@ export interface ListResourcesInProtectionGroupCommandInput extends ListResource
  *
  * The output of {@link ListResourcesInProtectionGroupCommand}.
  */
-export interface ListResourcesInProtectionGroupCommandOutput
-  extends ListResourcesInProtectionGroupResponse,
-    __MetadataBearer {}
+export interface ListResourcesInProtectionGroupCommandOutput extends ListResourcesInProtectionGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the resources that are included in the protection group. </p>

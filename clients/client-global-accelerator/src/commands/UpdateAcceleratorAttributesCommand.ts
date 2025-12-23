@@ -28,9 +28,7 @@ export interface UpdateAcceleratorAttributesCommandInput extends UpdateAccelerat
  *
  * The output of {@link UpdateAcceleratorAttributesCommand}.
  */
-export interface UpdateAcceleratorAttributesCommandOutput
-  extends UpdateAcceleratorAttributesResponse,
-    __MetadataBearer {}
+export interface UpdateAcceleratorAttributesCommandOutput extends UpdateAcceleratorAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Update the attributes for an accelerator. </p>

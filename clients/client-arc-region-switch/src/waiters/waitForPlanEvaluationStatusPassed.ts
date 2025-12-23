@@ -7,34 +7,31 @@ import {
   GetPlanEvaluationStatusCommandInput,
 } from "../commands/GetPlanEvaluationStatusCommand";
 
-const checkState = async (
-  client: ARCRegionSwitchClient,
-  input: GetPlanEvaluationStatusCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: ARCRegionSwitchClient, input: GetPlanEvaluationStatusCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
     const result: any = await client.send(new GetPlanEvaluationStatusCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.evaluationState;
-      };
+      }
       if (returnComparator() === "passed") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.evaluationState;
-      };
+      }
       if (returnComparator() === "actionRequired") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.evaluationState;
-      };
+      }
       if (returnComparator() === "pendingEvaluation") {
         return { state: WaiterState.RETRY, reason };
       }

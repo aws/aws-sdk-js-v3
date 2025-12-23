@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CancelDataQualityRulesetEvaluationRunCommand}.
  */
-export interface CancelDataQualityRulesetEvaluationRunCommandInput
-  extends CancelDataQualityRulesetEvaluationRunRequest {}
+export interface CancelDataQualityRulesetEvaluationRunCommandInput extends CancelDataQualityRulesetEvaluationRunRequest {}
 /**
  * @public
  *
  * The output of {@link CancelDataQualityRulesetEvaluationRunCommand}.
  */
-export interface CancelDataQualityRulesetEvaluationRunCommandOutput
-  extends CancelDataQualityRulesetEvaluationRunResponse,
-    __MetadataBearer {}
+export interface CancelDataQualityRulesetEvaluationRunCommandOutput extends CancelDataQualityRulesetEvaluationRunResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels a run where a ruleset is being evaluated against a data source.</p>

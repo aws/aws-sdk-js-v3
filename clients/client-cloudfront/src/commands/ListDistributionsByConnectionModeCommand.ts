@@ -27,9 +27,7 @@ export interface ListDistributionsByConnectionModeCommandInput extends ListDistr
  *
  * The output of {@link ListDistributionsByConnectionModeCommand}.
  */
-export interface ListDistributionsByConnectionModeCommandOutput
-  extends ListDistributionsByConnectionModeResult,
-    __MetadataBearer {}
+export interface ListDistributionsByConnectionModeCommandOutput extends ListDistributionsByConnectionModeResult, __MetadataBearer {}
 
 /**
  * <p>Lists the distributions by the connection mode that you specify.</p>

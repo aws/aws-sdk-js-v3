@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListReplacePermissionAssociationsWorkCommand}.
  */
-export interface ListReplacePermissionAssociationsWorkCommandInput
-  extends ListReplacePermissionAssociationsWorkRequest {}
+export interface ListReplacePermissionAssociationsWorkCommandInput extends ListReplacePermissionAssociationsWorkRequest {}
 /**
  * @public
  *
  * The output of {@link ListReplacePermissionAssociationsWorkCommand}.
  */
-export interface ListReplacePermissionAssociationsWorkCommandOutput
-  extends ListReplacePermissionAssociationsWorkResponse,
-    __MetadataBearer {}
+export interface ListReplacePermissionAssociationsWorkCommandOutput extends ListReplacePermissionAssociationsWorkResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the current status of the asynchronous tasks performed by RAM when you

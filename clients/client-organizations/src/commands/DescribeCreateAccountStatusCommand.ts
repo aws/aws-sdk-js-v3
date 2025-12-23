@@ -24,9 +24,7 @@ export interface DescribeCreateAccountStatusCommandInput extends DescribeCreateA
  *
  * The output of {@link DescribeCreateAccountStatusCommand}.
  */
-export interface DescribeCreateAccountStatusCommandOutput
-  extends DescribeCreateAccountStatusResponse,
-    __MetadataBearer {}
+export interface DescribeCreateAccountStatusCommandOutput extends DescribeCreateAccountStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the current status of an asynchronous request to create an account.</p>

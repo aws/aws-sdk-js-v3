@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeCapacityBlockExtensionOfferingsCommand}.
  */
-export interface DescribeCapacityBlockExtensionOfferingsCommandInput
-  extends DescribeCapacityBlockExtensionOfferingsRequest {}
+export interface DescribeCapacityBlockExtensionOfferingsCommandInput extends DescribeCapacityBlockExtensionOfferingsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeCapacityBlockExtensionOfferingsCommand}.
  */
-export interface DescribeCapacityBlockExtensionOfferingsCommandOutput
-  extends DescribeCapacityBlockExtensionOfferingsResult,
-    __MetadataBearer {}
+export interface DescribeCapacityBlockExtensionOfferingsCommandOutput extends DescribeCapacityBlockExtensionOfferingsResult, __MetadataBearer {}
 
 /**
  * <p>Describes Capacity Block extension offerings available for purchase in the Amazon Web Services

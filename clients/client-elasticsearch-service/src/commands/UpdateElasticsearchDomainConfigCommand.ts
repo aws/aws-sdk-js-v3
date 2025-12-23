@@ -31,9 +31,7 @@ export interface UpdateElasticsearchDomainConfigCommandInput extends UpdateElast
  *
  * The output of {@link UpdateElasticsearchDomainConfigCommand}.
  */
-export interface UpdateElasticsearchDomainConfigCommandOutput
-  extends UpdateElasticsearchDomainConfigResponse,
-    __MetadataBearer {}
+export interface UpdateElasticsearchDomainConfigCommandOutput extends UpdateElasticsearchDomainConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances. </p>

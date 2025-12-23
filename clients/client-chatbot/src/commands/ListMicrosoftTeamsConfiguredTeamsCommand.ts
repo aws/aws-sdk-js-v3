@@ -27,9 +27,7 @@ export interface ListMicrosoftTeamsConfiguredTeamsCommandInput extends ListMicro
  *
  * The output of {@link ListMicrosoftTeamsConfiguredTeamsCommand}.
  */
-export interface ListMicrosoftTeamsConfiguredTeamsCommandOutput
-  extends ListMicrosoftTeamsConfiguredTeamsResult,
-    __MetadataBearer {}
+export interface ListMicrosoftTeamsConfiguredTeamsCommandOutput extends ListMicrosoftTeamsConfiguredTeamsResult, __MetadataBearer {}
 
 /**
  * <p>Lists all authorized Microsoft Teams for an AWS Account</p>

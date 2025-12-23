@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link StartConfigurationPolicyDisassociationCommand}.
  */
-export interface StartConfigurationPolicyDisassociationCommandInput
-  extends StartConfigurationPolicyDisassociationRequest {}
+export interface StartConfigurationPolicyDisassociationCommandInput extends StartConfigurationPolicyDisassociationRequest {}
 /**
  * @public
  *
  * The output of {@link StartConfigurationPolicyDisassociationCommand}.
  */
-export interface StartConfigurationPolicyDisassociationCommandOutput
-  extends StartConfigurationPolicyDisassociationResponse,
-    __MetadataBearer {}
+export interface StartConfigurationPolicyDisassociationCommandOutput extends StartConfigurationPolicyDisassociationResponse, __MetadataBearer {}
 
 /**
  * <p>

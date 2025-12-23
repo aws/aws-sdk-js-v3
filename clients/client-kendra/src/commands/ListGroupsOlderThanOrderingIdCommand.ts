@@ -24,9 +24,7 @@ export interface ListGroupsOlderThanOrderingIdCommandInput extends ListGroupsOld
  *
  * The output of {@link ListGroupsOlderThanOrderingIdCommand}.
  */
-export interface ListGroupsOlderThanOrderingIdCommandOutput
-  extends ListGroupsOlderThanOrderingIdResponse,
-    __MetadataBearer {}
+export interface ListGroupsOlderThanOrderingIdCommandOutput extends ListGroupsOlderThanOrderingIdResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a list of groups that are mapped to users before a given ordering or

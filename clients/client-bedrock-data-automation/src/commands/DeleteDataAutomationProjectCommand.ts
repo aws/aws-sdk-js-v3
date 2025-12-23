@@ -28,9 +28,7 @@ export interface DeleteDataAutomationProjectCommandInput extends DeleteDataAutom
  *
  * The output of {@link DeleteDataAutomationProjectCommand}.
  */
-export interface DeleteDataAutomationProjectCommandOutput
-  extends DeleteDataAutomationProjectResponse,
-    __MetadataBearer {}
+export interface DeleteDataAutomationProjectCommandOutput extends DeleteDataAutomationProjectResponse, __MetadataBearer {}
 
 /**
  * Deletes an existing Amazon Bedrock Data Automation Project

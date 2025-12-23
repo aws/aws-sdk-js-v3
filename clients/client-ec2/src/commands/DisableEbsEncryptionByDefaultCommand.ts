@@ -24,9 +24,7 @@ export interface DisableEbsEncryptionByDefaultCommandInput extends DisableEbsEnc
  *
  * The output of {@link DisableEbsEncryptionByDefaultCommand}.
  */
-export interface DisableEbsEncryptionByDefaultCommandOutput
-  extends DisableEbsEncryptionByDefaultResult,
-    __MetadataBearer {}
+export interface DisableEbsEncryptionByDefaultCommandOutput extends DisableEbsEncryptionByDefaultResult, __MetadataBearer {}
 
 /**
  * <p>Disables EBS encryption by default for your account in the current Region.</p>

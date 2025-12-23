@@ -24,9 +24,7 @@ export interface DescribeExplainabilityExportCommandInput extends DescribeExplai
  *
  * The output of {@link DescribeExplainabilityExportCommand}.
  */
-export interface DescribeExplainabilityExportCommandOutput
-  extends DescribeExplainabilityExportResponse,
-    __MetadataBearer {}
+export interface DescribeExplainabilityExportCommandOutput extends DescribeExplainabilityExportResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an Explainability export created using the <a>CreateExplainabilityExport</a> operation.</p>

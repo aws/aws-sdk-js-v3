@@ -24,9 +24,7 @@ export interface UpdateContainerGroupDefinitionCommandInput extends UpdateContai
  *
  * The output of {@link UpdateContainerGroupDefinitionCommand}.
  */
-export interface UpdateContainerGroupDefinitionCommandOutput
-  extends UpdateContainerGroupDefinitionOutput,
-    __MetadataBearer {}
+export interface UpdateContainerGroupDefinitionCommandOutput extends UpdateContainerGroupDefinitionOutput, __MetadataBearer {}
 
 /**
  * <p>

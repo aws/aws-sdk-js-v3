@@ -27,9 +27,7 @@ export interface GetColumnStatisticsTaskSettingsCommandInput extends GetColumnSt
  *
  * The output of {@link GetColumnStatisticsTaskSettingsCommand}.
  */
-export interface GetColumnStatisticsTaskSettingsCommandOutput
-  extends GetColumnStatisticsTaskSettingsResponse,
-    __MetadataBearer {}
+export interface GetColumnStatisticsTaskSettingsCommandOutput extends GetColumnStatisticsTaskSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets settings for a column statistics task.</p>

@@ -31,9 +31,7 @@ export interface DescribeMetadataModelExportsAsScriptCommandInput extends Descri
  *
  * The output of {@link DescribeMetadataModelExportsAsScriptCommand}.
  */
-export interface DescribeMetadataModelExportsAsScriptCommandOutput
-  extends DescribeMetadataModelExportsAsScriptResponse,
-    __MetadataBearer {}
+export interface DescribeMetadataModelExportsAsScriptCommandOutput extends DescribeMetadataModelExportsAsScriptResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of metadata model exports.</p>

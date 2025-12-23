@@ -27,9 +27,7 @@ export interface GetServiceLinkedRoleDeletionStatusCommandInput extends GetServi
  *
  * The output of {@link GetServiceLinkedRoleDeletionStatusCommand}.
  */
-export interface GetServiceLinkedRoleDeletionStatusCommandOutput
-  extends GetServiceLinkedRoleDeletionStatusResponse,
-    __MetadataBearer {}
+export interface GetServiceLinkedRoleDeletionStatusCommandOutput extends GetServiceLinkedRoleDeletionStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the status of your service-linked role deletion. After you use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceLinkedRole.html">DeleteServiceLinkedRole</a> to submit a service-linked role for deletion, you

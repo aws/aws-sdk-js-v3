@@ -24,9 +24,7 @@ export interface ListRecoveryPointsByBackupVaultCommandInput extends ListRecover
  *
  * The output of {@link ListRecoveryPointsByBackupVaultCommand}.
  */
-export interface ListRecoveryPointsByBackupVaultCommandOutput
-  extends ListRecoveryPointsByBackupVaultOutput,
-    __MetadataBearer {}
+export interface ListRecoveryPointsByBackupVaultCommandOutput extends ListRecoveryPointsByBackupVaultOutput, __MetadataBearer {}
 
 /**
  * <p>Returns detailed information about the recovery points stored in a backup vault.</p>

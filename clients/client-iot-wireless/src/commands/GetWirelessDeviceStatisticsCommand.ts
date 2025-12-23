@@ -24,9 +24,7 @@ export interface GetWirelessDeviceStatisticsCommandInput extends GetWirelessDevi
  *
  * The output of {@link GetWirelessDeviceStatisticsCommand}.
  */
-export interface GetWirelessDeviceStatisticsCommandOutput
-  extends GetWirelessDeviceStatisticsResponse,
-    __MetadataBearer {}
+export interface GetWirelessDeviceStatisticsCommandOutput extends GetWirelessDeviceStatisticsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets operating information about a wireless device.</p>

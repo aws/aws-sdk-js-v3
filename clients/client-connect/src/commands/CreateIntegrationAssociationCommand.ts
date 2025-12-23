@@ -24,9 +24,7 @@ export interface CreateIntegrationAssociationCommandInput extends CreateIntegrat
  *
  * The output of {@link CreateIntegrationAssociationCommand}.
  */
-export interface CreateIntegrationAssociationCommandOutput
-  extends CreateIntegrationAssociationResponse,
-    __MetadataBearer {}
+export interface CreateIntegrationAssociationCommandOutput extends CreateIntegrationAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Web Services resource association with an Amazon Connect instance.</p>

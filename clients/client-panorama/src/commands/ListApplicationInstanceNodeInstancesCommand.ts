@@ -27,9 +27,7 @@ export interface ListApplicationInstanceNodeInstancesCommandInput extends ListAp
  *
  * The output of {@link ListApplicationInstanceNodeInstancesCommand}.
  */
-export interface ListApplicationInstanceNodeInstancesCommandOutput
-  extends ListApplicationInstanceNodeInstancesResponse,
-    __MetadataBearer {}
+export interface ListApplicationInstanceNodeInstancesCommandOutput extends ListApplicationInstanceNodeInstancesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of application node instances.</p>

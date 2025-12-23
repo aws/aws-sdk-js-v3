@@ -309,30 +309,27 @@ export type LicenseManagerLinuxSubscriptionsClientConfigType = Partial<__SmithyC
  *
  *  The configuration interface of LicenseManagerLinuxSubscriptionsClient class constructor that set the region, credentials and other options.
  */
-export interface LicenseManagerLinuxSubscriptionsClientConfig
-  extends LicenseManagerLinuxSubscriptionsClientConfigType {}
+export interface LicenseManagerLinuxSubscriptionsClientConfig extends LicenseManagerLinuxSubscriptionsClientConfigType {}
 
 /**
  * @public
  */
-export type LicenseManagerLinuxSubscriptionsClientResolvedConfigType =
-  __SmithyResolvedConfiguration<__HttpHandlerOptions> &
-    Required<ClientDefaults> &
-    RuntimeExtensionsConfig &
-    UserAgentResolvedConfig &
-    RetryResolvedConfig &
-    RegionResolvedConfig &
-    HostHeaderResolvedConfig &
-    EndpointResolvedConfig<EndpointParameters> &
-    HttpAuthSchemeResolvedConfig &
-    ClientResolvedEndpointParameters;
+export type LicenseManagerLinuxSubscriptionsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+  Required<ClientDefaults> &
+  RuntimeExtensionsConfig &
+  UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
+  HttpAuthSchemeResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * @public
  *
  *  The resolved configuration interface of LicenseManagerLinuxSubscriptionsClient class. This is resolved and normalized from the {@link LicenseManagerLinuxSubscriptionsClientConfig | constructor configuration interface}.
  */
-export interface LicenseManagerLinuxSubscriptionsClientResolvedConfig
-  extends LicenseManagerLinuxSubscriptionsClientResolvedConfigType {}
+export interface LicenseManagerLinuxSubscriptionsClientResolvedConfig extends LicenseManagerLinuxSubscriptionsClientResolvedConfigType {}
 
 /**
  * <p>With License Manager, you can discover and track your commercial Linux subscriptions on running

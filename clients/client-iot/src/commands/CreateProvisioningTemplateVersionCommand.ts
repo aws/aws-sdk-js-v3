@@ -27,9 +27,7 @@ export interface CreateProvisioningTemplateVersionCommandInput extends CreatePro
  *
  * The output of {@link CreateProvisioningTemplateVersionCommand}.
  */
-export interface CreateProvisioningTemplateVersionCommandOutput
-  extends CreateProvisioningTemplateVersionResponse,
-    __MetadataBearer {}
+export interface CreateProvisioningTemplateVersionCommandOutput extends CreateProvisioningTemplateVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new version of a provisioning template.</p>

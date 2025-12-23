@@ -27,9 +27,7 @@ export interface GetIpamPrefixListResolverVersionsCommandInput extends GetIpamPr
  *
  * The output of {@link GetIpamPrefixListResolverVersionsCommand}.
  */
-export interface GetIpamPrefixListResolverVersionsCommandOutput
-  extends GetIpamPrefixListResolverVersionsResult,
-    __MetadataBearer {}
+export interface GetIpamPrefixListResolverVersionsCommandOutput extends GetIpamPrefixListResolverVersionsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves version information for an IPAM prefix list resolver.</p>

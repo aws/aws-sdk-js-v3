@@ -24,9 +24,7 @@ export interface DeleteSecurityConfigurationCommandInput extends DeleteSecurityC
  *
  * The output of {@link DeleteSecurityConfigurationCommand}.
  */
-export interface DeleteSecurityConfigurationCommandOutput
-  extends DeleteSecurityConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteSecurityConfigurationCommandOutput extends DeleteSecurityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a specified security configuration.</p>

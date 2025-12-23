@@ -44,6 +44,7 @@ import {
   NetworkMonitor,
   NetworkMonitorClient,
   NetworkMonitorServiceException,
+  paginateListMonitors,
   Probe$,
   ProbeInput$,
   ProbeState,
@@ -72,7 +73,6 @@ import {
   UpdateProbeOutput$,
   ValidationException,
   ValidationException$,
-  paginateListMonitors,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

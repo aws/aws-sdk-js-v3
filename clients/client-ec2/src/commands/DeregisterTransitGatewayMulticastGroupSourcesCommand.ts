@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeregisterTransitGatewayMulticastGroupSourcesCommand}.
  */
-export interface DeregisterTransitGatewayMulticastGroupSourcesCommandInput
-  extends DeregisterTransitGatewayMulticastGroupSourcesRequest {}
+export interface DeregisterTransitGatewayMulticastGroupSourcesCommandInput extends DeregisterTransitGatewayMulticastGroupSourcesRequest {}
 /**
  * @public
  *
  * The output of {@link DeregisterTransitGatewayMulticastGroupSourcesCommand}.
  */
-export interface DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
-  extends DeregisterTransitGatewayMulticastGroupSourcesResult,
-    __MetadataBearer {}
+export interface DeregisterTransitGatewayMulticastGroupSourcesCommandOutput extends DeregisterTransitGatewayMulticastGroupSourcesResult, __MetadataBearer {}
 
 /**
  * <p>Deregisters the specified sources (network interfaces) from the  transit gateway multicast group.</p>

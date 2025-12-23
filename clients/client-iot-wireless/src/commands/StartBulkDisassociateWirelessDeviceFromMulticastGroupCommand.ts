@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand}.
  */
-export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput
-  extends StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest {}
+export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput extends StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest {}
 /**
  * @public
  *
  * The output of {@link StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand}.
  */
-export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput
-  extends StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse,
-    __MetadataBearer {}
+export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput extends StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a bulk disassociatin of all qualifying wireless devices from a multicast

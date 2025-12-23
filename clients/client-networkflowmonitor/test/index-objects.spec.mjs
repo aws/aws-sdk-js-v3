@@ -79,6 +79,11 @@ import {
   NetworkFlowMonitor,
   NetworkFlowMonitorClient,
   NetworkFlowMonitorServiceException,
+  paginateGetQueryResultsMonitorTopContributors,
+  paginateGetQueryResultsWorkloadInsightsTopContributors,
+  paginateGetQueryResultsWorkloadInsightsTopContributorsData,
+  paginateListMonitors,
+  paginateListScopes,
   QueryStatus,
   ResourceNotFoundException,
   ResourceNotFoundException$,
@@ -138,11 +143,6 @@ import {
   WorkloadInsightsMetric,
   WorkloadInsightsTopContributorsDataPoint$,
   WorkloadInsightsTopContributorsRow$,
-  paginateGetQueryResultsMonitorTopContributors,
-  paginateGetQueryResultsWorkloadInsightsTopContributors,
-  paginateGetQueryResultsWorkloadInsightsTopContributorsData,
-  paginateListMonitors,
-  paginateListScopes,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

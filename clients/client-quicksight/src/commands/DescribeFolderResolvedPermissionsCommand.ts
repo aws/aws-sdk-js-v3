@@ -27,9 +27,7 @@ export interface DescribeFolderResolvedPermissionsCommandInput extends DescribeF
  *
  * The output of {@link DescribeFolderResolvedPermissionsCommand}.
  */
-export interface DescribeFolderResolvedPermissionsCommandOutput
-  extends DescribeFolderResolvedPermissionsResponse,
-    __MetadataBearer {}
+export interface DescribeFolderResolvedPermissionsCommandOutput extends DescribeFolderResolvedPermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the folder resolved permissions. Permissions consists of both folder direct permissions and the inherited permissions from the ancestor folders.</p>

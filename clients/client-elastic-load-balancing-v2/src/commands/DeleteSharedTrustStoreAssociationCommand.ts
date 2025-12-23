@@ -31,9 +31,7 @@ export interface DeleteSharedTrustStoreAssociationCommandInput extends DeleteSha
  *
  * The output of {@link DeleteSharedTrustStoreAssociationCommand}.
  */
-export interface DeleteSharedTrustStoreAssociationCommandOutput
-  extends DeleteSharedTrustStoreAssociationOutput,
-    __MetadataBearer {}
+export interface DeleteSharedTrustStoreAssociationCommandOutput extends DeleteSharedTrustStoreAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a shared trust store association.</p>

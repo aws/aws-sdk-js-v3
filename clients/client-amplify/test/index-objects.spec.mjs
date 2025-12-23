@@ -144,6 +144,10 @@ import {
   ListWebhooksResult$,
   NotFoundException,
   NotFoundException$,
+  paginateListApps,
+  paginateListBranches,
+  paginateListDomainAssociations,
+  paginateListJobs,
   Platform,
   ProductionBranch$,
   RepositoryCloneMethod,
@@ -196,10 +200,6 @@ import {
   WafConfiguration$,
   WafStatus,
   Webhook$,
-  paginateListApps,
-  paginateListBranches,
-  paginateListDomainAssociations,
-  paginateListJobs,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

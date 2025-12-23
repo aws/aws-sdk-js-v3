@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateGlueIdentityCenterConfigurationCommand}.
  */
-export interface CreateGlueIdentityCenterConfigurationCommandInput
-  extends CreateGlueIdentityCenterConfigurationRequest {}
+export interface CreateGlueIdentityCenterConfigurationCommandInput extends CreateGlueIdentityCenterConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateGlueIdentityCenterConfigurationCommand}.
  */
-export interface CreateGlueIdentityCenterConfigurationCommandOutput
-  extends CreateGlueIdentityCenterConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateGlueIdentityCenterConfigurationCommandOutput extends CreateGlueIdentityCenterConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new Glue Identity Center configuration to enable integration between Glue and Amazon Web Services IAM

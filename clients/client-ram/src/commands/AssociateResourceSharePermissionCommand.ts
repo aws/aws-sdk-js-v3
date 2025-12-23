@@ -27,9 +27,7 @@ export interface AssociateResourceSharePermissionCommandInput extends AssociateR
  *
  * The output of {@link AssociateResourceSharePermissionCommand}.
  */
-export interface AssociateResourceSharePermissionCommandOutput
-  extends AssociateResourceSharePermissionResponse,
-    __MetadataBearer {}
+export interface AssociateResourceSharePermissionCommandOutput extends AssociateResourceSharePermissionResponse, __MetadataBearer {}
 
 /**
  * <p>Adds or replaces the RAM permission for a resource type included in a resource share. You can

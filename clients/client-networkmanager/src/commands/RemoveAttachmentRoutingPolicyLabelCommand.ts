@@ -31,9 +31,7 @@ export interface RemoveAttachmentRoutingPolicyLabelCommandInput extends RemoveAt
  *
  * The output of {@link RemoveAttachmentRoutingPolicyLabelCommand}.
  */
-export interface RemoveAttachmentRoutingPolicyLabelCommandOutput
-  extends RemoveAttachmentRoutingPolicyLabelResponse,
-    __MetadataBearer {}
+export interface RemoveAttachmentRoutingPolicyLabelCommandOutput extends RemoveAttachmentRoutingPolicyLabelResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a routing policy label from an attachment.</p>

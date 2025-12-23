@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateLocalGatewayVirtualInterfaceGroupCommand}.
  */
-export interface CreateLocalGatewayVirtualInterfaceGroupCommandInput
-  extends CreateLocalGatewayVirtualInterfaceGroupRequest {}
+export interface CreateLocalGatewayVirtualInterfaceGroupCommandInput extends CreateLocalGatewayVirtualInterfaceGroupRequest {}
 /**
  * @public
  *
  * The output of {@link CreateLocalGatewayVirtualInterfaceGroupCommand}.
  */
-export interface CreateLocalGatewayVirtualInterfaceGroupCommandOutput
-  extends CreateLocalGatewayVirtualInterfaceGroupResult,
-    __MetadataBearer {}
+export interface CreateLocalGatewayVirtualInterfaceGroupCommandOutput extends CreateLocalGatewayVirtualInterfaceGroupResult, __MetadataBearer {}
 
 /**
  * <p>Create a local gateway virtual interface group.</p>

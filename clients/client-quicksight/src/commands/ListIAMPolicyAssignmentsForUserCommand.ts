@@ -27,9 +27,7 @@ export interface ListIAMPolicyAssignmentsForUserCommandInput extends ListIAMPoli
  *
  * The output of {@link ListIAMPolicyAssignmentsForUserCommand}.
  */
-export interface ListIAMPolicyAssignmentsForUserCommandOutput
-  extends ListIAMPolicyAssignmentsForUserResponse,
-    __MetadataBearer {}
+export interface ListIAMPolicyAssignmentsForUserCommandOutput extends ListIAMPolicyAssignmentsForUserResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all of

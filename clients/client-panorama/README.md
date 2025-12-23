@@ -7,7 +7,6 @@
 AWS SDK for JavaScript Panorama Client for Node.js, Browser and React Native.
 
 <fullname>AWS Panorama</fullname>
-
 <p>
 <b>Overview</b>
 </p>
@@ -15,10 +14,8 @@ AWS SDK for JavaScript Panorama Client for Node.js, Browser and React Native.
 <i>AWS Panorama Developer Guide</i>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-panorama
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-panorama`
 - `yarn add @aws-sdk/client-panorama`
 - `pnpm add @aws-sdk/client-panorama`
@@ -54,9 +51,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new PanoramaClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListDevicesCommand(params);
 ```
 
@@ -215,7 +210,6 @@ CreateApplicationInstance
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/CreateApplicationInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/CreateApplicationInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/CreateApplicationInstanceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -223,7 +217,6 @@ CreateJobForDevices
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/CreateJobForDevicesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/CreateJobForDevicesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/CreateJobForDevicesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -231,7 +224,6 @@ CreateNodeFromTemplateJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/CreateNodeFromTemplateJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/CreateNodeFromTemplateJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/CreateNodeFromTemplateJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -239,7 +231,6 @@ CreatePackage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/CreatePackageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/CreatePackageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/CreatePackageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -247,7 +238,6 @@ CreatePackageImportJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/CreatePackageImportJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/CreatePackageImportJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/CreatePackageImportJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -255,7 +245,6 @@ DeleteDevice
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/DeleteDeviceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DeleteDeviceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DeleteDeviceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -263,7 +252,6 @@ DeletePackage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/DeletePackageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DeletePackageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DeletePackageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -271,7 +259,6 @@ DeregisterPackageVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/DeregisterPackageVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DeregisterPackageVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DeregisterPackageVersionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -279,7 +266,6 @@ DescribeApplicationInstance
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/DescribeApplicationInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DescribeApplicationInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DescribeApplicationInstanceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -287,7 +273,6 @@ DescribeApplicationInstanceDetails
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/DescribeApplicationInstanceDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DescribeApplicationInstanceDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DescribeApplicationInstanceDetailsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -295,7 +280,6 @@ DescribeDevice
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/DescribeDeviceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DescribeDeviceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DescribeDeviceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -303,7 +287,6 @@ DescribeDeviceJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/DescribeDeviceJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DescribeDeviceJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DescribeDeviceJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -311,7 +294,6 @@ DescribeNode
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/DescribeNodeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DescribeNodeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DescribeNodeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -319,7 +301,6 @@ DescribeNodeFromTemplateJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/DescribeNodeFromTemplateJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DescribeNodeFromTemplateJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DescribeNodeFromTemplateJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -327,7 +308,6 @@ DescribePackage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/DescribePackageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DescribePackageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DescribePackageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -335,7 +315,6 @@ DescribePackageImportJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/DescribePackageImportJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DescribePackageImportJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DescribePackageImportJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -343,7 +322,6 @@ DescribePackageVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/DescribePackageVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DescribePackageVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/DescribePackageVersionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -351,7 +329,6 @@ ListApplicationInstanceDependencies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/ListApplicationInstanceDependenciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ListApplicationInstanceDependenciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ListApplicationInstanceDependenciesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -359,7 +336,6 @@ ListApplicationInstanceNodeInstances
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/ListApplicationInstanceNodeInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ListApplicationInstanceNodeInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ListApplicationInstanceNodeInstancesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -367,7 +343,6 @@ ListApplicationInstances
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/ListApplicationInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ListApplicationInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ListApplicationInstancesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -375,7 +350,6 @@ ListDevices
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/ListDevicesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ListDevicesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ListDevicesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -383,7 +357,6 @@ ListDevicesJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/ListDevicesJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ListDevicesJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ListDevicesJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -391,7 +364,6 @@ ListNodeFromTemplateJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/ListNodeFromTemplateJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ListNodeFromTemplateJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ListNodeFromTemplateJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -399,7 +371,6 @@ ListNodes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/ListNodesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ListNodesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ListNodesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -407,7 +378,6 @@ ListPackageImportJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/ListPackageImportJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ListPackageImportJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ListPackageImportJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -415,7 +385,6 @@ ListPackages
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/ListPackagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ListPackagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ListPackagesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -423,7 +392,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -431,7 +399,6 @@ ProvisionDevice
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/ProvisionDeviceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ProvisionDeviceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/ProvisionDeviceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -439,7 +406,6 @@ RegisterPackageVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/RegisterPackageVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/RegisterPackageVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/RegisterPackageVersionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -447,7 +413,6 @@ RemoveApplicationInstance
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/RemoveApplicationInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/RemoveApplicationInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/RemoveApplicationInstanceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -455,7 +420,6 @@ SignalApplicationInstanceNodeInstances
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/SignalApplicationInstanceNodeInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/SignalApplicationInstanceNodeInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/SignalApplicationInstanceNodeInstancesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -463,7 +427,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -471,7 +434,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -479,5 +441,4 @@ UpdateDeviceMetadata
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/panorama/command/UpdateDeviceMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/UpdateDeviceMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-panorama/Interface/UpdateDeviceMetadataCommandOutput/)
-
 </details>

@@ -27,9 +27,7 @@ export interface BatchStartViewerSessionRevocationCommandInput extends BatchStar
  *
  * The output of {@link BatchStartViewerSessionRevocationCommand}.
  */
-export interface BatchStartViewerSessionRevocationCommandOutput
-  extends BatchStartViewerSessionRevocationResponse,
-    __MetadataBearer {}
+export interface BatchStartViewerSessionRevocationCommandOutput extends BatchStartViewerSessionRevocationResponse, __MetadataBearer {}
 
 /**
  * <p>Performs <a>StartViewerSessionRevocation</a> on multiple channel ARN and viewer

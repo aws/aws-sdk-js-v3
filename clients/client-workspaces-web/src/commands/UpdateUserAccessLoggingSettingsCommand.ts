@@ -27,9 +27,7 @@ export interface UpdateUserAccessLoggingSettingsCommandInput extends UpdateUserA
  *
  * The output of {@link UpdateUserAccessLoggingSettingsCommand}.
  */
-export interface UpdateUserAccessLoggingSettingsCommandOutput
-  extends UpdateUserAccessLoggingSettingsResponse,
-    __MetadataBearer {}
+export interface UpdateUserAccessLoggingSettingsCommandOutput extends UpdateUserAccessLoggingSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the user access logging settings.</p>

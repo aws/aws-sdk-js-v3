@@ -24,9 +24,7 @@ export interface ResetDBClusterParameterGroupCommandInput extends ResetDBCluster
  *
  * The output of {@link ResetDBClusterParameterGroupCommand}.
  */
-export interface ResetDBClusterParameterGroupCommandOutput
-  extends DBClusterParameterGroupNameMessage,
-    __MetadataBearer {}
+export interface ResetDBClusterParameterGroupCommandOutput extends DBClusterParameterGroupNameMessage, __MetadataBearer {}
 
 /**
  * <p>Modifies the parameters of a DB cluster parameter group to the default value. To

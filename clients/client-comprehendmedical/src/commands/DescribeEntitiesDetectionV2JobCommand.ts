@@ -28,9 +28,7 @@ export interface DescribeEntitiesDetectionV2JobCommandInput extends DescribeEnti
  *
  * The output of {@link DescribeEntitiesDetectionV2JobCommand}.
  */
-export interface DescribeEntitiesDetectionV2JobCommandOutput
-  extends DescribeEntitiesDetectionV2JobResponse,
-    __MetadataBearer {}
+export interface DescribeEntitiesDetectionV2JobCommandOutput extends DescribeEntitiesDetectionV2JobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a medical entities detection job. Use this operation

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutModelInvocationLoggingConfigurationCommand}.
  */
-export interface PutModelInvocationLoggingConfigurationCommandInput
-  extends PutModelInvocationLoggingConfigurationRequest {}
+export interface PutModelInvocationLoggingConfigurationCommandInput extends PutModelInvocationLoggingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link PutModelInvocationLoggingConfigurationCommand}.
  */
-export interface PutModelInvocationLoggingConfigurationCommandOutput
-  extends PutModelInvocationLoggingConfigurationResponse,
-    __MetadataBearer {}
+export interface PutModelInvocationLoggingConfigurationCommandOutput extends PutModelInvocationLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Set the configuration values for model invocation logging.</p>

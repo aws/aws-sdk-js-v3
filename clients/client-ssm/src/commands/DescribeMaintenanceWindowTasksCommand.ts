@@ -24,9 +24,7 @@ export interface DescribeMaintenanceWindowTasksCommandInput extends DescribeMain
  *
  * The output of {@link DescribeMaintenanceWindowTasksCommand}.
  */
-export interface DescribeMaintenanceWindowTasksCommandOutput
-  extends DescribeMaintenanceWindowTasksResult,
-    __MetadataBearer {}
+export interface DescribeMaintenanceWindowTasksCommandOutput extends DescribeMaintenanceWindowTasksResult, __MetadataBearer {}
 
 /**
  * <p>Lists the tasks in a maintenance window.</p>

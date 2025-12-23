@@ -22,8 +22,7 @@ export { $Command };
  *
  * The input for {@link DeleteMessagingStreamingConfigurationsCommand}.
  */
-export interface DeleteMessagingStreamingConfigurationsCommandInput
-  extends DeleteMessagingStreamingConfigurationsRequest {}
+export interface DeleteMessagingStreamingConfigurationsCommandInput extends DeleteMessagingStreamingConfigurationsRequest {}
 /**
  * @public
  *

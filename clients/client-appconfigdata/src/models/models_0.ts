@@ -18,7 +18,9 @@ export interface InvalidParameterDetail {
  *          a call.</p>
  * @public
  */
-export type BadRequestDetails = BadRequestDetails.InvalidParametersMember | BadRequestDetails.$UnknownMember;
+export type BadRequestDetails =
+  | BadRequestDetails.InvalidParametersMember
+  | BadRequestDetails.$UnknownMember;
 
 /**
  * @public

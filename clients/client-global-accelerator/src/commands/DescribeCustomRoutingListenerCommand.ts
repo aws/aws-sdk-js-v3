@@ -28,9 +28,7 @@ export interface DescribeCustomRoutingListenerCommandInput extends DescribeCusto
  *
  * The output of {@link DescribeCustomRoutingListenerCommand}.
  */
-export interface DescribeCustomRoutingListenerCommandOutput
-  extends DescribeCustomRoutingListenerResponse,
-    __MetadataBearer {}
+export interface DescribeCustomRoutingListenerCommandOutput extends DescribeCustomRoutingListenerResponse, __MetadataBearer {}
 
 /**
  * <p>The description of a listener for a custom routing accelerator.</p>

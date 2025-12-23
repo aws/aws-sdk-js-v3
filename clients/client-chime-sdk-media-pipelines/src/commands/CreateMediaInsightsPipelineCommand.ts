@@ -28,9 +28,7 @@ export interface CreateMediaInsightsPipelineCommandInput extends CreateMediaInsi
  *
  * The output of {@link CreateMediaInsightsPipelineCommand}.
  */
-export interface CreateMediaInsightsPipelineCommandOutput
-  extends CreateMediaInsightsPipelineResponse,
-    __MetadataBearer {}
+export interface CreateMediaInsightsPipelineCommandOutput extends CreateMediaInsightsPipelineResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a media insights pipeline.</p>

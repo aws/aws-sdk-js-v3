@@ -407,8 +407,7 @@ export type ApplicationDiscoveryServiceClientResolvedConfigType = __SmithyResolv
  *
  *  The resolved configuration interface of ApplicationDiscoveryServiceClient class. This is resolved and normalized from the {@link ApplicationDiscoveryServiceClientConfig | constructor configuration interface}.
  */
-export interface ApplicationDiscoveryServiceClientResolvedConfig
-  extends ApplicationDiscoveryServiceClientResolvedConfigType {}
+export interface ApplicationDiscoveryServiceClientResolvedConfig extends ApplicationDiscoveryServiceClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Web Services Application Discovery Service</fullname>

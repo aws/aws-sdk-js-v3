@@ -27,9 +27,7 @@ export interface PutBlockPublicAccessConfigurationCommandInput extends PutBlockP
  *
  * The output of {@link PutBlockPublicAccessConfigurationCommand}.
  */
-export interface PutBlockPublicAccessConfigurationCommandOutput
-  extends PutBlockPublicAccessConfigurationOutput,
-    __MetadataBearer {}
+export interface PutBlockPublicAccessConfigurationCommandOutput extends PutBlockPublicAccessConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Creates or updates an Amazon EMR block public access configuration for your

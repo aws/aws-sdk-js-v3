@@ -27,9 +27,7 @@ export interface GetRegistryScanningConfigurationCommandInput extends GetRegistr
  *
  * The output of {@link GetRegistryScanningConfigurationCommand}.
  */
-export interface GetRegistryScanningConfigurationCommandOutput
-  extends GetRegistryScanningConfigurationResponse,
-    __MetadataBearer {}
+export interface GetRegistryScanningConfigurationCommandOutput extends GetRegistryScanningConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the scanning configuration for a registry.</p>

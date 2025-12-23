@@ -24,9 +24,7 @@ export interface ModifyIpamPrefixListResolverCommandInput extends ModifyIpamPref
  *
  * The output of {@link ModifyIpamPrefixListResolverCommand}.
  */
-export interface ModifyIpamPrefixListResolverCommandOutput
-  extends ModifyIpamPrefixListResolverResult,
-    __MetadataBearer {}
+export interface ModifyIpamPrefixListResolverCommandOutput extends ModifyIpamPrefixListResolverResult, __MetadataBearer {}
 
 /**
  * <p>Modifies an IPAM prefix list resolver. You can update the description and CIDR selection rules. Changes to rules will trigger re-evaluation and potential updates to associated prefix lists.</p>

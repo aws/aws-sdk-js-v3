@@ -24,9 +24,7 @@ export interface ModifySelfservicePermissionsCommandInput extends ModifySelfserv
  *
  * The output of {@link ModifySelfservicePermissionsCommand}.
  */
-export interface ModifySelfservicePermissionsCommandOutput
-  extends ModifySelfservicePermissionsResult,
-    __MetadataBearer {}
+export interface ModifySelfservicePermissionsCommandOutput extends ModifySelfservicePermissionsResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the self-service WorkSpace management capabilities for your users. For more

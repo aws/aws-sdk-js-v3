@@ -24,9 +24,7 @@ export interface PutVoiceConnectorOriginationCommandInput extends PutVoiceConnec
  *
  * The output of {@link PutVoiceConnectorOriginationCommand}.
  */
-export interface PutVoiceConnectorOriginationCommandOutput
-  extends PutVoiceConnectorOriginationResponse,
-    __MetadataBearer {}
+export interface PutVoiceConnectorOriginationCommandOutput extends PutVoiceConnectorOriginationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a Voice Connector's origination settings.</p>

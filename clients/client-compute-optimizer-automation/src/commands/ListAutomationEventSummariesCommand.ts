@@ -28,9 +28,7 @@ export interface ListAutomationEventSummariesCommandInput extends ListAutomation
  *
  * The output of {@link ListAutomationEventSummariesCommand}.
  */
-export interface ListAutomationEventSummariesCommandOutput
-  extends ListAutomationEventSummariesResponse,
-    __MetadataBearer {}
+export interface ListAutomationEventSummariesCommandOutput extends ListAutomationEventSummariesResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a summary of automation events based on specified filters. Only events created within the past year will be included in the summary. </p>

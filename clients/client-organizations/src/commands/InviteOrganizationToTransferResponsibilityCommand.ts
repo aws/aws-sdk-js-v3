@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link InviteOrganizationToTransferResponsibilityCommand}.
  */
-export interface InviteOrganizationToTransferResponsibilityCommandInput
-  extends InviteOrganizationToTransferResponsibilityRequest {}
+export interface InviteOrganizationToTransferResponsibilityCommandInput extends InviteOrganizationToTransferResponsibilityRequest {}
 /**
  * @public
  *
  * The output of {@link InviteOrganizationToTransferResponsibilityCommand}.
  */
-export interface InviteOrganizationToTransferResponsibilityCommandOutput
-  extends InviteOrganizationToTransferResponsibilityResponse,
-    __MetadataBearer {}
+export interface InviteOrganizationToTransferResponsibilityCommandOutput extends InviteOrganizationToTransferResponsibilityResponse, __MetadataBearer {}
 
 /**
  * <p>Sends an invitation to another organization's management account to designate your

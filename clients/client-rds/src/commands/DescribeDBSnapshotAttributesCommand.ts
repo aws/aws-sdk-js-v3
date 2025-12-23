@@ -24,9 +24,7 @@ export interface DescribeDBSnapshotAttributesCommandInput extends DescribeDBSnap
  *
  * The output of {@link DescribeDBSnapshotAttributesCommand}.
  */
-export interface DescribeDBSnapshotAttributesCommandOutput
-  extends DescribeDBSnapshotAttributesResult,
-    __MetadataBearer {}
+export interface DescribeDBSnapshotAttributesCommandOutput extends DescribeDBSnapshotAttributesResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of DB snapshot attribute names and values for a manual DB snapshot.</p>

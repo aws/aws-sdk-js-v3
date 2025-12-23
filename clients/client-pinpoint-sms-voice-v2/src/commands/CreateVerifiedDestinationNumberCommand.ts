@@ -28,9 +28,7 @@ export interface CreateVerifiedDestinationNumberCommandInput extends CreateVerif
  *
  * The output of {@link CreateVerifiedDestinationNumberCommand}.
  */
-export interface CreateVerifiedDestinationNumberCommandOutput
-  extends CreateVerifiedDestinationNumberResult,
-    __MetadataBearer {}
+export interface CreateVerifiedDestinationNumberCommandOutput extends CreateVerifiedDestinationNumberResult, __MetadataBearer {}
 
 /**
  * <p>You can only send messages to verified destination numbers when your account is in the sandbox. You can add up to 10 verified destination numbers.</p>

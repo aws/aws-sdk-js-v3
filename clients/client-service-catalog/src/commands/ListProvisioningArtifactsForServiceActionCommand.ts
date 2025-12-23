@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListProvisioningArtifactsForServiceActionCommand}.
  */
-export interface ListProvisioningArtifactsForServiceActionCommandInput
-  extends ListProvisioningArtifactsForServiceActionInput {}
+export interface ListProvisioningArtifactsForServiceActionCommandInput extends ListProvisioningArtifactsForServiceActionInput {}
 /**
  * @public
  *
  * The output of {@link ListProvisioningArtifactsForServiceActionCommand}.
  */
-export interface ListProvisioningArtifactsForServiceActionCommandOutput
-  extends ListProvisioningArtifactsForServiceActionOutput,
-    __MetadataBearer {}
+export interface ListProvisioningArtifactsForServiceActionCommandOutput extends ListProvisioningArtifactsForServiceActionOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all provisioning artifacts (also known as versions) for the specified self-service action.</p>

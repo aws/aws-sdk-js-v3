@@ -24,9 +24,7 @@ export interface UpdateEnvironmentTemplateVersionCommandInput extends UpdateEnvi
  *
  * The output of {@link UpdateEnvironmentTemplateVersionCommand}.
  */
-export interface UpdateEnvironmentTemplateVersionCommandOutput
-  extends UpdateEnvironmentTemplateVersionOutput,
-    __MetadataBearer {}
+export interface UpdateEnvironmentTemplateVersionCommandOutput extends UpdateEnvironmentTemplateVersionOutput, __MetadataBearer {}
 
 /**
  * <p>Update a major or minor version of an environment template.</p>

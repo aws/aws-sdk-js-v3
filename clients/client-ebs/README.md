@@ -25,10 +25,8 @@ and service quotas for the EBS direct APIs, see <a href="https://docs.aws.amazon
 the <i>Amazon Web Services General Reference</i>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-ebs
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-ebs`
 - `yarn add @aws-sdk/client-ebs`
 - `pnpm add @aws-sdk/client-ebs`
@@ -64,9 +62,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new EBSClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListChangedBlocksCommand(params);
 ```
 
@@ -225,7 +221,6 @@ CompleteSnapshot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ebs/command/CompleteSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ebs/Interface/CompleteSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ebs/Interface/CompleteSnapshotCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +228,6 @@ GetSnapshotBlock
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ebs/command/GetSnapshotBlockCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ebs/Interface/GetSnapshotBlockCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ebs/Interface/GetSnapshotBlockCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +235,6 @@ ListChangedBlocks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ebs/command/ListChangedBlocksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ebs/Interface/ListChangedBlocksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ebs/Interface/ListChangedBlocksCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +242,6 @@ ListSnapshotBlocks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ebs/command/ListSnapshotBlocksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ebs/Interface/ListSnapshotBlocksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ebs/Interface/ListSnapshotBlocksCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +249,6 @@ PutSnapshotBlock
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ebs/command/PutSnapshotBlockCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ebs/Interface/PutSnapshotBlockCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ebs/Interface/PutSnapshotBlockCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,5 +256,4 @@ StartSnapshot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ebs/command/StartSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ebs/Interface/StartSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ebs/Interface/StartSnapshotCommandOutput/)
-
 </details>

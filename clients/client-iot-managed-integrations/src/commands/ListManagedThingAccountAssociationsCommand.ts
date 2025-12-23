@@ -31,9 +31,7 @@ export interface ListManagedThingAccountAssociationsCommandInput extends ListMan
  *
  * The output of {@link ListManagedThingAccountAssociationsCommand}.
  */
-export interface ListManagedThingAccountAssociationsCommandOutput
-  extends ListManagedThingAccountAssociationsResponse,
-    __MetadataBearer {}
+export interface ListManagedThingAccountAssociationsCommandOutput extends ListManagedThingAccountAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all account associations for a specific managed thing.</p>

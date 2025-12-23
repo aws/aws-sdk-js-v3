@@ -24,9 +24,7 @@ export interface DescribeCertificateProviderCommandInput extends DescribeCertifi
  *
  * The output of {@link DescribeCertificateProviderCommand}.
  */
-export interface DescribeCertificateProviderCommandOutput
-  extends DescribeCertificateProviderResponse,
-    __MetadataBearer {}
+export interface DescribeCertificateProviderCommandOutput extends DescribeCertificateProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a certificate provider.</p>

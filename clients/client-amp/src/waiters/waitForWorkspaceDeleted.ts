@@ -10,9 +10,9 @@ const checkState = async (client: AmpClient, input: DescribeWorkspaceCommandInpu
     const result: any = await client.send(new DescribeWorkspaceCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.workspace.status.statusCode;
-      };
+      }
       if (returnComparator() === "DELETING") {
         return { state: WaiterState.RETRY, reason };
       }

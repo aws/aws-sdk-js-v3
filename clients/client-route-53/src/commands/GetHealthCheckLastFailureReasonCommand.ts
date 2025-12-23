@@ -27,9 +27,7 @@ export interface GetHealthCheckLastFailureReasonCommandInput extends GetHealthCh
  *
  * The output of {@link GetHealthCheckLastFailureReasonCommand}.
  */
-export interface GetHealthCheckLastFailureReasonCommandOutput
-  extends GetHealthCheckLastFailureReasonResponse,
-    __MetadataBearer {}
+export interface GetHealthCheckLastFailureReasonCommandOutput extends GetHealthCheckLastFailureReasonResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the reason that a specified health check failed most recently.</p>

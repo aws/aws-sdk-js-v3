@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeComponentConfigurationRecommendationCommand}.
  */
-export interface DescribeComponentConfigurationRecommendationCommandInput
-  extends DescribeComponentConfigurationRecommendationRequest {}
+export interface DescribeComponentConfigurationRecommendationCommandInput extends DescribeComponentConfigurationRecommendationRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeComponentConfigurationRecommendationCommand}.
  */
-export interface DescribeComponentConfigurationRecommendationCommandOutput
-  extends DescribeComponentConfigurationRecommendationResponse,
-    __MetadataBearer {}
+export interface DescribeComponentConfigurationRecommendationCommandOutput extends DescribeComponentConfigurationRecommendationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the recommended monitoring configuration of the component.</p>

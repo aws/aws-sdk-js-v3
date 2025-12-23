@@ -24,9 +24,7 @@ export interface UpdateDataSourcePermissionsCommandInput extends UpdateDataSourc
  *
  * The output of {@link UpdateDataSourcePermissionsCommand}.
  */
-export interface UpdateDataSourcePermissionsCommandOutput
-  extends UpdateDataSourcePermissionsResponse,
-    __MetadataBearer {}
+export interface UpdateDataSourcePermissionsCommandOutput extends UpdateDataSourcePermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the permissions to a data source.</p>

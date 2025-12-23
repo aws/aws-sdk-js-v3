@@ -57,10 +57,13 @@ export const se_OnlyCustomAuthCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = {
+  };
   b.bp("/OnlyCustomAuth");
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET")
+  .h(headers)
+  .b(body);
   return b.build();
 };
 
@@ -72,10 +75,13 @@ export const se_OnlyCustomAuthOptionalCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = {
+  };
   b.bp("/OnlyCustomAuthOptional");
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET")
+  .h(headers)
+  .b(body);
   return b.build();
 };
 
@@ -87,10 +93,13 @@ export const se_OnlyHttpApiKeyAndBearerAuthCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = {
+  };
   b.bp("/OnlyHttpApiKeyAndBearerAuth");
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET")
+  .h(headers)
+  .b(body);
   return b.build();
 };
 
@@ -102,10 +111,13 @@ export const se_OnlyHttpApiKeyAndBearerAuthReversedCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = {
+  };
   b.bp("/OnlyHttpApiKeyAndBearerAuthReversed");
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET")
+  .h(headers)
+  .b(body);
   return b.build();
 };
 
@@ -117,10 +129,13 @@ export const se_OnlyHttpApiKeyAuthCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = {
+  };
   b.bp("/OnlyHttpApiKeyAuth");
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET")
+  .h(headers)
+  .b(body);
   return b.build();
 };
 
@@ -132,10 +147,13 @@ export const se_OnlyHttpApiKeyAuthOptionalCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = {
+  };
   b.bp("/OnlyHttpApiKeyAuthOptional");
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET")
+  .h(headers)
+  .b(body);
   return b.build();
 };
 
@@ -147,10 +165,13 @@ export const se_OnlyHttpBearerAuthCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = {
+  };
   b.bp("/OnlyHttpBearerAuth");
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET")
+  .h(headers)
+  .b(body);
   return b.build();
 };
 
@@ -162,10 +183,13 @@ export const se_OnlyHttpBearerAuthOptionalCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = {
+  };
   b.bp("/OnlyHttpBearerAuthOptional");
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET")
+  .h(headers)
+  .b(body);
   return b.build();
 };
 
@@ -177,10 +201,13 @@ export const se_OnlySigv4AuthCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = {
+  };
   b.bp("/OnlySigv4Auth");
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET")
+  .h(headers)
+  .b(body);
   return b.build();
 };
 
@@ -192,10 +219,13 @@ export const se_OnlySigv4AuthOptionalCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = {
+  };
   b.bp("/OnlySigv4AuthOptional");
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET")
+  .h(headers)
+  .b(body);
   return b.build();
 };
 
@@ -207,10 +237,13 @@ export const se_SameAsServiceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = {
+  };
   b.bp("/SameAsService");
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET")
+  .h(headers)
+  .b(body);
   return b.build();
 };
 
@@ -397,9 +430,9 @@ export const de_SameAsServiceCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const data: Record<string, any> = __expectNonNull((__expectObject(await parseBody(output.body, context))), "body");
   const doc = take(data, {
-    service: __expectString,
+    'service': __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -408,29 +441,30 @@ export const de_SameAsServiceCommand = async (
 /**
  * deserialize_Aws_restJson1CommandError
  */
-const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
+const de_CommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext,
+): Promise<never> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseErrorBody(output.body, context),
+    body: await parseErrorBody(output.body, context)
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   const parsedBody = parsedOutput.body;
   return throwDefaultError({
     output,
     parsedBody,
-    errorCode,
+    errorCode
   }) as never;
-};
+}
 
 const throwDefaultError = withBaseException(__BaseException);
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId:
-    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
+  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
-  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> => collectBody(streamBody, context).then(body => context.utf8Encoder(body))

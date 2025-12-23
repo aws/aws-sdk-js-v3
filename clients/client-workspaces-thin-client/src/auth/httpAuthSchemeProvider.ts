@@ -49,17 +49,13 @@ export const defaultWorkSpacesThinClientHttpAuthSchemeParametersProvider = async
 ): Promise<WorkSpacesThinClientHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: WorkSpacesThinClientHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: WorkSpacesThinClientHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface WorkSpacesThinClientHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultWorkSpacesThinClientHttpAuthSchemeProvider: WorkSpacesThinClientHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultWorkSpacesThinClientHttpAuthSchemeProvider: WorkSpacesThinClientHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

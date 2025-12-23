@@ -81,12 +81,14 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = ListRealtimeContactAnalysisSegmentsCommandInput;
+export type ServiceInputTypes =
+  | ListRealtimeContactAnalysisSegmentsCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = ListRealtimeContactAnalysisSegmentsCommandOutput;
+export type ServiceOutputTypes =
+  | ListRealtimeContactAnalysisSegmentsCommandOutput;
 
 /**
  * @public

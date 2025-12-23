@@ -31,9 +31,7 @@ export interface DescribeCustomRoutingEndpointGroupCommandInput extends Describe
  *
  * The output of {@link DescribeCustomRoutingEndpointGroupCommand}.
  */
-export interface DescribeCustomRoutingEndpointGroupCommandOutput
-  extends DescribeCustomRoutingEndpointGroupResponse,
-    __MetadataBearer {}
+export interface DescribeCustomRoutingEndpointGroupCommandOutput extends DescribeCustomRoutingEndpointGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Describe an endpoint group for a custom routing accelerator. </p>

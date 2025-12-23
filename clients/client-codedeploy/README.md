@@ -101,10 +101,8 @@ details about Amazon ECS service deployments.</p>
 </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-codedeploy
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-codedeploy`
 - `yarn add @aws-sdk/client-codedeploy`
 - `pnpm add @aws-sdk/client-codedeploy`
@@ -140,9 +138,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new CodeDeployClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListApplicationsCommand(params);
 ```
 
@@ -301,7 +297,6 @@ AddTagsToOnPremisesInstances
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/AddTagsToOnPremisesInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/AddTagsToOnPremisesInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/AddTagsToOnPremisesInstancesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -309,7 +304,6 @@ BatchGetApplicationRevisions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/BatchGetApplicationRevisionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/BatchGetApplicationRevisionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/BatchGetApplicationRevisionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -317,7 +311,6 @@ BatchGetApplications
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/BatchGetApplicationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/BatchGetApplicationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/BatchGetApplicationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -325,7 +318,6 @@ BatchGetDeploymentGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/BatchGetDeploymentGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/BatchGetDeploymentGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/BatchGetDeploymentGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -333,7 +325,6 @@ BatchGetDeploymentInstances
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/BatchGetDeploymentInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/BatchGetDeploymentInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/BatchGetDeploymentInstancesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -341,7 +332,6 @@ BatchGetDeployments
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/BatchGetDeploymentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/BatchGetDeploymentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/BatchGetDeploymentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -349,7 +339,6 @@ BatchGetDeploymentTargets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/BatchGetDeploymentTargetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/BatchGetDeploymentTargetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/BatchGetDeploymentTargetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -357,7 +346,6 @@ BatchGetOnPremisesInstances
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/BatchGetOnPremisesInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/BatchGetOnPremisesInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/BatchGetOnPremisesInstancesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -365,7 +353,6 @@ ContinueDeployment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/ContinueDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ContinueDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ContinueDeploymentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -373,7 +360,6 @@ CreateApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/CreateApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/CreateApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/CreateApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -381,7 +367,6 @@ CreateDeployment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/CreateDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/CreateDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/CreateDeploymentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -389,7 +374,6 @@ CreateDeploymentConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/CreateDeploymentConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/CreateDeploymentConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/CreateDeploymentConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -397,7 +381,6 @@ CreateDeploymentGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/CreateDeploymentGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/CreateDeploymentGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/CreateDeploymentGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -405,7 +388,6 @@ DeleteApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/DeleteApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/DeleteApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/DeleteApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -413,7 +395,6 @@ DeleteDeploymentConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/DeleteDeploymentConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/DeleteDeploymentConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/DeleteDeploymentConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -421,7 +402,6 @@ DeleteDeploymentGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/DeleteDeploymentGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/DeleteDeploymentGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/DeleteDeploymentGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -429,7 +409,6 @@ DeleteGitHubAccountToken
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/DeleteGitHubAccountTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/DeleteGitHubAccountTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/DeleteGitHubAccountTokenCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -437,7 +416,6 @@ DeleteResourcesByExternalId
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/DeleteResourcesByExternalIdCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/DeleteResourcesByExternalIdCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/DeleteResourcesByExternalIdCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -445,7 +423,6 @@ DeregisterOnPremisesInstance
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/DeregisterOnPremisesInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/DeregisterOnPremisesInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/DeregisterOnPremisesInstanceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -453,7 +430,6 @@ GetApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/GetApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/GetApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/GetApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -461,7 +437,6 @@ GetApplicationRevision
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/GetApplicationRevisionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/GetApplicationRevisionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/GetApplicationRevisionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -469,7 +444,6 @@ GetDeployment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/GetDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/GetDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/GetDeploymentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -477,7 +451,6 @@ GetDeploymentConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/GetDeploymentConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/GetDeploymentConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/GetDeploymentConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -485,7 +458,6 @@ GetDeploymentGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/GetDeploymentGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/GetDeploymentGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/GetDeploymentGroupCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -493,7 +465,6 @@ GetDeploymentInstance
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/GetDeploymentInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/GetDeploymentInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/GetDeploymentInstanceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -501,7 +472,6 @@ GetDeploymentTarget
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/GetDeploymentTargetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/GetDeploymentTargetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/GetDeploymentTargetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -509,7 +479,6 @@ GetOnPremisesInstance
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/GetOnPremisesInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/GetOnPremisesInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/GetOnPremisesInstanceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -517,7 +486,6 @@ ListApplicationRevisions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/ListApplicationRevisionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ListApplicationRevisionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ListApplicationRevisionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -525,7 +493,6 @@ ListApplications
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/ListApplicationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ListApplicationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ListApplicationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -533,7 +500,6 @@ ListDeploymentConfigs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/ListDeploymentConfigsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ListDeploymentConfigsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ListDeploymentConfigsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -541,7 +507,6 @@ ListDeploymentGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/ListDeploymentGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ListDeploymentGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ListDeploymentGroupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -549,7 +514,6 @@ ListDeploymentInstances
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/ListDeploymentInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ListDeploymentInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ListDeploymentInstancesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -557,7 +521,6 @@ ListDeployments
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/ListDeploymentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ListDeploymentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ListDeploymentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -565,7 +528,6 @@ ListDeploymentTargets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/ListDeploymentTargetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ListDeploymentTargetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ListDeploymentTargetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -573,7 +535,6 @@ ListGitHubAccountTokenNames
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/ListGitHubAccountTokenNamesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ListGitHubAccountTokenNamesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ListGitHubAccountTokenNamesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -581,7 +542,6 @@ ListOnPremisesInstances
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/ListOnPremisesInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ListOnPremisesInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ListOnPremisesInstancesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -589,7 +549,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -597,7 +556,6 @@ PutLifecycleEventHookExecutionStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/PutLifecycleEventHookExecutionStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/PutLifecycleEventHookExecutionStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/PutLifecycleEventHookExecutionStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -605,7 +563,6 @@ RegisterApplicationRevision
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/RegisterApplicationRevisionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/RegisterApplicationRevisionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/RegisterApplicationRevisionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -613,7 +570,6 @@ RegisterOnPremisesInstance
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/RegisterOnPremisesInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/RegisterOnPremisesInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/RegisterOnPremisesInstanceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -621,7 +577,6 @@ RemoveTagsFromOnPremisesInstances
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/RemoveTagsFromOnPremisesInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/RemoveTagsFromOnPremisesInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/RemoveTagsFromOnPremisesInstancesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -629,7 +584,6 @@ SkipWaitTimeForInstanceTermination
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/SkipWaitTimeForInstanceTerminationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/SkipWaitTimeForInstanceTerminationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/SkipWaitTimeForInstanceTerminationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -637,7 +591,6 @@ StopDeployment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/StopDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/StopDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/StopDeploymentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -645,7 +598,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -653,7 +605,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -661,7 +612,6 @@ UpdateApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/UpdateApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/UpdateApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/UpdateApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -669,5 +619,4 @@ UpdateDeploymentGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codedeploy/command/UpdateDeploymentGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/UpdateDeploymentGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codedeploy/Interface/UpdateDeploymentGroupCommandOutput/)
-
 </details>

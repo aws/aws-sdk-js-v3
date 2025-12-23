@@ -24,9 +24,7 @@ export interface RestoreDBInstanceToPointInTimeCommandInput extends RestoreDBIns
  *
  * The output of {@link RestoreDBInstanceToPointInTimeCommand}.
  */
-export interface RestoreDBInstanceToPointInTimeCommandOutput
-  extends RestoreDBInstanceToPointInTimeResult,
-    __MetadataBearer {}
+export interface RestoreDBInstanceToPointInTimeCommandOutput extends RestoreDBInstanceToPointInTimeResult, __MetadataBearer {}
 
 /**
  * <p>Restores a DB instance to an arbitrary point in time. You can restore to any point in time before the time identified by the <code>LatestRestorableTime</code> property. You can restore to a point up to the number of days specified by the <code>BackupRetentionPeriod</code> property.</p>

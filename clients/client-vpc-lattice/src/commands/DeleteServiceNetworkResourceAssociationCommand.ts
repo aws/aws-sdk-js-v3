@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteServiceNetworkResourceAssociationCommand}.
  */
-export interface DeleteServiceNetworkResourceAssociationCommandInput
-  extends DeleteServiceNetworkResourceAssociationRequest {}
+export interface DeleteServiceNetworkResourceAssociationCommandInput extends DeleteServiceNetworkResourceAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteServiceNetworkResourceAssociationCommand}.
  */
-export interface DeleteServiceNetworkResourceAssociationCommandOutput
-  extends DeleteServiceNetworkResourceAssociationResponse,
-    __MetadataBearer {}
+export interface DeleteServiceNetworkResourceAssociationCommandOutput extends DeleteServiceNetworkResourceAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the association between a service network and a resource configuration.</p>

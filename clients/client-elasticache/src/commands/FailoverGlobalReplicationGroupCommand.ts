@@ -24,9 +24,7 @@ export interface FailoverGlobalReplicationGroupCommandInput extends FailoverGlob
  *
  * The output of {@link FailoverGlobalReplicationGroupCommand}.
  */
-export interface FailoverGlobalReplicationGroupCommandOutput
-  extends FailoverGlobalReplicationGroupResult,
-    __MetadataBearer {}
+export interface FailoverGlobalReplicationGroupCommandOutput extends FailoverGlobalReplicationGroupResult, __MetadataBearer {}
 
 /**
  * <p>Used to failover the primary region to a secondary region. The secondary region will

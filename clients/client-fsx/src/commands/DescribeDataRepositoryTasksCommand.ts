@@ -24,9 +24,7 @@ export interface DescribeDataRepositoryTasksCommandInput extends DescribeDataRep
  *
  * The output of {@link DescribeDataRepositoryTasksCommand}.
  */
-export interface DescribeDataRepositoryTasksCommandOutput
-  extends DescribeDataRepositoryTasksResponse,
-    __MetadataBearer {}
+export interface DescribeDataRepositoryTasksCommandOutput extends DescribeDataRepositoryTasksResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the description of specific Amazon FSx for Lustre or Amazon File Cache data repository tasks, if

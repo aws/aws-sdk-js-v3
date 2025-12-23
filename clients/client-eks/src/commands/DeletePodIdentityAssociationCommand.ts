@@ -24,9 +24,7 @@ export interface DeletePodIdentityAssociationCommandInput extends DeletePodIdent
  *
  * The output of {@link DeletePodIdentityAssociationCommand}.
  */
-export interface DeletePodIdentityAssociationCommandOutput
-  extends DeletePodIdentityAssociationResponse,
-    __MetadataBearer {}
+export interface DeletePodIdentityAssociationCommandOutput extends DeletePodIdentityAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a EKS Pod Identity association.</p>

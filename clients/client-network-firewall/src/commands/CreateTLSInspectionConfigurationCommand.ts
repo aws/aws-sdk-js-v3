@@ -31,9 +31,7 @@ export interface CreateTLSInspectionConfigurationCommandInput extends CreateTLSI
  *
  * The output of {@link CreateTLSInspectionConfigurationCommand}.
  */
-export interface CreateTLSInspectionConfigurationCommandOutput
-  extends CreateTLSInspectionConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateTLSInspectionConfigurationCommandOutput extends CreateTLSInspectionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Network Firewall TLS inspection configuration. Network Firewall uses TLS inspection configurations to decrypt your firewall's inbound and outbound SSL/TLS traffic. After decryption, Network Firewall inspects the traffic according to your firewall policy's stateful rules, and then re-encrypts it before sending it to its destination. You can enable inspection of your firewall's inbound traffic, outbound traffic, or both. To use TLS inspection with your firewall, you must first import or provision certificates using ACM, create a TLS inspection configuration, add that configuration to a new firewall policy, and then associate that policy with your firewall.</p>

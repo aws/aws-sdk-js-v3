@@ -27,9 +27,7 @@ export interface ListEnvironmentAccountConnectionsCommandInput extends ListEnvir
  *
  * The output of {@link ListEnvironmentAccountConnectionsCommand}.
  */
-export interface ListEnvironmentAccountConnectionsCommandOutput
-  extends ListEnvironmentAccountConnectionsOutput,
-    __MetadataBearer {}
+export interface ListEnvironmentAccountConnectionsCommandOutput extends ListEnvironmentAccountConnectionsOutput, __MetadataBearer {}
 
 /**
  * <p>View a list of environment account connections.</p>

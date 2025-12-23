@@ -24,9 +24,7 @@ export interface ListMicrosoftTeamsChannelConfigurationsCommandInput extends Lis
  *
  * The output of {@link ListMicrosoftTeamsChannelConfigurationsCommand}.
  */
-export interface ListMicrosoftTeamsChannelConfigurationsCommandOutput
-  extends ListTeamsChannelConfigurationsResult,
-    __MetadataBearer {}
+export interface ListMicrosoftTeamsChannelConfigurationsCommandOutput extends ListTeamsChannelConfigurationsResult, __MetadataBearer {}
 
 /**
  * <p>Lists all AWS Chatbot Microsoft Teams channel configurations in an AWS account.</p>

@@ -24,9 +24,7 @@ export interface UpdateClusterSchedulerConfigCommandInput extends UpdateClusterS
  *
  * The output of {@link UpdateClusterSchedulerConfigCommand}.
  */
-export interface UpdateClusterSchedulerConfigCommandOutput
-  extends UpdateClusterSchedulerConfigResponse,
-    __MetadataBearer {}
+export interface UpdateClusterSchedulerConfigCommandOutput extends UpdateClusterSchedulerConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Update the cluster policy configuration.</p>

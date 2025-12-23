@@ -24,9 +24,7 @@ export interface DescribeSecurityConfigurationCommandInput extends DescribeSecur
  *
  * The output of {@link DescribeSecurityConfigurationCommand}.
  */
-export interface DescribeSecurityConfigurationCommandOutput
-  extends DescribeSecurityConfigurationOutput,
-    __MetadataBearer {}
+export interface DescribeSecurityConfigurationCommandOutput extends DescribeSecurityConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Provides the details of a security configuration by returning the configuration

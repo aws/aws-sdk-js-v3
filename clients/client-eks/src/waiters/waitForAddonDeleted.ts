@@ -10,9 +10,9 @@ const checkState = async (client: EKSClient, input: DescribeAddonCommandInput): 
     const result: any = await client.send(new DescribeAddonCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.addon.status;
-      };
+      }
       if (returnComparator() === "DELETE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

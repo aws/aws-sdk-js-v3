@@ -49,17 +49,13 @@ export const defaultCostAndUsageReportServiceHttpAuthSchemeParametersProvider = 
 ): Promise<CostAndUsageReportServiceHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: CostAndUsageReportServiceHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: CostAndUsageReportServiceHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface CostAndUsageReportServiceHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultCostAndUsageReportServiceHttpAuthSchemeProvider: CostAndUsageReportServiceHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultCostAndUsageReportServiceHttpAuthSchemeProvider: CostAndUsageReportServiceHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

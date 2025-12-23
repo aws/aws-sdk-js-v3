@@ -24,9 +24,7 @@ export interface DetachInstancesFromLoadBalancerCommandInput extends DetachInsta
  *
  * The output of {@link DetachInstancesFromLoadBalancerCommand}.
  */
-export interface DetachInstancesFromLoadBalancerCommandOutput
-  extends DetachInstancesFromLoadBalancerResult,
-    __MetadataBearer {}
+export interface DetachInstancesFromLoadBalancerCommandOutput extends DetachInstancesFromLoadBalancerResult, __MetadataBearer {}
 
 /**
  * <p>Detaches the specified instances from a Lightsail load balancer.</p>

@@ -28,9 +28,7 @@ export interface DescribeDeliveryDestinationsCommandInput extends DescribeDelive
  *
  * The output of {@link DescribeDeliveryDestinationsCommand}.
  */
-export interface DescribeDeliveryDestinationsCommandOutput
-  extends DescribeDeliveryDestinationsResponse,
-    __MetadataBearer {}
+export interface DescribeDeliveryDestinationsCommandOutput extends DescribeDeliveryDestinationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of the delivery destinations that have been created in the

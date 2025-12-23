@@ -27,9 +27,7 @@ export interface PutVerificationStateOnViolationCommandInput extends PutVerifica
  *
  * The output of {@link PutVerificationStateOnViolationCommand}.
  */
-export interface PutVerificationStateOnViolationCommandOutput
-  extends PutVerificationStateOnViolationResponse,
-    __MetadataBearer {}
+export interface PutVerificationStateOnViolationCommandOutput extends PutVerificationStateOnViolationResponse, __MetadataBearer {}
 
 /**
  * <p>Set a verification state and provide a description of that verification state on a violation (detect alarm).</p>

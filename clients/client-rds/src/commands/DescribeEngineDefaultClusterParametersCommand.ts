@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeEngineDefaultClusterParametersCommand}.
  */
-export interface DescribeEngineDefaultClusterParametersCommandInput
-  extends DescribeEngineDefaultClusterParametersMessage {}
+export interface DescribeEngineDefaultClusterParametersCommandInput extends DescribeEngineDefaultClusterParametersMessage {}
 /**
  * @public
  *
  * The output of {@link DescribeEngineDefaultClusterParametersCommand}.
  */
-export interface DescribeEngineDefaultClusterParametersCommandOutput
-  extends DescribeEngineDefaultClusterParametersResult,
-    __MetadataBearer {}
+export interface DescribeEngineDefaultClusterParametersCommandOutput extends DescribeEngineDefaultClusterParametersResult, __MetadataBearer {}
 
 /**
  * <p>Returns the default engine and system parameter information for the cluster database engine.</p>

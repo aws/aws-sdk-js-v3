@@ -24,9 +24,7 @@ export interface GetCalculationExecutionCodeCommandInput extends GetCalculationE
  *
  * The output of {@link GetCalculationExecutionCodeCommand}.
  */
-export interface GetCalculationExecutionCodeCommandOutput
-  extends GetCalculationExecutionCodeResponse,
-    __MetadataBearer {}
+export interface GetCalculationExecutionCodeCommandOutput extends GetCalculationExecutionCodeResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the unencrypted code that was executed for the calculation.</p>

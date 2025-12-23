@@ -28,9 +28,7 @@ export interface ListResourceScanRelatedResourcesCommandInput extends ListResour
  *
  * The output of {@link ListResourceScanRelatedResourcesCommand}.
  */
-export interface ListResourceScanRelatedResourcesCommandOutput
-  extends ListResourceScanRelatedResourcesOutput,
-    __MetadataBearer {}
+export interface ListResourceScanRelatedResourcesCommandOutput extends ListResourceScanRelatedResourcesOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the related resources for a list of resources from a resource scan. The response

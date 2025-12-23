@@ -27,9 +27,7 @@ export interface RegisterPullTimeUpdateExclusionCommandInput extends RegisterPul
  *
  * The output of {@link RegisterPullTimeUpdateExclusionCommand}.
  */
-export interface RegisterPullTimeUpdateExclusionCommandOutput
-  extends RegisterPullTimeUpdateExclusionResponse,
-    __MetadataBearer {}
+export interface RegisterPullTimeUpdateExclusionCommandOutput extends RegisterPullTimeUpdateExclusionResponse, __MetadataBearer {}
 
 /**
  * <p>Adds an IAM principal to the pull time update exclusion list for a registry. Amazon ECR will not record the pull time if an excluded principal pulls an image.</p>

@@ -24,9 +24,7 @@ export interface DeleteRecommendationTemplateCommandInput extends DeleteRecommen
  *
  * The output of {@link DeleteRecommendationTemplateCommand}.
  */
-export interface DeleteRecommendationTemplateCommandOutput
-  extends DeleteRecommendationTemplateResponse,
-    __MetadataBearer {}
+export interface DeleteRecommendationTemplateCommandOutput extends DeleteRecommendationTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a recommendation template. This is a destructive action that can't be

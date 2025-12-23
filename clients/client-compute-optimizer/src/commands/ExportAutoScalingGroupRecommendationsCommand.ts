@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ExportAutoScalingGroupRecommendationsCommand}.
  */
-export interface ExportAutoScalingGroupRecommendationsCommandInput
-  extends ExportAutoScalingGroupRecommendationsRequest {}
+export interface ExportAutoScalingGroupRecommendationsCommandInput extends ExportAutoScalingGroupRecommendationsRequest {}
 /**
  * @public
  *
  * The output of {@link ExportAutoScalingGroupRecommendationsCommand}.
  */
-export interface ExportAutoScalingGroupRecommendationsCommandOutput
-  extends ExportAutoScalingGroupRecommendationsResponse,
-    __MetadataBearer {}
+export interface ExportAutoScalingGroupRecommendationsCommandOutput extends ExportAutoScalingGroupRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Exports optimization recommendations for Amazon EC2 Auto Scaling groups.</p>

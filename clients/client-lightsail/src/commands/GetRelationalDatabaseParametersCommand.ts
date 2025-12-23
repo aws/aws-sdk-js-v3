@@ -24,9 +24,7 @@ export interface GetRelationalDatabaseParametersCommandInput extends GetRelation
  *
  * The output of {@link GetRelationalDatabaseParametersCommand}.
  */
-export interface GetRelationalDatabaseParametersCommandOutput
-  extends GetRelationalDatabaseParametersResult,
-    __MetadataBearer {}
+export interface GetRelationalDatabaseParametersCommandOutput extends GetRelationalDatabaseParametersResult, __MetadataBearer {}
 
 /**
  * <p>Returns all of the runtime parameters offered by the underlying database software, or

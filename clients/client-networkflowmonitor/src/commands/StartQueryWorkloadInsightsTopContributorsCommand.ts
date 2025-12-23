@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link StartQueryWorkloadInsightsTopContributorsCommand}.
  */
-export interface StartQueryWorkloadInsightsTopContributorsCommandInput
-  extends StartQueryWorkloadInsightsTopContributorsInput {}
+export interface StartQueryWorkloadInsightsTopContributorsCommandInput extends StartQueryWorkloadInsightsTopContributorsInput {}
 /**
  * @public
  *
  * The output of {@link StartQueryWorkloadInsightsTopContributorsCommand}.
  */
-export interface StartQueryWorkloadInsightsTopContributorsCommandOutput
-  extends StartQueryWorkloadInsightsTopContributorsOutput,
-    __MetadataBearer {}
+export interface StartQueryWorkloadInsightsTopContributorsCommandOutput extends StartQueryWorkloadInsightsTopContributorsOutput, __MetadataBearer {}
 
 /**
  * <p>Create a query with the Network Flow Monitor query interface that you can run to return workload insights top contributors. Specify the scope that you want to create a query for.</p> <p>The call returns a query ID that you can use with <a href="https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsWorkloadInsightsTopContributors.html"> GetQueryResultsWorkloadInsightsTopContributors</a> to run the query and return the top contributors for the workload insights for a scope.</p> <p>Top contributors in Network Flow Monitor are network flows with the highest values for a specific metric type. Top contributors can be across all workload insights, for a given scope, or for a specific monitor. Use the applicable APIs for the top contributors that you want to be returned.</p>

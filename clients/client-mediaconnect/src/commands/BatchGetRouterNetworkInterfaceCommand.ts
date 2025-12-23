@@ -24,9 +24,7 @@ export interface BatchGetRouterNetworkInterfaceCommandInput extends BatchGetRout
  *
  * The output of {@link BatchGetRouterNetworkInterfaceCommand}.
  */
-export interface BatchGetRouterNetworkInterfaceCommandOutput
-  extends BatchGetRouterNetworkInterfaceResponse,
-    __MetadataBearer {}
+export interface BatchGetRouterNetworkInterfaceCommandOutput extends BatchGetRouterNetworkInterfaceResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about multiple router network interfaces in AWS Elemental MediaConnect.</p>

@@ -27,9 +27,7 @@ export interface RegisterTargetWithMaintenanceWindowCommandInput extends Registe
  *
  * The output of {@link RegisterTargetWithMaintenanceWindowCommand}.
  */
-export interface RegisterTargetWithMaintenanceWindowCommandOutput
-  extends RegisterTargetWithMaintenanceWindowResult,
-    __MetadataBearer {}
+export interface RegisterTargetWithMaintenanceWindowCommandOutput extends RegisterTargetWithMaintenanceWindowResult, __MetadataBearer {}
 
 /**
  * <p>Registers a target with a maintenance window.</p>

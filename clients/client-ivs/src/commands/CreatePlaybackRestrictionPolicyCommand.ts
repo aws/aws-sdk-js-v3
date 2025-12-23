@@ -27,9 +27,7 @@ export interface CreatePlaybackRestrictionPolicyCommandInput extends CreatePlayb
  *
  * The output of {@link CreatePlaybackRestrictionPolicyCommand}.
  */
-export interface CreatePlaybackRestrictionPolicyCommandOutput
-  extends CreatePlaybackRestrictionPolicyResponse,
-    __MetadataBearer {}
+export interface CreatePlaybackRestrictionPolicyCommandOutput extends CreatePlaybackRestrictionPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new playback restriction policy, for constraining playback by countries and/or

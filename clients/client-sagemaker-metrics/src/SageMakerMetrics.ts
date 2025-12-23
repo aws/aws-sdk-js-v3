@@ -27,7 +27,10 @@ export interface SageMakerMetrics {
     args: BatchGetMetricsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchGetMetricsCommandOutput>;
-  batchGetMetrics(args: BatchGetMetricsCommandInput, cb: (err: any, data?: BatchGetMetricsCommandOutput) => void): void;
+  batchGetMetrics(
+    args: BatchGetMetricsCommandInput,
+    cb: (err: any, data?: BatchGetMetricsCommandOutput) => void
+  ): void;
   batchGetMetrics(
     args: BatchGetMetricsCommandInput,
     options: __HttpHandlerOptions,
@@ -41,7 +44,10 @@ export interface SageMakerMetrics {
     args: BatchPutMetricsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchPutMetricsCommandOutput>;
-  batchPutMetrics(args: BatchPutMetricsCommandInput, cb: (err: any, data?: BatchPutMetricsCommandOutput) => void): void;
+  batchPutMetrics(
+    args: BatchPutMetricsCommandInput,
+    cb: (err: any, data?: BatchPutMetricsCommandOutput) => void
+  ): void;
   batchPutMetrics(
     args: BatchPutMetricsCommandInput,
     options: __HttpHandlerOptions,

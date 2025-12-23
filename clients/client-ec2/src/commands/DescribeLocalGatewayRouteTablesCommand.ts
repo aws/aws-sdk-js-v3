@@ -24,9 +24,7 @@ export interface DescribeLocalGatewayRouteTablesCommandInput extends DescribeLoc
  *
  * The output of {@link DescribeLocalGatewayRouteTablesCommand}.
  */
-export interface DescribeLocalGatewayRouteTablesCommandOutput
-  extends DescribeLocalGatewayRouteTablesResult,
-    __MetadataBearer {}
+export interface DescribeLocalGatewayRouteTablesCommandOutput extends DescribeLocalGatewayRouteTablesResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more local gateway route tables. By default, all local gateway route tables are described.

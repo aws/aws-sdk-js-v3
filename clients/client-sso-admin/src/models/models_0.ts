@@ -522,7 +522,9 @@ export interface IamAuthenticationMethod {
  * <p>A structure that describes an authentication method that can be used by an application.</p>
  * @public
  */
-export type AuthenticationMethod = AuthenticationMethod.IamMember | AuthenticationMethod.$UnknownMember;
+export type AuthenticationMethod =
+  | AuthenticationMethod.IamMember
+  | AuthenticationMethod.$UnknownMember;
 
 /**
  * @public

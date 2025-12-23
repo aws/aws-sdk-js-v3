@@ -24,9 +24,7 @@ export interface RecordLifecycleActionHeartbeatCommandInput extends RecordLifecy
  *
  * The output of {@link RecordLifecycleActionHeartbeatCommand}.
  */
-export interface RecordLifecycleActionHeartbeatCommandOutput
-  extends RecordLifecycleActionHeartbeatAnswer,
-    __MetadataBearer {}
+export interface RecordLifecycleActionHeartbeatCommandOutput extends RecordLifecycleActionHeartbeatAnswer, __MetadataBearer {}
 
 /**
  * <p>Records a heartbeat for the lifecycle action associated with the specified token or

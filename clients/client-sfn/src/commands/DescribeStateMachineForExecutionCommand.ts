@@ -24,9 +24,7 @@ export interface DescribeStateMachineForExecutionCommandInput extends DescribeSt
  *
  * The output of {@link DescribeStateMachineForExecutionCommand}.
  */
-export interface DescribeStateMachineForExecutionCommandOutput
-  extends DescribeStateMachineForExecutionOutput,
-    __MetadataBearer {}
+export interface DescribeStateMachineForExecutionCommandOutput extends DescribeStateMachineForExecutionOutput, __MetadataBearer {}
 
 /**
  * <p>Provides information about a state machine's definition, its execution role ARN, and

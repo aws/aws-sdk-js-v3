@@ -24,9 +24,7 @@ export interface ListContactFlowModuleVersionsCommandInput extends ListContactFl
  *
  * The output of {@link ListContactFlowModuleVersionsCommand}.
  */
-export interface ListContactFlowModuleVersionsCommandOutput
-  extends ListContactFlowModuleVersionsResponse,
-    __MetadataBearer {}
+export interface ListContactFlowModuleVersionsCommandOutput extends ListContactFlowModuleVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a paginated list of all versions for a specific contact flow module.</p>

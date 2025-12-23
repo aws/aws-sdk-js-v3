@@ -302,8 +302,7 @@ export type BedrockDataAutomationRuntimeClientResolvedConfigType = __SmithyResol
  *
  *  The resolved configuration interface of BedrockDataAutomationRuntimeClient class. This is resolved and normalized from the {@link BedrockDataAutomationRuntimeClientConfig | constructor configuration interface}.
  */
-export interface BedrockDataAutomationRuntimeClientResolvedConfig
-  extends BedrockDataAutomationRuntimeClientResolvedConfigType {}
+export interface BedrockDataAutomationRuntimeClientResolvedConfig extends BedrockDataAutomationRuntimeClientResolvedConfigType {}
 
 /**
  * Amazon Bedrock Data Automation Runtime

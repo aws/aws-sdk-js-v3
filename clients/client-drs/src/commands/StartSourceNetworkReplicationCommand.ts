@@ -24,9 +24,7 @@ export interface StartSourceNetworkReplicationCommandInput extends StartSourceNe
  *
  * The output of {@link StartSourceNetworkReplicationCommand}.
  */
-export interface StartSourceNetworkReplicationCommandOutput
-  extends StartSourceNetworkReplicationResponse,
-    __MetadataBearer {}
+export interface StartSourceNetworkReplicationCommandOutput extends StartSourceNetworkReplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Starts replication for a Source Network. This action would make the Source Network protected.</p>

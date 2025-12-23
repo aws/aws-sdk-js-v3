@@ -31,9 +31,7 @@ export interface DeleteTLSInspectionConfigurationCommandInput extends DeleteTLSI
  *
  * The output of {@link DeleteTLSInspectionConfigurationCommand}.
  */
-export interface DeleteTLSInspectionConfigurationCommandOutput
-  extends DeleteTLSInspectionConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteTLSInspectionConfigurationCommandOutput extends DeleteTLSInspectionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified <a>TLSInspectionConfiguration</a>.</p>

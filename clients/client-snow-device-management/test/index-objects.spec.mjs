@@ -61,6 +61,10 @@ import {
   ListTasksCommand,
   ListTasksInput$,
   ListTasksOutput$,
+  paginateListDeviceResources,
+  paginateListDevices,
+  paginateListExecutions,
+  paginateListTasks,
   PhysicalConnectorType,
   PhysicalNetworkInterface$,
   Reboot$,
@@ -88,10 +92,6 @@ import {
   UntagResourceInput$,
   ValidationException,
   ValidationException$,
-  paginateListDeviceResources,
-  paginateListDevices,
-  paginateListExecutions,
-  paginateListTasks,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

@@ -274,8 +274,14 @@ export interface IVSRealTime {
    * @see {@link CreateStageCommand}
    */
   createStage(): Promise<CreateStageCommandOutput>;
-  createStage(args: CreateStageCommandInput, options?: __HttpHandlerOptions): Promise<CreateStageCommandOutput>;
-  createStage(args: CreateStageCommandInput, cb: (err: any, data?: CreateStageCommandOutput) => void): void;
+  createStage(
+    args: CreateStageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStageCommandOutput>;
+  createStage(
+    args: CreateStageCommandInput,
+    cb: (err: any, data?: CreateStageCommandOutput) => void
+  ): void;
   createStage(
     args: CreateStageCommandInput,
     options: __HttpHandlerOptions,
@@ -340,7 +346,10 @@ export interface IVSRealTime {
     args: DeletePublicKeyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeletePublicKeyCommandOutput>;
-  deletePublicKey(args: DeletePublicKeyCommandInput, cb: (err: any, data?: DeletePublicKeyCommandOutput) => void): void;
+  deletePublicKey(
+    args: DeletePublicKeyCommandInput,
+    cb: (err: any, data?: DeletePublicKeyCommandOutput) => void
+  ): void;
   deletePublicKey(
     args: DeletePublicKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -350,8 +359,14 @@ export interface IVSRealTime {
   /**
    * @see {@link DeleteStageCommand}
    */
-  deleteStage(args: DeleteStageCommandInput, options?: __HttpHandlerOptions): Promise<DeleteStageCommandOutput>;
-  deleteStage(args: DeleteStageCommandInput, cb: (err: any, data?: DeleteStageCommandOutput) => void): void;
+  deleteStage(
+    args: DeleteStageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteStageCommandOutput>;
+  deleteStage(
+    args: DeleteStageCommandInput,
+    cb: (err: any, data?: DeleteStageCommandOutput) => void
+  ): void;
   deleteStage(
     args: DeleteStageCommandInput,
     options: __HttpHandlerOptions,
@@ -399,7 +414,10 @@ export interface IVSRealTime {
     args: GetCompositionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCompositionCommandOutput>;
-  getComposition(args: GetCompositionCommandInput, cb: (err: any, data?: GetCompositionCommandOutput) => void): void;
+  getComposition(
+    args: GetCompositionCommandInput,
+    cb: (err: any, data?: GetCompositionCommandOutput) => void
+  ): void;
   getComposition(
     args: GetCompositionCommandInput,
     options: __HttpHandlerOptions,
@@ -447,7 +465,10 @@ export interface IVSRealTime {
     args: GetParticipantCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetParticipantCommandOutput>;
-  getParticipant(args: GetParticipantCommandInput, cb: (err: any, data?: GetParticipantCommandOutput) => void): void;
+  getParticipant(
+    args: GetParticipantCommandInput,
+    cb: (err: any, data?: GetParticipantCommandOutput) => void
+  ): void;
   getParticipant(
     args: GetParticipantCommandInput,
     options: __HttpHandlerOptions,
@@ -457,8 +478,14 @@ export interface IVSRealTime {
   /**
    * @see {@link GetPublicKeyCommand}
    */
-  getPublicKey(args: GetPublicKeyCommandInput, options?: __HttpHandlerOptions): Promise<GetPublicKeyCommandOutput>;
-  getPublicKey(args: GetPublicKeyCommandInput, cb: (err: any, data?: GetPublicKeyCommandOutput) => void): void;
+  getPublicKey(
+    args: GetPublicKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPublicKeyCommandOutput>;
+  getPublicKey(
+    args: GetPublicKeyCommandInput,
+    cb: (err: any, data?: GetPublicKeyCommandOutput) => void
+  ): void;
   getPublicKey(
     args: GetPublicKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -468,8 +495,14 @@ export interface IVSRealTime {
   /**
    * @see {@link GetStageCommand}
    */
-  getStage(args: GetStageCommandInput, options?: __HttpHandlerOptions): Promise<GetStageCommandOutput>;
-  getStage(args: GetStageCommandInput, cb: (err: any, data?: GetStageCommandOutput) => void): void;
+  getStage(
+    args: GetStageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStageCommandOutput>;
+  getStage(
+    args: GetStageCommandInput,
+    cb: (err: any, data?: GetStageCommandOutput) => void
+  ): void;
   getStage(
     args: GetStageCommandInput,
     options: __HttpHandlerOptions,
@@ -483,7 +516,10 @@ export interface IVSRealTime {
     args: GetStageSessionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetStageSessionCommandOutput>;
-  getStageSession(args: GetStageSessionCommandInput, cb: (err: any, data?: GetStageSessionCommandOutput) => void): void;
+  getStageSession(
+    args: GetStageSessionCommandInput,
+    cb: (err: any, data?: GetStageSessionCommandOutput) => void
+  ): void;
   getStageSession(
     args: GetStageSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -514,7 +550,10 @@ export interface IVSRealTime {
     args: ImportPublicKeyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ImportPublicKeyCommandOutput>;
-  importPublicKey(args: ImportPublicKeyCommandInput, cb: (err: any, data?: ImportPublicKeyCommandOutput) => void): void;
+  importPublicKey(
+    args: ImportPublicKeyCommandInput,
+    cb: (err: any, data?: ImportPublicKeyCommandOutput) => void
+  ): void;
   importPublicKey(
     args: ImportPublicKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -634,7 +673,10 @@ export interface IVSRealTime {
     args: ListPublicKeysCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListPublicKeysCommandOutput>;
-  listPublicKeys(args: ListPublicKeysCommandInput, cb: (err: any, data?: ListPublicKeysCommandOutput) => void): void;
+  listPublicKeys(
+    args: ListPublicKeysCommandInput,
+    cb: (err: any, data?: ListPublicKeysCommandOutput) => void
+  ): void;
   listPublicKeys(
     args: ListPublicKeysCommandInput,
     options: __HttpHandlerOptions,
@@ -645,8 +687,14 @@ export interface IVSRealTime {
    * @see {@link ListStagesCommand}
    */
   listStages(): Promise<ListStagesCommandOutput>;
-  listStages(args: ListStagesCommandInput, options?: __HttpHandlerOptions): Promise<ListStagesCommandOutput>;
-  listStages(args: ListStagesCommandInput, cb: (err: any, data?: ListStagesCommandOutput) => void): void;
+  listStages(
+    args: ListStagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStagesCommandOutput>;
+  listStages(
+    args: ListStagesCommandInput,
+    cb: (err: any, data?: ListStagesCommandOutput) => void
+  ): void;
   listStages(
     args: ListStagesCommandInput,
     options: __HttpHandlerOptions,
@@ -746,7 +794,10 @@ export interface IVSRealTime {
     args: StopCompositionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopCompositionCommandOutput>;
-  stopComposition(args: StopCompositionCommandInput, cb: (err: any, data?: StopCompositionCommandOutput) => void): void;
+  stopComposition(
+    args: StopCompositionCommandInput,
+    cb: (err: any, data?: StopCompositionCommandOutput) => void
+  ): void;
   stopComposition(
     args: StopCompositionCommandInput,
     options: __HttpHandlerOptions,
@@ -773,8 +824,14 @@ export interface IVSRealTime {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -784,8 +841,14 @@ export interface IVSRealTime {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -812,8 +875,14 @@ export interface IVSRealTime {
   /**
    * @see {@link UpdateStageCommand}
    */
-  updateStage(args: UpdateStageCommandInput, options?: __HttpHandlerOptions): Promise<UpdateStageCommandOutput>;
-  updateStage(args: UpdateStageCommandInput, cb: (err: any, data?: UpdateStageCommandOutput) => void): void;
+  updateStage(
+    args: UpdateStageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateStageCommandOutput>;
+  updateStage(
+    args: UpdateStageCommandInput,
+    cb: (err: any, data?: UpdateStageCommandOutput) => void
+  ): void;
   updateStage(
     args: UpdateStageCommandInput,
     options: __HttpHandlerOptions,

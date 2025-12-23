@@ -24,9 +24,7 @@ export interface DescribeApplicationAssociationsCommandInput extends DescribeApp
  *
  * The output of {@link DescribeApplicationAssociationsCommand}.
  */
-export interface DescribeApplicationAssociationsCommandOutput
-  extends DescribeApplicationAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeApplicationAssociationsCommandOutput extends DescribeApplicationAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the associations between the application and the specified associated resources.</p>

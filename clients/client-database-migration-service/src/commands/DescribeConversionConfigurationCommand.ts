@@ -31,9 +31,7 @@ export interface DescribeConversionConfigurationCommandInput extends DescribeCon
  *
  * The output of {@link DescribeConversionConfigurationCommand}.
  */
-export interface DescribeConversionConfigurationCommandOutput
-  extends DescribeConversionConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeConversionConfigurationCommandOutput extends DescribeConversionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns configuration parameters for a schema conversion project.</p>

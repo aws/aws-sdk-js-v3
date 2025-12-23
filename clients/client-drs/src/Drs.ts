@@ -389,8 +389,14 @@ export interface Drs {
   /**
    * @see {@link DeleteJobCommand}
    */
-  deleteJob(args: DeleteJobCommandInput, options?: __HttpHandlerOptions): Promise<DeleteJobCommandOutput>;
-  deleteJob(args: DeleteJobCommandInput, cb: (err: any, data?: DeleteJobCommandOutput) => void): void;
+  deleteJob(
+    args: DeleteJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteJobCommandOutput>;
+  deleteJob(
+    args: DeleteJobCommandInput,
+    cb: (err: any, data?: DeleteJobCommandOutput) => void
+  ): void;
   deleteJob(
     args: DeleteJobCommandInput,
     options: __HttpHandlerOptions,
@@ -520,8 +526,14 @@ export interface Drs {
    * @see {@link DescribeJobsCommand}
    */
   describeJobs(): Promise<DescribeJobsCommandOutput>;
-  describeJobs(args: DescribeJobsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeJobsCommandOutput>;
-  describeJobs(args: DescribeJobsCommandInput, cb: (err: any, data?: DescribeJobsCommandOutput) => void): void;
+  describeJobs(
+    args: DescribeJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeJobsCommandOutput>;
+  describeJobs(
+    args: DescribeJobsCommandInput,
+    cb: (err: any, data?: DescribeJobsCommandOutput) => void
+  ): void;
   describeJobs(
     args: DescribeJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -831,7 +843,10 @@ export interface Drs {
     args: PutLaunchActionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutLaunchActionCommandOutput>;
-  putLaunchAction(args: PutLaunchActionCommandInput, cb: (err: any, data?: PutLaunchActionCommandOutput) => void): void;
+  putLaunchAction(
+    args: PutLaunchActionCommandInput,
+    cb: (err: any, data?: PutLaunchActionCommandOutput) => void
+  ): void;
   putLaunchAction(
     args: PutLaunchActionCommandInput,
     options: __HttpHandlerOptions,
@@ -892,8 +907,14 @@ export interface Drs {
   /**
    * @see {@link StartRecoveryCommand}
    */
-  startRecovery(args: StartRecoveryCommandInput, options?: __HttpHandlerOptions): Promise<StartRecoveryCommandOutput>;
-  startRecovery(args: StartRecoveryCommandInput, cb: (err: any, data?: StartRecoveryCommandOutput) => void): void;
+  startRecovery(
+    args: StartRecoveryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartRecoveryCommandOutput>;
+  startRecovery(
+    args: StartRecoveryCommandInput,
+    cb: (err: any, data?: StartRecoveryCommandOutput) => void
+  ): void;
   startRecovery(
     args: StartRecoveryCommandInput,
     options: __HttpHandlerOptions,
@@ -954,8 +975,14 @@ export interface Drs {
   /**
    * @see {@link StopFailbackCommand}
    */
-  stopFailback(args: StopFailbackCommandInput, options?: __HttpHandlerOptions): Promise<StopFailbackCommandOutput>;
-  stopFailback(args: StopFailbackCommandInput, cb: (err: any, data?: StopFailbackCommandOutput) => void): void;
+  stopFailback(
+    args: StopFailbackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopFailbackCommandOutput>;
+  stopFailback(
+    args: StopFailbackCommandInput,
+    cb: (err: any, data?: StopFailbackCommandOutput) => void
+  ): void;
   stopFailback(
     args: StopFailbackCommandInput,
     options: __HttpHandlerOptions,
@@ -969,7 +996,10 @@ export interface Drs {
     args: StopReplicationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopReplicationCommandOutput>;
-  stopReplication(args: StopReplicationCommandInput, cb: (err: any, data?: StopReplicationCommandOutput) => void): void;
+  stopReplication(
+    args: StopReplicationCommandInput,
+    cb: (err: any, data?: StopReplicationCommandOutput) => void
+  ): void;
   stopReplication(
     args: StopReplicationCommandInput,
     options: __HttpHandlerOptions,
@@ -996,8 +1026,14 @@ export interface Drs {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1024,8 +1060,14 @@ export interface Drs {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

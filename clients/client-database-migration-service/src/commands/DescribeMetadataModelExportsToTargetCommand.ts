@@ -31,9 +31,7 @@ export interface DescribeMetadataModelExportsToTargetCommandInput extends Descri
  *
  * The output of {@link DescribeMetadataModelExportsToTargetCommand}.
  */
-export interface DescribeMetadataModelExportsToTargetCommandOutput
-  extends DescribeMetadataModelExportsToTargetResponse,
-    __MetadataBearer {}
+export interface DescribeMetadataModelExportsToTargetCommandOutput extends DescribeMetadataModelExportsToTargetResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of metadata model exports.</p>

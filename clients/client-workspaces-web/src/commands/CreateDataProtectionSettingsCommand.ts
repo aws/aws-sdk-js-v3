@@ -24,9 +24,7 @@ export interface CreateDataProtectionSettingsCommandInput extends CreateDataProt
  *
  * The output of {@link CreateDataProtectionSettingsCommand}.
  */
-export interface CreateDataProtectionSettingsCommandOutput
-  extends CreateDataProtectionSettingsResponse,
-    __MetadataBearer {}
+export interface CreateDataProtectionSettingsCommandOutput extends CreateDataProtectionSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a data protection settings resource that can be associated with a web portal.</p>

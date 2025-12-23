@@ -24,9 +24,7 @@ export interface UpdateAnnotationStoreVersionCommandInput extends UpdateAnnotati
  *
  * The output of {@link UpdateAnnotationStoreVersionCommand}.
  */
-export interface UpdateAnnotationStoreVersionCommandOutput
-  extends UpdateAnnotationStoreVersionResponse,
-    __MetadataBearer {}
+export interface UpdateAnnotationStoreVersionCommandOutput extends UpdateAnnotationStoreVersionResponse, __MetadataBearer {}
 
 /**
  * <p> Updates the description of an annotation store version. </p>

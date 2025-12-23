@@ -186,7 +186,10 @@ export interface FinspaceData {
     args: CreateChangesetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateChangesetCommandOutput>;
-  createChangeset(args: CreateChangesetCommandInput, cb: (err: any, data?: CreateChangesetCommandOutput) => void): void;
+  createChangeset(
+    args: CreateChangesetCommandInput,
+    cb: (err: any, data?: CreateChangesetCommandOutput) => void
+  ): void;
   createChangeset(
     args: CreateChangesetCommandInput,
     options: __HttpHandlerOptions,
@@ -196,8 +199,14 @@ export interface FinspaceData {
   /**
    * @see {@link CreateDatasetCommand}
    */
-  createDataset(args: CreateDatasetCommandInput, options?: __HttpHandlerOptions): Promise<CreateDatasetCommandOutput>;
-  createDataset(args: CreateDatasetCommandInput, cb: (err: any, data?: CreateDatasetCommandOutput) => void): void;
+  createDataset(
+    args: CreateDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDatasetCommandOutput>;
+  createDataset(
+    args: CreateDatasetCommandInput,
+    cb: (err: any, data?: CreateDatasetCommandOutput) => void
+  ): void;
   createDataset(
     args: CreateDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -211,7 +220,10 @@ export interface FinspaceData {
     args: CreateDataViewCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDataViewCommandOutput>;
-  createDataView(args: CreateDataViewCommandInput, cb: (err: any, data?: CreateDataViewCommandOutput) => void): void;
+  createDataView(
+    args: CreateDataViewCommandInput,
+    cb: (err: any, data?: CreateDataViewCommandOutput) => void
+  ): void;
   createDataView(
     args: CreateDataViewCommandInput,
     options: __HttpHandlerOptions,
@@ -238,8 +250,14 @@ export interface FinspaceData {
   /**
    * @see {@link CreateUserCommand}
    */
-  createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
-  createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
+  createUser(
+    args: CreateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUserCommandOutput>;
+  createUser(
+    args: CreateUserCommandInput,
+    cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): void;
   createUser(
     args: CreateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -249,8 +267,14 @@ export interface FinspaceData {
   /**
    * @see {@link DeleteDatasetCommand}
    */
-  deleteDataset(args: DeleteDatasetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDatasetCommandOutput>;
-  deleteDataset(args: DeleteDatasetCommandInput, cb: (err: any, data?: DeleteDatasetCommandOutput) => void): void;
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDatasetCommandOutput>;
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    cb: (err: any, data?: DeleteDatasetCommandOutput) => void
+  ): void;
   deleteDataset(
     args: DeleteDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -277,8 +301,14 @@ export interface FinspaceData {
   /**
    * @see {@link DisableUserCommand}
    */
-  disableUser(args: DisableUserCommandInput, options?: __HttpHandlerOptions): Promise<DisableUserCommandOutput>;
-  disableUser(args: DisableUserCommandInput, cb: (err: any, data?: DisableUserCommandOutput) => void): void;
+  disableUser(
+    args: DisableUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableUserCommandOutput>;
+  disableUser(
+    args: DisableUserCommandInput,
+    cb: (err: any, data?: DisableUserCommandOutput) => void
+  ): void;
   disableUser(
     args: DisableUserCommandInput,
     options: __HttpHandlerOptions,
@@ -305,8 +335,14 @@ export interface FinspaceData {
   /**
    * @see {@link EnableUserCommand}
    */
-  enableUser(args: EnableUserCommandInput, options?: __HttpHandlerOptions): Promise<EnableUserCommandOutput>;
-  enableUser(args: EnableUserCommandInput, cb: (err: any, data?: EnableUserCommandOutput) => void): void;
+  enableUser(
+    args: EnableUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableUserCommandOutput>;
+  enableUser(
+    args: EnableUserCommandInput,
+    cb: (err: any, data?: EnableUserCommandOutput) => void
+  ): void;
   enableUser(
     args: EnableUserCommandInput,
     options: __HttpHandlerOptions,
@@ -316,8 +352,14 @@ export interface FinspaceData {
   /**
    * @see {@link GetChangesetCommand}
    */
-  getChangeset(args: GetChangesetCommandInput, options?: __HttpHandlerOptions): Promise<GetChangesetCommandOutput>;
-  getChangeset(args: GetChangesetCommandInput, cb: (err: any, data?: GetChangesetCommandOutput) => void): void;
+  getChangeset(
+    args: GetChangesetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetChangesetCommandOutput>;
+  getChangeset(
+    args: GetChangesetCommandInput,
+    cb: (err: any, data?: GetChangesetCommandOutput) => void
+  ): void;
   getChangeset(
     args: GetChangesetCommandInput,
     options: __HttpHandlerOptions,
@@ -327,8 +369,14 @@ export interface FinspaceData {
   /**
    * @see {@link GetDatasetCommand}
    */
-  getDataset(args: GetDatasetCommandInput, options?: __HttpHandlerOptions): Promise<GetDatasetCommandOutput>;
-  getDataset(args: GetDatasetCommandInput, cb: (err: any, data?: GetDatasetCommandOutput) => void): void;
+  getDataset(
+    args: GetDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDatasetCommandOutput>;
+  getDataset(
+    args: GetDatasetCommandInput,
+    cb: (err: any, data?: GetDatasetCommandOutput) => void
+  ): void;
   getDataset(
     args: GetDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -338,8 +386,14 @@ export interface FinspaceData {
   /**
    * @see {@link GetDataViewCommand}
    */
-  getDataView(args: GetDataViewCommandInput, options?: __HttpHandlerOptions): Promise<GetDataViewCommandOutput>;
-  getDataView(args: GetDataViewCommandInput, cb: (err: any, data?: GetDataViewCommandOutput) => void): void;
+  getDataView(
+    args: GetDataViewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataViewCommandOutput>;
+  getDataView(
+    args: GetDataViewCommandInput,
+    cb: (err: any, data?: GetDataViewCommandOutput) => void
+  ): void;
   getDataView(
     args: GetDataViewCommandInput,
     options: __HttpHandlerOptions,
@@ -400,8 +454,14 @@ export interface FinspaceData {
   /**
    * @see {@link GetUserCommand}
    */
-  getUser(args: GetUserCommandInput, options?: __HttpHandlerOptions): Promise<GetUserCommandOutput>;
-  getUser(args: GetUserCommandInput, cb: (err: any, data?: GetUserCommandOutput) => void): void;
+  getUser(
+    args: GetUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUserCommandOutput>;
+  getUser(
+    args: GetUserCommandInput,
+    cb: (err: any, data?: GetUserCommandOutput) => void
+  ): void;
   getUser(
     args: GetUserCommandInput,
     options: __HttpHandlerOptions,
@@ -433,7 +493,10 @@ export interface FinspaceData {
     args: ListChangesetsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListChangesetsCommandOutput>;
-  listChangesets(args: ListChangesetsCommandInput, cb: (err: any, data?: ListChangesetsCommandOutput) => void): void;
+  listChangesets(
+    args: ListChangesetsCommandInput,
+    cb: (err: any, data?: ListChangesetsCommandOutput) => void
+  ): void;
   listChangesets(
     args: ListChangesetsCommandInput,
     options: __HttpHandlerOptions,
@@ -444,8 +507,14 @@ export interface FinspaceData {
    * @see {@link ListDatasetsCommand}
    */
   listDatasets(): Promise<ListDatasetsCommandOutput>;
-  listDatasets(args: ListDatasetsCommandInput, options?: __HttpHandlerOptions): Promise<ListDatasetsCommandOutput>;
-  listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatasetsCommandOutput>;
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    cb: (err: any, data?: ListDatasetsCommandOutput) => void
+  ): void;
   listDatasets(
     args: ListDatasetsCommandInput,
     options: __HttpHandlerOptions,
@@ -455,8 +524,14 @@ export interface FinspaceData {
   /**
    * @see {@link ListDataViewsCommand}
    */
-  listDataViews(args: ListDataViewsCommandInput, options?: __HttpHandlerOptions): Promise<ListDataViewsCommandOutput>;
-  listDataViews(args: ListDataViewsCommandInput, cb: (err: any, data?: ListDataViewsCommandOutput) => void): void;
+  listDataViews(
+    args: ListDataViewsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataViewsCommandOutput>;
+  listDataViews(
+    args: ListDataViewsCommandInput,
+    cb: (err: any, data?: ListDataViewsCommandOutput) => void
+  ): void;
   listDataViews(
     args: ListDataViewsCommandInput,
     options: __HttpHandlerOptions,
@@ -500,8 +575,14 @@ export interface FinspaceData {
   /**
    * @see {@link ListUsersCommand}
    */
-  listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
-  listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
+  listUsers(
+    args: ListUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUsersCommandOutput>;
+  listUsers(
+    args: ListUsersCommandInput,
+    cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
   listUsers(
     args: ListUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -549,7 +630,10 @@ export interface FinspaceData {
     args: UpdateChangesetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateChangesetCommandOutput>;
-  updateChangeset(args: UpdateChangesetCommandInput, cb: (err: any, data?: UpdateChangesetCommandOutput) => void): void;
+  updateChangeset(
+    args: UpdateChangesetCommandInput,
+    cb: (err: any, data?: UpdateChangesetCommandOutput) => void
+  ): void;
   updateChangeset(
     args: UpdateChangesetCommandInput,
     options: __HttpHandlerOptions,
@@ -559,8 +643,14 @@ export interface FinspaceData {
   /**
    * @see {@link UpdateDatasetCommand}
    */
-  updateDataset(args: UpdateDatasetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateDatasetCommandOutput>;
-  updateDataset(args: UpdateDatasetCommandInput, cb: (err: any, data?: UpdateDatasetCommandOutput) => void): void;
+  updateDataset(
+    args: UpdateDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDatasetCommandOutput>;
+  updateDataset(
+    args: UpdateDatasetCommandInput,
+    cb: (err: any, data?: UpdateDatasetCommandOutput) => void
+  ): void;
   updateDataset(
     args: UpdateDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -587,8 +677,14 @@ export interface FinspaceData {
   /**
    * @see {@link UpdateUserCommand}
    */
-  updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
-  updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
+  updateUser(
+    args: UpdateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUserCommandOutput>;
+  updateUser(
+    args: UpdateUserCommandInput,
+    cb: (err: any, data?: UpdateUserCommandOutput) => void
+  ): void;
   updateUser(
     args: UpdateUserCommandInput,
     options: __HttpHandlerOptions,

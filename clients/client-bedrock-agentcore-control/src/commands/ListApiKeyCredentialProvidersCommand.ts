@@ -28,9 +28,7 @@ export interface ListApiKeyCredentialProvidersCommandInput extends ListApiKeyCre
  *
  * The output of {@link ListApiKeyCredentialProvidersCommand}.
  */
-export interface ListApiKeyCredentialProvidersCommandOutput
-  extends ListApiKeyCredentialProvidersResponse,
-    __MetadataBearer {}
+export interface ListApiKeyCredentialProvidersCommandOutput extends ListApiKeyCredentialProvidersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all API key credential providers in your account.</p>

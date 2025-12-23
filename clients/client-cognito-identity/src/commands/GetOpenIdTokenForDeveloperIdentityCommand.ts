@@ -31,9 +31,7 @@ export interface GetOpenIdTokenForDeveloperIdentityCommandInput extends GetOpenI
  *
  * The output of {@link GetOpenIdTokenForDeveloperIdentityCommand}.
  */
-export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
-  extends GetOpenIdTokenForDeveloperIdentityResponse,
-    __MetadataBearer {}
+export interface GetOpenIdTokenForDeveloperIdentityCommandOutput extends GetOpenIdTokenForDeveloperIdentityResponse, __MetadataBearer {}
 
 /**
  * <p>Registers (or retrieves) a Cognito <code>IdentityId</code> and an OpenID Connect

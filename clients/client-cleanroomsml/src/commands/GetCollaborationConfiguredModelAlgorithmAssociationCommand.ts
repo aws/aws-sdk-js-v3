@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetCollaborationConfiguredModelAlgorithmAssociationCommand}.
  */
-export interface GetCollaborationConfiguredModelAlgorithmAssociationCommandInput
-  extends GetCollaborationConfiguredModelAlgorithmAssociationRequest {}
+export interface GetCollaborationConfiguredModelAlgorithmAssociationCommandInput extends GetCollaborationConfiguredModelAlgorithmAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link GetCollaborationConfiguredModelAlgorithmAssociationCommand}.
  */
-export interface GetCollaborationConfiguredModelAlgorithmAssociationCommandOutput
-  extends GetCollaborationConfiguredModelAlgorithmAssociationResponse,
-    __MetadataBearer {}
+export interface GetCollaborationConfiguredModelAlgorithmAssociationCommandOutput extends GetCollaborationConfiguredModelAlgorithmAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the configured model algorithm association in a collaboration.</p>

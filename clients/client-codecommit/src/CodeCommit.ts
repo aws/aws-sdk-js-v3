@@ -521,7 +521,10 @@ export interface CodeCommit {
     args: BatchGetCommitsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchGetCommitsCommandOutput>;
-  batchGetCommits(args: BatchGetCommitsCommandInput, cb: (err: any, data?: BatchGetCommitsCommandOutput) => void): void;
+  batchGetCommits(
+    args: BatchGetCommitsCommandInput,
+    cb: (err: any, data?: BatchGetCommitsCommandOutput) => void
+  ): void;
   batchGetCommits(
     args: BatchGetCommitsCommandInput,
     options: __HttpHandlerOptions,
@@ -565,8 +568,14 @@ export interface CodeCommit {
   /**
    * @see {@link CreateBranchCommand}
    */
-  createBranch(args: CreateBranchCommandInput, options?: __HttpHandlerOptions): Promise<CreateBranchCommandOutput>;
-  createBranch(args: CreateBranchCommandInput, cb: (err: any, data?: CreateBranchCommandOutput) => void): void;
+  createBranch(
+    args: CreateBranchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBranchCommandOutput>;
+  createBranch(
+    args: CreateBranchCommandInput,
+    cb: (err: any, data?: CreateBranchCommandOutput) => void
+  ): void;
   createBranch(
     args: CreateBranchCommandInput,
     options: __HttpHandlerOptions,
@@ -576,8 +585,14 @@ export interface CodeCommit {
   /**
    * @see {@link CreateCommitCommand}
    */
-  createCommit(args: CreateCommitCommandInput, options?: __HttpHandlerOptions): Promise<CreateCommitCommandOutput>;
-  createCommit(args: CreateCommitCommandInput, cb: (err: any, data?: CreateCommitCommandOutput) => void): void;
+  createCommit(
+    args: CreateCommitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCommitCommandOutput>;
+  createCommit(
+    args: CreateCommitCommandInput,
+    cb: (err: any, data?: CreateCommitCommandOutput) => void
+  ): void;
   createCommit(
     args: CreateCommitCommandInput,
     options: __HttpHandlerOptions,
@@ -672,8 +687,14 @@ export interface CodeCommit {
   /**
    * @see {@link DeleteBranchCommand}
    */
-  deleteBranch(args: DeleteBranchCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBranchCommandOutput>;
-  deleteBranch(args: DeleteBranchCommandInput, cb: (err: any, data?: DeleteBranchCommandOutput) => void): void;
+  deleteBranch(
+    args: DeleteBranchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBranchCommandOutput>;
+  deleteBranch(
+    args: DeleteBranchCommandInput,
+    cb: (err: any, data?: DeleteBranchCommandOutput) => void
+  ): void;
   deleteBranch(
     args: DeleteBranchCommandInput,
     options: __HttpHandlerOptions,
@@ -700,8 +721,14 @@ export interface CodeCommit {
   /**
    * @see {@link DeleteFileCommand}
    */
-  deleteFile(args: DeleteFileCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFileCommandOutput>;
-  deleteFile(args: DeleteFileCommandInput, cb: (err: any, data?: DeleteFileCommandOutput) => void): void;
+  deleteFile(
+    args: DeleteFileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFileCommandOutput>;
+  deleteFile(
+    args: DeleteFileCommandInput,
+    cb: (err: any, data?: DeleteFileCommandOutput) => void
+  ): void;
   deleteFile(
     args: DeleteFileCommandInput,
     options: __HttpHandlerOptions,
@@ -830,8 +857,14 @@ export interface CodeCommit {
   /**
    * @see {@link GetBlobCommand}
    */
-  getBlob(args: GetBlobCommandInput, options?: __HttpHandlerOptions): Promise<GetBlobCommandOutput>;
-  getBlob(args: GetBlobCommandInput, cb: (err: any, data?: GetBlobCommandOutput) => void): void;
+  getBlob(
+    args: GetBlobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBlobCommandOutput>;
+  getBlob(
+    args: GetBlobCommandInput,
+    cb: (err: any, data?: GetBlobCommandOutput) => void
+  ): void;
   getBlob(
     args: GetBlobCommandInput,
     options: __HttpHandlerOptions,
@@ -842,8 +875,14 @@ export interface CodeCommit {
    * @see {@link GetBranchCommand}
    */
   getBranch(): Promise<GetBranchCommandOutput>;
-  getBranch(args: GetBranchCommandInput, options?: __HttpHandlerOptions): Promise<GetBranchCommandOutput>;
-  getBranch(args: GetBranchCommandInput, cb: (err: any, data?: GetBranchCommandOutput) => void): void;
+  getBranch(
+    args: GetBranchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBranchCommandOutput>;
+  getBranch(
+    args: GetBranchCommandInput,
+    cb: (err: any, data?: GetBranchCommandOutput) => void
+  ): void;
   getBranch(
     args: GetBranchCommandInput,
     options: __HttpHandlerOptions,
@@ -853,8 +892,14 @@ export interface CodeCommit {
   /**
    * @see {@link GetCommentCommand}
    */
-  getComment(args: GetCommentCommandInput, options?: __HttpHandlerOptions): Promise<GetCommentCommandOutput>;
-  getComment(args: GetCommentCommandInput, cb: (err: any, data?: GetCommentCommandOutput) => void): void;
+  getComment(
+    args: GetCommentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCommentCommandOutput>;
+  getComment(
+    args: GetCommentCommandInput,
+    cb: (err: any, data?: GetCommentCommandOutput) => void
+  ): void;
   getComment(
     args: GetCommentCommandInput,
     options: __HttpHandlerOptions,
@@ -915,8 +960,14 @@ export interface CodeCommit {
   /**
    * @see {@link GetCommitCommand}
    */
-  getCommit(args: GetCommitCommandInput, options?: __HttpHandlerOptions): Promise<GetCommitCommandOutput>;
-  getCommit(args: GetCommitCommandInput, cb: (err: any, data?: GetCommitCommandOutput) => void): void;
+  getCommit(
+    args: GetCommitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCommitCommandOutput>;
+  getCommit(
+    args: GetCommitCommandInput,
+    cb: (err: any, data?: GetCommitCommandOutput) => void
+  ): void;
   getCommit(
     args: GetCommitCommandInput,
     options: __HttpHandlerOptions,
@@ -930,7 +981,10 @@ export interface CodeCommit {
     args: GetDifferencesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDifferencesCommandOutput>;
-  getDifferences(args: GetDifferencesCommandInput, cb: (err: any, data?: GetDifferencesCommandOutput) => void): void;
+  getDifferences(
+    args: GetDifferencesCommandInput,
+    cb: (err: any, data?: GetDifferencesCommandOutput) => void
+  ): void;
   getDifferences(
     args: GetDifferencesCommandInput,
     options: __HttpHandlerOptions,
@@ -940,8 +994,14 @@ export interface CodeCommit {
   /**
    * @see {@link GetFileCommand}
    */
-  getFile(args: GetFileCommandInput, options?: __HttpHandlerOptions): Promise<GetFileCommandOutput>;
-  getFile(args: GetFileCommandInput, cb: (err: any, data?: GetFileCommandOutput) => void): void;
+  getFile(
+    args: GetFileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFileCommandOutput>;
+  getFile(
+    args: GetFileCommandInput,
+    cb: (err: any, data?: GetFileCommandOutput) => void
+  ): void;
   getFile(
     args: GetFileCommandInput,
     options: __HttpHandlerOptions,
@@ -951,8 +1011,14 @@ export interface CodeCommit {
   /**
    * @see {@link GetFolderCommand}
    */
-  getFolder(args: GetFolderCommandInput, options?: __HttpHandlerOptions): Promise<GetFolderCommandOutput>;
-  getFolder(args: GetFolderCommandInput, cb: (err: any, data?: GetFolderCommandOutput) => void): void;
+  getFolder(
+    args: GetFolderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFolderCommandOutput>;
+  getFolder(
+    args: GetFolderCommandInput,
+    cb: (err: any, data?: GetFolderCommandOutput) => void
+  ): void;
   getFolder(
     args: GetFolderCommandInput,
     options: __HttpHandlerOptions,
@@ -966,7 +1032,10 @@ export interface CodeCommit {
     args: GetMergeCommitCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetMergeCommitCommandOutput>;
-  getMergeCommit(args: GetMergeCommitCommandInput, cb: (err: any, data?: GetMergeCommitCommandOutput) => void): void;
+  getMergeCommit(
+    args: GetMergeCommitCommandInput,
+    cb: (err: any, data?: GetMergeCommitCommandOutput) => void
+  ): void;
   getMergeCommit(
     args: GetMergeCommitCommandInput,
     options: __HttpHandlerOptions,
@@ -997,7 +1066,10 @@ export interface CodeCommit {
     args: GetMergeOptionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetMergeOptionsCommandOutput>;
-  getMergeOptions(args: GetMergeOptionsCommandInput, cb: (err: any, data?: GetMergeOptionsCommandOutput) => void): void;
+  getMergeOptions(
+    args: GetMergeOptionsCommandInput,
+    cb: (err: any, data?: GetMergeOptionsCommandOutput) => void
+  ): void;
   getMergeOptions(
     args: GetMergeOptionsCommandInput,
     options: __HttpHandlerOptions,
@@ -1011,7 +1083,10 @@ export interface CodeCommit {
     args: GetPullRequestCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetPullRequestCommandOutput>;
-  getPullRequest(args: GetPullRequestCommandInput, cb: (err: any, data?: GetPullRequestCommandOutput) => void): void;
+  getPullRequest(
+    args: GetPullRequestCommandInput,
+    cb: (err: any, data?: GetPullRequestCommandOutput) => void
+  ): void;
   getPullRequest(
     args: GetPullRequestCommandInput,
     options: __HttpHandlerOptions,
@@ -1055,8 +1130,14 @@ export interface CodeCommit {
   /**
    * @see {@link GetRepositoryCommand}
    */
-  getRepository(args: GetRepositoryCommandInput, options?: __HttpHandlerOptions): Promise<GetRepositoryCommandOutput>;
-  getRepository(args: GetRepositoryCommandInput, cb: (err: any, data?: GetRepositoryCommandOutput) => void): void;
+  getRepository(
+    args: GetRepositoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRepositoryCommandOutput>;
+  getRepository(
+    args: GetRepositoryCommandInput,
+    cb: (err: any, data?: GetRepositoryCommandOutput) => void
+  ): void;
   getRepository(
     args: GetRepositoryCommandInput,
     options: __HttpHandlerOptions,
@@ -1118,8 +1199,14 @@ export interface CodeCommit {
   /**
    * @see {@link ListBranchesCommand}
    */
-  listBranches(args: ListBranchesCommandInput, options?: __HttpHandlerOptions): Promise<ListBranchesCommandOutput>;
-  listBranches(args: ListBranchesCommandInput, cb: (err: any, data?: ListBranchesCommandOutput) => void): void;
+  listBranches(
+    args: ListBranchesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBranchesCommandOutput>;
+  listBranches(
+    args: ListBranchesCommandInput,
+    cb: (err: any, data?: ListBranchesCommandOutput) => void
+  ): void;
   listBranches(
     args: ListBranchesCommandInput,
     options: __HttpHandlerOptions,
@@ -1402,8 +1489,14 @@ export interface CodeCommit {
   /**
    * @see {@link PutFileCommand}
    */
-  putFile(args: PutFileCommandInput, options?: __HttpHandlerOptions): Promise<PutFileCommandOutput>;
-  putFile(args: PutFileCommandInput, cb: (err: any, data?: PutFileCommandOutput) => void): void;
+  putFile(
+    args: PutFileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutFileCommandOutput>;
+  putFile(
+    args: PutFileCommandInput,
+    cb: (err: any, data?: PutFileCommandOutput) => void
+  ): void;
   putFile(
     args: PutFileCommandInput,
     options: __HttpHandlerOptions,
@@ -1430,8 +1523,14 @@ export interface CodeCommit {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1458,8 +1557,14 @@ export interface CodeCommit {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1520,8 +1625,14 @@ export interface CodeCommit {
   /**
    * @see {@link UpdateCommentCommand}
    */
-  updateComment(args: UpdateCommentCommandInput, options?: __HttpHandlerOptions): Promise<UpdateCommentCommandOutput>;
-  updateComment(args: UpdateCommentCommandInput, cb: (err: any, data?: UpdateCommentCommandOutput) => void): void;
+  updateComment(
+    args: UpdateCommentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCommentCommandOutput>;
+  updateComment(
+    args: UpdateCommentCommandInput,
+    cb: (err: any, data?: UpdateCommentCommandOutput) => void
+  ): void;
   updateComment(
     args: UpdateCommentCommandInput,
     options: __HttpHandlerOptions,

@@ -24,9 +24,7 @@ export interface GetStreamingDistributionConfigCommandInput extends GetStreaming
  *
  * The output of {@link GetStreamingDistributionConfigCommand}.
  */
-export interface GetStreamingDistributionConfigCommandOutput
-  extends GetStreamingDistributionConfigResult,
-    __MetadataBearer {}
+export interface GetStreamingDistributionConfigCommandOutput extends GetStreamingDistributionConfigResult, __MetadataBearer {}
 
 /**
  * <p>Get the configuration information about a streaming distribution.</p>

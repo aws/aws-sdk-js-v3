@@ -1,22 +1,13 @@
-export * from "./GetBotAliasesPaginator";
-
-export * from "./GetBotChannelAssociationsPaginator";
-
-export * from "./GetBotVersionsPaginator";
-
-export * from "./GetBotsPaginator";
-
-export * from "./GetBuiltinIntentsPaginator";
-
-export * from "./GetBuiltinSlotTypesPaginator";
-
-export * from "./GetIntentVersionsPaginator";
-
-export * from "./GetIntentsPaginator";
-
-export * from "./GetMigrationsPaginator";
-
-export * from "./GetSlotTypeVersionsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./GetBotAliasesPaginator";
+export * from "./GetBotChannelAssociationsPaginator";
+export * from "./GetBotsPaginator";
+export * from "./GetBotVersionsPaginator";
+export * from "./GetBuiltinIntentsPaginator";
+export * from "./GetBuiltinSlotTypesPaginator";
+export * from "./GetIntentsPaginator";
+export * from "./GetIntentVersionsPaginator";
+export * from "./GetMigrationsPaginator";
 export * from "./GetSlotTypesPaginator";
+export * from "./GetSlotTypeVersionsPaginator";

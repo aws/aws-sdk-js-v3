@@ -24,9 +24,7 @@ export interface ListConfiguredModelAlgorithmsCommandInput extends ListConfigure
  *
  * The output of {@link ListConfiguredModelAlgorithmsCommand}.
  */
-export interface ListConfiguredModelAlgorithmsCommandOutput
-  extends ListConfiguredModelAlgorithmsResponse,
-    __MetadataBearer {}
+export interface ListConfiguredModelAlgorithmsCommandOutput extends ListConfiguredModelAlgorithmsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of configured model algorithms.</p>

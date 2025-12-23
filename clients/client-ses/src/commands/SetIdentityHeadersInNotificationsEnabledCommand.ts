@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link SetIdentityHeadersInNotificationsEnabledCommand}.
  */
-export interface SetIdentityHeadersInNotificationsEnabledCommandInput
-  extends SetIdentityHeadersInNotificationsEnabledRequest {}
+export interface SetIdentityHeadersInNotificationsEnabledCommandInput extends SetIdentityHeadersInNotificationsEnabledRequest {}
 /**
  * @public
  *
  * The output of {@link SetIdentityHeadersInNotificationsEnabledCommand}.
  */
-export interface SetIdentityHeadersInNotificationsEnabledCommandOutput
-  extends SetIdentityHeadersInNotificationsEnabledResponse,
-    __MetadataBearer {}
+export interface SetIdentityHeadersInNotificationsEnabledCommandOutput extends SetIdentityHeadersInNotificationsEnabledResponse, __MetadataBearer {}
 
 /**
  * <p>Given an identity (an email address or a domain), sets whether Amazon SES includes the

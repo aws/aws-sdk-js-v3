@@ -27,9 +27,7 @@ export interface CreateCodeSecurityScanConfigurationCommandInput extends CreateC
  *
  * The output of {@link CreateCodeSecurityScanConfigurationCommand}.
  */
-export interface CreateCodeSecurityScanConfigurationCommandOutput
-  extends CreateCodeSecurityScanConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateCodeSecurityScanConfigurationCommandOutput extends CreateCodeSecurityScanConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a scan configuration for code security scanning.</p>

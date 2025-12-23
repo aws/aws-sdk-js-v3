@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeEffectivePatchesForPatchBaselineCommand}.
  */
-export interface DescribeEffectivePatchesForPatchBaselineCommandInput
-  extends DescribeEffectivePatchesForPatchBaselineRequest {}
+export interface DescribeEffectivePatchesForPatchBaselineCommandInput extends DescribeEffectivePatchesForPatchBaselineRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeEffectivePatchesForPatchBaselineCommand}.
  */
-export interface DescribeEffectivePatchesForPatchBaselineCommandOutput
-  extends DescribeEffectivePatchesForPatchBaselineResult,
-    __MetadataBearer {}
+export interface DescribeEffectivePatchesForPatchBaselineCommandOutput extends DescribeEffectivePatchesForPatchBaselineResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the current effective patches (the patch and the approval state) for the specified

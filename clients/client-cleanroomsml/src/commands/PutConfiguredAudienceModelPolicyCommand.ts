@@ -27,9 +27,7 @@ export interface PutConfiguredAudienceModelPolicyCommandInput extends PutConfigu
  *
  * The output of {@link PutConfiguredAudienceModelPolicyCommand}.
  */
-export interface PutConfiguredAudienceModelPolicyCommandOutput
-  extends PutConfiguredAudienceModelPolicyResponse,
-    __MetadataBearer {}
+export interface PutConfiguredAudienceModelPolicyCommandOutput extends PutConfiguredAudienceModelPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Create or update the resource policy for a configured audience model.</p>

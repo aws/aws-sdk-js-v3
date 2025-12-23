@@ -75,6 +75,9 @@ import {
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
   MonetaryValue$,
+  paginateListBenefitAllocations,
+  paginateListBenefitApplications,
+  paginateListBenefits,
   PartnerCentralBenefits,
   PartnerCentralBenefitsClient,
   PartnerCentralBenefitsServiceException,
@@ -111,9 +114,6 @@ import {
   ValidationExceptionErrorCode,
   ValidationExceptionField$,
   ValidationExceptionReason,
-  paginateListBenefitAllocations,
-  paginateListBenefitApplications,
-  paginateListBenefits,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

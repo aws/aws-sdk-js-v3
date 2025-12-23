@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListManagedNotificationChannelAssociationsCommand}.
  */
-export interface ListManagedNotificationChannelAssociationsCommandInput
-  extends ListManagedNotificationChannelAssociationsRequest {}
+export interface ListManagedNotificationChannelAssociationsCommandInput extends ListManagedNotificationChannelAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListManagedNotificationChannelAssociationsCommand}.
  */
-export interface ListManagedNotificationChannelAssociationsCommandOutput
-  extends ListManagedNotificationChannelAssociationsResponse,
-    __MetadataBearer {}
+export interface ListManagedNotificationChannelAssociationsCommandOutput extends ListManagedNotificationChannelAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of Account contacts and Channels associated with a <code>ManagedNotificationConfiguration</code>, in paginated format.</p>

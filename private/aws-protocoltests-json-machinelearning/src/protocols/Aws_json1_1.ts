@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
-import { HttpRequest as __HttpRequest, HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { HttpRequest, HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
   collectBody,
@@ -35,7 +35,7 @@ export const se_PredictCommand = async (
   input: PredictCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = sharedHeaders("Predict");
+  const headers: __HeaderBag = sharedHeaders("Predict")
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -51,7 +51,7 @@ export const de_PredictCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = de_PredictOutput(data, context);
   const response: PredictCommandOutput = {
@@ -64,10 +64,13 @@ export const de_PredictCommand = async (
 /**
  * deserialize_Aws_json1_1CommandError
  */
-const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
+const de_CommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext,
+): Promise<never> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseErrorBody(output.body, context),
+    body: await parseErrorBody(output.body, context)
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
@@ -91,10 +94,10 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
       return throwDefaultError({
         output,
         parsedBody,
-        errorCode,
+        errorCode
       }) as never;
   }
-};
+}
 
 /**
  * deserializeAws_json1_1InternalServerExceptionRes
@@ -103,11 +106,11 @@ const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
-  const body = parsedOutput.body;
+  const body = parsedOutput.body
   const deserialized: any = _json(body);
   const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
+    ...deserialized
   });
   return __decorateServiceException(exception, body);
 };
@@ -119,11 +122,11 @@ const de_InvalidInputExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
-  const body = parsedOutput.body;
+  const body = parsedOutput.body
   const deserialized: any = _json(body);
   const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
+    ...deserialized
   });
   return __decorateServiceException(exception, body);
 };
@@ -135,11 +138,11 @@ const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const body = parsedOutput.body;
+  const body = parsedOutput.body
   const deserialized: any = _json(body);
   const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
+    ...deserialized
   });
   return __decorateServiceException(exception, body);
 };
@@ -151,11 +154,11 @@ const de_PredictorNotMountedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PredictorNotMountedException> => {
-  const body = parsedOutput.body;
+  const body = parsedOutput.body
   const deserialized: any = _json(body);
   const exception = new PredictorNotMountedException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
+    ...deserialized
   });
   return __decorateServiceException(exception, body);
 };
@@ -167,11 +170,11 @@ const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const body = parsedOutput.body;
+  const body = parsedOutput.body
   const deserialized: any = _json(body);
   const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
+    ...deserialized
   });
   return __decorateServiceException(exception, body);
 };
@@ -191,52 +194,59 @@ const de_ResourceNotFoundExceptionRes = async (
 /**
  * deserializeAws_json1_1Prediction
  */
-const de_Prediction = (output: any, context: __SerdeContext): Prediction => {
+const de_Prediction = (
+  output: any,
+  context: __SerdeContext
+): Prediction => {
   return take(output, {
-    details: _json,
-    predictedLabel: __expectString,
-    predictedScores: (_: any) => de_ScoreValuePerLabelMap(_, context),
-    predictedValue: __limitedParseFloat32,
+    'details': _json,
+    'predictedLabel': __expectString,
+    'predictedScores': (_: any) => de_ScoreValuePerLabelMap(_, context),
+    'predictedValue': __limitedParseFloat32,
   }) as any;
-};
+}
 
 // de_PredictorNotMountedException omitted.
 
 /**
  * deserializeAws_json1_1PredictOutput
  */
-const de_PredictOutput = (output: any, context: __SerdeContext): PredictOutput => {
+const de_PredictOutput = (
+  output: any,
+  context: __SerdeContext
+): PredictOutput => {
   return take(output, {
-    Prediction: (_: any) => de_Prediction(_, context),
+    'Prediction': (_: any) => de_Prediction(_, context),
   }) as any;
-};
+}
 
 // de_ResourceNotFoundException omitted.
 
 /**
  * deserializeAws_json1_1ScoreValuePerLabelMap
  */
-const de_ScoreValuePerLabelMap = (output: any, context: __SerdeContext): Record<string, number> => {
+const de_ScoreValuePerLabelMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, number> => {
   return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
     acc[key as string] = __limitedParseFloat32(value) as any;
     return acc;
-  }, {} as Record<string, number>);
-};
+
+  }, {} as Record<string, number>);}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId:
-    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
+  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
-  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> => collectBody(streamBody, context).then(body => context.utf8Encoder(body))
 
 const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
@@ -244,9 +254,9 @@ const buildHttpRpcRequest = async (
   headers: __HeaderBag,
   path: string,
   resolvedHostname: string | undefined,
-  body: any
+  body: any,
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const {hostname, protocol = "https", port, path: basePath} = await context.endpoint();
   const contents: any = {
     protocol,
     hostname,
@@ -263,9 +273,7 @@ const buildHttpRpcRequest = async (
   }
   return new HttpRequest(contents);
 };
-function sharedHeaders(operation: string): __HeaderBag {
-  return {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": `AmazonML_20141212.${operation}`,
-  };
-}
+function sharedHeaders(operation: string): __HeaderBag { return {
+  'content-type': "application/x-amz-json-1.1",
+  'x-amz-target': `AmazonML_20141212.${operation}`,
+}};

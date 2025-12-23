@@ -24,9 +24,7 @@ export interface GetEvidenceByEvidenceFolderCommandInput extends GetEvidenceByEv
  *
  * The output of {@link GetEvidenceByEvidenceFolderCommand}.
  */
-export interface GetEvidenceByEvidenceFolderCommandOutput
-  extends GetEvidenceByEvidenceFolderResponse,
-    __MetadataBearer {}
+export interface GetEvidenceByEvidenceFolderCommandOutput extends GetEvidenceByEvidenceFolderResponse, __MetadataBearer {}
 
 /**
  * <p> Gets all evidence from a specified evidence folder in Audit Manager. </p>

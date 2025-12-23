@@ -1,24 +1,15 @@
-export * from "./DescribeProjectVersionsPaginator";
-
-export * from "./DescribeProjectsPaginator";
-
-export * from "./GetCelebrityRecognitionPaginator";
-
-export * from "./GetContentModerationPaginator";
-
-export * from "./GetFaceDetectionPaginator";
-
-export * from "./GetFaceSearchPaginator";
-
-export * from "./GetLabelDetectionPaginator";
-
-export * from "./GetPersonTrackingPaginator";
-
-export * from "./GetSegmentDetectionPaginator";
-
-export * from "./GetTextDetectionPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeProjectsPaginator";
+export * from "./DescribeProjectVersionsPaginator";
+export * from "./GetCelebrityRecognitionPaginator";
+export * from "./GetContentModerationPaginator";
+export * from "./GetFaceDetectionPaginator";
+export * from "./GetFaceSearchPaginator";
+export * from "./GetLabelDetectionPaginator";
+export * from "./GetPersonTrackingPaginator";
+export * from "./GetSegmentDetectionPaginator";
+export * from "./GetTextDetectionPaginator";
 export * from "./ListCollectionsPaginator";
 export * from "./ListDatasetEntriesPaginator";
 export * from "./ListDatasetLabelsPaginator";

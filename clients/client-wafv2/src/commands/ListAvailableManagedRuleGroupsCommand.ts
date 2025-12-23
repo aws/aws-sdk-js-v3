@@ -24,9 +24,7 @@ export interface ListAvailableManagedRuleGroupsCommandInput extends ListAvailabl
  *
  * The output of {@link ListAvailableManagedRuleGroupsCommand}.
  */
-export interface ListAvailableManagedRuleGroupsCommandOutput
-  extends ListAvailableManagedRuleGroupsResponse,
-    __MetadataBearer {}
+export interface ListAvailableManagedRuleGroupsCommandOutput extends ListAvailableManagedRuleGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves an array of managed rule groups that are available for you to use. This list

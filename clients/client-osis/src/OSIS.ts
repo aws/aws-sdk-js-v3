@@ -139,7 +139,10 @@ export interface OSIS {
     args: CreatePipelineCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreatePipelineCommandOutput>;
-  createPipeline(args: CreatePipelineCommandInput, cb: (err: any, data?: CreatePipelineCommandOutput) => void): void;
+  createPipeline(
+    args: CreatePipelineCommandInput,
+    cb: (err: any, data?: CreatePipelineCommandOutput) => void
+  ): void;
   createPipeline(
     args: CreatePipelineCommandInput,
     options: __HttpHandlerOptions,
@@ -170,7 +173,10 @@ export interface OSIS {
     args: DeletePipelineCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeletePipelineCommandOutput>;
-  deletePipeline(args: DeletePipelineCommandInput, cb: (err: any, data?: DeletePipelineCommandOutput) => void): void;
+  deletePipeline(
+    args: DeletePipelineCommandInput,
+    cb: (err: any, data?: DeletePipelineCommandOutput) => void
+  ): void;
   deletePipeline(
     args: DeletePipelineCommandInput,
     options: __HttpHandlerOptions,
@@ -214,8 +220,14 @@ export interface OSIS {
   /**
    * @see {@link GetPipelineCommand}
    */
-  getPipeline(args: GetPipelineCommandInput, options?: __HttpHandlerOptions): Promise<GetPipelineCommandOutput>;
-  getPipeline(args: GetPipelineCommandInput, cb: (err: any, data?: GetPipelineCommandOutput) => void): void;
+  getPipeline(
+    args: GetPipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPipelineCommandOutput>;
+  getPipeline(
+    args: GetPipelineCommandInput,
+    cb: (err: any, data?: GetPipelineCommandOutput) => void
+  ): void;
   getPipeline(
     args: GetPipelineCommandInput,
     options: __HttpHandlerOptions,
@@ -331,8 +343,14 @@ export interface OSIS {
    * @see {@link ListPipelinesCommand}
    */
   listPipelines(): Promise<ListPipelinesCommandOutput>;
-  listPipelines(args: ListPipelinesCommandInput, options?: __HttpHandlerOptions): Promise<ListPipelinesCommandOutput>;
-  listPipelines(args: ListPipelinesCommandInput, cb: (err: any, data?: ListPipelinesCommandOutput) => void): void;
+  listPipelines(
+    args: ListPipelinesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPipelinesCommandOutput>;
+  listPipelines(
+    args: ListPipelinesCommandInput,
+    cb: (err: any, data?: ListPipelinesCommandOutput) => void
+  ): void;
   listPipelines(
     args: ListPipelinesCommandInput,
     options: __HttpHandlerOptions,
@@ -393,8 +411,14 @@ export interface OSIS {
   /**
    * @see {@link StartPipelineCommand}
    */
-  startPipeline(args: StartPipelineCommandInput, options?: __HttpHandlerOptions): Promise<StartPipelineCommandOutput>;
-  startPipeline(args: StartPipelineCommandInput, cb: (err: any, data?: StartPipelineCommandOutput) => void): void;
+  startPipeline(
+    args: StartPipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartPipelineCommandOutput>;
+  startPipeline(
+    args: StartPipelineCommandInput,
+    cb: (err: any, data?: StartPipelineCommandOutput) => void
+  ): void;
   startPipeline(
     args: StartPipelineCommandInput,
     options: __HttpHandlerOptions,
@@ -404,8 +428,14 @@ export interface OSIS {
   /**
    * @see {@link StopPipelineCommand}
    */
-  stopPipeline(args: StopPipelineCommandInput, options?: __HttpHandlerOptions): Promise<StopPipelineCommandOutput>;
-  stopPipeline(args: StopPipelineCommandInput, cb: (err: any, data?: StopPipelineCommandOutput) => void): void;
+  stopPipeline(
+    args: StopPipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopPipelineCommandOutput>;
+  stopPipeline(
+    args: StopPipelineCommandInput,
+    cb: (err: any, data?: StopPipelineCommandOutput) => void
+  ): void;
   stopPipeline(
     args: StopPipelineCommandInput,
     options: __HttpHandlerOptions,
@@ -415,8 +445,14 @@ export interface OSIS {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -426,8 +462,14 @@ export interface OSIS {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -441,7 +483,10 @@ export interface OSIS {
     args: UpdatePipelineCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdatePipelineCommandOutput>;
-  updatePipeline(args: UpdatePipelineCommandInput, cb: (err: any, data?: UpdatePipelineCommandOutput) => void): void;
+  updatePipeline(
+    args: UpdatePipelineCommandInput,
+    cb: (err: any, data?: UpdatePipelineCommandOutput) => void
+  ): void;
   updatePipeline(
     args: UpdatePipelineCommandInput,
     options: __HttpHandlerOptions,

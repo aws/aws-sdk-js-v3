@@ -24,9 +24,7 @@ export interface GetIntegrationTablePropertiesCommandInput extends GetIntegratio
  *
  * The output of {@link GetIntegrationTablePropertiesCommand}.
  */
-export interface GetIntegrationTablePropertiesCommandOutput
-  extends GetIntegrationTablePropertiesResponse,
-    __MetadataBearer {}
+export interface GetIntegrationTablePropertiesCommandOutput extends GetIntegrationTablePropertiesResponse, __MetadataBearer {}
 
 /**
  * <p>This API is used to retrieve optional override properties for the tables that need to be replicated. These properties can include properties for filtering and partition for source and target tables.</p>

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AcceptResourceGroupingRecommendationsCommand}.
  */
-export interface AcceptResourceGroupingRecommendationsCommandInput
-  extends AcceptResourceGroupingRecommendationsRequest {}
+export interface AcceptResourceGroupingRecommendationsCommandInput extends AcceptResourceGroupingRecommendationsRequest {}
 /**
  * @public
  *
  * The output of {@link AcceptResourceGroupingRecommendationsCommand}.
  */
-export interface AcceptResourceGroupingRecommendationsCommandOutput
-  extends AcceptResourceGroupingRecommendationsResponse,
-    __MetadataBearer {}
+export interface AcceptResourceGroupingRecommendationsCommandOutput extends AcceptResourceGroupingRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts the resource grouping recommendations suggested by Resilience Hub for your application.</p>

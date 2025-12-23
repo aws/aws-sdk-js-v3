@@ -27,9 +27,7 @@ export interface DescribeDashboardsQAConfigurationCommandInput extends DescribeD
  *
  * The output of {@link DescribeDashboardsQAConfigurationCommand}.
  */
-export interface DescribeDashboardsQAConfigurationCommandOutput
-  extends DescribeDashboardsQAConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeDashboardsQAConfigurationCommandOutput extends DescribeDashboardsQAConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an existing dashboard QA configuration.</p>

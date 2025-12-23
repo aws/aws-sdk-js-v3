@@ -28,9 +28,7 @@ export interface GetBlueprintOptimizationStatusCommandInput extends GetBlueprint
  *
  * The output of {@link GetBlueprintOptimizationStatusCommand}.
  */
-export interface GetBlueprintOptimizationStatusCommandOutput
-  extends GetBlueprintOptimizationStatusResponse,
-    __MetadataBearer {}
+export interface GetBlueprintOptimizationStatusCommandOutput extends GetBlueprintOptimizationStatusResponse, __MetadataBearer {}
 
 /**
  * API used to get blueprint optimization status.

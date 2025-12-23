@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link DisassociateBackupVaultMpaApprovalTeamCommand}.
  */
-export interface DisassociateBackupVaultMpaApprovalTeamCommandInput
-  extends DisassociateBackupVaultMpaApprovalTeamInput {}
+export interface DisassociateBackupVaultMpaApprovalTeamCommandInput extends DisassociateBackupVaultMpaApprovalTeamInput {}
 /**
  * @public
  *

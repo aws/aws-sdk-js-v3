@@ -24,9 +24,7 @@ export interface CreateChimeWebhookConfigurationCommandInput extends CreateChime
  *
  * The output of {@link CreateChimeWebhookConfigurationCommand}.
  */
-export interface CreateChimeWebhookConfigurationCommandOutput
-  extends CreateChimeWebhookConfigurationResult,
-    __MetadataBearer {}
+export interface CreateChimeWebhookConfigurationCommandOutput extends CreateChimeWebhookConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Creates an AWS Chatbot configuration for Amazon Chime.</p>

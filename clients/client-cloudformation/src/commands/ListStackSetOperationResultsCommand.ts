@@ -28,9 +28,7 @@ export interface ListStackSetOperationResultsCommandInput extends ListStackSetOp
  *
  * The output of {@link ListStackSetOperationResultsCommand}.
  */
-export interface ListStackSetOperationResultsCommandOutput
-  extends ListStackSetOperationResultsOutput,
-    __MetadataBearer {}
+export interface ListStackSetOperationResultsCommandOutput extends ListStackSetOperationResultsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns summary information about the results of a StackSet operation.</p>

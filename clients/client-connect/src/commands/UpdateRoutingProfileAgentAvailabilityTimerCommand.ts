@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link UpdateRoutingProfileAgentAvailabilityTimerCommand}.
  */
-export interface UpdateRoutingProfileAgentAvailabilityTimerCommandInput
-  extends UpdateRoutingProfileAgentAvailabilityTimerRequest {}
+export interface UpdateRoutingProfileAgentAvailabilityTimerCommandInput extends UpdateRoutingProfileAgentAvailabilityTimerRequest {}
 /**
  * @public
  *

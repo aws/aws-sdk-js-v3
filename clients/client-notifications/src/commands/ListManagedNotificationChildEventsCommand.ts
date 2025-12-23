@@ -27,9 +27,7 @@ export interface ListManagedNotificationChildEventsCommandInput extends ListMana
  *
  * The output of {@link ListManagedNotificationChildEventsCommand}.
  */
-export interface ListManagedNotificationChildEventsCommandOutput
-  extends ListManagedNotificationChildEventsResponse,
-    __MetadataBearer {}
+export interface ListManagedNotificationChildEventsCommandOutput extends ListManagedNotificationChildEventsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of <code>ManagedNotificationChildEvents</code> for a specified aggregate <code>ManagedNotificationEvent</code>, ordered by creation time in reverse chronological order (newest first).</p>

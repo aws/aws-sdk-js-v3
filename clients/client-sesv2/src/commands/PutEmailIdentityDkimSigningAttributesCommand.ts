@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutEmailIdentityDkimSigningAttributesCommand}.
  */
-export interface PutEmailIdentityDkimSigningAttributesCommandInput
-  extends PutEmailIdentityDkimSigningAttributesRequest {}
+export interface PutEmailIdentityDkimSigningAttributesCommandInput extends PutEmailIdentityDkimSigningAttributesRequest {}
 /**
  * @public
  *
  * The output of {@link PutEmailIdentityDkimSigningAttributesCommand}.
  */
-export interface PutEmailIdentityDkimSigningAttributesCommandOutput
-  extends PutEmailIdentityDkimSigningAttributesResponse,
-    __MetadataBearer {}
+export interface PutEmailIdentityDkimSigningAttributesCommandOutput extends PutEmailIdentityDkimSigningAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Used to configure or change the DKIM authentication settings for an email domain

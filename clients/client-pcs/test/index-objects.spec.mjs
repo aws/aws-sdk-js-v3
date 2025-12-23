@@ -78,9 +78,12 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
-  NetworkType,
   Networking$,
   NetworkingRequest$,
+  NetworkType,
+  paginateListClusters,
+  paginateListComputeNodeGroups,
+  paginateListQueues,
   PCS,
   PCSClient,
   PCSServiceException,
@@ -142,9 +145,6 @@ import {
   ValidationException$,
   ValidationExceptionField$,
   ValidationExceptionReason,
-  paginateListClusters,
-  paginateListComputeNodeGroups,
-  paginateListQueues,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CancelAutomatedReasoningPolicyBuildWorkflowCommand}.
  */
-export interface CancelAutomatedReasoningPolicyBuildWorkflowCommandInput
-  extends CancelAutomatedReasoningPolicyBuildWorkflowRequest {}
+export interface CancelAutomatedReasoningPolicyBuildWorkflowCommandInput extends CancelAutomatedReasoningPolicyBuildWorkflowRequest {}
 /**
  * @public
  *
  * The output of {@link CancelAutomatedReasoningPolicyBuildWorkflowCommand}.
  */
-export interface CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput
-  extends CancelAutomatedReasoningPolicyBuildWorkflowResponse,
-    __MetadataBearer {}
+export interface CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput extends CancelAutomatedReasoningPolicyBuildWorkflowResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels a running Automated Reasoning policy build workflow. This stops the policy generation process and prevents further processing of the source documents.</p>

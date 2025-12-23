@@ -9,10 +9,8 @@ AWS SDK for JavaScript MarketplaceCommerceAnalytics Client for Node.js, Browser 
 Provides AWS Marketplace business intelligence data on-demand.
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-marketplace-commerce-analytics
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-marketplace-commerce-analytics`
 - `yarn add @aws-sdk/client-marketplace-commerce-analytics`
 - `pnpm add @aws-sdk/client-marketplace-commerce-analytics`
@@ -27,18 +25,12 @@ the commands you need, for example `GenerateDataSetCommand`:
 
 ```js
 // ES5 example
-const {
-  MarketplaceCommerceAnalyticsClient,
-  GenerateDataSetCommand,
-} = require("@aws-sdk/client-marketplace-commerce-analytics");
+const { MarketplaceCommerceAnalyticsClient, GenerateDataSetCommand } = require("@aws-sdk/client-marketplace-commerce-analytics");
 ```
 
 ```ts
 // ES6+ example
-import {
-  MarketplaceCommerceAnalyticsClient,
-  GenerateDataSetCommand,
-} from "@aws-sdk/client-marketplace-commerce-analytics";
+import { MarketplaceCommerceAnalyticsClient, GenerateDataSetCommand } from "@aws-sdk/client-marketplace-commerce-analytics";
 ```
 
 ### Usage
@@ -54,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new MarketplaceCommerceAnalyticsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new GenerateDataSetCommand(params);
 ```
 
@@ -215,7 +205,6 @@ GenerateDataSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-commerce-analytics/command/GenerateDataSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-commerce-analytics/Interface/GenerateDataSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-commerce-analytics/Interface/GenerateDataSetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -223,5 +212,4 @@ StartSupportDataExport
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-commerce-analytics/command/StartSupportDataExportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-commerce-analytics/Interface/StartSupportDataExportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-commerce-analytics/Interface/StartSupportDataExportCommandOutput/)
-
 </details>

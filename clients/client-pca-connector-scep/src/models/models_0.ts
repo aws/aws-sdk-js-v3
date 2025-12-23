@@ -256,7 +256,9 @@ export interface IntuneConfiguration {
  *          <p>If you provide an <code>IntuneConfiguration</code>, Connector for SCEP creates a connector for use with Microsoft Intune, and you manage the challenge passwords using Microsoft Intune. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/scep-connector.htmlconnector-for-scep-intune.html">Using Connector for SCEP for Microsoft Intune</a>.</p>
  * @public
  */
-export type MobileDeviceManagement = MobileDeviceManagement.IntuneMember | MobileDeviceManagement.$UnknownMember;
+export type MobileDeviceManagement =
+  | MobileDeviceManagement.IntuneMember
+  | MobileDeviceManagement.$UnknownMember;
 
 /**
  * @public

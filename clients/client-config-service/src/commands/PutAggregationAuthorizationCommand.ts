@@ -24,9 +24,7 @@ export interface PutAggregationAuthorizationCommandInput extends PutAggregationA
  *
  * The output of {@link PutAggregationAuthorizationCommand}.
  */
-export interface PutAggregationAuthorizationCommandOutput
-  extends PutAggregationAuthorizationResponse,
-    __MetadataBearer {}
+export interface PutAggregationAuthorizationCommandOutput extends PutAggregationAuthorizationResponse, __MetadataBearer {}
 
 /**
  * <p>Authorizes the aggregator account and region to collect data

@@ -24,9 +24,7 @@ export interface CreateSipMediaApplicationCallCommandInput extends CreateSipMedi
  *
  * The output of {@link CreateSipMediaApplicationCallCommand}.
  */
-export interface CreateSipMediaApplicationCallCommandOutput
-  extends CreateSipMediaApplicationCallResponse,
-    __MetadataBearer {}
+export interface CreateSipMediaApplicationCallCommandOutput extends CreateSipMediaApplicationCallResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an outbound call to a phone number from the phone number specified

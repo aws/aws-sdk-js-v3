@@ -80,7 +80,10 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = DeleteConnectionCommandInput | GetConnectionCommandInput | PostToConnectionCommandInput;
+export type ServiceInputTypes =
+  | DeleteConnectionCommandInput
+  | GetConnectionCommandInput
+  | PostToConnectionCommandInput;
 
 /**
  * @public

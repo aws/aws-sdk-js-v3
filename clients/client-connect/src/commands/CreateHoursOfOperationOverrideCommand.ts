@@ -24,9 +24,7 @@ export interface CreateHoursOfOperationOverrideCommandInput extends CreateHoursO
  *
  * The output of {@link CreateHoursOfOperationOverrideCommand}.
  */
-export interface CreateHoursOfOperationOverrideCommandOutput
-  extends CreateHoursOfOperationOverrideResponse,
-    __MetadataBearer {}
+export interface CreateHoursOfOperationOverrideCommandOutput extends CreateHoursOfOperationOverrideResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an hours of operation override in an Amazon Connect hours of operation resource.</p>

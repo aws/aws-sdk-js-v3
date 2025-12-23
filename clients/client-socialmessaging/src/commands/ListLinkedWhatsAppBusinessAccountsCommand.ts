@@ -31,9 +31,7 @@ export interface ListLinkedWhatsAppBusinessAccountsCommandInput extends ListLink
  *
  * The output of {@link ListLinkedWhatsAppBusinessAccountsCommand}.
  */
-export interface ListLinkedWhatsAppBusinessAccountsCommandOutput
-  extends ListLinkedWhatsAppBusinessAccountsOutput,
-    __MetadataBearer {}
+export interface ListLinkedWhatsAppBusinessAccountsCommandOutput extends ListLinkedWhatsAppBusinessAccountsOutput, __MetadataBearer {}
 
 /**
  * <p>List all WhatsApp Business Accounts linked to your Amazon Web Services account.</p>

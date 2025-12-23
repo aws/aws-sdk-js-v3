@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeEnvironmentManagedActionHistoryCommand}.
  */
-export interface DescribeEnvironmentManagedActionHistoryCommandInput
-  extends DescribeEnvironmentManagedActionHistoryRequest {}
+export interface DescribeEnvironmentManagedActionHistoryCommandInput extends DescribeEnvironmentManagedActionHistoryRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeEnvironmentManagedActionHistoryCommand}.
  */
-export interface DescribeEnvironmentManagedActionHistoryCommandOutput
-  extends DescribeEnvironmentManagedActionHistoryResult,
-    __MetadataBearer {}
+export interface DescribeEnvironmentManagedActionHistoryCommandOutput extends DescribeEnvironmentManagedActionHistoryResult, __MetadataBearer {}
 
 /**
  * <p>Lists an environment's completed and failed managed actions.</p>

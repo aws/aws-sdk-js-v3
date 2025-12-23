@@ -59,89 +59,74 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ADE,
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_aQE]: [`BCMRecommendedActionsAccessDenied`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var ActionFilter$: StaticStructureSchema = [3, n0, _AF, 0, [_k, _mO, _v], [0, 0, 64 | 0]];
-export var InternalServerException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISE,
+export var ActionFilter$: StaticStructureSchema = [3, n0, _AF,
+  0,
+  [_k, _mO, _v],
+  [0, 0, 64 | 0]
+];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_aQE]: [`BCMRecommendedActionsInternalServer`, 500], [_e]: _s, [_hE]: 500 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var ListRecommendedActionsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRAR,
+export var ListRecommendedActionsRequest$: StaticStructureSchema = [3, n0, _LRAR,
   0,
   [_f, _mR, _nT],
-  [() => RequestFilter$, 1, 0],
+  [() => RequestFilter$, 1, 0]
 ];
-export var ListRecommendedActionsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRARi,
+export var ListRecommendedActionsResponse$: StaticStructureSchema = [3, n0, _LRARi,
   0,
   [_rA, _nT],
-  [() => RecommendedActions, 0],
+  [() => RecommendedActions, 0]
 ];
-export var RecommendedAction$: StaticStructureSchema = [
-  3,
-  n0,
-  _RA,
+export var RecommendedAction$: StaticStructureSchema = [3, n0, _RA,
   0,
   [_i, _t, _aI, _se, _fe, _co, _nS, _lUTS],
-  [0, 0, 0, 0, 0, 128 | 0, 64 | 0, 0],
+  [0, 0, 0, 0, 0, 128 | 0, 64 | 0, 0]
 ];
-export var RequestFilter$: StaticStructureSchema = [3, n0, _RF, 0, [_a], [() => ActionFilterList]];
-export var ThrottlingException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
+export var RequestFilter$: StaticStructureSchema = [3, n0, _RF,
+  0,
+  [_a],
+  [() => ActionFilterList]
+];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_aQE]: [`BCMRecommendedActionsThrottling`, 429], [_e]: _c, [_hE]: 429 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var ValidationException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _VE,
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_aQE]: [`BCMRecommendedActionsValidation`, 400], [_e]: _c, [_hE]: 400 },
   [_m, _r, _fL],
-  [0, 0, () => ValidationExceptionFieldList],
+  [0, 0, () => ValidationExceptionFieldList]
 ];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF, 0, [_n, _m], [0, 0]];
-export var BCMRecommendedActionsServiceException$: StaticErrorSchema = [
-  -3,
-  _sm,
-  "BCMRecommendedActionsServiceException",
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
-  [],
-  [],
+  [_n, _m],
+  [0, 0]
 ];
+export var BCMRecommendedActionsServiceException$: StaticErrorSchema = [-3, _sm, "BCMRecommendedActionsServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BCMRecommendedActionsServiceException$, BCMRecommendedActionsServiceException);
-var ActionFilterList: StaticListSchema = [1, n0, _AFL, 0, () => ActionFilter$];
+var ActionFilterList: StaticListSchema = [1, n0, _AFL,
+  0, () => ActionFilter$
+];
 var FilterValues = 64 | 0;
 var NextSteps = 64 | 0;
-var RecommendedActions: StaticListSchema = [1, n0, _RAe, 0, () => RecommendedAction$];
-var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL, 0, () => ValidationExceptionField$];
+var RecommendedActions: StaticListSchema = [1, n0, _RAe,
+  0, () => RecommendedAction$
+];
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
+  0, () => ValidationExceptionField$
+];
 var Context = 128 | 0;
-export var ListRecommendedActions$: StaticOperationSchema = [
-  9,
-  n0,
-  _LRA,
-  0,
-  () => ListRecommendedActionsRequest$,
-  () => ListRecommendedActionsResponse$,
+export var ListRecommendedActions$: StaticOperationSchema = [9, n0, _LRA,
+  0, () => ListRecommendedActionsRequest$, () => ListRecommendedActionsResponse$
 ];

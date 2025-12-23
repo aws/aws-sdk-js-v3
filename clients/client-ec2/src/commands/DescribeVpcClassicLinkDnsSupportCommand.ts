@@ -27,9 +27,7 @@ export interface DescribeVpcClassicLinkDnsSupportCommandInput extends DescribeVp
  *
  * The output of {@link DescribeVpcClassicLinkDnsSupportCommand}.
  */
-export interface DescribeVpcClassicLinkDnsSupportCommandOutput
-  extends DescribeVpcClassicLinkDnsSupportResult,
-    __MetadataBearer {}
+export interface DescribeVpcClassicLinkDnsSupportCommandOutput extends DescribeVpcClassicLinkDnsSupportResult, __MetadataBearer {}
 
 /**
  * <note>

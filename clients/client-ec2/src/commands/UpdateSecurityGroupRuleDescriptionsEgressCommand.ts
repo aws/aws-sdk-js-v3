@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateSecurityGroupRuleDescriptionsEgressCommand}.
  */
-export interface UpdateSecurityGroupRuleDescriptionsEgressCommandInput
-  extends UpdateSecurityGroupRuleDescriptionsEgressRequest {}
+export interface UpdateSecurityGroupRuleDescriptionsEgressCommandInput extends UpdateSecurityGroupRuleDescriptionsEgressRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateSecurityGroupRuleDescriptionsEgressCommand}.
  */
-export interface UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
-  extends UpdateSecurityGroupRuleDescriptionsEgressResult,
-    __MetadataBearer {}
+export interface UpdateSecurityGroupRuleDescriptionsEgressCommandOutput extends UpdateSecurityGroupRuleDescriptionsEgressResult, __MetadataBearer {}
 
 /**
  * <p>Updates the description of an egress (outbound) security group rule. You

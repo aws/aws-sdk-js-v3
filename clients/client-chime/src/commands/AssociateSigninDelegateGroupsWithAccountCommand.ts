@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AssociateSigninDelegateGroupsWithAccountCommand}.
  */
-export interface AssociateSigninDelegateGroupsWithAccountCommandInput
-  extends AssociateSigninDelegateGroupsWithAccountRequest {}
+export interface AssociateSigninDelegateGroupsWithAccountCommandInput extends AssociateSigninDelegateGroupsWithAccountRequest {}
 /**
  * @public
  *
  * The output of {@link AssociateSigninDelegateGroupsWithAccountCommand}.
  */
-export interface AssociateSigninDelegateGroupsWithAccountCommandOutput
-  extends AssociateSigninDelegateGroupsWithAccountResponse,
-    __MetadataBearer {}
+export interface AssociateSigninDelegateGroupsWithAccountCommandOutput extends AssociateSigninDelegateGroupsWithAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Associates the specified sign-in delegate groups with the specified Amazon Chime account.</p>

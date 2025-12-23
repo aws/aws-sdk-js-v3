@@ -31,9 +31,7 @@ export interface ListEngagementFromOpportunityTasksCommandInput extends ListEnga
  *
  * The output of {@link ListEngagementFromOpportunityTasksCommand}.
  */
-export interface ListEngagementFromOpportunityTasksCommandOutput
-  extends ListEngagementFromOpportunityTasksResponse,
-    __MetadataBearer {}
+export interface ListEngagementFromOpportunityTasksCommandOutput extends ListEngagementFromOpportunityTasksResponse, __MetadataBearer {}
 
 /**
  * <p> Lists all in-progress, completed, or failed <code>EngagementFromOpportunity</code> tasks that were initiated by the caller's account. </p>

@@ -24,9 +24,7 @@ export interface DescribeStorageVirtualMachinesCommandInput extends DescribeStor
  *
  * The output of {@link DescribeStorageVirtualMachinesCommand}.
  */
-export interface DescribeStorageVirtualMachinesCommandOutput
-  extends DescribeStorageVirtualMachinesResponse,
-    __MetadataBearer {}
+export interface DescribeStorageVirtualMachinesCommandOutput extends DescribeStorageVirtualMachinesResponse, __MetadataBearer {}
 
 /**
  * <p>Describes one or more Amazon FSx for NetApp ONTAP storage virtual machines (SVMs).</p>

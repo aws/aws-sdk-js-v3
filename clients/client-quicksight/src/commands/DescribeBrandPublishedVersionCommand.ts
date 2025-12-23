@@ -24,9 +24,7 @@ export interface DescribeBrandPublishedVersionCommandInput extends DescribeBrand
  *
  * The output of {@link DescribeBrandPublishedVersionCommand}.
  */
-export interface DescribeBrandPublishedVersionCommandOutput
-  extends DescribeBrandPublishedVersionResponse,
-    __MetadataBearer {}
+export interface DescribeBrandPublishedVersionCommandOutput extends DescribeBrandPublishedVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the published version of the brand.</p>

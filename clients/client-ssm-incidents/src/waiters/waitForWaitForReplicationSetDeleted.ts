@@ -10,17 +10,17 @@ const checkState = async (client: SSMIncidentsClient, input: GetReplicationSetCo
     const result: any = await client.send(new GetReplicationSetCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.replicationSet.status;
-      };
+      }
       if (returnComparator() === "DELETING") {
         return { state: WaiterState.RETRY, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.replicationSet.status;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

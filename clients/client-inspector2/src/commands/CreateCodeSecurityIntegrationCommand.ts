@@ -24,9 +24,7 @@ export interface CreateCodeSecurityIntegrationCommandInput extends CreateCodeSec
  *
  * The output of {@link CreateCodeSecurityIntegrationCommand}.
  */
-export interface CreateCodeSecurityIntegrationCommandOutput
-  extends CreateCodeSecurityIntegrationResponse,
-    __MetadataBearer {}
+export interface CreateCodeSecurityIntegrationCommandOutput extends CreateCodeSecurityIntegrationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a code security integration with a source code repository provider.</p>

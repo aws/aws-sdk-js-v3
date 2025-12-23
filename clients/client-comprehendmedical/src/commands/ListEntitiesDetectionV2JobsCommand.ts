@@ -28,9 +28,7 @@ export interface ListEntitiesDetectionV2JobsCommandInput extends ListEntitiesDet
  *
  * The output of {@link ListEntitiesDetectionV2JobsCommand}.
  */
-export interface ListEntitiesDetectionV2JobsCommandOutput
-  extends ListEntitiesDetectionV2JobsResponse,
-    __MetadataBearer {}
+export interface ListEntitiesDetectionV2JobsCommandOutput extends ListEntitiesDetectionV2JobsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of medical entity detection jobs that you have submitted.</p>

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeAccountAssignmentDeletionStatusCommand}.
  */
-export interface DescribeAccountAssignmentDeletionStatusCommandInput
-  extends DescribeAccountAssignmentDeletionStatusRequest {}
+export interface DescribeAccountAssignmentDeletionStatusCommandInput extends DescribeAccountAssignmentDeletionStatusRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeAccountAssignmentDeletionStatusCommand}.
  */
-export interface DescribeAccountAssignmentDeletionStatusCommandOutput
-  extends DescribeAccountAssignmentDeletionStatusResponse,
-    __MetadataBearer {}
+export interface DescribeAccountAssignmentDeletionStatusCommandOutput extends DescribeAccountAssignmentDeletionStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the status of the assignment deletion request.</p>

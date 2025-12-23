@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteReplicationConfigurationTemplateCommand}.
  */
-export interface DeleteReplicationConfigurationTemplateCommandInput
-  extends DeleteReplicationConfigurationTemplateRequest {}
+export interface DeleteReplicationConfigurationTemplateCommandInput extends DeleteReplicationConfigurationTemplateRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteReplicationConfigurationTemplateCommand}.
  */
-export interface DeleteReplicationConfigurationTemplateCommandOutput
-  extends DeleteReplicationConfigurationTemplateResponse,
-    __MetadataBearer {}
+export interface DeleteReplicationConfigurationTemplateCommandOutput extends DeleteReplicationConfigurationTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a single Replication Configuration Template by ID</p>

@@ -24,9 +24,7 @@ export interface PurchaseCapacityBlockExtensionCommandInput extends PurchaseCapa
  *
  * The output of {@link PurchaseCapacityBlockExtensionCommand}.
  */
-export interface PurchaseCapacityBlockExtensionCommandOutput
-  extends PurchaseCapacityBlockExtensionResult,
-    __MetadataBearer {}
+export interface PurchaseCapacityBlockExtensionCommandOutput extends PurchaseCapacityBlockExtensionResult, __MetadataBearer {}
 
 /**
  * <p>Purchase the Capacity Block extension for use with your account. You must specify the

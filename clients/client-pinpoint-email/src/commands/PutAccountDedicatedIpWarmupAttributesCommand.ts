@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutAccountDedicatedIpWarmupAttributesCommand}.
  */
-export interface PutAccountDedicatedIpWarmupAttributesCommandInput
-  extends PutAccountDedicatedIpWarmupAttributesRequest {}
+export interface PutAccountDedicatedIpWarmupAttributesCommandInput extends PutAccountDedicatedIpWarmupAttributesRequest {}
 /**
  * @public
  *
  * The output of {@link PutAccountDedicatedIpWarmupAttributesCommand}.
  */
-export interface PutAccountDedicatedIpWarmupAttributesCommandOutput
-  extends PutAccountDedicatedIpWarmupAttributesResponse,
-    __MetadataBearer {}
+export interface PutAccountDedicatedIpWarmupAttributesCommandOutput extends PutAccountDedicatedIpWarmupAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Enable or disable the automatic warm-up feature for dedicated IP addresses.</p>

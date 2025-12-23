@@ -65,11 +65,11 @@ export interface CreateRateBasedRuleCommandOutput extends CreateRateBasedRuleRes
  *          a rate of more than 1,000 requests every five minutes. If both conditions are met and the
  *          rate is exceeded, AWS WAF blocks the requests. If the rate drops below 1,000 for a
  *          five-minute period, AWS WAF no longer blocks the requests.</p>
- *
+ * 		
  * 		       <p>As a second example, suppose you want to limit requests to a particular page on your site. To do this, you could add the following to a
  *             <code>RateBasedRule</code>:</p>
- *
- *
+ * 			
+ * 			
  *          <ul>
  *             <li>
  *                <p>A <code>ByteMatchSet</code> with <code>FieldToMatch</code> of <code>URI</code>
@@ -86,8 +86,8 @@ export interface CreateRateBasedRuleCommandOutput extends CreateRateBasedRuleRes
  *          </ul>
  *          <p>Further, you specify a <code>RateLimit</code> of 1,000.</p>
  *          <p>By adding this <code>RateBasedRule</code> to a <code>WebACL</code>, you could limit requests to your login page without affecting the rest of your site.</p>
- *
- *
+ * 		
+ * 		
  *          <p>To create and configure a <code>RateBasedRule</code>, perform the following
  *          steps:</p>
  *          <ol>

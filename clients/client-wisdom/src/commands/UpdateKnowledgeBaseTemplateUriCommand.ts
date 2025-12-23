@@ -24,9 +24,7 @@ export interface UpdateKnowledgeBaseTemplateUriCommandInput extends UpdateKnowle
  *
  * The output of {@link UpdateKnowledgeBaseTemplateUriCommand}.
  */
-export interface UpdateKnowledgeBaseTemplateUriCommandOutput
-  extends UpdateKnowledgeBaseTemplateUriResponse,
-    __MetadataBearer {}
+export interface UpdateKnowledgeBaseTemplateUriCommandOutput extends UpdateKnowledgeBaseTemplateUriResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the template URI of a knowledge base. This is only supported for knowledge bases

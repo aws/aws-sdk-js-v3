@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link GetRDSDatabaseRecommendationProjectedMetricsCommand}.
  */
-export interface GetRDSDatabaseRecommendationProjectedMetricsCommandInput
-  extends GetRDSDatabaseRecommendationProjectedMetricsRequest {}
+export interface GetRDSDatabaseRecommendationProjectedMetricsCommandInput extends GetRDSDatabaseRecommendationProjectedMetricsRequest {}
 /**
  * @public
  *
  * The output of {@link GetRDSDatabaseRecommendationProjectedMetricsCommand}.
  */
-export interface GetRDSDatabaseRecommendationProjectedMetricsCommandOutput
-  extends GetRDSDatabaseRecommendationProjectedMetricsResponse,
-    __MetadataBearer {}
+export interface GetRDSDatabaseRecommendationProjectedMetricsCommandOutput extends GetRDSDatabaseRecommendationProjectedMetricsResponse, __MetadataBearer {}
 
 /**
  * <p>

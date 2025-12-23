@@ -534,7 +534,10 @@ export interface Macie2 {
     args: CreateAllowListCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateAllowListCommandOutput>;
-  createAllowList(args: CreateAllowListCommandInput, cb: (err: any, data?: CreateAllowListCommandOutput) => void): void;
+  createAllowList(
+    args: CreateAllowListCommandInput,
+    cb: (err: any, data?: CreateAllowListCommandOutput) => void
+  ): void;
   createAllowList(
     args: CreateAllowListCommandInput,
     options: __HttpHandlerOptions,
@@ -612,8 +615,14 @@ export interface Macie2 {
   /**
    * @see {@link CreateMemberCommand}
    */
-  createMember(args: CreateMemberCommandInput, options?: __HttpHandlerOptions): Promise<CreateMemberCommandOutput>;
-  createMember(args: CreateMemberCommandInput, cb: (err: any, data?: CreateMemberCommandOutput) => void): void;
+  createMember(
+    args: CreateMemberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMemberCommandOutput>;
+  createMember(
+    args: CreateMemberCommandInput,
+    cb: (err: any, data?: CreateMemberCommandOutput) => void
+  ): void;
   createMember(
     args: CreateMemberCommandInput,
     options: __HttpHandlerOptions,
@@ -662,7 +671,10 @@ export interface Macie2 {
     args: DeleteAllowListCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteAllowListCommandOutput>;
-  deleteAllowList(args: DeleteAllowListCommandInput, cb: (err: any, data?: DeleteAllowListCommandOutput) => void): void;
+  deleteAllowList(
+    args: DeleteAllowListCommandInput,
+    cb: (err: any, data?: DeleteAllowListCommandOutput) => void
+  ): void;
   deleteAllowList(
     args: DeleteAllowListCommandInput,
     options: __HttpHandlerOptions,
@@ -723,8 +735,14 @@ export interface Macie2 {
   /**
    * @see {@link DeleteMemberCommand}
    */
-  deleteMember(args: DeleteMemberCommandInput, options?: __HttpHandlerOptions): Promise<DeleteMemberCommandOutput>;
-  deleteMember(args: DeleteMemberCommandInput, cb: (err: any, data?: DeleteMemberCommandOutput) => void): void;
+  deleteMember(
+    args: DeleteMemberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMemberCommandOutput>;
+  deleteMember(
+    args: DeleteMemberCommandInput,
+    cb: (err: any, data?: DeleteMemberCommandOutput) => void
+  ): void;
   deleteMember(
     args: DeleteMemberCommandInput,
     options: __HttpHandlerOptions,
@@ -739,7 +757,10 @@ export interface Macie2 {
     args: DescribeBucketsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeBucketsCommandOutput>;
-  describeBuckets(args: DescribeBucketsCommandInput, cb: (err: any, data?: DescribeBucketsCommandOutput) => void): void;
+  describeBuckets(
+    args: DescribeBucketsCommandInput,
+    cb: (err: any, data?: DescribeBucketsCommandOutput) => void
+  ): void;
   describeBuckets(
     args: DescribeBucketsCommandInput,
     options: __HttpHandlerOptions,
@@ -785,8 +806,14 @@ export interface Macie2 {
    * @see {@link DisableMacieCommand}
    */
   disableMacie(): Promise<DisableMacieCommandOutput>;
-  disableMacie(args: DisableMacieCommandInput, options?: __HttpHandlerOptions): Promise<DisableMacieCommandOutput>;
-  disableMacie(args: DisableMacieCommandInput, cb: (err: any, data?: DisableMacieCommandOutput) => void): void;
+  disableMacie(
+    args: DisableMacieCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableMacieCommandOutput>;
+  disableMacie(
+    args: DisableMacieCommandInput,
+    cb: (err: any, data?: DisableMacieCommandOutput) => void
+  ): void;
   disableMacie(
     args: DisableMacieCommandInput,
     options: __HttpHandlerOptions,
@@ -867,8 +894,14 @@ export interface Macie2 {
    * @see {@link EnableMacieCommand}
    */
   enableMacie(): Promise<EnableMacieCommandOutput>;
-  enableMacie(args: EnableMacieCommandInput, options?: __HttpHandlerOptions): Promise<EnableMacieCommandOutput>;
-  enableMacie(args: EnableMacieCommandInput, cb: (err: any, data?: EnableMacieCommandOutput) => void): void;
+  enableMacie(
+    args: EnableMacieCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableMacieCommandOutput>;
+  enableMacie(
+    args: EnableMacieCommandInput,
+    cb: (err: any, data?: EnableMacieCommandOutput) => void
+  ): void;
   enableMacie(
     args: EnableMacieCommandInput,
     options: __HttpHandlerOptions,
@@ -913,8 +946,14 @@ export interface Macie2 {
   /**
    * @see {@link GetAllowListCommand}
    */
-  getAllowList(args: GetAllowListCommandInput, options?: __HttpHandlerOptions): Promise<GetAllowListCommandOutput>;
-  getAllowList(args: GetAllowListCommandInput, cb: (err: any, data?: GetAllowListCommandOutput) => void): void;
+  getAllowList(
+    args: GetAllowListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAllowListCommandOutput>;
+  getAllowList(
+    args: GetAllowListCommandInput,
+    cb: (err: any, data?: GetAllowListCommandOutput) => void
+  ): void;
   getAllowList(
     args: GetAllowListCommandInput,
     options: __HttpHandlerOptions,
@@ -1012,8 +1051,14 @@ export interface Macie2 {
   /**
    * @see {@link GetFindingsCommand}
    */
-  getFindings(args: GetFindingsCommandInput, options?: __HttpHandlerOptions): Promise<GetFindingsCommandOutput>;
-  getFindings(args: GetFindingsCommandInput, cb: (err: any, data?: GetFindingsCommandOutput) => void): void;
+  getFindings(
+    args: GetFindingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFindingsCommandOutput>;
+  getFindings(
+    args: GetFindingsCommandInput,
+    cb: (err: any, data?: GetFindingsCommandOutput) => void
+  ): void;
   getFindings(
     args: GetFindingsCommandInput,
     options: __HttpHandlerOptions,
@@ -1098,7 +1143,10 @@ export interface Macie2 {
     args: GetMacieSessionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetMacieSessionCommandOutput>;
-  getMacieSession(args: GetMacieSessionCommandInput, cb: (err: any, data?: GetMacieSessionCommandOutput) => void): void;
+  getMacieSession(
+    args: GetMacieSessionCommandInput,
+    cb: (err: any, data?: GetMacieSessionCommandOutput) => void
+  ): void;
   getMacieSession(
     args: GetMacieSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -1126,8 +1174,14 @@ export interface Macie2 {
   /**
    * @see {@link GetMemberCommand}
    */
-  getMember(args: GetMemberCommandInput, options?: __HttpHandlerOptions): Promise<GetMemberCommandOutput>;
-  getMember(args: GetMemberCommandInput, cb: (err: any, data?: GetMemberCommandOutput) => void): void;
+  getMember(
+    args: GetMemberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMemberCommandOutput>;
+  getMember(
+    args: GetMemberCommandInput,
+    cb: (err: any, data?: GetMemberCommandOutput) => void
+  ): void;
   getMember(
     args: GetMemberCommandInput,
     options: __HttpHandlerOptions,
@@ -1246,7 +1300,10 @@ export interface Macie2 {
     args: GetUsageTotalsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetUsageTotalsCommandOutput>;
-  getUsageTotals(args: GetUsageTotalsCommandInput, cb: (err: any, data?: GetUsageTotalsCommandOutput) => void): void;
+  getUsageTotals(
+    args: GetUsageTotalsCommandInput,
+    cb: (err: any, data?: GetUsageTotalsCommandOutput) => void
+  ): void;
   getUsageTotals(
     args: GetUsageTotalsCommandInput,
     options: __HttpHandlerOptions,
@@ -1261,7 +1318,10 @@ export interface Macie2 {
     args: ListAllowListsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAllowListsCommandOutput>;
-  listAllowLists(args: ListAllowListsCommandInput, cb: (err: any, data?: ListAllowListsCommandOutput) => void): void;
+  listAllowLists(
+    args: ListAllowListsCommandInput,
+    cb: (err: any, data?: ListAllowListsCommandOutput) => void
+  ): void;
   listAllowLists(
     args: ListAllowListsCommandInput,
     options: __HttpHandlerOptions,
@@ -1344,8 +1404,14 @@ export interface Macie2 {
    * @see {@link ListFindingsCommand}
    */
   listFindings(): Promise<ListFindingsCommandOutput>;
-  listFindings(args: ListFindingsCommandInput, options?: __HttpHandlerOptions): Promise<ListFindingsCommandOutput>;
-  listFindings(args: ListFindingsCommandInput, cb: (err: any, data?: ListFindingsCommandOutput) => void): void;
+  listFindings(
+    args: ListFindingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFindingsCommandOutput>;
+  listFindings(
+    args: ListFindingsCommandInput,
+    cb: (err: any, data?: ListFindingsCommandOutput) => void
+  ): void;
   listFindings(
     args: ListFindingsCommandInput,
     options: __HttpHandlerOptions,
@@ -1378,7 +1444,10 @@ export interface Macie2 {
     args: ListInvitationsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListInvitationsCommandOutput>;
-  listInvitations(args: ListInvitationsCommandInput, cb: (err: any, data?: ListInvitationsCommandOutput) => void): void;
+  listInvitations(
+    args: ListInvitationsCommandInput,
+    cb: (err: any, data?: ListInvitationsCommandOutput) => void
+  ): void;
   listInvitations(
     args: ListInvitationsCommandInput,
     options: __HttpHandlerOptions,
@@ -1407,8 +1476,14 @@ export interface Macie2 {
    * @see {@link ListMembersCommand}
    */
   listMembers(): Promise<ListMembersCommandOutput>;
-  listMembers(args: ListMembersCommandInput, options?: __HttpHandlerOptions): Promise<ListMembersCommandOutput>;
-  listMembers(args: ListMembersCommandInput, cb: (err: any, data?: ListMembersCommandOutput) => void): void;
+  listMembers(
+    args: ListMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMembersCommandOutput>;
+  listMembers(
+    args: ListMembersCommandInput,
+    cb: (err: any, data?: ListMembersCommandOutput) => void
+  ): void;
   listMembers(
     args: ListMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -1545,7 +1620,10 @@ export interface Macie2 {
     args: SearchResourcesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SearchResourcesCommandOutput>;
-  searchResources(args: SearchResourcesCommandInput, cb: (err: any, data?: SearchResourcesCommandOutput) => void): void;
+  searchResources(
+    args: SearchResourcesCommandInput,
+    cb: (err: any, data?: SearchResourcesCommandOutput) => void
+  ): void;
   searchResources(
     args: SearchResourcesCommandInput,
     options: __HttpHandlerOptions,
@@ -1555,8 +1633,14 @@ export interface Macie2 {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1583,8 +1667,14 @@ export interface Macie2 {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1598,7 +1688,10 @@ export interface Macie2 {
     args: UpdateAllowListCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateAllowListCommandOutput>;
-  updateAllowList(args: UpdateAllowListCommandInput, cb: (err: any, data?: UpdateAllowListCommandOutput) => void): void;
+  updateAllowList(
+    args: UpdateAllowListCommandInput,
+    cb: (err: any, data?: UpdateAllowListCommandOutput) => void
+  ): void;
   updateAllowList(
     args: UpdateAllowListCommandInput,
     options: __HttpHandlerOptions,

@@ -27,9 +27,7 @@ export interface ListGroupCertificateAuthoritiesCommandInput extends ListGroupCe
  *
  * The output of {@link ListGroupCertificateAuthoritiesCommand}.
  */
-export interface ListGroupCertificateAuthoritiesCommandOutput
-  extends ListGroupCertificateAuthoritiesResponse,
-    __MetadataBearer {}
+export interface ListGroupCertificateAuthoritiesCommandOutput extends ListGroupCertificateAuthoritiesResponse, __MetadataBearer {}
 
 /**
  * Retrieves the current CAs for a group.

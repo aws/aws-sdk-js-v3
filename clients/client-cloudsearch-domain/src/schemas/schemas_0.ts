@@ -103,144 +103,130 @@ import { DocumentServiceException, SearchException } from "../models/errors";
 
 /* eslint no-var: 0 */
 var _Blob: StaticSimpleSchema = [0, n0, _B, { [_s]: 1 }, 42];
-export var Bucket$: StaticStructureSchema = [3, n0, _Bu, 0, [_v, _c], [0, 1]];
-export var BucketInfo$: StaticStructureSchema = [3, n0, _BI, 0, [_b], [() => BucketList]];
-export var DocumentServiceException$: StaticErrorSchema = [-3, n0, _DSE, { [_e]: _cl }, [_st, _m], [0, 0]];
+export var Bucket$: StaticStructureSchema = [3, n0, _Bu,
+  0,
+  [_v, _c],
+  [0, 1]
+];
+export var BucketInfo$: StaticStructureSchema = [3, n0, _BI,
+  0,
+  [_b],
+  [() => BucketList]
+];
+export var DocumentServiceException$: StaticErrorSchema = [-3, n0, _DSE,
+  { [_e]: _cl },
+  [_st, _m],
+  [0, 0]
+];
 TypeRegistry.for(n0).registerError(DocumentServiceException$, DocumentServiceException);
-export var DocumentServiceWarning$: StaticStructureSchema = [3, n0, _DSW, 0, [_m], [0]];
-export var FieldStats$: StaticStructureSchema = [
-  3,
-  n0,
-  _FS,
+export var DocumentServiceWarning$: StaticStructureSchema = [3, n0, _DSW,
+  0,
+  [_m],
+  [0]
+];
+export var FieldStats$: StaticStructureSchema = [3, n0, _FS,
   0,
   [_mi, _ma, _c, _mis, _su, _sOS, _me, _std],
-  [0, 0, 1, 1, 1, 1, 0, 1],
+  [0, 0, 1, 1, 1, 1, 0, 1]
 ];
-export var Hit$: StaticStructureSchema = [
-  3,
-  n0,
-  _H,
+export var Hit$: StaticStructureSchema = [3, n0, _H,
   0,
   [_i, _f, _ex, _h],
-  [0, [2, n0, _F, 0, 0, 64 | 0], 128 | 0, 128 | 0],
+  [0, [2, n0, _F, 0, 0, 64 | 0], 128 | 0, 128 | 0]
 ];
-export var Hits$: StaticStructureSchema = [3, n0, _Hi, 0, [_fo, _sta, _cu, _hi], [1, 1, 0, () => HitList]];
-export var SearchException$: StaticErrorSchema = [-3, n0, _SE, { [_e]: _cl }, [_m], [0]];
+export var Hits$: StaticStructureSchema = [3, n0, _Hi,
+  0,
+  [_fo, _sta, _cu, _hi],
+  [1, 1, 0, () => HitList]
+];
+export var SearchException$: StaticErrorSchema = [-3, n0, _SE,
+  { [_e]: _cl },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(SearchException$, SearchException);
-export var SearchRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _SR,
+export var SearchRequest$: StaticStructureSchema = [3, n0, _SR,
   0,
   [_cu, _exp, _fa, _fQ, _hig, _p, _q, _qO, _qP, _r, _si, _so, _sta, _stat],
-  [
-    [0, { [_hQ]: _cu }],
-    [0, { [_hQ]: _exp }],
-    [0, { [_hQ]: _fa }],
-    [0, { [_hQ]: _fq }],
-    [0, { [_hQ]: _hig }],
-    [2, { [_hQ]: _p }],
-    [0, { [_hQ]: _q_ }],
-    [0, { [_hQ]: _qo }],
-    [0, { [_hQ]: _qp }],
-    [0, { [_hQ]: _r }],
-    [1, { [_hQ]: _si }],
-    [0, { [_hQ]: _so }],
-    [1, { [_hQ]: _sta }],
-    [0, { [_hQ]: _stat }],
-  ],
+  [[0, { [_hQ]: _cu }], [0, { [_hQ]: _exp }], [0, { [_hQ]: _fa }], [0, { [_hQ]: _fq }], [0, { [_hQ]: _hig }], [2, { [_hQ]: _p }], [0, { [_hQ]: _q_ }], [0, { [_hQ]: _qo }], [0, { [_hQ]: _qp }], [0, { [_hQ]: _r }], [1, { [_hQ]: _si }], [0, { [_hQ]: _so }], [1, { [_hQ]: _sta }], [0, { [_hQ]: _stat }]]
 ];
-export var SearchResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _SRe,
+export var SearchResponse$: StaticStructureSchema = [3, n0, _SRe,
   0,
   [_st, _hit, _fac, _stat],
-  [() => SearchStatus$, () => Hits$, () => Facets, () => Stats],
+  [() => SearchStatus$, () => Hits$, () => Facets, () => Stats]
 ];
-export var SearchStatus$: StaticStructureSchema = [3, n0, _SS, 0, [_t, _ri], [1, 0]];
-export var SuggestionMatch$: StaticStructureSchema = [3, n0, _SM, 0, [_sug, _sc, _i], [0, 1, 0]];
-export var SuggestModel$: StaticStructureSchema = [3, n0, _SMu, 0, [_q, _fo, _sugg], [0, 1, () => Suggestions]];
-export var SuggestRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _SRu,
+export var SearchStatus$: StaticStructureSchema = [3, n0, _SS,
+  0,
+  [_t, _ri],
+  [1, 0]
+];
+export var SuggestionMatch$: StaticStructureSchema = [3, n0, _SM,
+  0,
+  [_sug, _sc, _i],
+  [0, 1, 0]
+];
+export var SuggestModel$: StaticStructureSchema = [3, n0, _SMu,
+  0,
+  [_q, _fo, _sugg],
+  [0, 1, () => Suggestions]
+];
+export var SuggestRequest$: StaticStructureSchema = [3, n0, _SRu,
   0,
   [_q, _sugge, _si],
-  [
-    [0, { [_hQ]: _q_ }],
-    [0, { [_hQ]: _sugge }],
-    [1, { [_hQ]: _si }],
-  ],
+  [[0, { [_hQ]: _q_ }], [0, { [_hQ]: _sugge }], [1, { [_hQ]: _si }]]
 ];
-export var SuggestResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _SRug,
+export var SuggestResponse$: StaticStructureSchema = [3, n0, _SRug,
   0,
   [_st, _sugges],
-  [() => SuggestStatus$, () => SuggestModel$],
+  [() => SuggestStatus$, () => SuggestModel$]
 ];
-export var SuggestStatus$: StaticStructureSchema = [3, n0, _SSu, 0, [_t, _ri], [1, 0]];
-export var UploadDocumentsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UDR,
+export var SuggestStatus$: StaticStructureSchema = [3, n0, _SSu,
+  0,
+  [_t, _ri],
+  [1, 0]
+];
+export var UploadDocumentsRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
   [_d, _cT],
-  [
-    [() => _Blob, 16],
-    [0, { [_hH]: _CT }],
-  ],
+  [[() => _Blob, 16], [0, { [_hH]: _CT }]]
 ];
-export var UploadDocumentsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _UDRp,
+export var UploadDocumentsResponse$: StaticStructureSchema = [3, n0, _UDRp,
   0,
   [_st, _a, _de, _w],
-  [0, 1, 1, () => DocumentServiceWarnings],
+  [0, 1, 1, () => DocumentServiceWarnings]
 ];
-export var CloudSearchDomainServiceException$: StaticErrorSchema = [
-  -3,
-  _sm,
-  "CloudSearchDomainServiceException",
-  0,
-  [],
-  [],
-];
+export var CloudSearchDomainServiceException$: StaticErrorSchema = [-3, _sm, "CloudSearchDomainServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(CloudSearchDomainServiceException$, CloudSearchDomainServiceException);
-var BucketList: StaticListSchema = [1, n0, _BL, 0, () => Bucket$];
-var DocumentServiceWarnings: StaticListSchema = [1, n0, _DSWo, 0, () => DocumentServiceWarning$];
+var BucketList: StaticListSchema = [1, n0, _BL,
+  0, () => Bucket$
+];
+var DocumentServiceWarnings: StaticListSchema = [1, n0, _DSWo,
+  0, () => DocumentServiceWarning$
+];
 var FieldValue = 64 | 0;
-var HitList: StaticListSchema = [1, n0, _HL, 0, () => Hit$];
-var Suggestions: StaticListSchema = [1, n0, _S, 0, () => SuggestionMatch$];
+var HitList: StaticListSchema = [1, n0, _HL,
+  0, () => Hit$
+];
+var Suggestions: StaticListSchema = [1, n0, _S,
+  0, () => SuggestionMatch$
+];
 var Exprs = 128 | 0;
-var Facets: StaticMapSchema = [2, n0, _Fa, 0, 0, () => BucketInfo$];
-var Fields: StaticMapSchema = [2, n0, _F, 0, 0, 64 | 0];
+var Facets: StaticMapSchema = [2, n0, _Fa,
+  0, 0, () => BucketInfo$
+];
+var Fields: StaticMapSchema = [2, n0, _F,
+  0, 0, 64 | 0
+];
 var Highlights = 128 | 0;
-var Stats: StaticMapSchema = [2, n0, _St, 0, 0, () => FieldStats$];
-export var Search$: StaticOperationSchema = [
-  9,
-  n0,
-  _Se,
-  { [_ht]: ["GET", "/2013-01-01/search?format=sdk&pretty=true", 200] },
-  () => SearchRequest$,
-  () => SearchResponse$,
+var Stats: StaticMapSchema = [2, n0, _St,
+  0, 0, () => FieldStats$
 ];
-export var Suggest$: StaticOperationSchema = [
-  9,
-  n0,
-  _Su,
-  { [_ht]: ["GET", "/2013-01-01/suggest?format=sdk&pretty=true", 200] },
-  () => SuggestRequest$,
-  () => SuggestResponse$,
+export var Search$: StaticOperationSchema = [9, n0, _Se,
+  { [_ht]: ["GET", "/2013-01-01/search?format=sdk&pretty=true", 200] }, () => SearchRequest$, () => SearchResponse$
 ];
-export var UploadDocuments$: StaticOperationSchema = [
-  9,
-  n0,
-  _UD,
-  { [_ht]: ["POST", "/2013-01-01/documents/batch?format=sdk", 200] },
-  () => UploadDocumentsRequest$,
-  () => UploadDocumentsResponse$,
+export var Suggest$: StaticOperationSchema = [9, n0, _Su,
+  { [_ht]: ["GET", "/2013-01-01/suggest?format=sdk&pretty=true", 200] }, () => SuggestRequest$, () => SuggestResponse$
+];
+export var UploadDocuments$: StaticOperationSchema = [9, n0, _UD,
+  { [_ht]: ["POST", "/2013-01-01/documents/batch?format=sdk", 200] }, () => UploadDocumentsRequest$, () => UploadDocumentsResponse$
 ];

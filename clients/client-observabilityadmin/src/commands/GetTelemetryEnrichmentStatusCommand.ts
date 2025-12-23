@@ -28,9 +28,7 @@ export interface GetTelemetryEnrichmentStatusCommandInput {}
  *
  * The output of {@link GetTelemetryEnrichmentStatusCommand}.
  */
-export interface GetTelemetryEnrichmentStatusCommandOutput
-  extends GetTelemetryEnrichmentStatusOutput,
-    __MetadataBearer {}
+export interface GetTelemetryEnrichmentStatusCommandOutput extends GetTelemetryEnrichmentStatusOutput, __MetadataBearer {}
 
 /**
  * <p> Returns the current status of the resource tags for telemetry feature, which enhances telemetry data with additional resource metadata from Resource Explorer. </p>

@@ -31,9 +31,7 @@ export interface CreateNotificationConfigurationCommandInput extends CreateNotif
  *
  * The output of {@link CreateNotificationConfigurationCommand}.
  */
-export interface CreateNotificationConfigurationCommandOutput
-  extends CreateNotificationConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateNotificationConfigurationCommandOutput extends CreateNotificationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a notification configuration. A configuration is a connection between an event type and a destination that you have already created. </p>

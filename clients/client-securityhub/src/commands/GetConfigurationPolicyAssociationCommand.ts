@@ -27,9 +27,7 @@ export interface GetConfigurationPolicyAssociationCommandInput extends GetConfig
  *
  * The output of {@link GetConfigurationPolicyAssociationCommand}.
  */
-export interface GetConfigurationPolicyAssociationCommandOutput
-  extends GetConfigurationPolicyAssociationResponse,
-    __MetadataBearer {}
+export interface GetConfigurationPolicyAssociationCommandOutput extends GetConfigurationPolicyAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>

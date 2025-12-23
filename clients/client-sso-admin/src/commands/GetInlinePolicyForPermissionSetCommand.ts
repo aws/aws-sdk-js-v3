@@ -27,9 +27,7 @@ export interface GetInlinePolicyForPermissionSetCommandInput extends GetInlinePo
  *
  * The output of {@link GetInlinePolicyForPermissionSetCommand}.
  */
-export interface GetInlinePolicyForPermissionSetCommandOutput
-  extends GetInlinePolicyForPermissionSetResponse,
-    __MetadataBearer {}
+export interface GetInlinePolicyForPermissionSetCommandOutput extends GetInlinePolicyForPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Obtains the inline policy assigned to the permission set.</p>

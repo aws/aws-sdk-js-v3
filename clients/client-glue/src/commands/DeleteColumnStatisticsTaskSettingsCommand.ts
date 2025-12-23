@@ -27,9 +27,7 @@ export interface DeleteColumnStatisticsTaskSettingsCommandInput extends DeleteCo
  *
  * The output of {@link DeleteColumnStatisticsTaskSettingsCommand}.
  */
-export interface DeleteColumnStatisticsTaskSettingsCommandOutput
-  extends DeleteColumnStatisticsTaskSettingsResponse,
-    __MetadataBearer {}
+export interface DeleteColumnStatisticsTaskSettingsCommandOutput extends DeleteColumnStatisticsTaskSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes settings for a column statistics task.</p>

@@ -31,9 +31,7 @@ export interface DeleteVoiceMessageSpendLimitOverrideCommandInput extends Delete
  *
  * The output of {@link DeleteVoiceMessageSpendLimitOverrideCommand}.
  */
-export interface DeleteVoiceMessageSpendLimitOverrideCommandOutput
-  extends DeleteVoiceMessageSpendLimitOverrideResult,
-    __MetadataBearer {}
+export interface DeleteVoiceMessageSpendLimitOverrideCommandOutput extends DeleteVoiceMessageSpendLimitOverrideResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an account level monthly spend limit override for sending voice messages. Deleting a spend limit override sets the <code>EnforcedLimit</code> equal to the <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more information on spending limits (quotas) see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html">Quotas </a> in the <i>End User MessagingSMS User Guide</i>.</p>

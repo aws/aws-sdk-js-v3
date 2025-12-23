@@ -27,9 +27,7 @@ export interface ListPermissionSetProvisioningStatusCommandInput extends ListPer
  *
  * The output of {@link ListPermissionSetProvisioningStatusCommand}.
  */
-export interface ListPermissionSetProvisioningStatusCommandOutput
-  extends ListPermissionSetProvisioningStatusResponse,
-    __MetadataBearer {}
+export interface ListPermissionSetProvisioningStatusCommandOutput extends ListPermissionSetProvisioningStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the status of the permission set provisioning requests for a specified IAM Identity Center instance.</p>

@@ -31,9 +31,7 @@ export interface UpdateSnapshotCopyConfigurationCommandInput extends UpdateSnaps
  *
  * The output of {@link UpdateSnapshotCopyConfigurationCommand}.
  */
-export interface UpdateSnapshotCopyConfigurationCommandOutput
-  extends UpdateSnapshotCopyConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateSnapshotCopyConfigurationCommandOutput extends UpdateSnapshotCopyConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a snapshot copy configuration.</p>

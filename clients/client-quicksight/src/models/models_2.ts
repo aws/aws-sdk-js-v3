@@ -71,7 +71,6 @@ import {
   ValidationStrategyMode,
   WebCrawlerAuthType,
 } from "./enums";
-
 import {
   type AccountCustomization,
   type AdHocFilteringOption,
@@ -103,7 +102,6 @@ import {
   SheetTextBox,
   VisualCustomAction,
 } from "./models_0";
-
 import {
   type BarChartVisual,
   type BoxPlotVisual,
@@ -6244,7 +6242,10 @@ export interface BorderStyle {
  * <p>The source of the image.</p>
  * @public
  */
-export type ImageSource = ImageSource.PublicUrlMember | ImageSource.S3UriMember | ImageSource.$UnknownMember;
+export type ImageSource =
+  | ImageSource.PublicUrlMember
+  | ImageSource.S3UriMember
+  | ImageSource.$UnknownMember;
 
 /**
  * @public

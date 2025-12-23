@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteDirectConnectGatewayAssociationCommand}.
  */
-export interface DeleteDirectConnectGatewayAssociationCommandInput
-  extends DeleteDirectConnectGatewayAssociationRequest {}
+export interface DeleteDirectConnectGatewayAssociationCommandInput extends DeleteDirectConnectGatewayAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteDirectConnectGatewayAssociationCommand}.
  */
-export interface DeleteDirectConnectGatewayAssociationCommandOutput
-  extends DeleteDirectConnectGatewayAssociationResult,
-    __MetadataBearer {}
+export interface DeleteDirectConnectGatewayAssociationCommandOutput extends DeleteDirectConnectGatewayAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the association between the specified Direct Connect gateway and virtual private gateway.</p>

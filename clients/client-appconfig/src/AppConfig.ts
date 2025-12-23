@@ -349,7 +349,10 @@ export interface AppConfig {
     args: CreateExtensionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateExtensionCommandOutput>;
-  createExtension(args: CreateExtensionCommandInput, cb: (err: any, data?: CreateExtensionCommandOutput) => void): void;
+  createExtension(
+    args: CreateExtensionCommandInput,
+    cb: (err: any, data?: CreateExtensionCommandOutput) => void
+  ): void;
   createExtension(
     args: CreateExtensionCommandInput,
     options: __HttpHandlerOptions,
@@ -465,7 +468,10 @@ export interface AppConfig {
     args: DeleteExtensionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteExtensionCommandOutput>;
-  deleteExtension(args: DeleteExtensionCommandInput, cb: (err: any, data?: DeleteExtensionCommandOutput) => void): void;
+  deleteExtension(
+    args: DeleteExtensionCommandInput,
+    cb: (err: any, data?: DeleteExtensionCommandOutput) => void
+  ): void;
   deleteExtension(
     args: DeleteExtensionCommandInput,
     options: __HttpHandlerOptions,
@@ -531,7 +537,10 @@ export interface AppConfig {
     args: GetApplicationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetApplicationCommandOutput>;
-  getApplication(args: GetApplicationCommandInput, cb: (err: any, data?: GetApplicationCommandOutput) => void): void;
+  getApplication(
+    args: GetApplicationCommandInput,
+    cb: (err: any, data?: GetApplicationCommandOutput) => void
+  ): void;
   getApplication(
     args: GetApplicationCommandInput,
     options: __HttpHandlerOptions,
@@ -575,8 +584,14 @@ export interface AppConfig {
   /**
    * @see {@link GetDeploymentCommand}
    */
-  getDeployment(args: GetDeploymentCommandInput, options?: __HttpHandlerOptions): Promise<GetDeploymentCommandOutput>;
-  getDeployment(args: GetDeploymentCommandInput, cb: (err: any, data?: GetDeploymentCommandOutput) => void): void;
+  getDeployment(
+    args: GetDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDeploymentCommandOutput>;
+  getDeployment(
+    args: GetDeploymentCommandInput,
+    cb: (err: any, data?: GetDeploymentCommandOutput) => void
+  ): void;
   getDeployment(
     args: GetDeploymentCommandInput,
     options: __HttpHandlerOptions,
@@ -607,7 +622,10 @@ export interface AppConfig {
     args: GetEnvironmentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEnvironmentCommandOutput>;
-  getEnvironment(args: GetEnvironmentCommandInput, cb: (err: any, data?: GetEnvironmentCommandOutput) => void): void;
+  getEnvironment(
+    args: GetEnvironmentCommandInput,
+    cb: (err: any, data?: GetEnvironmentCommandOutput) => void
+  ): void;
   getEnvironment(
     args: GetEnvironmentCommandInput,
     options: __HttpHandlerOptions,
@@ -617,8 +635,14 @@ export interface AppConfig {
   /**
    * @see {@link GetExtensionCommand}
    */
-  getExtension(args: GetExtensionCommandInput, options?: __HttpHandlerOptions): Promise<GetExtensionCommandOutput>;
-  getExtension(args: GetExtensionCommandInput, cb: (err: any, data?: GetExtensionCommandOutput) => void): void;
+  getExtension(
+    args: GetExtensionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExtensionCommandOutput>;
+  getExtension(
+    args: GetExtensionCommandInput,
+    cb: (err: any, data?: GetExtensionCommandOutput) => void
+  ): void;
   getExtension(
     args: GetExtensionCommandInput,
     options: __HttpHandlerOptions,
@@ -701,7 +725,10 @@ export interface AppConfig {
     args: ListDeploymentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDeploymentsCommandOutput>;
-  listDeployments(args: ListDeploymentsCommandInput, cb: (err: any, data?: ListDeploymentsCommandOutput) => void): void;
+  listDeployments(
+    args: ListDeploymentsCommandInput,
+    cb: (err: any, data?: ListDeploymentsCommandOutput) => void
+  ): void;
   listDeployments(
     args: ListDeploymentsCommandInput,
     options: __HttpHandlerOptions,
@@ -769,7 +796,10 @@ export interface AppConfig {
     args: ListExtensionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListExtensionsCommandOutput>;
-  listExtensions(args: ListExtensionsCommandInput, cb: (err: any, data?: ListExtensionsCommandOutput) => void): void;
+  listExtensions(
+    args: ListExtensionsCommandInput,
+    cb: (err: any, data?: ListExtensionsCommandOutput) => void
+  ): void;
   listExtensions(
     args: ListExtensionsCommandInput,
     options: __HttpHandlerOptions,
@@ -817,7 +847,10 @@ export interface AppConfig {
     args: StartDeploymentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartDeploymentCommandOutput>;
-  startDeployment(args: StartDeploymentCommandInput, cb: (err: any, data?: StartDeploymentCommandOutput) => void): void;
+  startDeployment(
+    args: StartDeploymentCommandInput,
+    cb: (err: any, data?: StartDeploymentCommandOutput) => void
+  ): void;
   startDeployment(
     args: StartDeploymentCommandInput,
     options: __HttpHandlerOptions,
@@ -831,7 +864,10 @@ export interface AppConfig {
     args: StopDeploymentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopDeploymentCommandOutput>;
-  stopDeployment(args: StopDeploymentCommandInput, cb: (err: any, data?: StopDeploymentCommandOutput) => void): void;
+  stopDeployment(
+    args: StopDeploymentCommandInput,
+    cb: (err: any, data?: StopDeploymentCommandOutput) => void
+  ): void;
   stopDeployment(
     args: StopDeploymentCommandInput,
     options: __HttpHandlerOptions,
@@ -841,8 +877,14 @@ export interface AppConfig {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -852,8 +894,14 @@ export interface AppConfig {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -953,7 +1001,10 @@ export interface AppConfig {
     args: UpdateExtensionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateExtensionCommandOutput>;
-  updateExtension(args: UpdateExtensionCommandInput, cb: (err: any, data?: UpdateExtensionCommandOutput) => void): void;
+  updateExtension(
+    args: UpdateExtensionCommandInput,
+    cb: (err: any, data?: UpdateExtensionCommandOutput) => void
+  ): void;
   updateExtension(
     args: UpdateExtensionCommandInput,
     options: __HttpHandlerOptions,

@@ -28,9 +28,7 @@ export interface GetTelemetryRuleForOrganizationCommandInput extends GetTelemetr
  *
  * The output of {@link GetTelemetryRuleForOrganizationCommand}.
  */
-export interface GetTelemetryRuleForOrganizationCommandOutput
-  extends GetTelemetryRuleForOrganizationOutput,
-    __MetadataBearer {}
+export interface GetTelemetryRuleForOrganizationCommandOutput extends GetTelemetryRuleForOrganizationOutput, __MetadataBearer {}
 
 /**
  * <p> Retrieves the details of a specific organization telemetry rule. This operation can only be called by the organization's management account or a delegated administrator account. </p>

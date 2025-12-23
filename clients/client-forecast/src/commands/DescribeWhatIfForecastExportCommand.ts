@@ -24,9 +24,7 @@ export interface DescribeWhatIfForecastExportCommandInput extends DescribeWhatIf
  *
  * The output of {@link DescribeWhatIfForecastExportCommand}.
  */
-export interface DescribeWhatIfForecastExportCommandOutput
-  extends DescribeWhatIfForecastExportResponse,
-    __MetadataBearer {}
+export interface DescribeWhatIfForecastExportCommandOutput extends DescribeWhatIfForecastExportResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the what-if forecast export created using the <a>CreateWhatIfForecastExport</a> operation.</p>

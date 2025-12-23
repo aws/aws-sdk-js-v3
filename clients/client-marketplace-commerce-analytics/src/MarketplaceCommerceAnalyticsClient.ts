@@ -82,12 +82,16 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = GenerateDataSetCommandInput | StartSupportDataExportCommandInput;
+export type ServiceInputTypes =
+  | GenerateDataSetCommandInput
+  | StartSupportDataExportCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = GenerateDataSetCommandOutput | StartSupportDataExportCommandOutput;
+export type ServiceOutputTypes =
+  | GenerateDataSetCommandOutput
+  | StartSupportDataExportCommandOutput;
 
 /**
  * @public
@@ -277,8 +281,7 @@ export type MarketplaceCommerceAnalyticsClientResolvedConfigType = __SmithyResol
  *
  *  The resolved configuration interface of MarketplaceCommerceAnalyticsClient class. This is resolved and normalized from the {@link MarketplaceCommerceAnalyticsClientConfig | constructor configuration interface}.
  */
-export interface MarketplaceCommerceAnalyticsClientResolvedConfig
-  extends MarketplaceCommerceAnalyticsClientResolvedConfigType {}
+export interface MarketplaceCommerceAnalyticsClientResolvedConfig extends MarketplaceCommerceAnalyticsClientResolvedConfigType {}
 
 /**
  * Provides AWS Marketplace business intelligence data on-demand.

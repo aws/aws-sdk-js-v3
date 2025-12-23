@@ -24,9 +24,7 @@ export interface ListCompositionRelationshipsCommandInput extends ListCompositio
  *
  * The output of {@link ListCompositionRelationshipsCommand}.
  */
-export interface ListCompositionRelationshipsCommandOutput
-  extends ListCompositionRelationshipsResponse,
-    __MetadataBearer {}
+export interface ListCompositionRelationshipsCommandOutput extends ListCompositionRelationshipsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a paginated list of composition relationships for an asset model of type

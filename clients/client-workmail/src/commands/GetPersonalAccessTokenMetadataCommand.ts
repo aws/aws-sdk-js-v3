@@ -24,9 +24,7 @@ export interface GetPersonalAccessTokenMetadataCommandInput extends GetPersonalA
  *
  * The output of {@link GetPersonalAccessTokenMetadataCommand}.
  */
-export interface GetPersonalAccessTokenMetadataCommandOutput
-  extends GetPersonalAccessTokenMetadataResponse,
-    __MetadataBearer {}
+export interface GetPersonalAccessTokenMetadataCommandOutput extends GetPersonalAccessTokenMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>

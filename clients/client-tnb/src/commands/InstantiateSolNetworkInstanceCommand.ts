@@ -24,9 +24,7 @@ export interface InstantiateSolNetworkInstanceCommandInput extends InstantiateSo
  *
  * The output of {@link InstantiateSolNetworkInstanceCommand}.
  */
-export interface InstantiateSolNetworkInstanceCommandOutput
-  extends InstantiateSolNetworkInstanceOutput,
-    __MetadataBearer {}
+export interface InstantiateSolNetworkInstanceCommandOutput extends InstantiateSolNetworkInstanceOutput, __MetadataBearer {}
 
 /**
  * <p>Instantiates a network instance.</p>

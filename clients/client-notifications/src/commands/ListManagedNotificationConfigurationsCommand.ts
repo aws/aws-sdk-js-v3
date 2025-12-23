@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListManagedNotificationConfigurationsCommand}.
  */
-export interface ListManagedNotificationConfigurationsCommandInput
-  extends ListManagedNotificationConfigurationsRequest {}
+export interface ListManagedNotificationConfigurationsCommandInput extends ListManagedNotificationConfigurationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListManagedNotificationConfigurationsCommand}.
  */
-export interface ListManagedNotificationConfigurationsCommandOutput
-  extends ListManagedNotificationConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListManagedNotificationConfigurationsCommandOutput extends ListManagedNotificationConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of Managed Notification Configurations according to specified filters, ordered by creation time in reverse chronological order (newest first).</p>

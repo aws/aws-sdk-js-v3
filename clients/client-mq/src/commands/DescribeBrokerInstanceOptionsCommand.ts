@@ -24,9 +24,7 @@ export interface DescribeBrokerInstanceOptionsCommandInput extends DescribeBroke
  *
  * The output of {@link DescribeBrokerInstanceOptionsCommand}.
  */
-export interface DescribeBrokerInstanceOptionsCommandOutput
-  extends DescribeBrokerInstanceOptionsResponse,
-    __MetadataBearer {}
+export interface DescribeBrokerInstanceOptionsCommandOutput extends DescribeBrokerInstanceOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Describe available broker instance options.</p>

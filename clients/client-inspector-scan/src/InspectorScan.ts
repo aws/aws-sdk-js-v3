@@ -13,8 +13,14 @@ export interface InspectorScan {
   /**
    * @see {@link ScanSbomCommand}
    */
-  scanSbom(args: ScanSbomCommandInput, options?: __HttpHandlerOptions): Promise<ScanSbomCommandOutput>;
-  scanSbom(args: ScanSbomCommandInput, cb: (err: any, data?: ScanSbomCommandOutput) => void): void;
+  scanSbom(
+    args: ScanSbomCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ScanSbomCommandOutput>;
+  scanSbom(
+    args: ScanSbomCommandInput,
+    cb: (err: any, data?: ScanSbomCommandOutput) => void
+  ): void;
   scanSbom(
     args: ScanSbomCommandInput,
     options: __HttpHandlerOptions,

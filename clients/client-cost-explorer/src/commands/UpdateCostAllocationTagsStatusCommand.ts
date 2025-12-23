@@ -24,9 +24,7 @@ export interface UpdateCostAllocationTagsStatusCommandInput extends UpdateCostAl
  *
  * The output of {@link UpdateCostAllocationTagsStatusCommand}.
  */
-export interface UpdateCostAllocationTagsStatusCommandOutput
-  extends UpdateCostAllocationTagsStatusResponse,
-    __MetadataBearer {}
+export interface UpdateCostAllocationTagsStatusCommandOutput extends UpdateCostAllocationTagsStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Updates status for cost allocation tags in bulk, with maximum batch size of 20. If the tag

@@ -24,9 +24,7 @@ export interface CreateIdNamespaceAssociationCommandInput extends CreateIdNamesp
  *
  * The output of {@link CreateIdNamespaceAssociationCommand}.
  */
-export interface CreateIdNamespaceAssociationCommandOutput
-  extends CreateIdNamespaceAssociationOutput,
-    __MetadataBearer {}
+export interface CreateIdNamespaceAssociationCommandOutput extends CreateIdNamespaceAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Creates an ID namespace association.</p>

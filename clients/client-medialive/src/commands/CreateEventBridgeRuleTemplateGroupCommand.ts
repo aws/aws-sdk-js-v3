@@ -27,9 +27,7 @@ export interface CreateEventBridgeRuleTemplateGroupCommandInput extends CreateEv
  *
  * The output of {@link CreateEventBridgeRuleTemplateGroupCommand}.
  */
-export interface CreateEventBridgeRuleTemplateGroupCommandOutput
-  extends CreateEventBridgeRuleTemplateGroupResponse,
-    __MetadataBearer {}
+export interface CreateEventBridgeRuleTemplateGroupCommandOutput extends CreateEventBridgeRuleTemplateGroupResponse, __MetadataBearer {}
 
 /**
  * Creates an eventbridge rule template group to group your eventbridge rule templates and to attach to signal maps for dynamically creating notification rules.

@@ -24,9 +24,7 @@ export interface UpdateConfiguredTableAssociationCommandInput extends UpdateConf
  *
  * The output of {@link UpdateConfiguredTableAssociationCommand}.
  */
-export interface UpdateConfiguredTableAssociationCommandOutput
-  extends UpdateConfiguredTableAssociationOutput,
-    __MetadataBearer {}
+export interface UpdateConfiguredTableAssociationCommandOutput extends UpdateConfiguredTableAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Updates a configured table association.</p>

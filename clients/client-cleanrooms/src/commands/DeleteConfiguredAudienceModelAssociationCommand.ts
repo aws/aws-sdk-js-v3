@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteConfiguredAudienceModelAssociationCommand}.
  */
-export interface DeleteConfiguredAudienceModelAssociationCommandInput
-  extends DeleteConfiguredAudienceModelAssociationInput {}
+export interface DeleteConfiguredAudienceModelAssociationCommandInput extends DeleteConfiguredAudienceModelAssociationInput {}
 /**
  * @public
  *
  * The output of {@link DeleteConfiguredAudienceModelAssociationCommand}.
  */
-export interface DeleteConfiguredAudienceModelAssociationCommandOutput
-  extends DeleteConfiguredAudienceModelAssociationOutput,
-    __MetadataBearer {}
+export interface DeleteConfiguredAudienceModelAssociationCommandOutput extends DeleteConfiguredAudienceModelAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Provides the information necessary to delete a configured audience model association.</p>

@@ -141,8 +141,14 @@ export interface RTBFabric {
   /**
    * @see {@link AcceptLinkCommand}
    */
-  acceptLink(args: AcceptLinkCommandInput, options?: __HttpHandlerOptions): Promise<AcceptLinkCommandOutput>;
-  acceptLink(args: AcceptLinkCommandInput, cb: (err: any, data?: AcceptLinkCommandOutput) => void): void;
+  acceptLink(
+    args: AcceptLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptLinkCommandOutput>;
+  acceptLink(
+    args: AcceptLinkCommandInput,
+    cb: (err: any, data?: AcceptLinkCommandOutput) => void
+  ): void;
   acceptLink(
     args: AcceptLinkCommandInput,
     options: __HttpHandlerOptions,
@@ -169,8 +175,14 @@ export interface RTBFabric {
   /**
    * @see {@link CreateLinkCommand}
    */
-  createLink(args: CreateLinkCommandInput, options?: __HttpHandlerOptions): Promise<CreateLinkCommandOutput>;
-  createLink(args: CreateLinkCommandInput, cb: (err: any, data?: CreateLinkCommandOutput) => void): void;
+  createLink(
+    args: CreateLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLinkCommandOutput>;
+  createLink(
+    args: CreateLinkCommandInput,
+    cb: (err: any, data?: CreateLinkCommandOutput) => void
+  ): void;
   createLink(
     args: CreateLinkCommandInput,
     options: __HttpHandlerOptions,
@@ -248,8 +260,14 @@ export interface RTBFabric {
   /**
    * @see {@link DeleteLinkCommand}
    */
-  deleteLink(args: DeleteLinkCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLinkCommandOutput>;
-  deleteLink(args: DeleteLinkCommandInput, cb: (err: any, data?: DeleteLinkCommandOutput) => void): void;
+  deleteLink(
+    args: DeleteLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLinkCommandOutput>;
+  deleteLink(
+    args: DeleteLinkCommandInput,
+    cb: (err: any, data?: DeleteLinkCommandOutput) => void
+  ): void;
   deleteLink(
     args: DeleteLinkCommandInput,
     options: __HttpHandlerOptions,
@@ -327,8 +345,14 @@ export interface RTBFabric {
   /**
    * @see {@link GetLinkCommand}
    */
-  getLink(args: GetLinkCommandInput, options?: __HttpHandlerOptions): Promise<GetLinkCommandOutput>;
-  getLink(args: GetLinkCommandInput, cb: (err: any, data?: GetLinkCommandOutput) => void): void;
+  getLink(
+    args: GetLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLinkCommandOutput>;
+  getLink(
+    args: GetLinkCommandInput,
+    cb: (err: any, data?: GetLinkCommandOutput) => void
+  ): void;
   getLink(
     args: GetLinkCommandInput,
     options: __HttpHandlerOptions,
@@ -389,8 +413,14 @@ export interface RTBFabric {
   /**
    * @see {@link ListLinksCommand}
    */
-  listLinks(args: ListLinksCommandInput, options?: __HttpHandlerOptions): Promise<ListLinksCommandOutput>;
-  listLinks(args: ListLinksCommandInput, cb: (err: any, data?: ListLinksCommandOutput) => void): void;
+  listLinks(
+    args: ListLinksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLinksCommandOutput>;
+  listLinks(
+    args: ListLinksCommandInput,
+    cb: (err: any, data?: ListLinksCommandOutput) => void
+  ): void;
   listLinks(
     args: ListLinksCommandInput,
     options: __HttpHandlerOptions,
@@ -453,8 +483,14 @@ export interface RTBFabric {
   /**
    * @see {@link RejectLinkCommand}
    */
-  rejectLink(args: RejectLinkCommandInput, options?: __HttpHandlerOptions): Promise<RejectLinkCommandOutput>;
-  rejectLink(args: RejectLinkCommandInput, cb: (err: any, data?: RejectLinkCommandOutput) => void): void;
+  rejectLink(
+    args: RejectLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RejectLinkCommandOutput>;
+  rejectLink(
+    args: RejectLinkCommandInput,
+    cb: (err: any, data?: RejectLinkCommandOutput) => void
+  ): void;
   rejectLink(
     args: RejectLinkCommandInput,
     options: __HttpHandlerOptions,
@@ -464,8 +500,14 @@ export interface RTBFabric {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -475,8 +517,14 @@ export interface RTBFabric {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -486,8 +534,14 @@ export interface RTBFabric {
   /**
    * @see {@link UpdateLinkCommand}
    */
-  updateLink(args: UpdateLinkCommandInput, options?: __HttpHandlerOptions): Promise<UpdateLinkCommandOutput>;
-  updateLink(args: UpdateLinkCommandInput, cb: (err: any, data?: UpdateLinkCommandOutput) => void): void;
+  updateLink(
+    args: UpdateLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLinkCommandOutput>;
+  updateLink(
+    args: UpdateLinkCommandInput,
+    cb: (err: any, data?: UpdateLinkCommandOutput) => void
+  ): void;
   updateLink(
     args: UpdateLinkCommandInput,
     options: __HttpHandlerOptions,

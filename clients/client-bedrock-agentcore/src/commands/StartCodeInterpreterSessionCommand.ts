@@ -28,9 +28,7 @@ export interface StartCodeInterpreterSessionCommandInput extends StartCodeInterp
  *
  * The output of {@link StartCodeInterpreterSessionCommand}.
  */
-export interface StartCodeInterpreterSessionCommandOutput
-  extends StartCodeInterpreterSessionResponse,
-    __MetadataBearer {}
+export interface StartCodeInterpreterSessionCommandOutput extends StartCodeInterpreterSessionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates and initializes a code interpreter session in Amazon Bedrock. The session enables agents to execute code as part of their response generation, supporting programming languages such as Python for data analysis, visualization, and computation tasks.</p> <p>To create a session, you must specify a code interpreter identifier and a name. The session remains active until it times out or you explicitly stop it using the <code>StopCodeInterpreterSession</code> operation.</p> <p>The following operations are related to <code>StartCodeInterpreterSession</code>:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeCodeInterpreter.html">InvokeCodeInterpreter</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetCodeInterpreterSession.html">GetCodeInterpreterSession</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopCodeInterpreterSession.html">StopCodeInterpreterSession</a> </p> </li> </ul>

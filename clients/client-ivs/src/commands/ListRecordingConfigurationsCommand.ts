@@ -24,9 +24,7 @@ export interface ListRecordingConfigurationsCommandInput extends ListRecordingCo
  *
  * The output of {@link ListRecordingConfigurationsCommand}.
  */
-export interface ListRecordingConfigurationsCommandOutput
-  extends ListRecordingConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListRecordingConfigurationsCommandOutput extends ListRecordingConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets summary information about all recording configurations in your account, in the

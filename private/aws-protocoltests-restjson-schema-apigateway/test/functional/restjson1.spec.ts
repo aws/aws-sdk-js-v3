@@ -1,11 +1,11 @@
 // smithy-typescript generated code
-import { type HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
-import type { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
-import { Readable } from "node:stream";
 import { expect, test as it } from "vitest";
 
 import { APIGatewayClient } from "../../src/APIGatewayClient";
 import { GetRestApisCommand } from "../../src/commands/GetRestApisCommand";
+import type { HttpHandlerOptions, HeaderBag, Endpoint } from "@smithy/types";
+import { type HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import { Readable } from "node:stream";
 
 /**
  * Throws an expected exception that contains the serialized request.
@@ -112,7 +112,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
     return true;
   }
 
-  const localExpected = expected;
+  let localExpected = expected;
 
   // Short circuit on equality.
   if (localExpected == generated) {
@@ -140,7 +140,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   }
 
   // Compare properties directly.
-  for (let index = 0; index < expectedProperties.length; index++) {
+  for (var index = 0; index < expectedProperties.length; index++) {
     const propertyName = expectedProperties[index];
     if (!equivalentContents(localExpected[propertyName], generated[propertyName])) {
       return false;
@@ -211,7 +211,10 @@ it("ApiGatewayAccept:Request", async () => {
     requestHandler: new RequestSerializationTestHandler(),
   });
 
-  const command = new GetRestApisCommand({} as any);
+  const command = new GetRestApisCommand(
+    {
+    } as any,
+  );
   try {
     await client.send(command);
     fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");

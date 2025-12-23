@@ -27,9 +27,7 @@ export interface DeleteAccessControlConfigurationCommandInput extends DeleteAcce
  *
  * The output of {@link DeleteAccessControlConfigurationCommand}.
  */
-export interface DeleteAccessControlConfigurationCommandOutput
-  extends DeleteAccessControlConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteAccessControlConfigurationCommandOutput extends DeleteAccessControlConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an access control configuration that you created for your documents in an

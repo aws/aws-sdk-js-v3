@@ -112,6 +112,10 @@ import {
   NetworkType,
   NotFoundException,
   NotFoundException$,
+  paginateListConnectorOperations,
+  paginateListConnectors,
+  paginateListCustomPlugins,
+  paginateListWorkerConfigurations,
   Plugin$,
   PluginDescription$,
   ProvisionedCapacity$,
@@ -157,10 +161,6 @@ import {
   WorkerLogDelivery$,
   WorkerLogDeliveryDescription$,
   WorkerSetting$,
-  paginateListConnectorOperations,
-  paginateListConnectors,
-  paginateListCustomPlugins,
-  paginateListWorkerConfigurations,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

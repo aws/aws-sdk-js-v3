@@ -24,9 +24,7 @@ export interface ListTrainedModelInferenceJobsCommandInput extends ListTrainedMo
  *
  * The output of {@link ListTrainedModelInferenceJobsCommand}.
  */
-export interface ListTrainedModelInferenceJobsCommandOutput
-  extends ListTrainedModelInferenceJobsResponse,
-    __MetadataBearer {}
+export interface ListTrainedModelInferenceJobsCommandOutput extends ListTrainedModelInferenceJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of trained model inference jobs that match the request parameters.</p>

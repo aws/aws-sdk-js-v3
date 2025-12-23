@@ -1,4 +1,5 @@
 import {
+  _InstanceType,
   AccessDeniedException,
   AccessDeniedException$,
   ActionMetadata$,
@@ -12,11 +13,11 @@ import {
   CancelJobCommand,
   CancelJobRequest$,
   CancelJobResponse$,
+  CancellationStatus,
   CancelQuantumTask$,
   CancelQuantumTaskCommand,
   CancelQuantumTaskRequest$,
   CancelQuantumTaskResponse$,
-  CancellationStatus,
   CompressionType,
   ConflictException,
   ConflictException$,
@@ -78,6 +79,10 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  paginateSearchDevices,
+  paginateSearchJobs,
+  paginateSearchQuantumTasks,
+  paginateSearchSpendingLimits,
   ProgramSetValidationFailure$,
   QuantumTaskAdditionalAttributeName,
   QuantumTaskQueueInfo$,
@@ -133,11 +138,6 @@ import {
   ValidationException,
   ValidationException$,
   ValidationExceptionReason,
-  _InstanceType,
-  paginateSearchDevices,
-  paginateSearchJobs,
-  paginateSearchQuantumTasks,
-  paginateSearchSpendingLimits,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

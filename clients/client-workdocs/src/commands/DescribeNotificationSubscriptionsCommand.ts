@@ -27,9 +27,7 @@ export interface DescribeNotificationSubscriptionsCommandInput extends DescribeN
  *
  * The output of {@link DescribeNotificationSubscriptionsCommand}.
  */
-export interface DescribeNotificationSubscriptionsCommandOutput
-  extends DescribeNotificationSubscriptionsResponse,
-    __MetadataBearer {}
+export interface DescribeNotificationSubscriptionsCommandOutput extends DescribeNotificationSubscriptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the specified notification subscriptions.</p>

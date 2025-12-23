@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListMediaInsightsPipelineConfigurationsCommand}.
  */
-export interface ListMediaInsightsPipelineConfigurationsCommandInput
-  extends ListMediaInsightsPipelineConfigurationsRequest {}
+export interface ListMediaInsightsPipelineConfigurationsCommandInput extends ListMediaInsightsPipelineConfigurationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListMediaInsightsPipelineConfigurationsCommand}.
  */
-export interface ListMediaInsightsPipelineConfigurationsCommandOutput
-  extends ListMediaInsightsPipelineConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListMediaInsightsPipelineConfigurationsCommandOutput extends ListMediaInsightsPipelineConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the available media insights pipeline configurations.</p>

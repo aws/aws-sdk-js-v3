@@ -27,9 +27,7 @@ export interface GetAggregateDiscoveredResourceCountsCommandInput extends GetAgg
  *
  * The output of {@link GetAggregateDiscoveredResourceCountsCommand}.
  */
-export interface GetAggregateDiscoveredResourceCountsCommandOutput
-  extends GetAggregateDiscoveredResourceCountsResponse,
-    __MetadataBearer {}
+export interface GetAggregateDiscoveredResourceCountsCommandOutput extends GetAggregateDiscoveredResourceCountsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the resource counts across accounts and regions that are present in your Config aggregator. You can request the resource counts by providing filters and GroupByKey.</p>

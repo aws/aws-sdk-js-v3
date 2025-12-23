@@ -24,9 +24,7 @@ export interface CreateEnvironmentTemplateVersionCommandInput extends CreateEnvi
  *
  * The output of {@link CreateEnvironmentTemplateVersionCommand}.
  */
-export interface CreateEnvironmentTemplateVersionCommandOutput
-  extends CreateEnvironmentTemplateVersionOutput,
-    __MetadataBearer {}
+export interface CreateEnvironmentTemplateVersionCommandOutput extends CreateEnvironmentTemplateVersionOutput, __MetadataBearer {}
 
 /**
  * <p>Create a new major or minor version of an environment template. A major version of an environment template is a version that

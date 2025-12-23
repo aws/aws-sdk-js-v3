@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateVpcEndpointServiceConfigurationCommand}.
  */
-export interface CreateVpcEndpointServiceConfigurationCommandInput
-  extends CreateVpcEndpointServiceConfigurationRequest {}
+export interface CreateVpcEndpointServiceConfigurationCommandInput extends CreateVpcEndpointServiceConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateVpcEndpointServiceConfigurationCommand}.
  */
-export interface CreateVpcEndpointServiceConfigurationCommandOutput
-  extends CreateVpcEndpointServiceConfigurationResult,
-    __MetadataBearer {}
+export interface CreateVpcEndpointServiceConfigurationCommandOutput extends CreateVpcEndpointServiceConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,

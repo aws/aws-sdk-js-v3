@@ -9,6 +9,6 @@ export * from "./ListNotebookExecutionsPaginator";
 export * from "./ListReleaseLabelsPaginator";
 export * from "./ListSecurityConfigurationsPaginator";
 export * from "./ListStepsPaginator";
-export * from "./ListStudioSessionMappingsPaginator";
 export * from "./ListStudiosPaginator";
+export * from "./ListStudioSessionMappingsPaginator";
 export * from "./ListSupportedInstanceTypesPaginator";

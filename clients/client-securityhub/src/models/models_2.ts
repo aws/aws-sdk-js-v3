@@ -56,7 +56,6 @@ import {
   WorkflowState,
   WorkflowStatus,
 } from "./enums";
-
 import {
   type Action,
   type AssociationFilters,
@@ -121,7 +120,6 @@ import {
   RelatedFinding,
   StringFilter,
 } from "./models_0";
-
 import {
   type AwsEcsTaskDefinitionDetails,
   type AwsEcsTaskDetails,
@@ -6151,7 +6149,9 @@ export interface SecurityHubPolicy {
  *         </p>
  * @public
  */
-export type Policy = Policy.SecurityHubMember | Policy.$UnknownMember;
+export type Policy =
+  | Policy.SecurityHubMember
+  | Policy.$UnknownMember;
 
 /**
  * @public

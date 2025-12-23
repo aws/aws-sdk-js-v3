@@ -24,9 +24,7 @@ export interface RejectVpcEndpointConnectionsCommandInput extends RejectVpcEndpo
  *
  * The output of {@link RejectVpcEndpointConnectionsCommand}.
  */
-export interface RejectVpcEndpointConnectionsCommandOutput
-  extends RejectVpcEndpointConnectionsResult,
-    __MetadataBearer {}
+export interface RejectVpcEndpointConnectionsCommandOutput extends RejectVpcEndpointConnectionsResult, __MetadataBearer {}
 
 /**
  * <p>Rejects VPC endpoint connection requests to your VPC endpoint service.</p>

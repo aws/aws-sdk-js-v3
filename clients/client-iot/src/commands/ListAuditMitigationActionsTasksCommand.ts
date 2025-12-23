@@ -27,9 +27,7 @@ export interface ListAuditMitigationActionsTasksCommandInput extends ListAuditMi
  *
  * The output of {@link ListAuditMitigationActionsTasksCommand}.
  */
-export interface ListAuditMitigationActionsTasksCommandOutput
-  extends ListAuditMitigationActionsTasksResponse,
-    __MetadataBearer {}
+export interface ListAuditMitigationActionsTasksCommandOutput extends ListAuditMitigationActionsTasksResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of audit mitigation action tasks that match the specified filters.</p>

@@ -27,9 +27,7 @@ export interface GetDataIntegrationFlowExecutionCommandInput extends GetDataInte
  *
  * The output of {@link GetDataIntegrationFlowExecutionCommand}.
  */
-export interface GetDataIntegrationFlowExecutionCommandOutput
-  extends GetDataIntegrationFlowExecutionResponse,
-    __MetadataBearer {}
+export interface GetDataIntegrationFlowExecutionCommandOutput extends GetDataIntegrationFlowExecutionResponse, __MetadataBearer {}
 
 /**
  * <p>Get the flow execution.</p>

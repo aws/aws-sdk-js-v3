@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetAutoshiftObserverNotificationStatusCommand}.
  */
-export interface GetAutoshiftObserverNotificationStatusCommandInput
-  extends GetAutoshiftObserverNotificationStatusRequest {}
+export interface GetAutoshiftObserverNotificationStatusCommandInput extends GetAutoshiftObserverNotificationStatusRequest {}
 /**
  * @public
  *
  * The output of {@link GetAutoshiftObserverNotificationStatusCommand}.
  */
-export interface GetAutoshiftObserverNotificationStatusCommandOutput
-  extends GetAutoshiftObserverNotificationStatusResponse,
-    __MetadataBearer {}
+export interface GetAutoshiftObserverNotificationStatusCommandOutput extends GetAutoshiftObserverNotificationStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the status of the autoshift observer notification. Autoshift observer notifications notify you through Amazon EventBridge when there is an autoshift event for zonal autoshift. The status can be <code>ENABLED</code> or <code>DISABLED</code>. When <code>ENABLED</code>, a notification is sent when an autoshift is triggered. When <code>DISABLED</code>, notifications are not sent. </p>

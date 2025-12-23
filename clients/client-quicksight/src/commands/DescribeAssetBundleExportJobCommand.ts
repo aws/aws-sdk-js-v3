@@ -24,9 +24,7 @@ export interface DescribeAssetBundleExportJobCommandInput extends DescribeAssetB
  *
  * The output of {@link DescribeAssetBundleExportJobCommand}.
  */
-export interface DescribeAssetBundleExportJobCommandOutput
-  extends DescribeAssetBundleExportJobResponse,
-    __MetadataBearer {}
+export interface DescribeAssetBundleExportJobCommandOutput extends DescribeAssetBundleExportJobResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an existing export job.</p>

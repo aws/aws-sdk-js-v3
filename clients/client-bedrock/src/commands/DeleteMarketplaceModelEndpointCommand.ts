@@ -24,9 +24,7 @@ export interface DeleteMarketplaceModelEndpointCommandInput extends DeleteMarket
  *
  * The output of {@link DeleteMarketplaceModelEndpointCommand}.
  */
-export interface DeleteMarketplaceModelEndpointCommandOutput
-  extends DeleteMarketplaceModelEndpointResponse,
-    __MetadataBearer {}
+export interface DeleteMarketplaceModelEndpointCommandOutput extends DeleteMarketplaceModelEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an endpoint for a model from Amazon Bedrock Marketplace.</p>

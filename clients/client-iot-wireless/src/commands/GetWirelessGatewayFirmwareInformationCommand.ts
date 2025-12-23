@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetWirelessGatewayFirmwareInformationCommand}.
  */
-export interface GetWirelessGatewayFirmwareInformationCommandInput
-  extends GetWirelessGatewayFirmwareInformationRequest {}
+export interface GetWirelessGatewayFirmwareInformationCommandInput extends GetWirelessGatewayFirmwareInformationRequest {}
 /**
  * @public
  *
  * The output of {@link GetWirelessGatewayFirmwareInformationCommand}.
  */
-export interface GetWirelessGatewayFirmwareInformationCommandOutput
-  extends GetWirelessGatewayFirmwareInformationResponse,
-    __MetadataBearer {}
+export interface GetWirelessGatewayFirmwareInformationCommandOutput extends GetWirelessGatewayFirmwareInformationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the firmware version and other information about a wireless gateway.</p>

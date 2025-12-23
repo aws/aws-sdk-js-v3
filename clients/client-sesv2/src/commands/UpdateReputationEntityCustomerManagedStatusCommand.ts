@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateReputationEntityCustomerManagedStatusCommand}.
  */
-export interface UpdateReputationEntityCustomerManagedStatusCommandInput
-  extends UpdateReputationEntityCustomerManagedStatusRequest {}
+export interface UpdateReputationEntityCustomerManagedStatusCommandInput extends UpdateReputationEntityCustomerManagedStatusRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateReputationEntityCustomerManagedStatusCommand}.
  */
-export interface UpdateReputationEntityCustomerManagedStatusCommandOutput
-  extends UpdateReputationEntityCustomerManagedStatusResponse,
-    __MetadataBearer {}
+export interface UpdateReputationEntityCustomerManagedStatusCommandOutput extends UpdateReputationEntityCustomerManagedStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Update the customer-managed sending status for a reputation entity. This allows

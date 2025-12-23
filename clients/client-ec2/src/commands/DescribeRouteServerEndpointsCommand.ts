@@ -24,9 +24,7 @@ export interface DescribeRouteServerEndpointsCommandInput extends DescribeRouteS
  *
  * The output of {@link DescribeRouteServerEndpointsCommand}.
  */
-export interface DescribeRouteServerEndpointsCommandOutput
-  extends DescribeRouteServerEndpointsResult,
-    __MetadataBearer {}
+export interface DescribeRouteServerEndpointsCommandOutput extends DescribeRouteServerEndpointsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more route server endpoints.</p>

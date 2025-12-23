@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link CreateMediaInsightsPipelineConfigurationCommand}.
  */
-export interface CreateMediaInsightsPipelineConfigurationCommandInput
-  extends CreateMediaInsightsPipelineConfigurationRequest {}
+export interface CreateMediaInsightsPipelineConfigurationCommandInput extends CreateMediaInsightsPipelineConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateMediaInsightsPipelineConfigurationCommand}.
  */
-export interface CreateMediaInsightsPipelineConfigurationCommandOutput
-  extends CreateMediaInsightsPipelineConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateMediaInsightsPipelineConfigurationCommandOutput extends CreateMediaInsightsPipelineConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>A structure that contains the static configurations for a media insights

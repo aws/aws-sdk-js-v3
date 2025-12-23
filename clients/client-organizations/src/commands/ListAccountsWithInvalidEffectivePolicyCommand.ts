@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListAccountsWithInvalidEffectivePolicyCommand}.
  */
-export interface ListAccountsWithInvalidEffectivePolicyCommandInput
-  extends ListAccountsWithInvalidEffectivePolicyRequest {}
+export interface ListAccountsWithInvalidEffectivePolicyCommandInput extends ListAccountsWithInvalidEffectivePolicyRequest {}
 /**
  * @public
  *
  * The output of {@link ListAccountsWithInvalidEffectivePolicyCommand}.
  */
-export interface ListAccountsWithInvalidEffectivePolicyCommandOutput
-  extends ListAccountsWithInvalidEffectivePolicyResponse,
-    __MetadataBearer {}
+export interface ListAccountsWithInvalidEffectivePolicyCommandOutput extends ListAccountsWithInvalidEffectivePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the accounts in an organization that have invalid effective policies. An

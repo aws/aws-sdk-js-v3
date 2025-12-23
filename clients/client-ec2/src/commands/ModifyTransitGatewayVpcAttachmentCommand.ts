@@ -27,9 +27,7 @@ export interface ModifyTransitGatewayVpcAttachmentCommandInput extends ModifyTra
  *
  * The output of {@link ModifyTransitGatewayVpcAttachmentCommand}.
  */
-export interface ModifyTransitGatewayVpcAttachmentCommandOutput
-  extends ModifyTransitGatewayVpcAttachmentResult,
-    __MetadataBearer {}
+export interface ModifyTransitGatewayVpcAttachmentCommandOutput extends ModifyTransitGatewayVpcAttachmentResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the specified VPC attachment.</p>

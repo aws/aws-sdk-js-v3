@@ -27,9 +27,7 @@ export interface ListDetectMitigationActionsTasksCommandInput extends ListDetect
  *
  * The output of {@link ListDetectMitigationActionsTasksCommand}.
  */
-export interface ListDetectMitigationActionsTasksCommandOutput
-  extends ListDetectMitigationActionsTasksResponse,
-    __MetadataBearer {}
+export interface ListDetectMitigationActionsTasksCommandOutput extends ListDetectMitigationActionsTasksResponse, __MetadataBearer {}
 
 /**
  * <p>

@@ -24,9 +24,7 @@ export interface GetCaseAttachmentDownloadUrlCommandInput extends GetCaseAttachm
  *
  * The output of {@link GetCaseAttachmentDownloadUrlCommand}.
  */
-export interface GetCaseAttachmentDownloadUrlCommandOutput
-  extends GetCaseAttachmentDownloadUrlResponse,
-    __MetadataBearer {}
+export interface GetCaseAttachmentDownloadUrlCommandOutput extends GetCaseAttachmentDownloadUrlResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a Pre-Signed URL for uploading attachments into a case.</p>

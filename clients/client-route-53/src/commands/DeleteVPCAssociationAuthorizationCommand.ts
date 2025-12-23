@@ -28,9 +28,7 @@ export interface DeleteVPCAssociationAuthorizationCommandInput extends DeleteVPC
  *
  * The output of {@link DeleteVPCAssociationAuthorizationCommand}.
  */
-export interface DeleteVPCAssociationAuthorizationCommandOutput
-  extends DeleteVPCAssociationAuthorizationResponse,
-    __MetadataBearer {}
+export interface DeleteVPCAssociationAuthorizationCommandOutput extends DeleteVPCAssociationAuthorizationResponse, __MetadataBearer {}
 
 /**
  * <p>Removes authorization to submit an <code>AssociateVPCWithHostedZone</code> request to
@@ -106,7 +104,10 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "DeleteVPCAssociationAuthorization", {})
   .n("Route53Client", "DeleteVPCAssociationAuthorizationCommand")

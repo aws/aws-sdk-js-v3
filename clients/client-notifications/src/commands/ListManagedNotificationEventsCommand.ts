@@ -24,9 +24,7 @@ export interface ListManagedNotificationEventsCommandInput extends ListManagedNo
  *
  * The output of {@link ListManagedNotificationEventsCommand}.
  */
-export interface ListManagedNotificationEventsCommandOutput
-  extends ListManagedNotificationEventsResponse,
-    __MetadataBearer {}
+export interface ListManagedNotificationEventsCommandOutput extends ListManagedNotificationEventsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of Managed Notification Events according to specified filters, ordered by creation time in reverse chronological order (newest first).</p>

@@ -27,9 +27,7 @@ export interface ListConfigurationPolicyAssociationsCommandInput extends ListCon
  *
  * The output of {@link ListConfigurationPolicyAssociationsCommand}.
  */
-export interface ListConfigurationPolicyAssociationsCommandOutput
-  extends ListConfigurationPolicyAssociationsResponse,
-    __MetadataBearer {}
+export interface ListConfigurationPolicyAssociationsCommandOutput extends ListConfigurationPolicyAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>

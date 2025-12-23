@@ -10,33 +10,33 @@ const checkState = async (client: MediaConnectClient, input: GetRouterInputComma
     const result: any = await client.send(new GetRouterInputCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.RouterInput.State;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.RouterInput.State;
-      };
+      }
       if (returnComparator() === "STARTING") {
         return { state: WaiterState.RETRY, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.RouterInput.State;
-      };
+      }
       if (returnComparator() === "UPDATING") {
         return { state: WaiterState.RETRY, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.RouterInput.State;
-      };
+      }
       if (returnComparator() === "ERROR") {
         return { state: WaiterState.FAILURE, reason };
       }

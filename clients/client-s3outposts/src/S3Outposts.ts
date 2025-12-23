@@ -45,7 +45,10 @@ export interface S3Outposts {
     args: CreateEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateEndpointCommandOutput>;
-  createEndpoint(args: CreateEndpointCommandInput, cb: (err: any, data?: CreateEndpointCommandOutput) => void): void;
+  createEndpoint(
+    args: CreateEndpointCommandInput,
+    cb: (err: any, data?: CreateEndpointCommandOutput) => void
+  ): void;
   createEndpoint(
     args: CreateEndpointCommandInput,
     options: __HttpHandlerOptions,
@@ -59,7 +62,10 @@ export interface S3Outposts {
     args: DeleteEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEndpointCommandOutput>;
-  deleteEndpoint(args: DeleteEndpointCommandInput, cb: (err: any, data?: DeleteEndpointCommandOutput) => void): void;
+  deleteEndpoint(
+    args: DeleteEndpointCommandInput,
+    cb: (err: any, data?: DeleteEndpointCommandOutput) => void
+  ): void;
   deleteEndpoint(
     args: DeleteEndpointCommandInput,
     options: __HttpHandlerOptions,
@@ -70,8 +76,14 @@ export interface S3Outposts {
    * @see {@link ListEndpointsCommand}
    */
   listEndpoints(): Promise<ListEndpointsCommandOutput>;
-  listEndpoints(args: ListEndpointsCommandInput, options?: __HttpHandlerOptions): Promise<ListEndpointsCommandOutput>;
-  listEndpoints(args: ListEndpointsCommandInput, cb: (err: any, data?: ListEndpointsCommandOutput) => void): void;
+  listEndpoints(
+    args: ListEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEndpointsCommandOutput>;
+  listEndpoints(
+    args: ListEndpointsCommandInput,
+    cb: (err: any, data?: ListEndpointsCommandOutput) => void
+  ): void;
   listEndpoints(
     args: ListEndpointsCommandInput,
     options: __HttpHandlerOptions,

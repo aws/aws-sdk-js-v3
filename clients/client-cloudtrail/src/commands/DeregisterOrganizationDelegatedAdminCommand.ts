@@ -27,9 +27,7 @@ export interface DeregisterOrganizationDelegatedAdminCommandInput extends Deregi
  *
  * The output of {@link DeregisterOrganizationDelegatedAdminCommand}.
  */
-export interface DeregisterOrganizationDelegatedAdminCommandOutput
-  extends DeregisterOrganizationDelegatedAdminResponse,
-    __MetadataBearer {}
+export interface DeregisterOrganizationDelegatedAdminCommandOutput extends DeregisterOrganizationDelegatedAdminResponse, __MetadataBearer {}
 
 /**
  * <p>Removes CloudTrail delegated administrator permissions from a member account in

@@ -53,6 +53,7 @@ import {
   ListRegionsCommand,
   ListRegionsRequest$,
   ListRegionsResponse$,
+  paginateListRegions,
   PrimaryEmailUpdateStatus,
   PutAccountName$,
   PutAccountNameCommand,
@@ -79,7 +80,6 @@ import {
   ValidationException$,
   ValidationExceptionField$,
   ValidationExceptionReason,
-  paginateListRegions,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

@@ -109,7 +109,9 @@ export namespace AreaOfInterestGeometry {
  * <p>The geographic extent of the Earth Observation job.</p>
  * @public
  */
-export type AreaOfInterest = AreaOfInterest.AreaOfInterestGeometryMember | AreaOfInterest.$UnknownMember;
+export type AreaOfInterest =
+  | AreaOfInterest.AreaOfInterestGeometryMember
+  | AreaOfInterest.$UnknownMember;
 
 /**
  * @public

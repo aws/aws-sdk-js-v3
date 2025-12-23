@@ -78,7 +78,7 @@ export class PutWithContentEncodingCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getCompressionPlugin(config, {
-        encodings: ["gzip"],
+        'encodings': ['gzip'],
       }),
     ];
   })

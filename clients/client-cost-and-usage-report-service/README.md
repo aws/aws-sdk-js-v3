@@ -16,7 +16,6 @@ usage type, and operation that your Amazon Web Services account uses.
 
 You can configure the Amazon Web Services Cost and Usage Report to show only the data that you want, using the
 Amazon Web Services Cost and Usage Report API.</p>
-
 <p>Service Endpoint</p>
 <p>The Amazon Web Services Cost and Usage Report API provides the following endpoint:</p>
 <ul>
@@ -26,10 +25,8 @@ Amazon Web Services Cost and Usage Report API.</p>
 </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-cost-and-usage-report-service
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-cost-and-usage-report-service`
 - `yarn add @aws-sdk/client-cost-and-usage-report-service`
 - `pnpm add @aws-sdk/client-cost-and-usage-report-service`
@@ -44,18 +41,12 @@ the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
-const {
-  CostAndUsageReportServiceClient,
-  ListTagsForResourceCommand,
-} = require("@aws-sdk/client-cost-and-usage-report-service");
+const { CostAndUsageReportServiceClient, ListTagsForResourceCommand } = require("@aws-sdk/client-cost-and-usage-report-service");
 ```
 
 ```ts
 // ES6+ example
-import {
-  CostAndUsageReportServiceClient,
-  ListTagsForResourceCommand,
-} from "@aws-sdk/client-cost-and-usage-report-service";
+import { CostAndUsageReportServiceClient, ListTagsForResourceCommand } from "@aws-sdk/client-cost-and-usage-report-service";
 ```
 
 ### Usage
@@ -71,9 +62,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new CostAndUsageReportServiceClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListTagsForResourceCommand(params);
 ```
 
@@ -232,7 +221,6 @@ DeleteReportDefinition
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-and-usage-report-service/command/DeleteReportDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-and-usage-report-service/Interface/DeleteReportDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-and-usage-report-service/Interface/DeleteReportDefinitionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -240,7 +228,6 @@ DescribeReportDefinitions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-and-usage-report-service/command/DescribeReportDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-and-usage-report-service/Interface/DescribeReportDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-and-usage-report-service/Interface/DescribeReportDefinitionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -248,7 +235,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-and-usage-report-service/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-and-usage-report-service/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-and-usage-report-service/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -256,7 +242,6 @@ ModifyReportDefinition
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-and-usage-report-service/command/ModifyReportDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-and-usage-report-service/Interface/ModifyReportDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-and-usage-report-service/Interface/ModifyReportDefinitionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -264,7 +249,6 @@ PutReportDefinition
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-and-usage-report-service/command/PutReportDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-and-usage-report-service/Interface/PutReportDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-and-usage-report-service/Interface/PutReportDefinitionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -272,7 +256,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-and-usage-report-service/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-and-usage-report-service/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-and-usage-report-service/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -280,5 +263,4 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-and-usage-report-service/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-and-usage-report-service/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-and-usage-report-service/Interface/UntagResourceCommandOutput/)
-
 </details>

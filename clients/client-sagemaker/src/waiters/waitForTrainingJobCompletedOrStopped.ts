@@ -10,25 +10,25 @@ const checkState = async (client: SageMakerClient, input: DescribeTrainingJobCom
     const result: any = await client.send(new DescribeTrainingJobCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.TrainingJobStatus;
-      };
+      }
       if (returnComparator() === "Completed") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.TrainingJobStatus;
-      };
+      }
       if (returnComparator() === "Stopped") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.TrainingJobStatus;
-      };
+      }
       if (returnComparator() === "Failed") {
         return { state: WaiterState.FAILURE, reason };
       }

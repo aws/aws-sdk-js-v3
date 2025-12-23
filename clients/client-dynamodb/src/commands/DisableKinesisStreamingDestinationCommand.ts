@@ -24,9 +24,7 @@ export interface DisableKinesisStreamingDestinationCommandInput extends KinesisS
  *
  * The output of {@link DisableKinesisStreamingDestinationCommand}.
  */
-export interface DisableKinesisStreamingDestinationCommandOutput
-  extends KinesisStreamingDestinationOutput,
-    __MetadataBearer {}
+export interface DisableKinesisStreamingDestinationCommandOutput extends KinesisStreamingDestinationOutput, __MetadataBearer {}
 
 /**
  * <p>Stops replication from the DynamoDB table to the Kinesis data stream. This

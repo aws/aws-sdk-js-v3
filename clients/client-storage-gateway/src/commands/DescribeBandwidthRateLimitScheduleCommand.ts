@@ -31,9 +31,7 @@ export interface DescribeBandwidthRateLimitScheduleCommandInput extends Describe
  *
  * The output of {@link DescribeBandwidthRateLimitScheduleCommand}.
  */
-export interface DescribeBandwidthRateLimitScheduleCommandOutput
-  extends DescribeBandwidthRateLimitScheduleOutput,
-    __MetadataBearer {}
+export interface DescribeBandwidthRateLimitScheduleCommandOutput extends DescribeBandwidthRateLimitScheduleOutput, __MetadataBearer {}
 
 /**
  * <p> Returns information about the bandwidth rate limit schedule of a gateway. By default,

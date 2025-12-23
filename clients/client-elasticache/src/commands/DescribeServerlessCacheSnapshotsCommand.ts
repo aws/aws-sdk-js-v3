@@ -27,9 +27,7 @@ export interface DescribeServerlessCacheSnapshotsCommandInput extends DescribeSe
  *
  * The output of {@link DescribeServerlessCacheSnapshotsCommand}.
  */
-export interface DescribeServerlessCacheSnapshotsCommandOutput
-  extends DescribeServerlessCacheSnapshotsResponse,
-    __MetadataBearer {}
+export interface DescribeServerlessCacheSnapshotsCommandOutput extends DescribeServerlessCacheSnapshotsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about serverless cache snapshots.

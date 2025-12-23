@@ -27,9 +27,7 @@ export interface DisassociateDataProtectionSettingsCommandInput extends Disassoc
  *
  * The output of {@link DisassociateDataProtectionSettingsCommand}.
  */
-export interface DisassociateDataProtectionSettingsCommandOutput
-  extends DisassociateDataProtectionSettingsResponse,
-    __MetadataBearer {}
+export interface DisassociateDataProtectionSettingsCommandOutput extends DisassociateDataProtectionSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates data protection settings from a web portal.</p>

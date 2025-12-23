@@ -24,9 +24,7 @@ export interface RevokeCacheSecurityGroupIngressCommandInput extends RevokeCache
  *
  * The output of {@link RevokeCacheSecurityGroupIngressCommand}.
  */
-export interface RevokeCacheSecurityGroupIngressCommandOutput
-  extends RevokeCacheSecurityGroupIngressResult,
-    __MetadataBearer {}
+export interface RevokeCacheSecurityGroupIngressCommandOutput extends RevokeCacheSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
  * <p>Revokes ingress from a cache security group. Use this operation to disallow access

@@ -28,9 +28,7 @@ export interface FlattenedXmlMapWithXmlNamespaceCommandInput {}
  *
  * The output of {@link FlattenedXmlMapWithXmlNamespaceCommand}.
  */
-export interface FlattenedXmlMapWithXmlNamespaceCommandOutput
-  extends FlattenedXmlMapWithXmlNamespaceOutput,
-    __MetadataBearer {}
+export interface FlattenedXmlMapWithXmlNamespaceCommandOutput extends FlattenedXmlMapWithXmlNamespaceOutput, __MetadataBearer {}
 
 /**
  * Flattened maps with @xmlNamespace and @xmlName

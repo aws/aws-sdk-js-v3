@@ -28,9 +28,7 @@ export interface ListElasticsearchInstanceTypesCommandInput extends ListElastics
  *
  * The output of {@link ListElasticsearchInstanceTypesCommand}.
  */
-export interface ListElasticsearchInstanceTypesCommandOutput
-  extends ListElasticsearchInstanceTypesResponse,
-    __MetadataBearer {}
+export interface ListElasticsearchInstanceTypesCommandOutput extends ListElasticsearchInstanceTypesResponse, __MetadataBearer {}
 
 /**
  * <p>List all Elasticsearch instance types that are supported for given ElasticsearchVersion</p>

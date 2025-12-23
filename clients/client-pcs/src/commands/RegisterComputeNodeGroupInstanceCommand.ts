@@ -27,9 +27,7 @@ export interface RegisterComputeNodeGroupInstanceCommandInput extends RegisterCo
  *
  * The output of {@link RegisterComputeNodeGroupInstanceCommand}.
  */
-export interface RegisterComputeNodeGroupInstanceCommandOutput
-  extends RegisterComputeNodeGroupInstanceResponse,
-    __MetadataBearer {}
+export interface RegisterComputeNodeGroupInstanceCommandOutput extends RegisterComputeNodeGroupInstanceResponse, __MetadataBearer {}
 
 /**
  * <important> <p>This API action isn't intended for you to use.</p> </important> <p>PCS uses this API action to register the compute nodes it launches in your account.</p>

@@ -126,7 +126,9 @@ export interface IcebergMetadata {
  * <p>Contains details about the table metadata.</p>
  * @public
  */
-export type TableMetadata = TableMetadata.IcebergMember | TableMetadata.$UnknownMember;
+export type TableMetadata =
+  | TableMetadata.IcebergMember
+  | TableMetadata.$UnknownMember;
 
 /**
  * @public

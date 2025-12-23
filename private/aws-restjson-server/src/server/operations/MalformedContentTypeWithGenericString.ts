@@ -9,8 +9,8 @@ import {
   OperationOutput as __OperationOutput,
   OperationSerializer as __OperationSerializer,
   SerializationException as __SerializationException,
-  ServerSerdeContext as __ServerSerdeContext,
   ServerSerdeContext,
+  ServerSerdeContext as __ServerSerdeContext,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
   SmithyFrameworkException as __SmithyFrameworkException,
@@ -30,69 +30,46 @@ import {
 } from "../../protocols/Aws_restJson1";
 import { RestJsonService } from "../RestJsonService";
 
-export type MalformedContentTypeWithGenericString<Context> = __Operation<
-  MalformedContentTypeWithGenericStringServerInput,
-  MalformedContentTypeWithGenericStringServerOutput,
-  Context
->;
+export type MalformedContentTypeWithGenericString<Context> = __Operation<MalformedContentTypeWithGenericStringServerInput, MalformedContentTypeWithGenericStringServerOutput, Context>
 
 export interface MalformedContentTypeWithGenericStringServerInput extends MalformedContentTypeWithGenericStringInput {}
 export namespace MalformedContentTypeWithGenericStringServerInput {
   /**
    * @internal
    */
-  export const validate: (
-    obj: Parameters<typeof MalformedContentTypeWithGenericStringInput.validate>[0]
-  ) => __ValidationFailure[] = MalformedContentTypeWithGenericStringInput.validate;
+  export const validate: (obj: Parameters<typeof MalformedContentTypeWithGenericStringInput.validate>[0]) => __ValidationFailure[] = MalformedContentTypeWithGenericStringInput.validate;
 }
 export interface MalformedContentTypeWithGenericStringServerOutput {}
 
 export type MalformedContentTypeWithGenericStringErrors = never;
 
-export class MalformedContentTypeWithGenericStringSerializer
-  implements
-    __OperationSerializer<
-      RestJsonService<any>,
-      "MalformedContentTypeWithGenericString",
-      MalformedContentTypeWithGenericStringErrors
-    >
-{
+export class MalformedContentTypeWithGenericStringSerializer implements __OperationSerializer<RestJsonService<any>, "MalformedContentTypeWithGenericString", MalformedContentTypeWithGenericStringErrors> {
   serialize = serializeMalformedContentTypeWithGenericStringResponse;
   deserialize = deserializeMalformedContentTypeWithGenericStringRequest;
 
   isOperationError(error: any): error is MalformedContentTypeWithGenericStringErrors {
     return false;
-  }
+  };
 
   serializeError(error: MalformedContentTypeWithGenericStringErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     throw error;
   }
+
 }
 
-export const getMalformedContentTypeWithGenericStringHandler = <Context>(
-  operation: __Operation<
-    MalformedContentTypeWithGenericStringServerInput,
-    MalformedContentTypeWithGenericStringServerOutput,
-    Context
-  >,
-  customizer: __ValidationCustomizer<"MalformedContentTypeWithGenericString">
-): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+export const getMalformedContentTypeWithGenericStringHandler = <Context>(operation: __Operation<MalformedContentTypeWithGenericStringServerInput, MalformedContentTypeWithGenericStringServerOutput, Context>, customizer: __ValidationCustomizer<"MalformedContentTypeWithGenericString">): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
   const mux = new httpbinding.HttpBindingMux<"RestJson", "MalformedContentTypeWithGenericString">([
     new httpbinding.UriSpec<"RestJson", "MalformedContentTypeWithGenericString">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedContentTypeWithGenericString" }],
-      [],
-      { service: "RestJson", operation: "MalformedContentTypeWithGenericString" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedContentTypeWithGenericString" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "MalformedContentTypeWithGenericString" }),
   ]);
-  return new MalformedContentTypeWithGenericStringHandler(
-    operation,
-    mux,
-    new MalformedContentTypeWithGenericStringSerializer(),
-    serializeFrameworkException,
-    customizer
-  );
-};
+  return new MalformedContentTypeWithGenericStringHandler(operation, mux, new MalformedContentTypeWithGenericStringSerializer(), serializeFrameworkException, customizer);
+}
 
 const serdeContextBase = {
   base64Encoder: toBase64,
@@ -101,7 +78,7 @@ const serdeContextBase = {
   utf8Decoder: fromUtf8,
   streamCollector: streamCollector,
   requestHandler: new NodeHttpHandler(),
-  disableHostPrefix: true,
+  disableHostPrefix: true
 };
 async function handle<S, O extends keyof S & string, Context>(
   request: __HttpRequest,
@@ -116,49 +93,37 @@ async function handle<S, O extends keyof S & string, Context>(
   let input;
   try {
     input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request),
-      ...serdeContextBase,
+      endpoint: () => Promise.resolve(request), ...serdeContextBase
     });
   } catch (error: unknown) {
     if (__isFrameworkException(error)) {
       return serializeFrameworkException(error, serdeContextBase);
-    }
+    };
     return serializeFrameworkException(new __SerializationException(), serdeContextBase);
   }
   try {
-    const validationFailures = validationFn(input);
+    let validationFailures = validationFn(input);
     if (validationFailures && validationFailures.length > 0) {
-      const validationException = validationCustomizer({ operation: operationName }, validationFailures);
+      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
       if (validationException) {
         return serializer.serializeError(validationException, serdeContextBase);
       }
     }
-    const output = await operation(input, context);
+    let output = await operation(input, context);
     return serializer.serialize(output, serdeContextBase);
-  } catch (error: unknown) {
+  } catch(error: unknown) {
     if (serializer.isOperationError(error)) {
       return serializer.serializeError(error, serdeContextBase);
     }
-    console.log("Received an unexpected error", error);
+    console.log('Received an unexpected error', error);
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
 export class MalformedContentTypeWithGenericStringHandler<Context> implements __ServiceHandler<Context> {
-  private readonly operation: __Operation<
-    MalformedContentTypeWithGenericStringServerInput,
-    MalformedContentTypeWithGenericStringServerOutput,
-    Context
-  >;
+  private readonly operation: __Operation<MalformedContentTypeWithGenericStringServerInput, MalformedContentTypeWithGenericStringServerOutput, Context>;
   private readonly mux: __Mux<"RestJson", "MalformedContentTypeWithGenericString">;
-  private readonly serializer: __OperationSerializer<
-    RestJsonService<Context>,
-    "MalformedContentTypeWithGenericString",
-    MalformedContentTypeWithGenericStringErrors
-  >;
-  private readonly serializeFrameworkException: (
-    e: __SmithyFrameworkException,
-    ctx: __ServerSerdeContext
-  ) => Promise<__HttpResponse>;
+  private readonly serializer: __OperationSerializer<RestJsonService<Context>, "MalformedContentTypeWithGenericString", MalformedContentTypeWithGenericStringErrors>;
+  private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<"MalformedContentTypeWithGenericString">;
   /**
    * Construct a MalformedContentTypeWithGenericString handler.
@@ -170,17 +135,9 @@ export class MalformedContentTypeWithGenericStringHandler<Context> implements __
    * @param validationCustomizer A {@link __ValidationCustomizer} for turning validation failures into {@link __SmithyFrameworkException}s
    */
   constructor(
-    operation: __Operation<
-      MalformedContentTypeWithGenericStringServerInput,
-      MalformedContentTypeWithGenericStringServerOutput,
-      Context
-    >,
+    operation: __Operation<MalformedContentTypeWithGenericStringServerInput, MalformedContentTypeWithGenericStringServerOutput, Context>,
     mux: __Mux<"RestJson", "MalformedContentTypeWithGenericString">,
-    serializer: __OperationSerializer<
-      RestJsonService<Context>,
-      "MalformedContentTypeWithGenericString",
-      MalformedContentTypeWithGenericStringErrors
-    >,
+    serializer: __OperationSerializer<RestJsonService<Context>, "MalformedContentTypeWithGenericString", MalformedContentTypeWithGenericStringErrors>,
     serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>,
     validationCustomizer: __ValidationCustomizer<"MalformedContentTypeWithGenericString">
   ) {
@@ -193,20 +150,9 @@ export class MalformedContentTypeWithGenericStringHandler<Context> implements __
   async handle(request: __HttpRequest, context: Context): Promise<__HttpResponse> {
     const target = this.mux.match(request);
     if (target === undefined) {
-      console.log(
-        "Received a request that did not match aws.protocoltests.restjson#RestJson.MalformedContentTypeWithGenericString. This indicates a misconfiguration."
-      );
+      console.log('Received a request that did not match aws.protocoltests.restjson#RestJson.MalformedContentTypeWithGenericString. This indicates a misconfiguration.');
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
-    return handle(
-      request,
-      context,
-      "MalformedContentTypeWithGenericString",
-      this.serializer,
-      this.operation,
-      this.serializeFrameworkException,
-      MalformedContentTypeWithGenericStringServerInput.validate,
-      this.validationCustomizer
-    );
+    return handle(request, context, "MalformedContentTypeWithGenericString", this.serializer, this.operation, this.serializeFrameworkException, MalformedContentTypeWithGenericStringServerInput.validate, this.validationCustomizer);
   }
 }

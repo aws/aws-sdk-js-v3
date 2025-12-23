@@ -27,9 +27,7 @@ export interface DeleteMobileDeviceAccessOverrideCommandInput extends DeleteMobi
  *
  * The output of {@link DeleteMobileDeviceAccessOverrideCommand}.
  */
-export interface DeleteMobileDeviceAccessOverrideCommandOutput
-  extends DeleteMobileDeviceAccessOverrideResponse,
-    __MetadataBearer {}
+export interface DeleteMobileDeviceAccessOverrideCommandOutput extends DeleteMobileDeviceAccessOverrideResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the mobile device access override for the given WorkMail organization, user, and device.</p>

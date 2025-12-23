@@ -24,9 +24,7 @@ export interface DescribeInferenceExperimentCommandInput extends DescribeInferen
  *
  * The output of {@link DescribeInferenceExperimentCommand}.
  */
-export interface DescribeInferenceExperimentCommandOutput
-  extends DescribeInferenceExperimentResponse,
-    __MetadataBearer {}
+export interface DescribeInferenceExperimentCommandOutput extends DescribeInferenceExperimentResponse, __MetadataBearer {}
 
 /**
  * <p>Returns details about an inference experiment.</p>

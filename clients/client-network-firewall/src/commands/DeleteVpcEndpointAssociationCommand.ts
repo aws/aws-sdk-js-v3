@@ -28,9 +28,7 @@ export interface DeleteVpcEndpointAssociationCommandInput extends DeleteVpcEndpo
  *
  * The output of {@link DeleteVpcEndpointAssociationCommand}.
  */
-export interface DeleteVpcEndpointAssociationCommandOutput
-  extends DeleteVpcEndpointAssociationResponse,
-    __MetadataBearer {}
+export interface DeleteVpcEndpointAssociationCommandOutput extends DeleteVpcEndpointAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified <a>VpcEndpointAssociation</a>.</p>

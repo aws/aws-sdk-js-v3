@@ -24,9 +24,7 @@ export interface BatchGetGraphMemberDatasourcesCommandInput extends BatchGetGrap
  *
  * The output of {@link BatchGetGraphMemberDatasourcesCommand}.
  */
-export interface BatchGetGraphMemberDatasourcesCommandOutput
-  extends BatchGetGraphMemberDatasourcesResponse,
-    __MetadataBearer {}
+export interface BatchGetGraphMemberDatasourcesCommandOutput extends BatchGetGraphMemberDatasourcesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets data source package information for the behavior graph.</p>

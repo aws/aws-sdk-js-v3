@@ -407,8 +407,14 @@ export interface MailManager {
   /**
    * @see {@link CreateArchiveCommand}
    */
-  createArchive(args: CreateArchiveCommandInput, options?: __HttpHandlerOptions): Promise<CreateArchiveCommandOutput>;
-  createArchive(args: CreateArchiveCommandInput, cb: (err: any, data?: CreateArchiveCommandOutput) => void): void;
+  createArchive(
+    args: CreateArchiveCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateArchiveCommandOutput>;
+  createArchive(
+    args: CreateArchiveCommandInput,
+    cb: (err: any, data?: CreateArchiveCommandOutput) => void
+  ): void;
   createArchive(
     args: CreateArchiveCommandInput,
     options: __HttpHandlerOptions,
@@ -435,8 +441,14 @@ export interface MailManager {
   /**
    * @see {@link CreateRelayCommand}
    */
-  createRelay(args: CreateRelayCommandInput, options?: __HttpHandlerOptions): Promise<CreateRelayCommandOutput>;
-  createRelay(args: CreateRelayCommandInput, cb: (err: any, data?: CreateRelayCommandOutput) => void): void;
+  createRelay(
+    args: CreateRelayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRelayCommandOutput>;
+  createRelay(
+    args: CreateRelayCommandInput,
+    cb: (err: any, data?: CreateRelayCommandOutput) => void
+  ): void;
   createRelay(
     args: CreateRelayCommandInput,
     options: __HttpHandlerOptions,
@@ -446,8 +458,14 @@ export interface MailManager {
   /**
    * @see {@link CreateRuleSetCommand}
    */
-  createRuleSet(args: CreateRuleSetCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleSetCommandOutput>;
-  createRuleSet(args: CreateRuleSetCommandInput, cb: (err: any, data?: CreateRuleSetCommandOutput) => void): void;
+  createRuleSet(
+    args: CreateRuleSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRuleSetCommandOutput>;
+  createRuleSet(
+    args: CreateRuleSetCommandInput,
+    cb: (err: any, data?: CreateRuleSetCommandOutput) => void
+  ): void;
   createRuleSet(
     args: CreateRuleSetCommandInput,
     options: __HttpHandlerOptions,
@@ -525,8 +543,14 @@ export interface MailManager {
   /**
    * @see {@link DeleteArchiveCommand}
    */
-  deleteArchive(args: DeleteArchiveCommandInput, options?: __HttpHandlerOptions): Promise<DeleteArchiveCommandOutput>;
-  deleteArchive(args: DeleteArchiveCommandInput, cb: (err: any, data?: DeleteArchiveCommandOutput) => void): void;
+  deleteArchive(
+    args: DeleteArchiveCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteArchiveCommandOutput>;
+  deleteArchive(
+    args: DeleteArchiveCommandInput,
+    cb: (err: any, data?: DeleteArchiveCommandOutput) => void
+  ): void;
   deleteArchive(
     args: DeleteArchiveCommandInput,
     options: __HttpHandlerOptions,
@@ -553,8 +577,14 @@ export interface MailManager {
   /**
    * @see {@link DeleteRelayCommand}
    */
-  deleteRelay(args: DeleteRelayCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRelayCommandOutput>;
-  deleteRelay(args: DeleteRelayCommandInput, cb: (err: any, data?: DeleteRelayCommandOutput) => void): void;
+  deleteRelay(
+    args: DeleteRelayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRelayCommandOutput>;
+  deleteRelay(
+    args: DeleteRelayCommandInput,
+    cb: (err: any, data?: DeleteRelayCommandOutput) => void
+  ): void;
   deleteRelay(
     args: DeleteRelayCommandInput,
     options: __HttpHandlerOptions,
@@ -564,8 +594,14 @@ export interface MailManager {
   /**
    * @see {@link DeleteRuleSetCommand}
    */
-  deleteRuleSet(args: DeleteRuleSetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleSetCommandOutput>;
-  deleteRuleSet(args: DeleteRuleSetCommandInput, cb: (err: any, data?: DeleteRuleSetCommandOutput) => void): void;
+  deleteRuleSet(
+    args: DeleteRuleSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRuleSetCommandOutput>;
+  deleteRuleSet(
+    args: DeleteRuleSetCommandInput,
+    cb: (err: any, data?: DeleteRuleSetCommandOutput) => void
+  ): void;
   deleteRuleSet(
     args: DeleteRuleSetCommandInput,
     options: __HttpHandlerOptions,
@@ -647,7 +683,10 @@ export interface MailManager {
     args: GetAddressListCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAddressListCommandOutput>;
-  getAddressList(args: GetAddressListCommandInput, cb: (err: any, data?: GetAddressListCommandOutput) => void): void;
+  getAddressList(
+    args: GetAddressListCommandInput,
+    cb: (err: any, data?: GetAddressListCommandOutput) => void
+  ): void;
   getAddressList(
     args: GetAddressListCommandInput,
     options: __HttpHandlerOptions,
@@ -674,8 +713,14 @@ export interface MailManager {
   /**
    * @see {@link GetArchiveCommand}
    */
-  getArchive(args: GetArchiveCommandInput, options?: __HttpHandlerOptions): Promise<GetArchiveCommandOutput>;
-  getArchive(args: GetArchiveCommandInput, cb: (err: any, data?: GetArchiveCommandOutput) => void): void;
+  getArchive(
+    args: GetArchiveCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetArchiveCommandOutput>;
+  getArchive(
+    args: GetArchiveCommandInput,
+    cb: (err: any, data?: GetArchiveCommandOutput) => void
+  ): void;
   getArchive(
     args: GetArchiveCommandInput,
     options: __HttpHandlerOptions,
@@ -774,7 +819,10 @@ export interface MailManager {
     args: GetIngressPointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetIngressPointCommandOutput>;
-  getIngressPoint(args: GetIngressPointCommandInput, cb: (err: any, data?: GetIngressPointCommandOutput) => void): void;
+  getIngressPoint(
+    args: GetIngressPointCommandInput,
+    cb: (err: any, data?: GetIngressPointCommandOutput) => void
+  ): void;
   getIngressPoint(
     args: GetIngressPointCommandInput,
     options: __HttpHandlerOptions,
@@ -801,8 +849,14 @@ export interface MailManager {
   /**
    * @see {@link GetRelayCommand}
    */
-  getRelay(args: GetRelayCommandInput, options?: __HttpHandlerOptions): Promise<GetRelayCommandOutput>;
-  getRelay(args: GetRelayCommandInput, cb: (err: any, data?: GetRelayCommandOutput) => void): void;
+  getRelay(
+    args: GetRelayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRelayCommandOutput>;
+  getRelay(
+    args: GetRelayCommandInput,
+    cb: (err: any, data?: GetRelayCommandOutput) => void
+  ): void;
   getRelay(
     args: GetRelayCommandInput,
     options: __HttpHandlerOptions,
@@ -812,8 +866,14 @@ export interface MailManager {
   /**
    * @see {@link GetRuleSetCommand}
    */
-  getRuleSet(args: GetRuleSetCommandInput, options?: __HttpHandlerOptions): Promise<GetRuleSetCommandOutput>;
-  getRuleSet(args: GetRuleSetCommandInput, cb: (err: any, data?: GetRuleSetCommandOutput) => void): void;
+  getRuleSet(
+    args: GetRuleSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRuleSetCommandOutput>;
+  getRuleSet(
+    args: GetRuleSetCommandInput,
+    cb: (err: any, data?: GetRuleSetCommandOutput) => void
+  ): void;
   getRuleSet(
     args: GetRuleSetCommandInput,
     options: __HttpHandlerOptions,
@@ -929,8 +989,14 @@ export interface MailManager {
    * @see {@link ListArchivesCommand}
    */
   listArchives(): Promise<ListArchivesCommandOutput>;
-  listArchives(args: ListArchivesCommandInput, options?: __HttpHandlerOptions): Promise<ListArchivesCommandOutput>;
-  listArchives(args: ListArchivesCommandInput, cb: (err: any, data?: ListArchivesCommandOutput) => void): void;
+  listArchives(
+    args: ListArchivesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListArchivesCommandOutput>;
+  listArchives(
+    args: ListArchivesCommandInput,
+    cb: (err: any, data?: ListArchivesCommandOutput) => void
+  ): void;
   listArchives(
     args: ListArchivesCommandInput,
     options: __HttpHandlerOptions,
@@ -993,8 +1059,14 @@ export interface MailManager {
    * @see {@link ListRelaysCommand}
    */
   listRelays(): Promise<ListRelaysCommandOutput>;
-  listRelays(args: ListRelaysCommandInput, options?: __HttpHandlerOptions): Promise<ListRelaysCommandOutput>;
-  listRelays(args: ListRelaysCommandInput, cb: (err: any, data?: ListRelaysCommandOutput) => void): void;
+  listRelays(
+    args: ListRelaysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRelaysCommandOutput>;
+  listRelays(
+    args: ListRelaysCommandInput,
+    cb: (err: any, data?: ListRelaysCommandOutput) => void
+  ): void;
   listRelays(
     args: ListRelaysCommandInput,
     options: __HttpHandlerOptions,
@@ -1005,8 +1077,14 @@ export interface MailManager {
    * @see {@link ListRuleSetsCommand}
    */
   listRuleSets(): Promise<ListRuleSetsCommandOutput>;
-  listRuleSets(args: ListRuleSetsCommandInput, options?: __HttpHandlerOptions): Promise<ListRuleSetsCommandOutput>;
-  listRuleSets(args: ListRuleSetsCommandInput, cb: (err: any, data?: ListRuleSetsCommandOutput) => void): void;
+  listRuleSets(
+    args: ListRuleSetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRuleSetsCommandOutput>;
+  listRuleSets(
+    args: ListRuleSetsCommandInput,
+    cb: (err: any, data?: ListRuleSetsCommandOutput) => void
+  ): void;
   listRuleSets(
     args: ListRuleSetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1170,8 +1248,14 @@ export interface MailManager {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1181,8 +1265,14 @@ export interface MailManager {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1192,8 +1282,14 @@ export interface MailManager {
   /**
    * @see {@link UpdateArchiveCommand}
    */
-  updateArchive(args: UpdateArchiveCommandInput, options?: __HttpHandlerOptions): Promise<UpdateArchiveCommandOutput>;
-  updateArchive(args: UpdateArchiveCommandInput, cb: (err: any, data?: UpdateArchiveCommandOutput) => void): void;
+  updateArchive(
+    args: UpdateArchiveCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateArchiveCommandOutput>;
+  updateArchive(
+    args: UpdateArchiveCommandInput,
+    cb: (err: any, data?: UpdateArchiveCommandOutput) => void
+  ): void;
   updateArchive(
     args: UpdateArchiveCommandInput,
     options: __HttpHandlerOptions,
@@ -1220,8 +1316,14 @@ export interface MailManager {
   /**
    * @see {@link UpdateRelayCommand}
    */
-  updateRelay(args: UpdateRelayCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRelayCommandOutput>;
-  updateRelay(args: UpdateRelayCommandInput, cb: (err: any, data?: UpdateRelayCommandOutput) => void): void;
+  updateRelay(
+    args: UpdateRelayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRelayCommandOutput>;
+  updateRelay(
+    args: UpdateRelayCommandInput,
+    cb: (err: any, data?: UpdateRelayCommandOutput) => void
+  ): void;
   updateRelay(
     args: UpdateRelayCommandInput,
     options: __HttpHandlerOptions,
@@ -1231,8 +1333,14 @@ export interface MailManager {
   /**
    * @see {@link UpdateRuleSetCommand}
    */
-  updateRuleSet(args: UpdateRuleSetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRuleSetCommandOutput>;
-  updateRuleSet(args: UpdateRuleSetCommandInput, cb: (err: any, data?: UpdateRuleSetCommandOutput) => void): void;
+  updateRuleSet(
+    args: UpdateRuleSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRuleSetCommandOutput>;
+  updateRuleSet(
+    args: UpdateRuleSetCommandInput,
+    cb: (err: any, data?: UpdateRuleSetCommandOutput) => void
+  ): void;
   updateRuleSet(
     args: UpdateRuleSetCommandInput,
     options: __HttpHandlerOptions,

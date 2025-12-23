@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link UpdateOpenIDConnectProviderThumbprintCommand}.
  */
-export interface UpdateOpenIDConnectProviderThumbprintCommandInput
-  extends UpdateOpenIDConnectProviderThumbprintRequest {}
+export interface UpdateOpenIDConnectProviderThumbprintCommandInput extends UpdateOpenIDConnectProviderThumbprintRequest {}
 /**
  * @public
  *

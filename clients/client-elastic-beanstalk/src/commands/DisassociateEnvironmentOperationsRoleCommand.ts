@@ -22,8 +22,7 @@ export { $Command };
  *
  * The input for {@link DisassociateEnvironmentOperationsRoleCommand}.
  */
-export interface DisassociateEnvironmentOperationsRoleCommandInput
-  extends DisassociateEnvironmentOperationsRoleMessage {}
+export interface DisassociateEnvironmentOperationsRoleCommandInput extends DisassociateEnvironmentOperationsRoleMessage {}
 /**
  * @public
  *

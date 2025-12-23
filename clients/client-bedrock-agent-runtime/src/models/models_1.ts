@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { AgentCollaboration, OrchestrationType } from "./enums";
-
 import {
   type CustomOrchestration,
   type GuardrailConfigurationWithArn,

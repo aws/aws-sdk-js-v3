@@ -27,9 +27,7 @@ export interface PutFindingsPublicationConfigurationCommandInput extends PutFind
  *
  * The output of {@link PutFindingsPublicationConfigurationCommand}.
  */
-export interface PutFindingsPublicationConfigurationCommandOutput
-  extends PutFindingsPublicationConfigurationResponse,
-    __MetadataBearer {}
+export interface PutFindingsPublicationConfigurationCommandOutput extends PutFindingsPublicationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the configuration settings for publishing findings to Security Hub.</p>

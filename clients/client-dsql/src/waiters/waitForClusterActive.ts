@@ -10,9 +10,9 @@ const checkState = async (client: DSQLClient, input: GetClusterCommandInput): Pr
     const result: any = await client.send(new GetClusterCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }

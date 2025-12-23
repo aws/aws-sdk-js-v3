@@ -60,6 +60,9 @@ import {
   OAM,
   OAMClient,
   OAMServiceException,
+  paginateListAttachedLinks,
+  paginateListLinks,
+  paginateListSinks,
   PutSinkPolicy$,
   PutSinkPolicyCommand,
   PutSinkPolicyInput$,
@@ -85,9 +88,6 @@ import {
   UpdateLinkOutput$,
   ValidationException,
   ValidationException$,
-  paginateListAttachedLinks,
-  paginateListLinks,
-  paginateListSinks,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

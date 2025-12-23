@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisableAwsNetworkPerformanceMetricSubscriptionCommand}.
  */
-export interface DisableAwsNetworkPerformanceMetricSubscriptionCommandInput
-  extends DisableAwsNetworkPerformanceMetricSubscriptionRequest {}
+export interface DisableAwsNetworkPerformanceMetricSubscriptionCommandInput extends DisableAwsNetworkPerformanceMetricSubscriptionRequest {}
 /**
  * @public
  *
  * The output of {@link DisableAwsNetworkPerformanceMetricSubscriptionCommand}.
  */
-export interface DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput
-  extends DisableAwsNetworkPerformanceMetricSubscriptionResult,
-    __MetadataBearer {}
+export interface DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput extends DisableAwsNetworkPerformanceMetricSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Disables Infrastructure Performance metric subscriptions.</p>

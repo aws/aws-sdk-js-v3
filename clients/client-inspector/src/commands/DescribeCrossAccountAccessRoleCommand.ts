@@ -24,9 +24,7 @@ export interface DescribeCrossAccountAccessRoleCommandInput {}
  *
  * The output of {@link DescribeCrossAccountAccessRoleCommand}.
  */
-export interface DescribeCrossAccountAccessRoleCommandOutput
-  extends DescribeCrossAccountAccessRoleResponse,
-    __MetadataBearer {}
+export interface DescribeCrossAccountAccessRoleCommandOutput extends DescribeCrossAccountAccessRoleResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the IAM role that enables Amazon Inspector to access your AWS

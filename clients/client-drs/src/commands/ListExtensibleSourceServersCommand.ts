@@ -24,9 +24,7 @@ export interface ListExtensibleSourceServersCommandInput extends ListExtensibleS
  *
  * The output of {@link ListExtensibleSourceServersCommand}.
  */
-export interface ListExtensibleSourceServersCommandOutput
-  extends ListExtensibleSourceServersResponse,
-    __MetadataBearer {}
+export interface ListExtensibleSourceServersCommandOutput extends ListExtensibleSourceServersResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of source servers on a staging account that are extensible, which means that:

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchAssociateClientDeviceWithCoreDeviceCommand}.
  */
-export interface BatchAssociateClientDeviceWithCoreDeviceCommandInput
-  extends BatchAssociateClientDeviceWithCoreDeviceRequest {}
+export interface BatchAssociateClientDeviceWithCoreDeviceCommandInput extends BatchAssociateClientDeviceWithCoreDeviceRequest {}
 /**
  * @public
  *
  * The output of {@link BatchAssociateClientDeviceWithCoreDeviceCommand}.
  */
-export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput
-  extends BatchAssociateClientDeviceWithCoreDeviceResponse,
-    __MetadataBearer {}
+export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput extends BatchAssociateClientDeviceWithCoreDeviceResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a list of client devices with a core device. Use this API operation to specify

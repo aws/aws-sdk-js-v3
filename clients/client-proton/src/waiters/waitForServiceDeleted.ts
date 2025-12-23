@@ -10,9 +10,9 @@ const checkState = async (client: ProtonClient, input: GetServiceCommandInput): 
     const result: any = await client.send(new GetServiceCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.service.status;
-      };
+      }
       if (returnComparator() === "DELETE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

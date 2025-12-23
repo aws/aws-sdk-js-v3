@@ -27,9 +27,7 @@ export interface DescribeTrustedAdvisorCheckResultCommandInput extends DescribeT
  *
  * The output of {@link DescribeTrustedAdvisorCheckResultCommand}.
  */
-export interface DescribeTrustedAdvisorCheckResultCommandOutput
-  extends DescribeTrustedAdvisorCheckResultResponse,
-    __MetadataBearer {}
+export interface DescribeTrustedAdvisorCheckResultCommandOutput extends DescribeTrustedAdvisorCheckResultResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the results of the Trusted Advisor check that has the specified check ID. You

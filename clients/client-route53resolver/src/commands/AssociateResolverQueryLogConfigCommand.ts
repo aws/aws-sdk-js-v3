@@ -31,9 +31,7 @@ export interface AssociateResolverQueryLogConfigCommandInput extends AssociateRe
  *
  * The output of {@link AssociateResolverQueryLogConfigCommand}.
  */
-export interface AssociateResolverQueryLogConfigCommandOutput
-  extends AssociateResolverQueryLogConfigResponse,
-    __MetadataBearer {}
+export interface AssociateResolverQueryLogConfigCommandOutput extends AssociateResolverQueryLogConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Associates an Amazon VPC with a specified query logging configuration. Route 53 Resolver logs DNS queries that originate in all of the Amazon VPCs

@@ -28,9 +28,7 @@ export interface EnableAvailabilityZonesForLoadBalancerCommandInput extends AddA
  *
  * The output of {@link EnableAvailabilityZonesForLoadBalancerCommand}.
  */
-export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
-  extends AddAvailabilityZonesOutput,
-    __MetadataBearer {}
+export interface EnableAvailabilityZonesForLoadBalancerCommandOutput extends AddAvailabilityZonesOutput, __MetadataBearer {}
 
 /**
  * <p>Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer

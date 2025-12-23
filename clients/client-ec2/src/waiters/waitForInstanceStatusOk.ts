@@ -13,16 +13,16 @@ const checkState = async (client: EC2Client, input: DescribeInstanceStatusComman
     const result: any = await client.send(new DescribeInstanceStatusCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.InstanceStatuses);
-        const projection_3 = flat_1.map((element_2: any) => {
+      let returnComparator = () => {
+        let flat_1: any[] = [].concat(...result.InstanceStatuses);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.InstanceStatus.Status;
         });
         return projection_3;
-      };
-      let allStringEq_5 = returnComparator().length > 0;
-      for (const element_4 of returnComparator()) {
-        allStringEq_5 = allStringEq_5 && element_4 == "ok";
+      }
+      let allStringEq_5 = (returnComparator().length > 0);
+      for (let element_4 of returnComparator()) {
+        allStringEq_5 = allStringEq_5 && (element_4 == "ok")
       }
       if (allStringEq_5) {
         return { state: WaiterState.SUCCESS, reason };

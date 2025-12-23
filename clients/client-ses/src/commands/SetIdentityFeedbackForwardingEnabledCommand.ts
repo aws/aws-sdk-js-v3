@@ -27,9 +27,7 @@ export interface SetIdentityFeedbackForwardingEnabledCommandInput extends SetIde
  *
  * The output of {@link SetIdentityFeedbackForwardingEnabledCommand}.
  */
-export interface SetIdentityFeedbackForwardingEnabledCommandOutput
-  extends SetIdentityFeedbackForwardingEnabledResponse,
-    __MetadataBearer {}
+export interface SetIdentityFeedbackForwardingEnabledCommandOutput extends SetIdentityFeedbackForwardingEnabledResponse, __MetadataBearer {}
 
 /**
  * <p>Given an identity (an email address or a domain), enables or disables whether Amazon SES

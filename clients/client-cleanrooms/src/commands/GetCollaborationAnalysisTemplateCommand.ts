@@ -24,9 +24,7 @@ export interface GetCollaborationAnalysisTemplateCommandInput extends GetCollabo
  *
  * The output of {@link GetCollaborationAnalysisTemplateCommand}.
  */
-export interface GetCollaborationAnalysisTemplateCommandOutput
-  extends GetCollaborationAnalysisTemplateOutput,
-    __MetadataBearer {}
+export interface GetCollaborationAnalysisTemplateCommandOutput extends GetCollaborationAnalysisTemplateOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves an analysis template within a collaboration.</p>

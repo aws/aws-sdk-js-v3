@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateCustomVerificationEmailTemplateCommand}.
  */
-export interface CreateCustomVerificationEmailTemplateCommandInput
-  extends CreateCustomVerificationEmailTemplateRequest {}
+export interface CreateCustomVerificationEmailTemplateCommandInput extends CreateCustomVerificationEmailTemplateRequest {}
 /**
  * @public
  *
  * The output of {@link CreateCustomVerificationEmailTemplateCommand}.
  */
-export interface CreateCustomVerificationEmailTemplateCommandOutput
-  extends CreateCustomVerificationEmailTemplateResponse,
-    __MetadataBearer {}
+export interface CreateCustomVerificationEmailTemplateCommandOutput extends CreateCustomVerificationEmailTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new custom verification email template.</p>

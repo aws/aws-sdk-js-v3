@@ -27,9 +27,7 @@ export interface UpdateQueryLoggingConfigurationCommandInput extends UpdateQuery
  *
  * The output of {@link UpdateQueryLoggingConfigurationCommand}.
  */
-export interface UpdateQueryLoggingConfigurationCommandOutput
-  extends UpdateQueryLoggingConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateQueryLoggingConfigurationCommandOutput extends UpdateQueryLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the query logging configuration for the specified workspace.</p>

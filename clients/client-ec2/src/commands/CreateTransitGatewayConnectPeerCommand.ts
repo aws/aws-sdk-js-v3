@@ -24,9 +24,7 @@ export interface CreateTransitGatewayConnectPeerCommandInput extends CreateTrans
  *
  * The output of {@link CreateTransitGatewayConnectPeerCommand}.
  */
-export interface CreateTransitGatewayConnectPeerCommandOutput
-  extends CreateTransitGatewayConnectPeerResult,
-    __MetadataBearer {}
+export interface CreateTransitGatewayConnectPeerCommandOutput extends CreateTransitGatewayConnectPeerResult, __MetadataBearer {}
 
 /**
  * <p>Creates a Connect peer for a specified transit gateway Connect attachment between a

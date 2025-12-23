@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link AcceptNetworkFirewallTransitGatewayAttachmentCommand}.
  */
-export interface AcceptNetworkFirewallTransitGatewayAttachmentCommandInput
-  extends AcceptNetworkFirewallTransitGatewayAttachmentRequest {}
+export interface AcceptNetworkFirewallTransitGatewayAttachmentCommandInput extends AcceptNetworkFirewallTransitGatewayAttachmentRequest {}
 /**
  * @public
  *
  * The output of {@link AcceptNetworkFirewallTransitGatewayAttachmentCommand}.
  */
-export interface AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput
-  extends AcceptNetworkFirewallTransitGatewayAttachmentResponse,
-    __MetadataBearer {}
+export interface AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput extends AcceptNetworkFirewallTransitGatewayAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts a transit gateway attachment request for Network Firewall. When you accept the attachment request, Network Firewall creates the necessary routing components to enable traffic flow between the transit gateway and firewall endpoints.</p>

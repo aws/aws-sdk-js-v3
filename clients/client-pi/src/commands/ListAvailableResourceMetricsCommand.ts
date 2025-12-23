@@ -24,9 +24,7 @@ export interface ListAvailableResourceMetricsCommandInput extends ListAvailableR
  *
  * The output of {@link ListAvailableResourceMetricsCommand}.
  */
-export interface ListAvailableResourceMetricsCommandOutput
-  extends ListAvailableResourceMetricsResponse,
-    __MetadataBearer {}
+export interface ListAvailableResourceMetricsCommandOutput extends ListAvailableResourceMetricsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve metrics of the specified types that can be queried for a specified DB instance.

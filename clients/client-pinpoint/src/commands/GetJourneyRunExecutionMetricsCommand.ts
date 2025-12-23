@@ -24,9 +24,7 @@ export interface GetJourneyRunExecutionMetricsCommandInput extends GetJourneyRun
  *
  * The output of {@link GetJourneyRunExecutionMetricsCommand}.
  */
-export interface GetJourneyRunExecutionMetricsCommandOutput
-  extends GetJourneyRunExecutionMetricsResponse,
-    __MetadataBearer {}
+export interface GetJourneyRunExecutionMetricsCommandOutput extends GetJourneyRunExecutionMetricsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves (queries) pre-aggregated data for a standard run execution metric that applies to a journey.</p>

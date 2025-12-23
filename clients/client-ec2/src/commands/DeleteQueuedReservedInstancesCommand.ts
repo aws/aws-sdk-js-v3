@@ -24,9 +24,7 @@ export interface DeleteQueuedReservedInstancesCommandInput extends DeleteQueuedR
  *
  * The output of {@link DeleteQueuedReservedInstancesCommand}.
  */
-export interface DeleteQueuedReservedInstancesCommandOutput
-  extends DeleteQueuedReservedInstancesResult,
-    __MetadataBearer {}
+export interface DeleteQueuedReservedInstancesCommandOutput extends DeleteQueuedReservedInstancesResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the queued purchases for the specified Reserved Instances.</p>

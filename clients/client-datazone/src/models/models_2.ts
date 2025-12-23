@@ -17,7 +17,6 @@ import {
   UserProfileStatus,
   UserProfileType,
 } from "./enums";
-
 import {
   type AccountSource,
   type ActionParameters,
@@ -50,7 +49,6 @@ import {
   SubscribedPrincipal,
   SubscriptionTargetForm,
 } from "./models_0";
-
 import { type SearchSort, Filter, SearchInItem } from "./models_1";
 
 /**

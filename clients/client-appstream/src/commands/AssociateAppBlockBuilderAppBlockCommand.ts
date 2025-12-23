@@ -27,9 +27,7 @@ export interface AssociateAppBlockBuilderAppBlockCommandInput extends AssociateA
  *
  * The output of {@link AssociateAppBlockBuilderAppBlockCommand}.
  */
-export interface AssociateAppBlockBuilderAppBlockCommandOutput
-  extends AssociateAppBlockBuilderAppBlockResult,
-    __MetadataBearer {}
+export interface AssociateAppBlockBuilderAppBlockCommandOutput extends AssociateAppBlockBuilderAppBlockResult, __MetadataBearer {}
 
 /**
  * <p>Associates the specified app block builder with the specified app block.</p>

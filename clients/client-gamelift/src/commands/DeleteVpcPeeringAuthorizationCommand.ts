@@ -24,9 +24,7 @@ export interface DeleteVpcPeeringAuthorizationCommandInput extends DeleteVpcPeer
  *
  * The output of {@link DeleteVpcPeeringAuthorizationCommand}.
  */
-export interface DeleteVpcPeeringAuthorizationCommandOutput
-  extends DeleteVpcPeeringAuthorizationOutput,
-    __MetadataBearer {}
+export interface DeleteVpcPeeringAuthorizationCommandOutput extends DeleteVpcPeeringAuthorizationOutput, __MetadataBearer {}
 
 /**
  * <p>

@@ -24,9 +24,7 @@ export interface DescribeWebAppCustomizationCommandInput extends DescribeWebAppC
  *
  * The output of {@link DescribeWebAppCustomizationCommand}.
  */
-export interface DescribeWebAppCustomizationCommandOutput
-  extends DescribeWebAppCustomizationResponse,
-    __MetadataBearer {}
+export interface DescribeWebAppCustomizationCommandOutput extends DescribeWebAppCustomizationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the web app customization object that's identified by <code>WebAppId</code>.</p>

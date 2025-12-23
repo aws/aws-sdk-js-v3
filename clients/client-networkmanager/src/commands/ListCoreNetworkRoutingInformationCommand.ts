@@ -31,9 +31,7 @@ export interface ListCoreNetworkRoutingInformationCommandInput extends ListCoreN
  *
  * The output of {@link ListCoreNetworkRoutingInformationCommand}.
  */
-export interface ListCoreNetworkRoutingInformationCommandOutput
-  extends ListCoreNetworkRoutingInformationResponse,
-    __MetadataBearer {}
+export interface ListCoreNetworkRoutingInformationCommandOutput extends ListCoreNetworkRoutingInformationResponse, __MetadataBearer {}
 
 /**
  * <p>Lists routing information for a core network, including routes and their attributes.</p>

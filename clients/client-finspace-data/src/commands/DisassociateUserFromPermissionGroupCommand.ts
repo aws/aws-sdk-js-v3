@@ -27,9 +27,7 @@ export interface DisassociateUserFromPermissionGroupCommandInput extends Disasso
  *
  * The output of {@link DisassociateUserFromPermissionGroupCommand}.
  */
-export interface DisassociateUserFromPermissionGroupCommandOutput
-  extends DisassociateUserFromPermissionGroupResponse,
-    __MetadataBearer {}
+export interface DisassociateUserFromPermissionGroupCommandOutput extends DisassociateUserFromPermissionGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a user from a permission group.</p>

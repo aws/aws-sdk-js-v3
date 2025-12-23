@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { ExecutionClass, JobMode, Permission, ResourceAction, ResourceState, WorkerType } from "./enums";
-
 import {
   type Aggregate,
   type AmazonRedshiftSource,
@@ -90,9 +89,7 @@ import {
   type Union,
   Column,
 } from "./models_0";
-
 import type { ProfileConfiguration, TableIdentifier, UserDefinedFunctionInput } from "./models_1";
-
 import { type FederatedTable, type ViewDefinition, ColumnRowFilter, ViewValidation } from "./models_2";
 
 /**

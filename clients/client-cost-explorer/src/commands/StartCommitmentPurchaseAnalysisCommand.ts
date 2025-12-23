@@ -27,9 +27,7 @@ export interface StartCommitmentPurchaseAnalysisCommandInput extends StartCommit
  *
  * The output of {@link StartCommitmentPurchaseAnalysisCommand}.
  */
-export interface StartCommitmentPurchaseAnalysisCommandOutput
-  extends StartCommitmentPurchaseAnalysisResponse,
-    __MetadataBearer {}
+export interface StartCommitmentPurchaseAnalysisCommandOutput extends StartCommitmentPurchaseAnalysisResponse, __MetadataBearer {}
 
 /**
  * <p>Specifies the parameters of a planned commitment purchase and starts the generation of the

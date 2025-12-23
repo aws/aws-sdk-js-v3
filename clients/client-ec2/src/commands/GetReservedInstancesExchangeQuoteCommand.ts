@@ -27,9 +27,7 @@ export interface GetReservedInstancesExchangeQuoteCommandInput extends GetReserv
  *
  * The output of {@link GetReservedInstancesExchangeQuoteCommand}.
  */
-export interface GetReservedInstancesExchangeQuoteCommandOutput
-  extends GetReservedInstancesExchangeQuoteResult,
-    __MetadataBearer {}
+export interface GetReservedInstancesExchangeQuoteCommandOutput extends GetReservedInstancesExchangeQuoteResult, __MetadataBearer {}
 
 /**
  * <p>Returns a quote and exchange information for exchanging one or more specified Convertible

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListAutomatedReasoningPolicyTestCasesCommand}.
  */
-export interface ListAutomatedReasoningPolicyTestCasesCommandInput
-  extends ListAutomatedReasoningPolicyTestCasesRequest {}
+export interface ListAutomatedReasoningPolicyTestCasesCommandInput extends ListAutomatedReasoningPolicyTestCasesRequest {}
 /**
  * @public
  *
  * The output of {@link ListAutomatedReasoningPolicyTestCasesCommand}.
  */
-export interface ListAutomatedReasoningPolicyTestCasesCommandOutput
-  extends ListAutomatedReasoningPolicyTestCasesResponse,
-    __MetadataBearer {}
+export interface ListAutomatedReasoningPolicyTestCasesCommandOutput extends ListAutomatedReasoningPolicyTestCasesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists tests for an Automated Reasoning policy. We recommend using pagination to ensure that the operation returns quickly and successfully.</p>

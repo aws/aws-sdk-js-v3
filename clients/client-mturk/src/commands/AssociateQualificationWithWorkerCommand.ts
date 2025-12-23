@@ -27,9 +27,7 @@ export interface AssociateQualificationWithWorkerCommandInput extends AssociateQ
  *
  * The output of {@link AssociateQualificationWithWorkerCommand}.
  */
-export interface AssociateQualificationWithWorkerCommandOutput
-  extends AssociateQualificationWithWorkerResponse,
-    __MetadataBearer {}
+export interface AssociateQualificationWithWorkerCommandOutput extends AssociateQualificationWithWorkerResponse, __MetadataBearer {}
 
 /**
  * <p>

@@ -31,9 +31,7 @@ export interface DescribeEnvironmentManagedActionsCommandInput extends DescribeE
  *
  * The output of {@link DescribeEnvironmentManagedActionsCommand}.
  */
-export interface DescribeEnvironmentManagedActionsCommandOutput
-  extends DescribeEnvironmentManagedActionsResult,
-    __MetadataBearer {}
+export interface DescribeEnvironmentManagedActionsCommandOutput extends DescribeEnvironmentManagedActionsResult, __MetadataBearer {}
 
 /**
  * <p>Lists an environment's upcoming and in-progress managed actions.</p>

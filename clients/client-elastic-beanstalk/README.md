@@ -7,7 +7,6 @@
 AWS SDK for JavaScript ElasticBeanstalk Client for Node.js, Browser and React Native.
 
 <fullname>AWS Elastic Beanstalk</fullname>
-
 <p>AWS Elastic Beanstalk makes it easy for you to create, deploy, and manage scalable,
 fault-tolerant applications running on the Amazon Web Services cloud.</p>
 <p>For more information about this product, go to the <a href="http://aws.amazon.com/elasticbeanstalk/">AWS Elastic Beanstalk</a> details page. The location of the
@@ -22,10 +21,8 @@ Toolkits, and command line tools that enable you to access the API, go to <a hre
 Glossary</i>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-elastic-beanstalk
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-elastic-beanstalk`
 - `yarn add @aws-sdk/client-elastic-beanstalk`
 - `pnpm add @aws-sdk/client-elastic-beanstalk`
@@ -61,9 +58,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new ElasticBeanstalkClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListPlatformBranchesCommand(params);
 ```
 
@@ -222,7 +217,6 @@ AbortEnvironmentUpdate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/AbortEnvironmentUpdateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/AbortEnvironmentUpdateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/AbortEnvironmentUpdateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -230,7 +224,6 @@ ApplyEnvironmentManagedAction
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/ApplyEnvironmentManagedActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/ApplyEnvironmentManagedActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/ApplyEnvironmentManagedActionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -238,7 +231,6 @@ AssociateEnvironmentOperationsRole
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/AssociateEnvironmentOperationsRoleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/AssociateEnvironmentOperationsRoleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/AssociateEnvironmentOperationsRoleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -246,7 +238,6 @@ CheckDNSAvailability
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/CheckDNSAvailabilityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/CheckDNSAvailabilityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/CheckDNSAvailabilityCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -254,7 +245,6 @@ ComposeEnvironments
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/ComposeEnvironmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/ComposeEnvironmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/ComposeEnvironmentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -262,7 +252,6 @@ CreateApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/CreateApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/CreateApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/CreateApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -270,7 +259,6 @@ CreateApplicationVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/CreateApplicationVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/CreateApplicationVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/CreateApplicationVersionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -278,7 +266,6 @@ CreateConfigurationTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/CreateConfigurationTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/CreateConfigurationTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/CreateConfigurationTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -286,7 +273,6 @@ CreateEnvironment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/CreateEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/CreateEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/CreateEnvironmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -294,7 +280,6 @@ CreatePlatformVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/CreatePlatformVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/CreatePlatformVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/CreatePlatformVersionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -302,7 +287,6 @@ CreateStorageLocation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/CreateStorageLocationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/CreateStorageLocationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/CreateStorageLocationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -310,7 +294,6 @@ DeleteApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/DeleteApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DeleteApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DeleteApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -318,7 +301,6 @@ DeleteApplicationVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/DeleteApplicationVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DeleteApplicationVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DeleteApplicationVersionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -326,7 +308,6 @@ DeleteConfigurationTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/DeleteConfigurationTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DeleteConfigurationTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DeleteConfigurationTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -334,7 +315,6 @@ DeleteEnvironmentConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/DeleteEnvironmentConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DeleteEnvironmentConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DeleteEnvironmentConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -342,7 +322,6 @@ DeletePlatformVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/DeletePlatformVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DeletePlatformVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DeletePlatformVersionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -350,7 +329,6 @@ DescribeAccountAttributes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/DescribeAccountAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeAccountAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeAccountAttributesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -358,7 +336,6 @@ DescribeApplications
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/DescribeApplicationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeApplicationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeApplicationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -366,7 +343,6 @@ DescribeApplicationVersions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/DescribeApplicationVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeApplicationVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeApplicationVersionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -374,7 +350,6 @@ DescribeConfigurationOptions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/DescribeConfigurationOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeConfigurationOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeConfigurationOptionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -382,7 +357,6 @@ DescribeConfigurationSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/DescribeConfigurationSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeConfigurationSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeConfigurationSettingsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -390,7 +364,6 @@ DescribeEnvironmentHealth
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/DescribeEnvironmentHealthCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeEnvironmentHealthCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeEnvironmentHealthCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -398,7 +371,6 @@ DescribeEnvironmentManagedActionHistory
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/DescribeEnvironmentManagedActionHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeEnvironmentManagedActionHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeEnvironmentManagedActionHistoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -406,7 +378,6 @@ DescribeEnvironmentManagedActions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/DescribeEnvironmentManagedActionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeEnvironmentManagedActionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeEnvironmentManagedActionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -414,7 +385,6 @@ DescribeEnvironmentResources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/DescribeEnvironmentResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeEnvironmentResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeEnvironmentResourcesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -422,7 +392,6 @@ DescribeEnvironments
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/DescribeEnvironmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeEnvironmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeEnvironmentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -430,7 +399,6 @@ DescribeEvents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/DescribeEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeEventsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -438,7 +406,6 @@ DescribeInstancesHealth
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/DescribeInstancesHealthCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeInstancesHealthCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribeInstancesHealthCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -446,7 +413,6 @@ DescribePlatformVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/DescribePlatformVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribePlatformVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DescribePlatformVersionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -454,7 +420,6 @@ DisassociateEnvironmentOperationsRole
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/DisassociateEnvironmentOperationsRoleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DisassociateEnvironmentOperationsRoleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/DisassociateEnvironmentOperationsRoleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -462,7 +427,6 @@ ListAvailableSolutionStacks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/ListAvailableSolutionStacksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/ListAvailableSolutionStacksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/ListAvailableSolutionStacksCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -470,7 +434,6 @@ ListPlatformBranches
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/ListPlatformBranchesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/ListPlatformBranchesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/ListPlatformBranchesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -478,7 +441,6 @@ ListPlatformVersions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/ListPlatformVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/ListPlatformVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/ListPlatformVersionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -486,7 +448,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -494,7 +455,6 @@ RebuildEnvironment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/RebuildEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/RebuildEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/RebuildEnvironmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -502,7 +462,6 @@ RequestEnvironmentInfo
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/RequestEnvironmentInfoCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/RequestEnvironmentInfoCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/RequestEnvironmentInfoCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -510,7 +469,6 @@ RestartAppServer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/RestartAppServerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/RestartAppServerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/RestartAppServerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -518,7 +476,6 @@ RetrieveEnvironmentInfo
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/RetrieveEnvironmentInfoCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/RetrieveEnvironmentInfoCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/RetrieveEnvironmentInfoCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -526,7 +483,6 @@ SwapEnvironmentCNAMEs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/SwapEnvironmentCNAMEsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/SwapEnvironmentCNAMEsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/SwapEnvironmentCNAMEsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -534,7 +490,6 @@ TerminateEnvironment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/TerminateEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/TerminateEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/TerminateEnvironmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -542,7 +497,6 @@ UpdateApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/UpdateApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/UpdateApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/UpdateApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -550,7 +504,6 @@ UpdateApplicationResourceLifecycle
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/UpdateApplicationResourceLifecycleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/UpdateApplicationResourceLifecycleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/UpdateApplicationResourceLifecycleCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -558,7 +511,6 @@ UpdateApplicationVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/UpdateApplicationVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/UpdateApplicationVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/UpdateApplicationVersionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -566,7 +518,6 @@ UpdateConfigurationTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/UpdateConfigurationTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/UpdateConfigurationTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/UpdateConfigurationTemplateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -574,7 +525,6 @@ UpdateEnvironment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/UpdateEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/UpdateEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/UpdateEnvironmentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -582,7 +532,6 @@ UpdateTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/UpdateTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/UpdateTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/UpdateTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -590,5 +539,4 @@ ValidateConfigurationSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-beanstalk/command/ValidateConfigurationSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/ValidateConfigurationSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-beanstalk/Interface/ValidateConfigurationSettingsCommandOutput/)
-
 </details>

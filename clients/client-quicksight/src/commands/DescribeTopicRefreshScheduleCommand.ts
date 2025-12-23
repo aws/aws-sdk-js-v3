@@ -24,9 +24,7 @@ export interface DescribeTopicRefreshScheduleCommandInput extends DescribeTopicR
  *
  * The output of {@link DescribeTopicRefreshScheduleCommand}.
  */
-export interface DescribeTopicRefreshScheduleCommandOutput
-  extends DescribeTopicRefreshScheduleResponse,
-    __MetadataBearer {}
+export interface DescribeTopicRefreshScheduleCommandOutput extends DescribeTopicRefreshScheduleResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a topic refresh schedule.</p>

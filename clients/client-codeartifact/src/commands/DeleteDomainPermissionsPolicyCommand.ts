@@ -24,9 +24,7 @@ export interface DeleteDomainPermissionsPolicyCommandInput extends DeleteDomainP
  *
  * The output of {@link DeleteDomainPermissionsPolicyCommand}.
  */
-export interface DeleteDomainPermissionsPolicyCommandOutput
-  extends DeleteDomainPermissionsPolicyResult,
-    __MetadataBearer {}
+export interface DeleteDomainPermissionsPolicyCommandOutput extends DeleteDomainPermissionsPolicyResult, __MetadataBearer {}
 
 /**
  * <p>

@@ -78,6 +78,9 @@ import {
   OSIS,
   OSISClient,
   OSISServiceException,
+  paginateListPipelineEndpointConnections,
+  paginateListPipelineEndpoints,
+  paginateListPipelines,
   Pipeline$,
   PipelineBlueprint$,
   PipelineBlueprintSummary$,
@@ -135,9 +138,6 @@ import {
   VpcEndpointManagement,
   VpcEndpointServiceName,
   VpcOptions$,
-  paginateListPipelineEndpointConnections,
-  paginateListPipelineEndpoints,
-  paginateListPipelines,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

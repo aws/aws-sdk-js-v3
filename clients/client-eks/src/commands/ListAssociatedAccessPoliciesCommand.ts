@@ -24,9 +24,7 @@ export interface ListAssociatedAccessPoliciesCommandInput extends ListAssociated
  *
  * The output of {@link ListAssociatedAccessPoliciesCommand}.
  */
-export interface ListAssociatedAccessPoliciesCommandOutput
-  extends ListAssociatedAccessPoliciesResponse,
-    __MetadataBearer {}
+export interface ListAssociatedAccessPoliciesCommandOutput extends ListAssociatedAccessPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the access policies associated with an access entry.</p>

@@ -9,10 +9,8 @@ AWS SDK for JavaScript KinesisVideoMedia Client for Node.js, Browser and React N
 <p></p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-kinesis-video-media
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-kinesis-video-media`
 - `yarn add @aws-sdk/client-kinesis-video-media`
 - `pnpm add @aws-sdk/client-kinesis-video-media`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new KinesisVideoMediaClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new GetMediaCommand(params);
 ```
 
@@ -209,5 +205,4 @@ GetMedia
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis-video-media/command/GetMediaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-media/Interface/GetMediaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kinesis-video-media/Interface/GetMediaCommandOutput/)
-
 </details>

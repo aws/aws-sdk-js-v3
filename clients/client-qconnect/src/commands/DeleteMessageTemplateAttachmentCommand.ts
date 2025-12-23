@@ -27,9 +27,7 @@ export interface DeleteMessageTemplateAttachmentCommandInput extends DeleteMessa
  *
  * The output of {@link DeleteMessageTemplateAttachmentCommand}.
  */
-export interface DeleteMessageTemplateAttachmentCommandOutput
-  extends DeleteMessageTemplateAttachmentResponse,
-    __MetadataBearer {}
+export interface DeleteMessageTemplateAttachmentCommandOutput extends DeleteMessageTemplateAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the attachment file from the Amazon Q in Connect message template that is referenced by <code>$LATEST</code> qualifier. Attachments on available message template versions will remain unchanged.</p>

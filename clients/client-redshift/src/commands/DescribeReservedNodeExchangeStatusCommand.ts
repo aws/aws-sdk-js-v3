@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeReservedNodeExchangeStatusCommand}.
  */
-export interface DescribeReservedNodeExchangeStatusCommandInput
-  extends DescribeReservedNodeExchangeStatusInputMessage {}
+export interface DescribeReservedNodeExchangeStatusCommandInput extends DescribeReservedNodeExchangeStatusInputMessage {}
 /**
  * @public
  *
  * The output of {@link DescribeReservedNodeExchangeStatusCommand}.
  */
-export interface DescribeReservedNodeExchangeStatusCommandOutput
-  extends DescribeReservedNodeExchangeStatusOutputMessage,
-    __MetadataBearer {}
+export interface DescribeReservedNodeExchangeStatusCommandOutput extends DescribeReservedNodeExchangeStatusOutputMessage, __MetadataBearer {}
 
 /**
  * <p>Returns exchange status details and associated metadata for a reserved-node

@@ -27,9 +27,7 @@ export interface PutAssetModelInterfaceRelationshipCommandInput extends PutAsset
  *
  * The output of {@link PutAssetModelInterfaceRelationshipCommand}.
  */
-export interface PutAssetModelInterfaceRelationshipCommandOutput
-  extends PutAssetModelInterfaceRelationshipResponse,
-    __MetadataBearer {}
+export interface PutAssetModelInterfaceRelationshipCommandOutput extends PutAssetModelInterfaceRelationshipResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates an interface relationship between an asset model and an interface asset

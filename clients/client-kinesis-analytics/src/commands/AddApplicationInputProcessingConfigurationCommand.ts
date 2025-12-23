@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link AddApplicationInputProcessingConfigurationCommand}.
  */
-export interface AddApplicationInputProcessingConfigurationCommandInput
-  extends AddApplicationInputProcessingConfigurationRequest {}
+export interface AddApplicationInputProcessingConfigurationCommandInput extends AddApplicationInputProcessingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link AddApplicationInputProcessingConfigurationCommand}.
  */
-export interface AddApplicationInputProcessingConfigurationCommandOutput
-  extends AddApplicationInputProcessingConfigurationResponse,
-    __MetadataBearer {}
+export interface AddApplicationInputProcessingConfigurationCommandOutput extends AddApplicationInputProcessingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <note>

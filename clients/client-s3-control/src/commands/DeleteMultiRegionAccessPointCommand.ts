@@ -26,9 +26,7 @@ export interface DeleteMultiRegionAccessPointCommandInput extends DeleteMultiReg
  *
  * The output of {@link DeleteMultiRegionAccessPointCommand}.
  */
-export interface DeleteMultiRegionAccessPointCommandOutput
-  extends DeleteMultiRegionAccessPointResult,
-    __MetadataBearer {}
+export interface DeleteMultiRegionAccessPointCommandOutput extends DeleteMultiRegionAccessPointResult, __MetadataBearer {}
 
 /**
  * <note>

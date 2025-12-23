@@ -27,9 +27,7 @@ export interface ListTargetAccountConfigurationsCommandInput extends ListTargetA
  *
  * The output of {@link ListTargetAccountConfigurationsCommand}.
  */
-export interface ListTargetAccountConfigurationsCommandOutput
-  extends ListTargetAccountConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListTargetAccountConfigurationsCommandOutput extends ListTargetAccountConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the target account configurations of the specified experiment template.</p>

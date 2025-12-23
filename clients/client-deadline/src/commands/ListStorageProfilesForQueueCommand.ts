@@ -24,9 +24,7 @@ export interface ListStorageProfilesForQueueCommandInput extends ListStorageProf
  *
  * The output of {@link ListStorageProfilesForQueueCommand}.
  */
-export interface ListStorageProfilesForQueueCommandOutput
-  extends ListStorageProfilesForQueueResponse,
-    __MetadataBearer {}
+export interface ListStorageProfilesForQueueCommandOutput extends ListStorageProfilesForQueueResponse, __MetadataBearer {}
 
 /**
  * <p>Lists storage profiles for a queue.</p>

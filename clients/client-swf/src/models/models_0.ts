@@ -2393,9 +2393,7 @@ export interface Decision {
    *       It isn't set for other decision types.</p>
    * @public
    */
-  requestCancelExternalWorkflowExecutionDecisionAttributes?:
-    | RequestCancelExternalWorkflowExecutionDecisionAttributes
-    | undefined;
+  requestCancelExternalWorkflowExecutionDecisionAttributes?: RequestCancelExternalWorkflowExecutionDecisionAttributes | undefined;
 
   /**
    * <p>Provides the details of the <code>StartChildWorkflowExecution</code> decision. It isn't set for other decision types.</p>
@@ -4304,9 +4302,7 @@ export interface HistoryEvent {
    *       provides detailed information about the event. It isn't set for other event types.</p>
    * @public
    */
-  signalExternalWorkflowExecutionInitiatedEventAttributes?:
-    | SignalExternalWorkflowExecutionInitiatedEventAttributes
-    | undefined;
+  signalExternalWorkflowExecutionInitiatedEventAttributes?: SignalExternalWorkflowExecutionInitiatedEventAttributes | undefined;
 
   /**
    * <p>If the event is of type <code>ExternalWorkflowExecutionSignaled</code> then this member is set and provides
@@ -4320,36 +4316,28 @@ export interface HistoryEvent {
    *       detailed information about the event. It isn't set for other event types.</p>
    * @public
    */
-  signalExternalWorkflowExecutionFailedEventAttributes?:
-    | SignalExternalWorkflowExecutionFailedEventAttributes
-    | undefined;
+  signalExternalWorkflowExecutionFailedEventAttributes?: SignalExternalWorkflowExecutionFailedEventAttributes | undefined;
 
   /**
    * <p>If the event is of type <code>ExternalWorkflowExecutionCancelRequested</code> then this member is set and
    *       provides detailed information about the event. It isn't set for other event types. </p>
    * @public
    */
-  externalWorkflowExecutionCancelRequestedEventAttributes?:
-    | ExternalWorkflowExecutionCancelRequestedEventAttributes
-    | undefined;
+  externalWorkflowExecutionCancelRequestedEventAttributes?: ExternalWorkflowExecutionCancelRequestedEventAttributes | undefined;
 
   /**
    * <p>If the event is of type <code>RequestCancelExternalWorkflowExecutionInitiated</code> then this member is set and
    *       provides detailed information about the event. It isn't set for other event types.</p>
    * @public
    */
-  requestCancelExternalWorkflowExecutionInitiatedEventAttributes?:
-    | RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
-    | undefined;
+  requestCancelExternalWorkflowExecutionInitiatedEventAttributes?: RequestCancelExternalWorkflowExecutionInitiatedEventAttributes | undefined;
 
   /**
    * <p>If the event is of type <code>RequestCancelExternalWorkflowExecutionFailed</code> then this member is set and
    *       provides detailed information about the event. It isn't set for other event types.</p>
    * @public
    */
-  requestCancelExternalWorkflowExecutionFailedEventAttributes?:
-    | RequestCancelExternalWorkflowExecutionFailedEventAttributes
-    | undefined;
+  requestCancelExternalWorkflowExecutionFailedEventAttributes?: RequestCancelExternalWorkflowExecutionFailedEventAttributes | undefined;
 
   /**
    * <p>If the event is of type <code>ScheduleActivityTaskFailed</code> then this member is set and provides detailed

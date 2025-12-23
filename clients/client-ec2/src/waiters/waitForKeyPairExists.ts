@@ -10,13 +10,13 @@ const checkState = async (client: EC2Client, input: DescribeKeyPairsCommandInput
     const result: any = await client.send(new DescribeKeyPairsCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.KeyPairs);
-        const projection_3 = flat_1.map((element_2: any) => {
+      let returnComparator = () => {
+        let flat_1: any[] = [].concat(...result.KeyPairs);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.KeyName;
         });
-        return projection_3.length > 0.0;
-      };
+        return (projection_3.length > 0.0);
+      }
       if (returnComparator() == true) {
         return { state: WaiterState.SUCCESS, reason };
       }

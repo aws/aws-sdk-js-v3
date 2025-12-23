@@ -24,9 +24,7 @@ export interface CreateConfiguredAudienceModelCommandInput extends CreateConfigu
  *
  * The output of {@link CreateConfiguredAudienceModelCommand}.
  */
-export interface CreateConfiguredAudienceModelCommandOutput
-  extends CreateConfiguredAudienceModelResponse,
-    __MetadataBearer {}
+export interface CreateConfiguredAudienceModelCommandOutput extends CreateConfiguredAudienceModelResponse, __MetadataBearer {}
 
 /**
  * <p>Defines the information necessary to create a configured audience model.</p>

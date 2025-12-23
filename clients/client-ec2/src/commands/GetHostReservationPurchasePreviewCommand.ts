@@ -27,9 +27,7 @@ export interface GetHostReservationPurchasePreviewCommandInput extends GetHostRe
  *
  * The output of {@link GetHostReservationPurchasePreviewCommand}.
  */
-export interface GetHostReservationPurchasePreviewCommandOutput
-  extends GetHostReservationPurchasePreviewResult,
-    __MetadataBearer {}
+export interface GetHostReservationPurchasePreviewCommandOutput extends GetHostReservationPurchasePreviewResult, __MetadataBearer {}
 
 /**
  * <p>Preview a reservation purchase with configurations that match those of your Dedicated

@@ -24,9 +24,7 @@ export interface DescribeDirectConnectGatewaysCommandInput extends DescribeDirec
  *
  * The output of {@link DescribeDirectConnectGatewaysCommand}.
  */
-export interface DescribeDirectConnectGatewaysCommandOutput
-  extends DescribeDirectConnectGatewaysResult,
-    __MetadataBearer {}
+export interface DescribeDirectConnectGatewaysCommandOutput extends DescribeDirectConnectGatewaysResult, __MetadataBearer {}
 
 /**
  * <p>Lists all your Direct Connect gateways or only the specified Direct Connect gateway. Deleted Direct Connect gateways are not returned.</p>

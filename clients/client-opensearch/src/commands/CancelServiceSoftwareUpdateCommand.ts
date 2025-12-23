@@ -24,9 +24,7 @@ export interface CancelServiceSoftwareUpdateCommandInput extends CancelServiceSo
  *
  * The output of {@link CancelServiceSoftwareUpdateCommand}.
  */
-export interface CancelServiceSoftwareUpdateCommandOutput
-  extends CancelServiceSoftwareUpdateResponse,
-    __MetadataBearer {}
+export interface CancelServiceSoftwareUpdateCommandOutput extends CancelServiceSoftwareUpdateResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels a scheduled service software update for an Amazon OpenSearch Service domain.

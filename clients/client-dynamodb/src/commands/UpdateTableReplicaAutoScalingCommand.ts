@@ -24,9 +24,7 @@ export interface UpdateTableReplicaAutoScalingCommandInput extends UpdateTableRe
  *
  * The output of {@link UpdateTableReplicaAutoScalingCommand}.
  */
-export interface UpdateTableReplicaAutoScalingCommandOutput
-  extends UpdateTableReplicaAutoScalingOutput,
-    __MetadataBearer {}
+export interface UpdateTableReplicaAutoScalingCommandOutput extends UpdateTableReplicaAutoScalingOutput, __MetadataBearer {}
 
 /**
  * <p>Updates auto scaling settings on your global tables at once.</p>

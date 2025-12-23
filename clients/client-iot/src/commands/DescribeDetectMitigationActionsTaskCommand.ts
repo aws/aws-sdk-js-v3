@@ -27,9 +27,7 @@ export interface DescribeDetectMitigationActionsTaskCommandInput extends Describ
  *
  * The output of {@link DescribeDetectMitigationActionsTaskCommand}.
  */
-export interface DescribeDetectMitigationActionsTaskCommandOutput
-  extends DescribeDetectMitigationActionsTaskResponse,
-    __MetadataBearer {}
+export interface DescribeDetectMitigationActionsTaskCommandOutput extends DescribeDetectMitigationActionsTaskResponse, __MetadataBearer {}
 
 /**
  * <p>

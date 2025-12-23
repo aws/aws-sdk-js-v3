@@ -353,8 +353,7 @@ export type MigrationHubRefactorSpacesClientResolvedConfigType = __SmithyResolve
  *
  *  The resolved configuration interface of MigrationHubRefactorSpacesClient class. This is resolved and normalized from the {@link MigrationHubRefactorSpacesClientConfig | constructor configuration interface}.
  */
-export interface MigrationHubRefactorSpacesClientResolvedConfig
-  extends MigrationHubRefactorSpacesClientResolvedConfigType {}
+export interface MigrationHubRefactorSpacesClientResolvedConfig extends MigrationHubRefactorSpacesClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Web Services Migration Hub Refactor Spaces</fullname>

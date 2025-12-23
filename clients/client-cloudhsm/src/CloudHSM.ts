@@ -108,8 +108,14 @@ export interface CloudHSM {
   /**
    * @see {@link CreateHapgCommand}
    */
-  createHapg(args: CreateHapgCommandInput, options?: __HttpHandlerOptions): Promise<CreateHapgCommandOutput>;
-  createHapg(args: CreateHapgCommandInput, cb: (err: any, data?: CreateHapgCommandOutput) => void): void;
+  createHapg(
+    args: CreateHapgCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateHapgCommandOutput>;
+  createHapg(
+    args: CreateHapgCommandInput,
+    cb: (err: any, data?: CreateHapgCommandOutput) => void
+  ): void;
   createHapg(
     args: CreateHapgCommandInput,
     options: __HttpHandlerOptions,
@@ -119,8 +125,14 @@ export interface CloudHSM {
   /**
    * @see {@link CreateHsmCommand}
    */
-  createHsm(args: CreateHsmCommandInput, options?: __HttpHandlerOptions): Promise<CreateHsmCommandOutput>;
-  createHsm(args: CreateHsmCommandInput, cb: (err: any, data?: CreateHsmCommandOutput) => void): void;
+  createHsm(
+    args: CreateHsmCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateHsmCommandOutput>;
+  createHsm(
+    args: CreateHsmCommandInput,
+    cb: (err: any, data?: CreateHsmCommandOutput) => void
+  ): void;
   createHsm(
     args: CreateHsmCommandInput,
     options: __HttpHandlerOptions,
@@ -147,8 +159,14 @@ export interface CloudHSM {
   /**
    * @see {@link DeleteHapgCommand}
    */
-  deleteHapg(args: DeleteHapgCommandInput, options?: __HttpHandlerOptions): Promise<DeleteHapgCommandOutput>;
-  deleteHapg(args: DeleteHapgCommandInput, cb: (err: any, data?: DeleteHapgCommandOutput) => void): void;
+  deleteHapg(
+    args: DeleteHapgCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteHapgCommandOutput>;
+  deleteHapg(
+    args: DeleteHapgCommandInput,
+    cb: (err: any, data?: DeleteHapgCommandOutput) => void
+  ): void;
   deleteHapg(
     args: DeleteHapgCommandInput,
     options: __HttpHandlerOptions,
@@ -158,8 +176,14 @@ export interface CloudHSM {
   /**
    * @see {@link DeleteHsmCommand}
    */
-  deleteHsm(args: DeleteHsmCommandInput, options?: __HttpHandlerOptions): Promise<DeleteHsmCommandOutput>;
-  deleteHsm(args: DeleteHsmCommandInput, cb: (err: any, data?: DeleteHsmCommandOutput) => void): void;
+  deleteHsm(
+    args: DeleteHsmCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteHsmCommandOutput>;
+  deleteHsm(
+    args: DeleteHsmCommandInput,
+    cb: (err: any, data?: DeleteHsmCommandOutput) => void
+  ): void;
   deleteHsm(
     args: DeleteHsmCommandInput,
     options: __HttpHandlerOptions,
@@ -186,8 +210,14 @@ export interface CloudHSM {
   /**
    * @see {@link DescribeHapgCommand}
    */
-  describeHapg(args: DescribeHapgCommandInput, options?: __HttpHandlerOptions): Promise<DescribeHapgCommandOutput>;
-  describeHapg(args: DescribeHapgCommandInput, cb: (err: any, data?: DescribeHapgCommandOutput) => void): void;
+  describeHapg(
+    args: DescribeHapgCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeHapgCommandOutput>;
+  describeHapg(
+    args: DescribeHapgCommandInput,
+    cb: (err: any, data?: DescribeHapgCommandOutput) => void
+  ): void;
   describeHapg(
     args: DescribeHapgCommandInput,
     options: __HttpHandlerOptions,
@@ -198,8 +228,14 @@ export interface CloudHSM {
    * @see {@link DescribeHsmCommand}
    */
   describeHsm(): Promise<DescribeHsmCommandOutput>;
-  describeHsm(args: DescribeHsmCommandInput, options?: __HttpHandlerOptions): Promise<DescribeHsmCommandOutput>;
-  describeHsm(args: DescribeHsmCommandInput, cb: (err: any, data?: DescribeHsmCommandOutput) => void): void;
+  describeHsm(
+    args: DescribeHsmCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeHsmCommandOutput>;
+  describeHsm(
+    args: DescribeHsmCommandInput,
+    cb: (err: any, data?: DescribeHsmCommandOutput) => void
+  ): void;
   describeHsm(
     args: DescribeHsmCommandInput,
     options: __HttpHandlerOptions,
@@ -227,8 +263,14 @@ export interface CloudHSM {
   /**
    * @see {@link GetConfigCommand}
    */
-  getConfig(args: GetConfigCommandInput, options?: __HttpHandlerOptions): Promise<GetConfigCommandOutput>;
-  getConfig(args: GetConfigCommandInput, cb: (err: any, data?: GetConfigCommandOutput) => void): void;
+  getConfig(
+    args: GetConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConfigCommandOutput>;
+  getConfig(
+    args: GetConfigCommandInput,
+    cb: (err: any, data?: GetConfigCommandOutput) => void
+  ): void;
   getConfig(
     args: GetConfigCommandInput,
     options: __HttpHandlerOptions,
@@ -257,8 +299,14 @@ export interface CloudHSM {
    * @see {@link ListHapgsCommand}
    */
   listHapgs(): Promise<ListHapgsCommandOutput>;
-  listHapgs(args: ListHapgsCommandInput, options?: __HttpHandlerOptions): Promise<ListHapgsCommandOutput>;
-  listHapgs(args: ListHapgsCommandInput, cb: (err: any, data?: ListHapgsCommandOutput) => void): void;
+  listHapgs(
+    args: ListHapgsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHapgsCommandOutput>;
+  listHapgs(
+    args: ListHapgsCommandInput,
+    cb: (err: any, data?: ListHapgsCommandOutput) => void
+  ): void;
   listHapgs(
     args: ListHapgsCommandInput,
     options: __HttpHandlerOptions,
@@ -269,8 +317,14 @@ export interface CloudHSM {
    * @see {@link ListHsmsCommand}
    */
   listHsms(): Promise<ListHsmsCommandOutput>;
-  listHsms(args: ListHsmsCommandInput, options?: __HttpHandlerOptions): Promise<ListHsmsCommandOutput>;
-  listHsms(args: ListHsmsCommandInput, cb: (err: any, data?: ListHsmsCommandOutput) => void): void;
+  listHsms(
+    args: ListHsmsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHsmsCommandOutput>;
+  listHsms(
+    args: ListHsmsCommandInput,
+    cb: (err: any, data?: ListHsmsCommandOutput) => void
+  ): void;
   listHsms(
     args: ListHsmsCommandInput,
     options: __HttpHandlerOptions,
@@ -285,7 +339,10 @@ export interface CloudHSM {
     args: ListLunaClientsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListLunaClientsCommandOutput>;
-  listLunaClients(args: ListLunaClientsCommandInput, cb: (err: any, data?: ListLunaClientsCommandOutput) => void): void;
+  listLunaClients(
+    args: ListLunaClientsCommandInput,
+    cb: (err: any, data?: ListLunaClientsCommandOutput) => void
+  ): void;
   listLunaClients(
     args: ListLunaClientsCommandInput,
     options: __HttpHandlerOptions,
@@ -312,8 +369,14 @@ export interface CloudHSM {
   /**
    * @see {@link ModifyHapgCommand}
    */
-  modifyHapg(args: ModifyHapgCommandInput, options?: __HttpHandlerOptions): Promise<ModifyHapgCommandOutput>;
-  modifyHapg(args: ModifyHapgCommandInput, cb: (err: any, data?: ModifyHapgCommandOutput) => void): void;
+  modifyHapg(
+    args: ModifyHapgCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyHapgCommandOutput>;
+  modifyHapg(
+    args: ModifyHapgCommandInput,
+    cb: (err: any, data?: ModifyHapgCommandOutput) => void
+  ): void;
   modifyHapg(
     args: ModifyHapgCommandInput,
     options: __HttpHandlerOptions,
@@ -323,8 +386,14 @@ export interface CloudHSM {
   /**
    * @see {@link ModifyHsmCommand}
    */
-  modifyHsm(args: ModifyHsmCommandInput, options?: __HttpHandlerOptions): Promise<ModifyHsmCommandOutput>;
-  modifyHsm(args: ModifyHsmCommandInput, cb: (err: any, data?: ModifyHsmCommandOutput) => void): void;
+  modifyHsm(
+    args: ModifyHsmCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyHsmCommandOutput>;
+  modifyHsm(
+    args: ModifyHsmCommandInput,
+    cb: (err: any, data?: ModifyHsmCommandOutput) => void
+  ): void;
   modifyHsm(
     args: ModifyHsmCommandInput,
     options: __HttpHandlerOptions,

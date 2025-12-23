@@ -27,9 +27,7 @@ export interface GetTableBucketMetricsConfigurationCommandInput extends GetTable
  *
  * The output of {@link GetTableBucketMetricsConfigurationCommand}.
  */
-export interface GetTableBucketMetricsConfigurationCommandOutput
-  extends GetTableBucketMetricsConfigurationResponse,
-    __MetadataBearer {}
+export interface GetTableBucketMetricsConfigurationCommandOutput extends GetTableBucketMetricsConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the metrics configuration for a table bucket.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableBucketMetricsConfiguration</code> permission to use this operation.</p> </dd> </dl>

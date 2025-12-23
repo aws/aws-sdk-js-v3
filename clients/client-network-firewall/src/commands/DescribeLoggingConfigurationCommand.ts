@@ -28,9 +28,7 @@ export interface DescribeLoggingConfigurationCommandInput extends DescribeLoggin
  *
  * The output of {@link DescribeLoggingConfigurationCommand}.
  */
-export interface DescribeLoggingConfigurationCommandOutput
-  extends DescribeLoggingConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeLoggingConfigurationCommandOutput extends DescribeLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the logging configuration for the specified firewall. </p>

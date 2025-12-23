@@ -24,9 +24,7 @@ export interface CreateRecordingConfigurationCommandInput extends CreateRecordin
  *
  * The output of {@link CreateRecordingConfigurationCommand}.
  */
-export interface CreateRecordingConfigurationCommandOutput
-  extends CreateRecordingConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateRecordingConfigurationCommandOutput extends CreateRecordingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new recording configuration, used to enable recording to Amazon S3.</p>

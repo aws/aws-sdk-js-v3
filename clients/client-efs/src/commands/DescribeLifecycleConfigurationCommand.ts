@@ -24,9 +24,7 @@ export interface DescribeLifecycleConfigurationCommandInput extends DescribeLife
  *
  * The output of {@link DescribeLifecycleConfigurationCommand}.
  */
-export interface DescribeLifecycleConfigurationCommandOutput
-  extends LifecycleConfigurationDescription,
-    __MetadataBearer {}
+export interface DescribeLifecycleConfigurationCommandOutput extends LifecycleConfigurationDescription, __MetadataBearer {}
 
 /**
  * <p>Returns the current <code>LifecycleConfiguration</code> object for the specified

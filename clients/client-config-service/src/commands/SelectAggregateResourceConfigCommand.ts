@@ -24,9 +24,7 @@ export interface SelectAggregateResourceConfigCommandInput extends SelectAggrega
  *
  * The output of {@link SelectAggregateResourceConfigCommand}.
  */
-export interface SelectAggregateResourceConfigCommandOutput
-  extends SelectAggregateResourceConfigResponse,
-    __MetadataBearer {}
+export interface SelectAggregateResourceConfigCommandOutput extends SelectAggregateResourceConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts a structured query language (SQL) SELECT command and an aggregator to query configuration state of Amazon Web Services resources across multiple accounts and regions,

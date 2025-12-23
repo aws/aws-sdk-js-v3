@@ -27,9 +27,7 @@ export interface ListFieldLevelEncryptionProfilesCommandInput extends ListFieldL
  *
  * The output of {@link ListFieldLevelEncryptionProfilesCommand}.
  */
-export interface ListFieldLevelEncryptionProfilesCommandOutput
-  extends ListFieldLevelEncryptionProfilesResult,
-    __MetadataBearer {}
+export interface ListFieldLevelEncryptionProfilesCommandOutput extends ListFieldLevelEncryptionProfilesResult, __MetadataBearer {}
 
 /**
  * <p>Request a list of field-level encryption profiles that have been created in CloudFront for this account.</p>

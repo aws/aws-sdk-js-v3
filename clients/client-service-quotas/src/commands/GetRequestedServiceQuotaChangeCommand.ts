@@ -24,9 +24,7 @@ export interface GetRequestedServiceQuotaChangeCommandInput extends GetRequested
  *
  * The output of {@link GetRequestedServiceQuotaChangeCommand}.
  */
-export interface GetRequestedServiceQuotaChangeCommandOutput
-  extends GetRequestedServiceQuotaChangeResponse,
-    __MetadataBearer {}
+export interface GetRequestedServiceQuotaChangeCommandOutput extends GetRequestedServiceQuotaChangeResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the specified quota increase request.</p>

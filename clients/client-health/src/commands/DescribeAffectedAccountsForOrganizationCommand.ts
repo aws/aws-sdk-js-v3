@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeAffectedAccountsForOrganizationCommand}.
  */
-export interface DescribeAffectedAccountsForOrganizationCommandInput
-  extends DescribeAffectedAccountsForOrganizationRequest {}
+export interface DescribeAffectedAccountsForOrganizationCommandInput extends DescribeAffectedAccountsForOrganizationRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeAffectedAccountsForOrganizationCommand}.
  */
-export interface DescribeAffectedAccountsForOrganizationCommandOutput
-  extends DescribeAffectedAccountsForOrganizationResponse,
-    __MetadataBearer {}
+export interface DescribeAffectedAccountsForOrganizationCommandOutput extends DescribeAffectedAccountsForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of accounts in the organization from Organizations that are affected by the

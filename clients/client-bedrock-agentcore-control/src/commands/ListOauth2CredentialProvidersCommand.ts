@@ -28,9 +28,7 @@ export interface ListOauth2CredentialProvidersCommandInput extends ListOauth2Cre
  *
  * The output of {@link ListOauth2CredentialProvidersCommand}.
  */
-export interface ListOauth2CredentialProvidersCommandOutput
-  extends ListOauth2CredentialProvidersResponse,
-    __MetadataBearer {}
+export interface ListOauth2CredentialProvidersCommandOutput extends ListOauth2CredentialProvidersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all OAuth2 credential providers in your account.</p>

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeAwsNetworkPerformanceMetricSubscriptionsCommand}.
  */
-export interface DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput
-  extends DescribeAwsNetworkPerformanceMetricSubscriptionsRequest {}
+export interface DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput extends DescribeAwsNetworkPerformanceMetricSubscriptionsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeAwsNetworkPerformanceMetricSubscriptionsCommand}.
  */
-export interface DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput
-  extends DescribeAwsNetworkPerformanceMetricSubscriptionsResult,
-    __MetadataBearer {}
+export interface DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput extends DescribeAwsNetworkPerformanceMetricSubscriptionsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the current Infrastructure Performance metric subscriptions.</p>

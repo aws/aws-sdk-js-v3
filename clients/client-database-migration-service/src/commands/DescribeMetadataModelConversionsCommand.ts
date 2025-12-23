@@ -31,9 +31,7 @@ export interface DescribeMetadataModelConversionsCommandInput extends DescribeMe
  *
  * The output of {@link DescribeMetadataModelConversionsCommand}.
  */
-export interface DescribeMetadataModelConversionsCommandOutput
-  extends DescribeMetadataModelConversionsResponse,
-    __MetadataBearer {}
+export interface DescribeMetadataModelConversionsCommandOutput extends DescribeMetadataModelConversionsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of metadata model conversions for a migration project.</p>

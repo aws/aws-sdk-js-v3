@@ -31,9 +31,7 @@ export interface DeleteApplicationVpcConfigurationCommandInput extends DeleteApp
  *
  * The output of {@link DeleteApplicationVpcConfigurationCommand}.
  */
-export interface DeleteApplicationVpcConfigurationCommandOutput
-  extends DeleteApplicationVpcConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteApplicationVpcConfigurationCommandOutput extends DeleteApplicationVpcConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a VPC configuration from a Managed Service for Apache Flink application.</p>

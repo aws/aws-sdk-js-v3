@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteModelInvocationLoggingConfigurationCommand}.
  */
-export interface DeleteModelInvocationLoggingConfigurationCommandInput
-  extends DeleteModelInvocationLoggingConfigurationRequest {}
+export interface DeleteModelInvocationLoggingConfigurationCommandInput extends DeleteModelInvocationLoggingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteModelInvocationLoggingConfigurationCommand}.
  */
-export interface DeleteModelInvocationLoggingConfigurationCommandOutput
-  extends DeleteModelInvocationLoggingConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteModelInvocationLoggingConfigurationCommandOutput extends DeleteModelInvocationLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Delete the invocation logging. </p>

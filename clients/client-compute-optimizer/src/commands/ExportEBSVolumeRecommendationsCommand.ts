@@ -28,9 +28,7 @@ export interface ExportEBSVolumeRecommendationsCommandInput extends ExportEBSVol
  *
  * The output of {@link ExportEBSVolumeRecommendationsCommand}.
  */
-export interface ExportEBSVolumeRecommendationsCommandOutput
-  extends ExportEBSVolumeRecommendationsResponse,
-    __MetadataBearer {}
+export interface ExportEBSVolumeRecommendationsCommandOutput extends ExportEBSVolumeRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Exports optimization recommendations for Amazon EBS volumes.</p>

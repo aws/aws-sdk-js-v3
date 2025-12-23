@@ -27,9 +27,7 @@ export interface RejectEnvironmentAccountConnectionCommandInput extends RejectEn
  *
  * The output of {@link RejectEnvironmentAccountConnectionCommand}.
  */
-export interface RejectEnvironmentAccountConnectionCommandOutput
-  extends RejectEnvironmentAccountConnectionOutput,
-    __MetadataBearer {}
+export interface RejectEnvironmentAccountConnectionCommandOutput extends RejectEnvironmentAccountConnectionOutput, __MetadataBearer {}
 
 /**
  * <p>In a management account, reject an environment account connection from another environment account.</p>

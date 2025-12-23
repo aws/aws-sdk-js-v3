@@ -24,9 +24,7 @@ export interface GetRelationalDatabaseBundlesCommandInput extends GetRelationalD
  *
  * The output of {@link GetRelationalDatabaseBundlesCommand}.
  */
-export interface GetRelationalDatabaseBundlesCommandOutput
-  extends GetRelationalDatabaseBundlesResult,
-    __MetadataBearer {}
+export interface GetRelationalDatabaseBundlesCommandOutput extends GetRelationalDatabaseBundlesResult, __MetadataBearer {}
 
 /**
  * <p>Returns the list of bundles that are available in Amazon Lightsail. A bundle describes the

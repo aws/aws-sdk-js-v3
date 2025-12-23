@@ -1,4 +1,5 @@
 import {
+  AssumedRoleUser$,
   AssumeRole$,
   AssumeRoleCommand,
   AssumeRoleRequest$,
@@ -15,7 +16,6 @@ import {
   AssumeRootCommand,
   AssumeRootRequest$,
   AssumeRootResponse$,
-  AssumedRoleUser$,
   Credentials$,
   DecodeAuthorizationMessage$,
   DecodeAuthorizationMessageCommand,
@@ -70,11 +70,11 @@ import {
   ProvidedContext$,
   RegionDisabledException,
   RegionDisabledException$,
+  SessionDurationEscalationException,
+  SessionDurationEscalationException$,
   STS,
   STSClient,
   STSServiceException,
-  SessionDurationEscalationException,
-  SessionDurationEscalationException$,
   Tag$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";

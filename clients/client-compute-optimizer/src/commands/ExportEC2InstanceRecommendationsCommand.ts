@@ -31,9 +31,7 @@ export interface ExportEC2InstanceRecommendationsCommandInput extends ExportEC2I
  *
  * The output of {@link ExportEC2InstanceRecommendationsCommand}.
  */
-export interface ExportEC2InstanceRecommendationsCommandOutput
-  extends ExportEC2InstanceRecommendationsResponse,
-    __MetadataBearer {}
+export interface ExportEC2InstanceRecommendationsCommandOutput extends ExportEC2InstanceRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Exports optimization recommendations for Amazon EC2 instances.</p>

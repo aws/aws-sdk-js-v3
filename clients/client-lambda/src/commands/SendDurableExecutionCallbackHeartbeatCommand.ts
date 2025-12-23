@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link SendDurableExecutionCallbackHeartbeatCommand}.
  */
-export interface SendDurableExecutionCallbackHeartbeatCommandInput
-  extends SendDurableExecutionCallbackHeartbeatRequest {}
+export interface SendDurableExecutionCallbackHeartbeatCommandInput extends SendDurableExecutionCallbackHeartbeatRequest {}
 /**
  * @public
  *
  * The output of {@link SendDurableExecutionCallbackHeartbeatCommand}.
  */
-export interface SendDurableExecutionCallbackHeartbeatCommandOutput
-  extends SendDurableExecutionCallbackHeartbeatResponse,
-    __MetadataBearer {}
+export interface SendDurableExecutionCallbackHeartbeatCommandOutput extends SendDurableExecutionCallbackHeartbeatResponse, __MetadataBearer {}
 
 /**
  * <p>Sends a heartbeat signal for a long-running callback operation to prevent timeout. Use this API to extend the callback timeout period while the external operation is still in progress.</p>

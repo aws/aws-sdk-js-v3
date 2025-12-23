@@ -24,9 +24,7 @@ export interface DisassociateDiscoveredResourceCommandInput extends Disassociate
  *
  * The output of {@link DisassociateDiscoveredResourceCommand}.
  */
-export interface DisassociateDiscoveredResourceCommandOutput
-  extends DisassociateDiscoveredResourceResult,
-    __MetadataBearer {}
+export interface DisassociateDiscoveredResourceCommandOutput extends DisassociateDiscoveredResourceResult, __MetadataBearer {}
 
 /**
  * <p>Disassociate an Application Discovery Service discovered resource from a migration

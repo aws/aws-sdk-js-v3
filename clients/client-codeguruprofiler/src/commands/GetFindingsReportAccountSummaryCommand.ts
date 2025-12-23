@@ -31,9 +31,7 @@ export interface GetFindingsReportAccountSummaryCommandInput extends GetFindings
  *
  * The output of {@link GetFindingsReportAccountSummaryCommand}.
  */
-export interface GetFindingsReportAccountSummaryCommandOutput
-  extends GetFindingsReportAccountSummaryResponse,
-    __MetadataBearer {}
+export interface GetFindingsReportAccountSummaryCommandOutput extends GetFindingsReportAccountSummaryResponse, __MetadataBearer {}
 
 /**
  * <p>

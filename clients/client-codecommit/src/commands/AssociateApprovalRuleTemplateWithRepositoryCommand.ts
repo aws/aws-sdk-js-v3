@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link AssociateApprovalRuleTemplateWithRepositoryCommand}.
  */
-export interface AssociateApprovalRuleTemplateWithRepositoryCommandInput
-  extends AssociateApprovalRuleTemplateWithRepositoryInput {}
+export interface AssociateApprovalRuleTemplateWithRepositoryCommandInput extends AssociateApprovalRuleTemplateWithRepositoryInput {}
 /**
  * @public
  *

@@ -10,25 +10,25 @@ const checkState = async (client: CodeDeployClient, input: GetDeploymentCommandI
     const result: any = await client.send(new GetDeploymentCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.deploymentInfo.status;
-      };
+      }
       if (returnComparator() === "Succeeded") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.deploymentInfo.status;
-      };
+      }
       if (returnComparator() === "Failed") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.deploymentInfo.status;
-      };
+      }
       if (returnComparator() === "Stopped") {
         return { state: WaiterState.FAILURE, reason };
       }

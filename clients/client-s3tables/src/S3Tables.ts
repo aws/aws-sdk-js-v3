@@ -285,7 +285,10 @@ export interface S3Tables {
     args: CreateNamespaceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateNamespaceCommandOutput>;
-  createNamespace(args: CreateNamespaceCommandInput, cb: (err: any, data?: CreateNamespaceCommandOutput) => void): void;
+  createNamespace(
+    args: CreateNamespaceCommandInput,
+    cb: (err: any, data?: CreateNamespaceCommandOutput) => void
+  ): void;
   createNamespace(
     args: CreateNamespaceCommandInput,
     options: __HttpHandlerOptions,
@@ -295,8 +298,14 @@ export interface S3Tables {
   /**
    * @see {@link CreateTableCommand}
    */
-  createTable(args: CreateTableCommandInput, options?: __HttpHandlerOptions): Promise<CreateTableCommandOutput>;
-  createTable(args: CreateTableCommandInput, cb: (err: any, data?: CreateTableCommandOutput) => void): void;
+  createTable(
+    args: CreateTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTableCommandOutput>;
+  createTable(
+    args: CreateTableCommandInput,
+    cb: (err: any, data?: CreateTableCommandOutput) => void
+  ): void;
   createTable(
     args: CreateTableCommandInput,
     options: __HttpHandlerOptions,
@@ -327,7 +336,10 @@ export interface S3Tables {
     args: DeleteNamespaceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteNamespaceCommandOutput>;
-  deleteNamespace(args: DeleteNamespaceCommandInput, cb: (err: any, data?: DeleteNamespaceCommandOutput) => void): void;
+  deleteNamespace(
+    args: DeleteNamespaceCommandInput,
+    cb: (err: any, data?: DeleteNamespaceCommandOutput) => void
+  ): void;
   deleteNamespace(
     args: DeleteNamespaceCommandInput,
     options: __HttpHandlerOptions,
@@ -337,8 +349,14 @@ export interface S3Tables {
   /**
    * @see {@link DeleteTableCommand}
    */
-  deleteTable(args: DeleteTableCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTableCommandOutput>;
-  deleteTable(args: DeleteTableCommandInput, cb: (err: any, data?: DeleteTableCommandOutput) => void): void;
+  deleteTable(
+    args: DeleteTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTableCommandOutput>;
+  deleteTable(
+    args: DeleteTableCommandInput,
+    cb: (err: any, data?: DeleteTableCommandOutput) => void
+  ): void;
   deleteTable(
     args: DeleteTableCommandInput,
     options: __HttpHandlerOptions,
@@ -467,8 +485,14 @@ export interface S3Tables {
   /**
    * @see {@link GetNamespaceCommand}
    */
-  getNamespace(args: GetNamespaceCommandInput, options?: __HttpHandlerOptions): Promise<GetNamespaceCommandOutput>;
-  getNamespace(args: GetNamespaceCommandInput, cb: (err: any, data?: GetNamespaceCommandOutput) => void): void;
+  getNamespace(
+    args: GetNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNamespaceCommandOutput>;
+  getNamespace(
+    args: GetNamespaceCommandInput,
+    cb: (err: any, data?: GetNamespaceCommandOutput) => void
+  ): void;
   getNamespace(
     args: GetNamespaceCommandInput,
     options: __HttpHandlerOptions,
@@ -479,8 +503,14 @@ export interface S3Tables {
    * @see {@link GetTableCommand}
    */
   getTable(): Promise<GetTableCommandOutput>;
-  getTable(args: GetTableCommandInput, options?: __HttpHandlerOptions): Promise<GetTableCommandOutput>;
-  getTable(args: GetTableCommandInput, cb: (err: any, data?: GetTableCommandOutput) => void): void;
+  getTable(
+    args: GetTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTableCommandOutput>;
+  getTable(
+    args: GetTableCommandInput,
+    cb: (err: any, data?: GetTableCommandOutput) => void
+  ): void;
   getTable(
     args: GetTableCommandInput,
     options: __HttpHandlerOptions,
@@ -494,7 +524,10 @@ export interface S3Tables {
     args: GetTableBucketCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetTableBucketCommandOutput>;
-  getTableBucket(args: GetTableBucketCommandInput, cb: (err: any, data?: GetTableBucketCommandOutput) => void): void;
+  getTableBucket(
+    args: GetTableBucketCommandInput,
+    cb: (err: any, data?: GetTableBucketCommandOutput) => void
+  ): void;
   getTableBucket(
     args: GetTableBucketCommandInput,
     options: __HttpHandlerOptions,
@@ -678,7 +711,10 @@ export interface S3Tables {
     args: GetTablePolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetTablePolicyCommandOutput>;
-  getTablePolicy(args: GetTablePolicyCommandInput, cb: (err: any, data?: GetTablePolicyCommandOutput) => void): void;
+  getTablePolicy(
+    args: GetTablePolicyCommandInput,
+    cb: (err: any, data?: GetTablePolicyCommandOutput) => void
+  ): void;
   getTablePolicy(
     args: GetTablePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -777,7 +813,10 @@ export interface S3Tables {
     args: ListNamespacesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListNamespacesCommandOutput>;
-  listNamespaces(args: ListNamespacesCommandInput, cb: (err: any, data?: ListNamespacesCommandOutput) => void): void;
+  listNamespaces(
+    args: ListNamespacesCommandInput,
+    cb: (err: any, data?: ListNamespacesCommandOutput) => void
+  ): void;
   listNamespaces(
     args: ListNamespacesCommandInput,
     options: __HttpHandlerOptions,
@@ -805,8 +844,14 @@ export interface S3Tables {
   /**
    * @see {@link ListTablesCommand}
    */
-  listTables(args: ListTablesCommandInput, options?: __HttpHandlerOptions): Promise<ListTablesCommandOutput>;
-  listTables(args: ListTablesCommandInput, cb: (err: any, data?: ListTablesCommandOutput) => void): void;
+  listTables(
+    args: ListTablesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTablesCommandOutput>;
+  listTables(
+    args: ListTablesCommandInput,
+    cb: (err: any, data?: ListTablesCommandOutput) => void
+  ): void;
   listTables(
     args: ListTablesCommandInput,
     options: __HttpHandlerOptions,
@@ -956,7 +1001,10 @@ export interface S3Tables {
     args: PutTablePolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutTablePolicyCommandOutput>;
-  putTablePolicy(args: PutTablePolicyCommandInput, cb: (err: any, data?: PutTablePolicyCommandOutput) => void): void;
+  putTablePolicy(
+    args: PutTablePolicyCommandInput,
+    cb: (err: any, data?: PutTablePolicyCommandOutput) => void
+  ): void;
   putTablePolicy(
     args: PutTablePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -1000,8 +1048,14 @@ export interface S3Tables {
   /**
    * @see {@link RenameTableCommand}
    */
-  renameTable(args: RenameTableCommandInput, options?: __HttpHandlerOptions): Promise<RenameTableCommandOutput>;
-  renameTable(args: RenameTableCommandInput, cb: (err: any, data?: RenameTableCommandOutput) => void): void;
+  renameTable(
+    args: RenameTableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RenameTableCommandOutput>;
+  renameTable(
+    args: RenameTableCommandInput,
+    cb: (err: any, data?: RenameTableCommandOutput) => void
+  ): void;
   renameTable(
     args: RenameTableCommandInput,
     options: __HttpHandlerOptions,
@@ -1011,8 +1065,14 @@ export interface S3Tables {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1022,8 +1082,14 @@ export interface S3Tables {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

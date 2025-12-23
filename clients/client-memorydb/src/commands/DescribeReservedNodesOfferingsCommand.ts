@@ -24,9 +24,7 @@ export interface DescribeReservedNodesOfferingsCommandInput extends DescribeRese
  *
  * The output of {@link DescribeReservedNodesOfferingsCommand}.
  */
-export interface DescribeReservedNodesOfferingsCommandOutput
-  extends DescribeReservedNodesOfferingsResponse,
-    __MetadataBearer {}
+export interface DescribeReservedNodesOfferingsCommandOutput extends DescribeReservedNodesOfferingsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists available reserved node offerings.</p>

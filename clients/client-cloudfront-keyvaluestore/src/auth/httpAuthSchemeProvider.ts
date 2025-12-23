@@ -42,9 +42,7 @@ interface _CloudFrontKeyValueStoreHttpAuthSchemeParameters extends HttpAuthSchem
 /**
  * @internal
  */
-export interface CloudFrontKeyValueStoreHttpAuthSchemeParameters
-  extends _CloudFrontKeyValueStoreHttpAuthSchemeParameters,
-    EndpointParameters {
+export interface CloudFrontKeyValueStoreHttpAuthSchemeParameters extends _CloudFrontKeyValueStoreHttpAuthSchemeParameters, EndpointParameters {
   region?: string;
 }
 
@@ -104,13 +102,13 @@ const createEndpointRuleSetHttpAuthSchemeParametersProvider =
   > =>
   async (config: TConfig, context: TContext, input: TInput): Promise<TParameters> => {
     if (!input) {
-      throw new Error(`Could not find \`input\` for \`defaultEndpointRuleSetHttpAuthSchemeParametersProvider\``);
+      throw new Error("Could not find `input` for `defaultEndpointRuleSetHttpAuthSchemeParametersProvider`");
     }
     const defaultParameters = await defaultHttpAuthSchemeParametersProvider(config, context, input);
     const instructionsFn = (getSmithyContext(context) as EndpointRuleSetSmithyContext)?.commandInstance?.constructor
       ?.getEndpointParameterInstructions;
     if (!instructionsFn) {
-      throw new Error(`getEndpointParameterInstructions() is not defined on \`${context.commandName!}\``);
+      throw new Error(`getEndpointParameterInstructions() is not defined on '${context.commandName!}'`);
     }
     const endpointParameters = await resolveParams(
       input as Record<string, unknown>,
@@ -129,24 +127,18 @@ const _defaultCloudFrontKeyValueStoreHttpAuthSchemeParametersProvider = async (
 ): Promise<_CloudFrontKeyValueStoreHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 /**
  * @internal
  */
 export const defaultCloudFrontKeyValueStoreHttpAuthSchemeParametersProvider: CloudFrontKeyValueStoreHttpAuthSchemeParametersProvider =
-  createEndpointRuleSetHttpAuthSchemeParametersProvider(
-    _defaultCloudFrontKeyValueStoreHttpAuthSchemeParametersProvider
-  );
+  createEndpointRuleSetHttpAuthSchemeParametersProvider(_defaultCloudFrontKeyValueStoreHttpAuthSchemeParametersProvider);
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: CloudFrontKeyValueStoreHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: CloudFrontKeyValueStoreHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -165,9 +157,7 @@ function createAwsAuthSigv4HttpAuthOption(
   };
 }
 
-function createAwsAuthSigv4aHttpAuthOption(
-  authParameters: CloudFrontKeyValueStoreHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4aHttpAuthOption(authParameters: CloudFrontKeyValueStoreHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4a",
     signingProperties: {
@@ -189,14 +179,12 @@ function createAwsAuthSigv4aHttpAuthOption(
 /**
  * @internal
  */
-interface _CloudFrontKeyValueStoreHttpAuthSchemeProvider
-  extends HttpAuthSchemeProvider<CloudFrontKeyValueStoreHttpAuthSchemeParameters> {}
+interface _CloudFrontKeyValueStoreHttpAuthSchemeProvider extends HttpAuthSchemeProvider<CloudFrontKeyValueStoreHttpAuthSchemeParameters> {}
 
 /**
  * @internal
  */
-export interface CloudFrontKeyValueStoreHttpAuthSchemeProvider
-  extends HttpAuthSchemeProvider<CloudFrontKeyValueStoreHttpAuthSchemeParameters> {}
+export interface CloudFrontKeyValueStoreHttpAuthSchemeProvider extends HttpAuthSchemeProvider<CloudFrontKeyValueStoreHttpAuthSchemeParameters> {}
 
 /**
  * @internal
@@ -239,7 +227,7 @@ const createEndpointRuleSetHttpAuthSchemeProvider = <
       const { name: resolvedName, properties = {}, ...rest } = scheme;
       const name = resolvedName.toLowerCase();
       if (resolvedName !== name) {
-        console.warn(`HttpAuthScheme has been normalized with lowercasing: \`${resolvedName}\` to \`${name}\``);
+        console.warn(`HttpAuthScheme has been normalized with lowercasing: '${resolvedName}' to '${name}'`);
       }
       let schemeId;
       if (name === "sigv4a") {
@@ -255,11 +243,11 @@ const createEndpointRuleSetHttpAuthSchemeProvider = <
       } else if (name.startsWith("sigv4")) {
         schemeId = "aws.auth#sigv4";
       } else {
-        throw new Error(`Unknown HttpAuthScheme found in \`@smithy.rules#endpointRuleSet\`: \`${name}\``);
+        throw new Error(`Unknown HttpAuthScheme found in '@smithy.rules#endpointRuleSet': '${name}'`);
       }
       const createOption = createHttpAuthOptionFunctions[schemeId];
       if (!createOption) {
-        throw new Error(`Could not find HttpAuthOption create function for \`${schemeId}\``);
+        throw new Error(`Could not find HttpAuthOption create function for '${schemeId}'`);
       }
       const option = createOption(authParameters);
       option.schemeId = schemeId;
@@ -274,9 +262,7 @@ const createEndpointRuleSetHttpAuthSchemeProvider = <
 /**
  * @internal
  */
-const _defaultCloudFrontKeyValueStoreHttpAuthSchemeProvider: _CloudFrontKeyValueStoreHttpAuthSchemeProvider = (
-  authParameters
-) => {
+const _defaultCloudFrontKeyValueStoreHttpAuthSchemeProvider: _CloudFrontKeyValueStoreHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {
@@ -289,15 +275,12 @@ const _defaultCloudFrontKeyValueStoreHttpAuthSchemeProvider: _CloudFrontKeyValue
 /**
  * @internal
  */
-export const defaultCloudFrontKeyValueStoreHttpAuthSchemeProvider: CloudFrontKeyValueStoreHttpAuthSchemeProvider =
-  createEndpointRuleSetHttpAuthSchemeProvider(
-    defaultEndpointResolver,
-    _defaultCloudFrontKeyValueStoreHttpAuthSchemeProvider,
-    {
-      "aws.auth#sigv4": createAwsAuthSigv4HttpAuthOption,
-      "aws.auth#sigv4a": createAwsAuthSigv4aHttpAuthOption,
-    }
-  );
+export const defaultCloudFrontKeyValueStoreHttpAuthSchemeProvider: CloudFrontKeyValueStoreHttpAuthSchemeProvider = createEndpointRuleSetHttpAuthSchemeProvider(
+  defaultEndpointResolver,
+  _defaultCloudFrontKeyValueStoreHttpAuthSchemeProvider, {
+    "aws.auth#sigv4": createAwsAuthSigv4HttpAuthOption,
+    "aws.auth#sigv4a": createAwsAuthSigv4aHttpAuthOption,
+  });
 
 /**
  * @public

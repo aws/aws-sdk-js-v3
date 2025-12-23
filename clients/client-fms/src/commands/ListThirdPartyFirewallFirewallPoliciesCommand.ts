@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListThirdPartyFirewallFirewallPoliciesCommand}.
  */
-export interface ListThirdPartyFirewallFirewallPoliciesCommandInput
-  extends ListThirdPartyFirewallFirewallPoliciesRequest {}
+export interface ListThirdPartyFirewallFirewallPoliciesCommandInput extends ListThirdPartyFirewallFirewallPoliciesRequest {}
 /**
  * @public
  *
  * The output of {@link ListThirdPartyFirewallFirewallPoliciesCommand}.
  */
-export interface ListThirdPartyFirewallFirewallPoliciesCommandOutput
-  extends ListThirdPartyFirewallFirewallPoliciesResponse,
-    __MetadataBearer {}
+export interface ListThirdPartyFirewallFirewallPoliciesCommandOutput extends ListThirdPartyFirewallFirewallPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of all of the third-party firewall policies that are associated with the third-party firewall administrator's account.</p>

@@ -28,9 +28,7 @@ export interface CreateSiteToSiteVpnAttachmentCommandInput extends CreateSiteToS
  *
  * The output of {@link CreateSiteToSiteVpnAttachmentCommand}.
  */
-export interface CreateSiteToSiteVpnAttachmentCommandOutput
-  extends CreateSiteToSiteVpnAttachmentResponse,
-    __MetadataBearer {}
+export interface CreateSiteToSiteVpnAttachmentCommandOutput extends CreateSiteToSiteVpnAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Web Services site-to-site VPN attachment on an edge location of a core network.</p>

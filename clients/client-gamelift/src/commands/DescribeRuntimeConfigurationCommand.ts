@@ -24,9 +24,7 @@ export interface DescribeRuntimeConfigurationCommandInput extends DescribeRuntim
  *
  * The output of {@link DescribeRuntimeConfigurationCommand}.
  */
-export interface DescribeRuntimeConfigurationCommandOutput
-  extends DescribeRuntimeConfigurationOutput,
-    __MetadataBearer {}
+export interface DescribeRuntimeConfigurationCommandOutput extends DescribeRuntimeConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>

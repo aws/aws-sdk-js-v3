@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListResolverQueryLogConfigAssociationsCommand}.
  */
-export interface ListResolverQueryLogConfigAssociationsCommandInput
-  extends ListResolverQueryLogConfigAssociationsRequest {}
+export interface ListResolverQueryLogConfigAssociationsCommandInput extends ListResolverQueryLogConfigAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListResolverQueryLogConfigAssociationsCommand}.
  */
-export interface ListResolverQueryLogConfigAssociationsCommandOutput
-  extends ListResolverQueryLogConfigAssociationsResponse,
-    __MetadataBearer {}
+export interface ListResolverQueryLogConfigAssociationsCommandOutput extends ListResolverQueryLogConfigAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists information about associations between Amazon VPCs and query logging configurations.</p>

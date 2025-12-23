@@ -107,6 +107,9 @@ import {
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
   LocalizedContent$,
+  paginateListConnectionInvitations,
+  paginateListConnections,
+  paginateListPartners,
   Participant$,
   ParticipantType,
   PartnerCentralAccount,
@@ -177,9 +180,6 @@ import {
   VerificationResponseDetails$,
   VerificationStatus,
   VerificationType,
-  paginateListConnectionInvitations,
-  paginateListConnections,
-  paginateListPartners,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

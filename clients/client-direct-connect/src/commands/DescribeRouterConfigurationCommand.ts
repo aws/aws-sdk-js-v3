@@ -24,9 +24,7 @@ export interface DescribeRouterConfigurationCommandInput extends DescribeRouterC
  *
  * The output of {@link DescribeRouterConfigurationCommand}.
  */
-export interface DescribeRouterConfigurationCommandOutput
-  extends DescribeRouterConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeRouterConfigurationCommandOutput extends DescribeRouterConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>

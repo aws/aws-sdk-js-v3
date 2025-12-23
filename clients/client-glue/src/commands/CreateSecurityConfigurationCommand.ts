@@ -24,9 +24,7 @@ export interface CreateSecurityConfigurationCommandInput extends CreateSecurityC
  *
  * The output of {@link CreateSecurityConfigurationCommand}.
  */
-export interface CreateSecurityConfigurationCommandOutput
-  extends CreateSecurityConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateSecurityConfigurationCommandOutput extends CreateSecurityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new security configuration. A security configuration is a set of security properties that can be used by Glue. You can use a security configuration to encrypt data at rest. For information about using security configurations in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/encryption-security-configuration.html">Encrypting Data Written by Crawlers, Jobs, and Development Endpoints</a>.</p>

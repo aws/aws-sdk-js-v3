@@ -46,11 +46,9 @@ export const defaultLookoutEquipmentHttpAuthSchemeParametersProvider = async (
 ): Promise<LookoutEquipmentHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -82,9 +80,7 @@ export interface LookoutEquipmentHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultLookoutEquipmentHttpAuthSchemeProvider: LookoutEquipmentHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultLookoutEquipmentHttpAuthSchemeProvider: LookoutEquipmentHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

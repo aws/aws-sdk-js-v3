@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeAccountAssignmentCreationStatusCommand}.
  */
-export interface DescribeAccountAssignmentCreationStatusCommandInput
-  extends DescribeAccountAssignmentCreationStatusRequest {}
+export interface DescribeAccountAssignmentCreationStatusCommandInput extends DescribeAccountAssignmentCreationStatusRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeAccountAssignmentCreationStatusCommand}.
  */
-export interface DescribeAccountAssignmentCreationStatusCommandOutput
-  extends DescribeAccountAssignmentCreationStatusResponse,
-    __MetadataBearer {}
+export interface DescribeAccountAssignmentCreationStatusCommandOutput extends DescribeAccountAssignmentCreationStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the status of the assignment creation request.</p>

@@ -308,8 +308,7 @@ export type CostAndUsageReportServiceClientResolvedConfigType = __SmithyResolved
  *
  *  The resolved configuration interface of CostAndUsageReportServiceClient class. This is resolved and normalized from the {@link CostAndUsageReportServiceClientConfig | constructor configuration interface}.
  */
-export interface CostAndUsageReportServiceClientResolvedConfig
-  extends CostAndUsageReportServiceClientResolvedConfigType {}
+export interface CostAndUsageReportServiceClientResolvedConfig extends CostAndUsageReportServiceClientResolvedConfigType {}
 
 /**
  * <p>You can use the Amazon Web Services Cost and Usage Report API to programmatically create, query, and delete

@@ -28,9 +28,7 @@ export interface AdminDisableProviderForUserCommandInput extends AdminDisablePro
  *
  * The output of {@link AdminDisableProviderForUserCommand}.
  */
-export interface AdminDisableProviderForUserCommandOutput
-  extends AdminDisableProviderForUserResponse,
-    __MetadataBearer {}
+export interface AdminDisableProviderForUserCommandOutput extends AdminDisableProviderForUserResponse, __MetadataBearer {}
 
 /**
  * <p>Prevents the user from signing in with the specified external (SAML or social)

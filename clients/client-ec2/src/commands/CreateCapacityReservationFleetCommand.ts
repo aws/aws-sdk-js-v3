@@ -24,9 +24,7 @@ export interface CreateCapacityReservationFleetCommandInput extends CreateCapaci
  *
  * The output of {@link CreateCapacityReservationFleetCommand}.
  */
-export interface CreateCapacityReservationFleetCommandOutput
-  extends CreateCapacityReservationFleetResult,
-    __MetadataBearer {}
+export interface CreateCapacityReservationFleetCommandOutput extends CreateCapacityReservationFleetResult, __MetadataBearer {}
 
 /**
  * <p>Creates a Capacity Reservation Fleet. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-cr-fleets.html#create-crfleet">Create a

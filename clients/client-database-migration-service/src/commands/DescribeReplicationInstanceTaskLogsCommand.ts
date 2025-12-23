@@ -31,9 +31,7 @@ export interface DescribeReplicationInstanceTaskLogsCommandInput extends Describ
  *
  * The output of {@link DescribeReplicationInstanceTaskLogsCommand}.
  */
-export interface DescribeReplicationInstanceTaskLogsCommandOutput
-  extends DescribeReplicationInstanceTaskLogsResponse,
-    __MetadataBearer {}
+export interface DescribeReplicationInstanceTaskLogsCommandOutput extends DescribeReplicationInstanceTaskLogsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the task logs for the specified task.</p>

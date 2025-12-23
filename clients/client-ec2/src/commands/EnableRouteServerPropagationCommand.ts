@@ -24,9 +24,7 @@ export interface EnableRouteServerPropagationCommandInput extends EnableRouteSer
  *
  * The output of {@link EnableRouteServerPropagationCommand}.
  */
-export interface EnableRouteServerPropagationCommandOutput
-  extends EnableRouteServerPropagationResult,
-    __MetadataBearer {}
+export interface EnableRouteServerPropagationCommandOutput extends EnableRouteServerPropagationResult, __MetadataBearer {}
 
 /**
  * <p>Defines which route tables the route server can update with routes.</p>

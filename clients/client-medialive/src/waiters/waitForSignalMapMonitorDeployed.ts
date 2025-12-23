@@ -10,49 +10,49 @@ const checkState = async (client: MediaLiveClient, input: GetSignalMapCommandInp
     const result: any = await client.send(new GetSignalMapCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.MonitorDeployment.Status;
-      };
+      }
       if (returnComparator() === "DRY_RUN_DEPLOYMENT_COMPLETE") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.MonitorDeployment.Status;
-      };
+      }
       if (returnComparator() === "DEPLOYMENT_COMPLETE") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.MonitorDeployment.Status;
-      };
+      }
       if (returnComparator() === "DRY_RUN_DEPLOYMENT_IN_PROGRESS") {
         return { state: WaiterState.RETRY, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.MonitorDeployment.Status;
-      };
+      }
       if (returnComparator() === "DEPLOYMENT_IN_PROGRESS") {
         return { state: WaiterState.RETRY, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.MonitorDeployment.Status;
-      };
+      }
       if (returnComparator() === "DRY_RUN_DEPLOYMENT_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.MonitorDeployment.Status;
-      };
+      }
       if (returnComparator() === "DEPLOYMENT_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

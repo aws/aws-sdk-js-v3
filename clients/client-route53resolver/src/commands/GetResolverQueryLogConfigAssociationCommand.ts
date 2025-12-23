@@ -31,9 +31,7 @@ export interface GetResolverQueryLogConfigAssociationCommandInput extends GetRes
  *
  * The output of {@link GetResolverQueryLogConfigAssociationCommand}.
  */
-export interface GetResolverQueryLogConfigAssociationCommandOutput
-  extends GetResolverQueryLogConfigAssociationResponse,
-    __MetadataBearer {}
+export interface GetResolverQueryLogConfigAssociationCommandOutput extends GetResolverQueryLogConfigAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a specified association between a Resolver query logging configuration and an Amazon VPC. When you associate a VPC

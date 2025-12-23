@@ -702,8 +702,14 @@ export interface WorkSpaces {
   /**
    * @see {@link CreateIpGroupCommand}
    */
-  createIpGroup(args: CreateIpGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateIpGroupCommandOutput>;
-  createIpGroup(args: CreateIpGroupCommandInput, cb: (err: any, data?: CreateIpGroupCommandOutput) => void): void;
+  createIpGroup(
+    args: CreateIpGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIpGroupCommandOutput>;
+  createIpGroup(
+    args: CreateIpGroupCommandInput,
+    cb: (err: any, data?: CreateIpGroupCommandOutput) => void
+  ): void;
   createIpGroup(
     args: CreateIpGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -730,8 +736,14 @@ export interface WorkSpaces {
   /**
    * @see {@link CreateTagsCommand}
    */
-  createTags(args: CreateTagsCommandInput, options?: __HttpHandlerOptions): Promise<CreateTagsCommandOutput>;
-  createTags(args: CreateTagsCommandInput, cb: (err: any, data?: CreateTagsCommandOutput) => void): void;
+  createTags(
+    args: CreateTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTagsCommandOutput>;
+  createTags(
+    args: CreateTagsCommandInput,
+    cb: (err: any, data?: CreateTagsCommandOutput) => void
+  ): void;
   createTags(
     args: CreateTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -894,8 +906,14 @@ export interface WorkSpaces {
   /**
    * @see {@link DeleteIpGroupCommand}
    */
-  deleteIpGroup(args: DeleteIpGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteIpGroupCommandOutput>;
-  deleteIpGroup(args: DeleteIpGroupCommandInput, cb: (err: any, data?: DeleteIpGroupCommandOutput) => void): void;
+  deleteIpGroup(
+    args: DeleteIpGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIpGroupCommandOutput>;
+  deleteIpGroup(
+    args: DeleteIpGroupCommandInput,
+    cb: (err: any, data?: DeleteIpGroupCommandOutput) => void
+  ): void;
   deleteIpGroup(
     args: DeleteIpGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -905,8 +923,14 @@ export interface WorkSpaces {
   /**
    * @see {@link DeleteTagsCommand}
    */
-  deleteTags(args: DeleteTagsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTagsCommandOutput>;
-  deleteTags(args: DeleteTagsCommandInput, cb: (err: any, data?: DeleteTagsCommandOutput) => void): void;
+  deleteTags(
+    args: DeleteTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTagsCommandOutput>;
+  deleteTags(
+    args: DeleteTagsCommandInput,
+    cb: (err: any, data?: DeleteTagsCommandOutput) => void
+  ): void;
   deleteTags(
     args: DeleteTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -990,7 +1014,10 @@ export interface WorkSpaces {
     args: DescribeAccountCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeAccountCommandOutput>;
-  describeAccount(args: DescribeAccountCommandInput, cb: (err: any, data?: DescribeAccountCommandOutput) => void): void;
+  describeAccount(
+    args: DescribeAccountCommandInput,
+    cb: (err: any, data?: DescribeAccountCommandOutput) => void
+  ): void;
   describeAccount(
     args: DescribeAccountCommandInput,
     options: __HttpHandlerOptions,
@@ -1208,8 +1235,14 @@ export interface WorkSpaces {
   /**
    * @see {@link DescribeTagsCommand}
    */
-  describeTags(args: DescribeTagsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTagsCommandOutput>;
-  describeTags(args: DescribeTagsCommandInput, cb: (err: any, data?: DescribeTagsCommandOutput) => void): void;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTagsCommandOutput>;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    cb: (err: any, data?: DescribeTagsCommandOutput) => void
+  ): void;
   describeTags(
     args: DescribeTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -1451,7 +1484,10 @@ export interface WorkSpaces {
     args: GetAccountLinkCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAccountLinkCommandOutput>;
-  getAccountLink(args: GetAccountLinkCommandInput, cb: (err: any, data?: GetAccountLinkCommandOutput) => void): void;
+  getAccountLink(
+    args: GetAccountLinkCommandInput,
+    cb: (err: any, data?: GetAccountLinkCommandOutput) => void
+  ): void;
   getAccountLink(
     args: GetAccountLinkCommandInput,
     options: __HttpHandlerOptions,
@@ -1565,8 +1601,14 @@ export interface WorkSpaces {
    * @see {@link ModifyAccountCommand}
    */
   modifyAccount(): Promise<ModifyAccountCommandOutput>;
-  modifyAccount(args: ModifyAccountCommandInput, options?: __HttpHandlerOptions): Promise<ModifyAccountCommandOutput>;
-  modifyAccount(args: ModifyAccountCommandInput, cb: (err: any, data?: ModifyAccountCommandOutput) => void): void;
+  modifyAccount(
+    args: ModifyAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyAccountCommandOutput>;
+  modifyAccount(
+    args: ModifyAccountCommandInput,
+    cb: (err: any, data?: ModifyAccountCommandOutput) => void
+  ): void;
   modifyAccount(
     args: ModifyAccountCommandInput,
     options: __HttpHandlerOptions,
@@ -1832,8 +1874,14 @@ export interface WorkSpaces {
   /**
    * @see {@link RevokeIpRulesCommand}
    */
-  revokeIpRules(args: RevokeIpRulesCommandInput, options?: __HttpHandlerOptions): Promise<RevokeIpRulesCommandOutput>;
-  revokeIpRules(args: RevokeIpRulesCommandInput, cb: (err: any, data?: RevokeIpRulesCommandOutput) => void): void;
+  revokeIpRules(
+    args: RevokeIpRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RevokeIpRulesCommandOutput>;
+  revokeIpRules(
+    args: RevokeIpRulesCommandInput,
+    cb: (err: any, data?: RevokeIpRulesCommandOutput) => void
+  ): void;
   revokeIpRules(
     args: RevokeIpRulesCommandInput,
     options: __HttpHandlerOptions,
@@ -1847,7 +1895,10 @@ export interface WorkSpaces {
     args: StartWorkspacesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartWorkspacesCommandOutput>;
-  startWorkspaces(args: StartWorkspacesCommandInput, cb: (err: any, data?: StartWorkspacesCommandOutput) => void): void;
+  startWorkspaces(
+    args: StartWorkspacesCommandInput,
+    cb: (err: any, data?: StartWorkspacesCommandOutput) => void
+  ): void;
   startWorkspaces(
     args: StartWorkspacesCommandInput,
     options: __HttpHandlerOptions,
@@ -1878,7 +1929,10 @@ export interface WorkSpaces {
     args: StopWorkspacesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopWorkspacesCommandOutput>;
-  stopWorkspaces(args: StopWorkspacesCommandInput, cb: (err: any, data?: StopWorkspacesCommandOutput) => void): void;
+  stopWorkspaces(
+    args: StopWorkspacesCommandInput,
+    cb: (err: any, data?: StopWorkspacesCommandOutput) => void
+  ): void;
   stopWorkspaces(
     args: StopWorkspacesCommandInput,
     options: __HttpHandlerOptions,

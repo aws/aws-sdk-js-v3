@@ -24,9 +24,7 @@ export interface DeleteEgressOnlyInternetGatewayCommandInput extends DeleteEgres
  *
  * The output of {@link DeleteEgressOnlyInternetGatewayCommand}.
  */
-export interface DeleteEgressOnlyInternetGatewayCommandOutput
-  extends DeleteEgressOnlyInternetGatewayResult,
-    __MetadataBearer {}
+export interface DeleteEgressOnlyInternetGatewayCommandOutput extends DeleteEgressOnlyInternetGatewayResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an egress-only internet gateway.</p>

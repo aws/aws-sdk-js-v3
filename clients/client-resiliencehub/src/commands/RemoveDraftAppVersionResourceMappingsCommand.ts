@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link RemoveDraftAppVersionResourceMappingsCommand}.
  */
-export interface RemoveDraftAppVersionResourceMappingsCommandInput
-  extends RemoveDraftAppVersionResourceMappingsRequest {}
+export interface RemoveDraftAppVersionResourceMappingsCommandInput extends RemoveDraftAppVersionResourceMappingsRequest {}
 /**
  * @public
  *
  * The output of {@link RemoveDraftAppVersionResourceMappingsCommand}.
  */
-export interface RemoveDraftAppVersionResourceMappingsCommandOutput
-  extends RemoveDraftAppVersionResourceMappingsResponse,
-    __MetadataBearer {}
+export interface RemoveDraftAppVersionResourceMappingsCommandOutput extends RemoveDraftAppVersionResourceMappingsResponse, __MetadataBearer {}
 
 /**
  * <p>Removes resource mappings from a draft application version.</p>

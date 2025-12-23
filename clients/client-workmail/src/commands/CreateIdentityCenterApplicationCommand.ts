@@ -27,9 +27,7 @@ export interface CreateIdentityCenterApplicationCommandInput extends CreateIdent
  *
  * The output of {@link CreateIdentityCenterApplicationCommand}.
  */
-export interface CreateIdentityCenterApplicationCommandOutput
-  extends CreateIdentityCenterApplicationResponse,
-    __MetadataBearer {}
+export interface CreateIdentityCenterApplicationCommandOutput extends CreateIdentityCenterApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>

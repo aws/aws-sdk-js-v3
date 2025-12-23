@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutServiceLinkedConfigurationRecorderCommand}.
  */
-export interface PutServiceLinkedConfigurationRecorderCommandInput
-  extends PutServiceLinkedConfigurationRecorderRequest {}
+export interface PutServiceLinkedConfigurationRecorderCommandInput extends PutServiceLinkedConfigurationRecorderRequest {}
 /**
  * @public
  *
  * The output of {@link PutServiceLinkedConfigurationRecorderCommand}.
  */
-export interface PutServiceLinkedConfigurationRecorderCommandOutput
-  extends PutServiceLinkedConfigurationRecorderResponse,
-    __MetadataBearer {}
+export interface PutServiceLinkedConfigurationRecorderCommandOutput extends PutServiceLinkedConfigurationRecorderResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a service-linked configuration recorder that is linked to a specific Amazon Web Services service based on the <code>ServicePrincipal</code> you specify.</p>

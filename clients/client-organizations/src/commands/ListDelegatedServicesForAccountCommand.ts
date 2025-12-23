@@ -27,9 +27,7 @@ export interface ListDelegatedServicesForAccountCommandInput extends ListDelegat
  *
  * The output of {@link ListDelegatedServicesForAccountCommand}.
  */
-export interface ListDelegatedServicesForAccountCommandOutput
-  extends ListDelegatedServicesForAccountResponse,
-    __MetadataBearer {}
+export interface ListDelegatedServicesForAccountCommandOutput extends ListDelegatedServicesForAccountResponse, __MetadataBearer {}
 
 /**
  * <p>List the Amazon Web Services services for which the specified account is a delegated

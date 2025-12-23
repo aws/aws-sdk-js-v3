@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DeleteInboundCrossClusterSearchConnectionCommand}.
  */
-export interface DeleteInboundCrossClusterSearchConnectionCommandInput
-  extends DeleteInboundCrossClusterSearchConnectionRequest {}
+export interface DeleteInboundCrossClusterSearchConnectionCommandInput extends DeleteInboundCrossClusterSearchConnectionRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteInboundCrossClusterSearchConnectionCommand}.
  */
-export interface DeleteInboundCrossClusterSearchConnectionCommandOutput
-  extends DeleteInboundCrossClusterSearchConnectionResponse,
-    __MetadataBearer {}
+export interface DeleteInboundCrossClusterSearchConnectionCommandOutput extends DeleteInboundCrossClusterSearchConnectionResponse, __MetadataBearer {}
 
 /**
  * <p>Allows the destination domain owner to delete an existing inbound cross-cluster search connection.</p>

@@ -79,6 +79,9 @@ import {
   MetadataConfiguration$,
   NotFoundException,
   NotFoundException$,
+  paginateListIndexes,
+  paginateListVectorBuckets,
+  paginateListVectors,
   PutInputVector$,
   PutVectorBucketPolicy$,
   PutVectorBucketPolicyCommand,
@@ -119,9 +122,6 @@ import {
   VectorBucket$,
   VectorBucketSummary$,
   VectorData$,
-  paginateListIndexes,
-  paginateListVectorBuckets,
-  paginateListVectors,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

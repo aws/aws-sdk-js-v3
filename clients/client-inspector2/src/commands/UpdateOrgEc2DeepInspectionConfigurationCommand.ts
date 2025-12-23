@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateOrgEc2DeepInspectionConfigurationCommand}.
  */
-export interface UpdateOrgEc2DeepInspectionConfigurationCommandInput
-  extends UpdateOrgEc2DeepInspectionConfigurationRequest {}
+export interface UpdateOrgEc2DeepInspectionConfigurationCommandInput extends UpdateOrgEc2DeepInspectionConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateOrgEc2DeepInspectionConfigurationCommand}.
  */
-export interface UpdateOrgEc2DeepInspectionConfigurationCommandOutput
-  extends UpdateOrgEc2DeepInspectionConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateOrgEc2DeepInspectionConfigurationCommandOutput extends UpdateOrgEc2DeepInspectionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the Amazon Inspector deep inspection custom paths for your organization. You must be an

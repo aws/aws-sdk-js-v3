@@ -10,9 +10,9 @@ const checkState = async (client: AmpClient, input: DescribeScraperCommandInput)
     const result: any = await client.send(new DescribeScraperCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.scraper.status.statusCode;
-      };
+      }
       if (returnComparator() === "DELETION_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

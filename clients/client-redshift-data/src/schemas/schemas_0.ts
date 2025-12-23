@@ -159,259 +159,269 @@ import {
 import { RedshiftDataServiceException } from "../models/RedshiftDataServiceException";
 
 /* eslint no-var: 0 */
-export var ActiveSessionsExceededException$: StaticErrorSchema = [-3, n0, _ASEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ActiveSessionsExceededException$, ActiveSessionsExceededException);
-export var ActiveStatementsExceededException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ASEEc,
+export var ActiveSessionsExceededException$: StaticErrorSchema = [-3, n0, _ASEE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
-  [0],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ActiveSessionsExceededException$, ActiveSessionsExceededException);
+export var ActiveStatementsExceededException$: StaticErrorSchema = [-3, n0, _ASEEc,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(ActiveStatementsExceededException$, ActiveStatementsExceededException);
-export var BatchExecuteStatementException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _BESE,
+export var BatchExecuteStatementException$: StaticErrorSchema = [-3, n0, _BESE,
   { [_e]: _s, [_hE]: 500 },
   [_M, _SI],
-  [0, 0],
+  [0, 0]
 ];
 TypeRegistry.for(n0).registerError(BatchExecuteStatementException$, BatchExecuteStatementException);
-export var BatchExecuteStatementInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _BESI,
+export var BatchExecuteStatementInput$: StaticStructureSchema = [3, n0, _BESI,
   0,
   [_S, _CI, _SA, _DU, _D, _WE, _SN, _WN, _CT, _RF, _SKAS, _SIe],
-  [64 | 0, 0, 0, 0, 0, 2, 0, 0, [0, 4], 0, 1, 0],
+  [64 | 0, 0, 0, 0, 0, 2, 0, 0, [0, 4], 0, 1, 0]
 ];
-export var BatchExecuteStatementOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _BESO,
+export var BatchExecuteStatementOutput$: StaticStructureSchema = [3, n0, _BESO,
   0,
   [_I, _CA, _CI, _DU, _DG, _D, _SA, _WN, _SIe],
-  [0, 4, 0, 0, 64 | 0, 0, 0, 0, 0],
+  [0, 4, 0, 0, 64 | 0, 0, 0, 0, 0]
 ];
-export var CancelStatementRequest$: StaticStructureSchema = [3, n0, _CSR, 0, [_I], [0]];
-export var CancelStatementResponse$: StaticStructureSchema = [3, n0, _CSRa, 0, [_St], [2]];
-export var ColumnMetadata$: StaticStructureSchema = [
-  3,
-  n0,
-  _CM,
+export var CancelStatementRequest$: StaticStructureSchema = [3, n0, _CSR,
+  0,
+  [_I],
+  [0]
+];
+export var CancelStatementResponse$: StaticStructureSchema = [3, n0, _CSRa,
+  0,
+  [_St],
+  [2]
+];
+export var ColumnMetadata$: StaticStructureSchema = [3, n0, _CM,
   0,
   [_iCS, _iC, _iS, _l, _n, _nu, _p, _sc, _sN, _tN, _tNy, _le, _cD],
-  [2, 2, 2, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0],
+  [2, 2, 2, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0]
 ];
-export var DatabaseConnectionException$: StaticErrorSchema = [-3, n0, _DCE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
+export var DatabaseConnectionException$: StaticErrorSchema = [-3, n0, _DCE,
+  { [_e]: _s, [_hE]: 500 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(DatabaseConnectionException$, DatabaseConnectionException);
-export var DescribeStatementRequest$: StaticStructureSchema = [3, n0, _DSR, 0, [_I], [0]];
-export var DescribeStatementResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSRe,
+export var DescribeStatementRequest$: StaticStructureSchema = [3, n0, _DSR,
+  0,
+  [_I],
+  [0]
+];
+export var DescribeStatementResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
   [_I, _SA, _DU, _D, _CI, _Du, _E, _St, _CA, _UA, _RP, _HRS, _QS, _RR, _RS, _RQI, _QP, _SS, _WN, _RF, _SIe],
-  [0, 0, 0, 0, 0, 1, 0, 0, 4, 4, 1, 2, 0, 1, 1, 1, () => SqlParametersList, () => SubStatementList, 0, 0, 0],
+  [0, 0, 0, 0, 0, 1, 0, 0, 4, 4, 1, 2, 0, 1, 1, 1, () => SqlParametersList, () => SubStatementList, 0, 0, 0]
 ];
-export var DescribeTableRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DTR,
+export var DescribeTableRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_CI, _SA, _DU, _D, _CD, _Sc, _T, _NT, _MR, _WN],
-  [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
 ];
-export var DescribeTableResponse$: StaticStructureSchema = [3, n0, _DTRe, 0, [_TN, _CL, _NT], [0, () => ColumnList, 0]];
-export var ExecuteStatementException$: StaticErrorSchema = [-3, n0, _ESE, { [_e]: _s, [_hE]: 500 }, [_M, _SI], [0, 0]];
+export var DescribeTableResponse$: StaticStructureSchema = [3, n0, _DTRe,
+  0,
+  [_TN, _CL, _NT],
+  [0, () => ColumnList, 0]
+];
+export var ExecuteStatementException$: StaticErrorSchema = [-3, n0, _ESE,
+  { [_e]: _s, [_hE]: 500 },
+  [_M, _SI],
+  [0, 0]
+];
 TypeRegistry.for(n0).registerError(ExecuteStatementException$, ExecuteStatementException);
-export var ExecuteStatementInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _ESI,
+export var ExecuteStatementInput$: StaticStructureSchema = [3, n0, _ESI,
   0,
   [_Sq, _CI, _SA, _DU, _D, _WE, _SN, _P, _WN, _CT, _RF, _SKAS, _SIe],
-  [0, 0, 0, 0, 0, 2, 0, () => SqlParametersList, 0, [0, 4], 0, 1, 0],
+  [0, 0, 0, 0, 0, 2, 0, () => SqlParametersList, 0, [0, 4], 0, 1, 0]
 ];
-export var ExecuteStatementOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _ESO,
+export var ExecuteStatementOutput$: StaticStructureSchema = [3, n0, _ESO,
   0,
   [_I, _CA, _CI, _DU, _DG, _D, _SA, _WN, _SIe],
-  [0, 4, 0, 0, 64 | 0, 0, 0, 0, 0],
+  [0, 4, 0, 0, 64 | 0, 0, 0, 0, 0]
 ];
-export var GetStatementResultRequest$: StaticStructureSchema = [3, n0, _GSRR, 0, [_I, _NT], [0, 0]];
-export var GetStatementResultResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GSRRe,
+export var GetStatementResultRequest$: StaticStructureSchema = [3, n0, _GSRR,
+  0,
+  [_I, _NT],
+  [0, 0]
+];
+export var GetStatementResultResponse$: StaticStructureSchema = [3, n0, _GSRRe,
   0,
   [_R, _CM, _TNR, _NT],
-  [() => SqlRecords, () => ColumnMetadataList, 1, 0],
+  [() => SqlRecords, () => ColumnMetadataList, 1, 0]
 ];
-export var GetStatementResultV2Request$: StaticStructureSchema = [3, n0, _GSRVR, 0, [_I, _NT], [0, 0]];
-export var GetStatementResultV2Response$: StaticStructureSchema = [
-  3,
-  n0,
-  _GSRVRe,
+export var GetStatementResultV2Request$: StaticStructureSchema = [3, n0, _GSRVR,
+  0,
+  [_I, _NT],
+  [0, 0]
+];
+export var GetStatementResultV2Response$: StaticStructureSchema = [3, n0, _GSRVRe,
   0,
   [_R, _CM, _TNR, _RF, _NT],
-  [() => FormattedSqlRecords, () => ColumnMetadataList, 1, 0, 0],
+  [() => FormattedSqlRecords, () => ColumnMetadataList, 1, 0, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _s, [_hE]: 500 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var ListDatabasesRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LDR,
+export var ListDatabasesRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
   [_CI, _D, _SA, _DU, _NT, _MR, _WN],
-  [0, 0, 0, 0, 0, 1, 0],
+  [0, 0, 0, 0, 0, 1, 0]
 ];
-export var ListDatabasesResponse$: StaticStructureSchema = [3, n0, _LDRi, 0, [_Da, _NT], [64 | 0, 0]];
-export var ListSchemasRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSR,
+export var ListDatabasesResponse$: StaticStructureSchema = [3, n0, _LDRi,
+  0,
+  [_Da, _NT],
+  [64 | 0, 0]
+];
+export var ListSchemasRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
   [_CI, _SA, _DU, _D, _CD, _SP, _NT, _MR, _WN],
-  [0, 0, 0, 0, 0, 0, 0, 1, 0],
+  [0, 0, 0, 0, 0, 0, 0, 1, 0]
 ];
-export var ListSchemasResponse$: StaticStructureSchema = [3, n0, _LSRi, 0, [_Sch, _NT], [64 | 0, 0]];
-export var ListStatementsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSRis,
+export var ListSchemasResponse$: StaticStructureSchema = [3, n0, _LSRi,
+  0,
+  [_Sch, _NT],
+  [64 | 0, 0]
+];
+export var ListStatementsRequest$: StaticStructureSchema = [3, n0, _LSRis,
   0,
   [_NT, _MR, _SN, _St, _RL, _D, _CI, _WN],
-  [0, 1, 0, 0, 2, 0, 0, 0],
+  [0, 1, 0, 0, 2, 0, 0, 0]
 ];
-export var ListStatementsResponse$: StaticStructureSchema = [3, n0, _LSRist, 0, [_Sta, _NT], [() => StatementList, 0]];
-export var ListTablesRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LTR,
+export var ListStatementsResponse$: StaticStructureSchema = [3, n0, _LSRist,
+  0,
+  [_Sta, _NT],
+  [() => StatementList, 0]
+];
+export var ListTablesRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
   [_CI, _SA, _DU, _D, _CD, _SP, _TP, _NT, _MR, _WN],
-  [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
 ];
-export var ListTablesResponse$: StaticStructureSchema = [3, n0, _LTRi, 0, [_Ta, _NT], [() => TableList, 0]];
-export var QueryTimeoutException$: StaticErrorSchema = [-3, n0, _QTE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+export var ListTablesResponse$: StaticStructureSchema = [3, n0, _LTRi,
+  0,
+  [_Ta, _NT],
+  [() => TableList, 0]
+];
+export var QueryTimeoutException$: StaticErrorSchema = [-3, n0, _QTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(QueryTimeoutException$, QueryTimeoutException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M, _RI], [0, 0]];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI],
+  [0, 0]
+];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var SqlParameter$: StaticStructureSchema = [3, n0, _SPq, 0, [_n, _v], [0, 0]];
-export var StatementData$: StaticStructureSchema = [
-  3,
-  n0,
-  _SD,
+export var SqlParameter$: StaticStructureSchema = [3, n0, _SPq,
+  0,
+  [_n, _v],
+  [0, 0]
+];
+export var StatementData$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_I, _QS, _QSu, _SA, _St, _SN, _CA, _UA, _QP, _IBS, _RF, _SIe],
-  [0, 0, 64 | 0, 0, 0, 0, 4, 4, () => SqlParametersList, 2, 0, 0],
+  [0, 0, 64 | 0, 0, 0, 0, 4, 4, () => SqlParametersList, 2, 0, 0]
 ];
-export var SubStatementData$: StaticStructureSchema = [
-  3,
-  n0,
-  _SSD,
+export var SubStatementData$: StaticStructureSchema = [3, n0, _SSD,
   0,
   [_I, _Du, _E, _St, _CA, _UA, _QS, _RR, _RS, _RQI, _HRS],
-  [0, 1, 0, 0, 4, 4, 0, 1, 1, 1, 2],
+  [0, 1, 0, 0, 4, 4, 0, 1, 1, 1, 2]
 ];
-export var TableMember$: StaticStructureSchema = [3, n0, _TM, 0, [_n, _t, _sch], [0, 0, 0]];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+export var TableMember$: StaticStructureSchema = [3, n0, _TM,
+  0,
+  [_n, _t, _sch],
+  [0, 0, 0]
+];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var RedshiftDataServiceException$: StaticErrorSchema = [-3, _sm, "RedshiftDataServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(RedshiftDataServiceException$, RedshiftDataServiceException);
-var ColumnList: StaticListSchema = [1, n0, _CL, 0, () => ColumnMetadata$];
-var ColumnMetadataList: StaticListSchema = [1, n0, _CML, 0, () => ColumnMetadata$];
+var ColumnList: StaticListSchema = [1, n0, _CL,
+  0, () => ColumnMetadata$
+];
+var ColumnMetadataList: StaticListSchema = [1, n0, _CML,
+  0, () => ColumnMetadata$
+];
 var DatabaseList = 64 | 0;
 var DbGroupList = 64 | 0;
-var FieldList: StaticListSchema = [1, n0, _FL, 0, () => Field$];
-var FormattedSqlRecords: StaticListSchema = [1, n0, _FSR, 0, () => QueryRecords$];
+var FieldList: StaticListSchema = [1, n0, _FL,
+  0, () => Field$
+];
+var FormattedSqlRecords: StaticListSchema = [1, n0, _FSR,
+  0, () => QueryRecords$
+];
 var SchemaList = 64 | 0;
 var SqlList = 64 | 0;
-var SqlParametersList: StaticListSchema = [1, n0, _SPL, 0, () => SqlParameter$];
-var SqlRecords: StaticListSchema = [1, n0, _SR, 0, () => FieldList];
-var StatementList: StaticListSchema = [1, n0, _SL, 0, () => StatementData$];
+var SqlParametersList: StaticListSchema = [1, n0, _SPL,
+  0, () => SqlParameter$
+];
+var SqlRecords: StaticListSchema = [1, n0, _SR,
+  0, () => FieldList
+];
+var StatementList: StaticListSchema = [1, n0, _SL,
+  0, () => StatementData$
+];
 var StatementStringList = 64 | 0;
-var SubStatementList: StaticListSchema = [1, n0, _SSL, 0, () => SubStatementData$];
-var TableList: StaticListSchema = [1, n0, _TL, 0, () => TableMember$];
-export var Field$: StaticUnionSchema = [4, n0, _F, 0, [_iN, _bV, _lV, _dV, _sV, _bVl], [2, 2, 1, 1, 0, 21]];
-export var QueryRecords$: StaticUnionSchema = [4, n0, _QR, 0, [_CSVR], [0]];
-export var BatchExecuteStatement$: StaticOperationSchema = [
-  9,
-  n0,
-  _BES,
-  0,
-  () => BatchExecuteStatementInput$,
-  () => BatchExecuteStatementOutput$,
+var SubStatementList: StaticListSchema = [1, n0, _SSL,
+  0, () => SubStatementData$
 ];
-export var CancelStatement$: StaticOperationSchema = [
-  9,
-  n0,
-  _CS,
-  0,
-  () => CancelStatementRequest$,
-  () => CancelStatementResponse$,
+var TableList: StaticListSchema = [1, n0, _TL,
+  0, () => TableMember$
 ];
-export var DescribeStatement$: StaticOperationSchema = [
-  9,
-  n0,
-  _DS,
+export var Field$: StaticUnionSchema = [4, n0, _F,
   0,
-  () => DescribeStatementRequest$,
-  () => DescribeStatementResponse$,
+  [_iN, _bV, _lV, _dV, _sV, _bVl],
+  [2, 2, 1, 1, 0, 21]
 ];
-export var DescribeTable$: StaticOperationSchema = [
-  9,
-  n0,
-  _DT,
+export var QueryRecords$: StaticUnionSchema = [4, n0, _QR,
   0,
-  () => DescribeTableRequest$,
-  () => DescribeTableResponse$,
+  [_CSVR],
+  [0]
 ];
-export var ExecuteStatement$: StaticOperationSchema = [
-  9,
-  n0,
-  _ES,
-  0,
-  () => ExecuteStatementInput$,
-  () => ExecuteStatementOutput$,
+export var BatchExecuteStatement$: StaticOperationSchema = [9, n0, _BES,
+  0, () => BatchExecuteStatementInput$, () => BatchExecuteStatementOutput$
 ];
-export var GetStatementResult$: StaticOperationSchema = [
-  9,
-  n0,
-  _GSR,
-  0,
-  () => GetStatementResultRequest$,
-  () => GetStatementResultResponse$,
+export var CancelStatement$: StaticOperationSchema = [9, n0, _CS,
+  0, () => CancelStatementRequest$, () => CancelStatementResponse$
 ];
-export var GetStatementResultV2$: StaticOperationSchema = [
-  9,
-  n0,
-  _GSRV,
-  0,
-  () => GetStatementResultV2Request$,
-  () => GetStatementResultV2Response$,
+export var DescribeStatement$: StaticOperationSchema = [9, n0, _DS,
+  0, () => DescribeStatementRequest$, () => DescribeStatementResponse$
 ];
-export var ListDatabases$: StaticOperationSchema = [
-  9,
-  n0,
-  _LD,
-  0,
-  () => ListDatabasesRequest$,
-  () => ListDatabasesResponse$,
+export var DescribeTable$: StaticOperationSchema = [9, n0, _DT,
+  0, () => DescribeTableRequest$, () => DescribeTableResponse$
 ];
-export var ListSchemas$: StaticOperationSchema = [9, n0, _LS, 0, () => ListSchemasRequest$, () => ListSchemasResponse$];
-export var ListStatements$: StaticOperationSchema = [
-  9,
-  n0,
-  _LSi,
-  0,
-  () => ListStatementsRequest$,
-  () => ListStatementsResponse$,
+export var ExecuteStatement$: StaticOperationSchema = [9, n0, _ES,
+  0, () => ExecuteStatementInput$, () => ExecuteStatementOutput$
 ];
-export var ListTables$: StaticOperationSchema = [9, n0, _LT, 0, () => ListTablesRequest$, () => ListTablesResponse$];
+export var GetStatementResult$: StaticOperationSchema = [9, n0, _GSR,
+  0, () => GetStatementResultRequest$, () => GetStatementResultResponse$
+];
+export var GetStatementResultV2$: StaticOperationSchema = [9, n0, _GSRV,
+  0, () => GetStatementResultV2Request$, () => GetStatementResultV2Response$
+];
+export var ListDatabases$: StaticOperationSchema = [9, n0, _LD,
+  0, () => ListDatabasesRequest$, () => ListDatabasesResponse$
+];
+export var ListSchemas$: StaticOperationSchema = [9, n0, _LS,
+  0, () => ListSchemasRequest$, () => ListSchemasResponse$
+];
+export var ListStatements$: StaticOperationSchema = [9, n0, _LSi,
+  0, () => ListStatementsRequest$, () => ListStatementsResponse$
+];
+export var ListTables$: StaticOperationSchema = [9, n0, _LT,
+  0, () => ListTablesRequest$, () => ListTablesResponse$
+];

@@ -24,9 +24,7 @@ export interface CreateCostCategoryDefinitionCommandInput extends CreateCostCate
  *
  * The output of {@link CreateCostCategoryDefinitionCommand}.
  */
-export interface CreateCostCategoryDefinitionCommandOutput
-  extends CreateCostCategoryDefinitionResponse,
-    __MetadataBearer {}
+export interface CreateCostCategoryDefinitionCommandOutput extends CreateCostCategoryDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new cost category with the requested name and rules.</p>

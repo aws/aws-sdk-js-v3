@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link CreateCoreNetworkPrefixListAssociationCommand}.
  */
-export interface CreateCoreNetworkPrefixListAssociationCommandInput
-  extends CreateCoreNetworkPrefixListAssociationRequest {}
+export interface CreateCoreNetworkPrefixListAssociationCommandInput extends CreateCoreNetworkPrefixListAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateCoreNetworkPrefixListAssociationCommand}.
  */
-export interface CreateCoreNetworkPrefixListAssociationCommandOutput
-  extends CreateCoreNetworkPrefixListAssociationResponse,
-    __MetadataBearer {}
+export interface CreateCoreNetworkPrefixListAssociationCommandOutput extends CreateCoreNetworkPrefixListAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an association between a core network and a prefix list for routing control.</p>

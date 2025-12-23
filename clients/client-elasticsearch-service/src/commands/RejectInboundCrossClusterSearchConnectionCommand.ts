@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link RejectInboundCrossClusterSearchConnectionCommand}.
  */
-export interface RejectInboundCrossClusterSearchConnectionCommandInput
-  extends RejectInboundCrossClusterSearchConnectionRequest {}
+export interface RejectInboundCrossClusterSearchConnectionCommandInput extends RejectInboundCrossClusterSearchConnectionRequest {}
 /**
  * @public
  *
  * The output of {@link RejectInboundCrossClusterSearchConnectionCommand}.
  */
-export interface RejectInboundCrossClusterSearchConnectionCommandOutput
-  extends RejectInboundCrossClusterSearchConnectionResponse,
-    __MetadataBearer {}
+export interface RejectInboundCrossClusterSearchConnectionCommandOutput extends RejectInboundCrossClusterSearchConnectionResponse, __MetadataBearer {}
 
 /**
  * <p>Allows the destination domain owner to reject an inbound cross-cluster search connection request.</p>

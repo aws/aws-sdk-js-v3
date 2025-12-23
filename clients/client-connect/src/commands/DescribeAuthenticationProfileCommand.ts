@@ -24,9 +24,7 @@ export interface DescribeAuthenticationProfileCommandInput extends DescribeAuthe
  *
  * The output of {@link DescribeAuthenticationProfileCommand}.
  */
-export interface DescribeAuthenticationProfileCommandOutput
-  extends DescribeAuthenticationProfileResponse,
-    __MetadataBearer {}
+export interface DescribeAuthenticationProfileCommandOutput extends DescribeAuthenticationProfileResponse, __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change. To

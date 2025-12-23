@@ -28,9 +28,7 @@ export interface ListGroupingAttributeDefinitionsCommandInput extends ListGroupi
  *
  * The output of {@link ListGroupingAttributeDefinitionsCommand}.
  */
-export interface ListGroupingAttributeDefinitionsCommandOutput
-  extends ListGroupingAttributeDefinitionsOutput,
-    __MetadataBearer {}
+export interface ListGroupingAttributeDefinitionsCommandOutput extends ListGroupingAttributeDefinitionsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the current grouping configuration for this account, including all custom grouping attribute definitions that have been configured. These definitions determine how services are logically grouped based on telemetry attributes, Amazon Web Services tags, or predefined mappings.</p>

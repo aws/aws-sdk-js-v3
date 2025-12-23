@@ -27,9 +27,7 @@ export interface StartDominantLanguageDetectionJobCommandInput extends StartDomi
  *
  * The output of {@link StartDominantLanguageDetectionJobCommand}.
  */
-export interface StartDominantLanguageDetectionJobCommandOutput
-  extends StartDominantLanguageDetectionJobResponse,
-    __MetadataBearer {}
+export interface StartDominantLanguageDetectionJobCommandOutput extends StartDominantLanguageDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous dominant language detection job for a collection of documents. Use

@@ -24,9 +24,7 @@ export interface BatchCheckLayerAvailabilityCommandInput extends BatchCheckLayer
  *
  * The output of {@link BatchCheckLayerAvailabilityCommand}.
  */
-export interface BatchCheckLayerAvailabilityCommandOutput
-  extends BatchCheckLayerAvailabilityResponse,
-    __MetadataBearer {}
+export interface BatchCheckLayerAvailabilityCommandOutput extends BatchCheckLayerAvailabilityResponse, __MetadataBearer {}
 
 /**
  * <p>Checks the availability of one or more image layers that are within a repository in a

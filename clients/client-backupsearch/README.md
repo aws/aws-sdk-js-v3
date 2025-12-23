@@ -9,10 +9,8 @@ AWS SDK for JavaScript BackupSearch Client for Node.js, Browser and React Native
 <fullname>Backup Search</fullname> <p>Backup Search is the recovery point and item level search for Backup.</p> <p>For additional information, see:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/api-reference.html">Backup API Reference</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html">Backup Developer Guide</a> </p> </li> </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-backupsearch
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-backupsearch`
 - `yarn add @aws-sdk/client-backupsearch`
 - `pnpm add @aws-sdk/client-backupsearch`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new BackupSearchClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListSearchJobsCommand(params);
 ```
 
@@ -209,7 +205,6 @@ GetSearchJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupsearch/command/GetSearchJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/GetSearchJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/GetSearchJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ GetSearchResultExportJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupsearch/command/GetSearchResultExportJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/GetSearchResultExportJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/GetSearchResultExportJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ ListSearchJobBackups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupsearch/command/ListSearchJobBackupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/ListSearchJobBackupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/ListSearchJobBackupsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ ListSearchJobResults
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupsearch/command/ListSearchJobResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/ListSearchJobResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/ListSearchJobResultsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +233,6 @@ ListSearchJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupsearch/command/ListSearchJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/ListSearchJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/ListSearchJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +240,6 @@ ListSearchResultExportJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupsearch/command/ListSearchResultExportJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/ListSearchResultExportJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/ListSearchResultExportJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +247,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupsearch/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +254,6 @@ StartSearchJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupsearch/command/StartSearchJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/StartSearchJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/StartSearchJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +261,6 @@ StartSearchResultExportJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupsearch/command/StartSearchResultExportJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/StartSearchResultExportJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/StartSearchResultExportJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +268,6 @@ StopSearchJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupsearch/command/StopSearchJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/StopSearchJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/StopSearchJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +275,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupsearch/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,5 +282,4 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupsearch/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupsearch/Interface/UntagResourceCommandOutput/)
-
 </details>

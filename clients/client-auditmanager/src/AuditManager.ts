@@ -516,8 +516,14 @@ export interface AuditManager {
   /**
    * @see {@link CreateControlCommand}
    */
-  createControl(args: CreateControlCommandInput, options?: __HttpHandlerOptions): Promise<CreateControlCommandOutput>;
-  createControl(args: CreateControlCommandInput, cb: (err: any, data?: CreateControlCommandOutput) => void): void;
+  createControl(
+    args: CreateControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateControlCommandOutput>;
+  createControl(
+    args: CreateControlCommandInput,
+    cb: (err: any, data?: CreateControlCommandOutput) => void
+  ): void;
   createControl(
     args: CreateControlCommandInput,
     options: __HttpHandlerOptions,
@@ -595,8 +601,14 @@ export interface AuditManager {
   /**
    * @see {@link DeleteControlCommand}
    */
-  deleteControl(args: DeleteControlCommandInput, options?: __HttpHandlerOptions): Promise<DeleteControlCommandOutput>;
-  deleteControl(args: DeleteControlCommandInput, cb: (err: any, data?: DeleteControlCommandOutput) => void): void;
+  deleteControl(
+    args: DeleteControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteControlCommandOutput>;
+  deleteControl(
+    args: DeleteControlCommandInput,
+    cb: (err: any, data?: DeleteControlCommandOutput) => void
+  ): void;
   deleteControl(
     args: DeleteControlCommandInput,
     options: __HttpHandlerOptions,
@@ -677,8 +689,14 @@ export interface AuditManager {
   /**
    * @see {@link GetAssessmentCommand}
    */
-  getAssessment(args: GetAssessmentCommandInput, options?: __HttpHandlerOptions): Promise<GetAssessmentCommandOutput>;
-  getAssessment(args: GetAssessmentCommandInput, cb: (err: any, data?: GetAssessmentCommandOutput) => void): void;
+  getAssessment(
+    args: GetAssessmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAssessmentCommandOutput>;
+  getAssessment(
+    args: GetAssessmentCommandInput,
+    cb: (err: any, data?: GetAssessmentCommandOutput) => void
+  ): void;
   getAssessment(
     args: GetAssessmentCommandInput,
     options: __HttpHandlerOptions,
@@ -722,8 +740,14 @@ export interface AuditManager {
   /**
    * @see {@link GetChangeLogsCommand}
    */
-  getChangeLogs(args: GetChangeLogsCommandInput, options?: __HttpHandlerOptions): Promise<GetChangeLogsCommandOutput>;
-  getChangeLogs(args: GetChangeLogsCommandInput, cb: (err: any, data?: GetChangeLogsCommandOutput) => void): void;
+  getChangeLogs(
+    args: GetChangeLogsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetChangeLogsCommandOutput>;
+  getChangeLogs(
+    args: GetChangeLogsCommandInput,
+    cb: (err: any, data?: GetChangeLogsCommandOutput) => void
+  ): void;
   getChangeLogs(
     args: GetChangeLogsCommandInput,
     options: __HttpHandlerOptions,
@@ -733,8 +757,14 @@ export interface AuditManager {
   /**
    * @see {@link GetControlCommand}
    */
-  getControl(args: GetControlCommandInput, options?: __HttpHandlerOptions): Promise<GetControlCommandOutput>;
-  getControl(args: GetControlCommandInput, cb: (err: any, data?: GetControlCommandOutput) => void): void;
+  getControl(
+    args: GetControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetControlCommandOutput>;
+  getControl(
+    args: GetControlCommandInput,
+    cb: (err: any, data?: GetControlCommandOutput) => void
+  ): void;
   getControl(
     args: GetControlCommandInput,
     options: __HttpHandlerOptions,
@@ -749,7 +779,10 @@ export interface AuditManager {
     args: GetDelegationsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDelegationsCommandOutput>;
-  getDelegations(args: GetDelegationsCommandInput, cb: (err: any, data?: GetDelegationsCommandOutput) => void): void;
+  getDelegations(
+    args: GetDelegationsCommandInput,
+    cb: (err: any, data?: GetDelegationsCommandOutput) => void
+  ): void;
   getDelegations(
     args: GetDelegationsCommandInput,
     options: __HttpHandlerOptions,
@@ -759,8 +792,14 @@ export interface AuditManager {
   /**
    * @see {@link GetEvidenceCommand}
    */
-  getEvidence(args: GetEvidenceCommandInput, options?: __HttpHandlerOptions): Promise<GetEvidenceCommandOutput>;
-  getEvidence(args: GetEvidenceCommandInput, cb: (err: any, data?: GetEvidenceCommandOutput) => void): void;
+  getEvidence(
+    args: GetEvidenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEvidenceCommandOutput>;
+  getEvidence(
+    args: GetEvidenceCommandInput,
+    cb: (err: any, data?: GetEvidenceCommandOutput) => void
+  ): void;
   getEvidence(
     args: GetEvidenceCommandInput,
     options: __HttpHandlerOptions,
@@ -856,8 +895,14 @@ export interface AuditManager {
    * @see {@link GetInsightsCommand}
    */
   getInsights(): Promise<GetInsightsCommandOutput>;
-  getInsights(args: GetInsightsCommandInput, options?: __HttpHandlerOptions): Promise<GetInsightsCommandOutput>;
-  getInsights(args: GetInsightsCommandInput, cb: (err: any, data?: GetInsightsCommandOutput) => void): void;
+  getInsights(
+    args: GetInsightsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInsightsCommandOutput>;
+  getInsights(
+    args: GetInsightsCommandInput,
+    cb: (err: any, data?: GetInsightsCommandOutput) => void
+  ): void;
   getInsights(
     args: GetInsightsCommandInput,
     options: __HttpHandlerOptions,
@@ -920,8 +965,14 @@ export interface AuditManager {
   /**
    * @see {@link GetSettingsCommand}
    */
-  getSettings(args: GetSettingsCommandInput, options?: __HttpHandlerOptions): Promise<GetSettingsCommandOutput>;
-  getSettings(args: GetSettingsCommandInput, cb: (err: any, data?: GetSettingsCommandOutput) => void): void;
+  getSettings(
+    args: GetSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSettingsCommandOutput>;
+  getSettings(
+    args: GetSettingsCommandInput,
+    cb: (err: any, data?: GetSettingsCommandOutput) => void
+  ): void;
   getSettings(
     args: GetSettingsCommandInput,
     options: __HttpHandlerOptions,
@@ -1005,7 +1056,10 @@ export interface AuditManager {
     args: ListAssessmentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAssessmentsCommandOutput>;
-  listAssessments(args: ListAssessmentsCommandInput, cb: (err: any, data?: ListAssessmentsCommandOutput) => void): void;
+  listAssessments(
+    args: ListAssessmentsCommandInput,
+    cb: (err: any, data?: ListAssessmentsCommandOutput) => void
+  ): void;
   listAssessments(
     args: ListAssessmentsCommandInput,
     options: __HttpHandlerOptions,
@@ -1067,8 +1121,14 @@ export interface AuditManager {
   /**
    * @see {@link ListControlsCommand}
    */
-  listControls(args: ListControlsCommandInput, options?: __HttpHandlerOptions): Promise<ListControlsCommandOutput>;
-  listControls(args: ListControlsCommandInput, cb: (err: any, data?: ListControlsCommandOutput) => void): void;
+  listControls(
+    args: ListControlsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListControlsCommandOutput>;
+  listControls(
+    args: ListControlsCommandInput,
+    cb: (err: any, data?: ListControlsCommandOutput) => void
+  ): void;
   listControls(
     args: ListControlsCommandInput,
     options: __HttpHandlerOptions,
@@ -1135,7 +1195,10 @@ export interface AuditManager {
     args: RegisterAccountCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RegisterAccountCommandOutput>;
-  registerAccount(args: RegisterAccountCommandInput, cb: (err: any, data?: RegisterAccountCommandOutput) => void): void;
+  registerAccount(
+    args: RegisterAccountCommandInput,
+    cb: (err: any, data?: RegisterAccountCommandOutput) => void
+  ): void;
   registerAccount(
     args: RegisterAccountCommandInput,
     options: __HttpHandlerOptions,
@@ -1179,8 +1242,14 @@ export interface AuditManager {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1190,8 +1259,14 @@ export interface AuditManager {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1303,8 +1378,14 @@ export interface AuditManager {
   /**
    * @see {@link UpdateControlCommand}
    */
-  updateControl(args: UpdateControlCommandInput, options?: __HttpHandlerOptions): Promise<UpdateControlCommandOutput>;
-  updateControl(args: UpdateControlCommandInput, cb: (err: any, data?: UpdateControlCommandOutput) => void): void;
+  updateControl(
+    args: UpdateControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateControlCommandOutput>;
+  updateControl(
+    args: UpdateControlCommandInput,
+    cb: (err: any, data?: UpdateControlCommandOutput) => void
+  ): void;
   updateControl(
     args: UpdateControlCommandInput,
     options: __HttpHandlerOptions,
@@ -1319,7 +1400,10 @@ export interface AuditManager {
     args: UpdateSettingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateSettingsCommandOutput>;
-  updateSettings(args: UpdateSettingsCommandInput, cb: (err: any, data?: UpdateSettingsCommandOutput) => void): void;
+  updateSettings(
+    args: UpdateSettingsCommandInput,
+    cb: (err: any, data?: UpdateSettingsCommandOutput) => void
+  ): void;
   updateSettings(
     args: UpdateSettingsCommandInput,
     options: __HttpHandlerOptions,

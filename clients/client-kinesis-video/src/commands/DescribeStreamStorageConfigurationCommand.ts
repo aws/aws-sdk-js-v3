@@ -27,9 +27,7 @@ export interface DescribeStreamStorageConfigurationCommandInput extends Describe
  *
  * The output of {@link DescribeStreamStorageConfigurationCommand}.
  */
-export interface DescribeStreamStorageConfigurationCommandOutput
-  extends DescribeStreamStorageConfigurationOutput,
-    __MetadataBearer {}
+export interface DescribeStreamStorageConfigurationCommandOutput extends DescribeStreamStorageConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the current storage configuration for the specified Kinesis video stream.</p>

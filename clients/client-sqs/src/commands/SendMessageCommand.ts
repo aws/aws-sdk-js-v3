@@ -175,7 +175,10 @@ export class SendMessageCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getSendMessagePlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getSendMessagePlugin(config),
+    ];
   })
   .s("AmazonSQS", "SendMessage", {})
   .n("SQSClient", "SendMessageCommand")

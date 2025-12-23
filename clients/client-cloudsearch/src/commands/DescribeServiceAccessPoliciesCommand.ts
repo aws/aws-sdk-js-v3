@@ -24,9 +24,7 @@ export interface DescribeServiceAccessPoliciesCommandInput extends DescribeServi
  *
  * The output of {@link DescribeServiceAccessPoliciesCommand}.
  */
-export interface DescribeServiceAccessPoliciesCommandOutput
-  extends DescribeServiceAccessPoliciesResponse,
-    __MetadataBearer {}
+export interface DescribeServiceAccessPoliciesCommandOutput extends DescribeServiceAccessPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about the access policies that control access to the domain's document and search endpoints. By default, shows the configuration with any pending changes. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information,

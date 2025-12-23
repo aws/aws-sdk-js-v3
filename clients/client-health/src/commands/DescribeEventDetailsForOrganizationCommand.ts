@@ -27,9 +27,7 @@ export interface DescribeEventDetailsForOrganizationCommandInput extends Describ
  *
  * The output of {@link DescribeEventDetailsForOrganizationCommand}.
  */
-export interface DescribeEventDetailsForOrganizationCommandOutput
-  extends DescribeEventDetailsForOrganizationResponse,
-    __MetadataBearer {}
+export interface DescribeEventDetailsForOrganizationCommandOutput extends DescribeEventDetailsForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns detailed information about one or more specified events for one or more

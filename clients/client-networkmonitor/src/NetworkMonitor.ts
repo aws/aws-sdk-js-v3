@@ -59,8 +59,14 @@ export interface NetworkMonitor {
   /**
    * @see {@link CreateMonitorCommand}
    */
-  createMonitor(args: CreateMonitorCommandInput, options?: __HttpHandlerOptions): Promise<CreateMonitorCommandOutput>;
-  createMonitor(args: CreateMonitorCommandInput, cb: (err: any, data?: CreateMonitorCommandOutput) => void): void;
+  createMonitor(
+    args: CreateMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMonitorCommandOutput>;
+  createMonitor(
+    args: CreateMonitorCommandInput,
+    cb: (err: any, data?: CreateMonitorCommandOutput) => void
+  ): void;
   createMonitor(
     args: CreateMonitorCommandInput,
     options: __HttpHandlerOptions,
@@ -70,8 +76,14 @@ export interface NetworkMonitor {
   /**
    * @see {@link CreateProbeCommand}
    */
-  createProbe(args: CreateProbeCommandInput, options?: __HttpHandlerOptions): Promise<CreateProbeCommandOutput>;
-  createProbe(args: CreateProbeCommandInput, cb: (err: any, data?: CreateProbeCommandOutput) => void): void;
+  createProbe(
+    args: CreateProbeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProbeCommandOutput>;
+  createProbe(
+    args: CreateProbeCommandInput,
+    cb: (err: any, data?: CreateProbeCommandOutput) => void
+  ): void;
   createProbe(
     args: CreateProbeCommandInput,
     options: __HttpHandlerOptions,
@@ -81,8 +93,14 @@ export interface NetworkMonitor {
   /**
    * @see {@link DeleteMonitorCommand}
    */
-  deleteMonitor(args: DeleteMonitorCommandInput, options?: __HttpHandlerOptions): Promise<DeleteMonitorCommandOutput>;
-  deleteMonitor(args: DeleteMonitorCommandInput, cb: (err: any, data?: DeleteMonitorCommandOutput) => void): void;
+  deleteMonitor(
+    args: DeleteMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMonitorCommandOutput>;
+  deleteMonitor(
+    args: DeleteMonitorCommandInput,
+    cb: (err: any, data?: DeleteMonitorCommandOutput) => void
+  ): void;
   deleteMonitor(
     args: DeleteMonitorCommandInput,
     options: __HttpHandlerOptions,
@@ -92,8 +110,14 @@ export interface NetworkMonitor {
   /**
    * @see {@link DeleteProbeCommand}
    */
-  deleteProbe(args: DeleteProbeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteProbeCommandOutput>;
-  deleteProbe(args: DeleteProbeCommandInput, cb: (err: any, data?: DeleteProbeCommandOutput) => void): void;
+  deleteProbe(
+    args: DeleteProbeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProbeCommandOutput>;
+  deleteProbe(
+    args: DeleteProbeCommandInput,
+    cb: (err: any, data?: DeleteProbeCommandOutput) => void
+  ): void;
   deleteProbe(
     args: DeleteProbeCommandInput,
     options: __HttpHandlerOptions,
@@ -103,8 +127,14 @@ export interface NetworkMonitor {
   /**
    * @see {@link GetMonitorCommand}
    */
-  getMonitor(args: GetMonitorCommandInput, options?: __HttpHandlerOptions): Promise<GetMonitorCommandOutput>;
-  getMonitor(args: GetMonitorCommandInput, cb: (err: any, data?: GetMonitorCommandOutput) => void): void;
+  getMonitor(
+    args: GetMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMonitorCommandOutput>;
+  getMonitor(
+    args: GetMonitorCommandInput,
+    cb: (err: any, data?: GetMonitorCommandOutput) => void
+  ): void;
   getMonitor(
     args: GetMonitorCommandInput,
     options: __HttpHandlerOptions,
@@ -114,8 +144,14 @@ export interface NetworkMonitor {
   /**
    * @see {@link GetProbeCommand}
    */
-  getProbe(args: GetProbeCommandInput, options?: __HttpHandlerOptions): Promise<GetProbeCommandOutput>;
-  getProbe(args: GetProbeCommandInput, cb: (err: any, data?: GetProbeCommandOutput) => void): void;
+  getProbe(
+    args: GetProbeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProbeCommandOutput>;
+  getProbe(
+    args: GetProbeCommandInput,
+    cb: (err: any, data?: GetProbeCommandOutput) => void
+  ): void;
   getProbe(
     args: GetProbeCommandInput,
     options: __HttpHandlerOptions,
@@ -126,8 +162,14 @@ export interface NetworkMonitor {
    * @see {@link ListMonitorsCommand}
    */
   listMonitors(): Promise<ListMonitorsCommandOutput>;
-  listMonitors(args: ListMonitorsCommandInput, options?: __HttpHandlerOptions): Promise<ListMonitorsCommandOutput>;
-  listMonitors(args: ListMonitorsCommandInput, cb: (err: any, data?: ListMonitorsCommandOutput) => void): void;
+  listMonitors(
+    args: ListMonitorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMonitorsCommandOutput>;
+  listMonitors(
+    args: ListMonitorsCommandInput,
+    cb: (err: any, data?: ListMonitorsCommandOutput) => void
+  ): void;
   listMonitors(
     args: ListMonitorsCommandInput,
     options: __HttpHandlerOptions,
@@ -154,8 +196,14 @@ export interface NetworkMonitor {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -165,8 +213,14 @@ export interface NetworkMonitor {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -176,8 +230,14 @@ export interface NetworkMonitor {
   /**
    * @see {@link UpdateMonitorCommand}
    */
-  updateMonitor(args: UpdateMonitorCommandInput, options?: __HttpHandlerOptions): Promise<UpdateMonitorCommandOutput>;
-  updateMonitor(args: UpdateMonitorCommandInput, cb: (err: any, data?: UpdateMonitorCommandOutput) => void): void;
+  updateMonitor(
+    args: UpdateMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMonitorCommandOutput>;
+  updateMonitor(
+    args: UpdateMonitorCommandInput,
+    cb: (err: any, data?: UpdateMonitorCommandOutput) => void
+  ): void;
   updateMonitor(
     args: UpdateMonitorCommandInput,
     options: __HttpHandlerOptions,
@@ -187,8 +247,14 @@ export interface NetworkMonitor {
   /**
    * @see {@link UpdateProbeCommand}
    */
-  updateProbe(args: UpdateProbeCommandInput, options?: __HttpHandlerOptions): Promise<UpdateProbeCommandOutput>;
-  updateProbe(args: UpdateProbeCommandInput, cb: (err: any, data?: UpdateProbeCommandOutput) => void): void;
+  updateProbe(
+    args: UpdateProbeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProbeCommandOutput>;
+  updateProbe(
+    args: UpdateProbeCommandInput,
+    cb: (err: any, data?: UpdateProbeCommandOutput) => void
+  ): void;
   updateProbe(
     args: UpdateProbeCommandInput,
     options: __HttpHandlerOptions,

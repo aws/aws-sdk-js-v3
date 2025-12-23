@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommand}.
  */
-export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput
-  extends BatchAssociateApprovalRuleTemplateWithRepositoriesInput {}
+export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput extends BatchAssociateApprovalRuleTemplateWithRepositoriesInput {}
 /**
  * @public
  *
  * The output of {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommand}.
  */
-export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
-  extends BatchAssociateApprovalRuleTemplateWithRepositoriesOutput,
-    __MetadataBearer {}
+export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput extends BatchAssociateApprovalRuleTemplateWithRepositoriesOutput, __MetadataBearer {}
 
 /**
  * <p>Creates an association between an approval rule template and one or more specified repositories. </p>

@@ -137,7 +137,10 @@ export interface MediaStore {
     args: CreateContainerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateContainerCommandOutput>;
-  createContainer(args: CreateContainerCommandInput, cb: (err: any, data?: CreateContainerCommandOutput) => void): void;
+  createContainer(
+    args: CreateContainerCommandInput,
+    cb: (err: any, data?: CreateContainerCommandOutput) => void
+  ): void;
   createContainer(
     args: CreateContainerCommandInput,
     options: __HttpHandlerOptions,
@@ -151,7 +154,10 @@ export interface MediaStore {
     args: DeleteContainerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteContainerCommandOutput>;
-  deleteContainer(args: DeleteContainerCommandInput, cb: (err: any, data?: DeleteContainerCommandOutput) => void): void;
+  deleteContainer(
+    args: DeleteContainerCommandInput,
+    cb: (err: any, data?: DeleteContainerCommandOutput) => void
+  ): void;
   deleteContainer(
     args: DeleteContainerCommandInput,
     options: __HttpHandlerOptions,
@@ -264,8 +270,14 @@ export interface MediaStore {
   /**
    * @see {@link GetCorsPolicyCommand}
    */
-  getCorsPolicy(args: GetCorsPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetCorsPolicyCommandOutput>;
-  getCorsPolicy(args: GetCorsPolicyCommandInput, cb: (err: any, data?: GetCorsPolicyCommandOutput) => void): void;
+  getCorsPolicy(
+    args: GetCorsPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCorsPolicyCommandOutput>;
+  getCorsPolicy(
+    args: GetCorsPolicyCommandInput,
+    cb: (err: any, data?: GetCorsPolicyCommandOutput) => void
+  ): void;
   getCorsPolicy(
     args: GetCorsPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -296,7 +308,10 @@ export interface MediaStore {
     args: GetMetricPolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetMetricPolicyCommandOutput>;
-  getMetricPolicy(args: GetMetricPolicyCommandInput, cb: (err: any, data?: GetMetricPolicyCommandOutput) => void): void;
+  getMetricPolicy(
+    args: GetMetricPolicyCommandInput,
+    cb: (err: any, data?: GetMetricPolicyCommandOutput) => void
+  ): void;
   getMetricPolicy(
     args: GetMetricPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -311,7 +326,10 @@ export interface MediaStore {
     args: ListContainersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListContainersCommandOutput>;
-  listContainers(args: ListContainersCommandInput, cb: (err: any, data?: ListContainersCommandOutput) => void): void;
+  listContainers(
+    args: ListContainersCommandInput,
+    cb: (err: any, data?: ListContainersCommandOutput) => void
+  ): void;
   listContainers(
     args: ListContainersCommandInput,
     options: __HttpHandlerOptions,
@@ -355,8 +373,14 @@ export interface MediaStore {
   /**
    * @see {@link PutCorsPolicyCommand}
    */
-  putCorsPolicy(args: PutCorsPolicyCommandInput, options?: __HttpHandlerOptions): Promise<PutCorsPolicyCommandOutput>;
-  putCorsPolicy(args: PutCorsPolicyCommandInput, cb: (err: any, data?: PutCorsPolicyCommandOutput) => void): void;
+  putCorsPolicy(
+    args: PutCorsPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutCorsPolicyCommandOutput>;
+  putCorsPolicy(
+    args: PutCorsPolicyCommandInput,
+    cb: (err: any, data?: PutCorsPolicyCommandOutput) => void
+  ): void;
   putCorsPolicy(
     args: PutCorsPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -387,7 +411,10 @@ export interface MediaStore {
     args: PutMetricPolicyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutMetricPolicyCommandOutput>;
-  putMetricPolicy(args: PutMetricPolicyCommandInput, cb: (err: any, data?: PutMetricPolicyCommandOutput) => void): void;
+  putMetricPolicy(
+    args: PutMetricPolicyCommandInput,
+    cb: (err: any, data?: PutMetricPolicyCommandOutput) => void
+  ): void;
   putMetricPolicy(
     args: PutMetricPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -431,8 +458,14 @@ export interface MediaStore {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -442,8 +475,14 @@ export interface MediaStore {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

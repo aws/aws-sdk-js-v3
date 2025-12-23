@@ -119,8 +119,14 @@ export interface Mq {
   /**
    * @see {@link CreateBrokerCommand}
    */
-  createBroker(args: CreateBrokerCommandInput, options?: __HttpHandlerOptions): Promise<CreateBrokerCommandOutput>;
-  createBroker(args: CreateBrokerCommandInput, cb: (err: any, data?: CreateBrokerCommandOutput) => void): void;
+  createBroker(
+    args: CreateBrokerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBrokerCommandOutput>;
+  createBroker(
+    args: CreateBrokerCommandInput,
+    cb: (err: any, data?: CreateBrokerCommandOutput) => void
+  ): void;
   createBroker(
     args: CreateBrokerCommandInput,
     options: __HttpHandlerOptions,
@@ -147,8 +153,14 @@ export interface Mq {
   /**
    * @see {@link CreateTagsCommand}
    */
-  createTags(args: CreateTagsCommandInput, options?: __HttpHandlerOptions): Promise<CreateTagsCommandOutput>;
-  createTags(args: CreateTagsCommandInput, cb: (err: any, data?: CreateTagsCommandOutput) => void): void;
+  createTags(
+    args: CreateTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTagsCommandOutput>;
+  createTags(
+    args: CreateTagsCommandInput,
+    cb: (err: any, data?: CreateTagsCommandOutput) => void
+  ): void;
   createTags(
     args: CreateTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -158,8 +170,14 @@ export interface Mq {
   /**
    * @see {@link CreateUserCommand}
    */
-  createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
-  createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
+  createUser(
+    args: CreateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUserCommandOutput>;
+  createUser(
+    args: CreateUserCommandInput,
+    cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): void;
   createUser(
     args: CreateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -169,8 +187,14 @@ export interface Mq {
   /**
    * @see {@link DeleteBrokerCommand}
    */
-  deleteBroker(args: DeleteBrokerCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBrokerCommandOutput>;
-  deleteBroker(args: DeleteBrokerCommandInput, cb: (err: any, data?: DeleteBrokerCommandOutput) => void): void;
+  deleteBroker(
+    args: DeleteBrokerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBrokerCommandOutput>;
+  deleteBroker(
+    args: DeleteBrokerCommandInput,
+    cb: (err: any, data?: DeleteBrokerCommandOutput) => void
+  ): void;
   deleteBroker(
     args: DeleteBrokerCommandInput,
     options: __HttpHandlerOptions,
@@ -197,8 +221,14 @@ export interface Mq {
   /**
    * @see {@link DeleteTagsCommand}
    */
-  deleteTags(args: DeleteTagsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTagsCommandOutput>;
-  deleteTags(args: DeleteTagsCommandInput, cb: (err: any, data?: DeleteTagsCommandOutput) => void): void;
+  deleteTags(
+    args: DeleteTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTagsCommandOutput>;
+  deleteTags(
+    args: DeleteTagsCommandInput,
+    cb: (err: any, data?: DeleteTagsCommandOutput) => void
+  ): void;
   deleteTags(
     args: DeleteTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -208,8 +238,14 @@ export interface Mq {
   /**
    * @see {@link DeleteUserCommand}
    */
-  deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
-  deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUserCommandOutput>;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    cb: (err: any, data?: DeleteUserCommandOutput) => void
+  ): void;
   deleteUser(
     args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
@@ -223,7 +259,10 @@ export interface Mq {
     args: DescribeBrokerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeBrokerCommandOutput>;
-  describeBroker(args: DescribeBrokerCommandInput, cb: (err: any, data?: DescribeBrokerCommandOutput) => void): void;
+  describeBroker(
+    args: DescribeBrokerCommandInput,
+    cb: (err: any, data?: DescribeBrokerCommandOutput) => void
+  ): void;
   describeBroker(
     args: DescribeBrokerCommandInput,
     options: __HttpHandlerOptions,
@@ -303,8 +342,14 @@ export interface Mq {
   /**
    * @see {@link DescribeUserCommand}
    */
-  describeUser(args: DescribeUserCommandInput, options?: __HttpHandlerOptions): Promise<DescribeUserCommandOutput>;
-  describeUser(args: DescribeUserCommandInput, cb: (err: any, data?: DescribeUserCommandOutput) => void): void;
+  describeUser(
+    args: DescribeUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeUserCommandOutput>;
+  describeUser(
+    args: DescribeUserCommandInput,
+    cb: (err: any, data?: DescribeUserCommandOutput) => void
+  ): void;
   describeUser(
     args: DescribeUserCommandInput,
     options: __HttpHandlerOptions,
@@ -315,8 +360,14 @@ export interface Mq {
    * @see {@link ListBrokersCommand}
    */
   listBrokers(): Promise<ListBrokersCommandOutput>;
-  listBrokers(args: ListBrokersCommandInput, options?: __HttpHandlerOptions): Promise<ListBrokersCommandOutput>;
-  listBrokers(args: ListBrokersCommandInput, cb: (err: any, data?: ListBrokersCommandOutput) => void): void;
+  listBrokers(
+    args: ListBrokersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBrokersCommandOutput>;
+  listBrokers(
+    args: ListBrokersCommandInput,
+    cb: (err: any, data?: ListBrokersCommandOutput) => void
+  ): void;
   listBrokers(
     args: ListBrokersCommandInput,
     options: __HttpHandlerOptions,
@@ -361,8 +412,14 @@ export interface Mq {
   /**
    * @see {@link ListTagsCommand}
    */
-  listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
-  listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
+  listTags(
+    args: ListTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsCommandOutput>;
+  listTags(
+    args: ListTagsCommandInput,
+    cb: (err: any, data?: ListTagsCommandOutput) => void
+  ): void;
   listTags(
     args: ListTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -372,8 +429,14 @@ export interface Mq {
   /**
    * @see {@link ListUsersCommand}
    */
-  listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
-  listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
+  listUsers(
+    args: ListUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUsersCommandOutput>;
+  listUsers(
+    args: ListUsersCommandInput,
+    cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
   listUsers(
     args: ListUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -383,8 +446,14 @@ export interface Mq {
   /**
    * @see {@link PromoteCommand}
    */
-  promote(args: PromoteCommandInput, options?: __HttpHandlerOptions): Promise<PromoteCommandOutput>;
-  promote(args: PromoteCommandInput, cb: (err: any, data?: PromoteCommandOutput) => void): void;
+  promote(
+    args: PromoteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PromoteCommandOutput>;
+  promote(
+    args: PromoteCommandInput,
+    cb: (err: any, data?: PromoteCommandOutput) => void
+  ): void;
   promote(
     args: PromoteCommandInput,
     options: __HttpHandlerOptions,
@@ -394,8 +463,14 @@ export interface Mq {
   /**
    * @see {@link RebootBrokerCommand}
    */
-  rebootBroker(args: RebootBrokerCommandInput, options?: __HttpHandlerOptions): Promise<RebootBrokerCommandOutput>;
-  rebootBroker(args: RebootBrokerCommandInput, cb: (err: any, data?: RebootBrokerCommandOutput) => void): void;
+  rebootBroker(
+    args: RebootBrokerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RebootBrokerCommandOutput>;
+  rebootBroker(
+    args: RebootBrokerCommandInput,
+    cb: (err: any, data?: RebootBrokerCommandOutput) => void
+  ): void;
   rebootBroker(
     args: RebootBrokerCommandInput,
     options: __HttpHandlerOptions,
@@ -405,8 +480,14 @@ export interface Mq {
   /**
    * @see {@link UpdateBrokerCommand}
    */
-  updateBroker(args: UpdateBrokerCommandInput, options?: __HttpHandlerOptions): Promise<UpdateBrokerCommandOutput>;
-  updateBroker(args: UpdateBrokerCommandInput, cb: (err: any, data?: UpdateBrokerCommandOutput) => void): void;
+  updateBroker(
+    args: UpdateBrokerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBrokerCommandOutput>;
+  updateBroker(
+    args: UpdateBrokerCommandInput,
+    cb: (err: any, data?: UpdateBrokerCommandOutput) => void
+  ): void;
   updateBroker(
     args: UpdateBrokerCommandInput,
     options: __HttpHandlerOptions,
@@ -433,8 +514,14 @@ export interface Mq {
   /**
    * @see {@link UpdateUserCommand}
    */
-  updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
-  updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
+  updateUser(
+    args: UpdateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUserCommandOutput>;
+  updateUser(
+    args: UpdateUserCommandInput,
+    cb: (err: any, data?: UpdateUserCommandOutput) => void
+  ): void;
   updateUser(
     args: UpdateUserCommandInput,
     options: __HttpHandlerOptions,

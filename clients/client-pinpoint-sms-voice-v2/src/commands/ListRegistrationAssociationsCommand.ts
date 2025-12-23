@@ -28,9 +28,7 @@ export interface ListRegistrationAssociationsCommandInput extends ListRegistrati
  *
  * The output of {@link ListRegistrationAssociationsCommand}.
  */
-export interface ListRegistrationAssociationsCommandOutput
-  extends ListRegistrationAssociationsResult,
-    __MetadataBearer {}
+export interface ListRegistrationAssociationsCommandOutput extends ListRegistrationAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieve all of the origination identities that are associated with a registration.</p>

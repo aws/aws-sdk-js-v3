@@ -24,9 +24,7 @@ export interface ChangeMessageVisibilityBatchCommandInput extends ChangeMessageV
  *
  * The output of {@link ChangeMessageVisibilityBatchCommand}.
  */
-export interface ChangeMessageVisibilityBatchCommandOutput
-  extends ChangeMessageVisibilityBatchResult,
-    __MetadataBearer {}
+export interface ChangeMessageVisibilityBatchCommandOutput extends ChangeMessageVisibilityBatchResult, __MetadataBearer {}
 
 /**
  * <p>Changes the visibility timeout of multiple messages. This is a batch version of

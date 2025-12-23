@@ -71,6 +71,7 @@ import {
   MethodName,
   MetricPolicy$,
   MetricPolicyRule$,
+  paginateListContainers,
   PolicyNotFoundException,
   PolicyNotFoundException$,
   PutContainerPolicy$,
@@ -106,7 +107,6 @@ import {
   UntagResourceCommand,
   UntagResourceInput$,
   UntagResourceOutput$,
-  paginateListContainers,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

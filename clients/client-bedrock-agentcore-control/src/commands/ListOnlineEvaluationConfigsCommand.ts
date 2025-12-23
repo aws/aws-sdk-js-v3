@@ -28,9 +28,7 @@ export interface ListOnlineEvaluationConfigsCommandInput extends ListOnlineEvalu
  *
  * The output of {@link ListOnlineEvaluationConfigsCommand}.
  */
-export interface ListOnlineEvaluationConfigsCommandOutput
-  extends ListOnlineEvaluationConfigsResponse,
-    __MetadataBearer {}
+export interface ListOnlineEvaluationConfigsCommandOutput extends ListOnlineEvaluationConfigsResponse, __MetadataBearer {}
 
 /**
  * <p> Lists all online evaluation configurations in the account, providing summary information about each configuration's status and settings. </p>

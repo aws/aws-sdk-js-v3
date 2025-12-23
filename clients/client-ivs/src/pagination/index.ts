@@ -5,5 +5,5 @@ export * from "./ListPlaybackKeyPairsPaginator";
 export * from "./ListPlaybackRestrictionPoliciesPaginator";
 export * from "./ListRecordingConfigurationsPaginator";
 export * from "./ListStreamKeysPaginator";
-export * from "./ListStreamSessionsPaginator";
 export * from "./ListStreamsPaginator";
+export * from "./ListStreamSessionsPaginator";

@@ -219,8 +219,14 @@ export interface SageMakerGeospatial {
   /**
    * @see {@link GetTileCommand}
    */
-  getTile(args: GetTileCommandInput, options?: __HttpHandlerOptions): Promise<GetTileCommandOutput>;
-  getTile(args: GetTileCommandInput, cb: (err: any, data?: GetTileCommandOutput) => void): void;
+  getTile(
+    args: GetTileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTileCommandOutput>;
+  getTile(
+    args: GetTileCommandInput,
+    cb: (err: any, data?: GetTileCommandOutput) => void
+  ): void;
   getTile(
     args: GetTileCommandInput,
     options: __HttpHandlerOptions,
@@ -403,8 +409,14 @@ export interface SageMakerGeospatial {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -414,8 +426,14 @@ export interface SageMakerGeospatial {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

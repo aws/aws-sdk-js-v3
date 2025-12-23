@@ -24,9 +24,7 @@ export interface GetRouteServerRoutingDatabaseCommandInput extends GetRouteServe
  *
  * The output of {@link GetRouteServerRoutingDatabaseCommand}.
  */
-export interface GetRouteServerRoutingDatabaseCommandOutput
-  extends GetRouteServerRoutingDatabaseResult,
-    __MetadataBearer {}
+export interface GetRouteServerRoutingDatabaseCommandOutput extends GetRouteServerRoutingDatabaseResult, __MetadataBearer {}
 
 /**
  * <p>Gets the routing database for the specified route server. The <a href="https://en.wikipedia.org/wiki/Routing_table">Routing Information Base (RIB)</a> serves as a database that stores all the routing information and network topology data collected by a router or routing system, such as routes learned from BGP peers. The RIB is constantly updated as new routing information is received or existing routes change. This ensures that the route server always has the most current view of the network topology and can make optimal routing decisions.</p>

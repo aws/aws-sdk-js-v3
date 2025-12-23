@@ -27,9 +27,7 @@ export interface GetVoiceConnectorTerminationHealthCommandInput extends GetVoice
  *
  * The output of {@link GetVoiceConnectorTerminationHealthCommand}.
  */
-export interface GetVoiceConnectorTerminationHealthCommandOutput
-  extends GetVoiceConnectorTerminationHealthResponse,
-    __MetadataBearer {}
+export interface GetVoiceConnectorTerminationHealthCommandOutput extends GetVoiceConnectorTerminationHealthResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the last time a <code>SIP OPTIONS</code> ping

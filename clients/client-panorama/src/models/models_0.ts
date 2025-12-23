@@ -212,7 +212,9 @@ export namespace ManifestOverridesPayload {
  *       file is located in the <code>graphs</code> folder in your application source.</p>
  * @public
  */
-export type ManifestPayload = ManifestPayload.PayloadDataMember | ManifestPayload.$UnknownMember;
+export type ManifestPayload =
+  | ManifestPayload.PayloadDataMember
+  | ManifestPayload.$UnknownMember;
 
 /**
  * @public

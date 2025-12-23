@@ -28,9 +28,7 @@ export interface DescribeApplicationOperationCommandInput extends DescribeApplic
  *
  * The output of {@link DescribeApplicationOperationCommand}.
  */
-export interface DescribeApplicationOperationCommandOutput
-  extends DescribeApplicationOperationResponse,
-    __MetadataBearer {}
+export interface DescribeApplicationOperationCommandOutput extends DescribeApplicationOperationResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a detailed description of a specified application operation. To see a list of all the operations of an application, invoke the <a>ListApplicationOperations</a> operation.</p>

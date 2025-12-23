@@ -28,9 +28,7 @@ export interface DescribeLoadBalancerAttributesCommandInput extends DescribeLoad
  *
  * The output of {@link DescribeLoadBalancerAttributesCommand}.
  */
-export interface DescribeLoadBalancerAttributesCommandOutput
-  extends DescribeLoadBalancerAttributesOutput,
-    __MetadataBearer {}
+export interface DescribeLoadBalancerAttributesCommandOutput extends DescribeLoadBalancerAttributesOutput, __MetadataBearer {}
 
 /**
  * <p>Describes the attributes for the specified load balancer.</p>

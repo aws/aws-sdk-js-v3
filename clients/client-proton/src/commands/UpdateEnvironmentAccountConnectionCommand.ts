@@ -27,9 +27,7 @@ export interface UpdateEnvironmentAccountConnectionCommandInput extends UpdateEn
  *
  * The output of {@link UpdateEnvironmentAccountConnectionCommand}.
  */
-export interface UpdateEnvironmentAccountConnectionCommandOutput
-  extends UpdateEnvironmentAccountConnectionOutput,
-    __MetadataBearer {}
+export interface UpdateEnvironmentAccountConnectionCommandOutput extends UpdateEnvironmentAccountConnectionOutput, __MetadataBearer {}
 
 /**
  * <p>In an environment account, update an environment account connection to use a new IAM role.</p>

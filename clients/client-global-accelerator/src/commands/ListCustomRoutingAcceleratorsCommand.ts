@@ -28,9 +28,7 @@ export interface ListCustomRoutingAcceleratorsCommandInput extends ListCustomRou
  *
  * The output of {@link ListCustomRoutingAcceleratorsCommand}.
  */
-export interface ListCustomRoutingAcceleratorsCommandOutput
-  extends ListCustomRoutingAcceleratorsResponse,
-    __MetadataBearer {}
+export interface ListCustomRoutingAcceleratorsCommandOutput extends ListCustomRoutingAcceleratorsResponse, __MetadataBearer {}
 
 /**
  * <p>List the custom routing accelerators for an Amazon Web Services account. </p>

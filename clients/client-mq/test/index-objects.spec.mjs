@@ -112,6 +112,7 @@ import {
   MqServiceException,
   NotFoundException,
   NotFoundException$,
+  paginateListBrokers,
   PendingLogs$,
   Promote$,
   PromoteCommand,
@@ -142,7 +143,6 @@ import {
   UserPendingChanges$,
   UserSummary$,
   WeeklyStartTime$,
-  paginateListBrokers,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

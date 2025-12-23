@@ -24,9 +24,7 @@ export interface DescribeVpcEncryptionControlsCommandInput extends DescribeVpcEn
  *
  * The output of {@link DescribeVpcEncryptionControlsCommand}.
  */
-export interface DescribeVpcEncryptionControlsCommandOutput
-  extends DescribeVpcEncryptionControlsResult,
-    __MetadataBearer {}
+export interface DescribeVpcEncryptionControlsCommandOutput extends DescribeVpcEncryptionControlsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more VPC Encryption Control configurations. VPC Encryption Control enables you to enforce encryption for all data in transit within and between VPCs to meet compliance requirements You can filter the results to return information about specific encryption controls or VPCs.</p>

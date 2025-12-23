@@ -9,7 +9,6 @@ import {
   ScanType,
   StopCisSessionStatus,
 } from "./enums";
-
 import type {
   AutoEnable,
   CodeSecurityResource,

@@ -10,10 +10,8 @@ AWS SDK for JavaScript Route53Domains Client for Node.js, Browser and React Nati
 operations.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-route-53-domains
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-route-53-domains`
 - `yarn add @aws-sdk/client-route-53-domains`
 - `pnpm add @aws-sdk/client-route-53-domains`
@@ -49,9 +47,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new Route53DomainsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListDomainsCommand(params);
 ```
 
@@ -210,7 +206,6 @@ AcceptDomainTransferFromAnotherAwsAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/AcceptDomainTransferFromAnotherAwsAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/AcceptDomainTransferFromAnotherAwsAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/AcceptDomainTransferFromAnotherAwsAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -218,7 +213,6 @@ AssociateDelegationSignerToDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/AssociateDelegationSignerToDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/AssociateDelegationSignerToDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/AssociateDelegationSignerToDomainCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -226,7 +220,6 @@ CancelDomainTransferToAnotherAwsAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/CancelDomainTransferToAnotherAwsAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/CancelDomainTransferToAnotherAwsAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/CancelDomainTransferToAnotherAwsAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -234,7 +227,6 @@ CheckDomainAvailability
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/CheckDomainAvailabilityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/CheckDomainAvailabilityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/CheckDomainAvailabilityCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -242,7 +234,6 @@ CheckDomainTransferability
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/CheckDomainTransferabilityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/CheckDomainTransferabilityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/CheckDomainTransferabilityCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -250,7 +241,6 @@ DeleteDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/DeleteDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/DeleteDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/DeleteDomainCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -258,7 +248,6 @@ DeleteTagsForDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/DeleteTagsForDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/DeleteTagsForDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/DeleteTagsForDomainCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -266,7 +255,6 @@ DisableDomainAutoRenew
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/DisableDomainAutoRenewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/DisableDomainAutoRenewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/DisableDomainAutoRenewCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -274,7 +262,6 @@ DisableDomainTransferLock
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/DisableDomainTransferLockCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/DisableDomainTransferLockCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/DisableDomainTransferLockCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -282,7 +269,6 @@ DisassociateDelegationSignerFromDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/DisassociateDelegationSignerFromDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/DisassociateDelegationSignerFromDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/DisassociateDelegationSignerFromDomainCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -290,7 +276,6 @@ EnableDomainAutoRenew
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/EnableDomainAutoRenewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/EnableDomainAutoRenewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/EnableDomainAutoRenewCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -298,7 +283,6 @@ EnableDomainTransferLock
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/EnableDomainTransferLockCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/EnableDomainTransferLockCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/EnableDomainTransferLockCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -306,7 +290,6 @@ GetContactReachabilityStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/GetContactReachabilityStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/GetContactReachabilityStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/GetContactReachabilityStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -314,7 +297,6 @@ GetDomainDetail
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/GetDomainDetailCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/GetDomainDetailCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/GetDomainDetailCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -322,7 +304,6 @@ GetDomainSuggestions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/GetDomainSuggestionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/GetDomainSuggestionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/GetDomainSuggestionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -330,7 +311,6 @@ GetOperationDetail
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/GetOperationDetailCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/GetOperationDetailCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/GetOperationDetailCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -338,7 +318,6 @@ ListDomains
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/ListDomainsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/ListDomainsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/ListDomainsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -346,7 +325,6 @@ ListOperations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/ListOperationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/ListOperationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/ListOperationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -354,7 +332,6 @@ ListPrices
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/ListPricesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/ListPricesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/ListPricesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -362,7 +339,6 @@ ListTagsForDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/ListTagsForDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/ListTagsForDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/ListTagsForDomainCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -370,7 +346,6 @@ PushDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/PushDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/PushDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/PushDomainCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -378,7 +353,6 @@ RegisterDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/RegisterDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/RegisterDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/RegisterDomainCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -386,7 +360,6 @@ RejectDomainTransferFromAnotherAwsAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/RejectDomainTransferFromAnotherAwsAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/RejectDomainTransferFromAnotherAwsAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/RejectDomainTransferFromAnotherAwsAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -394,7 +367,6 @@ RenewDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/RenewDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/RenewDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/RenewDomainCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -402,7 +374,6 @@ ResendContactReachabilityEmail
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/ResendContactReachabilityEmailCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/ResendContactReachabilityEmailCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/ResendContactReachabilityEmailCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -410,7 +381,6 @@ ResendOperationAuthorization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/ResendOperationAuthorizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/ResendOperationAuthorizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/ResendOperationAuthorizationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -418,7 +388,6 @@ RetrieveDomainAuthCode
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/RetrieveDomainAuthCodeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/RetrieveDomainAuthCodeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/RetrieveDomainAuthCodeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -426,7 +395,6 @@ TransferDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/TransferDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/TransferDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/TransferDomainCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -434,7 +402,6 @@ TransferDomainToAnotherAwsAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/TransferDomainToAnotherAwsAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/TransferDomainToAnotherAwsAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/TransferDomainToAnotherAwsAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -442,7 +409,6 @@ UpdateDomainContact
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/UpdateDomainContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/UpdateDomainContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/UpdateDomainContactCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -450,7 +416,6 @@ UpdateDomainContactPrivacy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/UpdateDomainContactPrivacyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/UpdateDomainContactPrivacyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/UpdateDomainContactPrivacyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -458,7 +423,6 @@ UpdateDomainNameservers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/UpdateDomainNameserversCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/UpdateDomainNameserversCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/UpdateDomainNameserversCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -466,7 +430,6 @@ UpdateTagsForDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/UpdateTagsForDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/UpdateTagsForDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/UpdateTagsForDomainCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -474,5 +437,4 @@ ViewBilling
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/ViewBillingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/ViewBillingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/ViewBillingCommandOutput/)
-
 </details>

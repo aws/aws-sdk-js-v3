@@ -22,8 +22,7 @@ export { $Command };
  *
  * The input for {@link BatchUpdateAttendeeCapabilitiesExceptCommand}.
  */
-export interface BatchUpdateAttendeeCapabilitiesExceptCommandInput
-  extends BatchUpdateAttendeeCapabilitiesExceptRequest {}
+export interface BatchUpdateAttendeeCapabilitiesExceptCommandInput extends BatchUpdateAttendeeCapabilitiesExceptRequest {}
 /**
  * @public
  *

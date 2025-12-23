@@ -28,9 +28,7 @@ export interface ListApplicationAssociationsCommandInput extends ListApplication
  *
  * The output of {@link ListApplicationAssociationsCommand}.
  */
-export interface ListApplicationAssociationsCommandOutput
-  extends ListApplicationAssociationsResponse,
-    __MetadataBearer {}
+export interface ListApplicationAssociationsCommandOutput extends ListApplicationAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of application associations for an application.</p>

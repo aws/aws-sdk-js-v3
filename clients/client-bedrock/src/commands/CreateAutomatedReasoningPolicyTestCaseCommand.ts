@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateAutomatedReasoningPolicyTestCaseCommand}.
  */
-export interface CreateAutomatedReasoningPolicyTestCaseCommandInput
-  extends CreateAutomatedReasoningPolicyTestCaseRequest {}
+export interface CreateAutomatedReasoningPolicyTestCaseCommandInput extends CreateAutomatedReasoningPolicyTestCaseRequest {}
 /**
  * @public
  *
  * The output of {@link CreateAutomatedReasoningPolicyTestCaseCommand}.
  */
-export interface CreateAutomatedReasoningPolicyTestCaseCommandOutput
-  extends CreateAutomatedReasoningPolicyTestCaseResponse,
-    __MetadataBearer {}
+export interface CreateAutomatedReasoningPolicyTestCaseCommandOutput extends CreateAutomatedReasoningPolicyTestCaseResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a test for an Automated Reasoning policy. Tests validate that your policy works as expected by providing sample inputs and expected outcomes. Use tests to verify policy behavior before deploying to production.</p>

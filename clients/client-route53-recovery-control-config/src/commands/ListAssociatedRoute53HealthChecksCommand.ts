@@ -31,9 +31,7 @@ export interface ListAssociatedRoute53HealthChecksCommandInput extends ListAssoc
  *
  * The output of {@link ListAssociatedRoute53HealthChecksCommand}.
  */
-export interface ListAssociatedRoute53HealthChecksCommandOutput
-  extends ListAssociatedRoute53HealthChecksResponse,
-    __MetadataBearer {}
+export interface ListAssociatedRoute53HealthChecksCommandOutput extends ListAssociatedRoute53HealthChecksResponse, __MetadataBearer {}
 
 /**
  * <p>Returns an array of all Amazon Route 53 health checks associated with a specific routing control.</p>

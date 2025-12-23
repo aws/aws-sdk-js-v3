@@ -28,9 +28,7 @@ export interface AssociateWhatsAppBusinessAccountCommandInput extends AssociateW
  *
  * The output of {@link AssociateWhatsAppBusinessAccountCommand}.
  */
-export interface AssociateWhatsAppBusinessAccountCommandOutput
-  extends AssociateWhatsAppBusinessAccountOutput,
-    __MetadataBearer {}
+export interface AssociateWhatsAppBusinessAccountCommandOutput extends AssociateWhatsAppBusinessAccountOutput, __MetadataBearer {}
 
 /**
  * <p>This is only used through the Amazon Web Services console during sign-up to associate your WhatsApp Business Account to your Amazon Web Services account.</p>

@@ -24,9 +24,7 @@ export interface ListSubscriptionDefinitionsCommandInput extends ListSubscriptio
  *
  * The output of {@link ListSubscriptionDefinitionsCommand}.
  */
-export interface ListSubscriptionDefinitionsCommandOutput
-  extends ListSubscriptionDefinitionsResponse,
-    __MetadataBearer {}
+export interface ListSubscriptionDefinitionsCommandOutput extends ListSubscriptionDefinitionsResponse, __MetadataBearer {}
 
 /**
  * Retrieves a list of subscription definitions.

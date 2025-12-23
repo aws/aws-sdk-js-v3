@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeReservedInstancesModificationsCommand}.
  */
-export interface DescribeReservedInstancesModificationsCommandInput
-  extends DescribeReservedInstancesModificationsRequest {}
+export interface DescribeReservedInstancesModificationsCommandInput extends DescribeReservedInstancesModificationsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeReservedInstancesModificationsCommand}.
  */
-export interface DescribeReservedInstancesModificationsCommandOutput
-  extends DescribeReservedInstancesModificationsResult,
-    __MetadataBearer {}
+export interface DescribeReservedInstancesModificationsCommandOutput extends DescribeReservedInstancesModificationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the modifications made to your Reserved Instances. If no parameter is specified,

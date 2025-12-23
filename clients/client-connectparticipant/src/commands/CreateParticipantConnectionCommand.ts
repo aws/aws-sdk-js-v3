@@ -28,9 +28,7 @@ export interface CreateParticipantConnectionCommandInput extends CreateParticipa
  *
  * The output of {@link CreateParticipantConnectionCommand}.
  */
-export interface CreateParticipantConnectionCommandOutput
-  extends CreateParticipantConnectionResponse,
-    __MetadataBearer {}
+export interface CreateParticipantConnectionCommandOutput extends CreateParticipantConnectionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates the participant's connection. </p>

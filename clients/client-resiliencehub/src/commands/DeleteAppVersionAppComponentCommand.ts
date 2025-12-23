@@ -24,9 +24,7 @@ export interface DeleteAppVersionAppComponentCommandInput extends DeleteAppVersi
  *
  * The output of {@link DeleteAppVersionAppComponentCommand}.
  */
-export interface DeleteAppVersionAppComponentCommandOutput
-  extends DeleteAppVersionAppComponentResponse,
-    __MetadataBearer {}
+export interface DeleteAppVersionAppComponentCommandOutput extends DeleteAppVersionAppComponentResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an Application Component from the Resilience Hub application.</p>

@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { SageMakerFeatureStoreRuntimeServiceException as __BaseException } from "./SageMakerFeatureStoreRuntimeServiceException";
+import {
+  SageMakerFeatureStoreRuntimeServiceException as __BaseException,
+} from "./SageMakerFeatureStoreRuntimeServiceException";
 
 /**
  * <p>You do not have permission to perform an action.</p>

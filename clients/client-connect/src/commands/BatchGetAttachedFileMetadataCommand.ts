@@ -24,9 +24,7 @@ export interface BatchGetAttachedFileMetadataCommandInput extends BatchGetAttach
  *
  * The output of {@link BatchGetAttachedFileMetadataCommand}.
  */
-export interface BatchGetAttachedFileMetadataCommandOutput
-  extends BatchGetAttachedFileMetadataResponse,
-    __MetadataBearer {}
+export interface BatchGetAttachedFileMetadataCommandOutput extends BatchGetAttachedFileMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Allows you to retrieve metadata about multiple attached files on an associated resource. Each attached file

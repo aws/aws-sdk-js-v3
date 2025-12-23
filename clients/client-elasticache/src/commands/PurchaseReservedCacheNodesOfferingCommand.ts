@@ -27,9 +27,7 @@ export interface PurchaseReservedCacheNodesOfferingCommandInput extends Purchase
  *
  * The output of {@link PurchaseReservedCacheNodesOfferingCommand}.
  */
-export interface PurchaseReservedCacheNodesOfferingCommandOutput
-  extends PurchaseReservedCacheNodesOfferingResult,
-    __MetadataBearer {}
+export interface PurchaseReservedCacheNodesOfferingCommandOutput extends PurchaseReservedCacheNodesOfferingResult, __MetadataBearer {}
 
 /**
  * <p>Allows you to purchase a reserved cache node offering. Reserved nodes are not eligible

@@ -28,9 +28,7 @@ export interface EnableAWSOrganizationsAccessCommandInput extends EnableAWSOrgan
  *
  * The output of {@link EnableAWSOrganizationsAccessCommand}.
  */
-export interface EnableAWSOrganizationsAccessCommandOutput
-  extends EnableAWSOrganizationsAccessOutput,
-    __MetadataBearer {}
+export interface EnableAWSOrganizationsAccessCommandOutput extends EnableAWSOrganizationsAccessOutput, __MetadataBearer {}
 
 /**
  * <p>Enable portfolio sharing feature through Organizations. This API will allow Service Catalog to receive updates on your organization in order to sync your shares with the

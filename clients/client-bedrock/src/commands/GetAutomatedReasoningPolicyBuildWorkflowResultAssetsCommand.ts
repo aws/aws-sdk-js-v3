@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand}.
  */
-export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandInput
-  extends GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest {}
+export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandInput extends GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest {}
 /**
  * @public
  *
  * The output of {@link GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand}.
  */
-export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutput
-  extends GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse,
-    __MetadataBearer {}
+export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutput extends GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the resulting assets from a completed Automated Reasoning policy build workflow, including build logs, quality reports, and generated policy artifacts.</p>

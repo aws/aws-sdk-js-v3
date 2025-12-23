@@ -27,9 +27,7 @@ export interface DeleteVerifiedAccessTrustProviderCommandInput extends DeleteVer
  *
  * The output of {@link DeleteVerifiedAccessTrustProviderCommand}.
  */
-export interface DeleteVerifiedAccessTrustProviderCommandOutput
-  extends DeleteVerifiedAccessTrustProviderResult,
-    __MetadataBearer {}
+export interface DeleteVerifiedAccessTrustProviderCommandOutput extends DeleteVerifiedAccessTrustProviderResult, __MetadataBearer {}
 
 /**
  * <p>Delete an Amazon Web Services Verified Access trust provider.</p>

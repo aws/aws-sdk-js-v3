@@ -101,174 +101,201 @@ import {
 import { KendraRankingServiceException } from "../models/KendraRankingServiceException";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var CapacityUnitsConfiguration$: StaticStructureSchema = [3, n0, _CUC, 0, [_RCU], [1]];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_M], [0]];
+export var CapacityUnitsConfiguration$: StaticStructureSchema = [3, n0, _CUC,
+  0,
+  [_RCU],
+  [1]
+];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
-export var CreateRescoreExecutionPlanRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CREPR,
+export var CreateRescoreExecutionPlanRequest$: StaticStructureSchema = [3, n0, _CREPR,
   0,
   [_N, _D, _CU, _T, _CT],
-  [0, 0, () => CapacityUnitsConfiguration$, () => TagList, [0, 4]],
+  [0, 0, () => CapacityUnitsConfiguration$, () => TagList, [0, 4]]
 ];
-export var CreateRescoreExecutionPlanResponse$: StaticStructureSchema = [3, n0, _CREPRr, 0, [_I, _A], [0, 0]];
-export var DeleteRescoreExecutionPlanRequest$: StaticStructureSchema = [3, n0, _DREPR, 0, [_I], [[0, 1]]];
-export var DescribeRescoreExecutionPlanRequest$: StaticStructureSchema = [3, n0, _DREPRe, 0, [_I], [[0, 1]]];
-export var DescribeRescoreExecutionPlanResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DREPRes,
+export var CreateRescoreExecutionPlanResponse$: StaticStructureSchema = [3, n0, _CREPRr,
+  0,
+  [_I, _A],
+  [0, 0]
+];
+export var DeleteRescoreExecutionPlanRequest$: StaticStructureSchema = [3, n0, _DREPR,
+  0,
+  [_I],
+  [[0, 1]]
+];
+export var DescribeRescoreExecutionPlanRequest$: StaticStructureSchema = [3, n0, _DREPRe,
+  0,
+  [_I],
+  [[0, 1]]
+];
+export var DescribeRescoreExecutionPlanResponse$: StaticStructureSchema = [3, n0, _DREPRes,
   0,
   [_I, _A, _N, _D, _CU, _CA, _UA, _S, _EM],
-  [0, 0, 0, 0, () => CapacityUnitsConfiguration$, 4, 4, 0, 0],
+  [0, 0, 0, 0, () => CapacityUnitsConfiguration$, 4, 4, 0, 0]
 ];
-export var Document$: StaticStructureSchema = [
-  3,
-  n0,
-  _Do,
+export var Document$: StaticStructureSchema = [3, n0, _Do,
   0,
   [_I, _GI, _Ti, _B, _TT, _TB, _OS],
-  [0, 0, 0, 0, 64 | 0, 64 | 0, 1],
+  [0, 0, 0, 0, 64 | 0, 64 | 0, 1]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _s, [_hE]: 500 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var ListRescoreExecutionPlansRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LREPR,
+export var ListRescoreExecutionPlansRequest$: StaticStructureSchema = [3, n0, _LREPR,
   0,
   [_NT, _MR],
-  [
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-  ],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
 ];
-export var ListRescoreExecutionPlansResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LREPRi,
+export var ListRescoreExecutionPlansResponse$: StaticStructureSchema = [3, n0, _LREPRi,
   0,
   [_SI, _NT],
-  [() => RescoreExecutionPlanSummaryList, 0],
+  [() => RescoreExecutionPlanSummaryList, 0]
 ];
-export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_RARN], [0]];
-export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_T], [() => TagList]];
-export var RescoreExecutionPlanSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _REPS,
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
+  0,
+  [_RARN],
+  [0]
+];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
+  0,
+  [_T],
+  [() => TagList]
+];
+export var RescoreExecutionPlanSummary$: StaticStructureSchema = [3, n0, _REPS,
   0,
   [_N, _I, _CA, _UA, _S],
-  [0, 0, 4, 4, 0],
+  [0, 0, 4, 4, 0]
 ];
-export var RescoreRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _RR,
+export var RescoreRequest$: StaticStructureSchema = [3, n0, _RR,
   0,
   [_REPI, _SQ, _Doc],
-  [[0, 1], 0, () => DocumentList],
+  [[0, 1], 0, () => DocumentList]
 ];
-export var RescoreResult$: StaticStructureSchema = [3, n0, _RRe, 0, [_RI, _RIe], [0, () => RescoreResultItemList]];
-export var RescoreResultItem$: StaticStructureSchema = [3, n0, _RRI, 0, [_DI, _Sc], [0, 1]];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
+export var RescoreResult$: StaticStructureSchema = [3, n0, _RRe,
+  0,
+  [_RI, _RIe],
+  [0, () => RescoreResultItemList]
+];
+export var RescoreResultItem$: StaticStructureSchema = [3, n0, _RRI,
+  0,
+  [_DI, _Sc],
+  [0, 1]
+];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
+export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ResourceUnavailableException$, ResourceUnavailableException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 402 }, [_M], [0]];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var Tag$: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
-export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_RARN, _T], [0, () => TagList]];
-export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_M], [0]];
+export var Tag$: StaticStructureSchema = [3, n0, _Ta,
+  0,
+  [_K, _V],
+  [0, 0]
+];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
+  0,
+  [_RARN, _T],
+  [0, () => TagList]
+];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
+  0,
+  [],
+  []
+];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_RARN, _TK], [0, 64 | 0]];
-export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateRescoreExecutionPlanRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UREPR,
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
+  0,
+  [_RARN, _TK],
+  [0, 64 | 0]
+];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
+  0,
+  [],
+  []
+];
+export var UpdateRescoreExecutionPlanRequest$: StaticStructureSchema = [3, n0, _UREPR,
   0,
   [_I, _N, _D, _CU],
-  [[0, 1], 0, 0, () => CapacityUnitsConfiguration$],
+  [[0, 1], 0, 0, () => CapacityUnitsConfiguration$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
 export var KendraRankingServiceException$: StaticErrorSchema = [-3, _sm, "KendraRankingServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(KendraRankingServiceException$, KendraRankingServiceException);
 var BodyTokensList = 64 | 0;
-var DocumentList: StaticListSchema = [1, n0, _DL, 0, () => Document$];
-var RescoreExecutionPlanSummaryList: StaticListSchema = [1, n0, _REPSL, 0, () => RescoreExecutionPlanSummary$];
-var RescoreResultItemList: StaticListSchema = [1, n0, _RRIL, 0, () => RescoreResultItem$];
+var DocumentList: StaticListSchema = [1, n0, _DL,
+  0, () => Document$
+];
+var RescoreExecutionPlanSummaryList: StaticListSchema = [1, n0, _REPSL,
+  0, () => RescoreExecutionPlanSummary$
+];
+var RescoreResultItemList: StaticListSchema = [1, n0, _RRIL,
+  0, () => RescoreResultItem$
+];
 var TagKeyList = 64 | 0;
-var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
+var TagList: StaticListSchema = [1, n0, _TL,
+  0, () => Tag$
+];
 var TitleTokensList = 64 | 0;
-export var CreateRescoreExecutionPlan$: StaticOperationSchema = [
-  9,
-  n0,
-  _CREP,
-  { [_h]: ["POST", "/rescore-execution-plans", 200] },
-  () => CreateRescoreExecutionPlanRequest$,
-  () => CreateRescoreExecutionPlanResponse$,
+export var CreateRescoreExecutionPlan$: StaticOperationSchema = [9, n0, _CREP,
+  { [_h]: ["POST", "/rescore-execution-plans", 200] }, () => CreateRescoreExecutionPlanRequest$, () => CreateRescoreExecutionPlanResponse$
 ];
-export var DeleteRescoreExecutionPlan$: StaticOperationSchema = [
-  9,
-  n0,
-  _DREP,
-  { [_h]: ["DELETE", "/rescore-execution-plans/{Id}", 200] },
-  () => DeleteRescoreExecutionPlanRequest$,
-  () => __Unit,
+export var DeleteRescoreExecutionPlan$: StaticOperationSchema = [9, n0, _DREP,
+  { [_h]: ["DELETE", "/rescore-execution-plans/{Id}", 200] }, () => DeleteRescoreExecutionPlanRequest$, () => __Unit
 ];
-export var DescribeRescoreExecutionPlan$: StaticOperationSchema = [
-  9,
-  n0,
-  _DREPe,
-  { [_h]: ["GET", "/rescore-execution-plans/{Id}", 200] },
-  () => DescribeRescoreExecutionPlanRequest$,
-  () => DescribeRescoreExecutionPlanResponse$,
+export var DescribeRescoreExecutionPlan$: StaticOperationSchema = [9, n0, _DREPe,
+  { [_h]: ["GET", "/rescore-execution-plans/{Id}", 200] }, () => DescribeRescoreExecutionPlanRequest$, () => DescribeRescoreExecutionPlanResponse$
 ];
-export var ListRescoreExecutionPlans$: StaticOperationSchema = [
-  9,
-  n0,
-  _LREP,
-  { [_h]: ["GET", "/rescore-execution-plans", 200] },
-  () => ListRescoreExecutionPlansRequest$,
-  () => ListRescoreExecutionPlansResponse$,
+export var ListRescoreExecutionPlans$: StaticOperationSchema = [9, n0, _LREP,
+  { [_h]: ["GET", "/rescore-execution-plans", 200] }, () => ListRescoreExecutionPlansRequest$, () => ListRescoreExecutionPlansResponse$
 ];
-export var ListTagsForResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  0,
-  () => ListTagsForResourceRequest$,
-  () => ListTagsForResourceResponse$,
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  0, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
-export var Rescore$: StaticOperationSchema = [
-  9,
-  n0,
-  _R,
-  { [_h]: ["POST", "/rescore-execution-plans/{RescoreExecutionPlanId}/rescore", 200] },
-  () => RescoreRequest$,
-  () => RescoreResult$,
+export var Rescore$: StaticOperationSchema = [9, n0, _R,
+  { [_h]: ["POST", "/rescore-execution-plans/{RescoreExecutionPlanId}/rescore", 200] }, () => RescoreRequest$, () => RescoreResult$
 ];
-export var TagResource$: StaticOperationSchema = [9, n0, _TR, 0, () => TagResourceRequest$, () => TagResourceResponse$];
-export var UntagResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  0,
-  () => UntagResourceRequest$,
-  () => UntagResourceResponse$,
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  0, () => TagResourceRequest$, () => TagResourceResponse$
 ];
-export var UpdateRescoreExecutionPlan$: StaticOperationSchema = [
-  9,
-  n0,
-  _UREP,
-  { [_h]: ["PUT", "/rescore-execution-plans/{Id}", 200] },
-  () => UpdateRescoreExecutionPlanRequest$,
-  () => __Unit,
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  0, () => UntagResourceRequest$, () => UntagResourceResponse$
+];
+export var UpdateRescoreExecutionPlan$: StaticOperationSchema = [9, n0, _UREP,
+  { [_h]: ["PUT", "/rescore-execution-plans/{Id}", 200] }, () => UpdateRescoreExecutionPlanRequest$, () => __Unit
 ];

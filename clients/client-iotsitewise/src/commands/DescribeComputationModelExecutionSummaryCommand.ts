@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeComputationModelExecutionSummaryCommand}.
  */
-export interface DescribeComputationModelExecutionSummaryCommandInput
-  extends DescribeComputationModelExecutionSummaryRequest {}
+export interface DescribeComputationModelExecutionSummaryCommandInput extends DescribeComputationModelExecutionSummaryRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeComputationModelExecutionSummaryCommand}.
  */
-export interface DescribeComputationModelExecutionSummaryCommandOutput
-  extends DescribeComputationModelExecutionSummaryResponse,
-    __MetadataBearer {}
+export interface DescribeComputationModelExecutionSummaryCommandOutput extends DescribeComputationModelExecutionSummaryResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the execution summary of a computation model.</p>

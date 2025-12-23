@@ -27,9 +27,7 @@ export interface PutDeliverabilityDashboardOptionCommandInput extends PutDeliver
  *
  * The output of {@link PutDeliverabilityDashboardOptionCommand}.
  */
-export interface PutDeliverabilityDashboardOptionCommandOutput
-  extends PutDeliverabilityDashboardOptionResponse,
-    __MetadataBearer {}
+export interface PutDeliverabilityDashboardOptionCommandOutput extends PutDeliverabilityDashboardOptionResponse, __MetadataBearer {}
 
 /**
  * <p>Enable or disable the Deliverability dashboard for your Amazon Pinpoint account. When you enable the

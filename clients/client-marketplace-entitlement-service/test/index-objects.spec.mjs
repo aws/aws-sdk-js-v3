@@ -13,9 +13,9 @@ import {
   MarketplaceEntitlementService,
   MarketplaceEntitlementServiceClient,
   MarketplaceEntitlementServiceServiceException,
+  paginateGetEntitlements,
   ThrottlingException,
   ThrottlingException$,
-  paginateGetEntitlements,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

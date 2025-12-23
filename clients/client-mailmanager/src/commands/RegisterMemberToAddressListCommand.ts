@@ -24,9 +24,7 @@ export interface RegisterMemberToAddressListCommandInput extends RegisterMemberT
  *
  * The output of {@link RegisterMemberToAddressListCommand}.
  */
-export interface RegisterMemberToAddressListCommandOutput
-  extends RegisterMemberToAddressListResponse,
-    __MetadataBearer {}
+export interface RegisterMemberToAddressListCommandOutput extends RegisterMemberToAddressListResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a member to an address list.</p>

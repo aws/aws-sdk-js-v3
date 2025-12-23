@@ -94,8 +94,14 @@ export interface RDSData {
   /**
    * @see {@link ExecuteSqlCommand}
    */
-  executeSql(args: ExecuteSqlCommandInput, options?: __HttpHandlerOptions): Promise<ExecuteSqlCommandOutput>;
-  executeSql(args: ExecuteSqlCommandInput, cb: (err: any, data?: ExecuteSqlCommandOutput) => void): void;
+  executeSql(
+    args: ExecuteSqlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExecuteSqlCommandOutput>;
+  executeSql(
+    args: ExecuteSqlCommandInput,
+    cb: (err: any, data?: ExecuteSqlCommandOutput) => void
+  ): void;
   executeSql(
     args: ExecuteSqlCommandInput,
     options: __HttpHandlerOptions,

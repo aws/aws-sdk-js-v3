@@ -24,9 +24,7 @@ export interface ListOrganizationAdminAccountsCommandInput extends ListOrganizat
  *
  * The output of {@link ListOrganizationAdminAccountsCommand}.
  */
-export interface ListOrganizationAdminAccountsCommandOutput
-  extends ListOrganizationAdminAccountsResponse,
-    __MetadataBearer {}
+export interface ListOrganizationAdminAccountsCommandOutput extends ListOrganizationAdminAccountsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the Security Hub administrator accounts. Can only be called by the organization

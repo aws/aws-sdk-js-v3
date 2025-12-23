@@ -277,7 +277,7 @@ export class StartFaceLivenessSessionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEventStreamPlugin(config),
       getWebSocketPlugin(config, {
-        headerPrefix: "x-amz-rekognition-streaming-liveness-",
+        headerPrefix: 'x-amz-rekognition-streaming-liveness-',
       }),
     ];
   })

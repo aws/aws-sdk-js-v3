@@ -24,9 +24,7 @@ export interface GetMaintenanceWindowExecutionCommandInput extends GetMaintenanc
  *
  * The output of {@link GetMaintenanceWindowExecutionCommand}.
  */
-export interface GetMaintenanceWindowExecutionCommandOutput
-  extends GetMaintenanceWindowExecutionResult,
-    __MetadataBearer {}
+export interface GetMaintenanceWindowExecutionCommandOutput extends GetMaintenanceWindowExecutionResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves details about a specific a maintenance window execution.</p>

@@ -344,24 +344,22 @@ export interface LicenseManagerUserSubscriptionsClientConfig extends LicenseMana
 /**
  * @public
  */
-export type LicenseManagerUserSubscriptionsClientResolvedConfigType =
-  __SmithyResolvedConfiguration<__HttpHandlerOptions> &
-    Required<ClientDefaults> &
-    RuntimeExtensionsConfig &
-    UserAgentResolvedConfig &
-    RetryResolvedConfig &
-    RegionResolvedConfig &
-    HostHeaderResolvedConfig &
-    EndpointResolvedConfig<EndpointParameters> &
-    HttpAuthSchemeResolvedConfig &
-    ClientResolvedEndpointParameters;
+export type LicenseManagerUserSubscriptionsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+  Required<ClientDefaults> &
+  RuntimeExtensionsConfig &
+  UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
+  HttpAuthSchemeResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * @public
  *
  *  The resolved configuration interface of LicenseManagerUserSubscriptionsClient class. This is resolved and normalized from the {@link LicenseManagerUserSubscriptionsClientConfig | constructor configuration interface}.
  */
-export interface LicenseManagerUserSubscriptionsClientResolvedConfig
-  extends LicenseManagerUserSubscriptionsClientResolvedConfigType {}
+export interface LicenseManagerUserSubscriptionsClientResolvedConfig extends LicenseManagerUserSubscriptionsClientResolvedConfigType {}
 
 /**
  * <p>With License Manager, you can create user-based subscriptions to utilize licensed software with a per user subscription fee on Amazon EC2 instances.</p>

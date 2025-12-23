@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GenerateEmbedUrlForRegisteredUserWithIdentityCommand}.
  */
-export interface GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput
-  extends GenerateEmbedUrlForRegisteredUserWithIdentityRequest {}
+export interface GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput extends GenerateEmbedUrlForRegisteredUserWithIdentityRequest {}
 /**
  * @public
  *
  * The output of {@link GenerateEmbedUrlForRegisteredUserWithIdentityCommand}.
  */
-export interface GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput
-  extends GenerateEmbedUrlForRegisteredUserWithIdentityResponse,
-    __MetadataBearer {}
+export interface GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput extends GenerateEmbedUrlForRegisteredUserWithIdentityResponse, __MetadataBearer {}
 
 /**
  * <p>Generates an embed URL that you can use to embed an Amazon Quick Sight experience in

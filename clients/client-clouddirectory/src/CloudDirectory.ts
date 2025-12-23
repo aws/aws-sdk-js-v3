@@ -384,8 +384,14 @@ export interface CloudDirectory {
   /**
    * @see {@link ApplySchemaCommand}
    */
-  applySchema(args: ApplySchemaCommandInput, options?: __HttpHandlerOptions): Promise<ApplySchemaCommandOutput>;
-  applySchema(args: ApplySchemaCommandInput, cb: (err: any, data?: ApplySchemaCommandOutput) => void): void;
+  applySchema(
+    args: ApplySchemaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ApplySchemaCommandOutput>;
+  applySchema(
+    args: ApplySchemaCommandInput,
+    cb: (err: any, data?: ApplySchemaCommandOutput) => void
+  ): void;
   applySchema(
     args: ApplySchemaCommandInput,
     options: __HttpHandlerOptions,
@@ -395,8 +401,14 @@ export interface CloudDirectory {
   /**
    * @see {@link AttachObjectCommand}
    */
-  attachObject(args: AttachObjectCommandInput, options?: __HttpHandlerOptions): Promise<AttachObjectCommandOutput>;
-  attachObject(args: AttachObjectCommandInput, cb: (err: any, data?: AttachObjectCommandOutput) => void): void;
+  attachObject(
+    args: AttachObjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AttachObjectCommandOutput>;
+  attachObject(
+    args: AttachObjectCommandInput,
+    cb: (err: any, data?: AttachObjectCommandOutput) => void
+  ): void;
   attachObject(
     args: AttachObjectCommandInput,
     options: __HttpHandlerOptions,
@@ -406,8 +418,14 @@ export interface CloudDirectory {
   /**
    * @see {@link AttachPolicyCommand}
    */
-  attachPolicy(args: AttachPolicyCommandInput, options?: __HttpHandlerOptions): Promise<AttachPolicyCommandOutput>;
-  attachPolicy(args: AttachPolicyCommandInput, cb: (err: any, data?: AttachPolicyCommandOutput) => void): void;
+  attachPolicy(
+    args: AttachPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AttachPolicyCommandOutput>;
+  attachPolicy(
+    args: AttachPolicyCommandInput,
+    cb: (err: any, data?: AttachPolicyCommandOutput) => void
+  ): void;
   attachPolicy(
     args: AttachPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -417,8 +435,14 @@ export interface CloudDirectory {
   /**
    * @see {@link AttachToIndexCommand}
    */
-  attachToIndex(args: AttachToIndexCommandInput, options?: __HttpHandlerOptions): Promise<AttachToIndexCommandOutput>;
-  attachToIndex(args: AttachToIndexCommandInput, cb: (err: any, data?: AttachToIndexCommandOutput) => void): void;
+  attachToIndex(
+    args: AttachToIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AttachToIndexCommandOutput>;
+  attachToIndex(
+    args: AttachToIndexCommandInput,
+    cb: (err: any, data?: AttachToIndexCommandOutput) => void
+  ): void;
   attachToIndex(
     args: AttachToIndexCommandInput,
     options: __HttpHandlerOptions,
@@ -432,7 +456,10 @@ export interface CloudDirectory {
     args: AttachTypedLinkCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AttachTypedLinkCommandOutput>;
-  attachTypedLink(args: AttachTypedLinkCommandInput, cb: (err: any, data?: AttachTypedLinkCommandOutput) => void): void;
+  attachTypedLink(
+    args: AttachTypedLinkCommandInput,
+    cb: (err: any, data?: AttachTypedLinkCommandOutput) => void
+  ): void;
   attachTypedLink(
     args: AttachTypedLinkCommandInput,
     options: __HttpHandlerOptions,
@@ -442,8 +469,14 @@ export interface CloudDirectory {
   /**
    * @see {@link BatchReadCommand}
    */
-  batchRead(args: BatchReadCommandInput, options?: __HttpHandlerOptions): Promise<BatchReadCommandOutput>;
-  batchRead(args: BatchReadCommandInput, cb: (err: any, data?: BatchReadCommandOutput) => void): void;
+  batchRead(
+    args: BatchReadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchReadCommandOutput>;
+  batchRead(
+    args: BatchReadCommandInput,
+    cb: (err: any, data?: BatchReadCommandOutput) => void
+  ): void;
   batchRead(
     args: BatchReadCommandInput,
     options: __HttpHandlerOptions,
@@ -453,8 +486,14 @@ export interface CloudDirectory {
   /**
    * @see {@link BatchWriteCommand}
    */
-  batchWrite(args: BatchWriteCommandInput, options?: __HttpHandlerOptions): Promise<BatchWriteCommandOutput>;
-  batchWrite(args: BatchWriteCommandInput, cb: (err: any, data?: BatchWriteCommandOutput) => void): void;
+  batchWrite(
+    args: BatchWriteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchWriteCommandOutput>;
+  batchWrite(
+    args: BatchWriteCommandInput,
+    cb: (err: any, data?: BatchWriteCommandOutput) => void
+  ): void;
   batchWrite(
     args: BatchWriteCommandInput,
     options: __HttpHandlerOptions,
@@ -468,7 +507,10 @@ export interface CloudDirectory {
     args: CreateDirectoryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDirectoryCommandOutput>;
-  createDirectory(args: CreateDirectoryCommandInput, cb: (err: any, data?: CreateDirectoryCommandOutput) => void): void;
+  createDirectory(
+    args: CreateDirectoryCommandInput,
+    cb: (err: any, data?: CreateDirectoryCommandOutput) => void
+  ): void;
   createDirectory(
     args: CreateDirectoryCommandInput,
     options: __HttpHandlerOptions,
@@ -478,8 +520,14 @@ export interface CloudDirectory {
   /**
    * @see {@link CreateFacetCommand}
    */
-  createFacet(args: CreateFacetCommandInput, options?: __HttpHandlerOptions): Promise<CreateFacetCommandOutput>;
-  createFacet(args: CreateFacetCommandInput, cb: (err: any, data?: CreateFacetCommandOutput) => void): void;
+  createFacet(
+    args: CreateFacetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFacetCommandOutput>;
+  createFacet(
+    args: CreateFacetCommandInput,
+    cb: (err: any, data?: CreateFacetCommandOutput) => void
+  ): void;
   createFacet(
     args: CreateFacetCommandInput,
     options: __HttpHandlerOptions,
@@ -489,8 +537,14 @@ export interface CloudDirectory {
   /**
    * @see {@link CreateIndexCommand}
    */
-  createIndex(args: CreateIndexCommandInput, options?: __HttpHandlerOptions): Promise<CreateIndexCommandOutput>;
-  createIndex(args: CreateIndexCommandInput, cb: (err: any, data?: CreateIndexCommandOutput) => void): void;
+  createIndex(
+    args: CreateIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIndexCommandOutput>;
+  createIndex(
+    args: CreateIndexCommandInput,
+    cb: (err: any, data?: CreateIndexCommandOutput) => void
+  ): void;
   createIndex(
     args: CreateIndexCommandInput,
     options: __HttpHandlerOptions,
@@ -500,8 +554,14 @@ export interface CloudDirectory {
   /**
    * @see {@link CreateObjectCommand}
    */
-  createObject(args: CreateObjectCommandInput, options?: __HttpHandlerOptions): Promise<CreateObjectCommandOutput>;
-  createObject(args: CreateObjectCommandInput, cb: (err: any, data?: CreateObjectCommandOutput) => void): void;
+  createObject(
+    args: CreateObjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateObjectCommandOutput>;
+  createObject(
+    args: CreateObjectCommandInput,
+    cb: (err: any, data?: CreateObjectCommandOutput) => void
+  ): void;
   createObject(
     args: CreateObjectCommandInput,
     options: __HttpHandlerOptions,
@@ -511,8 +571,14 @@ export interface CloudDirectory {
   /**
    * @see {@link CreateSchemaCommand}
    */
-  createSchema(args: CreateSchemaCommandInput, options?: __HttpHandlerOptions): Promise<CreateSchemaCommandOutput>;
-  createSchema(args: CreateSchemaCommandInput, cb: (err: any, data?: CreateSchemaCommandOutput) => void): void;
+  createSchema(
+    args: CreateSchemaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSchemaCommandOutput>;
+  createSchema(
+    args: CreateSchemaCommandInput,
+    cb: (err: any, data?: CreateSchemaCommandOutput) => void
+  ): void;
   createSchema(
     args: CreateSchemaCommandInput,
     options: __HttpHandlerOptions,
@@ -543,7 +609,10 @@ export interface CloudDirectory {
     args: DeleteDirectoryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDirectoryCommandOutput>;
-  deleteDirectory(args: DeleteDirectoryCommandInput, cb: (err: any, data?: DeleteDirectoryCommandOutput) => void): void;
+  deleteDirectory(
+    args: DeleteDirectoryCommandInput,
+    cb: (err: any, data?: DeleteDirectoryCommandOutput) => void
+  ): void;
   deleteDirectory(
     args: DeleteDirectoryCommandInput,
     options: __HttpHandlerOptions,
@@ -553,8 +622,14 @@ export interface CloudDirectory {
   /**
    * @see {@link DeleteFacetCommand}
    */
-  deleteFacet(args: DeleteFacetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFacetCommandOutput>;
-  deleteFacet(args: DeleteFacetCommandInput, cb: (err: any, data?: DeleteFacetCommandOutput) => void): void;
+  deleteFacet(
+    args: DeleteFacetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFacetCommandOutput>;
+  deleteFacet(
+    args: DeleteFacetCommandInput,
+    cb: (err: any, data?: DeleteFacetCommandOutput) => void
+  ): void;
   deleteFacet(
     args: DeleteFacetCommandInput,
     options: __HttpHandlerOptions,
@@ -564,8 +639,14 @@ export interface CloudDirectory {
   /**
    * @see {@link DeleteObjectCommand}
    */
-  deleteObject(args: DeleteObjectCommandInput, options?: __HttpHandlerOptions): Promise<DeleteObjectCommandOutput>;
-  deleteObject(args: DeleteObjectCommandInput, cb: (err: any, data?: DeleteObjectCommandOutput) => void): void;
+  deleteObject(
+    args: DeleteObjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteObjectCommandOutput>;
+  deleteObject(
+    args: DeleteObjectCommandInput,
+    cb: (err: any, data?: DeleteObjectCommandOutput) => void
+  ): void;
   deleteObject(
     args: DeleteObjectCommandInput,
     options: __HttpHandlerOptions,
@@ -575,8 +656,14 @@ export interface CloudDirectory {
   /**
    * @see {@link DeleteSchemaCommand}
    */
-  deleteSchema(args: DeleteSchemaCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSchemaCommandOutput>;
-  deleteSchema(args: DeleteSchemaCommandInput, cb: (err: any, data?: DeleteSchemaCommandOutput) => void): void;
+  deleteSchema(
+    args: DeleteSchemaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSchemaCommandOutput>;
+  deleteSchema(
+    args: DeleteSchemaCommandInput,
+    cb: (err: any, data?: DeleteSchemaCommandOutput) => void
+  ): void;
   deleteSchema(
     args: DeleteSchemaCommandInput,
     options: __HttpHandlerOptions,
@@ -607,7 +694,10 @@ export interface CloudDirectory {
     args: DetachFromIndexCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DetachFromIndexCommandOutput>;
-  detachFromIndex(args: DetachFromIndexCommandInput, cb: (err: any, data?: DetachFromIndexCommandOutput) => void): void;
+  detachFromIndex(
+    args: DetachFromIndexCommandInput,
+    cb: (err: any, data?: DetachFromIndexCommandOutput) => void
+  ): void;
   detachFromIndex(
     args: DetachFromIndexCommandInput,
     options: __HttpHandlerOptions,
@@ -617,8 +707,14 @@ export interface CloudDirectory {
   /**
    * @see {@link DetachObjectCommand}
    */
-  detachObject(args: DetachObjectCommandInput, options?: __HttpHandlerOptions): Promise<DetachObjectCommandOutput>;
-  detachObject(args: DetachObjectCommandInput, cb: (err: any, data?: DetachObjectCommandOutput) => void): void;
+  detachObject(
+    args: DetachObjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetachObjectCommandOutput>;
+  detachObject(
+    args: DetachObjectCommandInput,
+    cb: (err: any, data?: DetachObjectCommandOutput) => void
+  ): void;
   detachObject(
     args: DetachObjectCommandInput,
     options: __HttpHandlerOptions,
@@ -628,8 +724,14 @@ export interface CloudDirectory {
   /**
    * @see {@link DetachPolicyCommand}
    */
-  detachPolicy(args: DetachPolicyCommandInput, options?: __HttpHandlerOptions): Promise<DetachPolicyCommandOutput>;
-  detachPolicy(args: DetachPolicyCommandInput, cb: (err: any, data?: DetachPolicyCommandOutput) => void): void;
+  detachPolicy(
+    args: DetachPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetachPolicyCommandOutput>;
+  detachPolicy(
+    args: DetachPolicyCommandInput,
+    cb: (err: any, data?: DetachPolicyCommandOutput) => void
+  ): void;
   detachPolicy(
     args: DetachPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -643,7 +745,10 @@ export interface CloudDirectory {
     args: DetachTypedLinkCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DetachTypedLinkCommandOutput>;
-  detachTypedLink(args: DetachTypedLinkCommandInput, cb: (err: any, data?: DetachTypedLinkCommandOutput) => void): void;
+  detachTypedLink(
+    args: DetachTypedLinkCommandInput,
+    cb: (err: any, data?: DetachTypedLinkCommandOutput) => void
+  ): void;
   detachTypedLink(
     args: DetachTypedLinkCommandInput,
     options: __HttpHandlerOptions,
@@ -674,7 +779,10 @@ export interface CloudDirectory {
     args: EnableDirectoryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<EnableDirectoryCommandOutput>;
-  enableDirectory(args: EnableDirectoryCommandInput, cb: (err: any, data?: EnableDirectoryCommandOutput) => void): void;
+  enableDirectory(
+    args: EnableDirectoryCommandInput,
+    cb: (err: any, data?: EnableDirectoryCommandOutput) => void
+  ): void;
   enableDirectory(
     args: EnableDirectoryCommandInput,
     options: __HttpHandlerOptions,
@@ -701,8 +809,14 @@ export interface CloudDirectory {
   /**
    * @see {@link GetDirectoryCommand}
    */
-  getDirectory(args: GetDirectoryCommandInput, options?: __HttpHandlerOptions): Promise<GetDirectoryCommandOutput>;
-  getDirectory(args: GetDirectoryCommandInput, cb: (err: any, data?: GetDirectoryCommandOutput) => void): void;
+  getDirectory(
+    args: GetDirectoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDirectoryCommandOutput>;
+  getDirectory(
+    args: GetDirectoryCommandInput,
+    cb: (err: any, data?: GetDirectoryCommandOutput) => void
+  ): void;
   getDirectory(
     args: GetDirectoryCommandInput,
     options: __HttpHandlerOptions,
@@ -712,8 +826,14 @@ export interface CloudDirectory {
   /**
    * @see {@link GetFacetCommand}
    */
-  getFacet(args: GetFacetCommandInput, options?: __HttpHandlerOptions): Promise<GetFacetCommandOutput>;
-  getFacet(args: GetFacetCommandInput, cb: (err: any, data?: GetFacetCommandOutput) => void): void;
+  getFacet(
+    args: GetFacetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFacetCommandOutput>;
+  getFacet(
+    args: GetFacetCommandInput,
+    cb: (err: any, data?: GetFacetCommandOutput) => void
+  ): void;
   getFacet(
     args: GetFacetCommandInput,
     options: __HttpHandlerOptions,
@@ -778,7 +898,10 @@ export interface CloudDirectory {
     args: GetSchemaAsJsonCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSchemaAsJsonCommandOutput>;
-  getSchemaAsJson(args: GetSchemaAsJsonCommandInput, cb: (err: any, data?: GetSchemaAsJsonCommandOutput) => void): void;
+  getSchemaAsJson(
+    args: GetSchemaAsJsonCommandInput,
+    cb: (err: any, data?: GetSchemaAsJsonCommandOutput) => void
+  ): void;
   getSchemaAsJson(
     args: GetSchemaAsJsonCommandInput,
     options: __HttpHandlerOptions,
@@ -862,7 +985,10 @@ export interface CloudDirectory {
     args: ListDirectoriesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDirectoriesCommandOutput>;
-  listDirectories(args: ListDirectoriesCommandInput, cb: (err: any, data?: ListDirectoriesCommandOutput) => void): void;
+  listDirectories(
+    args: ListDirectoriesCommandInput,
+    cb: (err: any, data?: ListDirectoriesCommandOutput) => void
+  ): void;
   listDirectories(
     args: ListDirectoriesCommandInput,
     options: __HttpHandlerOptions,
@@ -893,7 +1019,10 @@ export interface CloudDirectory {
     args: ListFacetNamesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListFacetNamesCommandOutput>;
-  listFacetNames(args: ListFacetNamesCommandInput, cb: (err: any, data?: ListFacetNamesCommandOutput) => void): void;
+  listFacetNames(
+    args: ListFacetNamesCommandInput,
+    cb: (err: any, data?: ListFacetNamesCommandOutput) => void
+  ): void;
   listFacetNames(
     args: ListFacetNamesCommandInput,
     options: __HttpHandlerOptions,
@@ -920,8 +1049,14 @@ export interface CloudDirectory {
   /**
    * @see {@link ListIndexCommand}
    */
-  listIndex(args: ListIndexCommandInput, options?: __HttpHandlerOptions): Promise<ListIndexCommandOutput>;
-  listIndex(args: ListIndexCommandInput, cb: (err: any, data?: ListIndexCommandOutput) => void): void;
+  listIndex(
+    args: ListIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIndexCommandOutput>;
+  listIndex(
+    args: ListIndexCommandInput,
+    cb: (err: any, data?: ListIndexCommandOutput) => void
+  ): void;
   listIndex(
     args: ListIndexCommandInput,
     options: __HttpHandlerOptions,
@@ -1137,8 +1272,14 @@ export interface CloudDirectory {
   /**
    * @see {@link LookupPolicyCommand}
    */
-  lookupPolicy(args: LookupPolicyCommandInput, options?: __HttpHandlerOptions): Promise<LookupPolicyCommandOutput>;
-  lookupPolicy(args: LookupPolicyCommandInput, cb: (err: any, data?: LookupPolicyCommandOutput) => void): void;
+  lookupPolicy(
+    args: LookupPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<LookupPolicyCommandOutput>;
+  lookupPolicy(
+    args: LookupPolicyCommandInput,
+    cb: (err: any, data?: LookupPolicyCommandOutput) => void
+  ): void;
   lookupPolicy(
     args: LookupPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -1148,8 +1289,14 @@ export interface CloudDirectory {
   /**
    * @see {@link PublishSchemaCommand}
    */
-  publishSchema(args: PublishSchemaCommandInput, options?: __HttpHandlerOptions): Promise<PublishSchemaCommandOutput>;
-  publishSchema(args: PublishSchemaCommandInput, cb: (err: any, data?: PublishSchemaCommandOutput) => void): void;
+  publishSchema(
+    args: PublishSchemaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PublishSchemaCommandOutput>;
+  publishSchema(
+    args: PublishSchemaCommandInput,
+    cb: (err: any, data?: PublishSchemaCommandOutput) => void
+  ): void;
   publishSchema(
     args: PublishSchemaCommandInput,
     options: __HttpHandlerOptions,
@@ -1193,8 +1340,14 @@ export interface CloudDirectory {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1204,8 +1357,14 @@ export interface CloudDirectory {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1215,8 +1374,14 @@ export interface CloudDirectory {
   /**
    * @see {@link UpdateFacetCommand}
    */
-  updateFacet(args: UpdateFacetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFacetCommandOutput>;
-  updateFacet(args: UpdateFacetCommandInput, cb: (err: any, data?: UpdateFacetCommandOutput) => void): void;
+  updateFacet(
+    args: UpdateFacetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFacetCommandOutput>;
+  updateFacet(
+    args: UpdateFacetCommandInput,
+    cb: (err: any, data?: UpdateFacetCommandOutput) => void
+  ): void;
   updateFacet(
     args: UpdateFacetCommandInput,
     options: __HttpHandlerOptions,
@@ -1260,8 +1425,14 @@ export interface CloudDirectory {
   /**
    * @see {@link UpdateSchemaCommand}
    */
-  updateSchema(args: UpdateSchemaCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSchemaCommandOutput>;
-  updateSchema(args: UpdateSchemaCommandInput, cb: (err: any, data?: UpdateSchemaCommandOutput) => void): void;
+  updateSchema(
+    args: UpdateSchemaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSchemaCommandOutput>;
+  updateSchema(
+    args: UpdateSchemaCommandInput,
+    cb: (err: any, data?: UpdateSchemaCommandOutput) => void
+  ): void;
   updateSchema(
     args: UpdateSchemaCommandInput,
     options: __HttpHandlerOptions,

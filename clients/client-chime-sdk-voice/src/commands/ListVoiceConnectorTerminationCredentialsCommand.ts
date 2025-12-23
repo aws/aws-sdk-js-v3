@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListVoiceConnectorTerminationCredentialsCommand}.
  */
-export interface ListVoiceConnectorTerminationCredentialsCommandInput
-  extends ListVoiceConnectorTerminationCredentialsRequest {}
+export interface ListVoiceConnectorTerminationCredentialsCommandInput extends ListVoiceConnectorTerminationCredentialsRequest {}
 /**
  * @public
  *
  * The output of {@link ListVoiceConnectorTerminationCredentialsCommand}.
  */
-export interface ListVoiceConnectorTerminationCredentialsCommandOutput
-  extends ListVoiceConnectorTerminationCredentialsResponse,
-    __MetadataBearer {}
+export interface ListVoiceConnectorTerminationCredentialsCommandOutput extends ListVoiceConnectorTerminationCredentialsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the SIP credentials for the specified Amazon Chime SDK Voice Connector.</p>

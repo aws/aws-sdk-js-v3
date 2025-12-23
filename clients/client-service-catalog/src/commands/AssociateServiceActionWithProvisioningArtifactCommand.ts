@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link AssociateServiceActionWithProvisioningArtifactCommand}.
  */
-export interface AssociateServiceActionWithProvisioningArtifactCommandInput
-  extends AssociateServiceActionWithProvisioningArtifactInput {}
+export interface AssociateServiceActionWithProvisioningArtifactCommandInput extends AssociateServiceActionWithProvisioningArtifactInput {}
 /**
  * @public
  *
  * The output of {@link AssociateServiceActionWithProvisioningArtifactCommand}.
  */
-export interface AssociateServiceActionWithProvisioningArtifactCommandOutput
-  extends AssociateServiceActionWithProvisioningArtifactOutput,
-    __MetadataBearer {}
+export interface AssociateServiceActionWithProvisioningArtifactCommandOutput extends AssociateServiceActionWithProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
  * <p>Associates a self-service action with a provisioning artifact.</p>

@@ -27,9 +27,7 @@ export interface DetachVerifiedAccessTrustProviderCommandInput extends DetachVer
  *
  * The output of {@link DetachVerifiedAccessTrustProviderCommand}.
  */
-export interface DetachVerifiedAccessTrustProviderCommandOutput
-  extends DetachVerifiedAccessTrustProviderResult,
-    __MetadataBearer {}
+export interface DetachVerifiedAccessTrustProviderCommandOutput extends DetachVerifiedAccessTrustProviderResult, __MetadataBearer {}
 
 /**
  * <p>Detaches the specified Amazon Web Services Verified Access trust provider from the specified Amazon Web Services Verified Access instance.</p>

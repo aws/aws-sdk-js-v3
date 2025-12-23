@@ -27,9 +27,7 @@ export interface StartActiveApprovalTeamDeletionCommandInput extends StartActive
  *
  * The output of {@link StartActiveApprovalTeamDeletionCommand}.
  */
-export interface StartActiveApprovalTeamDeletionCommandOutput
-  extends StartActiveApprovalTeamDeletionResponse,
-    __MetadataBearer {}
+export interface StartActiveApprovalTeamDeletionCommandOutput extends StartActiveApprovalTeamDeletionResponse, __MetadataBearer {}
 
 /**
  * <p>Starts the deletion process for an active approval team.</p> <note> <p> <b>Deletions require team approval</b> </p> <p>Requests to delete an active team must be approved by the team.</p> </note>

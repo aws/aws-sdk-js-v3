@@ -27,9 +27,7 @@ export interface DescribeRetentionConfigurationsCommandInput extends DescribeRet
  *
  * The output of {@link DescribeRetentionConfigurationsCommand}.
  */
-export interface DescribeRetentionConfigurationsCommandOutput
-  extends DescribeRetentionConfigurationsResponse,
-    __MetadataBearer {}
+export interface DescribeRetentionConfigurationsCommandOutput extends DescribeRetentionConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the details of one or more retention configurations. If

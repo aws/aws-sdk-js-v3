@@ -24,9 +24,7 @@ export interface GetOutboundWebIdentityFederationInfoCommandInput {}
  *
  * The output of {@link GetOutboundWebIdentityFederationInfoCommand}.
  */
-export interface GetOutboundWebIdentityFederationInfoCommandOutput
-  extends GetOutboundWebIdentityFederationInfoResponse,
-    __MetadataBearer {}
+export interface GetOutboundWebIdentityFederationInfoCommandOutput extends GetOutboundWebIdentityFederationInfoResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the configuration information for the outbound identity federation feature in your Amazon Web Services account. The response includes the unique issuer URL for your

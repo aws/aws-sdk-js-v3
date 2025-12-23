@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link StartSoftwareDeploymentToImageBuilderCommand}.
  */
-export interface StartSoftwareDeploymentToImageBuilderCommandInput
-  extends StartSoftwareDeploymentToImageBuilderRequest {}
+export interface StartSoftwareDeploymentToImageBuilderCommandInput extends StartSoftwareDeploymentToImageBuilderRequest {}
 /**
  * @public
  *
  * The output of {@link StartSoftwareDeploymentToImageBuilderCommand}.
  */
-export interface StartSoftwareDeploymentToImageBuilderCommandOutput
-  extends StartSoftwareDeploymentToImageBuilderResult,
-    __MetadataBearer {}
+export interface StartSoftwareDeploymentToImageBuilderCommandOutput extends StartSoftwareDeploymentToImageBuilderResult, __MetadataBearer {}
 
 /**
  * <p>Initiates license included applications deployment to an image builder instance.</p>

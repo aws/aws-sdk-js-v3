@@ -24,9 +24,7 @@ export interface GetConnectionRecordingPreferencesCommandInput {}
  *
  * The output of {@link GetConnectionRecordingPreferencesCommand}.
  */
-export interface GetConnectionRecordingPreferencesCommandOutput
-  extends GetConnectionRecordingPreferencesResponse,
-    __MetadataBearer {}
+export interface GetConnectionRecordingPreferencesCommandOutput extends GetConnectionRecordingPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the preferences specified for recording RDP connections in the requesting Amazon Web Services account and Amazon Web Services Region.</p>

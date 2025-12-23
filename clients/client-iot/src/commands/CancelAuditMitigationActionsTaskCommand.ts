@@ -27,9 +27,7 @@ export interface CancelAuditMitigationActionsTaskCommandInput extends CancelAudi
  *
  * The output of {@link CancelAuditMitigationActionsTaskCommand}.
  */
-export interface CancelAuditMitigationActionsTaskCommandOutput
-  extends CancelAuditMitigationActionsTaskResponse,
-    __MetadataBearer {}
+export interface CancelAuditMitigationActionsTaskCommandOutput extends CancelAuditMitigationActionsTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels a mitigation action task that is in progress. If the task

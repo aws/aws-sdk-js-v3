@@ -27,7 +27,7 @@ export interface PutExternalEvaluationCommandInput extends PutExternalEvaluation
 export interface PutExternalEvaluationCommandOutput extends PutExternalEvaluationResponse, __MetadataBearer {}
 
 /**
- * <p>Add or updates the evaluations for process checks.
+ * <p>Add or updates the evaluations for process checks.		
  * 			This API checks if the rule is a process check when the name of the Config rule is provided.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

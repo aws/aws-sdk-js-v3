@@ -24,9 +24,7 @@ export interface ListOrganizationAdminAccountsCommandInput extends ListOrganizat
  *
  * The output of {@link ListOrganizationAdminAccountsCommand}.
  */
-export interface ListOrganizationAdminAccountsCommandOutput
-  extends ListOrganizationAdminAccountsResponse,
-    __MetadataBearer {}
+export interface ListOrganizationAdminAccountsCommandOutput extends ListOrganizationAdminAccountsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the delegated Amazon Macie administrator account for an organization in Organizations.</p>

@@ -27,9 +27,7 @@ export interface GetExternalDataViewAccessDetailsCommandInput extends GetExterna
  *
  * The output of {@link GetExternalDataViewAccessDetailsCommand}.
  */
-export interface GetExternalDataViewAccessDetailsCommandOutput
-  extends GetExternalDataViewAccessDetailsResponse,
-    __MetadataBearer {}
+export interface GetExternalDataViewAccessDetailsCommandOutput extends GetExternalDataViewAccessDetailsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the credentials to access the external Dataview from an S3 location. To call this API:</p>

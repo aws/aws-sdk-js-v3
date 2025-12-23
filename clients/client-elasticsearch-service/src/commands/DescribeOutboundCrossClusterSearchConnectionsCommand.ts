@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeOutboundCrossClusterSearchConnectionsCommand}.
  */
-export interface DescribeOutboundCrossClusterSearchConnectionsCommandInput
-  extends DescribeOutboundCrossClusterSearchConnectionsRequest {}
+export interface DescribeOutboundCrossClusterSearchConnectionsCommandInput extends DescribeOutboundCrossClusterSearchConnectionsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeOutboundCrossClusterSearchConnectionsCommand}.
  */
-export interface DescribeOutboundCrossClusterSearchConnectionsCommandOutput
-  extends DescribeOutboundCrossClusterSearchConnectionsResponse,
-    __MetadataBearer {}
+export interface DescribeOutboundCrossClusterSearchConnectionsCommandOutput extends DescribeOutboundCrossClusterSearchConnectionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the outbound cross-cluster search connections for a source domain.</p>

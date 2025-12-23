@@ -24,9 +24,7 @@ export interface DescribeWorkspacesPoolSessionsCommandInput extends DescribeWork
  *
  * The output of {@link DescribeWorkspacesPoolSessionsCommand}.
  */
-export interface DescribeWorkspacesPoolSessionsCommandOutput
-  extends DescribeWorkspacesPoolSessionsResult,
-    __MetadataBearer {}
+export interface DescribeWorkspacesPoolSessionsCommandOutput extends DescribeWorkspacesPoolSessionsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes the streaming sessions for a specified pool.</p>

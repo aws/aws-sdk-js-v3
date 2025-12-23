@@ -24,9 +24,7 @@ export interface DeleteCallAnalyticsCategoryCommandInput extends DeleteCallAnaly
  *
  * The output of {@link DeleteCallAnalyticsCategoryCommand}.
  */
-export interface DeleteCallAnalyticsCategoryCommandOutput
-  extends DeleteCallAnalyticsCategoryResponse,
-    __MetadataBearer {}
+export interface DeleteCallAnalyticsCategoryCommandOutput extends DeleteCallAnalyticsCategoryResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a Call Analytics category. To use this operation, specify the name of the

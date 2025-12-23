@@ -24,9 +24,7 @@ export interface EnableSnapshotBlockPublicAccessCommandInput extends EnableSnaps
  *
  * The output of {@link EnableSnapshotBlockPublicAccessCommand}.
  */
-export interface EnableSnapshotBlockPublicAccessCommandOutput
-  extends EnableSnapshotBlockPublicAccessResult,
-    __MetadataBearer {}
+export interface EnableSnapshotBlockPublicAccessCommandOutput extends EnableSnapshotBlockPublicAccessResult, __MetadataBearer {}
 
 /**
  * <p>Enables or modifies the <i>block public access for snapshots</i>

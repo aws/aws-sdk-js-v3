@@ -91,8 +91,14 @@ export interface NovaAct {
   /**
    * @see {@link CreateActCommand}
    */
-  createAct(args: CreateActCommandInput, options?: __HttpHandlerOptions): Promise<CreateActCommandOutput>;
-  createAct(args: CreateActCommandInput, cb: (err: any, data?: CreateActCommandOutput) => void): void;
+  createAct(
+    args: CreateActCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateActCommandOutput>;
+  createAct(
+    args: CreateActCommandInput,
+    cb: (err: any, data?: CreateActCommandOutput) => void
+  ): void;
   createAct(
     args: CreateActCommandInput,
     options: __HttpHandlerOptions,
@@ -102,8 +108,14 @@ export interface NovaAct {
   /**
    * @see {@link CreateSessionCommand}
    */
-  createSession(args: CreateSessionCommandInput, options?: __HttpHandlerOptions): Promise<CreateSessionCommandOutput>;
-  createSession(args: CreateSessionCommandInput, cb: (err: any, data?: CreateSessionCommandOutput) => void): void;
+  createSession(
+    args: CreateSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSessionCommandOutput>;
+  createSession(
+    args: CreateSessionCommandInput,
+    cb: (err: any, data?: CreateSessionCommandOutput) => void
+  ): void;
   createSession(
     args: CreateSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -202,7 +214,10 @@ export interface NovaAct {
     args: GetWorkflowRunCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetWorkflowRunCommandOutput>;
-  getWorkflowRun(args: GetWorkflowRunCommandInput, cb: (err: any, data?: GetWorkflowRunCommandOutput) => void): void;
+  getWorkflowRun(
+    args: GetWorkflowRunCommandInput,
+    cb: (err: any, data?: GetWorkflowRunCommandOutput) => void
+  ): void;
   getWorkflowRun(
     args: GetWorkflowRunCommandInput,
     options: __HttpHandlerOptions,
@@ -212,8 +227,14 @@ export interface NovaAct {
   /**
    * @see {@link InvokeActStepCommand}
    */
-  invokeActStep(args: InvokeActStepCommandInput, options?: __HttpHandlerOptions): Promise<InvokeActStepCommandOutput>;
-  invokeActStep(args: InvokeActStepCommandInput, cb: (err: any, data?: InvokeActStepCommandOutput) => void): void;
+  invokeActStep(
+    args: InvokeActStepCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InvokeActStepCommandOutput>;
+  invokeActStep(
+    args: InvokeActStepCommandInput,
+    cb: (err: any, data?: InvokeActStepCommandOutput) => void
+  ): void;
   invokeActStep(
     args: InvokeActStepCommandInput,
     options: __HttpHandlerOptions,
@@ -223,8 +244,14 @@ export interface NovaAct {
   /**
    * @see {@link ListActsCommand}
    */
-  listActs(args: ListActsCommandInput, options?: __HttpHandlerOptions): Promise<ListActsCommandOutput>;
-  listActs(args: ListActsCommandInput, cb: (err: any, data?: ListActsCommandOutput) => void): void;
+  listActs(
+    args: ListActsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListActsCommandOutput>;
+  listActs(
+    args: ListActsCommandInput,
+    cb: (err: any, data?: ListActsCommandOutput) => void
+  ): void;
   listActs(
     args: ListActsCommandInput,
     options: __HttpHandlerOptions,
@@ -234,8 +261,14 @@ export interface NovaAct {
   /**
    * @see {@link ListModelsCommand}
    */
-  listModels(args: ListModelsCommandInput, options?: __HttpHandlerOptions): Promise<ListModelsCommandOutput>;
-  listModels(args: ListModelsCommandInput, cb: (err: any, data?: ListModelsCommandOutput) => void): void;
+  listModels(
+    args: ListModelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListModelsCommandOutput>;
+  listModels(
+    args: ListModelsCommandInput,
+    cb: (err: any, data?: ListModelsCommandOutput) => void
+  ): void;
   listModels(
     args: ListModelsCommandInput,
     options: __HttpHandlerOptions,
@@ -245,8 +278,14 @@ export interface NovaAct {
   /**
    * @see {@link ListSessionsCommand}
    */
-  listSessions(args: ListSessionsCommandInput, options?: __HttpHandlerOptions): Promise<ListSessionsCommandOutput>;
-  listSessions(args: ListSessionsCommandInput, cb: (err: any, data?: ListSessionsCommandOutput) => void): void;
+  listSessions(
+    args: ListSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSessionsCommandOutput>;
+  listSessions(
+    args: ListSessionsCommandInput,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
+  ): void;
   listSessions(
     args: ListSessionsCommandInput,
     options: __HttpHandlerOptions,
@@ -291,8 +330,14 @@ export interface NovaAct {
   /**
    * @see {@link UpdateActCommand}
    */
-  updateAct(args: UpdateActCommandInput, options?: __HttpHandlerOptions): Promise<UpdateActCommandOutput>;
-  updateAct(args: UpdateActCommandInput, cb: (err: any, data?: UpdateActCommandOutput) => void): void;
+  updateAct(
+    args: UpdateActCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateActCommandOutput>;
+  updateAct(
+    args: UpdateActCommandInput,
+    cb: (err: any, data?: UpdateActCommandOutput) => void
+  ): void;
   updateAct(
     args: UpdateActCommandInput,
     options: __HttpHandlerOptions,

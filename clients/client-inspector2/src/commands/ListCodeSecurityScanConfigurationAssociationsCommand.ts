@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListCodeSecurityScanConfigurationAssociationsCommand}.
  */
-export interface ListCodeSecurityScanConfigurationAssociationsCommandInput
-  extends ListCodeSecurityScanConfigurationAssociationsRequest {}
+export interface ListCodeSecurityScanConfigurationAssociationsCommandInput extends ListCodeSecurityScanConfigurationAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListCodeSecurityScanConfigurationAssociationsCommand}.
  */
-export interface ListCodeSecurityScanConfigurationAssociationsCommandOutput
-  extends ListCodeSecurityScanConfigurationAssociationsResponse,
-    __MetadataBearer {}
+export interface ListCodeSecurityScanConfigurationAssociationsCommandOutput extends ListCodeSecurityScanConfigurationAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the associations between code repositories and Amazon Inspector code security scan

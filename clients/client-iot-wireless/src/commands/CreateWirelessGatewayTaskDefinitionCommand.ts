@@ -27,9 +27,7 @@ export interface CreateWirelessGatewayTaskDefinitionCommandInput extends CreateW
  *
  * The output of {@link CreateWirelessGatewayTaskDefinitionCommand}.
  */
-export interface CreateWirelessGatewayTaskDefinitionCommandOutput
-  extends CreateWirelessGatewayTaskDefinitionResponse,
-    __MetadataBearer {}
+export interface CreateWirelessGatewayTaskDefinitionCommandOutput extends CreateWirelessGatewayTaskDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a gateway task definition.</p>

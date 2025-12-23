@@ -24,9 +24,7 @@ export interface UpdateRouterNetworkInterfaceCommandInput extends UpdateRouterNe
  *
  * The output of {@link UpdateRouterNetworkInterfaceCommand}.
  */
-export interface UpdateRouterNetworkInterfaceCommandOutput
-  extends UpdateRouterNetworkInterfaceResponse,
-    __MetadataBearer {}
+export interface UpdateRouterNetworkInterfaceCommandOutput extends UpdateRouterNetworkInterfaceResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the configuration of an existing router network interface in AWS Elemental MediaConnect.</p>

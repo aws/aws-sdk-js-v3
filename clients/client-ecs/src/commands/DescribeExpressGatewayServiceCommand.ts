@@ -24,9 +24,7 @@ export interface DescribeExpressGatewayServiceCommandInput extends DescribeExpre
  *
  * The output of {@link DescribeExpressGatewayServiceCommand}.
  */
-export interface DescribeExpressGatewayServiceCommandOutput
-  extends DescribeExpressGatewayServiceResponse,
-    __MetadataBearer {}
+export interface DescribeExpressGatewayServiceCommandOutput extends DescribeExpressGatewayServiceResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves detailed information about an Express service, including current status,

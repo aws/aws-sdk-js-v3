@@ -24,9 +24,7 @@ export interface StartEventDataStoreIngestionCommandInput extends StartEventData
  *
  * The output of {@link StartEventDataStoreIngestionCommand}.
  */
-export interface StartEventDataStoreIngestionCommandOutput
-  extends StartEventDataStoreIngestionResponse,
-    __MetadataBearer {}
+export interface StartEventDataStoreIngestionCommandOutput extends StartEventDataStoreIngestionResponse, __MetadataBearer {}
 
 /**
  * <p>Starts the ingestion of live events on an event data store specified as either an ARN or the ID portion of the ARN. To start ingestion, the event data store <code>Status</code> must be <code>STOPPED_INGESTION</code>

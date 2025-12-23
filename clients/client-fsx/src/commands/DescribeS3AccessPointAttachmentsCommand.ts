@@ -27,9 +27,7 @@ export interface DescribeS3AccessPointAttachmentsCommandInput extends DescribeS3
  *
  * The output of {@link DescribeS3AccessPointAttachmentsCommand}.
  */
-export interface DescribeS3AccessPointAttachmentsCommandOutput
-  extends DescribeS3AccessPointAttachmentsResponse,
-    __MetadataBearer {}
+export interface DescribeS3AccessPointAttachmentsCommandOutput extends DescribeS3AccessPointAttachmentsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes one or more S3 access points attached to Amazon FSx volumes.</p>

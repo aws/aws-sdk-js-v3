@@ -49,11 +49,9 @@ export const defaultEC2InstanceConnectHttpAuthSchemeParametersProvider = async (
 ): Promise<EC2InstanceConnectHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -85,9 +83,7 @@ export interface EC2InstanceConnectHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultEC2InstanceConnectHttpAuthSchemeProvider: EC2InstanceConnectHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultEC2InstanceConnectHttpAuthSchemeProvider: EC2InstanceConnectHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

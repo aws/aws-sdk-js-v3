@@ -1,13 +1,13 @@
 // smithy-typescript generated code
-import { type HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import type { Encoder as __Encoder } from "@smithy/types";
-import type { Endpoint, HeaderBag, HttpHandlerOptions } from "@smithy/types";
-import { Readable } from "node:stream";
 import { expect, test as it } from "vitest";
 
 import { UploadArchiveCommand } from "../../src/commands/UploadArchiveCommand";
 import { UploadMultipartPartCommand } from "../../src/commands/UploadMultipartPartCommand";
 import { GlacierClient } from "../../src/GlacierClient";
+import type { HttpHandlerOptions, HeaderBag, Endpoint } from "@smithy/types";
+import { type HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import { Readable } from "node:stream";
 
 /**
  * Throws an expected exception that contains the serialized request.
@@ -114,7 +114,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
     return true;
   }
 
-  const localExpected = expected;
+  let localExpected = expected;
 
   // Short circuit on equality.
   if (localExpected == generated) {
@@ -142,7 +142,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   }
 
   // Compare properties directly.
-  for (let index = 0; index < expectedProperties.length; index++) {
+  for (var index = 0; index < expectedProperties.length; index++) {
     const propertyName = expectedProperties[index];
     if (!equivalentContents(localExpected[propertyName], generated[propertyName])) {
       return false;
@@ -213,10 +213,12 @@ it("GlacierVersionHeader:Request", async () => {
     requestHandler: new RequestSerializationTestHandler(),
   });
 
-  const command = new UploadArchiveCommand({
-    accountId: "foo",
-    vaultName: "bar",
-  } as any);
+  const command = new UploadArchiveCommand(
+    {
+      accountId: "foo",
+      vaultName: "bar",
+    } as any,
+  );
   try {
     await client.send(command);
     fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
@@ -245,11 +247,13 @@ it("GlacierChecksums:Request", async () => {
     requestHandler: new RequestSerializationTestHandler(),
   });
 
-  const command = new UploadArchiveCommand({
-    accountId: "foo",
-    vaultName: "bar",
-    body: Uint8Array.from("hello world", (c) => c.charCodeAt(0)),
-  } as any);
+  const command = new UploadArchiveCommand(
+    {
+      accountId: "foo",
+      vaultName: "bar",
+      body: Uint8Array.from("hello world", (c) => c.charCodeAt(0)),
+    } as any,
+  );
   try {
     await client.send(command);
     fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
@@ -265,9 +269,7 @@ it("GlacierChecksums:Request", async () => {
 
     expect(r.headers["x-amz-content-sha256"]).toBe("b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9");
     expect(r.headers["x-amz-glacier-version"]).toBe("2012-06-01");
-    expect(r.headers["x-amz-sha256-tree-hash"]).toBe(
-      "b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9"
-    );
+    expect(r.headers["x-amz-sha256-tree-hash"]).toBe("b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9");
 
     expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -288,10 +290,12 @@ it("GlacierAccountId:Request", async () => {
     requestHandler: new RequestSerializationTestHandler(),
   });
 
-  const command = new UploadArchiveCommand({
-    accountId: "",
-    vaultName: "bar",
-  } as any);
+  const command = new UploadArchiveCommand(
+    {
+      accountId: "",
+      vaultName: "bar",
+    } as any,
+  );
   try {
     await client.send(command);
     fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
@@ -320,12 +324,14 @@ it("GlacierMultipartChecksums:Request", async () => {
     requestHandler: new RequestSerializationTestHandler(),
   });
 
-  const command = new UploadMultipartPartCommand({
-    accountId: "foo",
-    vaultName: "bar",
-    uploadId: "baz",
-    body: Uint8Array.from("hello world", (c) => c.charCodeAt(0)),
-  } as any);
+  const command = new UploadMultipartPartCommand(
+    {
+      accountId: "foo",
+      vaultName: "bar",
+      uploadId: "baz",
+      body: Uint8Array.from("hello world", (c) => c.charCodeAt(0)),
+    } as any,
+  );
   try {
     await client.send(command);
     fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
@@ -341,9 +347,7 @@ it("GlacierMultipartChecksums:Request", async () => {
 
     expect(r.headers["x-amz-content-sha256"]).toBe("b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9");
     expect(r.headers["x-amz-glacier-version"]).toBe("2012-06-01");
-    expect(r.headers["x-amz-sha256-tree-hash"]).toBe(
-      "b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9"
-    );
+    expect(r.headers["x-amz-sha256-tree-hash"]).toBe("b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9");
 
     expect(r.body, `Body was undefined.`).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
@@ -362,10 +366,10 @@ const compareEquivalentUnknownTypeBodies = (
   expectedBody: string,
   generatedBody: string | Uint8Array
 ): Object => {
-  const expectedParts = { Value: expectedBody };
+  const expectedParts = {Value: expectedBody};
   const generatedParts = {
-    Value: generatedBody instanceof Uint8Array ? utf8Encoder(generatedBody) : generatedBody,
+    Value: generatedBody instanceof Uint8Array ? utf8Encoder(generatedBody) : generatedBody
   };
 
   return compareParts(expectedParts, generatedParts);
-};
+}

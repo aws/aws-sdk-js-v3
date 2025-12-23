@@ -27,9 +27,7 @@ export interface DescribePredictorBacktestExportJobCommandInput extends Describe
  *
  * The output of {@link DescribePredictorBacktestExportJobCommand}.
  */
-export interface DescribePredictorBacktestExportJobCommandOutput
-  extends DescribePredictorBacktestExportJobResponse,
-    __MetadataBearer {}
+export interface DescribePredictorBacktestExportJobCommandOutput extends DescribePredictorBacktestExportJobResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a predictor backtest export job created using the <a>CreatePredictorBacktestExportJob</a> operation.</p>

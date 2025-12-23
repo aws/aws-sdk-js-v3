@@ -9,8 +9,8 @@ import {
   OperationOutput as __OperationOutput,
   OperationSerializer as __OperationSerializer,
   SerializationException as __SerializationException,
-  ServerSerdeContext as __ServerSerdeContext,
   ServerSerdeContext,
+  ServerSerdeContext as __ServerSerdeContext,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
   SmithyFrameworkException as __SmithyFrameworkException,
@@ -30,59 +30,46 @@ import {
 } from "../../protocols/Aws_restJson1";
 import { RestJsonService } from "../RestJsonService";
 
-export type InputAndOutputWithHeaders<Context> = __Operation<
-  InputAndOutputWithHeadersServerInput,
-  InputAndOutputWithHeadersServerOutput,
-  Context
->;
+export type InputAndOutputWithHeaders<Context> = __Operation<InputAndOutputWithHeadersServerInput, InputAndOutputWithHeadersServerOutput, Context>
 
 export interface InputAndOutputWithHeadersServerInput extends InputAndOutputWithHeadersIO {}
 export namespace InputAndOutputWithHeadersServerInput {
   /**
    * @internal
    */
-  export const validate: (obj: Parameters<typeof InputAndOutputWithHeadersIO.validate>[0]) => __ValidationFailure[] =
-    InputAndOutputWithHeadersIO.validate;
+  export const validate: (obj: Parameters<typeof InputAndOutputWithHeadersIO.validate>[0]) => __ValidationFailure[] = InputAndOutputWithHeadersIO.validate;
 }
 export interface InputAndOutputWithHeadersServerOutput extends InputAndOutputWithHeadersIO {}
 
 export type InputAndOutputWithHeadersErrors = never;
 
-export class InputAndOutputWithHeadersSerializer
-  implements __OperationSerializer<RestJsonService<any>, "InputAndOutputWithHeaders", InputAndOutputWithHeadersErrors>
-{
+export class InputAndOutputWithHeadersSerializer implements __OperationSerializer<RestJsonService<any>, "InputAndOutputWithHeaders", InputAndOutputWithHeadersErrors> {
   serialize = serializeInputAndOutputWithHeadersResponse;
   deserialize = deserializeInputAndOutputWithHeadersRequest;
 
   isOperationError(error: any): error is InputAndOutputWithHeadersErrors {
     return false;
-  }
+  };
 
   serializeError(error: InputAndOutputWithHeadersErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     throw error;
   }
+
 }
 
-export const getInputAndOutputWithHeadersHandler = <Context>(
-  operation: __Operation<InputAndOutputWithHeadersServerInput, InputAndOutputWithHeadersServerOutput, Context>,
-  customizer: __ValidationCustomizer<"InputAndOutputWithHeaders">
-): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+export const getInputAndOutputWithHeadersHandler = <Context>(operation: __Operation<InputAndOutputWithHeadersServerInput, InputAndOutputWithHeadersServerOutput, Context>, customizer: __ValidationCustomizer<"InputAndOutputWithHeaders">): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
   const mux = new httpbinding.HttpBindingMux<"RestJson", "InputAndOutputWithHeaders">([
     new httpbinding.UriSpec<"RestJson", "InputAndOutputWithHeaders">(
-      "POST",
-      [{ type: "path_literal", value: "InputAndOutputWithHeaders" }],
-      [],
-      { service: "RestJson", operation: "InputAndOutputWithHeaders" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "InputAndOutputWithHeaders" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "InputAndOutputWithHeaders" }),
   ]);
-  return new InputAndOutputWithHeadersHandler(
-    operation,
-    mux,
-    new InputAndOutputWithHeadersSerializer(),
-    serializeFrameworkException,
-    customizer
-  );
-};
+  return new InputAndOutputWithHeadersHandler(operation, mux, new InputAndOutputWithHeadersSerializer(), serializeFrameworkException, customizer);
+}
 
 const serdeContextBase = {
   base64Encoder: toBase64,
@@ -91,7 +78,7 @@ const serdeContextBase = {
   utf8Decoder: fromUtf8,
   streamCollector: streamCollector,
   requestHandler: new NodeHttpHandler(),
-  disableHostPrefix: true,
+  disableHostPrefix: true
 };
 async function handle<S, O extends keyof S & string, Context>(
   request: __HttpRequest,
@@ -106,49 +93,37 @@ async function handle<S, O extends keyof S & string, Context>(
   let input;
   try {
     input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request),
-      ...serdeContextBase,
+      endpoint: () => Promise.resolve(request), ...serdeContextBase
     });
   } catch (error: unknown) {
     if (__isFrameworkException(error)) {
       return serializeFrameworkException(error, serdeContextBase);
-    }
+    };
     return serializeFrameworkException(new __SerializationException(), serdeContextBase);
   }
   try {
-    const validationFailures = validationFn(input);
+    let validationFailures = validationFn(input);
     if (validationFailures && validationFailures.length > 0) {
-      const validationException = validationCustomizer({ operation: operationName }, validationFailures);
+      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
       if (validationException) {
         return serializer.serializeError(validationException, serdeContextBase);
       }
     }
-    const output = await operation(input, context);
+    let output = await operation(input, context);
     return serializer.serialize(output, serdeContextBase);
-  } catch (error: unknown) {
+  } catch(error: unknown) {
     if (serializer.isOperationError(error)) {
       return serializer.serializeError(error, serdeContextBase);
     }
-    console.log("Received an unexpected error", error);
+    console.log('Received an unexpected error', error);
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
 export class InputAndOutputWithHeadersHandler<Context> implements __ServiceHandler<Context> {
-  private readonly operation: __Operation<
-    InputAndOutputWithHeadersServerInput,
-    InputAndOutputWithHeadersServerOutput,
-    Context
-  >;
+  private readonly operation: __Operation<InputAndOutputWithHeadersServerInput, InputAndOutputWithHeadersServerOutput, Context>;
   private readonly mux: __Mux<"RestJson", "InputAndOutputWithHeaders">;
-  private readonly serializer: __OperationSerializer<
-    RestJsonService<Context>,
-    "InputAndOutputWithHeaders",
-    InputAndOutputWithHeadersErrors
-  >;
-  private readonly serializeFrameworkException: (
-    e: __SmithyFrameworkException,
-    ctx: __ServerSerdeContext
-  ) => Promise<__HttpResponse>;
+  private readonly serializer: __OperationSerializer<RestJsonService<Context>, "InputAndOutputWithHeaders", InputAndOutputWithHeadersErrors>;
+  private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<"InputAndOutputWithHeaders">;
   /**
    * Construct a InputAndOutputWithHeaders handler.
@@ -162,11 +137,7 @@ export class InputAndOutputWithHeadersHandler<Context> implements __ServiceHandl
   constructor(
     operation: __Operation<InputAndOutputWithHeadersServerInput, InputAndOutputWithHeadersServerOutput, Context>,
     mux: __Mux<"RestJson", "InputAndOutputWithHeaders">,
-    serializer: __OperationSerializer<
-      RestJsonService<Context>,
-      "InputAndOutputWithHeaders",
-      InputAndOutputWithHeadersErrors
-    >,
+    serializer: __OperationSerializer<RestJsonService<Context>, "InputAndOutputWithHeaders", InputAndOutputWithHeadersErrors>,
     serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>,
     validationCustomizer: __ValidationCustomizer<"InputAndOutputWithHeaders">
   ) {
@@ -179,20 +150,9 @@ export class InputAndOutputWithHeadersHandler<Context> implements __ServiceHandl
   async handle(request: __HttpRequest, context: Context): Promise<__HttpResponse> {
     const target = this.mux.match(request);
     if (target === undefined) {
-      console.log(
-        "Received a request that did not match aws.protocoltests.restjson#RestJson.InputAndOutputWithHeaders. This indicates a misconfiguration."
-      );
+      console.log('Received a request that did not match aws.protocoltests.restjson#RestJson.InputAndOutputWithHeaders. This indicates a misconfiguration.');
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
-    return handle(
-      request,
-      context,
-      "InputAndOutputWithHeaders",
-      this.serializer,
-      this.operation,
-      this.serializeFrameworkException,
-      InputAndOutputWithHeadersServerInput.validate,
-      this.validationCustomizer
-    );
+    return handle(request, context, "InputAndOutputWithHeaders", this.serializer, this.operation, this.serializeFrameworkException, InputAndOutputWithHeadersServerInput.validate, this.validationCustomizer);
   }
 }

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeIdentityProviderConfigurationCommand}.
  */
-export interface DescribeIdentityProviderConfigurationCommandInput
-  extends DescribeIdentityProviderConfigurationRequest {}
+export interface DescribeIdentityProviderConfigurationCommandInput extends DescribeIdentityProviderConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeIdentityProviderConfigurationCommand}.
  */
-export interface DescribeIdentityProviderConfigurationCommandOutput
-  extends DescribeIdentityProviderConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeIdentityProviderConfigurationCommandOutput extends DescribeIdentityProviderConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>

@@ -27,9 +27,7 @@ export interface DescribeReplicationConfigurationsCommandInput extends DescribeR
  *
  * The output of {@link DescribeReplicationConfigurationsCommand}.
  */
-export interface DescribeReplicationConfigurationsCommandOutput
-  extends DescribeReplicationConfigurationsResponse,
-    __MetadataBearer {}
+export interface DescribeReplicationConfigurationsCommandOutput extends DescribeReplicationConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the replication configuration for a specific file system. If a file system is

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link RegisterTransitGatewayMulticastGroupSourcesCommand}.
  */
-export interface RegisterTransitGatewayMulticastGroupSourcesCommandInput
-  extends RegisterTransitGatewayMulticastGroupSourcesRequest {}
+export interface RegisterTransitGatewayMulticastGroupSourcesCommandInput extends RegisterTransitGatewayMulticastGroupSourcesRequest {}
 /**
  * @public
  *
  * The output of {@link RegisterTransitGatewayMulticastGroupSourcesCommand}.
  */
-export interface RegisterTransitGatewayMulticastGroupSourcesCommandOutput
-  extends RegisterTransitGatewayMulticastGroupSourcesResult,
-    __MetadataBearer {}
+export interface RegisterTransitGatewayMulticastGroupSourcesCommandOutput extends RegisterTransitGatewayMulticastGroupSourcesResult, __MetadataBearer {}
 
 /**
  * <p>Registers sources (network interfaces) with the specified  transit gateway multicast group.</p>

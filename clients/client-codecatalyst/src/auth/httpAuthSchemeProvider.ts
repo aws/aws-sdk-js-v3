@@ -45,15 +45,15 @@ export const defaultCodeCatalystHttpAuthSchemeParametersProvider = async (
   };
 };
 
-function createSmithyApiHttpBearerAuthHttpAuthOption(
-  authParameters: CodeCatalystHttpAuthSchemeParameters
-): HttpAuthOption {
+function createSmithyApiHttpBearerAuthHttpAuthOption(authParameters: CodeCatalystHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "smithy.api#httpBearerAuth",
-    propertiesExtractor: <T>(
-      { profile, filepath, configFilepath, ignoreCache }: T & FromSsoInit,
-      context: HandlerExecutionContext
-    ) => ({
+    propertiesExtractor: <T>({
+      profile,
+      filepath,
+      configFilepath,
+      ignoreCache,
+    }: T & FromSsoInit, context: HandlerExecutionContext) => ({
       /**
        * @internal
        */

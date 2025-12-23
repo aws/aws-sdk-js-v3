@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListRoutingProfileManualAssignmentQueuesCommand}.
  */
-export interface ListRoutingProfileManualAssignmentQueuesCommandInput
-  extends ListRoutingProfileManualAssignmentQueuesRequest {}
+export interface ListRoutingProfileManualAssignmentQueuesCommandInput extends ListRoutingProfileManualAssignmentQueuesRequest {}
 /**
  * @public
  *
  * The output of {@link ListRoutingProfileManualAssignmentQueuesCommand}.
  */
-export interface ListRoutingProfileManualAssignmentQueuesCommandOutput
-  extends ListRoutingProfileManualAssignmentQueuesResponse,
-    __MetadataBearer {}
+export interface ListRoutingProfileManualAssignmentQueuesCommandOutput extends ListRoutingProfileManualAssignmentQueuesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the manual assignment queues associated with a routing profile.</p>

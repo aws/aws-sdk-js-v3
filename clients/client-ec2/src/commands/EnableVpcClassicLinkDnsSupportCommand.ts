@@ -24,9 +24,7 @@ export interface EnableVpcClassicLinkDnsSupportCommandInput extends EnableVpcCla
  *
  * The output of {@link EnableVpcClassicLinkDnsSupportCommand}.
  */
-export interface EnableVpcClassicLinkDnsSupportCommandOutput
-  extends EnableVpcClassicLinkDnsSupportResult,
-    __MetadataBearer {}
+export interface EnableVpcClassicLinkDnsSupportCommandOutput extends EnableVpcClassicLinkDnsSupportResult, __MetadataBearer {}
 
 /**
  * <note>

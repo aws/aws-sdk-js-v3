@@ -27,9 +27,7 @@ export interface PutAccountSuppressionAttributesCommandInput extends PutAccountS
  *
  * The output of {@link PutAccountSuppressionAttributesCommand}.
  */
-export interface PutAccountSuppressionAttributesCommandOutput
-  extends PutAccountSuppressionAttributesResponse,
-    __MetadataBearer {}
+export interface PutAccountSuppressionAttributesCommandOutput extends PutAccountSuppressionAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Change the settings for the account-level suppression list.</p>

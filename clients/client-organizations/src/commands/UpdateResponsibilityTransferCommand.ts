@@ -24,9 +24,7 @@ export interface UpdateResponsibilityTransferCommandInput extends UpdateResponsi
  *
  * The output of {@link UpdateResponsibilityTransferCommand}.
  */
-export interface UpdateResponsibilityTransferCommandOutput
-  extends UpdateResponsibilityTransferResponse,
-    __MetadataBearer {}
+export interface UpdateResponsibilityTransferCommandOutput extends UpdateResponsibilityTransferResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a transfer. A <i>transfer</i> is the arrangement between two

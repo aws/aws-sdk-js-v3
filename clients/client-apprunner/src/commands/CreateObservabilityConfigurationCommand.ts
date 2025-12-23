@@ -27,9 +27,7 @@ export interface CreateObservabilityConfigurationCommandInput extends CreateObse
  *
  * The output of {@link CreateObservabilityConfigurationCommand}.
  */
-export interface CreateObservabilityConfigurationCommandOutput
-  extends CreateObservabilityConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateObservabilityConfigurationCommandOutput extends CreateObservabilityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Create an App Runner observability configuration resource. App Runner requires this resource when you create or update App Runner services and you want to enable

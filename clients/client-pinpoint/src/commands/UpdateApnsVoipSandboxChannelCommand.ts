@@ -24,9 +24,7 @@ export interface UpdateApnsVoipSandboxChannelCommandInput extends UpdateApnsVoip
  *
  * The output of {@link UpdateApnsVoipSandboxChannelCommand}.
  */
-export interface UpdateApnsVoipSandboxChannelCommandOutput
-  extends UpdateApnsVoipSandboxChannelResponse,
-    __MetadataBearer {}
+export interface UpdateApnsVoipSandboxChannelCommandOutput extends UpdateApnsVoipSandboxChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Enables the APNs VoIP sandbox channel for an application or updates the status and settings of the APNs VoIP sandbox channel for an application.</p>

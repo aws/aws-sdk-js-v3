@@ -28,9 +28,7 @@ export interface GetImageSetMetadataCommandInput extends GetImageSetMetadataRequ
  *
  * The output of {@link GetImageSetMetadataCommand}.
  */
-export interface GetImageSetMetadataCommandOutput
-  extends Omit<GetImageSetMetadataResponse, "imageSetMetadataBlob">,
-    __MetadataBearer {
+export interface GetImageSetMetadataCommandOutput extends Omit<GetImageSetMetadataResponse, "imageSetMetadataBlob">, __MetadataBearer {
   imageSetMetadataBlob: StreamingBlobPayloadOutputTypes;
 }
 

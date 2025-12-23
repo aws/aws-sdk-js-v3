@@ -28,9 +28,7 @@ export interface StartAccountAssociationRefreshCommandInput extends StartAccount
  *
  * The output of {@link StartAccountAssociationRefreshCommand}.
  */
-export interface StartAccountAssociationRefreshCommandOutput
-  extends StartAccountAssociationRefreshResponse,
-    __MetadataBearer {}
+export interface StartAccountAssociationRefreshCommandOutput extends StartAccountAssociationRefreshResponse, __MetadataBearer {}
 
 /**
  * <p>Initiates a refresh of an existing account association to update its authorization and connection status.</p>

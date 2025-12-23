@@ -28,9 +28,7 @@ export interface DeleteLicenseServerEndpointCommandInput extends DeleteLicenseSe
  *
  * The output of {@link DeleteLicenseServerEndpointCommand}.
  */
-export interface DeleteLicenseServerEndpointCommandOutput
-  extends DeleteLicenseServerEndpointResponse,
-    __MetadataBearer {}
+export interface DeleteLicenseServerEndpointCommandOutput extends DeleteLicenseServerEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a <code>LicenseServerEndpoint</code> resource.</p>

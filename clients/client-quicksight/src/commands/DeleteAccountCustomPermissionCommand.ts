@@ -24,9 +24,7 @@ export interface DeleteAccountCustomPermissionCommandInput extends DeleteAccount
  *
  * The output of {@link DeleteAccountCustomPermissionCommand}.
  */
-export interface DeleteAccountCustomPermissionCommandOutput
-  extends DeleteAccountCustomPermissionResponse,
-    __MetadataBearer {}
+export interface DeleteAccountCustomPermissionCommandOutput extends DeleteAccountCustomPermissionResponse, __MetadataBearer {}
 
 /**
  * <p>Unapplies a custom permissions profile from an account.</p>

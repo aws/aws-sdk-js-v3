@@ -27,9 +27,7 @@ export interface GetIdentityNotificationAttributesCommandInput extends GetIdenti
  *
  * The output of {@link GetIdentityNotificationAttributesCommand}.
  */
-export interface GetIdentityNotificationAttributesCommandOutput
-  extends GetIdentityNotificationAttributesResponse,
-    __MetadataBearer {}
+export interface GetIdentityNotificationAttributesCommandOutput extends GetIdentityNotificationAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Given a list of verified identities (email addresses and/or domains), returns a

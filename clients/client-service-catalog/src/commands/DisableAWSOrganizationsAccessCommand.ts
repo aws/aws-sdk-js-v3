@@ -28,9 +28,7 @@ export interface DisableAWSOrganizationsAccessCommandInput extends DisableAWSOrg
  *
  * The output of {@link DisableAWSOrganizationsAccessCommand}.
  */
-export interface DisableAWSOrganizationsAccessCommandOutput
-  extends DisableAWSOrganizationsAccessOutput,
-    __MetadataBearer {}
+export interface DisableAWSOrganizationsAccessCommandOutput extends DisableAWSOrganizationsAccessOutput, __MetadataBearer {}
 
 /**
  * <p>Disable portfolio sharing through the Organizations service. This command will not

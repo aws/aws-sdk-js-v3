@@ -24,9 +24,7 @@ export interface UpdateAssetModelCompositeModelCommandInput extends UpdateAssetM
  *
  * The output of {@link UpdateAssetModelCompositeModelCommand}.
  */
-export interface UpdateAssetModelCompositeModelCommandOutput
-  extends UpdateAssetModelCompositeModelResponse,
-    __MetadataBearer {}
+export interface UpdateAssetModelCompositeModelCommandOutput extends UpdateAssetModelCompositeModelResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a composite model and all of the assets that were created from the model. Each

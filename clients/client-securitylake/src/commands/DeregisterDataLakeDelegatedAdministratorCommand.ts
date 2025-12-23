@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeregisterDataLakeDelegatedAdministratorCommand}.
  */
-export interface DeregisterDataLakeDelegatedAdministratorCommandInput
-  extends DeregisterDataLakeDelegatedAdministratorRequest {}
+export interface DeregisterDataLakeDelegatedAdministratorCommandInput extends DeregisterDataLakeDelegatedAdministratorRequest {}
 /**
  * @public
  *
  * The output of {@link DeregisterDataLakeDelegatedAdministratorCommand}.
  */
-export interface DeregisterDataLakeDelegatedAdministratorCommandOutput
-  extends DeregisterDataLakeDelegatedAdministratorResponse,
-    __MetadataBearer {}
+export interface DeregisterDataLakeDelegatedAdministratorCommandOutput extends DeregisterDataLakeDelegatedAdministratorResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the Amazon Security Lake delegated administrator account for the organization. This API

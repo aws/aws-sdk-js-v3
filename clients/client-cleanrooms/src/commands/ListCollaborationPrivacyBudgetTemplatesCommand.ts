@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListCollaborationPrivacyBudgetTemplatesCommand}.
  */
-export interface ListCollaborationPrivacyBudgetTemplatesCommandInput
-  extends ListCollaborationPrivacyBudgetTemplatesInput {}
+export interface ListCollaborationPrivacyBudgetTemplatesCommandInput extends ListCollaborationPrivacyBudgetTemplatesInput {}
 /**
  * @public
  *
  * The output of {@link ListCollaborationPrivacyBudgetTemplatesCommand}.
  */
-export interface ListCollaborationPrivacyBudgetTemplatesCommandOutput
-  extends ListCollaborationPrivacyBudgetTemplatesOutput,
-    __MetadataBearer {}
+export interface ListCollaborationPrivacyBudgetTemplatesCommandOutput extends ListCollaborationPrivacyBudgetTemplatesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns an array that summarizes each privacy budget template in a specified collaboration.</p>

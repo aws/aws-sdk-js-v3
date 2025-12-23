@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetOrganizationConformancePackDetailedStatusCommand}.
  */
-export interface GetOrganizationConformancePackDetailedStatusCommandInput
-  extends GetOrganizationConformancePackDetailedStatusRequest {}
+export interface GetOrganizationConformancePackDetailedStatusCommandInput extends GetOrganizationConformancePackDetailedStatusRequest {}
 /**
  * @public
  *
  * The output of {@link GetOrganizationConformancePackDetailedStatusCommand}.
  */
-export interface GetOrganizationConformancePackDetailedStatusCommandOutput
-  extends GetOrganizationConformancePackDetailedStatusResponse,
-    __MetadataBearer {}
+export interface GetOrganizationConformancePackDetailedStatusCommandOutput extends GetOrganizationConformancePackDetailedStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Returns detailed status for each member account within an organization for a given organization conformance pack.</p>

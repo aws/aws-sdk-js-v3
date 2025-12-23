@@ -24,9 +24,7 @@ export interface GetRecoveryPointIndexDetailsCommandInput extends GetRecoveryPoi
  *
  * The output of {@link GetRecoveryPointIndexDetailsCommand}.
  */
-export interface GetRecoveryPointIndexDetailsCommandOutput
-  extends GetRecoveryPointIndexDetailsOutput,
-    __MetadataBearer {}
+export interface GetRecoveryPointIndexDetailsCommandOutput extends GetRecoveryPointIndexDetailsOutput, __MetadataBearer {}
 
 /**
  * <p>This operation returns the metadata and details specific to

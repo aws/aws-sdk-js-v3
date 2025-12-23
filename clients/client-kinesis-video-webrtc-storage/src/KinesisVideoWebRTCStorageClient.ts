@@ -82,12 +82,16 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = JoinStorageSessionAsViewerCommandInput | JoinStorageSessionCommandInput;
+export type ServiceInputTypes =
+  | JoinStorageSessionAsViewerCommandInput
+  | JoinStorageSessionCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = JoinStorageSessionAsViewerCommandOutput | JoinStorageSessionCommandOutput;
+export type ServiceOutputTypes =
+  | JoinStorageSessionAsViewerCommandOutput
+  | JoinStorageSessionCommandOutput;
 
 /**
  * @public
@@ -277,8 +281,7 @@ export type KinesisVideoWebRTCStorageClientResolvedConfigType = __SmithyResolved
  *
  *  The resolved configuration interface of KinesisVideoWebRTCStorageClient class. This is resolved and normalized from the {@link KinesisVideoWebRTCStorageClientConfig | constructor configuration interface}.
  */
-export interface KinesisVideoWebRTCStorageClientResolvedConfig
-  extends KinesisVideoWebRTCStorageClientResolvedConfigType {}
+export interface KinesisVideoWebRTCStorageClientResolvedConfig extends KinesisVideoWebRTCStorageClientResolvedConfigType {}
 
 /**
  * <fullname>webrtc</fullname>

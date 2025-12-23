@@ -1,9 +1,9 @@
 import {
+  AccessDeniedException,
+  AccessDeniedException$,
   AIOps,
   AIOpsClient,
   AIOpsServiceException,
-  AccessDeniedException,
-  AccessDeniedException$,
   ConflictException,
   ConflictException$,
   CreateInvestigationGroup$,
@@ -41,6 +41,7 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceOutput$,
   ListTagsForResourceRequest$,
+  paginateListInvestigationGroups,
   PutInvestigationGroupPolicy$,
   PutInvestigationGroupPolicyCommand,
   PutInvestigationGroupPolicyRequest$,
@@ -65,7 +66,6 @@ import {
   UpdateInvestigationGroupRequest$,
   ValidationException,
   ValidationException$,
-  paginateListInvestigationGroups,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

@@ -19,16 +19,13 @@ export { $Command };
  *
  * The input for {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommand}.
  */
-export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput
-  extends DescribeVerifiedAccessInstanceLoggingConfigurationsRequest {}
+export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput extends DescribeVerifiedAccessInstanceLoggingConfigurationsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommand}.
  */
-export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput
-  extends DescribeVerifiedAccessInstanceLoggingConfigurationsResult,
-    __MetadataBearer {}
+export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput extends DescribeVerifiedAccessInstanceLoggingConfigurationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified Amazon Web Services Verified Access instances.</p>

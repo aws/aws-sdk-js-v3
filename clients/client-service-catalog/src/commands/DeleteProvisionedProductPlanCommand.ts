@@ -28,9 +28,7 @@ export interface DeleteProvisionedProductPlanCommandInput extends DeleteProvisio
  *
  * The output of {@link DeleteProvisionedProductPlanCommand}.
  */
-export interface DeleteProvisionedProductPlanCommandOutput
-  extends DeleteProvisionedProductPlanOutput,
-    __MetadataBearer {}
+export interface DeleteProvisionedProductPlanCommandOutput extends DeleteProvisionedProductPlanOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified plan.</p>

@@ -24,9 +24,7 @@ export interface BatchDeleteFeaturedResultsSetCommandInput extends BatchDeleteFe
  *
  * The output of {@link BatchDeleteFeaturedResultsSetCommand}.
  */
-export interface BatchDeleteFeaturedResultsSetCommandOutput
-  extends BatchDeleteFeaturedResultsSetResponse,
-    __MetadataBearer {}
+export interface BatchDeleteFeaturedResultsSetCommandOutput extends BatchDeleteFeaturedResultsSetResponse, __MetadataBearer {}
 
 /**
  * <p>Removes one or more sets of featured results. Features results are placed

@@ -24,9 +24,7 @@ export interface DescribeSpeakerEnrollmentJobCommandInput extends DescribeSpeake
  *
  * The output of {@link DescribeSpeakerEnrollmentJobCommand}.
  */
-export interface DescribeSpeakerEnrollmentJobCommandOutput
-  extends DescribeSpeakerEnrollmentJobResponse,
-    __MetadataBearer {}
+export interface DescribeSpeakerEnrollmentJobCommandOutput extends DescribeSpeakerEnrollmentJobResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the specified speaker enrollment job.</p>

@@ -27,9 +27,7 @@ export interface DeleteColumnStatisticsForPartitionCommandInput extends DeleteCo
  *
  * The output of {@link DeleteColumnStatisticsForPartitionCommand}.
  */
-export interface DeleteColumnStatisticsForPartitionCommandOutput
-  extends DeleteColumnStatisticsForPartitionResponse,
-    __MetadataBearer {}
+export interface DeleteColumnStatisticsForPartitionCommandOutput extends DeleteColumnStatisticsForPartitionResponse, __MetadataBearer {}
 
 /**
  * <p>Delete the partition column statistics of a column.</p>

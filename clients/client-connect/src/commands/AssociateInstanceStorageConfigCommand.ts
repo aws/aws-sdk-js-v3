@@ -24,9 +24,7 @@ export interface AssociateInstanceStorageConfigCommandInput extends AssociateIns
  *
  * The output of {@link AssociateInstanceStorageConfigCommand}.
  */
-export interface AssociateInstanceStorageConfigCommandOutput
-  extends AssociateInstanceStorageConfigResponse,
-    __MetadataBearer {}
+export interface AssociateInstanceStorageConfigCommandOutput extends AssociateInstanceStorageConfigResponse, __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

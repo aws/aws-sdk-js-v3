@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeOrganizationConfigRuleStatusesCommand}.
  */
-export interface DescribeOrganizationConfigRuleStatusesCommandInput
-  extends DescribeOrganizationConfigRuleStatusesRequest {}
+export interface DescribeOrganizationConfigRuleStatusesCommandInput extends DescribeOrganizationConfigRuleStatusesRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeOrganizationConfigRuleStatusesCommand}.
  */
-export interface DescribeOrganizationConfigRuleStatusesCommandOutput
-  extends DescribeOrganizationConfigRuleStatusesResponse,
-    __MetadataBearer {}
+export interface DescribeOrganizationConfigRuleStatusesCommandOutput extends DescribeOrganizationConfigRuleStatusesResponse, __MetadataBearer {}
 
 /**
  * <p>Provides organization Config rule deployment status for an organization.</p>

@@ -24,9 +24,7 @@ export interface CreateDeviceDefinitionVersionCommandInput extends CreateDeviceD
  *
  * The output of {@link CreateDeviceDefinitionVersionCommand}.
  */
-export interface CreateDeviceDefinitionVersionCommandOutput
-  extends CreateDeviceDefinitionVersionResponse,
-    __MetadataBearer {}
+export interface CreateDeviceDefinitionVersionCommandOutput extends CreateDeviceDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Creates a version of a device definition that has already been defined.

@@ -24,9 +24,7 @@ export interface GetFlowLogsIntegrationTemplateCommandInput extends GetFlowLogsI
  *
  * The output of {@link GetFlowLogsIntegrationTemplateCommand}.
  */
-export interface GetFlowLogsIntegrationTemplateCommandOutput
-  extends GetFlowLogsIntegrationTemplateResult,
-    __MetadataBearer {}
+export interface GetFlowLogsIntegrationTemplateCommandOutput extends GetFlowLogsIntegrationTemplateResult, __MetadataBearer {}
 
 /**
  * <p>Generates a CloudFormation template that streamlines and automates the integration of VPC flow logs

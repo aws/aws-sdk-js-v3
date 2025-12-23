@@ -1,12 +1,9 @@
-export * from "./DescribeTapeArchivesPaginator";
-
-export * from "./DescribeTapeRecoveryPointsPaginator";
-
-export * from "./DescribeTapesPaginator";
-
-export * from "./DescribeVTLDevicesPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeTapeArchivesPaginator";
+export * from "./DescribeTapeRecoveryPointsPaginator";
+export * from "./DescribeTapesPaginator";
+export * from "./DescribeVTLDevicesPaginator";
 export * from "./ListCacheReportsPaginator";
 export * from "./ListFileSharesPaginator";
 export * from "./ListFileSystemAssociationsPaginator";

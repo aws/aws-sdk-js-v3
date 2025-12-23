@@ -27,9 +27,7 @@ export interface ListSubscriptionDefinitionVersionsCommandInput extends ListSubs
  *
  * The output of {@link ListSubscriptionDefinitionVersionsCommand}.
  */
-export interface ListSubscriptionDefinitionVersionsCommandOutput
-  extends ListSubscriptionDefinitionVersionsResponse,
-    __MetadataBearer {}
+export interface ListSubscriptionDefinitionVersionsCommandOutput extends ListSubscriptionDefinitionVersionsResponse, __MetadataBearer {}
 
 /**
  * Lists the versions of a subscription definition.

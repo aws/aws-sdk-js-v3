@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateConfiguredAudienceModelAssociationCommand}.
  */
-export interface UpdateConfiguredAudienceModelAssociationCommandInput
-  extends UpdateConfiguredAudienceModelAssociationInput {}
+export interface UpdateConfiguredAudienceModelAssociationCommandInput extends UpdateConfiguredAudienceModelAssociationInput {}
 /**
  * @public
  *
  * The output of {@link UpdateConfiguredAudienceModelAssociationCommand}.
  */
-export interface UpdateConfiguredAudienceModelAssociationCommandOutput
-  extends UpdateConfiguredAudienceModelAssociationOutput,
-    __MetadataBearer {}
+export interface UpdateConfiguredAudienceModelAssociationCommandOutput extends UpdateConfiguredAudienceModelAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Provides the details necessary to update a configured audience model association.</p>

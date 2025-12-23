@@ -24,9 +24,7 @@ export interface PutDefaultApplicationSettingCommandInput extends PutDefaultAppl
  *
  * The output of {@link PutDefaultApplicationSettingCommand}.
  */
-export interface PutDefaultApplicationSettingCommandOutput
-  extends PutDefaultApplicationSettingResponse,
-    __MetadataBearer {}
+export interface PutDefaultApplicationSettingCommandOutput extends PutDefaultApplicationSettingResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the default application to the application with the specified ARN.</p>

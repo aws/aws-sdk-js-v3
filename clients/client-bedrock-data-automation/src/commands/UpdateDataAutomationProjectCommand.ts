@@ -28,9 +28,7 @@ export interface UpdateDataAutomationProjectCommandInput extends UpdateDataAutom
  *
  * The output of {@link UpdateDataAutomationProjectCommand}.
  */
-export interface UpdateDataAutomationProjectCommandOutput
-  extends UpdateDataAutomationProjectResponse,
-    __MetadataBearer {}
+export interface UpdateDataAutomationProjectCommandOutput extends UpdateDataAutomationProjectResponse, __MetadataBearer {}
 
 /**
  * Updates an existing Amazon Bedrock Data Automation Project

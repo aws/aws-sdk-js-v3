@@ -9,10 +9,8 @@ AWS SDK for JavaScript SagemakerEdge Client for Node.js, Browser and React Nativ
 <p>SageMaker Edge Manager dataplane service for communicating with active agents.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-sagemaker-edge
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-sagemaker-edge`
 - `yarn add @aws-sdk/client-sagemaker-edge`
 - `pnpm add @aws-sdk/client-sagemaker-edge`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new SagemakerEdgeClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new GetDeploymentsCommand(params);
 ```
 
@@ -209,7 +205,6 @@ GetDeployments
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-edge/command/GetDeploymentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-edge/Interface/GetDeploymentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-edge/Interface/GetDeploymentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ GetDeviceRegistration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-edge/command/GetDeviceRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-edge/Interface/GetDeviceRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-edge/Interface/GetDeviceRegistrationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,5 +219,4 @@ SendHeartbeat
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-edge/command/SendHeartbeatCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-edge/Interface/SendHeartbeatCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-edge/Interface/SendHeartbeatCommandOutput/)
-
 </details>

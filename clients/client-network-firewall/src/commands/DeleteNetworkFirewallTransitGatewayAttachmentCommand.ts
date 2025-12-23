@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DeleteNetworkFirewallTransitGatewayAttachmentCommand}.
  */
-export interface DeleteNetworkFirewallTransitGatewayAttachmentCommandInput
-  extends DeleteNetworkFirewallTransitGatewayAttachmentRequest {}
+export interface DeleteNetworkFirewallTransitGatewayAttachmentCommandInput extends DeleteNetworkFirewallTransitGatewayAttachmentRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteNetworkFirewallTransitGatewayAttachmentCommand}.
  */
-export interface DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput
-  extends DeleteNetworkFirewallTransitGatewayAttachmentResponse,
-    __MetadataBearer {}
+export interface DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput extends DeleteNetworkFirewallTransitGatewayAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a transit gateway attachment from a Network Firewall. Either the firewall owner or the transit gateway owner can delete the attachment.</p>

@@ -31,9 +31,7 @@ export interface UpdateLicenseManagerReportGeneratorCommandInput extends UpdateL
  *
  * The output of {@link UpdateLicenseManagerReportGeneratorCommand}.
  */
-export interface UpdateLicenseManagerReportGeneratorCommandOutput
-  extends UpdateLicenseManagerReportGeneratorResponse,
-    __MetadataBearer {}
+export interface UpdateLicenseManagerReportGeneratorCommandOutput extends UpdateLicenseManagerReportGeneratorResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a report generator.</p>

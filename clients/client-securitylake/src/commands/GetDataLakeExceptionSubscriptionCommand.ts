@@ -27,9 +27,7 @@ export interface GetDataLakeExceptionSubscriptionCommandInput extends GetDataLak
  *
  * The output of {@link GetDataLakeExceptionSubscriptionCommand}.
  */
-export interface GetDataLakeExceptionSubscriptionCommandOutput
-  extends GetDataLakeExceptionSubscriptionResponse,
-    __MetadataBearer {}
+export interface GetDataLakeExceptionSubscriptionCommandOutput extends GetDataLakeExceptionSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the protocol and endpoint that were provided when subscribing to Amazon SNS topics for exception notifications.</p>

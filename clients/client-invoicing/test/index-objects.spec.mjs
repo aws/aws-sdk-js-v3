@@ -82,6 +82,9 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  paginateListInvoiceSummaries,
+  paginateListInvoiceUnits,
+  paginateListProcurementPortalPreferences,
   ProcurementPortalName,
   ProcurementPortalPreference$,
   ProcurementPortalPreferenceSelector$,
@@ -128,9 +131,6 @@ import {
   ValidationException$,
   ValidationExceptionField$,
   ValidationExceptionReason,
-  paginateListInvoiceSummaries,
-  paginateListInvoiceUnits,
-  paginateListProcurementPortalPreferences,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

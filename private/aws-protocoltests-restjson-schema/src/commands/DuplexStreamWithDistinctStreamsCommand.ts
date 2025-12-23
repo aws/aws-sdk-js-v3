@@ -29,9 +29,7 @@ export interface DuplexStreamWithDistinctStreamsCommandInput extends DuplexStrea
  *
  * The output of {@link DuplexStreamWithDistinctStreamsCommand}.
  */
-export interface DuplexStreamWithDistinctStreamsCommandOutput
-  extends DuplexStreamWithDistinctStreamsOutput,
-    __MetadataBearer {}
+export interface DuplexStreamWithDistinctStreamsCommandOutput extends DuplexStreamWithDistinctStreamsOutput, __MetadataBearer {}
 
 /**
  * @public
@@ -120,7 +118,10 @@ export class DuplexStreamWithDistinctStreamsCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getEventStreamPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getEventStreamPlugin(config),
+    ];
   })
   .s("RestJson", "DuplexStreamWithDistinctStreams", {
     /**

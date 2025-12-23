@@ -27,9 +27,7 @@ export interface UpdateColumnStatisticsTaskSettingsCommandInput extends UpdateCo
  *
  * The output of {@link UpdateColumnStatisticsTaskSettingsCommand}.
  */
-export interface UpdateColumnStatisticsTaskSettingsCommandOutput
-  extends UpdateColumnStatisticsTaskSettingsResponse,
-    __MetadataBearer {}
+export interface UpdateColumnStatisticsTaskSettingsCommandOutput extends UpdateColumnStatisticsTaskSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates settings for a column statistics task.</p>

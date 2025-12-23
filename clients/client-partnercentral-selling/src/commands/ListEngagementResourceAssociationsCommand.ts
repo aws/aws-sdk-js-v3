@@ -31,9 +31,7 @@ export interface ListEngagementResourceAssociationsCommandInput extends ListEnga
  *
  * The output of {@link ListEngagementResourceAssociationsCommand}.
  */
-export interface ListEngagementResourceAssociationsCommandOutput
-  extends ListEngagementResourceAssociationsResponse,
-    __MetadataBearer {}
+export interface ListEngagementResourceAssociationsCommandOutput extends ListEngagementResourceAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the associations between resources and engagements where the caller is a member and has at least one snapshot in the engagement.</p>

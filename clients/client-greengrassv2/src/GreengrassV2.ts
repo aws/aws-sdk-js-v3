@@ -288,7 +288,10 @@ export interface GreengrassV2 {
     args: DeleteComponentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteComponentCommandOutput>;
-  deleteComponent(args: DeleteComponentCommandInput, cb: (err: any, data?: DeleteComponentCommandOutput) => void): void;
+  deleteComponent(
+    args: DeleteComponentCommandInput,
+    cb: (err: any, data?: DeleteComponentCommandOutput) => void
+  ): void;
   deleteComponent(
     args: DeleteComponentCommandInput,
     options: __HttpHandlerOptions,
@@ -367,8 +370,14 @@ export interface GreengrassV2 {
   /**
    * @see {@link GetComponentCommand}
    */
-  getComponent(args: GetComponentCommandInput, options?: __HttpHandlerOptions): Promise<GetComponentCommandOutput>;
-  getComponent(args: GetComponentCommandInput, cb: (err: any, data?: GetComponentCommandOutput) => void): void;
+  getComponent(
+    args: GetComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetComponentCommandOutput>;
+  getComponent(
+    args: GetComponentCommandInput,
+    cb: (err: any, data?: GetComponentCommandOutput) => void
+  ): void;
   getComponent(
     args: GetComponentCommandInput,
     options: __HttpHandlerOptions,
@@ -412,8 +421,14 @@ export interface GreengrassV2 {
   /**
    * @see {@link GetCoreDeviceCommand}
    */
-  getCoreDevice(args: GetCoreDeviceCommandInput, options?: __HttpHandlerOptions): Promise<GetCoreDeviceCommandOutput>;
-  getCoreDevice(args: GetCoreDeviceCommandInput, cb: (err: any, data?: GetCoreDeviceCommandOutput) => void): void;
+  getCoreDevice(
+    args: GetCoreDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCoreDeviceCommandOutput>;
+  getCoreDevice(
+    args: GetCoreDeviceCommandInput,
+    cb: (err: any, data?: GetCoreDeviceCommandOutput) => void
+  ): void;
   getCoreDevice(
     args: GetCoreDeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -423,8 +438,14 @@ export interface GreengrassV2 {
   /**
    * @see {@link GetDeploymentCommand}
    */
-  getDeployment(args: GetDeploymentCommandInput, options?: __HttpHandlerOptions): Promise<GetDeploymentCommandOutput>;
-  getDeployment(args: GetDeploymentCommandInput, cb: (err: any, data?: GetDeploymentCommandOutput) => void): void;
+  getDeployment(
+    args: GetDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDeploymentCommandOutput>;
+  getDeployment(
+    args: GetDeploymentCommandInput,
+    cb: (err: any, data?: GetDeploymentCommandOutput) => void
+  ): void;
   getDeployment(
     args: GetDeploymentCommandInput,
     options: __HttpHandlerOptions,
@@ -474,7 +495,10 @@ export interface GreengrassV2 {
     args: ListComponentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListComponentsCommandOutput>;
-  listComponents(args: ListComponentsCommandInput, cb: (err: any, data?: ListComponentsCommandOutput) => void): void;
+  listComponents(
+    args: ListComponentsCommandInput,
+    cb: (err: any, data?: ListComponentsCommandOutput) => void
+  ): void;
   listComponents(
     args: ListComponentsCommandInput,
     options: __HttpHandlerOptions,
@@ -506,7 +530,10 @@ export interface GreengrassV2 {
     args: ListCoreDevicesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListCoreDevicesCommandOutput>;
-  listCoreDevices(args: ListCoreDevicesCommandInput, cb: (err: any, data?: ListCoreDevicesCommandOutput) => void): void;
+  listCoreDevices(
+    args: ListCoreDevicesCommandInput,
+    cb: (err: any, data?: ListCoreDevicesCommandOutput) => void
+  ): void;
   listCoreDevices(
     args: ListCoreDevicesCommandInput,
     options: __HttpHandlerOptions,
@@ -521,7 +548,10 @@ export interface GreengrassV2 {
     args: ListDeploymentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDeploymentsCommandOutput>;
-  listDeployments(args: ListDeploymentsCommandInput, cb: (err: any, data?: ListDeploymentsCommandOutput) => void): void;
+  listDeployments(
+    args: ListDeploymentsCommandInput,
+    cb: (err: any, data?: ListDeploymentsCommandOutput) => void
+  ): void;
   listDeployments(
     args: ListDeploymentsCommandInput,
     options: __HttpHandlerOptions,
@@ -600,8 +630,14 @@ export interface GreengrassV2 {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -611,8 +647,14 @@ export interface GreengrassV2 {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

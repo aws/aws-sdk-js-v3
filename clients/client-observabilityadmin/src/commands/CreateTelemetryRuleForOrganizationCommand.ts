@@ -31,9 +31,7 @@ export interface CreateTelemetryRuleForOrganizationCommandInput extends CreateTe
  *
  * The output of {@link CreateTelemetryRuleForOrganizationCommand}.
  */
-export interface CreateTelemetryRuleForOrganizationCommandOutput
-  extends CreateTelemetryRuleForOrganizationOutput,
-    __MetadataBearer {}
+export interface CreateTelemetryRuleForOrganizationCommandOutput extends CreateTelemetryRuleForOrganizationOutput, __MetadataBearer {}
 
 /**
  * <p> Creates a telemetry rule that applies across an Amazon Web Services Organization. This operation can only be called by the organization's management account or a delegated administrator account. </p>

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateConfiguredTableAssociationAnalysisRuleCommand}.
  */
-export interface UpdateConfiguredTableAssociationAnalysisRuleCommandInput
-  extends UpdateConfiguredTableAssociationAnalysisRuleInput {}
+export interface UpdateConfiguredTableAssociationAnalysisRuleCommandInput extends UpdateConfiguredTableAssociationAnalysisRuleInput {}
 /**
  * @public
  *
  * The output of {@link UpdateConfiguredTableAssociationAnalysisRuleCommand}.
  */
-export interface UpdateConfiguredTableAssociationAnalysisRuleCommandOutput
-  extends UpdateConfiguredTableAssociationAnalysisRuleOutput,
-    __MetadataBearer {}
+export interface UpdateConfiguredTableAssociationAnalysisRuleCommandOutput extends UpdateConfiguredTableAssociationAnalysisRuleOutput, __MetadataBearer {}
 
 /**
  * <p> Updates the analysis rule for a configured table association.</p>

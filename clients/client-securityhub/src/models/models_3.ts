@@ -13,9 +13,7 @@ import {
   SortOrder,
   TargetType,
 } from "./enums";
-
 import { type NoteUpdate, AutomationRulesActionV2 } from "./models_0";
-
 import {
   type AwsSecurityFindingFilters,
   type OrganizationConfiguration,
@@ -1049,7 +1047,9 @@ export interface ResourcesTrendsFilters {
  * <p>Defines the parameters and conditions used to evaluate and filter security findings.</p>
  * @public
  */
-export type Criteria = Criteria.OcsfFindingCriteriaMember | Criteria.$UnknownMember;
+export type Criteria =
+  | Criteria.OcsfFindingCriteriaMember
+  | Criteria.$UnknownMember;
 
 /**
  * @public

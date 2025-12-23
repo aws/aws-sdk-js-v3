@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListDevicesForWirelessDeviceImportTaskCommand}.
  */
-export interface ListDevicesForWirelessDeviceImportTaskCommandInput
-  extends ListDevicesForWirelessDeviceImportTaskRequest {}
+export interface ListDevicesForWirelessDeviceImportTaskCommandInput extends ListDevicesForWirelessDeviceImportTaskRequest {}
 /**
  * @public
  *
  * The output of {@link ListDevicesForWirelessDeviceImportTaskCommand}.
  */
-export interface ListDevicesForWirelessDeviceImportTaskCommandOutput
-  extends ListDevicesForWirelessDeviceImportTaskResponse,
-    __MetadataBearer {}
+export interface ListDevicesForWirelessDeviceImportTaskCommandOutput extends ListDevicesForWirelessDeviceImportTaskResponse, __MetadataBearer {}
 
 /**
  * <p>List the Sidewalk devices in an import task and their onboarding status.</p>

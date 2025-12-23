@@ -31,9 +31,7 @@ export interface RecognizeUtteranceCommandInput extends Omit<RecognizeUtteranceR
  *
  * The output of {@link RecognizeUtteranceCommand}.
  */
-export interface RecognizeUtteranceCommandOutput
-  extends Omit<RecognizeUtteranceResponse, "audioStream">,
-    __MetadataBearer {
+export interface RecognizeUtteranceCommandOutput extends Omit<RecognizeUtteranceResponse, "audioStream">, __MetadataBearer {
   audioStream?: StreamingBlobPayloadOutputTypes;
 }
 

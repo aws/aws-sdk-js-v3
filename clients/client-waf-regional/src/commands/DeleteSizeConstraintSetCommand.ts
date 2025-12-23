@@ -36,8 +36,8 @@ export interface DeleteSizeConstraintSetCommandOutput extends DeleteSizeConstrai
  *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
  *          </note>
  * 		       <p>Permanently deletes a <a>SizeConstraintSet</a>. You can't delete a <code>SizeConstraintSet</code> if it's still used in any <code>Rules</code>
- * 			or if it still includes any <a>SizeConstraint</a> objects (any filters).</p>
- * 		       <p>If you just want to remove a <code>SizeConstraintSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>
+ * 			or if it still includes any <a>SizeConstraint</a> objects (any filters).</p>		
+ * 		       <p>If you just want to remove a <code>SizeConstraintSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>		
  * 		       <p>To permanently delete a <code>SizeConstraintSet</code>, perform the following steps:</p>
  * 		       <ol>
  *             <li>

@@ -24,9 +24,7 @@ export interface GetAutomatedReasoningPolicyCommandInput extends GetAutomatedRea
  *
  * The output of {@link GetAutomatedReasoningPolicyCommand}.
  */
-export interface GetAutomatedReasoningPolicyCommandOutput
-  extends GetAutomatedReasoningPolicyResponse,
-    __MetadataBearer {}
+export interface GetAutomatedReasoningPolicyCommandOutput extends GetAutomatedReasoningPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details about an Automated Reasoning policy or policy version. Returns information including the policy definition, metadata, and timestamps.</p>

@@ -28,9 +28,7 @@ export interface GetWorkloadAccessTokenForJWTCommandInput extends GetWorkloadAcc
  *
  * The output of {@link GetWorkloadAccessTokenForJWTCommand}.
  */
-export interface GetWorkloadAccessTokenForJWTCommandOutput
-  extends GetWorkloadAccessTokenForJWTResponse,
-    __MetadataBearer {}
+export interface GetWorkloadAccessTokenForJWTCommandOutput extends GetWorkloadAccessTokenForJWTResponse, __MetadataBearer {}
 
 /**
  * <p>Obtains a workload access token for agentic workloads acting on behalf of a user, using a JWT token.</p>

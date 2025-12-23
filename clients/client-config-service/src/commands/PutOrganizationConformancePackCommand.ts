@@ -24,9 +24,7 @@ export interface PutOrganizationConformancePackCommandInput extends PutOrganizat
  *
  * The output of {@link PutOrganizationConformancePackCommand}.
  */
-export interface PutOrganizationConformancePackCommandOutput
-  extends PutOrganizationConformancePackResponse,
-    __MetadataBearer {}
+export interface PutOrganizationConformancePackCommandOutput extends PutOrganizationConformancePackResponse, __MetadataBearer {}
 
 /**
  * <p>Deploys conformance packs across member accounts in an Amazon Web Services Organization. For information on how many organization conformance packs and how many Config rules you can have per account,

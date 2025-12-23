@@ -28,9 +28,7 @@ export interface UpdatePipelineNotificationsCommandInput extends UpdatePipelineN
  *
  * The output of {@link UpdatePipelineNotificationsCommand}.
  */
-export interface UpdatePipelineNotificationsCommandOutput
-  extends UpdatePipelineNotificationsResponse,
-    __MetadataBearer {}
+export interface UpdatePipelineNotificationsCommandOutput extends UpdatePipelineNotificationsResponse, __MetadataBearer {}
 
 /**
  * <p>With the UpdatePipelineNotifications operation, you can update Amazon Simple Notification Service (Amazon SNS) notifications for a pipeline.</p>

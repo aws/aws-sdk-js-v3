@@ -17,10 +17,8 @@ documentation for client app development. For more information, see the <a href=
 deploying an Amplify application to Amazon Web Services, see the <a href="https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html">Amplify User Guide</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-amplifyuibuilder
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-amplifyuibuilder`
 - `yarn add @aws-sdk/client-amplifyuibuilder`
 - `pnpm add @aws-sdk/client-amplifyuibuilder`
@@ -56,9 +54,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new AmplifyUIBuilderClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListFormsCommand(params);
 ```
 
@@ -217,7 +213,6 @@ CreateComponent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/CreateComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/CreateComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/CreateComponentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +220,6 @@ CreateForm
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/CreateFormCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/CreateFormCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/CreateFormCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +227,6 @@ CreateTheme
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/CreateThemeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/CreateThemeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/CreateThemeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +234,6 @@ DeleteComponent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/DeleteComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/DeleteComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/DeleteComponentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +241,6 @@ DeleteForm
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/DeleteFormCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/DeleteFormCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/DeleteFormCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +248,6 @@ DeleteTheme
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/DeleteThemeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/DeleteThemeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/DeleteThemeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +255,6 @@ ExchangeCodeForToken
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/ExchangeCodeForTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/ExchangeCodeForTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/ExchangeCodeForTokenCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +262,6 @@ ExportComponents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/ExportComponentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/ExportComponentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/ExportComponentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +269,6 @@ ExportForms
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/ExportFormsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/ExportFormsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/ExportFormsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +276,6 @@ ExportThemes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/ExportThemesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/ExportThemesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/ExportThemesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,7 +283,6 @@ GetCodegenJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/GetCodegenJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/GetCodegenJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/GetCodegenJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -305,7 +290,6 @@ GetComponent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/GetComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/GetComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/GetComponentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -313,7 +297,6 @@ GetForm
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/GetFormCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/GetFormCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/GetFormCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -321,7 +304,6 @@ GetMetadata
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/GetMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/GetMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/GetMetadataCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -329,7 +311,6 @@ GetTheme
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/GetThemeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/GetThemeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/GetThemeCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -337,7 +318,6 @@ ListCodegenJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/ListCodegenJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/ListCodegenJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/ListCodegenJobsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -345,7 +325,6 @@ ListComponents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/ListComponentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/ListComponentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/ListComponentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -353,7 +332,6 @@ ListForms
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/ListFormsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/ListFormsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/ListFormsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -361,7 +339,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -369,7 +346,6 @@ ListThemes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/ListThemesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/ListThemesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/ListThemesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -377,7 +353,6 @@ PutMetadataFlag
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/PutMetadataFlagCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/PutMetadataFlagCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/PutMetadataFlagCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -385,7 +360,6 @@ RefreshToken
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/RefreshTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/RefreshTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/RefreshTokenCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -393,7 +367,6 @@ StartCodegenJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/StartCodegenJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/StartCodegenJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/StartCodegenJobCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -401,7 +374,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -409,7 +381,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -417,7 +388,6 @@ UpdateComponent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/UpdateComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/UpdateComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/UpdateComponentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -425,7 +395,6 @@ UpdateForm
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/UpdateFormCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/UpdateFormCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/UpdateFormCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -433,5 +402,4 @@ UpdateTheme
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/amplifyuibuilder/command/UpdateThemeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/UpdateThemeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-amplifyuibuilder/Interface/UpdateThemeCommandOutput/)
-
 </details>

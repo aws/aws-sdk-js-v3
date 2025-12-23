@@ -24,9 +24,7 @@ export interface GetRepositoryPermissionsPolicyCommandInput extends GetRepositor
  *
  * The output of {@link GetRepositoryPermissionsPolicyCommand}.
  */
-export interface GetRepositoryPermissionsPolicyCommandOutput
-  extends GetRepositoryPermissionsPolicyResult,
-    __MetadataBearer {}
+export interface GetRepositoryPermissionsPolicyCommandOutput extends GetRepositoryPermissionsPolicyResult, __MetadataBearer {}
 
 /**
  * <p>

@@ -7,26 +7,23 @@ import {
 } from "../commands/DescribeChannelPlacementGroupCommand";
 import { MediaLiveClient } from "../MediaLiveClient";
 
-const checkState = async (
-  client: MediaLiveClient,
-  input: DescribeChannelPlacementGroupCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: MediaLiveClient, input: DescribeChannelPlacementGroupCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
     const result: any = await client.send(new DescribeChannelPlacementGroupCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "UNASSIGNED") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "UNASSIGNING") {
         return { state: WaiterState.RETRY, reason };
       }

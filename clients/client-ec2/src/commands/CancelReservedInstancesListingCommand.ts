@@ -24,9 +24,7 @@ export interface CancelReservedInstancesListingCommandInput extends CancelReserv
  *
  * The output of {@link CancelReservedInstancesListingCommand}.
  */
-export interface CancelReservedInstancesListingCommandOutput
-  extends CancelReservedInstancesListingResult,
-    __MetadataBearer {}
+export interface CancelReservedInstancesListingCommandOutput extends CancelReservedInstancesListingResult, __MetadataBearer {}
 
 /**
  * <p>Cancels the specified Reserved Instance listing in the Reserved Instance

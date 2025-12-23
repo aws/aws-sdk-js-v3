@@ -28,9 +28,7 @@ export interface CreateWhatsAppMessageTemplateCommandInput extends CreateWhatsAp
  *
  * The output of {@link CreateWhatsAppMessageTemplateCommand}.
  */
-export interface CreateWhatsAppMessageTemplateCommandOutput
-  extends CreateWhatsAppMessageTemplateOutput,
-    __MetadataBearer {}
+export interface CreateWhatsAppMessageTemplateCommandOutput extends CreateWhatsAppMessageTemplateOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new WhatsApp message template from a custom definition.</p>

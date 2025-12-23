@@ -46,47 +46,76 @@ import {
 import { KinesisVideoSignalingServiceException } from "../models/KinesisVideoSignalingServiceException";
 
 /* eslint no-var: 0 */
-export var ClientLimitExceededException$: StaticErrorSchema = [-3, n0, _CLEE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+export var ClientLimitExceededException$: StaticErrorSchema = [-3, n0, _CLEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ClientLimitExceededException$, ClientLimitExceededException);
-export var GetIceServerConfigRequest$: StaticStructureSchema = [3, n0, _GISCR, 0, [_CARN, _CI, _S, _U], [0, 0, 0, 0]];
-export var GetIceServerConfigResponse$: StaticStructureSchema = [3, n0, _GISCRe, 0, [_ISL], [() => IceServerList]];
-export var IceServer$: StaticStructureSchema = [3, n0, _IS, 0, [_Ur, _U, _P, _T], [64 | 0, 0, 0, 1]];
-export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidArgumentException$, InvalidArgumentException);
-export var InvalidClientException$: StaticErrorSchema = [-3, n0, _ICE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InvalidClientException$, InvalidClientException);
-export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE, { [_e]: _c, [_hE]: 401 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(NotAuthorizedException$, NotAuthorizedException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var SendAlexaOfferToMasterRequest$: StaticStructureSchema = [3, n0, _SAOTMR, 0, [_CARN, _SCI, _MP], [0, 0, 0]];
-export var SendAlexaOfferToMasterResponse$: StaticStructureSchema = [3, n0, _SAOTMRe, 0, [_A], [0]];
-export var SessionExpiredException$: StaticErrorSchema = [-3, n0, _SEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(SessionExpiredException$, SessionExpiredException);
-export var KinesisVideoSignalingServiceException$: StaticErrorSchema = [
-  -3,
-  _s,
-  "KinesisVideoSignalingServiceException",
+export var GetIceServerConfigRequest$: StaticStructureSchema = [3, n0, _GISCR,
   0,
-  [],
-  [],
+  [_CARN, _CI, _S, _U],
+  [0, 0, 0, 0]
 ];
+export var GetIceServerConfigResponse$: StaticStructureSchema = [3, n0, _GISCRe,
+  0,
+  [_ISL],
+  [() => IceServerList]
+];
+export var IceServer$: StaticStructureSchema = [3, n0, _IS,
+  0,
+  [_Ur, _U, _P, _T],
+  [64 | 0, 0, 0, 1]
+];
+export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidArgumentException$, InvalidArgumentException);
+export var InvalidClientException$: StaticErrorSchema = [-3, n0, _ICE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidClientException$, InvalidClientException);
+export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE,
+  { [_e]: _c, [_hE]: 401 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(NotAuthorizedException$, NotAuthorizedException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var SendAlexaOfferToMasterRequest$: StaticStructureSchema = [3, n0, _SAOTMR,
+  0,
+  [_CARN, _SCI, _MP],
+  [0, 0, 0]
+];
+export var SendAlexaOfferToMasterResponse$: StaticStructureSchema = [3, n0, _SAOTMRe,
+  0,
+  [_A],
+  [0]
+];
+export var SessionExpiredException$: StaticErrorSchema = [-3, n0, _SEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(SessionExpiredException$, SessionExpiredException);
+export var KinesisVideoSignalingServiceException$: StaticErrorSchema = [-3, _s, "KinesisVideoSignalingServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(KinesisVideoSignalingServiceException$, KinesisVideoSignalingServiceException);
-var IceServerList: StaticListSchema = [1, n0, _ISL, 0, () => IceServer$];
-var Uris = 64 | 0;
-export var GetIceServerConfig$: StaticOperationSchema = [
-  9,
-  n0,
-  _GISC,
-  { [_h]: ["POST", "/v1/get-ice-server-config", 200] },
-  () => GetIceServerConfigRequest$,
-  () => GetIceServerConfigResponse$,
+var IceServerList: StaticListSchema = [1, n0, _ISL,
+  0, () => IceServer$
 ];
-export var SendAlexaOfferToMaster$: StaticOperationSchema = [
-  9,
-  n0,
-  _SAOTM,
-  { [_h]: ["POST", "/v1/send-alexa-offer-to-master", 200] },
-  () => SendAlexaOfferToMasterRequest$,
-  () => SendAlexaOfferToMasterResponse$,
+var Uris = 64 | 0;
+export var GetIceServerConfig$: StaticOperationSchema = [9, n0, _GISC,
+  { [_h]: ["POST", "/v1/get-ice-server-config", 200] }, () => GetIceServerConfigRequest$, () => GetIceServerConfigResponse$
+];
+export var SendAlexaOfferToMaster$: StaticOperationSchema = [9, n0, _SAOTM,
+  { [_h]: ["POST", "/v1/send-alexa-offer-to-master", 200] }, () => SendAlexaOfferToMasterRequest$, () => SendAlexaOfferToMasterResponse$
 ];

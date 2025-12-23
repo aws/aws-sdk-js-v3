@@ -28,9 +28,7 @@ export interface GetCertificateSigningRequestCommandInput extends GetCertificate
  *
  * The output of {@link GetCertificateSigningRequestCommand}.
  */
-export interface GetCertificateSigningRequestCommandOutput
-  extends GetCertificateSigningRequestOutput,
-    __MetadataBearer {}
+export interface GetCertificateSigningRequestCommandOutput extends GetCertificateSigningRequestOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a certificate signing request (CSR) from a key pair.</p>

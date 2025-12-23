@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link RemoveSourceIdentifierFromSubscriptionCommand}.
  */
-export interface RemoveSourceIdentifierFromSubscriptionCommandInput
-  extends RemoveSourceIdentifierFromSubscriptionMessage {}
+export interface RemoveSourceIdentifierFromSubscriptionCommandInput extends RemoveSourceIdentifierFromSubscriptionMessage {}
 /**
  * @public
  *
  * The output of {@link RemoveSourceIdentifierFromSubscriptionCommand}.
  */
-export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
-  extends RemoveSourceIdentifierFromSubscriptionResult,
-    __MetadataBearer {}
+export interface RemoveSourceIdentifierFromSubscriptionCommandOutput extends RemoveSourceIdentifierFromSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Removes a source identifier from an existing event notification subscription.</p>

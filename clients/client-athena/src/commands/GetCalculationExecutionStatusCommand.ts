@@ -24,9 +24,7 @@ export interface GetCalculationExecutionStatusCommandInput extends GetCalculatio
  *
  * The output of {@link GetCalculationExecutionStatusCommand}.
  */
-export interface GetCalculationExecutionStatusCommandOutput
-  extends GetCalculationExecutionStatusResponse,
-    __MetadataBearer {}
+export interface GetCalculationExecutionStatusCommandOutput extends GetCalculationExecutionStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the status of a current calculation.</p>

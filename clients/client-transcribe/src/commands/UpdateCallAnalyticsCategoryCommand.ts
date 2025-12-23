@@ -24,9 +24,7 @@ export interface UpdateCallAnalyticsCategoryCommandInput extends UpdateCallAnaly
  *
  * The output of {@link UpdateCallAnalyticsCategoryCommand}.
  */
-export interface UpdateCallAnalyticsCategoryCommandOutput
-  extends UpdateCallAnalyticsCategoryResponse,
-    __MetadataBearer {}
+export interface UpdateCallAnalyticsCategoryCommandOutput extends UpdateCallAnalyticsCategoryResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the specified Call Analytics category with new rules. Note that the

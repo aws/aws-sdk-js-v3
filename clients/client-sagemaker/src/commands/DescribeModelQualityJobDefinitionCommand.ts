@@ -27,9 +27,7 @@ export interface DescribeModelQualityJobDefinitionCommandInput extends DescribeM
  *
  * The output of {@link DescribeModelQualityJobDefinitionCommand}.
  */
-export interface DescribeModelQualityJobDefinitionCommandOutput
-  extends DescribeModelQualityJobDefinitionResponse,
-    __MetadataBearer {}
+export interface DescribeModelQualityJobDefinitionCommandOutput extends DescribeModelQualityJobDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a description of a model quality job definition.</p>

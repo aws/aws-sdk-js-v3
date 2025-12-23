@@ -24,9 +24,7 @@ export interface CreateInstanceConnectEndpointCommandInput extends CreateInstanc
  *
  * The output of {@link CreateInstanceConnectEndpointCommand}.
  */
-export interface CreateInstanceConnectEndpointCommandOutput
-  extends CreateInstanceConnectEndpointResult,
-    __MetadataBearer {}
+export interface CreateInstanceConnectEndpointCommandOutput extends CreateInstanceConnectEndpointResult, __MetadataBearer {}
 
 /**
  * <p>Creates an EC2 Instance Connect Endpoint.</p>

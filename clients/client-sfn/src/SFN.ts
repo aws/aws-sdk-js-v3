@@ -225,7 +225,10 @@ export interface SFN {
     args: CreateActivityCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateActivityCommandOutput>;
-  createActivity(args: CreateActivityCommandInput, cb: (err: any, data?: CreateActivityCommandOutput) => void): void;
+  createActivity(
+    args: CreateActivityCommandInput,
+    cb: (err: any, data?: CreateActivityCommandOutput) => void
+  ): void;
   createActivity(
     args: CreateActivityCommandInput,
     options: __HttpHandlerOptions,
@@ -273,7 +276,10 @@ export interface SFN {
     args: DeleteActivityCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteActivityCommandOutput>;
-  deleteActivity(args: DeleteActivityCommandInput, cb: (err: any, data?: DeleteActivityCommandOutput) => void): void;
+  deleteActivity(
+    args: DeleteActivityCommandInput,
+    cb: (err: any, data?: DeleteActivityCommandOutput) => void
+  ): void;
   deleteActivity(
     args: DeleteActivityCommandInput,
     options: __HttpHandlerOptions,
@@ -372,7 +378,10 @@ export interface SFN {
     args: DescribeMapRunCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeMapRunCommandOutput>;
-  describeMapRun(args: DescribeMapRunCommandInput, cb: (err: any, data?: DescribeMapRunCommandOutput) => void): void;
+  describeMapRun(
+    args: DescribeMapRunCommandInput,
+    cb: (err: any, data?: DescribeMapRunCommandOutput) => void
+  ): void;
   describeMapRun(
     args: DescribeMapRunCommandInput,
     options: __HttpHandlerOptions,
@@ -437,7 +446,10 @@ export interface SFN {
     args: GetActivityTaskCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetActivityTaskCommandOutput>;
-  getActivityTask(args: GetActivityTaskCommandInput, cb: (err: any, data?: GetActivityTaskCommandOutput) => void): void;
+  getActivityTask(
+    args: GetActivityTaskCommandInput,
+    cb: (err: any, data?: GetActivityTaskCommandOutput) => void
+  ): void;
   getActivityTask(
     args: GetActivityTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -469,7 +481,10 @@ export interface SFN {
     args: ListActivitiesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListActivitiesCommandOutput>;
-  listActivities(args: ListActivitiesCommandInput, cb: (err: any, data?: ListActivitiesCommandOutput) => void): void;
+  listActivities(
+    args: ListActivitiesCommandInput,
+    cb: (err: any, data?: ListActivitiesCommandOutput) => void
+  ): void;
   listActivities(
     args: ListActivitiesCommandInput,
     options: __HttpHandlerOptions,
@@ -484,7 +499,10 @@ export interface SFN {
     args: ListExecutionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListExecutionsCommandOutput>;
-  listExecutions(args: ListExecutionsCommandInput, cb: (err: any, data?: ListExecutionsCommandOutput) => void): void;
+  listExecutions(
+    args: ListExecutionsCommandInput,
+    cb: (err: any, data?: ListExecutionsCommandOutput) => void
+  ): void;
   listExecutions(
     args: ListExecutionsCommandInput,
     options: __HttpHandlerOptions,
@@ -494,8 +512,14 @@ export interface SFN {
   /**
    * @see {@link ListMapRunsCommand}
    */
-  listMapRuns(args: ListMapRunsCommandInput, options?: __HttpHandlerOptions): Promise<ListMapRunsCommandOutput>;
-  listMapRuns(args: ListMapRunsCommandInput, cb: (err: any, data?: ListMapRunsCommandOutput) => void): void;
+  listMapRuns(
+    args: ListMapRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMapRunsCommandOutput>;
+  listMapRuns(
+    args: ListMapRunsCommandInput,
+    cb: (err: any, data?: ListMapRunsCommandOutput) => void
+  ): void;
   listMapRuns(
     args: ListMapRunsCommandInput,
     options: __HttpHandlerOptions,
@@ -612,7 +636,10 @@ export interface SFN {
     args: SendTaskFailureCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SendTaskFailureCommandOutput>;
-  sendTaskFailure(args: SendTaskFailureCommandInput, cb: (err: any, data?: SendTaskFailureCommandOutput) => void): void;
+  sendTaskFailure(
+    args: SendTaskFailureCommandInput,
+    cb: (err: any, data?: SendTaskFailureCommandOutput) => void
+  ): void;
   sendTaskFailure(
     args: SendTaskFailureCommandInput,
     options: __HttpHandlerOptions,
@@ -643,7 +670,10 @@ export interface SFN {
     args: SendTaskSuccessCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SendTaskSuccessCommandOutput>;
-  sendTaskSuccess(args: SendTaskSuccessCommandInput, cb: (err: any, data?: SendTaskSuccessCommandOutput) => void): void;
+  sendTaskSuccess(
+    args: SendTaskSuccessCommandInput,
+    cb: (err: any, data?: SendTaskSuccessCommandOutput) => void
+  ): void;
   sendTaskSuccess(
     args: SendTaskSuccessCommandInput,
     options: __HttpHandlerOptions,
@@ -657,7 +687,10 @@ export interface SFN {
     args: StartExecutionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartExecutionCommandOutput>;
-  startExecution(args: StartExecutionCommandInput, cb: (err: any, data?: StartExecutionCommandOutput) => void): void;
+  startExecution(
+    args: StartExecutionCommandInput,
+    cb: (err: any, data?: StartExecutionCommandOutput) => void
+  ): void;
   startExecution(
     args: StartExecutionCommandInput,
     options: __HttpHandlerOptions,
@@ -684,8 +717,14 @@ export interface SFN {
   /**
    * @see {@link StopExecutionCommand}
    */
-  stopExecution(args: StopExecutionCommandInput, options?: __HttpHandlerOptions): Promise<StopExecutionCommandOutput>;
-  stopExecution(args: StopExecutionCommandInput, cb: (err: any, data?: StopExecutionCommandOutput) => void): void;
+  stopExecution(
+    args: StopExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopExecutionCommandOutput>;
+  stopExecution(
+    args: StopExecutionCommandInput,
+    cb: (err: any, data?: StopExecutionCommandOutput) => void
+  ): void;
   stopExecution(
     args: StopExecutionCommandInput,
     options: __HttpHandlerOptions,
@@ -695,8 +734,14 @@ export interface SFN {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -706,8 +751,14 @@ export interface SFN {
   /**
    * @see {@link TestStateCommand}
    */
-  testState(args: TestStateCommandInput, options?: __HttpHandlerOptions): Promise<TestStateCommandOutput>;
-  testState(args: TestStateCommandInput, cb: (err: any, data?: TestStateCommandOutput) => void): void;
+  testState(
+    args: TestStateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestStateCommandOutput>;
+  testState(
+    args: TestStateCommandInput,
+    cb: (err: any, data?: TestStateCommandOutput) => void
+  ): void;
   testState(
     args: TestStateCommandInput,
     options: __HttpHandlerOptions,
@@ -717,8 +768,14 @@ export interface SFN {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -728,8 +785,14 @@ export interface SFN {
   /**
    * @see {@link UpdateMapRunCommand}
    */
-  updateMapRun(args: UpdateMapRunCommandInput, options?: __HttpHandlerOptions): Promise<UpdateMapRunCommandOutput>;
-  updateMapRun(args: UpdateMapRunCommandInput, cb: (err: any, data?: UpdateMapRunCommandOutput) => void): void;
+  updateMapRun(
+    args: UpdateMapRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMapRunCommandOutput>;
+  updateMapRun(
+    args: UpdateMapRunCommandInput,
+    cb: (err: any, data?: UpdateMapRunCommandOutput) => void
+  ): void;
   updateMapRun(
     args: UpdateMapRunCommandInput,
     options: __HttpHandlerOptions,

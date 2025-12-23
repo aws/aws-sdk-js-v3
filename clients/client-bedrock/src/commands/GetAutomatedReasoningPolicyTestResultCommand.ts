@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetAutomatedReasoningPolicyTestResultCommand}.
  */
-export interface GetAutomatedReasoningPolicyTestResultCommandInput
-  extends GetAutomatedReasoningPolicyTestResultRequest {}
+export interface GetAutomatedReasoningPolicyTestResultCommandInput extends GetAutomatedReasoningPolicyTestResultRequest {}
 /**
  * @public
  *
  * The output of {@link GetAutomatedReasoningPolicyTestResultCommand}.
  */
-export interface GetAutomatedReasoningPolicyTestResultCommandOutput
-  extends GetAutomatedReasoningPolicyTestResultResponse,
-    __MetadataBearer {}
+export interface GetAutomatedReasoningPolicyTestResultCommandOutput extends GetAutomatedReasoningPolicyTestResultResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the test result for a specific Automated Reasoning policy test. Returns detailed validation findings and execution status.</p>

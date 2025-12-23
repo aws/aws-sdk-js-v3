@@ -27,9 +27,7 @@ export interface DescribeMatchmakingConfigurationsCommandInput extends DescribeM
  *
  * The output of {@link DescribeMatchmakingConfigurationsCommand}.
  */
-export interface DescribeMatchmakingConfigurationsCommandOutput
-  extends DescribeMatchmakingConfigurationsOutput,
-    __MetadataBearer {}
+export interface DescribeMatchmakingConfigurationsCommandOutput extends DescribeMatchmakingConfigurationsOutput, __MetadataBearer {}
 
 /**
  * <p>

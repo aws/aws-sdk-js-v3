@@ -24,9 +24,7 @@ export interface ListCloudExadataInfrastructuresCommandInput extends ListCloudEx
  *
  * The output of {@link ListCloudExadataInfrastructuresCommand}.
  */
-export interface ListCloudExadataInfrastructuresCommandOutput
-  extends ListCloudExadataInfrastructuresOutput,
-    __MetadataBearer {}
+export interface ListCloudExadataInfrastructuresCommandOutput extends ListCloudExadataInfrastructuresOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about the Exadata infrastructures owned by your Amazon Web Services account.</p>

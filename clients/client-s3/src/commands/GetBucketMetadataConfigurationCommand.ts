@@ -25,9 +25,7 @@ export interface GetBucketMetadataConfigurationCommandInput extends GetBucketMet
  *
  * The output of {@link GetBucketMetadataConfigurationCommand}.
  */
-export interface GetBucketMetadataConfigurationCommandOutput
-  extends GetBucketMetadataConfigurationOutput,
-    __MetadataBearer {}
+export interface GetBucketMetadataConfigurationCommandOutput extends GetBucketMetadataConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the S3 Metadata configuration for a general purpose bucket. For more information, see
@@ -153,7 +151,10 @@ export class GetBucketMetadataConfigurationCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
+    ];
   })
   .s("AmazonS3", "GetBucketMetadataConfiguration", {})
   .n("S3Client", "GetBucketMetadataConfigurationCommand")

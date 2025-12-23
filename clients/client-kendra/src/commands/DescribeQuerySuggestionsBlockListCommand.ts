@@ -27,9 +27,7 @@ export interface DescribeQuerySuggestionsBlockListCommandInput extends DescribeQ
  *
  * The output of {@link DescribeQuerySuggestionsBlockListCommand}.
  */
-export interface DescribeQuerySuggestionsBlockListCommandOutput
-  extends DescribeQuerySuggestionsBlockListResponse,
-    __MetadataBearer {}
+export interface DescribeQuerySuggestionsBlockListCommandOutput extends DescribeQuerySuggestionsBlockListResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a block list used for query suggestions for

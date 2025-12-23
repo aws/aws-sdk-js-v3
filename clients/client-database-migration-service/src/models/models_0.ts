@@ -399,7 +399,9 @@ export interface DefaultErrorDetails {
  * <p>Provides error information about a project.</p>
  * @public
  */
-export type ErrorDetails = ErrorDetails.DefaultErrorDetailsMember | ErrorDetails.$UnknownMember;
+export type ErrorDetails =
+  | ErrorDetails.DefaultErrorDetailsMember
+  | ErrorDetails.$UnknownMember;
 
 /**
  * @public

@@ -28,9 +28,7 @@ export interface DescribeRegistrationVersionsCommandInput extends DescribeRegist
  *
  * The output of {@link DescribeRegistrationVersionsCommand}.
  */
-export interface DescribeRegistrationVersionsCommandOutput
-  extends DescribeRegistrationVersionsResult,
-    __MetadataBearer {}
+export interface DescribeRegistrationVersionsCommandOutput extends DescribeRegistrationVersionsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified registration version.</p>

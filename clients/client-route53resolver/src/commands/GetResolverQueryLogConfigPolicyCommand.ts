@@ -31,9 +31,7 @@ export interface GetResolverQueryLogConfigPolicyCommandInput extends GetResolver
  *
  * The output of {@link GetResolverQueryLogConfigPolicyCommand}.
  */
-export interface GetResolverQueryLogConfigPolicyCommandOutput
-  extends GetResolverQueryLogConfigPolicyResponse,
-    __MetadataBearer {}
+export interface GetResolverQueryLogConfigPolicyCommandOutput extends GetResolverQueryLogConfigPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a query logging policy. A query logging policy specifies the Resolver query logging

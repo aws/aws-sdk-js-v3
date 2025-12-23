@@ -24,9 +24,7 @@ export interface ListReviewPolicyResultsForHITCommandInput extends ListReviewPol
  *
  * The output of {@link ListReviewPolicyResultsForHITCommand}.
  */
-export interface ListReviewPolicyResultsForHITCommandOutput
-  extends ListReviewPolicyResultsForHITResponse,
-    __MetadataBearer {}
+export interface ListReviewPolicyResultsForHITCommandOutput extends ListReviewPolicyResultsForHITResponse, __MetadataBearer {}
 
 /**
  * <p>

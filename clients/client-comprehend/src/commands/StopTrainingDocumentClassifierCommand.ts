@@ -24,9 +24,7 @@ export interface StopTrainingDocumentClassifierCommandInput extends StopTraining
  *
  * The output of {@link StopTrainingDocumentClassifierCommand}.
  */
-export interface StopTrainingDocumentClassifierCommandOutput
-  extends StopTrainingDocumentClassifierResponse,
-    __MetadataBearer {}
+export interface StopTrainingDocumentClassifierCommandOutput extends StopTrainingDocumentClassifierResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a document classifier training job while in progress.</p>

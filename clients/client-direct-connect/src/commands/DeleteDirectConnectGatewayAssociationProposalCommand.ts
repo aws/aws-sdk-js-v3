@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteDirectConnectGatewayAssociationProposalCommand}.
  */
-export interface DeleteDirectConnectGatewayAssociationProposalCommandInput
-  extends DeleteDirectConnectGatewayAssociationProposalRequest {}
+export interface DeleteDirectConnectGatewayAssociationProposalCommandInput extends DeleteDirectConnectGatewayAssociationProposalRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteDirectConnectGatewayAssociationProposalCommand}.
  */
-export interface DeleteDirectConnectGatewayAssociationProposalCommandOutput
-  extends DeleteDirectConnectGatewayAssociationProposalResult,
-    __MetadataBearer {}
+export interface DeleteDirectConnectGatewayAssociationProposalCommandOutput extends DeleteDirectConnectGatewayAssociationProposalResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the association proposal request between the specified Direct Connect gateway and virtual private gateway or transit gateway.</p>

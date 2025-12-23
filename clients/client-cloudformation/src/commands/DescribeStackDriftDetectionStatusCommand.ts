@@ -31,9 +31,7 @@ export interface DescribeStackDriftDetectionStatusCommandInput extends DescribeS
  *
  * The output of {@link DescribeStackDriftDetectionStatusCommand}.
  */
-export interface DescribeStackDriftDetectionStatusCommandOutput
-  extends DescribeStackDriftDetectionStatusOutput,
-    __MetadataBearer {}
+export interface DescribeStackDriftDetectionStatusCommandOutput extends DescribeStackDriftDetectionStatusOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about a stack drift detection operation. A stack drift detection

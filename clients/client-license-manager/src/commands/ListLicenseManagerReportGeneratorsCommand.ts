@@ -31,9 +31,7 @@ export interface ListLicenseManagerReportGeneratorsCommandInput extends ListLice
  *
  * The output of {@link ListLicenseManagerReportGeneratorsCommand}.
  */
-export interface ListLicenseManagerReportGeneratorsCommandOutput
-  extends ListLicenseManagerReportGeneratorsResponse,
-    __MetadataBearer {}
+export interface ListLicenseManagerReportGeneratorsCommandOutput extends ListLicenseManagerReportGeneratorsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the report generators for your account.</p>

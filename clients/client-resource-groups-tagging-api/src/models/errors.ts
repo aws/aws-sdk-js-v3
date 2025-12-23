@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ResourceGroupsTaggingAPIServiceException as __BaseException } from "./ResourceGroupsTaggingAPIServiceException";
+import {
+  ResourceGroupsTaggingAPIServiceException as __BaseException,
+} from "./ResourceGroupsTaggingAPIServiceException";
 
 /**
  * <p>The request failed because the target of the operation is currently being modified by

@@ -2316,7 +2316,7 @@ export interface CreatePipelineRequest {
    *             </li>
    *             <li>
    *                <p>You do not want to specify the permissions that Elastic Transcoder grants to the
-   *
+   * 				
    *                     files. </p>
    * 				           <important>
    *                   <p>When Elastic Transcoder saves files in

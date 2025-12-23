@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link CancelDomainTransferToAnotherAwsAccountCommand}.
  */
-export interface CancelDomainTransferToAnotherAwsAccountCommandInput
-  extends CancelDomainTransferToAnotherAwsAccountRequest {}
+export interface CancelDomainTransferToAnotherAwsAccountCommandInput extends CancelDomainTransferToAnotherAwsAccountRequest {}
 /**
  * @public
  *
  * The output of {@link CancelDomainTransferToAnotherAwsAccountCommand}.
  */
-export interface CancelDomainTransferToAnotherAwsAccountCommandOutput
-  extends CancelDomainTransferToAnotherAwsAccountResponse,
-    __MetadataBearer {}
+export interface CancelDomainTransferToAnotherAwsAccountCommandOutput extends CancelDomainTransferToAnotherAwsAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels the transfer of a domain from the current Amazon Web Services account to

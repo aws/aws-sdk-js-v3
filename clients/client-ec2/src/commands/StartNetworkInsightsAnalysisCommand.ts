@@ -24,9 +24,7 @@ export interface StartNetworkInsightsAnalysisCommandInput extends StartNetworkIn
  *
  * The output of {@link StartNetworkInsightsAnalysisCommand}.
  */
-export interface StartNetworkInsightsAnalysisCommandOutput
-  extends StartNetworkInsightsAnalysisResult,
-    __MetadataBearer {}
+export interface StartNetworkInsightsAnalysisCommandOutput extends StartNetworkInsightsAnalysisResult, __MetadataBearer {}
 
 /**
  * <p>Starts analyzing the specified path. If the path is reachable, the

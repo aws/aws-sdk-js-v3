@@ -24,9 +24,7 @@ export interface ListServiceSpecificCredentialsCommandInput extends ListServiceS
  *
  * The output of {@link ListServiceSpecificCredentialsCommand}.
  */
-export interface ListServiceSpecificCredentialsCommandOutput
-  extends ListServiceSpecificCredentialsResponse,
-    __MetadataBearer {}
+export interface ListServiceSpecificCredentialsCommandOutput extends ListServiceSpecificCredentialsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the service-specific credentials associated with the

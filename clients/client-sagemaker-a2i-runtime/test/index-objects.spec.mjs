@@ -21,6 +21,7 @@ import {
   ListHumanLoopsCommand,
   ListHumanLoopsRequest$,
   ListHumanLoopsResponse$,
+  paginateListHumanLoops,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   SageMakerA2IRuntime,
@@ -41,7 +42,6 @@ import {
   ThrottlingException$,
   ValidationException,
   ValidationException$,
-  paginateListHumanLoops,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

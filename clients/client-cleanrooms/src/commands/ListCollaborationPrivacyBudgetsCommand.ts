@@ -24,9 +24,7 @@ export interface ListCollaborationPrivacyBudgetsCommandInput extends ListCollabo
  *
  * The output of {@link ListCollaborationPrivacyBudgetsCommand}.
  */
-export interface ListCollaborationPrivacyBudgetsCommandOutput
-  extends ListCollaborationPrivacyBudgetsOutput,
-    __MetadataBearer {}
+export interface ListCollaborationPrivacyBudgetsCommandOutput extends ListCollaborationPrivacyBudgetsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns an array that summarizes each privacy budget in a specified collaboration. The summary includes the collaboration ARN, creation time, creating account, and privacy budget details.</p>

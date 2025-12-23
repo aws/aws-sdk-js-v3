@@ -24,9 +24,7 @@ export interface GetSubscriptionRequestDetailsCommandInput extends GetSubscripti
  *
  * The output of {@link GetSubscriptionRequestDetailsCommand}.
  */
-export interface GetSubscriptionRequestDetailsCommandOutput
-  extends GetSubscriptionRequestDetailsOutput,
-    __MetadataBearer {}
+export interface GetSubscriptionRequestDetailsCommandOutput extends GetSubscriptionRequestDetailsOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the details of the specified subscription request.</p>

@@ -24,9 +24,7 @@ export interface GetCollaborationTrainedModelCommandInput extends GetCollaborati
  *
  * The output of {@link GetCollaborationTrainedModelCommand}.
  */
-export interface GetCollaborationTrainedModelCommandOutput
-  extends GetCollaborationTrainedModelResponse,
-    __MetadataBearer {}
+export interface GetCollaborationTrainedModelCommandOutput extends GetCollaborationTrainedModelResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a trained model in a collaboration.</p>

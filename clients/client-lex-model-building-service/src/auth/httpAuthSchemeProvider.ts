@@ -49,17 +49,13 @@ export const defaultLexModelBuildingServiceHttpAuthSchemeParametersProvider = as
 ): Promise<LexModelBuildingServiceHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
-function createAwsAuthSigv4HttpAuthOption(
-  authParameters: LexModelBuildingServiceHttpAuthSchemeParameters
-): HttpAuthOption {
+function createAwsAuthSigv4HttpAuthOption(authParameters: LexModelBuildingServiceHttpAuthSchemeParameters): HttpAuthOption {
   return {
     schemeId: "aws.auth#sigv4",
     signingProperties: {
@@ -87,9 +83,7 @@ export interface LexModelBuildingServiceHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultLexModelBuildingServiceHttpAuthSchemeProvider: LexModelBuildingServiceHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultLexModelBuildingServiceHttpAuthSchemeProvider: LexModelBuildingServiceHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

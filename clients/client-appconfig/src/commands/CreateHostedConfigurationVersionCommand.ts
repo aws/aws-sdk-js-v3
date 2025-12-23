@@ -17,10 +17,7 @@ export { $Command };
 /**
  * @public
  */
-export type CreateHostedConfigurationVersionCommandInputType = Omit<
-  CreateHostedConfigurationVersionRequest,
-  "Content"
-> & {
+export type CreateHostedConfigurationVersionCommandInputType = Omit<CreateHostedConfigurationVersionRequest, "Content"> & {
   Content: BlobPayloadInputTypes;
 };
 
@@ -29,8 +26,7 @@ export type CreateHostedConfigurationVersionCommandInputType = Omit<
  *
  * The input for {@link CreateHostedConfigurationVersionCommand}.
  */
-export interface CreateHostedConfigurationVersionCommandInput
-  extends CreateHostedConfigurationVersionCommandInputType {}
+export interface CreateHostedConfigurationVersionCommandInput extends CreateHostedConfigurationVersionCommandInputType {}
 /**
  * @public
  */
@@ -43,9 +39,7 @@ export type CreateHostedConfigurationVersionCommandOutputType = Omit<HostedConfi
  *
  * The output of {@link CreateHostedConfigurationVersionCommand}.
  */
-export interface CreateHostedConfigurationVersionCommandOutput
-  extends CreateHostedConfigurationVersionCommandOutputType,
-    __MetadataBearer {}
+export interface CreateHostedConfigurationVersionCommandOutput extends CreateHostedConfigurationVersionCommandOutputType, __MetadataBearer {}
 
 /**
  * <p>Creates a new configuration in the AppConfig hosted configuration store. If

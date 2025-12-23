@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListEnvironmentBlueprintConfigurationsCommand}.
  */
-export interface ListEnvironmentBlueprintConfigurationsCommandInput
-  extends ListEnvironmentBlueprintConfigurationsInput {}
+export interface ListEnvironmentBlueprintConfigurationsCommandInput extends ListEnvironmentBlueprintConfigurationsInput {}
 /**
  * @public
  *
  * The output of {@link ListEnvironmentBlueprintConfigurationsCommand}.
  */
-export interface ListEnvironmentBlueprintConfigurationsCommandOutput
-  extends ListEnvironmentBlueprintConfigurationsOutput,
-    __MetadataBearer {}
+export interface ListEnvironmentBlueprintConfigurationsCommandOutput extends ListEnvironmentBlueprintConfigurationsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists blueprint configurations for a Amazon DataZone environment.</p>

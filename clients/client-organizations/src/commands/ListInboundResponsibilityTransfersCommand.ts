@@ -27,9 +27,7 @@ export interface ListInboundResponsibilityTransfersCommandInput extends ListInbo
  *
  * The output of {@link ListInboundResponsibilityTransfersCommand}.
  */
-export interface ListInboundResponsibilityTransfersCommandOutput
-  extends ListInboundResponsibilityTransfersResponse,
-    __MetadataBearer {}
+export interface ListInboundResponsibilityTransfersCommandOutput extends ListInboundResponsibilityTransfersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists transfers that allow you to manage the specified responsibilities for another

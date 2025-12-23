@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DecreaseNodeGroupsInGlobalReplicationGroupCommand}.
  */
-export interface DecreaseNodeGroupsInGlobalReplicationGroupCommandInput
-  extends DecreaseNodeGroupsInGlobalReplicationGroupMessage {}
+export interface DecreaseNodeGroupsInGlobalReplicationGroupCommandInput extends DecreaseNodeGroupsInGlobalReplicationGroupMessage {}
 /**
  * @public
  *
  * The output of {@link DecreaseNodeGroupsInGlobalReplicationGroupCommand}.
  */
-export interface DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput
-  extends DecreaseNodeGroupsInGlobalReplicationGroupResult,
-    __MetadataBearer {}
+export interface DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput extends DecreaseNodeGroupsInGlobalReplicationGroupResult, __MetadataBearer {}
 
 /**
  * <p>Decreases the number of node groups in a Global datastore</p>

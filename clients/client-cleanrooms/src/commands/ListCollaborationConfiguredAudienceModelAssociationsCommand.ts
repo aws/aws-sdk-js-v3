@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListCollaborationConfiguredAudienceModelAssociationsCommand}.
  */
-export interface ListCollaborationConfiguredAudienceModelAssociationsCommandInput
-  extends ListCollaborationConfiguredAudienceModelAssociationsInput {}
+export interface ListCollaborationConfiguredAudienceModelAssociationsCommandInput extends ListCollaborationConfiguredAudienceModelAssociationsInput {}
 /**
  * @public
  *
  * The output of {@link ListCollaborationConfiguredAudienceModelAssociationsCommand}.
  */
-export interface ListCollaborationConfiguredAudienceModelAssociationsCommandOutput
-  extends ListCollaborationConfiguredAudienceModelAssociationsOutput,
-    __MetadataBearer {}
+export interface ListCollaborationConfiguredAudienceModelAssociationsCommandOutput extends ListCollaborationConfiguredAudienceModelAssociationsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists configured audience model associations within a collaboration.</p>

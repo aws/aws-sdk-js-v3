@@ -95,7 +95,10 @@ export class DeleteAccessPointForObjectLambdaCommand extends $Command
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getProcessArnablesPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getProcessArnablesPlugin(config),
+    ];
   })
   .s("AWSS3ControlServiceV20180820", "DeleteAccessPointForObjectLambda", {})
   .n("S3ControlClient", "DeleteAccessPointForObjectLambdaCommand")

@@ -28,9 +28,7 @@ export interface DeleteReplicationSubnetGroupCommandInput extends DeleteReplicat
  *
  * The output of {@link DeleteReplicationSubnetGroupCommand}.
  */
-export interface DeleteReplicationSubnetGroupCommandOutput
-  extends DeleteReplicationSubnetGroupResponse,
-    __MetadataBearer {}
+export interface DeleteReplicationSubnetGroupCommandOutput extends DeleteReplicationSubnetGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a subnet group.</p>

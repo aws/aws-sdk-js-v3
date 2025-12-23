@@ -27,9 +27,7 @@ export interface DisassociateTransitGatewayRouteTableCommandInput extends Disass
  *
  * The output of {@link DisassociateTransitGatewayRouteTableCommand}.
  */
-export interface DisassociateTransitGatewayRouteTableCommandOutput
-  extends DisassociateTransitGatewayRouteTableResult,
-    __MetadataBearer {}
+export interface DisassociateTransitGatewayRouteTableCommandOutput extends DisassociateTransitGatewayRouteTableResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates a resource attachment from a transit gateway route table.</p>

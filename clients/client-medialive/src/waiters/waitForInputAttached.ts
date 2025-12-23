@@ -10,17 +10,17 @@ const checkState = async (client: MediaLiveClient, input: DescribeInputCommandIn
     const result: any = await client.send(new DescribeInputCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "ATTACHED") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.State;
-      };
+      }
       if (returnComparator() === "DETACHED") {
         return { state: WaiterState.RETRY, reason };
       }

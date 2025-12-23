@@ -28,9 +28,7 @@ export interface GetAccessPointPolicyForObjectLambdaCommandInput extends GetAcce
  *
  * The output of {@link GetAccessPointPolicyForObjectLambdaCommand}.
  */
-export interface GetAccessPointPolicyForObjectLambdaCommandOutput
-  extends GetAccessPointPolicyForObjectLambdaResult,
-    __MetadataBearer {}
+export interface GetAccessPointPolicyForObjectLambdaCommandOutput extends GetAccessPointPolicyForObjectLambdaResult, __MetadataBearer {}
 
 /**
  * <note>
@@ -97,7 +95,10 @@ export class GetAccessPointPolicyForObjectLambdaCommand extends $Command
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getProcessArnablesPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getProcessArnablesPlugin(config),
+    ];
   })
   .s("AWSS3ControlServiceV20180820", "GetAccessPointPolicyForObjectLambda", {})
   .n("S3ControlClient", "GetAccessPointPolicyForObjectLambdaCommand")

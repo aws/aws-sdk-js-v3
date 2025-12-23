@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link DeleteBucketIntelligentTieringConfigurationCommand}.
  */
-export interface DeleteBucketIntelligentTieringConfigurationCommandInput
-  extends DeleteBucketIntelligentTieringConfigurationRequest {}
+export interface DeleteBucketIntelligentTieringConfigurationCommandInput extends DeleteBucketIntelligentTieringConfigurationRequest {}
 /**
  * @public
  *

@@ -24,9 +24,7 @@ export interface DescribeComplianceByResourceCommandInput extends DescribeCompli
  *
  * The output of {@link DescribeComplianceByResourceCommand}.
  */
-export interface DescribeComplianceByResourceCommandOutput
-  extends DescribeComplianceByResourceResponse,
-    __MetadataBearer {}
+export interface DescribeComplianceByResourceCommandOutput extends DescribeComplianceByResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Indicates whether the specified Amazon Web Services resources are compliant. If

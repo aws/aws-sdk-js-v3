@@ -24,9 +24,7 @@ export interface DescribeDBSnapshotTenantDatabasesCommandInput extends DescribeD
  *
  * The output of {@link DescribeDBSnapshotTenantDatabasesCommand}.
  */
-export interface DescribeDBSnapshotTenantDatabasesCommandOutput
-  extends DBSnapshotTenantDatabasesMessage,
-    __MetadataBearer {}
+export interface DescribeDBSnapshotTenantDatabasesCommandOutput extends DBSnapshotTenantDatabasesMessage, __MetadataBearer {}
 
 /**
  * <p>Describes the tenant databases that exist in a DB snapshot. This command only applies

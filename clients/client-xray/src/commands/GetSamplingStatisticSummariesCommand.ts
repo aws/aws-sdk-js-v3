@@ -24,9 +24,7 @@ export interface GetSamplingStatisticSummariesCommandInput extends GetSamplingSt
  *
  * The output of {@link GetSamplingStatisticSummariesCommand}.
  */
-export interface GetSamplingStatisticSummariesCommandOutput
-  extends GetSamplingStatisticSummariesResult,
-    __MetadataBearer {}
+export interface GetSamplingStatisticSummariesCommandOutput extends GetSamplingStatisticSummariesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about recent sampling results for all sampling rules.</p>

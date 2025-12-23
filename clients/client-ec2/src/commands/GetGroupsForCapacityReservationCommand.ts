@@ -24,9 +24,7 @@ export interface GetGroupsForCapacityReservationCommandInput extends GetGroupsFo
  *
  * The output of {@link GetGroupsForCapacityReservationCommand}.
  */
-export interface GetGroupsForCapacityReservationCommandOutput
-  extends GetGroupsForCapacityReservationResult,
-    __MetadataBearer {}
+export interface GetGroupsForCapacityReservationCommandOutput extends GetGroupsForCapacityReservationResult, __MetadataBearer {}
 
 /**
  * <p>Lists the resource groups to which a Capacity Reservation has been added.</p>

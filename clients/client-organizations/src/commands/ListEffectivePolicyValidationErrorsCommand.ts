@@ -27,9 +27,7 @@ export interface ListEffectivePolicyValidationErrorsCommandInput extends ListEff
  *
  * The output of {@link ListEffectivePolicyValidationErrorsCommand}.
  */
-export interface ListEffectivePolicyValidationErrorsCommandOutput
-  extends ListEffectivePolicyValidationErrorsResponse,
-    __MetadataBearer {}
+export interface ListEffectivePolicyValidationErrorsCommandOutput extends ListEffectivePolicyValidationErrorsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the validation errors on an <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_effective.html">effective

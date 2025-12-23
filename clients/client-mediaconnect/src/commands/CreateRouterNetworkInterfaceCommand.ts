@@ -24,9 +24,7 @@ export interface CreateRouterNetworkInterfaceCommandInput extends CreateRouterNe
  *
  * The output of {@link CreateRouterNetworkInterfaceCommand}.
  */
-export interface CreateRouterNetworkInterfaceCommandOutput
-  extends CreateRouterNetworkInterfaceResponse,
-    __MetadataBearer {}
+export interface CreateRouterNetworkInterfaceCommandOutput extends CreateRouterNetworkInterfaceResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new router network interface in AWS Elemental MediaConnect.</p>

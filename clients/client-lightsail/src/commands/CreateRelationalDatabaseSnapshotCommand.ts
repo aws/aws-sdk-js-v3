@@ -27,9 +27,7 @@ export interface CreateRelationalDatabaseSnapshotCommandInput extends CreateRela
  *
  * The output of {@link CreateRelationalDatabaseSnapshotCommand}.
  */
-export interface CreateRelationalDatabaseSnapshotCommandOutput
-  extends CreateRelationalDatabaseSnapshotResult,
-    __MetadataBearer {}
+export interface CreateRelationalDatabaseSnapshotCommandOutput extends CreateRelationalDatabaseSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Creates a snapshot of your database in Amazon Lightsail. You can use snapshots for backups,

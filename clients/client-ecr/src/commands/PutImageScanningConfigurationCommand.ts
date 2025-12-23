@@ -24,9 +24,7 @@ export interface PutImageScanningConfigurationCommandInput extends PutImageScann
  *
  * The output of {@link PutImageScanningConfigurationCommand}.
  */
-export interface PutImageScanningConfigurationCommandOutput
-  extends PutImageScanningConfigurationResponse,
-    __MetadataBearer {}
+export interface PutImageScanningConfigurationCommandOutput extends PutImageScanningConfigurationResponse, __MetadataBearer {}
 
 /**
  * <important>

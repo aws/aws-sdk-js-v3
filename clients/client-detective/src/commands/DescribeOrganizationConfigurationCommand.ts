@@ -27,9 +27,7 @@ export interface DescribeOrganizationConfigurationCommandInput extends DescribeO
  *
  * The output of {@link DescribeOrganizationConfigurationCommand}.
  */
-export interface DescribeOrganizationConfigurationCommandOutput
-  extends DescribeOrganizationConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeOrganizationConfigurationCommandOutput extends DescribeOrganizationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the configuration for the organization behavior graph.

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteNetworkInsightsAccessScopeAnalysisCommand}.
  */
-export interface DeleteNetworkInsightsAccessScopeAnalysisCommandInput
-  extends DeleteNetworkInsightsAccessScopeAnalysisRequest {}
+export interface DeleteNetworkInsightsAccessScopeAnalysisCommandInput extends DeleteNetworkInsightsAccessScopeAnalysisRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteNetworkInsightsAccessScopeAnalysisCommand}.
  */
-export interface DeleteNetworkInsightsAccessScopeAnalysisCommandOutput
-  extends DeleteNetworkInsightsAccessScopeAnalysisResult,
-    __MetadataBearer {}
+export interface DeleteNetworkInsightsAccessScopeAnalysisCommandOutput extends DeleteNetworkInsightsAccessScopeAnalysisResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Network Access Scope analysis.</p>

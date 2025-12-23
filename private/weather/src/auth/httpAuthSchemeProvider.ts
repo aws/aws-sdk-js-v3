@@ -49,11 +49,9 @@ export const defaultWeatherHttpAuthSchemeParametersProvider = async (
 ): Promise<WeatherHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -121,45 +119,45 @@ export const defaultWeatherHttpAuthSchemeProvider: WeatherHttpAuthSchemeProvider
     case "OnlyCustomAuth": {
       options.push(createExampleWeatherCustomAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     case "OnlyCustomAuthOptional": {
       options.push(createExampleWeatherCustomAuthHttpAuthOption(authParameters));
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     case "OnlyHttpApiKeyAndBearerAuth": {
       options.push(createSmithyApiHttpApiKeyAuthHttpAuthOption(authParameters));
       options.push(createSmithyApiHttpBearerAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     case "OnlyHttpApiKeyAndBearerAuthReversed": {
       options.push(createSmithyApiHttpBearerAuthHttpAuthOption(authParameters));
       options.push(createSmithyApiHttpApiKeyAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     case "OnlyHttpApiKeyAuth": {
       options.push(createSmithyApiHttpApiKeyAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     case "OnlyHttpApiKeyAuthOptional": {
       options.push(createSmithyApiHttpApiKeyAuthHttpAuthOption(authParameters));
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     case "OnlyHttpBearerAuth": {
       options.push(createSmithyApiHttpBearerAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     case "OnlyHttpBearerAuthOptional": {
       options.push(createSmithyApiHttpBearerAuthHttpAuthOption(authParameters));
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     case "OnlySigv4AuthOptional": {
       options.push(createAwsAuthSigv4HttpAuthOption(authParameters));
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     default: {
       options.push(createAwsAuthSigv4HttpAuthOption(authParameters));
     }

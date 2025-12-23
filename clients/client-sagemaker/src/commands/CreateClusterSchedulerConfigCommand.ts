@@ -24,9 +24,7 @@ export interface CreateClusterSchedulerConfigCommandInput extends CreateClusterS
  *
  * The output of {@link CreateClusterSchedulerConfigCommand}.
  */
-export interface CreateClusterSchedulerConfigCommandOutput
-  extends CreateClusterSchedulerConfigResponse,
-    __MetadataBearer {}
+export interface CreateClusterSchedulerConfigCommandOutput extends CreateClusterSchedulerConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Create cluster policy configuration. This policy is used for task prioritization and fair-share allocation of idle compute. This helps prioritize critical workloads and distributes idle compute across entities.</p>

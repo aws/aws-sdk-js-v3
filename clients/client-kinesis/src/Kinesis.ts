@@ -217,7 +217,10 @@ export interface Kinesis {
     args: AddTagsToStreamCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AddTagsToStreamCommandOutput>;
-  addTagsToStream(args: AddTagsToStreamCommandInput, cb: (err: any, data?: AddTagsToStreamCommandOutput) => void): void;
+  addTagsToStream(
+    args: AddTagsToStreamCommandInput,
+    cb: (err: any, data?: AddTagsToStreamCommandOutput) => void
+  ): void;
   addTagsToStream(
     args: AddTagsToStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -227,8 +230,14 @@ export interface Kinesis {
   /**
    * @see {@link CreateStreamCommand}
    */
-  createStream(args: CreateStreamCommandInput, options?: __HttpHandlerOptions): Promise<CreateStreamCommandOutput>;
-  createStream(args: CreateStreamCommandInput, cb: (err: any, data?: CreateStreamCommandOutput) => void): void;
+  createStream(
+    args: CreateStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStreamCommandOutput>;
+  createStream(
+    args: CreateStreamCommandInput,
+    cb: (err: any, data?: CreateStreamCommandOutput) => void
+  ): void;
   createStream(
     args: CreateStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -273,8 +282,14 @@ export interface Kinesis {
    * @see {@link DeleteStreamCommand}
    */
   deleteStream(): Promise<DeleteStreamCommandOutput>;
-  deleteStream(args: DeleteStreamCommandInput, options?: __HttpHandlerOptions): Promise<DeleteStreamCommandOutput>;
-  deleteStream(args: DeleteStreamCommandInput, cb: (err: any, data?: DeleteStreamCommandOutput) => void): void;
+  deleteStream(
+    args: DeleteStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteStreamCommandOutput>;
+  deleteStream(
+    args: DeleteStreamCommandInput,
+    cb: (err: any, data?: DeleteStreamCommandOutput) => void
+  ): void;
   deleteStream(
     args: DeleteStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -325,7 +340,10 @@ export interface Kinesis {
     args: DescribeLimitsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeLimitsCommandOutput>;
-  describeLimits(args: DescribeLimitsCommandInput, cb: (err: any, data?: DescribeLimitsCommandOutput) => void): void;
+  describeLimits(
+    args: DescribeLimitsCommandInput,
+    cb: (err: any, data?: DescribeLimitsCommandOutput) => void
+  ): void;
   describeLimits(
     args: DescribeLimitsCommandInput,
     options: __HttpHandlerOptions,
@@ -340,7 +358,10 @@ export interface Kinesis {
     args: DescribeStreamCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeStreamCommandOutput>;
-  describeStream(args: DescribeStreamCommandInput, cb: (err: any, data?: DescribeStreamCommandOutput) => void): void;
+  describeStream(
+    args: DescribeStreamCommandInput,
+    cb: (err: any, data?: DescribeStreamCommandOutput) => void
+  ): void;
   describeStream(
     args: DescribeStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -420,8 +441,14 @@ export interface Kinesis {
   /**
    * @see {@link GetRecordsCommand}
    */
-  getRecords(args: GetRecordsCommandInput, options?: __HttpHandlerOptions): Promise<GetRecordsCommandOutput>;
-  getRecords(args: GetRecordsCommandInput, cb: (err: any, data?: GetRecordsCommandOutput) => void): void;
+  getRecords(
+    args: GetRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRecordsCommandOutput>;
+  getRecords(
+    args: GetRecordsCommandInput,
+    cb: (err: any, data?: GetRecordsCommandOutput) => void
+  ): void;
   getRecords(
     args: GetRecordsCommandInput,
     options: __HttpHandlerOptions,
@@ -483,8 +510,14 @@ export interface Kinesis {
    * @see {@link ListShardsCommand}
    */
   listShards(): Promise<ListShardsCommandOutput>;
-  listShards(args: ListShardsCommandInput, options?: __HttpHandlerOptions): Promise<ListShardsCommandOutput>;
-  listShards(args: ListShardsCommandInput, cb: (err: any, data?: ListShardsCommandOutput) => void): void;
+  listShards(
+    args: ListShardsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListShardsCommandOutput>;
+  listShards(
+    args: ListShardsCommandInput,
+    cb: (err: any, data?: ListShardsCommandOutput) => void
+  ): void;
   listShards(
     args: ListShardsCommandInput,
     options: __HttpHandlerOptions,
@@ -512,8 +545,14 @@ export interface Kinesis {
    * @see {@link ListStreamsCommand}
    */
   listStreams(): Promise<ListStreamsCommandOutput>;
-  listStreams(args: ListStreamsCommandInput, options?: __HttpHandlerOptions): Promise<ListStreamsCommandOutput>;
-  listStreams(args: ListStreamsCommandInput, cb: (err: any, data?: ListStreamsCommandOutput) => void): void;
+  listStreams(
+    args: ListStreamsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStreamsCommandOutput>;
+  listStreams(
+    args: ListStreamsCommandInput,
+    cb: (err: any, data?: ListStreamsCommandOutput) => void
+  ): void;
   listStreams(
     args: ListStreamsCommandInput,
     options: __HttpHandlerOptions,
@@ -558,8 +597,14 @@ export interface Kinesis {
   /**
    * @see {@link MergeShardsCommand}
    */
-  mergeShards(args: MergeShardsCommandInput, options?: __HttpHandlerOptions): Promise<MergeShardsCommandOutput>;
-  mergeShards(args: MergeShardsCommandInput, cb: (err: any, data?: MergeShardsCommandOutput) => void): void;
+  mergeShards(
+    args: MergeShardsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MergeShardsCommandOutput>;
+  mergeShards(
+    args: MergeShardsCommandInput,
+    cb: (err: any, data?: MergeShardsCommandOutput) => void
+  ): void;
   mergeShards(
     args: MergeShardsCommandInput,
     options: __HttpHandlerOptions,
@@ -569,8 +614,14 @@ export interface Kinesis {
   /**
    * @see {@link PutRecordCommand}
    */
-  putRecord(args: PutRecordCommandInput, options?: __HttpHandlerOptions): Promise<PutRecordCommandOutput>;
-  putRecord(args: PutRecordCommandInput, cb: (err: any, data?: PutRecordCommandOutput) => void): void;
+  putRecord(
+    args: PutRecordCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutRecordCommandOutput>;
+  putRecord(
+    args: PutRecordCommandInput,
+    cb: (err: any, data?: PutRecordCommandOutput) => void
+  ): void;
   putRecord(
     args: PutRecordCommandInput,
     options: __HttpHandlerOptions,
@@ -580,8 +631,14 @@ export interface Kinesis {
   /**
    * @see {@link PutRecordsCommand}
    */
-  putRecords(args: PutRecordsCommandInput, options?: __HttpHandlerOptions): Promise<PutRecordsCommandOutput>;
-  putRecords(args: PutRecordsCommandInput, cb: (err: any, data?: PutRecordsCommandOutput) => void): void;
+  putRecords(
+    args: PutRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutRecordsCommandOutput>;
+  putRecords(
+    args: PutRecordsCommandInput,
+    cb: (err: any, data?: PutRecordsCommandOutput) => void
+  ): void;
   putRecords(
     args: PutRecordsCommandInput,
     options: __HttpHandlerOptions,
@@ -642,8 +699,14 @@ export interface Kinesis {
   /**
    * @see {@link SplitShardCommand}
    */
-  splitShard(args: SplitShardCommandInput, options?: __HttpHandlerOptions): Promise<SplitShardCommandOutput>;
-  splitShard(args: SplitShardCommandInput, cb: (err: any, data?: SplitShardCommandOutput) => void): void;
+  splitShard(
+    args: SplitShardCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SplitShardCommandOutput>;
+  splitShard(
+    args: SplitShardCommandInput,
+    cb: (err: any, data?: SplitShardCommandOutput) => void
+  ): void;
   splitShard(
     args: SplitShardCommandInput,
     options: __HttpHandlerOptions,
@@ -704,8 +767,14 @@ export interface Kinesis {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -715,8 +784,14 @@ export interface Kinesis {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

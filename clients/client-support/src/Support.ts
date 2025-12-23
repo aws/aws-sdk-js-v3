@@ -133,8 +133,14 @@ export interface Support {
   /**
    * @see {@link CreateCaseCommand}
    */
-  createCase(args: CreateCaseCommandInput, options?: __HttpHandlerOptions): Promise<CreateCaseCommandOutput>;
-  createCase(args: CreateCaseCommandInput, cb: (err: any, data?: CreateCaseCommandOutput) => void): void;
+  createCase(
+    args: CreateCaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCaseCommandOutput>;
+  createCase(
+    args: CreateCaseCommandInput,
+    cb: (err: any, data?: CreateCaseCommandOutput) => void
+  ): void;
   createCase(
     args: CreateCaseCommandInput,
     options: __HttpHandlerOptions,
@@ -162,8 +168,14 @@ export interface Support {
    * @see {@link DescribeCasesCommand}
    */
   describeCases(): Promise<DescribeCasesCommandOutput>;
-  describeCases(args: DescribeCasesCommandInput, options?: __HttpHandlerOptions): Promise<DescribeCasesCommandOutput>;
-  describeCases(args: DescribeCasesCommandInput, cb: (err: any, data?: DescribeCasesCommandOutput) => void): void;
+  describeCases(
+    args: DescribeCasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCasesCommandOutput>;
+  describeCases(
+    args: DescribeCasesCommandInput,
+    cb: (err: any, data?: DescribeCasesCommandOutput) => void
+  ): void;
   describeCases(
     args: DescribeCasesCommandInput,
     options: __HttpHandlerOptions,
@@ -346,8 +358,14 @@ export interface Support {
    * @see {@link ResolveCaseCommand}
    */
   resolveCase(): Promise<ResolveCaseCommandOutput>;
-  resolveCase(args: ResolveCaseCommandInput, options?: __HttpHandlerOptions): Promise<ResolveCaseCommandOutput>;
-  resolveCase(args: ResolveCaseCommandInput, cb: (err: any, data?: ResolveCaseCommandOutput) => void): void;
+  resolveCase(
+    args: ResolveCaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResolveCaseCommandOutput>;
+  resolveCase(
+    args: ResolveCaseCommandInput,
+    cb: (err: any, data?: ResolveCaseCommandOutput) => void
+  ): void;
   resolveCase(
     args: ResolveCaseCommandInput,
     options: __HttpHandlerOptions,

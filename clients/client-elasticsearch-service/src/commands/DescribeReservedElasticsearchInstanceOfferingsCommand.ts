@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeReservedElasticsearchInstanceOfferingsCommand}.
  */
-export interface DescribeReservedElasticsearchInstanceOfferingsCommandInput
-  extends DescribeReservedElasticsearchInstanceOfferingsRequest {}
+export interface DescribeReservedElasticsearchInstanceOfferingsCommandInput extends DescribeReservedElasticsearchInstanceOfferingsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeReservedElasticsearchInstanceOfferingsCommand}.
  */
-export interface DescribeReservedElasticsearchInstanceOfferingsCommandOutput
-  extends DescribeReservedElasticsearchInstanceOfferingsResponse,
-    __MetadataBearer {}
+export interface DescribeReservedElasticsearchInstanceOfferingsCommandOutput extends DescribeReservedElasticsearchInstanceOfferingsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists available reserved Elasticsearch instance offerings.</p>

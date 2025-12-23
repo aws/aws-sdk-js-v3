@@ -76,6 +76,9 @@ import {
   ListVirtualMachinesInput$,
   ListVirtualMachinesOutput$,
   MaintenanceStartTime$,
+  paginateListGateways,
+  paginateListHypervisors,
+  paginateListVirtualMachines,
   PutBandwidthRateLimitSchedule$,
   PutBandwidthRateLimitScheduleCommand,
   PutBandwidthRateLimitScheduleInput$,
@@ -128,9 +131,6 @@ import {
   VirtualMachineDetails$,
   VmwareTag$,
   VmwareToAwsTagMapping$,
-  paginateListGateways,
-  paginateListHypervisors,
-  paginateListVirtualMachines,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

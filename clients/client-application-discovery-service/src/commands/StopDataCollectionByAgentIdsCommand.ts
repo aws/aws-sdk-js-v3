@@ -28,9 +28,7 @@ export interface StopDataCollectionByAgentIdsCommandInput extends StopDataCollec
  *
  * The output of {@link StopDataCollectionByAgentIdsCommand}.
  */
-export interface StopDataCollectionByAgentIdsCommandOutput
-  extends StopDataCollectionByAgentIdsResponse,
-    __MetadataBearer {}
+export interface StopDataCollectionByAgentIdsCommandOutput extends StopDataCollectionByAgentIdsResponse, __MetadataBearer {}
 
 /**
  * <p>Instructs the specified agents to stop collecting data.</p>

@@ -7,7 +7,6 @@
 AWS SDK for JavaScript ApplicationInsights Client for Node.js, Browser and React Native.
 
 <fullname>Amazon CloudWatch Application Insights</fullname>
-
 <p> Amazon CloudWatch Application Insights is a service that helps you detect common
 problems with your applications. It enables you to pinpoint the source of issues in your
 applications (built with technologies such as Microsoft IIS, .NET, and Microsoft SQL
@@ -21,10 +20,8 @@ pressure problem with your SQL Server database is occurring. It bases this analy
 impactful metrics and log errors. </p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-application-insights
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-application-insights`
 - `yarn add @aws-sdk/client-application-insights`
 - `pnpm add @aws-sdk/client-application-insights`
@@ -60,9 +57,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new ApplicationInsightsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListApplicationsCommand(params);
 ```
 
@@ -221,7 +216,6 @@ AddWorkload
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/AddWorkloadCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/AddWorkloadCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/AddWorkloadCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -229,7 +223,6 @@ CreateApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/CreateApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/CreateApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/CreateApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -237,7 +230,6 @@ CreateComponent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/CreateComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/CreateComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/CreateComponentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -245,7 +237,6 @@ CreateLogPattern
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/CreateLogPatternCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/CreateLogPatternCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/CreateLogPatternCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -253,7 +244,6 @@ DeleteApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/DeleteApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DeleteApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DeleteApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -261,7 +251,6 @@ DeleteComponent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/DeleteComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DeleteComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DeleteComponentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -269,7 +258,6 @@ DeleteLogPattern
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/DeleteLogPatternCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DeleteLogPatternCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DeleteLogPatternCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -277,7 +265,6 @@ DescribeApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/DescribeApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DescribeApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DescribeApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -285,7 +272,6 @@ DescribeComponent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/DescribeComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DescribeComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DescribeComponentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -293,7 +279,6 @@ DescribeComponentConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/DescribeComponentConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DescribeComponentConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DescribeComponentConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -301,7 +286,6 @@ DescribeComponentConfigurationRecommendation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/DescribeComponentConfigurationRecommendationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DescribeComponentConfigurationRecommendationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DescribeComponentConfigurationRecommendationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -309,7 +293,6 @@ DescribeLogPattern
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/DescribeLogPatternCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DescribeLogPatternCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DescribeLogPatternCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -317,7 +300,6 @@ DescribeObservation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/DescribeObservationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DescribeObservationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DescribeObservationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -325,7 +307,6 @@ DescribeProblem
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/DescribeProblemCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DescribeProblemCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DescribeProblemCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -333,7 +314,6 @@ DescribeProblemObservations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/DescribeProblemObservationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DescribeProblemObservationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DescribeProblemObservationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -341,7 +321,6 @@ DescribeWorkload
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/DescribeWorkloadCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DescribeWorkloadCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/DescribeWorkloadCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -349,7 +328,6 @@ ListApplications
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/ListApplicationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/ListApplicationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/ListApplicationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -357,7 +335,6 @@ ListComponents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/ListComponentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/ListComponentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/ListComponentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -365,7 +342,6 @@ ListConfigurationHistory
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/ListConfigurationHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/ListConfigurationHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/ListConfigurationHistoryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -373,7 +349,6 @@ ListLogPatterns
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/ListLogPatternsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/ListLogPatternsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/ListLogPatternsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -381,7 +356,6 @@ ListLogPatternSets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/ListLogPatternSetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/ListLogPatternSetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/ListLogPatternSetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -389,7 +363,6 @@ ListProblems
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/ListProblemsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/ListProblemsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/ListProblemsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -397,7 +370,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -405,7 +377,6 @@ ListWorkloads
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/ListWorkloadsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/ListWorkloadsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/ListWorkloadsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -413,7 +384,6 @@ RemoveWorkload
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/RemoveWorkloadCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/RemoveWorkloadCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/RemoveWorkloadCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -421,7 +391,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -429,7 +398,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -437,7 +405,6 @@ UpdateApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/UpdateApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/UpdateApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/UpdateApplicationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -445,7 +412,6 @@ UpdateComponent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/UpdateComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/UpdateComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/UpdateComponentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -453,7 +419,6 @@ UpdateComponentConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/UpdateComponentConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/UpdateComponentConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/UpdateComponentConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -461,7 +426,6 @@ UpdateLogPattern
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/UpdateLogPatternCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/UpdateLogPatternCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/UpdateLogPatternCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -469,7 +433,6 @@ UpdateProblem
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/UpdateProblemCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/UpdateProblemCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/UpdateProblemCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -477,5 +440,4 @@ UpdateWorkload
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-insights/command/UpdateWorkloadCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/UpdateWorkloadCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-insights/Interface/UpdateWorkloadCommandOutput/)
-
 </details>

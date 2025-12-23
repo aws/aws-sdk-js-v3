@@ -27,9 +27,7 @@ export interface UpdateRelationalDatabaseParametersCommandInput extends UpdateRe
  *
  * The output of {@link UpdateRelationalDatabaseParametersCommand}.
  */
-export interface UpdateRelationalDatabaseParametersCommandOutput
-  extends UpdateRelationalDatabaseParametersResult,
-    __MetadataBearer {}
+export interface UpdateRelationalDatabaseParametersCommandOutput extends UpdateRelationalDatabaseParametersResult, __MetadataBearer {}
 
 /**
  * <p>Allows the update of one or more parameters of a database in Amazon Lightsail.</p>

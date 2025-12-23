@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateAutomatedDiscoveryConfigurationCommand}.
  */
-export interface UpdateAutomatedDiscoveryConfigurationCommandInput
-  extends UpdateAutomatedDiscoveryConfigurationRequest {}
+export interface UpdateAutomatedDiscoveryConfigurationCommandInput extends UpdateAutomatedDiscoveryConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateAutomatedDiscoveryConfigurationCommand}.
  */
-export interface UpdateAutomatedDiscoveryConfigurationCommandOutput
-  extends UpdateAutomatedDiscoveryConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateAutomatedDiscoveryConfigurationCommandOutput extends UpdateAutomatedDiscoveryConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Changes the configuration settings and status of automated sensitive data discovery for an organization or standalone account.</p>

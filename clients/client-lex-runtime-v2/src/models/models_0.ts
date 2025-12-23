@@ -14,7 +14,6 @@ import {
   Shape,
   StyleType,
 } from "./enums";
-
 import {
   AccessDeniedException,
   BadGatewayException,

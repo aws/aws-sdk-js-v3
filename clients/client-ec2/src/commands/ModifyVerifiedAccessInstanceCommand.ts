@@ -24,9 +24,7 @@ export interface ModifyVerifiedAccessInstanceCommandInput extends ModifyVerified
  *
  * The output of {@link ModifyVerifiedAccessInstanceCommand}.
  */
-export interface ModifyVerifiedAccessInstanceCommandOutput
-  extends ModifyVerifiedAccessInstanceResult,
-    __MetadataBearer {}
+export interface ModifyVerifiedAccessInstanceCommandOutput extends ModifyVerifiedAccessInstanceResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the configuration of the specified Amazon Web Services Verified Access instance.</p>

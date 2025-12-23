@@ -27,9 +27,7 @@ export interface EnableImageDeregistrationProtectionCommandInput extends EnableI
  *
  * The output of {@link EnableImageDeregistrationProtectionCommand}.
  */
-export interface EnableImageDeregistrationProtectionCommandOutput
-  extends EnableImageDeregistrationProtectionResult,
-    __MetadataBearer {}
+export interface EnableImageDeregistrationProtectionCommandOutput extends EnableImageDeregistrationProtectionResult, __MetadataBearer {}
 
 /**
  * <p>Enables deregistration protection for an AMI. When deregistration protection is enabled,

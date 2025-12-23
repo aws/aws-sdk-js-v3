@@ -28,9 +28,7 @@ export interface GetBucketMetadataTableConfigurationCommandInput extends GetBuck
  *
  * The output of {@link GetBucketMetadataTableConfigurationCommand}.
  */
-export interface GetBucketMetadataTableConfigurationCommandOutput
-  extends GetBucketMetadataTableConfigurationOutput,
-    __MetadataBearer {}
+export interface GetBucketMetadataTableConfigurationCommandOutput extends GetBucketMetadataTableConfigurationOutput, __MetadataBearer {}
 
 /**
  * <important>
@@ -139,7 +137,10 @@ export class GetBucketMetadataTableConfigurationCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
+    ];
   })
   .s("AmazonS3", "GetBucketMetadataTableConfiguration", {})
   .n("S3Client", "GetBucketMetadataTableConfigurationCommand")

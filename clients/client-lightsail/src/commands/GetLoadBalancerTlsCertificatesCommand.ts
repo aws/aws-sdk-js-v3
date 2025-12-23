@@ -24,9 +24,7 @@ export interface GetLoadBalancerTlsCertificatesCommandInput extends GetLoadBalan
  *
  * The output of {@link GetLoadBalancerTlsCertificatesCommand}.
  */
-export interface GetLoadBalancerTlsCertificatesCommandOutput
-  extends GetLoadBalancerTlsCertificatesResult,
-    __MetadataBearer {}
+export interface GetLoadBalancerTlsCertificatesCommandOutput extends GetLoadBalancerTlsCertificatesResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about the TLS certificates that are associated with the specified

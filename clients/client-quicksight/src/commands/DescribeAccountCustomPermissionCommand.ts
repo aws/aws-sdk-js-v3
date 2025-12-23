@@ -27,9 +27,7 @@ export interface DescribeAccountCustomPermissionCommandInput extends DescribeAcc
  *
  * The output of {@link DescribeAccountCustomPermissionCommand}.
  */
-export interface DescribeAccountCustomPermissionCommandOutput
-  extends DescribeAccountCustomPermissionResponse,
-    __MetadataBearer {}
+export interface DescribeAccountCustomPermissionCommandOutput extends DescribeAccountCustomPermissionResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the custom permissions profile that is applied to an account.</p>

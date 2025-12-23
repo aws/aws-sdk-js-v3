@@ -20,10 +20,8 @@ the console.</p>
 </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-taxsettings
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-taxsettings`
 - `yarn add @aws-sdk/client-taxsettings`
 - `pnpm add @aws-sdk/client-taxsettings`
@@ -59,9 +57,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new TaxSettingsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListTaxExemptionsCommand(params);
 ```
 
@@ -220,7 +216,6 @@ BatchDeleteTaxRegistration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/taxsettings/command/BatchDeleteTaxRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/BatchDeleteTaxRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/BatchDeleteTaxRegistrationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -228,7 +223,6 @@ BatchGetTaxExemptions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/taxsettings/command/BatchGetTaxExemptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/BatchGetTaxExemptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/BatchGetTaxExemptionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -236,7 +230,6 @@ BatchPutTaxRegistration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/taxsettings/command/BatchPutTaxRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/BatchPutTaxRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/BatchPutTaxRegistrationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -244,7 +237,6 @@ DeleteSupplementalTaxRegistration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/taxsettings/command/DeleteSupplementalTaxRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/DeleteSupplementalTaxRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/DeleteSupplementalTaxRegistrationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -252,7 +244,6 @@ DeleteTaxRegistration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/taxsettings/command/DeleteTaxRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/DeleteTaxRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/DeleteTaxRegistrationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -260,7 +251,6 @@ GetTaxExemptionTypes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/taxsettings/command/GetTaxExemptionTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/GetTaxExemptionTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/GetTaxExemptionTypesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -268,7 +258,6 @@ GetTaxInheritance
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/taxsettings/command/GetTaxInheritanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/GetTaxInheritanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/GetTaxInheritanceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -276,7 +265,6 @@ GetTaxRegistration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/taxsettings/command/GetTaxRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/GetTaxRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/GetTaxRegistrationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -284,7 +272,6 @@ GetTaxRegistrationDocument
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/taxsettings/command/GetTaxRegistrationDocumentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/GetTaxRegistrationDocumentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/GetTaxRegistrationDocumentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -292,7 +279,6 @@ ListSupplementalTaxRegistrations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/taxsettings/command/ListSupplementalTaxRegistrationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/ListSupplementalTaxRegistrationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/ListSupplementalTaxRegistrationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -300,7 +286,6 @@ ListTaxExemptions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/taxsettings/command/ListTaxExemptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/ListTaxExemptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/ListTaxExemptionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -308,7 +293,6 @@ ListTaxRegistrations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/taxsettings/command/ListTaxRegistrationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/ListTaxRegistrationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/ListTaxRegistrationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -316,7 +300,6 @@ PutSupplementalTaxRegistration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/taxsettings/command/PutSupplementalTaxRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/PutSupplementalTaxRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/PutSupplementalTaxRegistrationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -324,7 +307,6 @@ PutTaxExemption
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/taxsettings/command/PutTaxExemptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/PutTaxExemptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/PutTaxExemptionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -332,7 +314,6 @@ PutTaxInheritance
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/taxsettings/command/PutTaxInheritanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/PutTaxInheritanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/PutTaxInheritanceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -340,5 +321,4 @@ PutTaxRegistration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/taxsettings/command/PutTaxRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/PutTaxRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-taxsettings/Interface/PutTaxRegistrationCommandOutput/)
-
 </details>

@@ -31,9 +31,7 @@ export interface PutAppInstanceUserExpirationSettingsCommandInput extends PutApp
  *
  * The output of {@link PutAppInstanceUserExpirationSettingsCommand}.
  */
-export interface PutAppInstanceUserExpirationSettingsCommandOutput
-  extends PutAppInstanceUserExpirationSettingsResponse,
-    __MetadataBearer {}
+export interface PutAppInstanceUserExpirationSettingsCommandOutput extends PutAppInstanceUserExpirationSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the number of days before the <code>AppInstanceUser</code> is automatically deleted.</p>

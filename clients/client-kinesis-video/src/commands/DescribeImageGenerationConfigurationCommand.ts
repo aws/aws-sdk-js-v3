@@ -27,9 +27,7 @@ export interface DescribeImageGenerationConfigurationCommandInput extends Descri
  *
  * The output of {@link DescribeImageGenerationConfigurationCommand}.
  */
-export interface DescribeImageGenerationConfigurationCommandOutput
-  extends DescribeImageGenerationConfigurationOutput,
-    __MetadataBearer {}
+export interface DescribeImageGenerationConfigurationCommandOutput extends DescribeImageGenerationConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the <code>ImageGenerationConfiguration</code> for a given Kinesis video stream.</p>

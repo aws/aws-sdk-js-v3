@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetVpnConnectionDeviceSampleConfigurationCommand}.
  */
-export interface GetVpnConnectionDeviceSampleConfigurationCommandInput
-  extends GetVpnConnectionDeviceSampleConfigurationRequest {}
+export interface GetVpnConnectionDeviceSampleConfigurationCommandInput extends GetVpnConnectionDeviceSampleConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link GetVpnConnectionDeviceSampleConfigurationCommand}.
  */
-export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput
-  extends GetVpnConnectionDeviceSampleConfigurationResult,
-    __MetadataBearer {}
+export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput extends GetVpnConnectionDeviceSampleConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Download an Amazon Web Services-provided sample configuration file to be used with the customer

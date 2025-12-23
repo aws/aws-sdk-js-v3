@@ -79,6 +79,9 @@ import {
   ListWhatsAppTemplateLibraryOutput$,
   MetaLibraryTemplate$,
   MetaLibraryTemplateDefinition$,
+  paginateListLinkedWhatsAppBusinessAccounts,
+  paginateListWhatsAppMessageTemplates,
+  paginateListWhatsAppTemplateLibrary,
   PostWhatsAppMessageMedia$,
   PostWhatsAppMessageMediaCommand,
   PostWhatsAppMessageMediaInput$,
@@ -125,9 +128,6 @@ import {
   WhatsAppSetupFinalization$,
   WhatsAppSignupCallback$,
   WhatsAppSignupCallbackResult$,
-  paginateListLinkedWhatsAppBusinessAccounts,
-  paginateListWhatsAppMessageTemplates,
-  paginateListWhatsAppTemplateLibrary,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

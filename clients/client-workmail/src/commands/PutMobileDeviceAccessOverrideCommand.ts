@@ -24,9 +24,7 @@ export interface PutMobileDeviceAccessOverrideCommandInput extends PutMobileDevi
  *
  * The output of {@link PutMobileDeviceAccessOverrideCommand}.
  */
-export interface PutMobileDeviceAccessOverrideCommandOutput
-  extends PutMobileDeviceAccessOverrideResponse,
-    __MetadataBearer {}
+export interface PutMobileDeviceAccessOverrideCommandOutput extends PutMobileDeviceAccessOverrideResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates a mobile device access override for the given WorkMail organization, user, and device.</p>

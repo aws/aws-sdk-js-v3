@@ -24,9 +24,7 @@ export interface DescribeAccountConfigurationCommandInput extends DescribeAccoun
  *
  * The output of {@link DescribeAccountConfigurationCommand}.
  */
-export interface DescribeAccountConfigurationCommandOutput
-  extends DescribeAccountConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeAccountConfigurationCommandOutput extends DescribeAccountConfigurationResponse, __MetadataBearer {}
 
 /**
  * Describe account configuration

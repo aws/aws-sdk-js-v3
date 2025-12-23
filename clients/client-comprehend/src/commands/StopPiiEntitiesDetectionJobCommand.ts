@@ -24,9 +24,7 @@ export interface StopPiiEntitiesDetectionJobCommandInput extends StopPiiEntities
  *
  * The output of {@link StopPiiEntitiesDetectionJobCommand}.
  */
-export interface StopPiiEntitiesDetectionJobCommandOutput
-  extends StopPiiEntitiesDetectionJobResponse,
-    __MetadataBearer {}
+export interface StopPiiEntitiesDetectionJobCommandOutput extends StopPiiEntitiesDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a PII entities detection job in progress.</p>

@@ -24,9 +24,7 @@ export interface DescribeVpcIngressConnectionCommandInput extends DescribeVpcIng
  *
  * The output of {@link DescribeVpcIngressConnectionCommand}.
  */
-export interface DescribeVpcIngressConnectionCommandOutput
-  extends DescribeVpcIngressConnectionResponse,
-    __MetadataBearer {}
+export interface DescribeVpcIngressConnectionCommandOutput extends DescribeVpcIngressConnectionResponse, __MetadataBearer {}
 
 /**
  * <p>Return a full description of an App Runner VPC Ingress Connection resource.</p>

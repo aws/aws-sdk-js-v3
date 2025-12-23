@@ -27,9 +27,7 @@ export interface CreateTransitGatewayMeteringPolicyCommandInput extends CreateTr
  *
  * The output of {@link CreateTransitGatewayMeteringPolicyCommand}.
  */
-export interface CreateTransitGatewayMeteringPolicyCommandOutput
-  extends CreateTransitGatewayMeteringPolicyResult,
-    __MetadataBearer {}
+export interface CreateTransitGatewayMeteringPolicyCommandOutput extends CreateTransitGatewayMeteringPolicyResult, __MetadataBearer {}
 
 /**
  * <p>Creates a metering policy for a transit gateway to track and measure network traffic.</p>

@@ -27,9 +27,7 @@ export interface DescribeReservedInstancesOfferingsCommandInput extends Describe
  *
  * The output of {@link DescribeReservedInstancesOfferingsCommand}.
  */
-export interface DescribeReservedInstancesOfferingsCommandOutput
-  extends DescribeReservedInstancesOfferingsResult,
-    __MetadataBearer {}
+export interface DescribeReservedInstancesOfferingsCommandOutput extends DescribeReservedInstancesOfferingsResult, __MetadataBearer {}
 
 /**
  * <p>Describes Reserved Instance offerings that are available for purchase. With Reserved

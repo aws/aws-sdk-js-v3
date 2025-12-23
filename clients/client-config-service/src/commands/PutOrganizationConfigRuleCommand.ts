@@ -50,7 +50,7 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  *          <p>Config Custom Rules are rules that you create from scratch. There are two ways to create Config custom rules: with Lambda functions
  * 			(<a href="https://docs.aws.amazon.com/config/latest/developerguide/gettingstarted-concepts.html#gettingstarted-concepts-function"> Lambda Developer Guide</a>) and with Guard (<a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
  * 					Repository</a>), a policy-as-code language.
- *
+ * 			
  * 			Config custom rules created with Lambda
  * 			are called <i>Config Custom Lambda Rules</i> and Config custom rules created with
  * 			Guard are called <i>Config Custom Policy Rules</i>.</p>

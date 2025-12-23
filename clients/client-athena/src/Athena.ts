@@ -542,7 +542,10 @@ export interface Athena {
     args: CreateNotebookCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateNotebookCommandOutput>;
-  createNotebook(args: CreateNotebookCommandInput, cb: (err: any, data?: CreateNotebookCommandOutput) => void): void;
+  createNotebook(
+    args: CreateNotebookCommandInput,
+    cb: (err: any, data?: CreateNotebookCommandOutput) => void
+  ): void;
   createNotebook(
     args: CreateNotebookCommandInput,
     options: __HttpHandlerOptions,
@@ -590,7 +593,10 @@ export interface Athena {
     args: CreateWorkGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateWorkGroupCommandOutput>;
-  createWorkGroup(args: CreateWorkGroupCommandInput, cb: (err: any, data?: CreateWorkGroupCommandOutput) => void): void;
+  createWorkGroup(
+    args: CreateWorkGroupCommandInput,
+    cb: (err: any, data?: CreateWorkGroupCommandOutput) => void
+  ): void;
   createWorkGroup(
     args: CreateWorkGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -655,7 +661,10 @@ export interface Athena {
     args: DeleteNotebookCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteNotebookCommandOutput>;
-  deleteNotebook(args: DeleteNotebookCommandInput, cb: (err: any, data?: DeleteNotebookCommandOutput) => void): void;
+  deleteNotebook(
+    args: DeleteNotebookCommandInput,
+    cb: (err: any, data?: DeleteNotebookCommandOutput) => void
+  ): void;
   deleteNotebook(
     args: DeleteNotebookCommandInput,
     options: __HttpHandlerOptions,
@@ -686,7 +695,10 @@ export interface Athena {
     args: DeleteWorkGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteWorkGroupCommandOutput>;
-  deleteWorkGroup(args: DeleteWorkGroupCommandInput, cb: (err: any, data?: DeleteWorkGroupCommandOutput) => void): void;
+  deleteWorkGroup(
+    args: DeleteWorkGroupCommandInput,
+    cb: (err: any, data?: DeleteWorkGroupCommandOutput) => void
+  ): void;
   deleteWorkGroup(
     args: DeleteWorkGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -700,7 +712,10 @@ export interface Athena {
     args: ExportNotebookCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ExportNotebookCommandOutput>;
-  exportNotebook(args: ExportNotebookCommandInput, cb: (err: any, data?: ExportNotebookCommandOutput) => void): void;
+  exportNotebook(
+    args: ExportNotebookCommandInput,
+    cb: (err: any, data?: ExportNotebookCommandOutput) => void
+  ): void;
   exportNotebook(
     args: ExportNotebookCommandInput,
     options: __HttpHandlerOptions,
@@ -795,8 +810,14 @@ export interface Athena {
   /**
    * @see {@link GetDatabaseCommand}
    */
-  getDatabase(args: GetDatabaseCommandInput, options?: __HttpHandlerOptions): Promise<GetDatabaseCommandOutput>;
-  getDatabase(args: GetDatabaseCommandInput, cb: (err: any, data?: GetDatabaseCommandOutput) => void): void;
+  getDatabase(
+    args: GetDatabaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDatabaseCommandOutput>;
+  getDatabase(
+    args: GetDatabaseCommandInput,
+    cb: (err: any, data?: GetDatabaseCommandOutput) => void
+  ): void;
   getDatabase(
     args: GetDatabaseCommandInput,
     options: __HttpHandlerOptions,
@@ -810,7 +831,10 @@ export interface Athena {
     args: GetDataCatalogCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDataCatalogCommandOutput>;
-  getDataCatalog(args: GetDataCatalogCommandInput, cb: (err: any, data?: GetDataCatalogCommandOutput) => void): void;
+  getDataCatalog(
+    args: GetDataCatalogCommandInput,
+    cb: (err: any, data?: GetDataCatalogCommandOutput) => void
+  ): void;
   getDataCatalog(
     args: GetDataCatalogCommandInput,
     options: __HttpHandlerOptions,
@@ -820,8 +844,14 @@ export interface Athena {
   /**
    * @see {@link GetNamedQueryCommand}
    */
-  getNamedQuery(args: GetNamedQueryCommandInput, options?: __HttpHandlerOptions): Promise<GetNamedQueryCommandOutput>;
-  getNamedQuery(args: GetNamedQueryCommandInput, cb: (err: any, data?: GetNamedQueryCommandOutput) => void): void;
+  getNamedQuery(
+    args: GetNamedQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNamedQueryCommandOutput>;
+  getNamedQuery(
+    args: GetNamedQueryCommandInput,
+    cb: (err: any, data?: GetNamedQueryCommandOutput) => void
+  ): void;
   getNamedQuery(
     args: GetNamedQueryCommandInput,
     options: __HttpHandlerOptions,
@@ -886,7 +916,10 @@ export interface Athena {
     args: GetQueryResultsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetQueryResultsCommandOutput>;
-  getQueryResults(args: GetQueryResultsCommandInput, cb: (err: any, data?: GetQueryResultsCommandOutput) => void): void;
+  getQueryResults(
+    args: GetQueryResultsCommandInput,
+    cb: (err: any, data?: GetQueryResultsCommandOutput) => void
+  ): void;
   getQueryResults(
     args: GetQueryResultsCommandInput,
     options: __HttpHandlerOptions,
@@ -930,8 +963,14 @@ export interface Athena {
   /**
    * @see {@link GetSessionCommand}
    */
-  getSession(args: GetSessionCommandInput, options?: __HttpHandlerOptions): Promise<GetSessionCommandOutput>;
-  getSession(args: GetSessionCommandInput, cb: (err: any, data?: GetSessionCommandOutput) => void): void;
+  getSession(
+    args: GetSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSessionCommandOutput>;
+  getSession(
+    args: GetSessionCommandInput,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
   getSession(
     args: GetSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -992,8 +1031,14 @@ export interface Athena {
   /**
    * @see {@link GetWorkGroupCommand}
    */
-  getWorkGroup(args: GetWorkGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkGroupCommandOutput>;
-  getWorkGroup(args: GetWorkGroupCommandInput, cb: (err: any, data?: GetWorkGroupCommandOutput) => void): void;
+  getWorkGroup(
+    args: GetWorkGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWorkGroupCommandOutput>;
+  getWorkGroup(
+    args: GetWorkGroupCommandInput,
+    cb: (err: any, data?: GetWorkGroupCommandOutput) => void
+  ): void;
   getWorkGroup(
     args: GetWorkGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1007,7 +1052,10 @@ export interface Athena {
     args: ImportNotebookCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ImportNotebookCommandOutput>;
-  importNotebook(args: ImportNotebookCommandInput, cb: (err: any, data?: ImportNotebookCommandOutput) => void): void;
+  importNotebook(
+    args: ImportNotebookCommandInput,
+    cb: (err: any, data?: ImportNotebookCommandOutput) => void
+  ): void;
   importNotebook(
     args: ImportNotebookCommandInput,
     options: __HttpHandlerOptions,
@@ -1070,8 +1118,14 @@ export interface Athena {
   /**
    * @see {@link ListDatabasesCommand}
    */
-  listDatabases(args: ListDatabasesCommandInput, options?: __HttpHandlerOptions): Promise<ListDatabasesCommandOutput>;
-  listDatabases(args: ListDatabasesCommandInput, cb: (err: any, data?: ListDatabasesCommandOutput) => void): void;
+  listDatabases(
+    args: ListDatabasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatabasesCommandOutput>;
+  listDatabases(
+    args: ListDatabasesCommandInput,
+    cb: (err: any, data?: ListDatabasesCommandOutput) => void
+  ): void;
   listDatabases(
     args: ListDatabasesCommandInput,
     options: __HttpHandlerOptions,
@@ -1117,8 +1171,14 @@ export interface Athena {
   /**
    * @see {@link ListExecutorsCommand}
    */
-  listExecutors(args: ListExecutorsCommandInput, options?: __HttpHandlerOptions): Promise<ListExecutorsCommandOutput>;
-  listExecutors(args: ListExecutorsCommandInput, cb: (err: any, data?: ListExecutorsCommandOutput) => void): void;
+  listExecutors(
+    args: ListExecutorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExecutorsCommandOutput>;
+  listExecutors(
+    args: ListExecutorsCommandInput,
+    cb: (err: any, data?: ListExecutorsCommandOutput) => void
+  ): void;
   listExecutors(
     args: ListExecutorsCommandInput,
     options: __HttpHandlerOptions,
@@ -1215,8 +1275,14 @@ export interface Athena {
   /**
    * @see {@link ListSessionsCommand}
    */
-  listSessions(args: ListSessionsCommandInput, options?: __HttpHandlerOptions): Promise<ListSessionsCommandOutput>;
-  listSessions(args: ListSessionsCommandInput, cb: (err: any, data?: ListSessionsCommandOutput) => void): void;
+  listSessions(
+    args: ListSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSessionsCommandOutput>;
+  listSessions(
+    args: ListSessionsCommandInput,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
+  ): void;
   listSessions(
     args: ListSessionsCommandInput,
     options: __HttpHandlerOptions,
@@ -1265,7 +1331,10 @@ export interface Athena {
     args: ListWorkGroupsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListWorkGroupsCommandOutput>;
-  listWorkGroups(args: ListWorkGroupsCommandInput, cb: (err: any, data?: ListWorkGroupsCommandOutput) => void): void;
+  listWorkGroups(
+    args: ListWorkGroupsCommandInput,
+    cb: (err: any, data?: ListWorkGroupsCommandOutput) => void
+  ): void;
   listWorkGroups(
     args: ListWorkGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -1326,8 +1395,14 @@ export interface Athena {
   /**
    * @see {@link StartSessionCommand}
    */
-  startSession(args: StartSessionCommandInput, options?: __HttpHandlerOptions): Promise<StartSessionCommandOutput>;
-  startSession(args: StartSessionCommandInput, cb: (err: any, data?: StartSessionCommandOutput) => void): void;
+  startSession(
+    args: StartSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSessionCommandOutput>;
+  startSession(
+    args: StartSessionCommandInput,
+    cb: (err: any, data?: StartSessionCommandOutput) => void
+  ): void;
   startSession(
     args: StartSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -1371,8 +1446,14 @@ export interface Athena {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1399,8 +1480,14 @@ export interface Athena {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1465,7 +1552,10 @@ export interface Athena {
     args: UpdateNotebookCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateNotebookCommandOutput>;
-  updateNotebook(args: UpdateNotebookCommandInput, cb: (err: any, data?: UpdateNotebookCommandOutput) => void): void;
+  updateNotebook(
+    args: UpdateNotebookCommandInput,
+    cb: (err: any, data?: UpdateNotebookCommandOutput) => void
+  ): void;
   updateNotebook(
     args: UpdateNotebookCommandInput,
     options: __HttpHandlerOptions,
@@ -1513,7 +1603,10 @@ export interface Athena {
     args: UpdateWorkGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateWorkGroupCommandOutput>;
-  updateWorkGroup(args: UpdateWorkGroupCommandInput, cb: (err: any, data?: UpdateWorkGroupCommandOutput) => void): void;
+  updateWorkGroup(
+    args: UpdateWorkGroupCommandInput,
+    cb: (err: any, data?: UpdateWorkGroupCommandOutput) => void
+  ): void;
   updateWorkGroup(
     args: UpdateWorkGroupCommandInput,
     options: __HttpHandlerOptions,

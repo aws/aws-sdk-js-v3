@@ -24,9 +24,7 @@ export interface ListContactFlowModuleAliasesCommandInput extends ListContactFlo
  *
  * The output of {@link ListContactFlowModuleAliasesCommand}.
  */
-export interface ListContactFlowModuleAliasesCommandOutput
-  extends ListContactFlowModuleAliasesResponse,
-    __MetadataBearer {}
+export interface ListContactFlowModuleAliasesCommandOutput extends ListContactFlowModuleAliasesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all aliases associated with a contact flow module, showing their current version mappings and

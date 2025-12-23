@@ -28,9 +28,7 @@ export interface DescribeApplicationVersionsCommandInput extends DescribeApplica
  *
  * The output of {@link DescribeApplicationVersionsCommand}.
  */
-export interface DescribeApplicationVersionsCommandOutput
-  extends ApplicationVersionDescriptionsMessage,
-    __MetadataBearer {}
+export interface DescribeApplicationVersionsCommandOutput extends ApplicationVersionDescriptionsMessage, __MetadataBearer {}
 
 /**
  * <p>Retrieve a list of application versions.</p>

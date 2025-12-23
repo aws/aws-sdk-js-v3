@@ -9,10 +9,8 @@ AWS SDK for JavaScript S3Outposts Client for Node.js, Browser and React Native.
 <p>Amazon S3 on Outposts provides access to S3 on Outposts operations.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-s3outposts
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-s3outposts`
 - `yarn add @aws-sdk/client-s3outposts`
 - `pnpm add @aws-sdk/client-s3outposts`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new S3OutpostsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListEndpointsCommand(params);
 ```
 
@@ -209,7 +205,6 @@ CreateEndpoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3outposts/command/CreateEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3outposts/Interface/CreateEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3outposts/Interface/CreateEndpointCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ DeleteEndpoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3outposts/command/DeleteEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3outposts/Interface/DeleteEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3outposts/Interface/DeleteEndpointCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ ListEndpoints
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3outposts/command/ListEndpointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3outposts/Interface/ListEndpointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3outposts/Interface/ListEndpointsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ ListOutpostsWithS3
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3outposts/command/ListOutpostsWithS3Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3outposts/Interface/ListOutpostsWithS3CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3outposts/Interface/ListOutpostsWithS3CommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,5 +233,4 @@ ListSharedEndpoints
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3outposts/command/ListSharedEndpointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3outposts/Interface/ListSharedEndpointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3outposts/Interface/ListSharedEndpointsCommandOutput/)
-
 </details>

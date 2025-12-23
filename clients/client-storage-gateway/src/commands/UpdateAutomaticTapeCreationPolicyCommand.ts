@@ -31,9 +31,7 @@ export interface UpdateAutomaticTapeCreationPolicyCommandInput extends UpdateAut
  *
  * The output of {@link UpdateAutomaticTapeCreationPolicyCommand}.
  */
-export interface UpdateAutomaticTapeCreationPolicyCommandOutput
-  extends UpdateAutomaticTapeCreationPolicyOutput,
-    __MetadataBearer {}
+export interface UpdateAutomaticTapeCreationPolicyCommandOutput extends UpdateAutomaticTapeCreationPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the automatic tape creation policy of a gateway. Use this to update the policy

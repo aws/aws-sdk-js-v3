@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link DeleteTableBucketMetricsConfigurationCommand}.
  */
-export interface DeleteTableBucketMetricsConfigurationCommandInput
-  extends DeleteTableBucketMetricsConfigurationRequest {}
+export interface DeleteTableBucketMetricsConfigurationCommandInput extends DeleteTableBucketMetricsConfigurationRequest {}
 /**
  * @public
  *

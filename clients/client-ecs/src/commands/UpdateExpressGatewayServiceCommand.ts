@@ -24,9 +24,7 @@ export interface UpdateExpressGatewayServiceCommandInput extends UpdateExpressGa
  *
  * The output of {@link UpdateExpressGatewayServiceCommand}.
  */
-export interface UpdateExpressGatewayServiceCommandOutput
-  extends UpdateExpressGatewayServiceResponse,
-    __MetadataBearer {}
+export interface UpdateExpressGatewayServiceCommandOutput extends UpdateExpressGatewayServiceResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing Express service configuration. Modifies container settings, resource

@@ -24,9 +24,7 @@ export interface DeleteMonitoringSubscriptionCommandInput extends DeleteMonitori
  *
  * The output of {@link DeleteMonitoringSubscriptionCommand}.
  */
-export interface DeleteMonitoringSubscriptionCommandOutput
-  extends DeleteMonitoringSubscriptionResult,
-    __MetadataBearer {}
+export interface DeleteMonitoringSubscriptionCommandOutput extends DeleteMonitoringSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Disables additional CloudWatch metrics for the specified CloudFront distribution.</p>

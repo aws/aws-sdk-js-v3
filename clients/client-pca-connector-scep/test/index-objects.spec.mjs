@@ -56,6 +56,8 @@ import {
   ListTagsForResourceResponse$,
   MobileDeviceManagement$,
   OpenIdConfiguration$,
+  paginateListChallengeMetadata,
+  paginateListConnectors,
   PcaConnectorScep,
   PcaConnectorScepClient,
   PcaConnectorScepServiceException,
@@ -74,8 +76,6 @@ import {
   ValidationException,
   ValidationException$,
   ValidationExceptionReason,
-  paginateListChallengeMetadata,
-  paginateListConnectors,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

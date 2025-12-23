@@ -27,9 +27,7 @@ export interface PutEnforcedGuardrailConfigurationCommandInput extends PutEnforc
  *
  * The output of {@link PutEnforcedGuardrailConfigurationCommand}.
  */
-export interface PutEnforcedGuardrailConfigurationCommandOutput
-  extends PutEnforcedGuardrailConfigurationResponse,
-    __MetadataBearer {}
+export interface PutEnforcedGuardrailConfigurationCommandOutput extends PutEnforcedGuardrailConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the account-level enforced guardrail configuration.</p>

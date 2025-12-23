@@ -482,1116 +482,992 @@ var GuardrailAutomatedReasoningStatementLogicContent: StaticSimpleSchema = [0, n
 var GuardrailAutomatedReasoningStatementNaturalLanguageContent: StaticSimpleSchema = [0, n0, _GARSNLC, 8, 0];
 var ModelInputPayload: StaticSimpleSchema = [0, n0, _MIP, 8, 15];
 var PartBody: StaticSimpleSchema = [0, n0, _PB, 8, 21];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var AnyToolChoice$: StaticStructureSchema = [3, n0, _ATC, 0, [], []];
-export var AppliedGuardrailDetails$: StaticStructureSchema = [
-  3,
-  n0,
-  _AGD,
+export var AnyToolChoice$: StaticStructureSchema = [3, n0, _ATC,
+  0,
+  [],
+  []
+];
+export var AppliedGuardrailDetails$: StaticStructureSchema = [3, n0, _AGD,
   0,
   [_gI, _gV, _gA, _gO, _gOu],
-  [0, 0, 0, 64 | 0, 0],
+  [0, 0, 0, 64 | 0, 0]
 ];
-export var ApplyGuardrailRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _AGR,
+export var ApplyGuardrailRequest$: StaticStructureSchema = [3, n0, _AGR,
   0,
   [_gIu, _gV, _s, _co, _oS],
-  [[0, 1], [0, 1], 0, [() => GuardrailContentBlockList, 0], 0],
+  [[0, 1], [0, 1], 0, [() => GuardrailContentBlockList, 0], 0]
 ];
-export var ApplyGuardrailResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _AGRp,
+export var ApplyGuardrailResponse$: StaticStructureSchema = [3, n0, _AGRp,
   0,
   [_u, _a, _aR, _o, _as, _gC],
-  [
-    () => GuardrailUsage$,
-    0,
-    0,
-    () => GuardrailOutputContentList,
-    [() => GuardrailAssessmentList, 0],
-    () => GuardrailCoverage$,
-  ],
+  [() => GuardrailUsage$, 0, 0, () => GuardrailOutputContentList, [() => GuardrailAssessmentList, 0], () => GuardrailCoverage$]
 ];
-export var AsyncInvokeS3OutputDataConfig$: StaticStructureSchema = [3, n0, _AISODC, 0, [_sU, _kKI, _bO], [0, 0, 0]];
-export var AsyncInvokeSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _AIS,
+export var AsyncInvokeS3OutputDataConfig$: StaticStructureSchema = [3, n0, _AISODC,
+  0,
+  [_sU, _kKI, _bO],
+  [0, 0, 0]
+];
+export var AsyncInvokeSummary$: StaticStructureSchema = [3, n0, _AIS,
   0,
   [_iA, _mA, _cRT, _st, _fM, _sT, _lMT, _eT, _oDC],
-  [0, 0, 0, 0, [() => AsyncInvokeMessage, 0], 5, 5, 5, () => AsyncInvokeOutputDataConfig$],
+  [0, 0, 0, 0, [() => AsyncInvokeMessage, 0], 5, 5, 5, () => AsyncInvokeOutputDataConfig$]
 ];
-export var AudioBlock$: StaticStructureSchema = [
-  3,
-  n0,
-  _AB,
+export var AudioBlock$: StaticStructureSchema = [3, n0, _AB,
   0,
   [_f, _s, _e],
-  [0, [() => AudioSource$, 0], [() => ErrorBlock$, 0]],
+  [0, [() => AudioSource$, 0], [() => ErrorBlock$, 0]]
 ];
-export var AutoToolChoice$: StaticStructureSchema = [3, n0, _ATCu, 0, [], []];
-export var BidirectionalInputPayloadPart$: StaticStructureSchema = [3, n0, _BIPP, 8, [_b], [[() => PartBody, 0]]];
-export var BidirectionalOutputPayloadPart$: StaticStructureSchema = [3, n0, _BOPP, 8, [_b], [[() => PartBody, 0]]];
-export var CachePointBlock$: StaticStructureSchema = [3, n0, _CPB, 0, [_t], [0]];
-export var Citation$: StaticStructureSchema = [
-  3,
-  n0,
-  _C,
+export var AutoToolChoice$: StaticStructureSchema = [3, n0, _ATCu,
+  0,
+  [],
+  []
+];
+export var BidirectionalInputPayloadPart$: StaticStructureSchema = [3, n0, _BIPP,
+  8,
+  [_b],
+  [[() => PartBody, 0]]
+];
+export var BidirectionalOutputPayloadPart$: StaticStructureSchema = [3, n0, _BOPP,
+  8,
+  [_b],
+  [[() => PartBody, 0]]
+];
+export var CachePointBlock$: StaticStructureSchema = [3, n0, _CPB,
+  0,
+  [_t],
+  [0]
+];
+export var Citation$: StaticStructureSchema = [3, n0, _C,
   0,
   [_ti, _s, _sC, _l],
-  [0, 0, () => CitationSourceContentList, () => CitationLocation$],
+  [0, 0, () => CitationSourceContentList, () => CitationLocation$]
 ];
-export var CitationsConfig$: StaticStructureSchema = [3, n0, _CC, 0, [_en], [2]];
-export var CitationsContentBlock$: StaticStructureSchema = [
-  3,
-  n0,
-  _CCB,
+export var CitationsConfig$: StaticStructureSchema = [3, n0, _CC,
+  0,
+  [_en],
+  [2]
+];
+export var CitationsContentBlock$: StaticStructureSchema = [3, n0, _CCB,
   0,
   [_co, _ci],
-  [() => CitationGeneratedContentList, () => Citations],
+  [() => CitationGeneratedContentList, () => Citations]
 ];
-export var CitationsDelta$: StaticStructureSchema = [
-  3,
-  n0,
-  _CD,
+export var CitationsDelta$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_ti, _s, _sC, _l],
-  [0, 0, () => CitationSourceContentListDelta, () => CitationLocation$],
+  [0, 0, () => CitationSourceContentListDelta, () => CitationLocation$]
 ];
-export var CitationSourceContentDelta$: StaticStructureSchema = [3, n0, _CSCD, 0, [_te], [0]];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
-export var ContentBlockDeltaEvent$: StaticStructureSchema = [
-  3,
-  n0,
-  _CBDE,
-  0,
-  [_d, _cBI],
-  [[() => ContentBlockDelta$, 0], 1],
-];
-export var ContentBlockStartEvent$: StaticStructureSchema = [
-  3,
-  n0,
-  _CBSE,
-  0,
-  [_sta, _cBI],
-  [() => ContentBlockStart$, 1],
-];
-export var ContentBlockStopEvent$: StaticStructureSchema = [3, n0, _CBSEo, 0, [_cBI], [1]];
-export var ConverseMetrics$: StaticStructureSchema = [3, n0, _CM, 0, [_lM], [1]];
-export var ConverseRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CR,
-  0,
-  [_mI, _me, _sy, _iC, _tC, _gCu, _aMRF, _pV, _aMRFP, _rM, _pC, _sTe],
-  [
-    [0, 1],
-    [() => Messages, 0],
-    [() => SystemContentBlocks, 0],
-    () => InferenceConfiguration$,
-    () => ToolConfiguration$,
-    () => GuardrailConfiguration$,
-    15,
-    [() => PromptVariableMap, 0],
-    64 | 0,
-    [() => RequestMetadata, 0],
-    () => PerformanceConfiguration$,
-    () => ServiceTier$,
-  ],
-];
-export var ConverseResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CRo,
-  0,
-  [_ou, _sR, _u, _met, _aMRFd, _tr, _pC, _sTe],
-  [
-    [() => ConverseOutput$, 0],
-    0,
-    () => TokenUsage$,
-    () => ConverseMetrics$,
-    15,
-    [() => ConverseTrace$, 0],
-    () => PerformanceConfiguration$,
-    () => ServiceTier$,
-  ],
-];
-export var ConverseStreamMetadataEvent$: StaticStructureSchema = [
-  3,
-  n0,
-  _CSME,
-  0,
-  [_u, _met, _tr, _pC, _sTe],
-  [
-    () => TokenUsage$,
-    () => ConverseStreamMetrics$,
-    [() => ConverseStreamTrace$, 0],
-    () => PerformanceConfiguration$,
-    () => ServiceTier$,
-  ],
-];
-export var ConverseStreamMetrics$: StaticStructureSchema = [3, n0, _CSM, 0, [_lM], [1]];
-export var ConverseStreamRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CSR,
-  0,
-  [_mI, _me, _sy, _iC, _tC, _gCu, _aMRF, _pV, _aMRFP, _rM, _pC, _sTe],
-  [
-    [0, 1],
-    [() => Messages, 0],
-    [() => SystemContentBlocks, 0],
-    () => InferenceConfiguration$,
-    () => ToolConfiguration$,
-    () => GuardrailStreamConfiguration$,
-    15,
-    [() => PromptVariableMap, 0],
-    64 | 0,
-    [() => RequestMetadata, 0],
-    () => PerformanceConfiguration$,
-    () => ServiceTier$,
-  ],
-];
-export var ConverseStreamResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CSRo,
-  0,
-  [_str],
-  [[() => ConverseStreamOutput$, 16]],
-];
-export var ConverseStreamTrace$: StaticStructureSchema = [
-  3,
-  n0,
-  _CST,
-  0,
-  [_g, _pR],
-  [[() => GuardrailTraceAssessment$, 0], () => PromptRouterTrace$],
-];
-export var ConverseTokensRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CTR,
-  0,
-  [_me, _sy, _tC, _aMRF],
-  [[() => Messages, 0], [() => SystemContentBlocks, 0], () => ToolConfiguration$, 15],
-];
-export var ConverseTrace$: StaticStructureSchema = [
-  3,
-  n0,
-  _CT,
-  0,
-  [_g, _pR],
-  [[() => GuardrailTraceAssessment$, 0], () => PromptRouterTrace$],
-];
-export var CountTokensRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CTRo,
-  0,
-  [_mI, _i],
-  [
-    [0, 1],
-    [() => CountTokensInput$, 0],
-  ],
-];
-export var CountTokensResponse$: StaticStructureSchema = [3, n0, _CTRou, 0, [_iT], [1]];
-export var DocumentBlock$: StaticStructureSchema = [
-  3,
-  n0,
-  _DB,
-  0,
-  [_f, _n, _s, _con, _ci],
-  [0, 0, () => DocumentSource$, 0, () => CitationsConfig$],
-];
-export var DocumentCharLocation$: StaticStructureSchema = [3, n0, _DCL, 0, [_dI, _sta, _end], [1, 1, 1]];
-export var DocumentChunkLocation$: StaticStructureSchema = [3, n0, _DCLo, 0, [_dI, _sta, _end], [1, 1, 1]];
-export var DocumentPageLocation$: StaticStructureSchema = [3, n0, _DPL, 0, [_dI, _sta, _end], [1, 1, 1]];
-export var ErrorBlock$: StaticStructureSchema = [3, n0, _EB, 8, [_m], [0]];
-export var GetAsyncInvokeRequest$: StaticStructureSchema = [3, n0, _GAIR, 0, [_iA], [[0, 1]]];
-export var GetAsyncInvokeResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GAIRe,
-  0,
-  [_iA, _mA, _cRT, _st, _fM, _sT, _lMT, _eT, _oDC],
-  [0, 0, 0, 0, [() => AsyncInvokeMessage, 0], 5, 5, 5, () => AsyncInvokeOutputDataConfig$],
-];
-export var GuardrailAssessment$: StaticStructureSchema = [
-  3,
-  n0,
-  _GA,
-  0,
-  [_tP, _cP, _wP, _sIP, _cGP, _aRP, _iM, _aGD],
-  [
-    () => GuardrailTopicPolicyAssessment$,
-    () => GuardrailContentPolicyAssessment$,
-    () => GuardrailWordPolicyAssessment$,
-    () => GuardrailSensitiveInformationPolicyAssessment$,
-    () => GuardrailContextualGroundingPolicyAssessment$,
-    [() => GuardrailAutomatedReasoningPolicyAssessment$, 0],
-    () => GuardrailInvocationMetrics$,
-    () => AppliedGuardrailDetails$,
-  ],
-];
-export var GuardrailAutomatedReasoningImpossibleFinding$: StaticStructureSchema = [
-  3,
-  n0,
-  _GARIF,
-  0,
-  [_tra, _cR, _lW],
-  [
-    [() => GuardrailAutomatedReasoningTranslation$, 0],
-    () => GuardrailAutomatedReasoningRuleList,
-    [() => GuardrailAutomatedReasoningLogicWarning$, 0],
-  ],
-];
-export var GuardrailAutomatedReasoningInputTextReference$: StaticStructureSchema = [
-  3,
-  n0,
-  _GARITR,
+export var CitationSourceContentDelta$: StaticStructureSchema = [3, n0, _CSCD,
   0,
   [_te],
-  [[() => GuardrailAutomatedReasoningStatementNaturalLanguageContent, 0]],
+  [0]
 ];
-export var GuardrailAutomatedReasoningInvalidFinding$: StaticStructureSchema = [
-  3,
-  n0,
-  _GARIFu,
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+export var ContentBlockDeltaEvent$: StaticStructureSchema = [3, n0, _CBDE,
+  0,
+  [_d, _cBI],
+  [[() => ContentBlockDelta$, 0], 1]
+];
+export var ContentBlockStartEvent$: StaticStructureSchema = [3, n0, _CBSE,
+  0,
+  [_sta, _cBI],
+  [() => ContentBlockStart$, 1]
+];
+export var ContentBlockStopEvent$: StaticStructureSchema = [3, n0, _CBSEo,
+  0,
+  [_cBI],
+  [1]
+];
+export var ConverseMetrics$: StaticStructureSchema = [3, n0, _CM,
+  0,
+  [_lM],
+  [1]
+];
+export var ConverseRequest$: StaticStructureSchema = [3, n0, _CR,
+  0,
+  [_mI, _me, _sy, _iC, _tC, _gCu, _aMRF, _pV, _aMRFP, _rM, _pC, _sTe],
+  [[0, 1], [() => Messages, 0], [() => SystemContentBlocks, 0], () => InferenceConfiguration$, () => ToolConfiguration$, () => GuardrailConfiguration$, 15, [() => PromptVariableMap, 0], 64 | 0, [() => RequestMetadata, 0], () => PerformanceConfiguration$, () => ServiceTier$]
+];
+export var ConverseResponse$: StaticStructureSchema = [3, n0, _CRo,
+  0,
+  [_ou, _sR, _u, _met, _aMRFd, _tr, _pC, _sTe],
+  [[() => ConverseOutput$, 0], 0, () => TokenUsage$, () => ConverseMetrics$, 15, [() => ConverseTrace$, 0], () => PerformanceConfiguration$, () => ServiceTier$]
+];
+export var ConverseStreamMetadataEvent$: StaticStructureSchema = [3, n0, _CSME,
+  0,
+  [_u, _met, _tr, _pC, _sTe],
+  [() => TokenUsage$, () => ConverseStreamMetrics$, [() => ConverseStreamTrace$, 0], () => PerformanceConfiguration$, () => ServiceTier$]
+];
+export var ConverseStreamMetrics$: StaticStructureSchema = [3, n0, _CSM,
+  0,
+  [_lM],
+  [1]
+];
+export var ConverseStreamRequest$: StaticStructureSchema = [3, n0, _CSR,
+  0,
+  [_mI, _me, _sy, _iC, _tC, _gCu, _aMRF, _pV, _aMRFP, _rM, _pC, _sTe],
+  [[0, 1], [() => Messages, 0], [() => SystemContentBlocks, 0], () => InferenceConfiguration$, () => ToolConfiguration$, () => GuardrailStreamConfiguration$, 15, [() => PromptVariableMap, 0], 64 | 0, [() => RequestMetadata, 0], () => PerformanceConfiguration$, () => ServiceTier$]
+];
+export var ConverseStreamResponse$: StaticStructureSchema = [3, n0, _CSRo,
+  0,
+  [_str],
+  [[() => ConverseStreamOutput$, 16]]
+];
+export var ConverseStreamTrace$: StaticStructureSchema = [3, n0, _CST,
+  0,
+  [_g, _pR],
+  [[() => GuardrailTraceAssessment$, 0], () => PromptRouterTrace$]
+];
+export var ConverseTokensRequest$: StaticStructureSchema = [3, n0, _CTR,
+  0,
+  [_me, _sy, _tC, _aMRF],
+  [[() => Messages, 0], [() => SystemContentBlocks, 0], () => ToolConfiguration$, 15]
+];
+export var ConverseTrace$: StaticStructureSchema = [3, n0, _CT,
+  0,
+  [_g, _pR],
+  [[() => GuardrailTraceAssessment$, 0], () => PromptRouterTrace$]
+];
+export var CountTokensRequest$: StaticStructureSchema = [3, n0, _CTRo,
+  0,
+  [_mI, _i],
+  [[0, 1], [() => CountTokensInput$, 0]]
+];
+export var CountTokensResponse$: StaticStructureSchema = [3, n0, _CTRou,
+  0,
+  [_iT],
+  [1]
+];
+export var DocumentBlock$: StaticStructureSchema = [3, n0, _DB,
+  0,
+  [_f, _n, _s, _con, _ci],
+  [0, 0, () => DocumentSource$, 0, () => CitationsConfig$]
+];
+export var DocumentCharLocation$: StaticStructureSchema = [3, n0, _DCL,
+  0,
+  [_dI, _sta, _end],
+  [1, 1, 1]
+];
+export var DocumentChunkLocation$: StaticStructureSchema = [3, n0, _DCLo,
+  0,
+  [_dI, _sta, _end],
+  [1, 1, 1]
+];
+export var DocumentPageLocation$: StaticStructureSchema = [3, n0, _DPL,
+  0,
+  [_dI, _sta, _end],
+  [1, 1, 1]
+];
+export var ErrorBlock$: StaticStructureSchema = [3, n0, _EB,
+  8,
+  [_m],
+  [0]
+];
+export var GetAsyncInvokeRequest$: StaticStructureSchema = [3, n0, _GAIR,
+  0,
+  [_iA],
+  [[0, 1]]
+];
+export var GetAsyncInvokeResponse$: StaticStructureSchema = [3, n0, _GAIRe,
+  0,
+  [_iA, _mA, _cRT, _st, _fM, _sT, _lMT, _eT, _oDC],
+  [0, 0, 0, 0, [() => AsyncInvokeMessage, 0], 5, 5, 5, () => AsyncInvokeOutputDataConfig$]
+];
+export var GuardrailAssessment$: StaticStructureSchema = [3, n0, _GA,
+  0,
+  [_tP, _cP, _wP, _sIP, _cGP, _aRP, _iM, _aGD],
+  [() => GuardrailTopicPolicyAssessment$, () => GuardrailContentPolicyAssessment$, () => GuardrailWordPolicyAssessment$, () => GuardrailSensitiveInformationPolicyAssessment$, () => GuardrailContextualGroundingPolicyAssessment$, [() => GuardrailAutomatedReasoningPolicyAssessment$, 0], () => GuardrailInvocationMetrics$, () => AppliedGuardrailDetails$]
+];
+export var GuardrailAutomatedReasoningImpossibleFinding$: StaticStructureSchema = [3, n0, _GARIF,
   0,
   [_tra, _cR, _lW],
-  [
-    [() => GuardrailAutomatedReasoningTranslation$, 0],
-    () => GuardrailAutomatedReasoningRuleList,
-    [() => GuardrailAutomatedReasoningLogicWarning$, 0],
-  ],
+  [[() => GuardrailAutomatedReasoningTranslation$, 0], () => GuardrailAutomatedReasoningRuleList, [() => GuardrailAutomatedReasoningLogicWarning$, 0]]
 ];
-export var GuardrailAutomatedReasoningLogicWarning$: StaticStructureSchema = [
-  3,
-  n0,
-  _GARLW,
+export var GuardrailAutomatedReasoningInputTextReference$: StaticStructureSchema = [3, n0, _GARITR,
+  0,
+  [_te],
+  [[() => GuardrailAutomatedReasoningStatementNaturalLanguageContent, 0]]
+];
+export var GuardrailAutomatedReasoningInvalidFinding$: StaticStructureSchema = [3, n0, _GARIFu,
+  0,
+  [_tra, _cR, _lW],
+  [[() => GuardrailAutomatedReasoningTranslation$, 0], () => GuardrailAutomatedReasoningRuleList, [() => GuardrailAutomatedReasoningLogicWarning$, 0]]
+];
+export var GuardrailAutomatedReasoningLogicWarning$: StaticStructureSchema = [3, n0, _GARLW,
   0,
   [_t, _p, _cl],
-  [0, [() => GuardrailAutomatedReasoningStatementList, 0], [() => GuardrailAutomatedReasoningStatementList, 0]],
+  [0, [() => GuardrailAutomatedReasoningStatementList, 0], [() => GuardrailAutomatedReasoningStatementList, 0]]
 ];
-export var GuardrailAutomatedReasoningNoTranslationsFinding$: StaticStructureSchema = [3, n0, _GARNTF, 0, [], []];
-export var GuardrailAutomatedReasoningPolicyAssessment$: StaticStructureSchema = [
-  3,
-  n0,
-  _GARPA,
+export var GuardrailAutomatedReasoningNoTranslationsFinding$: StaticStructureSchema = [3, n0, _GARNTF,
+  0,
+  [],
+  []
+];
+export var GuardrailAutomatedReasoningPolicyAssessment$: StaticStructureSchema = [3, n0, _GARPA,
   0,
   [_fi],
-  [[() => GuardrailAutomatedReasoningFindingList, 0]],
+  [[() => GuardrailAutomatedReasoningFindingList, 0]]
 ];
-export var GuardrailAutomatedReasoningRule$: StaticStructureSchema = [3, n0, _GARR, 0, [_id, _pVA], [0, 0]];
-export var GuardrailAutomatedReasoningSatisfiableFinding$: StaticStructureSchema = [
-  3,
-  n0,
-  _GARSF,
+export var GuardrailAutomatedReasoningRule$: StaticStructureSchema = [3, n0, _GARR,
+  0,
+  [_id, _pVA],
+  [0, 0]
+];
+export var GuardrailAutomatedReasoningSatisfiableFinding$: StaticStructureSchema = [3, n0, _GARSF,
   0,
   [_tra, _cTS, _cFS, _lW],
-  [
-    [() => GuardrailAutomatedReasoningTranslation$, 0],
-    [() => GuardrailAutomatedReasoningScenario$, 0],
-    [() => GuardrailAutomatedReasoningScenario$, 0],
-    [() => GuardrailAutomatedReasoningLogicWarning$, 0],
-  ],
+  [[() => GuardrailAutomatedReasoningTranslation$, 0], [() => GuardrailAutomatedReasoningScenario$, 0], [() => GuardrailAutomatedReasoningScenario$, 0], [() => GuardrailAutomatedReasoningLogicWarning$, 0]]
 ];
-export var GuardrailAutomatedReasoningScenario$: StaticStructureSchema = [
-  3,
-  n0,
-  _GARS,
+export var GuardrailAutomatedReasoningScenario$: StaticStructureSchema = [3, n0, _GARS,
   0,
   [_stat],
-  [[() => GuardrailAutomatedReasoningStatementList, 0]],
+  [[() => GuardrailAutomatedReasoningStatementList, 0]]
 ];
-export var GuardrailAutomatedReasoningStatement$: StaticStructureSchema = [
-  3,
-  n0,
-  _GARSu,
+export var GuardrailAutomatedReasoningStatement$: StaticStructureSchema = [3, n0, _GARSu,
   0,
   [_lo, _nL],
-  [
-    [() => GuardrailAutomatedReasoningStatementLogicContent, 0],
-    [() => GuardrailAutomatedReasoningStatementNaturalLanguageContent, 0],
-  ],
+  [[() => GuardrailAutomatedReasoningStatementLogicContent, 0], [() => GuardrailAutomatedReasoningStatementNaturalLanguageContent, 0]]
 ];
-export var GuardrailAutomatedReasoningTooComplexFinding$: StaticStructureSchema = [3, n0, _GARTCF, 0, [], []];
-export var GuardrailAutomatedReasoningTranslation$: StaticStructureSchema = [
-  3,
-  n0,
-  _GART,
+export var GuardrailAutomatedReasoningTooComplexFinding$: StaticStructureSchema = [3, n0, _GARTCF,
+  0,
+  [],
+  []
+];
+export var GuardrailAutomatedReasoningTranslation$: StaticStructureSchema = [3, n0, _GART,
   0,
   [_p, _cl, _uP, _uC, _conf],
-  [
-    [() => GuardrailAutomatedReasoningStatementList, 0],
-    [() => GuardrailAutomatedReasoningStatementList, 0],
-    [() => GuardrailAutomatedReasoningInputTextReferenceList, 0],
-    [() => GuardrailAutomatedReasoningInputTextReferenceList, 0],
-    1,
-  ],
+  [[() => GuardrailAutomatedReasoningStatementList, 0], [() => GuardrailAutomatedReasoningStatementList, 0], [() => GuardrailAutomatedReasoningInputTextReferenceList, 0], [() => GuardrailAutomatedReasoningInputTextReferenceList, 0], 1]
 ];
-export var GuardrailAutomatedReasoningTranslationAmbiguousFinding$: StaticStructureSchema = [
-  3,
-  n0,
-  _GARTAF,
+export var GuardrailAutomatedReasoningTranslationAmbiguousFinding$: StaticStructureSchema = [3, n0, _GARTAF,
   0,
   [_op, _dS],
-  [
-    [() => GuardrailAutomatedReasoningTranslationOptionList, 0],
-    [() => GuardrailAutomatedReasoningDifferenceScenarioList, 0],
-  ],
+  [[() => GuardrailAutomatedReasoningTranslationOptionList, 0], [() => GuardrailAutomatedReasoningDifferenceScenarioList, 0]]
 ];
-export var GuardrailAutomatedReasoningTranslationOption$: StaticStructureSchema = [
-  3,
-  n0,
-  _GARTO,
+export var GuardrailAutomatedReasoningTranslationOption$: StaticStructureSchema = [3, n0, _GARTO,
   0,
   [_tran],
-  [[() => GuardrailAutomatedReasoningTranslationList, 0]],
+  [[() => GuardrailAutomatedReasoningTranslationList, 0]]
 ];
-export var GuardrailAutomatedReasoningValidFinding$: StaticStructureSchema = [
-  3,
-  n0,
-  _GARVF,
+export var GuardrailAutomatedReasoningValidFinding$: StaticStructureSchema = [3, n0, _GARVF,
   0,
   [_tra, _cTS, _sRu, _lW],
-  [
-    [() => GuardrailAutomatedReasoningTranslation$, 0],
-    [() => GuardrailAutomatedReasoningScenario$, 0],
-    () => GuardrailAutomatedReasoningRuleList,
-    [() => GuardrailAutomatedReasoningLogicWarning$, 0],
-  ],
+  [[() => GuardrailAutomatedReasoningTranslation$, 0], [() => GuardrailAutomatedReasoningScenario$, 0], () => GuardrailAutomatedReasoningRuleList, [() => GuardrailAutomatedReasoningLogicWarning$, 0]]
 ];
-export var GuardrailConfiguration$: StaticStructureSchema = [3, n0, _GC, 0, [_gIu, _gV, _tr], [0, 0, 0]];
-export var GuardrailContentFilter$: StaticStructureSchema = [
-  3,
-  n0,
-  _GCF,
+export var GuardrailConfiguration$: StaticStructureSchema = [3, n0, _GC,
+  0,
+  [_gIu, _gV, _tr],
+  [0, 0, 0]
+];
+export var GuardrailContentFilter$: StaticStructureSchema = [3, n0, _GCF,
   0,
   [_t, _conf, _fS, _a, _de],
-  [0, 0, 0, 0, 2],
+  [0, 0, 0, 0, 2]
 ];
-export var GuardrailContentPolicyAssessment$: StaticStructureSchema = [
-  3,
-  n0,
-  _GCPA,
+export var GuardrailContentPolicyAssessment$: StaticStructureSchema = [3, n0, _GCPA,
   0,
   [_fil],
-  [() => GuardrailContentFilterList],
+  [() => GuardrailContentFilterList]
 ];
-export var GuardrailContextualGroundingFilter$: StaticStructureSchema = [
-  3,
-  n0,
-  _GCGF,
+export var GuardrailContextualGroundingFilter$: StaticStructureSchema = [3, n0, _GCGF,
   0,
   [_t, _th, _sc, _a, _de],
-  [0, 1, 1, 0, 2],
+  [0, 1, 1, 0, 2]
 ];
-export var GuardrailContextualGroundingPolicyAssessment$: StaticStructureSchema = [
-  3,
-  n0,
-  _GCGPA,
+export var GuardrailContextualGroundingPolicyAssessment$: StaticStructureSchema = [3, n0, _GCGPA,
   0,
   [_fil],
-  [() => GuardrailContextualGroundingFilters],
+  [() => GuardrailContextualGroundingFilters]
 ];
-export var GuardrailConverseImageBlock$: StaticStructureSchema = [
-  3,
-  n0,
-  _GCIB,
+export var GuardrailConverseImageBlock$: StaticStructureSchema = [3, n0, _GCIB,
   8,
   [_f, _s],
-  [0, [() => GuardrailConverseImageSource$, 0]],
+  [0, [() => GuardrailConverseImageSource$, 0]]
 ];
-export var GuardrailConverseTextBlock$: StaticStructureSchema = [3, n0, _GCTB, 0, [_te, _q], [0, 64 | 0]];
-export var GuardrailCoverage$: StaticStructureSchema = [
-  3,
-  n0,
-  _GCu,
+export var GuardrailConverseTextBlock$: StaticStructureSchema = [3, n0, _GCTB,
+  0,
+  [_te, _q],
+  [0, 64 | 0]
+];
+export var GuardrailCoverage$: StaticStructureSchema = [3, n0, _GCu,
   0,
   [_tCe, _im],
-  [() => GuardrailTextCharactersCoverage$, () => GuardrailImageCoverage$],
+  [() => GuardrailTextCharactersCoverage$, () => GuardrailImageCoverage$]
 ];
-export var GuardrailCustomWord$: StaticStructureSchema = [3, n0, _GCW, 0, [_ma, _a, _de], [0, 0, 2]];
-export var GuardrailImageBlock$: StaticStructureSchema = [
-  3,
-  n0,
-  _GIB,
+export var GuardrailCustomWord$: StaticStructureSchema = [3, n0, _GCW,
+  0,
+  [_ma, _a, _de],
+  [0, 0, 2]
+];
+export var GuardrailImageBlock$: StaticStructureSchema = [3, n0, _GIB,
   8,
   [_f, _s],
-  [0, [() => GuardrailImageSource$, 0]],
+  [0, [() => GuardrailImageSource$, 0]]
 ];
-export var GuardrailImageCoverage$: StaticStructureSchema = [3, n0, _GIC, 0, [_gu, _to], [1, 1]];
-export var GuardrailInvocationMetrics$: StaticStructureSchema = [
-  3,
-  n0,
-  _GIM,
+export var GuardrailImageCoverage$: StaticStructureSchema = [3, n0, _GIC,
+  0,
+  [_gu, _to],
+  [1, 1]
+];
+export var GuardrailInvocationMetrics$: StaticStructureSchema = [3, n0, _GIM,
   0,
   [_gPL, _u, _gC],
-  [1, () => GuardrailUsage$, () => GuardrailCoverage$],
+  [1, () => GuardrailUsage$, () => GuardrailCoverage$]
 ];
-export var GuardrailManagedWord$: StaticStructureSchema = [3, n0, _GMW, 0, [_ma, _t, _a, _de], [0, 0, 0, 2]];
-export var GuardrailOutputContent$: StaticStructureSchema = [3, n0, _GOC, 0, [_te], [0]];
-export var GuardrailPiiEntityFilter$: StaticStructureSchema = [3, n0, _GPEF, 0, [_ma, _t, _a, _de], [0, 0, 0, 2]];
-export var GuardrailRegexFilter$: StaticStructureSchema = [3, n0, _GRF, 0, [_n, _ma, _r, _a, _de], [0, 0, 0, 0, 2]];
-export var GuardrailSensitiveInformationPolicyAssessment$: StaticStructureSchema = [
-  3,
-  n0,
-  _GSIPA,
+export var GuardrailManagedWord$: StaticStructureSchema = [3, n0, _GMW,
+  0,
+  [_ma, _t, _a, _de],
+  [0, 0, 0, 2]
+];
+export var GuardrailOutputContent$: StaticStructureSchema = [3, n0, _GOC,
+  0,
+  [_te],
+  [0]
+];
+export var GuardrailPiiEntityFilter$: StaticStructureSchema = [3, n0, _GPEF,
+  0,
+  [_ma, _t, _a, _de],
+  [0, 0, 0, 2]
+];
+export var GuardrailRegexFilter$: StaticStructureSchema = [3, n0, _GRF,
+  0,
+  [_n, _ma, _r, _a, _de],
+  [0, 0, 0, 0, 2]
+];
+export var GuardrailSensitiveInformationPolicyAssessment$: StaticStructureSchema = [3, n0, _GSIPA,
   0,
   [_pE, _re],
-  [() => GuardrailPiiEntityFilterList, () => GuardrailRegexFilterList],
+  [() => GuardrailPiiEntityFilterList, () => GuardrailRegexFilterList]
 ];
-export var GuardrailStreamConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _GSC,
+export var GuardrailStreamConfiguration$: StaticStructureSchema = [3, n0, _GSC,
   0,
   [_gIu, _gV, _tr, _sPM],
-  [0, 0, 0, 0],
+  [0, 0, 0, 0]
 ];
-export var GuardrailTextBlock$: StaticStructureSchema = [3, n0, _GTB, 0, [_te, _q], [0, 64 | 0]];
-export var GuardrailTextCharactersCoverage$: StaticStructureSchema = [3, n0, _GTCC, 0, [_gu, _to], [1, 1]];
-export var GuardrailTopic$: StaticStructureSchema = [3, n0, _GT, 0, [_n, _t, _a, _de], [0, 0, 0, 2]];
-export var GuardrailTopicPolicyAssessment$: StaticStructureSchema = [
-  3,
-  n0,
-  _GTPA,
+export var GuardrailTextBlock$: StaticStructureSchema = [3, n0, _GTB,
+  0,
+  [_te, _q],
+  [0, 64 | 0]
+];
+export var GuardrailTextCharactersCoverage$: StaticStructureSchema = [3, n0, _GTCC,
+  0,
+  [_gu, _to],
+  [1, 1]
+];
+export var GuardrailTopic$: StaticStructureSchema = [3, n0, _GT,
+  0,
+  [_n, _t, _a, _de],
+  [0, 0, 0, 2]
+];
+export var GuardrailTopicPolicyAssessment$: StaticStructureSchema = [3, n0, _GTPA,
   0,
   [_top],
-  [() => GuardrailTopicList],
+  [() => GuardrailTopicList]
 ];
-export var GuardrailTraceAssessment$: StaticStructureSchema = [
-  3,
-  n0,
-  _GTA,
+export var GuardrailTraceAssessment$: StaticStructureSchema = [3, n0, _GTA,
   0,
   [_mO, _iAn, _oA, _aR],
-  [64 | 0, [() => GuardrailAssessmentMap, 0], [() => GuardrailAssessmentListMap, 0], 0],
+  [64 | 0, [() => GuardrailAssessmentMap, 0], [() => GuardrailAssessmentListMap, 0], 0]
 ];
-export var GuardrailUsage$: StaticStructureSchema = [
-  3,
-  n0,
-  _GU,
+export var GuardrailUsage$: StaticStructureSchema = [3, n0, _GU,
   0,
   [_tPU, _cPU, _wPU, _sIPU, _sIPFU, _cGPU, _cPIU, _aRPU, _aRPu],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
-export var GuardrailWordPolicyAssessment$: StaticStructureSchema = [
-  3,
-  n0,
-  _GWPA,
+export var GuardrailWordPolicyAssessment$: StaticStructureSchema = [3, n0, _GWPA,
   0,
   [_cW, _mWL],
-  [() => GuardrailCustomWordList, () => GuardrailManagedWordList],
+  [() => GuardrailCustomWordList, () => GuardrailManagedWordList]
 ];
-export var ImageBlock$: StaticStructureSchema = [
-  3,
-  n0,
-  _IB,
+export var ImageBlock$: StaticStructureSchema = [3, n0, _IB,
   0,
   [_f, _s, _e],
-  [0, [() => ImageSource$, 0], [() => ErrorBlock$, 0]],
+  [0, [() => ImageSource$, 0], [() => ErrorBlock$, 0]]
 ];
-export var ImageBlockDelta$: StaticStructureSchema = [
-  3,
-  n0,
-  _IBD,
+export var ImageBlockDelta$: StaticStructureSchema = [3, n0, _IBD,
   0,
   [_s, _e],
-  [
-    [() => ImageSource$, 0],
-    [() => ErrorBlock$, 0],
-  ],
+  [[() => ImageSource$, 0], [() => ErrorBlock$, 0]]
 ];
-export var ImageBlockStart$: StaticStructureSchema = [3, n0, _IBS, 0, [_f], [0]];
-export var InferenceConfiguration$: StaticStructureSchema = [3, n0, _IC, 0, [_mT, _tem, _tPo, _sS], [1, 1, 1, 64 | 0]];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_m], [0]];
+export var ImageBlockStart$: StaticStructureSchema = [3, n0, _IBS,
+  0,
+  [_f],
+  [0]
+];
+export var InferenceConfiguration$: StaticStructureSchema = [3, n0, _IC,
+  0,
+  [_mT, _tem, _tPo, _sS],
+  [1, 1, 1, 64 | 0]
+];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvokeModelRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _IMR,
+export var InvokeModelRequest$: StaticStructureSchema = [3, n0, _IMR,
   0,
   [_bo, _cT, _ac, _mI, _tr, _gIu, _gV, _pCL, _sTe],
-  [
-    [() => Body, 16],
-    [0, { [_hH]: _CT_ }],
-    [0, { [_hH]: _A }],
-    [0, 1],
-    [0, { [_hH]: _XABT }],
-    [0, { [_hH]: _XABG }],
-    [0, { [_hH]: _XABG_ }],
-    [0, { [_hH]: _XABPL }],
-    [0, { [_hH]: _XABST }],
-  ],
+  [[() => Body, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _A }], [0, 1], [0, { [_hH]: _XABT }], [0, { [_hH]: _XABG }], [0, { [_hH]: _XABG_ }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }]]
 ];
-export var InvokeModelResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _IMRn,
+export var InvokeModelResponse$: StaticStructureSchema = [3, n0, _IMRn,
   0,
   [_bo, _cT, _pCL, _sTe],
-  [
-    [() => Body, 16],
-    [0, { [_hH]: _CT_ }],
-    [0, { [_hH]: _XABPL }],
-    [0, { [_hH]: _XABST }],
-  ],
+  [[() => Body, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }]]
 ];
-export var InvokeModelTokensRequest$: StaticStructureSchema = [3, n0, _IMTR, 0, [_bo], [[() => Body, 0]]];
-export var InvokeModelWithBidirectionalStreamRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _IMWBSR,
-  0,
-  [_mI, _bo],
-  [
-    [0, 1],
-    [() => InvokeModelWithBidirectionalStreamInput$, 16],
-  ],
-];
-export var InvokeModelWithBidirectionalStreamResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _IMWBSRn,
+export var InvokeModelTokensRequest$: StaticStructureSchema = [3, n0, _IMTR,
   0,
   [_bo],
-  [[() => InvokeModelWithBidirectionalStreamOutput$, 16]],
+  [[() => Body, 0]]
 ];
-export var InvokeModelWithResponseStreamRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _IMWRSR,
+export var InvokeModelWithBidirectionalStreamRequest$: StaticStructureSchema = [3, n0, _IMWBSR,
+  0,
+  [_mI, _bo],
+  [[0, 1], [() => InvokeModelWithBidirectionalStreamInput$, 16]]
+];
+export var InvokeModelWithBidirectionalStreamResponse$: StaticStructureSchema = [3, n0, _IMWBSRn,
+  0,
+  [_bo],
+  [[() => InvokeModelWithBidirectionalStreamOutput$, 16]]
+];
+export var InvokeModelWithResponseStreamRequest$: StaticStructureSchema = [3, n0, _IMWRSR,
   0,
   [_bo, _cT, _ac, _mI, _tr, _gIu, _gV, _pCL, _sTe],
-  [
-    [() => Body, 16],
-    [0, { [_hH]: _CT_ }],
-    [0, { [_hH]: _XABA }],
-    [0, 1],
-    [0, { [_hH]: _XABT }],
-    [0, { [_hH]: _XABG }],
-    [0, { [_hH]: _XABG_ }],
-    [0, { [_hH]: _XABPL }],
-    [0, { [_hH]: _XABST }],
-  ],
+  [[() => Body, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _XABA }], [0, 1], [0, { [_hH]: _XABT }], [0, { [_hH]: _XABG }], [0, { [_hH]: _XABG_ }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }]]
 ];
-export var InvokeModelWithResponseStreamResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _IMWRSRn,
+export var InvokeModelWithResponseStreamResponse$: StaticStructureSchema = [3, n0, _IMWRSRn,
   0,
   [_bo, _cT, _pCL, _sTe],
-  [
-    [() => ResponseStream$, 16],
-    [0, { [_hH]: _XABCT }],
-    [0, { [_hH]: _XABPL }],
-    [0, { [_hH]: _XABST }],
-  ],
+  [[() => ResponseStream$, 16], [0, { [_hH]: _XABCT }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }]]
 ];
-export var ListAsyncInvokesRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LAIR,
+export var ListAsyncInvokesRequest$: StaticStructureSchema = [3, n0, _LAIR,
   0,
   [_sTA, _sTB, _sE, _mR, _nT, _sB, _sO],
-  [
-    [5, { [_hQ]: _sTA }],
-    [5, { [_hQ]: _sTB }],
-    [0, { [_hQ]: _sE }],
-    [1, { [_hQ]: _mR }],
-    [0, { [_hQ]: _nT }],
-    [0, { [_hQ]: _sB }],
-    [0, { [_hQ]: _sO }],
-  ],
+  [[5, { [_hQ]: _sTA }], [5, { [_hQ]: _sTB }], [0, { [_hQ]: _sE }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _sB }], [0, { [_hQ]: _sO }]]
 ];
-export var ListAsyncInvokesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LAIRi,
+export var ListAsyncInvokesResponse$: StaticStructureSchema = [3, n0, _LAIRi,
   0,
   [_nT, _aIS],
-  [0, [() => AsyncInvokeSummaries, 0]],
+  [0, [() => AsyncInvokeSummaries, 0]]
 ];
-export var Message$: StaticStructureSchema = [3, n0, _M, 0, [_ro, _co], [0, [() => ContentBlocks, 0]]];
-export var MessageStartEvent$: StaticStructureSchema = [3, n0, _MSE, 0, [_ro], [0]];
-export var MessageStopEvent$: StaticStructureSchema = [3, n0, _MSEe, 0, [_sR, _aMRFd], [0, 15]];
-export var ModelErrorException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _MEE,
+export var Message$: StaticStructureSchema = [3, n0, _M,
+  0,
+  [_ro, _co],
+  [0, [() => ContentBlocks, 0]]
+];
+export var MessageStartEvent$: StaticStructureSchema = [3, n0, _MSE,
+  0,
+  [_ro],
+  [0]
+];
+export var MessageStopEvent$: StaticStructureSchema = [3, n0, _MSEe,
+  0,
+  [_sR, _aMRFd],
+  [0, 15]
+];
+export var ModelErrorException$: StaticErrorSchema = [-3, n0, _MEE,
   { [_e]: _c, [_hE]: 424 },
   [_m, _oSC, _rN],
-  [0, 1, 0],
+  [0, 1, 0]
 ];
 TypeRegistry.for(n0).registerError(ModelErrorException$, ModelErrorException);
-export var ModelNotReadyException$: StaticErrorSchema = [-3, n0, _MNRE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
+export var ModelNotReadyException$: StaticErrorSchema = [-3, n0, _MNRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ModelNotReadyException$, ModelNotReadyException);
-export var ModelStreamErrorException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _MSEE,
+export var ModelStreamErrorException$: StaticErrorSchema = [-3, n0, _MSEE,
   { [_e]: _c, [_hE]: 424 },
   [_m, _oSC, _oM],
-  [0, 1, 0],
+  [0, 1, 0]
 ];
 TypeRegistry.for(n0).registerError(ModelStreamErrorException$, ModelStreamErrorException);
-export var ModelTimeoutException$: StaticErrorSchema = [-3, n0, _MTE, { [_e]: _c, [_hE]: 408 }, [_m], [0]];
+export var ModelTimeoutException$: StaticErrorSchema = [-3, n0, _MTE,
+  { [_e]: _c, [_hE]: 408 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ModelTimeoutException$, ModelTimeoutException);
-export var PayloadPart$: StaticStructureSchema = [3, n0, _PP, 8, [_b], [[() => PartBody, 0]]];
-export var PerformanceConfiguration$: StaticStructureSchema = [3, n0, _PC, 0, [_la], [0]];
-export var PromptRouterTrace$: StaticStructureSchema = [3, n0, _PRT, 0, [_iMI], [0]];
-export var ReasoningTextBlock$: StaticStructureSchema = [3, n0, _RTB, 8, [_te, _si], [0, 0]];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+export var PayloadPart$: StaticStructureSchema = [3, n0, _PP,
+  8,
+  [_b],
+  [[() => PartBody, 0]]
+];
+export var PerformanceConfiguration$: StaticStructureSchema = [3, n0, _PC,
+  0,
+  [_la],
+  [0]
+];
+export var PromptRouterTrace$: StaticStructureSchema = [3, n0, _PRT,
+  0,
+  [_iMI],
+  [0]
+];
+export var ReasoningTextBlock$: StaticStructureSchema = [3, n0, _RTB,
+  8,
+  [_te, _si],
+  [0, 0]
+];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var S3Location$: StaticStructureSchema = [3, n0, _SL, 0, [_ur, _bO], [0, 0]];
-export var SearchResultBlock$: StaticStructureSchema = [
-  3,
-  n0,
-  _SRB,
+export var S3Location$: StaticStructureSchema = [3, n0, _SL,
+  0,
+  [_ur, _bO],
+  [0, 0]
+];
+export var SearchResultBlock$: StaticStructureSchema = [3, n0, _SRB,
   0,
   [_s, _ti, _co, _ci],
-  [0, 0, () => SearchResultContentBlocks, () => CitationsConfig$],
+  [0, 0, () => SearchResultContentBlocks, () => CitationsConfig$]
 ];
-export var SearchResultContentBlock$: StaticStructureSchema = [3, n0, _SRCB, 0, [_te], [0]];
-export var SearchResultLocation$: StaticStructureSchema = [3, n0, _SRL, 0, [_sRI, _sta, _end], [1, 1, 1]];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+export var SearchResultContentBlock$: StaticStructureSchema = [3, n0, _SRCB,
+  0,
+  [_te],
+  [0]
+];
+export var SearchResultLocation$: StaticStructureSchema = [3, n0, _SRL,
+  0,
+  [_sRI, _sta, _end],
+  [1, 1, 1]
+];
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var ServiceTier$: StaticStructureSchema = [3, n0, _ST, 0, [_t], [0]];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _se, [_hE]: 503 }, [_m], [0]];
+export var ServiceTier$: StaticStructureSchema = [3, n0, _ST,
+  0,
+  [_t],
+  [0]
+];
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
-export var SpecificToolChoice$: StaticStructureSchema = [3, n0, _STC, 0, [_n], [0]];
-export var StartAsyncInvokeRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _SAIR,
+export var SpecificToolChoice$: StaticStructureSchema = [3, n0, _STC,
+  0,
+  [_n],
+  [0]
+];
+export var StartAsyncInvokeRequest$: StaticStructureSchema = [3, n0, _SAIR,
   0,
   [_cRT, _mI, _mIo, _oDC, _ta],
-  [[0, 4], 0, [() => ModelInputPayload, 0], () => AsyncInvokeOutputDataConfig$, () => TagList],
+  [[0, 4], 0, [() => ModelInputPayload, 0], () => AsyncInvokeOutputDataConfig$, () => TagList]
 ];
-export var StartAsyncInvokeResponse$: StaticStructureSchema = [3, n0, _SAIRt, 0, [_iA], [0]];
-export var SystemTool$: StaticStructureSchema = [3, n0, _STy, 0, [_n], [0]];
-export var Tag$: StaticStructureSchema = [3, n0, _T, 0, [_k, _v], [0, 0]];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
+export var StartAsyncInvokeResponse$: StaticStructureSchema = [3, n0, _SAIRt,
+  0,
+  [_iA],
+  [0]
+];
+export var SystemTool$: StaticStructureSchema = [3, n0, _STy,
+  0,
+  [_n],
+  [0]
+];
+export var Tag$: StaticStructureSchema = [3, n0, _T,
+  0,
+  [_k, _v],
+  [0, 0]
+];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var TokenUsage$: StaticStructureSchema = [3, n0, _TU, 0, [_iT, _oT, _tT, _cRIT, _cWIT], [1, 1, 1, 1, 1]];
-export var ToolConfiguration$: StaticStructureSchema = [3, n0, _TC, 0, [_too, _tCo], [() => Tools, () => ToolChoice$]];
-export var ToolResultBlock$: StaticStructureSchema = [
-  3,
-  n0,
-  _TRB,
+export var TokenUsage$: StaticStructureSchema = [3, n0, _TU,
+  0,
+  [_iT, _oT, _tT, _cRIT, _cWIT],
+  [1, 1, 1, 1, 1]
+];
+export var ToolConfiguration$: StaticStructureSchema = [3, n0, _TC,
+  0,
+  [_too, _tCo],
+  [() => Tools, () => ToolChoice$]
+];
+export var ToolResultBlock$: StaticStructureSchema = [3, n0, _TRB,
   0,
   [_tUI, _co, _st, _t],
-  [0, [() => ToolResultContentBlocks, 0], 0, 0],
+  [0, [() => ToolResultContentBlocks, 0], 0, 0]
 ];
-export var ToolResultBlockStart$: StaticStructureSchema = [3, n0, _TRBS, 0, [_tUI, _t, _st], [0, 0, 0]];
-export var ToolSpecification$: StaticStructureSchema = [3, n0, _TS, 0, [_n, _des, _iS], [0, 0, () => ToolInputSchema$]];
-export var ToolUseBlock$: StaticStructureSchema = [3, n0, _TUB, 0, [_tUI, _n, _i, _t], [0, 0, 15, 0]];
-export var ToolUseBlockDelta$: StaticStructureSchema = [3, n0, _TUBD, 0, [_i], [0]];
-export var ToolUseBlockStart$: StaticStructureSchema = [3, n0, _TUBS, 0, [_tUI, _n, _t], [0, 0, 0]];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+export var ToolResultBlockStart$: StaticStructureSchema = [3, n0, _TRBS,
+  0,
+  [_tUI, _t, _st],
+  [0, 0, 0]
+];
+export var ToolSpecification$: StaticStructureSchema = [3, n0, _TS,
+  0,
+  [_n, _des, _iS],
+  [0, 0, () => ToolInputSchema$]
+];
+export var ToolUseBlock$: StaticStructureSchema = [3, n0, _TUB,
+  0,
+  [_tUI, _n, _i, _t],
+  [0, 0, 15, 0]
+];
+export var ToolUseBlockDelta$: StaticStructureSchema = [3, n0, _TUBD,
+  0,
+  [_i],
+  [0]
+];
+export var ToolUseBlockStart$: StaticStructureSchema = [3, n0, _TUBS,
+  0,
+  [_tUI, _n, _t],
+  [0, 0, 0]
+];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var VideoBlock$: StaticStructureSchema = [3, n0, _VB, 0, [_f, _s], [0, () => VideoSource$]];
-export var WebLocation$: StaticStructureSchema = [3, n0, _WL, 0, [_url, _do], [0, 0]];
+export var VideoBlock$: StaticStructureSchema = [3, n0, _VB,
+  0,
+  [_f, _s],
+  [0, () => VideoSource$]
+];
+export var WebLocation$: StaticStructureSchema = [3, n0, _WL,
+  0,
+  [_url, _do],
+  [0, 0]
+];
 export var BedrockRuntimeServiceException$: StaticErrorSchema = [-3, _sm, "BedrockRuntimeServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(BedrockRuntimeServiceException$, BedrockRuntimeServiceException);
 var AdditionalModelResponseFieldPaths = 64 | 0;
-var AsyncInvokeSummaries: StaticListSchema = [1, n0, _AISs, 0, [() => AsyncInvokeSummary$, 0]];
-var CitationGeneratedContentList: StaticListSchema = [1, n0, _CGCL, 0, () => CitationGeneratedContent$];
-var Citations: StaticListSchema = [1, n0, _Ci, 0, () => Citation$];
-var CitationSourceContentList: StaticListSchema = [1, n0, _CSCL, 0, () => CitationSourceContent$];
-var CitationSourceContentListDelta: StaticListSchema = [1, n0, _CSCLD, 0, () => CitationSourceContentDelta$];
-var ContentBlocks: StaticListSchema = [1, n0, _CB, 0, [() => ContentBlock$, 0]];
-var DocumentContentBlocks: StaticListSchema = [1, n0, _DCB, 0, () => DocumentContentBlock$];
-var GuardrailAssessmentList: StaticListSchema = [1, n0, _GAL, 0, [() => GuardrailAssessment$, 0]];
-var GuardrailAutomatedReasoningDifferenceScenarioList: StaticListSchema = [
-  1,
-  n0,
-  _GARDSL,
-  0,
-  [() => GuardrailAutomatedReasoningScenario$, 0],
+var AsyncInvokeSummaries: StaticListSchema = [1, n0, _AISs,
+  0, [() => AsyncInvokeSummary$,
+    0]
 ];
-var GuardrailAutomatedReasoningFindingList: StaticListSchema = [
-  1,
-  n0,
-  _GARFL,
-  0,
-  [() => GuardrailAutomatedReasoningFinding$, 0],
+var CitationGeneratedContentList: StaticListSchema = [1, n0, _CGCL,
+  0, () => CitationGeneratedContent$
 ];
-var GuardrailAutomatedReasoningInputTextReferenceList: StaticListSchema = [
-  1,
-  n0,
-  _GARITRL,
-  0,
-  [() => GuardrailAutomatedReasoningInputTextReference$, 0],
+var Citations: StaticListSchema = [1, n0, _Ci,
+  0, () => Citation$
 ];
-var GuardrailAutomatedReasoningRuleList: StaticListSchema = [1, n0, _GARRL, 0, () => GuardrailAutomatedReasoningRule$];
-var GuardrailAutomatedReasoningStatementList: StaticListSchema = [
-  1,
-  n0,
-  _GARSL,
-  0,
-  [() => GuardrailAutomatedReasoningStatement$, 0],
+var CitationSourceContentList: StaticListSchema = [1, n0, _CSCL,
+  0, () => CitationSourceContent$
 ];
-var GuardrailAutomatedReasoningTranslationList: StaticListSchema = [
-  1,
-  n0,
-  _GARTL,
-  0,
-  [() => GuardrailAutomatedReasoningTranslation$, 0],
+var CitationSourceContentListDelta: StaticListSchema = [1, n0, _CSCLD,
+  0, () => CitationSourceContentDelta$
 ];
-var GuardrailAutomatedReasoningTranslationOptionList: StaticListSchema = [
-  1,
-  n0,
-  _GARTOL,
-  0,
-  [() => GuardrailAutomatedReasoningTranslationOption$, 0],
+var ContentBlocks: StaticListSchema = [1, n0, _CB,
+  0, [() => ContentBlock$,
+    0]
 ];
-var GuardrailContentBlockList: StaticListSchema = [1, n0, _GCBL, 0, [() => GuardrailContentBlock$, 0]];
-var GuardrailContentFilterList: StaticListSchema = [1, n0, _GCFL, 0, () => GuardrailContentFilter$];
+var DocumentContentBlocks: StaticListSchema = [1, n0, _DCB,
+  0, () => DocumentContentBlock$
+];
+var GuardrailAssessmentList: StaticListSchema = [1, n0, _GAL,
+  0, [() => GuardrailAssessment$,
+    0]
+];
+var GuardrailAutomatedReasoningDifferenceScenarioList: StaticListSchema = [1, n0, _GARDSL,
+  0, [() => GuardrailAutomatedReasoningScenario$,
+    0]
+];
+var GuardrailAutomatedReasoningFindingList: StaticListSchema = [1, n0, _GARFL,
+  0, [() => GuardrailAutomatedReasoningFinding$,
+    0]
+];
+var GuardrailAutomatedReasoningInputTextReferenceList: StaticListSchema = [1, n0, _GARITRL,
+  0, [() => GuardrailAutomatedReasoningInputTextReference$,
+    0]
+];
+var GuardrailAutomatedReasoningRuleList: StaticListSchema = [1, n0, _GARRL,
+  0, () => GuardrailAutomatedReasoningRule$
+];
+var GuardrailAutomatedReasoningStatementList: StaticListSchema = [1, n0, _GARSL,
+  0, [() => GuardrailAutomatedReasoningStatement$,
+    0]
+];
+var GuardrailAutomatedReasoningTranslationList: StaticListSchema = [1, n0, _GARTL,
+  0, [() => GuardrailAutomatedReasoningTranslation$,
+    0]
+];
+var GuardrailAutomatedReasoningTranslationOptionList: StaticListSchema = [1, n0, _GARTOL,
+  0, [() => GuardrailAutomatedReasoningTranslationOption$,
+    0]
+];
+var GuardrailContentBlockList: StaticListSchema = [1, n0, _GCBL,
+  0, [() => GuardrailContentBlock$,
+    0]
+];
+var GuardrailContentFilterList: StaticListSchema = [1, n0, _GCFL,
+  0, () => GuardrailContentFilter$
+];
 var GuardrailContentQualifierList = 64 | 0;
-var GuardrailContextualGroundingFilters: StaticListSchema = [
-  1,
-  n0,
-  _GCGFu,
-  0,
-  () => GuardrailContextualGroundingFilter$,
+var GuardrailContextualGroundingFilters: StaticListSchema = [1, n0, _GCGFu,
+  0, () => GuardrailContextualGroundingFilter$
 ];
 var GuardrailConverseContentQualifierList = 64 | 0;
-var GuardrailCustomWordList: StaticListSchema = [1, n0, _GCWL, 0, () => GuardrailCustomWord$];
-var GuardrailManagedWordList: StaticListSchema = [1, n0, _GMWL, 0, () => GuardrailManagedWord$];
+var GuardrailCustomWordList: StaticListSchema = [1, n0, _GCWL,
+  0, () => GuardrailCustomWord$
+];
+var GuardrailManagedWordList: StaticListSchema = [1, n0, _GMWL,
+  0, () => GuardrailManagedWord$
+];
 var GuardrailOriginList = 64 | 0;
-var GuardrailOutputContentList: StaticListSchema = [1, n0, _GOCL, 0, () => GuardrailOutputContent$];
-var GuardrailPiiEntityFilterList: StaticListSchema = [1, n0, _GPEFL, 0, () => GuardrailPiiEntityFilter$];
-var GuardrailRegexFilterList: StaticListSchema = [1, n0, _GRFL, 0, () => GuardrailRegexFilter$];
-var GuardrailTopicList: StaticListSchema = [1, n0, _GTL, 0, () => GuardrailTopic$];
-var Messages: StaticListSchema = [1, n0, _Me, 0, [() => Message$, 0]];
+var GuardrailOutputContentList: StaticListSchema = [1, n0, _GOCL,
+  0, () => GuardrailOutputContent$
+];
+var GuardrailPiiEntityFilterList: StaticListSchema = [1, n0, _GPEFL,
+  0, () => GuardrailPiiEntityFilter$
+];
+var GuardrailRegexFilterList: StaticListSchema = [1, n0, _GRFL,
+  0, () => GuardrailRegexFilter$
+];
+var GuardrailTopicList: StaticListSchema = [1, n0, _GTL,
+  0, () => GuardrailTopic$
+];
+var Messages: StaticListSchema = [1, n0, _Me,
+  0, [() => Message$,
+    0]
+];
 var ModelOutputs = 64 | 0;
 var NonEmptyStringList = 64 | 0;
-var SearchResultContentBlocks: StaticListSchema = [1, n0, _SRCBe, 0, () => SearchResultContentBlock$];
-var SystemContentBlocks: StaticListSchema = [1, n0, _SCB, 0, [() => SystemContentBlock$, 0]];
-var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
-var ToolResultBlocksDelta: StaticListSchema = [1, n0, _TRBD, 0, () => ToolResultBlockDelta$];
-var ToolResultContentBlocks: StaticListSchema = [1, n0, _TRCB, 0, [() => ToolResultContentBlock$, 0]];
-var Tools: StaticListSchema = [1, n0, _To, 0, () => Tool$];
-var GuardrailAssessmentListMap: StaticMapSchema = [2, n0, _GALM, 0, [0, 0], [() => GuardrailAssessmentList, 0]];
-var GuardrailAssessmentMap: StaticMapSchema = [2, n0, _GAM, 0, [0, 0], [() => GuardrailAssessment$, 0]];
-var PromptVariableMap: StaticMapSchema = [2, n0, _PVM, 8, 0, () => PromptVariableValues$];
-var RequestMetadata: StaticMapSchema = [2, n0, _RM, 8, 0, 0];
-export var AsyncInvokeOutputDataConfig$: StaticUnionSchema = [
-  4,
-  n0,
-  _AIODC,
+var SearchResultContentBlocks: StaticListSchema = [1, n0, _SRCBe,
+  0, () => SearchResultContentBlock$
+];
+var SystemContentBlocks: StaticListSchema = [1, n0, _SCB,
+  0, [() => SystemContentBlock$,
+    0]
+];
+var TagList: StaticListSchema = [1, n0, _TL,
+  0, () => Tag$
+];
+var ToolResultBlocksDelta: StaticListSchema = [1, n0, _TRBD,
+  0, () => ToolResultBlockDelta$
+];
+var ToolResultContentBlocks: StaticListSchema = [1, n0, _TRCB,
+  0, [() => ToolResultContentBlock$,
+    0]
+];
+var Tools: StaticListSchema = [1, n0, _To,
+  0, () => Tool$
+];
+var GuardrailAssessmentListMap: StaticMapSchema = [2, n0, _GALM,
+  0, [0,
+    0]
+  , [() => GuardrailAssessmentList,
+    0]
+];
+var GuardrailAssessmentMap: StaticMapSchema = [2, n0, _GAM,
+  0, [0,
+    0]
+  , [() => GuardrailAssessment$,
+    0]
+];
+var PromptVariableMap: StaticMapSchema = [2, n0, _PVM,
+  8, 0, () => PromptVariableValues$
+];
+var RequestMetadata: StaticMapSchema = [2, n0, _RM,
+  8, 0, 0
+];
+export var AsyncInvokeOutputDataConfig$: StaticUnionSchema = [4, n0, _AIODC,
   0,
   [_sODC],
-  [() => AsyncInvokeS3OutputDataConfig$],
+  [() => AsyncInvokeS3OutputDataConfig$]
 ];
-export var AudioSource$: StaticUnionSchema = [4, n0, _AS, 8, [_b, _sL], [21, () => S3Location$]];
-export var CitationGeneratedContent$: StaticUnionSchema = [4, n0, _CGC, 0, [_te], [0]];
-export var CitationLocation$: StaticUnionSchema = [
-  4,
-  n0,
-  _CL,
+export var AudioSource$: StaticUnionSchema = [4, n0, _AS,
+  8,
+  [_b, _sL],
+  [21, () => S3Location$]
+];
+export var CitationGeneratedContent$: StaticUnionSchema = [4, n0, _CGC,
+  0,
+  [_te],
+  [0]
+];
+export var CitationLocation$: StaticUnionSchema = [4, n0, _CL,
   0,
   [_w, _dC, _dP, _dCo, _sRL],
-  [
-    () => WebLocation$,
-    () => DocumentCharLocation$,
-    () => DocumentPageLocation$,
-    () => DocumentChunkLocation$,
-    () => SearchResultLocation$,
-  ],
+  [() => WebLocation$, () => DocumentCharLocation$, () => DocumentPageLocation$, () => DocumentChunkLocation$, () => SearchResultLocation$]
 ];
-export var CitationSourceContent$: StaticUnionSchema = [4, n0, _CSC, 0, [_te], [0]];
-export var ContentBlock$: StaticUnionSchema = [
-  4,
-  n0,
-  _CBo,
+export var CitationSourceContent$: StaticUnionSchema = [4, n0, _CSC,
+  0,
+  [_te],
+  [0]
+];
+export var ContentBlock$: StaticUnionSchema = [4, n0, _CBo,
   0,
   [_te, _ima, _doc, _vi, _au, _tU, _tR, _gCua, _cPa, _rC, _cC, _sRe],
-  [
-    0,
-    [() => ImageBlock$, 0],
-    () => DocumentBlock$,
-    () => VideoBlock$,
-    [() => AudioBlock$, 0],
-    () => ToolUseBlock$,
-    [() => ToolResultBlock$, 0],
-    [() => GuardrailConverseContentBlock$, 0],
-    () => CachePointBlock$,
-    [() => ReasoningContentBlock$, 0],
-    () => CitationsContentBlock$,
-    () => SearchResultBlock$,
-  ],
+  [0, [() => ImageBlock$, 0], () => DocumentBlock$, () => VideoBlock$, [() => AudioBlock$, 0], () => ToolUseBlock$, [() => ToolResultBlock$, 0], [() => GuardrailConverseContentBlock$, 0], () => CachePointBlock$, [() => ReasoningContentBlock$, 0], () => CitationsContentBlock$, () => SearchResultBlock$]
 ];
-export var ContentBlockDelta$: StaticUnionSchema = [
-  4,
-  n0,
-  _CBD,
+export var ContentBlockDelta$: StaticUnionSchema = [4, n0, _CBD,
   0,
   [_te, _tU, _tR, _rC, _cit, _ima],
-  [
-    0,
-    () => ToolUseBlockDelta$,
-    () => ToolResultBlocksDelta,
-    [() => ReasoningContentBlockDelta$, 0],
-    () => CitationsDelta$,
-    [() => ImageBlockDelta$, 0],
-  ],
+  [0, () => ToolUseBlockDelta$, () => ToolResultBlocksDelta, [() => ReasoningContentBlockDelta$, 0], () => CitationsDelta$, [() => ImageBlockDelta$, 0]]
 ];
-export var ContentBlockStart$: StaticUnionSchema = [
-  4,
-  n0,
-  _CBS,
+export var ContentBlockStart$: StaticUnionSchema = [4, n0, _CBS,
   0,
   [_tU, _tR, _ima],
-  [() => ToolUseBlockStart$, () => ToolResultBlockStart$, () => ImageBlockStart$],
+  [() => ToolUseBlockStart$, () => ToolResultBlockStart$, () => ImageBlockStart$]
 ];
-export var ConverseOutput$: StaticUnionSchema = [4, n0, _CO, 0, [_m], [[() => Message$, 0]]];
-export var ConverseStreamOutput$: StaticUnionSchema = [
-  4,
-  n0,
-  _CSO,
+export var ConverseOutput$: StaticUnionSchema = [4, n0, _CO,
+  0,
+  [_m],
+  [[() => Message$, 0]]
+];
+export var ConverseStreamOutput$: StaticUnionSchema = [4, n0, _CSO,
   { [_stre]: 1 },
   [_mS, _cBS, _cBD, _cBSo, _mSe, _meta, _iSE, _mSEE, _vE, _tE, _sUE],
-  [
-    () => MessageStartEvent$,
-    () => ContentBlockStartEvent$,
-    [() => ContentBlockDeltaEvent$, 0],
-    () => ContentBlockStopEvent$,
-    () => MessageStopEvent$,
-    [() => ConverseStreamMetadataEvent$, 0],
-    [() => InternalServerException$, 0],
-    [() => ModelStreamErrorException$, 0],
-    [() => ValidationException$, 0],
-    [() => ThrottlingException$, 0],
-    [() => ServiceUnavailableException$, 0],
-  ],
+  [() => MessageStartEvent$, () => ContentBlockStartEvent$, [() => ContentBlockDeltaEvent$, 0], () => ContentBlockStopEvent$, () => MessageStopEvent$, [() => ConverseStreamMetadataEvent$, 0], [() => InternalServerException$, 0], [() => ModelStreamErrorException$, 0], [() => ValidationException$, 0], [() => ThrottlingException$, 0], [() => ServiceUnavailableException$, 0]]
 ];
-export var CountTokensInput$: StaticUnionSchema = [
-  4,
-  n0,
-  _CTI,
+export var CountTokensInput$: StaticUnionSchema = [4, n0, _CTI,
   0,
   [_iMn, _conv],
-  [
-    [() => InvokeModelTokensRequest$, 0],
-    [() => ConverseTokensRequest$, 0],
-  ],
+  [[() => InvokeModelTokensRequest$, 0], [() => ConverseTokensRequest$, 0]]
 ];
-export var DocumentContentBlock$: StaticUnionSchema = [4, n0, _DCBo, 0, [_te], [0]];
-export var DocumentSource$: StaticUnionSchema = [
-  4,
-  n0,
-  _DS,
+export var DocumentContentBlock$: StaticUnionSchema = [4, n0, _DCBo,
+  0,
+  [_te],
+  [0]
+];
+export var DocumentSource$: StaticUnionSchema = [4, n0, _DS,
   0,
   [_b, _sL, _te, _co],
-  [21, () => S3Location$, 0, () => DocumentContentBlocks],
+  [21, () => S3Location$, 0, () => DocumentContentBlocks]
 ];
-export var GuardrailAutomatedReasoningFinding$: StaticUnionSchema = [
-  4,
-  n0,
-  _GARF,
+export var GuardrailAutomatedReasoningFinding$: StaticUnionSchema = [4, n0, _GARF,
   0,
   [_va, _in, _sa, _imp, _tA, _tCoo, _nTo],
-  [
-    [() => GuardrailAutomatedReasoningValidFinding$, 0],
-    [() => GuardrailAutomatedReasoningInvalidFinding$, 0],
-    [() => GuardrailAutomatedReasoningSatisfiableFinding$, 0],
-    [() => GuardrailAutomatedReasoningImpossibleFinding$, 0],
-    [() => GuardrailAutomatedReasoningTranslationAmbiguousFinding$, 0],
-    () => GuardrailAutomatedReasoningTooComplexFinding$,
-    () => GuardrailAutomatedReasoningNoTranslationsFinding$,
-  ],
+  [[() => GuardrailAutomatedReasoningValidFinding$, 0], [() => GuardrailAutomatedReasoningInvalidFinding$, 0], [() => GuardrailAutomatedReasoningSatisfiableFinding$, 0], [() => GuardrailAutomatedReasoningImpossibleFinding$, 0], [() => GuardrailAutomatedReasoningTranslationAmbiguousFinding$, 0], () => GuardrailAutomatedReasoningTooComplexFinding$, () => GuardrailAutomatedReasoningNoTranslationsFinding$]
 ];
-export var GuardrailContentBlock$: StaticUnionSchema = [
-  4,
-  n0,
-  _GCB,
+export var GuardrailContentBlock$: StaticUnionSchema = [4, n0, _GCB,
   0,
   [_te, _ima],
-  [() => GuardrailTextBlock$, [() => GuardrailImageBlock$, 0]],
+  [() => GuardrailTextBlock$, [() => GuardrailImageBlock$, 0]]
 ];
-export var GuardrailConverseContentBlock$: StaticUnionSchema = [
-  4,
-  n0,
-  _GCCB,
+export var GuardrailConverseContentBlock$: StaticUnionSchema = [4, n0, _GCCB,
   0,
   [_te, _ima],
-  [() => GuardrailConverseTextBlock$, [() => GuardrailConverseImageBlock$, 0]],
+  [() => GuardrailConverseTextBlock$, [() => GuardrailConverseImageBlock$, 0]]
 ];
-export var GuardrailConverseImageSource$: StaticUnionSchema = [4, n0, _GCIS, 8, [_b], [21]];
-export var GuardrailImageSource$: StaticUnionSchema = [4, n0, _GIS, 8, [_b], [21]];
-export var ImageSource$: StaticUnionSchema = [4, n0, _IS, 8, [_b, _sL], [21, () => S3Location$]];
-export var InvokeModelWithBidirectionalStreamInput$: StaticUnionSchema = [
-  4,
-  n0,
-  _IMWBSI,
+export var GuardrailConverseImageSource$: StaticUnionSchema = [4, n0, _GCIS,
+  8,
+  [_b],
+  [21]
+];
+export var GuardrailImageSource$: StaticUnionSchema = [4, n0, _GIS,
+  8,
+  [_b],
+  [21]
+];
+export var ImageSource$: StaticUnionSchema = [4, n0, _IS,
+  8,
+  [_b, _sL],
+  [21, () => S3Location$]
+];
+export var InvokeModelWithBidirectionalStreamInput$: StaticUnionSchema = [4, n0, _IMWBSI,
   { [_stre]: 1 },
   [_ch],
-  [[() => BidirectionalInputPayloadPart$, 0]],
+  [[() => BidirectionalInputPayloadPart$, 0]]
 ];
-export var InvokeModelWithBidirectionalStreamOutput$: StaticUnionSchema = [
-  4,
-  n0,
-  _IMWBSO,
+export var InvokeModelWithBidirectionalStreamOutput$: StaticUnionSchema = [4, n0, _IMWBSO,
   { [_stre]: 1 },
   [_ch, _iSE, _mSEE, _vE, _tE, _mTE, _sUE],
-  [
-    [() => BidirectionalOutputPayloadPart$, 0],
-    [() => InternalServerException$, 0],
-    [() => ModelStreamErrorException$, 0],
-    [() => ValidationException$, 0],
-    [() => ThrottlingException$, 0],
-    [() => ModelTimeoutException$, 0],
-    [() => ServiceUnavailableException$, 0],
-  ],
+  [[() => BidirectionalOutputPayloadPart$, 0], [() => InternalServerException$, 0], [() => ModelStreamErrorException$, 0], [() => ValidationException$, 0], [() => ThrottlingException$, 0], [() => ModelTimeoutException$, 0], [() => ServiceUnavailableException$, 0]]
 ];
-export var PromptVariableValues$: StaticUnionSchema = [4, n0, _PVV, 0, [_te], [0]];
-export var ReasoningContentBlock$: StaticUnionSchema = [
-  4,
-  n0,
-  _RCB,
+export var PromptVariableValues$: StaticUnionSchema = [4, n0, _PVV,
+  0,
+  [_te],
+  [0]
+];
+export var ReasoningContentBlock$: StaticUnionSchema = [4, n0, _RCB,
   8,
   [_rT, _rCe],
-  [[() => ReasoningTextBlock$, 0], 21],
+  [[() => ReasoningTextBlock$, 0], 21]
 ];
-export var ReasoningContentBlockDelta$: StaticUnionSchema = [4, n0, _RCBD, 8, [_te, _rCe, _si], [0, 21, 0]];
-export var ResponseStream$: StaticUnionSchema = [
-  4,
-  n0,
-  _RS,
+export var ReasoningContentBlockDelta$: StaticUnionSchema = [4, n0, _RCBD,
+  8,
+  [_te, _rCe, _si],
+  [0, 21, 0]
+];
+export var ResponseStream$: StaticUnionSchema = [4, n0, _RS,
   { [_stre]: 1 },
   [_ch, _iSE, _mSEE, _vE, _tE, _mTE, _sUE],
-  [
-    [() => PayloadPart$, 0],
-    [() => InternalServerException$, 0],
-    [() => ModelStreamErrorException$, 0],
-    [() => ValidationException$, 0],
-    [() => ThrottlingException$, 0],
-    [() => ModelTimeoutException$, 0],
-    [() => ServiceUnavailableException$, 0],
-  ],
+  [[() => PayloadPart$, 0], [() => InternalServerException$, 0], [() => ModelStreamErrorException$, 0], [() => ValidationException$, 0], [() => ThrottlingException$, 0], [() => ModelTimeoutException$, 0], [() => ServiceUnavailableException$, 0]]
 ];
-export var SystemContentBlock$: StaticUnionSchema = [
-  4,
-  n0,
-  _SCBy,
+export var SystemContentBlock$: StaticUnionSchema = [4, n0, _SCBy,
   0,
   [_te, _gCua, _cPa],
-  [0, [() => GuardrailConverseContentBlock$, 0], () => CachePointBlock$],
+  [0, [() => GuardrailConverseContentBlock$, 0], () => CachePointBlock$]
 ];
-export var Tool$: StaticUnionSchema = [
-  4,
-  n0,
-  _Too,
+export var Tool$: StaticUnionSchema = [4, n0, _Too,
   0,
   [_tS, _sTy, _cPa],
-  [() => ToolSpecification$, () => SystemTool$, () => CachePointBlock$],
+  [() => ToolSpecification$, () => SystemTool$, () => CachePointBlock$]
 ];
-export var ToolChoice$: StaticUnionSchema = [
-  4,
-  n0,
-  _TCo,
+export var ToolChoice$: StaticUnionSchema = [4, n0, _TCo,
   0,
   [_aut, _an, _tool],
-  [() => AutoToolChoice$, () => AnyToolChoice$, () => SpecificToolChoice$],
+  [() => AutoToolChoice$, () => AnyToolChoice$, () => SpecificToolChoice$]
 ];
-export var ToolInputSchema$: StaticUnionSchema = [4, n0, _TIS, 0, [_j], [15]];
-export var ToolResultBlockDelta$: StaticUnionSchema = [4, n0, _TRBDo, 0, [_te, _j], [0, 15]];
-export var ToolResultContentBlock$: StaticUnionSchema = [
-  4,
-  n0,
-  _TRCBo,
+export var ToolInputSchema$: StaticUnionSchema = [4, n0, _TIS,
+  0,
+  [_j],
+  [15]
+];
+export var ToolResultBlockDelta$: StaticUnionSchema = [4, n0, _TRBDo,
+  0,
+  [_te, _j],
+  [0, 15]
+];
+export var ToolResultContentBlock$: StaticUnionSchema = [4, n0, _TRCBo,
   0,
   [_j, _te, _ima, _doc, _vi, _sRe],
-  [15, 0, [() => ImageBlock$, 0], () => DocumentBlock$, () => VideoBlock$, () => SearchResultBlock$],
+  [15, 0, [() => ImageBlock$, 0], () => DocumentBlock$, () => VideoBlock$, () => SearchResultBlock$]
 ];
-export var VideoSource$: StaticUnionSchema = [4, n0, _VS, 0, [_b, _sL], [21, () => S3Location$]];
-export var ApplyGuardrail$: StaticOperationSchema = [
-  9,
-  n0,
-  _AG,
-  { [_h]: ["POST", "/guardrail/{guardrailIdentifier}/version/{guardrailVersion}/apply", 200] },
-  () => ApplyGuardrailRequest$,
-  () => ApplyGuardrailResponse$,
+export var VideoSource$: StaticUnionSchema = [4, n0, _VS,
+  0,
+  [_b, _sL],
+  [21, () => S3Location$]
 ];
-export var Converse$: StaticOperationSchema = [
-  9,
-  n0,
-  _Co,
-  { [_h]: ["POST", "/model/{modelId}/converse", 200] },
-  () => ConverseRequest$,
-  () => ConverseResponse$,
+export var ApplyGuardrail$: StaticOperationSchema = [9, n0, _AG,
+  { [_h]: ["POST", "/guardrail/{guardrailIdentifier}/version/{guardrailVersion}/apply", 200] }, () => ApplyGuardrailRequest$, () => ApplyGuardrailResponse$
 ];
-export var ConverseStream$: StaticOperationSchema = [
-  9,
-  n0,
-  _CS,
-  { [_h]: ["POST", "/model/{modelId}/converse-stream", 200] },
-  () => ConverseStreamRequest$,
-  () => ConverseStreamResponse$,
+export var Converse$: StaticOperationSchema = [9, n0, _Co,
+  { [_h]: ["POST", "/model/{modelId}/converse", 200] }, () => ConverseRequest$, () => ConverseResponse$
 ];
-export var CountTokens$: StaticOperationSchema = [
-  9,
-  n0,
-  _CTo,
-  { [_h]: ["POST", "/model/{modelId}/count-tokens", 200] },
-  () => CountTokensRequest$,
-  () => CountTokensResponse$,
+export var ConverseStream$: StaticOperationSchema = [9, n0, _CS,
+  { [_h]: ["POST", "/model/{modelId}/converse-stream", 200] }, () => ConverseStreamRequest$, () => ConverseStreamResponse$
 ];
-export var GetAsyncInvoke$: StaticOperationSchema = [
-  9,
-  n0,
-  _GAI,
-  { [_h]: ["GET", "/async-invoke/{invocationArn}", 200] },
-  () => GetAsyncInvokeRequest$,
-  () => GetAsyncInvokeResponse$,
+export var CountTokens$: StaticOperationSchema = [9, n0, _CTo,
+  { [_h]: ["POST", "/model/{modelId}/count-tokens", 200] }, () => CountTokensRequest$, () => CountTokensResponse$
 ];
-export var InvokeModel$: StaticOperationSchema = [
-  9,
-  n0,
-  _IM,
-  { [_h]: ["POST", "/model/{modelId}/invoke", 200] },
-  () => InvokeModelRequest$,
-  () => InvokeModelResponse$,
+export var GetAsyncInvoke$: StaticOperationSchema = [9, n0, _GAI,
+  { [_h]: ["GET", "/async-invoke/{invocationArn}", 200] }, () => GetAsyncInvokeRequest$, () => GetAsyncInvokeResponse$
 ];
-export var InvokeModelWithBidirectionalStream$: StaticOperationSchema = [
-  9,
-  n0,
-  _IMWBS,
-  { [_h]: ["POST", "/model/{modelId}/invoke-with-bidirectional-stream", 200] },
-  () => InvokeModelWithBidirectionalStreamRequest$,
-  () => InvokeModelWithBidirectionalStreamResponse$,
+export var InvokeModel$: StaticOperationSchema = [9, n0, _IM,
+  { [_h]: ["POST", "/model/{modelId}/invoke", 200] }, () => InvokeModelRequest$, () => InvokeModelResponse$
 ];
-export var InvokeModelWithResponseStream$: StaticOperationSchema = [
-  9,
-  n0,
-  _IMWRS,
-  { [_h]: ["POST", "/model/{modelId}/invoke-with-response-stream", 200] },
-  () => InvokeModelWithResponseStreamRequest$,
-  () => InvokeModelWithResponseStreamResponse$,
+export var InvokeModelWithBidirectionalStream$: StaticOperationSchema = [9, n0, _IMWBS,
+  { [_h]: ["POST", "/model/{modelId}/invoke-with-bidirectional-stream", 200] }, () => InvokeModelWithBidirectionalStreamRequest$, () => InvokeModelWithBidirectionalStreamResponse$
 ];
-export var ListAsyncInvokes$: StaticOperationSchema = [
-  9,
-  n0,
-  _LAI,
-  { [_h]: ["GET", "/async-invoke", 200] },
-  () => ListAsyncInvokesRequest$,
-  () => ListAsyncInvokesResponse$,
+export var InvokeModelWithResponseStream$: StaticOperationSchema = [9, n0, _IMWRS,
+  { [_h]: ["POST", "/model/{modelId}/invoke-with-response-stream", 200] }, () => InvokeModelWithResponseStreamRequest$, () => InvokeModelWithResponseStreamResponse$
 ];
-export var StartAsyncInvoke$: StaticOperationSchema = [
-  9,
-  n0,
-  _SAI,
-  { [_h]: ["POST", "/async-invoke", 200] },
-  () => StartAsyncInvokeRequest$,
-  () => StartAsyncInvokeResponse$,
+export var ListAsyncInvokes$: StaticOperationSchema = [9, n0, _LAI,
+  { [_h]: ["GET", "/async-invoke", 200] }, () => ListAsyncInvokesRequest$, () => ListAsyncInvokesResponse$
+];
+export var StartAsyncInvoke$: StaticOperationSchema = [9, n0, _SAI,
+  { [_h]: ["POST", "/async-invoke", 200] }, () => StartAsyncInvokeRequest$, () => StartAsyncInvokeResponse$
 ];

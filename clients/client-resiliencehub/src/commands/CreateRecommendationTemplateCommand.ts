@@ -24,9 +24,7 @@ export interface CreateRecommendationTemplateCommandInput extends CreateRecommen
  *
  * The output of {@link CreateRecommendationTemplateCommand}.
  */
-export interface CreateRecommendationTemplateCommandOutput
-  extends CreateRecommendationTemplateResponse,
-    __MetadataBearer {}
+export interface CreateRecommendationTemplateCommandOutput extends CreateRecommendationTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new recommendation template for the Resilience Hub application.</p>

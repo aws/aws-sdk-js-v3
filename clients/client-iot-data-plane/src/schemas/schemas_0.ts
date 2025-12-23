@@ -101,218 +101,175 @@ import { IoTDataPlaneServiceException } from "../models/IoTDataPlaneServiceExcep
 
 /* eslint no-var: 0 */
 var SynthesizedJsonUserProperties: StaticSimpleSchema = [0, n0, _SJUP, { [_mT]: _a }, 0];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE, { [_e]: _c, [_hE]: 409 }, [_m], [0]];
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
-export var DeleteConnectionRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DCR,
+export var DeleteConnectionRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_cI, _cS, _pWM],
-  [
-    [0, 1],
-    [2, { [_hQ]: _cS }],
-    [2, { [_hQ]: _pWM }],
-  ],
+  [[0, 1], [2, { [_hQ]: _cS }], [2, { [_hQ]: _pWM }]]
 ];
-export var DeleteThingShadowRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DTSR,
+export var DeleteThingShadowRequest$: StaticStructureSchema = [3, n0, _DTSR,
   0,
   [_tN, _sN],
-  [
-    [0, 1],
-    [0, { [_hQ]: _n }],
-  ],
+  [[0, 1], [0, { [_hQ]: _n }]]
 ];
-export var DeleteThingShadowResponse$: StaticStructureSchema = [3, n0, _DTSRe, 0, [_p], [[21, 16]]];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+export var DeleteThingShadowResponse$: StaticStructureSchema = [3, n0, _DTSRe,
+  0,
+  [_p],
+  [[21, 16]]
+];
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
-export var GetRetainedMessageRequest$: StaticStructureSchema = [3, n0, _GRMR, 0, [_t], [[0, 1]]];
-export var GetRetainedMessageResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GRMRe,
+export var GetRetainedMessageRequest$: StaticStructureSchema = [3, n0, _GRMR,
+  0,
+  [_t],
+  [[0, 1]]
+];
+export var GetRetainedMessageResponse$: StaticStructureSchema = [3, n0, _GRMRe,
   0,
   [_t, _p, _q, _lMT, _uP],
-  [0, 21, 1, 1, 21],
+  [0, 21, 1, 1, 21]
 ];
-export var GetThingShadowRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _GTSR,
+export var GetThingShadowRequest$: StaticStructureSchema = [3, n0, _GTSR,
   0,
   [_tN, _sN],
-  [
-    [0, 1],
-    [0, { [_hQ]: _n }],
-  ],
+  [[0, 1], [0, { [_hQ]: _n }]]
 ];
-export var GetThingShadowResponse$: StaticStructureSchema = [3, n0, _GTSRe, 0, [_p], [[21, 16]]];
-export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE, { [_e]: _s, [_hE]: 500 }, [_m], [0]];
+export var GetThingShadowResponse$: StaticStructureSchema = [3, n0, _GTSRe,
+  0,
+  [_p],
+  [[21, 16]]
+];
+export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
+  { [_e]: _s, [_hE]: 500 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
-export var ListNamedShadowsForThingRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LNSFTR,
+export var ListNamedShadowsForThingRequest$: StaticStructureSchema = [3, n0, _LNSFTR,
   0,
   [_tN, _nT, _pS],
-  [
-    [0, 1],
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _pS }],
-  ],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _pS }]]
 ];
-export var ListNamedShadowsForThingResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LNSFTRi,
+export var ListNamedShadowsForThingResponse$: StaticStructureSchema = [3, n0, _LNSFTRi,
   0,
   [_r, _nT, _ti],
-  [64 | 0, 0, 1],
+  [64 | 0, 0, 1]
 ];
-export var ListRetainedMessagesRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRMR,
+export var ListRetainedMessagesRequest$: StaticStructureSchema = [3, n0, _LRMR,
   0,
   [_nT, _mR],
-  [
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _mR }],
-  ],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
 ];
-export var ListRetainedMessagesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRMRi,
+export var ListRetainedMessagesResponse$: StaticStructureSchema = [3, n0, _LRMRi,
   0,
   [_rT, _nT],
-  [() => RetainedMessageList, 0],
+  [() => RetainedMessageList, 0]
 ];
-export var MethodNotAllowedException$: StaticErrorSchema = [-3, n0, _MNAE, { [_e]: _c, [_hE]: 405 }, [_m], [0]];
+export var MethodNotAllowedException$: StaticErrorSchema = [-3, n0, _MNAE,
+  { [_e]: _c, [_hE]: 405 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(MethodNotAllowedException$, MethodNotAllowedException);
-export var PublishRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _PR,
+export var PublishRequest$: StaticStructureSchema = [3, n0, _PR,
   0,
   [_t, _q, _re, _p, _uP, _pFI, _cT, _rTe, _cD, _mE],
-  [
-    [0, 1],
-    [1, { [_hQ]: _q }],
-    [2, { [_hQ]: _re }],
-    [21, 16],
-    [() => SynthesizedJsonUserProperties, { [_hH]: _xamup }],
-    [0, { [_hH]: _xampfi }],
-    [0, { [_hQ]: _cT }],
-    [0, { [_hQ]: _rTe }],
-    [0, { [_hH]: _xamcd }],
-    [1, { [_hQ]: _mE }],
-  ],
+  [[0, 1], [1, { [_hQ]: _q }], [2, { [_hQ]: _re }], [21, 16], [() => SynthesizedJsonUserProperties, { [_hH]: _xamup }], [0, { [_hH]: _xampfi }], [0, { [_hQ]: _cT }], [0, { [_hQ]: _rTe }], [0, { [_hH]: _xamcd }], [1, { [_hQ]: _mE }]]
 ];
-export var RequestEntityTooLargeException$: StaticErrorSchema = [-3, n0, _RETLE, { [_e]: _c, [_hE]: 413 }, [_m], [0]];
+export var RequestEntityTooLargeException$: StaticErrorSchema = [-3, n0, _RETLE,
+  { [_e]: _c, [_hE]: 413 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(RequestEntityTooLargeException$, RequestEntityTooLargeException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var RetainedMessageSummary$: StaticStructureSchema = [3, n0, _RMS, 0, [_t, _pSa, _q, _lMT], [0, 1, 1, 1]];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE, { [_e]: _s, [_hE]: 503 }, [_m], [0]];
+export var RetainedMessageSummary$: StaticStructureSchema = [3, n0, _RMS,
+  0,
+  [_t, _pSa, _q, _lMT],
+  [0, 1, 1, 1]
+];
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _s, [_hE]: 503 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE, { [_e]: _c, [_hE]: 429 }, [_m], [0]];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_m], [0]];
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
-export var UnsupportedDocumentEncodingException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _UDEE,
+export var UnsupportedDocumentEncodingException$: StaticErrorSchema = [-3, n0, _UDEE,
   { [_e]: _c, [_hE]: 415 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(UnsupportedDocumentEncodingException$, UnsupportedDocumentEncodingException);
-export var UpdateThingShadowRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UTSR,
+export var UpdateThingShadowRequest$: StaticStructureSchema = [3, n0, _UTSR,
   0,
   [_tN, _sN, _p],
-  [
-    [0, 1],
-    [0, { [_hQ]: _n }],
-    [21, 16],
-  ],
+  [[0, 1], [0, { [_hQ]: _n }], [21, 16]]
 ];
-export var UpdateThingShadowResponse$: StaticStructureSchema = [3, n0, _UTSRp, 0, [_p], [[21, 16]]];
+export var UpdateThingShadowResponse$: StaticStructureSchema = [3, n0, _UTSRp,
+  0,
+  [_p],
+  [[21, 16]]
+];
 var __Unit = "unit" as const;
 export var IoTDataPlaneServiceException$: StaticErrorSchema = [-3, _sm, "IoTDataPlaneServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(IoTDataPlaneServiceException$, IoTDataPlaneServiceException);
 var NamedShadowList = 64 | 0;
-var RetainedMessageList: StaticListSchema = [1, n0, _RML, 0, () => RetainedMessageSummary$];
-export var DeleteConnection$: StaticOperationSchema = [
-  9,
-  n0,
-  _DC,
-  { [_h]: ["DELETE", "/connections/{clientId}", 200] },
-  () => DeleteConnectionRequest$,
-  () => __Unit,
+var RetainedMessageList: StaticListSchema = [1, n0, _RML,
+  0, () => RetainedMessageSummary$
 ];
-export var DeleteThingShadow$: StaticOperationSchema = [
-  9,
-  n0,
-  _DTS,
-  { [_h]: ["DELETE", "/things/{thingName}/shadow", 200] },
-  () => DeleteThingShadowRequest$,
-  () => DeleteThingShadowResponse$,
+export var DeleteConnection$: StaticOperationSchema = [9, n0, _DC,
+  { [_h]: ["DELETE", "/connections/{clientId}", 200] }, () => DeleteConnectionRequest$, () => __Unit
 ];
-export var GetRetainedMessage$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRM,
-  { [_h]: ["GET", "/retainedMessage/{topic}", 200] },
-  () => GetRetainedMessageRequest$,
-  () => GetRetainedMessageResponse$,
+export var DeleteThingShadow$: StaticOperationSchema = [9, n0, _DTS,
+  { [_h]: ["DELETE", "/things/{thingName}/shadow", 200] }, () => DeleteThingShadowRequest$, () => DeleteThingShadowResponse$
 ];
-export var GetThingShadow$: StaticOperationSchema = [
-  9,
-  n0,
-  _GTS,
-  { [_h]: ["GET", "/things/{thingName}/shadow", 200] },
-  () => GetThingShadowRequest$,
-  () => GetThingShadowResponse$,
+export var GetRetainedMessage$: StaticOperationSchema = [9, n0, _GRM,
+  { [_h]: ["GET", "/retainedMessage/{topic}", 200] }, () => GetRetainedMessageRequest$, () => GetRetainedMessageResponse$
 ];
-export var ListNamedShadowsForThing$: StaticOperationSchema = [
-  9,
-  n0,
-  _LNSFT,
-  { [_h]: ["GET", "/api/things/shadow/ListNamedShadowsForThing/{thingName}", 200] },
-  () => ListNamedShadowsForThingRequest$,
-  () => ListNamedShadowsForThingResponse$,
+export var GetThingShadow$: StaticOperationSchema = [9, n0, _GTS,
+  { [_h]: ["GET", "/things/{thingName}/shadow", 200] }, () => GetThingShadowRequest$, () => GetThingShadowResponse$
 ];
-export var ListRetainedMessages$: StaticOperationSchema = [
-  9,
-  n0,
-  _LRM,
-  { [_h]: ["GET", "/retainedMessage", 200] },
-  () => ListRetainedMessagesRequest$,
-  () => ListRetainedMessagesResponse$,
+export var ListNamedShadowsForThing$: StaticOperationSchema = [9, n0, _LNSFT,
+  { [_h]: ["GET", "/api/things/shadow/ListNamedShadowsForThing/{thingName}", 200] }, () => ListNamedShadowsForThingRequest$, () => ListNamedShadowsForThingResponse$
 ];
-export var Publish$: StaticOperationSchema = [
-  9,
-  n0,
-  _P,
-  { [_h]: ["POST", "/topics/{topic}", 200] },
-  () => PublishRequest$,
-  () => __Unit,
+export var ListRetainedMessages$: StaticOperationSchema = [9, n0, _LRM,
+  { [_h]: ["GET", "/retainedMessage", 200] }, () => ListRetainedMessagesRequest$, () => ListRetainedMessagesResponse$
 ];
-export var UpdateThingShadow$: StaticOperationSchema = [
-  9,
-  n0,
-  _UTS,
-  { [_h]: ["POST", "/things/{thingName}/shadow", 200] },
-  () => UpdateThingShadowRequest$,
-  () => UpdateThingShadowResponse$,
+export var Publish$: StaticOperationSchema = [9, n0, _P,
+  { [_h]: ["POST", "/topics/{topic}", 200] }, () => PublishRequest$, () => __Unit
+];
+export var UpdateThingShadow$: StaticOperationSchema = [9, n0, _UTS,
+  { [_h]: ["POST", "/things/{thingName}/shadow", 200] }, () => UpdateThingShadowRequest$, () => UpdateThingShadowResponse$
 ];

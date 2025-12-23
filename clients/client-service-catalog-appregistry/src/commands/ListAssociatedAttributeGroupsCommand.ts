@@ -28,9 +28,7 @@ export interface ListAssociatedAttributeGroupsCommandInput extends ListAssociate
  *
  * The output of {@link ListAssociatedAttributeGroupsCommand}.
  */
-export interface ListAssociatedAttributeGroupsCommandOutput
-  extends ListAssociatedAttributeGroupsResponse,
-    __MetadataBearer {}
+export interface ListAssociatedAttributeGroupsCommandOutput extends ListAssociatedAttributeGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all attribute groups that are associated with specified application.  Results are paginated.</p>

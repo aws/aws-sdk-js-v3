@@ -161,6 +161,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             writer.write("awsCheckVersion(process.version);");
         }
         if (target.equals(LanguageTarget.NODE)) {
+            writer.indent();
             writer.openBlock("const loaderConfig = {", "};", () -> {
                 writer.write("profile: config?.profile,");
                 writer.write("logger: clientSharedValues.logger,");
@@ -169,6 +170,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                     writer.write("signingName: $S,", service.expectTrait(SigV4Trait.class).getName());
                 }
             });
+            writer.dedent();
         }
     }
 
@@ -214,8 +216,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                             loadNodeConfig(
                                 NODE_REGION_CONFIG_OPTIONS,
                                 {...NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig}
-                            )
-                            """
+                            )"""
                         );
                     });
                     if (!settings.useLegacyAuth()) {

@@ -134,6 +134,13 @@ import {
   OperationNotPermittedException$,
   OrderByElement$,
   OrderString,
+  paginateDescribeAgents,
+  paginateDescribeContinuousExports,
+  paginateDescribeExportConfigurations,
+  paginateDescribeExportTasks,
+  paginateDescribeImportTasks,
+  paginateDescribeTags,
+  paginateListConfigurations,
   PurchasingOption,
   ReservedInstanceOptions$,
   ResourceInUseException,
@@ -179,13 +186,6 @@ import {
   UpdateApplicationRequest$,
   UpdateApplicationResponse$,
   UsageMetricBasis$,
-  paginateDescribeAgents,
-  paginateDescribeContinuousExports,
-  paginateDescribeExportConfigurations,
-  paginateDescribeExportTasks,
-  paginateDescribeImportTasks,
-  paginateDescribeTags,
-  paginateListConfigurations,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

@@ -439,8 +439,14 @@ export interface EKS {
   /**
    * @see {@link CreateAddonCommand}
    */
-  createAddon(args: CreateAddonCommandInput, options?: __HttpHandlerOptions): Promise<CreateAddonCommandOutput>;
-  createAddon(args: CreateAddonCommandInput, cb: (err: any, data?: CreateAddonCommandOutput) => void): void;
+  createAddon(
+    args: CreateAddonCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAddonCommandOutput>;
+  createAddon(
+    args: CreateAddonCommandInput,
+    cb: (err: any, data?: CreateAddonCommandOutput) => void
+  ): void;
   createAddon(
     args: CreateAddonCommandInput,
     options: __HttpHandlerOptions,
@@ -467,8 +473,14 @@ export interface EKS {
   /**
    * @see {@link CreateClusterCommand}
    */
-  createCluster(args: CreateClusterCommandInput, options?: __HttpHandlerOptions): Promise<CreateClusterCommandOutput>;
-  createCluster(args: CreateClusterCommandInput, cb: (err: any, data?: CreateClusterCommandOutput) => void): void;
+  createCluster(
+    args: CreateClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateClusterCommandOutput>;
+  createCluster(
+    args: CreateClusterCommandInput,
+    cb: (err: any, data?: CreateClusterCommandOutput) => void
+  ): void;
   createCluster(
     args: CreateClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -516,7 +528,10 @@ export interface EKS {
     args: CreateNodegroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateNodegroupCommandOutput>;
-  createNodegroup(args: CreateNodegroupCommandInput, cb: (err: any, data?: CreateNodegroupCommandOutput) => void): void;
+  createNodegroup(
+    args: CreateNodegroupCommandInput,
+    cb: (err: any, data?: CreateNodegroupCommandOutput) => void
+  ): void;
   createNodegroup(
     args: CreateNodegroupCommandInput,
     options: __HttpHandlerOptions,
@@ -560,8 +575,14 @@ export interface EKS {
   /**
    * @see {@link DeleteAddonCommand}
    */
-  deleteAddon(args: DeleteAddonCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAddonCommandOutput>;
-  deleteAddon(args: DeleteAddonCommandInput, cb: (err: any, data?: DeleteAddonCommandOutput) => void): void;
+  deleteAddon(
+    args: DeleteAddonCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAddonCommandOutput>;
+  deleteAddon(
+    args: DeleteAddonCommandInput,
+    cb: (err: any, data?: DeleteAddonCommandOutput) => void
+  ): void;
   deleteAddon(
     args: DeleteAddonCommandInput,
     options: __HttpHandlerOptions,
@@ -588,8 +609,14 @@ export interface EKS {
   /**
    * @see {@link DeleteClusterCommand}
    */
-  deleteCluster(args: DeleteClusterCommandInput, options?: __HttpHandlerOptions): Promise<DeleteClusterCommandOutput>;
-  deleteCluster(args: DeleteClusterCommandInput, cb: (err: any, data?: DeleteClusterCommandOutput) => void): void;
+  deleteCluster(
+    args: DeleteClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteClusterCommandOutput>;
+  deleteCluster(
+    args: DeleteClusterCommandInput,
+    cb: (err: any, data?: DeleteClusterCommandOutput) => void
+  ): void;
   deleteCluster(
     args: DeleteClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -637,7 +664,10 @@ export interface EKS {
     args: DeleteNodegroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteNodegroupCommandOutput>;
-  deleteNodegroup(args: DeleteNodegroupCommandInput, cb: (err: any, data?: DeleteNodegroupCommandOutput) => void): void;
+  deleteNodegroup(
+    args: DeleteNodegroupCommandInput,
+    cb: (err: any, data?: DeleteNodegroupCommandOutput) => void
+  ): void;
   deleteNodegroup(
     args: DeleteNodegroupCommandInput,
     options: __HttpHandlerOptions,
@@ -698,8 +728,14 @@ export interface EKS {
   /**
    * @see {@link DescribeAddonCommand}
    */
-  describeAddon(args: DescribeAddonCommandInput, options?: __HttpHandlerOptions): Promise<DescribeAddonCommandOutput>;
-  describeAddon(args: DescribeAddonCommandInput, cb: (err: any, data?: DescribeAddonCommandOutput) => void): void;
+  describeAddon(
+    args: DescribeAddonCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAddonCommandOutput>;
+  describeAddon(
+    args: DescribeAddonCommandInput,
+    cb: (err: any, data?: DescribeAddonCommandOutput) => void
+  ): void;
   describeAddon(
     args: DescribeAddonCommandInput,
     options: __HttpHandlerOptions,
@@ -765,7 +801,10 @@ export interface EKS {
     args: DescribeClusterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeClusterCommandOutput>;
-  describeCluster(args: DescribeClusterCommandInput, cb: (err: any, data?: DescribeClusterCommandOutput) => void): void;
+  describeCluster(
+    args: DescribeClusterCommandInput,
+    cb: (err: any, data?: DescribeClusterCommandOutput) => void
+  ): void;
   describeCluster(
     args: DescribeClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -848,7 +887,10 @@ export interface EKS {
     args: DescribeInsightCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeInsightCommandOutput>;
-  describeInsight(args: DescribeInsightCommandInput, cb: (err: any, data?: DescribeInsightCommandOutput) => void): void;
+  describeInsight(
+    args: DescribeInsightCommandInput,
+    cb: (err: any, data?: DescribeInsightCommandOutput) => void
+  ): void;
   describeInsight(
     args: DescribeInsightCommandInput,
     options: __HttpHandlerOptions,
@@ -913,7 +955,10 @@ export interface EKS {
     args: DescribeUpdateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeUpdateCommandOutput>;
-  describeUpdate(args: DescribeUpdateCommandInput, cb: (err: any, data?: DescribeUpdateCommandOutput) => void): void;
+  describeUpdate(
+    args: DescribeUpdateCommandInput,
+    cb: (err: any, data?: DescribeUpdateCommandOutput) => void
+  ): void;
   describeUpdate(
     args: DescribeUpdateCommandInput,
     options: __HttpHandlerOptions,
@@ -992,8 +1037,14 @@ export interface EKS {
   /**
    * @see {@link ListAddonsCommand}
    */
-  listAddons(args: ListAddonsCommandInput, options?: __HttpHandlerOptions): Promise<ListAddonsCommandOutput>;
-  listAddons(args: ListAddonsCommandInput, cb: (err: any, data?: ListAddonsCommandOutput) => void): void;
+  listAddons(
+    args: ListAddonsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAddonsCommandOutput>;
+  listAddons(
+    args: ListAddonsCommandInput,
+    cb: (err: any, data?: ListAddonsCommandOutput) => void
+  ): void;
   listAddons(
     args: ListAddonsCommandInput,
     options: __HttpHandlerOptions,
@@ -1038,8 +1089,14 @@ export interface EKS {
    * @see {@link ListClustersCommand}
    */
   listClusters(): Promise<ListClustersCommandOutput>;
-  listClusters(args: ListClustersCommandInput, options?: __HttpHandlerOptions): Promise<ListClustersCommandOutput>;
-  listClusters(args: ListClustersCommandInput, cb: (err: any, data?: ListClustersCommandOutput) => void): void;
+  listClusters(
+    args: ListClustersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListClustersCommandOutput>;
+  listClusters(
+    args: ListClustersCommandInput,
+    cb: (err: any, data?: ListClustersCommandOutput) => void
+  ): void;
   listClusters(
     args: ListClustersCommandInput,
     options: __HttpHandlerOptions,
@@ -1101,8 +1158,14 @@ export interface EKS {
   /**
    * @see {@link ListInsightsCommand}
    */
-  listInsights(args: ListInsightsCommandInput, options?: __HttpHandlerOptions): Promise<ListInsightsCommandOutput>;
-  listInsights(args: ListInsightsCommandInput, cb: (err: any, data?: ListInsightsCommandOutput) => void): void;
+  listInsights(
+    args: ListInsightsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInsightsCommandOutput>;
+  listInsights(
+    args: ListInsightsCommandInput,
+    cb: (err: any, data?: ListInsightsCommandOutput) => void
+  ): void;
   listInsights(
     args: ListInsightsCommandInput,
     options: __HttpHandlerOptions,
@@ -1116,7 +1179,10 @@ export interface EKS {
     args: ListNodegroupsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListNodegroupsCommandOutput>;
-  listNodegroups(args: ListNodegroupsCommandInput, cb: (err: any, data?: ListNodegroupsCommandOutput) => void): void;
+  listNodegroups(
+    args: ListNodegroupsCommandInput,
+    cb: (err: any, data?: ListNodegroupsCommandOutput) => void
+  ): void;
   listNodegroups(
     args: ListNodegroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -1160,8 +1226,14 @@ export interface EKS {
   /**
    * @see {@link ListUpdatesCommand}
    */
-  listUpdates(args: ListUpdatesCommandInput, options?: __HttpHandlerOptions): Promise<ListUpdatesCommandOutput>;
-  listUpdates(args: ListUpdatesCommandInput, cb: (err: any, data?: ListUpdatesCommandOutput) => void): void;
+  listUpdates(
+    args: ListUpdatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUpdatesCommandOutput>;
+  listUpdates(
+    args: ListUpdatesCommandInput,
+    cb: (err: any, data?: ListUpdatesCommandOutput) => void
+  ): void;
   listUpdates(
     args: ListUpdatesCommandInput,
     options: __HttpHandlerOptions,
@@ -1175,7 +1247,10 @@ export interface EKS {
     args: RegisterClusterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RegisterClusterCommandOutput>;
-  registerCluster(args: RegisterClusterCommandInput, cb: (err: any, data?: RegisterClusterCommandOutput) => void): void;
+  registerCluster(
+    args: RegisterClusterCommandInput,
+    cb: (err: any, data?: RegisterClusterCommandOutput) => void
+  ): void;
   registerCluster(
     args: RegisterClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -1202,8 +1277,14 @@ export interface EKS {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1213,8 +1294,14 @@ export interface EKS {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1241,8 +1328,14 @@ export interface EKS {
   /**
    * @see {@link UpdateAddonCommand}
    */
-  updateAddon(args: UpdateAddonCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAddonCommandOutput>;
-  updateAddon(args: UpdateAddonCommandInput, cb: (err: any, data?: UpdateAddonCommandOutput) => void): void;
+  updateAddon(
+    args: UpdateAddonCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAddonCommandOutput>;
+  updateAddon(
+    args: UpdateAddonCommandInput,
+    cb: (err: any, data?: UpdateAddonCommandOutput) => void
+  ): void;
   updateAddon(
     args: UpdateAddonCommandInput,
     options: __HttpHandlerOptions,

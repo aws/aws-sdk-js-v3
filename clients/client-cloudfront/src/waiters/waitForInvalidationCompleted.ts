@@ -10,9 +10,9 @@ const checkState = async (client: CloudFrontClient, input: GetInvalidationComman
     const result: any = await client.send(new GetInvalidationCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Invalidation.Status;
-      };
+      }
       if (returnComparator() === "Completed") {
         return { state: WaiterState.SUCCESS, reason };
       }

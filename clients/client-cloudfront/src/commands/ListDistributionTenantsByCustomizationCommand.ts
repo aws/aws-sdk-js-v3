@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListDistributionTenantsByCustomizationCommand}.
  */
-export interface ListDistributionTenantsByCustomizationCommandInput
-  extends ListDistributionTenantsByCustomizationRequest {}
+export interface ListDistributionTenantsByCustomizationCommandInput extends ListDistributionTenantsByCustomizationRequest {}
 /**
  * @public
  *
  * The output of {@link ListDistributionTenantsByCustomizationCommand}.
  */
-export interface ListDistributionTenantsByCustomizationCommandOutput
-  extends ListDistributionTenantsByCustomizationResult,
-    __MetadataBearer {}
+export interface ListDistributionTenantsByCustomizationCommandOutput extends ListDistributionTenantsByCustomizationResult, __MetadataBearer {}
 
 /**
  * <p>Lists distribution tenants by the customization that you specify.</p> <p>You must specify either the <code>CertificateArn</code> parameter or <code>WebACLArn</code> parameter, but not both in the same request.</p>

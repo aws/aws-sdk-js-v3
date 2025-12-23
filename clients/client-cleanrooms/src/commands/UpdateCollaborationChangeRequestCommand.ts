@@ -24,9 +24,7 @@ export interface UpdateCollaborationChangeRequestCommandInput extends UpdateColl
  *
  * The output of {@link UpdateCollaborationChangeRequestCommand}.
  */
-export interface UpdateCollaborationChangeRequestCommandOutput
-  extends UpdateCollaborationChangeRequestOutput,
-    __MetadataBearer {}
+export interface UpdateCollaborationChangeRequestCommandOutput extends UpdateCollaborationChangeRequestOutput, __MetadataBearer {}
 
 /**
  * <p>Updates an existing collaboration change request. This operation allows approval actions for pending change requests in collaborations (APPROVE, DENY, CANCEL, COMMIT).</p> <p>For change requests without automatic approval, a member in the collaboration can manually APPROVE or DENY a change request. The collaboration owner can manually CANCEL or COMMIT a change request.</p>

@@ -25,10 +25,8 @@ the task assigned to it by the web service, reporting progress to the web servic
 When the task is done, the task runner reports the final success or failure of the task to the web service.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-data-pipeline
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-data-pipeline`
 - `yarn add @aws-sdk/client-data-pipeline`
 - `pnpm add @aws-sdk/client-data-pipeline`
@@ -64,9 +62,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new DataPipelineClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListPipelinesCommand(params);
 ```
 
@@ -225,7 +221,6 @@ ActivatePipeline
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/data-pipeline/command/ActivatePipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/ActivatePipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/ActivatePipelineCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +228,6 @@ AddTags
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/data-pipeline/command/AddTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/AddTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/AddTagsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +235,6 @@ CreatePipeline
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/data-pipeline/command/CreatePipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/CreatePipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/CreatePipelineCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +242,6 @@ DeactivatePipeline
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/data-pipeline/command/DeactivatePipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/DeactivatePipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/DeactivatePipelineCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +249,6 @@ DeletePipeline
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/data-pipeline/command/DeletePipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/DeletePipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/DeletePipelineCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +256,6 @@ DescribeObjects
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/data-pipeline/command/DescribeObjectsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/DescribeObjectsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/DescribeObjectsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +263,6 @@ DescribePipelines
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/data-pipeline/command/DescribePipelinesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/DescribePipelinesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/DescribePipelinesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +270,6 @@ EvaluateExpression
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/data-pipeline/command/EvaluateExpressionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/EvaluateExpressionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/EvaluateExpressionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +277,6 @@ GetPipelineDefinition
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/data-pipeline/command/GetPipelineDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/GetPipelineDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/GetPipelineDefinitionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,7 +284,6 @@ ListPipelines
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/data-pipeline/command/ListPipelinesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/ListPipelinesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/ListPipelinesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -305,7 +291,6 @@ PollForTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/data-pipeline/command/PollForTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/PollForTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/PollForTaskCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -313,7 +298,6 @@ PutPipelineDefinition
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/data-pipeline/command/PutPipelineDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/PutPipelineDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/PutPipelineDefinitionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -321,7 +305,6 @@ QueryObjects
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/data-pipeline/command/QueryObjectsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/QueryObjectsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/QueryObjectsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -329,7 +312,6 @@ RemoveTags
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/data-pipeline/command/RemoveTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/RemoveTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/RemoveTagsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -337,7 +319,6 @@ ReportTaskProgress
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/data-pipeline/command/ReportTaskProgressCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/ReportTaskProgressCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/ReportTaskProgressCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -345,7 +326,6 @@ ReportTaskRunnerHeartbeat
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/data-pipeline/command/ReportTaskRunnerHeartbeatCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/ReportTaskRunnerHeartbeatCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/ReportTaskRunnerHeartbeatCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -353,7 +333,6 @@ SetStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/data-pipeline/command/SetStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/SetStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/SetStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -361,7 +340,6 @@ SetTaskStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/data-pipeline/command/SetTaskStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/SetTaskStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/SetTaskStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -369,5 +347,4 @@ ValidatePipelineDefinition
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/data-pipeline/command/ValidatePipelineDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/ValidatePipelineDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-data-pipeline/Interface/ValidatePipelineDefinitionCommandOutput/)
-
 </details>

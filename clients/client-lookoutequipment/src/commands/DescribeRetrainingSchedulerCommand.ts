@@ -28,9 +28,7 @@ export interface DescribeRetrainingSchedulerCommandInput extends DescribeRetrain
  *
  * The output of {@link DescribeRetrainingSchedulerCommand}.
  */
-export interface DescribeRetrainingSchedulerCommandOutput
-  extends DescribeRetrainingSchedulerResponse,
-    __MetadataBearer {}
+export interface DescribeRetrainingSchedulerCommandOutput extends DescribeRetrainingSchedulerResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a description of the retraining scheduler, including information such as the

@@ -24,9 +24,7 @@ export interface GetRelationalDatabaseLogEventsCommandInput extends GetRelationa
  *
  * The output of {@link GetRelationalDatabaseLogEventsCommand}.
  */
-export interface GetRelationalDatabaseLogEventsCommandOutput
-  extends GetRelationalDatabaseLogEventsResult,
-    __MetadataBearer {}
+export interface GetRelationalDatabaseLogEventsCommandOutput extends GetRelationalDatabaseLogEventsResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of log events for a database in Amazon Lightsail.</p>

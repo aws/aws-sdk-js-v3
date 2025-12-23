@@ -27,9 +27,7 @@ export interface DescribeSpotDatafeedSubscriptionCommandInput extends DescribeSp
  *
  * The output of {@link DescribeSpotDatafeedSubscriptionCommand}.
  */
-export interface DescribeSpotDatafeedSubscriptionCommandOutput
-  extends DescribeSpotDatafeedSubscriptionResult,
-    __MetadataBearer {}
+export interface DescribeSpotDatafeedSubscriptionCommandOutput extends DescribeSpotDatafeedSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Describes the data feed for Spot Instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot

@@ -28,9 +28,7 @@ export interface UpdateProxyRuleGroupPrioritiesCommandInput extends UpdateProxyR
  *
  * The output of {@link UpdateProxyRuleGroupPrioritiesCommand}.
  */
-export interface UpdateProxyRuleGroupPrioritiesCommandOutput
-  extends UpdateProxyRuleGroupPrioritiesResponse,
-    __MetadataBearer {}
+export interface UpdateProxyRuleGroupPrioritiesCommandOutput extends UpdateProxyRuleGroupPrioritiesResponse, __MetadataBearer {}
 
 /**
  * <p>Updates proxy rule group priorities within a proxy configuration.</p>

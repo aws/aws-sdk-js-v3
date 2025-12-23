@@ -24,9 +24,7 @@ export interface GetRouterInputSourceMetadataCommandInput extends GetRouterInput
  *
  * The output of {@link GetRouterInputSourceMetadataCommand}.
  */
-export interface GetRouterInputSourceMetadataCommandOutput
-  extends GetRouterInputSourceMetadataResponse,
-    __MetadataBearer {}
+export interface GetRouterInputSourceMetadataCommandOutput extends GetRouterInputSourceMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves detailed metadata information about a specific router input source, including stream details and connection state.</p>

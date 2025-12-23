@@ -24,9 +24,7 @@ export interface CreateMarketplaceModelEndpointCommandInput extends CreateMarket
  *
  * The output of {@link CreateMarketplaceModelEndpointCommand}.
  */
-export interface CreateMarketplaceModelEndpointCommandOutput
-  extends CreateMarketplaceModelEndpointResponse,
-    __MetadataBearer {}
+export interface CreateMarketplaceModelEndpointCommandOutput extends CreateMarketplaceModelEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an endpoint for a model from Amazon Bedrock Marketplace. The endpoint is hosted by Amazon SageMaker.</p>

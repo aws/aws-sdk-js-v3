@@ -24,9 +24,7 @@ export interface AuthorizeSecurityGroupEgressCommandInput extends AuthorizeSecur
  *
  * The output of {@link AuthorizeSecurityGroupEgressCommand}.
  */
-export interface AuthorizeSecurityGroupEgressCommandOutput
-  extends AuthorizeSecurityGroupEgressResult,
-    __MetadataBearer {}
+export interface AuthorizeSecurityGroupEgressCommandOutput extends AuthorizeSecurityGroupEgressResult, __MetadataBearer {}
 
 /**
  * <p>Adds the specified outbound (egress) rules to a security group.</p>

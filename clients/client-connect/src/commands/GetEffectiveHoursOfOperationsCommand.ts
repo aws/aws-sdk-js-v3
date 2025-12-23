@@ -24,9 +24,7 @@ export interface GetEffectiveHoursOfOperationsCommandInput extends GetEffectiveH
  *
  * The output of {@link GetEffectiveHoursOfOperationsCommand}.
  */
-export interface GetEffectiveHoursOfOperationsCommandOutput
-  extends GetEffectiveHoursOfOperationsResponse,
-    __MetadataBearer {}
+export interface GetEffectiveHoursOfOperationsCommandOutput extends GetEffectiveHoursOfOperationsResponse, __MetadataBearer {}
 
 /**
  * <p>Get the hours of operations with the effective override applied.</p>

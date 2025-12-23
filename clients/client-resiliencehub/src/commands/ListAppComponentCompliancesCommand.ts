@@ -24,9 +24,7 @@ export interface ListAppComponentCompliancesCommandInput extends ListAppComponen
  *
  * The output of {@link ListAppComponentCompliancesCommand}.
  */
-export interface ListAppComponentCompliancesCommandOutput
-  extends ListAppComponentCompliancesResponse,
-    __MetadataBearer {}
+export interface ListAppComponentCompliancesCommandOutput extends ListAppComponentCompliancesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the compliances for an Resilience Hub Application Component.</p>

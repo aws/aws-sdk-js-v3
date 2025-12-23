@@ -24,9 +24,7 @@ export interface ListSecurityProfileFlowModulesCommandInput extends ListSecurity
  *
  * The output of {@link ListSecurityProfileFlowModulesCommand}.
  */
-export interface ListSecurityProfileFlowModulesCommandOutput
-  extends ListSecurityProfileFlowModulesResponse,
-    __MetadataBearer {}
+export interface ListSecurityProfileFlowModulesCommandOutput extends ListSecurityProfileFlowModulesResponse, __MetadataBearer {}
 
 /**
  * <p> A list of Flow Modules an AI Agent can invoke as a tool </p>

@@ -24,9 +24,7 @@ export interface ListClusterSchedulerConfigsCommandInput extends ListClusterSche
  *
  * The output of {@link ListClusterSchedulerConfigsCommand}.
  */
-export interface ListClusterSchedulerConfigsCommandOutput
-  extends ListClusterSchedulerConfigsResponse,
-    __MetadataBearer {}
+export interface ListClusterSchedulerConfigsCommandOutput extends ListClusterSchedulerConfigsResponse, __MetadataBearer {}
 
 /**
  * <p>List the cluster policy configurations.</p>

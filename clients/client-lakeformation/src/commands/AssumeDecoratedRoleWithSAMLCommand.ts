@@ -24,9 +24,7 @@ export interface AssumeDecoratedRoleWithSAMLCommandInput extends AssumeDecorated
  *
  * The output of {@link AssumeDecoratedRoleWithSAMLCommand}.
  */
-export interface AssumeDecoratedRoleWithSAMLCommandOutput
-  extends AssumeDecoratedRoleWithSAMLResponse,
-    __MetadataBearer {}
+export interface AssumeDecoratedRoleWithSAMLCommandOutput extends AssumeDecoratedRoleWithSAMLResponse, __MetadataBearer {}
 
 /**
  * <p>Allows a caller to assume an IAM role decorated as the SAML user specified in the SAML assertion included in the request. This decoration allows Lake Formation to enforce access policies against the SAML users and groups.  This API operation requires SAML federation setup in the caller’s account as it can only be called with valid SAML assertions.

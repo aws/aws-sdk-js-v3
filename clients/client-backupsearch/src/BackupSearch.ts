@@ -79,8 +79,14 @@ export interface BackupSearch {
   /**
    * @see {@link GetSearchJobCommand}
    */
-  getSearchJob(args: GetSearchJobCommandInput, options?: __HttpHandlerOptions): Promise<GetSearchJobCommandOutput>;
-  getSearchJob(args: GetSearchJobCommandInput, cb: (err: any, data?: GetSearchJobCommandOutput) => void): void;
+  getSearchJob(
+    args: GetSearchJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSearchJobCommandOutput>;
+  getSearchJob(
+    args: GetSearchJobCommandInput,
+    cb: (err: any, data?: GetSearchJobCommandOutput) => void
+  ): void;
   getSearchJob(
     args: GetSearchJobCommandInput,
     options: __HttpHandlerOptions,
@@ -146,7 +152,10 @@ export interface BackupSearch {
     args: ListSearchJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListSearchJobsCommandOutput>;
-  listSearchJobs(args: ListSearchJobsCommandInput, cb: (err: any, data?: ListSearchJobsCommandOutput) => void): void;
+  listSearchJobs(
+    args: ListSearchJobsCommandInput,
+    cb: (err: any, data?: ListSearchJobsCommandOutput) => void
+  ): void;
   listSearchJobs(
     args: ListSearchJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -195,7 +204,10 @@ export interface BackupSearch {
     args: StartSearchJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartSearchJobCommandOutput>;
-  startSearchJob(args: StartSearchJobCommandInput, cb: (err: any, data?: StartSearchJobCommandOutput) => void): void;
+  startSearchJob(
+    args: StartSearchJobCommandInput,
+    cb: (err: any, data?: StartSearchJobCommandOutput) => void
+  ): void;
   startSearchJob(
     args: StartSearchJobCommandInput,
     options: __HttpHandlerOptions,
@@ -222,8 +234,14 @@ export interface BackupSearch {
   /**
    * @see {@link StopSearchJobCommand}
    */
-  stopSearchJob(args: StopSearchJobCommandInput, options?: __HttpHandlerOptions): Promise<StopSearchJobCommandOutput>;
-  stopSearchJob(args: StopSearchJobCommandInput, cb: (err: any, data?: StopSearchJobCommandOutput) => void): void;
+  stopSearchJob(
+    args: StopSearchJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopSearchJobCommandOutput>;
+  stopSearchJob(
+    args: StopSearchJobCommandInput,
+    cb: (err: any, data?: StopSearchJobCommandOutput) => void
+  ): void;
   stopSearchJob(
     args: StopSearchJobCommandInput,
     options: __HttpHandlerOptions,
@@ -233,8 +251,14 @@ export interface BackupSearch {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -244,8 +268,14 @@ export interface BackupSearch {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

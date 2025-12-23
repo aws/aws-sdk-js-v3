@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetVoiceConnectorStreamingConfigurationCommand}.
  */
-export interface GetVoiceConnectorStreamingConfigurationCommandInput
-  extends GetVoiceConnectorStreamingConfigurationRequest {}
+export interface GetVoiceConnectorStreamingConfigurationCommandInput extends GetVoiceConnectorStreamingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link GetVoiceConnectorStreamingConfigurationCommand}.
  */
-export interface GetVoiceConnectorStreamingConfigurationCommandOutput
-  extends GetVoiceConnectorStreamingConfigurationResponse,
-    __MetadataBearer {}
+export interface GetVoiceConnectorStreamingConfigurationCommandOutput extends GetVoiceConnectorStreamingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the streaming configuration details for the specified Amazon Chime SDK

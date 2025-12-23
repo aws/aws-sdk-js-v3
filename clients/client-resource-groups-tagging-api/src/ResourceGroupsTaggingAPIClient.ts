@@ -308,8 +308,7 @@ export type ResourceGroupsTaggingAPIClientResolvedConfigType = __SmithyResolvedC
  *
  *  The resolved configuration interface of ResourceGroupsTaggingAPIClient class. This is resolved and normalized from the {@link ResourceGroupsTaggingAPIClientConfig | constructor configuration interface}.
  */
-export interface ResourceGroupsTaggingAPIClientResolvedConfig
-  extends ResourceGroupsTaggingAPIClientResolvedConfigType {}
+export interface ResourceGroupsTaggingAPIClientResolvedConfig extends ResourceGroupsTaggingAPIClientResolvedConfigType {}
 
 /**
  * <fullname>Resource Groups Tagging API</fullname>

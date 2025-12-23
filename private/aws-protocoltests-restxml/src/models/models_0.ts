@@ -227,7 +227,9 @@ export interface HttpPayloadWithStructureInputOutput {
 /**
  * @public
  */
-export type UnionPayload = UnionPayload.GreetingMember | UnionPayload.$UnknownMember;
+export type UnionPayload =
+  | UnionPayload.GreetingMember
+  | UnionPayload.$UnknownMember;
 
 /**
  * @public

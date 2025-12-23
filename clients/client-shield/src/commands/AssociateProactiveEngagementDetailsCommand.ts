@@ -27,9 +27,7 @@ export interface AssociateProactiveEngagementDetailsCommandInput extends Associa
  *
  * The output of {@link AssociateProactiveEngagementDetailsCommand}.
  */
-export interface AssociateProactiveEngagementDetailsCommandOutput
-  extends AssociateProactiveEngagementDetailsResponse,
-    __MetadataBearer {}
+export interface AssociateProactiveEngagementDetailsCommandOutput extends AssociateProactiveEngagementDetailsResponse, __MetadataBearer {}
 
 /**
  * <p>Initializes proactive engagement and sets the list of contacts for the Shield Response Team (SRT) to use. You must provide at least one phone number in the emergency contact list. </p>

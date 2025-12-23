@@ -24,9 +24,7 @@ export interface CreateSlackChannelConfigurationCommandInput extends CreateSlack
  *
  * The output of {@link CreateSlackChannelConfigurationCommand}.
  */
-export interface CreateSlackChannelConfigurationCommandOutput
-  extends CreateSlackChannelConfigurationResult,
-    __MetadataBearer {}
+export interface CreateSlackChannelConfigurationCommandOutput extends CreateSlackChannelConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Creates a Slack channel configuration for your Amazon Web Services account.</p>

@@ -28,9 +28,7 @@ export interface UpdateReviewTemplateLensReviewCommandInput extends UpdateReview
  *
  * The output of {@link UpdateReviewTemplateLensReviewCommand}.
  */
-export interface UpdateReviewTemplateLensReviewCommandOutput
-  extends UpdateReviewTemplateLensReviewOutput,
-    __MetadataBearer {}
+export interface UpdateReviewTemplateLensReviewCommandOutput extends UpdateReviewTemplateLensReviewOutput, __MetadataBearer {}
 
 /**
  * <p>Update a lens review associated with a review template.</p>

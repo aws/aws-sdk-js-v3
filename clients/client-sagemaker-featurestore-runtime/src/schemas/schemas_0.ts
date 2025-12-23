@@ -66,138 +66,122 @@ import {
 import { SageMakerFeatureStoreRuntimeServiceException } from "../models/SageMakerFeatureStoreRuntimeServiceException";
 
 /* eslint no-var: 0 */
-export var AccessForbidden$: StaticErrorSchema = [-3, n0, _AF, { [_e]: _c, [_hE]: 403 }, [_M], [0]];
+export var AccessForbidden$: StaticErrorSchema = [-3, n0, _AF,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(AccessForbidden$, AccessForbidden);
-export var BatchGetRecordError$: StaticStructureSchema = [3, n0, _BGRE, 0, [_FGN, _RIVAS, _EC, _EM], [0, 0, 0, 0]];
-export var BatchGetRecordIdentifier$: StaticStructureSchema = [
-  3,
-  n0,
-  _BGRI,
+export var BatchGetRecordError$: StaticStructureSchema = [3, n0, _BGRE,
+  0,
+  [_FGN, _RIVAS, _EC, _EM],
+  [0, 0, 0, 0]
+];
+export var BatchGetRecordIdentifier$: StaticStructureSchema = [3, n0, _BGRI,
   0,
   [_FGN, _RIVASe, _FN],
-  [0, 64 | 0, 64 | 0],
+  [0, 64 | 0, 64 | 0]
 ];
-export var BatchGetRecordRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _BGRR,
+export var BatchGetRecordRequest$: StaticStructureSchema = [3, n0, _BGRR,
   0,
   [_I, _ETR],
-  [() => BatchGetRecordIdentifiers, 0],
+  [() => BatchGetRecordIdentifiers, 0]
 ];
-export var BatchGetRecordResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _BGRRa,
+export var BatchGetRecordResponse$: StaticStructureSchema = [3, n0, _BGRRa,
   0,
   [_R, _E, _UI],
-  [() => BatchGetRecordResultDetails, () => BatchGetRecordErrors, () => UnprocessedIdentifiers],
+  [() => BatchGetRecordResultDetails, () => BatchGetRecordErrors, () => UnprocessedIdentifiers]
 ];
-export var BatchGetRecordResultDetail$: StaticStructureSchema = [
-  3,
-  n0,
-  _BGRRD,
+export var BatchGetRecordResultDetail$: StaticStructureSchema = [3, n0, _BGRRD,
   0,
   [_FGN, _RIVAS, _Re, _EA],
-  [0, 0, () => _Record, 0],
+  [0, 0, () => _Record, 0]
 ];
-export var DeleteRecordRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DRR,
+export var DeleteRecordRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
   [_FGN, _RIVAS, _ET, _TS, _DM],
-  [
-    [0, 1],
-    [0, { [_hQ]: _RIVAS }],
-    [0, { [_hQ]: _ET }],
-    [64 | 0, { [_hQ]: _TS }],
-    [0, { [_hQ]: _DM }],
-  ],
+  [[0, 1], [0, { [_hQ]: _RIVAS }], [0, { [_hQ]: _ET }], [64 | 0, { [_hQ]: _TS }], [0, { [_hQ]: _DM }]]
 ];
-export var FeatureValue$: StaticStructureSchema = [3, n0, _FV, 0, [_FNe, _VAS, _VASL], [0, 0, 64 | 0]];
-export var GetRecordRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _GRR,
+export var FeatureValue$: StaticStructureSchema = [3, n0, _FV,
+  0,
+  [_FNe, _VAS, _VASL],
+  [0, 0, 64 | 0]
+];
+export var GetRecordRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
   [_FGN, _RIVAS, _FN, _ETR],
-  [
-    [0, 1],
-    [0, { [_hQ]: _RIVAS }],
-    [64 | 0, { [_hQ]: _FNe }],
-    [0, { [_hQ]: _ETR }],
-  ],
+  [[0, 1], [0, { [_hQ]: _RIVAS }], [64 | 0, { [_hQ]: _FNe }], [0, { [_hQ]: _ETR }]]
 ];
-export var GetRecordResponse$: StaticStructureSchema = [3, n0, _GRRe, 0, [_Re, _EA], [() => _Record, 0]];
-export var InternalFailure$: StaticErrorSchema = [-3, n0, _IF, { [_e]: _s, [_hE]: 500 }, [_M], [0]];
+export var GetRecordResponse$: StaticStructureSchema = [3, n0, _GRRe,
+  0,
+  [_Re, _EA],
+  [() => _Record, 0]
+];
+export var InternalFailure$: StaticErrorSchema = [-3, n0, _IF,
+  { [_e]: _s, [_hE]: 500 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(InternalFailure$, InternalFailure);
-export var PutRecordRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _PRR,
+export var PutRecordRequest$: StaticStructureSchema = [3, n0, _PRR,
   0,
   [_FGN, _Re, _TS, _TD],
-  [[0, 1], () => _Record, 64 | 0, () => TtlDuration$],
+  [[0, 1], () => _Record, 64 | 0, () => TtlDuration$]
 ];
-export var ResourceNotFound$: StaticErrorSchema = [-3, n0, _RNF, { [_e]: _c, [_hE]: 404 }, [_M], [0]];
+export var ResourceNotFound$: StaticErrorSchema = [-3, n0, _RNF,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ResourceNotFound$, ResourceNotFound);
-export var ServiceUnavailable$: StaticErrorSchema = [-3, n0, _SU, { [_e]: _s, [_hE]: 503 }, [_M], [0]];
+export var ServiceUnavailable$: StaticErrorSchema = [-3, n0, _SU,
+  { [_e]: _s, [_hE]: 503 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ServiceUnavailable$, ServiceUnavailable);
-export var TtlDuration$: StaticStructureSchema = [3, n0, _TD, 0, [_U, _V], [0, 1]];
-export var ValidationError$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_M], [0]];
+export var TtlDuration$: StaticStructureSchema = [3, n0, _TD,
+  0,
+  [_U, _V],
+  [0, 1]
+];
+export var ValidationError$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ValidationError$, ValidationError);
 var __Unit = "unit" as const;
-export var SageMakerFeatureStoreRuntimeServiceException$: StaticErrorSchema = [
-  -3,
-  _sm,
-  "SageMakerFeatureStoreRuntimeServiceException",
-  0,
-  [],
-  [],
+export var SageMakerFeatureStoreRuntimeServiceException$: StaticErrorSchema = [-3, _sm, "SageMakerFeatureStoreRuntimeServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(SageMakerFeatureStoreRuntimeServiceException$, SageMakerFeatureStoreRuntimeServiceException);
+var BatchGetRecordErrors: StaticListSchema = [1, n0, _BGREa,
+  0, () => BatchGetRecordError$
 ];
-TypeRegistry.for(_sm).registerError(
-  SageMakerFeatureStoreRuntimeServiceException$,
-  SageMakerFeatureStoreRuntimeServiceException
-);
-var BatchGetRecordErrors: StaticListSchema = [1, n0, _BGREa, 0, () => BatchGetRecordError$];
-var BatchGetRecordIdentifiers: StaticListSchema = [1, n0, _BGRIa, 0, () => BatchGetRecordIdentifier$];
-var BatchGetRecordResultDetails: StaticListSchema = [1, n0, _BGRRDa, 0, () => BatchGetRecordResultDetail$];
+var BatchGetRecordIdentifiers: StaticListSchema = [1, n0, _BGRIa,
+  0, () => BatchGetRecordIdentifier$
+];
+var BatchGetRecordResultDetails: StaticListSchema = [1, n0, _BGRRDa,
+  0, () => BatchGetRecordResultDetail$
+];
 var FeatureNames = 64 | 0;
-var _Record: StaticListSchema = [1, n0, _Re, 0, () => FeatureValue$];
+var _Record: StaticListSchema = [1, n0, _Re,
+  0, () => FeatureValue$
+];
 var RecordIdentifiers = 64 | 0;
 var TargetStores = 64 | 0;
-var UnprocessedIdentifiers: StaticListSchema = [1, n0, _UI, 0, () => BatchGetRecordIdentifier$];
+var UnprocessedIdentifiers: StaticListSchema = [1, n0, _UI,
+  0, () => BatchGetRecordIdentifier$
+];
 var ValueAsStringList = 64 | 0;
-export var BatchGetRecord$: StaticOperationSchema = [
-  9,
-  n0,
-  _BGR,
-  { [_h]: ["POST", "/BatchGetRecord", 200] },
-  () => BatchGetRecordRequest$,
-  () => BatchGetRecordResponse$,
+export var BatchGetRecord$: StaticOperationSchema = [9, n0, _BGR,
+  { [_h]: ["POST", "/BatchGetRecord", 200] }, () => BatchGetRecordRequest$, () => BatchGetRecordResponse$
 ];
-export var DeleteRecord$: StaticOperationSchema = [
-  9,
-  n0,
-  _DR,
-  { [_h]: ["DELETE", "/FeatureGroup/{FeatureGroupName}", 200] },
-  () => DeleteRecordRequest$,
-  () => __Unit,
+export var DeleteRecord$: StaticOperationSchema = [9, n0, _DR,
+  { [_h]: ["DELETE", "/FeatureGroup/{FeatureGroupName}", 200] }, () => DeleteRecordRequest$, () => __Unit
 ];
-export var GetRecord$: StaticOperationSchema = [
-  9,
-  n0,
-  _GR,
-  { [_h]: ["GET", "/FeatureGroup/{FeatureGroupName}", 200] },
-  () => GetRecordRequest$,
-  () => GetRecordResponse$,
+export var GetRecord$: StaticOperationSchema = [9, n0, _GR,
+  { [_h]: ["GET", "/FeatureGroup/{FeatureGroupName}", 200] }, () => GetRecordRequest$, () => GetRecordResponse$
 ];
-export var PutRecord$: StaticOperationSchema = [
-  9,
-  n0,
-  _PR,
-  { [_h]: ["PUT", "/FeatureGroup/{FeatureGroupName}", 200] },
-  () => PutRecordRequest$,
-  () => __Unit,
+export var PutRecord$: StaticOperationSchema = [9, n0, _PR,
+  { [_h]: ["PUT", "/FeatureGroup/{FeatureGroupName}", 200] }, () => PutRecordRequest$, () => __Unit
 ];

@@ -27,9 +27,7 @@ export interface DescribeClientVpnAuthorizationRulesCommandInput extends Describ
  *
  * The output of {@link DescribeClientVpnAuthorizationRulesCommand}.
  */
-export interface DescribeClientVpnAuthorizationRulesCommandOutput
-  extends DescribeClientVpnAuthorizationRulesResult,
-    __MetadataBearer {}
+export interface DescribeClientVpnAuthorizationRulesCommandOutput extends DescribeClientVpnAuthorizationRulesResult, __MetadataBearer {}
 
 /**
  * <p>Describes the authorization rules for a specified Client VPN endpoint.</p>

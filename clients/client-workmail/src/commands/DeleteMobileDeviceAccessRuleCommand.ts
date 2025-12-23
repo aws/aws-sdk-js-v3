@@ -24,9 +24,7 @@ export interface DeleteMobileDeviceAccessRuleCommandInput extends DeleteMobileDe
  *
  * The output of {@link DeleteMobileDeviceAccessRuleCommand}.
  */
-export interface DeleteMobileDeviceAccessRuleCommandOutput
-  extends DeleteMobileDeviceAccessRuleResponse,
-    __MetadataBearer {}
+export interface DeleteMobileDeviceAccessRuleCommandOutput extends DeleteMobileDeviceAccessRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a mobile device access rule for the specified WorkMail organization.</p>

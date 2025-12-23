@@ -27,9 +27,7 @@ export interface DescribeAggregationAuthorizationsCommandInput extends DescribeA
  *
  * The output of {@link DescribeAggregationAuthorizationsCommand}.
  */
-export interface DescribeAggregationAuthorizationsCommandOutput
-  extends DescribeAggregationAuthorizationsResponse,
-    __MetadataBearer {}
+export interface DescribeAggregationAuthorizationsCommandOutput extends DescribeAggregationAuthorizationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of authorizations granted to various aggregator

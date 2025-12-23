@@ -27,9 +27,7 @@ export interface CreateLaunchConfigurationTemplateCommandInput extends CreateLau
  *
  * The output of {@link CreateLaunchConfigurationTemplateCommand}.
  */
-export interface CreateLaunchConfigurationTemplateCommandOutput
-  extends CreateLaunchConfigurationTemplateResponse,
-    __MetadataBearer {}
+export interface CreateLaunchConfigurationTemplateCommandOutput extends CreateLaunchConfigurationTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new Launch Configuration Template.</p>

@@ -27,9 +27,7 @@ export interface UpdateNotebookInstanceLifecycleConfigCommandInput extends Updat
  *
  * The output of {@link UpdateNotebookInstanceLifecycleConfigCommand}.
  */
-export interface UpdateNotebookInstanceLifecycleConfigCommandOutput
-  extends UpdateNotebookInstanceLifecycleConfigOutput,
-    __MetadataBearer {}
+export interface UpdateNotebookInstanceLifecycleConfigCommandOutput extends UpdateNotebookInstanceLifecycleConfigOutput, __MetadataBearer {}
 
 /**
  * <p>Updates a notebook instance lifecycle configuration created with the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateNotebookInstanceLifecycleConfig.html">CreateNotebookInstanceLifecycleConfig</a> API.</p>

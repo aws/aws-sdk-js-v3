@@ -31,9 +31,7 @@ export interface DisassociatePrincipalFromPortfolioCommandInput extends Disassoc
  *
  * The output of {@link DisassociatePrincipalFromPortfolioCommand}.
  */
-export interface DisassociatePrincipalFromPortfolioCommandOutput
-  extends DisassociatePrincipalFromPortfolioOutput,
-    __MetadataBearer {}
+export interface DisassociatePrincipalFromPortfolioCommandOutput extends DisassociatePrincipalFromPortfolioOutput, __MetadataBearer {}
 
 /**
  * <p>Disassociates a previously associated principal ARN from a specified

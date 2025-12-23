@@ -24,9 +24,7 @@ export interface PutAccountSendingAttributesCommandInput extends PutAccountSendi
  *
  * The output of {@link PutAccountSendingAttributesCommand}.
  */
-export interface PutAccountSendingAttributesCommandOutput
-  extends PutAccountSendingAttributesResponse,
-    __MetadataBearer {}
+export interface PutAccountSendingAttributesCommandOutput extends PutAccountSendingAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Enable or disable the ability of your account to send email.</p>

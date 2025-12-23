@@ -59,7 +59,6 @@ import {
   ViewDialect,
   WorkerType,
 } from "./enums";
-
 import {
   type AuthConfiguration,
   type AuthenticationConfiguration,

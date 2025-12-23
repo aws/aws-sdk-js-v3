@@ -583,8 +583,14 @@ export interface WorkMail {
   /**
    * @see {@link CreateAliasCommand}
    */
-  createAlias(args: CreateAliasCommandInput, options?: __HttpHandlerOptions): Promise<CreateAliasCommandOutput>;
-  createAlias(args: CreateAliasCommandInput, cb: (err: any, data?: CreateAliasCommandOutput) => void): void;
+  createAlias(
+    args: CreateAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAliasCommandOutput>;
+  createAlias(
+    args: CreateAliasCommandInput,
+    cb: (err: any, data?: CreateAliasCommandOutput) => void
+  ): void;
   createAlias(
     args: CreateAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -611,8 +617,14 @@ export interface WorkMail {
   /**
    * @see {@link CreateGroupCommand}
    */
-  createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
-  createGroup(args: CreateGroupCommandInput, cb: (err: any, data?: CreateGroupCommandOutput) => void): void;
+  createGroup(
+    args: CreateGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGroupCommandOutput>;
+  createGroup(
+    args: CreateGroupCommandInput,
+    cb: (err: any, data?: CreateGroupCommandOutput) => void
+  ): void;
   createGroup(
     args: CreateGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -694,7 +706,10 @@ export interface WorkMail {
     args: CreateResourceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateResourceCommandOutput>;
-  createResource(args: CreateResourceCommandInput, cb: (err: any, data?: CreateResourceCommandOutput) => void): void;
+  createResource(
+    args: CreateResourceCommandInput,
+    cb: (err: any, data?: CreateResourceCommandOutput) => void
+  ): void;
   createResource(
     args: CreateResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -704,8 +719,14 @@ export interface WorkMail {
   /**
    * @see {@link CreateUserCommand}
    */
-  createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
-  createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
+  createUser(
+    args: CreateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUserCommandOutput>;
+  createUser(
+    args: CreateUserCommandInput,
+    cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): void;
   createUser(
     args: CreateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -732,8 +753,14 @@ export interface WorkMail {
   /**
    * @see {@link DeleteAliasCommand}
    */
-  deleteAlias(args: DeleteAliasCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAliasCommandOutput>;
-  deleteAlias(args: DeleteAliasCommandInput, cb: (err: any, data?: DeleteAliasCommandOutput) => void): void;
+  deleteAlias(
+    args: DeleteAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAliasCommandOutput>;
+  deleteAlias(
+    args: DeleteAliasCommandInput,
+    cb: (err: any, data?: DeleteAliasCommandOutput) => void
+  ): void;
   deleteAlias(
     args: DeleteAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -777,8 +804,14 @@ export interface WorkMail {
   /**
    * @see {@link DeleteGroupCommand}
    */
-  deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
-  deleteGroup(args: DeleteGroupCommandInput, cb: (err: any, data?: DeleteGroupCommandOutput) => void): void;
+  deleteGroup(
+    args: DeleteGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGroupCommandOutput>;
+  deleteGroup(
+    args: DeleteGroupCommandInput,
+    cb: (err: any, data?: DeleteGroupCommandOutput) => void
+  ): void;
   deleteGroup(
     args: DeleteGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -928,7 +961,10 @@ export interface WorkMail {
     args: DeleteResourceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteResourceCommandOutput>;
-  deleteResource(args: DeleteResourceCommandInput, cb: (err: any, data?: DeleteResourceCommandOutput) => void): void;
+  deleteResource(
+    args: DeleteResourceCommandInput,
+    cb: (err: any, data?: DeleteResourceCommandOutput) => void
+  ): void;
   deleteResource(
     args: DeleteResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -955,8 +991,14 @@ export interface WorkMail {
   /**
    * @see {@link DeleteUserCommand}
    */
-  deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
-  deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUserCommandOutput>;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    cb: (err: any, data?: DeleteUserCommandOutput) => void
+  ): void;
   deleteUser(
     args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
@@ -1021,7 +1063,10 @@ export interface WorkMail {
     args: DescribeEntityCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeEntityCommandOutput>;
-  describeEntity(args: DescribeEntityCommandInput, cb: (err: any, data?: DescribeEntityCommandOutput) => void): void;
+  describeEntity(
+    args: DescribeEntityCommandInput,
+    cb: (err: any, data?: DescribeEntityCommandOutput) => void
+  ): void;
   describeEntity(
     args: DescribeEntityCommandInput,
     options: __HttpHandlerOptions,
@@ -1031,8 +1076,14 @@ export interface WorkMail {
   /**
    * @see {@link DescribeGroupCommand}
    */
-  describeGroup(args: DescribeGroupCommandInput, options?: __HttpHandlerOptions): Promise<DescribeGroupCommandOutput>;
-  describeGroup(args: DescribeGroupCommandInput, cb: (err: any, data?: DescribeGroupCommandOutput) => void): void;
+  describeGroup(
+    args: DescribeGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeGroupCommandOutput>;
+  describeGroup(
+    args: DescribeGroupCommandInput,
+    cb: (err: any, data?: DescribeGroupCommandOutput) => void
+  ): void;
   describeGroup(
     args: DescribeGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1127,8 +1178,14 @@ export interface WorkMail {
   /**
    * @see {@link DescribeUserCommand}
    */
-  describeUser(args: DescribeUserCommandInput, options?: __HttpHandlerOptions): Promise<DescribeUserCommandOutput>;
-  describeUser(args: DescribeUserCommandInput, cb: (err: any, data?: DescribeUserCommandOutput) => void): void;
+  describeUser(
+    args: DescribeUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeUserCommandOutput>;
+  describeUser(
+    args: DescribeUserCommandInput,
+    cb: (err: any, data?: DescribeUserCommandOutput) => void
+  ): void;
   describeUser(
     args: DescribeUserCommandInput,
     options: __HttpHandlerOptions,
@@ -1257,8 +1314,14 @@ export interface WorkMail {
   /**
    * @see {@link GetMailDomainCommand}
    */
-  getMailDomain(args: GetMailDomainCommandInput, options?: __HttpHandlerOptions): Promise<GetMailDomainCommandOutput>;
-  getMailDomain(args: GetMailDomainCommandInput, cb: (err: any, data?: GetMailDomainCommandOutput) => void): void;
+  getMailDomain(
+    args: GetMailDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMailDomainCommandOutput>;
+  getMailDomain(
+    args: GetMailDomainCommandInput,
+    cb: (err: any, data?: GetMailDomainCommandOutput) => void
+  ): void;
   getMailDomain(
     args: GetMailDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -1336,8 +1399,14 @@ export interface WorkMail {
   /**
    * @see {@link ListAliasesCommand}
    */
-  listAliases(args: ListAliasesCommandInput, options?: __HttpHandlerOptions): Promise<ListAliasesCommandOutput>;
-  listAliases(args: ListAliasesCommandInput, cb: (err: any, data?: ListAliasesCommandOutput) => void): void;
+  listAliases(
+    args: ListAliasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAliasesCommandOutput>;
+  listAliases(
+    args: ListAliasesCommandInput,
+    cb: (err: any, data?: ListAliasesCommandOutput) => void
+  ): void;
   listAliases(
     args: ListAliasesCommandInput,
     options: __HttpHandlerOptions,
@@ -1381,8 +1450,14 @@ export interface WorkMail {
   /**
    * @see {@link ListGroupsCommand}
    */
-  listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
-  listGroups(args: ListGroupsCommandInput, cb: (err: any, data?: ListGroupsCommandOutput) => void): void;
+  listGroups(
+    args: ListGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGroupsCommandOutput>;
+  listGroups(
+    args: ListGroupsCommandInput,
+    cb: (err: any, data?: ListGroupsCommandOutput) => void
+  ): void;
   listGroups(
     args: ListGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -1464,7 +1539,10 @@ export interface WorkMail {
     args: ListMailDomainsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListMailDomainsCommandOutput>;
-  listMailDomains(args: ListMailDomainsCommandInput, cb: (err: any, data?: ListMailDomainsCommandOutput) => void): void;
+  listMailDomains(
+    args: ListMailDomainsCommandInput,
+    cb: (err: any, data?: ListMailDomainsCommandOutput) => void
+  ): void;
   listMailDomains(
     args: ListMailDomainsCommandInput,
     options: __HttpHandlerOptions,
@@ -1560,8 +1638,14 @@ export interface WorkMail {
   /**
    * @see {@link ListResourcesCommand}
    */
-  listResources(args: ListResourcesCommandInput, options?: __HttpHandlerOptions): Promise<ListResourcesCommandOutput>;
-  listResources(args: ListResourcesCommandInput, cb: (err: any, data?: ListResourcesCommandOutput) => void): void;
+  listResources(
+    args: ListResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourcesCommandOutput>;
+  listResources(
+    args: ListResourcesCommandInput,
+    cb: (err: any, data?: ListResourcesCommandOutput) => void
+  ): void;
   listResources(
     args: ListResourcesCommandInput,
     options: __HttpHandlerOptions,
@@ -1588,8 +1672,14 @@ export interface WorkMail {
   /**
    * @see {@link ListUsersCommand}
    */
-  listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
-  listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
+  listUsers(
+    args: ListUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUsersCommandOutput>;
+  listUsers(
+    args: ListUsersCommandInput,
+    cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
   listUsers(
     args: ListUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -1752,8 +1842,14 @@ export interface WorkMail {
   /**
    * @see {@link ResetPasswordCommand}
    */
-  resetPassword(args: ResetPasswordCommandInput, options?: __HttpHandlerOptions): Promise<ResetPasswordCommandOutput>;
-  resetPassword(args: ResetPasswordCommandInput, cb: (err: any, data?: ResetPasswordCommandOutput) => void): void;
+  resetPassword(
+    args: ResetPasswordCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResetPasswordCommandOutput>;
+  resetPassword(
+    args: ResetPasswordCommandInput,
+    cb: (err: any, data?: ResetPasswordCommandOutput) => void
+  ): void;
   resetPassword(
     args: ResetPasswordCommandInput,
     options: __HttpHandlerOptions,
@@ -1780,8 +1876,14 @@ export interface WorkMail {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1808,8 +1910,14 @@ export interface WorkMail {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1853,8 +1961,14 @@ export interface WorkMail {
   /**
    * @see {@link UpdateGroupCommand}
    */
-  updateGroup(args: UpdateGroupCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGroupCommandOutput>;
-  updateGroup(args: UpdateGroupCommandInput, cb: (err: any, data?: UpdateGroupCommandOutput) => void): void;
+  updateGroup(
+    args: UpdateGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGroupCommandOutput>;
+  updateGroup(
+    args: UpdateGroupCommandInput,
+    cb: (err: any, data?: UpdateGroupCommandOutput) => void
+  ): void;
   updateGroup(
     args: UpdateGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1936,7 +2050,10 @@ export interface WorkMail {
     args: UpdateResourceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateResourceCommandOutput>;
-  updateResource(args: UpdateResourceCommandInput, cb: (err: any, data?: UpdateResourceCommandOutput) => void): void;
+  updateResource(
+    args: UpdateResourceCommandInput,
+    cb: (err: any, data?: UpdateResourceCommandOutput) => void
+  ): void;
   updateResource(
     args: UpdateResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1946,8 +2063,14 @@ export interface WorkMail {
   /**
    * @see {@link UpdateUserCommand}
    */
-  updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
-  updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
+  updateUser(
+    args: UpdateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUserCommandOutput>;
+  updateUser(
+    args: UpdateUserCommandInput,
+    cb: (err: any, data?: UpdateUserCommandOutput) => void
+  ): void;
   updateUser(
     args: UpdateUserCommandInput,
     options: __HttpHandlerOptions,

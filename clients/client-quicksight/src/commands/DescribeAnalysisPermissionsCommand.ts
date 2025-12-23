@@ -24,9 +24,7 @@ export interface DescribeAnalysisPermissionsCommandInput extends DescribeAnalysi
  *
  * The output of {@link DescribeAnalysisPermissionsCommand}.
  */
-export interface DescribeAnalysisPermissionsCommandOutput
-  extends DescribeAnalysisPermissionsResponse,
-    __MetadataBearer {}
+export interface DescribeAnalysisPermissionsCommandOutput extends DescribeAnalysisPermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides the read and write permissions for an analysis.</p>

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link IncreaseNodeGroupsInGlobalReplicationGroupCommand}.
  */
-export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandInput
-  extends IncreaseNodeGroupsInGlobalReplicationGroupMessage {}
+export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandInput extends IncreaseNodeGroupsInGlobalReplicationGroupMessage {}
 /**
  * @public
  *
  * The output of {@link IncreaseNodeGroupsInGlobalReplicationGroupCommand}.
  */
-export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput
-  extends IncreaseNodeGroupsInGlobalReplicationGroupResult,
-    __MetadataBearer {}
+export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput extends IncreaseNodeGroupsInGlobalReplicationGroupResult, __MetadataBearer {}
 
 /**
  * <p>Increase the number of node groups in the Global datastore</p>

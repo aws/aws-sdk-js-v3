@@ -28,9 +28,7 @@ export interface StartMetadataModelConversionCommandInput extends StartMetadataM
  *
  * The output of {@link StartMetadataModelConversionCommand}.
  */
-export interface StartMetadataModelConversionCommandOutput
-  extends StartMetadataModelConversionResponse,
-    __MetadataBearer {}
+export interface StartMetadataModelConversionCommandOutput extends StartMetadataModelConversionResponse, __MetadataBearer {}
 
 /**
  * <p>Converts your source database objects to a format compatible with the target database. </p>

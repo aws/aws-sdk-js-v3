@@ -24,9 +24,7 @@ export interface GetComplianceSummaryByConfigRuleCommandInput {}
  *
  * The output of {@link GetComplianceSummaryByConfigRuleCommand}.
  */
-export interface GetComplianceSummaryByConfigRuleCommandOutput
-  extends GetComplianceSummaryByConfigRuleResponse,
-    __MetadataBearer {}
+export interface GetComplianceSummaryByConfigRuleCommandOutput extends GetComplianceSummaryByConfigRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the number of Config rules that are compliant and

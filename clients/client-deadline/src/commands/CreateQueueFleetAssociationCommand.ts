@@ -24,9 +24,7 @@ export interface CreateQueueFleetAssociationCommandInput extends CreateQueueFlee
  *
  * The output of {@link CreateQueueFleetAssociationCommand}.
  */
-export interface CreateQueueFleetAssociationCommandOutput
-  extends CreateQueueFleetAssociationResponse,
-    __MetadataBearer {}
+export interface CreateQueueFleetAssociationCommandOutput extends CreateQueueFleetAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an association between a queue and a fleet.</p>

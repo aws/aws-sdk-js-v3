@@ -27,9 +27,7 @@ export interface RegisterPatchBaselineForPatchGroupCommandInput extends Register
  *
  * The output of {@link RegisterPatchBaselineForPatchGroupCommand}.
  */
-export interface RegisterPatchBaselineForPatchGroupCommandOutput
-  extends RegisterPatchBaselineForPatchGroupResult,
-    __MetadataBearer {}
+export interface RegisterPatchBaselineForPatchGroupCommandOutput extends RegisterPatchBaselineForPatchGroupResult, __MetadataBearer {}
 
 /**
  * <p>Registers a patch baseline for a patch group.</p>

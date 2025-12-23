@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListOrganizationRecommendationResourcesCommand}.
  */
-export interface ListOrganizationRecommendationResourcesCommandInput
-  extends ListOrganizationRecommendationResourcesRequest {}
+export interface ListOrganizationRecommendationResourcesCommandInput extends ListOrganizationRecommendationResourcesRequest {}
 /**
  * @public
  *
  * The output of {@link ListOrganizationRecommendationResourcesCommand}.
  */
-export interface ListOrganizationRecommendationResourcesCommandOutput
-  extends ListOrganizationRecommendationResourcesResponse,
-    __MetadataBearer {}
+export interface ListOrganizationRecommendationResourcesCommandOutput extends ListOrganizationRecommendationResourcesResponse, __MetadataBearer {}
 
 /**
  * <p>List Resources of a Recommendation within an Organization. This API only supports prioritized

@@ -659,8 +659,14 @@ export interface GameLift {
   /**
    * @see {@link AcceptMatchCommand}
    */
-  acceptMatch(args: AcceptMatchCommandInput, options?: __HttpHandlerOptions): Promise<AcceptMatchCommandOutput>;
-  acceptMatch(args: AcceptMatchCommandInput, cb: (err: any, data?: AcceptMatchCommandOutput) => void): void;
+  acceptMatch(
+    args: AcceptMatchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptMatchCommandOutput>;
+  acceptMatch(
+    args: AcceptMatchCommandInput,
+    cb: (err: any, data?: AcceptMatchCommandOutput) => void
+  ): void;
   acceptMatch(
     args: AcceptMatchCommandInput,
     options: __HttpHandlerOptions,
@@ -674,7 +680,10 @@ export interface GameLift {
     args: ClaimGameServerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ClaimGameServerCommandOutput>;
-  claimGameServer(args: ClaimGameServerCommandInput, cb: (err: any, data?: ClaimGameServerCommandOutput) => void): void;
+  claimGameServer(
+    args: ClaimGameServerCommandInput,
+    cb: (err: any, data?: ClaimGameServerCommandOutput) => void
+  ): void;
   claimGameServer(
     args: ClaimGameServerCommandInput,
     options: __HttpHandlerOptions,
@@ -684,8 +693,14 @@ export interface GameLift {
   /**
    * @see {@link CreateAliasCommand}
    */
-  createAlias(args: CreateAliasCommandInput, options?: __HttpHandlerOptions): Promise<CreateAliasCommandOutput>;
-  createAlias(args: CreateAliasCommandInput, cb: (err: any, data?: CreateAliasCommandOutput) => void): void;
+  createAlias(
+    args: CreateAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAliasCommandOutput>;
+  createAlias(
+    args: CreateAliasCommandInput,
+    cb: (err: any, data?: CreateAliasCommandOutput) => void
+  ): void;
   createAlias(
     args: CreateAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -696,8 +711,14 @@ export interface GameLift {
    * @see {@link CreateBuildCommand}
    */
   createBuild(): Promise<CreateBuildCommandOutput>;
-  createBuild(args: CreateBuildCommandInput, options?: __HttpHandlerOptions): Promise<CreateBuildCommandOutput>;
-  createBuild(args: CreateBuildCommandInput, cb: (err: any, data?: CreateBuildCommandOutput) => void): void;
+  createBuild(
+    args: CreateBuildCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBuildCommandOutput>;
+  createBuild(
+    args: CreateBuildCommandInput,
+    cb: (err: any, data?: CreateBuildCommandOutput) => void
+  ): void;
   createBuild(
     args: CreateBuildCommandInput,
     options: __HttpHandlerOptions,
@@ -741,8 +762,14 @@ export interface GameLift {
   /**
    * @see {@link CreateFleetCommand}
    */
-  createFleet(args: CreateFleetCommandInput, options?: __HttpHandlerOptions): Promise<CreateFleetCommandOutput>;
-  createFleet(args: CreateFleetCommandInput, cb: (err: any, data?: CreateFleetCommandOutput) => void): void;
+  createFleet(
+    args: CreateFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFleetCommandOutput>;
+  createFleet(
+    args: CreateFleetCommandInput,
+    cb: (err: any, data?: CreateFleetCommandOutput) => void
+  ): void;
   createFleet(
     args: CreateFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -824,7 +851,10 @@ export interface GameLift {
     args: CreateLocationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateLocationCommandOutput>;
-  createLocation(args: CreateLocationCommandInput, cb: (err: any, data?: CreateLocationCommandOutput) => void): void;
+  createLocation(
+    args: CreateLocationCommandInput,
+    cb: (err: any, data?: CreateLocationCommandOutput) => void
+  ): void;
   createLocation(
     args: CreateLocationCommandInput,
     options: __HttpHandlerOptions,
@@ -903,8 +933,14 @@ export interface GameLift {
    * @see {@link CreateScriptCommand}
    */
   createScript(): Promise<CreateScriptCommandOutput>;
-  createScript(args: CreateScriptCommandInput, options?: __HttpHandlerOptions): Promise<CreateScriptCommandOutput>;
-  createScript(args: CreateScriptCommandInput, cb: (err: any, data?: CreateScriptCommandOutput) => void): void;
+  createScript(
+    args: CreateScriptCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateScriptCommandOutput>;
+  createScript(
+    args: CreateScriptCommandInput,
+    cb: (err: any, data?: CreateScriptCommandOutput) => void
+  ): void;
   createScript(
     args: CreateScriptCommandInput,
     options: __HttpHandlerOptions,
@@ -948,8 +984,14 @@ export interface GameLift {
   /**
    * @see {@link DeleteAliasCommand}
    */
-  deleteAlias(args: DeleteAliasCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAliasCommandOutput>;
-  deleteAlias(args: DeleteAliasCommandInput, cb: (err: any, data?: DeleteAliasCommandOutput) => void): void;
+  deleteAlias(
+    args: DeleteAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAliasCommandOutput>;
+  deleteAlias(
+    args: DeleteAliasCommandInput,
+    cb: (err: any, data?: DeleteAliasCommandOutput) => void
+  ): void;
   deleteAlias(
     args: DeleteAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -959,8 +1001,14 @@ export interface GameLift {
   /**
    * @see {@link DeleteBuildCommand}
    */
-  deleteBuild(args: DeleteBuildCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBuildCommandOutput>;
-  deleteBuild(args: DeleteBuildCommandInput, cb: (err: any, data?: DeleteBuildCommandOutput) => void): void;
+  deleteBuild(
+    args: DeleteBuildCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBuildCommandOutput>;
+  deleteBuild(
+    args: DeleteBuildCommandInput,
+    cb: (err: any, data?: DeleteBuildCommandOutput) => void
+  ): void;
   deleteBuild(
     args: DeleteBuildCommandInput,
     options: __HttpHandlerOptions,
@@ -1004,8 +1052,14 @@ export interface GameLift {
   /**
    * @see {@link DeleteFleetCommand}
    */
-  deleteFleet(args: DeleteFleetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFleetCommandOutput>;
-  deleteFleet(args: DeleteFleetCommandInput, cb: (err: any, data?: DeleteFleetCommandOutput) => void): void;
+  deleteFleet(
+    args: DeleteFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFleetCommandOutput>;
+  deleteFleet(
+    args: DeleteFleetCommandInput,
+    cb: (err: any, data?: DeleteFleetCommandOutput) => void
+  ): void;
   deleteFleet(
     args: DeleteFleetCommandInput,
     options: __HttpHandlerOptions,
@@ -1070,7 +1124,10 @@ export interface GameLift {
     args: DeleteLocationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteLocationCommandOutput>;
-  deleteLocation(args: DeleteLocationCommandInput, cb: (err: any, data?: DeleteLocationCommandOutput) => void): void;
+  deleteLocation(
+    args: DeleteLocationCommandInput,
+    cb: (err: any, data?: DeleteLocationCommandOutput) => void
+  ): void;
   deleteLocation(
     args: DeleteLocationCommandInput,
     options: __HttpHandlerOptions,
@@ -1131,8 +1188,14 @@ export interface GameLift {
   /**
    * @see {@link DeleteScriptCommand}
    */
-  deleteScript(args: DeleteScriptCommandInput, options?: __HttpHandlerOptions): Promise<DeleteScriptCommandOutput>;
-  deleteScript(args: DeleteScriptCommandInput, cb: (err: any, data?: DeleteScriptCommandOutput) => void): void;
+  deleteScript(
+    args: DeleteScriptCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteScriptCommandOutput>;
+  deleteScript(
+    args: DeleteScriptCommandInput,
+    cb: (err: any, data?: DeleteScriptCommandOutput) => void
+  ): void;
   deleteScript(
     args: DeleteScriptCommandInput,
     options: __HttpHandlerOptions,
@@ -1210,8 +1273,14 @@ export interface GameLift {
   /**
    * @see {@link DescribeAliasCommand}
    */
-  describeAlias(args: DescribeAliasCommandInput, options?: __HttpHandlerOptions): Promise<DescribeAliasCommandOutput>;
-  describeAlias(args: DescribeAliasCommandInput, cb: (err: any, data?: DescribeAliasCommandOutput) => void): void;
+  describeAlias(
+    args: DescribeAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAliasCommandOutput>;
+  describeAlias(
+    args: DescribeAliasCommandInput,
+    cb: (err: any, data?: DescribeAliasCommandOutput) => void
+  ): void;
   describeAlias(
     args: DescribeAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -1221,8 +1290,14 @@ export interface GameLift {
   /**
    * @see {@link DescribeBuildCommand}
    */
-  describeBuild(args: DescribeBuildCommandInput, options?: __HttpHandlerOptions): Promise<DescribeBuildCommandOutput>;
-  describeBuild(args: DescribeBuildCommandInput, cb: (err: any, data?: DescribeBuildCommandOutput) => void): void;
+  describeBuild(
+    args: DescribeBuildCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBuildCommandOutput>;
+  describeBuild(
+    args: DescribeBuildCommandInput,
+    cb: (err: any, data?: DescribeBuildCommandOutput) => void
+  ): void;
   describeBuild(
     args: DescribeBuildCommandInput,
     options: __HttpHandlerOptions,
@@ -1236,7 +1311,10 @@ export interface GameLift {
     args: DescribeComputeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeComputeCommandOutput>;
-  describeCompute(args: DescribeComputeCommandInput, cb: (err: any, data?: DescribeComputeCommandOutput) => void): void;
+  describeCompute(
+    args: DescribeComputeCommandInput,
+    cb: (err: any, data?: DescribeComputeCommandOutput) => void
+  ): void;
   describeCompute(
     args: DescribeComputeCommandInput,
     options: __HttpHandlerOptions,
@@ -1702,7 +1780,10 @@ export interface GameLift {
     args: DescribeScriptCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeScriptCommandOutput>;
-  describeScript(args: DescribeScriptCommandInput, cb: (err: any, data?: DescribeScriptCommandOutput) => void): void;
+  describeScript(
+    args: DescribeScriptCommandInput,
+    cb: (err: any, data?: DescribeScriptCommandOutput) => void
+  ): void;
   describeScript(
     args: DescribeScriptCommandInput,
     options: __HttpHandlerOptions,
@@ -1817,8 +1898,14 @@ export interface GameLift {
    * @see {@link ListAliasesCommand}
    */
   listAliases(): Promise<ListAliasesCommandOutput>;
-  listAliases(args: ListAliasesCommandInput, options?: __HttpHandlerOptions): Promise<ListAliasesCommandOutput>;
-  listAliases(args: ListAliasesCommandInput, cb: (err: any, data?: ListAliasesCommandOutput) => void): void;
+  listAliases(
+    args: ListAliasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAliasesCommandOutput>;
+  listAliases(
+    args: ListAliasesCommandInput,
+    cb: (err: any, data?: ListAliasesCommandOutput) => void
+  ): void;
   listAliases(
     args: ListAliasesCommandInput,
     options: __HttpHandlerOptions,
@@ -1829,8 +1916,14 @@ export interface GameLift {
    * @see {@link ListBuildsCommand}
    */
   listBuilds(): Promise<ListBuildsCommandOutput>;
-  listBuilds(args: ListBuildsCommandInput, options?: __HttpHandlerOptions): Promise<ListBuildsCommandOutput>;
-  listBuilds(args: ListBuildsCommandInput, cb: (err: any, data?: ListBuildsCommandOutput) => void): void;
+  listBuilds(
+    args: ListBuildsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBuildsCommandOutput>;
+  listBuilds(
+    args: ListBuildsCommandInput,
+    cb: (err: any, data?: ListBuildsCommandOutput) => void
+  ): void;
   listBuilds(
     args: ListBuildsCommandInput,
     options: __HttpHandlerOptions,
@@ -1840,8 +1933,14 @@ export interface GameLift {
   /**
    * @see {@link ListComputeCommand}
    */
-  listCompute(args: ListComputeCommandInput, options?: __HttpHandlerOptions): Promise<ListComputeCommandOutput>;
-  listCompute(args: ListComputeCommandInput, cb: (err: any, data?: ListComputeCommandOutput) => void): void;
+  listCompute(
+    args: ListComputeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListComputeCommandOutput>;
+  listCompute(
+    args: ListComputeCommandInput,
+    cb: (err: any, data?: ListComputeCommandOutput) => void
+  ): void;
   listCompute(
     args: ListComputeCommandInput,
     options: __HttpHandlerOptions,
@@ -1923,8 +2022,14 @@ export interface GameLift {
    * @see {@link ListFleetsCommand}
    */
   listFleets(): Promise<ListFleetsCommandOutput>;
-  listFleets(args: ListFleetsCommandInput, options?: __HttpHandlerOptions): Promise<ListFleetsCommandOutput>;
-  listFleets(args: ListFleetsCommandInput, cb: (err: any, data?: ListFleetsCommandOutput) => void): void;
+  listFleets(
+    args: ListFleetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFleetsCommandOutput>;
+  listFleets(
+    args: ListFleetsCommandInput,
+    cb: (err: any, data?: ListFleetsCommandOutput) => void
+  ): void;
   listFleets(
     args: ListFleetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1956,7 +2061,10 @@ export interface GameLift {
     args: ListGameServersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListGameServersCommandOutput>;
-  listGameServers(args: ListGameServersCommandInput, cb: (err: any, data?: ListGameServersCommandOutput) => void): void;
+  listGameServers(
+    args: ListGameServersCommandInput,
+    cb: (err: any, data?: ListGameServersCommandOutput) => void
+  ): void;
   listGameServers(
     args: ListGameServersCommandInput,
     options: __HttpHandlerOptions,
@@ -1967,8 +2075,14 @@ export interface GameLift {
    * @see {@link ListLocationsCommand}
    */
   listLocations(): Promise<ListLocationsCommandOutput>;
-  listLocations(args: ListLocationsCommandInput, options?: __HttpHandlerOptions): Promise<ListLocationsCommandOutput>;
-  listLocations(args: ListLocationsCommandInput, cb: (err: any, data?: ListLocationsCommandOutput) => void): void;
+  listLocations(
+    args: ListLocationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLocationsCommandOutput>;
+  listLocations(
+    args: ListLocationsCommandInput,
+    cb: (err: any, data?: ListLocationsCommandOutput) => void
+  ): void;
   listLocations(
     args: ListLocationsCommandInput,
     options: __HttpHandlerOptions,
@@ -1979,8 +2093,14 @@ export interface GameLift {
    * @see {@link ListScriptsCommand}
    */
   listScripts(): Promise<ListScriptsCommandOutput>;
-  listScripts(args: ListScriptsCommandInput, options?: __HttpHandlerOptions): Promise<ListScriptsCommandOutput>;
-  listScripts(args: ListScriptsCommandInput, cb: (err: any, data?: ListScriptsCommandOutput) => void): void;
+  listScripts(
+    args: ListScriptsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListScriptsCommandOutput>;
+  listScripts(
+    args: ListScriptsCommandInput,
+    cb: (err: any, data?: ListScriptsCommandOutput) => void
+  ): void;
   listScripts(
     args: ListScriptsCommandInput,
     options: __HttpHandlerOptions,
@@ -2028,7 +2148,10 @@ export interface GameLift {
     args: RegisterComputeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RegisterComputeCommandOutput>;
-  registerCompute(args: RegisterComputeCommandInput, cb: (err: any, data?: RegisterComputeCommandOutput) => void): void;
+  registerCompute(
+    args: RegisterComputeCommandInput,
+    cb: (err: any, data?: RegisterComputeCommandOutput) => void
+  ): void;
   registerCompute(
     args: RegisterComputeCommandInput,
     options: __HttpHandlerOptions,
@@ -2072,8 +2195,14 @@ export interface GameLift {
   /**
    * @see {@link ResolveAliasCommand}
    */
-  resolveAlias(args: ResolveAliasCommandInput, options?: __HttpHandlerOptions): Promise<ResolveAliasCommandOutput>;
-  resolveAlias(args: ResolveAliasCommandInput, cb: (err: any, data?: ResolveAliasCommandOutput) => void): void;
+  resolveAlias(
+    args: ResolveAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResolveAliasCommandOutput>;
+  resolveAlias(
+    args: ResolveAliasCommandInput,
+    cb: (err: any, data?: ResolveAliasCommandOutput) => void
+  ): void;
   resolveAlias(
     args: ResolveAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -2224,7 +2353,10 @@ export interface GameLift {
     args: StopMatchmakingCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopMatchmakingCommandOutput>;
-  stopMatchmaking(args: StopMatchmakingCommandInput, cb: (err: any, data?: StopMatchmakingCommandOutput) => void): void;
+  stopMatchmaking(
+    args: StopMatchmakingCommandInput,
+    cb: (err: any, data?: StopMatchmakingCommandOutput) => void
+  ): void;
   stopMatchmaking(
     args: StopMatchmakingCommandInput,
     options: __HttpHandlerOptions,
@@ -2251,8 +2383,14 @@ export interface GameLift {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2279,8 +2417,14 @@ export interface GameLift {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2290,8 +2434,14 @@ export interface GameLift {
   /**
    * @see {@link UpdateAliasCommand}
    */
-  updateAlias(args: UpdateAliasCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAliasCommandOutput>;
-  updateAlias(args: UpdateAliasCommandInput, cb: (err: any, data?: UpdateAliasCommandOutput) => void): void;
+  updateAlias(
+    args: UpdateAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAliasCommandOutput>;
+  updateAlias(
+    args: UpdateAliasCommandInput,
+    cb: (err: any, data?: UpdateAliasCommandOutput) => void
+  ): void;
   updateAlias(
     args: UpdateAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -2301,8 +2451,14 @@ export interface GameLift {
   /**
    * @see {@link UpdateBuildCommand}
    */
-  updateBuild(args: UpdateBuildCommandInput, options?: __HttpHandlerOptions): Promise<UpdateBuildCommandOutput>;
-  updateBuild(args: UpdateBuildCommandInput, cb: (err: any, data?: UpdateBuildCommandOutput) => void): void;
+  updateBuild(
+    args: UpdateBuildCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBuildCommandOutput>;
+  updateBuild(
+    args: UpdateBuildCommandInput,
+    cb: (err: any, data?: UpdateBuildCommandOutput) => void
+  ): void;
   updateBuild(
     args: UpdateBuildCommandInput,
     options: __HttpHandlerOptions,
@@ -2499,8 +2655,14 @@ export interface GameLift {
   /**
    * @see {@link UpdateScriptCommand}
    */
-  updateScript(args: UpdateScriptCommandInput, options?: __HttpHandlerOptions): Promise<UpdateScriptCommandOutput>;
-  updateScript(args: UpdateScriptCommandInput, cb: (err: any, data?: UpdateScriptCommandOutput) => void): void;
+  updateScript(
+    args: UpdateScriptCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateScriptCommandOutput>;
+  updateScript(
+    args: UpdateScriptCommandInput,
+    cb: (err: any, data?: UpdateScriptCommandOutput) => void
+  ): void;
   updateScript(
     args: UpdateScriptCommandInput,
     options: __HttpHandlerOptions,

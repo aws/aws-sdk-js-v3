@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutSipMediaApplicationLoggingConfigurationCommand}.
  */
-export interface PutSipMediaApplicationLoggingConfigurationCommandInput
-  extends PutSipMediaApplicationLoggingConfigurationRequest {}
+export interface PutSipMediaApplicationLoggingConfigurationCommandInput extends PutSipMediaApplicationLoggingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link PutSipMediaApplicationLoggingConfigurationCommand}.
  */
-export interface PutSipMediaApplicationLoggingConfigurationCommandOutput
-  extends PutSipMediaApplicationLoggingConfigurationResponse,
-    __MetadataBearer {}
+export interface PutSipMediaApplicationLoggingConfigurationCommandOutput extends PutSipMediaApplicationLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the logging configuration for the specified SIP media application.</p>

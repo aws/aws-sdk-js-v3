@@ -24,9 +24,7 @@ export interface DeleteResourceConfigurationCommandInput extends DeleteResourceC
  *
  * The output of {@link DeleteResourceConfigurationCommand}.
  */
-export interface DeleteResourceConfigurationCommandOutput
-  extends DeleteResourceConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteResourceConfigurationCommandOutput extends DeleteResourceConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified resource configuration.</p>

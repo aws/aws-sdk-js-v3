@@ -27,9 +27,7 @@ export interface ListCustomVerificationEmailTemplatesCommandInput extends ListCu
  *
  * The output of {@link ListCustomVerificationEmailTemplatesCommand}.
  */
-export interface ListCustomVerificationEmailTemplatesCommandOutput
-  extends ListCustomVerificationEmailTemplatesResponse,
-    __MetadataBearer {}
+export interface ListCustomVerificationEmailTemplatesCommandOutput extends ListCustomVerificationEmailTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the existing custom verification email templates for your account in the current

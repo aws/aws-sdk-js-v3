@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link UpdateRoutingProfileDefaultOutboundQueueCommand}.
  */
-export interface UpdateRoutingProfileDefaultOutboundQueueCommandInput
-  extends UpdateRoutingProfileDefaultOutboundQueueRequest {}
+export interface UpdateRoutingProfileDefaultOutboundQueueCommandInput extends UpdateRoutingProfileDefaultOutboundQueueRequest {}
 /**
  * @public
  *

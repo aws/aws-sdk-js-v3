@@ -1626,7 +1626,9 @@ export interface SourceNetworkData {
  * <p>Properties of resource related to a job event.</p>
  * @public
  */
-export type EventResourceData = EventResourceData.SourceNetworkDataMember | EventResourceData.$UnknownMember;
+export type EventResourceData =
+  | EventResourceData.SourceNetworkDataMember
+  | EventResourceData.$UnknownMember;
 
 /**
  * @public

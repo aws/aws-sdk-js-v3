@@ -24,9 +24,7 @@ export interface DescribeFleetLocationAttributesCommandInput extends DescribeFle
  *
  * The output of {@link DescribeFleetLocationAttributesCommand}.
  */
-export interface DescribeFleetLocationAttributesCommandOutput
-  extends DescribeFleetLocationAttributesOutput,
-    __MetadataBearer {}
+export interface DescribeFleetLocationAttributesCommandOutput extends DescribeFleetLocationAttributesOutput, __MetadataBearer {}
 
 /**
  * <p>

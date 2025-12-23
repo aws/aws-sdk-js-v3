@@ -24,9 +24,7 @@ export interface DisassociateBrowserSettingsCommandInput extends DisassociateBro
  *
  * The output of {@link DisassociateBrowserSettingsCommand}.
  */
-export interface DisassociateBrowserSettingsCommandOutput
-  extends DisassociateBrowserSettingsResponse,
-    __MetadataBearer {}
+export interface DisassociateBrowserSettingsCommandOutput extends DisassociateBrowserSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates browser settings from a web portal.</p>

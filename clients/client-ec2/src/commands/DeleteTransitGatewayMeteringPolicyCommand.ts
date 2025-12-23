@@ -27,9 +27,7 @@ export interface DeleteTransitGatewayMeteringPolicyCommandInput extends DeleteTr
  *
  * The output of {@link DeleteTransitGatewayMeteringPolicyCommand}.
  */
-export interface DeleteTransitGatewayMeteringPolicyCommandOutput
-  extends DeleteTransitGatewayMeteringPolicyResult,
-    __MetadataBearer {}
+export interface DeleteTransitGatewayMeteringPolicyCommandOutput extends DeleteTransitGatewayMeteringPolicyResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a transit gateway metering policy.</p>

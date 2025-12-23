@@ -27,9 +27,7 @@ export interface BatchGetStandardsControlAssociationsCommandInput extends BatchG
  *
  * The output of {@link BatchGetStandardsControlAssociationsCommand}.
  */
-export interface BatchGetStandardsControlAssociationsCommandOutput
-  extends BatchGetStandardsControlAssociationsResponse,
-    __MetadataBearer {}
+export interface BatchGetStandardsControlAssociationsCommandOutput extends BatchGetStandardsControlAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>

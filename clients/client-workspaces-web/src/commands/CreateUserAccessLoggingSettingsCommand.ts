@@ -27,9 +27,7 @@ export interface CreateUserAccessLoggingSettingsCommandInput extends CreateUserA
  *
  * The output of {@link CreateUserAccessLoggingSettingsCommand}.
  */
-export interface CreateUserAccessLoggingSettingsCommandOutput
-  extends CreateUserAccessLoggingSettingsResponse,
-    __MetadataBearer {}
+export interface CreateUserAccessLoggingSettingsCommandOutput extends CreateUserAccessLoggingSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a user access logging settings resource that can be associated with a web portal.</p>

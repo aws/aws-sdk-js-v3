@@ -24,9 +24,7 @@ export interface DisassociateFromConfigurationCommandInput extends DisassociateF
  *
  * The output of {@link DisassociateFromConfigurationCommand}.
  */
-export interface DisassociateFromConfigurationCommandOutput
-  extends DisassociateFromConfigurationResult,
-    __MetadataBearer {}
+export interface DisassociateFromConfigurationCommandOutput extends DisassociateFromConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Unlink a resource, for example a custom action, from a channel configuration.</p>

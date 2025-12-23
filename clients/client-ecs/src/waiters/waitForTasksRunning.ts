@@ -10,44 +10,44 @@ const checkState = async (client: ECSClient, input: DescribeTasksCommandInput): 
     const result: any = await client.send(new DescribeTasksCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.tasks);
-        const projection_3 = flat_1.map((element_2: any) => {
+      let returnComparator = () => {
+        let flat_1: any[] = [].concat(...result.tasks);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.lastStatus;
         });
         return projection_3;
-      };
-      for (const anyStringEq_4 of returnComparator()) {
+      }
+      for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "STOPPED") {
           return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.failures);
-        const projection_3 = flat_1.map((element_2: any) => {
+      let returnComparator = () => {
+        let flat_1: any[] = [].concat(...result.failures);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.reason;
         });
         return projection_3;
-      };
-      for (const anyStringEq_4 of returnComparator()) {
+      }
+      for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "MISSING") {
           return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.tasks);
-        const projection_3 = flat_1.map((element_2: any) => {
+      let returnComparator = () => {
+        let flat_1: any[] = [].concat(...result.tasks);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.lastStatus;
         });
         return projection_3;
-      };
-      let allStringEq_5 = returnComparator().length > 0;
-      for (const element_4 of returnComparator()) {
-        allStringEq_5 = allStringEq_5 && element_4 == "RUNNING";
+      }
+      let allStringEq_5 = (returnComparator().length > 0);
+      for (let element_4 of returnComparator()) {
+        allStringEq_5 = allStringEq_5 && (element_4 == "RUNNING")
       }
       if (allStringEq_5) {
         return { state: WaiterState.SUCCESS, reason };

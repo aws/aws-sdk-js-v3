@@ -24,9 +24,7 @@ export interface DescribeNotificationsForBudgetCommandInput extends DescribeNoti
  *
  * The output of {@link DescribeNotificationsForBudgetCommand}.
  */
-export interface DescribeNotificationsForBudgetCommandOutput
-  extends DescribeNotificationsForBudgetResponse,
-    __MetadataBearer {}
+export interface DescribeNotificationsForBudgetCommandOutput extends DescribeNotificationsForBudgetResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the notifications that are associated with a budget.</p>

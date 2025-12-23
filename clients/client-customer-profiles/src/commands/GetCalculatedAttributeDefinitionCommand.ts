@@ -31,9 +31,7 @@ export interface GetCalculatedAttributeDefinitionCommandInput extends GetCalcula
  *
  * The output of {@link GetCalculatedAttributeDefinitionCommand}.
  */
-export interface GetCalculatedAttributeDefinitionCommandOutput
-  extends GetCalculatedAttributeDefinitionResponse,
-    __MetadataBearer {}
+export interface GetCalculatedAttributeDefinitionCommandOutput extends GetCalculatedAttributeDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Provides more information on a calculated attribute definition for Customer

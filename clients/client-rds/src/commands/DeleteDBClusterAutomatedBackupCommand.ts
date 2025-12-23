@@ -24,9 +24,7 @@ export interface DeleteDBClusterAutomatedBackupCommandInput extends DeleteDBClus
  *
  * The output of {@link DeleteDBClusterAutomatedBackupCommand}.
  */
-export interface DeleteDBClusterAutomatedBackupCommandOutput
-  extends DeleteDBClusterAutomatedBackupResult,
-    __MetadataBearer {}
+export interface DeleteDBClusterAutomatedBackupCommandOutput extends DeleteDBClusterAutomatedBackupResult, __MetadataBearer {}
 
 /**
  * <p>Deletes automated backups using the <code>DbClusterResourceId</code> value of the source DB cluster or the Amazon

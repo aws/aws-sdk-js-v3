@@ -28,9 +28,7 @@ export interface DeleteProgramManagementAccountCommandInput extends DeleteProgra
  *
  * The output of {@link DeleteProgramManagementAccountCommand}.
  */
-export interface DeleteProgramManagementAccountCommandOutput
-  extends DeleteProgramManagementAccountResponse,
-    __MetadataBearer {}
+export interface DeleteProgramManagementAccountCommandOutput extends DeleteProgramManagementAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a program management account.</p>

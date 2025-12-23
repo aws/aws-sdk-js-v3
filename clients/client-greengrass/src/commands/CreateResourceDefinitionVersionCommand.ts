@@ -27,9 +27,7 @@ export interface CreateResourceDefinitionVersionCommandInput extends CreateResou
  *
  * The output of {@link CreateResourceDefinitionVersionCommand}.
  */
-export interface CreateResourceDefinitionVersionCommandOutput
-  extends CreateResourceDefinitionVersionResponse,
-    __MetadataBearer {}
+export interface CreateResourceDefinitionVersionCommandOutput extends CreateResourceDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Creates a version of a resource definition that has already been defined.

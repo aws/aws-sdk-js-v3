@@ -24,9 +24,7 @@ export interface CreateVerifiedAccessEndpointCommandInput extends CreateVerified
  *
  * The output of {@link CreateVerifiedAccessEndpointCommand}.
  */
-export interface CreateVerifiedAccessEndpointCommandOutput
-  extends CreateVerifiedAccessEndpointResult,
-    __MetadataBearer {}
+export interface CreateVerifiedAccessEndpointCommandOutput extends CreateVerifiedAccessEndpointResult, __MetadataBearer {}
 
 /**
  * <p>An Amazon Web Services Verified Access endpoint is where you define your application along with an optional endpoint-level access policy.</p>

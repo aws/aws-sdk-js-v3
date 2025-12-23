@@ -24,9 +24,7 @@ export interface ListEnabledProductsForImportCommandInput extends ListEnabledPro
  *
  * The output of {@link ListEnabledProductsForImportCommand}.
  */
-export interface ListEnabledProductsForImportCommandOutput
-  extends ListEnabledProductsForImportResponse,
-    __MetadataBearer {}
+export interface ListEnabledProductsForImportCommandOutput extends ListEnabledProductsForImportResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all findings-generating solutions (products) that you are subscribed to receive

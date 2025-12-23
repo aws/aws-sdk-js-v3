@@ -24,9 +24,7 @@ export interface ListNotificationConfigurationsCommandInput extends ListNotifica
  *
  * The output of {@link ListNotificationConfigurationsCommand}.
  */
-export interface ListNotificationConfigurationsCommandOutput
-  extends ListNotificationConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListNotificationConfigurationsCommandOutput extends ListNotificationConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of abbreviated <code>NotificationConfigurations</code> according to specified filters, in reverse chronological order (newest first).</p>

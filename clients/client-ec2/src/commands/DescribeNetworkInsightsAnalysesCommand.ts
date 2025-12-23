@@ -24,9 +24,7 @@ export interface DescribeNetworkInsightsAnalysesCommandInput extends DescribeNet
  *
  * The output of {@link DescribeNetworkInsightsAnalysesCommand}.
  */
-export interface DescribeNetworkInsightsAnalysesCommandOutput
-  extends DescribeNetworkInsightsAnalysesResult,
-    __MetadataBearer {}
+export interface DescribeNetworkInsightsAnalysesCommandOutput extends DescribeNetworkInsightsAnalysesResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your network insights analyses.</p>

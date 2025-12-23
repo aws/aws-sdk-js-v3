@@ -266,8 +266,14 @@ export interface MemoryDB {
   /**
    * @see {@link CopySnapshotCommand}
    */
-  copySnapshot(args: CopySnapshotCommandInput, options?: __HttpHandlerOptions): Promise<CopySnapshotCommandOutput>;
-  copySnapshot(args: CopySnapshotCommandInput, cb: (err: any, data?: CopySnapshotCommandOutput) => void): void;
+  copySnapshot(
+    args: CopySnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CopySnapshotCommandOutput>;
+  copySnapshot(
+    args: CopySnapshotCommandInput,
+    cb: (err: any, data?: CopySnapshotCommandOutput) => void
+  ): void;
   copySnapshot(
     args: CopySnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -277,8 +283,14 @@ export interface MemoryDB {
   /**
    * @see {@link CreateACLCommand}
    */
-  createACL(args: CreateACLCommandInput, options?: __HttpHandlerOptions): Promise<CreateACLCommandOutput>;
-  createACL(args: CreateACLCommandInput, cb: (err: any, data?: CreateACLCommandOutput) => void): void;
+  createACL(
+    args: CreateACLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateACLCommandOutput>;
+  createACL(
+    args: CreateACLCommandInput,
+    cb: (err: any, data?: CreateACLCommandOutput) => void
+  ): void;
   createACL(
     args: CreateACLCommandInput,
     options: __HttpHandlerOptions,
@@ -288,8 +300,14 @@ export interface MemoryDB {
   /**
    * @see {@link CreateClusterCommand}
    */
-  createCluster(args: CreateClusterCommandInput, options?: __HttpHandlerOptions): Promise<CreateClusterCommandOutput>;
-  createCluster(args: CreateClusterCommandInput, cb: (err: any, data?: CreateClusterCommandOutput) => void): void;
+  createCluster(
+    args: CreateClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateClusterCommandOutput>;
+  createCluster(
+    args: CreateClusterCommandInput,
+    cb: (err: any, data?: CreateClusterCommandOutput) => void
+  ): void;
   createCluster(
     args: CreateClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -337,7 +355,10 @@ export interface MemoryDB {
     args: CreateSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateSnapshotCommandOutput>;
-  createSnapshot(args: CreateSnapshotCommandInput, cb: (err: any, data?: CreateSnapshotCommandOutput) => void): void;
+  createSnapshot(
+    args: CreateSnapshotCommandInput,
+    cb: (err: any, data?: CreateSnapshotCommandOutput) => void
+  ): void;
   createSnapshot(
     args: CreateSnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -364,8 +385,14 @@ export interface MemoryDB {
   /**
    * @see {@link CreateUserCommand}
    */
-  createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
-  createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
+  createUser(
+    args: CreateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUserCommandOutput>;
+  createUser(
+    args: CreateUserCommandInput,
+    cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): void;
   createUser(
     args: CreateUserCommandInput,
     options: __HttpHandlerOptions,
@@ -375,8 +402,14 @@ export interface MemoryDB {
   /**
    * @see {@link DeleteACLCommand}
    */
-  deleteACL(args: DeleteACLCommandInput, options?: __HttpHandlerOptions): Promise<DeleteACLCommandOutput>;
-  deleteACL(args: DeleteACLCommandInput, cb: (err: any, data?: DeleteACLCommandOutput) => void): void;
+  deleteACL(
+    args: DeleteACLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteACLCommandOutput>;
+  deleteACL(
+    args: DeleteACLCommandInput,
+    cb: (err: any, data?: DeleteACLCommandOutput) => void
+  ): void;
   deleteACL(
     args: DeleteACLCommandInput,
     options: __HttpHandlerOptions,
@@ -386,8 +419,14 @@ export interface MemoryDB {
   /**
    * @see {@link DeleteClusterCommand}
    */
-  deleteCluster(args: DeleteClusterCommandInput, options?: __HttpHandlerOptions): Promise<DeleteClusterCommandOutput>;
-  deleteCluster(args: DeleteClusterCommandInput, cb: (err: any, data?: DeleteClusterCommandOutput) => void): void;
+  deleteCluster(
+    args: DeleteClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteClusterCommandOutput>;
+  deleteCluster(
+    args: DeleteClusterCommandInput,
+    cb: (err: any, data?: DeleteClusterCommandOutput) => void
+  ): void;
   deleteCluster(
     args: DeleteClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -435,7 +474,10 @@ export interface MemoryDB {
     args: DeleteSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteSnapshotCommandOutput>;
-  deleteSnapshot(args: DeleteSnapshotCommandInput, cb: (err: any, data?: DeleteSnapshotCommandOutput) => void): void;
+  deleteSnapshot(
+    args: DeleteSnapshotCommandInput,
+    cb: (err: any, data?: DeleteSnapshotCommandOutput) => void
+  ): void;
   deleteSnapshot(
     args: DeleteSnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -462,8 +504,14 @@ export interface MemoryDB {
   /**
    * @see {@link DeleteUserCommand}
    */
-  deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
-  deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUserCommandOutput>;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    cb: (err: any, data?: DeleteUserCommandOutput) => void
+  ): void;
   deleteUser(
     args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
@@ -474,8 +522,14 @@ export interface MemoryDB {
    * @see {@link DescribeACLsCommand}
    */
   describeACLs(): Promise<DescribeACLsCommandOutput>;
-  describeACLs(args: DescribeACLsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeACLsCommandOutput>;
-  describeACLs(args: DescribeACLsCommandInput, cb: (err: any, data?: DescribeACLsCommandOutput) => void): void;
+  describeACLs(
+    args: DescribeACLsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeACLsCommandOutput>;
+  describeACLs(
+    args: DescribeACLsCommandInput,
+    cb: (err: any, data?: DescribeACLsCommandOutput) => void
+  ): void;
   describeACLs(
     args: DescribeACLsCommandInput,
     options: __HttpHandlerOptions,
@@ -526,7 +580,10 @@ export interface MemoryDB {
     args: DescribeEventsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeEventsCommandOutput>;
-  describeEvents(args: DescribeEventsCommandInput, cb: (err: any, data?: DescribeEventsCommandOutput) => void): void;
+  describeEvents(
+    args: DescribeEventsCommandInput,
+    cb: (err: any, data?: DescribeEventsCommandOutput) => void
+  ): void;
   describeEvents(
     args: DescribeEventsCommandInput,
     options: __HttpHandlerOptions,
@@ -715,8 +772,14 @@ export interface MemoryDB {
    * @see {@link DescribeUsersCommand}
    */
   describeUsers(): Promise<DescribeUsersCommandOutput>;
-  describeUsers(args: DescribeUsersCommandInput, options?: __HttpHandlerOptions): Promise<DescribeUsersCommandOutput>;
-  describeUsers(args: DescribeUsersCommandInput, cb: (err: any, data?: DescribeUsersCommandOutput) => void): void;
+  describeUsers(
+    args: DescribeUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeUsersCommandOutput>;
+  describeUsers(
+    args: DescribeUsersCommandInput,
+    cb: (err: any, data?: DescribeUsersCommandOutput) => void
+  ): void;
   describeUsers(
     args: DescribeUsersCommandInput,
     options: __HttpHandlerOptions,
@@ -726,8 +789,14 @@ export interface MemoryDB {
   /**
    * @see {@link FailoverShardCommand}
    */
-  failoverShard(args: FailoverShardCommandInput, options?: __HttpHandlerOptions): Promise<FailoverShardCommandOutput>;
-  failoverShard(args: FailoverShardCommandInput, cb: (err: any, data?: FailoverShardCommandOutput) => void): void;
+  failoverShard(
+    args: FailoverShardCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<FailoverShardCommandOutput>;
+  failoverShard(
+    args: FailoverShardCommandInput,
+    cb: (err: any, data?: FailoverShardCommandOutput) => void
+  ): void;
   failoverShard(
     args: FailoverShardCommandInput,
     options: __HttpHandlerOptions,
@@ -771,8 +840,14 @@ export interface MemoryDB {
   /**
    * @see {@link ListTagsCommand}
    */
-  listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
-  listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
+  listTags(
+    args: ListTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsCommandOutput>;
+  listTags(
+    args: ListTagsCommandInput,
+    cb: (err: any, data?: ListTagsCommandOutput) => void
+  ): void;
   listTags(
     args: ListTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -816,8 +891,14 @@ export interface MemoryDB {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -827,8 +908,14 @@ export interface MemoryDB {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -838,8 +925,14 @@ export interface MemoryDB {
   /**
    * @see {@link UpdateACLCommand}
    */
-  updateACL(args: UpdateACLCommandInput, options?: __HttpHandlerOptions): Promise<UpdateACLCommandOutput>;
-  updateACL(args: UpdateACLCommandInput, cb: (err: any, data?: UpdateACLCommandOutput) => void): void;
+  updateACL(
+    args: UpdateACLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateACLCommandOutput>;
+  updateACL(
+    args: UpdateACLCommandInput,
+    cb: (err: any, data?: UpdateACLCommandOutput) => void
+  ): void;
   updateACL(
     args: UpdateACLCommandInput,
     options: __HttpHandlerOptions,
@@ -849,8 +942,14 @@ export interface MemoryDB {
   /**
    * @see {@link UpdateClusterCommand}
    */
-  updateCluster(args: UpdateClusterCommandInput, options?: __HttpHandlerOptions): Promise<UpdateClusterCommandOutput>;
-  updateCluster(args: UpdateClusterCommandInput, cb: (err: any, data?: UpdateClusterCommandOutput) => void): void;
+  updateCluster(
+    args: UpdateClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateClusterCommandOutput>;
+  updateCluster(
+    args: UpdateClusterCommandInput,
+    cb: (err: any, data?: UpdateClusterCommandOutput) => void
+  ): void;
   updateCluster(
     args: UpdateClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -911,8 +1010,14 @@ export interface MemoryDB {
   /**
    * @see {@link UpdateUserCommand}
    */
-  updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
-  updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
+  updateUser(
+    args: UpdateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUserCommandOutput>;
+  updateUser(
+    args: UpdateUserCommandInput,
+    cb: (err: any, data?: UpdateUserCommandOutput) => void
+  ): void;
   updateUser(
     args: UpdateUserCommandInput,
     options: __HttpHandlerOptions,

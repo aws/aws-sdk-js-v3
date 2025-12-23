@@ -27,9 +27,7 @@ export interface CreateAvailabilityConfigurationCommandInput extends CreateAvail
  *
  * The output of {@link CreateAvailabilityConfigurationCommand}.
  */
-export interface CreateAvailabilityConfigurationCommandOutput
-  extends CreateAvailabilityConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateAvailabilityConfigurationCommandOutput extends CreateAvailabilityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an <code>AvailabilityConfiguration</code> for the given WorkMail organization and domain.</p>

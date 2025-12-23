@@ -24,9 +24,7 @@ export interface StartDeliveryStreamEncryptionCommandInput extends StartDelivery
  *
  * The output of {@link StartDeliveryStreamEncryptionCommand}.
  */
-export interface StartDeliveryStreamEncryptionCommandOutput
-  extends StartDeliveryStreamEncryptionOutput,
-    __MetadataBearer {}
+export interface StartDeliveryStreamEncryptionCommandOutput extends StartDeliveryStreamEncryptionOutput, __MetadataBearer {}
 
 /**
  * <p>Enables server-side encryption (SSE) for the Firehose stream. </p>

@@ -24,9 +24,7 @@ export interface CreateGUISessionAccessDetailsCommandInput extends CreateGUISess
  *
  * The output of {@link CreateGUISessionAccessDetailsCommand}.
  */
-export interface CreateGUISessionAccessDetailsCommandOutput
-  extends CreateGUISessionAccessDetailsResult,
-    __MetadataBearer {}
+export interface CreateGUISessionAccessDetailsCommandOutput extends CreateGUISessionAccessDetailsResult, __MetadataBearer {}
 
 /**
  * <p>Creates two URLs that are used to access a virtual computer’s graphical user interface

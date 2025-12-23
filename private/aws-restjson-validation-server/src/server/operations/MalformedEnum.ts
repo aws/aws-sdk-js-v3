@@ -11,8 +11,8 @@ import {
   OperationOutput as __OperationOutput,
   OperationSerializer as __OperationSerializer,
   SerializationException as __SerializationException,
-  ServerSerdeContext as __ServerSerdeContext,
   ServerSerdeContext,
+  ServerSerdeContext as __ServerSerdeContext,
   ServiceException as __BaseException,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
@@ -35,30 +35,27 @@ import {
 } from "../../protocols/Aws_restJson1";
 import { RestJsonValidationService } from "../RestJsonValidationService";
 
-export type MalformedEnum<Context> = __Operation<MalformedEnumServerInput, MalformedEnumServerOutput, Context>;
+export type MalformedEnum<Context> = __Operation<MalformedEnumServerInput, MalformedEnumServerOutput, Context>
 
 export interface MalformedEnumServerInput extends MalformedEnumInput {}
 export namespace MalformedEnumServerInput {
   /**
    * @internal
    */
-  export const validate: (obj: Parameters<typeof MalformedEnumInput.validate>[0]) => __ValidationFailure[] =
-    MalformedEnumInput.validate;
+  export const validate: (obj: Parameters<typeof MalformedEnumInput.validate>[0]) => __ValidationFailure[] = MalformedEnumInput.validate;
 }
 export interface MalformedEnumServerOutput {}
 
-export type MalformedEnumErrors = ValidationException;
+export type MalformedEnumErrors = ValidationException
 
-export class MalformedEnumSerializer
-  implements __OperationSerializer<RestJsonValidationService<any>, "MalformedEnum", MalformedEnumErrors>
-{
+export class MalformedEnumSerializer implements __OperationSerializer<RestJsonValidationService<any>, "MalformedEnum", MalformedEnumErrors> {
   serialize = serializeMalformedEnumResponse;
   deserialize = deserializeMalformedEnumRequest;
 
   isOperationError(error: any): error is MalformedEnumErrors {
-    const names: MalformedEnumErrors["name"][] = ["ValidationException"];
+    const names: MalformedEnumErrors['name'][] = ["ValidationException"];
     return names.includes(error.name);
-  }
+  };
 
   serializeError(error: MalformedEnumErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     switch (error.name) {
@@ -70,18 +67,19 @@ export class MalformedEnumSerializer
       }
     }
   }
+
 }
 
-export const getMalformedEnumHandler = <Context>(
-  operation: __Operation<MalformedEnumServerInput, MalformedEnumServerOutput, Context>
-): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+export const getMalformedEnumHandler = <Context>(operation: __Operation<MalformedEnumServerInput, MalformedEnumServerOutput, Context>): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
   const mux = new httpbinding.HttpBindingMux<"RestJsonValidation", "MalformedEnum">([
     new httpbinding.UriSpec<"RestJsonValidation", "MalformedEnum">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedEnum" }],
-      [],
-      { service: "RestJsonValidation", operation: "MalformedEnum" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedEnum" },
+      ],
+      [
+      ],
+      { service: "RestJsonValidation", operation: "MalformedEnum" }),
   ]);
   const customizer: __ValidationCustomizer<"MalformedEnum"> = (ctx, failures) => {
     if (!failures) {
@@ -91,20 +89,14 @@ export const getMalformedEnumHandler = <Context>(
       name: "ValidationException",
       $fault: "client",
       message: __generateValidationSummary(failures),
-      fieldList: failures.map((failure) => ({
+      fieldList: failures.map(failure => ({
         path: failure.path,
-        message: __generateValidationMessage(failure),
-      })),
+        message: __generateValidationMessage(failure)
+      }))
     };
   };
-  return new MalformedEnumHandler(
-    operation,
-    mux,
-    new MalformedEnumSerializer(),
-    serializeFrameworkException,
-    customizer
-  );
-};
+  return new MalformedEnumHandler(operation, mux, new MalformedEnumSerializer(), serializeFrameworkException, customizer);
+}
 
 const serdeContextBase = {
   base64Encoder: toBase64,
@@ -113,7 +105,7 @@ const serdeContextBase = {
   utf8Decoder: fromUtf8,
   streamCollector: streamCollector,
   requestHandler: new NodeHttpHandler(),
-  disableHostPrefix: true,
+  disableHostPrefix: true
 };
 async function handle<S, O extends keyof S & string, Context>(
   request: __HttpRequest,
@@ -128,45 +120,37 @@ async function handle<S, O extends keyof S & string, Context>(
   let input;
   try {
     input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request),
-      ...serdeContextBase,
+      endpoint: () => Promise.resolve(request), ...serdeContextBase
     });
   } catch (error: unknown) {
     if (__isFrameworkException(error)) {
       return serializeFrameworkException(error, serdeContextBase);
-    }
+    };
     return serializeFrameworkException(new __SerializationException(), serdeContextBase);
   }
   try {
-    const validationFailures = validationFn(input);
+    let validationFailures = validationFn(input);
     if (validationFailures && validationFailures.length > 0) {
-      const validationException = validationCustomizer({ operation: operationName }, validationFailures);
+      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
       if (validationException) {
         return serializer.serializeError(validationException, serdeContextBase);
       }
     }
-    const output = await operation(input, context);
+    let output = await operation(input, context);
     return serializer.serialize(output, serdeContextBase);
-  } catch (error: unknown) {
+  } catch(error: unknown) {
     if (serializer.isOperationError(error)) {
       return serializer.serializeError(error, serdeContextBase);
     }
-    console.log("Received an unexpected error", error);
+    console.log('Received an unexpected error', error);
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
 export class MalformedEnumHandler<Context> implements __ServiceHandler<Context> {
   private readonly operation: __Operation<MalformedEnumServerInput, MalformedEnumServerOutput, Context>;
   private readonly mux: __Mux<"RestJsonValidation", "MalformedEnum">;
-  private readonly serializer: __OperationSerializer<
-    RestJsonValidationService<Context>,
-    "MalformedEnum",
-    MalformedEnumErrors
-  >;
-  private readonly serializeFrameworkException: (
-    e: __SmithyFrameworkException,
-    ctx: __ServerSerdeContext
-  ) => Promise<__HttpResponse>;
+  private readonly serializer: __OperationSerializer<RestJsonValidationService<Context>, "MalformedEnum", MalformedEnumErrors>;
+  private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<"MalformedEnum">;
   /**
    * Construct a MalformedEnum handler.
@@ -193,20 +177,9 @@ export class MalformedEnumHandler<Context> implements __ServiceHandler<Context> 
   async handle(request: __HttpRequest, context: Context): Promise<__HttpResponse> {
     const target = this.mux.match(request);
     if (target === undefined) {
-      console.log(
-        "Received a request that did not match aws.protocoltests.restjson.validation#RestJsonValidation.MalformedEnum. This indicates a misconfiguration."
-      );
+      console.log('Received a request that did not match aws.protocoltests.restjson.validation#RestJsonValidation.MalformedEnum. This indicates a misconfiguration.');
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
-    return handle(
-      request,
-      context,
-      "MalformedEnum",
-      this.serializer,
-      this.operation,
-      this.serializeFrameworkException,
-      MalformedEnumServerInput.validate,
-      this.validationCustomizer
-    );
+    return handle(request, context, "MalformedEnum", this.serializer, this.operation, this.serializeFrameworkException, MalformedEnumServerInput.validate, this.validationCustomizer);
   }
 }

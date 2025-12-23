@@ -79,8 +79,14 @@ export interface PaymentCryptographyData {
   /**
    * @see {@link DecryptDataCommand}
    */
-  decryptData(args: DecryptDataCommandInput, options?: __HttpHandlerOptions): Promise<DecryptDataCommandOutput>;
-  decryptData(args: DecryptDataCommandInput, cb: (err: any, data?: DecryptDataCommandOutput) => void): void;
+  decryptData(
+    args: DecryptDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DecryptDataCommandOutput>;
+  decryptData(
+    args: DecryptDataCommandInput,
+    cb: (err: any, data?: DecryptDataCommandOutput) => void
+  ): void;
   decryptData(
     args: DecryptDataCommandInput,
     options: __HttpHandlerOptions,
@@ -90,8 +96,14 @@ export interface PaymentCryptographyData {
   /**
    * @see {@link EncryptDataCommand}
    */
-  encryptData(args: EncryptDataCommandInput, options?: __HttpHandlerOptions): Promise<EncryptDataCommandOutput>;
-  encryptData(args: EncryptDataCommandInput, cb: (err: any, data?: EncryptDataCommandOutput) => void): void;
+  encryptData(
+    args: EncryptDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EncryptDataCommandOutput>;
+  encryptData(
+    args: EncryptDataCommandInput,
+    cb: (err: any, data?: EncryptDataCommandOutput) => void
+  ): void;
   encryptData(
     args: EncryptDataCommandInput,
     options: __HttpHandlerOptions,
@@ -135,8 +147,14 @@ export interface PaymentCryptographyData {
   /**
    * @see {@link GenerateMacCommand}
    */
-  generateMac(args: GenerateMacCommandInput, options?: __HttpHandlerOptions): Promise<GenerateMacCommandOutput>;
-  generateMac(args: GenerateMacCommandInput, cb: (err: any, data?: GenerateMacCommandOutput) => void): void;
+  generateMac(
+    args: GenerateMacCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GenerateMacCommandOutput>;
+  generateMac(
+    args: GenerateMacCommandInput,
+    cb: (err: any, data?: GenerateMacCommandOutput) => void
+  ): void;
   generateMac(
     args: GenerateMacCommandInput,
     options: __HttpHandlerOptions,
@@ -167,7 +185,10 @@ export interface PaymentCryptographyData {
     args: GeneratePinDataCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GeneratePinDataCommandOutput>;
-  generatePinData(args: GeneratePinDataCommandInput, cb: (err: any, data?: GeneratePinDataCommandOutput) => void): void;
+  generatePinData(
+    args: GeneratePinDataCommandInput,
+    cb: (err: any, data?: GeneratePinDataCommandOutput) => void
+  ): void;
   generatePinData(
     args: GeneratePinDataCommandInput,
     options: __HttpHandlerOptions,
@@ -177,8 +198,14 @@ export interface PaymentCryptographyData {
   /**
    * @see {@link ReEncryptDataCommand}
    */
-  reEncryptData(args: ReEncryptDataCommandInput, options?: __HttpHandlerOptions): Promise<ReEncryptDataCommandOutput>;
-  reEncryptData(args: ReEncryptDataCommandInput, cb: (err: any, data?: ReEncryptDataCommandOutput) => void): void;
+  reEncryptData(
+    args: ReEncryptDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReEncryptDataCommandOutput>;
+  reEncryptData(
+    args: ReEncryptDataCommandInput,
+    cb: (err: any, data?: ReEncryptDataCommandOutput) => void
+  ): void;
   reEncryptData(
     args: ReEncryptDataCommandInput,
     options: __HttpHandlerOptions,
@@ -256,8 +283,14 @@ export interface PaymentCryptographyData {
   /**
    * @see {@link VerifyMacCommand}
    */
-  verifyMac(args: VerifyMacCommandInput, options?: __HttpHandlerOptions): Promise<VerifyMacCommandOutput>;
-  verifyMac(args: VerifyMacCommandInput, cb: (err: any, data?: VerifyMacCommandOutput) => void): void;
+  verifyMac(
+    args: VerifyMacCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<VerifyMacCommandOutput>;
+  verifyMac(
+    args: VerifyMacCommandInput,
+    cb: (err: any, data?: VerifyMacCommandOutput) => void
+  ): void;
   verifyMac(
     args: VerifyMacCommandInput,
     options: __HttpHandlerOptions,
@@ -267,8 +300,14 @@ export interface PaymentCryptographyData {
   /**
    * @see {@link VerifyPinDataCommand}
    */
-  verifyPinData(args: VerifyPinDataCommandInput, options?: __HttpHandlerOptions): Promise<VerifyPinDataCommandOutput>;
-  verifyPinData(args: VerifyPinDataCommandInput, cb: (err: any, data?: VerifyPinDataCommandOutput) => void): void;
+  verifyPinData(
+    args: VerifyPinDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<VerifyPinDataCommandOutput>;
+  verifyPinData(
+    args: VerifyPinDataCommandInput,
+    cb: (err: any, data?: VerifyPinDataCommandOutput) => void
+  ): void;
   verifyPinData(
     args: VerifyPinDataCommandInput,
     options: __HttpHandlerOptions,

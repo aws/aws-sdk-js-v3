@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link BatchPutDataQualityStatisticAnnotationCommand}.
  */
-export interface BatchPutDataQualityStatisticAnnotationCommandInput
-  extends BatchPutDataQualityStatisticAnnotationRequest {}
+export interface BatchPutDataQualityStatisticAnnotationCommandInput extends BatchPutDataQualityStatisticAnnotationRequest {}
 /**
  * @public
  *
  * The output of {@link BatchPutDataQualityStatisticAnnotationCommand}.
  */
-export interface BatchPutDataQualityStatisticAnnotationCommandOutput
-  extends BatchPutDataQualityStatisticAnnotationResponse,
-    __MetadataBearer {}
+export interface BatchPutDataQualityStatisticAnnotationCommandOutput extends BatchPutDataQualityStatisticAnnotationResponse, __MetadataBearer {}
 
 /**
  * <p>Annotate datapoints over time for a specific data quality statistic.

@@ -74,7 +74,6 @@ import {
   VocabularyState,
   VoiceRecordingTrack,
 } from "./enums";
-
 import {
   type AgentHierarchyGroups,
   type ControlPlaneAttributeFilter,
@@ -96,7 +95,6 @@ import {
   UserProficiency,
   View,
 } from "./models_0";
-
 import {
   Attribute,
   ContactFlow,

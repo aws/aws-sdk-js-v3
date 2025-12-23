@@ -27,9 +27,7 @@ export interface ListNetworkAnalyzerConfigurationsCommandInput extends ListNetwo
  *
  * The output of {@link ListNetworkAnalyzerConfigurationsCommand}.
  */
-export interface ListNetworkAnalyzerConfigurationsCommandOutput
-  extends ListNetworkAnalyzerConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListNetworkAnalyzerConfigurationsCommandOutput extends ListNetworkAnalyzerConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the network analyzer configurations.</p>

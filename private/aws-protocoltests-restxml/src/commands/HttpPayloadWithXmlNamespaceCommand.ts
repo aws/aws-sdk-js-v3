@@ -29,9 +29,7 @@ export interface HttpPayloadWithXmlNamespaceCommandInput extends HttpPayloadWith
  *
  * The output of {@link HttpPayloadWithXmlNamespaceCommand}.
  */
-export interface HttpPayloadWithXmlNamespaceCommandOutput
-  extends HttpPayloadWithXmlNamespaceInputOutput,
-    __MetadataBearer {}
+export interface HttpPayloadWithXmlNamespaceCommandOutput extends HttpPayloadWithXmlNamespaceInputOutput, __MetadataBearer {}
 
 /**
  * The following example serializes a payload that uses an XML namespace.

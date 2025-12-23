@@ -24,9 +24,7 @@ export interface CreateAndAttachS3AccessPointCommandInput extends CreateAndAttac
  *
  * The output of {@link CreateAndAttachS3AccessPointCommand}.
  */
-export interface CreateAndAttachS3AccessPointCommandOutput
-  extends CreateAndAttachS3AccessPointResponse,
-    __MetadataBearer {}
+export interface CreateAndAttachS3AccessPointCommandOutput extends CreateAndAttachS3AccessPointResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an S3 access point and attaches it to an Amazon FSx volume. For FSx for OpenZFS file systems, the

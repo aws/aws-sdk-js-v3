@@ -95,7 +95,6 @@ import {
   VirtualizationType,
   VpnProtocol,
 } from "./enums";
-
 import {
   type AssociationStatus,
   type ClientVpnAuthorizationRuleStatus,
@@ -123,7 +122,6 @@ import {
   Tag,
   UnsuccessfulItem,
 } from "./models_0";
-
 import {
   type AttributeValue,
   type CapacityReservationTargetResponse,
@@ -138,7 +136,6 @@ import {
   FleetLaunchTemplateOverrides,
   GroupIdentifier,
 } from "./models_1";
-
 import type {
   TransitGatewayPolicyTable,
   TransitGatewayPrefixListReference,

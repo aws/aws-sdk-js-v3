@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListAccountsForProvisionedPermissionSetCommand}.
  */
-export interface ListAccountsForProvisionedPermissionSetCommandInput
-  extends ListAccountsForProvisionedPermissionSetRequest {}
+export interface ListAccountsForProvisionedPermissionSetCommandInput extends ListAccountsForProvisionedPermissionSetRequest {}
 /**
  * @public
  *
  * The output of {@link ListAccountsForProvisionedPermissionSetCommand}.
  */
-export interface ListAccountsForProvisionedPermissionSetCommandOutput
-  extends ListAccountsForProvisionedPermissionSetResponse,
-    __MetadataBearer {}
+export interface ListAccountsForProvisionedPermissionSetCommandOutput extends ListAccountsForProvisionedPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the Amazon Web Services accounts where the specified permission set is provisioned.</p>

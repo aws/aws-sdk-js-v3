@@ -27,9 +27,7 @@ export interface DeleteDataLakeExceptionSubscriptionCommandInput extends DeleteD
  *
  * The output of {@link DeleteDataLakeExceptionSubscriptionCommand}.
  */
-export interface DeleteDataLakeExceptionSubscriptionCommandOutput
-  extends DeleteDataLakeExceptionSubscriptionResponse,
-    __MetadataBearer {}
+export interface DeleteDataLakeExceptionSubscriptionCommandOutput extends DeleteDataLakeExceptionSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified notification subscription in Amazon Security Lake for the organization

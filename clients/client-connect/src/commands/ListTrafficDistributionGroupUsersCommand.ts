@@ -27,9 +27,7 @@ export interface ListTrafficDistributionGroupUsersCommandInput extends ListTraff
  *
  * The output of {@link ListTrafficDistributionGroupUsersCommand}.
  */
-export interface ListTrafficDistributionGroupUsersCommandOutput
-  extends ListTrafficDistributionGroupUsersResponse,
-    __MetadataBearer {}
+export interface ListTrafficDistributionGroupUsersCommandOutput extends ListTrafficDistributionGroupUsersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists traffic distribution group users.</p>

@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link UpdateConfigurationSetReputationMetricsEnabledCommand}.
  */
-export interface UpdateConfigurationSetReputationMetricsEnabledCommandInput
-  extends UpdateConfigurationSetReputationMetricsEnabledRequest {}
+export interface UpdateConfigurationSetReputationMetricsEnabledCommandInput extends UpdateConfigurationSetReputationMetricsEnabledRequest {}
 /**
  * @public
  *

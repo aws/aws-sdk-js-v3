@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetTransitGatewayRouteTablePropagationsCommand}.
  */
-export interface GetTransitGatewayRouteTablePropagationsCommandInput
-  extends GetTransitGatewayRouteTablePropagationsRequest {}
+export interface GetTransitGatewayRouteTablePropagationsCommandInput extends GetTransitGatewayRouteTablePropagationsRequest {}
 /**
  * @public
  *
  * The output of {@link GetTransitGatewayRouteTablePropagationsCommand}.
  */
-export interface GetTransitGatewayRouteTablePropagationsCommandOutput
-  extends GetTransitGatewayRouteTablePropagationsResult,
-    __MetadataBearer {}
+export interface GetTransitGatewayRouteTablePropagationsCommandOutput extends GetTransitGatewayRouteTablePropagationsResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about the route table propagations for the specified transit gateway route table.</p>

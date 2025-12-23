@@ -24,9 +24,7 @@ export interface ListPendingInvitationResourcesCommandInput extends ListPendingI
  *
  * The output of {@link ListPendingInvitationResourcesCommand}.
  */
-export interface ListPendingInvitationResourcesCommandOutput
-  extends ListPendingInvitationResourcesResponse,
-    __MetadataBearer {}
+export interface ListPendingInvitationResourcesCommandOutput extends ListPendingInvitationResourcesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the resources in a resource share that is shared with you but for which the invitation is

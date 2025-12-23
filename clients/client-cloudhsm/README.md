@@ -7,7 +7,6 @@
 AWS SDK for JavaScript CloudHSM Client for Node.js, Browser and React Native.
 
 <fullname>AWS CloudHSM Service</fullname>
-
 <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
 more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
 Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -20,10 +19,8 @@ and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS 
 Reference</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-cloudhsm
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-cloudhsm`
 - `yarn add @aws-sdk/client-cloudhsm`
 - `pnpm add @aws-sdk/client-cloudhsm`
@@ -59,9 +56,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new CloudHSMClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListHapgsCommand(params);
 ```
 
@@ -220,7 +215,6 @@ AddTagsToResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm/command/AddTagsToResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/AddTagsToResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/AddTagsToResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -228,7 +222,6 @@ CreateHapg
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm/command/CreateHapgCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/CreateHapgCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/CreateHapgCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -236,7 +229,6 @@ CreateHsm
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm/command/CreateHsmCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/CreateHsmCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/CreateHsmCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -244,7 +236,6 @@ CreateLunaClient
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm/command/CreateLunaClientCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/CreateLunaClientCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/CreateLunaClientCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -252,7 +243,6 @@ DeleteHapg
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm/command/DeleteHapgCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/DeleteHapgCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/DeleteHapgCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -260,7 +250,6 @@ DeleteHsm
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm/command/DeleteHsmCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/DeleteHsmCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/DeleteHsmCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -268,7 +257,6 @@ DeleteLunaClient
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm/command/DeleteLunaClientCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/DeleteLunaClientCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/DeleteLunaClientCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -276,7 +264,6 @@ DescribeHapg
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm/command/DescribeHapgCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/DescribeHapgCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/DescribeHapgCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -284,7 +271,6 @@ DescribeHsm
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm/command/DescribeHsmCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/DescribeHsmCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/DescribeHsmCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -292,7 +278,6 @@ DescribeLunaClient
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm/command/DescribeLunaClientCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/DescribeLunaClientCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/DescribeLunaClientCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -300,7 +285,6 @@ GetConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm/command/GetConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/GetConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/GetConfigCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -308,7 +292,6 @@ ListAvailableZones
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm/command/ListAvailableZonesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/ListAvailableZonesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/ListAvailableZonesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -316,7 +299,6 @@ ListHapgs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm/command/ListHapgsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/ListHapgsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/ListHapgsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -324,7 +306,6 @@ ListHsms
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm/command/ListHsmsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/ListHsmsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/ListHsmsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -332,7 +313,6 @@ ListLunaClients
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm/command/ListLunaClientsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/ListLunaClientsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/ListLunaClientsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -340,7 +320,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -348,7 +327,6 @@ ModifyHapg
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm/command/ModifyHapgCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/ModifyHapgCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/ModifyHapgCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -356,7 +334,6 @@ ModifyHsm
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm/command/ModifyHsmCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/ModifyHsmCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/ModifyHsmCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -364,7 +341,6 @@ ModifyLunaClient
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm/command/ModifyLunaClientCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/ModifyLunaClientCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/ModifyLunaClientCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -372,5 +348,4 @@ RemoveTagsFromResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm/command/RemoveTagsFromResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/RemoveTagsFromResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm/Interface/RemoveTagsFromResourceCommandOutput/)
-
 </details>

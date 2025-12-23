@@ -24,9 +24,7 @@ export interface CreateStudioLifecycleConfigCommandInput extends CreateStudioLif
  *
  * The output of {@link CreateStudioLifecycleConfigCommand}.
  */
-export interface CreateStudioLifecycleConfigCommandOutput
-  extends CreateStudioLifecycleConfigResponse,
-    __MetadataBearer {}
+export interface CreateStudioLifecycleConfigCommandOutput extends CreateStudioLifecycleConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new Amazon SageMaker AI Studio Lifecycle Configuration.</p>

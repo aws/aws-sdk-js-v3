@@ -28,9 +28,7 @@ export interface DescribeProvisioningArtifactCommandInput extends DescribeProvis
  *
  * The output of {@link DescribeProvisioningArtifactCommand}.
  */
-export interface DescribeProvisioningArtifactCommandOutput
-  extends DescribeProvisioningArtifactOutput,
-    __MetadataBearer {}
+export interface DescribeProvisioningArtifactCommandOutput extends DescribeProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about the specified provisioning artifact (also known as a version) for the specified product.</p>

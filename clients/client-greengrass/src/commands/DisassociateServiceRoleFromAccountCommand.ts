@@ -27,9 +27,7 @@ export interface DisassociateServiceRoleFromAccountCommandInput extends Disassoc
  *
  * The output of {@link DisassociateServiceRoleFromAccountCommand}.
  */
-export interface DisassociateServiceRoleFromAccountCommandOutput
-  extends DisassociateServiceRoleFromAccountResponse,
-    __MetadataBearer {}
+export interface DisassociateServiceRoleFromAccountCommandOutput extends DisassociateServiceRoleFromAccountResponse, __MetadataBearer {}
 
 /**
  * Disassociates the service role from your account. Without a service role, deployments will not work.

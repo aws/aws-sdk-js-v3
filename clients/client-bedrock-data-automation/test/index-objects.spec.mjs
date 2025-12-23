@@ -114,6 +114,8 @@ import {
   ModalityProcessingConfiguration$,
   ModalityRoutingConfiguration$,
   OverrideConfiguration$,
+  paginateListBlueprints,
+  paginateListDataAutomationProjects,
   PIIEntitiesConfiguration$,
   PIIEntityType,
   PIIRedactionMaskMode,
@@ -162,8 +164,6 @@ import {
   VideoStandardGenerativeField$,
   VideoStandardGenerativeFieldType,
   VideoStandardOutputConfiguration$,
-  paginateListBlueprints,
-  paginateListDataAutomationProjects,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

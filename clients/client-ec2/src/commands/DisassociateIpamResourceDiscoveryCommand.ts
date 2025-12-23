@@ -27,9 +27,7 @@ export interface DisassociateIpamResourceDiscoveryCommandInput extends Disassoci
  *
  * The output of {@link DisassociateIpamResourceDiscoveryCommand}.
  */
-export interface DisassociateIpamResourceDiscoveryCommandOutput
-  extends DisassociateIpamResourceDiscoveryResult,
-    __MetadataBearer {}
+export interface DisassociateIpamResourceDiscoveryCommandOutput extends DisassociateIpamResourceDiscoveryResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates a resource discovery from an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetSavingsPlanPurchaseRecommendationDetailsCommand}.
  */
-export interface GetSavingsPlanPurchaseRecommendationDetailsCommandInput
-  extends GetSavingsPlanPurchaseRecommendationDetailsRequest {}
+export interface GetSavingsPlanPurchaseRecommendationDetailsCommandInput extends GetSavingsPlanPurchaseRecommendationDetailsRequest {}
 /**
  * @public
  *
  * The output of {@link GetSavingsPlanPurchaseRecommendationDetailsCommand}.
  */
-export interface GetSavingsPlanPurchaseRecommendationDetailsCommandOutput
-  extends GetSavingsPlanPurchaseRecommendationDetailsResponse,
-    __MetadataBearer {}
+export interface GetSavingsPlanPurchaseRecommendationDetailsCommandOutput extends GetSavingsPlanPurchaseRecommendationDetailsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the details for a Savings Plan recommendation. These details include the hourly

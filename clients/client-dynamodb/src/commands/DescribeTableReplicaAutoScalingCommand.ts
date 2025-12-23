@@ -24,9 +24,7 @@ export interface DescribeTableReplicaAutoScalingCommandInput extends DescribeTab
  *
  * The output of {@link DescribeTableReplicaAutoScalingCommand}.
  */
-export interface DescribeTableReplicaAutoScalingCommandOutput
-  extends DescribeTableReplicaAutoScalingOutput,
-    __MetadataBearer {}
+export interface DescribeTableReplicaAutoScalingCommandOutput extends DescribeTableReplicaAutoScalingOutput, __MetadataBearer {}
 
 /**
  * <p>Describes auto scaling settings across replicas of the global table at once.</p>

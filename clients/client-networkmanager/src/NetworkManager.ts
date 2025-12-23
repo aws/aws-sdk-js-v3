@@ -592,8 +592,14 @@ export interface NetworkManager {
   /**
    * @see {@link AssociateLinkCommand}
    */
-  associateLink(args: AssociateLinkCommandInput, options?: __HttpHandlerOptions): Promise<AssociateLinkCommandOutput>;
-  associateLink(args: AssociateLinkCommandInput, cb: (err: any, data?: AssociateLinkCommandOutput) => void): void;
+  associateLink(
+    args: AssociateLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateLinkCommandOutput>;
+  associateLink(
+    args: AssociateLinkCommandInput,
+    cb: (err: any, data?: AssociateLinkCommandOutput) => void
+  ): void;
   associateLink(
     args: AssociateLinkCommandInput,
     options: __HttpHandlerOptions,
@@ -705,8 +711,14 @@ export interface NetworkManager {
   /**
    * @see {@link CreateDeviceCommand}
    */
-  createDevice(args: CreateDeviceCommandInput, options?: __HttpHandlerOptions): Promise<CreateDeviceCommandOutput>;
-  createDevice(args: CreateDeviceCommandInput, cb: (err: any, data?: CreateDeviceCommandOutput) => void): void;
+  createDevice(
+    args: CreateDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDeviceCommandOutput>;
+  createDevice(
+    args: CreateDeviceCommandInput,
+    cb: (err: any, data?: CreateDeviceCommandOutput) => void
+  ): void;
   createDevice(
     args: CreateDeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -751,8 +763,14 @@ export interface NetworkManager {
   /**
    * @see {@link CreateLinkCommand}
    */
-  createLink(args: CreateLinkCommandInput, options?: __HttpHandlerOptions): Promise<CreateLinkCommandOutput>;
-  createLink(args: CreateLinkCommandInput, cb: (err: any, data?: CreateLinkCommandOutput) => void): void;
+  createLink(
+    args: CreateLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLinkCommandOutput>;
+  createLink(
+    args: CreateLinkCommandInput,
+    cb: (err: any, data?: CreateLinkCommandOutput) => void
+  ): void;
   createLink(
     args: CreateLinkCommandInput,
     options: __HttpHandlerOptions,
@@ -762,8 +780,14 @@ export interface NetworkManager {
   /**
    * @see {@link CreateSiteCommand}
    */
-  createSite(args: CreateSiteCommandInput, options?: __HttpHandlerOptions): Promise<CreateSiteCommandOutput>;
-  createSite(args: CreateSiteCommandInput, cb: (err: any, data?: CreateSiteCommandOutput) => void): void;
+  createSite(
+    args: CreateSiteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSiteCommandOutput>;
+  createSite(
+    args: CreateSiteCommandInput,
+    cb: (err: any, data?: CreateSiteCommandOutput) => void
+  ): void;
   createSite(
     args: CreateSiteCommandInput,
     options: __HttpHandlerOptions,
@@ -943,8 +967,14 @@ export interface NetworkManager {
   /**
    * @see {@link DeleteDeviceCommand}
    */
-  deleteDevice(args: DeleteDeviceCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDeviceCommandOutput>;
-  deleteDevice(args: DeleteDeviceCommandInput, cb: (err: any, data?: DeleteDeviceCommandOutput) => void): void;
+  deleteDevice(
+    args: DeleteDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDeviceCommandOutput>;
+  deleteDevice(
+    args: DeleteDeviceCommandInput,
+    cb: (err: any, data?: DeleteDeviceCommandOutput) => void
+  ): void;
   deleteDevice(
     args: DeleteDeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -971,8 +1001,14 @@ export interface NetworkManager {
   /**
    * @see {@link DeleteLinkCommand}
    */
-  deleteLink(args: DeleteLinkCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLinkCommandOutput>;
-  deleteLink(args: DeleteLinkCommandInput, cb: (err: any, data?: DeleteLinkCommandOutput) => void): void;
+  deleteLink(
+    args: DeleteLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLinkCommandOutput>;
+  deleteLink(
+    args: DeleteLinkCommandInput,
+    cb: (err: any, data?: DeleteLinkCommandOutput) => void
+  ): void;
   deleteLink(
     args: DeleteLinkCommandInput,
     options: __HttpHandlerOptions,
@@ -982,8 +1018,14 @@ export interface NetworkManager {
   /**
    * @see {@link DeletePeeringCommand}
    */
-  deletePeering(args: DeletePeeringCommandInput, options?: __HttpHandlerOptions): Promise<DeletePeeringCommandOutput>;
-  deletePeering(args: DeletePeeringCommandInput, cb: (err: any, data?: DeletePeeringCommandOutput) => void): void;
+  deletePeering(
+    args: DeletePeeringCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePeeringCommandOutput>;
+  deletePeering(
+    args: DeletePeeringCommandInput,
+    cb: (err: any, data?: DeletePeeringCommandOutput) => void
+  ): void;
   deletePeering(
     args: DeletePeeringCommandInput,
     options: __HttpHandlerOptions,
@@ -1010,8 +1052,14 @@ export interface NetworkManager {
   /**
    * @see {@link DeleteSiteCommand}
    */
-  deleteSite(args: DeleteSiteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSiteCommandOutput>;
-  deleteSite(args: DeleteSiteCommandInput, cb: (err: any, data?: DeleteSiteCommandOutput) => void): void;
+  deleteSite(
+    args: DeleteSiteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSiteCommandOutput>;
+  deleteSite(
+    args: DeleteSiteCommandInput,
+    cb: (err: any, data?: DeleteSiteCommandOutput) => void
+  ): void;
   deleteSite(
     args: DeleteSiteCommandInput,
     options: __HttpHandlerOptions,
@@ -1162,7 +1210,10 @@ export interface NetworkManager {
     args: GetConnectionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetConnectionsCommandOutput>;
-  getConnections(args: GetConnectionsCommandInput, cb: (err: any, data?: GetConnectionsCommandOutput) => void): void;
+  getConnections(
+    args: GetConnectionsCommandInput,
+    cb: (err: any, data?: GetConnectionsCommandOutput) => void
+  ): void;
   getConnections(
     args: GetConnectionsCommandInput,
     options: __HttpHandlerOptions,
@@ -1176,7 +1227,10 @@ export interface NetworkManager {
     args: GetConnectPeerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetConnectPeerCommandOutput>;
-  getConnectPeer(args: GetConnectPeerCommandInput, cb: (err: any, data?: GetConnectPeerCommandOutput) => void): void;
+  getConnectPeer(
+    args: GetConnectPeerCommandInput,
+    cb: (err: any, data?: GetConnectPeerCommandOutput) => void
+  ): void;
   getConnectPeer(
     args: GetConnectPeerCommandInput,
     options: __HttpHandlerOptions,
@@ -1207,7 +1261,10 @@ export interface NetworkManager {
     args: GetCoreNetworkCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCoreNetworkCommandOutput>;
-  getCoreNetwork(args: GetCoreNetworkCommandInput, cb: (err: any, data?: GetCoreNetworkCommandOutput) => void): void;
+  getCoreNetwork(
+    args: GetCoreNetworkCommandInput,
+    cb: (err: any, data?: GetCoreNetworkCommandOutput) => void
+  ): void;
   getCoreNetwork(
     args: GetCoreNetworkCommandInput,
     options: __HttpHandlerOptions,
@@ -1285,8 +1342,14 @@ export interface NetworkManager {
   /**
    * @see {@link GetDevicesCommand}
    */
-  getDevices(args: GetDevicesCommandInput, options?: __HttpHandlerOptions): Promise<GetDevicesCommandOutput>;
-  getDevices(args: GetDevicesCommandInput, cb: (err: any, data?: GetDevicesCommandOutput) => void): void;
+  getDevices(
+    args: GetDevicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDevicesCommandOutput>;
+  getDevices(
+    args: GetDevicesCommandInput,
+    cb: (err: any, data?: GetDevicesCommandOutput) => void
+  ): void;
   getDevices(
     args: GetDevicesCommandInput,
     options: __HttpHandlerOptions,
@@ -1330,8 +1393,14 @@ export interface NetworkManager {
   /**
    * @see {@link GetLinksCommand}
    */
-  getLinks(args: GetLinksCommandInput, options?: __HttpHandlerOptions): Promise<GetLinksCommandOutput>;
-  getLinks(args: GetLinksCommandInput, cb: (err: any, data?: GetLinksCommandOutput) => void): void;
+  getLinks(
+    args: GetLinksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLinksCommandOutput>;
+  getLinks(
+    args: GetLinksCommandInput,
+    cb: (err: any, data?: GetLinksCommandOutput) => void
+  ): void;
   getLinks(
     args: GetLinksCommandInput,
     options: __HttpHandlerOptions,
@@ -1460,8 +1529,14 @@ export interface NetworkManager {
   /**
    * @see {@link GetSitesCommand}
    */
-  getSites(args: GetSitesCommandInput, options?: __HttpHandlerOptions): Promise<GetSitesCommandOutput>;
-  getSites(args: GetSitesCommandInput, cb: (err: any, data?: GetSitesCommandOutput) => void): void;
+  getSites(
+    args: GetSitesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSitesCommandOutput>;
+  getSites(
+    args: GetSitesCommandInput,
+    cb: (err: any, data?: GetSitesCommandOutput) => void
+  ): void;
   getSites(
     args: GetSitesCommandInput,
     options: __HttpHandlerOptions,
@@ -1595,7 +1670,10 @@ export interface NetworkManager {
     args: ListAttachmentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAttachmentsCommandOutput>;
-  listAttachments(args: ListAttachmentsCommandInput, cb: (err: any, data?: ListAttachmentsCommandOutput) => void): void;
+  listAttachments(
+    args: ListAttachmentsCommandInput,
+    cb: (err: any, data?: ListAttachmentsCommandOutput) => void
+  ): void;
   listAttachments(
     args: ListAttachmentsCommandInput,
     options: __HttpHandlerOptions,
@@ -1711,8 +1789,14 @@ export interface NetworkManager {
    * @see {@link ListPeeringsCommand}
    */
   listPeerings(): Promise<ListPeeringsCommandOutput>;
-  listPeerings(args: ListPeeringsCommandInput, options?: __HttpHandlerOptions): Promise<ListPeeringsCommandOutput>;
-  listPeerings(args: ListPeeringsCommandInput, cb: (err: any, data?: ListPeeringsCommandOutput) => void): void;
+  listPeerings(
+    args: ListPeeringsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPeeringsCommandOutput>;
+  listPeerings(
+    args: ListPeeringsCommandInput,
+    cb: (err: any, data?: ListPeeringsCommandOutput) => void
+  ): void;
   listPeerings(
     args: ListPeeringsCommandInput,
     options: __HttpHandlerOptions,
@@ -1892,8 +1976,14 @@ export interface NetworkManager {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1903,8 +1993,14 @@ export interface NetworkManager {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1948,8 +2044,14 @@ export interface NetworkManager {
   /**
    * @see {@link UpdateDeviceCommand}
    */
-  updateDevice(args: UpdateDeviceCommandInput, options?: __HttpHandlerOptions): Promise<UpdateDeviceCommandOutput>;
-  updateDevice(args: UpdateDeviceCommandInput, cb: (err: any, data?: UpdateDeviceCommandOutput) => void): void;
+  updateDevice(
+    args: UpdateDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDeviceCommandOutput>;
+  updateDevice(
+    args: UpdateDeviceCommandInput,
+    cb: (err: any, data?: UpdateDeviceCommandOutput) => void
+  ): void;
   updateDevice(
     args: UpdateDeviceCommandInput,
     options: __HttpHandlerOptions,
@@ -1993,8 +2095,14 @@ export interface NetworkManager {
   /**
    * @see {@link UpdateLinkCommand}
    */
-  updateLink(args: UpdateLinkCommandInput, options?: __HttpHandlerOptions): Promise<UpdateLinkCommandOutput>;
-  updateLink(args: UpdateLinkCommandInput, cb: (err: any, data?: UpdateLinkCommandOutput) => void): void;
+  updateLink(
+    args: UpdateLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLinkCommandOutput>;
+  updateLink(
+    args: UpdateLinkCommandInput,
+    cb: (err: any, data?: UpdateLinkCommandOutput) => void
+  ): void;
   updateLink(
     args: UpdateLinkCommandInput,
     options: __HttpHandlerOptions,
@@ -2021,8 +2129,14 @@ export interface NetworkManager {
   /**
    * @see {@link UpdateSiteCommand}
    */
-  updateSite(args: UpdateSiteCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSiteCommandOutput>;
-  updateSite(args: UpdateSiteCommandInput, cb: (err: any, data?: UpdateSiteCommandOutput) => void): void;
+  updateSite(
+    args: UpdateSiteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSiteCommandOutput>;
+  updateSite(
+    args: UpdateSiteCommandInput,
+    cb: (err: any, data?: UpdateSiteCommandOutput) => void
+  ): void;
   updateSite(
     args: UpdateSiteCommandInput,
     options: __HttpHandlerOptions,

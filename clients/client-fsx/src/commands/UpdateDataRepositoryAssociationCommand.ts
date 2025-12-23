@@ -27,9 +27,7 @@ export interface UpdateDataRepositoryAssociationCommandInput extends UpdateDataR
  *
  * The output of {@link UpdateDataRepositoryAssociationCommand}.
  */
-export interface UpdateDataRepositoryAssociationCommandOutput
-  extends UpdateDataRepositoryAssociationResponse,
-    __MetadataBearer {}
+export interface UpdateDataRepositoryAssociationCommandOutput extends UpdateDataRepositoryAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the configuration of an existing data repository association

@@ -64,7 +64,10 @@ export interface CostOptimizationHub {
     args: GetPreferencesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetPreferencesCommandOutput>;
-  getPreferences(args: GetPreferencesCommandInput, cb: (err: any, data?: GetPreferencesCommandOutput) => void): void;
+  getPreferences(
+    args: GetPreferencesCommandInput,
+    cb: (err: any, data?: GetPreferencesCommandOutput) => void
+  ): void;
   getPreferences(
     args: GetPreferencesCommandInput,
     options: __HttpHandlerOptions,

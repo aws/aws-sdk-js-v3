@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { Route53RecoveryReadinessServiceException as __BaseException } from "./Route53RecoveryReadinessServiceException";
+import {
+  Route53RecoveryReadinessServiceException as __BaseException,
+} from "./Route53RecoveryReadinessServiceException";
 
 /**
  * User does not have sufficient access to perform this action.

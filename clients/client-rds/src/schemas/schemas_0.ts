@@ -1699,7185 +1699,3937 @@ import { RDSServiceException } from "../models/RDSServiceException";
 /* eslint no-var: 0 */
 var PotentiallySensitiveOptionSettingValue: StaticSimpleSchema = [0, n0, _PSOSV, 8, 0];
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
-export var AccountAttributesMessage$: StaticStructureSchema = [3, n0, _AAM, 0, [_AQ], [[() => AccountQuotaList, 0]]];
-export var AccountQuota$: StaticStructureSchema = [3, n0, _AQc, 0, [_AQN, _U, _M], [0, 1, 1]];
-export var AdditionalStorageVolume$: StaticStructureSchema = [
-  3,
-  n0,
-  _ASV,
+export var AccountAttributesMessage$: StaticStructureSchema = [3, n0, _AAM,
+  0,
+  [_AQ],
+  [[() => AccountQuotaList, 0]]
+];
+export var AccountQuota$: StaticStructureSchema = [3, n0, _AQc,
+  0,
+  [_AQN, _U, _M],
+  [0, 1, 1]
+];
+export var AdditionalStorageVolume$: StaticStructureSchema = [3, n0, _ASV,
   0,
   [_VN, _AS, _IOPS, _MAS, _ST, _STt],
-  [0, 1, 1, 1, 1, 0],
+  [0, 1, 1, 1, 1, 0]
 ];
-export var AdditionalStorageVolumeOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _ASVO,
+export var AdditionalStorageVolumeOutput$: StaticStructureSchema = [3, n0, _ASVO,
   0,
   [_VN, _SVS, _AS, _IOPS, _MAS, _ST, _STt],
-  [0, 0, 1, 1, 1, 1, 0],
+  [0, 0, 1, 1, 1, 1, 0]
 ];
-export var AddRoleToDBClusterMessage$: StaticStructureSchema = [3, n0, _ARTDBCM, 0, [_DBCI, _RA, _FN], [0, 0, 0]];
-export var AddRoleToDBInstanceMessage$: StaticStructureSchema = [3, n0, _ARTDBIM, 0, [_DBII, _RA, _FN], [0, 0, 0]];
-export var AddSourceIdentifierToSubscriptionMessage$: StaticStructureSchema = [3, n0, _ASITSM, 0, [_SN, _SI], [0, 0]];
-export var AddSourceIdentifierToSubscriptionResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _ASITSR,
+export var AddRoleToDBClusterMessage$: StaticStructureSchema = [3, n0, _ARTDBCM,
   0,
-  [_ES],
-  [[() => EventSubscription$, 0]],
+  [_DBCI, _RA, _FN],
+  [0, 0, 0]
 ];
-export var AddTagsToResourceMessage$: StaticStructureSchema = [3, n0, _ATTRM, 0, [_RN, _T], [0, [() => TagList, 0]]];
-export var ApplyPendingMaintenanceActionMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _APMAM,
+export var AddRoleToDBInstanceMessage$: StaticStructureSchema = [3, n0, _ARTDBIM,
   0,
-  [_RI, _AA, _OIT],
-  [0, 0, 0],
+  [_DBII, _RA, _FN],
+  [0, 0, 0]
 ];
-export var ApplyPendingMaintenanceActionResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _APMAR,
-  0,
-  [_RPMA],
-  [[() => ResourcePendingMaintenanceActions$, 0]],
-];
-export var AuthorizationAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _AAEF,
-  { [_aQE]: [`AuthorizationAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(AuthorizationAlreadyExistsFault$, AuthorizationAlreadyExistsFault);
-export var AuthorizationNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ANFF,
-  { [_aQE]: [`AuthorizationNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(AuthorizationNotFoundFault$, AuthorizationNotFoundFault);
-export var AuthorizationQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _AQEF,
-  { [_aQE]: [`AuthorizationQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(AuthorizationQuotaExceededFault$, AuthorizationQuotaExceededFault);
-export var AuthorizeDBSecurityGroupIngressMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _ADBSGIM,
-  0,
-  [_DBSGN, _CIDRIP, _ECSGN, _ECSGI, _ECSGOI],
-  [0, 0, 0, 0, 0],
-];
-export var AuthorizeDBSecurityGroupIngressResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _ADBSGIR,
-  0,
-  [_DBSG],
-  [[() => DBSecurityGroup$, 0]],
-];
-export var AvailabilityZone$: StaticStructureSchema = [3, n0, _AZ, 0, [_N], [0]];
-export var AvailableAdditionalStorageVolumesOption$: StaticStructureSchema = [
-  3,
-  n0,
-  _AASVO,
-  0,
-  [_SSA, _SST, _SIu, _STt, _MSS, _MSSa, _MI, _MIa, _MIPG, _MIPGa, _MST, _MSTa],
-  [2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-];
-export var AvailableProcessorFeature$: StaticStructureSchema = [3, n0, _APF, 0, [_N, _DV, _AV], [0, 0, 0]];
-export var BacktrackDBClusterMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _BDBCM,
-  0,
-  [_DBCI, _BT, _F, _UETOPITU],
-  [0, 4, 2, 2],
-];
-export var BackupPolicyNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _BPNFF,
-  { [_aQE]: [`BackupPolicyNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(BackupPolicyNotFoundFault$, BackupPolicyNotFoundFault);
-export var BlueGreenDeployment$: StaticStructureSchema = [
-  3,
-  n0,
-  _BGD,
-  0,
-  [_BGDI, _BGDN, _S, _Ta, _SD, _Tas, _St, _SDt, _CT, _DT, _TL],
-  [0, 0, 0, 0, () => SwitchoverDetailList, () => BlueGreenDeploymentTaskList, 0, 0, 4, 4, [() => TagList, 0]],
-];
-export var BlueGreenDeploymentAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _BGDAEF,
-  { [_aQE]: [`BlueGreenDeploymentAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(BlueGreenDeploymentAlreadyExistsFault$, BlueGreenDeploymentAlreadyExistsFault);
-export var BlueGreenDeploymentNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _BGDNFF,
-  { [_aQE]: [`BlueGreenDeploymentNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(BlueGreenDeploymentNotFoundFault$, BlueGreenDeploymentNotFoundFault);
-export var BlueGreenDeploymentTask$: StaticStructureSchema = [3, n0, _BGDT, 0, [_N, _St], [0, 0]];
-export var CancelExportTaskMessage$: StaticStructureSchema = [3, n0, _CETM, 0, [_ETI], [0]];
-export var Certificate$: StaticStructureSchema = [
-  3,
-  n0,
-  _C,
-  0,
-  [_CI, _CTe, _Th, _VF, _VT, _CA, _CO, _COVT],
-  [0, 0, 0, 4, 4, 0, 2, 4],
-];
-export var CertificateDetails$: StaticStructureSchema = [3, n0, _CD, 0, [_CAI, _VT], [0, 4]];
-export var CertificateMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CM,
-  0,
-  [_DCFNL, _Ce, _Ma],
-  [0, [() => CertificateList, 0], 0],
-];
-export var CertificateNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CNFF,
-  { [_aQE]: [`CertificateNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(CertificateNotFoundFault$, CertificateNotFoundFault);
-export var CharacterSet$: StaticStructureSchema = [3, n0, _CS, 0, [_CSN, _CSD], [0, 0]];
-export var CloudwatchLogsExportConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _CLEC,
-  0,
-  [_ELT, _DLT],
-  [64 | 0, 64 | 0],
-];
-export var ClusterPendingModifiedValues$: StaticStructureSchema = [
-  3,
-  n0,
-  _CPMV,
-  0,
-  [_PCLE, _DBCI, _MUP, _IAMDAE, _EV, _BRP, _STt, _AS, _RCCC, _I, _CD],
-  [
-    () => PendingCloudwatchLogsExports$,
-    0,
-    [() => SensitiveString, 0],
-    2,
-    0,
-    1,
-    0,
-    1,
-    () => RdsCustomClusterConfiguration$,
-    1,
-    () => CertificateDetails$,
-  ],
-];
-export var ConnectionPoolConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _CPC,
-  0,
-  [_MCP, _MICP, _CBT, _SPF, _IQ],
-  [1, 1, 1, 64 | 0, 0],
-];
-export var ConnectionPoolConfigurationInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _CPCI,
-  0,
-  [_MCP, _MICP, _CBT, _SPF, _IQ],
-  [1, 1, 1, 64 | 0, 0],
-];
-export var ContextAttribute$: StaticStructureSchema = [3, n0, _CAo, 0, [_K, _V], [0, 0]];
-export var CopyDBClusterParameterGroupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBCPGM,
-  0,
-  [_SDBCPGI, _TDBCPGI, _TDBCPGD, _T],
-  [0, 0, 0, [() => TagList, 0]],
-];
-export var CopyDBClusterParameterGroupResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBCPGR,
-  0,
-  [_DBCPG],
-  [() => DBClusterParameterGroup$],
-];
-export var CopyDBClusterSnapshotMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBCSM,
-  0,
-  [_SDBCSI, _TDBCSI, _KKI, _PSU, _CTo, _T],
-  [0, 0, 0, [() => SensitiveString, 0], 2, [() => TagList, 0]],
-];
-export var CopyDBClusterSnapshotResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBCSR,
-  0,
-  [_DBCS],
-  [[() => DBClusterSnapshot$, 0]],
-];
-export var CopyDBParameterGroupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBPGM,
-  0,
-  [_SDBPGI, _TDBPGI, _TDBPGD, _T],
-  [0, 0, 0, [() => TagList, 0]],
-];
-export var CopyDBParameterGroupResult$: StaticStructureSchema = [3, n0, _CDBPGR, 0, [_DBPG], [() => DBParameterGroup$]];
-export var CopyDBSnapshotMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBSM,
-  0,
-  [_SDBSI, _TDBSI, _KKI, _T, _CTo, _PSU, _OGN, _TCAZ, _STn, _COG, _SAZ],
-  [0, 0, 0, [() => TagList, 0], 2, [() => SensitiveString, 0], 0, 0, 0, 2, 0],
-];
-export var CopyDBSnapshotResult$: StaticStructureSchema = [3, n0, _CDBSR, 0, [_DBS], [[() => DBSnapshot$, 0]]];
-export var CopyOptionGroupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _COGM,
-  0,
-  [_SOGI, _TOGI, _TOGD, _T],
-  [0, 0, 0, [() => TagList, 0]],
-];
-export var CopyOptionGroupResult$: StaticStructureSchema = [3, n0, _COGR, 0, [_OG], [[() => OptionGroup$, 0]]];
-export var CreateBlueGreenDeploymentRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CBGDR,
-  0,
-  [_BGDN, _S, _TEV, _TDBPGN, _TDBCPGN, _T, _TDBIC, _UTSC, _TI, _TST, _TAS, _TSTa],
-  [0, 0, 0, 0, 0, [() => TagList, 0], 0, 2, 1, 0, 1, 1],
-];
-export var CreateBlueGreenDeploymentResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CBGDRr,
-  0,
-  [_BGD],
-  [[() => BlueGreenDeployment$, 0]],
-];
-export var CreateCustomDBEngineVersionFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CCDBEVF,
-  { [_aQE]: [`CreateCustomDBEngineVersionFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(CreateCustomDBEngineVersionFault$, CreateCustomDBEngineVersionFault);
-export var CreateCustomDBEngineVersionMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CCDBEVM,
-  0,
-  [_E, _EV, _DIFSBN, _DIFSP, _II, _KMSKI, _SCDEVI, _UAPLI, _D, _Man, _T, _DIF],
-  [0, 0, 0, 0, 0, 0, 0, 2, 0, 0, [() => TagList, 0], 64 | 0],
-];
-export var CreateDBClusterEndpointMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBCEM,
-  0,
-  [_DBCI, _DBCEI, _ET, _SM, _EM, _T],
-  [0, 0, 0, 64 | 0, 64 | 0, [() => TagList, 0]],
-];
-export var CreateDBClusterMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBCM,
-  0,
-  [
-    _AZv,
-    _BRP,
-    _CSN,
-    _DN,
-    _DBCI,
-    _DBCPGN,
-    _VSGI,
-    _DBSGNu,
-    _E,
-    _EV,
-    _P,
-    _MU,
-    _MUP,
-    _OGN,
-    _PBW,
-    _PMW,
-    _RSI,
-    _T,
-    _SE,
-    _KKI,
-    _PSU,
-    _EIAMDA,
-    _BW,
-    _ECLE,
-    _EMn,
-    _SC,
-    _RCCC,
-    _DBCIC,
-    _AS,
-    _STt,
-    _I,
-    _PA,
-    _AMVU,
-    _DP,
-    _GCI,
-    _EHE,
-    _CTTS,
-    _Do,
-    _DIAMRN,
-    _EGWF,
-    _NT,
-    _SVSC,
-    _MIo,
-    _MRA,
-    _DIM,
-    _EPI,
-    _PIKMSKI,
-    _PIRP,
-    _ELD,
-    _CST,
-    _DBSI,
-    _MMUP,
-    _ELWF,
-    _MUSKKI,
-    _CACI,
-    _ELS,
-    _TS,
-    _MUAT,
-  ],
-  [
-    [() => AvailabilityZones, 0],
-    1,
-    0,
-    0,
-    0,
-    0,
-    [() => VpcSecurityGroupIdList, 0],
-    0,
-    0,
-    0,
-    1,
-    0,
-    [() => SensitiveString, 0],
-    0,
-    0,
-    0,
-    0,
-    [() => TagList, 0],
-    2,
-    0,
-    [() => SensitiveString, 0],
-    2,
-    1,
-    64 | 0,
-    0,
-    () => ScalingConfiguration$,
-    () => RdsCustomClusterConfiguration$,
-    0,
-    1,
-    0,
-    1,
-    2,
-    2,
-    2,
-    0,
-    2,
-    2,
-    0,
-    0,
-    2,
-    0,
-    () => ServerlessV2ScalingConfiguration$,
-    1,
-    0,
-    0,
-    2,
-    0,
-    1,
-    2,
-    0,
-    0,
-    2,
-    2,
-    0,
-    0,
-    0,
-    [() => TagSpecificationList, 0],
-    0,
-  ],
-];
-export var CreateDBClusterParameterGroupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBCPGMr,
-  0,
-  [_DBCPGN, _DBPGF, _D, _T],
-  [0, 0, 0, [() => TagList, 0]],
-];
-export var CreateDBClusterParameterGroupResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBCPGRr,
-  0,
-  [_DBCPG],
-  [() => DBClusterParameterGroup$],
-];
-export var CreateDBClusterResult$: StaticStructureSchema = [3, n0, _CDBCR, 0, [_DBC], [[() => DBCluster$, 0]]];
-export var CreateDBClusterSnapshotMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBCSMr,
-  0,
-  [_DBCSI, _DBCI, _T],
-  [0, 0, [() => TagList, 0]],
-];
-export var CreateDBClusterSnapshotResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBCSRr,
-  0,
-  [_DBCS],
-  [[() => DBClusterSnapshot$, 0]],
-];
-export var CreateDBInstanceMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBIM,
-  0,
-  [
-    _DBN,
-    _DBII,
-    _AS,
-    _DBIC,
-    _E,
-    _MU,
-    _MUP,
-    _DBSGe,
-    _VSGI,
-    _AZ,
-    _DBSGNu,
-    _PMW,
-    _DBPGN,
-    _BRP,
-    _PBW,
-    _P,
-    _MAZ,
-    _EV,
-    _AMVU,
-    _LM,
-    _I,
-    _ST,
-    _OGN,
-    _CSN,
-    _NCSN,
-    _PA,
-    _T,
-    _DBCI,
-    _STt,
-    _TCA,
-    _TCP,
-    _SE,
-    _KKI,
-    _Do,
-    _DF,
-    _DO,
-    _DASA,
-    _DDI,
-    _CTTS,
-    _MIo,
-    _MRA,
-    _DIAMRN,
-    _PT,
-    _Ti,
-    _EIAMDA,
-    _DIM,
-    _EPI,
-    _PIKMSKI,
-    _PIRP,
-    _ECLE,
-    _PF,
-    _DP,
-    _MAS,
-    _ECOI,
-    _NT,
-    _BTa,
-    _CIIP,
-    _DBSI,
-    _CACI,
-    _MMUP,
-    _MUSKKI,
-    _MT,
-    _DLV,
-    _ELS,
-    _TS,
-    _MUAT,
-    _ASVd,
-  ],
-  [
-    0,
-    0,
-    1,
-    0,
-    0,
-    0,
-    [() => SensitiveString, 0],
-    [() => DBSecurityGroupNameList, 0],
-    [() => VpcSecurityGroupIdList, 0],
-    0,
-    0,
-    0,
-    0,
-    1,
-    0,
-    1,
-    2,
-    0,
-    2,
-    0,
-    1,
-    1,
-    0,
-    0,
-    0,
-    2,
-    [() => TagList, 0],
-    0,
-    0,
-    0,
-    [() => SensitiveString, 0],
-    2,
-    0,
-    0,
-    0,
-    0,
-    0,
-    64 | 0,
-    2,
-    1,
-    0,
-    0,
-    1,
-    0,
-    2,
-    0,
-    2,
-    0,
-    1,
-    64 | 0,
-    [() => ProcessorFeatureList, 0],
-    2,
-    1,
-    2,
-    0,
-    0,
-    0,
-    0,
-    0,
-    2,
-    0,
-    2,
-    2,
-    0,
-    [() => TagSpecificationList, 0],
-    0,
-    () => AdditionalStorageVolumesList,
-  ],
-];
-export var CreateDBInstanceReadReplicaMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBIRRM,
-  0,
-  [
-    _DBII,
-    _SDBII,
-    _DBIC,
-    _AZ,
-    _P,
-    _MAZ,
-    _AMVU,
-    _I,
-    _ST,
-    _OGN,
-    _DBPGN,
-    _PA,
-    _T,
-    _DBSGNu,
-    _VSGI,
-    _STt,
-    _CTTS,
-    _MIo,
-    _MRA,
-    _KKI,
-    _PSU,
-    _EIAMDA,
-    _DIM,
-    _EPI,
-    _PIKMSKI,
-    _PIRP,
-    _ECLE,
-    _PF,
-    _UDPF,
-    _DP,
-    _Do,
-    _DIAMRN,
-    _DF,
-    _DO,
-    _DASA,
-    _DDI,
-    _RM,
-    _ECOI,
-    _NT,
-    _MAS,
-    _BTa,
-    _CIIP,
-    _AS,
-    _SDBCI,
-    _DLV,
-    _USC,
-    _CACI,
-    _TS,
-    _ASVd,
-  ],
-  [
-    0,
-    0,
-    0,
-    0,
-    1,
-    2,
-    2,
-    1,
-    1,
-    0,
-    0,
-    2,
-    [() => TagList, 0],
-    0,
-    [() => VpcSecurityGroupIdList, 0],
-    0,
-    2,
-    1,
-    0,
-    0,
-    [() => SensitiveString, 0],
-    2,
-    0,
-    2,
-    0,
-    1,
-    64 | 0,
-    [() => ProcessorFeatureList, 0],
-    2,
-    2,
-    0,
-    0,
-    0,
-    0,
-    0,
-    64 | 0,
-    0,
-    2,
-    0,
-    1,
-    0,
-    0,
-    1,
-    0,
-    2,
-    2,
-    0,
-    [() => TagSpecificationList, 0],
-    () => AdditionalStorageVolumesList,
-  ],
-];
-export var CreateDBInstanceReadReplicaResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBIRRR,
-  0,
-  [_DBI],
-  [[() => DBInstance$, 0]],
-];
-export var CreateDBInstanceResult$: StaticStructureSchema = [3, n0, _CDBIR, 0, [_DBI], [[() => DBInstance$, 0]]];
-export var CreateDBParameterGroupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBPGMr,
-  0,
-  [_DBPGN, _DBPGF, _D, _T],
-  [0, 0, 0, [() => TagList, 0]],
-];
-export var CreateDBParameterGroupResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBPGRr,
-  0,
-  [_DBPG],
-  [() => DBParameterGroup$],
-];
-export var CreateDBProxyEndpointRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBPER,
-  0,
-  [_DBPN, _DBPEN, _VSI, _VSGI, _TR, _T, _ENT],
-  [0, 0, 64 | 0, 64 | 0, 0, [() => TagList, 0], 0],
-];
-export var CreateDBProxyEndpointResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBPERr,
-  0,
-  [_DBPE],
-  [() => DBProxyEndpoint$],
-];
-export var CreateDBProxyRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBPR,
-  0,
-  [_DBPN, _EF, _DAS, _A, _RA, _VSI, _VSGI, _RTLS, _ICT, _DL, _T, _ENT, _TCNT],
-  [0, 0, 0, () => UserAuthConfigList, 0, 64 | 0, 64 | 0, 2, 1, 2, [() => TagList, 0], 0, 0],
-];
-export var CreateDBProxyResponse$: StaticStructureSchema = [3, n0, _CDBPRr, 0, [_DBP], [() => DBProxy$]];
-export var CreateDBSecurityGroupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBSGM,
-  0,
-  [_DBSGN, _DBSGD, _T],
-  [0, 0, [() => TagList, 0]],
-];
-export var CreateDBSecurityGroupResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBSGR,
-  0,
-  [_DBSG],
-  [[() => DBSecurityGroup$, 0]],
-];
-export var CreateDBShardGroupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBSGMr,
-  0,
-  [_DBSGI, _DBCI, _CR, _MACU, _MACUi, _PA, _T],
-  [0, 0, 1, 1, 1, 2, [() => TagList, 0]],
-];
-export var CreateDBSnapshotMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBSMr,
-  0,
-  [_DBSIn, _DBII, _T],
-  [0, 0, [() => TagList, 0]],
-];
-export var CreateDBSnapshotResult$: StaticStructureSchema = [3, n0, _CDBSRr, 0, [_DBS], [[() => DBSnapshot$, 0]]];
-export var CreateDBSubnetGroupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBSGMre,
-  0,
-  [_DBSGNu, _DBSGDu, _SIub, _T],
-  [0, 0, [() => SubnetIdentifierList, 0], [() => TagList, 0]],
-];
-export var CreateDBSubnetGroupResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _CDBSGRr,
-  0,
-  [_DBSGu],
-  [[() => DBSubnetGroup$, 0]],
-];
-export var CreateEventSubscriptionMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CESM,
-  0,
-  [_SN, _STA, _STo, _EC, _SIo, _En, _T],
-  [0, 0, 0, [() => EventCategoriesList, 0], [() => SourceIdsList, 0], 2, [() => TagList, 0]],
-];
-export var CreateEventSubscriptionResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _CESR,
-  0,
-  [_ES],
-  [[() => EventSubscription$, 0]],
-];
-export var CreateGlobalClusterMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CGCM,
-  0,
-  [_GCI, _SDBCI, _E, _EV, _ELS, _DP, _DN, _SE, _T],
-  [0, 0, 0, 0, 0, 2, 0, 2, [() => TagList, 0]],
-];
-export var CreateGlobalClusterResult$: StaticStructureSchema = [3, n0, _CGCR, 0, [_GC], [[() => GlobalCluster$, 0]]];
-export var CreateIntegrationMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CIM,
-  0,
-  [_SA, _TA, _IN, _KMSKI, _AEC, _T, _DFa, _D],
-  [0, 0, 0, 0, 128 | 0, [() => TagList, 0], 0, 0],
-];
-export var CreateOptionGroupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _COGMr,
-  0,
-  [_OGN, _EN, _MEV, _OGD, _T],
-  [0, 0, 0, 0, [() => TagList, 0]],
-];
-export var CreateOptionGroupResult$: StaticStructureSchema = [3, n0, _COGRr, 0, [_OG], [[() => OptionGroup$, 0]]];
-export var CreateTenantDatabaseMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _CTDM,
-  0,
-  [_DBII, _TDBN, _MU, _MUP, _CSN, _NCSN, _MMUP, _MUSKKI, _T],
-  [0, 0, 0, [() => SensitiveString, 0], 0, 0, 2, 0, [() => TagList, 0]],
-];
-export var CreateTenantDatabaseResult$: StaticStructureSchema = [3, n0, _CTDR, 0, [_TD], [[() => TenantDatabase$, 0]]];
-export var CustomAvailabilityZoneNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CAZNFF,
-  { [_aQE]: [`CustomAvailabilityZoneNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(CustomAvailabilityZoneNotFoundFault$, CustomAvailabilityZoneNotFoundFault);
-export var CustomDBEngineVersionAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CDBEVAEF,
-  { [_aQE]: [`CustomDBEngineVersionAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(CustomDBEngineVersionAlreadyExistsFault$, CustomDBEngineVersionAlreadyExistsFault);
-export var CustomDBEngineVersionAMI$: StaticStructureSchema = [3, n0, _CDBEVAMI, 0, [_II, _St], [0, 0]];
-export var CustomDBEngineVersionNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CDBEVNFF,
-  { [_aQE]: [`CustomDBEngineVersionNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(CustomDBEngineVersionNotFoundFault$, CustomDBEngineVersionNotFoundFault);
-export var CustomDBEngineVersionQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CDBEVQEF,
-  { [_aQE]: [`CustomDBEngineVersionQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(CustomDBEngineVersionQuotaExceededFault$, CustomDBEngineVersionQuotaExceededFault);
-export var DBCluster$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBC,
-  0,
-  [
-    _AS,
-    _AZv,
-    _BRP,
-    _CSN,
-    _DN,
-    _DBCI,
-    _DBCPG,
-    _DBSGu,
-    _St,
-    _PP,
-    _ERT,
-    _End,
-    _RE,
-    _CE,
-    _MAZ,
-    _E,
-    _EV,
-    _LRT,
-    _P,
-    _MU,
-    _DBCOGM,
-    _PBW,
-    _PMW,
-    _URO,
-    _RSI,
-    _RRI,
-    _SIt,
-    _DBCM,
-    _VSG,
-    _HZI,
-    _SE,
-    _KKI,
-    _DCRI,
-    _DBCA,
-    _AR,
-    _IAMDAE,
-    _CGI,
-    _CCT,
-    _EBT,
-    _BW,
-    _BCCR,
-    _ECLEn,
-    _Ca,
-    _PMV,
-    _EMn,
-    _SCI,
-    _RCCC,
-    _DBCIC,
-    _STt,
-    _I,
-    _ST,
-    _IOONAMT,
-    _PA,
-    _AMVU,
-    _DP,
-    _HEE,
-    _ASM,
-    _ASS,
-    _ASKKI,
-    _ASKSN,
-    _CTTS,
-    _CAC,
-    _DM,
-    _TL,
-    _GCI,
-    _GWFS,
-    _GWFR,
-    _NT,
-    _ART,
-    _SVSC,
-    _SVPV,
-    _MIo,
-    _MRA,
-    _DIM,
-    _PIE,
-    _PIKMSKI,
-    _PIRP,
-    _DBSI,
-    _MUS,
-    _LWFS,
-    _ABRPA,
-    _LD,
-    _CST,
-    _CD,
-    _ELS,
-  ],
-  [
-    1,
-    [() => AvailabilityZones, 0],
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    4,
-    0,
-    0,
-    64 | 0,
-    2,
-    0,
-    0,
-    4,
-    1,
-    0,
-    [() => DBClusterOptionGroupMemberships, 0],
-    0,
-    0,
-    0,
-    0,
-    [() => ReadReplicaIdentifierList, 0],
-    [() => DBClusterStatusInfoList, 0],
-    [() => DBClusterMemberList, 0],
-    [() => VpcSecurityGroupMembershipList, 0],
-    0,
-    2,
-    0,
-    0,
-    0,
-    [() => DBClusterRoles, 0],
-    2,
-    0,
-    4,
-    4,
-    1,
-    1,
-    64 | 0,
-    1,
-    [() => ClusterPendingModifiedValues$, 0],
-    0,
-    () => ScalingConfigurationInfo$,
-    () => RdsCustomClusterConfiguration$,
-    0,
-    0,
-    1,
-    1,
-    4,
-    2,
-    2,
-    2,
-    2,
-    0,
-    0,
-    0,
-    0,
-    2,
-    2,
-    [() => DomainMembershipList, 0],
-    [() => TagList, 0],
-    0,
-    0,
-    2,
-    0,
-    4,
-    () => ServerlessV2ScalingConfigurationInfo$,
-    0,
-    1,
-    0,
-    0,
-    2,
-    0,
-    1,
-    0,
-    () => MasterUserSecret$,
-    0,
-    0,
-    () => LimitlessDatabase$,
-    0,
-    () => CertificateDetails$,
-    0,
-  ],
-];
-export var DBClusterAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBCAEF,
-  { [_aQE]: [`DBClusterAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBClusterAlreadyExistsFault$, DBClusterAlreadyExistsFault);
-export var DBClusterAutomatedBackup$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBCAB,
-  0,
-  [
-    _E,
-    _VI,
-    _DBCABA,
-    _DBCI,
-    _RW,
-    _MU,
-    _DCRI,
-    _R,
-    _LM,
-    _St,
-    _IAMDAE,
-    _CCT,
-    _SE,
-    _AS,
-    _EV,
-    _DBCA,
-    _BRP,
-    _EMn,
-    _AZv,
-    _P,
-    _KKI,
-    _STt,
-    _I,
-    _ST,
-    _ABRPA,
-    _TL,
-  ],
-  [
-    0,
-    0,
-    0,
-    0,
-    () => RestoreWindow$,
-    0,
-    0,
-    0,
-    0,
-    0,
-    2,
-    4,
-    2,
-    1,
-    0,
-    0,
-    1,
-    0,
-    [() => AvailabilityZones, 0],
-    1,
-    0,
-    0,
-    1,
-    1,
-    0,
-    [() => TagList, 0],
-  ],
-];
-export var DBClusterAutomatedBackupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBCABM,
-  0,
-  [_Ma, _DBCABl],
-  [0, [() => DBClusterAutomatedBackupList, 0]],
-];
-export var DBClusterAutomatedBackupNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBCABNFF,
-  { [_aQE]: [`DBClusterAutomatedBackupNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBClusterAutomatedBackupNotFoundFault$, DBClusterAutomatedBackupNotFoundFault);
-export var DBClusterAutomatedBackupQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBCABQEF,
-  { [_aQE]: [`DBClusterAutomatedBackupQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  DBClusterAutomatedBackupQuotaExceededFault$,
-  DBClusterAutomatedBackupQuotaExceededFault
-);
-export var DBClusterBacktrack$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBCB,
-  0,
-  [_DBCI, _BI, _BT, _BF, _BRCT, _St],
-  [0, 0, 4, 4, 4, 0],
-];
-export var DBClusterBacktrackMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBCBM,
-  0,
-  [_Ma, _DBCBl],
-  [0, [() => DBClusterBacktrackList, 0]],
-];
-export var DBClusterBacktrackNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBCBNFF,
-  { [_aQE]: [`DBClusterBacktrackNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBClusterBacktrackNotFoundFault$, DBClusterBacktrackNotFoundFault);
-export var DBClusterCapacityInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBCCI,
-  0,
-  [_DBCI, _PC, _CC, _SBT, _TAi],
-  [0, 1, 1, 1, 0],
-];
-export var DBClusterEndpoint$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBCE,
-  0,
-  [_DBCEI, _DBCI, _DBCERI, _End, _St, _ET, _CET, _SM, _EM, _DBCEA],
-  [0, 0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0],
-];
-export var DBClusterEndpointAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBCEAEF,
-  { [_aQE]: [`DBClusterEndpointAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBClusterEndpointAlreadyExistsFault$, DBClusterEndpointAlreadyExistsFault);
-export var DBClusterEndpointMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBCEM,
-  0,
-  [_Ma, _DBCEl],
-  [0, [() => DBClusterEndpointList, 0]],
-];
-export var DBClusterEndpointNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBCENFF,
-  { [_aQE]: [`DBClusterEndpointNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBClusterEndpointNotFoundFault$, DBClusterEndpointNotFoundFault);
-export var DBClusterEndpointQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBCEQEF,
-  { [_aQE]: [`DBClusterEndpointQuotaExceededFault`, 403], [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBClusterEndpointQuotaExceededFault$, DBClusterEndpointQuotaExceededFault);
-export var DBClusterMember$: StaticStructureSchema = [3, n0, _DBCMl, 0, [_DBII, _ICW, _DBCPGS, _PT], [0, 2, 0, 1]];
-export var DBClusterMessage$: StaticStructureSchema = [3, n0, _DBCMlu, 0, [_Ma, _DBCl], [0, [() => DBClusterList, 0]]];
-export var DBClusterNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBCNFF,
-  { [_aQE]: [`DBClusterNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBClusterNotFoundFault$, DBClusterNotFoundFault);
-export var DBClusterOptionGroupStatus$: StaticStructureSchema = [3, n0, _DBCOGS, 0, [_DBCOGN, _St], [0, 0]];
-export var DBClusterParameterGroup$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBCPG,
-  0,
-  [_DBCPGN, _DBPGF, _D, _DBCPGA],
-  [0, 0, 0, 0],
-];
-export var DBClusterParameterGroupDetails$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBCPGD,
-  0,
-  [_Pa, _Ma],
-  [[() => ParametersList, 0], 0],
-];
-export var DBClusterParameterGroupNameMessage$: StaticStructureSchema = [3, n0, _DBCPGNM, 0, [_DBCPGN], [0]];
-export var DBClusterParameterGroupNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBCPGNFF,
-  { [_aQE]: [`DBClusterParameterGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBClusterParameterGroupNotFoundFault$, DBClusterParameterGroupNotFoundFault);
-export var DBClusterParameterGroupsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBCPGM,
-  0,
-  [_Ma, _DBCPGl],
-  [0, [() => DBClusterParameterGroupList, 0]],
-];
-export var DBClusterQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBCQEF,
-  { [_aQE]: [`DBClusterQuotaExceededFault`, 403], [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBClusterQuotaExceededFault$, DBClusterQuotaExceededFault);
-export var DBClusterRole$: StaticStructureSchema = [3, n0, _DBCR, 0, [_RA, _St, _FN], [0, 0, 0]];
-export var DBClusterRoleAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBCRAEF,
-  { [_aQE]: [`DBClusterRoleAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBClusterRoleAlreadyExistsFault$, DBClusterRoleAlreadyExistsFault);
-export var DBClusterRoleNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBCRNFF,
-  { [_aQE]: [`DBClusterRoleNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBClusterRoleNotFoundFault$, DBClusterRoleNotFoundFault);
-export var DBClusterRoleQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBCRQEF,
-  { [_aQE]: [`DBClusterRoleQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBClusterRoleQuotaExceededFault$, DBClusterRoleQuotaExceededFault);
-export var DBClusterSnapshot$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBCS,
-  0,
-  [
-    _AZv,
-    _DBCSI,
-    _DBCI,
-    _SCT,
-    _E,
-    _EMn,
-    _AS,
-    _St,
-    _P,
-    _VI,
-    _CCT,
-    _MU,
-    _EV,
-    _LM,
-    _STna,
-    _PP,
-    _SE,
-    _KKI,
-    _DBCSA,
-    _SDBCSA,
-    _IAMDAE,
-    _TL,
-    _STt,
-    _ST,
-    _DCRI,
-    _DBSI,
-  ],
-  [
-    [() => AvailabilityZones, 0],
-    0,
-    0,
-    4,
-    0,
-    0,
-    1,
-    0,
-    1,
-    0,
-    4,
-    0,
-    0,
-    0,
-    0,
-    1,
-    2,
-    0,
-    0,
-    0,
-    2,
-    [() => TagList, 0],
-    0,
-    1,
-    0,
-    0,
-  ],
-];
-export var DBClusterSnapshotAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBCSAEF,
-  { [_aQE]: [`DBClusterSnapshotAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBClusterSnapshotAlreadyExistsFault$, DBClusterSnapshotAlreadyExistsFault);
-export var DBClusterSnapshotAttribute$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBCSAl,
-  0,
-  [_AN, _AVt],
-  [0, [() => AttributeValueList, 0]],
-];
-export var DBClusterSnapshotAttributesResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBCSAR,
-  0,
-  [_DBCSI, _DBCSAlu],
-  [0, [() => DBClusterSnapshotAttributeList, 0]],
-];
-export var DBClusterSnapshotMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBCSM,
-  0,
-  [_Ma, _DBCSl],
-  [0, [() => DBClusterSnapshotList, 0]],
-];
-export var DBClusterSnapshotNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBCSNFF,
-  { [_aQE]: [`DBClusterSnapshotNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBClusterSnapshotNotFoundFault$, DBClusterSnapshotNotFoundFault);
-export var DBClusterStatusInfo$: StaticStructureSchema = [3, n0, _DBCSIl, 0, [_STta, _No, _St, _Me], [0, 2, 0, 0]];
-export var DBEngineVersion$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBEV,
-  0,
-  [
-    _E,
-    _MEV,
-    _EV,
-    _DIFSBN,
-    _DIFSP,
-    _CDBEVM,
-    _DBPGF,
-    _DBED,
-    _DBEVA,
-    _DBEVD,
-    _DCS,
-    _Im,
-    _DBEMT,
-    _KMSKI,
-    _CT,
-    _SCS,
-    _SNCS,
-    _VUT,
-    _STu,
-    _ELTx,
-    _SLETCL,
-    _SRR,
-    _SEM,
-    _SFN,
-    _St,
-    _SPQ,
-    _SGD,
-    _TL,
-    _SB,
-    _SLD,
-    _SCRWR,
-    _SCACI,
-    _SLWF,
-    _SIup,
-    _SVFS,
-    _DIF,
-    _FR,
-  ],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    () => CharacterSet$,
-    () => CustomDBEngineVersionAMI$,
-    0,
-    0,
-    4,
-    [() => SupportedCharacterSetsList, 0],
-    [() => SupportedCharacterSetsList, 0],
-    [() => ValidUpgradeTargetList, 0],
-    [() => SupportedTimezonesList, 0],
-    64 | 0,
-    2,
-    2,
-    64 | 0,
-    64 | 0,
-    0,
-    2,
-    2,
-    [() => TagList, 0],
-    2,
-    2,
-    2,
-    64 | 0,
-    2,
-    2,
-    () => ServerlessV2FeaturesSupport$,
-    64 | 0,
-    0,
-  ],
-];
-export var DBEngineVersionMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBEVM,
-  0,
-  [_Ma, _DBEVn],
-  [0, [() => DBEngineVersionList, 0]],
-];
-export var DBInstance$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBI,
-  0,
-  [
-    _DBII,
-    _DBIC,
-    _E,
-    _DBIS,
-    _MU,
-    _DBN,
-    _End,
-    _AS,
-    _ICTn,
-    _PBW,
-    _BRP,
-    _DBSGe,
-    _VSG,
-    _DBPGa,
-    _AZ,
-    _DBSGu,
-    _PMW,
-    _URO,
-    _PMV,
-    _LRT,
-    _MAZ,
-    _EV,
-    _AMVU,
-    _RRSDBII,
-    _RRDBII,
-    _RRDBCI,
-    _RM,
-    _LM,
-    _I,
-    _ST,
-    _OGM,
-    _CSN,
-    _NCSN,
-    _SAZe,
-    _PA,
-    _SIt,
-    _STt,
-    _TCA,
-    _DIP,
-    _DBCI,
-    _SE,
-    _KKI,
-    _DRI,
-    _CACI,
-    _DM,
-    _CTTS,
-    _MIo,
-    _EMRA,
-    _MRA,
-    _PT,
-    _DBIA,
-    _Ti,
-    _IAMDAE,
-    _DIM,
-    _PIE,
-    _PIKMSKI,
-    _PIRP,
-    _ECLEn,
-    _PF,
-    _DP,
-    _AR,
-    _LE,
-    _MAS,
-    _TL,
-    _AM,
-    _RFAMT,
-    _COIE,
-    _NT,
-    _ASS,
-    _ASKKI,
-    _ASKSN,
-    _ASM,
-    _ASENAFI,
-    _ABRPA,
-    _DBIABR,
-    _BTa,
-    _ART,
-    _CIIP,
-    _ASPS,
-    _CD,
-    _DBSI,
-    _MUS,
-    _RRSDBCI,
-    _PP,
-    _MT,
-    _DLV,
-    _ISCUA,
-    _ELS,
-    _ASVd,
-    _SVS,
-  ],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    () => Endpoint$,
-    1,
-    4,
-    0,
-    1,
-    [() => DBSecurityGroupMembershipList, 0],
-    [() => VpcSecurityGroupMembershipList, 0],
-    [() => DBParameterGroupStatusList, 0],
-    0,
-    [() => DBSubnetGroup$, 0],
-    0,
-    0,
-    [() => PendingModifiedValues$, 0],
-    4,
-    2,
-    0,
-    2,
-    0,
-    [() => ReadReplicaDBInstanceIdentifierList, 0],
-    [() => ReadReplicaDBClusterIdentifierList, 0],
-    0,
-    0,
-    1,
-    1,
-    [() => OptionGroupMembershipList, 0],
-    0,
-    0,
-    0,
-    2,
-    [() => DBInstanceStatusInfoList, 0],
-    0,
-    0,
-    1,
-    0,
-    2,
-    0,
-    0,
-    0,
-    [() => DomainMembershipList, 0],
-    2,
-    1,
-    0,
-    0,
-    1,
-    0,
-    0,
-    2,
-    0,
-    2,
-    0,
-    1,
-    64 | 0,
-    [() => ProcessorFeatureList, 0],
-    2,
-    [() => DBInstanceRoles, 0],
-    () => Endpoint$,
-    1,
-    [() => TagList, 0],
-    0,
-    4,
-    2,
-    0,
-    0,
-    0,
-    0,
-    0,
-    2,
-    0,
-    [() => DBInstanceAutomatedBackupsReplicationList, 0],
-    0,
-    4,
-    0,
-    0,
-    () => CertificateDetails$,
-    0,
-    () => MasterUserSecret$,
-    0,
-    0,
-    2,
-    2,
-    2,
-    0,
-    () => AdditionalStorageVolumesOutputList,
-    0,
-  ],
-];
-export var DBInstanceAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBIAEF,
-  { [_aQE]: [`DBInstanceAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBInstanceAlreadyExistsFault$, DBInstanceAlreadyExistsFault);
-export var DBInstanceAutomatedBackup$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBIAB,
-  0,
-  [
-    _DBIA,
-    _DRI,
-    _R,
-    _DBII,
-    _RW,
-    _AS,
-    _St,
-    _P,
-    _AZ,
-    _VI,
-    _ICTn,
-    _MU,
-    _E,
-    _EV,
-    _LM,
-    _I,
-    _ST,
-    _OGN,
-    _TCA,
-    _Enc,
-    _STt,
-    _KKI,
-    _Ti,
-    _IAMDAE,
-    _BRP,
-    _DBIABA,
-    _DBIABR,
-    _BTa,
-    _MT,
-    _ABRPA,
-    _TL,
-    _DLV,
-    _ASVd,
-  ],
-  [
-    0,
-    0,
-    0,
-    0,
-    () => RestoreWindow$,
-    1,
-    0,
-    1,
-    0,
-    0,
-    4,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    0,
-    0,
-    2,
-    0,
-    0,
-    0,
-    2,
-    1,
-    0,
-    [() => DBInstanceAutomatedBackupsReplicationList, 0],
-    0,
-    2,
-    0,
-    [() => TagList, 0],
-    2,
-    () => AdditionalStorageVolumesList,
-  ],
-];
-export var DBInstanceAutomatedBackupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBIABM,
-  0,
-  [_Ma, _DBIABn],
-  [0, [() => DBInstanceAutomatedBackupList, 0]],
-];
-export var DBInstanceAutomatedBackupNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBIABNFF,
-  { [_aQE]: [`DBInstanceAutomatedBackupNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBInstanceAutomatedBackupNotFoundFault$, DBInstanceAutomatedBackupNotFoundFault);
-export var DBInstanceAutomatedBackupQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBIABQEF,
-  { [_aQE]: [`DBInstanceAutomatedBackupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  DBInstanceAutomatedBackupQuotaExceededFault$,
-  DBInstanceAutomatedBackupQuotaExceededFault
-);
-export var DBInstanceAutomatedBackupsReplication$: StaticStructureSchema = [3, n0, _DBIABRn, 0, [_DBIABA], [0]];
-export var DBInstanceMessage$: StaticStructureSchema = [3, n0, _DBIM, 0, [_Ma, _DBIn], [0, [() => DBInstanceList, 0]]];
-export var DBInstanceNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBINFF,
-  { [_aQE]: [`DBInstanceNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBInstanceNotFoundFault$, DBInstanceNotFoundFault);
-export var DBInstanceNotReadyFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBINRF,
-  { [_aQE]: [`DBInstanceNotReady`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBInstanceNotReadyFault$, DBInstanceNotReadyFault);
-export var DBInstanceRole$: StaticStructureSchema = [3, n0, _DBIR, 0, [_RA, _FN, _St], [0, 0, 0]];
-export var DBInstanceRoleAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBIRAEF,
-  { [_aQE]: [`DBInstanceRoleAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBInstanceRoleAlreadyExistsFault$, DBInstanceRoleAlreadyExistsFault);
-export var DBInstanceRoleNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBIRNFF,
-  { [_aQE]: [`DBInstanceRoleNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBInstanceRoleNotFoundFault$, DBInstanceRoleNotFoundFault);
-export var DBInstanceRoleQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBIRQEF,
-  { [_aQE]: [`DBInstanceRoleQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBInstanceRoleQuotaExceededFault$, DBInstanceRoleQuotaExceededFault);
-export var DBInstanceStatusInfo$: StaticStructureSchema = [3, n0, _DBISI, 0, [_STta, _No, _St, _Me], [0, 2, 0, 0]];
-export var DBLogFileNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBLFNFF,
-  { [_aQE]: [`DBLogFileNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBLogFileNotFoundFault$, DBLogFileNotFoundFault);
-export var DBMajorEngineVersion$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBMEV,
-  0,
-  [_E, _MEV, _SEL],
-  [0, 0, [() => SupportedEngineLifecycleList, 0]],
-];
-export var DBParameterGroup$: StaticStructureSchema = [3, n0, _DBPG, 0, [_DBPGN, _DBPGF, _D, _DBPGA], [0, 0, 0, 0]];
-export var DBParameterGroupAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBPGAEF,
-  { [_aQE]: [`DBParameterGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBParameterGroupAlreadyExistsFault$, DBParameterGroupAlreadyExistsFault);
-export var DBParameterGroupDetails$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBPGD,
-  0,
-  [_Pa, _Ma],
-  [[() => ParametersList, 0], 0],
-];
-export var DBParameterGroupNameMessage$: StaticStructureSchema = [3, n0, _DBPGNM, 0, [_DBPGN], [0]];
-export var DBParameterGroupNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBPGNFF,
-  { [_aQE]: [`DBParameterGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBParameterGroupNotFoundFault$, DBParameterGroupNotFoundFault);
-export var DBParameterGroupQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBPGQEF,
-  { [_aQE]: [`DBParameterGroupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBParameterGroupQuotaExceededFault$, DBParameterGroupQuotaExceededFault);
-export var DBParameterGroupsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBPGM,
-  0,
-  [_Ma, _DBPGa],
-  [0, [() => DBParameterGroupList, 0]],
-];
-export var DBParameterGroupStatus$: StaticStructureSchema = [3, n0, _DBPGS, 0, [_DBPGN, _PAS], [0, 0]];
-export var DBProxy$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBP,
-  0,
-  [_DBPN, _DBPA, _St, _EF, _VI, _VSGI, _VSI, _DAS, _A, _RA, _End, _RTLS, _ICT, _DL, _CDr, _UD, _ENT, _TCNT],
-  [0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0, () => UserAuthConfigInfoList, 0, 0, 2, 1, 2, 4, 4, 0, 0],
-];
-export var DBProxyAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBPAEF,
-  { [_aQE]: [`DBProxyAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBProxyAlreadyExistsFault$, DBProxyAlreadyExistsFault);
-export var DBProxyEndpoint$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBPE,
-  0,
-  [_DBPEN, _DBPEA, _DBPN, _St, _VI, _VSGI, _VSI, _End, _CDr, _TR, _ID, _ENT],
-  [0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0, 4, 0, 2, 0],
-];
-export var DBProxyEndpointAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBPEAEF,
-  { [_aQE]: [`DBProxyEndpointAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBProxyEndpointAlreadyExistsFault$, DBProxyEndpointAlreadyExistsFault);
-export var DBProxyEndpointNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBPENFF,
-  { [_aQE]: [`DBProxyEndpointNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBProxyEndpointNotFoundFault$, DBProxyEndpointNotFoundFault);
-export var DBProxyEndpointQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBPEQEF,
-  { [_aQE]: [`DBProxyEndpointQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBProxyEndpointQuotaExceededFault$, DBProxyEndpointQuotaExceededFault);
-export var DBProxyNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBPNFF,
-  { [_aQE]: [`DBProxyNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBProxyNotFoundFault$, DBProxyNotFoundFault);
-export var DBProxyQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBPQEF,
-  { [_aQE]: [`DBProxyQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBProxyQuotaExceededFault$, DBProxyQuotaExceededFault);
-export var DBProxyTarget$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBPT,
-  0,
-  [_TA, _End, _TCI, _RRId, _P, _Ty, _Ro, _TH],
-  [0, 0, 0, 0, 1, 0, 0, () => TargetHealth$],
-];
-export var DBProxyTargetAlreadyRegisteredFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBPTARF,
-  { [_aQE]: [`DBProxyTargetAlreadyRegisteredFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBProxyTargetAlreadyRegisteredFault$, DBProxyTargetAlreadyRegisteredFault);
-export var DBProxyTargetGroup$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBPTG,
-  0,
-  [_DBPN, _TGN, _TGA, _ID, _St, _CPCo, _CDr, _UD],
-  [0, 0, 0, 2, 0, () => ConnectionPoolConfigurationInfo$, 4, 4],
-];
-export var DBProxyTargetGroupNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBPTGNFF,
-  { [_aQE]: [`DBProxyTargetGroupNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBProxyTargetGroupNotFoundFault$, DBProxyTargetGroupNotFoundFault);
-export var DBProxyTargetNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBPTNFF,
-  { [_aQE]: [`DBProxyTargetNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBProxyTargetNotFoundFault$, DBProxyTargetNotFoundFault);
-export var DBRecommendation$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBR,
-  0,
-  [_RIe, _TIy, _Se, _RAe, _St, _CTr, _UT, _De, _Re, _D, _Rea, _RAec, _Cat, _S, _TDy, _TRy, _Imp, _AI, _L, _IDs],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    4,
-    4,
-    0,
-    0,
-    0,
-    0,
-    () => RecommendedActionList,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    () => DocLinkList,
-    () => IssueDetails$,
-  ],
-];
-export var DBRecommendationMessage$: StaticStructureSchema = [3, n0, _DBRM, 0, [_DBR], [() => DBRecommendation$]];
-export var DBRecommendationsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBRMe,
-  0,
-  [_DBRe, _Ma],
-  [() => DBRecommendationList, 0],
-];
-export var DBSecurityGroup$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBSG,
-  0,
-  [_OI, _DBSGN, _DBSGD, _VI, _ECSG, _IPR, _DBSGA],
-  [0, 0, 0, 0, [() => EC2SecurityGroupList, 0], [() => IPRangeList, 0], 0],
-];
-export var DBSecurityGroupAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBSGAEF,
-  { [_aQE]: [`DBSecurityGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBSecurityGroupAlreadyExistsFault$, DBSecurityGroupAlreadyExistsFault);
-export var DBSecurityGroupMembership$: StaticStructureSchema = [3, n0, _DBSGM, 0, [_DBSGN, _St], [0, 0]];
-export var DBSecurityGroupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBSGMe,
-  0,
-  [_Ma, _DBSGe],
-  [0, [() => DBSecurityGroups, 0]],
-];
-export var DBSecurityGroupNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBSGNFF,
-  { [_aQE]: [`DBSecurityGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBSecurityGroupNotFoundFault$, DBSecurityGroupNotFoundFault);
-export var DBSecurityGroupNotSupportedFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBSGNSF,
-  { [_aQE]: [`DBSecurityGroupNotSupported`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBSecurityGroupNotSupportedFault$, DBSecurityGroupNotSupportedFault);
-export var DBSecurityGroupQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBSGQEF,
-  { [_aQE]: [`QuotaExceeded.DBSecurityGroup`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBSecurityGroupQuotaExceededFault$, DBSecurityGroupQuotaExceededFault);
-export var DBShardGroup$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBSGh,
-  0,
-  [_DBSGRI, _DBSGI, _DBCI, _MACU, _MACUi, _CR, _St, _PA, _End, _DBSGAh, _TL],
-  [0, 0, 0, 1, 1, 1, 0, 2, 0, 0, [() => TagList, 0]],
-];
-export var DBShardGroupAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBSGAEFh,
-  { [_aQE]: [`DBShardGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBShardGroupAlreadyExistsFault$, DBShardGroupAlreadyExistsFault);
-export var DBShardGroupNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBSGNFFh,
-  { [_aQE]: [`DBShardGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBShardGroupNotFoundFault$, DBShardGroupNotFoundFault);
-export var DBSnapshot$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBS,
-  0,
-  [
-    _DBSIn,
-    _DBII,
-    _SCT,
-    _E,
-    _AS,
-    _St,
-    _P,
-    _AZ,
-    _VI,
-    _ICTn,
-    _MU,
-    _EV,
-    _LM,
-    _STna,
-    _I,
-    _ST,
-    _OGN,
-    _PP,
-    _SR,
-    _SDBSI,
-    _STt,
-    _TCA,
-    _Enc,
-    _KKI,
-    _DBSA,
-    _Ti,
-    _IAMDAE,
-    _PF,
-    _DRI,
-    _TL,
-    _STn,
-    _OSCT,
-    _SDT,
-    _DBSI,
-    _MT,
-    _DLV,
-    _SAZ,
-    _ASVd,
-  ],
-  [
-    0,
-    0,
-    4,
-    0,
-    1,
-    0,
-    1,
-    0,
-    0,
-    4,
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    0,
-    1,
-    0,
-    0,
-    0,
-    0,
-    2,
-    0,
-    0,
-    0,
-    2,
-    [() => ProcessorFeatureList, 0],
-    0,
-    [() => TagList, 0],
-    0,
-    4,
-    4,
-    0,
-    2,
-    2,
-    0,
-    () => AdditionalStorageVolumesList,
-  ],
-];
-export var DBSnapshotAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBSAEF,
-  { [_aQE]: [`DBSnapshotAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBSnapshotAlreadyExistsFault$, DBSnapshotAlreadyExistsFault);
-export var DBSnapshotAttribute$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBSAn,
-  0,
-  [_AN, _AVt],
-  [0, [() => AttributeValueList, 0]],
-];
-export var DBSnapshotAttributesResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBSAR,
-  0,
-  [_DBSIn, _DBSAna],
-  [0, [() => DBSnapshotAttributeList, 0]],
-];
-export var DBSnapshotMessage$: StaticStructureSchema = [3, n0, _DBSM, 0, [_Ma, _DBSn], [0, [() => DBSnapshotList, 0]]];
-export var DBSnapshotNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBSNFF,
-  { [_aQE]: [`DBSnapshotNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBSnapshotNotFoundFault$, DBSnapshotNotFoundFault);
-export var DBSnapshotTenantDatabase$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBSTD,
-  0,
-  [_DBSIn, _DBII, _DRI, _EN, _STna, _TDCT, _TDBN, _MU, _TDRI, _CSN, _DBSTDARN, _NCSN, _TL],
-  [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, [() => TagList, 0]],
-];
-export var DBSnapshotTenantDatabaseNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBSTDNFF,
-  { [_aQE]: [`DBSnapshotTenantDatabaseNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBSnapshotTenantDatabaseNotFoundFault$, DBSnapshotTenantDatabaseNotFoundFault);
-export var DBSnapshotTenantDatabasesMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBSTDM,
-  0,
-  [_Ma, _DBSTDn],
-  [0, [() => DBSnapshotTenantDatabasesList, 0]],
-];
-export var DBSubnetGroup$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBSGu,
-  0,
-  [_DBSGNu, _DBSGDu, _VI, _SGS, _Su, _DBSGAu, _SNT],
-  [0, 0, 0, 0, [() => SubnetList, 0], 0, 64 | 0],
-];
-export var DBSubnetGroupAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBSGAEFu,
-  { [_aQE]: [`DBSubnetGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBSubnetGroupAlreadyExistsFault$, DBSubnetGroupAlreadyExistsFault);
-export var DBSubnetGroupDoesNotCoverEnoughAZs$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBSGDNCEAZ,
-  { [_aQE]: [`DBSubnetGroupDoesNotCoverEnoughAZs`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBSubnetGroupDoesNotCoverEnoughAZs$, DBSubnetGroupDoesNotCoverEnoughAZs);
-export var DBSubnetGroupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBSGMu,
-  0,
-  [_Ma, _DBSGub],
-  [0, [() => DBSubnetGroups, 0]],
-];
-export var DBSubnetGroupNotAllowedFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBSGNAF,
-  { [_aQE]: [`DBSubnetGroupNotAllowedFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBSubnetGroupNotAllowedFault$, DBSubnetGroupNotAllowedFault);
-export var DBSubnetGroupNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBSGNFFu,
-  { [_aQE]: [`DBSubnetGroupNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBSubnetGroupNotFoundFault$, DBSubnetGroupNotFoundFault);
-export var DBSubnetGroupQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBSGQEFu,
-  { [_aQE]: [`DBSubnetGroupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBSubnetGroupQuotaExceededFault$, DBSubnetGroupQuotaExceededFault);
-export var DBSubnetQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBSQEF,
-  { [_aQE]: [`DBSubnetQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBSubnetQuotaExceededFault$, DBSubnetQuotaExceededFault);
-export var DBUpgradeDependencyFailureFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DBUDFF,
-  { [_aQE]: [`DBUpgradeDependencyFailure`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DBUpgradeDependencyFailureFault$, DBUpgradeDependencyFailureFault);
-export var DeleteBlueGreenDeploymentRequest$: StaticStructureSchema = [3, n0, _DBGDR, 0, [_BGDI, _DTe], [0, 2]];
-export var DeleteBlueGreenDeploymentResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBGDRe,
-  0,
-  [_BGD],
-  [[() => BlueGreenDeployment$, 0]],
-];
-export var DeleteCustomDBEngineVersionMessage$: StaticStructureSchema = [3, n0, _DCDBEVM, 0, [_E, _EV], [0, 0]];
-export var DeleteDBClusterAutomatedBackupMessage$: StaticStructureSchema = [3, n0, _DDBCABM, 0, [_DCRI], [0]];
-export var DeleteDBClusterAutomatedBackupResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBCABR,
-  0,
-  [_DBCAB],
-  [[() => DBClusterAutomatedBackup$, 0]],
-];
-export var DeleteDBClusterEndpointMessage$: StaticStructureSchema = [3, n0, _DDBCEM, 0, [_DBCEI], [0]];
-export var DeleteDBClusterMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBCM,
-  0,
-  [_DBCI, _SFS, _FDBSI, _DAB],
-  [0, 2, 0, 2],
-];
-export var DeleteDBClusterParameterGroupMessage$: StaticStructureSchema = [3, n0, _DDBCPGM, 0, [_DBCPGN], [0]];
-export var DeleteDBClusterResult$: StaticStructureSchema = [3, n0, _DDBCR, 0, [_DBC], [[() => DBCluster$, 0]]];
-export var DeleteDBClusterSnapshotMessage$: StaticStructureSchema = [3, n0, _DDBCSM, 0, [_DBCSI], [0]];
-export var DeleteDBClusterSnapshotResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBCSR,
-  0,
-  [_DBCS],
-  [[() => DBClusterSnapshot$, 0]],
-];
-export var DeleteDBInstanceAutomatedBackupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBIABM,
-  0,
-  [_DRI, _DBIABA],
-  [0, 0],
-];
-export var DeleteDBInstanceAutomatedBackupResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBIABR,
-  0,
-  [_DBIAB],
-  [[() => DBInstanceAutomatedBackup$, 0]],
-];
-export var DeleteDBInstanceMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBIM,
-  0,
-  [_DBII, _SFS, _FDBSI, _DAB],
-  [0, 2, 0, 2],
-];
-export var DeleteDBInstanceResult$: StaticStructureSchema = [3, n0, _DDBIR, 0, [_DBI], [[() => DBInstance$, 0]]];
-export var DeleteDBParameterGroupMessage$: StaticStructureSchema = [3, n0, _DDBPGM, 0, [_DBPGN], [0]];
-export var DeleteDBProxyEndpointRequest$: StaticStructureSchema = [3, n0, _DDBPER, 0, [_DBPEN], [0]];
-export var DeleteDBProxyEndpointResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBPERe,
-  0,
-  [_DBPE],
-  [() => DBProxyEndpoint$],
-];
-export var DeleteDBProxyRequest$: StaticStructureSchema = [3, n0, _DDBPR, 0, [_DBPN], [0]];
-export var DeleteDBProxyResponse$: StaticStructureSchema = [3, n0, _DDBPRe, 0, [_DBP], [() => DBProxy$]];
-export var DeleteDBSecurityGroupMessage$: StaticStructureSchema = [3, n0, _DDBSGM, 0, [_DBSGN], [0]];
-export var DeleteDBShardGroupMessage$: StaticStructureSchema = [3, n0, _DDBSGMe, 0, [_DBSGI], [0]];
-export var DeleteDBSnapshotMessage$: StaticStructureSchema = [3, n0, _DDBSM, 0, [_DBSIn], [0]];
-export var DeleteDBSnapshotResult$: StaticStructureSchema = [3, n0, _DDBSR, 0, [_DBS], [[() => DBSnapshot$, 0]]];
-export var DeleteDBSubnetGroupMessage$: StaticStructureSchema = [3, n0, _DDBSGMel, 0, [_DBSGNu], [0]];
-export var DeleteEventSubscriptionMessage$: StaticStructureSchema = [3, n0, _DESM, 0, [_SN], [0]];
-export var DeleteEventSubscriptionResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _DESR,
-  0,
-  [_ES],
-  [[() => EventSubscription$, 0]],
-];
-export var DeleteGlobalClusterMessage$: StaticStructureSchema = [3, n0, _DGCM, 0, [_GCI], [0]];
-export var DeleteGlobalClusterResult$: StaticStructureSchema = [3, n0, _DGCR, 0, [_GC], [[() => GlobalCluster$, 0]]];
-export var DeleteIntegrationMessage$: StaticStructureSchema = [3, n0, _DIMe, 0, [_IIn], [0]];
-export var DeleteOptionGroupMessage$: StaticStructureSchema = [3, n0, _DOGM, 0, [_OGN], [0]];
-export var DeleteTenantDatabaseMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DTDM,
-  0,
-  [_DBII, _TDBN, _SFS, _FDBSI],
-  [0, 0, 2, 0],
-];
-export var DeleteTenantDatabaseResult$: StaticStructureSchema = [3, n0, _DTDR, 0, [_TD], [[() => TenantDatabase$, 0]]];
-export var DeregisterDBProxyTargetsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBPTR,
-  0,
-  [_DBPN, _TGN, _DBIIn, _DBCIl],
-  [0, 0, 64 | 0, 64 | 0],
-];
-export var DeregisterDBProxyTargetsResponse$: StaticStructureSchema = [3, n0, _DDBPTRe, 0, [], []];
-export var DescribeAccountAttributesMessage$: StaticStructureSchema = [3, n0, _DAAM, 0, [], []];
-export var DescribeBlueGreenDeploymentsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBGDRes,
-  0,
-  [_BGDI, _Fi, _Ma, _MR],
-  [0, [() => FilterList, 0], 0, 1],
-];
-export var DescribeBlueGreenDeploymentsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DBGDResc,
-  0,
-  [_BGDl, _Ma],
-  [[() => BlueGreenDeploymentList, 0], 0],
-];
-export var DescribeCertificatesMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DCM,
-  0,
-  [_CI, _Fi, _MR, _Ma],
-  [0, [() => FilterList, 0], 1, 0],
-];
-export var DescribeDBClusterAutomatedBackupsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBCABMe,
-  0,
-  [_DCRI, _DBCI, _Fi, _MR, _Ma],
-  [0, 0, [() => FilterList, 0], 1, 0],
-];
-export var DescribeDBClusterBacktracksMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBCBM,
-  0,
-  [_DBCI, _BI, _Fi, _MR, _Ma],
-  [0, 0, [() => FilterList, 0], 1, 0],
-];
-export var DescribeDBClusterEndpointsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBCEMe,
-  0,
-  [_DBCI, _DBCEI, _Fi, _MR, _Ma],
-  [0, 0, [() => FilterList, 0], 1, 0],
-];
-export var DescribeDBClusterParameterGroupsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBCPGMe,
-  0,
-  [_DBCPGN, _Fi, _MR, _Ma],
-  [0, [() => FilterList, 0], 1, 0],
-];
-export var DescribeDBClusterParametersMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBCPM,
-  0,
-  [_DBCPGN, _S, _Fi, _MR, _Ma],
-  [0, 0, [() => FilterList, 0], 1, 0],
-];
-export var DescribeDBClustersMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBCMe,
-  0,
-  [_DBCI, _Fi, _MR, _Ma, _IS],
-  [0, [() => FilterList, 0], 1, 0, 2],
-];
-export var DescribeDBClusterSnapshotAttributesMessage$: StaticStructureSchema = [3, n0, _DDBCSAM, 0, [_DBCSI], [0]];
-export var DescribeDBClusterSnapshotAttributesResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBCSAR,
-  0,
-  [_DBCSAR],
-  [[() => DBClusterSnapshotAttributesResult$, 0]],
-];
-export var DescribeDBClusterSnapshotsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBCSMe,
-  0,
-  [_DBCI, _DBCSI, _STna, _Fi, _MR, _Ma, _IS, _IP, _DCRI],
-  [0, 0, 0, [() => FilterList, 0], 1, 0, 2, 2, 0],
-];
-export var DescribeDBEngineVersionsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBEVM,
-  0,
-  [_E, _EV, _DBPGF, _Fi, _MR, _Ma, _DOe, _LSCS, _LST, _IA],
-  [0, 0, 0, [() => FilterList, 0], 1, 0, 2, 2, 2, 2],
-];
-export var DescribeDBInstanceAutomatedBackupsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBIABMe,
-  0,
-  [_DRI, _DBII, _Fi, _MR, _Ma, _DBIABA],
-  [0, 0, [() => FilterList, 0], 1, 0, 0],
-];
-export var DescribeDBInstancesMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBIMe,
-  0,
-  [_DBII, _Fi, _MR, _Ma],
-  [0, [() => FilterList, 0], 1, 0],
-];
-export var DescribeDBLogFilesDetails$: StaticStructureSchema = [3, n0, _DDBLFD, 0, [_LFN, _LW, _Si], [0, 1, 1]];
-export var DescribeDBLogFilesMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBLFM,
-  0,
-  [_DBII, _FC, _FLW, _FS, _Fi, _MR, _Ma],
-  [0, 0, 1, 1, [() => FilterList, 0], 1, 0],
-];
-export var DescribeDBLogFilesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBLFR,
-  0,
-  [_DDBLF, _Ma],
-  [[() => DescribeDBLogFilesList, 0], 0],
-];
-export var DescribeDBMajorEngineVersionsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBMEVR,
-  0,
-  [_E, _MEV, _Ma, _MR],
-  [0, 0, 0, 1],
-];
-export var DescribeDBMajorEngineVersionsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBMEVRe,
-  0,
-  [_DBMEVa, _Ma],
-  [[() => DBMajorEngineVersionsList, 0], 0],
-];
-export var DescribeDBParameterGroupsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBPGMe,
-  0,
-  [_DBPGN, _Fi, _MR, _Ma],
-  [0, [() => FilterList, 0], 1, 0],
-];
-export var DescribeDBParametersMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBPM,
-  0,
-  [_DBPGN, _S, _Fi, _MR, _Ma],
-  [0, 0, [() => FilterList, 0], 1, 0],
-];
-export var DescribeDBProxiesRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBPRes,
-  0,
-  [_DBPN, _Fi, _Ma, _MR],
-  [0, [() => FilterList, 0], 0, 1],
-];
-export var DescribeDBProxiesResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBPResc,
-  0,
-  [_DBPr, _Ma],
-  [() => DBProxyList, 0],
-];
-export var DescribeDBProxyEndpointsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBPERes,
-  0,
-  [_DBPN, _DBPEN, _Fi, _Ma, _MR],
-  [0, 0, [() => FilterList, 0], 0, 1],
-];
-export var DescribeDBProxyEndpointsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBPEResc,
-  0,
-  [_DBPEr, _Ma],
-  [() => DBProxyEndpointList, 0],
-];
-export var DescribeDBProxyTargetGroupsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBPTGR,
-  0,
-  [_DBPN, _TGN, _Fi, _Ma, _MR],
-  [0, 0, [() => FilterList, 0], 0, 1],
-];
-export var DescribeDBProxyTargetGroupsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBPTGRe,
-  0,
-  [_TG, _Ma],
-  [() => TargetGroupList, 0],
-];
-export var DescribeDBProxyTargetsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBPTRes,
-  0,
-  [_DBPN, _TGN, _Fi, _Ma, _MR],
-  [0, 0, [() => FilterList, 0], 0, 1],
-];
-export var DescribeDBProxyTargetsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBPTResc,
-  0,
-  [_Tar, _Ma],
-  [() => TargetList, 0],
-];
-export var DescribeDBRecommendationsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBRM,
-  0,
-  [_LUA, _LUB, _Lo, _Fi, _MR, _Ma],
-  [4, 4, 0, [() => FilterList, 0], 1, 0],
-];
-export var DescribeDBSecurityGroupsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBSGMes,
-  0,
-  [_DBSGN, _Fi, _MR, _Ma],
-  [0, [() => FilterList, 0], 1, 0],
-];
-export var DescribeDBShardGroupsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBSGMesc,
-  0,
-  [_DBSGI, _Fi, _Ma, _MR],
-  [0, [() => FilterList, 0], 0, 1],
-];
-export var DescribeDBShardGroupsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBSGR,
-  0,
-  [_DBSGha, _Ma],
-  [[() => DBShardGroupsList, 0], 0],
-];
-export var DescribeDBSnapshotAttributesMessage$: StaticStructureSchema = [3, n0, _DDBSAM, 0, [_DBSIn], [0]];
-export var DescribeDBSnapshotAttributesResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBSAR,
-  0,
-  [_DBSAR],
-  [[() => DBSnapshotAttributesResult$, 0]],
-];
-export var DescribeDBSnapshotsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBSMe,
-  0,
-  [_DBII, _DBSIn, _STna, _Fi, _MR, _Ma, _IS, _IP, _DRI],
-  [0, 0, 0, [() => FilterList, 0], 1, 0, 2, 2, 0],
-];
-export var DescribeDBSnapshotTenantDatabasesMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBSTDM,
-  0,
-  [_DBII, _DBSIn, _STna, _Fi, _MR, _Ma, _DRI],
-  [0, 0, 0, [() => FilterList, 0], 1, 0, 0],
-];
-export var DescribeDBSubnetGroupsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBSGMescr,
-  0,
-  [_DBSGNu, _Fi, _MR, _Ma],
-  [0, [() => FilterList, 0], 1, 0],
-];
-export var DescribeEngineDefaultClusterParametersMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DEDCPM,
-  0,
-  [_DBPGF, _Fi, _MR, _Ma],
-  [0, [() => FilterList, 0], 1, 0],
-];
-export var DescribeEngineDefaultClusterParametersResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _DEDCPR,
-  0,
-  [_ED],
-  [[() => EngineDefaults$, 0]],
-];
-export var DescribeEngineDefaultParametersMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DEDPM,
-  0,
-  [_DBPGF, _Fi, _MR, _Ma],
-  [0, [() => FilterList, 0], 1, 0],
-];
-export var DescribeEngineDefaultParametersResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _DEDPR,
-  0,
-  [_ED],
-  [[() => EngineDefaults$, 0]],
-];
-export var DescribeEventCategoriesMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DECM,
-  0,
-  [_STo, _Fi],
-  [0, [() => FilterList, 0]],
-];
-export var DescribeEventsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DEM,
-  0,
-  [_SI, _STo, _STtar, _ETn, _Du, _EC, _Fi, _MR, _Ma],
-  [0, 0, 4, 4, 1, [() => EventCategoriesList, 0], [() => FilterList, 0], 1, 0],
-];
-export var DescribeEventSubscriptionsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DESMe,
-  0,
-  [_SN, _Fi, _MR, _Ma],
-  [0, [() => FilterList, 0], 1, 0],
-];
-export var DescribeExportTasksMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DETM,
-  0,
-  [_ETI, _SA, _Fi, _Ma, _MR, _STo],
-  [0, 0, [() => FilterList, 0], 0, 1, 0],
-];
-export var DescribeGlobalClustersMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DGCMe,
-  0,
-  [_GCI, _Fi, _MR, _Ma],
-  [0, [() => FilterList, 0], 1, 0],
-];
-export var DescribeIntegrationsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DIMes,
-  0,
-  [_IIn, _Fi, _MR, _Ma],
-  [0, [() => FilterList, 0], 1, 0],
-];
-export var DescribeIntegrationsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _DIR,
-  0,
-  [_Ma, _In],
-  [0, [() => IntegrationList, 0]],
-];
-export var DescribeOptionGroupOptionsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DOGOM,
-  0,
-  [_EN, _MEV, _Fi, _MR, _Ma],
-  [0, 0, [() => FilterList, 0], 1, 0],
-];
-export var DescribeOptionGroupsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DOGMe,
-  0,
-  [_OGN, _Fi, _Ma, _MR, _EN, _MEV],
-  [0, [() => FilterList, 0], 0, 1, 0, 0],
-];
-export var DescribeOrderableDBInstanceOptionsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DODBIOM,
-  0,
-  [_E, _EV, _DBIC, _LM, _AZG, _Vp, _Fi, _MR, _Ma],
-  [0, 0, 0, 0, 0, 2, [() => FilterList, 0], 1, 0],
-];
-export var DescribePendingMaintenanceActionsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DPMAM,
-  0,
-  [_RI, _Fi, _Ma, _MR],
-  [0, [() => FilterList, 0], 0, 1],
-];
-export var DescribeReservedDBInstancesMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DRDBIM,
-  0,
-  [_RDBII, _RDBIOI, _DBIC, _Du, _PD, _OT, _MAZ, _LI, _Fi, _MR, _Ma],
-  [0, 0, 0, 0, 0, 0, 2, 0, [() => FilterList, 0], 1, 0],
-];
-export var DescribeReservedDBInstancesOfferingsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DRDBIOM,
-  0,
-  [_RDBIOI, _DBIC, _Du, _PD, _OT, _MAZ, _Fi, _MR, _Ma],
-  [0, 0, 0, 0, 0, 2, [() => FilterList, 0], 1, 0],
-];
-export var DescribeSourceRegionsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSRM,
-  0,
-  [_RNe, _MR, _Ma, _Fi],
-  [0, 1, 0, [() => FilterList, 0]],
-];
-export var DescribeTenantDatabasesMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DTDMe,
-  0,
-  [_DBII, _TDBN, _Fi, _Ma, _MR],
-  [0, 0, [() => FilterList, 0], 0, 1],
-];
-export var DescribeValidDBInstanceModificationsMessage$: StaticStructureSchema = [3, n0, _DVDBIMM, 0, [_DBII], [0]];
-export var DescribeValidDBInstanceModificationsResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _DVDBIMR,
-  0,
-  [_VDBIMM],
-  [[() => ValidDBInstanceModificationsMessage$, 0]],
-];
-export var DisableHttpEndpointRequest$: StaticStructureSchema = [3, n0, _DHER, 0, [_RAe], [0]];
-export var DisableHttpEndpointResponse$: StaticStructureSchema = [3, n0, _DHERi, 0, [_RAe, _HEE], [0, 2]];
-export var DocLink$: StaticStructureSchema = [3, n0, _DLo, 0, [_Te, _Ur], [0, 0]];
-export var DomainMembership$: StaticStructureSchema = [
-  3,
-  n0,
-  _DMo,
-  0,
-  [_Do, _St, _FQDN, _IAMRN, _OU, _ASA, _DI],
-  [0, 0, 0, 0, 0, 0, 64 | 0],
-];
-export var DomainNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _DNFF,
-  { [_aQE]: [`DomainNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(DomainNotFoundFault$, DomainNotFoundFault);
-export var DoubleRange$: StaticStructureSchema = [3, n0, _DR, 0, [_Fr, _To], [1, 1]];
-export var DownloadDBLogFilePortionDetails$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBLFPD,
-  0,
-  [_LFD, _Ma, _ADP],
-  [[() => SensitiveString, 0], 0, 2],
-];
-export var DownloadDBLogFilePortionMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _DDBLFPM,
-  0,
-  [_DBII, _LFN, _Ma, _NOL],
-  [0, 0, 0, 1],
-];
-export var Ec2ImagePropertiesNotSupportedFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _EIPNSF,
-  { [_aQE]: [`Ec2ImagePropertiesNotSupportedFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(Ec2ImagePropertiesNotSupportedFault$, Ec2ImagePropertiesNotSupportedFault);
-export var EC2SecurityGroup$: StaticStructureSchema = [3, n0, _ECSGe, 0, [_St, _ECSGN, _ECSGI, _ECSGOI], [0, 0, 0, 0]];
-export var EnableHttpEndpointRequest$: StaticStructureSchema = [3, n0, _EHER, 0, [_RAe], [0]];
-export var EnableHttpEndpointResponse$: StaticStructureSchema = [3, n0, _EHERn, 0, [_RAe, _HEE], [0, 2]];
-export var Endpoint$: StaticStructureSchema = [3, n0, _End, 0, [_Ad, _P, _HZI], [0, 1, 0]];
-export var EngineDefaults$: StaticStructureSchema = [
-  3,
-  n0,
-  _ED,
-  0,
-  [_DBPGF, _Ma, _Pa],
-  [0, 0, [() => ParametersList, 0]],
-];
-export var Event$: StaticStructureSchema = [
-  3,
-  n0,
-  _Ev,
-  0,
-  [_SI, _STo, _Me, _EC, _Da, _SA],
-  [0, 0, 0, [() => EventCategoriesList, 0], 4, 0],
-];
-export var EventCategoriesMap$: StaticStructureSchema = [
-  3,
-  n0,
-  _ECM,
-  0,
-  [_STo, _EC],
-  [0, [() => EventCategoriesList, 0]],
-];
-export var EventCategoriesMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _ECMv,
-  0,
-  [_ECML],
-  [[() => EventCategoriesMapList, 0]],
-];
-export var EventsMessage$: StaticStructureSchema = [3, n0, _EMv, 0, [_Ma, _Eve], [0, [() => EventList, 0]]];
-export var EventSubscription$: StaticStructureSchema = [
-  3,
-  n0,
-  _ES,
-  0,
-  [_CAIu, _CSI, _STA, _St, _SCTu, _STo, _SIL, _ECL, _En, _ESA],
-  [0, 0, 0, 0, 0, 0, [() => SourceIdsList, 0], [() => EventCategoriesList, 0], 2, 0],
-];
-export var EventSubscriptionQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ESQEF,
-  { [_aQE]: [`EventSubscriptionQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(EventSubscriptionQuotaExceededFault$, EventSubscriptionQuotaExceededFault);
-export var EventSubscriptionsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _ESM,
-  0,
-  [_Ma, _ESL],
-  [0, [() => EventSubscriptionsList, 0]],
-];
-export var ExportTask$: StaticStructureSchema = [
-  3,
-  n0,
-  _ETx,
-  0,
-  [_ETI, _SA, _EO, _STnap, _TSTas, _TET, _SBu, _SP, _IRA, _KKI, _St, _PP, _TEDIGB, _FCa, _WM, _STo],
-  [0, 0, 64 | 0, 4, 4, 4, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0],
-];
-export var ExportTaskAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ETAEF,
-  { [_aQE]: [`ExportTaskAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(ExportTaskAlreadyExistsFault$, ExportTaskAlreadyExistsFault);
-export var ExportTaskNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ETNFF,
-  { [_aQE]: [`ExportTaskNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(ExportTaskNotFoundFault$, ExportTaskNotFoundFault);
-export var ExportTasksMessage$: StaticStructureSchema = [3, n0, _ETM, 0, [_Ma, _ETxp], [0, [() => ExportTasksList, 0]]];
-export var FailoverDBClusterMessage$: StaticStructureSchema = [3, n0, _FDBCM, 0, [_DBCI, _TDBII], [0, 0]];
-export var FailoverDBClusterResult$: StaticStructureSchema = [3, n0, _FDBCR, 0, [_DBC], [[() => DBCluster$, 0]]];
-export var FailoverGlobalClusterMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _FGCM,
-  0,
-  [_GCI, _TDCI, _ADL, _Sw],
-  [0, 0, 2, 2],
-];
-export var FailoverGlobalClusterResult$: StaticStructureSchema = [3, n0, _FGCR, 0, [_GC], [[() => GlobalCluster$, 0]]];
-export var FailoverState$: StaticStructureSchema = [3, n0, _FSa, 0, [_St, _FDCA, _TDCA, _IDLA], [0, 0, 0, 2]];
-export var Filter$: StaticStructureSchema = [3, n0, _Fil, 0, [_N, _Va], [0, [() => FilterValueList, 0]]];
-export var GlobalCluster$: StaticStructureSchema = [
-  3,
-  n0,
-  _GC,
-  0,
-  [_GCI, _GCRI, _GCA, _St, _E, _EV, _ELS, _DN, _SE, _DP, _GCM, _End, _FSa, _TL],
-  [0, 0, 0, 0, 0, 0, 0, 0, 2, 2, [() => GlobalClusterMemberList, 0], 0, () => FailoverState$, [() => TagList, 0]],
-];
-export var GlobalClusterAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _GCAEF,
-  { [_aQE]: [`GlobalClusterAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(GlobalClusterAlreadyExistsFault$, GlobalClusterAlreadyExistsFault);
-export var GlobalClusterMember$: StaticStructureSchema = [
-  3,
-  n0,
-  _GCMl,
-  0,
-  [_DBCA, _Read, _IW, _GWFS, _SSy],
-  [0, 64 | 0, 2, 0, 0],
-];
-export var GlobalClusterNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _GCNFF,
-  { [_aQE]: [`GlobalClusterNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(GlobalClusterNotFoundFault$, GlobalClusterNotFoundFault);
-export var GlobalClusterQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _GCQEF,
-  { [_aQE]: [`GlobalClusterQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(GlobalClusterQuotaExceededFault$, GlobalClusterQuotaExceededFault);
-export var GlobalClustersMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _GCMlo,
-  0,
-  [_Ma, _GCl],
-  [0, [() => GlobalClusterList, 0]],
-];
-export var IamRoleMissingPermissionsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRMPF,
-  { [_aQE]: [`IamRoleMissingPermissions`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(IamRoleMissingPermissionsFault$, IamRoleMissingPermissionsFault);
-export var IamRoleNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRNFF,
-  { [_aQE]: [`IamRoleNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(IamRoleNotFoundFault$, IamRoleNotFoundFault);
-export var InstanceQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IQEF,
-  { [_aQE]: [`InstanceQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InstanceQuotaExceededFault$, InstanceQuotaExceededFault);
-export var InsufficientAvailableIPsInSubnetFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAIPISF,
-  { [_aQE]: [`InsufficientAvailableIPsInSubnetFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InsufficientAvailableIPsInSubnetFault$, InsufficientAvailableIPsInSubnetFault);
-export var InsufficientDBClusterCapacityFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDBCCF,
-  { [_aQE]: [`InsufficientDBClusterCapacityFault`, 403], [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InsufficientDBClusterCapacityFault$, InsufficientDBClusterCapacityFault);
-export var InsufficientDBInstanceCapacityFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDBICF,
-  { [_aQE]: [`InsufficientDBInstanceCapacity`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InsufficientDBInstanceCapacityFault$, InsufficientDBInstanceCapacityFault);
-export var InsufficientStorageClusterCapacityFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISCCF,
-  { [_aQE]: [`InsufficientStorageClusterCapacity`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InsufficientStorageClusterCapacityFault$, InsufficientStorageClusterCapacityFault);
-export var Integration$: StaticStructureSchema = [
-  3,
-  n0,
-  _Int,
-  0,
-  [_SA, _TA, _IN, _IAn, _KMSKI, _AEC, _St, _T, _DFa, _D, _CT, _Er],
-  [0, 0, 0, 0, 0, 128 | 0, 0, [() => TagList, 0], 0, 0, 4, [() => IntegrationErrorList, 0]],
-];
-export var IntegrationAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAEF,
-  { [_aQE]: [`IntegrationAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(IntegrationAlreadyExistsFault$, IntegrationAlreadyExistsFault);
-export var IntegrationConflictOperationFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ICOF,
-  { [_aQE]: [`IntegrationConflictOperationFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(IntegrationConflictOperationFault$, IntegrationConflictOperationFault);
-export var IntegrationError$: StaticStructureSchema = [3, n0, _IE, 0, [_ECr, _EMr], [0, 0]];
-export var IntegrationNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _INFF,
-  { [_aQE]: [`IntegrationNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(IntegrationNotFoundFault$, IntegrationNotFoundFault);
-export var IntegrationQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IQEFn,
-  { [_aQE]: [`IntegrationQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(IntegrationQuotaExceededFault$, IntegrationQuotaExceededFault);
-export var InvalidBlueGreenDeploymentStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IBGDSF,
-  { [_aQE]: [`InvalidBlueGreenDeploymentStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidBlueGreenDeploymentStateFault$, InvalidBlueGreenDeploymentStateFault);
-export var InvalidCustomDBEngineVersionStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ICDBEVSF,
-  { [_aQE]: [`InvalidCustomDBEngineVersionStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidCustomDBEngineVersionStateFault$, InvalidCustomDBEngineVersionStateFault);
-export var InvalidDBClusterAutomatedBackupStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDBCABSF,
-  { [_aQE]: [`InvalidDBClusterAutomatedBackupStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  InvalidDBClusterAutomatedBackupStateFault$,
-  InvalidDBClusterAutomatedBackupStateFault
-);
-export var InvalidDBClusterCapacityFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDBCCFn,
-  { [_aQE]: [`InvalidDBClusterCapacityFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidDBClusterCapacityFault$, InvalidDBClusterCapacityFault);
-export var InvalidDBClusterEndpointStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDBCESF,
-  { [_aQE]: [`InvalidDBClusterEndpointStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidDBClusterEndpointStateFault$, InvalidDBClusterEndpointStateFault);
-export var InvalidDBClusterSnapshotStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDBCSSF,
-  { [_aQE]: [`InvalidDBClusterSnapshotStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidDBClusterSnapshotStateFault$, InvalidDBClusterSnapshotStateFault);
-export var InvalidDBClusterStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDBCSF,
-  { [_aQE]: [`InvalidDBClusterStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidDBClusterStateFault$, InvalidDBClusterStateFault);
-export var InvalidDBInstanceAutomatedBackupStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDBIABSF,
-  { [_aQE]: [`InvalidDBInstanceAutomatedBackupState`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(
-  InvalidDBInstanceAutomatedBackupStateFault$,
-  InvalidDBInstanceAutomatedBackupStateFault
-);
-export var InvalidDBInstanceStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDBISF,
-  { [_aQE]: [`InvalidDBInstanceState`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidDBInstanceStateFault$, InvalidDBInstanceStateFault);
-export var InvalidDBParameterGroupStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDBPGSF,
-  { [_aQE]: [`InvalidDBParameterGroupState`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidDBParameterGroupStateFault$, InvalidDBParameterGroupStateFault);
-export var InvalidDBProxyEndpointStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDBPESF,
-  { [_aQE]: [`InvalidDBProxyEndpointStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidDBProxyEndpointStateFault$, InvalidDBProxyEndpointStateFault);
-export var InvalidDBProxyStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDBPSF,
-  { [_aQE]: [`InvalidDBProxyStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidDBProxyStateFault$, InvalidDBProxyStateFault);
-export var InvalidDBSecurityGroupStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDBSGSF,
-  { [_aQE]: [`InvalidDBSecurityGroupState`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidDBSecurityGroupStateFault$, InvalidDBSecurityGroupStateFault);
-export var InvalidDBShardGroupStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDBSGSFn,
-  { [_aQE]: [`InvalidDBShardGroupState`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidDBShardGroupStateFault$, InvalidDBShardGroupStateFault);
-export var InvalidDBSnapshotStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDBSSF,
-  { [_aQE]: [`InvalidDBSnapshotState`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidDBSnapshotStateFault$, InvalidDBSnapshotStateFault);
-export var InvalidDBSubnetGroupFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDBSGF,
-  { [_aQE]: [`InvalidDBSubnetGroupFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidDBSubnetGroupFault$, InvalidDBSubnetGroupFault);
-export var InvalidDBSubnetGroupStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDBSGSFnv,
-  { [_aQE]: [`InvalidDBSubnetGroupStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidDBSubnetGroupStateFault$, InvalidDBSubnetGroupStateFault);
-export var InvalidDBSubnetStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDBSSFn,
-  { [_aQE]: [`InvalidDBSubnetStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidDBSubnetStateFault$, InvalidDBSubnetStateFault);
-export var InvalidEventSubscriptionStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IESSF,
-  { [_aQE]: [`InvalidEventSubscriptionState`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidEventSubscriptionStateFault$, InvalidEventSubscriptionStateFault);
-export var InvalidExportOnlyFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IEOF,
-  { [_aQE]: [`InvalidExportOnly`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidExportOnlyFault$, InvalidExportOnlyFault);
-export var InvalidExportSourceStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IESSFn,
-  { [_aQE]: [`InvalidExportSourceState`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidExportSourceStateFault$, InvalidExportSourceStateFault);
-export var InvalidExportTaskStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IETSF,
-  { [_aQE]: [`InvalidExportTaskStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidExportTaskStateFault$, InvalidExportTaskStateFault);
-export var InvalidGlobalClusterStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IGCSF,
-  { [_aQE]: [`InvalidGlobalClusterStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidGlobalClusterStateFault$, InvalidGlobalClusterStateFault);
-export var InvalidIntegrationStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IISF,
-  { [_aQE]: [`InvalidIntegrationStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidIntegrationStateFault$, InvalidIntegrationStateFault);
-export var InvalidOptionGroupStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IOGSF,
-  { [_aQE]: [`InvalidOptionGroupStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidOptionGroupStateFault$, InvalidOptionGroupStateFault);
-export var InvalidResourceStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRSF,
-  { [_aQE]: [`InvalidResourceStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidResourceStateFault$, InvalidResourceStateFault);
-export var InvalidRestoreFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRF,
-  { [_aQE]: [`InvalidRestoreFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidRestoreFault$, InvalidRestoreFault);
-export var InvalidS3BucketFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISBF,
-  { [_aQE]: [`InvalidS3BucketFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidS3BucketFault$, InvalidS3BucketFault);
-export var InvalidSubnet$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISn,
-  { [_aQE]: [`InvalidSubnet`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidSubnet$, InvalidSubnet);
-export var InvalidVPCNetworkStateFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IVPCNSF,
-  { [_aQE]: [`InvalidVPCNetworkStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidVPCNetworkStateFault$, InvalidVPCNetworkStateFault);
-export var IPRange$: StaticStructureSchema = [3, n0, _IPRa, 0, [_St, _CIDRIP], [0, 0]];
-export var IssueDetails$: StaticStructureSchema = [3, n0, _IDs, 0, [_PID], [() => PerformanceIssueDetails$]];
-export var KMSKeyNotAccessibleFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _KMSKNAF,
-  { [_aQE]: [`KMSKeyNotAccessibleFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(KMSKeyNotAccessibleFault$, KMSKeyNotAccessibleFault);
-export var LimitlessDatabase$: StaticStructureSchema = [3, n0, _LD, 0, [_St, _MRACU], [0, 1]];
-export var ListTagsForResourceMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _LTFRM,
-  0,
-  [_RN, _Fi],
-  [0, [() => FilterList, 0]],
-];
-export var MasterUserSecret$: StaticStructureSchema = [3, n0, _MUS, 0, [_SAe, _SSe, _KKI], [0, 0, 0]];
-export var MaxDBShardGroupLimitReached$: StaticErrorSchema = [
-  -3,
-  n0,
-  _MDBSGLR,
-  { [_aQE]: [`MaxDBShardGroupLimitReached`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(MaxDBShardGroupLimitReached$, MaxDBShardGroupLimitReached);
-export var Metric$: StaticStructureSchema = [
-  3,
-  n0,
-  _Met,
-  0,
-  [_N, _Ref, _SDta, _MQ],
-  [0, () => MetricReferenceList, 0, () => MetricQuery$],
-];
-export var MetricQuery$: StaticStructureSchema = [3, n0, _MQ, 0, [_PIMQ], [() => PerformanceInsightsMetricQuery$]];
-export var MetricReference$: StaticStructureSchema = [3, n0, _MRe, 0, [_N, _RD], [0, () => ReferenceDetails$]];
-export var MinimumEngineVersionPerAllowedValue$: StaticStructureSchema = [3, n0, _MEVPAV, 0, [_AVl, _MEVi], [0, 0]];
-export var ModifyActivityStreamRequest$: StaticStructureSchema = [3, n0, _MASR, 0, [_RAe, _APS], [0, 0]];
-export var ModifyActivityStreamResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _MASRo,
-  0,
-  [_KKI, _KSN, _St, _Mo, _ENAFI, _PS],
-  [0, 0, 0, 0, 2, 0],
-];
-export var ModifyAdditionalStorageVolume$: StaticStructureSchema = [
-  3,
-  n0,
-  _MASV,
-  0,
-  [_VN, _AS, _IOPS, _MAS, _ST, _STt, _SFD],
-  [0, 1, 1, 1, 1, 0, 2],
-];
-export var ModifyCertificatesMessage$: StaticStructureSchema = [3, n0, _MCM, 0, [_CI, _RCO], [0, 2]];
-export var ModifyCertificatesResult$: StaticStructureSchema = [3, n0, _MCR, 0, [_C], [() => Certificate$]];
-export var ModifyCurrentDBClusterCapacityMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _MCDBCCM,
-  0,
-  [_DBCI, _Ca, _SBT, _TAi],
-  [0, 1, 1, 0],
-];
-export var ModifyCustomDBEngineVersionMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _MCDBEVM,
-  0,
-  [_E, _EV, _D, _St],
-  [0, 0, 0, 0],
-];
-export var ModifyDBClusterEndpointMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _MDBCEM,
-  0,
-  [_DBCEI, _ET, _SM, _EM],
-  [0, 0, 64 | 0, 64 | 0],
-];
-export var ModifyDBClusterMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _MDBCM,
-  0,
-  [
-    _DBCI,
-    _NDBCI,
-    _AIp,
-    _BRP,
-    _DBCPGN,
-    _VSGI,
-    _P,
-    _MUP,
-    _OGN,
-    _PBW,
-    _PMW,
-    _EIAMDA,
-    _BW,
-    _CLEC,
-    _EV,
-    _AMVUl,
-    _DBIPGN,
-    _Do,
-    _DIAMRN,
-    _SC,
-    _DP,
-    _EHE,
-    _CTTS,
-    _EGWF,
-    _DBCIC,
-    _AS,
-    _STt,
-    _I,
-    _AMVU,
-    _NT,
-    _SVSC,
-    _MIo,
-    _MRA,
-    _DIM,
-    _EPI,
-    _PIKMSKI,
-    _PIRP,
-    _MMUP,
-    _RMUP,
-    _ELWF,
-    _MUSKKI,
-    _EMn,
-    _AEMC,
-    _ABRPA,
-    _ELD,
-    _CACI,
-    _MUAT,
-  ],
-  [
-    0,
-    0,
-    2,
-    1,
-    0,
-    [() => VpcSecurityGroupIdList, 0],
-    1,
-    [() => SensitiveString, 0],
-    0,
-    0,
-    0,
-    2,
-    1,
-    () => CloudwatchLogsExportConfiguration$,
-    0,
-    2,
-    0,
-    0,
-    0,
-    () => ScalingConfiguration$,
-    2,
-    2,
-    2,
-    2,
-    0,
-    1,
-    0,
-    1,
-    2,
-    0,
-    () => ServerlessV2ScalingConfiguration$,
-    1,
-    0,
-    0,
-    2,
-    0,
-    1,
-    2,
-    2,
-    2,
-    0,
-    0,
-    2,
-    0,
-    2,
-    0,
-    0,
-  ],
-];
-export var ModifyDBClusterParameterGroupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _MDBCPGM,
-  0,
-  [_DBCPGN, _Pa],
-  [0, [() => ParametersList, 0]],
-];
-export var ModifyDBClusterResult$: StaticStructureSchema = [3, n0, _MDBCR, 0, [_DBC], [[() => DBCluster$, 0]]];
-export var ModifyDBClusterSnapshotAttributeMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _MDBCSAM,
-  0,
-  [_DBCSI, _AN, _VTA, _VTR],
-  [0, 0, [() => AttributeValueList, 0], [() => AttributeValueList, 0]],
-];
-export var ModifyDBClusterSnapshotAttributeResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _MDBCSAR,
-  0,
-  [_DBCSAR],
-  [[() => DBClusterSnapshotAttributesResult$, 0]],
-];
-export var ModifyDBInstanceMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _MDBIM,
-  0,
-  [
-    _DBII,
-    _AS,
-    _DBIC,
-    _DBSGNu,
-    _DBSGe,
-    _VSGI,
-    _AIp,
-    _MUP,
-    _DBPGN,
-    _BRP,
-    _PBW,
-    _PMW,
-    _MAZ,
-    _EV,
-    _AMVUl,
-    _AMVU,
-    _LM,
-    _I,
-    _ST,
-    _OGN,
-    _NDBII,
-    _STt,
-    _TCA,
-    _TCP,
-    _CACI,
-    _Do,
-    _DF,
-    _DO,
-    _DASA,
-    _DDI,
-    _DD,
-    _CTTS,
-    _MIo,
-    _DBPNo,
-    _PA,
-    _MRA,
-    _DIAMRN,
-    _PT,
-    _EIAMDA,
-    _DIM,
-    _EPI,
-    _PIKMSKI,
-    _PIRP,
-    _CLEC,
-    _PF,
-    _UDPF,
-    _DP,
-    _MAS,
-    _CRR,
-    _RM,
-    _AM,
-    _RFAMM,
-    _ECOI,
-    _NT,
-    _ABRPA,
-    _MMUP,
-    _RMUP,
-    _MUSKKI,
-    _MT,
-    _DLV,
-    _E,
-    _TS,
-    _MUAT,
-    _ASVd,
-  ],
-  [
-    0,
-    1,
-    0,
-    0,
-    [() => DBSecurityGroupNameList, 0],
-    [() => VpcSecurityGroupIdList, 0],
-    2,
-    [() => SensitiveString, 0],
-    0,
-    1,
-    0,
-    0,
-    2,
-    0,
-    2,
-    2,
-    0,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    [() => SensitiveString, 0],
-    0,
-    0,
-    0,
-    0,
-    0,
-    64 | 0,
-    2,
-    2,
-    1,
-    1,
-    2,
-    0,
-    0,
-    1,
-    2,
-    0,
-    2,
-    0,
-    1,
-    () => CloudwatchLogsExportConfiguration$,
-    [() => ProcessorFeatureList, 0],
-    2,
-    2,
-    1,
-    2,
-    0,
-    0,
-    1,
-    2,
-    0,
-    0,
-    2,
-    2,
-    0,
-    2,
-    2,
-    0,
-    [() => TagSpecificationList, 0],
-    0,
-    () => ModifyAdditionalStorageVolumesList,
-  ],
-];
-export var ModifyDBInstanceResult$: StaticStructureSchema = [3, n0, _MDBIR, 0, [_DBI], [[() => DBInstance$, 0]]];
-export var ModifyDBParameterGroupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _MDBPGM,
-  0,
-  [_DBPGN, _Pa],
-  [0, [() => ParametersList, 0]],
-];
-export var ModifyDBProxyEndpointRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _MDBPER,
-  0,
-  [_DBPEN, _NDBPEN, _VSGI],
-  [0, 0, 64 | 0],
-];
-export var ModifyDBProxyEndpointResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _MDBPERo,
-  0,
-  [_DBPE],
-  [() => DBProxyEndpoint$],
-];
-export var ModifyDBProxyRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _MDBPR,
-  0,
-  [_DBPN, _NDBPN, _DAS, _A, _RTLS, _ICT, _DL, _RA, _SG],
-  [0, 0, 0, () => UserAuthConfigList, 2, 1, 2, 0, 64 | 0],
-];
-export var ModifyDBProxyResponse$: StaticStructureSchema = [3, n0, _MDBPRo, 0, [_DBP], [() => DBProxy$]];
-export var ModifyDBProxyTargetGroupRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _MDBPTGR,
-  0,
-  [_TGN, _DBPN, _CPCo, _NN],
-  [0, 0, () => ConnectionPoolConfiguration$, 0],
-];
-export var ModifyDBProxyTargetGroupResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _MDBPTGRo,
-  0,
-  [_DBPTG],
-  [() => DBProxyTargetGroup$],
-];
-export var ModifyDBRecommendationMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _MDBRM,
-  0,
-  [_RIe, _Lo, _St, _RAU],
-  [0, 0, 0, () => RecommendedActionUpdateList],
-];
-export var ModifyDBShardGroupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _MDBSGM,
-  0,
-  [_DBSGI, _MACU, _MACUi, _CR],
-  [0, 1, 1, 1],
-];
-export var ModifyDBSnapshotAttributeMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _MDBSAM,
-  0,
-  [_DBSIn, _AN, _VTA, _VTR],
-  [0, 0, [() => AttributeValueList, 0], [() => AttributeValueList, 0]],
-];
-export var ModifyDBSnapshotAttributeResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _MDBSAR,
-  0,
-  [_DBSAR],
-  [[() => DBSnapshotAttributesResult$, 0]],
-];
-export var ModifyDBSnapshotMessage$: StaticStructureSchema = [3, n0, _MDBSM, 0, [_DBSIn, _EV, _OGN], [0, 0, 0]];
-export var ModifyDBSnapshotResult$: StaticStructureSchema = [3, n0, _MDBSR, 0, [_DBS], [[() => DBSnapshot$, 0]]];
-export var ModifyDBSubnetGroupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _MDBSGMo,
-  0,
-  [_DBSGNu, _DBSGDu, _SIub],
-  [0, 0, [() => SubnetIdentifierList, 0]],
-];
-export var ModifyDBSubnetGroupResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _MDBSGR,
-  0,
-  [_DBSGu],
-  [[() => DBSubnetGroup$, 0]],
-];
-export var ModifyEventSubscriptionMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _MESM,
-  0,
-  [_SN, _STA, _STo, _EC, _En],
-  [0, 0, 0, [() => EventCategoriesList, 0], 2],
-];
-export var ModifyEventSubscriptionResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _MESR,
-  0,
-  [_ES],
-  [[() => EventSubscription$, 0]],
-];
-export var ModifyGlobalClusterMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _MGCM,
-  0,
-  [_GCI, _NGCI, _DP, _EV, _AMVUl],
-  [0, 0, 2, 0, 2],
-];
-export var ModifyGlobalClusterResult$: StaticStructureSchema = [3, n0, _MGCR, 0, [_GC], [[() => GlobalCluster$, 0]]];
-export var ModifyIntegrationMessage$: StaticStructureSchema = [3, n0, _MIM, 0, [_IIn, _IN, _DFa, _D], [0, 0, 0, 0]];
-export var ModifyOptionGroupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _MOGM,
-  0,
-  [_OGN, _OTI, _OTR, _AIp],
-  [0, [() => OptionConfigurationList, 0], 64 | 0, 2],
-];
-export var ModifyOptionGroupResult$: StaticStructureSchema = [3, n0, _MOGR, 0, [_OG], [[() => OptionGroup$, 0]]];
-export var ModifyTenantDatabaseMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _MTDM,
-  0,
-  [_DBII, _TDBN, _MUP, _NTDBN, _MMUP, _RMUP, _MUSKKI],
-  [0, 0, [() => SensitiveString, 0], 0, 2, 2, 0],
-];
-export var ModifyTenantDatabaseResult$: StaticStructureSchema = [3, n0, _MTDR, 0, [_TD], [[() => TenantDatabase$, 0]]];
-export var NetworkTypeNotSupported$: StaticErrorSchema = [
-  -3,
-  n0,
-  _NTNS,
-  { [_aQE]: [`NetworkTypeNotSupported`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(NetworkTypeNotSupported$, NetworkTypeNotSupported);
-export var Option$: StaticStructureSchema = [
-  3,
-  n0,
-  _O,
-  0,
-  [_ON, _OD, _Pe, _Per, _P, _OV, _OS, _DBSGMec, _VSGM],
-  [
-    0,
-    0,
-    2,
-    2,
-    1,
-    0,
-    [() => OptionSettingConfigurationList, 0],
-    [() => DBSecurityGroupMembershipList, 0],
-    [() => VpcSecurityGroupMembershipList, 0],
-  ],
-];
-export var OptionConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _OC,
-  0,
-  [_ON, _P, _OV, _DBSGMec, _VSGM, _OS],
-  [0, 1, 0, [() => DBSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], [() => OptionSettingsList, 0]],
-];
-export var OptionGroup$: StaticStructureSchema = [
-  3,
-  n0,
-  _OG,
-  0,
-  [_OGN, _OGD, _EN, _MEV, _Op, _AVANVIM, _VI, _OGA, _SOG, _SAI, _CTop],
-  [0, 0, 0, 0, [() => OptionsList, 0], 2, 0, 0, 0, 0, 4],
-];
-export var OptionGroupAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _OGAEF,
-  { [_aQE]: [`OptionGroupAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(OptionGroupAlreadyExistsFault$, OptionGroupAlreadyExistsFault);
-export var OptionGroupMembership$: StaticStructureSchema = [3, n0, _OGMp, 0, [_OGN, _St], [0, 0]];
-export var OptionGroupNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _OGNFF,
-  { [_aQE]: [`OptionGroupNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(OptionGroupNotFoundFault$, OptionGroupNotFoundFault);
-export var OptionGroupOption$: StaticStructureSchema = [
-  3,
-  n0,
-  _OGO,
-  0,
-  [_N, _D, _EN, _MEV, _MRMEV, _PR, _DPe, _ODO, _OCW, _Pe, _Per, _RAMEVU, _VO, _SOVD, _OGOS, _OGOV, _CCA],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    2,
-    1,
-    [() => OptionsDependedOn, 0],
-    [() => OptionsConflictsWith, 0],
-    2,
-    2,
-    2,
-    2,
-    2,
-    [() => OptionGroupOptionSettingsList, 0],
-    [() => OptionGroupOptionVersionsList, 0],
-    2,
-  ],
-];
-export var OptionGroupOptionSetting$: StaticStructureSchema = [
-  3,
-  n0,
-  _OGOSp,
-  0,
-  [_SNe, _SDe, _DV, _AT, _AV, _IM, _IR, _MEVPAV],
-  [0, 0, 0, 0, 0, 2, 2, [() => MinimumEngineVersionPerAllowedValueList, 0]],
-];
-export var OptionGroupOptionsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _OGOM,
-  0,
-  [_OGOp, _Ma],
-  [[() => OptionGroupOptionsList, 0], 0],
-];
-export var OptionGroupQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _OGQEF,
-  { [_aQE]: [`OptionGroupQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(OptionGroupQuotaExceededFault$, OptionGroupQuotaExceededFault);
-export var OptionGroups$: StaticStructureSchema = [3, n0, _OGp, 0, [_OGL, _Ma], [[() => OptionGroupsList, 0], 0]];
-export var OptionSetting$: StaticStructureSchema = [
-  3,
-  n0,
-  _OSp,
-  0,
-  [_N, _V, _DV, _D, _AT, _DTa, _AV, _IM, _IC],
-  [0, [() => PotentiallySensitiveOptionSettingValue, 0], 0, 0, 0, 0, 0, 2, 2],
-];
-export var OptionVersion$: StaticStructureSchema = [3, n0, _OV, 0, [_Ve, _ID], [0, 2]];
-export var OrderableDBInstanceOption$: StaticStructureSchema = [
-  3,
-  n0,
-  _ODBIO,
-  0,
-  [
-    _E,
-    _EV,
-    _DBIC,
-    _LM,
-    _AZG,
-    _AZv,
-    _MAZC,
-    _RRC,
-    _Vp,
-    _SSE,
-    _STt,
-    _SIu,
-    _SST,
-    _SEMu,
-    _SIAMDA,
-    _SPI,
-    _MSS,
-    _MSSa,
-    _MIPDI,
-    _MIPDIa,
-    _MIPG,
-    _MIPGa,
-    _MSTPDI,
-    _MSTPDIa,
-    _MSTPI,
-    _MSTPIa,
-    _APFv,
-    _SEM,
-    _SSA,
-    _SKA,
-    _OCu,
-    _SASM,
-    _SGD,
-    _SNT,
-    _SCu,
-    _SDLV,
-    _SHE,
-    _SASV,
-    _AASVOv,
-  ],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    [() => AvailabilityZoneList, 0],
-    2,
-    2,
-    2,
-    2,
-    0,
-    2,
-    2,
-    2,
-    2,
-    2,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    [() => AvailableProcessorFeatureList, 0],
-    64 | 0,
-    2,
-    2,
-    2,
-    64 | 0,
-    2,
-    64 | 0,
-    2,
-    2,
-    2,
-    2,
-    [() => AvailableAdditionalStorageVolumesOptionList, 0],
-  ],
-];
-export var OrderableDBInstanceOptionsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _ODBIOM,
-  0,
-  [_ODBIOr, _Ma],
-  [[() => OrderableDBInstanceOptionsList, 0], 0],
-];
-export var Outpost$: StaticStructureSchema = [3, n0, _Ou, 0, [_Ar], [0]];
-export var Parameter$: StaticStructureSchema = [
-  3,
-  n0,
-  _Par,
-  0,
-  [_PN, _PV, _D, _S, _AT, _DTa, _AV, _IM, _MEVi, _AMp, _SEM],
-  [0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 64 | 0],
-];
-export var PendingCloudwatchLogsExports$: StaticStructureSchema = [3, n0, _PCLE, 0, [_LTTE, _LTTD], [64 | 0, 64 | 0]];
-export var PendingMaintenanceAction$: StaticStructureSchema = [
-  3,
-  n0,
-  _PMA,
-  0,
-  [_Ac, _AAAD, _FAD, _OIS, _CAD, _D],
-  [0, 4, 4, 0, 4, 0],
-];
-export var PendingMaintenanceActionsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _PMAM,
-  0,
-  [_PMAe, _Ma],
-  [[() => PendingMaintenanceActions, 0], 0],
-];
-export var PendingModifiedValues$: StaticStructureSchema = [
-  3,
-  n0,
-  _PMV,
-  0,
-  [
-    _DBIC,
-    _AS,
-    _MUP,
-    _P,
-    _BRP,
-    _MAZ,
-    _EV,
-    _LM,
-    _I,
-    _ST,
-    _DBII,
-    _STt,
-    _CACI,
-    _DBSGNu,
-    _PCLE,
-    _PF,
-    _AM,
-    _RFAMT,
-    _MT,
-    _IAMDAE,
-    _DLV,
-    _E,
-    _ASVd,
-  ],
-  [
-    0,
-    1,
-    [() => SensitiveString, 0],
-    1,
-    1,
-    2,
-    0,
-    0,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    () => PendingCloudwatchLogsExports$,
-    [() => ProcessorFeatureList, 0],
-    0,
-    4,
-    2,
-    2,
-    2,
-    0,
-    () => AdditionalStorageVolumesList,
-  ],
-];
-export var PerformanceInsightsMetricDimensionGroup$: StaticStructureSchema = [
-  3,
-  n0,
-  _PIMDG,
-  0,
-  [_Di, _G, _Li],
-  [64 | 0, 0, 1],
-];
-export var PerformanceInsightsMetricQuery$: StaticStructureSchema = [
-  3,
-  n0,
-  _PIMQ,
-  0,
-  [_GB, _Met],
-  [() => PerformanceInsightsMetricDimensionGroup$, 0],
-];
-export var PerformanceIssueDetails$: StaticStructureSchema = [
-  3,
-  n0,
-  _PID,
-  0,
-  [_STtar, _ETn, _Metr, _An],
-  [4, 4, () => MetricList, 0],
-];
-export var PointInTimeRestoreNotEnabledFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _PITRNEF,
-  { [_aQE]: [`PointInTimeRestoreNotEnabled`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(PointInTimeRestoreNotEnabledFault$, PointInTimeRestoreNotEnabledFault);
-export var ProcessorFeature$: StaticStructureSchema = [3, n0, _PFr, 0, [_N, _V], [0, 0]];
-export var PromoteReadReplicaDBClusterMessage$: StaticStructureSchema = [3, n0, _PRRDBCM, 0, [_DBCI], [0]];
-export var PromoteReadReplicaDBClusterResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _PRRDBCR,
-  0,
-  [_DBC],
-  [[() => DBCluster$, 0]],
-];
-export var PromoteReadReplicaMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _PRRM,
-  0,
-  [_DBII, _BRP, _PBW, _TS],
-  [0, 1, 0, [() => TagSpecificationList, 0]],
-];
-export var PromoteReadReplicaResult$: StaticStructureSchema = [3, n0, _PRRR, 0, [_DBI], [[() => DBInstance$, 0]]];
-export var ProvisionedIopsNotAvailableInAZFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _PINAIAZF,
-  { [_aQE]: [`ProvisionedIopsNotAvailableInAZFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(ProvisionedIopsNotAvailableInAZFault$, ProvisionedIopsNotAvailableInAZFault);
-export var PurchaseReservedDBInstancesOfferingMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _PRDBIOM,
-  0,
-  [_RDBIOI, _RDBII, _DBICn, _T],
-  [0, 0, 1, [() => TagList, 0]],
-];
-export var PurchaseReservedDBInstancesOfferingResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _PRDBIOR,
-  0,
-  [_RDBI],
-  [[() => ReservedDBInstance$, 0]],
-];
-export var Range$: StaticStructureSchema = [3, n0, _Ra, 0, [_Fr, _To, _Ste], [1, 1, 1]];
-export var RdsCustomClusterConfiguration$: StaticStructureSchema = [3, n0, _RCCC, 0, [_ISI, _TGMDI, _RM], [0, 0, 0]];
-export var RebootDBClusterMessage$: StaticStructureSchema = [3, n0, _RDBCM, 0, [_DBCI], [0]];
-export var RebootDBClusterResult$: StaticStructureSchema = [3, n0, _RDBCR, 0, [_DBC], [[() => DBCluster$, 0]]];
-export var RebootDBInstanceMessage$: StaticStructureSchema = [3, n0, _RDBIM, 0, [_DBII, _FF], [0, 2]];
-export var RebootDBInstanceResult$: StaticStructureSchema = [3, n0, _RDBIR, 0, [_DBI], [[() => DBInstance$, 0]]];
-export var RebootDBShardGroupMessage$: StaticStructureSchema = [3, n0, _RDBSGM, 0, [_DBSGI], [0]];
-export var RecommendedAction$: StaticStructureSchema = [
-  3,
-  n0,
-  _RAeco,
-  0,
-  [_AIc, _Tit, _D, _Ope, _Pa, _AMpp, _St, _IDs, _CAon],
-  [0, 0, 0, 0, () => RecommendedActionParameterList, 64 | 0, 0, () => IssueDetails$, () => ContextAttributeList],
-];
-export var RecommendedActionParameter$: StaticStructureSchema = [3, n0, _RAP, 0, [_K, _V], [0, 0]];
-export var RecommendedActionUpdate$: StaticStructureSchema = [3, n0, _RAUe, 0, [_AIc, _St], [0, 0]];
-export var RecurringCharge$: StaticStructureSchema = [3, n0, _RC, 0, [_RCA, _RCF], [1, 0]];
-export var ReferenceDetails$: StaticStructureSchema = [3, n0, _RD, 0, [_SRD], [() => ScalarReferenceDetails$]];
-export var RegisterDBProxyTargetsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDBPTR,
-  0,
-  [_DBPN, _TGN, _DBIIn, _DBCIl],
-  [0, 0, 64 | 0, 64 | 0],
-];
-export var RegisterDBProxyTargetsResponse$: StaticStructureSchema = [3, n0, _RDBPTRe, 0, [_DBPTr], [() => TargetList]];
-export var RemoveFromGlobalClusterMessage$: StaticStructureSchema = [3, n0, _RFGCM, 0, [_GCI, _DCI], [0, 0]];
-export var RemoveFromGlobalClusterResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _RFGCR,
-  0,
-  [_GC],
-  [[() => GlobalCluster$, 0]],
-];
-export var RemoveRoleFromDBClusterMessage$: StaticStructureSchema = [3, n0, _RRFDBCM, 0, [_DBCI, _RA, _FN], [0, 0, 0]];
-export var RemoveRoleFromDBInstanceMessage$: StaticStructureSchema = [3, n0, _RRFDBIM, 0, [_DBII, _RA, _FN], [0, 0, 0]];
-export var RemoveSourceIdentifierFromSubscriptionMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _RSIFSM,
+export var AddSourceIdentifierToSubscriptionMessage$: StaticStructureSchema = [3, n0, _ASITSM,
   0,
   [_SN, _SI],
-  [0, 0],
+  [0, 0]
 ];
-export var RemoveSourceIdentifierFromSubscriptionResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _RSIFSR,
+export var AddSourceIdentifierToSubscriptionResult$: StaticStructureSchema = [3, n0, _ASITSR,
   0,
   [_ES],
-  [[() => EventSubscription$, 0]],
+  [[() => EventSubscription$, 0]]
 ];
-export var RemoveTagsFromResourceMessage$: StaticStructureSchema = [3, n0, _RTFRM, 0, [_RN, _TK], [0, 64 | 0]];
-export var ReservedDBInstance$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDBI,
+export var AddTagsToResourceMessage$: StaticStructureSchema = [3, n0, _ATTRM,
   0,
-  [_RDBII, _RDBIOI, _DBIC, _STtar, _Du, _FP, _UP, _CCu, _DBICn, _PD, _OT, _MAZ, _Sta, _RCe, _RDBIA, _LI],
-  [0, 0, 0, 4, 1, 1, 1, 0, 1, 0, 0, 2, 0, [() => RecurringChargeList, 0], 0, 0],
+  [_RN, _T],
+  [0, [() => TagList, 0]]
 ];
-export var ReservedDBInstanceAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _RDBIAEF,
-  { [_aQE]: [`ReservedDBInstanceAlreadyExists`, 404], [_e]: _c, [_hE]: 404 },
+export var ApplyPendingMaintenanceActionMessage$: StaticStructureSchema = [3, n0, _APMAM,
+  0,
+  [_RI, _AA, _OIT],
+  [0, 0, 0]
+];
+export var ApplyPendingMaintenanceActionResult$: StaticStructureSchema = [3, n0, _APMAR,
+  0,
+  [_RPMA],
+  [[() => ResourcePendingMaintenanceActions$, 0]]
+];
+export var AuthorizationAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _AAEF,
+  { [_aQE]: [`AuthorizationAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(ReservedDBInstanceAlreadyExistsFault$, ReservedDBInstanceAlreadyExistsFault);
-export var ReservedDBInstanceMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDBIMe,
-  0,
-  [_Ma, _RDBIe],
-  [0, [() => ReservedDBInstanceList, 0]],
-];
-export var ReservedDBInstanceNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _RDBINFF,
-  { [_aQE]: [`ReservedDBInstanceNotFound`, 404], [_e]: _c, [_hE]: 404 },
+TypeRegistry.for(n0).registerError(AuthorizationAlreadyExistsFault$, AuthorizationAlreadyExistsFault);
+export var AuthorizationNotFoundFault$: StaticErrorSchema = [-3, n0, _ANFF,
+  { [_aQE]: [`AuthorizationNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(ReservedDBInstanceNotFoundFault$, ReservedDBInstanceNotFoundFault);
-export var ReservedDBInstanceQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _RDBIQEF,
-  { [_aQE]: [`ReservedDBInstanceQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+TypeRegistry.for(n0).registerError(AuthorizationNotFoundFault$, AuthorizationNotFoundFault);
+export var AuthorizationQuotaExceededFault$: StaticErrorSchema = [-3, n0, _AQEF,
+  { [_aQE]: [`AuthorizationQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(ReservedDBInstanceQuotaExceededFault$, ReservedDBInstanceQuotaExceededFault);
-export var ReservedDBInstancesOffering$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDBIO,
-  0,
-  [_RDBIOI, _DBIC, _Du, _FP, _UP, _CCu, _PD, _OT, _MAZ, _RCe],
-  [0, 0, 1, 1, 1, 0, 0, 0, 2, [() => RecurringChargeList, 0]],
-];
-export var ReservedDBInstancesOfferingMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDBIOM,
-  0,
-  [_Ma, _RDBIOe],
-  [0, [() => ReservedDBInstancesOfferingList, 0]],
-];
-export var ReservedDBInstancesOfferingNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _RDBIONFF,
-  { [_aQE]: [`ReservedDBInstancesOfferingNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(ReservedDBInstancesOfferingNotFoundFault$, ReservedDBInstancesOfferingNotFoundFault);
-export var ResetDBClusterParameterGroupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDBCPGM,
-  0,
-  [_DBCPGN, _RAPe, _Pa],
-  [0, 2, [() => ParametersList, 0]],
-];
-export var ResetDBParameterGroupMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDBPGM,
-  0,
-  [_DBPGN, _RAPe, _Pa],
-  [0, 2, [() => ParametersList, 0]],
-];
-export var ResourceNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _RNFF,
-  { [_aQE]: [`ResourceNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundFault$, ResourceNotFoundFault);
-export var ResourcePendingMaintenanceActions$: StaticStructureSchema = [
-  3,
-  n0,
-  _RPMA,
-  0,
-  [_RI, _PMAD],
-  [0, [() => PendingMaintenanceActionDetails, 0]],
-];
-export var RestoreDBClusterFromS3Message$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDBCFSM,
-  0,
-  [
-    _AZv,
-    _BRP,
-    _CSN,
-    _DN,
-    _DBCI,
-    _DBCPGN,
-    _VSGI,
-    _DBSGNu,
-    _E,
-    _EV,
-    _P,
-    _MU,
-    _MUP,
-    _OGN,
-    _PBW,
-    _PMW,
-    _T,
-    _SE,
-    _KKI,
-    _EIAMDA,
-    _SEo,
-    _SEV,
-    _SBN,
-    _SP,
-    _SIRA,
-    _BW,
-    _ECLE,
-    _DP,
-    _CTTS,
-    _Do,
-    _DIAMRN,
-    _STt,
-    _NT,
-    _SVSC,
-    _MMUP,
-    _MUSKKI,
-    _ELS,
-    _TS,
-  ],
-  [
-    [() => AvailabilityZones, 0],
-    1,
-    0,
-    0,
-    0,
-    0,
-    [() => VpcSecurityGroupIdList, 0],
-    0,
-    0,
-    0,
-    1,
-    0,
-    [() => SensitiveString, 0],
-    0,
-    0,
-    0,
-    [() => TagList, 0],
-    2,
-    0,
-    2,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    64 | 0,
-    2,
-    2,
-    0,
-    0,
-    0,
-    0,
-    () => ServerlessV2ScalingConfiguration$,
-    2,
-    0,
-    0,
-    [() => TagSpecificationList, 0],
-  ],
-];
-export var RestoreDBClusterFromS3Result$: StaticStructureSchema = [3, n0, _RDBCFSR, 0, [_DBC], [[() => DBCluster$, 0]]];
-export var RestoreDBClusterFromSnapshotMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDBCFSMe,
-  0,
-  [
-    _AZv,
-    _DBCI,
-    _SIn,
-    _E,
-    _EV,
-    _P,
-    _DBSGNu,
-    _DN,
-    _OGN,
-    _VSGI,
-    _T,
-    _KKI,
-    _EIAMDA,
-    _BW,
-    _ECLE,
-    _EMn,
-    _SC,
-    _DBCPGN,
-    _DP,
-    _CTTS,
-    _Do,
-    _DIAMRN,
-    _DBCIC,
-    _STt,
-    _I,
-    _PA,
-    _NT,
-    _SVSC,
-    _RCCC,
-    _MIo,
-    _MRA,
-    _EPI,
-    _PIKMSKI,
-    _PIRP,
-    _ELS,
-    _TS,
-  ],
-  [
-    [() => AvailabilityZones, 0],
-    0,
-    0,
-    0,
-    0,
-    1,
-    0,
-    0,
-    0,
-    [() => VpcSecurityGroupIdList, 0],
-    [() => TagList, 0],
-    0,
-    2,
-    1,
-    64 | 0,
-    0,
-    () => ScalingConfiguration$,
-    0,
-    2,
-    2,
-    0,
-    0,
-    0,
-    0,
-    1,
-    2,
-    0,
-    () => ServerlessV2ScalingConfiguration$,
-    () => RdsCustomClusterConfiguration$,
-    1,
-    0,
-    2,
-    0,
-    1,
-    0,
-    [() => TagSpecificationList, 0],
-  ],
-];
-export var RestoreDBClusterFromSnapshotResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDBCFSRe,
-  0,
-  [_DBC],
-  [[() => DBCluster$, 0]],
-];
-export var RestoreDBClusterToPointInTimeMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDBCTPITM,
-  0,
-  [
-    _DBCI,
-    _RT,
-    _SDBCI,
-    _RTT,
-    _ULRT,
-    _P,
-    _DBSGNu,
-    _OGN,
-    _VSGI,
-    _T,
-    _KKI,
-    _EIAMDA,
-    _BW,
-    _ECLE,
-    _DBCPGN,
-    _DP,
-    _CTTS,
-    _Do,
-    _DIAMRN,
-    _DBCIC,
-    _STt,
-    _PA,
-    _I,
-    _NT,
-    _SDCRI,
-    _SVSC,
-    _SC,
-    _EMn,
-    _RCCC,
-    _MIo,
-    _MRA,
-    _EPI,
-    _PIKMSKI,
-    _PIRP,
-    _ELS,
-    _TS,
-  ],
-  [
-    0,
-    0,
-    0,
-    4,
-    2,
-    1,
-    0,
-    0,
-    [() => VpcSecurityGroupIdList, 0],
-    [() => TagList, 0],
-    0,
-    2,
-    1,
-    64 | 0,
-    0,
-    2,
-    2,
-    0,
-    0,
-    0,
-    0,
-    2,
-    1,
-    0,
-    0,
-    () => ServerlessV2ScalingConfiguration$,
-    () => ScalingConfiguration$,
-    0,
-    () => RdsCustomClusterConfiguration$,
-    1,
-    0,
-    2,
-    0,
-    1,
-    0,
-    [() => TagSpecificationList, 0],
-  ],
-];
-export var RestoreDBClusterToPointInTimeResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDBCTPITR,
-  0,
-  [_DBC],
-  [[() => DBCluster$, 0]],
-];
-export var RestoreDBInstanceFromDBSnapshotMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDBIFDBSM,
-  0,
-  [
-    _DBII,
-    _DBSIn,
-    _DBIC,
-    _P,
-    _AZ,
-    _DBSGNu,
-    _MAZ,
-    _PA,
-    _AMVU,
-    _LM,
-    _DBN,
-    _E,
-    _I,
-    _ST,
-    _OGN,
-    _T,
-    _STt,
-    _TCA,
-    _TCP,
-    _VSGI,
-    _Do,
-    _DF,
-    _DO,
-    _DASA,
-    _DDI,
-    _CTTS,
-    _DIAMRN,
-    _EIAMDA,
-    _ECLE,
-    _PF,
-    _UDPF,
-    _DBPGN,
-    _DP,
-    _ECOI,
-    _NT,
-    _BTa,
-    _CIIP,
-    _AS,
-    _DBCSI,
-    _DLV,
-    _CACI,
-    _ELS,
-    _TS,
-    _MMUP,
-    _MUSKKI,
-    _ASVd,
-  ],
-  [
-    0,
-    0,
-    0,
-    1,
-    0,
-    0,
-    2,
-    2,
-    2,
-    0,
-    0,
-    0,
-    1,
-    1,
-    0,
-    [() => TagList, 0],
-    0,
-    0,
-    [() => SensitiveString, 0],
-    [() => VpcSecurityGroupIdList, 0],
-    0,
-    0,
-    0,
-    0,
-    64 | 0,
-    2,
-    0,
-    2,
-    64 | 0,
-    [() => ProcessorFeatureList, 0],
-    2,
-    0,
-    2,
-    2,
-    0,
-    0,
-    0,
-    1,
-    0,
-    2,
-    0,
-    0,
-    [() => TagSpecificationList, 0],
-    2,
-    0,
-    () => AdditionalStorageVolumesList,
-  ],
-];
-export var RestoreDBInstanceFromDBSnapshotResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDBIFDBSR,
-  0,
-  [_DBI],
-  [[() => DBInstance$, 0]],
-];
-export var RestoreDBInstanceFromS3Message$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDBIFSM,
-  0,
-  [
-    _DBN,
-    _DBII,
-    _AS,
-    _DBIC,
-    _E,
-    _MU,
-    _MUP,
-    _DBSGe,
-    _VSGI,
-    _AZ,
-    _DBSGNu,
-    _PMW,
-    _DBPGN,
-    _BRP,
-    _PBW,
-    _P,
-    _MAZ,
-    _EV,
-    _AMVU,
-    _LM,
-    _I,
-    _ST,
-    _OGN,
-    _PA,
-    _T,
-    _STt,
-    _SE,
-    _KKI,
-    _CTTS,
-    _MIo,
-    _MRA,
-    _EIAMDA,
-    _SEo,
-    _SEV,
-    _SBN,
-    _SP,
-    _SIRA,
-    _DIM,
-    _EPI,
-    _PIKMSKI,
-    _PIRP,
-    _ECLE,
-    _PF,
-    _UDPF,
-    _DP,
-    _MAS,
-    _NT,
-    _MMUP,
-    _MUSKKI,
-    _DLV,
-    _CACI,
-    _ELS,
-    _TS,
-    _ASVd,
-  ],
-  [
-    0,
-    0,
-    1,
-    0,
-    0,
-    0,
-    [() => SensitiveString, 0],
-    [() => DBSecurityGroupNameList, 0],
-    [() => VpcSecurityGroupIdList, 0],
-    0,
-    0,
-    0,
-    0,
-    1,
-    0,
-    1,
-    2,
-    0,
-    2,
-    0,
-    1,
-    1,
-    0,
-    2,
-    [() => TagList, 0],
-    0,
-    2,
-    0,
-    2,
-    1,
-    0,
-    2,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    2,
-    0,
-    1,
-    64 | 0,
-    [() => ProcessorFeatureList, 0],
-    2,
-    2,
-    1,
-    0,
-    2,
-    0,
-    2,
-    0,
-    0,
-    [() => TagSpecificationList, 0],
-    () => AdditionalStorageVolumesList,
-  ],
-];
-export var RestoreDBInstanceFromS3Result$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDBIFSR,
-  0,
-  [_DBI],
-  [[() => DBInstance$, 0]],
-];
-export var RestoreDBInstanceToPointInTimeMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDBITPITM,
-  0,
-  [
-    _SDBII,
-    _TDBII,
-    _RTe,
-    _ULRT,
-    _DBIC,
-    _P,
-    _AZ,
-    _DBSGNu,
-    _MAZ,
-    _PA,
-    _AMVU,
-    _LM,
-    _DBN,
-    _E,
-    _I,
-    _ST,
-    _OGN,
-    _CTTS,
-    _T,
-    _STt,
-    _TCA,
-    _TCP,
-    _VSGI,
-    _Do,
-    _DIAMRN,
-    _DF,
-    _DO,
-    _DASA,
-    _DDI,
-    _EIAMDA,
-    _ECLE,
-    _PF,
-    _UDPF,
-    _DBPGN,
-    _DP,
-    _SDRI,
-    _MAS,
-    _ECOI,
-    _NT,
-    _SDBIABA,
-    _BTa,
-    _CIIP,
-    _AS,
-    _DLV,
-    _CACI,
-    _ELS,
-    _TS,
-    _MMUP,
-    _MUSKKI,
-    _ASVd,
-  ],
-  [
-    0,
-    0,
-    4,
-    2,
-    0,
-    1,
-    0,
-    0,
-    2,
-    2,
-    2,
-    0,
-    0,
-    0,
-    1,
-    1,
-    0,
-    2,
-    [() => TagList, 0],
-    0,
-    0,
-    [() => SensitiveString, 0],
-    [() => VpcSecurityGroupIdList, 0],
-    0,
-    0,
-    0,
-    0,
-    0,
-    64 | 0,
-    2,
-    64 | 0,
-    [() => ProcessorFeatureList, 0],
-    2,
-    0,
-    2,
-    0,
-    1,
-    2,
-    0,
-    0,
-    0,
-    0,
-    1,
-    2,
-    0,
-    0,
-    [() => TagSpecificationList, 0],
-    2,
-    0,
-    () => AdditionalStorageVolumesList,
-  ],
-];
-export var RestoreDBInstanceToPointInTimeResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDBITPITR,
-  0,
-  [_DBI],
-  [[() => DBInstance$, 0]],
-];
-export var RestoreWindow$: StaticStructureSchema = [3, n0, _RW, 0, [_ETa, _LT], [4, 4]];
-export var RevokeDBSecurityGroupIngressMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDBSGIM,
+TypeRegistry.for(n0).registerError(AuthorizationQuotaExceededFault$, AuthorizationQuotaExceededFault);
+export var AuthorizeDBSecurityGroupIngressMessage$: StaticStructureSchema = [3, n0, _ADBSGIM,
   0,
   [_DBSGN, _CIDRIP, _ECSGN, _ECSGI, _ECSGOI],
-  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0]
 ];
-export var RevokeDBSecurityGroupIngressResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDBSGIR,
+export var AuthorizeDBSecurityGroupIngressResult$: StaticStructureSchema = [3, n0, _ADBSGIR,
   0,
   [_DBSG],
-  [[() => DBSecurityGroup$, 0]],
+  [[() => DBSecurityGroup$, 0]]
 ];
-export var ScalarReferenceDetails$: StaticStructureSchema = [3, n0, _SRD, 0, [_V], [1]];
-export var ScalingConfiguration$: StaticStructureSchema = [
-  3,
-  n0,
-  _SC,
+export var AvailabilityZone$: StaticStructureSchema = [3, n0, _AZ,
   0,
-  [_MC, _MCa, _AP, _SUAP, _TAi, _SBT],
-  [1, 1, 2, 1, 0, 1],
+  [_N],
+  [0]
 ];
-export var ScalingConfigurationInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _SCI,
+export var AvailableAdditionalStorageVolumesOption$: StaticStructureSchema = [3, n0, _AASVO,
   0,
-  [_MC, _MCa, _AP, _SUAP, _TAi, _SBT],
-  [1, 1, 2, 1, 0, 1],
+  [_SSA, _SST, _SIu, _STt, _MSS, _MSSa, _MI, _MIa, _MIPG, _MIPGa, _MST, _MSTa],
+  [2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
-export var ServerlessV2FeaturesSupport$: StaticStructureSchema = [3, n0, _SVFS, 0, [_MC, _MCa], [1, 1]];
-export var ServerlessV2ScalingConfiguration$: StaticStructureSchema = [3, n0, _SVSC, 0, [_MC, _MCa, _SUAP], [1, 1, 1]];
-export var ServerlessV2ScalingConfigurationInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _SVSCI,
+export var AvailableProcessorFeature$: StaticStructureSchema = [3, n0, _APF,
   0,
-  [_MC, _MCa, _SUAP],
-  [1, 1, 1],
+  [_N, _DV, _AV],
+  [0, 0, 0]
 ];
-export var SharedSnapshotQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SSQEF,
-  { [_aQE]: [`SharedSnapshotQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(SharedSnapshotQuotaExceededFault$, SharedSnapshotQuotaExceededFault);
-export var SnapshotQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEF,
-  { [_aQE]: [`SnapshotQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(SnapshotQuotaExceededFault$, SnapshotQuotaExceededFault);
-export var SNSInvalidTopicFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SNSITF,
-  { [_aQE]: [`SNSInvalidTopic`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(SNSInvalidTopicFault$, SNSInvalidTopicFault);
-export var SNSNoAuthorizationFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SNSNAF,
-  { [_aQE]: [`SNSNoAuthorization`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(SNSNoAuthorizationFault$, SNSNoAuthorizationFault);
-export var SNSTopicArnNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SNSTANFF,
-  { [_aQE]: [`SNSTopicArnNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(SNSTopicArnNotFoundFault$, SNSTopicArnNotFoundFault);
-export var SourceClusterNotSupportedFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SCNSF,
-  { [_aQE]: [`SourceClusterNotSupportedFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(SourceClusterNotSupportedFault$, SourceClusterNotSupportedFault);
-export var SourceDatabaseNotSupportedFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SDNSF,
-  { [_aQE]: [`SourceDatabaseNotSupportedFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(SourceDatabaseNotSupportedFault$, SourceDatabaseNotSupportedFault);
-export var SourceNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SNFF,
-  { [_aQE]: [`SourceNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(SourceNotFoundFault$, SourceNotFoundFault);
-export var SourceRegion$: StaticStructureSchema = [3, n0, _SR, 0, [_RNe, _End, _St, _SDBIABR], [0, 0, 0, 2]];
-export var SourceRegionMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _SRM,
+export var BacktrackDBClusterMessage$: StaticStructureSchema = [3, n0, _BDBCM,
   0,
-  [_Ma, _SRo],
-  [0, [() => SourceRegionList, 0]],
+  [_DBCI, _BT, _F, _UETOPITU],
+  [0, 4, 2, 2]
 ];
-export var StartActivityStreamRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _SASR,
-  0,
-  [_RAe, _Mo, _KKI, _AIp, _ENAFI],
-  [0, 0, 0, 2, 2],
-];
-export var StartActivityStreamResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _SASRt,
-  0,
-  [_KKI, _KSN, _St, _Mo, _ENAFI, _AIp],
-  [0, 0, 0, 0, 2, 2],
-];
-export var StartDBClusterMessage$: StaticStructureSchema = [3, n0, _SDBCM, 0, [_DBCI], [0]];
-export var StartDBClusterResult$: StaticStructureSchema = [3, n0, _SDBCR, 0, [_DBC], [[() => DBCluster$, 0]]];
-export var StartDBInstanceAutomatedBackupsReplicationMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _SDBIABRM,
-  0,
-  [_SDBIA, _BRP, _KKI, _PSU, _T],
-  [0, 1, 0, [() => SensitiveString, 0], [() => TagList, 0]],
-];
-export var StartDBInstanceAutomatedBackupsReplicationResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _SDBIABRR,
-  0,
-  [_DBIAB],
-  [[() => DBInstanceAutomatedBackup$, 0]],
-];
-export var StartDBInstanceMessage$: StaticStructureSchema = [3, n0, _SDBIM, 0, [_DBII], [0]];
-export var StartDBInstanceResult$: StaticStructureSchema = [3, n0, _SDBIR, 0, [_DBI], [[() => DBInstance$, 0]]];
-export var StartExportTaskMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _SETM,
-  0,
-  [_ETI, _SA, _SBN, _IRA, _KKI, _SP, _EO],
-  [0, 0, 0, 0, 0, 0, 64 | 0],
-];
-export var StopActivityStreamRequest$: StaticStructureSchema = [3, n0, _SASRto, 0, [_RAe, _AIp], [0, 2]];
-export var StopActivityStreamResponse$: StaticStructureSchema = [3, n0, _SASRtop, 0, [_KKI, _KSN, _St], [0, 0, 0]];
-export var StopDBClusterMessage$: StaticStructureSchema = [3, n0, _SDBCMt, 0, [_DBCI], [0]];
-export var StopDBClusterResult$: StaticStructureSchema = [3, n0, _SDBCRt, 0, [_DBC], [[() => DBCluster$, 0]]];
-export var StopDBInstanceAutomatedBackupsReplicationMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _SDBIABRMt,
-  0,
-  [_SDBIA],
-  [0],
-];
-export var StopDBInstanceAutomatedBackupsReplicationResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _SDBIABRRt,
-  0,
-  [_DBIAB],
-  [[() => DBInstanceAutomatedBackup$, 0]],
-];
-export var StopDBInstanceMessage$: StaticStructureSchema = [3, n0, _SDBIMt, 0, [_DBII, _DBSIn], [0, 0]];
-export var StopDBInstanceResult$: StaticStructureSchema = [3, n0, _SDBIRt, 0, [_DBI], [[() => DBInstance$, 0]]];
-export var StorageQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SQEFt,
-  { [_aQE]: [`StorageQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+export var BackupPolicyNotFoundFault$: StaticErrorSchema = [-3, n0, _BPNFF,
+  { [_aQE]: [`BackupPolicyNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(StorageQuotaExceededFault$, StorageQuotaExceededFault);
-export var StorageTypeNotAvailableFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _STNAF,
-  { [_aQE]: [`StorageTypeNotAvailableFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(StorageTypeNotAvailableFault$, StorageTypeNotAvailableFault);
-export var StorageTypeNotSupportedFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _STNSF,
-  { [_aQE]: [`StorageTypeNotSupported`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(StorageTypeNotSupportedFault$, StorageTypeNotSupportedFault);
-export var Subnet$: StaticStructureSchema = [
-  3,
-  n0,
-  _Sub,
+TypeRegistry.for(n0).registerError(BackupPolicyNotFoundFault$, BackupPolicyNotFoundFault);
+export var BlueGreenDeployment$: StaticStructureSchema = [3, n0, _BGD,
   0,
-  [_SIubn, _SAZu, _SO, _SSu],
-  [0, () => AvailabilityZone$, () => Outpost$, 0],
+  [_BGDI, _BGDN, _S, _Ta, _SD, _Tas, _St, _SDt, _CT, _DT, _TL],
+  [0, 0, 0, 0, () => SwitchoverDetailList, () => BlueGreenDeploymentTaskList, 0, 0, 4, 4, [() => TagList, 0]]
 ];
-export var SubnetAlreadyInUse$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SAIU,
-  { [_aQE]: [`SubnetAlreadyInUse`, 400], [_e]: _c, [_hE]: 400 },
+export var BlueGreenDeploymentAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _BGDAEF,
+  { [_aQE]: [`BlueGreenDeploymentAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(SubnetAlreadyInUse$, SubnetAlreadyInUse);
-export var SubscriptionAlreadyExistFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SAEF,
-  { [_aQE]: [`SubscriptionAlreadyExist`, 400], [_e]: _c, [_hE]: 400 },
+TypeRegistry.for(n0).registerError(BlueGreenDeploymentAlreadyExistsFault$, BlueGreenDeploymentAlreadyExistsFault);
+export var BlueGreenDeploymentNotFoundFault$: StaticErrorSchema = [-3, n0, _BGDNFF,
+  { [_aQE]: [`BlueGreenDeploymentNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(SubscriptionAlreadyExistFault$, SubscriptionAlreadyExistFault);
-export var SubscriptionCategoryNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SCNFF,
-  { [_aQE]: [`SubscriptionCategoryNotFound`, 404], [_e]: _c, [_hE]: 404 },
+TypeRegistry.for(n0).registerError(BlueGreenDeploymentNotFoundFault$, BlueGreenDeploymentNotFoundFault);
+export var BlueGreenDeploymentTask$: StaticStructureSchema = [3, n0, _BGDT,
+  0,
+  [_N, _St],
+  [0, 0]
+];
+export var CancelExportTaskMessage$: StaticStructureSchema = [3, n0, _CETM,
+  0,
+  [_ETI],
+  [0]
+];
+export var Certificate$: StaticStructureSchema = [3, n0, _C,
+  0,
+  [_CI, _CTe, _Th, _VF, _VT, _CA, _CO, _COVT],
+  [0, 0, 0, 4, 4, 0, 2, 4]
+];
+export var CertificateDetails$: StaticStructureSchema = [3, n0, _CD,
+  0,
+  [_CAI, _VT],
+  [0, 4]
+];
+export var CertificateMessage$: StaticStructureSchema = [3, n0, _CM,
+  0,
+  [_DCFNL, _Ce, _Ma],
+  [0, [() => CertificateList, 0], 0]
+];
+export var CertificateNotFoundFault$: StaticErrorSchema = [-3, n0, _CNFF,
+  { [_aQE]: [`CertificateNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(SubscriptionCategoryNotFoundFault$, SubscriptionCategoryNotFoundFault);
-export var SubscriptionNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SNFFu,
-  { [_aQE]: [`SubscriptionNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0],
+TypeRegistry.for(n0).registerError(CertificateNotFoundFault$, CertificateNotFoundFault);
+export var CharacterSet$: StaticStructureSchema = [3, n0, _CS,
+  0,
+  [_CSN, _CSD],
+  [0, 0]
 ];
-TypeRegistry.for(n0).registerError(SubscriptionNotFoundFault$, SubscriptionNotFoundFault);
-export var SupportedEngineLifecycle$: StaticStructureSchema = [3, n0, _SELu, 0, [_LSN, _LSSD, _LSED], [0, 4, 4]];
-export var SwitchoverBlueGreenDeploymentRequest$: StaticStructureSchema = [3, n0, _SBGDR, 0, [_BGDI, _STw], [0, 1]];
-export var SwitchoverBlueGreenDeploymentResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _SBGDRw,
+export var CloudwatchLogsExportConfiguration$: StaticStructureSchema = [3, n0, _CLEC,
+  0,
+  [_ELT, _DLT],
+  [64 | 0, 64 | 0]
+];
+export var ClusterPendingModifiedValues$: StaticStructureSchema = [3, n0, _CPMV,
+  0,
+  [_PCLE, _DBCI, _MUP, _IAMDAE, _EV, _BRP, _STt, _AS, _RCCC, _I, _CD],
+  [() => PendingCloudwatchLogsExports$, 0, [() => SensitiveString, 0], 2, 0, 1, 0, 1, () => RdsCustomClusterConfiguration$, 1, () => CertificateDetails$]
+];
+export var ConnectionPoolConfiguration$: StaticStructureSchema = [3, n0, _CPC,
+  0,
+  [_MCP, _MICP, _CBT, _SPF, _IQ],
+  [1, 1, 1, 64 | 0, 0]
+];
+export var ConnectionPoolConfigurationInfo$: StaticStructureSchema = [3, n0, _CPCI,
+  0,
+  [_MCP, _MICP, _CBT, _SPF, _IQ],
+  [1, 1, 1, 64 | 0, 0]
+];
+export var ContextAttribute$: StaticStructureSchema = [3, n0, _CAo,
+  0,
+  [_K, _V],
+  [0, 0]
+];
+export var CopyDBClusterParameterGroupMessage$: StaticStructureSchema = [3, n0, _CDBCPGM,
+  0,
+  [_SDBCPGI, _TDBCPGI, _TDBCPGD, _T],
+  [0, 0, 0, [() => TagList, 0]]
+];
+export var CopyDBClusterParameterGroupResult$: StaticStructureSchema = [3, n0, _CDBCPGR,
+  0,
+  [_DBCPG],
+  [() => DBClusterParameterGroup$]
+];
+export var CopyDBClusterSnapshotMessage$: StaticStructureSchema = [3, n0, _CDBCSM,
+  0,
+  [_SDBCSI, _TDBCSI, _KKI, _PSU, _CTo, _T],
+  [0, 0, 0, [() => SensitiveString, 0], 2, [() => TagList, 0]]
+];
+export var CopyDBClusterSnapshotResult$: StaticStructureSchema = [3, n0, _CDBCSR,
+  0,
+  [_DBCS],
+  [[() => DBClusterSnapshot$, 0]]
+];
+export var CopyDBParameterGroupMessage$: StaticStructureSchema = [3, n0, _CDBPGM,
+  0,
+  [_SDBPGI, _TDBPGI, _TDBPGD, _T],
+  [0, 0, 0, [() => TagList, 0]]
+];
+export var CopyDBParameterGroupResult$: StaticStructureSchema = [3, n0, _CDBPGR,
+  0,
+  [_DBPG],
+  [() => DBParameterGroup$]
+];
+export var CopyDBSnapshotMessage$: StaticStructureSchema = [3, n0, _CDBSM,
+  0,
+  [_SDBSI, _TDBSI, _KKI, _T, _CTo, _PSU, _OGN, _TCAZ, _STn, _COG, _SAZ],
+  [0, 0, 0, [() => TagList, 0], 2, [() => SensitiveString, 0], 0, 0, 0, 2, 0]
+];
+export var CopyDBSnapshotResult$: StaticStructureSchema = [3, n0, _CDBSR,
+  0,
+  [_DBS],
+  [[() => DBSnapshot$, 0]]
+];
+export var CopyOptionGroupMessage$: StaticStructureSchema = [3, n0, _COGM,
+  0,
+  [_SOGI, _TOGI, _TOGD, _T],
+  [0, 0, 0, [() => TagList, 0]]
+];
+export var CopyOptionGroupResult$: StaticStructureSchema = [3, n0, _COGR,
+  0,
+  [_OG],
+  [[() => OptionGroup$, 0]]
+];
+export var CreateBlueGreenDeploymentRequest$: StaticStructureSchema = [3, n0, _CBGDR,
+  0,
+  [_BGDN, _S, _TEV, _TDBPGN, _TDBCPGN, _T, _TDBIC, _UTSC, _TI, _TST, _TAS, _TSTa],
+  [0, 0, 0, 0, 0, [() => TagList, 0], 0, 2, 1, 0, 1, 1]
+];
+export var CreateBlueGreenDeploymentResponse$: StaticStructureSchema = [3, n0, _CBGDRr,
   0,
   [_BGD],
-  [[() => BlueGreenDeployment$, 0]],
+  [[() => BlueGreenDeployment$, 0]]
 ];
-export var SwitchoverDetail$: StaticStructureSchema = [3, n0, _SDw, 0, [_SMo, _TM, _St], [0, 0, 0]];
-export var SwitchoverGlobalClusterMessage$: StaticStructureSchema = [3, n0, _SGCM, 0, [_GCI, _TDCI], [0, 0]];
-export var SwitchoverGlobalClusterResult$: StaticStructureSchema = [
-  3,
-  n0,
-  _SGCR,
+export var CreateCustomDBEngineVersionFault$: StaticErrorSchema = [-3, n0, _CCDBEVF,
+  { [_aQE]: [`CreateCustomDBEngineVersionFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(CreateCustomDBEngineVersionFault$, CreateCustomDBEngineVersionFault);
+export var CreateCustomDBEngineVersionMessage$: StaticStructureSchema = [3, n0, _CCDBEVM,
+  0,
+  [_E, _EV, _DIFSBN, _DIFSP, _II, _KMSKI, _SCDEVI, _UAPLI, _D, _Man, _T, _DIF],
+  [0, 0, 0, 0, 0, 0, 0, 2, 0, 0, [() => TagList, 0], 64 | 0]
+];
+export var CreateDBClusterEndpointMessage$: StaticStructureSchema = [3, n0, _CDBCEM,
+  0,
+  [_DBCI, _DBCEI, _ET, _SM, _EM, _T],
+  [0, 0, 0, 64 | 0, 64 | 0, [() => TagList, 0]]
+];
+export var CreateDBClusterMessage$: StaticStructureSchema = [3, n0, _CDBCM,
+  0,
+  [_AZv, _BRP, _CSN, _DN, _DBCI, _DBCPGN, _VSGI, _DBSGNu, _E, _EV, _P, _MU, _MUP, _OGN, _PBW, _PMW, _RSI, _T, _SE, _KKI, _PSU, _EIAMDA, _BW, _ECLE, _EMn, _SC, _RCCC, _DBCIC, _AS, _STt, _I, _PA, _AMVU, _DP, _GCI, _EHE, _CTTS, _Do, _DIAMRN, _EGWF, _NT, _SVSC, _MIo, _MRA, _DIM, _EPI, _PIKMSKI, _PIRP, _ELD, _CST, _DBSI, _MMUP, _ELWF, _MUSKKI, _CACI, _ELS, _TS, _MUAT],
+  [[() => AvailabilityZones, 0], 1, 0, 0, 0, 0, [() => VpcSecurityGroupIdList, 0], 0, 0, 0, 1, 0, [() => SensitiveString, 0], 0, 0, 0, 0, [() => TagList, 0], 2, 0, [() => SensitiveString, 0], 2, 1, 64 | 0, 0, () => ScalingConfiguration$, () => RdsCustomClusterConfiguration$, 0, 1, 0, 1, 2, 2, 2, 0, 2, 2, 0, 0, 2, 0, () => ServerlessV2ScalingConfiguration$, 1, 0, 0, 2, 0, 1, 2, 0, 0, 2, 2, 0, 0, 0, [() => TagSpecificationList, 0], 0]
+];
+export var CreateDBClusterParameterGroupMessage$: StaticStructureSchema = [3, n0, _CDBCPGMr,
+  0,
+  [_DBCPGN, _DBPGF, _D, _T],
+  [0, 0, 0, [() => TagList, 0]]
+];
+export var CreateDBClusterParameterGroupResult$: StaticStructureSchema = [3, n0, _CDBCPGRr,
+  0,
+  [_DBCPG],
+  [() => DBClusterParameterGroup$]
+];
+export var CreateDBClusterResult$: StaticStructureSchema = [3, n0, _CDBCR,
+  0,
+  [_DBC],
+  [[() => DBCluster$, 0]]
+];
+export var CreateDBClusterSnapshotMessage$: StaticStructureSchema = [3, n0, _CDBCSMr,
+  0,
+  [_DBCSI, _DBCI, _T],
+  [0, 0, [() => TagList, 0]]
+];
+export var CreateDBClusterSnapshotResult$: StaticStructureSchema = [3, n0, _CDBCSRr,
+  0,
+  [_DBCS],
+  [[() => DBClusterSnapshot$, 0]]
+];
+export var CreateDBInstanceMessage$: StaticStructureSchema = [3, n0, _CDBIM,
+  0,
+  [_DBN, _DBII, _AS, _DBIC, _E, _MU, _MUP, _DBSGe, _VSGI, _AZ, _DBSGNu, _PMW, _DBPGN, _BRP, _PBW, _P, _MAZ, _EV, _AMVU, _LM, _I, _ST, _OGN, _CSN, _NCSN, _PA, _T, _DBCI, _STt, _TCA, _TCP, _SE, _KKI, _Do, _DF, _DO, _DASA, _DDI, _CTTS, _MIo, _MRA, _DIAMRN, _PT, _Ti, _EIAMDA, _DIM, _EPI, _PIKMSKI, _PIRP, _ECLE, _PF, _DP, _MAS, _ECOI, _NT, _BTa, _CIIP, _DBSI, _CACI, _MMUP, _MUSKKI, _MT, _DLV, _ELS, _TS, _MUAT, _ASVd],
+  [0, 0, 1, 0, 0, 0, [() => SensitiveString, 0], [() => DBSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], 0, 0, 0, 0, 1, 0, 1, 2, 0, 2, 0, 1, 1, 0, 0, 0, 2, [() => TagList, 0], 0, 0, 0, [() => SensitiveString, 0], 2, 0, 0, 0, 0, 0, 64 | 0, 2, 1, 0, 0, 1, 0, 2, 0, 2, 0, 1, 64 | 0, [() => ProcessorFeatureList, 0], 2, 1, 2, 0, 0, 0, 0, 0, 2, 0, 2, 2, 0, [() => TagSpecificationList, 0], 0, () => AdditionalStorageVolumesList]
+];
+export var CreateDBInstanceReadReplicaMessage$: StaticStructureSchema = [3, n0, _CDBIRRM,
+  0,
+  [_DBII, _SDBII, _DBIC, _AZ, _P, _MAZ, _AMVU, _I, _ST, _OGN, _DBPGN, _PA, _T, _DBSGNu, _VSGI, _STt, _CTTS, _MIo, _MRA, _KKI, _PSU, _EIAMDA, _DIM, _EPI, _PIKMSKI, _PIRP, _ECLE, _PF, _UDPF, _DP, _Do, _DIAMRN, _DF, _DO, _DASA, _DDI, _RM, _ECOI, _NT, _MAS, _BTa, _CIIP, _AS, _SDBCI, _DLV, _USC, _CACI, _TS, _ASVd],
+  [0, 0, 0, 0, 1, 2, 2, 1, 1, 0, 0, 2, [() => TagList, 0], 0, [() => VpcSecurityGroupIdList, 0], 0, 2, 1, 0, 0, [() => SensitiveString, 0], 2, 0, 2, 0, 1, 64 | 0, [() => ProcessorFeatureList, 0], 2, 2, 0, 0, 0, 0, 0, 64 | 0, 0, 2, 0, 1, 0, 0, 1, 0, 2, 2, 0, [() => TagSpecificationList, 0], () => AdditionalStorageVolumesList]
+];
+export var CreateDBInstanceReadReplicaResult$: StaticStructureSchema = [3, n0, _CDBIRRR,
+  0,
+  [_DBI],
+  [[() => DBInstance$, 0]]
+];
+export var CreateDBInstanceResult$: StaticStructureSchema = [3, n0, _CDBIR,
+  0,
+  [_DBI],
+  [[() => DBInstance$, 0]]
+];
+export var CreateDBParameterGroupMessage$: StaticStructureSchema = [3, n0, _CDBPGMr,
+  0,
+  [_DBPGN, _DBPGF, _D, _T],
+  [0, 0, 0, [() => TagList, 0]]
+];
+export var CreateDBParameterGroupResult$: StaticStructureSchema = [3, n0, _CDBPGRr,
+  0,
+  [_DBPG],
+  [() => DBParameterGroup$]
+];
+export var CreateDBProxyEndpointRequest$: StaticStructureSchema = [3, n0, _CDBPER,
+  0,
+  [_DBPN, _DBPEN, _VSI, _VSGI, _TR, _T, _ENT],
+  [0, 0, 64 | 0, 64 | 0, 0, [() => TagList, 0], 0]
+];
+export var CreateDBProxyEndpointResponse$: StaticStructureSchema = [3, n0, _CDBPERr,
+  0,
+  [_DBPE],
+  [() => DBProxyEndpoint$]
+];
+export var CreateDBProxyRequest$: StaticStructureSchema = [3, n0, _CDBPR,
+  0,
+  [_DBPN, _EF, _DAS, _A, _RA, _VSI, _VSGI, _RTLS, _ICT, _DL, _T, _ENT, _TCNT],
+  [0, 0, 0, () => UserAuthConfigList, 0, 64 | 0, 64 | 0, 2, 1, 2, [() => TagList, 0], 0, 0]
+];
+export var CreateDBProxyResponse$: StaticStructureSchema = [3, n0, _CDBPRr,
+  0,
+  [_DBP],
+  [() => DBProxy$]
+];
+export var CreateDBSecurityGroupMessage$: StaticStructureSchema = [3, n0, _CDBSGM,
+  0,
+  [_DBSGN, _DBSGD, _T],
+  [0, 0, [() => TagList, 0]]
+];
+export var CreateDBSecurityGroupResult$: StaticStructureSchema = [3, n0, _CDBSGR,
+  0,
+  [_DBSG],
+  [[() => DBSecurityGroup$, 0]]
+];
+export var CreateDBShardGroupMessage$: StaticStructureSchema = [3, n0, _CDBSGMr,
+  0,
+  [_DBSGI, _DBCI, _CR, _MACU, _MACUi, _PA, _T],
+  [0, 0, 1, 1, 1, 2, [() => TagList, 0]]
+];
+export var CreateDBSnapshotMessage$: StaticStructureSchema = [3, n0, _CDBSMr,
+  0,
+  [_DBSIn, _DBII, _T],
+  [0, 0, [() => TagList, 0]]
+];
+export var CreateDBSnapshotResult$: StaticStructureSchema = [3, n0, _CDBSRr,
+  0,
+  [_DBS],
+  [[() => DBSnapshot$, 0]]
+];
+export var CreateDBSubnetGroupMessage$: StaticStructureSchema = [3, n0, _CDBSGMre,
+  0,
+  [_DBSGNu, _DBSGDu, _SIub, _T],
+  [0, 0, [() => SubnetIdentifierList, 0], [() => TagList, 0]]
+];
+export var CreateDBSubnetGroupResult$: StaticStructureSchema = [3, n0, _CDBSGRr,
+  0,
+  [_DBSGu],
+  [[() => DBSubnetGroup$, 0]]
+];
+export var CreateEventSubscriptionMessage$: StaticStructureSchema = [3, n0, _CESM,
+  0,
+  [_SN, _STA, _STo, _EC, _SIo, _En, _T],
+  [0, 0, 0, [() => EventCategoriesList, 0], [() => SourceIdsList, 0], 2, [() => TagList, 0]]
+];
+export var CreateEventSubscriptionResult$: StaticStructureSchema = [3, n0, _CESR,
+  0,
+  [_ES],
+  [[() => EventSubscription$, 0]]
+];
+export var CreateGlobalClusterMessage$: StaticStructureSchema = [3, n0, _CGCM,
+  0,
+  [_GCI, _SDBCI, _E, _EV, _ELS, _DP, _DN, _SE, _T],
+  [0, 0, 0, 0, 0, 2, 0, 2, [() => TagList, 0]]
+];
+export var CreateGlobalClusterResult$: StaticStructureSchema = [3, n0, _CGCR,
   0,
   [_GC],
-  [[() => GlobalCluster$, 0]],
+  [[() => GlobalCluster$, 0]]
 ];
-export var SwitchoverReadReplicaMessage$: StaticStructureSchema = [3, n0, _SRRM, 0, [_DBII], [0]];
-export var SwitchoverReadReplicaResult$: StaticStructureSchema = [3, n0, _SRRR, 0, [_DBI], [[() => DBInstance$, 0]]];
-export var Tag$: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
-export var TagListMessage$: StaticStructureSchema = [3, n0, _TLM, 0, [_TL], [[() => TagList, 0]]];
-export var TagSpecification$: StaticStructureSchema = [3, n0, _TSa, 0, [_RTes, _T], [0, [() => TagList, 0]]];
-export var TargetHealth$: StaticStructureSchema = [3, n0, _TH, 0, [_Sta, _Rea, _D], [0, 0, 0]];
-export var TenantDatabase$: StaticStructureSchema = [
-  3,
-  n0,
-  _TD,
+export var CreateIntegrationMessage$: StaticStructureSchema = [3, n0, _CIM,
+  0,
+  [_SA, _TA, _IN, _KMSKI, _AEC, _T, _DFa, _D],
+  [0, 0, 0, 0, 128 | 0, [() => TagList, 0], 0, 0]
+];
+export var CreateOptionGroupMessage$: StaticStructureSchema = [3, n0, _COGMr,
+  0,
+  [_OGN, _EN, _MEV, _OGD, _T],
+  [0, 0, 0, 0, [() => TagList, 0]]
+];
+export var CreateOptionGroupResult$: StaticStructureSchema = [3, n0, _COGRr,
+  0,
+  [_OG],
+  [[() => OptionGroup$, 0]]
+];
+export var CreateTenantDatabaseMessage$: StaticStructureSchema = [3, n0, _CTDM,
+  0,
+  [_DBII, _TDBN, _MU, _MUP, _CSN, _NCSN, _MMUP, _MUSKKI, _T],
+  [0, 0, 0, [() => SensitiveString, 0], 0, 0, 2, 0, [() => TagList, 0]]
+];
+export var CreateTenantDatabaseResult$: StaticStructureSchema = [3, n0, _CTDR,
+  0,
+  [_TD],
+  [[() => TenantDatabase$, 0]]
+];
+export var CustomAvailabilityZoneNotFoundFault$: StaticErrorSchema = [-3, n0, _CAZNFF,
+  { [_aQE]: [`CustomAvailabilityZoneNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(CustomAvailabilityZoneNotFoundFault$, CustomAvailabilityZoneNotFoundFault);
+export var CustomDBEngineVersionAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _CDBEVAEF,
+  { [_aQE]: [`CustomDBEngineVersionAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(CustomDBEngineVersionAlreadyExistsFault$, CustomDBEngineVersionAlreadyExistsFault);
+export var CustomDBEngineVersionAMI$: StaticStructureSchema = [3, n0, _CDBEVAMI,
+  0,
+  [_II, _St],
+  [0, 0]
+];
+export var CustomDBEngineVersionNotFoundFault$: StaticErrorSchema = [-3, n0, _CDBEVNFF,
+  { [_aQE]: [`CustomDBEngineVersionNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(CustomDBEngineVersionNotFoundFault$, CustomDBEngineVersionNotFoundFault);
+export var CustomDBEngineVersionQuotaExceededFault$: StaticErrorSchema = [-3, n0, _CDBEVQEF,
+  { [_aQE]: [`CustomDBEngineVersionQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(CustomDBEngineVersionQuotaExceededFault$, CustomDBEngineVersionQuotaExceededFault);
+export var DBCluster$: StaticStructureSchema = [3, n0, _DBC,
+  0,
+  [_AS, _AZv, _BRP, _CSN, _DN, _DBCI, _DBCPG, _DBSGu, _St, _PP, _ERT, _End, _RE, _CE, _MAZ, _E, _EV, _LRT, _P, _MU, _DBCOGM, _PBW, _PMW, _URO, _RSI, _RRI, _SIt, _DBCM, _VSG, _HZI, _SE, _KKI, _DCRI, _DBCA, _AR, _IAMDAE, _CGI, _CCT, _EBT, _BW, _BCCR, _ECLEn, _Ca, _PMV, _EMn, _SCI, _RCCC, _DBCIC, _STt, _I, _ST, _IOONAMT, _PA, _AMVU, _DP, _HEE, _ASM, _ASS, _ASKKI, _ASKSN, _CTTS, _CAC, _DM, _TL, _GCI, _GWFS, _GWFR, _NT, _ART, _SVSC, _SVPV, _MIo, _MRA, _DIM, _PIE, _PIKMSKI, _PIRP, _DBSI, _MUS, _LWFS, _ABRPA, _LD, _CST, _CD, _ELS],
+  [1, [() => AvailabilityZones, 0], 1, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 64 | 0, 2, 0, 0, 4, 1, 0, [() => DBClusterOptionGroupMemberships, 0], 0, 0, 0, 0, [() => ReadReplicaIdentifierList, 0], [() => DBClusterStatusInfoList, 0], [() => DBClusterMemberList, 0], [() => VpcSecurityGroupMembershipList, 0], 0, 2, 0, 0, 0, [() => DBClusterRoles, 0], 2, 0, 4, 4, 1, 1, 64 | 0, 1, [() => ClusterPendingModifiedValues$, 0], 0, () => ScalingConfigurationInfo$, () => RdsCustomClusterConfiguration$, 0, 0, 1, 1, 4, 2, 2, 2, 2, 0, 0, 0, 0, 2, 2, [() => DomainMembershipList, 0], [() => TagList, 0], 0, 0, 2, 0, 4, () => ServerlessV2ScalingConfigurationInfo$, 0, 1, 0, 0, 2, 0, 1, 0, () => MasterUserSecret$, 0, 0, () => LimitlessDatabase$, 0, () => CertificateDetails$, 0]
+];
+export var DBClusterAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _DBCAEF,
+  { [_aQE]: [`DBClusterAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBClusterAlreadyExistsFault$, DBClusterAlreadyExistsFault);
+export var DBClusterAutomatedBackup$: StaticStructureSchema = [3, n0, _DBCAB,
+  0,
+  [_E, _VI, _DBCABA, _DBCI, _RW, _MU, _DCRI, _R, _LM, _St, _IAMDAE, _CCT, _SE, _AS, _EV, _DBCA, _BRP, _EMn, _AZv, _P, _KKI, _STt, _I, _ST, _ABRPA, _TL],
+  [0, 0, 0, 0, () => RestoreWindow$, 0, 0, 0, 0, 0, 2, 4, 2, 1, 0, 0, 1, 0, [() => AvailabilityZones, 0], 1, 0, 0, 1, 1, 0, [() => TagList, 0]]
+];
+export var DBClusterAutomatedBackupMessage$: StaticStructureSchema = [3, n0, _DBCABM,
+  0,
+  [_Ma, _DBCABl],
+  [0, [() => DBClusterAutomatedBackupList, 0]]
+];
+export var DBClusterAutomatedBackupNotFoundFault$: StaticErrorSchema = [-3, n0, _DBCABNFF,
+  { [_aQE]: [`DBClusterAutomatedBackupNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBClusterAutomatedBackupNotFoundFault$, DBClusterAutomatedBackupNotFoundFault);
+export var DBClusterAutomatedBackupQuotaExceededFault$: StaticErrorSchema = [-3, n0, _DBCABQEF,
+  { [_aQE]: [`DBClusterAutomatedBackupQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBClusterAutomatedBackupQuotaExceededFault$, DBClusterAutomatedBackupQuotaExceededFault);
+export var DBClusterBacktrack$: StaticStructureSchema = [3, n0, _DBCB,
+  0,
+  [_DBCI, _BI, _BT, _BF, _BRCT, _St],
+  [0, 0, 4, 4, 4, 0]
+];
+export var DBClusterBacktrackMessage$: StaticStructureSchema = [3, n0, _DBCBM,
+  0,
+  [_Ma, _DBCBl],
+  [0, [() => DBClusterBacktrackList, 0]]
+];
+export var DBClusterBacktrackNotFoundFault$: StaticErrorSchema = [-3, n0, _DBCBNFF,
+  { [_aQE]: [`DBClusterBacktrackNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBClusterBacktrackNotFoundFault$, DBClusterBacktrackNotFoundFault);
+export var DBClusterCapacityInfo$: StaticStructureSchema = [3, n0, _DBCCI,
+  0,
+  [_DBCI, _PC, _CC, _SBT, _TAi],
+  [0, 1, 1, 1, 0]
+];
+export var DBClusterEndpoint$: StaticStructureSchema = [3, n0, _DBCE,
+  0,
+  [_DBCEI, _DBCI, _DBCERI, _End, _St, _ET, _CET, _SM, _EM, _DBCEA],
+  [0, 0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0]
+];
+export var DBClusterEndpointAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _DBCEAEF,
+  { [_aQE]: [`DBClusterEndpointAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBClusterEndpointAlreadyExistsFault$, DBClusterEndpointAlreadyExistsFault);
+export var DBClusterEndpointMessage$: StaticStructureSchema = [3, n0, _DBCEM,
+  0,
+  [_Ma, _DBCEl],
+  [0, [() => DBClusterEndpointList, 0]]
+];
+export var DBClusterEndpointNotFoundFault$: StaticErrorSchema = [-3, n0, _DBCENFF,
+  { [_aQE]: [`DBClusterEndpointNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBClusterEndpointNotFoundFault$, DBClusterEndpointNotFoundFault);
+export var DBClusterEndpointQuotaExceededFault$: StaticErrorSchema = [-3, n0, _DBCEQEF,
+  { [_aQE]: [`DBClusterEndpointQuotaExceededFault`, 403], [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBClusterEndpointQuotaExceededFault$, DBClusterEndpointQuotaExceededFault);
+export var DBClusterMember$: StaticStructureSchema = [3, n0, _DBCMl,
+  0,
+  [_DBII, _ICW, _DBCPGS, _PT],
+  [0, 2, 0, 1]
+];
+export var DBClusterMessage$: StaticStructureSchema = [3, n0, _DBCMlu,
+  0,
+  [_Ma, _DBCl],
+  [0, [() => DBClusterList, 0]]
+];
+export var DBClusterNotFoundFault$: StaticErrorSchema = [-3, n0, _DBCNFF,
+  { [_aQE]: [`DBClusterNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBClusterNotFoundFault$, DBClusterNotFoundFault);
+export var DBClusterOptionGroupStatus$: StaticStructureSchema = [3, n0, _DBCOGS,
+  0,
+  [_DBCOGN, _St],
+  [0, 0]
+];
+export var DBClusterParameterGroup$: StaticStructureSchema = [3, n0, _DBCPG,
+  0,
+  [_DBCPGN, _DBPGF, _D, _DBCPGA],
+  [0, 0, 0, 0]
+];
+export var DBClusterParameterGroupDetails$: StaticStructureSchema = [3, n0, _DBCPGD,
+  0,
+  [_Pa, _Ma],
+  [[() => ParametersList, 0], 0]
+];
+export var DBClusterParameterGroupNameMessage$: StaticStructureSchema = [3, n0, _DBCPGNM,
+  0,
+  [_DBCPGN],
+  [0]
+];
+export var DBClusterParameterGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _DBCPGNFF,
+  { [_aQE]: [`DBClusterParameterGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBClusterParameterGroupNotFoundFault$, DBClusterParameterGroupNotFoundFault);
+export var DBClusterParameterGroupsMessage$: StaticStructureSchema = [3, n0, _DBCPGM,
+  0,
+  [_Ma, _DBCPGl],
+  [0, [() => DBClusterParameterGroupList, 0]]
+];
+export var DBClusterQuotaExceededFault$: StaticErrorSchema = [-3, n0, _DBCQEF,
+  { [_aQE]: [`DBClusterQuotaExceededFault`, 403], [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBClusterQuotaExceededFault$, DBClusterQuotaExceededFault);
+export var DBClusterRole$: StaticStructureSchema = [3, n0, _DBCR,
+  0,
+  [_RA, _St, _FN],
+  [0, 0, 0]
+];
+export var DBClusterRoleAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _DBCRAEF,
+  { [_aQE]: [`DBClusterRoleAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBClusterRoleAlreadyExistsFault$, DBClusterRoleAlreadyExistsFault);
+export var DBClusterRoleNotFoundFault$: StaticErrorSchema = [-3, n0, _DBCRNFF,
+  { [_aQE]: [`DBClusterRoleNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBClusterRoleNotFoundFault$, DBClusterRoleNotFoundFault);
+export var DBClusterRoleQuotaExceededFault$: StaticErrorSchema = [-3, n0, _DBCRQEF,
+  { [_aQE]: [`DBClusterRoleQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBClusterRoleQuotaExceededFault$, DBClusterRoleQuotaExceededFault);
+export var DBClusterSnapshot$: StaticStructureSchema = [3, n0, _DBCS,
+  0,
+  [_AZv, _DBCSI, _DBCI, _SCT, _E, _EMn, _AS, _St, _P, _VI, _CCT, _MU, _EV, _LM, _STna, _PP, _SE, _KKI, _DBCSA, _SDBCSA, _IAMDAE, _TL, _STt, _ST, _DCRI, _DBSI],
+  [[() => AvailabilityZones, 0], 0, 0, 4, 0, 0, 1, 0, 1, 0, 4, 0, 0, 0, 0, 1, 2, 0, 0, 0, 2, [() => TagList, 0], 0, 1, 0, 0]
+];
+export var DBClusterSnapshotAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _DBCSAEF,
+  { [_aQE]: [`DBClusterSnapshotAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBClusterSnapshotAlreadyExistsFault$, DBClusterSnapshotAlreadyExistsFault);
+export var DBClusterSnapshotAttribute$: StaticStructureSchema = [3, n0, _DBCSAl,
+  0,
+  [_AN, _AVt],
+  [0, [() => AttributeValueList, 0]]
+];
+export var DBClusterSnapshotAttributesResult$: StaticStructureSchema = [3, n0, _DBCSAR,
+  0,
+  [_DBCSI, _DBCSAlu],
+  [0, [() => DBClusterSnapshotAttributeList, 0]]
+];
+export var DBClusterSnapshotMessage$: StaticStructureSchema = [3, n0, _DBCSM,
+  0,
+  [_Ma, _DBCSl],
+  [0, [() => DBClusterSnapshotList, 0]]
+];
+export var DBClusterSnapshotNotFoundFault$: StaticErrorSchema = [-3, n0, _DBCSNFF,
+  { [_aQE]: [`DBClusterSnapshotNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBClusterSnapshotNotFoundFault$, DBClusterSnapshotNotFoundFault);
+export var DBClusterStatusInfo$: StaticStructureSchema = [3, n0, _DBCSIl,
+  0,
+  [_STta, _No, _St, _Me],
+  [0, 2, 0, 0]
+];
+export var DBEngineVersion$: StaticStructureSchema = [3, n0, _DBEV,
+  0,
+  [_E, _MEV, _EV, _DIFSBN, _DIFSP, _CDBEVM, _DBPGF, _DBED, _DBEVA, _DBEVD, _DCS, _Im, _DBEMT, _KMSKI, _CT, _SCS, _SNCS, _VUT, _STu, _ELTx, _SLETCL, _SRR, _SEM, _SFN, _St, _SPQ, _SGD, _TL, _SB, _SLD, _SCRWR, _SCACI, _SLWF, _SIup, _SVFS, _DIF, _FR],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => CharacterSet$, () => CustomDBEngineVersionAMI$, 0, 0, 4, [() => SupportedCharacterSetsList, 0], [() => SupportedCharacterSetsList, 0], [() => ValidUpgradeTargetList, 0], [() => SupportedTimezonesList, 0], 64 | 0, 2, 2, 64 | 0, 64 | 0, 0, 2, 2, [() => TagList, 0], 2, 2, 2, 64 | 0, 2, 2, () => ServerlessV2FeaturesSupport$, 64 | 0, 0]
+];
+export var DBEngineVersionMessage$: StaticStructureSchema = [3, n0, _DBEVM,
+  0,
+  [_Ma, _DBEVn],
+  [0, [() => DBEngineVersionList, 0]]
+];
+export var DBInstance$: StaticStructureSchema = [3, n0, _DBI,
+  0,
+  [_DBII, _DBIC, _E, _DBIS, _MU, _DBN, _End, _AS, _ICTn, _PBW, _BRP, _DBSGe, _VSG, _DBPGa, _AZ, _DBSGu, _PMW, _URO, _PMV, _LRT, _MAZ, _EV, _AMVU, _RRSDBII, _RRDBII, _RRDBCI, _RM, _LM, _I, _ST, _OGM, _CSN, _NCSN, _SAZe, _PA, _SIt, _STt, _TCA, _DIP, _DBCI, _SE, _KKI, _DRI, _CACI, _DM, _CTTS, _MIo, _EMRA, _MRA, _PT, _DBIA, _Ti, _IAMDAE, _DIM, _PIE, _PIKMSKI, _PIRP, _ECLEn, _PF, _DP, _AR, _LE, _MAS, _TL, _AM, _RFAMT, _COIE, _NT, _ASS, _ASKKI, _ASKSN, _ASM, _ASENAFI, _ABRPA, _DBIABR, _BTa, _ART, _CIIP, _ASPS, _CD, _DBSI, _MUS, _RRSDBCI, _PP, _MT, _DLV, _ISCUA, _ELS, _ASVd, _SVS],
+  [0, 0, 0, 0, 0, 0, () => Endpoint$, 1, 4, 0, 1, [() => DBSecurityGroupMembershipList, 0], [() => VpcSecurityGroupMembershipList, 0], [() => DBParameterGroupStatusList, 0], 0, [() => DBSubnetGroup$, 0], 0, 0, [() => PendingModifiedValues$, 0], 4, 2, 0, 2, 0, [() => ReadReplicaDBInstanceIdentifierList, 0], [() => ReadReplicaDBClusterIdentifierList, 0], 0, 0, 1, 1, [() => OptionGroupMembershipList, 0], 0, 0, 0, 2, [() => DBInstanceStatusInfoList, 0], 0, 0, 1, 0, 2, 0, 0, 0, [() => DomainMembershipList, 0], 2, 1, 0, 0, 1, 0, 0, 2, 0, 2, 0, 1, 64 | 0, [() => ProcessorFeatureList, 0], 2, [() => DBInstanceRoles, 0], () => Endpoint$, 1, [() => TagList, 0], 0, 4, 2, 0, 0, 0, 0, 0, 2, 0, [() => DBInstanceAutomatedBackupsReplicationList, 0], 0, 4, 0, 0, () => CertificateDetails$, 0, () => MasterUserSecret$, 0, 0, 2, 2, 2, 0, () => AdditionalStorageVolumesOutputList, 0]
+];
+export var DBInstanceAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _DBIAEF,
+  { [_aQE]: [`DBInstanceAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBInstanceAlreadyExistsFault$, DBInstanceAlreadyExistsFault);
+export var DBInstanceAutomatedBackup$: StaticStructureSchema = [3, n0, _DBIAB,
+  0,
+  [_DBIA, _DRI, _R, _DBII, _RW, _AS, _St, _P, _AZ, _VI, _ICTn, _MU, _E, _EV, _LM, _I, _ST, _OGN, _TCA, _Enc, _STt, _KKI, _Ti, _IAMDAE, _BRP, _DBIABA, _DBIABR, _BTa, _MT, _ABRPA, _TL, _DLV, _ASVd],
+  [0, 0, 0, 0, () => RestoreWindow$, 1, 0, 1, 0, 0, 4, 0, 0, 0, 0, 1, 1, 0, 0, 2, 0, 0, 0, 2, 1, 0, [() => DBInstanceAutomatedBackupsReplicationList, 0], 0, 2, 0, [() => TagList, 0], 2, () => AdditionalStorageVolumesList]
+];
+export var DBInstanceAutomatedBackupMessage$: StaticStructureSchema = [3, n0, _DBIABM,
+  0,
+  [_Ma, _DBIABn],
+  [0, [() => DBInstanceAutomatedBackupList, 0]]
+];
+export var DBInstanceAutomatedBackupNotFoundFault$: StaticErrorSchema = [-3, n0, _DBIABNFF,
+  { [_aQE]: [`DBInstanceAutomatedBackupNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBInstanceAutomatedBackupNotFoundFault$, DBInstanceAutomatedBackupNotFoundFault);
+export var DBInstanceAutomatedBackupQuotaExceededFault$: StaticErrorSchema = [-3, n0, _DBIABQEF,
+  { [_aQE]: [`DBInstanceAutomatedBackupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBInstanceAutomatedBackupQuotaExceededFault$, DBInstanceAutomatedBackupQuotaExceededFault);
+export var DBInstanceAutomatedBackupsReplication$: StaticStructureSchema = [3, n0, _DBIABRn,
+  0,
+  [_DBIABA],
+  [0]
+];
+export var DBInstanceMessage$: StaticStructureSchema = [3, n0, _DBIM,
+  0,
+  [_Ma, _DBIn],
+  [0, [() => DBInstanceList, 0]]
+];
+export var DBInstanceNotFoundFault$: StaticErrorSchema = [-3, n0, _DBINFF,
+  { [_aQE]: [`DBInstanceNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBInstanceNotFoundFault$, DBInstanceNotFoundFault);
+export var DBInstanceNotReadyFault$: StaticErrorSchema = [-3, n0, _DBINRF,
+  { [_aQE]: [`DBInstanceNotReady`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBInstanceNotReadyFault$, DBInstanceNotReadyFault);
+export var DBInstanceRole$: StaticStructureSchema = [3, n0, _DBIR,
+  0,
+  [_RA, _FN, _St],
+  [0, 0, 0]
+];
+export var DBInstanceRoleAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _DBIRAEF,
+  { [_aQE]: [`DBInstanceRoleAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBInstanceRoleAlreadyExistsFault$, DBInstanceRoleAlreadyExistsFault);
+export var DBInstanceRoleNotFoundFault$: StaticErrorSchema = [-3, n0, _DBIRNFF,
+  { [_aQE]: [`DBInstanceRoleNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBInstanceRoleNotFoundFault$, DBInstanceRoleNotFoundFault);
+export var DBInstanceRoleQuotaExceededFault$: StaticErrorSchema = [-3, n0, _DBIRQEF,
+  { [_aQE]: [`DBInstanceRoleQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBInstanceRoleQuotaExceededFault$, DBInstanceRoleQuotaExceededFault);
+export var DBInstanceStatusInfo$: StaticStructureSchema = [3, n0, _DBISI,
+  0,
+  [_STta, _No, _St, _Me],
+  [0, 2, 0, 0]
+];
+export var DBLogFileNotFoundFault$: StaticErrorSchema = [-3, n0, _DBLFNFF,
+  { [_aQE]: [`DBLogFileNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBLogFileNotFoundFault$, DBLogFileNotFoundFault);
+export var DBMajorEngineVersion$: StaticStructureSchema = [3, n0, _DBMEV,
+  0,
+  [_E, _MEV, _SEL],
+  [0, 0, [() => SupportedEngineLifecycleList, 0]]
+];
+export var DBParameterGroup$: StaticStructureSchema = [3, n0, _DBPG,
+  0,
+  [_DBPGN, _DBPGF, _D, _DBPGA],
+  [0, 0, 0, 0]
+];
+export var DBParameterGroupAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _DBPGAEF,
+  { [_aQE]: [`DBParameterGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBParameterGroupAlreadyExistsFault$, DBParameterGroupAlreadyExistsFault);
+export var DBParameterGroupDetails$: StaticStructureSchema = [3, n0, _DBPGD,
+  0,
+  [_Pa, _Ma],
+  [[() => ParametersList, 0], 0]
+];
+export var DBParameterGroupNameMessage$: StaticStructureSchema = [3, n0, _DBPGNM,
+  0,
+  [_DBPGN],
+  [0]
+];
+export var DBParameterGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _DBPGNFF,
+  { [_aQE]: [`DBParameterGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBParameterGroupNotFoundFault$, DBParameterGroupNotFoundFault);
+export var DBParameterGroupQuotaExceededFault$: StaticErrorSchema = [-3, n0, _DBPGQEF,
+  { [_aQE]: [`DBParameterGroupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBParameterGroupQuotaExceededFault$, DBParameterGroupQuotaExceededFault);
+export var DBParameterGroupsMessage$: StaticStructureSchema = [3, n0, _DBPGM,
+  0,
+  [_Ma, _DBPGa],
+  [0, [() => DBParameterGroupList, 0]]
+];
+export var DBParameterGroupStatus$: StaticStructureSchema = [3, n0, _DBPGS,
+  0,
+  [_DBPGN, _PAS],
+  [0, 0]
+];
+export var DBProxy$: StaticStructureSchema = [3, n0, _DBP,
+  0,
+  [_DBPN, _DBPA, _St, _EF, _VI, _VSGI, _VSI, _DAS, _A, _RA, _End, _RTLS, _ICT, _DL, _CDr, _UD, _ENT, _TCNT],
+  [0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0, () => UserAuthConfigInfoList, 0, 0, 2, 1, 2, 4, 4, 0, 0]
+];
+export var DBProxyAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _DBPAEF,
+  { [_aQE]: [`DBProxyAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBProxyAlreadyExistsFault$, DBProxyAlreadyExistsFault);
+export var DBProxyEndpoint$: StaticStructureSchema = [3, n0, _DBPE,
+  0,
+  [_DBPEN, _DBPEA, _DBPN, _St, _VI, _VSGI, _VSI, _End, _CDr, _TR, _ID, _ENT],
+  [0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0, 4, 0, 2, 0]
+];
+export var DBProxyEndpointAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _DBPEAEF,
+  { [_aQE]: [`DBProxyEndpointAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBProxyEndpointAlreadyExistsFault$, DBProxyEndpointAlreadyExistsFault);
+export var DBProxyEndpointNotFoundFault$: StaticErrorSchema = [-3, n0, _DBPENFF,
+  { [_aQE]: [`DBProxyEndpointNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBProxyEndpointNotFoundFault$, DBProxyEndpointNotFoundFault);
+export var DBProxyEndpointQuotaExceededFault$: StaticErrorSchema = [-3, n0, _DBPEQEF,
+  { [_aQE]: [`DBProxyEndpointQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBProxyEndpointQuotaExceededFault$, DBProxyEndpointQuotaExceededFault);
+export var DBProxyNotFoundFault$: StaticErrorSchema = [-3, n0, _DBPNFF,
+  { [_aQE]: [`DBProxyNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBProxyNotFoundFault$, DBProxyNotFoundFault);
+export var DBProxyQuotaExceededFault$: StaticErrorSchema = [-3, n0, _DBPQEF,
+  { [_aQE]: [`DBProxyQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBProxyQuotaExceededFault$, DBProxyQuotaExceededFault);
+export var DBProxyTarget$: StaticStructureSchema = [3, n0, _DBPT,
+  0,
+  [_TA, _End, _TCI, _RRId, _P, _Ty, _Ro, _TH],
+  [0, 0, 0, 0, 1, 0, 0, () => TargetHealth$]
+];
+export var DBProxyTargetAlreadyRegisteredFault$: StaticErrorSchema = [-3, n0, _DBPTARF,
+  { [_aQE]: [`DBProxyTargetAlreadyRegisteredFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBProxyTargetAlreadyRegisteredFault$, DBProxyTargetAlreadyRegisteredFault);
+export var DBProxyTargetGroup$: StaticStructureSchema = [3, n0, _DBPTG,
+  0,
+  [_DBPN, _TGN, _TGA, _ID, _St, _CPCo, _CDr, _UD],
+  [0, 0, 0, 2, 0, () => ConnectionPoolConfigurationInfo$, 4, 4]
+];
+export var DBProxyTargetGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _DBPTGNFF,
+  { [_aQE]: [`DBProxyTargetGroupNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBProxyTargetGroupNotFoundFault$, DBProxyTargetGroupNotFoundFault);
+export var DBProxyTargetNotFoundFault$: StaticErrorSchema = [-3, n0, _DBPTNFF,
+  { [_aQE]: [`DBProxyTargetNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBProxyTargetNotFoundFault$, DBProxyTargetNotFoundFault);
+export var DBRecommendation$: StaticStructureSchema = [3, n0, _DBR,
+  0,
+  [_RIe, _TIy, _Se, _RAe, _St, _CTr, _UT, _De, _Re, _D, _Rea, _RAec, _Cat, _S, _TDy, _TRy, _Imp, _AI, _L, _IDs],
+  [0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, () => RecommendedActionList, 0, 0, 0, 0, 0, 0, () => DocLinkList, () => IssueDetails$]
+];
+export var DBRecommendationMessage$: StaticStructureSchema = [3, n0, _DBRM,
+  0,
+  [_DBR],
+  [() => DBRecommendation$]
+];
+export var DBRecommendationsMessage$: StaticStructureSchema = [3, n0, _DBRMe,
+  0,
+  [_DBRe, _Ma],
+  [() => DBRecommendationList, 0]
+];
+export var DBSecurityGroup$: StaticStructureSchema = [3, n0, _DBSG,
+  0,
+  [_OI, _DBSGN, _DBSGD, _VI, _ECSG, _IPR, _DBSGA],
+  [0, 0, 0, 0, [() => EC2SecurityGroupList, 0], [() => IPRangeList, 0], 0]
+];
+export var DBSecurityGroupAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _DBSGAEF,
+  { [_aQE]: [`DBSecurityGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBSecurityGroupAlreadyExistsFault$, DBSecurityGroupAlreadyExistsFault);
+export var DBSecurityGroupMembership$: StaticStructureSchema = [3, n0, _DBSGM,
+  0,
+  [_DBSGN, _St],
+  [0, 0]
+];
+export var DBSecurityGroupMessage$: StaticStructureSchema = [3, n0, _DBSGMe,
+  0,
+  [_Ma, _DBSGe],
+  [0, [() => DBSecurityGroups, 0]]
+];
+export var DBSecurityGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _DBSGNFF,
+  { [_aQE]: [`DBSecurityGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBSecurityGroupNotFoundFault$, DBSecurityGroupNotFoundFault);
+export var DBSecurityGroupNotSupportedFault$: StaticErrorSchema = [-3, n0, _DBSGNSF,
+  { [_aQE]: [`DBSecurityGroupNotSupported`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBSecurityGroupNotSupportedFault$, DBSecurityGroupNotSupportedFault);
+export var DBSecurityGroupQuotaExceededFault$: StaticErrorSchema = [-3, n0, _DBSGQEF,
+  { [_aQE]: [`QuotaExceeded.DBSecurityGroup`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBSecurityGroupQuotaExceededFault$, DBSecurityGroupQuotaExceededFault);
+export var DBShardGroup$: StaticStructureSchema = [3, n0, _DBSGh,
+  0,
+  [_DBSGRI, _DBSGI, _DBCI, _MACU, _MACUi, _CR, _St, _PA, _End, _DBSGAh, _TL],
+  [0, 0, 0, 1, 1, 1, 0, 2, 0, 0, [() => TagList, 0]]
+];
+export var DBShardGroupAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _DBSGAEFh,
+  { [_aQE]: [`DBShardGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBShardGroupAlreadyExistsFault$, DBShardGroupAlreadyExistsFault);
+export var DBShardGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _DBSGNFFh,
+  { [_aQE]: [`DBShardGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBShardGroupNotFoundFault$, DBShardGroupNotFoundFault);
+export var DBSnapshot$: StaticStructureSchema = [3, n0, _DBS,
+  0,
+  [_DBSIn, _DBII, _SCT, _E, _AS, _St, _P, _AZ, _VI, _ICTn, _MU, _EV, _LM, _STna, _I, _ST, _OGN, _PP, _SR, _SDBSI, _STt, _TCA, _Enc, _KKI, _DBSA, _Ti, _IAMDAE, _PF, _DRI, _TL, _STn, _OSCT, _SDT, _DBSI, _MT, _DLV, _SAZ, _ASVd],
+  [0, 0, 4, 0, 1, 0, 1, 0, 0, 4, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 2, 0, 0, 0, 2, [() => ProcessorFeatureList, 0], 0, [() => TagList, 0], 0, 4, 4, 0, 2, 2, 0, () => AdditionalStorageVolumesList]
+];
+export var DBSnapshotAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _DBSAEF,
+  { [_aQE]: [`DBSnapshotAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBSnapshotAlreadyExistsFault$, DBSnapshotAlreadyExistsFault);
+export var DBSnapshotAttribute$: StaticStructureSchema = [3, n0, _DBSAn,
+  0,
+  [_AN, _AVt],
+  [0, [() => AttributeValueList, 0]]
+];
+export var DBSnapshotAttributesResult$: StaticStructureSchema = [3, n0, _DBSAR,
+  0,
+  [_DBSIn, _DBSAna],
+  [0, [() => DBSnapshotAttributeList, 0]]
+];
+export var DBSnapshotMessage$: StaticStructureSchema = [3, n0, _DBSM,
+  0,
+  [_Ma, _DBSn],
+  [0, [() => DBSnapshotList, 0]]
+];
+export var DBSnapshotNotFoundFault$: StaticErrorSchema = [-3, n0, _DBSNFF,
+  { [_aQE]: [`DBSnapshotNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBSnapshotNotFoundFault$, DBSnapshotNotFoundFault);
+export var DBSnapshotTenantDatabase$: StaticStructureSchema = [3, n0, _DBSTD,
+  0,
+  [_DBSIn, _DBII, _DRI, _EN, _STna, _TDCT, _TDBN, _MU, _TDRI, _CSN, _DBSTDARN, _NCSN, _TL],
+  [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, [() => TagList, 0]]
+];
+export var DBSnapshotTenantDatabaseNotFoundFault$: StaticErrorSchema = [-3, n0, _DBSTDNFF,
+  { [_aQE]: [`DBSnapshotTenantDatabaseNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBSnapshotTenantDatabaseNotFoundFault$, DBSnapshotTenantDatabaseNotFoundFault);
+export var DBSnapshotTenantDatabasesMessage$: StaticStructureSchema = [3, n0, _DBSTDM,
+  0,
+  [_Ma, _DBSTDn],
+  [0, [() => DBSnapshotTenantDatabasesList, 0]]
+];
+export var DBSubnetGroup$: StaticStructureSchema = [3, n0, _DBSGu,
+  0,
+  [_DBSGNu, _DBSGDu, _VI, _SGS, _Su, _DBSGAu, _SNT],
+  [0, 0, 0, 0, [() => SubnetList, 0], 0, 64 | 0]
+];
+export var DBSubnetGroupAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _DBSGAEFu,
+  { [_aQE]: [`DBSubnetGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBSubnetGroupAlreadyExistsFault$, DBSubnetGroupAlreadyExistsFault);
+export var DBSubnetGroupDoesNotCoverEnoughAZs$: StaticErrorSchema = [-3, n0, _DBSGDNCEAZ,
+  { [_aQE]: [`DBSubnetGroupDoesNotCoverEnoughAZs`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBSubnetGroupDoesNotCoverEnoughAZs$, DBSubnetGroupDoesNotCoverEnoughAZs);
+export var DBSubnetGroupMessage$: StaticStructureSchema = [3, n0, _DBSGMu,
+  0,
+  [_Ma, _DBSGub],
+  [0, [() => DBSubnetGroups, 0]]
+];
+export var DBSubnetGroupNotAllowedFault$: StaticErrorSchema = [-3, n0, _DBSGNAF,
+  { [_aQE]: [`DBSubnetGroupNotAllowedFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBSubnetGroupNotAllowedFault$, DBSubnetGroupNotAllowedFault);
+export var DBSubnetGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _DBSGNFFu,
+  { [_aQE]: [`DBSubnetGroupNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBSubnetGroupNotFoundFault$, DBSubnetGroupNotFoundFault);
+export var DBSubnetGroupQuotaExceededFault$: StaticErrorSchema = [-3, n0, _DBSGQEFu,
+  { [_aQE]: [`DBSubnetGroupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBSubnetGroupQuotaExceededFault$, DBSubnetGroupQuotaExceededFault);
+export var DBSubnetQuotaExceededFault$: StaticErrorSchema = [-3, n0, _DBSQEF,
+  { [_aQE]: [`DBSubnetQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBSubnetQuotaExceededFault$, DBSubnetQuotaExceededFault);
+export var DBUpgradeDependencyFailureFault$: StaticErrorSchema = [-3, n0, _DBUDFF,
+  { [_aQE]: [`DBUpgradeDependencyFailure`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DBUpgradeDependencyFailureFault$, DBUpgradeDependencyFailureFault);
+export var DeleteBlueGreenDeploymentRequest$: StaticStructureSchema = [3, n0, _DBGDR,
+  0,
+  [_BGDI, _DTe],
+  [0, 2]
+];
+export var DeleteBlueGreenDeploymentResponse$: StaticStructureSchema = [3, n0, _DBGDRe,
+  0,
+  [_BGD],
+  [[() => BlueGreenDeployment$, 0]]
+];
+export var DeleteCustomDBEngineVersionMessage$: StaticStructureSchema = [3, n0, _DCDBEVM,
+  0,
+  [_E, _EV],
+  [0, 0]
+];
+export var DeleteDBClusterAutomatedBackupMessage$: StaticStructureSchema = [3, n0, _DDBCABM,
+  0,
+  [_DCRI],
+  [0]
+];
+export var DeleteDBClusterAutomatedBackupResult$: StaticStructureSchema = [3, n0, _DDBCABR,
+  0,
+  [_DBCAB],
+  [[() => DBClusterAutomatedBackup$, 0]]
+];
+export var DeleteDBClusterEndpointMessage$: StaticStructureSchema = [3, n0, _DDBCEM,
+  0,
+  [_DBCEI],
+  [0]
+];
+export var DeleteDBClusterMessage$: StaticStructureSchema = [3, n0, _DDBCM,
+  0,
+  [_DBCI, _SFS, _FDBSI, _DAB],
+  [0, 2, 0, 2]
+];
+export var DeleteDBClusterParameterGroupMessage$: StaticStructureSchema = [3, n0, _DDBCPGM,
+  0,
+  [_DBCPGN],
+  [0]
+];
+export var DeleteDBClusterResult$: StaticStructureSchema = [3, n0, _DDBCR,
+  0,
+  [_DBC],
+  [[() => DBCluster$, 0]]
+];
+export var DeleteDBClusterSnapshotMessage$: StaticStructureSchema = [3, n0, _DDBCSM,
+  0,
+  [_DBCSI],
+  [0]
+];
+export var DeleteDBClusterSnapshotResult$: StaticStructureSchema = [3, n0, _DDBCSR,
+  0,
+  [_DBCS],
+  [[() => DBClusterSnapshot$, 0]]
+];
+export var DeleteDBInstanceAutomatedBackupMessage$: StaticStructureSchema = [3, n0, _DDBIABM,
+  0,
+  [_DRI, _DBIABA],
+  [0, 0]
+];
+export var DeleteDBInstanceAutomatedBackupResult$: StaticStructureSchema = [3, n0, _DDBIABR,
+  0,
+  [_DBIAB],
+  [[() => DBInstanceAutomatedBackup$, 0]]
+];
+export var DeleteDBInstanceMessage$: StaticStructureSchema = [3, n0, _DDBIM,
+  0,
+  [_DBII, _SFS, _FDBSI, _DAB],
+  [0, 2, 0, 2]
+];
+export var DeleteDBInstanceResult$: StaticStructureSchema = [3, n0, _DDBIR,
+  0,
+  [_DBI],
+  [[() => DBInstance$, 0]]
+];
+export var DeleteDBParameterGroupMessage$: StaticStructureSchema = [3, n0, _DDBPGM,
+  0,
+  [_DBPGN],
+  [0]
+];
+export var DeleteDBProxyEndpointRequest$: StaticStructureSchema = [3, n0, _DDBPER,
+  0,
+  [_DBPEN],
+  [0]
+];
+export var DeleteDBProxyEndpointResponse$: StaticStructureSchema = [3, n0, _DDBPERe,
+  0,
+  [_DBPE],
+  [() => DBProxyEndpoint$]
+];
+export var DeleteDBProxyRequest$: StaticStructureSchema = [3, n0, _DDBPR,
+  0,
+  [_DBPN],
+  [0]
+];
+export var DeleteDBProxyResponse$: StaticStructureSchema = [3, n0, _DDBPRe,
+  0,
+  [_DBP],
+  [() => DBProxy$]
+];
+export var DeleteDBSecurityGroupMessage$: StaticStructureSchema = [3, n0, _DDBSGM,
+  0,
+  [_DBSGN],
+  [0]
+];
+export var DeleteDBShardGroupMessage$: StaticStructureSchema = [3, n0, _DDBSGMe,
+  0,
+  [_DBSGI],
+  [0]
+];
+export var DeleteDBSnapshotMessage$: StaticStructureSchema = [3, n0, _DDBSM,
+  0,
+  [_DBSIn],
+  [0]
+];
+export var DeleteDBSnapshotResult$: StaticStructureSchema = [3, n0, _DDBSR,
+  0,
+  [_DBS],
+  [[() => DBSnapshot$, 0]]
+];
+export var DeleteDBSubnetGroupMessage$: StaticStructureSchema = [3, n0, _DDBSGMel,
+  0,
+  [_DBSGNu],
+  [0]
+];
+export var DeleteEventSubscriptionMessage$: StaticStructureSchema = [3, n0, _DESM,
+  0,
+  [_SN],
+  [0]
+];
+export var DeleteEventSubscriptionResult$: StaticStructureSchema = [3, n0, _DESR,
+  0,
+  [_ES],
+  [[() => EventSubscription$, 0]]
+];
+export var DeleteGlobalClusterMessage$: StaticStructureSchema = [3, n0, _DGCM,
+  0,
+  [_GCI],
+  [0]
+];
+export var DeleteGlobalClusterResult$: StaticStructureSchema = [3, n0, _DGCR,
+  0,
+  [_GC],
+  [[() => GlobalCluster$, 0]]
+];
+export var DeleteIntegrationMessage$: StaticStructureSchema = [3, n0, _DIMe,
+  0,
+  [_IIn],
+  [0]
+];
+export var DeleteOptionGroupMessage$: StaticStructureSchema = [3, n0, _DOGM,
+  0,
+  [_OGN],
+  [0]
+];
+export var DeleteTenantDatabaseMessage$: StaticStructureSchema = [3, n0, _DTDM,
+  0,
+  [_DBII, _TDBN, _SFS, _FDBSI],
+  [0, 0, 2, 0]
+];
+export var DeleteTenantDatabaseResult$: StaticStructureSchema = [3, n0, _DTDR,
+  0,
+  [_TD],
+  [[() => TenantDatabase$, 0]]
+];
+export var DeregisterDBProxyTargetsRequest$: StaticStructureSchema = [3, n0, _DDBPTR,
+  0,
+  [_DBPN, _TGN, _DBIIn, _DBCIl],
+  [0, 0, 64 | 0, 64 | 0]
+];
+export var DeregisterDBProxyTargetsResponse$: StaticStructureSchema = [3, n0, _DDBPTRe,
+  0,
+  [],
+  []
+];
+export var DescribeAccountAttributesMessage$: StaticStructureSchema = [3, n0, _DAAM,
+  0,
+  [],
+  []
+];
+export var DescribeBlueGreenDeploymentsRequest$: StaticStructureSchema = [3, n0, _DBGDRes,
+  0,
+  [_BGDI, _Fi, _Ma, _MR],
+  [0, [() => FilterList, 0], 0, 1]
+];
+export var DescribeBlueGreenDeploymentsResponse$: StaticStructureSchema = [3, n0, _DBGDResc,
+  0,
+  [_BGDl, _Ma],
+  [[() => BlueGreenDeploymentList, 0], 0]
+];
+export var DescribeCertificatesMessage$: StaticStructureSchema = [3, n0, _DCM,
+  0,
+  [_CI, _Fi, _MR, _Ma],
+  [0, [() => FilterList, 0], 1, 0]
+];
+export var DescribeDBClusterAutomatedBackupsMessage$: StaticStructureSchema = [3, n0, _DDBCABMe,
+  0,
+  [_DCRI, _DBCI, _Fi, _MR, _Ma],
+  [0, 0, [() => FilterList, 0], 1, 0]
+];
+export var DescribeDBClusterBacktracksMessage$: StaticStructureSchema = [3, n0, _DDBCBM,
+  0,
+  [_DBCI, _BI, _Fi, _MR, _Ma],
+  [0, 0, [() => FilterList, 0], 1, 0]
+];
+export var DescribeDBClusterEndpointsMessage$: StaticStructureSchema = [3, n0, _DDBCEMe,
+  0,
+  [_DBCI, _DBCEI, _Fi, _MR, _Ma],
+  [0, 0, [() => FilterList, 0], 1, 0]
+];
+export var DescribeDBClusterParameterGroupsMessage$: StaticStructureSchema = [3, n0, _DDBCPGMe,
+  0,
+  [_DBCPGN, _Fi, _MR, _Ma],
+  [0, [() => FilterList, 0], 1, 0]
+];
+export var DescribeDBClusterParametersMessage$: StaticStructureSchema = [3, n0, _DDBCPM,
+  0,
+  [_DBCPGN, _S, _Fi, _MR, _Ma],
+  [0, 0, [() => FilterList, 0], 1, 0]
+];
+export var DescribeDBClustersMessage$: StaticStructureSchema = [3, n0, _DDBCMe,
+  0,
+  [_DBCI, _Fi, _MR, _Ma, _IS],
+  [0, [() => FilterList, 0], 1, 0, 2]
+];
+export var DescribeDBClusterSnapshotAttributesMessage$: StaticStructureSchema = [3, n0, _DDBCSAM,
+  0,
+  [_DBCSI],
+  [0]
+];
+export var DescribeDBClusterSnapshotAttributesResult$: StaticStructureSchema = [3, n0, _DDBCSAR,
+  0,
+  [_DBCSAR],
+  [[() => DBClusterSnapshotAttributesResult$, 0]]
+];
+export var DescribeDBClusterSnapshotsMessage$: StaticStructureSchema = [3, n0, _DDBCSMe,
+  0,
+  [_DBCI, _DBCSI, _STna, _Fi, _MR, _Ma, _IS, _IP, _DCRI],
+  [0, 0, 0, [() => FilterList, 0], 1, 0, 2, 2, 0]
+];
+export var DescribeDBEngineVersionsMessage$: StaticStructureSchema = [3, n0, _DDBEVM,
+  0,
+  [_E, _EV, _DBPGF, _Fi, _MR, _Ma, _DOe, _LSCS, _LST, _IA],
+  [0, 0, 0, [() => FilterList, 0], 1, 0, 2, 2, 2, 2]
+];
+export var DescribeDBInstanceAutomatedBackupsMessage$: StaticStructureSchema = [3, n0, _DDBIABMe,
+  0,
+  [_DRI, _DBII, _Fi, _MR, _Ma, _DBIABA],
+  [0, 0, [() => FilterList, 0], 1, 0, 0]
+];
+export var DescribeDBInstancesMessage$: StaticStructureSchema = [3, n0, _DDBIMe,
+  0,
+  [_DBII, _Fi, _MR, _Ma],
+  [0, [() => FilterList, 0], 1, 0]
+];
+export var DescribeDBLogFilesDetails$: StaticStructureSchema = [3, n0, _DDBLFD,
+  0,
+  [_LFN, _LW, _Si],
+  [0, 1, 1]
+];
+export var DescribeDBLogFilesMessage$: StaticStructureSchema = [3, n0, _DDBLFM,
+  0,
+  [_DBII, _FC, _FLW, _FS, _Fi, _MR, _Ma],
+  [0, 0, 1, 1, [() => FilterList, 0], 1, 0]
+];
+export var DescribeDBLogFilesResponse$: StaticStructureSchema = [3, n0, _DDBLFR,
+  0,
+  [_DDBLF, _Ma],
+  [[() => DescribeDBLogFilesList, 0], 0]
+];
+export var DescribeDBMajorEngineVersionsRequest$: StaticStructureSchema = [3, n0, _DDBMEVR,
+  0,
+  [_E, _MEV, _Ma, _MR],
+  [0, 0, 0, 1]
+];
+export var DescribeDBMajorEngineVersionsResponse$: StaticStructureSchema = [3, n0, _DDBMEVRe,
+  0,
+  [_DBMEVa, _Ma],
+  [[() => DBMajorEngineVersionsList, 0], 0]
+];
+export var DescribeDBParameterGroupsMessage$: StaticStructureSchema = [3, n0, _DDBPGMe,
+  0,
+  [_DBPGN, _Fi, _MR, _Ma],
+  [0, [() => FilterList, 0], 1, 0]
+];
+export var DescribeDBParametersMessage$: StaticStructureSchema = [3, n0, _DDBPM,
+  0,
+  [_DBPGN, _S, _Fi, _MR, _Ma],
+  [0, 0, [() => FilterList, 0], 1, 0]
+];
+export var DescribeDBProxiesRequest$: StaticStructureSchema = [3, n0, _DDBPRes,
+  0,
+  [_DBPN, _Fi, _Ma, _MR],
+  [0, [() => FilterList, 0], 0, 1]
+];
+export var DescribeDBProxiesResponse$: StaticStructureSchema = [3, n0, _DDBPResc,
+  0,
+  [_DBPr, _Ma],
+  [() => DBProxyList, 0]
+];
+export var DescribeDBProxyEndpointsRequest$: StaticStructureSchema = [3, n0, _DDBPERes,
+  0,
+  [_DBPN, _DBPEN, _Fi, _Ma, _MR],
+  [0, 0, [() => FilterList, 0], 0, 1]
+];
+export var DescribeDBProxyEndpointsResponse$: StaticStructureSchema = [3, n0, _DDBPEResc,
+  0,
+  [_DBPEr, _Ma],
+  [() => DBProxyEndpointList, 0]
+];
+export var DescribeDBProxyTargetGroupsRequest$: StaticStructureSchema = [3, n0, _DDBPTGR,
+  0,
+  [_DBPN, _TGN, _Fi, _Ma, _MR],
+  [0, 0, [() => FilterList, 0], 0, 1]
+];
+export var DescribeDBProxyTargetGroupsResponse$: StaticStructureSchema = [3, n0, _DDBPTGRe,
+  0,
+  [_TG, _Ma],
+  [() => TargetGroupList, 0]
+];
+export var DescribeDBProxyTargetsRequest$: StaticStructureSchema = [3, n0, _DDBPTRes,
+  0,
+  [_DBPN, _TGN, _Fi, _Ma, _MR],
+  [0, 0, [() => FilterList, 0], 0, 1]
+];
+export var DescribeDBProxyTargetsResponse$: StaticStructureSchema = [3, n0, _DDBPTResc,
+  0,
+  [_Tar, _Ma],
+  [() => TargetList, 0]
+];
+export var DescribeDBRecommendationsMessage$: StaticStructureSchema = [3, n0, _DDBRM,
+  0,
+  [_LUA, _LUB, _Lo, _Fi, _MR, _Ma],
+  [4, 4, 0, [() => FilterList, 0], 1, 0]
+];
+export var DescribeDBSecurityGroupsMessage$: StaticStructureSchema = [3, n0, _DDBSGMes,
+  0,
+  [_DBSGN, _Fi, _MR, _Ma],
+  [0, [() => FilterList, 0], 1, 0]
+];
+export var DescribeDBShardGroupsMessage$: StaticStructureSchema = [3, n0, _DDBSGMesc,
+  0,
+  [_DBSGI, _Fi, _Ma, _MR],
+  [0, [() => FilterList, 0], 0, 1]
+];
+export var DescribeDBShardGroupsResponse$: StaticStructureSchema = [3, n0, _DDBSGR,
+  0,
+  [_DBSGha, _Ma],
+  [[() => DBShardGroupsList, 0], 0]
+];
+export var DescribeDBSnapshotAttributesMessage$: StaticStructureSchema = [3, n0, _DDBSAM,
+  0,
+  [_DBSIn],
+  [0]
+];
+export var DescribeDBSnapshotAttributesResult$: StaticStructureSchema = [3, n0, _DDBSAR,
+  0,
+  [_DBSAR],
+  [[() => DBSnapshotAttributesResult$, 0]]
+];
+export var DescribeDBSnapshotsMessage$: StaticStructureSchema = [3, n0, _DDBSMe,
+  0,
+  [_DBII, _DBSIn, _STna, _Fi, _MR, _Ma, _IS, _IP, _DRI],
+  [0, 0, 0, [() => FilterList, 0], 1, 0, 2, 2, 0]
+];
+export var DescribeDBSnapshotTenantDatabasesMessage$: StaticStructureSchema = [3, n0, _DDBSTDM,
+  0,
+  [_DBII, _DBSIn, _STna, _Fi, _MR, _Ma, _DRI],
+  [0, 0, 0, [() => FilterList, 0], 1, 0, 0]
+];
+export var DescribeDBSubnetGroupsMessage$: StaticStructureSchema = [3, n0, _DDBSGMescr,
+  0,
+  [_DBSGNu, _Fi, _MR, _Ma],
+  [0, [() => FilterList, 0], 1, 0]
+];
+export var DescribeEngineDefaultClusterParametersMessage$: StaticStructureSchema = [3, n0, _DEDCPM,
+  0,
+  [_DBPGF, _Fi, _MR, _Ma],
+  [0, [() => FilterList, 0], 1, 0]
+];
+export var DescribeEngineDefaultClusterParametersResult$: StaticStructureSchema = [3, n0, _DEDCPR,
+  0,
+  [_ED],
+  [[() => EngineDefaults$, 0]]
+];
+export var DescribeEngineDefaultParametersMessage$: StaticStructureSchema = [3, n0, _DEDPM,
+  0,
+  [_DBPGF, _Fi, _MR, _Ma],
+  [0, [() => FilterList, 0], 1, 0]
+];
+export var DescribeEngineDefaultParametersResult$: StaticStructureSchema = [3, n0, _DEDPR,
+  0,
+  [_ED],
+  [[() => EngineDefaults$, 0]]
+];
+export var DescribeEventCategoriesMessage$: StaticStructureSchema = [3, n0, _DECM,
+  0,
+  [_STo, _Fi],
+  [0, [() => FilterList, 0]]
+];
+export var DescribeEventsMessage$: StaticStructureSchema = [3, n0, _DEM,
+  0,
+  [_SI, _STo, _STtar, _ETn, _Du, _EC, _Fi, _MR, _Ma],
+  [0, 0, 4, 4, 1, [() => EventCategoriesList, 0], [() => FilterList, 0], 1, 0]
+];
+export var DescribeEventSubscriptionsMessage$: StaticStructureSchema = [3, n0, _DESMe,
+  0,
+  [_SN, _Fi, _MR, _Ma],
+  [0, [() => FilterList, 0], 1, 0]
+];
+export var DescribeExportTasksMessage$: StaticStructureSchema = [3, n0, _DETM,
+  0,
+  [_ETI, _SA, _Fi, _Ma, _MR, _STo],
+  [0, 0, [() => FilterList, 0], 0, 1, 0]
+];
+export var DescribeGlobalClustersMessage$: StaticStructureSchema = [3, n0, _DGCMe,
+  0,
+  [_GCI, _Fi, _MR, _Ma],
+  [0, [() => FilterList, 0], 1, 0]
+];
+export var DescribeIntegrationsMessage$: StaticStructureSchema = [3, n0, _DIMes,
+  0,
+  [_IIn, _Fi, _MR, _Ma],
+  [0, [() => FilterList, 0], 1, 0]
+];
+export var DescribeIntegrationsResponse$: StaticStructureSchema = [3, n0, _DIR,
+  0,
+  [_Ma, _In],
+  [0, [() => IntegrationList, 0]]
+];
+export var DescribeOptionGroupOptionsMessage$: StaticStructureSchema = [3, n0, _DOGOM,
+  0,
+  [_EN, _MEV, _Fi, _MR, _Ma],
+  [0, 0, [() => FilterList, 0], 1, 0]
+];
+export var DescribeOptionGroupsMessage$: StaticStructureSchema = [3, n0, _DOGMe,
+  0,
+  [_OGN, _Fi, _Ma, _MR, _EN, _MEV],
+  [0, [() => FilterList, 0], 0, 1, 0, 0]
+];
+export var DescribeOrderableDBInstanceOptionsMessage$: StaticStructureSchema = [3, n0, _DODBIOM,
+  0,
+  [_E, _EV, _DBIC, _LM, _AZG, _Vp, _Fi, _MR, _Ma],
+  [0, 0, 0, 0, 0, 2, [() => FilterList, 0], 1, 0]
+];
+export var DescribePendingMaintenanceActionsMessage$: StaticStructureSchema = [3, n0, _DPMAM,
+  0,
+  [_RI, _Fi, _Ma, _MR],
+  [0, [() => FilterList, 0], 0, 1]
+];
+export var DescribeReservedDBInstancesMessage$: StaticStructureSchema = [3, n0, _DRDBIM,
+  0,
+  [_RDBII, _RDBIOI, _DBIC, _Du, _PD, _OT, _MAZ, _LI, _Fi, _MR, _Ma],
+  [0, 0, 0, 0, 0, 0, 2, 0, [() => FilterList, 0], 1, 0]
+];
+export var DescribeReservedDBInstancesOfferingsMessage$: StaticStructureSchema = [3, n0, _DRDBIOM,
+  0,
+  [_RDBIOI, _DBIC, _Du, _PD, _OT, _MAZ, _Fi, _MR, _Ma],
+  [0, 0, 0, 0, 0, 2, [() => FilterList, 0], 1, 0]
+];
+export var DescribeSourceRegionsMessage$: StaticStructureSchema = [3, n0, _DSRM,
+  0,
+  [_RNe, _MR, _Ma, _Fi],
+  [0, 1, 0, [() => FilterList, 0]]
+];
+export var DescribeTenantDatabasesMessage$: StaticStructureSchema = [3, n0, _DTDMe,
+  0,
+  [_DBII, _TDBN, _Fi, _Ma, _MR],
+  [0, 0, [() => FilterList, 0], 0, 1]
+];
+export var DescribeValidDBInstanceModificationsMessage$: StaticStructureSchema = [3, n0, _DVDBIMM,
+  0,
+  [_DBII],
+  [0]
+];
+export var DescribeValidDBInstanceModificationsResult$: StaticStructureSchema = [3, n0, _DVDBIMR,
+  0,
+  [_VDBIMM],
+  [[() => ValidDBInstanceModificationsMessage$, 0]]
+];
+export var DisableHttpEndpointRequest$: StaticStructureSchema = [3, n0, _DHER,
+  0,
+  [_RAe],
+  [0]
+];
+export var DisableHttpEndpointResponse$: StaticStructureSchema = [3, n0, _DHERi,
+  0,
+  [_RAe, _HEE],
+  [0, 2]
+];
+export var DocLink$: StaticStructureSchema = [3, n0, _DLo,
+  0,
+  [_Te, _Ur],
+  [0, 0]
+];
+export var DomainMembership$: StaticStructureSchema = [3, n0, _DMo,
+  0,
+  [_Do, _St, _FQDN, _IAMRN, _OU, _ASA, _DI],
+  [0, 0, 0, 0, 0, 0, 64 | 0]
+];
+export var DomainNotFoundFault$: StaticErrorSchema = [-3, n0, _DNFF,
+  { [_aQE]: [`DomainNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DomainNotFoundFault$, DomainNotFoundFault);
+export var DoubleRange$: StaticStructureSchema = [3, n0, _DR,
+  0,
+  [_Fr, _To],
+  [1, 1]
+];
+export var DownloadDBLogFilePortionDetails$: StaticStructureSchema = [3, n0, _DDBLFPD,
+  0,
+  [_LFD, _Ma, _ADP],
+  [[() => SensitiveString, 0], 0, 2]
+];
+export var DownloadDBLogFilePortionMessage$: StaticStructureSchema = [3, n0, _DDBLFPM,
+  0,
+  [_DBII, _LFN, _Ma, _NOL],
+  [0, 0, 0, 1]
+];
+export var Ec2ImagePropertiesNotSupportedFault$: StaticErrorSchema = [-3, n0, _EIPNSF,
+  { [_aQE]: [`Ec2ImagePropertiesNotSupportedFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(Ec2ImagePropertiesNotSupportedFault$, Ec2ImagePropertiesNotSupportedFault);
+export var EC2SecurityGroup$: StaticStructureSchema = [3, n0, _ECSGe,
+  0,
+  [_St, _ECSGN, _ECSGI, _ECSGOI],
+  [0, 0, 0, 0]
+];
+export var EnableHttpEndpointRequest$: StaticStructureSchema = [3, n0, _EHER,
+  0,
+  [_RAe],
+  [0]
+];
+export var EnableHttpEndpointResponse$: StaticStructureSchema = [3, n0, _EHERn,
+  0,
+  [_RAe, _HEE],
+  [0, 2]
+];
+export var Endpoint$: StaticStructureSchema = [3, n0, _End,
+  0,
+  [_Ad, _P, _HZI],
+  [0, 1, 0]
+];
+export var EngineDefaults$: StaticStructureSchema = [3, n0, _ED,
+  0,
+  [_DBPGF, _Ma, _Pa],
+  [0, 0, [() => ParametersList, 0]]
+];
+export var Event$: StaticStructureSchema = [3, n0, _Ev,
+  0,
+  [_SI, _STo, _Me, _EC, _Da, _SA],
+  [0, 0, 0, [() => EventCategoriesList, 0], 4, 0]
+];
+export var EventCategoriesMap$: StaticStructureSchema = [3, n0, _ECM,
+  0,
+  [_STo, _EC],
+  [0, [() => EventCategoriesList, 0]]
+];
+export var EventCategoriesMessage$: StaticStructureSchema = [3, n0, _ECMv,
+  0,
+  [_ECML],
+  [[() => EventCategoriesMapList, 0]]
+];
+export var EventsMessage$: StaticStructureSchema = [3, n0, _EMv,
+  0,
+  [_Ma, _Eve],
+  [0, [() => EventList, 0]]
+];
+export var EventSubscription$: StaticStructureSchema = [3, n0, _ES,
+  0,
+  [_CAIu, _CSI, _STA, _St, _SCTu, _STo, _SIL, _ECL, _En, _ESA],
+  [0, 0, 0, 0, 0, 0, [() => SourceIdsList, 0], [() => EventCategoriesList, 0], 2, 0]
+];
+export var EventSubscriptionQuotaExceededFault$: StaticErrorSchema = [-3, n0, _ESQEF,
+  { [_aQE]: [`EventSubscriptionQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(EventSubscriptionQuotaExceededFault$, EventSubscriptionQuotaExceededFault);
+export var EventSubscriptionsMessage$: StaticStructureSchema = [3, n0, _ESM,
+  0,
+  [_Ma, _ESL],
+  [0, [() => EventSubscriptionsList, 0]]
+];
+export var ExportTask$: StaticStructureSchema = [3, n0, _ETx,
+  0,
+  [_ETI, _SA, _EO, _STnap, _TSTas, _TET, _SBu, _SP, _IRA, _KKI, _St, _PP, _TEDIGB, _FCa, _WM, _STo],
+  [0, 0, 64 | 0, 4, 4, 4, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0]
+];
+export var ExportTaskAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _ETAEF,
+  { [_aQE]: [`ExportTaskAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ExportTaskAlreadyExistsFault$, ExportTaskAlreadyExistsFault);
+export var ExportTaskNotFoundFault$: StaticErrorSchema = [-3, n0, _ETNFF,
+  { [_aQE]: [`ExportTaskNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ExportTaskNotFoundFault$, ExportTaskNotFoundFault);
+export var ExportTasksMessage$: StaticStructureSchema = [3, n0, _ETM,
+  0,
+  [_Ma, _ETxp],
+  [0, [() => ExportTasksList, 0]]
+];
+export var FailoverDBClusterMessage$: StaticStructureSchema = [3, n0, _FDBCM,
+  0,
+  [_DBCI, _TDBII],
+  [0, 0]
+];
+export var FailoverDBClusterResult$: StaticStructureSchema = [3, n0, _FDBCR,
+  0,
+  [_DBC],
+  [[() => DBCluster$, 0]]
+];
+export var FailoverGlobalClusterMessage$: StaticStructureSchema = [3, n0, _FGCM,
+  0,
+  [_GCI, _TDCI, _ADL, _Sw],
+  [0, 0, 2, 2]
+];
+export var FailoverGlobalClusterResult$: StaticStructureSchema = [3, n0, _FGCR,
+  0,
+  [_GC],
+  [[() => GlobalCluster$, 0]]
+];
+export var FailoverState$: StaticStructureSchema = [3, n0, _FSa,
+  0,
+  [_St, _FDCA, _TDCA, _IDLA],
+  [0, 0, 0, 2]
+];
+export var Filter$: StaticStructureSchema = [3, n0, _Fil,
+  0,
+  [_N, _Va],
+  [0, [() => FilterValueList, 0]]
+];
+export var GlobalCluster$: StaticStructureSchema = [3, n0, _GC,
+  0,
+  [_GCI, _GCRI, _GCA, _St, _E, _EV, _ELS, _DN, _SE, _DP, _GCM, _End, _FSa, _TL],
+  [0, 0, 0, 0, 0, 0, 0, 0, 2, 2, [() => GlobalClusterMemberList, 0], 0, () => FailoverState$, [() => TagList, 0]]
+];
+export var GlobalClusterAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _GCAEF,
+  { [_aQE]: [`GlobalClusterAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(GlobalClusterAlreadyExistsFault$, GlobalClusterAlreadyExistsFault);
+export var GlobalClusterMember$: StaticStructureSchema = [3, n0, _GCMl,
+  0,
+  [_DBCA, _Read, _IW, _GWFS, _SSy],
+  [0, 64 | 0, 2, 0, 0]
+];
+export var GlobalClusterNotFoundFault$: StaticErrorSchema = [-3, n0, _GCNFF,
+  { [_aQE]: [`GlobalClusterNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(GlobalClusterNotFoundFault$, GlobalClusterNotFoundFault);
+export var GlobalClusterQuotaExceededFault$: StaticErrorSchema = [-3, n0, _GCQEF,
+  { [_aQE]: [`GlobalClusterQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(GlobalClusterQuotaExceededFault$, GlobalClusterQuotaExceededFault);
+export var GlobalClustersMessage$: StaticStructureSchema = [3, n0, _GCMlo,
+  0,
+  [_Ma, _GCl],
+  [0, [() => GlobalClusterList, 0]]
+];
+export var IamRoleMissingPermissionsFault$: StaticErrorSchema = [-3, n0, _IRMPF,
+  { [_aQE]: [`IamRoleMissingPermissions`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(IamRoleMissingPermissionsFault$, IamRoleMissingPermissionsFault);
+export var IamRoleNotFoundFault$: StaticErrorSchema = [-3, n0, _IRNFF,
+  { [_aQE]: [`IamRoleNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(IamRoleNotFoundFault$, IamRoleNotFoundFault);
+export var InstanceQuotaExceededFault$: StaticErrorSchema = [-3, n0, _IQEF,
+  { [_aQE]: [`InstanceQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InstanceQuotaExceededFault$, InstanceQuotaExceededFault);
+export var InsufficientAvailableIPsInSubnetFault$: StaticErrorSchema = [-3, n0, _IAIPISF,
+  { [_aQE]: [`InsufficientAvailableIPsInSubnetFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InsufficientAvailableIPsInSubnetFault$, InsufficientAvailableIPsInSubnetFault);
+export var InsufficientDBClusterCapacityFault$: StaticErrorSchema = [-3, n0, _IDBCCF,
+  { [_aQE]: [`InsufficientDBClusterCapacityFault`, 403], [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InsufficientDBClusterCapacityFault$, InsufficientDBClusterCapacityFault);
+export var InsufficientDBInstanceCapacityFault$: StaticErrorSchema = [-3, n0, _IDBICF,
+  { [_aQE]: [`InsufficientDBInstanceCapacity`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InsufficientDBInstanceCapacityFault$, InsufficientDBInstanceCapacityFault);
+export var InsufficientStorageClusterCapacityFault$: StaticErrorSchema = [-3, n0, _ISCCF,
+  { [_aQE]: [`InsufficientStorageClusterCapacity`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InsufficientStorageClusterCapacityFault$, InsufficientStorageClusterCapacityFault);
+export var Integration$: StaticStructureSchema = [3, n0, _Int,
+  0,
+  [_SA, _TA, _IN, _IAn, _KMSKI, _AEC, _St, _T, _DFa, _D, _CT, _Er],
+  [0, 0, 0, 0, 0, 128 | 0, 0, [() => TagList, 0], 0, 0, 4, [() => IntegrationErrorList, 0]]
+];
+export var IntegrationAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _IAEF,
+  { [_aQE]: [`IntegrationAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(IntegrationAlreadyExistsFault$, IntegrationAlreadyExistsFault);
+export var IntegrationConflictOperationFault$: StaticErrorSchema = [-3, n0, _ICOF,
+  { [_aQE]: [`IntegrationConflictOperationFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(IntegrationConflictOperationFault$, IntegrationConflictOperationFault);
+export var IntegrationError$: StaticStructureSchema = [3, n0, _IE,
+  0,
+  [_ECr, _EMr],
+  [0, 0]
+];
+export var IntegrationNotFoundFault$: StaticErrorSchema = [-3, n0, _INFF,
+  { [_aQE]: [`IntegrationNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(IntegrationNotFoundFault$, IntegrationNotFoundFault);
+export var IntegrationQuotaExceededFault$: StaticErrorSchema = [-3, n0, _IQEFn,
+  { [_aQE]: [`IntegrationQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(IntegrationQuotaExceededFault$, IntegrationQuotaExceededFault);
+export var InvalidBlueGreenDeploymentStateFault$: StaticErrorSchema = [-3, n0, _IBGDSF,
+  { [_aQE]: [`InvalidBlueGreenDeploymentStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidBlueGreenDeploymentStateFault$, InvalidBlueGreenDeploymentStateFault);
+export var InvalidCustomDBEngineVersionStateFault$: StaticErrorSchema = [-3, n0, _ICDBEVSF,
+  { [_aQE]: [`InvalidCustomDBEngineVersionStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidCustomDBEngineVersionStateFault$, InvalidCustomDBEngineVersionStateFault);
+export var InvalidDBClusterAutomatedBackupStateFault$: StaticErrorSchema = [-3, n0, _IDBCABSF,
+  { [_aQE]: [`InvalidDBClusterAutomatedBackupStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidDBClusterAutomatedBackupStateFault$, InvalidDBClusterAutomatedBackupStateFault);
+export var InvalidDBClusterCapacityFault$: StaticErrorSchema = [-3, n0, _IDBCCFn,
+  { [_aQE]: [`InvalidDBClusterCapacityFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidDBClusterCapacityFault$, InvalidDBClusterCapacityFault);
+export var InvalidDBClusterEndpointStateFault$: StaticErrorSchema = [-3, n0, _IDBCESF,
+  { [_aQE]: [`InvalidDBClusterEndpointStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidDBClusterEndpointStateFault$, InvalidDBClusterEndpointStateFault);
+export var InvalidDBClusterSnapshotStateFault$: StaticErrorSchema = [-3, n0, _IDBCSSF,
+  { [_aQE]: [`InvalidDBClusterSnapshotStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidDBClusterSnapshotStateFault$, InvalidDBClusterSnapshotStateFault);
+export var InvalidDBClusterStateFault$: StaticErrorSchema = [-3, n0, _IDBCSF,
+  { [_aQE]: [`InvalidDBClusterStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidDBClusterStateFault$, InvalidDBClusterStateFault);
+export var InvalidDBInstanceAutomatedBackupStateFault$: StaticErrorSchema = [-3, n0, _IDBIABSF,
+  { [_aQE]: [`InvalidDBInstanceAutomatedBackupState`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidDBInstanceAutomatedBackupStateFault$, InvalidDBInstanceAutomatedBackupStateFault);
+export var InvalidDBInstanceStateFault$: StaticErrorSchema = [-3, n0, _IDBISF,
+  { [_aQE]: [`InvalidDBInstanceState`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidDBInstanceStateFault$, InvalidDBInstanceStateFault);
+export var InvalidDBParameterGroupStateFault$: StaticErrorSchema = [-3, n0, _IDBPGSF,
+  { [_aQE]: [`InvalidDBParameterGroupState`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidDBParameterGroupStateFault$, InvalidDBParameterGroupStateFault);
+export var InvalidDBProxyEndpointStateFault$: StaticErrorSchema = [-3, n0, _IDBPESF,
+  { [_aQE]: [`InvalidDBProxyEndpointStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidDBProxyEndpointStateFault$, InvalidDBProxyEndpointStateFault);
+export var InvalidDBProxyStateFault$: StaticErrorSchema = [-3, n0, _IDBPSF,
+  { [_aQE]: [`InvalidDBProxyStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidDBProxyStateFault$, InvalidDBProxyStateFault);
+export var InvalidDBSecurityGroupStateFault$: StaticErrorSchema = [-3, n0, _IDBSGSF,
+  { [_aQE]: [`InvalidDBSecurityGroupState`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidDBSecurityGroupStateFault$, InvalidDBSecurityGroupStateFault);
+export var InvalidDBShardGroupStateFault$: StaticErrorSchema = [-3, n0, _IDBSGSFn,
+  { [_aQE]: [`InvalidDBShardGroupState`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidDBShardGroupStateFault$, InvalidDBShardGroupStateFault);
+export var InvalidDBSnapshotStateFault$: StaticErrorSchema = [-3, n0, _IDBSSF,
+  { [_aQE]: [`InvalidDBSnapshotState`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidDBSnapshotStateFault$, InvalidDBSnapshotStateFault);
+export var InvalidDBSubnetGroupFault$: StaticErrorSchema = [-3, n0, _IDBSGF,
+  { [_aQE]: [`InvalidDBSubnetGroupFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidDBSubnetGroupFault$, InvalidDBSubnetGroupFault);
+export var InvalidDBSubnetGroupStateFault$: StaticErrorSchema = [-3, n0, _IDBSGSFnv,
+  { [_aQE]: [`InvalidDBSubnetGroupStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidDBSubnetGroupStateFault$, InvalidDBSubnetGroupStateFault);
+export var InvalidDBSubnetStateFault$: StaticErrorSchema = [-3, n0, _IDBSSFn,
+  { [_aQE]: [`InvalidDBSubnetStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidDBSubnetStateFault$, InvalidDBSubnetStateFault);
+export var InvalidEventSubscriptionStateFault$: StaticErrorSchema = [-3, n0, _IESSF,
+  { [_aQE]: [`InvalidEventSubscriptionState`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidEventSubscriptionStateFault$, InvalidEventSubscriptionStateFault);
+export var InvalidExportOnlyFault$: StaticErrorSchema = [-3, n0, _IEOF,
+  { [_aQE]: [`InvalidExportOnly`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidExportOnlyFault$, InvalidExportOnlyFault);
+export var InvalidExportSourceStateFault$: StaticErrorSchema = [-3, n0, _IESSFn,
+  { [_aQE]: [`InvalidExportSourceState`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidExportSourceStateFault$, InvalidExportSourceStateFault);
+export var InvalidExportTaskStateFault$: StaticErrorSchema = [-3, n0, _IETSF,
+  { [_aQE]: [`InvalidExportTaskStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidExportTaskStateFault$, InvalidExportTaskStateFault);
+export var InvalidGlobalClusterStateFault$: StaticErrorSchema = [-3, n0, _IGCSF,
+  { [_aQE]: [`InvalidGlobalClusterStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidGlobalClusterStateFault$, InvalidGlobalClusterStateFault);
+export var InvalidIntegrationStateFault$: StaticErrorSchema = [-3, n0, _IISF,
+  { [_aQE]: [`InvalidIntegrationStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidIntegrationStateFault$, InvalidIntegrationStateFault);
+export var InvalidOptionGroupStateFault$: StaticErrorSchema = [-3, n0, _IOGSF,
+  { [_aQE]: [`InvalidOptionGroupStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidOptionGroupStateFault$, InvalidOptionGroupStateFault);
+export var InvalidResourceStateFault$: StaticErrorSchema = [-3, n0, _IRSF,
+  { [_aQE]: [`InvalidResourceStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidResourceStateFault$, InvalidResourceStateFault);
+export var InvalidRestoreFault$: StaticErrorSchema = [-3, n0, _IRF,
+  { [_aQE]: [`InvalidRestoreFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidRestoreFault$, InvalidRestoreFault);
+export var InvalidS3BucketFault$: StaticErrorSchema = [-3, n0, _ISBF,
+  { [_aQE]: [`InvalidS3BucketFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidS3BucketFault$, InvalidS3BucketFault);
+export var InvalidSubnet$: StaticErrorSchema = [-3, n0, _ISn,
+  { [_aQE]: [`InvalidSubnet`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidSubnet$, InvalidSubnet);
+export var InvalidVPCNetworkStateFault$: StaticErrorSchema = [-3, n0, _IVPCNSF,
+  { [_aQE]: [`InvalidVPCNetworkStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidVPCNetworkStateFault$, InvalidVPCNetworkStateFault);
+export var IPRange$: StaticStructureSchema = [3, n0, _IPRa,
+  0,
+  [_St, _CIDRIP],
+  [0, 0]
+];
+export var IssueDetails$: StaticStructureSchema = [3, n0, _IDs,
+  0,
+  [_PID],
+  [() => PerformanceIssueDetails$]
+];
+export var KMSKeyNotAccessibleFault$: StaticErrorSchema = [-3, n0, _KMSKNAF,
+  { [_aQE]: [`KMSKeyNotAccessibleFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(KMSKeyNotAccessibleFault$, KMSKeyNotAccessibleFault);
+export var LimitlessDatabase$: StaticStructureSchema = [3, n0, _LD,
+  0,
+  [_St, _MRACU],
+  [0, 1]
+];
+export var ListTagsForResourceMessage$: StaticStructureSchema = [3, n0, _LTFRM,
+  0,
+  [_RN, _Fi],
+  [0, [() => FilterList, 0]]
+];
+export var MasterUserSecret$: StaticStructureSchema = [3, n0, _MUS,
+  0,
+  [_SAe, _SSe, _KKI],
+  [0, 0, 0]
+];
+export var MaxDBShardGroupLimitReached$: StaticErrorSchema = [-3, n0, _MDBSGLR,
+  { [_aQE]: [`MaxDBShardGroupLimitReached`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(MaxDBShardGroupLimitReached$, MaxDBShardGroupLimitReached);
+export var Metric$: StaticStructureSchema = [3, n0, _Met,
+  0,
+  [_N, _Ref, _SDta, _MQ],
+  [0, () => MetricReferenceList, 0, () => MetricQuery$]
+];
+export var MetricQuery$: StaticStructureSchema = [3, n0, _MQ,
+  0,
+  [_PIMQ],
+  [() => PerformanceInsightsMetricQuery$]
+];
+export var MetricReference$: StaticStructureSchema = [3, n0, _MRe,
+  0,
+  [_N, _RD],
+  [0, () => ReferenceDetails$]
+];
+export var MinimumEngineVersionPerAllowedValue$: StaticStructureSchema = [3, n0, _MEVPAV,
+  0,
+  [_AVl, _MEVi],
+  [0, 0]
+];
+export var ModifyActivityStreamRequest$: StaticStructureSchema = [3, n0, _MASR,
+  0,
+  [_RAe, _APS],
+  [0, 0]
+];
+export var ModifyActivityStreamResponse$: StaticStructureSchema = [3, n0, _MASRo,
+  0,
+  [_KKI, _KSN, _St, _Mo, _ENAFI, _PS],
+  [0, 0, 0, 0, 2, 0]
+];
+export var ModifyAdditionalStorageVolume$: StaticStructureSchema = [3, n0, _MASV,
+  0,
+  [_VN, _AS, _IOPS, _MAS, _ST, _STt, _SFD],
+  [0, 1, 1, 1, 1, 0, 2]
+];
+export var ModifyCertificatesMessage$: StaticStructureSchema = [3, n0, _MCM,
+  0,
+  [_CI, _RCO],
+  [0, 2]
+];
+export var ModifyCertificatesResult$: StaticStructureSchema = [3, n0, _MCR,
+  0,
+  [_C],
+  [() => Certificate$]
+];
+export var ModifyCurrentDBClusterCapacityMessage$: StaticStructureSchema = [3, n0, _MCDBCCM,
+  0,
+  [_DBCI, _Ca, _SBT, _TAi],
+  [0, 1, 1, 0]
+];
+export var ModifyCustomDBEngineVersionMessage$: StaticStructureSchema = [3, n0, _MCDBEVM,
+  0,
+  [_E, _EV, _D, _St],
+  [0, 0, 0, 0]
+];
+export var ModifyDBClusterEndpointMessage$: StaticStructureSchema = [3, n0, _MDBCEM,
+  0,
+  [_DBCEI, _ET, _SM, _EM],
+  [0, 0, 64 | 0, 64 | 0]
+];
+export var ModifyDBClusterMessage$: StaticStructureSchema = [3, n0, _MDBCM,
+  0,
+  [_DBCI, _NDBCI, _AIp, _BRP, _DBCPGN, _VSGI, _P, _MUP, _OGN, _PBW, _PMW, _EIAMDA, _BW, _CLEC, _EV, _AMVUl, _DBIPGN, _Do, _DIAMRN, _SC, _DP, _EHE, _CTTS, _EGWF, _DBCIC, _AS, _STt, _I, _AMVU, _NT, _SVSC, _MIo, _MRA, _DIM, _EPI, _PIKMSKI, _PIRP, _MMUP, _RMUP, _ELWF, _MUSKKI, _EMn, _AEMC, _ABRPA, _ELD, _CACI, _MUAT],
+  [0, 0, 2, 1, 0, [() => VpcSecurityGroupIdList, 0], 1, [() => SensitiveString, 0], 0, 0, 0, 2, 1, () => CloudwatchLogsExportConfiguration$, 0, 2, 0, 0, 0, () => ScalingConfiguration$, 2, 2, 2, 2, 0, 1, 0, 1, 2, 0, () => ServerlessV2ScalingConfiguration$, 1, 0, 0, 2, 0, 1, 2, 2, 2, 0, 0, 2, 0, 2, 0, 0]
+];
+export var ModifyDBClusterParameterGroupMessage$: StaticStructureSchema = [3, n0, _MDBCPGM,
+  0,
+  [_DBCPGN, _Pa],
+  [0, [() => ParametersList, 0]]
+];
+export var ModifyDBClusterResult$: StaticStructureSchema = [3, n0, _MDBCR,
+  0,
+  [_DBC],
+  [[() => DBCluster$, 0]]
+];
+export var ModifyDBClusterSnapshotAttributeMessage$: StaticStructureSchema = [3, n0, _MDBCSAM,
+  0,
+  [_DBCSI, _AN, _VTA, _VTR],
+  [0, 0, [() => AttributeValueList, 0], [() => AttributeValueList, 0]]
+];
+export var ModifyDBClusterSnapshotAttributeResult$: StaticStructureSchema = [3, n0, _MDBCSAR,
+  0,
+  [_DBCSAR],
+  [[() => DBClusterSnapshotAttributesResult$, 0]]
+];
+export var ModifyDBInstanceMessage$: StaticStructureSchema = [3, n0, _MDBIM,
+  0,
+  [_DBII, _AS, _DBIC, _DBSGNu, _DBSGe, _VSGI, _AIp, _MUP, _DBPGN, _BRP, _PBW, _PMW, _MAZ, _EV, _AMVUl, _AMVU, _LM, _I, _ST, _OGN, _NDBII, _STt, _TCA, _TCP, _CACI, _Do, _DF, _DO, _DASA, _DDI, _DD, _CTTS, _MIo, _DBPNo, _PA, _MRA, _DIAMRN, _PT, _EIAMDA, _DIM, _EPI, _PIKMSKI, _PIRP, _CLEC, _PF, _UDPF, _DP, _MAS, _CRR, _RM, _AM, _RFAMM, _ECOI, _NT, _ABRPA, _MMUP, _RMUP, _MUSKKI, _MT, _DLV, _E, _TS, _MUAT, _ASVd],
+  [0, 1, 0, 0, [() => DBSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], 2, [() => SensitiveString, 0], 0, 1, 0, 0, 2, 0, 2, 2, 0, 1, 1, 0, 0, 0, 0, [() => SensitiveString, 0], 0, 0, 0, 0, 0, 64 | 0, 2, 2, 1, 1, 2, 0, 0, 1, 2, 0, 2, 0, 1, () => CloudwatchLogsExportConfiguration$, [() => ProcessorFeatureList, 0], 2, 2, 1, 2, 0, 0, 1, 2, 0, 0, 2, 2, 0, 2, 2, 0, [() => TagSpecificationList, 0], 0, () => ModifyAdditionalStorageVolumesList]
+];
+export var ModifyDBInstanceResult$: StaticStructureSchema = [3, n0, _MDBIR,
+  0,
+  [_DBI],
+  [[() => DBInstance$, 0]]
+];
+export var ModifyDBParameterGroupMessage$: StaticStructureSchema = [3, n0, _MDBPGM,
+  0,
+  [_DBPGN, _Pa],
+  [0, [() => ParametersList, 0]]
+];
+export var ModifyDBProxyEndpointRequest$: StaticStructureSchema = [3, n0, _MDBPER,
+  0,
+  [_DBPEN, _NDBPEN, _VSGI],
+  [0, 0, 64 | 0]
+];
+export var ModifyDBProxyEndpointResponse$: StaticStructureSchema = [3, n0, _MDBPERo,
+  0,
+  [_DBPE],
+  [() => DBProxyEndpoint$]
+];
+export var ModifyDBProxyRequest$: StaticStructureSchema = [3, n0, _MDBPR,
+  0,
+  [_DBPN, _NDBPN, _DAS, _A, _RTLS, _ICT, _DL, _RA, _SG],
+  [0, 0, 0, () => UserAuthConfigList, 2, 1, 2, 0, 64 | 0]
+];
+export var ModifyDBProxyResponse$: StaticStructureSchema = [3, n0, _MDBPRo,
+  0,
+  [_DBP],
+  [() => DBProxy$]
+];
+export var ModifyDBProxyTargetGroupRequest$: StaticStructureSchema = [3, n0, _MDBPTGR,
+  0,
+  [_TGN, _DBPN, _CPCo, _NN],
+  [0, 0, () => ConnectionPoolConfiguration$, 0]
+];
+export var ModifyDBProxyTargetGroupResponse$: StaticStructureSchema = [3, n0, _MDBPTGRo,
+  0,
+  [_DBPTG],
+  [() => DBProxyTargetGroup$]
+];
+export var ModifyDBRecommendationMessage$: StaticStructureSchema = [3, n0, _MDBRM,
+  0,
+  [_RIe, _Lo, _St, _RAU],
+  [0, 0, 0, () => RecommendedActionUpdateList]
+];
+export var ModifyDBShardGroupMessage$: StaticStructureSchema = [3, n0, _MDBSGM,
+  0,
+  [_DBSGI, _MACU, _MACUi, _CR],
+  [0, 1, 1, 1]
+];
+export var ModifyDBSnapshotAttributeMessage$: StaticStructureSchema = [3, n0, _MDBSAM,
+  0,
+  [_DBSIn, _AN, _VTA, _VTR],
+  [0, 0, [() => AttributeValueList, 0], [() => AttributeValueList, 0]]
+];
+export var ModifyDBSnapshotAttributeResult$: StaticStructureSchema = [3, n0, _MDBSAR,
+  0,
+  [_DBSAR],
+  [[() => DBSnapshotAttributesResult$, 0]]
+];
+export var ModifyDBSnapshotMessage$: StaticStructureSchema = [3, n0, _MDBSM,
+  0,
+  [_DBSIn, _EV, _OGN],
+  [0, 0, 0]
+];
+export var ModifyDBSnapshotResult$: StaticStructureSchema = [3, n0, _MDBSR,
+  0,
+  [_DBS],
+  [[() => DBSnapshot$, 0]]
+];
+export var ModifyDBSubnetGroupMessage$: StaticStructureSchema = [3, n0, _MDBSGMo,
+  0,
+  [_DBSGNu, _DBSGDu, _SIub],
+  [0, 0, [() => SubnetIdentifierList, 0]]
+];
+export var ModifyDBSubnetGroupResult$: StaticStructureSchema = [3, n0, _MDBSGR,
+  0,
+  [_DBSGu],
+  [[() => DBSubnetGroup$, 0]]
+];
+export var ModifyEventSubscriptionMessage$: StaticStructureSchema = [3, n0, _MESM,
+  0,
+  [_SN, _STA, _STo, _EC, _En],
+  [0, 0, 0, [() => EventCategoriesList, 0], 2]
+];
+export var ModifyEventSubscriptionResult$: StaticStructureSchema = [3, n0, _MESR,
+  0,
+  [_ES],
+  [[() => EventSubscription$, 0]]
+];
+export var ModifyGlobalClusterMessage$: StaticStructureSchema = [3, n0, _MGCM,
+  0,
+  [_GCI, _NGCI, _DP, _EV, _AMVUl],
+  [0, 0, 2, 0, 2]
+];
+export var ModifyGlobalClusterResult$: StaticStructureSchema = [3, n0, _MGCR,
+  0,
+  [_GC],
+  [[() => GlobalCluster$, 0]]
+];
+export var ModifyIntegrationMessage$: StaticStructureSchema = [3, n0, _MIM,
+  0,
+  [_IIn, _IN, _DFa, _D],
+  [0, 0, 0, 0]
+];
+export var ModifyOptionGroupMessage$: StaticStructureSchema = [3, n0, _MOGM,
+  0,
+  [_OGN, _OTI, _OTR, _AIp],
+  [0, [() => OptionConfigurationList, 0], 64 | 0, 2]
+];
+export var ModifyOptionGroupResult$: StaticStructureSchema = [3, n0, _MOGR,
+  0,
+  [_OG],
+  [[() => OptionGroup$, 0]]
+];
+export var ModifyTenantDatabaseMessage$: StaticStructureSchema = [3, n0, _MTDM,
+  0,
+  [_DBII, _TDBN, _MUP, _NTDBN, _MMUP, _RMUP, _MUSKKI],
+  [0, 0, [() => SensitiveString, 0], 0, 2, 2, 0]
+];
+export var ModifyTenantDatabaseResult$: StaticStructureSchema = [3, n0, _MTDR,
+  0,
+  [_TD],
+  [[() => TenantDatabase$, 0]]
+];
+export var NetworkTypeNotSupported$: StaticErrorSchema = [-3, n0, _NTNS,
+  { [_aQE]: [`NetworkTypeNotSupported`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(NetworkTypeNotSupported$, NetworkTypeNotSupported);
+export var Option$: StaticStructureSchema = [3, n0, _O,
+  0,
+  [_ON, _OD, _Pe, _Per, _P, _OV, _OS, _DBSGMec, _VSGM],
+  [0, 0, 2, 2, 1, 0, [() => OptionSettingConfigurationList, 0], [() => DBSecurityGroupMembershipList, 0], [() => VpcSecurityGroupMembershipList, 0]]
+];
+export var OptionConfiguration$: StaticStructureSchema = [3, n0, _OC,
+  0,
+  [_ON, _P, _OV, _DBSGMec, _VSGM, _OS],
+  [0, 1, 0, [() => DBSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], [() => OptionSettingsList, 0]]
+];
+export var OptionGroup$: StaticStructureSchema = [3, n0, _OG,
+  0,
+  [_OGN, _OGD, _EN, _MEV, _Op, _AVANVIM, _VI, _OGA, _SOG, _SAI, _CTop],
+  [0, 0, 0, 0, [() => OptionsList, 0], 2, 0, 0, 0, 0, 4]
+];
+export var OptionGroupAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _OGAEF,
+  { [_aQE]: [`OptionGroupAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(OptionGroupAlreadyExistsFault$, OptionGroupAlreadyExistsFault);
+export var OptionGroupMembership$: StaticStructureSchema = [3, n0, _OGMp,
+  0,
+  [_OGN, _St],
+  [0, 0]
+];
+export var OptionGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _OGNFF,
+  { [_aQE]: [`OptionGroupNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(OptionGroupNotFoundFault$, OptionGroupNotFoundFault);
+export var OptionGroupOption$: StaticStructureSchema = [3, n0, _OGO,
+  0,
+  [_N, _D, _EN, _MEV, _MRMEV, _PR, _DPe, _ODO, _OCW, _Pe, _Per, _RAMEVU, _VO, _SOVD, _OGOS, _OGOV, _CCA],
+  [0, 0, 0, 0, 0, 2, 1, [() => OptionsDependedOn, 0], [() => OptionsConflictsWith, 0], 2, 2, 2, 2, 2, [() => OptionGroupOptionSettingsList, 0], [() => OptionGroupOptionVersionsList, 0], 2]
+];
+export var OptionGroupOptionSetting$: StaticStructureSchema = [3, n0, _OGOSp,
+  0,
+  [_SNe, _SDe, _DV, _AT, _AV, _IM, _IR, _MEVPAV],
+  [0, 0, 0, 0, 0, 2, 2, [() => MinimumEngineVersionPerAllowedValueList, 0]]
+];
+export var OptionGroupOptionsMessage$: StaticStructureSchema = [3, n0, _OGOM,
+  0,
+  [_OGOp, _Ma],
+  [[() => OptionGroupOptionsList, 0], 0]
+];
+export var OptionGroupQuotaExceededFault$: StaticErrorSchema = [-3, n0, _OGQEF,
+  { [_aQE]: [`OptionGroupQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(OptionGroupQuotaExceededFault$, OptionGroupQuotaExceededFault);
+export var OptionGroups$: StaticStructureSchema = [3, n0, _OGp,
+  0,
+  [_OGL, _Ma],
+  [[() => OptionGroupsList, 0], 0]
+];
+export var OptionSetting$: StaticStructureSchema = [3, n0, _OSp,
+  0,
+  [_N, _V, _DV, _D, _AT, _DTa, _AV, _IM, _IC],
+  [0, [() => PotentiallySensitiveOptionSettingValue, 0], 0, 0, 0, 0, 0, 2, 2]
+];
+export var OptionVersion$: StaticStructureSchema = [3, n0, _OV,
+  0,
+  [_Ve, _ID],
+  [0, 2]
+];
+export var OrderableDBInstanceOption$: StaticStructureSchema = [3, n0, _ODBIO,
+  0,
+  [_E, _EV, _DBIC, _LM, _AZG, _AZv, _MAZC, _RRC, _Vp, _SSE, _STt, _SIu, _SST, _SEMu, _SIAMDA, _SPI, _MSS, _MSSa, _MIPDI, _MIPDIa, _MIPG, _MIPGa, _MSTPDI, _MSTPDIa, _MSTPI, _MSTPIa, _APFv, _SEM, _SSA, _SKA, _OCu, _SASM, _SGD, _SNT, _SCu, _SDLV, _SHE, _SASV, _AASVOv],
+  [0, 0, 0, 0, 0, [() => AvailabilityZoneList, 0], 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, [() => AvailableProcessorFeatureList, 0], 64 | 0, 2, 2, 2, 64 | 0, 2, 64 | 0, 2, 2, 2, 2, [() => AvailableAdditionalStorageVolumesOptionList, 0]]
+];
+export var OrderableDBInstanceOptionsMessage$: StaticStructureSchema = [3, n0, _ODBIOM,
+  0,
+  [_ODBIOr, _Ma],
+  [[() => OrderableDBInstanceOptionsList, 0], 0]
+];
+export var Outpost$: StaticStructureSchema = [3, n0, _Ou,
+  0,
+  [_Ar],
+  [0]
+];
+export var Parameter$: StaticStructureSchema = [3, n0, _Par,
+  0,
+  [_PN, _PV, _D, _S, _AT, _DTa, _AV, _IM, _MEVi, _AMp, _SEM],
+  [0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 64 | 0]
+];
+export var PendingCloudwatchLogsExports$: StaticStructureSchema = [3, n0, _PCLE,
+  0,
+  [_LTTE, _LTTD],
+  [64 | 0, 64 | 0]
+];
+export var PendingMaintenanceAction$: StaticStructureSchema = [3, n0, _PMA,
+  0,
+  [_Ac, _AAAD, _FAD, _OIS, _CAD, _D],
+  [0, 4, 4, 0, 4, 0]
+];
+export var PendingMaintenanceActionsMessage$: StaticStructureSchema = [3, n0, _PMAM,
+  0,
+  [_PMAe, _Ma],
+  [[() => PendingMaintenanceActions, 0], 0]
+];
+export var PendingModifiedValues$: StaticStructureSchema = [3, n0, _PMV,
+  0,
+  [_DBIC, _AS, _MUP, _P, _BRP, _MAZ, _EV, _LM, _I, _ST, _DBII, _STt, _CACI, _DBSGNu, _PCLE, _PF, _AM, _RFAMT, _MT, _IAMDAE, _DLV, _E, _ASVd],
+  [0, 1, [() => SensitiveString, 0], 1, 1, 2, 0, 0, 1, 1, 0, 0, 0, 0, () => PendingCloudwatchLogsExports$, [() => ProcessorFeatureList, 0], 0, 4, 2, 2, 2, 0, () => AdditionalStorageVolumesList]
+];
+export var PerformanceInsightsMetricDimensionGroup$: StaticStructureSchema = [3, n0, _PIMDG,
+  0,
+  [_Di, _G, _Li],
+  [64 | 0, 0, 1]
+];
+export var PerformanceInsightsMetricQuery$: StaticStructureSchema = [3, n0, _PIMQ,
+  0,
+  [_GB, _Met],
+  [() => PerformanceInsightsMetricDimensionGroup$, 0]
+];
+export var PerformanceIssueDetails$: StaticStructureSchema = [3, n0, _PID,
+  0,
+  [_STtar, _ETn, _Metr, _An],
+  [4, 4, () => MetricList, 0]
+];
+export var PointInTimeRestoreNotEnabledFault$: StaticErrorSchema = [-3, n0, _PITRNEF,
+  { [_aQE]: [`PointInTimeRestoreNotEnabled`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(PointInTimeRestoreNotEnabledFault$, PointInTimeRestoreNotEnabledFault);
+export var ProcessorFeature$: StaticStructureSchema = [3, n0, _PFr,
+  0,
+  [_N, _V],
+  [0, 0]
+];
+export var PromoteReadReplicaDBClusterMessage$: StaticStructureSchema = [3, n0, _PRRDBCM,
+  0,
+  [_DBCI],
+  [0]
+];
+export var PromoteReadReplicaDBClusterResult$: StaticStructureSchema = [3, n0, _PRRDBCR,
+  0,
+  [_DBC],
+  [[() => DBCluster$, 0]]
+];
+export var PromoteReadReplicaMessage$: StaticStructureSchema = [3, n0, _PRRM,
+  0,
+  [_DBII, _BRP, _PBW, _TS],
+  [0, 1, 0, [() => TagSpecificationList, 0]]
+];
+export var PromoteReadReplicaResult$: StaticStructureSchema = [3, n0, _PRRR,
+  0,
+  [_DBI],
+  [[() => DBInstance$, 0]]
+];
+export var ProvisionedIopsNotAvailableInAZFault$: StaticErrorSchema = [-3, n0, _PINAIAZF,
+  { [_aQE]: [`ProvisionedIopsNotAvailableInAZFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ProvisionedIopsNotAvailableInAZFault$, ProvisionedIopsNotAvailableInAZFault);
+export var PurchaseReservedDBInstancesOfferingMessage$: StaticStructureSchema = [3, n0, _PRDBIOM,
+  0,
+  [_RDBIOI, _RDBII, _DBICn, _T],
+  [0, 0, 1, [() => TagList, 0]]
+];
+export var PurchaseReservedDBInstancesOfferingResult$: StaticStructureSchema = [3, n0, _PRDBIOR,
+  0,
+  [_RDBI],
+  [[() => ReservedDBInstance$, 0]]
+];
+export var Range$: StaticStructureSchema = [3, n0, _Ra,
+  0,
+  [_Fr, _To, _Ste],
+  [1, 1, 1]
+];
+export var RdsCustomClusterConfiguration$: StaticStructureSchema = [3, n0, _RCCC,
+  0,
+  [_ISI, _TGMDI, _RM],
+  [0, 0, 0]
+];
+export var RebootDBClusterMessage$: StaticStructureSchema = [3, n0, _RDBCM,
+  0,
+  [_DBCI],
+  [0]
+];
+export var RebootDBClusterResult$: StaticStructureSchema = [3, n0, _RDBCR,
+  0,
+  [_DBC],
+  [[() => DBCluster$, 0]]
+];
+export var RebootDBInstanceMessage$: StaticStructureSchema = [3, n0, _RDBIM,
+  0,
+  [_DBII, _FF],
+  [0, 2]
+];
+export var RebootDBInstanceResult$: StaticStructureSchema = [3, n0, _RDBIR,
+  0,
+  [_DBI],
+  [[() => DBInstance$, 0]]
+];
+export var RebootDBShardGroupMessage$: StaticStructureSchema = [3, n0, _RDBSGM,
+  0,
+  [_DBSGI],
+  [0]
+];
+export var RecommendedAction$: StaticStructureSchema = [3, n0, _RAeco,
+  0,
+  [_AIc, _Tit, _D, _Ope, _Pa, _AMpp, _St, _IDs, _CAon],
+  [0, 0, 0, 0, () => RecommendedActionParameterList, 64 | 0, 0, () => IssueDetails$, () => ContextAttributeList]
+];
+export var RecommendedActionParameter$: StaticStructureSchema = [3, n0, _RAP,
+  0,
+  [_K, _V],
+  [0, 0]
+];
+export var RecommendedActionUpdate$: StaticStructureSchema = [3, n0, _RAUe,
+  0,
+  [_AIc, _St],
+  [0, 0]
+];
+export var RecurringCharge$: StaticStructureSchema = [3, n0, _RC,
+  0,
+  [_RCA, _RCF],
+  [1, 0]
+];
+export var ReferenceDetails$: StaticStructureSchema = [3, n0, _RD,
+  0,
+  [_SRD],
+  [() => ScalarReferenceDetails$]
+];
+export var RegisterDBProxyTargetsRequest$: StaticStructureSchema = [3, n0, _RDBPTR,
+  0,
+  [_DBPN, _TGN, _DBIIn, _DBCIl],
+  [0, 0, 64 | 0, 64 | 0]
+];
+export var RegisterDBProxyTargetsResponse$: StaticStructureSchema = [3, n0, _RDBPTRe,
+  0,
+  [_DBPTr],
+  [() => TargetList]
+];
+export var RemoveFromGlobalClusterMessage$: StaticStructureSchema = [3, n0, _RFGCM,
+  0,
+  [_GCI, _DCI],
+  [0, 0]
+];
+export var RemoveFromGlobalClusterResult$: StaticStructureSchema = [3, n0, _RFGCR,
+  0,
+  [_GC],
+  [[() => GlobalCluster$, 0]]
+];
+export var RemoveRoleFromDBClusterMessage$: StaticStructureSchema = [3, n0, _RRFDBCM,
+  0,
+  [_DBCI, _RA, _FN],
+  [0, 0, 0]
+];
+export var RemoveRoleFromDBInstanceMessage$: StaticStructureSchema = [3, n0, _RRFDBIM,
+  0,
+  [_DBII, _RA, _FN],
+  [0, 0, 0]
+];
+export var RemoveSourceIdentifierFromSubscriptionMessage$: StaticStructureSchema = [3, n0, _RSIFSM,
+  0,
+  [_SN, _SI],
+  [0, 0]
+];
+export var RemoveSourceIdentifierFromSubscriptionResult$: StaticStructureSchema = [3, n0, _RSIFSR,
+  0,
+  [_ES],
+  [[() => EventSubscription$, 0]]
+];
+export var RemoveTagsFromResourceMessage$: StaticStructureSchema = [3, n0, _RTFRM,
+  0,
+  [_RN, _TK],
+  [0, 64 | 0]
+];
+export var ReservedDBInstance$: StaticStructureSchema = [3, n0, _RDBI,
+  0,
+  [_RDBII, _RDBIOI, _DBIC, _STtar, _Du, _FP, _UP, _CCu, _DBICn, _PD, _OT, _MAZ, _Sta, _RCe, _RDBIA, _LI],
+  [0, 0, 0, 4, 1, 1, 1, 0, 1, 0, 0, 2, 0, [() => RecurringChargeList, 0], 0, 0]
+];
+export var ReservedDBInstanceAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _RDBIAEF,
+  { [_aQE]: [`ReservedDBInstanceAlreadyExists`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ReservedDBInstanceAlreadyExistsFault$, ReservedDBInstanceAlreadyExistsFault);
+export var ReservedDBInstanceMessage$: StaticStructureSchema = [3, n0, _RDBIMe,
+  0,
+  [_Ma, _RDBIe],
+  [0, [() => ReservedDBInstanceList, 0]]
+];
+export var ReservedDBInstanceNotFoundFault$: StaticErrorSchema = [-3, n0, _RDBINFF,
+  { [_aQE]: [`ReservedDBInstanceNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ReservedDBInstanceNotFoundFault$, ReservedDBInstanceNotFoundFault);
+export var ReservedDBInstanceQuotaExceededFault$: StaticErrorSchema = [-3, n0, _RDBIQEF,
+  { [_aQE]: [`ReservedDBInstanceQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ReservedDBInstanceQuotaExceededFault$, ReservedDBInstanceQuotaExceededFault);
+export var ReservedDBInstancesOffering$: StaticStructureSchema = [3, n0, _RDBIO,
+  0,
+  [_RDBIOI, _DBIC, _Du, _FP, _UP, _CCu, _PD, _OT, _MAZ, _RCe],
+  [0, 0, 1, 1, 1, 0, 0, 0, 2, [() => RecurringChargeList, 0]]
+];
+export var ReservedDBInstancesOfferingMessage$: StaticStructureSchema = [3, n0, _RDBIOM,
+  0,
+  [_Ma, _RDBIOe],
+  [0, [() => ReservedDBInstancesOfferingList, 0]]
+];
+export var ReservedDBInstancesOfferingNotFoundFault$: StaticErrorSchema = [-3, n0, _RDBIONFF,
+  { [_aQE]: [`ReservedDBInstancesOfferingNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ReservedDBInstancesOfferingNotFoundFault$, ReservedDBInstancesOfferingNotFoundFault);
+export var ResetDBClusterParameterGroupMessage$: StaticStructureSchema = [3, n0, _RDBCPGM,
+  0,
+  [_DBCPGN, _RAPe, _Pa],
+  [0, 2, [() => ParametersList, 0]]
+];
+export var ResetDBParameterGroupMessage$: StaticStructureSchema = [3, n0, _RDBPGM,
+  0,
+  [_DBPGN, _RAPe, _Pa],
+  [0, 2, [() => ParametersList, 0]]
+];
+export var ResourceNotFoundFault$: StaticErrorSchema = [-3, n0, _RNFF,
+  { [_aQE]: [`ResourceNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ResourceNotFoundFault$, ResourceNotFoundFault);
+export var ResourcePendingMaintenanceActions$: StaticStructureSchema = [3, n0, _RPMA,
+  0,
+  [_RI, _PMAD],
+  [0, [() => PendingMaintenanceActionDetails, 0]]
+];
+export var RestoreDBClusterFromS3Message$: StaticStructureSchema = [3, n0, _RDBCFSM,
+  0,
+  [_AZv, _BRP, _CSN, _DN, _DBCI, _DBCPGN, _VSGI, _DBSGNu, _E, _EV, _P, _MU, _MUP, _OGN, _PBW, _PMW, _T, _SE, _KKI, _EIAMDA, _SEo, _SEV, _SBN, _SP, _SIRA, _BW, _ECLE, _DP, _CTTS, _Do, _DIAMRN, _STt, _NT, _SVSC, _MMUP, _MUSKKI, _ELS, _TS],
+  [[() => AvailabilityZones, 0], 1, 0, 0, 0, 0, [() => VpcSecurityGroupIdList, 0], 0, 0, 0, 1, 0, [() => SensitiveString, 0], 0, 0, 0, [() => TagList, 0], 2, 0, 2, 0, 0, 0, 0, 0, 1, 64 | 0, 2, 2, 0, 0, 0, 0, () => ServerlessV2ScalingConfiguration$, 2, 0, 0, [() => TagSpecificationList, 0]]
+];
+export var RestoreDBClusterFromS3Result$: StaticStructureSchema = [3, n0, _RDBCFSR,
+  0,
+  [_DBC],
+  [[() => DBCluster$, 0]]
+];
+export var RestoreDBClusterFromSnapshotMessage$: StaticStructureSchema = [3, n0, _RDBCFSMe,
+  0,
+  [_AZv, _DBCI, _SIn, _E, _EV, _P, _DBSGNu, _DN, _OGN, _VSGI, _T, _KKI, _EIAMDA, _BW, _ECLE, _EMn, _SC, _DBCPGN, _DP, _CTTS, _Do, _DIAMRN, _DBCIC, _STt, _I, _PA, _NT, _SVSC, _RCCC, _MIo, _MRA, _EPI, _PIKMSKI, _PIRP, _ELS, _TS],
+  [[() => AvailabilityZones, 0], 0, 0, 0, 0, 1, 0, 0, 0, [() => VpcSecurityGroupIdList, 0], [() => TagList, 0], 0, 2, 1, 64 | 0, 0, () => ScalingConfiguration$, 0, 2, 2, 0, 0, 0, 0, 1, 2, 0, () => ServerlessV2ScalingConfiguration$, () => RdsCustomClusterConfiguration$, 1, 0, 2, 0, 1, 0, [() => TagSpecificationList, 0]]
+];
+export var RestoreDBClusterFromSnapshotResult$: StaticStructureSchema = [3, n0, _RDBCFSRe,
+  0,
+  [_DBC],
+  [[() => DBCluster$, 0]]
+];
+export var RestoreDBClusterToPointInTimeMessage$: StaticStructureSchema = [3, n0, _RDBCTPITM,
+  0,
+  [_DBCI, _RT, _SDBCI, _RTT, _ULRT, _P, _DBSGNu, _OGN, _VSGI, _T, _KKI, _EIAMDA, _BW, _ECLE, _DBCPGN, _DP, _CTTS, _Do, _DIAMRN, _DBCIC, _STt, _PA, _I, _NT, _SDCRI, _SVSC, _SC, _EMn, _RCCC, _MIo, _MRA, _EPI, _PIKMSKI, _PIRP, _ELS, _TS],
+  [0, 0, 0, 4, 2, 1, 0, 0, [() => VpcSecurityGroupIdList, 0], [() => TagList, 0], 0, 2, 1, 64 | 0, 0, 2, 2, 0, 0, 0, 0, 2, 1, 0, 0, () => ServerlessV2ScalingConfiguration$, () => ScalingConfiguration$, 0, () => RdsCustomClusterConfiguration$, 1, 0, 2, 0, 1, 0, [() => TagSpecificationList, 0]]
+];
+export var RestoreDBClusterToPointInTimeResult$: StaticStructureSchema = [3, n0, _RDBCTPITR,
+  0,
+  [_DBC],
+  [[() => DBCluster$, 0]]
+];
+export var RestoreDBInstanceFromDBSnapshotMessage$: StaticStructureSchema = [3, n0, _RDBIFDBSM,
+  0,
+  [_DBII, _DBSIn, _DBIC, _P, _AZ, _DBSGNu, _MAZ, _PA, _AMVU, _LM, _DBN, _E, _I, _ST, _OGN, _T, _STt, _TCA, _TCP, _VSGI, _Do, _DF, _DO, _DASA, _DDI, _CTTS, _DIAMRN, _EIAMDA, _ECLE, _PF, _UDPF, _DBPGN, _DP, _ECOI, _NT, _BTa, _CIIP, _AS, _DBCSI, _DLV, _CACI, _ELS, _TS, _MMUP, _MUSKKI, _ASVd],
+  [0, 0, 0, 1, 0, 0, 2, 2, 2, 0, 0, 0, 1, 1, 0, [() => TagList, 0], 0, 0, [() => SensitiveString, 0], [() => VpcSecurityGroupIdList, 0], 0, 0, 0, 0, 64 | 0, 2, 0, 2, 64 | 0, [() => ProcessorFeatureList, 0], 2, 0, 2, 2, 0, 0, 0, 1, 0, 2, 0, 0, [() => TagSpecificationList, 0], 2, 0, () => AdditionalStorageVolumesList]
+];
+export var RestoreDBInstanceFromDBSnapshotResult$: StaticStructureSchema = [3, n0, _RDBIFDBSR,
+  0,
+  [_DBI],
+  [[() => DBInstance$, 0]]
+];
+export var RestoreDBInstanceFromS3Message$: StaticStructureSchema = [3, n0, _RDBIFSM,
+  0,
+  [_DBN, _DBII, _AS, _DBIC, _E, _MU, _MUP, _DBSGe, _VSGI, _AZ, _DBSGNu, _PMW, _DBPGN, _BRP, _PBW, _P, _MAZ, _EV, _AMVU, _LM, _I, _ST, _OGN, _PA, _T, _STt, _SE, _KKI, _CTTS, _MIo, _MRA, _EIAMDA, _SEo, _SEV, _SBN, _SP, _SIRA, _DIM, _EPI, _PIKMSKI, _PIRP, _ECLE, _PF, _UDPF, _DP, _MAS, _NT, _MMUP, _MUSKKI, _DLV, _CACI, _ELS, _TS, _ASVd],
+  [0, 0, 1, 0, 0, 0, [() => SensitiveString, 0], [() => DBSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], 0, 0, 0, 0, 1, 0, 1, 2, 0, 2, 0, 1, 1, 0, 2, [() => TagList, 0], 0, 2, 0, 2, 1, 0, 2, 0, 0, 0, 0, 0, 0, 2, 0, 1, 64 | 0, [() => ProcessorFeatureList, 0], 2, 2, 1, 0, 2, 0, 2, 0, 0, [() => TagSpecificationList, 0], () => AdditionalStorageVolumesList]
+];
+export var RestoreDBInstanceFromS3Result$: StaticStructureSchema = [3, n0, _RDBIFSR,
+  0,
+  [_DBI],
+  [[() => DBInstance$, 0]]
+];
+export var RestoreDBInstanceToPointInTimeMessage$: StaticStructureSchema = [3, n0, _RDBITPITM,
+  0,
+  [_SDBII, _TDBII, _RTe, _ULRT, _DBIC, _P, _AZ, _DBSGNu, _MAZ, _PA, _AMVU, _LM, _DBN, _E, _I, _ST, _OGN, _CTTS, _T, _STt, _TCA, _TCP, _VSGI, _Do, _DIAMRN, _DF, _DO, _DASA, _DDI, _EIAMDA, _ECLE, _PF, _UDPF, _DBPGN, _DP, _SDRI, _MAS, _ECOI, _NT, _SDBIABA, _BTa, _CIIP, _AS, _DLV, _CACI, _ELS, _TS, _MMUP, _MUSKKI, _ASVd],
+  [0, 0, 4, 2, 0, 1, 0, 0, 2, 2, 2, 0, 0, 0, 1, 1, 0, 2, [() => TagList, 0], 0, 0, [() => SensitiveString, 0], [() => VpcSecurityGroupIdList, 0], 0, 0, 0, 0, 0, 64 | 0, 2, 64 | 0, [() => ProcessorFeatureList, 0], 2, 0, 2, 0, 1, 2, 0, 0, 0, 0, 1, 2, 0, 0, [() => TagSpecificationList, 0], 2, 0, () => AdditionalStorageVolumesList]
+];
+export var RestoreDBInstanceToPointInTimeResult$: StaticStructureSchema = [3, n0, _RDBITPITR,
+  0,
+  [_DBI],
+  [[() => DBInstance$, 0]]
+];
+export var RestoreWindow$: StaticStructureSchema = [3, n0, _RW,
+  0,
+  [_ETa, _LT],
+  [4, 4]
+];
+export var RevokeDBSecurityGroupIngressMessage$: StaticStructureSchema = [3, n0, _RDBSGIM,
+  0,
+  [_DBSGN, _CIDRIP, _ECSGN, _ECSGI, _ECSGOI],
+  [0, 0, 0, 0, 0]
+];
+export var RevokeDBSecurityGroupIngressResult$: StaticStructureSchema = [3, n0, _RDBSGIR,
+  0,
+  [_DBSG],
+  [[() => DBSecurityGroup$, 0]]
+];
+export var ScalarReferenceDetails$: StaticStructureSchema = [3, n0, _SRD,
+  0,
+  [_V],
+  [1]
+];
+export var ScalingConfiguration$: StaticStructureSchema = [3, n0, _SC,
+  0,
+  [_MC, _MCa, _AP, _SUAP, _TAi, _SBT],
+  [1, 1, 2, 1, 0, 1]
+];
+export var ScalingConfigurationInfo$: StaticStructureSchema = [3, n0, _SCI,
+  0,
+  [_MC, _MCa, _AP, _SUAP, _TAi, _SBT],
+  [1, 1, 2, 1, 0, 1]
+];
+export var ServerlessV2FeaturesSupport$: StaticStructureSchema = [3, n0, _SVFS,
+  0,
+  [_MC, _MCa],
+  [1, 1]
+];
+export var ServerlessV2ScalingConfiguration$: StaticStructureSchema = [3, n0, _SVSC,
+  0,
+  [_MC, _MCa, _SUAP],
+  [1, 1, 1]
+];
+export var ServerlessV2ScalingConfigurationInfo$: StaticStructureSchema = [3, n0, _SVSCI,
+  0,
+  [_MC, _MCa, _SUAP],
+  [1, 1, 1]
+];
+export var SharedSnapshotQuotaExceededFault$: StaticErrorSchema = [-3, n0, _SSQEF,
+  { [_aQE]: [`SharedSnapshotQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(SharedSnapshotQuotaExceededFault$, SharedSnapshotQuotaExceededFault);
+export var SnapshotQuotaExceededFault$: StaticErrorSchema = [-3, n0, _SQEF,
+  { [_aQE]: [`SnapshotQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(SnapshotQuotaExceededFault$, SnapshotQuotaExceededFault);
+export var SNSInvalidTopicFault$: StaticErrorSchema = [-3, n0, _SNSITF,
+  { [_aQE]: [`SNSInvalidTopic`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(SNSInvalidTopicFault$, SNSInvalidTopicFault);
+export var SNSNoAuthorizationFault$: StaticErrorSchema = [-3, n0, _SNSNAF,
+  { [_aQE]: [`SNSNoAuthorization`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(SNSNoAuthorizationFault$, SNSNoAuthorizationFault);
+export var SNSTopicArnNotFoundFault$: StaticErrorSchema = [-3, n0, _SNSTANFF,
+  { [_aQE]: [`SNSTopicArnNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(SNSTopicArnNotFoundFault$, SNSTopicArnNotFoundFault);
+export var SourceClusterNotSupportedFault$: StaticErrorSchema = [-3, n0, _SCNSF,
+  { [_aQE]: [`SourceClusterNotSupportedFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(SourceClusterNotSupportedFault$, SourceClusterNotSupportedFault);
+export var SourceDatabaseNotSupportedFault$: StaticErrorSchema = [-3, n0, _SDNSF,
+  { [_aQE]: [`SourceDatabaseNotSupportedFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(SourceDatabaseNotSupportedFault$, SourceDatabaseNotSupportedFault);
+export var SourceNotFoundFault$: StaticErrorSchema = [-3, n0, _SNFF,
+  { [_aQE]: [`SourceNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(SourceNotFoundFault$, SourceNotFoundFault);
+export var SourceRegion$: StaticStructureSchema = [3, n0, _SR,
+  0,
+  [_RNe, _End, _St, _SDBIABR],
+  [0, 0, 0, 2]
+];
+export var SourceRegionMessage$: StaticStructureSchema = [3, n0, _SRM,
+  0,
+  [_Ma, _SRo],
+  [0, [() => SourceRegionList, 0]]
+];
+export var StartActivityStreamRequest$: StaticStructureSchema = [3, n0, _SASR,
+  0,
+  [_RAe, _Mo, _KKI, _AIp, _ENAFI],
+  [0, 0, 0, 2, 2]
+];
+export var StartActivityStreamResponse$: StaticStructureSchema = [3, n0, _SASRt,
+  0,
+  [_KKI, _KSN, _St, _Mo, _ENAFI, _AIp],
+  [0, 0, 0, 0, 2, 2]
+];
+export var StartDBClusterMessage$: StaticStructureSchema = [3, n0, _SDBCM,
+  0,
+  [_DBCI],
+  [0]
+];
+export var StartDBClusterResult$: StaticStructureSchema = [3, n0, _SDBCR,
+  0,
+  [_DBC],
+  [[() => DBCluster$, 0]]
+];
+export var StartDBInstanceAutomatedBackupsReplicationMessage$: StaticStructureSchema = [3, n0, _SDBIABRM,
+  0,
+  [_SDBIA, _BRP, _KKI, _PSU, _T],
+  [0, 1, 0, [() => SensitiveString, 0], [() => TagList, 0]]
+];
+export var StartDBInstanceAutomatedBackupsReplicationResult$: StaticStructureSchema = [3, n0, _SDBIABRR,
+  0,
+  [_DBIAB],
+  [[() => DBInstanceAutomatedBackup$, 0]]
+];
+export var StartDBInstanceMessage$: StaticStructureSchema = [3, n0, _SDBIM,
+  0,
+  [_DBII],
+  [0]
+];
+export var StartDBInstanceResult$: StaticStructureSchema = [3, n0, _SDBIR,
+  0,
+  [_DBI],
+  [[() => DBInstance$, 0]]
+];
+export var StartExportTaskMessage$: StaticStructureSchema = [3, n0, _SETM,
+  0,
+  [_ETI, _SA, _SBN, _IRA, _KKI, _SP, _EO],
+  [0, 0, 0, 0, 0, 0, 64 | 0]
+];
+export var StopActivityStreamRequest$: StaticStructureSchema = [3, n0, _SASRto,
+  0,
+  [_RAe, _AIp],
+  [0, 2]
+];
+export var StopActivityStreamResponse$: StaticStructureSchema = [3, n0, _SASRtop,
+  0,
+  [_KKI, _KSN, _St],
+  [0, 0, 0]
+];
+export var StopDBClusterMessage$: StaticStructureSchema = [3, n0, _SDBCMt,
+  0,
+  [_DBCI],
+  [0]
+];
+export var StopDBClusterResult$: StaticStructureSchema = [3, n0, _SDBCRt,
+  0,
+  [_DBC],
+  [[() => DBCluster$, 0]]
+];
+export var StopDBInstanceAutomatedBackupsReplicationMessage$: StaticStructureSchema = [3, n0, _SDBIABRMt,
+  0,
+  [_SDBIA],
+  [0]
+];
+export var StopDBInstanceAutomatedBackupsReplicationResult$: StaticStructureSchema = [3, n0, _SDBIABRRt,
+  0,
+  [_DBIAB],
+  [[() => DBInstanceAutomatedBackup$, 0]]
+];
+export var StopDBInstanceMessage$: StaticStructureSchema = [3, n0, _SDBIMt,
+  0,
+  [_DBII, _DBSIn],
+  [0, 0]
+];
+export var StopDBInstanceResult$: StaticStructureSchema = [3, n0, _SDBIRt,
+  0,
+  [_DBI],
+  [[() => DBInstance$, 0]]
+];
+export var StorageQuotaExceededFault$: StaticErrorSchema = [-3, n0, _SQEFt,
+  { [_aQE]: [`StorageQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(StorageQuotaExceededFault$, StorageQuotaExceededFault);
+export var StorageTypeNotAvailableFault$: StaticErrorSchema = [-3, n0, _STNAF,
+  { [_aQE]: [`StorageTypeNotAvailableFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(StorageTypeNotAvailableFault$, StorageTypeNotAvailableFault);
+export var StorageTypeNotSupportedFault$: StaticErrorSchema = [-3, n0, _STNSF,
+  { [_aQE]: [`StorageTypeNotSupported`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(StorageTypeNotSupportedFault$, StorageTypeNotSupportedFault);
+export var Subnet$: StaticStructureSchema = [3, n0, _Sub,
+  0,
+  [_SIubn, _SAZu, _SO, _SSu],
+  [0, () => AvailabilityZone$, () => Outpost$, 0]
+];
+export var SubnetAlreadyInUse$: StaticErrorSchema = [-3, n0, _SAIU,
+  { [_aQE]: [`SubnetAlreadyInUse`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(SubnetAlreadyInUse$, SubnetAlreadyInUse);
+export var SubscriptionAlreadyExistFault$: StaticErrorSchema = [-3, n0, _SAEF,
+  { [_aQE]: [`SubscriptionAlreadyExist`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(SubscriptionAlreadyExistFault$, SubscriptionAlreadyExistFault);
+export var SubscriptionCategoryNotFoundFault$: StaticErrorSchema = [-3, n0, _SCNFF,
+  { [_aQE]: [`SubscriptionCategoryNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(SubscriptionCategoryNotFoundFault$, SubscriptionCategoryNotFoundFault);
+export var SubscriptionNotFoundFault$: StaticErrorSchema = [-3, n0, _SNFFu,
+  { [_aQE]: [`SubscriptionNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(SubscriptionNotFoundFault$, SubscriptionNotFoundFault);
+export var SupportedEngineLifecycle$: StaticStructureSchema = [3, n0, _SELu,
+  0,
+  [_LSN, _LSSD, _LSED],
+  [0, 4, 4]
+];
+export var SwitchoverBlueGreenDeploymentRequest$: StaticStructureSchema = [3, n0, _SBGDR,
+  0,
+  [_BGDI, _STw],
+  [0, 1]
+];
+export var SwitchoverBlueGreenDeploymentResponse$: StaticStructureSchema = [3, n0, _SBGDRw,
+  0,
+  [_BGD],
+  [[() => BlueGreenDeployment$, 0]]
+];
+export var SwitchoverDetail$: StaticStructureSchema = [3, n0, _SDw,
+  0,
+  [_SMo, _TM, _St],
+  [0, 0, 0]
+];
+export var SwitchoverGlobalClusterMessage$: StaticStructureSchema = [3, n0, _SGCM,
+  0,
+  [_GCI, _TDCI],
+  [0, 0]
+];
+export var SwitchoverGlobalClusterResult$: StaticStructureSchema = [3, n0, _SGCR,
+  0,
+  [_GC],
+  [[() => GlobalCluster$, 0]]
+];
+export var SwitchoverReadReplicaMessage$: StaticStructureSchema = [3, n0, _SRRM,
+  0,
+  [_DBII],
+  [0]
+];
+export var SwitchoverReadReplicaResult$: StaticStructureSchema = [3, n0, _SRRR,
+  0,
+  [_DBI],
+  [[() => DBInstance$, 0]]
+];
+export var Tag$: StaticStructureSchema = [3, n0, _Tag,
+  0,
+  [_K, _V],
+  [0, 0]
+];
+export var TagListMessage$: StaticStructureSchema = [3, n0, _TLM,
+  0,
+  [_TL],
+  [[() => TagList, 0]]
+];
+export var TagSpecification$: StaticStructureSchema = [3, n0, _TSa,
+  0,
+  [_RTes, _T],
+  [0, [() => TagList, 0]]
+];
+export var TargetHealth$: StaticStructureSchema = [3, n0, _TH,
+  0,
+  [_Sta, _Rea, _D],
+  [0, 0, 0]
+];
+export var TenantDatabase$: StaticStructureSchema = [3, n0, _TD,
   0,
   [_TDCT, _DBII, _TDBN, _St, _MU, _DRI, _TDRI, _TDARN, _CSN, _NCSN, _DP, _PMV, _MUS, _TL],
-  [
-    4,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    2,
-    [() => TenantDatabasePendingModifiedValues$, 0],
-    () => MasterUserSecret$,
-    [() => TagList, 0],
-  ],
+  [4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, [() => TenantDatabasePendingModifiedValues$, 0], () => MasterUserSecret$, [() => TagList, 0]]
 ];
-export var TenantDatabaseAlreadyExistsFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _TDAEF,
+export var TenantDatabaseAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _TDAEF,
   { [_aQE]: [`TenantDatabaseAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(TenantDatabaseAlreadyExistsFault$, TenantDatabaseAlreadyExistsFault);
-export var TenantDatabaseNotFoundFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _TDNFF,
+export var TenantDatabaseNotFoundFault$: StaticErrorSchema = [-3, n0, _TDNFF,
   { [_aQE]: [`TenantDatabaseNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(TenantDatabaseNotFoundFault$, TenantDatabaseNotFoundFault);
-export var TenantDatabasePendingModifiedValues$: StaticStructureSchema = [
-  3,
-  n0,
-  _TDPMV,
+export var TenantDatabasePendingModifiedValues$: StaticStructureSchema = [3, n0, _TDPMV,
   0,
   [_MUP, _TDBN],
-  [[() => SensitiveString, 0], 0],
+  [[() => SensitiveString, 0], 0]
 ];
-export var TenantDatabaseQuotaExceededFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _TDQEF,
+export var TenantDatabaseQuotaExceededFault$: StaticErrorSchema = [-3, n0, _TDQEF,
   { [_aQE]: [`TenantDatabaseQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(TenantDatabaseQuotaExceededFault$, TenantDatabaseQuotaExceededFault);
-export var TenantDatabasesMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _TDM,
+export var TenantDatabasesMessage$: StaticStructureSchema = [3, n0, _TDM,
   0,
   [_Ma, _TDe],
-  [0, [() => TenantDatabasesList, 0]],
+  [0, [() => TenantDatabasesList, 0]]
 ];
-export var Timezone$: StaticStructureSchema = [3, n0, _Ti, 0, [_TN], [0]];
-export var UnsupportedDBEngineVersionFault$: StaticErrorSchema = [
-  -3,
-  n0,
-  _UDBEVF,
+export var Timezone$: StaticStructureSchema = [3, n0, _Ti,
+  0,
+  [_TN],
+  [0]
+];
+export var UnsupportedDBEngineVersionFault$: StaticErrorSchema = [-3, n0, _UDBEVF,
   { [_aQE]: [`UnsupportedDBEngineVersion`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(UnsupportedDBEngineVersionFault$, UnsupportedDBEngineVersionFault);
-export var UpgradeTarget$: StaticStructureSchema = [
-  3,
-  n0,
-  _UTp,
+export var UpgradeTarget$: StaticStructureSchema = [3, n0, _UTp,
   0,
   [_E, _EV, _D, _AU, _IMVU, _SEM, _SPQ, _SGD, _SB, _SLD, _SLWF, _SIup],
-  [0, 0, 0, 2, 2, 64 | 0, 2, 2, 2, 2, 2, 2],
+  [0, 0, 0, 2, 2, 64 | 0, 2, 2, 2, 2, 2, 2]
 ];
-export var UserAuthConfig$: StaticStructureSchema = [
-  3,
-  n0,
-  _UAC,
+export var UserAuthConfig$: StaticStructureSchema = [3, n0, _UAC,
   0,
   [_D, _UN, _ASu, _SAe, _IAMA, _CPAT],
-  [0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0]
 ];
-export var UserAuthConfigInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _UACI,
+export var UserAuthConfigInfo$: StaticStructureSchema = [3, n0, _UACI,
   0,
   [_D, _UN, _ASu, _SAe, _IAMA, _CPAT],
-  [0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0]
 ];
-export var ValidAdditionalStorageOptions$: StaticStructureSchema = [
-  3,
-  n0,
-  _VASO,
+export var ValidAdditionalStorageOptions$: StaticStructureSchema = [3, n0, _VASO,
   0,
   [_SASV, _Vo],
-  [2, [() => ValidVolumeOptionsList, 0]],
+  [2, [() => ValidVolumeOptionsList, 0]]
 ];
-export var ValidDBInstanceModificationsMessage$: StaticStructureSchema = [
-  3,
-  n0,
-  _VDBIMM,
+export var ValidDBInstanceModificationsMessage$: StaticStructureSchema = [3, n0, _VDBIMM,
   0,
   [_Sto, _VPF, _SDLV, _ASd],
-  [
-    [() => ValidStorageOptionsList, 0],
-    [() => AvailableProcessorFeatureList, 0],
-    2,
-    [() => ValidAdditionalStorageOptions$, 0],
-  ],
+  [[() => ValidStorageOptionsList, 0], [() => AvailableProcessorFeatureList, 0], 2, [() => ValidAdditionalStorageOptions$, 0]]
 ];
-export var ValidStorageOptions$: StaticStructureSchema = [
-  3,
-  n0,
-  _VSO,
+export var ValidStorageOptions$: StaticStructureSchema = [3, n0, _VSO,
   0,
   [_STt, _SSt, _PI, _ITSR, _PST, _STTIR, _SSA],
-  [
-    0,
-    [() => RangeList, 0],
-    [() => RangeList, 0],
-    [() => DoubleRangeList, 0],
-    [() => RangeList, 0],
-    [() => DoubleRangeList, 0],
-    2,
-  ],
+  [0, [() => RangeList, 0], [() => RangeList, 0], [() => DoubleRangeList, 0], [() => RangeList, 0], [() => DoubleRangeList, 0], 2]
 ];
-export var ValidVolumeOptions$: StaticStructureSchema = [
-  3,
-  n0,
-  _VVO,
+export var ValidVolumeOptions$: StaticStructureSchema = [3, n0, _VVO,
   0,
   [_VN, _Sto],
-  [0, [() => ValidStorageOptionsList, 0]],
+  [0, [() => ValidStorageOptionsList, 0]]
 ];
-export var VpcEncryptionControlViolationException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _VECVE,
+export var VpcEncryptionControlViolationException$: StaticErrorSchema = [-3, n0, _VECVE,
   { [_aQE]: [`VpcEncryptionControlViolationException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(VpcEncryptionControlViolationException$, VpcEncryptionControlViolationException);
-export var VpcSecurityGroupMembership$: StaticStructureSchema = [3, n0, _VSGMp, 0, [_VSGIp, _St], [0, 0]];
+export var VpcSecurityGroupMembership$: StaticStructureSchema = [3, n0, _VSGMp,
+  0,
+  [_VSGIp, _St],
+  [0, 0]
+];
 var __Unit = "unit" as const;
 export var RDSServiceException$: StaticErrorSchema = [-3, _s, "RDSServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(RDSServiceException$, RDSServiceException);
-var AccountQuotaList: StaticListSchema = [1, n0, _AQL, 0, [() => AccountQuota$, { [_xN]: _AQc }]];
+var AccountQuotaList: StaticListSchema = [1, n0, _AQL,
+  0, [() => AccountQuota$,
+    { [_xN]: _AQc }]
+];
 var ActivityStreamModeList = 64 | 0;
-var AdditionalStorageVolumesList: StaticListSchema = [1, n0, _ASVL, 0, () => AdditionalStorageVolume$];
-var AdditionalStorageVolumesOutputList: StaticListSchema = [1, n0, _ASVOL, 0, () => AdditionalStorageVolumeOutput$];
-var AttributeValueList: StaticListSchema = [1, n0, _AVL, 0, [0, { [_xN]: _AVtt }]];
-var AvailabilityZoneList: StaticListSchema = [1, n0, _AZL, 0, [() => AvailabilityZone$, { [_xN]: _AZ }]];
-var AvailabilityZones: StaticListSchema = [1, n0, _AZv, 0, [0, { [_xN]: _AZ }]];
-var AvailableAdditionalStorageVolumesOptionList: StaticListSchema = [
-  1,
-  n0,
-  _AASVOL,
-  0,
-  [() => AvailableAdditionalStorageVolumesOption$, { [_xN]: _AASVO }],
+var AdditionalStorageVolumesList: StaticListSchema = [1, n0, _ASVL,
+  0, () => AdditionalStorageVolume$
 ];
-var AvailableProcessorFeatureList: StaticListSchema = [
-  1,
-  n0,
-  _APFL,
-  0,
-  [() => AvailableProcessorFeature$, { [_xN]: _APF }],
+var AdditionalStorageVolumesOutputList: StaticListSchema = [1, n0, _ASVOL,
+  0, () => AdditionalStorageVolumeOutput$
 ];
-var BlueGreenDeploymentList: StaticListSchema = [1, n0, _BGDL, 0, [() => BlueGreenDeployment$, 0]];
-var BlueGreenDeploymentTaskList: StaticListSchema = [1, n0, _BGDTL, 0, () => BlueGreenDeploymentTask$];
+var AttributeValueList: StaticListSchema = [1, n0, _AVL,
+  0, [0,
+    { [_xN]: _AVtt }]
+];
+var AvailabilityZoneList: StaticListSchema = [1, n0, _AZL,
+  0, [() => AvailabilityZone$,
+    { [_xN]: _AZ }]
+];
+var AvailabilityZones: StaticListSchema = [1, n0, _AZv,
+  0, [0,
+    { [_xN]: _AZ }]
+];
+var AvailableAdditionalStorageVolumesOptionList: StaticListSchema = [1, n0, _AASVOL,
+  0, [() => AvailableAdditionalStorageVolumesOption$,
+    { [_xN]: _AASVO }]
+];
+var AvailableProcessorFeatureList: StaticListSchema = [1, n0, _APFL,
+  0, [() => AvailableProcessorFeature$,
+    { [_xN]: _APF }]
+];
+var BlueGreenDeploymentList: StaticListSchema = [1, n0, _BGDL,
+  0, [() => BlueGreenDeployment$,
+    0]
+];
+var BlueGreenDeploymentTaskList: StaticListSchema = [1, n0, _BGDTL,
+  0, () => BlueGreenDeploymentTask$
+];
 var CACertificateIdentifiersList = 64 | 0;
-var CertificateList: StaticListSchema = [1, n0, _CL, 0, [() => Certificate$, { [_xN]: _C }]];
-var ContextAttributeList: StaticListSchema = [1, n0, _CAL, 0, () => ContextAttribute$];
-var DBClusterAutomatedBackupList: StaticListSchema = [
-  1,
-  n0,
-  _DBCABL,
-  0,
-  [() => DBClusterAutomatedBackup$, { [_xN]: _DBCAB }],
+var CertificateList: StaticListSchema = [1, n0, _CL,
+  0, [() => Certificate$,
+    { [_xN]: _C }]
 ];
-var DBClusterBacktrackList: StaticListSchema = [1, n0, _DBCBL, 0, [() => DBClusterBacktrack$, { [_xN]: _DBCB }]];
-var DBClusterEndpointList: StaticListSchema = [1, n0, _DBCEL, 0, [() => DBClusterEndpoint$, { [_xN]: _DBCEL }]];
-var DBClusterList: StaticListSchema = [1, n0, _DBCL, 0, [() => DBCluster$, { [_xN]: _DBC }]];
-var DBClusterMemberList: StaticListSchema = [1, n0, _DBCML, 0, [() => DBClusterMember$, { [_xN]: _DBCMl }]];
-var DBClusterOptionGroupMemberships: StaticListSchema = [
-  1,
-  n0,
-  _DBCOGM,
-  0,
-  [() => DBClusterOptionGroupStatus$, { [_xN]: _DBCOG }],
+var ContextAttributeList: StaticListSchema = [1, n0, _CAL,
+  0, () => ContextAttribute$
 ];
-var DBClusterParameterGroupList: StaticListSchema = [
-  1,
-  n0,
-  _DBCPGL,
-  0,
-  [() => DBClusterParameterGroup$, { [_xN]: _DBCPG }],
+var DBClusterAutomatedBackupList: StaticListSchema = [1, n0, _DBCABL,
+  0, [() => DBClusterAutomatedBackup$,
+    { [_xN]: _DBCAB }]
 ];
-var DBClusterRoles: StaticListSchema = [1, n0, _DBCRl, 0, [() => DBClusterRole$, { [_xN]: _DBCR }]];
-var DBClusterSnapshotAttributeList: StaticListSchema = [
-  1,
-  n0,
-  _DBCSAL,
-  0,
-  [() => DBClusterSnapshotAttribute$, { [_xN]: _DBCSAl }],
+var DBClusterBacktrackList: StaticListSchema = [1, n0, _DBCBL,
+  0, [() => DBClusterBacktrack$,
+    { [_xN]: _DBCB }]
 ];
-var DBClusterSnapshotList: StaticListSchema = [1, n0, _DBCSL, 0, [() => DBClusterSnapshot$, { [_xN]: _DBCS }]];
-var DBClusterStatusInfoList: StaticListSchema = [1, n0, _DBCSIL, 0, [() => DBClusterStatusInfo$, { [_xN]: _DBCSIl }]];
-var DBEngineVersionList: StaticListSchema = [1, n0, _DBEVL, 0, [() => DBEngineVersion$, { [_xN]: _DBEV }]];
-var DBInstanceAutomatedBackupList: StaticListSchema = [
-  1,
-  n0,
-  _DBIABL,
-  0,
-  [() => DBInstanceAutomatedBackup$, { [_xN]: _DBIAB }],
+var DBClusterEndpointList: StaticListSchema = [1, n0, _DBCEL,
+  0, [() => DBClusterEndpoint$,
+    { [_xN]: _DBCEL }]
 ];
-var DBInstanceAutomatedBackupsReplicationList: StaticListSchema = [
-  1,
-  n0,
-  _DBIABRL,
-  0,
-  [() => DBInstanceAutomatedBackupsReplication$, { [_xN]: _DBIABRn }],
+var DBClusterList: StaticListSchema = [1, n0, _DBCL,
+  0, [() => DBCluster$,
+    { [_xN]: _DBC }]
 ];
-var DBInstanceList: StaticListSchema = [1, n0, _DBIL, 0, [() => DBInstance$, { [_xN]: _DBI }]];
-var DBInstanceRoles: StaticListSchema = [1, n0, _DBIRn, 0, [() => DBInstanceRole$, { [_xN]: _DBIR }]];
-var DBInstanceStatusInfoList: StaticListSchema = [1, n0, _DBISIL, 0, [() => DBInstanceStatusInfo$, { [_xN]: _DBISI }]];
-var DBMajorEngineVersionsList: StaticListSchema = [1, n0, _DBMEVL, 0, [() => DBMajorEngineVersion$, { [_xN]: _DBMEV }]];
-var DBParameterGroupList: StaticListSchema = [1, n0, _DBPGL, 0, [() => DBParameterGroup$, { [_xN]: _DBPG }]];
-var DBParameterGroupStatusList: StaticListSchema = [
-  1,
-  n0,
-  _DBPGSL,
-  0,
-  [() => DBParameterGroupStatus$, { [_xN]: _DBPG }],
+var DBClusterMemberList: StaticListSchema = [1, n0, _DBCML,
+  0, [() => DBClusterMember$,
+    { [_xN]: _DBCMl }]
 ];
-var DBProxyEndpointList: StaticListSchema = [1, n0, _DBPEL, 0, () => DBProxyEndpoint$];
-var DBProxyList: StaticListSchema = [1, n0, _DBPL, 0, () => DBProxy$];
-var DBRecommendationList: StaticListSchema = [1, n0, _DBRL, 0, () => DBRecommendation$];
-var DBSecurityGroupMembershipList: StaticListSchema = [
-  1,
-  n0,
-  _DBSGML,
-  0,
-  [() => DBSecurityGroupMembership$, { [_xN]: _DBSG }],
+var DBClusterOptionGroupMemberships: StaticListSchema = [1, n0, _DBCOGM,
+  0, [() => DBClusterOptionGroupStatus$,
+    { [_xN]: _DBCOG }]
 ];
-var DBSecurityGroupNameList: StaticListSchema = [1, n0, _DBSGNL, 0, [0, { [_xN]: _DBSGN }]];
-var DBSecurityGroups: StaticListSchema = [1, n0, _DBSGe, 0, [() => DBSecurityGroup$, { [_xN]: _DBSG }]];
-var DBShardGroupsList: StaticListSchema = [1, n0, _DBSGL, 0, [() => DBShardGroup$, { [_xN]: _DBSGh }]];
-var DBSnapshotAttributeList: StaticListSchema = [1, n0, _DBSAL, 0, [() => DBSnapshotAttribute$, { [_xN]: _DBSAn }]];
-var DBSnapshotList: StaticListSchema = [1, n0, _DBSL, 0, [() => DBSnapshot$, { [_xN]: _DBS }]];
-var DBSnapshotTenantDatabasesList: StaticListSchema = [
-  1,
-  n0,
-  _DBSTDL,
-  0,
-  [() => DBSnapshotTenantDatabase$, { [_xN]: _DBSTD }],
+var DBClusterParameterGroupList: StaticListSchema = [1, n0, _DBCPGL,
+  0, [() => DBClusterParameterGroup$,
+    { [_xN]: _DBCPG }]
 ];
-var DBSubnetGroups: StaticListSchema = [1, n0, _DBSGub, 0, [() => DBSubnetGroup$, { [_xN]: _DBSGu }]];
-var DescribeDBLogFilesList: StaticListSchema = [
-  1,
-  n0,
-  _DDBLFL,
-  0,
-  [() => DescribeDBLogFilesDetails$, { [_xN]: _DDBLFD }],
+var DBClusterRoles: StaticListSchema = [1, n0, _DBCRl,
+  0, [() => DBClusterRole$,
+    { [_xN]: _DBCR }]
 ];
-var DocLinkList: StaticListSchema = [1, n0, _DLL, 0, () => DocLink$];
-var DomainMembershipList: StaticListSchema = [1, n0, _DML, 0, [() => DomainMembership$, { [_xN]: _DMo }]];
-var DoubleRangeList: StaticListSchema = [1, n0, _DRL, 0, [() => DoubleRange$, { [_xN]: _DR }]];
-var EC2SecurityGroupList: StaticListSchema = [1, n0, _ECSGL, 0, [() => EC2SecurityGroup$, { [_xN]: _ECSGe }]];
+var DBClusterSnapshotAttributeList: StaticListSchema = [1, n0, _DBCSAL,
+  0, [() => DBClusterSnapshotAttribute$,
+    { [_xN]: _DBCSAl }]
+];
+var DBClusterSnapshotList: StaticListSchema = [1, n0, _DBCSL,
+  0, [() => DBClusterSnapshot$,
+    { [_xN]: _DBCS }]
+];
+var DBClusterStatusInfoList: StaticListSchema = [1, n0, _DBCSIL,
+  0, [() => DBClusterStatusInfo$,
+    { [_xN]: _DBCSIl }]
+];
+var DBEngineVersionList: StaticListSchema = [1, n0, _DBEVL,
+  0, [() => DBEngineVersion$,
+    { [_xN]: _DBEV }]
+];
+var DBInstanceAutomatedBackupList: StaticListSchema = [1, n0, _DBIABL,
+  0, [() => DBInstanceAutomatedBackup$,
+    { [_xN]: _DBIAB }]
+];
+var DBInstanceAutomatedBackupsReplicationList: StaticListSchema = [1, n0, _DBIABRL,
+  0, [() => DBInstanceAutomatedBackupsReplication$,
+    { [_xN]: _DBIABRn }]
+];
+var DBInstanceList: StaticListSchema = [1, n0, _DBIL,
+  0, [() => DBInstance$,
+    { [_xN]: _DBI }]
+];
+var DBInstanceRoles: StaticListSchema = [1, n0, _DBIRn,
+  0, [() => DBInstanceRole$,
+    { [_xN]: _DBIR }]
+];
+var DBInstanceStatusInfoList: StaticListSchema = [1, n0, _DBISIL,
+  0, [() => DBInstanceStatusInfo$,
+    { [_xN]: _DBISI }]
+];
+var DBMajorEngineVersionsList: StaticListSchema = [1, n0, _DBMEVL,
+  0, [() => DBMajorEngineVersion$,
+    { [_xN]: _DBMEV }]
+];
+var DBParameterGroupList: StaticListSchema = [1, n0, _DBPGL,
+  0, [() => DBParameterGroup$,
+    { [_xN]: _DBPG }]
+];
+var DBParameterGroupStatusList: StaticListSchema = [1, n0, _DBPGSL,
+  0, [() => DBParameterGroupStatus$,
+    { [_xN]: _DBPG }]
+];
+var DBProxyEndpointList: StaticListSchema = [1, n0, _DBPEL,
+  0, () => DBProxyEndpoint$
+];
+var DBProxyList: StaticListSchema = [1, n0, _DBPL,
+  0, () => DBProxy$
+];
+var DBRecommendationList: StaticListSchema = [1, n0, _DBRL,
+  0, () => DBRecommendation$
+];
+var DBSecurityGroupMembershipList: StaticListSchema = [1, n0, _DBSGML,
+  0, [() => DBSecurityGroupMembership$,
+    { [_xN]: _DBSG }]
+];
+var DBSecurityGroupNameList: StaticListSchema = [1, n0, _DBSGNL,
+  0, [0,
+    { [_xN]: _DBSGN }]
+];
+var DBSecurityGroups: StaticListSchema = [1, n0, _DBSGe,
+  0, [() => DBSecurityGroup$,
+    { [_xN]: _DBSG }]
+];
+var DBShardGroupsList: StaticListSchema = [1, n0, _DBSGL,
+  0, [() => DBShardGroup$,
+    { [_xN]: _DBSGh }]
+];
+var DBSnapshotAttributeList: StaticListSchema = [1, n0, _DBSAL,
+  0, [() => DBSnapshotAttribute$,
+    { [_xN]: _DBSAn }]
+];
+var DBSnapshotList: StaticListSchema = [1, n0, _DBSL,
+  0, [() => DBSnapshot$,
+    { [_xN]: _DBS }]
+];
+var DBSnapshotTenantDatabasesList: StaticListSchema = [1, n0, _DBSTDL,
+  0, [() => DBSnapshotTenantDatabase$,
+    { [_xN]: _DBSTD }]
+];
+var DBSubnetGroups: StaticListSchema = [1, n0, _DBSGub,
+  0, [() => DBSubnetGroup$,
+    { [_xN]: _DBSGu }]
+];
+var DescribeDBLogFilesList: StaticListSchema = [1, n0, _DDBLFL,
+  0, [() => DescribeDBLogFilesDetails$,
+    { [_xN]: _DDBLFD }]
+];
+var DocLinkList: StaticListSchema = [1, n0, _DLL,
+  0, () => DocLink$
+];
+var DomainMembershipList: StaticListSchema = [1, n0, _DML,
+  0, [() => DomainMembership$,
+    { [_xN]: _DMo }]
+];
+var DoubleRangeList: StaticListSchema = [1, n0, _DRL,
+  0, [() => DoubleRange$,
+    { [_xN]: _DR }]
+];
+var EC2SecurityGroupList: StaticListSchema = [1, n0, _ECSGL,
+  0, [() => EC2SecurityGroup$,
+    { [_xN]: _ECSGe }]
+];
 var EngineModeList = 64 | 0;
-var EventCategoriesList: StaticListSchema = [1, n0, _ECL, 0, [0, { [_xN]: _ECv }]];
-var EventCategoriesMapList: StaticListSchema = [1, n0, _ECML, 0, [() => EventCategoriesMap$, { [_xN]: _ECM }]];
-var EventList: StaticListSchema = [1, n0, _EL, 0, [() => Event$, { [_xN]: _Ev }]];
-var EventSubscriptionsList: StaticListSchema = [1, n0, _ESL, 0, [() => EventSubscription$, { [_xN]: _ES }]];
-var ExportTasksList: StaticListSchema = [1, n0, _ETL, 0, [() => ExportTask$, { [_xN]: _ETx }]];
+var EventCategoriesList: StaticListSchema = [1, n0, _ECL,
+  0, [0,
+    { [_xN]: _ECv }]
+];
+var EventCategoriesMapList: StaticListSchema = [1, n0, _ECML,
+  0, [() => EventCategoriesMap$,
+    { [_xN]: _ECM }]
+];
+var EventList: StaticListSchema = [1, n0, _EL,
+  0, [() => Event$,
+    { [_xN]: _Ev }]
+];
+var EventSubscriptionsList: StaticListSchema = [1, n0, _ESL,
+  0, [() => EventSubscription$,
+    { [_xN]: _ES }]
+];
+var ExportTasksList: StaticListSchema = [1, n0, _ETL,
+  0, [() => ExportTask$,
+    { [_xN]: _ETx }]
+];
 var FeatureNameList = 64 | 0;
-var FilterList: StaticListSchema = [1, n0, _FL, 0, [() => Filter$, { [_xN]: _Fil }]];
-var FilterValueList: StaticListSchema = [1, n0, _FVL, 0, [0, { [_xN]: _V }]];
-var GlobalClusterList: StaticListSchema = [1, n0, _GCL, 0, [() => GlobalCluster$, { [_xN]: _GCMl }]];
-var GlobalClusterMemberList: StaticListSchema = [1, n0, _GCML, 0, [() => GlobalClusterMember$, { [_xN]: _GCMl }]];
-var IntegrationErrorList: StaticListSchema = [1, n0, _IEL, 0, [() => IntegrationError$, { [_xN]: _IE }]];
-var IntegrationList: StaticListSchema = [1, n0, _IL, 0, [() => Integration$, { [_xN]: _Int }]];
-var IPRangeList: StaticListSchema = [1, n0, _IPRL, 0, [() => IPRange$, { [_xN]: _IPRa }]];
+var FilterList: StaticListSchema = [1, n0, _FL,
+  0, [() => Filter$,
+    { [_xN]: _Fil }]
+];
+var FilterValueList: StaticListSchema = [1, n0, _FVL,
+  0, [0,
+    { [_xN]: _V }]
+];
+var GlobalClusterList: StaticListSchema = [1, n0, _GCL,
+  0, [() => GlobalCluster$,
+    { [_xN]: _GCMl }]
+];
+var GlobalClusterMemberList: StaticListSchema = [1, n0, _GCML,
+  0, [() => GlobalClusterMember$,
+    { [_xN]: _GCMl }]
+];
+var IntegrationErrorList: StaticListSchema = [1, n0, _IEL,
+  0, [() => IntegrationError$,
+    { [_xN]: _IE }]
+];
+var IntegrationList: StaticListSchema = [1, n0, _IL,
+  0, [() => Integration$,
+    { [_xN]: _Int }]
+];
+var IPRangeList: StaticListSchema = [1, n0, _IPRL,
+  0, [() => IPRange$,
+    { [_xN]: _IPRa }]
+];
 var KeyList = 64 | 0;
 var LogTypeList = 64 | 0;
-var MetricList: StaticListSchema = [1, n0, _ML, 0, () => Metric$];
-var MetricReferenceList: StaticListSchema = [1, n0, _MRL, 0, () => MetricReference$];
-var MinimumEngineVersionPerAllowedValueList: StaticListSchema = [
-  1,
-  n0,
-  _MEVPAVL,
-  0,
-  [() => MinimumEngineVersionPerAllowedValue$, { [_xN]: _MEVPAV }],
+var MetricList: StaticListSchema = [1, n0, _ML,
+  0, () => Metric$
 ];
-var ModifyAdditionalStorageVolumesList: StaticListSchema = [1, n0, _MASVL, 0, () => ModifyAdditionalStorageVolume$];
-var OptionConfigurationList: StaticListSchema = [1, n0, _OCL, 0, [() => OptionConfiguration$, { [_xN]: _OC }]];
-var OptionGroupMembershipList: StaticListSchema = [1, n0, _OGML, 0, [() => OptionGroupMembership$, { [_xN]: _OGMp }]];
-var OptionGroupOptionSettingsList: StaticListSchema = [
-  1,
-  n0,
-  _OGOSL,
-  0,
-  [() => OptionGroupOptionSetting$, { [_xN]: _OGOSp }],
+var MetricReferenceList: StaticListSchema = [1, n0, _MRL,
+  0, () => MetricReference$
 ];
-var OptionGroupOptionsList: StaticListSchema = [1, n0, _OGOL, 0, [() => OptionGroupOption$, { [_xN]: _OGO }]];
-var OptionGroupOptionVersionsList: StaticListSchema = [1, n0, _OGOVL, 0, [() => OptionVersion$, { [_xN]: _OV }]];
-var OptionGroupsList: StaticListSchema = [1, n0, _OGL, 0, [() => OptionGroup$, { [_xN]: _OG }]];
+var MinimumEngineVersionPerAllowedValueList: StaticListSchema = [1, n0, _MEVPAVL,
+  0, [() => MinimumEngineVersionPerAllowedValue$,
+    { [_xN]: _MEVPAV }]
+];
+var ModifyAdditionalStorageVolumesList: StaticListSchema = [1, n0, _MASVL,
+  0, () => ModifyAdditionalStorageVolume$
+];
+var OptionConfigurationList: StaticListSchema = [1, n0, _OCL,
+  0, [() => OptionConfiguration$,
+    { [_xN]: _OC }]
+];
+var OptionGroupMembershipList: StaticListSchema = [1, n0, _OGML,
+  0, [() => OptionGroupMembership$,
+    { [_xN]: _OGMp }]
+];
+var OptionGroupOptionSettingsList: StaticListSchema = [1, n0, _OGOSL,
+  0, [() => OptionGroupOptionSetting$,
+    { [_xN]: _OGOSp }]
+];
+var OptionGroupOptionsList: StaticListSchema = [1, n0, _OGOL,
+  0, [() => OptionGroupOption$,
+    { [_xN]: _OGO }]
+];
+var OptionGroupOptionVersionsList: StaticListSchema = [1, n0, _OGOVL,
+  0, [() => OptionVersion$,
+    { [_xN]: _OV }]
+];
+var OptionGroupsList: StaticListSchema = [1, n0, _OGL,
+  0, [() => OptionGroup$,
+    { [_xN]: _OG }]
+];
 var OptionNamesList = 64 | 0;
-var OptionsConflictsWith: StaticListSchema = [1, n0, _OCW, 0, [0, { [_xN]: _OCN }]];
-var OptionsDependedOn: StaticListSchema = [1, n0, _ODO, 0, [0, { [_xN]: _ON }]];
-var OptionSettingConfigurationList: StaticListSchema = [1, n0, _OSCL, 0, [() => OptionSetting$, { [_xN]: _OSp }]];
-var OptionSettingsList: StaticListSchema = [1, n0, _OSL, 0, [() => OptionSetting$, { [_xN]: _OSp }]];
-var OptionsList: StaticListSchema = [1, n0, _OL, 0, [() => Option$, { [_xN]: _O }]];
-var OrderableDBInstanceOptionsList: StaticListSchema = [
-  1,
-  n0,
-  _ODBIOL,
-  0,
-  [() => OrderableDBInstanceOption$, { [_xN]: _ODBIO }],
+var OptionsConflictsWith: StaticListSchema = [1, n0, _OCW,
+  0, [0,
+    { [_xN]: _OCN }]
 ];
-var ParametersList: StaticListSchema = [1, n0, _PL, 0, [() => Parameter$, { [_xN]: _Par }]];
-var PendingMaintenanceActionDetails: StaticListSchema = [
-  1,
-  n0,
-  _PMAD,
-  0,
-  [() => PendingMaintenanceAction$, { [_xN]: _PMA }],
+var OptionsDependedOn: StaticListSchema = [1, n0, _ODO,
+  0, [0,
+    { [_xN]: _ON }]
 ];
-var PendingMaintenanceActions: StaticListSchema = [
-  1,
-  n0,
-  _PMAe,
-  0,
-  [() => ResourcePendingMaintenanceActions$, { [_xN]: _RPMA }],
+var OptionSettingConfigurationList: StaticListSchema = [1, n0, _OSCL,
+  0, [() => OptionSetting$,
+    { [_xN]: _OSp }]
 ];
-var ProcessorFeatureList: StaticListSchema = [1, n0, _PFL, 0, [() => ProcessorFeature$, { [_xN]: _PFr }]];
-var RangeList: StaticListSchema = [1, n0, _RL, 0, [() => Range$, { [_xN]: _Ra }]];
+var OptionSettingsList: StaticListSchema = [1, n0, _OSL,
+  0, [() => OptionSetting$,
+    { [_xN]: _OSp }]
+];
+var OptionsList: StaticListSchema = [1, n0, _OL,
+  0, [() => Option$,
+    { [_xN]: _O }]
+];
+var OrderableDBInstanceOptionsList: StaticListSchema = [1, n0, _ODBIOL,
+  0, [() => OrderableDBInstanceOption$,
+    { [_xN]: _ODBIO }]
+];
+var ParametersList: StaticListSchema = [1, n0, _PL,
+  0, [() => Parameter$,
+    { [_xN]: _Par }]
+];
+var PendingMaintenanceActionDetails: StaticListSchema = [1, n0, _PMAD,
+  0, [() => PendingMaintenanceAction$,
+    { [_xN]: _PMA }]
+];
+var PendingMaintenanceActions: StaticListSchema = [1, n0, _PMAe,
+  0, [() => ResourcePendingMaintenanceActions$,
+    { [_xN]: _RPMA }]
+];
+var ProcessorFeatureList: StaticListSchema = [1, n0, _PFL,
+  0, [() => ProcessorFeature$,
+    { [_xN]: _PFr }]
+];
+var RangeList: StaticListSchema = [1, n0, _RL,
+  0, [() => Range$,
+    { [_xN]: _Ra }]
+];
 var ReadersArnList = 64 | 0;
-var ReadReplicaDBClusterIdentifierList: StaticListSchema = [1, n0, _RRDBCIL, 0, [0, { [_xN]: _RRDBCIe }]];
-var ReadReplicaDBInstanceIdentifierList: StaticListSchema = [1, n0, _RRDBIIL, 0, [0, { [_xN]: _RRDBIIe }]];
-var ReadReplicaIdentifierList: StaticListSchema = [1, n0, _RRIL, 0, [0, { [_xN]: _RRIe }]];
-var RecommendedActionList: StaticListSchema = [1, n0, _RAL, 0, () => RecommendedAction$];
-var RecommendedActionParameterList: StaticListSchema = [1, n0, _RAPL, 0, () => RecommendedActionParameter$];
-var RecommendedActionUpdateList: StaticListSchema = [1, n0, _RAUL, 0, () => RecommendedActionUpdate$];
-var RecurringChargeList: StaticListSchema = [1, n0, _RCL, 0, [() => RecurringCharge$, { [_xN]: _RC }]];
-var ReservedDBInstanceList: StaticListSchema = [1, n0, _RDBIL, 0, [() => ReservedDBInstance$, { [_xN]: _RDBI }]];
-var ReservedDBInstancesOfferingList: StaticListSchema = [
-  1,
-  n0,
-  _RDBIOL,
-  0,
-  [() => ReservedDBInstancesOffering$, { [_xN]: _RDBIO }],
+var ReadReplicaDBClusterIdentifierList: StaticListSchema = [1, n0, _RRDBCIL,
+  0, [0,
+    { [_xN]: _RRDBCIe }]
 ];
-var SourceIdsList: StaticListSchema = [1, n0, _SIL, 0, [0, { [_xN]: _SIou }]];
-var SourceRegionList: StaticListSchema = [1, n0, _SRL, 0, [() => SourceRegion$, { [_xN]: _SR }]];
+var ReadReplicaDBInstanceIdentifierList: StaticListSchema = [1, n0, _RRDBIIL,
+  0, [0,
+    { [_xN]: _RRDBIIe }]
+];
+var ReadReplicaIdentifierList: StaticListSchema = [1, n0, _RRIL,
+  0, [0,
+    { [_xN]: _RRIe }]
+];
+var RecommendedActionList: StaticListSchema = [1, n0, _RAL,
+  0, () => RecommendedAction$
+];
+var RecommendedActionParameterList: StaticListSchema = [1, n0, _RAPL,
+  0, () => RecommendedActionParameter$
+];
+var RecommendedActionUpdateList: StaticListSchema = [1, n0, _RAUL,
+  0, () => RecommendedActionUpdate$
+];
+var RecurringChargeList: StaticListSchema = [1, n0, _RCL,
+  0, [() => RecurringCharge$,
+    { [_xN]: _RC }]
+];
+var ReservedDBInstanceList: StaticListSchema = [1, n0, _RDBIL,
+  0, [() => ReservedDBInstance$,
+    { [_xN]: _RDBI }]
+];
+var ReservedDBInstancesOfferingList: StaticListSchema = [1, n0, _RDBIOL,
+  0, [() => ReservedDBInstancesOffering$,
+    { [_xN]: _RDBIO }]
+];
+var SourceIdsList: StaticListSchema = [1, n0, _SIL,
+  0, [0,
+    { [_xN]: _SIou }]
+];
+var SourceRegionList: StaticListSchema = [1, n0, _SRL,
+  0, [() => SourceRegion$,
+    { [_xN]: _SR }]
+];
 var StringList = 64 | 0;
-var SubnetIdentifierList: StaticListSchema = [1, n0, _SILu, 0, [0, { [_xN]: _SIubn }]];
-var SubnetList: StaticListSchema = [1, n0, _SL, 0, [() => Subnet$, { [_xN]: _Sub }]];
-var SupportedCharacterSetsList: StaticListSchema = [1, n0, _SCSL, 0, [() => CharacterSet$, { [_xN]: _CS }]];
-var SupportedEngineLifecycleList: StaticListSchema = [
-  1,
-  n0,
-  _SELL,
-  0,
-  [() => SupportedEngineLifecycle$, { [_xN]: _SELu }],
+var SubnetIdentifierList: StaticListSchema = [1, n0, _SILu,
+  0, [0,
+    { [_xN]: _SIubn }]
 ];
-var SupportedTimezonesList: StaticListSchema = [1, n0, _STL, 0, [() => Timezone$, { [_xN]: _Ti }]];
-var SwitchoverDetailList: StaticListSchema = [1, n0, _SDL, 0, () => SwitchoverDetail$];
-var TagList: StaticListSchema = [1, n0, _TL, 0, [() => Tag$, { [_xN]: _Tag }]];
-var TagSpecificationList: StaticListSchema = [1, n0, _TSL, 0, [() => TagSpecification$, { [_xN]: _i }]];
-var TargetGroupList: StaticListSchema = [1, n0, _TGL, 0, () => DBProxyTargetGroup$];
-var TargetList: StaticListSchema = [1, n0, _TLa, 0, () => DBProxyTarget$];
-var TenantDatabasesList: StaticListSchema = [1, n0, _TDL, 0, [() => TenantDatabase$, { [_xN]: _TD }]];
-var UserAuthConfigInfoList: StaticListSchema = [1, n0, _UACIL, 0, () => UserAuthConfigInfo$];
-var UserAuthConfigList: StaticListSchema = [1, n0, _UACL, 0, () => UserAuthConfig$];
-var ValidStorageOptionsList: StaticListSchema = [1, n0, _VSOL, 0, [() => ValidStorageOptions$, { [_xN]: _VSO }]];
-var ValidUpgradeTargetList: StaticListSchema = [1, n0, _VUTL, 0, [() => UpgradeTarget$, { [_xN]: _UTp }]];
-var ValidVolumeOptionsList: StaticListSchema = [1, n0, _VVOL, 0, [() => ValidVolumeOptions$, 0]];
-var VpcSecurityGroupIdList: StaticListSchema = [1, n0, _VSGIL, 0, [0, { [_xN]: _VSGIp }]];
-var VpcSecurityGroupMembershipList: StaticListSchema = [
-  1,
-  n0,
-  _VSGML,
-  0,
-  [() => VpcSecurityGroupMembership$, { [_xN]: _VSGMp }],
+var SubnetList: StaticListSchema = [1, n0, _SL,
+  0, [() => Subnet$,
+    { [_xN]: _Sub }]
+];
+var SupportedCharacterSetsList: StaticListSchema = [1, n0, _SCSL,
+  0, [() => CharacterSet$,
+    { [_xN]: _CS }]
+];
+var SupportedEngineLifecycleList: StaticListSchema = [1, n0, _SELL,
+  0, [() => SupportedEngineLifecycle$,
+    { [_xN]: _SELu }]
+];
+var SupportedTimezonesList: StaticListSchema = [1, n0, _STL,
+  0, [() => Timezone$,
+    { [_xN]: _Ti }]
+];
+var SwitchoverDetailList: StaticListSchema = [1, n0, _SDL,
+  0, () => SwitchoverDetail$
+];
+var TagList: StaticListSchema = [1, n0, _TL,
+  0, [() => Tag$,
+    { [_xN]: _Tag }]
+];
+var TagSpecificationList: StaticListSchema = [1, n0, _TSL,
+  0, [() => TagSpecification$,
+    { [_xN]: _i }]
+];
+var TargetGroupList: StaticListSchema = [1, n0, _TGL,
+  0, () => DBProxyTargetGroup$
+];
+var TargetList: StaticListSchema = [1, n0, _TLa,
+  0, () => DBProxyTarget$
+];
+var TenantDatabasesList: StaticListSchema = [1, n0, _TDL,
+  0, [() => TenantDatabase$,
+    { [_xN]: _TD }]
+];
+var UserAuthConfigInfoList: StaticListSchema = [1, n0, _UACIL,
+  0, () => UserAuthConfigInfo$
+];
+var UserAuthConfigList: StaticListSchema = [1, n0, _UACL,
+  0, () => UserAuthConfig$
+];
+var ValidStorageOptionsList: StaticListSchema = [1, n0, _VSOL,
+  0, [() => ValidStorageOptions$,
+    { [_xN]: _VSO }]
+];
+var ValidUpgradeTargetList: StaticListSchema = [1, n0, _VUTL,
+  0, [() => UpgradeTarget$,
+    { [_xN]: _UTp }]
+];
+var ValidVolumeOptionsList: StaticListSchema = [1, n0, _VVOL,
+  0, [() => ValidVolumeOptions$,
+    0]
+];
+var VpcSecurityGroupIdList: StaticListSchema = [1, n0, _VSGIL,
+  0, [0,
+    { [_xN]: _VSGIp }]
+];
+var VpcSecurityGroupMembershipList: StaticListSchema = [1, n0, _VSGML,
+  0, [() => VpcSecurityGroupMembership$,
+    { [_xN]: _VSGMp }]
 ];
 var EncryptionContextMap = 128 | 0;
-export var AddRoleToDBCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _ARTDBC,
-  0,
-  () => AddRoleToDBClusterMessage$,
-  () => __Unit,
-];
-export var AddRoleToDBInstance$: StaticOperationSchema = [
-  9,
-  n0,
-  _ARTDBI,
-  0,
-  () => AddRoleToDBInstanceMessage$,
-  () => __Unit,
-];
-export var AddSourceIdentifierToSubscription$: StaticOperationSchema = [
-  9,
-  n0,
-  _ASITS,
-  0,
-  () => AddSourceIdentifierToSubscriptionMessage$,
-  () => AddSourceIdentifierToSubscriptionResult$,
-];
-export var AddTagsToResource$: StaticOperationSchema = [9, n0, _ATTR, 0, () => AddTagsToResourceMessage$, () => __Unit];
-export var ApplyPendingMaintenanceAction$: StaticOperationSchema = [
-  9,
-  n0,
-  _APMA,
-  0,
-  () => ApplyPendingMaintenanceActionMessage$,
-  () => ApplyPendingMaintenanceActionResult$,
-];
-export var AuthorizeDBSecurityGroupIngress$: StaticOperationSchema = [
-  9,
-  n0,
-  _ADBSGI,
-  0,
-  () => AuthorizeDBSecurityGroupIngressMessage$,
-  () => AuthorizeDBSecurityGroupIngressResult$,
-];
-export var BacktrackDBCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _BDBC,
-  0,
-  () => BacktrackDBClusterMessage$,
-  () => DBClusterBacktrack$,
-];
-export var CancelExportTask$: StaticOperationSchema = [
-  9,
-  n0,
-  _CETa,
-  0,
-  () => CancelExportTaskMessage$,
-  () => ExportTask$,
-];
-export var CopyDBClusterParameterGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDBCPG,
-  0,
-  () => CopyDBClusterParameterGroupMessage$,
-  () => CopyDBClusterParameterGroupResult$,
-];
-export var CopyDBClusterSnapshot$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDBCS,
-  0,
-  () => CopyDBClusterSnapshotMessage$,
-  () => CopyDBClusterSnapshotResult$,
-];
-export var CopyDBParameterGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDBPG,
-  0,
-  () => CopyDBParameterGroupMessage$,
-  () => CopyDBParameterGroupResult$,
-];
-export var CopyDBSnapshot$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDBS,
-  0,
-  () => CopyDBSnapshotMessage$,
-  () => CopyDBSnapshotResult$,
-];
-export var CopyOptionGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _COG,
-  0,
-  () => CopyOptionGroupMessage$,
-  () => CopyOptionGroupResult$,
-];
-export var CreateBlueGreenDeployment$: StaticOperationSchema = [
-  9,
-  n0,
-  _CBGD,
-  0,
-  () => CreateBlueGreenDeploymentRequest$,
-  () => CreateBlueGreenDeploymentResponse$,
-];
-export var CreateCustomDBEngineVersion$: StaticOperationSchema = [
-  9,
-  n0,
-  _CCDBEV,
-  0,
-  () => CreateCustomDBEngineVersionMessage$,
-  () => DBEngineVersion$,
-];
-export var CreateDBCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDBC,
-  0,
-  () => CreateDBClusterMessage$,
-  () => CreateDBClusterResult$,
-];
-export var CreateDBClusterEndpoint$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDBCE,
-  0,
-  () => CreateDBClusterEndpointMessage$,
-  () => DBClusterEndpoint$,
-];
-export var CreateDBClusterParameterGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDBCPGr,
-  0,
-  () => CreateDBClusterParameterGroupMessage$,
-  () => CreateDBClusterParameterGroupResult$,
-];
-export var CreateDBClusterSnapshot$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDBCSr,
-  0,
-  () => CreateDBClusterSnapshotMessage$,
-  () => CreateDBClusterSnapshotResult$,
-];
-export var CreateDBInstance$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDBI,
-  0,
-  () => CreateDBInstanceMessage$,
-  () => CreateDBInstanceResult$,
-];
-export var CreateDBInstanceReadReplica$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDBIRR,
-  0,
-  () => CreateDBInstanceReadReplicaMessage$,
-  () => CreateDBInstanceReadReplicaResult$,
-];
-export var CreateDBParameterGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDBPGr,
-  0,
-  () => CreateDBParameterGroupMessage$,
-  () => CreateDBParameterGroupResult$,
-];
-export var CreateDBProxy$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDBP,
-  0,
-  () => CreateDBProxyRequest$,
-  () => CreateDBProxyResponse$,
-];
-export var CreateDBProxyEndpoint$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDBPE,
-  0,
-  () => CreateDBProxyEndpointRequest$,
-  () => CreateDBProxyEndpointResponse$,
-];
-export var CreateDBSecurityGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDBSG,
-  0,
-  () => CreateDBSecurityGroupMessage$,
-  () => CreateDBSecurityGroupResult$,
-];
-export var CreateDBShardGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDBSGr,
-  0,
-  () => CreateDBShardGroupMessage$,
-  () => DBShardGroup$,
-];
-export var CreateDBSnapshot$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDBSr,
-  0,
-  () => CreateDBSnapshotMessage$,
-  () => CreateDBSnapshotResult$,
-];
-export var CreateDBSubnetGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _CDBSGre,
-  0,
-  () => CreateDBSubnetGroupMessage$,
-  () => CreateDBSubnetGroupResult$,
-];
-export var CreateEventSubscription$: StaticOperationSchema = [
-  9,
-  n0,
-  _CES,
-  0,
-  () => CreateEventSubscriptionMessage$,
-  () => CreateEventSubscriptionResult$,
-];
-export var CreateGlobalCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _CGC,
-  0,
-  () => CreateGlobalClusterMessage$,
-  () => CreateGlobalClusterResult$,
-];
-export var CreateIntegration$: StaticOperationSchema = [
-  9,
-  n0,
-  _CIr,
-  0,
-  () => CreateIntegrationMessage$,
-  () => Integration$,
-];
-export var CreateOptionGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _COGr,
-  0,
-  () => CreateOptionGroupMessage$,
-  () => CreateOptionGroupResult$,
-];
-export var CreateTenantDatabase$: StaticOperationSchema = [
-  9,
-  n0,
-  _CTD,
-  0,
-  () => CreateTenantDatabaseMessage$,
-  () => CreateTenantDatabaseResult$,
-];
-export var DeleteBlueGreenDeployment$: StaticOperationSchema = [
-  9,
-  n0,
-  _DBGD,
-  0,
-  () => DeleteBlueGreenDeploymentRequest$,
-  () => DeleteBlueGreenDeploymentResponse$,
-];
-export var DeleteCustomDBEngineVersion$: StaticOperationSchema = [
-  9,
-  n0,
-  _DCDBEV,
-  0,
-  () => DeleteCustomDBEngineVersionMessage$,
-  () => DBEngineVersion$,
-];
-export var DeleteDBCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBC,
-  0,
-  () => DeleteDBClusterMessage$,
-  () => DeleteDBClusterResult$,
-];
-export var DeleteDBClusterAutomatedBackup$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBCAB,
-  0,
-  () => DeleteDBClusterAutomatedBackupMessage$,
-  () => DeleteDBClusterAutomatedBackupResult$,
-];
-export var DeleteDBClusterEndpoint$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBCE,
-  0,
-  () => DeleteDBClusterEndpointMessage$,
-  () => DBClusterEndpoint$,
-];
-export var DeleteDBClusterParameterGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBCPG,
-  0,
-  () => DeleteDBClusterParameterGroupMessage$,
-  () => __Unit,
-];
-export var DeleteDBClusterSnapshot$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBCS,
-  0,
-  () => DeleteDBClusterSnapshotMessage$,
-  () => DeleteDBClusterSnapshotResult$,
-];
-export var DeleteDBInstance$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBI,
-  0,
-  () => DeleteDBInstanceMessage$,
-  () => DeleteDBInstanceResult$,
-];
-export var DeleteDBInstanceAutomatedBackup$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBIAB,
-  0,
-  () => DeleteDBInstanceAutomatedBackupMessage$,
-  () => DeleteDBInstanceAutomatedBackupResult$,
-];
-export var DeleteDBParameterGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBPG,
-  0,
-  () => DeleteDBParameterGroupMessage$,
-  () => __Unit,
-];
-export var DeleteDBProxy$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBP,
-  0,
-  () => DeleteDBProxyRequest$,
-  () => DeleteDBProxyResponse$,
-];
-export var DeleteDBProxyEndpoint$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBPE,
-  0,
-  () => DeleteDBProxyEndpointRequest$,
-  () => DeleteDBProxyEndpointResponse$,
-];
-export var DeleteDBSecurityGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBSG,
-  0,
-  () => DeleteDBSecurityGroupMessage$,
-  () => __Unit,
-];
-export var DeleteDBShardGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBSGe,
-  0,
-  () => DeleteDBShardGroupMessage$,
-  () => DBShardGroup$,
-];
-export var DeleteDBSnapshot$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBS,
-  0,
-  () => DeleteDBSnapshotMessage$,
-  () => DeleteDBSnapshotResult$,
-];
-export var DeleteDBSubnetGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBSGel,
-  0,
-  () => DeleteDBSubnetGroupMessage$,
-  () => __Unit,
-];
-export var DeleteEventSubscription$: StaticOperationSchema = [
-  9,
-  n0,
-  _DES,
-  0,
-  () => DeleteEventSubscriptionMessage$,
-  () => DeleteEventSubscriptionResult$,
-];
-export var DeleteGlobalCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _DGC,
-  0,
-  () => DeleteGlobalClusterMessage$,
-  () => DeleteGlobalClusterResult$,
-];
-export var DeleteIntegration$: StaticOperationSchema = [
-  9,
-  n0,
-  _DIe,
-  0,
-  () => DeleteIntegrationMessage$,
-  () => Integration$,
-];
-export var DeleteOptionGroup$: StaticOperationSchema = [9, n0, _DOG, 0, () => DeleteOptionGroupMessage$, () => __Unit];
-export var DeleteTenantDatabase$: StaticOperationSchema = [
-  9,
-  n0,
-  _DTD,
-  0,
-  () => DeleteTenantDatabaseMessage$,
-  () => DeleteTenantDatabaseResult$,
-];
-export var DeregisterDBProxyTargets$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBPT,
-  0,
-  () => DeregisterDBProxyTargetsRequest$,
-  () => DeregisterDBProxyTargetsResponse$,
-];
-export var DescribeAccountAttributes$: StaticOperationSchema = [
-  9,
-  n0,
-  _DAA,
-  0,
-  () => DescribeAccountAttributesMessage$,
-  () => AccountAttributesMessage$,
-];
-export var DescribeBlueGreenDeployments$: StaticOperationSchema = [
-  9,
-  n0,
-  _DBGDe,
-  0,
-  () => DescribeBlueGreenDeploymentsRequest$,
-  () => DescribeBlueGreenDeploymentsResponse$,
-];
-export var DescribeCertificates$: StaticOperationSchema = [
-  9,
-  n0,
-  _DC,
-  0,
-  () => DescribeCertificatesMessage$,
-  () => CertificateMessage$,
-];
-export var DescribeDBClusterAutomatedBackups$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBCABe,
-  0,
-  () => DescribeDBClusterAutomatedBackupsMessage$,
-  () => DBClusterAutomatedBackupMessage$,
-];
-export var DescribeDBClusterBacktracks$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBCB,
-  0,
-  () => DescribeDBClusterBacktracksMessage$,
-  () => DBClusterBacktrackMessage$,
-];
-export var DescribeDBClusterEndpoints$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBCEe,
-  0,
-  () => DescribeDBClusterEndpointsMessage$,
-  () => DBClusterEndpointMessage$,
-];
-export var DescribeDBClusterParameterGroups$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBCPGe,
-  0,
-  () => DescribeDBClusterParameterGroupsMessage$,
-  () => DBClusterParameterGroupsMessage$,
-];
-export var DescribeDBClusterParameters$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBCP,
-  0,
-  () => DescribeDBClusterParametersMessage$,
-  () => DBClusterParameterGroupDetails$,
-];
-export var DescribeDBClusters$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBCe,
-  0,
-  () => DescribeDBClustersMessage$,
-  () => DBClusterMessage$,
-];
-export var DescribeDBClusterSnapshotAttributes$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBCSA,
-  0,
-  () => DescribeDBClusterSnapshotAttributesMessage$,
-  () => DescribeDBClusterSnapshotAttributesResult$,
-];
-export var DescribeDBClusterSnapshots$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBCSe,
-  0,
-  () => DescribeDBClusterSnapshotsMessage$,
-  () => DBClusterSnapshotMessage$,
-];
-export var DescribeDBEngineVersions$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBEV,
-  0,
-  () => DescribeDBEngineVersionsMessage$,
-  () => DBEngineVersionMessage$,
-];
-export var DescribeDBInstanceAutomatedBackups$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBIABe,
-  0,
-  () => DescribeDBInstanceAutomatedBackupsMessage$,
-  () => DBInstanceAutomatedBackupMessage$,
-];
-export var DescribeDBInstances$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBIe,
-  0,
-  () => DescribeDBInstancesMessage$,
-  () => DBInstanceMessage$,
-];
-export var DescribeDBLogFiles$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBLF,
-  0,
-  () => DescribeDBLogFilesMessage$,
-  () => DescribeDBLogFilesResponse$,
-];
-export var DescribeDBMajorEngineVersions$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBMEV,
-  0,
-  () => DescribeDBMajorEngineVersionsRequest$,
-  () => DescribeDBMajorEngineVersionsResponse$,
-];
-export var DescribeDBParameterGroups$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBPGe,
-  0,
-  () => DescribeDBParameterGroupsMessage$,
-  () => DBParameterGroupsMessage$,
-];
-export var DescribeDBParameters$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBPe,
-  0,
-  () => DescribeDBParametersMessage$,
-  () => DBParameterGroupDetails$,
-];
-export var DescribeDBProxies$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBPes,
-  0,
-  () => DescribeDBProxiesRequest$,
-  () => DescribeDBProxiesResponse$,
-];
-export var DescribeDBProxyEndpoints$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBPEe,
-  0,
-  () => DescribeDBProxyEndpointsRequest$,
-  () => DescribeDBProxyEndpointsResponse$,
-];
-export var DescribeDBProxyTargetGroups$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBPTG,
-  0,
-  () => DescribeDBProxyTargetGroupsRequest$,
-  () => DescribeDBProxyTargetGroupsResponse$,
-];
-export var DescribeDBProxyTargets$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBPTe,
-  0,
-  () => DescribeDBProxyTargetsRequest$,
-  () => DescribeDBProxyTargetsResponse$,
-];
-export var DescribeDBRecommendations$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBR,
-  0,
-  () => DescribeDBRecommendationsMessage$,
-  () => DBRecommendationsMessage$,
-];
-export var DescribeDBSecurityGroups$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBSGes,
-  0,
-  () => DescribeDBSecurityGroupsMessage$,
-  () => DBSecurityGroupMessage$,
-];
-export var DescribeDBShardGroups$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBSGesc,
-  0,
-  () => DescribeDBShardGroupsMessage$,
-  () => DescribeDBShardGroupsResponse$,
-];
-export var DescribeDBSnapshotAttributes$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBSA,
-  0,
-  () => DescribeDBSnapshotAttributesMessage$,
-  () => DescribeDBSnapshotAttributesResult$,
-];
-export var DescribeDBSnapshots$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBSe,
-  0,
-  () => DescribeDBSnapshotsMessage$,
-  () => DBSnapshotMessage$,
-];
-export var DescribeDBSnapshotTenantDatabases$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBSTD,
-  0,
-  () => DescribeDBSnapshotTenantDatabasesMessage$,
-  () => DBSnapshotTenantDatabasesMessage$,
-];
-export var DescribeDBSubnetGroups$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBSGescr,
-  0,
-  () => DescribeDBSubnetGroupsMessage$,
-  () => DBSubnetGroupMessage$,
-];
-export var DescribeEngineDefaultClusterParameters$: StaticOperationSchema = [
-  9,
-  n0,
-  _DEDCP,
-  0,
-  () => DescribeEngineDefaultClusterParametersMessage$,
-  () => DescribeEngineDefaultClusterParametersResult$,
-];
-export var DescribeEngineDefaultParameters$: StaticOperationSchema = [
-  9,
-  n0,
-  _DEDP,
-  0,
-  () => DescribeEngineDefaultParametersMessage$,
-  () => DescribeEngineDefaultParametersResult$,
-];
-export var DescribeEventCategories$: StaticOperationSchema = [
-  9,
-  n0,
-  _DEC,
-  0,
-  () => DescribeEventCategoriesMessage$,
-  () => EventCategoriesMessage$,
-];
-export var DescribeEvents$: StaticOperationSchema = [9, n0, _DE, 0, () => DescribeEventsMessage$, () => EventsMessage$];
-export var DescribeEventSubscriptions$: StaticOperationSchema = [
-  9,
-  n0,
-  _DESe,
-  0,
-  () => DescribeEventSubscriptionsMessage$,
-  () => EventSubscriptionsMessage$,
-];
-export var DescribeExportTasks$: StaticOperationSchema = [
-  9,
-  n0,
-  _DET,
-  0,
-  () => DescribeExportTasksMessage$,
-  () => ExportTasksMessage$,
-];
-export var DescribeGlobalClusters$: StaticOperationSchema = [
-  9,
-  n0,
-  _DGCe,
-  0,
-  () => DescribeGlobalClustersMessage$,
-  () => GlobalClustersMessage$,
-];
-export var DescribeIntegrations$: StaticOperationSchema = [
-  9,
-  n0,
-  _DIes,
-  0,
-  () => DescribeIntegrationsMessage$,
-  () => DescribeIntegrationsResponse$,
-];
-export var DescribeOptionGroupOptions$: StaticOperationSchema = [
-  9,
-  n0,
-  _DOGO,
-  0,
-  () => DescribeOptionGroupOptionsMessage$,
-  () => OptionGroupOptionsMessage$,
-];
-export var DescribeOptionGroups$: StaticOperationSchema = [
-  9,
-  n0,
-  _DOGe,
-  0,
-  () => DescribeOptionGroupsMessage$,
-  () => OptionGroups$,
-];
-export var DescribeOrderableDBInstanceOptions$: StaticOperationSchema = [
-  9,
-  n0,
-  _DODBIO,
-  0,
-  () => DescribeOrderableDBInstanceOptionsMessage$,
-  () => OrderableDBInstanceOptionsMessage$,
-];
-export var DescribePendingMaintenanceActions$: StaticOperationSchema = [
-  9,
-  n0,
-  _DPMA,
-  0,
-  () => DescribePendingMaintenanceActionsMessage$,
-  () => PendingMaintenanceActionsMessage$,
-];
-export var DescribeReservedDBInstances$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRDBI,
-  0,
-  () => DescribeReservedDBInstancesMessage$,
-  () => ReservedDBInstanceMessage$,
-];
-export var DescribeReservedDBInstancesOfferings$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRDBIO,
-  0,
-  () => DescribeReservedDBInstancesOfferingsMessage$,
-  () => ReservedDBInstancesOfferingMessage$,
-];
-export var DescribeSourceRegions$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSR,
-  0,
-  () => DescribeSourceRegionsMessage$,
-  () => SourceRegionMessage$,
-];
-export var DescribeTenantDatabases$: StaticOperationSchema = [
-  9,
-  n0,
-  _DTDe,
-  0,
-  () => DescribeTenantDatabasesMessage$,
-  () => TenantDatabasesMessage$,
-];
-export var DescribeValidDBInstanceModifications$: StaticOperationSchema = [
-  9,
-  n0,
-  _DVDBIM,
-  0,
-  () => DescribeValidDBInstanceModificationsMessage$,
-  () => DescribeValidDBInstanceModificationsResult$,
-];
-export var DisableHttpEndpoint$: StaticOperationSchema = [
-  9,
-  n0,
-  _DHE,
-  0,
-  () => DisableHttpEndpointRequest$,
-  () => DisableHttpEndpointResponse$,
-];
-export var DownloadDBLogFilePortion$: StaticOperationSchema = [
-  9,
-  n0,
-  _DDBLFP,
-  0,
-  () => DownloadDBLogFilePortionMessage$,
-  () => DownloadDBLogFilePortionDetails$,
-];
-export var EnableHttpEndpoint$: StaticOperationSchema = [
-  9,
-  n0,
-  _EHE,
-  0,
-  () => EnableHttpEndpointRequest$,
-  () => EnableHttpEndpointResponse$,
-];
-export var FailoverDBCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _FDBC,
-  0,
-  () => FailoverDBClusterMessage$,
-  () => FailoverDBClusterResult$,
-];
-export var FailoverGlobalCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _FGC,
-  0,
-  () => FailoverGlobalClusterMessage$,
-  () => FailoverGlobalClusterResult$,
-];
-export var ListTagsForResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  0,
-  () => ListTagsForResourceMessage$,
-  () => TagListMessage$,
-];
-export var ModifyActivityStream$: StaticOperationSchema = [
-  9,
-  n0,
-  _MASo,
-  0,
-  () => ModifyActivityStreamRequest$,
-  () => ModifyActivityStreamResponse$,
-];
-export var ModifyCertificates$: StaticOperationSchema = [
-  9,
-  n0,
-  _MCo,
-  0,
-  () => ModifyCertificatesMessage$,
-  () => ModifyCertificatesResult$,
-];
-export var ModifyCurrentDBClusterCapacity$: StaticOperationSchema = [
-  9,
-  n0,
-  _MCDBCC,
-  0,
-  () => ModifyCurrentDBClusterCapacityMessage$,
-  () => DBClusterCapacityInfo$,
-];
-export var ModifyCustomDBEngineVersion$: StaticOperationSchema = [
-  9,
-  n0,
-  _MCDBEV,
-  0,
-  () => ModifyCustomDBEngineVersionMessage$,
-  () => DBEngineVersion$,
-];
-export var ModifyDBCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _MDBC,
-  0,
-  () => ModifyDBClusterMessage$,
-  () => ModifyDBClusterResult$,
-];
-export var ModifyDBClusterEndpoint$: StaticOperationSchema = [
-  9,
-  n0,
-  _MDBCE,
-  0,
-  () => ModifyDBClusterEndpointMessage$,
-  () => DBClusterEndpoint$,
-];
-export var ModifyDBClusterParameterGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _MDBCPG,
-  0,
-  () => ModifyDBClusterParameterGroupMessage$,
-  () => DBClusterParameterGroupNameMessage$,
-];
-export var ModifyDBClusterSnapshotAttribute$: StaticOperationSchema = [
-  9,
-  n0,
-  _MDBCSA,
-  0,
-  () => ModifyDBClusterSnapshotAttributeMessage$,
-  () => ModifyDBClusterSnapshotAttributeResult$,
-];
-export var ModifyDBInstance$: StaticOperationSchema = [
-  9,
-  n0,
-  _MDBI,
-  0,
-  () => ModifyDBInstanceMessage$,
-  () => ModifyDBInstanceResult$,
-];
-export var ModifyDBParameterGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _MDBPG,
-  0,
-  () => ModifyDBParameterGroupMessage$,
-  () => DBParameterGroupNameMessage$,
-];
-export var ModifyDBProxy$: StaticOperationSchema = [
-  9,
-  n0,
-  _MDBP,
-  0,
-  () => ModifyDBProxyRequest$,
-  () => ModifyDBProxyResponse$,
-];
-export var ModifyDBProxyEndpoint$: StaticOperationSchema = [
-  9,
-  n0,
-  _MDBPE,
-  0,
-  () => ModifyDBProxyEndpointRequest$,
-  () => ModifyDBProxyEndpointResponse$,
-];
-export var ModifyDBProxyTargetGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _MDBPTG,
-  0,
-  () => ModifyDBProxyTargetGroupRequest$,
-  () => ModifyDBProxyTargetGroupResponse$,
-];
-export var ModifyDBRecommendation$: StaticOperationSchema = [
-  9,
-  n0,
-  _MDBR,
-  0,
-  () => ModifyDBRecommendationMessage$,
-  () => DBRecommendationMessage$,
-];
-export var ModifyDBShardGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _MDBSG,
-  0,
-  () => ModifyDBShardGroupMessage$,
-  () => DBShardGroup$,
-];
-export var ModifyDBSnapshot$: StaticOperationSchema = [
-  9,
-  n0,
-  _MDBS,
-  0,
-  () => ModifyDBSnapshotMessage$,
-  () => ModifyDBSnapshotResult$,
-];
-export var ModifyDBSnapshotAttribute$: StaticOperationSchema = [
-  9,
-  n0,
-  _MDBSA,
-  0,
-  () => ModifyDBSnapshotAttributeMessage$,
-  () => ModifyDBSnapshotAttributeResult$,
-];
-export var ModifyDBSubnetGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _MDBSGo,
-  0,
-  () => ModifyDBSubnetGroupMessage$,
-  () => ModifyDBSubnetGroupResult$,
-];
-export var ModifyEventSubscription$: StaticOperationSchema = [
-  9,
-  n0,
-  _MES,
-  0,
-  () => ModifyEventSubscriptionMessage$,
-  () => ModifyEventSubscriptionResult$,
-];
-export var ModifyGlobalCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _MGC,
-  0,
-  () => ModifyGlobalClusterMessage$,
-  () => ModifyGlobalClusterResult$,
-];
-export var ModifyIntegration$: StaticOperationSchema = [
-  9,
-  n0,
-  _MIod,
-  0,
-  () => ModifyIntegrationMessage$,
-  () => Integration$,
-];
-export var ModifyOptionGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _MOG,
-  0,
-  () => ModifyOptionGroupMessage$,
-  () => ModifyOptionGroupResult$,
-];
-export var ModifyTenantDatabase$: StaticOperationSchema = [
-  9,
-  n0,
-  _MTD,
-  0,
-  () => ModifyTenantDatabaseMessage$,
-  () => ModifyTenantDatabaseResult$,
-];
-export var PromoteReadReplica$: StaticOperationSchema = [
-  9,
-  n0,
-  _PRR,
-  0,
-  () => PromoteReadReplicaMessage$,
-  () => PromoteReadReplicaResult$,
-];
-export var PromoteReadReplicaDBCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _PRRDBC,
-  0,
-  () => PromoteReadReplicaDBClusterMessage$,
-  () => PromoteReadReplicaDBClusterResult$,
-];
-export var PurchaseReservedDBInstancesOffering$: StaticOperationSchema = [
-  9,
-  n0,
-  _PRDBIO,
-  0,
-  () => PurchaseReservedDBInstancesOfferingMessage$,
-  () => PurchaseReservedDBInstancesOfferingResult$,
-];
-export var RebootDBCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _RDBC,
-  0,
-  () => RebootDBClusterMessage$,
-  () => RebootDBClusterResult$,
-];
-export var RebootDBInstance$: StaticOperationSchema = [
-  9,
-  n0,
-  _RDBIeb,
-  0,
-  () => RebootDBInstanceMessage$,
-  () => RebootDBInstanceResult$,
-];
-export var RebootDBShardGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _RDBSG,
-  0,
-  () => RebootDBShardGroupMessage$,
-  () => DBShardGroup$,
-];
-export var RegisterDBProxyTargets$: StaticOperationSchema = [
-  9,
-  n0,
-  _RDBPT,
-  0,
-  () => RegisterDBProxyTargetsRequest$,
-  () => RegisterDBProxyTargetsResponse$,
-];
-export var RemoveFromGlobalCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _RFGC,
-  0,
-  () => RemoveFromGlobalClusterMessage$,
-  () => RemoveFromGlobalClusterResult$,
-];
-export var RemoveRoleFromDBCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _RRFDBC,
-  0,
-  () => RemoveRoleFromDBClusterMessage$,
-  () => __Unit,
-];
-export var RemoveRoleFromDBInstance$: StaticOperationSchema = [
-  9,
-  n0,
-  _RRFDBI,
-  0,
-  () => RemoveRoleFromDBInstanceMessage$,
-  () => __Unit,
-];
-export var RemoveSourceIdentifierFromSubscription$: StaticOperationSchema = [
-  9,
-  n0,
-  _RSIFS,
-  0,
-  () => RemoveSourceIdentifierFromSubscriptionMessage$,
-  () => RemoveSourceIdentifierFromSubscriptionResult$,
-];
-export var RemoveTagsFromResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _RTFR,
-  0,
-  () => RemoveTagsFromResourceMessage$,
-  () => __Unit,
-];
-export var ResetDBClusterParameterGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _RDBCPG,
-  0,
-  () => ResetDBClusterParameterGroupMessage$,
-  () => DBClusterParameterGroupNameMessage$,
-];
-export var ResetDBParameterGroup$: StaticOperationSchema = [
-  9,
-  n0,
-  _RDBPG,
-  0,
-  () => ResetDBParameterGroupMessage$,
-  () => DBParameterGroupNameMessage$,
-];
-export var RestoreDBClusterFromS3$: StaticOperationSchema = [
-  9,
-  n0,
-  _RDBCFS,
-  0,
-  () => RestoreDBClusterFromS3Message$,
-  () => RestoreDBClusterFromS3Result$,
-];
-export var RestoreDBClusterFromSnapshot$: StaticOperationSchema = [
-  9,
-  n0,
-  _RDBCFSe,
-  0,
-  () => RestoreDBClusterFromSnapshotMessage$,
-  () => RestoreDBClusterFromSnapshotResult$,
-];
-export var RestoreDBClusterToPointInTime$: StaticOperationSchema = [
-  9,
-  n0,
-  _RDBCTPIT,
-  0,
-  () => RestoreDBClusterToPointInTimeMessage$,
-  () => RestoreDBClusterToPointInTimeResult$,
-];
-export var RestoreDBInstanceFromDBSnapshot$: StaticOperationSchema = [
-  9,
-  n0,
-  _RDBIFDBS,
-  0,
-  () => RestoreDBInstanceFromDBSnapshotMessage$,
-  () => RestoreDBInstanceFromDBSnapshotResult$,
-];
-export var RestoreDBInstanceFromS3$: StaticOperationSchema = [
-  9,
-  n0,
-  _RDBIFS,
-  0,
-  () => RestoreDBInstanceFromS3Message$,
-  () => RestoreDBInstanceFromS3Result$,
-];
-export var RestoreDBInstanceToPointInTime$: StaticOperationSchema = [
-  9,
-  n0,
-  _RDBITPIT,
-  0,
-  () => RestoreDBInstanceToPointInTimeMessage$,
-  () => RestoreDBInstanceToPointInTimeResult$,
-];
-export var RevokeDBSecurityGroupIngress$: StaticOperationSchema = [
-  9,
-  n0,
-  _RDBSGI,
-  0,
-  () => RevokeDBSecurityGroupIngressMessage$,
-  () => RevokeDBSecurityGroupIngressResult$,
-];
-export var StartActivityStream$: StaticOperationSchema = [
-  9,
-  n0,
-  _SAS,
-  0,
-  () => StartActivityStreamRequest$,
-  () => StartActivityStreamResponse$,
-];
-export var StartDBCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _SDBC,
-  0,
-  () => StartDBClusterMessage$,
-  () => StartDBClusterResult$,
-];
-export var StartDBInstance$: StaticOperationSchema = [
-  9,
-  n0,
-  _SDBI,
-  0,
-  () => StartDBInstanceMessage$,
-  () => StartDBInstanceResult$,
-];
-export var StartDBInstanceAutomatedBackupsReplication$: StaticOperationSchema = [
-  9,
-  n0,
-  _SDBIABRt,
-  0,
-  () => StartDBInstanceAutomatedBackupsReplicationMessage$,
-  () => StartDBInstanceAutomatedBackupsReplicationResult$,
-];
-export var StartExportTask$: StaticOperationSchema = [9, n0, _SET, 0, () => StartExportTaskMessage$, () => ExportTask$];
-export var StopActivityStream$: StaticOperationSchema = [
-  9,
-  n0,
-  _SASt,
-  0,
-  () => StopActivityStreamRequest$,
-  () => StopActivityStreamResponse$,
-];
-export var StopDBCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _SDBCt,
-  0,
-  () => StopDBClusterMessage$,
-  () => StopDBClusterResult$,
-];
-export var StopDBInstance$: StaticOperationSchema = [
-  9,
-  n0,
-  _SDBIt,
-  0,
-  () => StopDBInstanceMessage$,
-  () => StopDBInstanceResult$,
-];
-export var StopDBInstanceAutomatedBackupsReplication$: StaticOperationSchema = [
-  9,
-  n0,
-  _SDBIABRto,
-  0,
-  () => StopDBInstanceAutomatedBackupsReplicationMessage$,
-  () => StopDBInstanceAutomatedBackupsReplicationResult$,
-];
-export var SwitchoverBlueGreenDeployment$: StaticOperationSchema = [
-  9,
-  n0,
-  _SBGD,
-  0,
-  () => SwitchoverBlueGreenDeploymentRequest$,
-  () => SwitchoverBlueGreenDeploymentResponse$,
-];
-export var SwitchoverGlobalCluster$: StaticOperationSchema = [
-  9,
-  n0,
-  _SGC,
-  0,
-  () => SwitchoverGlobalClusterMessage$,
-  () => SwitchoverGlobalClusterResult$,
-];
-export var SwitchoverReadReplica$: StaticOperationSchema = [
-  9,
-  n0,
-  _SRRw,
-  0,
-  () => SwitchoverReadReplicaMessage$,
-  () => SwitchoverReadReplicaResult$,
+export var AddRoleToDBCluster$: StaticOperationSchema = [9, n0, _ARTDBC,
+  0, () => AddRoleToDBClusterMessage$, () => __Unit
+];
+export var AddRoleToDBInstance$: StaticOperationSchema = [9, n0, _ARTDBI,
+  0, () => AddRoleToDBInstanceMessage$, () => __Unit
+];
+export var AddSourceIdentifierToSubscription$: StaticOperationSchema = [9, n0, _ASITS,
+  0, () => AddSourceIdentifierToSubscriptionMessage$, () => AddSourceIdentifierToSubscriptionResult$
+];
+export var AddTagsToResource$: StaticOperationSchema = [9, n0, _ATTR,
+  0, () => AddTagsToResourceMessage$, () => __Unit
+];
+export var ApplyPendingMaintenanceAction$: StaticOperationSchema = [9, n0, _APMA,
+  0, () => ApplyPendingMaintenanceActionMessage$, () => ApplyPendingMaintenanceActionResult$
+];
+export var AuthorizeDBSecurityGroupIngress$: StaticOperationSchema = [9, n0, _ADBSGI,
+  0, () => AuthorizeDBSecurityGroupIngressMessage$, () => AuthorizeDBSecurityGroupIngressResult$
+];
+export var BacktrackDBCluster$: StaticOperationSchema = [9, n0, _BDBC,
+  0, () => BacktrackDBClusterMessage$, () => DBClusterBacktrack$
+];
+export var CancelExportTask$: StaticOperationSchema = [9, n0, _CETa,
+  0, () => CancelExportTaskMessage$, () => ExportTask$
+];
+export var CopyDBClusterParameterGroup$: StaticOperationSchema = [9, n0, _CDBCPG,
+  0, () => CopyDBClusterParameterGroupMessage$, () => CopyDBClusterParameterGroupResult$
+];
+export var CopyDBClusterSnapshot$: StaticOperationSchema = [9, n0, _CDBCS,
+  0, () => CopyDBClusterSnapshotMessage$, () => CopyDBClusterSnapshotResult$
+];
+export var CopyDBParameterGroup$: StaticOperationSchema = [9, n0, _CDBPG,
+  0, () => CopyDBParameterGroupMessage$, () => CopyDBParameterGroupResult$
+];
+export var CopyDBSnapshot$: StaticOperationSchema = [9, n0, _CDBS,
+  0, () => CopyDBSnapshotMessage$, () => CopyDBSnapshotResult$
+];
+export var CopyOptionGroup$: StaticOperationSchema = [9, n0, _COG,
+  0, () => CopyOptionGroupMessage$, () => CopyOptionGroupResult$
+];
+export var CreateBlueGreenDeployment$: StaticOperationSchema = [9, n0, _CBGD,
+  0, () => CreateBlueGreenDeploymentRequest$, () => CreateBlueGreenDeploymentResponse$
+];
+export var CreateCustomDBEngineVersion$: StaticOperationSchema = [9, n0, _CCDBEV,
+  0, () => CreateCustomDBEngineVersionMessage$, () => DBEngineVersion$
+];
+export var CreateDBCluster$: StaticOperationSchema = [9, n0, _CDBC,
+  0, () => CreateDBClusterMessage$, () => CreateDBClusterResult$
+];
+export var CreateDBClusterEndpoint$: StaticOperationSchema = [9, n0, _CDBCE,
+  0, () => CreateDBClusterEndpointMessage$, () => DBClusterEndpoint$
+];
+export var CreateDBClusterParameterGroup$: StaticOperationSchema = [9, n0, _CDBCPGr,
+  0, () => CreateDBClusterParameterGroupMessage$, () => CreateDBClusterParameterGroupResult$
+];
+export var CreateDBClusterSnapshot$: StaticOperationSchema = [9, n0, _CDBCSr,
+  0, () => CreateDBClusterSnapshotMessage$, () => CreateDBClusterSnapshotResult$
+];
+export var CreateDBInstance$: StaticOperationSchema = [9, n0, _CDBI,
+  0, () => CreateDBInstanceMessage$, () => CreateDBInstanceResult$
+];
+export var CreateDBInstanceReadReplica$: StaticOperationSchema = [9, n0, _CDBIRR,
+  0, () => CreateDBInstanceReadReplicaMessage$, () => CreateDBInstanceReadReplicaResult$
+];
+export var CreateDBParameterGroup$: StaticOperationSchema = [9, n0, _CDBPGr,
+  0, () => CreateDBParameterGroupMessage$, () => CreateDBParameterGroupResult$
+];
+export var CreateDBProxy$: StaticOperationSchema = [9, n0, _CDBP,
+  0, () => CreateDBProxyRequest$, () => CreateDBProxyResponse$
+];
+export var CreateDBProxyEndpoint$: StaticOperationSchema = [9, n0, _CDBPE,
+  0, () => CreateDBProxyEndpointRequest$, () => CreateDBProxyEndpointResponse$
+];
+export var CreateDBSecurityGroup$: StaticOperationSchema = [9, n0, _CDBSG,
+  0, () => CreateDBSecurityGroupMessage$, () => CreateDBSecurityGroupResult$
+];
+export var CreateDBShardGroup$: StaticOperationSchema = [9, n0, _CDBSGr,
+  0, () => CreateDBShardGroupMessage$, () => DBShardGroup$
+];
+export var CreateDBSnapshot$: StaticOperationSchema = [9, n0, _CDBSr,
+  0, () => CreateDBSnapshotMessage$, () => CreateDBSnapshotResult$
+];
+export var CreateDBSubnetGroup$: StaticOperationSchema = [9, n0, _CDBSGre,
+  0, () => CreateDBSubnetGroupMessage$, () => CreateDBSubnetGroupResult$
+];
+export var CreateEventSubscription$: StaticOperationSchema = [9, n0, _CES,
+  0, () => CreateEventSubscriptionMessage$, () => CreateEventSubscriptionResult$
+];
+export var CreateGlobalCluster$: StaticOperationSchema = [9, n0, _CGC,
+  0, () => CreateGlobalClusterMessage$, () => CreateGlobalClusterResult$
+];
+export var CreateIntegration$: StaticOperationSchema = [9, n0, _CIr,
+  0, () => CreateIntegrationMessage$, () => Integration$
+];
+export var CreateOptionGroup$: StaticOperationSchema = [9, n0, _COGr,
+  0, () => CreateOptionGroupMessage$, () => CreateOptionGroupResult$
+];
+export var CreateTenantDatabase$: StaticOperationSchema = [9, n0, _CTD,
+  0, () => CreateTenantDatabaseMessage$, () => CreateTenantDatabaseResult$
+];
+export var DeleteBlueGreenDeployment$: StaticOperationSchema = [9, n0, _DBGD,
+  0, () => DeleteBlueGreenDeploymentRequest$, () => DeleteBlueGreenDeploymentResponse$
+];
+export var DeleteCustomDBEngineVersion$: StaticOperationSchema = [9, n0, _DCDBEV,
+  0, () => DeleteCustomDBEngineVersionMessage$, () => DBEngineVersion$
+];
+export var DeleteDBCluster$: StaticOperationSchema = [9, n0, _DDBC,
+  0, () => DeleteDBClusterMessage$, () => DeleteDBClusterResult$
+];
+export var DeleteDBClusterAutomatedBackup$: StaticOperationSchema = [9, n0, _DDBCAB,
+  0, () => DeleteDBClusterAutomatedBackupMessage$, () => DeleteDBClusterAutomatedBackupResult$
+];
+export var DeleteDBClusterEndpoint$: StaticOperationSchema = [9, n0, _DDBCE,
+  0, () => DeleteDBClusterEndpointMessage$, () => DBClusterEndpoint$
+];
+export var DeleteDBClusterParameterGroup$: StaticOperationSchema = [9, n0, _DDBCPG,
+  0, () => DeleteDBClusterParameterGroupMessage$, () => __Unit
+];
+export var DeleteDBClusterSnapshot$: StaticOperationSchema = [9, n0, _DDBCS,
+  0, () => DeleteDBClusterSnapshotMessage$, () => DeleteDBClusterSnapshotResult$
+];
+export var DeleteDBInstance$: StaticOperationSchema = [9, n0, _DDBI,
+  0, () => DeleteDBInstanceMessage$, () => DeleteDBInstanceResult$
+];
+export var DeleteDBInstanceAutomatedBackup$: StaticOperationSchema = [9, n0, _DDBIAB,
+  0, () => DeleteDBInstanceAutomatedBackupMessage$, () => DeleteDBInstanceAutomatedBackupResult$
+];
+export var DeleteDBParameterGroup$: StaticOperationSchema = [9, n0, _DDBPG,
+  0, () => DeleteDBParameterGroupMessage$, () => __Unit
+];
+export var DeleteDBProxy$: StaticOperationSchema = [9, n0, _DDBP,
+  0, () => DeleteDBProxyRequest$, () => DeleteDBProxyResponse$
+];
+export var DeleteDBProxyEndpoint$: StaticOperationSchema = [9, n0, _DDBPE,
+  0, () => DeleteDBProxyEndpointRequest$, () => DeleteDBProxyEndpointResponse$
+];
+export var DeleteDBSecurityGroup$: StaticOperationSchema = [9, n0, _DDBSG,
+  0, () => DeleteDBSecurityGroupMessage$, () => __Unit
+];
+export var DeleteDBShardGroup$: StaticOperationSchema = [9, n0, _DDBSGe,
+  0, () => DeleteDBShardGroupMessage$, () => DBShardGroup$
+];
+export var DeleteDBSnapshot$: StaticOperationSchema = [9, n0, _DDBS,
+  0, () => DeleteDBSnapshotMessage$, () => DeleteDBSnapshotResult$
+];
+export var DeleteDBSubnetGroup$: StaticOperationSchema = [9, n0, _DDBSGel,
+  0, () => DeleteDBSubnetGroupMessage$, () => __Unit
+];
+export var DeleteEventSubscription$: StaticOperationSchema = [9, n0, _DES,
+  0, () => DeleteEventSubscriptionMessage$, () => DeleteEventSubscriptionResult$
+];
+export var DeleteGlobalCluster$: StaticOperationSchema = [9, n0, _DGC,
+  0, () => DeleteGlobalClusterMessage$, () => DeleteGlobalClusterResult$
+];
+export var DeleteIntegration$: StaticOperationSchema = [9, n0, _DIe,
+  0, () => DeleteIntegrationMessage$, () => Integration$
+];
+export var DeleteOptionGroup$: StaticOperationSchema = [9, n0, _DOG,
+  0, () => DeleteOptionGroupMessage$, () => __Unit
+];
+export var DeleteTenantDatabase$: StaticOperationSchema = [9, n0, _DTD,
+  0, () => DeleteTenantDatabaseMessage$, () => DeleteTenantDatabaseResult$
+];
+export var DeregisterDBProxyTargets$: StaticOperationSchema = [9, n0, _DDBPT,
+  0, () => DeregisterDBProxyTargetsRequest$, () => DeregisterDBProxyTargetsResponse$
+];
+export var DescribeAccountAttributes$: StaticOperationSchema = [9, n0, _DAA,
+  0, () => DescribeAccountAttributesMessage$, () => AccountAttributesMessage$
+];
+export var DescribeBlueGreenDeployments$: StaticOperationSchema = [9, n0, _DBGDe,
+  0, () => DescribeBlueGreenDeploymentsRequest$, () => DescribeBlueGreenDeploymentsResponse$
+];
+export var DescribeCertificates$: StaticOperationSchema = [9, n0, _DC,
+  0, () => DescribeCertificatesMessage$, () => CertificateMessage$
+];
+export var DescribeDBClusterAutomatedBackups$: StaticOperationSchema = [9, n0, _DDBCABe,
+  0, () => DescribeDBClusterAutomatedBackupsMessage$, () => DBClusterAutomatedBackupMessage$
+];
+export var DescribeDBClusterBacktracks$: StaticOperationSchema = [9, n0, _DDBCB,
+  0, () => DescribeDBClusterBacktracksMessage$, () => DBClusterBacktrackMessage$
+];
+export var DescribeDBClusterEndpoints$: StaticOperationSchema = [9, n0, _DDBCEe,
+  0, () => DescribeDBClusterEndpointsMessage$, () => DBClusterEndpointMessage$
+];
+export var DescribeDBClusterParameterGroups$: StaticOperationSchema = [9, n0, _DDBCPGe,
+  0, () => DescribeDBClusterParameterGroupsMessage$, () => DBClusterParameterGroupsMessage$
+];
+export var DescribeDBClusterParameters$: StaticOperationSchema = [9, n0, _DDBCP,
+  0, () => DescribeDBClusterParametersMessage$, () => DBClusterParameterGroupDetails$
+];
+export var DescribeDBClusters$: StaticOperationSchema = [9, n0, _DDBCe,
+  0, () => DescribeDBClustersMessage$, () => DBClusterMessage$
+];
+export var DescribeDBClusterSnapshotAttributes$: StaticOperationSchema = [9, n0, _DDBCSA,
+  0, () => DescribeDBClusterSnapshotAttributesMessage$, () => DescribeDBClusterSnapshotAttributesResult$
+];
+export var DescribeDBClusterSnapshots$: StaticOperationSchema = [9, n0, _DDBCSe,
+  0, () => DescribeDBClusterSnapshotsMessage$, () => DBClusterSnapshotMessage$
+];
+export var DescribeDBEngineVersions$: StaticOperationSchema = [9, n0, _DDBEV,
+  0, () => DescribeDBEngineVersionsMessage$, () => DBEngineVersionMessage$
+];
+export var DescribeDBInstanceAutomatedBackups$: StaticOperationSchema = [9, n0, _DDBIABe,
+  0, () => DescribeDBInstanceAutomatedBackupsMessage$, () => DBInstanceAutomatedBackupMessage$
+];
+export var DescribeDBInstances$: StaticOperationSchema = [9, n0, _DDBIe,
+  0, () => DescribeDBInstancesMessage$, () => DBInstanceMessage$
+];
+export var DescribeDBLogFiles$: StaticOperationSchema = [9, n0, _DDBLF,
+  0, () => DescribeDBLogFilesMessage$, () => DescribeDBLogFilesResponse$
+];
+export var DescribeDBMajorEngineVersions$: StaticOperationSchema = [9, n0, _DDBMEV,
+  0, () => DescribeDBMajorEngineVersionsRequest$, () => DescribeDBMajorEngineVersionsResponse$
+];
+export var DescribeDBParameterGroups$: StaticOperationSchema = [9, n0, _DDBPGe,
+  0, () => DescribeDBParameterGroupsMessage$, () => DBParameterGroupsMessage$
+];
+export var DescribeDBParameters$: StaticOperationSchema = [9, n0, _DDBPe,
+  0, () => DescribeDBParametersMessage$, () => DBParameterGroupDetails$
+];
+export var DescribeDBProxies$: StaticOperationSchema = [9, n0, _DDBPes,
+  0, () => DescribeDBProxiesRequest$, () => DescribeDBProxiesResponse$
+];
+export var DescribeDBProxyEndpoints$: StaticOperationSchema = [9, n0, _DDBPEe,
+  0, () => DescribeDBProxyEndpointsRequest$, () => DescribeDBProxyEndpointsResponse$
+];
+export var DescribeDBProxyTargetGroups$: StaticOperationSchema = [9, n0, _DDBPTG,
+  0, () => DescribeDBProxyTargetGroupsRequest$, () => DescribeDBProxyTargetGroupsResponse$
+];
+export var DescribeDBProxyTargets$: StaticOperationSchema = [9, n0, _DDBPTe,
+  0, () => DescribeDBProxyTargetsRequest$, () => DescribeDBProxyTargetsResponse$
+];
+export var DescribeDBRecommendations$: StaticOperationSchema = [9, n0, _DDBR,
+  0, () => DescribeDBRecommendationsMessage$, () => DBRecommendationsMessage$
+];
+export var DescribeDBSecurityGroups$: StaticOperationSchema = [9, n0, _DDBSGes,
+  0, () => DescribeDBSecurityGroupsMessage$, () => DBSecurityGroupMessage$
+];
+export var DescribeDBShardGroups$: StaticOperationSchema = [9, n0, _DDBSGesc,
+  0, () => DescribeDBShardGroupsMessage$, () => DescribeDBShardGroupsResponse$
+];
+export var DescribeDBSnapshotAttributes$: StaticOperationSchema = [9, n0, _DDBSA,
+  0, () => DescribeDBSnapshotAttributesMessage$, () => DescribeDBSnapshotAttributesResult$
+];
+export var DescribeDBSnapshots$: StaticOperationSchema = [9, n0, _DDBSe,
+  0, () => DescribeDBSnapshotsMessage$, () => DBSnapshotMessage$
+];
+export var DescribeDBSnapshotTenantDatabases$: StaticOperationSchema = [9, n0, _DDBSTD,
+  0, () => DescribeDBSnapshotTenantDatabasesMessage$, () => DBSnapshotTenantDatabasesMessage$
+];
+export var DescribeDBSubnetGroups$: StaticOperationSchema = [9, n0, _DDBSGescr,
+  0, () => DescribeDBSubnetGroupsMessage$, () => DBSubnetGroupMessage$
+];
+export var DescribeEngineDefaultClusterParameters$: StaticOperationSchema = [9, n0, _DEDCP,
+  0, () => DescribeEngineDefaultClusterParametersMessage$, () => DescribeEngineDefaultClusterParametersResult$
+];
+export var DescribeEngineDefaultParameters$: StaticOperationSchema = [9, n0, _DEDP,
+  0, () => DescribeEngineDefaultParametersMessage$, () => DescribeEngineDefaultParametersResult$
+];
+export var DescribeEventCategories$: StaticOperationSchema = [9, n0, _DEC,
+  0, () => DescribeEventCategoriesMessage$, () => EventCategoriesMessage$
+];
+export var DescribeEvents$: StaticOperationSchema = [9, n0, _DE,
+  0, () => DescribeEventsMessage$, () => EventsMessage$
+];
+export var DescribeEventSubscriptions$: StaticOperationSchema = [9, n0, _DESe,
+  0, () => DescribeEventSubscriptionsMessage$, () => EventSubscriptionsMessage$
+];
+export var DescribeExportTasks$: StaticOperationSchema = [9, n0, _DET,
+  0, () => DescribeExportTasksMessage$, () => ExportTasksMessage$
+];
+export var DescribeGlobalClusters$: StaticOperationSchema = [9, n0, _DGCe,
+  0, () => DescribeGlobalClustersMessage$, () => GlobalClustersMessage$
+];
+export var DescribeIntegrations$: StaticOperationSchema = [9, n0, _DIes,
+  0, () => DescribeIntegrationsMessage$, () => DescribeIntegrationsResponse$
+];
+export var DescribeOptionGroupOptions$: StaticOperationSchema = [9, n0, _DOGO,
+  0, () => DescribeOptionGroupOptionsMessage$, () => OptionGroupOptionsMessage$
+];
+export var DescribeOptionGroups$: StaticOperationSchema = [9, n0, _DOGe,
+  0, () => DescribeOptionGroupsMessage$, () => OptionGroups$
+];
+export var DescribeOrderableDBInstanceOptions$: StaticOperationSchema = [9, n0, _DODBIO,
+  0, () => DescribeOrderableDBInstanceOptionsMessage$, () => OrderableDBInstanceOptionsMessage$
+];
+export var DescribePendingMaintenanceActions$: StaticOperationSchema = [9, n0, _DPMA,
+  0, () => DescribePendingMaintenanceActionsMessage$, () => PendingMaintenanceActionsMessage$
+];
+export var DescribeReservedDBInstances$: StaticOperationSchema = [9, n0, _DRDBI,
+  0, () => DescribeReservedDBInstancesMessage$, () => ReservedDBInstanceMessage$
+];
+export var DescribeReservedDBInstancesOfferings$: StaticOperationSchema = [9, n0, _DRDBIO,
+  0, () => DescribeReservedDBInstancesOfferingsMessage$, () => ReservedDBInstancesOfferingMessage$
+];
+export var DescribeSourceRegions$: StaticOperationSchema = [9, n0, _DSR,
+  0, () => DescribeSourceRegionsMessage$, () => SourceRegionMessage$
+];
+export var DescribeTenantDatabases$: StaticOperationSchema = [9, n0, _DTDe,
+  0, () => DescribeTenantDatabasesMessage$, () => TenantDatabasesMessage$
+];
+export var DescribeValidDBInstanceModifications$: StaticOperationSchema = [9, n0, _DVDBIM,
+  0, () => DescribeValidDBInstanceModificationsMessage$, () => DescribeValidDBInstanceModificationsResult$
+];
+export var DisableHttpEndpoint$: StaticOperationSchema = [9, n0, _DHE,
+  0, () => DisableHttpEndpointRequest$, () => DisableHttpEndpointResponse$
+];
+export var DownloadDBLogFilePortion$: StaticOperationSchema = [9, n0, _DDBLFP,
+  0, () => DownloadDBLogFilePortionMessage$, () => DownloadDBLogFilePortionDetails$
+];
+export var EnableHttpEndpoint$: StaticOperationSchema = [9, n0, _EHE,
+  0, () => EnableHttpEndpointRequest$, () => EnableHttpEndpointResponse$
+];
+export var FailoverDBCluster$: StaticOperationSchema = [9, n0, _FDBC,
+  0, () => FailoverDBClusterMessage$, () => FailoverDBClusterResult$
+];
+export var FailoverGlobalCluster$: StaticOperationSchema = [9, n0, _FGC,
+  0, () => FailoverGlobalClusterMessage$, () => FailoverGlobalClusterResult$
+];
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  0, () => ListTagsForResourceMessage$, () => TagListMessage$
+];
+export var ModifyActivityStream$: StaticOperationSchema = [9, n0, _MASo,
+  0, () => ModifyActivityStreamRequest$, () => ModifyActivityStreamResponse$
+];
+export var ModifyCertificates$: StaticOperationSchema = [9, n0, _MCo,
+  0, () => ModifyCertificatesMessage$, () => ModifyCertificatesResult$
+];
+export var ModifyCurrentDBClusterCapacity$: StaticOperationSchema = [9, n0, _MCDBCC,
+  0, () => ModifyCurrentDBClusterCapacityMessage$, () => DBClusterCapacityInfo$
+];
+export var ModifyCustomDBEngineVersion$: StaticOperationSchema = [9, n0, _MCDBEV,
+  0, () => ModifyCustomDBEngineVersionMessage$, () => DBEngineVersion$
+];
+export var ModifyDBCluster$: StaticOperationSchema = [9, n0, _MDBC,
+  0, () => ModifyDBClusterMessage$, () => ModifyDBClusterResult$
+];
+export var ModifyDBClusterEndpoint$: StaticOperationSchema = [9, n0, _MDBCE,
+  0, () => ModifyDBClusterEndpointMessage$, () => DBClusterEndpoint$
+];
+export var ModifyDBClusterParameterGroup$: StaticOperationSchema = [9, n0, _MDBCPG,
+  0, () => ModifyDBClusterParameterGroupMessage$, () => DBClusterParameterGroupNameMessage$
+];
+export var ModifyDBClusterSnapshotAttribute$: StaticOperationSchema = [9, n0, _MDBCSA,
+  0, () => ModifyDBClusterSnapshotAttributeMessage$, () => ModifyDBClusterSnapshotAttributeResult$
+];
+export var ModifyDBInstance$: StaticOperationSchema = [9, n0, _MDBI,
+  0, () => ModifyDBInstanceMessage$, () => ModifyDBInstanceResult$
+];
+export var ModifyDBParameterGroup$: StaticOperationSchema = [9, n0, _MDBPG,
+  0, () => ModifyDBParameterGroupMessage$, () => DBParameterGroupNameMessage$
+];
+export var ModifyDBProxy$: StaticOperationSchema = [9, n0, _MDBP,
+  0, () => ModifyDBProxyRequest$, () => ModifyDBProxyResponse$
+];
+export var ModifyDBProxyEndpoint$: StaticOperationSchema = [9, n0, _MDBPE,
+  0, () => ModifyDBProxyEndpointRequest$, () => ModifyDBProxyEndpointResponse$
+];
+export var ModifyDBProxyTargetGroup$: StaticOperationSchema = [9, n0, _MDBPTG,
+  0, () => ModifyDBProxyTargetGroupRequest$, () => ModifyDBProxyTargetGroupResponse$
+];
+export var ModifyDBRecommendation$: StaticOperationSchema = [9, n0, _MDBR,
+  0, () => ModifyDBRecommendationMessage$, () => DBRecommendationMessage$
+];
+export var ModifyDBShardGroup$: StaticOperationSchema = [9, n0, _MDBSG,
+  0, () => ModifyDBShardGroupMessage$, () => DBShardGroup$
+];
+export var ModifyDBSnapshot$: StaticOperationSchema = [9, n0, _MDBS,
+  0, () => ModifyDBSnapshotMessage$, () => ModifyDBSnapshotResult$
+];
+export var ModifyDBSnapshotAttribute$: StaticOperationSchema = [9, n0, _MDBSA,
+  0, () => ModifyDBSnapshotAttributeMessage$, () => ModifyDBSnapshotAttributeResult$
+];
+export var ModifyDBSubnetGroup$: StaticOperationSchema = [9, n0, _MDBSGo,
+  0, () => ModifyDBSubnetGroupMessage$, () => ModifyDBSubnetGroupResult$
+];
+export var ModifyEventSubscription$: StaticOperationSchema = [9, n0, _MES,
+  0, () => ModifyEventSubscriptionMessage$, () => ModifyEventSubscriptionResult$
+];
+export var ModifyGlobalCluster$: StaticOperationSchema = [9, n0, _MGC,
+  0, () => ModifyGlobalClusterMessage$, () => ModifyGlobalClusterResult$
+];
+export var ModifyIntegration$: StaticOperationSchema = [9, n0, _MIod,
+  0, () => ModifyIntegrationMessage$, () => Integration$
+];
+export var ModifyOptionGroup$: StaticOperationSchema = [9, n0, _MOG,
+  0, () => ModifyOptionGroupMessage$, () => ModifyOptionGroupResult$
+];
+export var ModifyTenantDatabase$: StaticOperationSchema = [9, n0, _MTD,
+  0, () => ModifyTenantDatabaseMessage$, () => ModifyTenantDatabaseResult$
+];
+export var PromoteReadReplica$: StaticOperationSchema = [9, n0, _PRR,
+  0, () => PromoteReadReplicaMessage$, () => PromoteReadReplicaResult$
+];
+export var PromoteReadReplicaDBCluster$: StaticOperationSchema = [9, n0, _PRRDBC,
+  0, () => PromoteReadReplicaDBClusterMessage$, () => PromoteReadReplicaDBClusterResult$
+];
+export var PurchaseReservedDBInstancesOffering$: StaticOperationSchema = [9, n0, _PRDBIO,
+  0, () => PurchaseReservedDBInstancesOfferingMessage$, () => PurchaseReservedDBInstancesOfferingResult$
+];
+export var RebootDBCluster$: StaticOperationSchema = [9, n0, _RDBC,
+  0, () => RebootDBClusterMessage$, () => RebootDBClusterResult$
+];
+export var RebootDBInstance$: StaticOperationSchema = [9, n0, _RDBIeb,
+  0, () => RebootDBInstanceMessage$, () => RebootDBInstanceResult$
+];
+export var RebootDBShardGroup$: StaticOperationSchema = [9, n0, _RDBSG,
+  0, () => RebootDBShardGroupMessage$, () => DBShardGroup$
+];
+export var RegisterDBProxyTargets$: StaticOperationSchema = [9, n0, _RDBPT,
+  0, () => RegisterDBProxyTargetsRequest$, () => RegisterDBProxyTargetsResponse$
+];
+export var RemoveFromGlobalCluster$: StaticOperationSchema = [9, n0, _RFGC,
+  0, () => RemoveFromGlobalClusterMessage$, () => RemoveFromGlobalClusterResult$
+];
+export var RemoveRoleFromDBCluster$: StaticOperationSchema = [9, n0, _RRFDBC,
+  0, () => RemoveRoleFromDBClusterMessage$, () => __Unit
+];
+export var RemoveRoleFromDBInstance$: StaticOperationSchema = [9, n0, _RRFDBI,
+  0, () => RemoveRoleFromDBInstanceMessage$, () => __Unit
+];
+export var RemoveSourceIdentifierFromSubscription$: StaticOperationSchema = [9, n0, _RSIFS,
+  0, () => RemoveSourceIdentifierFromSubscriptionMessage$, () => RemoveSourceIdentifierFromSubscriptionResult$
+];
+export var RemoveTagsFromResource$: StaticOperationSchema = [9, n0, _RTFR,
+  0, () => RemoveTagsFromResourceMessage$, () => __Unit
+];
+export var ResetDBClusterParameterGroup$: StaticOperationSchema = [9, n0, _RDBCPG,
+  0, () => ResetDBClusterParameterGroupMessage$, () => DBClusterParameterGroupNameMessage$
+];
+export var ResetDBParameterGroup$: StaticOperationSchema = [9, n0, _RDBPG,
+  0, () => ResetDBParameterGroupMessage$, () => DBParameterGroupNameMessage$
+];
+export var RestoreDBClusterFromS3$: StaticOperationSchema = [9, n0, _RDBCFS,
+  0, () => RestoreDBClusterFromS3Message$, () => RestoreDBClusterFromS3Result$
+];
+export var RestoreDBClusterFromSnapshot$: StaticOperationSchema = [9, n0, _RDBCFSe,
+  0, () => RestoreDBClusterFromSnapshotMessage$, () => RestoreDBClusterFromSnapshotResult$
+];
+export var RestoreDBClusterToPointInTime$: StaticOperationSchema = [9, n0, _RDBCTPIT,
+  0, () => RestoreDBClusterToPointInTimeMessage$, () => RestoreDBClusterToPointInTimeResult$
+];
+export var RestoreDBInstanceFromDBSnapshot$: StaticOperationSchema = [9, n0, _RDBIFDBS,
+  0, () => RestoreDBInstanceFromDBSnapshotMessage$, () => RestoreDBInstanceFromDBSnapshotResult$
+];
+export var RestoreDBInstanceFromS3$: StaticOperationSchema = [9, n0, _RDBIFS,
+  0, () => RestoreDBInstanceFromS3Message$, () => RestoreDBInstanceFromS3Result$
+];
+export var RestoreDBInstanceToPointInTime$: StaticOperationSchema = [9, n0, _RDBITPIT,
+  0, () => RestoreDBInstanceToPointInTimeMessage$, () => RestoreDBInstanceToPointInTimeResult$
+];
+export var RevokeDBSecurityGroupIngress$: StaticOperationSchema = [9, n0, _RDBSGI,
+  0, () => RevokeDBSecurityGroupIngressMessage$, () => RevokeDBSecurityGroupIngressResult$
+];
+export var StartActivityStream$: StaticOperationSchema = [9, n0, _SAS,
+  0, () => StartActivityStreamRequest$, () => StartActivityStreamResponse$
+];
+export var StartDBCluster$: StaticOperationSchema = [9, n0, _SDBC,
+  0, () => StartDBClusterMessage$, () => StartDBClusterResult$
+];
+export var StartDBInstance$: StaticOperationSchema = [9, n0, _SDBI,
+  0, () => StartDBInstanceMessage$, () => StartDBInstanceResult$
+];
+export var StartDBInstanceAutomatedBackupsReplication$: StaticOperationSchema = [9, n0, _SDBIABRt,
+  0, () => StartDBInstanceAutomatedBackupsReplicationMessage$, () => StartDBInstanceAutomatedBackupsReplicationResult$
+];
+export var StartExportTask$: StaticOperationSchema = [9, n0, _SET,
+  0, () => StartExportTaskMessage$, () => ExportTask$
+];
+export var StopActivityStream$: StaticOperationSchema = [9, n0, _SASt,
+  0, () => StopActivityStreamRequest$, () => StopActivityStreamResponse$
+];
+export var StopDBCluster$: StaticOperationSchema = [9, n0, _SDBCt,
+  0, () => StopDBClusterMessage$, () => StopDBClusterResult$
+];
+export var StopDBInstance$: StaticOperationSchema = [9, n0, _SDBIt,
+  0, () => StopDBInstanceMessage$, () => StopDBInstanceResult$
+];
+export var StopDBInstanceAutomatedBackupsReplication$: StaticOperationSchema = [9, n0, _SDBIABRto,
+  0, () => StopDBInstanceAutomatedBackupsReplicationMessage$, () => StopDBInstanceAutomatedBackupsReplicationResult$
+];
+export var SwitchoverBlueGreenDeployment$: StaticOperationSchema = [9, n0, _SBGD,
+  0, () => SwitchoverBlueGreenDeploymentRequest$, () => SwitchoverBlueGreenDeploymentResponse$
+];
+export var SwitchoverGlobalCluster$: StaticOperationSchema = [9, n0, _SGC,
+  0, () => SwitchoverGlobalClusterMessage$, () => SwitchoverGlobalClusterResult$
+];
+export var SwitchoverReadReplica$: StaticOperationSchema = [9, n0, _SRRw,
+  0, () => SwitchoverReadReplicaMessage$, () => SwitchoverReadReplicaResult$
 ];

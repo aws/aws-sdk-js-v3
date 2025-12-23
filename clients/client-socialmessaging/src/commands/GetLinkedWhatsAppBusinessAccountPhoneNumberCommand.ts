@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link GetLinkedWhatsAppBusinessAccountPhoneNumberCommand}.
  */
-export interface GetLinkedWhatsAppBusinessAccountPhoneNumberCommandInput
-  extends GetLinkedWhatsAppBusinessAccountPhoneNumberInput {}
+export interface GetLinkedWhatsAppBusinessAccountPhoneNumberCommandInput extends GetLinkedWhatsAppBusinessAccountPhoneNumberInput {}
 /**
  * @public
  *
  * The output of {@link GetLinkedWhatsAppBusinessAccountPhoneNumberCommand}.
  */
-export interface GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput
-  extends GetLinkedWhatsAppBusinessAccountPhoneNumberOutput,
-    __MetadataBearer {}
+export interface GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput extends GetLinkedWhatsAppBusinessAccountPhoneNumberOutput, __MetadataBearer {}
 
 /**
  * <p>Use your WhatsApp phone number id to get the WABA account id and phone number

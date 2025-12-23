@@ -24,9 +24,7 @@ export interface StartDeleteMonitorDeploymentCommandInput extends StartDeleteMon
  *
  * The output of {@link StartDeleteMonitorDeploymentCommand}.
  */
-export interface StartDeleteMonitorDeploymentCommandOutput
-  extends StartDeleteMonitorDeploymentResponse,
-    __MetadataBearer {}
+export interface StartDeleteMonitorDeploymentCommandOutput extends StartDeleteMonitorDeploymentResponse, __MetadataBearer {}
 
 /**
  * Initiates a deployment to delete the monitor of the specified signal map.

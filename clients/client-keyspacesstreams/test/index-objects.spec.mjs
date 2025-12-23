@@ -1,4 +1,6 @@
 import {
+  _Record$,
+  _Stream$,
   AccessDeniedException,
   AccessDeniedException$,
   GetRecords$,
@@ -28,6 +30,8 @@ import {
   ListStreamsInput$,
   ListStreamsOutput$,
   OriginType,
+  paginateGetStream,
+  paginateListStreams,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   SequenceNumberRange$,
@@ -42,10 +46,6 @@ import {
   ValidationException,
   ValidationException$,
   ValidationExceptionType,
-  _Record$,
-  _Stream$,
-  paginateGetStream,
-  paginateListStreams,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

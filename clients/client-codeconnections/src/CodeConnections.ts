@@ -166,8 +166,14 @@ export interface CodeConnections {
   /**
    * @see {@link CreateHostCommand}
    */
-  createHost(args: CreateHostCommandInput, options?: __HttpHandlerOptions): Promise<CreateHostCommandOutput>;
-  createHost(args: CreateHostCommandInput, cb: (err: any, data?: CreateHostCommandOutput) => void): void;
+  createHost(
+    args: CreateHostCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateHostCommandOutput>;
+  createHost(
+    args: CreateHostCommandInput,
+    cb: (err: any, data?: CreateHostCommandOutput) => void
+  ): void;
   createHost(
     args: CreateHostCommandInput,
     options: __HttpHandlerOptions,
@@ -228,8 +234,14 @@ export interface CodeConnections {
   /**
    * @see {@link DeleteHostCommand}
    */
-  deleteHost(args: DeleteHostCommandInput, options?: __HttpHandlerOptions): Promise<DeleteHostCommandOutput>;
-  deleteHost(args: DeleteHostCommandInput, cb: (err: any, data?: DeleteHostCommandOutput) => void): void;
+  deleteHost(
+    args: DeleteHostCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteHostCommandOutput>;
+  deleteHost(
+    args: DeleteHostCommandInput,
+    cb: (err: any, data?: DeleteHostCommandOutput) => void
+  ): void;
   deleteHost(
     args: DeleteHostCommandInput,
     options: __HttpHandlerOptions,
@@ -273,8 +285,14 @@ export interface CodeConnections {
   /**
    * @see {@link GetConnectionCommand}
    */
-  getConnection(args: GetConnectionCommandInput, options?: __HttpHandlerOptions): Promise<GetConnectionCommandOutput>;
-  getConnection(args: GetConnectionCommandInput, cb: (err: any, data?: GetConnectionCommandOutput) => void): void;
+  getConnection(
+    args: GetConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectionCommandOutput>;
+  getConnection(
+    args: GetConnectionCommandInput,
+    cb: (err: any, data?: GetConnectionCommandOutput) => void
+  ): void;
   getConnection(
     args: GetConnectionCommandInput,
     options: __HttpHandlerOptions,
@@ -284,8 +302,14 @@ export interface CodeConnections {
   /**
    * @see {@link GetHostCommand}
    */
-  getHost(args: GetHostCommandInput, options?: __HttpHandlerOptions): Promise<GetHostCommandOutput>;
-  getHost(args: GetHostCommandInput, cb: (err: any, data?: GetHostCommandOutput) => void): void;
+  getHost(
+    args: GetHostCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetHostCommandOutput>;
+  getHost(
+    args: GetHostCommandInput,
+    cb: (err: any, data?: GetHostCommandOutput) => void
+  ): void;
   getHost(
     args: GetHostCommandInput,
     options: __HttpHandlerOptions,
@@ -385,7 +409,10 @@ export interface CodeConnections {
     args: ListConnectionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListConnectionsCommandOutput>;
-  listConnections(args: ListConnectionsCommandInput, cb: (err: any, data?: ListConnectionsCommandOutput) => void): void;
+  listConnections(
+    args: ListConnectionsCommandInput,
+    cb: (err: any, data?: ListConnectionsCommandOutput) => void
+  ): void;
   listConnections(
     args: ListConnectionsCommandInput,
     options: __HttpHandlerOptions,
@@ -396,8 +423,14 @@ export interface CodeConnections {
    * @see {@link ListHostsCommand}
    */
   listHosts(): Promise<ListHostsCommandOutput>;
-  listHosts(args: ListHostsCommandInput, options?: __HttpHandlerOptions): Promise<ListHostsCommandOutput>;
-  listHosts(args: ListHostsCommandInput, cb: (err: any, data?: ListHostsCommandOutput) => void): void;
+  listHosts(
+    args: ListHostsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHostsCommandOutput>;
+  listHosts(
+    args: ListHostsCommandInput,
+    cb: (err: any, data?: ListHostsCommandOutput) => void
+  ): void;
   listHosts(
     args: ListHostsCommandInput,
     options: __HttpHandlerOptions,
@@ -476,8 +509,14 @@ export interface CodeConnections {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -487,8 +526,14 @@ export interface CodeConnections {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -498,8 +543,14 @@ export interface CodeConnections {
   /**
    * @see {@link UpdateHostCommand}
    */
-  updateHost(args: UpdateHostCommandInput, options?: __HttpHandlerOptions): Promise<UpdateHostCommandOutput>;
-  updateHost(args: UpdateHostCommandInput, cb: (err: any, data?: UpdateHostCommandOutput) => void): void;
+  updateHost(
+    args: UpdateHostCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateHostCommandOutput>;
+  updateHost(
+    args: UpdateHostCommandInput,
+    cb: (err: any, data?: UpdateHostCommandOutput) => void
+  ): void;
   updateHost(
     args: UpdateHostCommandInput,
     options: __HttpHandlerOptions,

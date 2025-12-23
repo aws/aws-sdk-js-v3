@@ -24,9 +24,7 @@ export interface DeleteNetworkInsightsAnalysisCommandInput extends DeleteNetwork
  *
  * The output of {@link DeleteNetworkInsightsAnalysisCommand}.
  */
-export interface DeleteNetworkInsightsAnalysisCommandOutput
-  extends DeleteNetworkInsightsAnalysisResult,
-    __MetadataBearer {}
+export interface DeleteNetworkInsightsAnalysisCommandOutput extends DeleteNetworkInsightsAnalysisResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified network insights analysis.</p>

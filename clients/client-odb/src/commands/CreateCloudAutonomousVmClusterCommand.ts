@@ -24,9 +24,7 @@ export interface CreateCloudAutonomousVmClusterCommandInput extends CreateCloudA
  *
  * The output of {@link CreateCloudAutonomousVmClusterCommand}.
  */
-export interface CreateCloudAutonomousVmClusterCommandOutput
-  extends CreateCloudAutonomousVmClusterOutput,
-    __MetadataBearer {}
+export interface CreateCloudAutonomousVmClusterCommandOutput extends CreateCloudAutonomousVmClusterOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new Autonomous VM cluster in the specified Exadata infrastructure.</p>

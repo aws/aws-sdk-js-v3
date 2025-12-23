@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListFunctionVersionsByCapacityProviderCommand}.
  */
-export interface ListFunctionVersionsByCapacityProviderCommandInput
-  extends ListFunctionVersionsByCapacityProviderRequest {}
+export interface ListFunctionVersionsByCapacityProviderCommandInput extends ListFunctionVersionsByCapacityProviderRequest {}
 /**
  * @public
  *
  * The output of {@link ListFunctionVersionsByCapacityProviderCommand}.
  */
-export interface ListFunctionVersionsByCapacityProviderCommandOutput
-  extends ListFunctionVersionsByCapacityProviderResponse,
-    __MetadataBearer {}
+export interface ListFunctionVersionsByCapacityProviderCommandOutput extends ListFunctionVersionsByCapacityProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of function versions that are configured to use a specific capacity provider.</p>

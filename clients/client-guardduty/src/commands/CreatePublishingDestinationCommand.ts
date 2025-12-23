@@ -24,9 +24,7 @@ export interface CreatePublishingDestinationCommandInput extends CreatePublishin
  *
  * The output of {@link CreatePublishingDestinationCommand}.
  */
-export interface CreatePublishingDestinationCommandOutput
-  extends CreatePublishingDestinationResponse,
-    __MetadataBearer {}
+export interface CreatePublishingDestinationCommandOutput extends CreatePublishingDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a publishing destination where you can export your GuardDuty findings. Before you start exporting the

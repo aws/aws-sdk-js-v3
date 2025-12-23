@@ -9,8 +9,8 @@ import {
   OperationOutput as __OperationOutput,
   OperationSerializer as __OperationSerializer,
   SerializationException as __SerializationException,
-  ServerSerdeContext as __ServerSerdeContext,
   ServerSerdeContext,
+  ServerSerdeContext as __ServerSerdeContext,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
   SmithyFrameworkException as __SmithyFrameworkException,
@@ -30,60 +30,46 @@ import {
 } from "../../protocols/Aws_restJson1";
 import { RestJsonService } from "../RestJsonService";
 
-export type HttpChecksumRequired<Context> = __Operation<
-  HttpChecksumRequiredServerInput,
-  HttpChecksumRequiredServerOutput,
-  Context
->;
+export type HttpChecksumRequired<Context> = __Operation<HttpChecksumRequiredServerInput, HttpChecksumRequiredServerOutput, Context>
 
 export interface HttpChecksumRequiredServerInput extends HttpChecksumRequiredInputOutput {}
 export namespace HttpChecksumRequiredServerInput {
   /**
    * @internal
    */
-  export const validate: (
-    obj: Parameters<typeof HttpChecksumRequiredInputOutput.validate>[0]
-  ) => __ValidationFailure[] = HttpChecksumRequiredInputOutput.validate;
+  export const validate: (obj: Parameters<typeof HttpChecksumRequiredInputOutput.validate>[0]) => __ValidationFailure[] = HttpChecksumRequiredInputOutput.validate;
 }
 export interface HttpChecksumRequiredServerOutput extends HttpChecksumRequiredInputOutput {}
 
 export type HttpChecksumRequiredErrors = never;
 
-export class HttpChecksumRequiredSerializer
-  implements __OperationSerializer<RestJsonService<any>, "HttpChecksumRequired", HttpChecksumRequiredErrors>
-{
+export class HttpChecksumRequiredSerializer implements __OperationSerializer<RestJsonService<any>, "HttpChecksumRequired", HttpChecksumRequiredErrors> {
   serialize = serializeHttpChecksumRequiredResponse;
   deserialize = deserializeHttpChecksumRequiredRequest;
 
   isOperationError(error: any): error is HttpChecksumRequiredErrors {
     return false;
-  }
+  };
 
   serializeError(error: HttpChecksumRequiredErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     throw error;
   }
+
 }
 
-export const getHttpChecksumRequiredHandler = <Context>(
-  operation: __Operation<HttpChecksumRequiredServerInput, HttpChecksumRequiredServerOutput, Context>,
-  customizer: __ValidationCustomizer<"HttpChecksumRequired">
-): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+export const getHttpChecksumRequiredHandler = <Context>(operation: __Operation<HttpChecksumRequiredServerInput, HttpChecksumRequiredServerOutput, Context>, customizer: __ValidationCustomizer<"HttpChecksumRequired">): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
   const mux = new httpbinding.HttpBindingMux<"RestJson", "HttpChecksumRequired">([
     new httpbinding.UriSpec<"RestJson", "HttpChecksumRequired">(
-      "POST",
-      [{ type: "path_literal", value: "HttpChecksumRequired" }],
-      [],
-      { service: "RestJson", operation: "HttpChecksumRequired" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "HttpChecksumRequired" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "HttpChecksumRequired" }),
   ]);
-  return new HttpChecksumRequiredHandler(
-    operation,
-    mux,
-    new HttpChecksumRequiredSerializer(),
-    serializeFrameworkException,
-    customizer
-  );
-};
+  return new HttpChecksumRequiredHandler(operation, mux, new HttpChecksumRequiredSerializer(), serializeFrameworkException, customizer);
+}
 
 const serdeContextBase = {
   base64Encoder: toBase64,
@@ -92,7 +78,7 @@ const serdeContextBase = {
   utf8Decoder: fromUtf8,
   streamCollector: streamCollector,
   requestHandler: new NodeHttpHandler(),
-  disableHostPrefix: true,
+  disableHostPrefix: true
 };
 async function handle<S, O extends keyof S & string, Context>(
   request: __HttpRequest,
@@ -107,45 +93,37 @@ async function handle<S, O extends keyof S & string, Context>(
   let input;
   try {
     input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request),
-      ...serdeContextBase,
+      endpoint: () => Promise.resolve(request), ...serdeContextBase
     });
   } catch (error: unknown) {
     if (__isFrameworkException(error)) {
       return serializeFrameworkException(error, serdeContextBase);
-    }
+    };
     return serializeFrameworkException(new __SerializationException(), serdeContextBase);
   }
   try {
-    const validationFailures = validationFn(input);
+    let validationFailures = validationFn(input);
     if (validationFailures && validationFailures.length > 0) {
-      const validationException = validationCustomizer({ operation: operationName }, validationFailures);
+      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
       if (validationException) {
         return serializer.serializeError(validationException, serdeContextBase);
       }
     }
-    const output = await operation(input, context);
+    let output = await operation(input, context);
     return serializer.serialize(output, serdeContextBase);
-  } catch (error: unknown) {
+  } catch(error: unknown) {
     if (serializer.isOperationError(error)) {
       return serializer.serializeError(error, serdeContextBase);
     }
-    console.log("Received an unexpected error", error);
+    console.log('Received an unexpected error', error);
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
 export class HttpChecksumRequiredHandler<Context> implements __ServiceHandler<Context> {
   private readonly operation: __Operation<HttpChecksumRequiredServerInput, HttpChecksumRequiredServerOutput, Context>;
   private readonly mux: __Mux<"RestJson", "HttpChecksumRequired">;
-  private readonly serializer: __OperationSerializer<
-    RestJsonService<Context>,
-    "HttpChecksumRequired",
-    HttpChecksumRequiredErrors
-  >;
-  private readonly serializeFrameworkException: (
-    e: __SmithyFrameworkException,
-    ctx: __ServerSerdeContext
-  ) => Promise<__HttpResponse>;
+  private readonly serializer: __OperationSerializer<RestJsonService<Context>, "HttpChecksumRequired", HttpChecksumRequiredErrors>;
+  private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<"HttpChecksumRequired">;
   /**
    * Construct a HttpChecksumRequired handler.
@@ -172,20 +150,9 @@ export class HttpChecksumRequiredHandler<Context> implements __ServiceHandler<Co
   async handle(request: __HttpRequest, context: Context): Promise<__HttpResponse> {
     const target = this.mux.match(request);
     if (target === undefined) {
-      console.log(
-        "Received a request that did not match aws.protocoltests.restjson#RestJson.HttpChecksumRequired. This indicates a misconfiguration."
-      );
+      console.log('Received a request that did not match aws.protocoltests.restjson#RestJson.HttpChecksumRequired. This indicates a misconfiguration.');
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
-    return handle(
-      request,
-      context,
-      "HttpChecksumRequired",
-      this.serializer,
-      this.operation,
-      this.serializeFrameworkException,
-      HttpChecksumRequiredServerInput.validate,
-      this.validationCustomizer
-    );
+    return handle(request, context, "HttpChecksumRequired", this.serializer, this.operation, this.serializeFrameworkException, HttpChecksumRequiredServerInput.validate, this.validationCustomizer);
   }
 }

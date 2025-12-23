@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeFleetAdvisorSchemaObjectSummaryCommand}.
  */
-export interface DescribeFleetAdvisorSchemaObjectSummaryCommandInput
-  extends DescribeFleetAdvisorSchemaObjectSummaryRequest {}
+export interface DescribeFleetAdvisorSchemaObjectSummaryCommandInput extends DescribeFleetAdvisorSchemaObjectSummaryRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeFleetAdvisorSchemaObjectSummaryCommand}.
  */
-export interface DescribeFleetAdvisorSchemaObjectSummaryCommandOutput
-  extends DescribeFleetAdvisorSchemaObjectSummaryResponse,
-    __MetadataBearer {}
+export interface DescribeFleetAdvisorSchemaObjectSummaryCommandOutput extends DescribeFleetAdvisorSchemaObjectSummaryResponse, __MetadataBearer {}
 
 /**
  * <important>

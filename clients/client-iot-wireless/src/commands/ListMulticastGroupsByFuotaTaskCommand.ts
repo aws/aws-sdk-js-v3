@@ -24,9 +24,7 @@ export interface ListMulticastGroupsByFuotaTaskCommandInput extends ListMulticas
  *
  * The output of {@link ListMulticastGroupsByFuotaTaskCommand}.
  */
-export interface ListMulticastGroupsByFuotaTaskCommandOutput
-  extends ListMulticastGroupsByFuotaTaskResponse,
-    __MetadataBearer {}
+export interface ListMulticastGroupsByFuotaTaskCommandOutput extends ListMulticastGroupsByFuotaTaskResponse, __MetadataBearer {}
 
 /**
  * <p>List all multicast groups associated with a FUOTA task.</p>

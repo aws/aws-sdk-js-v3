@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListRequestedServiceQuotaChangeHistoryCommand}.
  */
-export interface ListRequestedServiceQuotaChangeHistoryCommandInput
-  extends ListRequestedServiceQuotaChangeHistoryRequest {}
+export interface ListRequestedServiceQuotaChangeHistoryCommandInput extends ListRequestedServiceQuotaChangeHistoryRequest {}
 /**
  * @public
  *
  * The output of {@link ListRequestedServiceQuotaChangeHistoryCommand}.
  */
-export interface ListRequestedServiceQuotaChangeHistoryCommandOutput
-  extends ListRequestedServiceQuotaChangeHistoryResponse,
-    __MetadataBearer {}
+export interface ListRequestedServiceQuotaChangeHistoryCommandOutput extends ListRequestedServiceQuotaChangeHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the quota increase requests for the specified Amazon Web Services service. Filter

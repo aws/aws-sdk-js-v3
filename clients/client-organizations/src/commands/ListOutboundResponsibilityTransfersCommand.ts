@@ -27,9 +27,7 @@ export interface ListOutboundResponsibilityTransfersCommandInput extends ListOut
  *
  * The output of {@link ListOutboundResponsibilityTransfersCommand}.
  */
-export interface ListOutboundResponsibilityTransfersCommandOutput
-  extends ListOutboundResponsibilityTransfersResponse,
-    __MetadataBearer {}
+export interface ListOutboundResponsibilityTransfersCommandOutput extends ListOutboundResponsibilityTransfersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists transfers that allow an account outside your organization to manage the

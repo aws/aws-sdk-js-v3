@@ -24,9 +24,7 @@ export interface GetCostAndUsageWithResourcesCommandInput extends GetCostAndUsag
  *
  * The output of {@link GetCostAndUsageWithResourcesCommand}.
  */
-export interface GetCostAndUsageWithResourcesCommandOutput
-  extends GetCostAndUsageWithResourcesResponse,
-    __MetadataBearer {}
+export interface GetCostAndUsageWithResourcesCommandOutput extends GetCostAndUsageWithResourcesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves cost and usage metrics with resources for your account. You can specify which

@@ -24,9 +24,7 @@ export interface DescribeDBProxyTargetGroupsCommandInput extends DescribeDBProxy
  *
  * The output of {@link DescribeDBProxyTargetGroupsCommand}.
  */
-export interface DescribeDBProxyTargetGroupsCommandOutput
-  extends DescribeDBProxyTargetGroupsResponse,
-    __MetadataBearer {}
+export interface DescribeDBProxyTargetGroupsCommandOutput extends DescribeDBProxyTargetGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about DB proxy target groups, represented by <code>DBProxyTargetGroup</code> data structures.</p>

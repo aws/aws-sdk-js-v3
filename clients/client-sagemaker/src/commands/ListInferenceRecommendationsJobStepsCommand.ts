@@ -27,9 +27,7 @@ export interface ListInferenceRecommendationsJobStepsCommandInput extends ListIn
  *
  * The output of {@link ListInferenceRecommendationsJobStepsCommand}.
  */
-export interface ListInferenceRecommendationsJobStepsCommandOutput
-  extends ListInferenceRecommendationsJobStepsResponse,
-    __MetadataBearer {}
+export interface ListInferenceRecommendationsJobStepsCommandOutput extends ListInferenceRecommendationsJobStepsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the subtasks for an Inference Recommender job.</p> <p>The supported subtasks are benchmarks, which evaluate the performance of your model on different instance types.</p>

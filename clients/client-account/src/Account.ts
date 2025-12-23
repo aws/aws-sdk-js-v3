@@ -131,8 +131,14 @@ export interface Account {
   /**
    * @see {@link DisableRegionCommand}
    */
-  disableRegion(args: DisableRegionCommandInput, options?: __HttpHandlerOptions): Promise<DisableRegionCommandOutput>;
-  disableRegion(args: DisableRegionCommandInput, cb: (err: any, data?: DisableRegionCommandOutput) => void): void;
+  disableRegion(
+    args: DisableRegionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableRegionCommandOutput>;
+  disableRegion(
+    args: DisableRegionCommandInput,
+    cb: (err: any, data?: DisableRegionCommandOutput) => void
+  ): void;
   disableRegion(
     args: DisableRegionCommandInput,
     options: __HttpHandlerOptions,
@@ -142,8 +148,14 @@ export interface Account {
   /**
    * @see {@link EnableRegionCommand}
    */
-  enableRegion(args: EnableRegionCommandInput, options?: __HttpHandlerOptions): Promise<EnableRegionCommandOutput>;
-  enableRegion(args: EnableRegionCommandInput, cb: (err: any, data?: EnableRegionCommandOutput) => void): void;
+  enableRegion(
+    args: EnableRegionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableRegionCommandOutput>;
+  enableRegion(
+    args: EnableRegionCommandInput,
+    cb: (err: any, data?: EnableRegionCommandOutput) => void
+  ): void;
   enableRegion(
     args: EnableRegionCommandInput,
     options: __HttpHandlerOptions,
@@ -228,7 +240,10 @@ export interface Account {
     args: GetPrimaryEmailCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetPrimaryEmailCommandOutput>;
-  getPrimaryEmail(args: GetPrimaryEmailCommandInput, cb: (err: any, data?: GetPrimaryEmailCommandOutput) => void): void;
+  getPrimaryEmail(
+    args: GetPrimaryEmailCommandInput,
+    cb: (err: any, data?: GetPrimaryEmailCommandOutput) => void
+  ): void;
   getPrimaryEmail(
     args: GetPrimaryEmailCommandInput,
     options: __HttpHandlerOptions,
@@ -256,8 +271,14 @@ export interface Account {
    * @see {@link ListRegionsCommand}
    */
   listRegions(): Promise<ListRegionsCommandOutput>;
-  listRegions(args: ListRegionsCommandInput, options?: __HttpHandlerOptions): Promise<ListRegionsCommandOutput>;
-  listRegions(args: ListRegionsCommandInput, cb: (err: any, data?: ListRegionsCommandOutput) => void): void;
+  listRegions(
+    args: ListRegionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRegionsCommandOutput>;
+  listRegions(
+    args: ListRegionsCommandInput,
+    cb: (err: any, data?: ListRegionsCommandOutput) => void
+  ): void;
   listRegions(
     args: ListRegionsCommandInput,
     options: __HttpHandlerOptions,
@@ -271,7 +292,10 @@ export interface Account {
     args: PutAccountNameCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutAccountNameCommandOutput>;
-  putAccountName(args: PutAccountNameCommandInput, cb: (err: any, data?: PutAccountNameCommandOutput) => void): void;
+  putAccountName(
+    args: PutAccountNameCommandInput,
+    cb: (err: any, data?: PutAccountNameCommandOutput) => void
+  ): void;
   putAccountName(
     args: PutAccountNameCommandInput,
     options: __HttpHandlerOptions,

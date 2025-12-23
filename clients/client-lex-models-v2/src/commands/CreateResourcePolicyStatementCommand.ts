@@ -24,9 +24,7 @@ export interface CreateResourcePolicyStatementCommandInput extends CreateResourc
  *
  * The output of {@link CreateResourcePolicyStatementCommand}.
  */
-export interface CreateResourcePolicyStatementCommandOutput
-  extends CreateResourcePolicyStatementResponse,
-    __MetadataBearer {}
+export interface CreateResourcePolicyStatementCommandOutput extends CreateResourcePolicyStatementResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a new resource policy statement to a bot or bot alias. If a

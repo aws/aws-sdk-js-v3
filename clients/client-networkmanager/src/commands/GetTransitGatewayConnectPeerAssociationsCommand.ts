@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link GetTransitGatewayConnectPeerAssociationsCommand}.
  */
-export interface GetTransitGatewayConnectPeerAssociationsCommandInput
-  extends GetTransitGatewayConnectPeerAssociationsRequest {}
+export interface GetTransitGatewayConnectPeerAssociationsCommandInput extends GetTransitGatewayConnectPeerAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link GetTransitGatewayConnectPeerAssociationsCommand}.
  */
-export interface GetTransitGatewayConnectPeerAssociationsCommandOutput
-  extends GetTransitGatewayConnectPeerAssociationsResponse,
-    __MetadataBearer {}
+export interface GetTransitGatewayConnectPeerAssociationsCommandOutput extends GetTransitGatewayConnectPeerAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about one or more of your transit gateway Connect peer associations in a global network.</p>

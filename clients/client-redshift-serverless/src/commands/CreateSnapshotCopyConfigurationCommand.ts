@@ -31,9 +31,7 @@ export interface CreateSnapshotCopyConfigurationCommandInput extends CreateSnaps
  *
  * The output of {@link CreateSnapshotCopyConfigurationCommand}.
  */
-export interface CreateSnapshotCopyConfigurationCommandOutput
-  extends CreateSnapshotCopyConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateSnapshotCopyConfigurationCommandOutput extends CreateSnapshotCopyConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a snapshot copy configuration that lets you copy snapshots to another Amazon Web Services Region.</p>

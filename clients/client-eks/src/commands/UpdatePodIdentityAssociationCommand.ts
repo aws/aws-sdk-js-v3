@@ -24,9 +24,7 @@ export interface UpdatePodIdentityAssociationCommandInput extends UpdatePodIdent
  *
  * The output of {@link UpdatePodIdentityAssociationCommand}.
  */
-export interface UpdatePodIdentityAssociationCommandOutput
-  extends UpdatePodIdentityAssociationResponse,
-    __MetadataBearer {}
+export interface UpdatePodIdentityAssociationCommandOutput extends UpdatePodIdentityAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a EKS Pod Identity association. In an update, you can change the IAM role, the target IAM role, or <code>disableSessionTags</code>.

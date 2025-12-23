@@ -27,9 +27,7 @@ export interface DisassociateAppBlockBuilderAppBlockCommandInput extends Disasso
  *
  * The output of {@link DisassociateAppBlockBuilderAppBlockCommand}.
  */
-export interface DisassociateAppBlockBuilderAppBlockCommandOutput
-  extends DisassociateAppBlockBuilderAppBlockResult,
-    __MetadataBearer {}
+export interface DisassociateAppBlockBuilderAppBlockCommandOutput extends DisassociateAppBlockBuilderAppBlockResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates a specified app block builder from a specified app block.</p>

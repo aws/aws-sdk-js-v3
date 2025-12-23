@@ -27,9 +27,7 @@ export interface DescribeDBClusterSnapshotAttributesCommandInput extends Describ
  *
  * The output of {@link DescribeDBClusterSnapshotAttributesCommand}.
  */
-export interface DescribeDBClusterSnapshotAttributesCommandOutput
-  extends DescribeDBClusterSnapshotAttributesResult,
-    __MetadataBearer {}
+export interface DescribeDBClusterSnapshotAttributesCommandOutput extends DescribeDBClusterSnapshotAttributesResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster snapshot.</p>

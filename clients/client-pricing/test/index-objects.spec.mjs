@@ -34,6 +34,10 @@ import {
   ListPriceListsResponse$,
   NotFoundException,
   NotFoundException$,
+  paginateDescribeServices,
+  paginateGetAttributeValues,
+  paginateGetProducts,
+  paginateListPriceLists,
   PriceList$,
   Pricing,
   PricingClient,
@@ -43,10 +47,6 @@ import {
   Service$,
   ThrottlingException,
   ThrottlingException$,
-  paginateDescribeServices,
-  paginateGetAttributeValues,
-  paginateGetProducts,
-  paginateListPriceLists,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

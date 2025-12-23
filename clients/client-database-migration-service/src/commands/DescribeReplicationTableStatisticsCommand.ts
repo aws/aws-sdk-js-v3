@@ -31,9 +31,7 @@ export interface DescribeReplicationTableStatisticsCommandInput extends Describe
  *
  * The output of {@link DescribeReplicationTableStatisticsCommand}.
  */
-export interface DescribeReplicationTableStatisticsCommandOutput
-  extends DescribeReplicationTableStatisticsResponse,
-    __MetadataBearer {}
+export interface DescribeReplicationTableStatisticsCommandOutput extends DescribeReplicationTableStatisticsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns table and schema statistics for one or more provisioned replications that use a

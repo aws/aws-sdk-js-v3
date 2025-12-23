@@ -20,8 +20,7 @@ export { $Command };
  *
  * The input for {@link DeleteAccessGrantsInstanceResourcePolicyCommand}.
  */
-export interface DeleteAccessGrantsInstanceResourcePolicyCommandInput
-  extends DeleteAccessGrantsInstanceResourcePolicyRequest {}
+export interface DeleteAccessGrantsInstanceResourcePolicyCommandInput extends DeleteAccessGrantsInstanceResourcePolicyRequest {}
 /**
  * @public
  *

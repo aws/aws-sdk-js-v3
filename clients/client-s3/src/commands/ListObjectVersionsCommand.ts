@@ -217,7 +217,10 @@ export class ListObjectVersionsCommand extends $Command
     Prefix: { type: "contextParams", name: "Prefix" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
+    ];
   })
   .s("AmazonS3", "ListObjectVersions", {})
   .n("S3Client", "ListObjectVersionsCommand")

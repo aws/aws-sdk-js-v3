@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeCapacityBlockExtensionHistoryCommand}.
  */
-export interface DescribeCapacityBlockExtensionHistoryCommandInput
-  extends DescribeCapacityBlockExtensionHistoryRequest {}
+export interface DescribeCapacityBlockExtensionHistoryCommandInput extends DescribeCapacityBlockExtensionHistoryRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeCapacityBlockExtensionHistoryCommand}.
  */
-export interface DescribeCapacityBlockExtensionHistoryCommandOutput
-  extends DescribeCapacityBlockExtensionHistoryResult,
-    __MetadataBearer {}
+export interface DescribeCapacityBlockExtensionHistoryCommandOutput extends DescribeCapacityBlockExtensionHistoryResult, __MetadataBearer {}
 
 /**
  * <p>Describes the events for the specified Capacity Block extension during the specified

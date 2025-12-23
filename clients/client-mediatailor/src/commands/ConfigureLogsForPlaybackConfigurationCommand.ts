@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ConfigureLogsForPlaybackConfigurationCommand}.
  */
-export interface ConfigureLogsForPlaybackConfigurationCommandInput
-  extends ConfigureLogsForPlaybackConfigurationRequest {}
+export interface ConfigureLogsForPlaybackConfigurationCommandInput extends ConfigureLogsForPlaybackConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link ConfigureLogsForPlaybackConfigurationCommand}.
  */
-export interface ConfigureLogsForPlaybackConfigurationCommandOutput
-  extends ConfigureLogsForPlaybackConfigurationResponse,
-    __MetadataBearer {}
+export interface ConfigureLogsForPlaybackConfigurationCommandOutput extends ConfigureLogsForPlaybackConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Defines where AWS Elemental MediaTailor sends logs for the playback configuration.</p>

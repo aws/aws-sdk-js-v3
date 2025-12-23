@@ -24,9 +24,7 @@ export interface DisassociateSourceGraphqlApiCommandInput extends DisassociateSo
  *
  * The output of {@link DisassociateSourceGraphqlApiCommand}.
  */
-export interface DisassociateSourceGraphqlApiCommandOutput
-  extends DisassociateSourceGraphqlApiResponse,
-    __MetadataBearer {}
+export interface DisassociateSourceGraphqlApiCommandOutput extends DisassociateSourceGraphqlApiResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an association between a Merged API and source API using the Merged API's

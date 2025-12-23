@@ -31,9 +31,7 @@ export interface DescribeAppInstanceUserEndpointCommandInput extends DescribeApp
  *
  * The output of {@link DescribeAppInstanceUserEndpointCommand}.
  */
-export interface DescribeAppInstanceUserEndpointCommandOutput
-  extends DescribeAppInstanceUserEndpointResponse,
-    __MetadataBearer {}
+export interface DescribeAppInstanceUserEndpointCommandOutput extends DescribeAppInstanceUserEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the full details of an <code>AppInstanceUserEndpoint</code>.</p>

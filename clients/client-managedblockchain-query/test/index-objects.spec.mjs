@@ -61,6 +61,11 @@ import {
   ManagedBlockchainQueryServiceException,
   OwnerFilter$,
   OwnerIdentifier$,
+  paginateListAssetContracts,
+  paginateListFilteredTransactionEvents,
+  paginateListTokenBalances,
+  paginateListTransactionEvents,
+  paginateListTransactions,
   QueryNetwork,
   QueryTokenStandard,
   QueryTransactionEventType,
@@ -84,11 +89,6 @@ import {
   ValidationExceptionField$,
   ValidationExceptionReason,
   VoutFilter$,
-  paginateListAssetContracts,
-  paginateListFilteredTransactionEvents,
-  paginateListTokenBalances,
-  paginateListTransactionEvents,
-  paginateListTransactions,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

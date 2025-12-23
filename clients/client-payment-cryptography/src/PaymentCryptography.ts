@@ -132,8 +132,14 @@ export interface PaymentCryptography {
   /**
    * @see {@link CreateAliasCommand}
    */
-  createAlias(args: CreateAliasCommandInput, options?: __HttpHandlerOptions): Promise<CreateAliasCommandOutput>;
-  createAlias(args: CreateAliasCommandInput, cb: (err: any, data?: CreateAliasCommandOutput) => void): void;
+  createAlias(
+    args: CreateAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAliasCommandOutput>;
+  createAlias(
+    args: CreateAliasCommandInput,
+    cb: (err: any, data?: CreateAliasCommandOutput) => void
+  ): void;
   createAlias(
     args: CreateAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -143,8 +149,14 @@ export interface PaymentCryptography {
   /**
    * @see {@link CreateKeyCommand}
    */
-  createKey(args: CreateKeyCommandInput, options?: __HttpHandlerOptions): Promise<CreateKeyCommandOutput>;
-  createKey(args: CreateKeyCommandInput, cb: (err: any, data?: CreateKeyCommandOutput) => void): void;
+  createKey(
+    args: CreateKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateKeyCommandOutput>;
+  createKey(
+    args: CreateKeyCommandInput,
+    cb: (err: any, data?: CreateKeyCommandOutput) => void
+  ): void;
   createKey(
     args: CreateKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -154,8 +166,14 @@ export interface PaymentCryptography {
   /**
    * @see {@link DeleteAliasCommand}
    */
-  deleteAlias(args: DeleteAliasCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAliasCommandOutput>;
-  deleteAlias(args: DeleteAliasCommandInput, cb: (err: any, data?: DeleteAliasCommandOutput) => void): void;
+  deleteAlias(
+    args: DeleteAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAliasCommandOutput>;
+  deleteAlias(
+    args: DeleteAliasCommandInput,
+    cb: (err: any, data?: DeleteAliasCommandOutput) => void
+  ): void;
   deleteAlias(
     args: DeleteAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -165,8 +183,14 @@ export interface PaymentCryptography {
   /**
    * @see {@link DeleteKeyCommand}
    */
-  deleteKey(args: DeleteKeyCommandInput, options?: __HttpHandlerOptions): Promise<DeleteKeyCommandOutput>;
-  deleteKey(args: DeleteKeyCommandInput, cb: (err: any, data?: DeleteKeyCommandOutput) => void): void;
+  deleteKey(
+    args: DeleteKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteKeyCommandOutput>;
+  deleteKey(
+    args: DeleteKeyCommandInput,
+    cb: (err: any, data?: DeleteKeyCommandOutput) => void
+  ): void;
   deleteKey(
     args: DeleteKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -210,8 +234,14 @@ export interface PaymentCryptography {
   /**
    * @see {@link ExportKeyCommand}
    */
-  exportKey(args: ExportKeyCommandInput, options?: __HttpHandlerOptions): Promise<ExportKeyCommandOutput>;
-  exportKey(args: ExportKeyCommandInput, cb: (err: any, data?: ExportKeyCommandOutput) => void): void;
+  exportKey(
+    args: ExportKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportKeyCommandOutput>;
+  exportKey(
+    args: ExportKeyCommandInput,
+    cb: (err: any, data?: ExportKeyCommandOutput) => void
+  ): void;
   exportKey(
     args: ExportKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -221,8 +251,14 @@ export interface PaymentCryptography {
   /**
    * @see {@link GetAliasCommand}
    */
-  getAlias(args: GetAliasCommandInput, options?: __HttpHandlerOptions): Promise<GetAliasCommandOutput>;
-  getAlias(args: GetAliasCommandInput, cb: (err: any, data?: GetAliasCommandOutput) => void): void;
+  getAlias(
+    args: GetAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAliasCommandOutput>;
+  getAlias(
+    args: GetAliasCommandInput,
+    cb: (err: any, data?: GetAliasCommandOutput) => void
+  ): void;
   getAlias(
     args: GetAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -267,8 +303,14 @@ export interface PaymentCryptography {
   /**
    * @see {@link GetKeyCommand}
    */
-  getKey(args: GetKeyCommandInput, options?: __HttpHandlerOptions): Promise<GetKeyCommandOutput>;
-  getKey(args: GetKeyCommandInput, cb: (err: any, data?: GetKeyCommandOutput) => void): void;
+  getKey(
+    args: GetKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetKeyCommandOutput>;
+  getKey(
+    args: GetKeyCommandInput,
+    cb: (err: any, data?: GetKeyCommandOutput) => void
+  ): void;
   getKey(
     args: GetKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -329,8 +371,14 @@ export interface PaymentCryptography {
   /**
    * @see {@link ImportKeyCommand}
    */
-  importKey(args: ImportKeyCommandInput, options?: __HttpHandlerOptions): Promise<ImportKeyCommandOutput>;
-  importKey(args: ImportKeyCommandInput, cb: (err: any, data?: ImportKeyCommandOutput) => void): void;
+  importKey(
+    args: ImportKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportKeyCommandOutput>;
+  importKey(
+    args: ImportKeyCommandInput,
+    cb: (err: any, data?: ImportKeyCommandOutput) => void
+  ): void;
   importKey(
     args: ImportKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -341,8 +389,14 @@ export interface PaymentCryptography {
    * @see {@link ListAliasesCommand}
    */
   listAliases(): Promise<ListAliasesCommandOutput>;
-  listAliases(args: ListAliasesCommandInput, options?: __HttpHandlerOptions): Promise<ListAliasesCommandOutput>;
-  listAliases(args: ListAliasesCommandInput, cb: (err: any, data?: ListAliasesCommandOutput) => void): void;
+  listAliases(
+    args: ListAliasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAliasesCommandOutput>;
+  listAliases(
+    args: ListAliasesCommandInput,
+    cb: (err: any, data?: ListAliasesCommandOutput) => void
+  ): void;
   listAliases(
     args: ListAliasesCommandInput,
     options: __HttpHandlerOptions,
@@ -353,8 +407,14 @@ export interface PaymentCryptography {
    * @see {@link ListKeysCommand}
    */
   listKeys(): Promise<ListKeysCommandOutput>;
-  listKeys(args: ListKeysCommandInput, options?: __HttpHandlerOptions): Promise<ListKeysCommandOutput>;
-  listKeys(args: ListKeysCommandInput, cb: (err: any, data?: ListKeysCommandOutput) => void): void;
+  listKeys(
+    args: ListKeysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListKeysCommandOutput>;
+  listKeys(
+    args: ListKeysCommandInput,
+    cb: (err: any, data?: ListKeysCommandOutput) => void
+  ): void;
   listKeys(
     args: ListKeysCommandInput,
     options: __HttpHandlerOptions,
@@ -398,8 +458,14 @@ export interface PaymentCryptography {
   /**
    * @see {@link RestoreKeyCommand}
    */
-  restoreKey(args: RestoreKeyCommandInput, options?: __HttpHandlerOptions): Promise<RestoreKeyCommandOutput>;
-  restoreKey(args: RestoreKeyCommandInput, cb: (err: any, data?: RestoreKeyCommandOutput) => void): void;
+  restoreKey(
+    args: RestoreKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreKeyCommandOutput>;
+  restoreKey(
+    args: RestoreKeyCommandInput,
+    cb: (err: any, data?: RestoreKeyCommandOutput) => void
+  ): void;
   restoreKey(
     args: RestoreKeyCommandInput,
     options: __HttpHandlerOptions,
@@ -409,8 +475,14 @@ export interface PaymentCryptography {
   /**
    * @see {@link StartKeyUsageCommand}
    */
-  startKeyUsage(args: StartKeyUsageCommandInput, options?: __HttpHandlerOptions): Promise<StartKeyUsageCommandOutput>;
-  startKeyUsage(args: StartKeyUsageCommandInput, cb: (err: any, data?: StartKeyUsageCommandOutput) => void): void;
+  startKeyUsage(
+    args: StartKeyUsageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartKeyUsageCommandOutput>;
+  startKeyUsage(
+    args: StartKeyUsageCommandInput,
+    cb: (err: any, data?: StartKeyUsageCommandOutput) => void
+  ): void;
   startKeyUsage(
     args: StartKeyUsageCommandInput,
     options: __HttpHandlerOptions,
@@ -420,8 +492,14 @@ export interface PaymentCryptography {
   /**
    * @see {@link StopKeyUsageCommand}
    */
-  stopKeyUsage(args: StopKeyUsageCommandInput, options?: __HttpHandlerOptions): Promise<StopKeyUsageCommandOutput>;
-  stopKeyUsage(args: StopKeyUsageCommandInput, cb: (err: any, data?: StopKeyUsageCommandOutput) => void): void;
+  stopKeyUsage(
+    args: StopKeyUsageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopKeyUsageCommandOutput>;
+  stopKeyUsage(
+    args: StopKeyUsageCommandInput,
+    cb: (err: any, data?: StopKeyUsageCommandOutput) => void
+  ): void;
   stopKeyUsage(
     args: StopKeyUsageCommandInput,
     options: __HttpHandlerOptions,
@@ -431,8 +509,14 @@ export interface PaymentCryptography {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -442,8 +526,14 @@ export interface PaymentCryptography {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -453,8 +543,14 @@ export interface PaymentCryptography {
   /**
    * @see {@link UpdateAliasCommand}
    */
-  updateAlias(args: UpdateAliasCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAliasCommandOutput>;
-  updateAlias(args: UpdateAliasCommandInput, cb: (err: any, data?: UpdateAliasCommandOutput) => void): void;
+  updateAlias(
+    args: UpdateAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAliasCommandOutput>;
+  updateAlias(
+    args: UpdateAliasCommandInput,
+    cb: (err: any, data?: UpdateAliasCommandOutput) => void
+  ): void;
   updateAlias(
     args: UpdateAliasCommandInput,
     options: __HttpHandlerOptions,

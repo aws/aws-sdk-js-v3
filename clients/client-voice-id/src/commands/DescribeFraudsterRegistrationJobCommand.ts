@@ -27,9 +27,7 @@ export interface DescribeFraudsterRegistrationJobCommandInput extends DescribeFr
  *
  * The output of {@link DescribeFraudsterRegistrationJobCommand}.
  */
-export interface DescribeFraudsterRegistrationJobCommandOutput
-  extends DescribeFraudsterRegistrationJobResponse,
-    __MetadataBearer {}
+export interface DescribeFraudsterRegistrationJobCommandOutput extends DescribeFraudsterRegistrationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the specified fraudster registration job.</p>

@@ -28,9 +28,7 @@ export interface GetTransitGatewayRegistrationsCommandInput extends GetTransitGa
  *
  * The output of {@link GetTransitGatewayRegistrationsCommand}.
  */
-export interface GetTransitGatewayRegistrationsCommandOutput
-  extends GetTransitGatewayRegistrationsResponse,
-    __MetadataBearer {}
+export interface GetTransitGatewayRegistrationsCommandOutput extends GetTransitGatewayRegistrationsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about the transit gateway registrations in a specified

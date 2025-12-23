@@ -24,9 +24,7 @@ export interface UpdateInstanceMetadataOptionsCommandInput extends UpdateInstanc
  *
  * The output of {@link UpdateInstanceMetadataOptionsCommand}.
  */
-export interface UpdateInstanceMetadataOptionsCommandOutput
-  extends UpdateInstanceMetadataOptionsResult,
-    __MetadataBearer {}
+export interface UpdateInstanceMetadataOptionsCommandOutput extends UpdateInstanceMetadataOptionsResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the Amazon Lightsail instance metadata parameters on a running or stopped

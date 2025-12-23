@@ -27,9 +27,7 @@ export interface GetIdentityMailFromDomainAttributesCommandInput extends GetIden
  *
  * The output of {@link GetIdentityMailFromDomainAttributesCommand}.
  */
-export interface GetIdentityMailFromDomainAttributesCommandOutput
-  extends GetIdentityMailFromDomainAttributesResponse,
-    __MetadataBearer {}
+export interface GetIdentityMailFromDomainAttributesCommandOutput extends GetIdentityMailFromDomainAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the custom MAIL FROM attributes for a list of identities (email addresses :

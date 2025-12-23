@@ -31,9 +31,7 @@ export interface DescribeBatchDeleteConfigurationTaskCommandInput extends Descri
  *
  * The output of {@link DescribeBatchDeleteConfigurationTaskCommand}.
  */
-export interface DescribeBatchDeleteConfigurationTaskCommandOutput
-  extends DescribeBatchDeleteConfigurationTaskResponse,
-    __MetadataBearer {}
+export interface DescribeBatchDeleteConfigurationTaskCommandOutput extends DescribeBatchDeleteConfigurationTaskResponse, __MetadataBearer {}
 
 /**
  * <p>

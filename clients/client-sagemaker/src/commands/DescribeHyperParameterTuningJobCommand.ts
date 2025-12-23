@@ -27,9 +27,7 @@ export interface DescribeHyperParameterTuningJobCommandInput extends DescribeHyp
  *
  * The output of {@link DescribeHyperParameterTuningJobCommand}.
  */
-export interface DescribeHyperParameterTuningJobCommandOutput
-  extends DescribeHyperParameterTuningJobResponse,
-    __MetadataBearer {}
+export interface DescribeHyperParameterTuningJobCommandOutput extends DescribeHyperParameterTuningJobResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a description of a hyperparameter tuning job, depending on the fields selected. These fields can include the name, Amazon Resource Name (ARN), job status of your tuning job and more.</p>

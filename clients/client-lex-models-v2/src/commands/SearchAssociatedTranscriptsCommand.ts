@@ -24,9 +24,7 @@ export interface SearchAssociatedTranscriptsCommandInput extends SearchAssociate
  *
  * The output of {@link SearchAssociatedTranscriptsCommand}.
  */
-export interface SearchAssociatedTranscriptsCommandOutput
-  extends SearchAssociatedTranscriptsResponse,
-    __MetadataBearer {}
+export interface SearchAssociatedTranscriptsCommandOutput extends SearchAssociatedTranscriptsResponse, __MetadataBearer {}
 
 /**
  * <p>Search for associated transcripts that meet the specified

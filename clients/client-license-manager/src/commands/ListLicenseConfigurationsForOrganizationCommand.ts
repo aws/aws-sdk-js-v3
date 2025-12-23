@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListLicenseConfigurationsForOrganizationCommand}.
  */
-export interface ListLicenseConfigurationsForOrganizationCommandInput
-  extends ListLicenseConfigurationsForOrganizationRequest {}
+export interface ListLicenseConfigurationsForOrganizationCommandInput extends ListLicenseConfigurationsForOrganizationRequest {}
 /**
  * @public
  *
  * The output of {@link ListLicenseConfigurationsForOrganizationCommand}.
  */
-export interface ListLicenseConfigurationsForOrganizationCommandOutput
-  extends ListLicenseConfigurationsForOrganizationResponse,
-    __MetadataBearer {}
+export interface ListLicenseConfigurationsForOrganizationCommandOutput extends ListLicenseConfigurationsForOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Lists license configurations for an organization.</p>

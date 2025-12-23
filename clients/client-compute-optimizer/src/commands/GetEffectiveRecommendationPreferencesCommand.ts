@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link GetEffectiveRecommendationPreferencesCommand}.
  */
-export interface GetEffectiveRecommendationPreferencesCommandInput
-  extends GetEffectiveRecommendationPreferencesRequest {}
+export interface GetEffectiveRecommendationPreferencesCommandInput extends GetEffectiveRecommendationPreferencesRequest {}
 /**
  * @public
  *
  * The output of {@link GetEffectiveRecommendationPreferencesCommand}.
  */
-export interface GetEffectiveRecommendationPreferencesCommandOutput
-  extends GetEffectiveRecommendationPreferencesResponse,
-    __MetadataBearer {}
+export interface GetEffectiveRecommendationPreferencesCommandOutput extends GetEffectiveRecommendationPreferencesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the recommendation preferences that are in effect for a given resource, such

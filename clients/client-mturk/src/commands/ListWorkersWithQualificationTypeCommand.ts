@@ -27,9 +27,7 @@ export interface ListWorkersWithQualificationTypeCommandInput extends ListWorker
  *
  * The output of {@link ListWorkersWithQualificationTypeCommand}.
  */
-export interface ListWorkersWithQualificationTypeCommandOutput
-  extends ListWorkersWithQualificationTypeResponse,
-    __MetadataBearer {}
+export interface ListWorkersWithQualificationTypeCommandOutput extends ListWorkersWithQualificationTypeResponse, __MetadataBearer {}
 
 /**
  * <p>

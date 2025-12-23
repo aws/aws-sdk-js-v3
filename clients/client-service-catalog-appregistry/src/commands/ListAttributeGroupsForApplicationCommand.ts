@@ -31,9 +31,7 @@ export interface ListAttributeGroupsForApplicationCommandInput extends ListAttri
  *
  * The output of {@link ListAttributeGroupsForApplicationCommand}.
  */
-export interface ListAttributeGroupsForApplicationCommandOutput
-  extends ListAttributeGroupsForApplicationResponse,
-    __MetadataBearer {}
+export interface ListAttributeGroupsForApplicationCommandOutput extends ListAttributeGroupsForApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the details of all attribute groups associated with a specific application. The results display in pages.</p>

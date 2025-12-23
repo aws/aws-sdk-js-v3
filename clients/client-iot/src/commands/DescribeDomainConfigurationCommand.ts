@@ -24,9 +24,7 @@ export interface DescribeDomainConfigurationCommandInput extends DescribeDomainC
  *
  * The output of {@link DescribeDomainConfigurationCommand}.
  */
-export interface DescribeDomainConfigurationCommandOutput
-  extends DescribeDomainConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeDomainConfigurationCommandOutput extends DescribeDomainConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets summary information about a domain configuration.</p>

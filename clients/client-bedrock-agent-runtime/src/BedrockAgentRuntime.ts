@@ -187,8 +187,14 @@ export interface BedrockAgentRuntime {
    * @see {@link CreateSessionCommand}
    */
   createSession(): Promise<CreateSessionCommandOutput>;
-  createSession(args: CreateSessionCommandInput, options?: __HttpHandlerOptions): Promise<CreateSessionCommandOutput>;
-  createSession(args: CreateSessionCommandInput, cb: (err: any, data?: CreateSessionCommandOutput) => void): void;
+  createSession(
+    args: CreateSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSessionCommandOutput>;
+  createSession(
+    args: CreateSessionCommandInput,
+    cb: (err: any, data?: CreateSessionCommandOutput) => void
+  ): void;
   createSession(
     args: CreateSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -215,8 +221,14 @@ export interface BedrockAgentRuntime {
   /**
    * @see {@link DeleteSessionCommand}
    */
-  deleteSession(args: DeleteSessionCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSessionCommandOutput>;
-  deleteSession(args: DeleteSessionCommandInput, cb: (err: any, data?: DeleteSessionCommandOutput) => void): void;
+  deleteSession(
+    args: DeleteSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSessionCommandOutput>;
+  deleteSession(
+    args: DeleteSessionCommandInput,
+    cb: (err: any, data?: DeleteSessionCommandOutput) => void
+  ): void;
   deleteSession(
     args: DeleteSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -226,8 +238,14 @@ export interface BedrockAgentRuntime {
   /**
    * @see {@link EndSessionCommand}
    */
-  endSession(args: EndSessionCommandInput, options?: __HttpHandlerOptions): Promise<EndSessionCommandOutput>;
-  endSession(args: EndSessionCommandInput, cb: (err: any, data?: EndSessionCommandOutput) => void): void;
+  endSession(
+    args: EndSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EndSessionCommandOutput>;
+  endSession(
+    args: EndSessionCommandInput,
+    cb: (err: any, data?: EndSessionCommandOutput) => void
+  ): void;
   endSession(
     args: EndSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -237,8 +255,14 @@ export interface BedrockAgentRuntime {
   /**
    * @see {@link GenerateQueryCommand}
    */
-  generateQuery(args: GenerateQueryCommandInput, options?: __HttpHandlerOptions): Promise<GenerateQueryCommandOutput>;
-  generateQuery(args: GenerateQueryCommandInput, cb: (err: any, data?: GenerateQueryCommandOutput) => void): void;
+  generateQuery(
+    args: GenerateQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GenerateQueryCommandOutput>;
+  generateQuery(
+    args: GenerateQueryCommandInput,
+    cb: (err: any, data?: GenerateQueryCommandOutput) => void
+  ): void;
   generateQuery(
     args: GenerateQueryCommandInput,
     options: __HttpHandlerOptions,
@@ -252,7 +276,10 @@ export interface BedrockAgentRuntime {
     args: GetAgentMemoryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAgentMemoryCommandOutput>;
-  getAgentMemory(args: GetAgentMemoryCommandInput, cb: (err: any, data?: GetAgentMemoryCommandOutput) => void): void;
+  getAgentMemory(
+    args: GetAgentMemoryCommandInput,
+    cb: (err: any, data?: GetAgentMemoryCommandOutput) => void
+  ): void;
   getAgentMemory(
     args: GetAgentMemoryCommandInput,
     options: __HttpHandlerOptions,
@@ -313,8 +340,14 @@ export interface BedrockAgentRuntime {
   /**
    * @see {@link GetSessionCommand}
    */
-  getSession(args: GetSessionCommandInput, options?: __HttpHandlerOptions): Promise<GetSessionCommandOutput>;
-  getSession(args: GetSessionCommandInput, cb: (err: any, data?: GetSessionCommandOutput) => void): void;
+  getSession(
+    args: GetSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSessionCommandOutput>;
+  getSession(
+    args: GetSessionCommandInput,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
   getSession(
     args: GetSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -324,8 +357,14 @@ export interface BedrockAgentRuntime {
   /**
    * @see {@link InvokeAgentCommand}
    */
-  invokeAgent(args: InvokeAgentCommandInput, options?: __HttpHandlerOptions): Promise<InvokeAgentCommandOutput>;
-  invokeAgent(args: InvokeAgentCommandInput, cb: (err: any, data?: InvokeAgentCommandOutput) => void): void;
+  invokeAgent(
+    args: InvokeAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InvokeAgentCommandOutput>;
+  invokeAgent(
+    args: InvokeAgentCommandInput,
+    cb: (err: any, data?: InvokeAgentCommandOutput) => void
+  ): void;
   invokeAgent(
     args: InvokeAgentCommandInput,
     options: __HttpHandlerOptions,
@@ -335,8 +374,14 @@ export interface BedrockAgentRuntime {
   /**
    * @see {@link InvokeFlowCommand}
    */
-  invokeFlow(args: InvokeFlowCommandInput, options?: __HttpHandlerOptions): Promise<InvokeFlowCommandOutput>;
-  invokeFlow(args: InvokeFlowCommandInput, cb: (err: any, data?: InvokeFlowCommandOutput) => void): void;
+  invokeFlow(
+    args: InvokeFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InvokeFlowCommandOutput>;
+  invokeFlow(
+    args: InvokeFlowCommandInput,
+    cb: (err: any, data?: InvokeFlowCommandOutput) => void
+  ): void;
   invokeFlow(
     args: InvokeFlowCommandInput,
     options: __HttpHandlerOptions,
@@ -401,7 +446,10 @@ export interface BedrockAgentRuntime {
     args: ListInvocationsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListInvocationsCommandOutput>;
-  listInvocations(args: ListInvocationsCommandInput, cb: (err: any, data?: ListInvocationsCommandOutput) => void): void;
+  listInvocations(
+    args: ListInvocationsCommandInput,
+    cb: (err: any, data?: ListInvocationsCommandOutput) => void
+  ): void;
   listInvocations(
     args: ListInvocationsCommandInput,
     options: __HttpHandlerOptions,
@@ -429,8 +477,14 @@ export interface BedrockAgentRuntime {
    * @see {@link ListSessionsCommand}
    */
   listSessions(): Promise<ListSessionsCommandOutput>;
-  listSessions(args: ListSessionsCommandInput, options?: __HttpHandlerOptions): Promise<ListSessionsCommandOutput>;
-  listSessions(args: ListSessionsCommandInput, cb: (err: any, data?: ListSessionsCommandOutput) => void): void;
+  listSessions(
+    args: ListSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSessionsCommandOutput>;
+  listSessions(
+    args: ListSessionsCommandInput,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
+  ): void;
   listSessions(
     args: ListSessionsCommandInput,
     options: __HttpHandlerOptions,
@@ -461,7 +515,10 @@ export interface BedrockAgentRuntime {
     args: OptimizePromptCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<OptimizePromptCommandOutput>;
-  optimizePrompt(args: OptimizePromptCommandInput, cb: (err: any, data?: OptimizePromptCommandOutput) => void): void;
+  optimizePrompt(
+    args: OptimizePromptCommandInput,
+    cb: (err: any, data?: OptimizePromptCommandOutput) => void
+  ): void;
   optimizePrompt(
     args: OptimizePromptCommandInput,
     options: __HttpHandlerOptions,
@@ -488,8 +545,14 @@ export interface BedrockAgentRuntime {
   /**
    * @see {@link RerankCommand}
    */
-  rerank(args: RerankCommandInput, options?: __HttpHandlerOptions): Promise<RerankCommandOutput>;
-  rerank(args: RerankCommandInput, cb: (err: any, data?: RerankCommandOutput) => void): void;
+  rerank(
+    args: RerankCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RerankCommandOutput>;
+  rerank(
+    args: RerankCommandInput,
+    cb: (err: any, data?: RerankCommandOutput) => void
+  ): void;
   rerank(
     args: RerankCommandInput,
     options: __HttpHandlerOptions,
@@ -499,8 +562,14 @@ export interface BedrockAgentRuntime {
   /**
    * @see {@link RetrieveCommand}
    */
-  retrieve(args: RetrieveCommandInput, options?: __HttpHandlerOptions): Promise<RetrieveCommandOutput>;
-  retrieve(args: RetrieveCommandInput, cb: (err: any, data?: RetrieveCommandOutput) => void): void;
+  retrieve(
+    args: RetrieveCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RetrieveCommandOutput>;
+  retrieve(
+    args: RetrieveCommandInput,
+    cb: (err: any, data?: RetrieveCommandOutput) => void
+  ): void;
   retrieve(
     args: RetrieveCommandInput,
     options: __HttpHandlerOptions,
@@ -578,8 +647,14 @@ export interface BedrockAgentRuntime {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -589,8 +664,14 @@ export interface BedrockAgentRuntime {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -600,8 +681,14 @@ export interface BedrockAgentRuntime {
   /**
    * @see {@link UpdateSessionCommand}
    */
-  updateSession(args: UpdateSessionCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSessionCommandOutput>;
-  updateSession(args: UpdateSessionCommandInput, cb: (err: any, data?: UpdateSessionCommandOutput) => void): void;
+  updateSession(
+    args: UpdateSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSessionCommandOutput>;
+  updateSession(
+    args: UpdateSessionCommandInput,
+    cb: (err: any, data?: UpdateSessionCommandOutput) => void
+  ): void;
   updateSession(
     args: UpdateSessionCommandInput,
     options: __HttpHandlerOptions,

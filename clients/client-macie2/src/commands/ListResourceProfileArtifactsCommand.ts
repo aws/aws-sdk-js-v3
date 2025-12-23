@@ -24,9 +24,7 @@ export interface ListResourceProfileArtifactsCommandInput extends ListResourcePr
  *
  * The output of {@link ListResourceProfileArtifactsCommand}.
  */
-export interface ListResourceProfileArtifactsCommandOutput
-  extends ListResourceProfileArtifactsResponse,
-    __MetadataBearer {}
+export interface ListResourceProfileArtifactsCommandOutput extends ListResourceProfileArtifactsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about objects that Amazon Macie selected from an S3 bucket for automated sensitive data discovery.</p>

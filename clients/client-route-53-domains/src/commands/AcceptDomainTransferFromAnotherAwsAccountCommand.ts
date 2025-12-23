@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link AcceptDomainTransferFromAnotherAwsAccountCommand}.
  */
-export interface AcceptDomainTransferFromAnotherAwsAccountCommandInput
-  extends AcceptDomainTransferFromAnotherAwsAccountRequest {}
+export interface AcceptDomainTransferFromAnotherAwsAccountCommandInput extends AcceptDomainTransferFromAnotherAwsAccountRequest {}
 /**
  * @public
  *
  * The output of {@link AcceptDomainTransferFromAnotherAwsAccountCommand}.
  */
-export interface AcceptDomainTransferFromAnotherAwsAccountCommandOutput
-  extends AcceptDomainTransferFromAnotherAwsAccountResponse,
-    __MetadataBearer {}
+export interface AcceptDomainTransferFromAnotherAwsAccountCommandOutput extends AcceptDomainTransferFromAnotherAwsAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts the transfer of a domain from another Amazon Web Services account to the

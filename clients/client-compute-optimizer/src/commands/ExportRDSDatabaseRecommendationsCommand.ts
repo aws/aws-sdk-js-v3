@@ -31,9 +31,7 @@ export interface ExportRDSDatabaseRecommendationsCommandInput extends ExportRDSD
  *
  * The output of {@link ExportRDSDatabaseRecommendationsCommand}.
  */
-export interface ExportRDSDatabaseRecommendationsCommandOutput
-  extends ExportRDSDatabaseRecommendationsResponse,
-    __MetadataBearer {}
+export interface ExportRDSDatabaseRecommendationsCommandOutput extends ExportRDSDatabaseRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>

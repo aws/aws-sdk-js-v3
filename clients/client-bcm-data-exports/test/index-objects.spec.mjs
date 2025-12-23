@@ -55,6 +55,9 @@ import {
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
   OverwriteOption,
+  paginateListExecutions,
+  paginateListExports,
+  paginateListTables,
   RefreshCadence$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
@@ -84,9 +87,6 @@ import {
   ValidationException$,
   ValidationExceptionField$,
   ValidationExceptionReason,
-  paginateListExecutions,
-  paginateListExports,
-  paginateListTables,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

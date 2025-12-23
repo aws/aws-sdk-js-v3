@@ -24,9 +24,7 @@ export interface GetPersistentAppUIPresignedURLCommandInput extends GetPersisten
  *
  * The output of {@link GetPersistentAppUIPresignedURLCommand}.
  */
-export interface GetPersistentAppUIPresignedURLCommandOutput
-  extends GetPersistentAppUIPresignedURLOutput,
-    __MetadataBearer {}
+export interface GetPersistentAppUIPresignedURLCommandOutput extends GetPersistentAppUIPresignedURLOutput, __MetadataBearer {}
 
 /**
  * <p>The presigned URL properties for the cluster's application user interface.</p>

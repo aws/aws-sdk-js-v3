@@ -28,9 +28,7 @@ export interface GetProfileResourceAssociationCommandInput extends GetProfileRes
  *
  * The output of {@link GetProfileResourceAssociationCommand}.
  */
-export interface GetProfileResourceAssociationCommandOutput
-  extends GetProfileResourceAssociationResponse,
-    __MetadataBearer {}
+export interface GetProfileResourceAssociationCommandOutput extends GetProfileResourceAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>

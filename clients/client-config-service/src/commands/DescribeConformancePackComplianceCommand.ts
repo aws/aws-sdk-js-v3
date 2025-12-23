@@ -27,9 +27,7 @@ export interface DescribeConformancePackComplianceCommandInput extends DescribeC
  *
  * The output of {@link DescribeConformancePackComplianceCommand}.
  */
-export interface DescribeConformancePackComplianceCommandOutput
-  extends DescribeConformancePackComplianceResponse,
-    __MetadataBearer {}
+export interface DescribeConformancePackComplianceCommandOutput extends DescribeConformancePackComplianceResponse, __MetadataBearer {}
 
 /**
  * <p>Returns compliance details for each rule in that conformance pack.</p>

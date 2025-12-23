@@ -28,9 +28,7 @@ export interface StartAvailabilityMonitorTestCommandInput extends StartAvailabil
  *
  * The output of {@link StartAvailabilityMonitorTestCommand}.
  */
-export interface StartAvailabilityMonitorTestCommandOutput
-  extends StartAvailabilityMonitorTestOutput,
-    __MetadataBearer {}
+export interface StartAvailabilityMonitorTestCommandOutput extends StartAvailabilityMonitorTestOutput, __MetadataBearer {}
 
 /**
  * <p>Start a test that verifies that the specified gateway is configured for High

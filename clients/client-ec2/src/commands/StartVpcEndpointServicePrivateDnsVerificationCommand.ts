@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link StartVpcEndpointServicePrivateDnsVerificationCommand}.
  */
-export interface StartVpcEndpointServicePrivateDnsVerificationCommandInput
-  extends StartVpcEndpointServicePrivateDnsVerificationRequest {}
+export interface StartVpcEndpointServicePrivateDnsVerificationCommandInput extends StartVpcEndpointServicePrivateDnsVerificationRequest {}
 /**
  * @public
  *
  * The output of {@link StartVpcEndpointServicePrivateDnsVerificationCommand}.
  */
-export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
-  extends StartVpcEndpointServicePrivateDnsVerificationResult,
-    __MetadataBearer {}
+export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput extends StartVpcEndpointServicePrivateDnsVerificationResult, __MetadataBearer {}
 
 /**
  * <p>Initiates the verification process to prove that the service provider owns the private

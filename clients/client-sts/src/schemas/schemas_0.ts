@@ -143,321 +143,261 @@ var clientTokenType: StaticSimpleSchema = [0, n0, _cTT, 8, 0];
 var SAMLAssertionType: StaticSimpleSchema = [0, n0, _SAMLAT, 8, 0];
 var tradeInTokenType: StaticSimpleSchema = [0, n0, _tITT, 8, 0];
 var webIdentityTokenType: StaticSimpleSchema = [0, n0, _wITT, 8, 0];
-export var AssumedRoleUser$: StaticStructureSchema = [3, n0, _ARU, 0, [_ARI, _A], [0, 0]];
-export var AssumeRoleRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _ARR,
+export var AssumedRoleUser$: StaticStructureSchema = [3, n0, _ARU,
+  0,
+  [_ARI, _A],
+  [0, 0]
+];
+export var AssumeRoleRequest$: StaticStructureSchema = [3, n0, _ARR,
   0,
   [_RA, _RSN, _PA, _P, _DS, _T, _TTK, _EI, _SN, _TC, _SI, _PC],
-  [0, 0, () => policyDescriptorListType, 0, 1, () => tagListType, 64 | 0, 0, 0, 0, 0, () => ProvidedContextsListType],
+  [0, 0, () => policyDescriptorListType, 0, 1, () => tagListType, 64 | 0, 0, 0, 0, 0, () => ProvidedContextsListType]
 ];
-export var AssumeRoleResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _ARRs,
+export var AssumeRoleResponse$: StaticStructureSchema = [3, n0, _ARRs,
   0,
   [_C, _ARU, _PPS, _SI],
-  [[() => Credentials$, 0], () => AssumedRoleUser$, 1, 0],
+  [[() => Credentials$, 0], () => AssumedRoleUser$, 1, 0]
 ];
-export var AssumeRoleWithSAMLRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _ARWSAMLR,
+export var AssumeRoleWithSAMLRequest$: StaticStructureSchema = [3, n0, _ARWSAMLR,
   0,
   [_RA, _PAr, _SAMLA, _PA, _P, _DS],
-  [0, 0, [() => SAMLAssertionType, 0], () => policyDescriptorListType, 0, 1],
+  [0, 0, [() => SAMLAssertionType, 0], () => policyDescriptorListType, 0, 1]
 ];
-export var AssumeRoleWithSAMLResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _ARWSAMLRs,
+export var AssumeRoleWithSAMLResponse$: StaticStructureSchema = [3, n0, _ARWSAMLRs,
   0,
   [_C, _ARU, _PPS, _S, _ST, _I, _Au, _NQ, _SI],
-  [[() => Credentials$, 0], () => AssumedRoleUser$, 1, 0, 0, 0, 0, 0, 0],
+  [[() => Credentials$, 0], () => AssumedRoleUser$, 1, 0, 0, 0, 0, 0, 0]
 ];
-export var AssumeRoleWithWebIdentityRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _ARWWIR,
+export var AssumeRoleWithWebIdentityRequest$: StaticStructureSchema = [3, n0, _ARWWIR,
   0,
   [_RA, _RSN, _WIT, _PI, _PA, _P, _DS],
-  [0, 0, [() => clientTokenType, 0], 0, () => policyDescriptorListType, 0, 1],
+  [0, 0, [() => clientTokenType, 0], 0, () => policyDescriptorListType, 0, 1]
 ];
-export var AssumeRoleWithWebIdentityResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _ARWWIRs,
+export var AssumeRoleWithWebIdentityResponse$: StaticStructureSchema = [3, n0, _ARWWIRs,
   0,
   [_C, _SFWIT, _ARU, _PPS, _Pr, _Au, _SI],
-  [[() => Credentials$, 0], 0, () => AssumedRoleUser$, 1, 0, 0, 0],
+  [[() => Credentials$, 0], 0, () => AssumedRoleUser$, 1, 0, 0, 0]
 ];
-export var AssumeRootRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _ARRss,
+export var AssumeRootRequest$: StaticStructureSchema = [3, n0, _ARRss,
   0,
   [_TP, _TPA, _DS],
-  [0, () => PolicyDescriptorType$, 1],
+  [0, () => PolicyDescriptorType$, 1]
 ];
-export var AssumeRootResponse$: StaticStructureSchema = [3, n0, _ARRssu, 0, [_C, _SI], [[() => Credentials$, 0], 0]];
-export var Credentials$: StaticStructureSchema = [
-  3,
-  n0,
-  _C,
+export var AssumeRootResponse$: StaticStructureSchema = [3, n0, _ARRssu,
+  0,
+  [_C, _SI],
+  [[() => Credentials$, 0], 0]
+];
+export var Credentials$: StaticStructureSchema = [3, n0, _C,
   0,
   [_AKI, _SAK, _STe, _E],
-  [0, [() => accessKeySecretType, 0], 0, 4],
+  [0, [() => accessKeySecretType, 0], 0, 4]
 ];
-export var DecodeAuthorizationMessageRequest$: StaticStructureSchema = [3, n0, _DAMR, 0, [_EM], [0]];
-export var DecodeAuthorizationMessageResponse$: StaticStructureSchema = [3, n0, _DAMRe, 0, [_DM], [0]];
-export var ExpiredTokenException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ETE,
+export var DecodeAuthorizationMessageRequest$: StaticStructureSchema = [3, n0, _DAMR,
+  0,
+  [_EM],
+  [0]
+];
+export var DecodeAuthorizationMessageResponse$: StaticStructureSchema = [3, n0, _DAMRe,
+  0,
+  [_DM],
+  [0]
+];
+export var ExpiredTokenException$: StaticErrorSchema = [-3, n0, _ETE,
   { [_aQE]: [`ExpiredTokenException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(ExpiredTokenException$, ExpiredTokenException);
-export var ExpiredTradeInTokenException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ETITE,
+export var ExpiredTradeInTokenException$: StaticErrorSchema = [-3, n0, _ETITE,
   { [_aQE]: [`ExpiredTradeInTokenException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(ExpiredTradeInTokenException$, ExpiredTradeInTokenException);
-export var FederatedUser$: StaticStructureSchema = [3, n0, _FU, 0, [_FUI, _A], [0, 0]];
-export var GetAccessKeyInfoRequest$: StaticStructureSchema = [3, n0, _GAKIR, 0, [_AKI], [0]];
-export var GetAccessKeyInfoResponse$: StaticStructureSchema = [3, n0, _GAKIRe, 0, [_Ac], [0]];
-export var GetCallerIdentityRequest$: StaticStructureSchema = [3, n0, _GCIR, 0, [], []];
-export var GetCallerIdentityResponse$: StaticStructureSchema = [3, n0, _GCIRe, 0, [_UI, _Ac, _A], [0, 0, 0]];
-export var GetDelegatedAccessTokenRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _GDATR,
+export var FederatedUser$: StaticStructureSchema = [3, n0, _FU,
+  0,
+  [_FUI, _A],
+  [0, 0]
+];
+export var GetAccessKeyInfoRequest$: StaticStructureSchema = [3, n0, _GAKIR,
+  0,
+  [_AKI],
+  [0]
+];
+export var GetAccessKeyInfoResponse$: StaticStructureSchema = [3, n0, _GAKIRe,
+  0,
+  [_Ac],
+  [0]
+];
+export var GetCallerIdentityRequest$: StaticStructureSchema = [3, n0, _GCIR,
+  0,
+  [],
+  []
+];
+export var GetCallerIdentityResponse$: StaticStructureSchema = [3, n0, _GCIRe,
+  0,
+  [_UI, _Ac, _A],
+  [0, 0, 0]
+];
+export var GetDelegatedAccessTokenRequest$: StaticStructureSchema = [3, n0, _GDATR,
   0,
   [_TIT],
-  [[() => tradeInTokenType, 0]],
+  [[() => tradeInTokenType, 0]]
 ];
-export var GetDelegatedAccessTokenResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GDATRe,
+export var GetDelegatedAccessTokenResponse$: StaticStructureSchema = [3, n0, _GDATRe,
   0,
   [_C, _PPS, _AP],
-  [[() => Credentials$, 0], 1, 0],
+  [[() => Credentials$, 0], 1, 0]
 ];
-export var GetFederationTokenRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _GFTR,
+export var GetFederationTokenRequest$: StaticStructureSchema = [3, n0, _GFTR,
   0,
   [_N, _P, _PA, _DS, _T],
-  [0, 0, () => policyDescriptorListType, 1, () => tagListType],
+  [0, 0, () => policyDescriptorListType, 1, () => tagListType]
 ];
-export var GetFederationTokenResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GFTRe,
+export var GetFederationTokenResponse$: StaticStructureSchema = [3, n0, _GFTRe,
   0,
   [_C, _FU, _PPS],
-  [[() => Credentials$, 0], () => FederatedUser$, 1],
+  [[() => Credentials$, 0], () => FederatedUser$, 1]
 ];
-export var GetSessionTokenRequest$: StaticStructureSchema = [3, n0, _GSTR, 0, [_DS, _SN, _TC], [1, 0, 0]];
-export var GetSessionTokenResponse$: StaticStructureSchema = [3, n0, _GSTRe, 0, [_C], [[() => Credentials$, 0]]];
-export var GetWebIdentityTokenRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _GWITR,
+export var GetSessionTokenRequest$: StaticStructureSchema = [3, n0, _GSTR,
+  0,
+  [_DS, _SN, _TC],
+  [1, 0, 0]
+];
+export var GetSessionTokenResponse$: StaticStructureSchema = [3, n0, _GSTRe,
+  0,
+  [_C],
+  [[() => Credentials$, 0]]
+];
+export var GetWebIdentityTokenRequest$: StaticStructureSchema = [3, n0, _GWITR,
   0,
   [_Au, _DS, _SA, _T],
-  [64 | 0, 1, 0, () => tagListType],
+  [64 | 0, 1, 0, () => tagListType]
 ];
-export var GetWebIdentityTokenResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _GWITRe,
+export var GetWebIdentityTokenResponse$: StaticStructureSchema = [3, n0, _GWITRe,
   0,
   [_WIT, _E],
-  [[() => webIdentityTokenType, 0], 4],
+  [[() => webIdentityTokenType, 0], 4]
 ];
-export var IDPCommunicationErrorException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDPCEE,
+export var IDPCommunicationErrorException$: StaticErrorSchema = [-3, n0, _IDPCEE,
   { [_aQE]: [`IDPCommunicationError`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(IDPCommunicationErrorException$, IDPCommunicationErrorException);
-export var IDPRejectedClaimException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDPRCE,
+export var IDPRejectedClaimException$: StaticErrorSchema = [-3, n0, _IDPRCE,
   { [_aQE]: [`IDPRejectedClaim`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(IDPRejectedClaimException$, IDPRejectedClaimException);
-export var InvalidAuthorizationMessageException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IAME,
+export var InvalidAuthorizationMessageException$: StaticErrorSchema = [-3, n0, _IAME,
   { [_aQE]: [`InvalidAuthorizationMessageException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(InvalidAuthorizationMessageException$, InvalidAuthorizationMessageException);
-export var InvalidIdentityTokenException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IITE,
+export var InvalidIdentityTokenException$: StaticErrorSchema = [-3, n0, _IITE,
   { [_aQE]: [`InvalidIdentityToken`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(InvalidIdentityTokenException$, InvalidIdentityTokenException);
-export var JWTPayloadSizeExceededException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _JWTPSEE,
+export var JWTPayloadSizeExceededException$: StaticErrorSchema = [-3, n0, _JWTPSEE,
   { [_aQE]: [`JWTPayloadSizeExceededException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(JWTPayloadSizeExceededException$, JWTPayloadSizeExceededException);
-export var MalformedPolicyDocumentException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _MPDE,
+export var MalformedPolicyDocumentException$: StaticErrorSchema = [-3, n0, _MPDE,
   { [_aQE]: [`MalformedPolicyDocument`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(MalformedPolicyDocumentException$, MalformedPolicyDocumentException);
-export var OutboundWebIdentityFederationDisabledException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _OWIFDE,
+export var OutboundWebIdentityFederationDisabledException$: StaticErrorSchema = [-3, n0, _OWIFDE,
   { [_aQE]: [`OutboundWebIdentityFederationDisabledException`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(
-  OutboundWebIdentityFederationDisabledException$,
-  OutboundWebIdentityFederationDisabledException
-);
-export var PackedPolicyTooLargeException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _PPTLE,
+TypeRegistry.for(n0).registerError(OutboundWebIdentityFederationDisabledException$, OutboundWebIdentityFederationDisabledException);
+export var PackedPolicyTooLargeException$: StaticErrorSchema = [-3, n0, _PPTLE,
   { [_aQE]: [`PackedPolicyTooLarge`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(PackedPolicyTooLargeException$, PackedPolicyTooLargeException);
-export var PolicyDescriptorType$: StaticStructureSchema = [3, n0, _PDT, 0, [_a], [0]];
-export var ProvidedContext$: StaticStructureSchema = [3, n0, _PCr, 0, [_PAro, _CA], [0, 0]];
-export var RegionDisabledException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _RDE,
+export var PolicyDescriptorType$: StaticStructureSchema = [3, n0, _PDT,
+  0,
+  [_a],
+  [0]
+];
+export var ProvidedContext$: StaticStructureSchema = [3, n0, _PCr,
+  0,
+  [_PAro, _CA],
+  [0, 0]
+];
+export var RegionDisabledException$: StaticErrorSchema = [-3, n0, _RDE,
   { [_aQE]: [`RegionDisabledException`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(RegionDisabledException$, RegionDisabledException);
-export var SessionDurationEscalationException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SDEE,
+export var SessionDurationEscalationException$: StaticErrorSchema = [-3, n0, _SDEE,
   { [_aQE]: [`SessionDurationEscalationException`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(SessionDurationEscalationException$, SessionDurationEscalationException);
-export var Tag$: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0]];
+export var Tag$: StaticStructureSchema = [3, n0, _Ta,
+  0,
+  [_K, _V],
+  [0, 0]
+];
 export var STSServiceException$: StaticErrorSchema = [-3, _s, "STSServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(STSServiceException$, STSServiceException);
-var policyDescriptorListType: StaticListSchema = [1, n0, _pDLT, 0, () => PolicyDescriptorType$];
-var ProvidedContextsListType: StaticListSchema = [1, n0, _PCLT, 0, () => ProvidedContext$];
+var policyDescriptorListType: StaticListSchema = [1, n0, _pDLT,
+  0, () => PolicyDescriptorType$
+];
+var ProvidedContextsListType: StaticListSchema = [1, n0, _PCLT,
+  0, () => ProvidedContext$
+];
 var tagKeyListType = 64 | 0;
-var tagListType: StaticListSchema = [1, n0, _tLT, 0, () => Tag$];
+var tagListType: StaticListSchema = [1, n0, _tLT,
+  0, () => Tag$
+];
 var webIdentityTokenAudienceListType = 64 | 0;
-export var AssumeRole$: StaticOperationSchema = [9, n0, _AR, 0, () => AssumeRoleRequest$, () => AssumeRoleResponse$];
-export var AssumeRoleWithSAML$: StaticOperationSchema = [
-  9,
-  n0,
-  _ARWSAML,
-  0,
-  () => AssumeRoleWithSAMLRequest$,
-  () => AssumeRoleWithSAMLResponse$,
+export var AssumeRole$: StaticOperationSchema = [9, n0, _AR,
+  0, () => AssumeRoleRequest$, () => AssumeRoleResponse$
 ];
-export var AssumeRoleWithWebIdentity$: StaticOperationSchema = [
-  9,
-  n0,
-  _ARWWI,
-  0,
-  () => AssumeRoleWithWebIdentityRequest$,
-  () => AssumeRoleWithWebIdentityResponse$,
+export var AssumeRoleWithSAML$: StaticOperationSchema = [9, n0, _ARWSAML,
+  0, () => AssumeRoleWithSAMLRequest$, () => AssumeRoleWithSAMLResponse$
 ];
-export var AssumeRoot$: StaticOperationSchema = [9, n0, _ARs, 0, () => AssumeRootRequest$, () => AssumeRootResponse$];
-export var DecodeAuthorizationMessage$: StaticOperationSchema = [
-  9,
-  n0,
-  _DAM,
-  0,
-  () => DecodeAuthorizationMessageRequest$,
-  () => DecodeAuthorizationMessageResponse$,
+export var AssumeRoleWithWebIdentity$: StaticOperationSchema = [9, n0, _ARWWI,
+  0, () => AssumeRoleWithWebIdentityRequest$, () => AssumeRoleWithWebIdentityResponse$
 ];
-export var GetAccessKeyInfo$: StaticOperationSchema = [
-  9,
-  n0,
-  _GAKI,
-  0,
-  () => GetAccessKeyInfoRequest$,
-  () => GetAccessKeyInfoResponse$,
+export var AssumeRoot$: StaticOperationSchema = [9, n0, _ARs,
+  0, () => AssumeRootRequest$, () => AssumeRootResponse$
 ];
-export var GetCallerIdentity$: StaticOperationSchema = [
-  9,
-  n0,
-  _GCI,
-  0,
-  () => GetCallerIdentityRequest$,
-  () => GetCallerIdentityResponse$,
+export var DecodeAuthorizationMessage$: StaticOperationSchema = [9, n0, _DAM,
+  0, () => DecodeAuthorizationMessageRequest$, () => DecodeAuthorizationMessageResponse$
 ];
-export var GetDelegatedAccessToken$: StaticOperationSchema = [
-  9,
-  n0,
-  _GDAT,
-  0,
-  () => GetDelegatedAccessTokenRequest$,
-  () => GetDelegatedAccessTokenResponse$,
+export var GetAccessKeyInfo$: StaticOperationSchema = [9, n0, _GAKI,
+  0, () => GetAccessKeyInfoRequest$, () => GetAccessKeyInfoResponse$
 ];
-export var GetFederationToken$: StaticOperationSchema = [
-  9,
-  n0,
-  _GFT,
-  0,
-  () => GetFederationTokenRequest$,
-  () => GetFederationTokenResponse$,
+export var GetCallerIdentity$: StaticOperationSchema = [9, n0, _GCI,
+  0, () => GetCallerIdentityRequest$, () => GetCallerIdentityResponse$
 ];
-export var GetSessionToken$: StaticOperationSchema = [
-  9,
-  n0,
-  _GST,
-  0,
-  () => GetSessionTokenRequest$,
-  () => GetSessionTokenResponse$,
+export var GetDelegatedAccessToken$: StaticOperationSchema = [9, n0, _GDAT,
+  0, () => GetDelegatedAccessTokenRequest$, () => GetDelegatedAccessTokenResponse$
 ];
-export var GetWebIdentityToken$: StaticOperationSchema = [
-  9,
-  n0,
-  _GWIT,
-  0,
-  () => GetWebIdentityTokenRequest$,
-  () => GetWebIdentityTokenResponse$,
+export var GetFederationToken$: StaticOperationSchema = [9, n0, _GFT,
+  0, () => GetFederationTokenRequest$, () => GetFederationTokenResponse$
+];
+export var GetSessionToken$: StaticOperationSchema = [9, n0, _GST,
+  0, () => GetSessionTokenRequest$, () => GetSessionTokenResponse$
+];
+export var GetWebIdentityToken$: StaticOperationSchema = [9, n0, _GWIT,
+  0, () => GetWebIdentityTokenRequest$, () => GetWebIdentityTokenResponse$
 ];

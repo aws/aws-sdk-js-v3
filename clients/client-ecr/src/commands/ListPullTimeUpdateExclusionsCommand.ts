@@ -24,9 +24,7 @@ export interface ListPullTimeUpdateExclusionsCommandInput extends ListPullTimeUp
  *
  * The output of {@link ListPullTimeUpdateExclusionsCommand}.
  */
-export interface ListPullTimeUpdateExclusionsCommandOutput
-  extends ListPullTimeUpdateExclusionsResponse,
-    __MetadataBearer {}
+export interface ListPullTimeUpdateExclusionsCommandOutput extends ListPullTimeUpdateExclusionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the IAM principals that are excluded from having their image pull times recorded.</p>

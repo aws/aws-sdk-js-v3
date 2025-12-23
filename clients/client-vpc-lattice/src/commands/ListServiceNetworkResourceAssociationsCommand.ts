@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListServiceNetworkResourceAssociationsCommand}.
  */
-export interface ListServiceNetworkResourceAssociationsCommandInput
-  extends ListServiceNetworkResourceAssociationsRequest {}
+export interface ListServiceNetworkResourceAssociationsCommandInput extends ListServiceNetworkResourceAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListServiceNetworkResourceAssociationsCommand}.
  */
-export interface ListServiceNetworkResourceAssociationsCommandOutput
-  extends ListServiceNetworkResourceAssociationsResponse,
-    __MetadataBearer {}
+export interface ListServiceNetworkResourceAssociationsCommandOutput extends ListServiceNetworkResourceAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the associations between a service network and a resource configuration.</p>

@@ -39,8 +39,14 @@ export interface KinesisVideoArchivedMedia {
   /**
    * @see {@link GetClipCommand}
    */
-  getClip(args: GetClipCommandInput, options?: __HttpHandlerOptions): Promise<GetClipCommandOutput>;
-  getClip(args: GetClipCommandInput, cb: (err: any, data?: GetClipCommandOutput) => void): void;
+  getClip(
+    args: GetClipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetClipCommandOutput>;
+  getClip(
+    args: GetClipCommandInput,
+    cb: (err: any, data?: GetClipCommandOutput) => void
+  ): void;
   getClip(
     args: GetClipCommandInput,
     options: __HttpHandlerOptions,
@@ -86,8 +92,14 @@ export interface KinesisVideoArchivedMedia {
   /**
    * @see {@link GetImagesCommand}
    */
-  getImages(args: GetImagesCommandInput, options?: __HttpHandlerOptions): Promise<GetImagesCommandOutput>;
-  getImages(args: GetImagesCommandInput, cb: (err: any, data?: GetImagesCommandOutput) => void): void;
+  getImages(
+    args: GetImagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetImagesCommandOutput>;
+  getImages(
+    args: GetImagesCommandInput,
+    cb: (err: any, data?: GetImagesCommandOutput) => void
+  ): void;
   getImages(
     args: GetImagesCommandInput,
     options: __HttpHandlerOptions,
@@ -115,8 +127,14 @@ export interface KinesisVideoArchivedMedia {
    * @see {@link ListFragmentsCommand}
    */
   listFragments(): Promise<ListFragmentsCommandOutput>;
-  listFragments(args: ListFragmentsCommandInput, options?: __HttpHandlerOptions): Promise<ListFragmentsCommandOutput>;
-  listFragments(args: ListFragmentsCommandInput, cb: (err: any, data?: ListFragmentsCommandOutput) => void): void;
+  listFragments(
+    args: ListFragmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFragmentsCommandOutput>;
+  listFragments(
+    args: ListFragmentsCommandInput,
+    cb: (err: any, data?: ListFragmentsCommandOutput) => void
+  ): void;
   listFragments(
     args: ListFragmentsCommandInput,
     options: __HttpHandlerOptions,

@@ -28,9 +28,7 @@ export interface DeleteCustomDomainAssociationCommandInput extends DeleteCustomD
  *
  * The output of {@link DeleteCustomDomainAssociationCommand}.
  */
-export interface DeleteCustomDomainAssociationCommandOutput
-  extends DeleteCustomDomainAssociationResponse,
-    __MetadataBearer {}
+export interface DeleteCustomDomainAssociationCommandOutput extends DeleteCustomDomainAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a custom domain association for Amazon Redshift Serverless.</p>

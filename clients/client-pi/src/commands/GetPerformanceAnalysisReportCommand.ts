@@ -24,9 +24,7 @@ export interface GetPerformanceAnalysisReportCommandInput extends GetPerformance
  *
  * The output of {@link GetPerformanceAnalysisReportCommand}.
  */
-export interface GetPerformanceAnalysisReportCommandOutput
-  extends GetPerformanceAnalysisReportResponse,
-    __MetadataBearer {}
+export interface GetPerformanceAnalysisReportCommandOutput extends GetPerformanceAnalysisReportResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the report including the report ID, status, time details, and the insights

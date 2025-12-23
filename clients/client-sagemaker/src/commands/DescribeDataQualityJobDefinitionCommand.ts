@@ -27,9 +27,7 @@ export interface DescribeDataQualityJobDefinitionCommandInput extends DescribeDa
  *
  * The output of {@link DescribeDataQualityJobDefinitionCommand}.
  */
-export interface DescribeDataQualityJobDefinitionCommandOutput
-  extends DescribeDataQualityJobDefinitionResponse,
-    __MetadataBearer {}
+export interface DescribeDataQualityJobDefinitionCommandOutput extends DescribeDataQualityJobDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the details of a data quality monitoring job definition.</p>

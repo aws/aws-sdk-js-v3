@@ -24,9 +24,7 @@ export interface UpdateWorkspaceConfigurationCommandInput extends UpdateWorkspac
  *
  * The output of {@link UpdateWorkspaceConfigurationCommand}.
  */
-export interface UpdateWorkspaceConfigurationCommandOutput
-  extends UpdateWorkspaceConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateWorkspaceConfigurationCommandOutput extends UpdateWorkspaceConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the configuration string for the given workspace</p>

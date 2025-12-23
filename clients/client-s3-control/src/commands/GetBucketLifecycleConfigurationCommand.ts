@@ -25,9 +25,7 @@ export interface GetBucketLifecycleConfigurationCommandInput extends GetBucketLi
  *
  * The output of {@link GetBucketLifecycleConfigurationCommand}.
  */
-export interface GetBucketLifecycleConfigurationCommandOutput
-  extends GetBucketLifecycleConfigurationResult,
-    __MetadataBearer {}
+export interface GetBucketLifecycleConfigurationCommandOutput extends GetBucketLifecycleConfigurationResult, __MetadataBearer {}
 
 /**
  * <note>
@@ -175,7 +173,10 @@ export class GetBucketLifecycleConfigurationCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getProcessArnablesPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getProcessArnablesPlugin(config),
+    ];
   })
   .s("AWSS3ControlServiceV20180820", "GetBucketLifecycleConfiguration", {})
   .n("S3ControlClient", "GetBucketLifecycleConfigurationCommand")

@@ -28,9 +28,7 @@ export interface GetLinkedWhatsAppBusinessAccountCommandInput extends GetLinkedW
  *
  * The output of {@link GetLinkedWhatsAppBusinessAccountCommand}.
  */
-export interface GetLinkedWhatsAppBusinessAccountCommandOutput
-  extends GetLinkedWhatsAppBusinessAccountOutput,
-    __MetadataBearer {}
+export interface GetLinkedWhatsAppBusinessAccountCommandOutput extends GetLinkedWhatsAppBusinessAccountOutput, __MetadataBearer {}
 
 /**
  * <p>Get the details of your linked WhatsApp Business Account.</p>

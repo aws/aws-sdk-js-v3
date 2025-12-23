@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListBillScenarioCommitmentModificationsCommand}.
  */
-export interface ListBillScenarioCommitmentModificationsCommandInput
-  extends ListBillScenarioCommitmentModificationsRequest {}
+export interface ListBillScenarioCommitmentModificationsCommandInput extends ListBillScenarioCommitmentModificationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListBillScenarioCommitmentModificationsCommand}.
  */
-export interface ListBillScenarioCommitmentModificationsCommandOutput
-  extends ListBillScenarioCommitmentModificationsResponse,
-    __MetadataBearer {}
+export interface ListBillScenarioCommitmentModificationsCommandOutput extends ListBillScenarioCommitmentModificationsResponse, __MetadataBearer {}
 
 /**
  * <p> Lists the commitment modifications associated with a bill scenario. </p>

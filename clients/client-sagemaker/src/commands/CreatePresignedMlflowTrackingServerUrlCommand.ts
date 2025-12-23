@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreatePresignedMlflowTrackingServerUrlCommand}.
  */
-export interface CreatePresignedMlflowTrackingServerUrlCommandInput
-  extends CreatePresignedMlflowTrackingServerUrlRequest {}
+export interface CreatePresignedMlflowTrackingServerUrlCommandInput extends CreatePresignedMlflowTrackingServerUrlRequest {}
 /**
  * @public
  *
  * The output of {@link CreatePresignedMlflowTrackingServerUrlCommand}.
  */
-export interface CreatePresignedMlflowTrackingServerUrlCommandOutput
-  extends CreatePresignedMlflowTrackingServerUrlResponse,
-    __MetadataBearer {}
+export interface CreatePresignedMlflowTrackingServerUrlCommandOutput extends CreatePresignedMlflowTrackingServerUrlResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a presigned URL that you can use to connect to the MLflow UI attached to your tracking server. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-launch-ui.html">Launch the MLflow UI using a presigned URL</a>.</p>

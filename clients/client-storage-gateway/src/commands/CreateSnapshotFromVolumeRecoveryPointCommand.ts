@@ -31,9 +31,7 @@ export interface CreateSnapshotFromVolumeRecoveryPointCommandInput extends Creat
  *
  * The output of {@link CreateSnapshotFromVolumeRecoveryPointCommand}.
  */
-export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput
-  extends CreateSnapshotFromVolumeRecoveryPointOutput,
-    __MetadataBearer {}
+export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput extends CreateSnapshotFromVolumeRecoveryPointOutput, __MetadataBearer {}
 
 /**
  * <p>Initiates a snapshot of a gateway from a volume recovery point. This operation is only

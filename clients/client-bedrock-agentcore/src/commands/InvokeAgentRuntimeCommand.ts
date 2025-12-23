@@ -39,9 +39,7 @@ export interface InvokeAgentRuntimeCommandInput extends InvokeAgentRuntimeComman
  *
  * The output of {@link InvokeAgentRuntimeCommand}.
  */
-export interface InvokeAgentRuntimeCommandOutput
-  extends Omit<InvokeAgentRuntimeResponse, "response">,
-    __MetadataBearer {
+export interface InvokeAgentRuntimeCommandOutput extends Omit<InvokeAgentRuntimeResponse, "response">, __MetadataBearer {
   response?: StreamingBlobPayloadOutputTypes;
 }
 

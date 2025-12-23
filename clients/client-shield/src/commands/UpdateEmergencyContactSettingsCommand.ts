@@ -24,9 +24,7 @@ export interface UpdateEmergencyContactSettingsCommandInput extends UpdateEmerge
  *
  * The output of {@link UpdateEmergencyContactSettingsCommand}.
  */
-export interface UpdateEmergencyContactSettingsCommandOutput
-  extends UpdateEmergencyContactSettingsResponse,
-    __MetadataBearer {}
+export interface UpdateEmergencyContactSettingsCommandOutput extends UpdateEmergencyContactSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the details of the list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>

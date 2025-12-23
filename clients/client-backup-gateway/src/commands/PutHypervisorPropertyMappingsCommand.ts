@@ -24,9 +24,7 @@ export interface PutHypervisorPropertyMappingsCommandInput extends PutHypervisor
  *
  * The output of {@link PutHypervisorPropertyMappingsCommand}.
  */
-export interface PutHypervisorPropertyMappingsCommandOutput
-  extends PutHypervisorPropertyMappingsOutput,
-    __MetadataBearer {}
+export interface PutHypervisorPropertyMappingsCommandOutput extends PutHypervisorPropertyMappingsOutput, __MetadataBearer {}
 
 /**
  * <p>This action sets the property mappings for the specified hypervisor.

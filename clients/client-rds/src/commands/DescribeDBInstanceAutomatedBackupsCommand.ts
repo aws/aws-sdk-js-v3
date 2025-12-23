@@ -24,9 +24,7 @@ export interface DescribeDBInstanceAutomatedBackupsCommandInput extends Describe
  *
  * The output of {@link DescribeDBInstanceAutomatedBackupsCommand}.
  */
-export interface DescribeDBInstanceAutomatedBackupsCommandOutput
-  extends DBInstanceAutomatedBackupMessage,
-    __MetadataBearer {}
+export interface DescribeDBInstanceAutomatedBackupsCommandOutput extends DBInstanceAutomatedBackupMessage, __MetadataBearer {}
 
 /**
  * <p>Displays backups for both current and deleted

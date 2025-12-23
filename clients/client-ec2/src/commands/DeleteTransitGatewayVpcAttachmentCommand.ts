@@ -27,9 +27,7 @@ export interface DeleteTransitGatewayVpcAttachmentCommandInput extends DeleteTra
  *
  * The output of {@link DeleteTransitGatewayVpcAttachmentCommand}.
  */
-export interface DeleteTransitGatewayVpcAttachmentCommandOutput
-  extends DeleteTransitGatewayVpcAttachmentResult,
-    __MetadataBearer {}
+export interface DeleteTransitGatewayVpcAttachmentCommandOutput extends DeleteTransitGatewayVpcAttachmentResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified VPC attachment.</p>

@@ -24,9 +24,7 @@ export interface DeleteServerlessCacheSnapshotCommandInput extends DeleteServerl
  *
  * The output of {@link DeleteServerlessCacheSnapshotCommand}.
  */
-export interface DeleteServerlessCacheSnapshotCommandOutput
-  extends DeleteServerlessCacheSnapshotResponse,
-    __MetadataBearer {}
+export interface DeleteServerlessCacheSnapshotCommandOutput extends DeleteServerlessCacheSnapshotResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing serverless cache snapshot. Available for Valkey, Redis OSS and Serverless Memcached only.</p>

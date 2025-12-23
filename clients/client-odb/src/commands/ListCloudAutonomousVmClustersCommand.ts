@@ -24,9 +24,7 @@ export interface ListCloudAutonomousVmClustersCommandInput extends ListCloudAuto
  *
  * The output of {@link ListCloudAutonomousVmClustersCommand}.
  */
-export interface ListCloudAutonomousVmClustersCommandOutput
-  extends ListCloudAutonomousVmClustersOutput,
-    __MetadataBearer {}
+export interface ListCloudAutonomousVmClustersCommandOutput extends ListCloudAutonomousVmClustersOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all Autonomous VM clusters in a specified Cloud Exadata infrastructure.</p>

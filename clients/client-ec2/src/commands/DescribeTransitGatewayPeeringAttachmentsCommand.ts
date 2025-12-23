@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeTransitGatewayPeeringAttachmentsCommand}.
  */
-export interface DescribeTransitGatewayPeeringAttachmentsCommandInput
-  extends DescribeTransitGatewayPeeringAttachmentsRequest {}
+export interface DescribeTransitGatewayPeeringAttachmentsCommandInput extends DescribeTransitGatewayPeeringAttachmentsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeTransitGatewayPeeringAttachmentsCommand}.
  */
-export interface DescribeTransitGatewayPeeringAttachmentsCommandOutput
-  extends DescribeTransitGatewayPeeringAttachmentsResult,
-    __MetadataBearer {}
+export interface DescribeTransitGatewayPeeringAttachmentsCommandOutput extends DescribeTransitGatewayPeeringAttachmentsResult, __MetadataBearer {}
 
 /**
  * <p>Describes your transit gateway peering attachments.</p>

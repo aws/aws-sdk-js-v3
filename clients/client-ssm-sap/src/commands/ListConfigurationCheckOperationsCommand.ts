@@ -24,9 +24,7 @@ export interface ListConfigurationCheckOperationsCommandInput extends ListConfig
  *
  * The output of {@link ListConfigurationCheckOperationsCommand}.
  */
-export interface ListConfigurationCheckOperationsCommandOutput
-  extends ListConfigurationCheckOperationsOutput,
-    __MetadataBearer {}
+export interface ListConfigurationCheckOperationsCommandOutput extends ListConfigurationCheckOperationsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the configuration check operations performed by AWS Systems Manager for SAP.</p>

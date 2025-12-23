@@ -354,10 +354,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * Function that returns body checksums.
    * @internal
    */
-  bodyChecksumGenerator?: (
-    request: __HttpRequest,
-    options: { sha256: __ChecksumConstructor | __HashConstructor; utf8Decoder: __Decoder }
-  ) => Promise<[string, string]>;
+  bodyChecksumGenerator?: (request: __HttpRequest, options: { sha256: __ChecksumConstructor | __HashConstructor; utf8Decoder: __Decoder }) => Promise<[string, string]>;
 
   /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
@@ -403,6 +400,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * @internal
    */
   sdkStreamMixin?: __SdkStreamMixinInjector;
+
 }
 
 /**

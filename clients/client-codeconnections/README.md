@@ -7,7 +7,6 @@
 AWS SDK for JavaScript CodeConnections Client for Node.js, Browser and React Native.
 
 <fullname>AWS CodeConnections</fullname>
-
 <p>This Amazon Web Services CodeConnections API Reference provides descriptions and usage examples of
 the operations and data types for the Amazon Web Services CodeConnections API. You can use the
 connections API to work with connections and installations.</p>
@@ -88,10 +87,8 @@ CodeConnections.</p>
 Tools User Guide</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-codeconnections
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-codeconnections`
 - `yarn add @aws-sdk/client-codeconnections`
 - `pnpm add @aws-sdk/client-codeconnections`
@@ -127,9 +124,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new CodeConnectionsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListHostsCommand(params);
 ```
 
@@ -288,7 +283,6 @@ CreateConnection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/CreateConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/CreateConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/CreateConnectionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -296,7 +290,6 @@ CreateHost
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/CreateHostCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/CreateHostCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/CreateHostCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -304,7 +297,6 @@ CreateRepositoryLink
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/CreateRepositoryLinkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/CreateRepositoryLinkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/CreateRepositoryLinkCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -312,7 +304,6 @@ CreateSyncConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/CreateSyncConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/CreateSyncConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/CreateSyncConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -320,7 +311,6 @@ DeleteConnection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/DeleteConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/DeleteConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/DeleteConnectionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -328,7 +318,6 @@ DeleteHost
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/DeleteHostCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/DeleteHostCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/DeleteHostCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -336,7 +325,6 @@ DeleteRepositoryLink
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/DeleteRepositoryLinkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/DeleteRepositoryLinkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/DeleteRepositoryLinkCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -344,7 +332,6 @@ DeleteSyncConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/DeleteSyncConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/DeleteSyncConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/DeleteSyncConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -352,7 +339,6 @@ GetConnection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/GetConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/GetConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/GetConnectionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -360,7 +346,6 @@ GetHost
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/GetHostCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/GetHostCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/GetHostCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -368,7 +353,6 @@ GetRepositoryLink
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/GetRepositoryLinkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/GetRepositoryLinkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/GetRepositoryLinkCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -376,7 +360,6 @@ GetRepositorySyncStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/GetRepositorySyncStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/GetRepositorySyncStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/GetRepositorySyncStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -384,7 +367,6 @@ GetResourceSyncStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/GetResourceSyncStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/GetResourceSyncStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/GetResourceSyncStatusCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -392,7 +374,6 @@ GetSyncBlockerSummary
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/GetSyncBlockerSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/GetSyncBlockerSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/GetSyncBlockerSummaryCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -400,7 +381,6 @@ GetSyncConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/GetSyncConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/GetSyncConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/GetSyncConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -408,7 +388,6 @@ ListConnections
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/ListConnectionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/ListConnectionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/ListConnectionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -416,7 +395,6 @@ ListHosts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/ListHostsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/ListHostsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/ListHostsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -424,7 +402,6 @@ ListRepositoryLinks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/ListRepositoryLinksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/ListRepositoryLinksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/ListRepositoryLinksCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -432,7 +409,6 @@ ListRepositorySyncDefinitions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/ListRepositorySyncDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/ListRepositorySyncDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/ListRepositorySyncDefinitionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -440,7 +416,6 @@ ListSyncConfigurations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/ListSyncConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/ListSyncConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/ListSyncConfigurationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -448,7 +423,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -456,7 +430,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -464,7 +437,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -472,7 +444,6 @@ UpdateHost
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/UpdateHostCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/UpdateHostCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/UpdateHostCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -480,7 +451,6 @@ UpdateRepositoryLink
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/UpdateRepositoryLinkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/UpdateRepositoryLinkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/UpdateRepositoryLinkCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -488,7 +458,6 @@ UpdateSyncBlocker
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/UpdateSyncBlockerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/UpdateSyncBlockerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/UpdateSyncBlockerCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -496,5 +465,4 @@ UpdateSyncConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeconnections/command/UpdateSyncConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/UpdateSyncConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeconnections/Interface/UpdateSyncConfigurationCommandOutput/)
-
 </details>

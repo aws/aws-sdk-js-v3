@@ -27,9 +27,7 @@ export interface StartMisconfiguredStateRecoveryCommandInput extends StartMiscon
  *
  * The output of {@link StartMisconfiguredStateRecoveryCommand}.
  */
-export interface StartMisconfiguredStateRecoveryCommandOutput
-  extends StartMisconfiguredStateRecoveryResponse,
-    __MetadataBearer {}
+export interface StartMisconfiguredStateRecoveryCommandOutput extends StartMisconfiguredStateRecoveryResponse, __MetadataBearer {}
 
 /**
  * <p>After performing steps to repair the Active Directory configuration of an FSx for Windows File Server file system, use this action to

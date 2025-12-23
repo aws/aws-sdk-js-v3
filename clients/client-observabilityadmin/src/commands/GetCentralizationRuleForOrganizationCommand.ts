@@ -31,9 +31,7 @@ export interface GetCentralizationRuleForOrganizationCommandInput extends GetCen
  *
  * The output of {@link GetCentralizationRuleForOrganizationCommand}.
  */
-export interface GetCentralizationRuleForOrganizationCommandOutput
-  extends GetCentralizationRuleForOrganizationOutput,
-    __MetadataBearer {}
+export interface GetCentralizationRuleForOrganizationCommandOutput extends GetCentralizationRuleForOrganizationOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the details of a specific organization centralization rule. This operation can only be called by the organization's management account or a delegated administrator account.</p>

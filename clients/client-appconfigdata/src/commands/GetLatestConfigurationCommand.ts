@@ -32,9 +32,7 @@ export type GetLatestConfigurationCommandOutputType = Omit<GetLatestConfiguratio
  *
  * The output of {@link GetLatestConfigurationCommand}.
  */
-export interface GetLatestConfigurationCommandOutput
-  extends GetLatestConfigurationCommandOutputType,
-    __MetadataBearer {}
+export interface GetLatestConfigurationCommandOutput extends GetLatestConfigurationCommandOutputType, __MetadataBearer {}
 
 /**
  * <p>Retrieves the latest deployed configuration. This API may return empty configuration

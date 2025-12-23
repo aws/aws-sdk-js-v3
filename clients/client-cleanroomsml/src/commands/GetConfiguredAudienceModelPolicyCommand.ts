@@ -27,9 +27,7 @@ export interface GetConfiguredAudienceModelPolicyCommandInput extends GetConfigu
  *
  * The output of {@link GetConfiguredAudienceModelPolicyCommand}.
  */
-export interface GetConfiguredAudienceModelPolicyCommandOutput
-  extends GetConfiguredAudienceModelPolicyResponse,
-    __MetadataBearer {}
+export interface GetConfiguredAudienceModelPolicyCommandOutput extends GetConfiguredAudienceModelPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a configured audience model policy.</p>

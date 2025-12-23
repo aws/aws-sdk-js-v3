@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateConfigurationSetTrackingOptionsCommand}.
  */
-export interface CreateConfigurationSetTrackingOptionsCommandInput
-  extends CreateConfigurationSetTrackingOptionsRequest {}
+export interface CreateConfigurationSetTrackingOptionsCommandInput extends CreateConfigurationSetTrackingOptionsRequest {}
 /**
  * @public
  *
  * The output of {@link CreateConfigurationSetTrackingOptionsCommand}.
  */
-export interface CreateConfigurationSetTrackingOptionsCommandOutput
-  extends CreateConfigurationSetTrackingOptionsResponse,
-    __MetadataBearer {}
+export interface CreateConfigurationSetTrackingOptionsCommandOutput extends CreateConfigurationSetTrackingOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an association between a configuration set and a custom domain for open and

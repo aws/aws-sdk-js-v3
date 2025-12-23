@@ -132,6 +132,10 @@ import {
   LogSource$,
   LogSourceResource$,
   NotificationConfiguration$,
+  paginateGetDataLakeSources,
+  paginateListDataLakeExceptions,
+  paginateListLogSources,
+  paginateListSubscribers,
   RegisterDataLakeDelegatedAdministrator$,
   RegisterDataLakeDelegatedAdministratorCommand,
   RegisterDataLakeDelegatedAdministratorRequest$,
@@ -172,10 +176,6 @@ import {
   UpdateSubscriberNotificationResponse$,
   UpdateSubscriberRequest$,
   UpdateSubscriberResponse$,
-  paginateGetDataLakeSources,
-  paginateListDataLakeExceptions,
-  paginateListLogSources,
-  paginateListSubscribers,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

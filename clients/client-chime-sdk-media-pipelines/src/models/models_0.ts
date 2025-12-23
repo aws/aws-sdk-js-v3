@@ -1447,9 +1447,7 @@ export interface CreateMediaInsightsPipelineRequest {
    * <p>The runtime configuration for the Kinesis video recording stream source.</p>
    * @public
    */
-  KinesisVideoStreamRecordingSourceRuntimeConfiguration?:
-    | KinesisVideoStreamRecordingSourceRuntimeConfiguration
-    | undefined;
+  KinesisVideoStreamRecordingSourceRuntimeConfiguration?: KinesisVideoStreamRecordingSourceRuntimeConfiguration | undefined;
 
   /**
    * <p>The runtime configuration for the S3 recording sink. If specified, the settings in this structure override any settings in <code>S3RecordingSinkConfiguration</code>.</p>
@@ -1533,9 +1531,7 @@ export interface MediaInsightsPipeline {
    * <p>The runtime configuration settings for a Kinesis recording video stream in a media insights pipeline.</p>
    * @public
    */
-  KinesisVideoStreamRecordingSourceRuntimeConfiguration?:
-    | KinesisVideoStreamRecordingSourceRuntimeConfiguration
-    | undefined;
+  KinesisVideoStreamRecordingSourceRuntimeConfiguration?: KinesisVideoStreamRecordingSourceRuntimeConfiguration | undefined;
 
   /**
    * <p>The runtime configuration of the Amazon S3 bucket that stores recordings in a media insights pipeline.</p>

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetIpamPrefixListResolverVersionEntriesCommand}.
  */
-export interface GetIpamPrefixListResolverVersionEntriesCommandInput
-  extends GetIpamPrefixListResolverVersionEntriesRequest {}
+export interface GetIpamPrefixListResolverVersionEntriesCommandInput extends GetIpamPrefixListResolverVersionEntriesRequest {}
 /**
  * @public
  *
  * The output of {@link GetIpamPrefixListResolverVersionEntriesCommand}.
  */
-export interface GetIpamPrefixListResolverVersionEntriesCommandOutput
-  extends GetIpamPrefixListResolverVersionEntriesResult,
-    __MetadataBearer {}
+export interface GetIpamPrefixListResolverVersionEntriesCommandOutput extends GetIpamPrefixListResolverVersionEntriesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the CIDR entries for a specific version of an IPAM prefix list resolver. This shows the actual CIDRs that were selected and synchronized at a particular point in time.</p>

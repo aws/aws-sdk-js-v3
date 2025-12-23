@@ -21,10 +21,4 @@ export const paginateListBillEstimateInputCommitmentModifications: (
   BCMPricingCalculatorPaginationConfiguration,
   ListBillEstimateInputCommitmentModificationsCommandInput,
   ListBillEstimateInputCommitmentModificationsCommandOutput
->(
-  BCMPricingCalculatorClient,
-  ListBillEstimateInputCommitmentModificationsCommand,
-  "nextToken",
-  "nextToken",
-  "maxResults"
-);
+>(BCMPricingCalculatorClient, ListBillEstimateInputCommitmentModificationsCommand, "nextToken", "nextToken", "maxResults");

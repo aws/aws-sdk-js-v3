@@ -24,9 +24,7 @@ export interface ResetConnectorMetadataCacheCommandInput extends ResetConnectorM
  *
  * The output of {@link ResetConnectorMetadataCacheCommand}.
  */
-export interface ResetConnectorMetadataCacheCommandOutput
-  extends ResetConnectorMetadataCacheResponse,
-    __MetadataBearer {}
+export interface ResetConnectorMetadataCacheCommandOutput extends ResetConnectorMetadataCacheResponse, __MetadataBearer {}
 
 /**
  * <p>Resets metadata about your connector entities that Amazon AppFlow stored in its

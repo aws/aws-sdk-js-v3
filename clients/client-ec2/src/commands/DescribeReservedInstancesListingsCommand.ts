@@ -27,9 +27,7 @@ export interface DescribeReservedInstancesListingsCommandInput extends DescribeR
  *
  * The output of {@link DescribeReservedInstancesListingsCommand}.
  */
-export interface DescribeReservedInstancesListingsCommandOutput
-  extends DescribeReservedInstancesListingsResult,
-    __MetadataBearer {}
+export interface DescribeReservedInstancesListingsCommandOutput extends DescribeReservedInstancesListingsResult, __MetadataBearer {}
 
 /**
  * <p>Describes your account's Reserved Instance listings in the Reserved Instance

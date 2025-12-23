@@ -39,8 +39,14 @@ export interface Rbin {
   /**
    * @see {@link CreateRuleCommand}
    */
-  createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
-  createRule(args: CreateRuleCommandInput, cb: (err: any, data?: CreateRuleCommandOutput) => void): void;
+  createRule(
+    args: CreateRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRuleCommandOutput>;
+  createRule(
+    args: CreateRuleCommandInput,
+    cb: (err: any, data?: CreateRuleCommandOutput) => void
+  ): void;
   createRule(
     args: CreateRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -50,8 +56,14 @@ export interface Rbin {
   /**
    * @see {@link DeleteRuleCommand}
    */
-  deleteRule(args: DeleteRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleCommandOutput>;
-  deleteRule(args: DeleteRuleCommandInput, cb: (err: any, data?: DeleteRuleCommandOutput) => void): void;
+  deleteRule(
+    args: DeleteRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRuleCommandOutput>;
+  deleteRule(
+    args: DeleteRuleCommandInput,
+    cb: (err: any, data?: DeleteRuleCommandOutput) => void
+  ): void;
   deleteRule(
     args: DeleteRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -61,8 +73,14 @@ export interface Rbin {
   /**
    * @see {@link GetRuleCommand}
    */
-  getRule(args: GetRuleCommandInput, options?: __HttpHandlerOptions): Promise<GetRuleCommandOutput>;
-  getRule(args: GetRuleCommandInput, cb: (err: any, data?: GetRuleCommandOutput) => void): void;
+  getRule(
+    args: GetRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRuleCommandOutput>;
+  getRule(
+    args: GetRuleCommandInput,
+    cb: (err: any, data?: GetRuleCommandOutput) => void
+  ): void;
   getRule(
     args: GetRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -72,8 +90,14 @@ export interface Rbin {
   /**
    * @see {@link ListRulesCommand}
    */
-  listRules(args: ListRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListRulesCommandOutput>;
-  listRules(args: ListRulesCommandInput, cb: (err: any, data?: ListRulesCommandOutput) => void): void;
+  listRules(
+    args: ListRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRulesCommandOutput>;
+  listRules(
+    args: ListRulesCommandInput,
+    cb: (err: any, data?: ListRulesCommandOutput) => void
+  ): void;
   listRules(
     args: ListRulesCommandInput,
     options: __HttpHandlerOptions,
@@ -100,8 +124,14 @@ export interface Rbin {
   /**
    * @see {@link LockRuleCommand}
    */
-  lockRule(args: LockRuleCommandInput, options?: __HttpHandlerOptions): Promise<LockRuleCommandOutput>;
-  lockRule(args: LockRuleCommandInput, cb: (err: any, data?: LockRuleCommandOutput) => void): void;
+  lockRule(
+    args: LockRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<LockRuleCommandOutput>;
+  lockRule(
+    args: LockRuleCommandInput,
+    cb: (err: any, data?: LockRuleCommandOutput) => void
+  ): void;
   lockRule(
     args: LockRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -111,8 +141,14 @@ export interface Rbin {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -122,8 +158,14 @@ export interface Rbin {
   /**
    * @see {@link UnlockRuleCommand}
    */
-  unlockRule(args: UnlockRuleCommandInput, options?: __HttpHandlerOptions): Promise<UnlockRuleCommandOutput>;
-  unlockRule(args: UnlockRuleCommandInput, cb: (err: any, data?: UnlockRuleCommandOutput) => void): void;
+  unlockRule(
+    args: UnlockRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnlockRuleCommandOutput>;
+  unlockRule(
+    args: UnlockRuleCommandInput,
+    cb: (err: any, data?: UnlockRuleCommandOutput) => void
+  ): void;
   unlockRule(
     args: UnlockRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -133,8 +175,14 @@ export interface Rbin {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -144,8 +192,14 @@ export interface Rbin {
   /**
    * @see {@link UpdateRuleCommand}
    */
-  updateRule(args: UpdateRuleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRuleCommandOutput>;
-  updateRule(args: UpdateRuleCommandInput, cb: (err: any, data?: UpdateRuleCommandOutput) => void): void;
+  updateRule(
+    args: UpdateRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRuleCommandOutput>;
+  updateRule(
+    args: UpdateRuleCommandInput,
+    cb: (err: any, data?: UpdateRuleCommandOutput) => void
+  ): void;
   updateRule(
     args: UpdateRuleCommandInput,
     options: __HttpHandlerOptions,

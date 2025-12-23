@@ -7,18 +7,15 @@ import {
   GetStreamingDistributionCommandInput,
 } from "../commands/GetStreamingDistributionCommand";
 
-const checkState = async (
-  client: CloudFrontClient,
-  input: GetStreamingDistributionCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: CloudFrontClient, input: GetStreamingDistributionCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
     const result: any = await client.send(new GetStreamingDistributionCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.StreamingDistribution.Status;
-      };
+      }
       if (returnComparator() === "Deployed") {
         return { state: WaiterState.SUCCESS, reason };
       }

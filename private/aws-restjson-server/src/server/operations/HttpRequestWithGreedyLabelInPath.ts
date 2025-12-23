@@ -9,8 +9,8 @@ import {
   OperationOutput as __OperationOutput,
   OperationSerializer as __OperationSerializer,
   SerializationException as __SerializationException,
-  ServerSerdeContext as __ServerSerdeContext,
   ServerSerdeContext,
+  ServerSerdeContext as __ServerSerdeContext,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
   SmithyFrameworkException as __SmithyFrameworkException,
@@ -30,75 +30,50 @@ import {
 } from "../../protocols/Aws_restJson1";
 import { RestJsonService } from "../RestJsonService";
 
-export type HttpRequestWithGreedyLabelInPath<Context> = __Operation<
-  HttpRequestWithGreedyLabelInPathServerInput,
-  HttpRequestWithGreedyLabelInPathServerOutput,
-  Context
->;
+export type HttpRequestWithGreedyLabelInPath<Context> = __Operation<HttpRequestWithGreedyLabelInPathServerInput, HttpRequestWithGreedyLabelInPathServerOutput, Context>
 
 export interface HttpRequestWithGreedyLabelInPathServerInput extends HttpRequestWithGreedyLabelInPathInput {}
 export namespace HttpRequestWithGreedyLabelInPathServerInput {
   /**
    * @internal
    */
-  export const validate: (
-    obj: Parameters<typeof HttpRequestWithGreedyLabelInPathInput.validate>[0]
-  ) => __ValidationFailure[] = HttpRequestWithGreedyLabelInPathInput.validate;
+  export const validate: (obj: Parameters<typeof HttpRequestWithGreedyLabelInPathInput.validate>[0]) => __ValidationFailure[] = HttpRequestWithGreedyLabelInPathInput.validate;
 }
 export interface HttpRequestWithGreedyLabelInPathServerOutput {}
 
 export type HttpRequestWithGreedyLabelInPathErrors = never;
 
-export class HttpRequestWithGreedyLabelInPathSerializer
-  implements
-    __OperationSerializer<
-      RestJsonService<any>,
-      "HttpRequestWithGreedyLabelInPath",
-      HttpRequestWithGreedyLabelInPathErrors
-    >
-{
+export class HttpRequestWithGreedyLabelInPathSerializer implements __OperationSerializer<RestJsonService<any>, "HttpRequestWithGreedyLabelInPath", HttpRequestWithGreedyLabelInPathErrors> {
   serialize = serializeHttpRequestWithGreedyLabelInPathResponse;
   deserialize = deserializeHttpRequestWithGreedyLabelInPathRequest;
 
   isOperationError(error: any): error is HttpRequestWithGreedyLabelInPathErrors {
     return false;
-  }
+  };
 
   serializeError(error: HttpRequestWithGreedyLabelInPathErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     throw error;
   }
+
 }
 
-export const getHttpRequestWithGreedyLabelInPathHandler = <Context>(
-  operation: __Operation<
-    HttpRequestWithGreedyLabelInPathServerInput,
-    HttpRequestWithGreedyLabelInPathServerOutput,
-    Context
-  >,
-  customizer: __ValidationCustomizer<"HttpRequestWithGreedyLabelInPath">
-): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+export const getHttpRequestWithGreedyLabelInPathHandler = <Context>(operation: __Operation<HttpRequestWithGreedyLabelInPathServerInput, HttpRequestWithGreedyLabelInPathServerOutput, Context>, customizer: __ValidationCustomizer<"HttpRequestWithGreedyLabelInPath">): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
   const mux = new httpbinding.HttpBindingMux<"RestJson", "HttpRequestWithGreedyLabelInPath">([
     new httpbinding.UriSpec<"RestJson", "HttpRequestWithGreedyLabelInPath">(
-      "GET",
+      'GET',
       [
-        { type: "path_literal", value: "HttpRequestWithGreedyLabelInPath" },
-        { type: "path_literal", value: "foo" },
-        { type: "path" },
-        { type: "path_literal", value: "baz" },
-        { type: "greedy" },
+        { type: 'path_literal', value: "HttpRequestWithGreedyLabelInPath" },
+        { type: 'path_literal', value: "foo" },
+        { type: 'path' },
+        { type: 'path_literal', value: "baz" },
+        { type: 'greedy' },
       ],
-      [],
-      { service: "RestJson", operation: "HttpRequestWithGreedyLabelInPath" }
-    ),
+      [
+      ],
+      { service: "RestJson", operation: "HttpRequestWithGreedyLabelInPath" }),
   ]);
-  return new HttpRequestWithGreedyLabelInPathHandler(
-    operation,
-    mux,
-    new HttpRequestWithGreedyLabelInPathSerializer(),
-    serializeFrameworkException,
-    customizer
-  );
-};
+  return new HttpRequestWithGreedyLabelInPathHandler(operation, mux, new HttpRequestWithGreedyLabelInPathSerializer(), serializeFrameworkException, customizer);
+}
 
 const serdeContextBase = {
   base64Encoder: toBase64,
@@ -107,7 +82,7 @@ const serdeContextBase = {
   utf8Decoder: fromUtf8,
   streamCollector: streamCollector,
   requestHandler: new NodeHttpHandler(),
-  disableHostPrefix: true,
+  disableHostPrefix: true
 };
 async function handle<S, O extends keyof S & string, Context>(
   request: __HttpRequest,
@@ -122,49 +97,37 @@ async function handle<S, O extends keyof S & string, Context>(
   let input;
   try {
     input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request),
-      ...serdeContextBase,
+      endpoint: () => Promise.resolve(request), ...serdeContextBase
     });
   } catch (error: unknown) {
     if (__isFrameworkException(error)) {
       return serializeFrameworkException(error, serdeContextBase);
-    }
+    };
     return serializeFrameworkException(new __SerializationException(), serdeContextBase);
   }
   try {
-    const validationFailures = validationFn(input);
+    let validationFailures = validationFn(input);
     if (validationFailures && validationFailures.length > 0) {
-      const validationException = validationCustomizer({ operation: operationName }, validationFailures);
+      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
       if (validationException) {
         return serializer.serializeError(validationException, serdeContextBase);
       }
     }
-    const output = await operation(input, context);
+    let output = await operation(input, context);
     return serializer.serialize(output, serdeContextBase);
-  } catch (error: unknown) {
+  } catch(error: unknown) {
     if (serializer.isOperationError(error)) {
       return serializer.serializeError(error, serdeContextBase);
     }
-    console.log("Received an unexpected error", error);
+    console.log('Received an unexpected error', error);
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
 export class HttpRequestWithGreedyLabelInPathHandler<Context> implements __ServiceHandler<Context> {
-  private readonly operation: __Operation<
-    HttpRequestWithGreedyLabelInPathServerInput,
-    HttpRequestWithGreedyLabelInPathServerOutput,
-    Context
-  >;
+  private readonly operation: __Operation<HttpRequestWithGreedyLabelInPathServerInput, HttpRequestWithGreedyLabelInPathServerOutput, Context>;
   private readonly mux: __Mux<"RestJson", "HttpRequestWithGreedyLabelInPath">;
-  private readonly serializer: __OperationSerializer<
-    RestJsonService<Context>,
-    "HttpRequestWithGreedyLabelInPath",
-    HttpRequestWithGreedyLabelInPathErrors
-  >;
-  private readonly serializeFrameworkException: (
-    e: __SmithyFrameworkException,
-    ctx: __ServerSerdeContext
-  ) => Promise<__HttpResponse>;
+  private readonly serializer: __OperationSerializer<RestJsonService<Context>, "HttpRequestWithGreedyLabelInPath", HttpRequestWithGreedyLabelInPathErrors>;
+  private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<"HttpRequestWithGreedyLabelInPath">;
   /**
    * Construct a HttpRequestWithGreedyLabelInPath handler.
@@ -176,17 +139,9 @@ export class HttpRequestWithGreedyLabelInPathHandler<Context> implements __Servi
    * @param validationCustomizer A {@link __ValidationCustomizer} for turning validation failures into {@link __SmithyFrameworkException}s
    */
   constructor(
-    operation: __Operation<
-      HttpRequestWithGreedyLabelInPathServerInput,
-      HttpRequestWithGreedyLabelInPathServerOutput,
-      Context
-    >,
+    operation: __Operation<HttpRequestWithGreedyLabelInPathServerInput, HttpRequestWithGreedyLabelInPathServerOutput, Context>,
     mux: __Mux<"RestJson", "HttpRequestWithGreedyLabelInPath">,
-    serializer: __OperationSerializer<
-      RestJsonService<Context>,
-      "HttpRequestWithGreedyLabelInPath",
-      HttpRequestWithGreedyLabelInPathErrors
-    >,
+    serializer: __OperationSerializer<RestJsonService<Context>, "HttpRequestWithGreedyLabelInPath", HttpRequestWithGreedyLabelInPathErrors>,
     serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>,
     validationCustomizer: __ValidationCustomizer<"HttpRequestWithGreedyLabelInPath">
   ) {
@@ -199,20 +154,9 @@ export class HttpRequestWithGreedyLabelInPathHandler<Context> implements __Servi
   async handle(request: __HttpRequest, context: Context): Promise<__HttpResponse> {
     const target = this.mux.match(request);
     if (target === undefined) {
-      console.log(
-        "Received a request that did not match aws.protocoltests.restjson#RestJson.HttpRequestWithGreedyLabelInPath. This indicates a misconfiguration."
-      );
+      console.log('Received a request that did not match aws.protocoltests.restjson#RestJson.HttpRequestWithGreedyLabelInPath. This indicates a misconfiguration.');
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
-    return handle(
-      request,
-      context,
-      "HttpRequestWithGreedyLabelInPath",
-      this.serializer,
-      this.operation,
-      this.serializeFrameworkException,
-      HttpRequestWithGreedyLabelInPathServerInput.validate,
-      this.validationCustomizer
-    );
+    return handle(request, context, "HttpRequestWithGreedyLabelInPath", this.serializer, this.operation, this.serializeFrameworkException, HttpRequestWithGreedyLabelInPathServerInput.validate, this.validationCustomizer);
   }
 }

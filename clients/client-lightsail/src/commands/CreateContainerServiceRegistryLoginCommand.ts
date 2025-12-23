@@ -27,9 +27,7 @@ export interface CreateContainerServiceRegistryLoginCommandInput extends CreateC
  *
  * The output of {@link CreateContainerServiceRegistryLoginCommand}.
  */
-export interface CreateContainerServiceRegistryLoginCommandOutput
-  extends CreateContainerServiceRegistryLoginResult,
-    __MetadataBearer {}
+export interface CreateContainerServiceRegistryLoginCommandOutput extends CreateContainerServiceRegistryLoginResult, __MetadataBearer {}
 
 /**
  * <p>Creates a temporary set of log in credentials that you can use to log in to the Docker

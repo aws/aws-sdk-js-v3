@@ -701,8 +701,7 @@ export const OcsfStringField = {
   COMPLIANCE_STATUS: "compliance.status",
   DATABUCKET_ENCRYPTION_DETAILS_ALGORITHM: "databucket.encryption_details.algorithm",
   DATABUCKET_ENCRYPTION_DETAILS_KEY_UID: "databucket.encryption_details.key_uid",
-  DATABUCKET_FILE_DATA_CLASSIFICATIONS_CLASSIFIER_DETAILS_TYPE:
-    "databucket.file.data_classifications.classifier_details.type",
+  DATABUCKET_FILE_DATA_CLASSIFICATIONS_CLASSIFIER_DETAILS_TYPE: "databucket.file.data_classifications.classifier_details.type",
   EVIDENCES_ACTOR_USER_ACCOUNT_UID: "evidences.actor.user.account.uid",
   EVIDENCES_API_OPERATION: "evidences.api.operation",
   EVIDENCES_API_RESPONSE_ERROR_MESSAGE: "evidences.api.response.error_message",

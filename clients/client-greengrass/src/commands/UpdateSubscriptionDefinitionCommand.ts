@@ -24,9 +24,7 @@ export interface UpdateSubscriptionDefinitionCommandInput extends UpdateSubscrip
  *
  * The output of {@link UpdateSubscriptionDefinitionCommand}.
  */
-export interface UpdateSubscriptionDefinitionCommandOutput
-  extends UpdateSubscriptionDefinitionResponse,
-    __MetadataBearer {}
+export interface UpdateSubscriptionDefinitionCommandOutput extends UpdateSubscriptionDefinitionResponse, __MetadataBearer {}
 
 /**
  * Updates a subscription definition.

@@ -284,8 +284,7 @@ export type SageMakerFeatureStoreRuntimeClientResolvedConfigType = __SmithyResol
  *
  *  The resolved configuration interface of SageMakerFeatureStoreRuntimeClient class. This is resolved and normalized from the {@link SageMakerFeatureStoreRuntimeClientConfig | constructor configuration interface}.
  */
-export interface SageMakerFeatureStoreRuntimeClientResolvedConfig
-  extends SageMakerFeatureStoreRuntimeClientResolvedConfigType {}
+export interface SageMakerFeatureStoreRuntimeClientResolvedConfig extends SageMakerFeatureStoreRuntimeClientResolvedConfigType {}
 
 /**
  * <p>Contains all data plane API operations and data types for the Amazon SageMaker Feature

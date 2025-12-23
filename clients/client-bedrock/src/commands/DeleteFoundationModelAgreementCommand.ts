@@ -24,9 +24,7 @@ export interface DeleteFoundationModelAgreementCommandInput extends DeleteFounda
  *
  * The output of {@link DeleteFoundationModelAgreementCommand}.
  */
-export interface DeleteFoundationModelAgreementCommandOutput
-  extends DeleteFoundationModelAgreementResponse,
-    __MetadataBearer {}
+export interface DeleteFoundationModelAgreementCommandOutput extends DeleteFoundationModelAgreementResponse, __MetadataBearer {}
 
 /**
  * <p>Delete the model access agreement for the specified model.</p>

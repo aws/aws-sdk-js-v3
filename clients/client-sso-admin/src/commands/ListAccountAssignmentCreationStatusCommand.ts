@@ -27,9 +27,7 @@ export interface ListAccountAssignmentCreationStatusCommandInput extends ListAcc
  *
  * The output of {@link ListAccountAssignmentCreationStatusCommand}.
  */
-export interface ListAccountAssignmentCreationStatusCommandOutput
-  extends ListAccountAssignmentCreationStatusResponse,
-    __MetadataBearer {}
+export interface ListAccountAssignmentCreationStatusCommandOutput extends ListAccountAssignmentCreationStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the status of the Amazon Web Services account assignment creation requests for a specified IAM Identity Center instance.</p>

@@ -34,10 +34,7 @@ export interface HttpPayloadTraitsWithMediaTypeCommandInput extends HttpPayloadT
 /**
  * @public
  */
-export type HttpPayloadTraitsWithMediaTypeCommandOutputType = Omit<
-  HttpPayloadTraitsWithMediaTypeInputOutput,
-  "blob"
-> & {
+export type HttpPayloadTraitsWithMediaTypeCommandOutputType = Omit<HttpPayloadTraitsWithMediaTypeInputOutput, "blob"> & {
   blob?: Uint8ArrayBlobAdapter;
 };
 
@@ -46,9 +43,7 @@ export type HttpPayloadTraitsWithMediaTypeCommandOutputType = Omit<
  *
  * The output of {@link HttpPayloadTraitsWithMediaTypeCommand}.
  */
-export interface HttpPayloadTraitsWithMediaTypeCommandOutput
-  extends HttpPayloadTraitsWithMediaTypeCommandOutputType,
-    __MetadataBearer {}
+export interface HttpPayloadTraitsWithMediaTypeCommandOutput extends HttpPayloadTraitsWithMediaTypeCommandOutputType, __MetadataBearer {}
 
 /**
  * This example uses a `@mediaType` trait on the payload to force a custom

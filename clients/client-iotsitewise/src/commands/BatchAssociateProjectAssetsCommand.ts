@@ -24,9 +24,7 @@ export interface BatchAssociateProjectAssetsCommandInput extends BatchAssociateP
  *
  * The output of {@link BatchAssociateProjectAssetsCommand}.
  */
-export interface BatchAssociateProjectAssetsCommandOutput
-  extends BatchAssociateProjectAssetsResponse,
-    __MetadataBearer {}
+export interface BatchAssociateProjectAssetsCommandOutput extends BatchAssociateProjectAssetsResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a group (batch) of assets with an IoT SiteWise Monitor project.</p>

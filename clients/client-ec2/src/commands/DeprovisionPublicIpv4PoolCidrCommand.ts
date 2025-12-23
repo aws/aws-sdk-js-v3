@@ -24,9 +24,7 @@ export interface DeprovisionPublicIpv4PoolCidrCommandInput extends DeprovisionPu
  *
  * The output of {@link DeprovisionPublicIpv4PoolCidrCommand}.
  */
-export interface DeprovisionPublicIpv4PoolCidrCommandOutput
-  extends DeprovisionPublicIpv4PoolCidrResult,
-    __MetadataBearer {}
+export interface DeprovisionPublicIpv4PoolCidrCommandOutput extends DeprovisionPublicIpv4PoolCidrResult, __MetadataBearer {}
 
 /**
  * <p>Deprovision a CIDR from a public IPv4 pool.</p>

@@ -24,9 +24,7 @@ export interface ListMessageTemplateVersionsCommandInput extends ListMessageTemp
  *
  * The output of {@link ListMessageTemplateVersionsCommand}.
  */
-export interface ListMessageTemplateVersionsCommandOutput
-  extends ListMessageTemplateVersionsResponse,
-    __MetadataBearer {}
+export interface ListMessageTemplateVersionsCommandOutput extends ListMessageTemplateVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the available versions for the specified Amazon Q in Connect message template.</p>

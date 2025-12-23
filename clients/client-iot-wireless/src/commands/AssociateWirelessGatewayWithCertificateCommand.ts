@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AssociateWirelessGatewayWithCertificateCommand}.
  */
-export interface AssociateWirelessGatewayWithCertificateCommandInput
-  extends AssociateWirelessGatewayWithCertificateRequest {}
+export interface AssociateWirelessGatewayWithCertificateCommandInput extends AssociateWirelessGatewayWithCertificateRequest {}
 /**
  * @public
  *
  * The output of {@link AssociateWirelessGatewayWithCertificateCommand}.
  */
-export interface AssociateWirelessGatewayWithCertificateCommandOutput
-  extends AssociateWirelessGatewayWithCertificateResponse,
-    __MetadataBearer {}
+export interface AssociateWirelessGatewayWithCertificateCommandOutput extends AssociateWirelessGatewayWithCertificateResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a wireless gateway with a certificate.</p>

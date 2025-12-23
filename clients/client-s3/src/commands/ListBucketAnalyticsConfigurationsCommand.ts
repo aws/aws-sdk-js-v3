@@ -28,9 +28,7 @@ export interface ListBucketAnalyticsConfigurationsCommandInput extends ListBucke
  *
  * The output of {@link ListBucketAnalyticsConfigurationsCommand}.
  */
-export interface ListBucketAnalyticsConfigurationsCommandOutput
-  extends ListBucketAnalyticsConfigurationsOutput,
-    __MetadataBearer {}
+export interface ListBucketAnalyticsConfigurationsCommandOutput extends ListBucketAnalyticsConfigurationsOutput, __MetadataBearer {}
 
 /**
  * <note>
@@ -155,7 +153,10 @@ export class ListBucketAnalyticsConfigurationsCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getThrow200ExceptionsPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
+    ];
   })
   .s("AmazonS3", "ListBucketAnalyticsConfigurations", {})
   .n("S3Client", "ListBucketAnalyticsConfigurationsCommand")

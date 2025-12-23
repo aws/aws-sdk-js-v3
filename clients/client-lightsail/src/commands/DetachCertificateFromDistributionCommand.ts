@@ -27,9 +27,7 @@ export interface DetachCertificateFromDistributionCommandInput extends DetachCer
  *
  * The output of {@link DetachCertificateFromDistributionCommand}.
  */
-export interface DetachCertificateFromDistributionCommandOutput
-  extends DetachCertificateFromDistributionResult,
-    __MetadataBearer {}
+export interface DetachCertificateFromDistributionCommandOutput extends DetachCertificateFromDistributionResult, __MetadataBearer {}
 
 /**
  * <p>Detaches an SSL/TLS certificate from your Amazon Lightsail content delivery network (CDN)

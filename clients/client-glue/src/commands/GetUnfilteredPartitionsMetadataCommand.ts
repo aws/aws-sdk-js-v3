@@ -27,9 +27,7 @@ export interface GetUnfilteredPartitionsMetadataCommandInput extends GetUnfilter
  *
  * The output of {@link GetUnfilteredPartitionsMetadataCommand}.
  */
-export interface GetUnfilteredPartitionsMetadataCommandOutput
-  extends GetUnfilteredPartitionsMetadataResponse,
-    __MetadataBearer {}
+export interface GetUnfilteredPartitionsMetadataCommandOutput extends GetUnfilteredPartitionsMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves partition metadata from the Data Catalog that contains unfiltered

@@ -27,9 +27,7 @@ export interface ReplaceIamInstanceProfileAssociationCommandInput extends Replac
  *
  * The output of {@link ReplaceIamInstanceProfileAssociationCommand}.
  */
-export interface ReplaceIamInstanceProfileAssociationCommandOutput
-  extends ReplaceIamInstanceProfileAssociationResult,
-    __MetadataBearer {}
+export interface ReplaceIamInstanceProfileAssociationCommandOutput extends ReplaceIamInstanceProfileAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Replaces an IAM instance profile for the specified running instance. You can use

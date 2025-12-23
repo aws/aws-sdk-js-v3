@@ -24,9 +24,7 @@ export interface AssociateThirdPartyFirewallCommandInput extends AssociateThirdP
  *
  * The output of {@link AssociateThirdPartyFirewallCommand}.
  */
-export interface AssociateThirdPartyFirewallCommandOutput
-  extends AssociateThirdPartyFirewallResponse,
-    __MetadataBearer {}
+export interface AssociateThirdPartyFirewallCommandOutput extends AssociateThirdPartyFirewallResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the Firewall Manager policy administrator as a tenant administrator of a third-party firewall service. A tenant is an instance of the third-party firewall service that's associated with your Amazon Web Services customer account.</p>

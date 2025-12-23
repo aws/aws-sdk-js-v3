@@ -31,9 +31,7 @@ export interface DescribeExtensionPackAssociationsCommandInput extends DescribeE
  *
  * The output of {@link DescribeExtensionPackAssociationsCommand}.
  */
-export interface DescribeExtensionPackAssociationsCommandOutput
-  extends DescribeExtensionPackAssociationsResponse,
-    __MetadataBearer {}
+export interface DescribeExtensionPackAssociationsCommandOutput extends DescribeExtensionPackAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of extension pack associations for the specified migration

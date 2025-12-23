@@ -43,8 +43,14 @@ export interface Pipes {
   /**
    * @see {@link CreatePipeCommand}
    */
-  createPipe(args: CreatePipeCommandInput, options?: __HttpHandlerOptions): Promise<CreatePipeCommandOutput>;
-  createPipe(args: CreatePipeCommandInput, cb: (err: any, data?: CreatePipeCommandOutput) => void): void;
+  createPipe(
+    args: CreatePipeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePipeCommandOutput>;
+  createPipe(
+    args: CreatePipeCommandInput,
+    cb: (err: any, data?: CreatePipeCommandOutput) => void
+  ): void;
   createPipe(
     args: CreatePipeCommandInput,
     options: __HttpHandlerOptions,
@@ -54,8 +60,14 @@ export interface Pipes {
   /**
    * @see {@link DeletePipeCommand}
    */
-  deletePipe(args: DeletePipeCommandInput, options?: __HttpHandlerOptions): Promise<DeletePipeCommandOutput>;
-  deletePipe(args: DeletePipeCommandInput, cb: (err: any, data?: DeletePipeCommandOutput) => void): void;
+  deletePipe(
+    args: DeletePipeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePipeCommandOutput>;
+  deletePipe(
+    args: DeletePipeCommandInput,
+    cb: (err: any, data?: DeletePipeCommandOutput) => void
+  ): void;
   deletePipe(
     args: DeletePipeCommandInput,
     options: __HttpHandlerOptions,
@@ -65,8 +77,14 @@ export interface Pipes {
   /**
    * @see {@link DescribePipeCommand}
    */
-  describePipe(args: DescribePipeCommandInput, options?: __HttpHandlerOptions): Promise<DescribePipeCommandOutput>;
-  describePipe(args: DescribePipeCommandInput, cb: (err: any, data?: DescribePipeCommandOutput) => void): void;
+  describePipe(
+    args: DescribePipeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePipeCommandOutput>;
+  describePipe(
+    args: DescribePipeCommandInput,
+    cb: (err: any, data?: DescribePipeCommandOutput) => void
+  ): void;
   describePipe(
     args: DescribePipeCommandInput,
     options: __HttpHandlerOptions,
@@ -77,8 +95,14 @@ export interface Pipes {
    * @see {@link ListPipesCommand}
    */
   listPipes(): Promise<ListPipesCommandOutput>;
-  listPipes(args: ListPipesCommandInput, options?: __HttpHandlerOptions): Promise<ListPipesCommandOutput>;
-  listPipes(args: ListPipesCommandInput, cb: (err: any, data?: ListPipesCommandOutput) => void): void;
+  listPipes(
+    args: ListPipesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPipesCommandOutput>;
+  listPipes(
+    args: ListPipesCommandInput,
+    cb: (err: any, data?: ListPipesCommandOutput) => void
+  ): void;
   listPipes(
     args: ListPipesCommandInput,
     options: __HttpHandlerOptions,
@@ -105,8 +129,14 @@ export interface Pipes {
   /**
    * @see {@link StartPipeCommand}
    */
-  startPipe(args: StartPipeCommandInput, options?: __HttpHandlerOptions): Promise<StartPipeCommandOutput>;
-  startPipe(args: StartPipeCommandInput, cb: (err: any, data?: StartPipeCommandOutput) => void): void;
+  startPipe(
+    args: StartPipeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartPipeCommandOutput>;
+  startPipe(
+    args: StartPipeCommandInput,
+    cb: (err: any, data?: StartPipeCommandOutput) => void
+  ): void;
   startPipe(
     args: StartPipeCommandInput,
     options: __HttpHandlerOptions,
@@ -116,8 +146,14 @@ export interface Pipes {
   /**
    * @see {@link StopPipeCommand}
    */
-  stopPipe(args: StopPipeCommandInput, options?: __HttpHandlerOptions): Promise<StopPipeCommandOutput>;
-  stopPipe(args: StopPipeCommandInput, cb: (err: any, data?: StopPipeCommandOutput) => void): void;
+  stopPipe(
+    args: StopPipeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopPipeCommandOutput>;
+  stopPipe(
+    args: StopPipeCommandInput,
+    cb: (err: any, data?: StopPipeCommandOutput) => void
+  ): void;
   stopPipe(
     args: StopPipeCommandInput,
     options: __HttpHandlerOptions,
@@ -127,8 +163,14 @@ export interface Pipes {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -138,8 +180,14 @@ export interface Pipes {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -149,8 +197,14 @@ export interface Pipes {
   /**
    * @see {@link UpdatePipeCommand}
    */
-  updatePipe(args: UpdatePipeCommandInput, options?: __HttpHandlerOptions): Promise<UpdatePipeCommandOutput>;
-  updatePipe(args: UpdatePipeCommandInput, cb: (err: any, data?: UpdatePipeCommandOutput) => void): void;
+  updatePipe(
+    args: UpdatePipeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePipeCommandOutput>;
+  updatePipe(
+    args: UpdatePipeCommandInput,
+    cb: (err: any, data?: UpdatePipeCommandOutput) => void
+  ): void;
   updatePipe(
     args: UpdatePipeCommandInput,
     options: __HttpHandlerOptions,

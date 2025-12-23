@@ -27,9 +27,7 @@ export interface ListConformancePackComplianceScoresCommandInput extends ListCon
  *
  * The output of {@link ListConformancePackComplianceScoresCommand}.
  */
-export interface ListConformancePackComplianceScoresCommandOutput
-  extends ListConformancePackComplianceScoresResponse,
-    __MetadataBearer {}
+export interface ListConformancePackComplianceScoresCommandOutput extends ListConformancePackComplianceScoresResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of conformance pack compliance scores.

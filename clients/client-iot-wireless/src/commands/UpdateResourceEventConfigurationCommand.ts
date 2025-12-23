@@ -27,9 +27,7 @@ export interface UpdateResourceEventConfigurationCommandInput extends UpdateReso
  *
  * The output of {@link UpdateResourceEventConfigurationCommand}.
  */
-export interface UpdateResourceEventConfigurationCommandOutput
-  extends UpdateResourceEventConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateResourceEventConfigurationCommandOutput extends UpdateResourceEventConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Update the event configuration for a particular resource identifier.</p>

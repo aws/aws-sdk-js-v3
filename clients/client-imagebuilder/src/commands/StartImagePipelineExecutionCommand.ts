@@ -24,9 +24,7 @@ export interface StartImagePipelineExecutionCommandInput extends StartImagePipel
  *
  * The output of {@link StartImagePipelineExecutionCommand}.
  */
-export interface StartImagePipelineExecutionCommandOutput
-  extends StartImagePipelineExecutionResponse,
-    __MetadataBearer {}
+export interface StartImagePipelineExecutionCommandOutput extends StartImagePipelineExecutionResponse, __MetadataBearer {}
 
 /**
  * <p>Manually triggers a pipeline to create an image.</p>

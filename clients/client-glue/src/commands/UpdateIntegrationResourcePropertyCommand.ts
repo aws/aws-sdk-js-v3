@@ -27,9 +27,7 @@ export interface UpdateIntegrationResourcePropertyCommandInput extends UpdateInt
  *
  * The output of {@link UpdateIntegrationResourcePropertyCommand}.
  */
-export interface UpdateIntegrationResourcePropertyCommandOutput
-  extends UpdateIntegrationResourcePropertyResponse,
-    __MetadataBearer {}
+export interface UpdateIntegrationResourcePropertyCommandOutput extends UpdateIntegrationResourcePropertyResponse, __MetadataBearer {}
 
 /**
  * <p>This API can be used for updating the <code>ResourceProperty</code> of the Glue connection (for the source) or Glue database ARN (for the target). These properties can include the role to access the connection or database. Since the same resource can be used across multiple integrations, updating resource properties will impact all the integrations using it.</p>

@@ -27,9 +27,7 @@ export interface UpdateInfrastructureConfigurationCommandInput extends UpdateInf
  *
  * The output of {@link UpdateInfrastructureConfigurationCommand}.
  */
-export interface UpdateInfrastructureConfigurationCommandOutput
-  extends UpdateInfrastructureConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateInfrastructureConfigurationCommandOutput extends UpdateInfrastructureConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a new infrastructure configuration. An infrastructure configuration defines

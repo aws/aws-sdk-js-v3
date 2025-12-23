@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand}.
  */
-export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput
-  extends DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {}
+export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput extends DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand}.
  */
-export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput
-  extends DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
-    __MetadataBearer {}
+export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput extends DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult, __MetadataBearer {}
 
 /**
  * <p>

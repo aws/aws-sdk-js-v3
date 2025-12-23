@@ -28,9 +28,7 @@ export interface GetContactReachabilityStatusCommandInput extends GetContactReac
  *
  * The output of {@link GetContactReachabilityStatusCommand}.
  */
-export interface GetContactReachabilityStatusCommandOutput
-  extends GetContactReachabilityStatusResponse,
-    __MetadataBearer {}
+export interface GetContactReachabilityStatusCommandOutput extends GetContactReachabilityStatusResponse, __MetadataBearer {}
 
 /**
  * <p>For operations that require confirmation that the email address for the registrant

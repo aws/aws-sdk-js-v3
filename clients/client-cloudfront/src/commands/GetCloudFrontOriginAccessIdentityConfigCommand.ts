@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetCloudFrontOriginAccessIdentityConfigCommand}.
  */
-export interface GetCloudFrontOriginAccessIdentityConfigCommandInput
-  extends GetCloudFrontOriginAccessIdentityConfigRequest {}
+export interface GetCloudFrontOriginAccessIdentityConfigCommandInput extends GetCloudFrontOriginAccessIdentityConfigRequest {}
 /**
  * @public
  *
  * The output of {@link GetCloudFrontOriginAccessIdentityConfigCommand}.
  */
-export interface GetCloudFrontOriginAccessIdentityConfigCommandOutput
-  extends GetCloudFrontOriginAccessIdentityConfigResult,
-    __MetadataBearer {}
+export interface GetCloudFrontOriginAccessIdentityConfigCommandOutput extends GetCloudFrontOriginAccessIdentityConfigResult, __MetadataBearer {}
 
 /**
  * <p>Get the configuration information about an origin access identity.</p>

@@ -27,9 +27,7 @@ export interface BatchDisassociateAnalyticsDataSetCommandInput extends BatchDisa
  *
  * The output of {@link BatchDisassociateAnalyticsDataSetCommand}.
  */
-export interface BatchDisassociateAnalyticsDataSetCommandOutput
-  extends BatchDisassociateAnalyticsDataSetResponse,
-    __MetadataBearer {}
+export interface BatchDisassociateAnalyticsDataSetCommandOutput extends BatchDisassociateAnalyticsDataSetResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a list of analytics datasets associated with a given Amazon Connect instance. You can disassociate

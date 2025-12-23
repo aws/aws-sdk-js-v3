@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link UpdateFirewallEncryptionConfigurationCommand}.
  */
-export interface UpdateFirewallEncryptionConfigurationCommandInput
-  extends UpdateFirewallEncryptionConfigurationRequest {}
+export interface UpdateFirewallEncryptionConfigurationCommandInput extends UpdateFirewallEncryptionConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateFirewallEncryptionConfigurationCommand}.
  */
-export interface UpdateFirewallEncryptionConfigurationCommandOutput
-  extends UpdateFirewallEncryptionConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateFirewallEncryptionConfigurationCommandOutput extends UpdateFirewallEncryptionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>A complex type that contains settings for encryption of your firewall resources.</p>

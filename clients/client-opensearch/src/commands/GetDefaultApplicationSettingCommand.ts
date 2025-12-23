@@ -24,9 +24,7 @@ export interface GetDefaultApplicationSettingCommandInput extends GetDefaultAppl
  *
  * The output of {@link GetDefaultApplicationSettingCommand}.
  */
-export interface GetDefaultApplicationSettingCommandOutput
-  extends GetDefaultApplicationSettingResponse,
-    __MetadataBearer {}
+export interface GetDefaultApplicationSettingCommandOutput extends GetDefaultApplicationSettingResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the ARN of the current default application.</p>

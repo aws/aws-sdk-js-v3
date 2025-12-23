@@ -24,9 +24,7 @@ export interface GetPackageVersionAssetCommandInput extends GetPackageVersionAss
  *
  * The output of {@link GetPackageVersionAssetCommand}.
  */
-export interface GetPackageVersionAssetCommandOutput
-  extends Omit<GetPackageVersionAssetResult, "asset">,
-    __MetadataBearer {
+export interface GetPackageVersionAssetCommandOutput extends Omit<GetPackageVersionAssetResult, "asset">, __MetadataBearer {
   asset?: StreamingBlobPayloadOutputTypes;
 }
 

@@ -24,9 +24,7 @@ export interface DeleteInvestigationGroupPolicyCommandInput extends DeleteInvest
  *
  * The output of {@link DeleteInvestigationGroupPolicyCommand}.
  */
-export interface DeleteInvestigationGroupPolicyCommandOutput
-  extends DeleteInvestigationGroupPolicyOutput,
-    __MetadataBearer {}
+export interface DeleteInvestigationGroupPolicyCommandOutput extends DeleteInvestigationGroupPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Removes the IAM resource policy from being associated with the investigation group that you specify.</p>

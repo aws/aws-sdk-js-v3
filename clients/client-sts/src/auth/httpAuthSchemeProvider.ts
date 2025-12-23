@@ -47,11 +47,9 @@ export const defaultSTSHttpAuthSchemeParametersProvider = async (
 ): Promise<STSHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -94,11 +92,11 @@ export const defaultSTSHttpAuthSchemeProvider: STSHttpAuthSchemeProvider = (auth
     case "AssumeRoleWithSAML": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     case "AssumeRoleWithWebIdentity": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     default: {
       options.push(createAwsAuthSigv4HttpAuthOption(authParameters));
     }
@@ -116,10 +114,13 @@ export interface StsAuthResolvedConfig {
   stsClientCtor: new (clientConfig: any) => Client<any, any, any>;
 }
 
-export const resolveStsAuthConfig = <T>(input: T & StsAuthInputConfig): T & StsAuthResolvedConfig =>
-  Object.assign(input, {
-    stsClientCtor: STSClient,
-  });
+export const resolveStsAuthConfig = <T>(
+  input: T & StsAuthInputConfig
+): T & StsAuthResolvedConfig => Object.assign(input, {
+
+  stsClientCtor: STSClient,
+
+});
 
 /**
  * @public

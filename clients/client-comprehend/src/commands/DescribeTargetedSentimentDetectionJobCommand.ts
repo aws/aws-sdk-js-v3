@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeTargetedSentimentDetectionJobCommand}.
  */
-export interface DescribeTargetedSentimentDetectionJobCommandInput
-  extends DescribeTargetedSentimentDetectionJobRequest {}
+export interface DescribeTargetedSentimentDetectionJobCommandInput extends DescribeTargetedSentimentDetectionJobRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeTargetedSentimentDetectionJobCommand}.
  */
-export interface DescribeTargetedSentimentDetectionJobCommandOutput
-  extends DescribeTargetedSentimentDetectionJobResponse,
-    __MetadataBearer {}
+export interface DescribeTargetedSentimentDetectionJobCommandOutput extends DescribeTargetedSentimentDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a targeted sentiment detection job. Use this operation

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribePipelineDefinitionForExecutionCommand}.
  */
-export interface DescribePipelineDefinitionForExecutionCommandInput
-  extends DescribePipelineDefinitionForExecutionRequest {}
+export interface DescribePipelineDefinitionForExecutionCommandInput extends DescribePipelineDefinitionForExecutionRequest {}
 /**
  * @public
  *
  * The output of {@link DescribePipelineDefinitionForExecutionCommand}.
  */
-export interface DescribePipelineDefinitionForExecutionCommandOutput
-  extends DescribePipelineDefinitionForExecutionResponse,
-    __MetadataBearer {}
+export interface DescribePipelineDefinitionForExecutionCommandOutput extends DescribePipelineDefinitionForExecutionResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the details of an execution's pipeline definition.</p>

@@ -505,8 +505,14 @@ export interface LakeFormation {
   /**
    * @see {@link CreateLFTagCommand}
    */
-  createLFTag(args: CreateLFTagCommandInput, options?: __HttpHandlerOptions): Promise<CreateLFTagCommandOutput>;
-  createLFTag(args: CreateLFTagCommandInput, cb: (err: any, data?: CreateLFTagCommandOutput) => void): void;
+  createLFTag(
+    args: CreateLFTagCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLFTagCommandOutput>;
+  createLFTag(
+    args: CreateLFTagCommandInput,
+    cb: (err: any, data?: CreateLFTagCommandOutput) => void
+  ): void;
   createLFTag(
     args: CreateLFTagCommandInput,
     options: __HttpHandlerOptions,
@@ -586,8 +592,14 @@ export interface LakeFormation {
   /**
    * @see {@link DeleteLFTagCommand}
    */
-  deleteLFTag(args: DeleteLFTagCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLFTagCommandOutput>;
-  deleteLFTag(args: DeleteLFTagCommandInput, cb: (err: any, data?: DeleteLFTagCommandOutput) => void): void;
+  deleteLFTag(
+    args: DeleteLFTagCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLFTagCommandOutput>;
+  deleteLFTag(
+    args: DeleteLFTagCommandInput,
+    cb: (err: any, data?: DeleteLFTagCommandOutput) => void
+  ): void;
   deleteLFTag(
     args: DeleteLFTagCommandInput,
     options: __HttpHandlerOptions,
@@ -788,8 +800,14 @@ export interface LakeFormation {
   /**
    * @see {@link GetLFTagCommand}
    */
-  getLFTag(args: GetLFTagCommandInput, options?: __HttpHandlerOptions): Promise<GetLFTagCommandOutput>;
-  getLFTag(args: GetLFTagCommandInput, cb: (err: any, data?: GetLFTagCommandOutput) => void): void;
+  getLFTag(
+    args: GetLFTagCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLFTagCommandOutput>;
+  getLFTag(
+    args: GetLFTagCommandInput,
+    cb: (err: any, data?: GetLFTagCommandOutput) => void
+  ): void;
   getLFTag(
     args: GetLFTagCommandInput,
     options: __HttpHandlerOptions,
@@ -816,8 +834,14 @@ export interface LakeFormation {
   /**
    * @see {@link GetQueryStateCommand}
    */
-  getQueryState(args: GetQueryStateCommandInput, options?: __HttpHandlerOptions): Promise<GetQueryStateCommandOutput>;
-  getQueryState(args: GetQueryStateCommandInput, cb: (err: any, data?: GetQueryStateCommandOutput) => void): void;
+  getQueryState(
+    args: GetQueryStateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQueryStateCommandOutput>;
+  getQueryState(
+    args: GetQueryStateCommandInput,
+    cb: (err: any, data?: GetQueryStateCommandOutput) => void
+  ): void;
   getQueryState(
     args: GetQueryStateCommandInput,
     options: __HttpHandlerOptions,
@@ -865,7 +889,10 @@ export interface LakeFormation {
     args: GetTableObjectsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetTableObjectsCommandOutput>;
-  getTableObjects(args: GetTableObjectsCommandInput, cb: (err: any, data?: GetTableObjectsCommandOutput) => void): void;
+  getTableObjects(
+    args: GetTableObjectsCommandInput,
+    cb: (err: any, data?: GetTableObjectsCommandOutput) => void
+  ): void;
   getTableObjects(
     args: GetTableObjectsCommandInput,
     options: __HttpHandlerOptions,
@@ -926,8 +953,14 @@ export interface LakeFormation {
   /**
    * @see {@link GetWorkUnitsCommand}
    */
-  getWorkUnits(args: GetWorkUnitsCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkUnitsCommandOutput>;
-  getWorkUnits(args: GetWorkUnitsCommandInput, cb: (err: any, data?: GetWorkUnitsCommandOutput) => void): void;
+  getWorkUnits(
+    args: GetWorkUnitsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWorkUnitsCommandOutput>;
+  getWorkUnits(
+    args: GetWorkUnitsCommandInput,
+    cb: (err: any, data?: GetWorkUnitsCommandOutput) => void
+  ): void;
   getWorkUnits(
     args: GetWorkUnitsCommandInput,
     options: __HttpHandlerOptions,
@@ -1009,8 +1042,14 @@ export interface LakeFormation {
    * @see {@link ListLFTagsCommand}
    */
   listLFTags(): Promise<ListLFTagsCommandOutput>;
-  listLFTags(args: ListLFTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListLFTagsCommandOutput>;
-  listLFTags(args: ListLFTagsCommandInput, cb: (err: any, data?: ListLFTagsCommandOutput) => void): void;
+  listLFTags(
+    args: ListLFTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLFTagsCommandOutput>;
+  listLFTags(
+    args: ListLFTagsCommandInput,
+    cb: (err: any, data?: ListLFTagsCommandOutput) => void
+  ): void;
   listLFTags(
     args: ListLFTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -1025,7 +1064,10 @@ export interface LakeFormation {
     args: ListPermissionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListPermissionsCommandOutput>;
-  listPermissions(args: ListPermissionsCommandInput, cb: (err: any, data?: ListPermissionsCommandOutput) => void): void;
+  listPermissions(
+    args: ListPermissionsCommandInput,
+    cb: (err: any, data?: ListPermissionsCommandOutput) => void
+  ): void;
   listPermissions(
     args: ListPermissionsCommandInput,
     options: __HttpHandlerOptions,
@@ -1036,8 +1078,14 @@ export interface LakeFormation {
    * @see {@link ListResourcesCommand}
    */
   listResources(): Promise<ListResourcesCommandOutput>;
-  listResources(args: ListResourcesCommandInput, options?: __HttpHandlerOptions): Promise<ListResourcesCommandOutput>;
-  listResources(args: ListResourcesCommandInput, cb: (err: any, data?: ListResourcesCommandOutput) => void): void;
+  listResources(
+    args: ListResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourcesCommandOutput>;
+  listResources(
+    args: ListResourcesCommandInput,
+    cb: (err: any, data?: ListResourcesCommandOutput) => void
+  ): void;
   listResources(
     args: ListResourcesCommandInput,
     options: __HttpHandlerOptions,
@@ -1254,8 +1302,14 @@ export interface LakeFormation {
   /**
    * @see {@link UpdateLFTagCommand}
    */
-  updateLFTag(args: UpdateLFTagCommandInput, options?: __HttpHandlerOptions): Promise<UpdateLFTagCommandOutput>;
-  updateLFTag(args: UpdateLFTagCommandInput, cb: (err: any, data?: UpdateLFTagCommandOutput) => void): void;
+  updateLFTag(
+    args: UpdateLFTagCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLFTagCommandOutput>;
+  updateLFTag(
+    args: UpdateLFTagCommandInput,
+    cb: (err: any, data?: UpdateLFTagCommandOutput) => void
+  ): void;
   updateLFTag(
     args: UpdateLFTagCommandInput,
     options: __HttpHandlerOptions,
@@ -1286,7 +1340,10 @@ export interface LakeFormation {
     args: UpdateResourceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateResourceCommandOutput>;
-  updateResource(args: UpdateResourceCommandInput, cb: (err: any, data?: UpdateResourceCommandOutput) => void): void;
+  updateResource(
+    args: UpdateResourceCommandInput,
+    cb: (err: any, data?: UpdateResourceCommandOutput) => void
+  ): void;
   updateResource(
     args: UpdateResourceCommandInput,
     options: __HttpHandlerOptions,

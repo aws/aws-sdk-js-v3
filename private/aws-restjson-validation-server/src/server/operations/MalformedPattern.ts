@@ -11,8 +11,8 @@ import {
   OperationOutput as __OperationOutput,
   OperationSerializer as __OperationSerializer,
   SerializationException as __SerializationException,
-  ServerSerdeContext as __ServerSerdeContext,
   ServerSerdeContext,
+  ServerSerdeContext as __ServerSerdeContext,
   ServiceException as __BaseException,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
@@ -35,30 +35,27 @@ import {
 } from "../../protocols/Aws_restJson1";
 import { RestJsonValidationService } from "../RestJsonValidationService";
 
-export type MalformedPattern<Context> = __Operation<MalformedPatternServerInput, MalformedPatternServerOutput, Context>;
+export type MalformedPattern<Context> = __Operation<MalformedPatternServerInput, MalformedPatternServerOutput, Context>
 
 export interface MalformedPatternServerInput extends MalformedPatternInput {}
 export namespace MalformedPatternServerInput {
   /**
    * @internal
    */
-  export const validate: (obj: Parameters<typeof MalformedPatternInput.validate>[0]) => __ValidationFailure[] =
-    MalformedPatternInput.validate;
+  export const validate: (obj: Parameters<typeof MalformedPatternInput.validate>[0]) => __ValidationFailure[] = MalformedPatternInput.validate;
 }
 export interface MalformedPatternServerOutput {}
 
-export type MalformedPatternErrors = ValidationException;
+export type MalformedPatternErrors = ValidationException
 
-export class MalformedPatternSerializer
-  implements __OperationSerializer<RestJsonValidationService<any>, "MalformedPattern", MalformedPatternErrors>
-{
+export class MalformedPatternSerializer implements __OperationSerializer<RestJsonValidationService<any>, "MalformedPattern", MalformedPatternErrors> {
   serialize = serializeMalformedPatternResponse;
   deserialize = deserializeMalformedPatternRequest;
 
   isOperationError(error: any): error is MalformedPatternErrors {
-    const names: MalformedPatternErrors["name"][] = ["ValidationException"];
+    const names: MalformedPatternErrors['name'][] = ["ValidationException"];
     return names.includes(error.name);
-  }
+  };
 
   serializeError(error: MalformedPatternErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     switch (error.name) {
@@ -70,18 +67,19 @@ export class MalformedPatternSerializer
       }
     }
   }
+
 }
 
-export const getMalformedPatternHandler = <Context>(
-  operation: __Operation<MalformedPatternServerInput, MalformedPatternServerOutput, Context>
-): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+export const getMalformedPatternHandler = <Context>(operation: __Operation<MalformedPatternServerInput, MalformedPatternServerOutput, Context>): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
   const mux = new httpbinding.HttpBindingMux<"RestJsonValidation", "MalformedPattern">([
     new httpbinding.UriSpec<"RestJsonValidation", "MalformedPattern">(
-      "POST",
-      [{ type: "path_literal", value: "MalformedPattern" }],
-      [],
-      { service: "RestJsonValidation", operation: "MalformedPattern" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "MalformedPattern" },
+      ],
+      [
+      ],
+      { service: "RestJsonValidation", operation: "MalformedPattern" }),
   ]);
   const customizer: __ValidationCustomizer<"MalformedPattern"> = (ctx, failures) => {
     if (!failures) {
@@ -91,20 +89,14 @@ export const getMalformedPatternHandler = <Context>(
       name: "ValidationException",
       $fault: "client",
       message: __generateValidationSummary(failures),
-      fieldList: failures.map((failure) => ({
+      fieldList: failures.map(failure => ({
         path: failure.path,
-        message: __generateValidationMessage(failure),
-      })),
+        message: __generateValidationMessage(failure)
+      }))
     };
   };
-  return new MalformedPatternHandler(
-    operation,
-    mux,
-    new MalformedPatternSerializer(),
-    serializeFrameworkException,
-    customizer
-  );
-};
+  return new MalformedPatternHandler(operation, mux, new MalformedPatternSerializer(), serializeFrameworkException, customizer);
+}
 
 const serdeContextBase = {
   base64Encoder: toBase64,
@@ -113,7 +105,7 @@ const serdeContextBase = {
   utf8Decoder: fromUtf8,
   streamCollector: streamCollector,
   requestHandler: new NodeHttpHandler(),
-  disableHostPrefix: true,
+  disableHostPrefix: true
 };
 async function handle<S, O extends keyof S & string, Context>(
   request: __HttpRequest,
@@ -128,45 +120,37 @@ async function handle<S, O extends keyof S & string, Context>(
   let input;
   try {
     input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request),
-      ...serdeContextBase,
+      endpoint: () => Promise.resolve(request), ...serdeContextBase
     });
   } catch (error: unknown) {
     if (__isFrameworkException(error)) {
       return serializeFrameworkException(error, serdeContextBase);
-    }
+    };
     return serializeFrameworkException(new __SerializationException(), serdeContextBase);
   }
   try {
-    const validationFailures = validationFn(input);
+    let validationFailures = validationFn(input);
     if (validationFailures && validationFailures.length > 0) {
-      const validationException = validationCustomizer({ operation: operationName }, validationFailures);
+      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
       if (validationException) {
         return serializer.serializeError(validationException, serdeContextBase);
       }
     }
-    const output = await operation(input, context);
+    let output = await operation(input, context);
     return serializer.serialize(output, serdeContextBase);
-  } catch (error: unknown) {
+  } catch(error: unknown) {
     if (serializer.isOperationError(error)) {
       return serializer.serializeError(error, serdeContextBase);
     }
-    console.log("Received an unexpected error", error);
+    console.log('Received an unexpected error', error);
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
 export class MalformedPatternHandler<Context> implements __ServiceHandler<Context> {
   private readonly operation: __Operation<MalformedPatternServerInput, MalformedPatternServerOutput, Context>;
   private readonly mux: __Mux<"RestJsonValidation", "MalformedPattern">;
-  private readonly serializer: __OperationSerializer<
-    RestJsonValidationService<Context>,
-    "MalformedPattern",
-    MalformedPatternErrors
-  >;
-  private readonly serializeFrameworkException: (
-    e: __SmithyFrameworkException,
-    ctx: __ServerSerdeContext
-  ) => Promise<__HttpResponse>;
+  private readonly serializer: __OperationSerializer<RestJsonValidationService<Context>, "MalformedPattern", MalformedPatternErrors>;
+  private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<"MalformedPattern">;
   /**
    * Construct a MalformedPattern handler.
@@ -193,20 +177,9 @@ export class MalformedPatternHandler<Context> implements __ServiceHandler<Contex
   async handle(request: __HttpRequest, context: Context): Promise<__HttpResponse> {
     const target = this.mux.match(request);
     if (target === undefined) {
-      console.log(
-        "Received a request that did not match aws.protocoltests.restjson.validation#RestJsonValidation.MalformedPattern. This indicates a misconfiguration."
-      );
+      console.log('Received a request that did not match aws.protocoltests.restjson.validation#RestJsonValidation.MalformedPattern. This indicates a misconfiguration.');
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
-    return handle(
-      request,
-      context,
-      "MalformedPattern",
-      this.serializer,
-      this.operation,
-      this.serializeFrameworkException,
-      MalformedPatternServerInput.validate,
-      this.validationCustomizer
-    );
+    return handle(request, context, "MalformedPattern", this.serializer, this.operation, this.serializeFrameworkException, MalformedPatternServerInput.validate, this.validationCustomizer);
   }
 }

@@ -24,9 +24,7 @@ export interface UpdateQueueFleetAssociationCommandInput extends UpdateQueueFlee
  *
  * The output of {@link UpdateQueueFleetAssociationCommand}.
  */
-export interface UpdateQueueFleetAssociationCommandOutput
-  extends UpdateQueueFleetAssociationResponse,
-    __MetadataBearer {}
+export interface UpdateQueueFleetAssociationCommandOutput extends UpdateQueueFleetAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a queue-fleet association.</p>

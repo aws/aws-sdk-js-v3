@@ -27,9 +27,7 @@ export interface ListRestoreJobsByProtectedResourceCommandInput extends ListRest
  *
  * The output of {@link ListRestoreJobsByProtectedResourceCommand}.
  */
-export interface ListRestoreJobsByProtectedResourceCommandOutput
-  extends ListRestoreJobsByProtectedResourceOutput,
-    __MetadataBearer {}
+export interface ListRestoreJobsByProtectedResourceCommandOutput extends ListRestoreJobsByProtectedResourceOutput, __MetadataBearer {}
 
 /**
  * <p>This returns restore jobs that contain the specified protected resource.</p>

@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeElasticsearchInstanceTypeLimitsCommand}.
  */
-export interface DescribeElasticsearchInstanceTypeLimitsCommandInput
-  extends DescribeElasticsearchInstanceTypeLimitsRequest {}
+export interface DescribeElasticsearchInstanceTypeLimitsCommandInput extends DescribeElasticsearchInstanceTypeLimitsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeElasticsearchInstanceTypeLimitsCommand}.
  */
-export interface DescribeElasticsearchInstanceTypeLimitsCommandOutput
-  extends DescribeElasticsearchInstanceTypeLimitsResponse,
-    __MetadataBearer {}
+export interface DescribeElasticsearchInstanceTypeLimitsCommandOutput extends DescribeElasticsearchInstanceTypeLimitsResponse, __MetadataBearer {}
 
 /**
  * <p>

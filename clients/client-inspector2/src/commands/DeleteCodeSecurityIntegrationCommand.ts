@@ -24,9 +24,7 @@ export interface DeleteCodeSecurityIntegrationCommandInput extends DeleteCodeSec
  *
  * The output of {@link DeleteCodeSecurityIntegrationCommand}.
  */
-export interface DeleteCodeSecurityIntegrationCommandOutput
-  extends DeleteCodeSecurityIntegrationResponse,
-    __MetadataBearer {}
+export interface DeleteCodeSecurityIntegrationCommandOutput extends DeleteCodeSecurityIntegrationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a code security integration.</p>

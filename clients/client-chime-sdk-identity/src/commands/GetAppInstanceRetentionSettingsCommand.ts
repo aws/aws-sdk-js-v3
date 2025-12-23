@@ -31,9 +31,7 @@ export interface GetAppInstanceRetentionSettingsCommandInput extends GetAppInsta
  *
  * The output of {@link GetAppInstanceRetentionSettingsCommand}.
  */
-export interface GetAppInstanceRetentionSettingsCommandOutput
-  extends GetAppInstanceRetentionSettingsResponse,
-    __MetadataBearer {}
+export interface GetAppInstanceRetentionSettingsCommandOutput extends GetAppInstanceRetentionSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the retention settings for an <code>AppInstance</code>.</p>

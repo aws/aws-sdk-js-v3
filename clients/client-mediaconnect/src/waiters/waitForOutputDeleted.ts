@@ -10,17 +10,17 @@ const checkState = async (client: MediaConnectClient, input: GetRouterOutputComm
     const result: any = await client.send(new GetRouterOutputCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.RouterOutput.State;
-      };
+      }
       if (returnComparator() === "DELETING") {
         return { state: WaiterState.RETRY, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.RouterOutput.State;
-      };
+      }
       if (returnComparator() === "ERROR") {
         return { state: WaiterState.FAILURE, reason };
       }

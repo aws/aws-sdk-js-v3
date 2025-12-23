@@ -31,9 +31,7 @@ export interface DescribeManagedLoginBrandingByClientCommandInput extends Descri
  *
  * The output of {@link DescribeManagedLoginBrandingByClientCommand}.
  */
-export interface DescribeManagedLoginBrandingByClientCommandOutput
-  extends DescribeManagedLoginBrandingByClientResponse,
-    __MetadataBearer {}
+export interface DescribeManagedLoginBrandingByClientCommandOutput extends DescribeManagedLoginBrandingByClientResponse, __MetadataBearer {}
 
 /**
  * <p>Given the ID of a user pool app client, returns detailed information about the style

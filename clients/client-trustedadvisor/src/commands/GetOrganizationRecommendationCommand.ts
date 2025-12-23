@@ -28,9 +28,7 @@ export interface GetOrganizationRecommendationCommandInput extends GetOrganizati
  *
  * The output of {@link GetOrganizationRecommendationCommand}.
  */
-export interface GetOrganizationRecommendationCommandOutput
-  extends GetOrganizationRecommendationResponse,
-    __MetadataBearer {}
+export interface GetOrganizationRecommendationCommandOutput extends GetOrganizationRecommendationResponse, __MetadataBearer {}
 
 /**
  * <p>Get a specific recommendation within an AWS Organizations organization. This API supports only prioritized

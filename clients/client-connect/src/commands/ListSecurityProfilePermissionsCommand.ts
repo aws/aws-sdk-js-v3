@@ -24,9 +24,7 @@ export interface ListSecurityProfilePermissionsCommandInput extends ListSecurity
  *
  * The output of {@link ListSecurityProfilePermissionsCommand}.
  */
-export interface ListSecurityProfilePermissionsCommandOutput
-  extends ListSecurityProfilePermissionsResponse,
-    __MetadataBearer {}
+export interface ListSecurityProfilePermissionsCommandOutput extends ListSecurityProfilePermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the permissions granted to a security profile.</p>

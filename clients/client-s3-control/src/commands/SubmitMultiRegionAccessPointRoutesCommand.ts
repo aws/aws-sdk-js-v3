@@ -29,9 +29,7 @@ export interface SubmitMultiRegionAccessPointRoutesCommandInput extends SubmitMu
  *
  * The output of {@link SubmitMultiRegionAccessPointRoutesCommand}.
  */
-export interface SubmitMultiRegionAccessPointRoutesCommandOutput
-  extends SubmitMultiRegionAccessPointRoutesResult,
-    __MetadataBearer {}
+export interface SubmitMultiRegionAccessPointRoutesCommandOutput extends SubmitMultiRegionAccessPointRoutesResult, __MetadataBearer {}
 
 /**
  * <note>

@@ -24,9 +24,7 @@ export interface CreateSlackChannelConfigurationCommandInput extends CreateSlack
  *
  * The output of {@link CreateSlackChannelConfigurationCommand}.
  */
-export interface CreateSlackChannelConfigurationCommandOutput
-  extends CreateSlackChannelConfigurationResult,
-    __MetadataBearer {}
+export interface CreateSlackChannelConfigurationCommandOutput extends CreateSlackChannelConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Creates an AWS Chatbot confugration for Slack.</p>

@@ -24,9 +24,7 @@ export interface DeleteMicrosoftTeamsChannelConfigurationCommandInput extends De
  *
  * The output of {@link DeleteMicrosoftTeamsChannelConfigurationCommand}.
  */
-export interface DeleteMicrosoftTeamsChannelConfigurationCommandOutput
-  extends DeleteTeamsChannelConfigurationResult,
-    __MetadataBearer {}
+export interface DeleteMicrosoftTeamsChannelConfigurationCommandOutput extends DeleteTeamsChannelConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a Microsoft Teams channel configuration for AWS Chatbot</p>

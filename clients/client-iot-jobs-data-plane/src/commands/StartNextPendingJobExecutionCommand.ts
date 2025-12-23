@@ -28,9 +28,7 @@ export interface StartNextPendingJobExecutionCommandInput extends StartNextPendi
  *
  * The output of {@link StartNextPendingJobExecutionCommand}.
  */
-export interface StartNextPendingJobExecutionCommandOutput
-  extends StartNextPendingJobExecutionResponse,
-    __MetadataBearer {}
+export interface StartNextPendingJobExecutionCommandOutput extends StartNextPendingJobExecutionResponse, __MetadataBearer {}
 
 /**
  * <p>Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution for a

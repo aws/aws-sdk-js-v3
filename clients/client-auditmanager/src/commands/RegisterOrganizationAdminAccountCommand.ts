@@ -27,9 +27,7 @@ export interface RegisterOrganizationAdminAccountCommandInput extends RegisterOr
  *
  * The output of {@link RegisterOrganizationAdminAccountCommand}.
  */
-export interface RegisterOrganizationAdminAccountCommandOutput
-  extends RegisterOrganizationAdminAccountResponse,
-    __MetadataBearer {}
+export interface RegisterOrganizationAdminAccountCommandOutput extends RegisterOrganizationAdminAccountResponse, __MetadataBearer {}
 
 /**
  * <p> Enables an Amazon Web Services account within the organization as the delegated

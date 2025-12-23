@@ -143,7 +143,10 @@ export interface S3Identifier {
  * <p>Contains details about the OpenAPI schema for the action group. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html">Action group OpenAPI schemas</a>. You can either include the schema directly in the <code>payload</code> field or you can upload it to an S3 bucket and specify the S3 bucket location in the <code>s3</code> field.</p>
  * @public
  */
-export type APISchema = APISchema.PayloadMember | APISchema.S3Member | APISchema.$UnknownMember;
+export type APISchema =
+  | APISchema.PayloadMember
+  | APISchema.S3Member
+  | APISchema.$UnknownMember;
 
 /**
  * @public
@@ -247,7 +250,9 @@ export interface Function {
  * <p>Defines functions that each define parameters that the agent needs to invoke from the user. Each function represents an action in an action group.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_RequestSyntax">CreateAgentActionGroup request</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_ResponseSyntax">CreateAgentActionGroup response</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_RequestSyntax">UpdateAgentActionGroup request</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_ResponseSyntax">UpdateAgentActionGroup response</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentActionGroup.html#API_agent_GetAgentActionGroup_ResponseSyntax">GetAgentActionGroup response</a> </p> </li> </ul>
  * @public
  */
-export type FunctionSchema = FunctionSchema.FunctionsMember | FunctionSchema.$UnknownMember;
+export type FunctionSchema =
+  | FunctionSchema.FunctionsMember
+  | FunctionSchema.$UnknownMember;
 
 /**
  * @public
@@ -706,7 +711,9 @@ export interface UpdateAgentActionGroupResponse {
  * <p> Contains details about the Lambda function containing the orchestration logic carried out upon invoking the custom orchestration. </p>
  * @public
  */
-export type OrchestrationExecutor = OrchestrationExecutor.LambdaMember | OrchestrationExecutor.$UnknownMember;
+export type OrchestrationExecutor =
+  | OrchestrationExecutor.LambdaMember
+  | OrchestrationExecutor.$UnknownMember;
 
 /**
  * @public
@@ -4170,7 +4177,10 @@ export interface CachePointBlock {
  * <p>Contains the content for the message you pass to, or receive from a model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html">Create a prompt using Prompt management</a>.</p>
  * @public
  */
-export type ContentBlock = ContentBlock.CachePointMember | ContentBlock.TextMember | ContentBlock.$UnknownMember;
+export type ContentBlock =
+  | ContentBlock.CachePointMember
+  | ContentBlock.TextMember
+  | ContentBlock.$UnknownMember;
 
 /**
  * @public
@@ -4384,7 +4394,9 @@ export namespace ToolChoice {
  * <p>The input schema for the tool. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Use a tool to complete an Amazon Bedrock model response</a>.</p>
  * @public
  */
-export type ToolInputSchema = ToolInputSchema.JsonMember | ToolInputSchema.$UnknownMember;
+export type ToolInputSchema =
+  | ToolInputSchema.JsonMember
+  | ToolInputSchema.$UnknownMember;
 
 /**
  * @public
@@ -4445,7 +4457,10 @@ export interface ToolSpecification {
  * <p>Contains configurations for a tool that a model can use when generating a response. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Use a tool to complete an Amazon Bedrock model response</a>.</p>
  * @public
  */
-export type Tool = Tool.CachePointMember | Tool.ToolSpecMember | Tool.$UnknownMember;
+export type Tool =
+  | Tool.CachePointMember
+  | Tool.ToolSpecMember
+  | Tool.$UnknownMember;
 
 /**
  * @public

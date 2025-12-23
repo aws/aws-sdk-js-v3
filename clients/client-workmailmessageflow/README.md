@@ -13,10 +13,8 @@ a
 WorkMail organization.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-workmailmessageflow
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-workmailmessageflow`
 - `yarn add @aws-sdk/client-workmailmessageflow`
 - `pnpm add @aws-sdk/client-workmailmessageflow`
@@ -52,9 +50,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new WorkMailMessageFlowClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new GetRawMessageContentCommand(params);
 ```
 
@@ -213,7 +209,6 @@ GetRawMessageContent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workmailmessageflow/command/GetRawMessageContentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmailmessageflow/Interface/GetRawMessageContentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmailmessageflow/Interface/GetRawMessageContentCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -221,5 +216,4 @@ PutRawMessageContent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workmailmessageflow/command/PutRawMessageContentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmailmessageflow/Interface/PutRawMessageContentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workmailmessageflow/Interface/PutRawMessageContentCommandOutput/)
-
 </details>

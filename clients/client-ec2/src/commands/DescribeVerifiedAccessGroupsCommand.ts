@@ -24,9 +24,7 @@ export interface DescribeVerifiedAccessGroupsCommandInput extends DescribeVerifi
  *
  * The output of {@link DescribeVerifiedAccessGroupsCommand}.
  */
-export interface DescribeVerifiedAccessGroupsCommandOutput
-  extends DescribeVerifiedAccessGroupsResult,
-    __MetadataBearer {}
+export interface DescribeVerifiedAccessGroupsCommandOutput extends DescribeVerifiedAccessGroupsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified Verified Access groups.</p>

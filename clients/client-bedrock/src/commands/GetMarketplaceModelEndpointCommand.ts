@@ -24,9 +24,7 @@ export interface GetMarketplaceModelEndpointCommandInput extends GetMarketplaceM
  *
  * The output of {@link GetMarketplaceModelEndpointCommand}.
  */
-export interface GetMarketplaceModelEndpointCommandOutput
-  extends GetMarketplaceModelEndpointResponse,
-    __MetadataBearer {}
+export interface GetMarketplaceModelEndpointCommandOutput extends GetMarketplaceModelEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details about a specific endpoint for a model from Amazon Bedrock Marketplace.</p>

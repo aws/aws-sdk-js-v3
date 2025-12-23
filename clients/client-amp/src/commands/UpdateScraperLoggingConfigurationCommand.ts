@@ -27,9 +27,7 @@ export interface UpdateScraperLoggingConfigurationCommandInput extends UpdateScr
  *
  * The output of {@link UpdateScraperLoggingConfigurationCommand}.
  */
-export interface UpdateScraperLoggingConfigurationCommandOutput
-  extends UpdateScraperLoggingConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateScraperLoggingConfigurationCommandOutput extends UpdateScraperLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the logging configuration for a Amazon Managed Service for Prometheus scraper.</p>

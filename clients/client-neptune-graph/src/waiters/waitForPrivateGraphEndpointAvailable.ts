@@ -7,34 +7,31 @@ import {
 } from "../commands/GetPrivateGraphEndpointCommand";
 import { NeptuneGraphClient } from "../NeptuneGraphClient";
 
-const checkState = async (
-  client: NeptuneGraphClient,
-  input: GetPrivateGraphEndpointCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: NeptuneGraphClient, input: GetPrivateGraphEndpointCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
     const result: any = await client.send(new GetPrivateGraphEndpointCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "DELETING") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.status;
-      };
+      }
       if (returnComparator() === "AVAILABLE") {
         return { state: WaiterState.SUCCESS, reason };
       }

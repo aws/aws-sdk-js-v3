@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link SetLoadBalancerPoliciesForBackendServerCommand}.
  */
-export interface SetLoadBalancerPoliciesForBackendServerCommandInput
-  extends SetLoadBalancerPoliciesForBackendServerInput {}
+export interface SetLoadBalancerPoliciesForBackendServerCommandInput extends SetLoadBalancerPoliciesForBackendServerInput {}
 /**
  * @public
  *
  * The output of {@link SetLoadBalancerPoliciesForBackendServerCommand}.
  */
-export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
-  extends SetLoadBalancerPoliciesForBackendServerOutput,
-    __MetadataBearer {}
+export interface SetLoadBalancerPoliciesForBackendServerCommandOutput extends SetLoadBalancerPoliciesForBackendServerOutput, __MetadataBearer {}
 
 /**
  * <p>Replaces the set of policies associated with the specified port on which the EC2 instance is listening with a new set of policies.

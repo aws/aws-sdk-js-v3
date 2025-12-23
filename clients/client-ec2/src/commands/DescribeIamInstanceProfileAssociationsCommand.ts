@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeIamInstanceProfileAssociationsCommand}.
  */
-export interface DescribeIamInstanceProfileAssociationsCommandInput
-  extends DescribeIamInstanceProfileAssociationsRequest {}
+export interface DescribeIamInstanceProfileAssociationsCommandInput extends DescribeIamInstanceProfileAssociationsRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeIamInstanceProfileAssociationsCommand}.
  */
-export interface DescribeIamInstanceProfileAssociationsCommandOutput
-  extends DescribeIamInstanceProfileAssociationsResult,
-    __MetadataBearer {}
+export interface DescribeIamInstanceProfileAssociationsCommandOutput extends DescribeIamInstanceProfileAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes your IAM instance profile associations.</p>

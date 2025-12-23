@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link UpdateProtectConfigurationCountryRuleSetCommand}.
  */
-export interface UpdateProtectConfigurationCountryRuleSetCommandInput
-  extends UpdateProtectConfigurationCountryRuleSetRequest {}
+export interface UpdateProtectConfigurationCountryRuleSetCommandInput extends UpdateProtectConfigurationCountryRuleSetRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateProtectConfigurationCountryRuleSetCommand}.
  */
-export interface UpdateProtectConfigurationCountryRuleSetCommandOutput
-  extends UpdateProtectConfigurationCountryRuleSetResult,
-    __MetadataBearer {}
+export interface UpdateProtectConfigurationCountryRuleSetCommandOutput extends UpdateProtectConfigurationCountryRuleSetResult, __MetadataBearer {}
 
 /**
  * <p>Update a country rule set to <code>ALLOW</code>, <code>BLOCK</code>, <code>MONITOR</code>, or <code>FILTER</code> messages to be sent to the specified destination counties. You can update one or multiple countries at a time. The updates are only applied to the specified NumberCapability type.</p>

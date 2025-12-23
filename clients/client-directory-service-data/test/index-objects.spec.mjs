@@ -67,6 +67,12 @@ import {
   ListUsersResult$,
   Member$,
   MemberType,
+  paginateListGroupMembers,
+  paginateListGroups,
+  paginateListGroupsForMember,
+  paginateListUsers,
+  paginateSearchGroups,
+  paginateSearchUsers,
   RemoveGroupMember$,
   RemoveGroupMemberCommand,
   RemoveGroupMemberRequest$,
@@ -97,12 +103,6 @@ import {
   ValidationException,
   ValidationException$,
   ValidationExceptionReason,
-  paginateListGroupMembers,
-  paginateListGroups,
-  paginateListGroupsForMember,
-  paginateListUsers,
-  paginateSearchGroups,
-  paginateSearchUsers,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

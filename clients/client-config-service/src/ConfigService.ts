@@ -1704,7 +1704,10 @@ export interface ConfigService {
     args: GetStoredQueryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetStoredQueryCommandOutput>;
-  getStoredQuery(args: GetStoredQueryCommandInput, cb: (err: any, data?: GetStoredQueryCommandOutput) => void): void;
+  getStoredQuery(
+    args: GetStoredQueryCommandInput,
+    cb: (err: any, data?: GetStoredQueryCommandOutput) => void
+  ): void;
   getStoredQuery(
     args: GetStoredQueryCommandInput,
     options: __HttpHandlerOptions,
@@ -1854,8 +1857,14 @@ export interface ConfigService {
   /**
    * @see {@link PutConfigRuleCommand}
    */
-  putConfigRule(args: PutConfigRuleCommandInput, options?: __HttpHandlerOptions): Promise<PutConfigRuleCommandOutput>;
-  putConfigRule(args: PutConfigRuleCommandInput, cb: (err: any, data?: PutConfigRuleCommandOutput) => void): void;
+  putConfigRule(
+    args: PutConfigRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutConfigRuleCommandOutput>;
+  putConfigRule(
+    args: PutConfigRuleCommandInput,
+    cb: (err: any, data?: PutConfigRuleCommandOutput) => void
+  ): void;
   putConfigRule(
     args: PutConfigRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -1937,7 +1946,10 @@ export interface ConfigService {
     args: PutEvaluationsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutEvaluationsCommandOutput>;
-  putEvaluations(args: PutEvaluationsCommandInput, cb: (err: any, data?: PutEvaluationsCommandOutput) => void): void;
+  putEvaluations(
+    args: PutEvaluationsCommandInput,
+    cb: (err: any, data?: PutEvaluationsCommandOutput) => void
+  ): void;
   putEvaluations(
     args: PutEvaluationsCommandInput,
     options: __HttpHandlerOptions,
@@ -2087,7 +2099,10 @@ export interface ConfigService {
     args: PutStoredQueryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutStoredQueryCommandOutput>;
-  putStoredQuery(args: PutStoredQueryCommandInput, cb: (err: any, data?: PutStoredQueryCommandOutput) => void): void;
+  putStoredQuery(
+    args: PutStoredQueryCommandInput,
+    cb: (err: any, data?: PutStoredQueryCommandOutput) => void
+  ): void;
   putStoredQuery(
     args: PutStoredQueryCommandInput,
     options: __HttpHandlerOptions,
@@ -2217,8 +2232,14 @@ export interface ConfigService {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2228,8 +2249,14 @@ export interface ConfigService {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

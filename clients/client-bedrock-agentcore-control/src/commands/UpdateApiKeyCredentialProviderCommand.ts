@@ -28,9 +28,7 @@ export interface UpdateApiKeyCredentialProviderCommandInput extends UpdateApiKey
  *
  * The output of {@link UpdateApiKeyCredentialProviderCommand}.
  */
-export interface UpdateApiKeyCredentialProviderCommandOutput
-  extends UpdateApiKeyCredentialProviderResponse,
-    __MetadataBearer {}
+export interface UpdateApiKeyCredentialProviderCommandOutput extends UpdateApiKeyCredentialProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing API key credential provider.</p>

@@ -24,9 +24,7 @@ export interface UpdateContainerInstancesStateCommandInput extends UpdateContain
  *
  * The output of {@link UpdateContainerInstancesStateCommand}.
  */
-export interface UpdateContainerInstancesStateCommandOutput
-  extends UpdateContainerInstancesStateResponse,
-    __MetadataBearer {}
+export interface UpdateContainerInstancesStateCommandOutput extends UpdateContainerInstancesStateResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the status of an Amazon ECS container instance.</p>

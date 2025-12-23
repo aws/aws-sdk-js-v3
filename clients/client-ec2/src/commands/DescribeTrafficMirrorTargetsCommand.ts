@@ -24,9 +24,7 @@ export interface DescribeTrafficMirrorTargetsCommandInput extends DescribeTraffi
  *
  * The output of {@link DescribeTrafficMirrorTargetsCommand}.
  */
-export interface DescribeTrafficMirrorTargetsCommandOutput
-  extends DescribeTrafficMirrorTargetsResult,
-    __MetadataBearer {}
+export interface DescribeTrafficMirrorTargetsCommandOutput extends DescribeTrafficMirrorTargetsResult, __MetadataBearer {}
 
 /**
  * <p>Information about one or more Traffic Mirror targets.</p>

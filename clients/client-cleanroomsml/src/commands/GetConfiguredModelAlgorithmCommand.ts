@@ -24,9 +24,7 @@ export interface GetConfiguredModelAlgorithmCommandInput extends GetConfiguredMo
  *
  * The output of {@link GetConfiguredModelAlgorithmCommand}.
  */
-export interface GetConfiguredModelAlgorithmCommandOutput
-  extends GetConfiguredModelAlgorithmResponse,
-    __MetadataBearer {}
+export interface GetConfiguredModelAlgorithmCommandOutput extends GetConfiguredModelAlgorithmResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a configured model algorithm.</p>

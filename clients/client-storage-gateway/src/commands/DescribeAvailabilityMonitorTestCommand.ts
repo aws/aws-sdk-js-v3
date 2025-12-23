@@ -28,9 +28,7 @@ export interface DescribeAvailabilityMonitorTestCommandInput extends DescribeAva
  *
  * The output of {@link DescribeAvailabilityMonitorTestCommand}.
  */
-export interface DescribeAvailabilityMonitorTestCommandOutput
-  extends DescribeAvailabilityMonitorTestOutput,
-    __MetadataBearer {}
+export interface DescribeAvailabilityMonitorTestCommandOutput extends DescribeAvailabilityMonitorTestOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about the most recent high availability monitoring test that was

@@ -24,9 +24,7 @@ export interface GetSerialConsoleAccessStatusCommandInput extends GetSerialConso
  *
  * The output of {@link GetSerialConsoleAccessStatusCommand}.
  */
-export interface GetSerialConsoleAccessStatusCommandOutput
-  extends GetSerialConsoleAccessStatusResult,
-    __MetadataBearer {}
+export interface GetSerialConsoleAccessStatusCommandOutput extends GetSerialConsoleAccessStatusResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the access status of your account to the EC2 serial console of all instances. By

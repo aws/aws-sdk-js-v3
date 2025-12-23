@@ -400,8 +400,14 @@ export interface Mgn {
   /**
    * @see {@link ArchiveWaveCommand}
    */
-  archiveWave(args: ArchiveWaveCommandInput, options?: __HttpHandlerOptions): Promise<ArchiveWaveCommandOutput>;
-  archiveWave(args: ArchiveWaveCommandInput, cb: (err: any, data?: ArchiveWaveCommandOutput) => void): void;
+  archiveWave(
+    args: ArchiveWaveCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ArchiveWaveCommandOutput>;
+  archiveWave(
+    args: ArchiveWaveCommandInput,
+    cb: (err: any, data?: ArchiveWaveCommandOutput) => void
+  ): void;
   archiveWave(
     args: ArchiveWaveCommandInput,
     options: __HttpHandlerOptions,
@@ -483,7 +489,10 @@ export interface Mgn {
     args: CreateConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateConnectorCommandOutput>;
-  createConnector(args: CreateConnectorCommandInput, cb: (err: any, data?: CreateConnectorCommandOutput) => void): void;
+  createConnector(
+    args: CreateConnectorCommandInput,
+    cb: (err: any, data?: CreateConnectorCommandOutput) => void
+  ): void;
   createConnector(
     args: CreateConnectorCommandInput,
     options: __HttpHandlerOptions,
@@ -528,8 +537,14 @@ export interface Mgn {
   /**
    * @see {@link CreateWaveCommand}
    */
-  createWave(args: CreateWaveCommandInput, options?: __HttpHandlerOptions): Promise<CreateWaveCommandOutput>;
-  createWave(args: CreateWaveCommandInput, cb: (err: any, data?: CreateWaveCommandOutput) => void): void;
+  createWave(
+    args: CreateWaveCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWaveCommandOutput>;
+  createWave(
+    args: CreateWaveCommandInput,
+    cb: (err: any, data?: CreateWaveCommandOutput) => void
+  ): void;
   createWave(
     args: CreateWaveCommandInput,
     options: __HttpHandlerOptions,
@@ -560,7 +575,10 @@ export interface Mgn {
     args: DeleteConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteConnectorCommandOutput>;
-  deleteConnector(args: DeleteConnectorCommandInput, cb: (err: any, data?: DeleteConnectorCommandOutput) => void): void;
+  deleteConnector(
+    args: DeleteConnectorCommandInput,
+    cb: (err: any, data?: DeleteConnectorCommandOutput) => void
+  ): void;
   deleteConnector(
     args: DeleteConnectorCommandInput,
     options: __HttpHandlerOptions,
@@ -570,8 +588,14 @@ export interface Mgn {
   /**
    * @see {@link DeleteJobCommand}
    */
-  deleteJob(args: DeleteJobCommandInput, options?: __HttpHandlerOptions): Promise<DeleteJobCommandOutput>;
-  deleteJob(args: DeleteJobCommandInput, cb: (err: any, data?: DeleteJobCommandOutput) => void): void;
+  deleteJob(
+    args: DeleteJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteJobCommandOutput>;
+  deleteJob(
+    args: DeleteJobCommandInput,
+    cb: (err: any, data?: DeleteJobCommandOutput) => void
+  ): void;
   deleteJob(
     args: DeleteJobCommandInput,
     options: __HttpHandlerOptions,
@@ -649,8 +673,14 @@ export interface Mgn {
   /**
    * @see {@link DeleteWaveCommand}
    */
-  deleteWave(args: DeleteWaveCommandInput, options?: __HttpHandlerOptions): Promise<DeleteWaveCommandOutput>;
-  deleteWave(args: DeleteWaveCommandInput, cb: (err: any, data?: DeleteWaveCommandOutput) => void): void;
+  deleteWave(
+    args: DeleteWaveCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWaveCommandOutput>;
+  deleteWave(
+    args: DeleteWaveCommandInput,
+    cb: (err: any, data?: DeleteWaveCommandOutput) => void
+  ): void;
   deleteWave(
     args: DeleteWaveCommandInput,
     options: __HttpHandlerOptions,
@@ -678,8 +708,14 @@ export interface Mgn {
    * @see {@link DescribeJobsCommand}
    */
   describeJobs(): Promise<DescribeJobsCommandOutput>;
-  describeJobs(args: DescribeJobsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeJobsCommandOutput>;
-  describeJobs(args: DescribeJobsCommandInput, cb: (err: any, data?: DescribeJobsCommandOutput) => void): void;
+  describeJobs(
+    args: DescribeJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeJobsCommandOutput>;
+  describeJobs(
+    args: DescribeJobsCommandInput,
+    cb: (err: any, data?: DescribeJobsCommandOutput) => void
+  ): void;
   describeJobs(
     args: DescribeJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -816,7 +852,10 @@ export interface Mgn {
     args: FinalizeCutoverCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<FinalizeCutoverCommandOutput>;
-  finalizeCutover(args: FinalizeCutoverCommandInput, cb: (err: any, data?: FinalizeCutoverCommandOutput) => void): void;
+  finalizeCutover(
+    args: FinalizeCutoverCommandInput,
+    cb: (err: any, data?: FinalizeCutoverCommandOutput) => void
+  ): void;
   finalizeCutover(
     args: FinalizeCutoverCommandInput,
     options: __HttpHandlerOptions,
@@ -901,7 +940,10 @@ export interface Mgn {
     args: ListConnectorsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListConnectorsCommandOutput>;
-  listConnectors(args: ListConnectorsCommandInput, cb: (err: any, data?: ListConnectorsCommandOutput) => void): void;
+  listConnectors(
+    args: ListConnectorsCommandInput,
+    cb: (err: any, data?: ListConnectorsCommandOutput) => void
+  ): void;
   listConnectors(
     args: ListConnectorsCommandInput,
     options: __HttpHandlerOptions,
@@ -929,8 +971,14 @@ export interface Mgn {
    * @see {@link ListExportsCommand}
    */
   listExports(): Promise<ListExportsCommandOutput>;
-  listExports(args: ListExportsCommandInput, options?: __HttpHandlerOptions): Promise<ListExportsCommandOutput>;
-  listExports(args: ListExportsCommandInput, cb: (err: any, data?: ListExportsCommandOutput) => void): void;
+  listExports(
+    args: ListExportsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExportsCommandOutput>;
+  listExports(
+    args: ListExportsCommandInput,
+    cb: (err: any, data?: ListExportsCommandOutput) => void
+  ): void;
   listExports(
     args: ListExportsCommandInput,
     options: __HttpHandlerOptions,
@@ -958,8 +1006,14 @@ export interface Mgn {
    * @see {@link ListImportsCommand}
    */
   listImports(): Promise<ListImportsCommandOutput>;
-  listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
-  listImports(args: ListImportsCommandInput, cb: (err: any, data?: ListImportsCommandOutput) => void): void;
+  listImports(
+    args: ListImportsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImportsCommandOutput>;
+  listImports(
+    args: ListImportsCommandInput,
+    cb: (err: any, data?: ListImportsCommandOutput) => void
+  ): void;
   listImports(
     args: ListImportsCommandInput,
     options: __HttpHandlerOptions,
@@ -1039,8 +1093,14 @@ export interface Mgn {
    * @see {@link ListWavesCommand}
    */
   listWaves(): Promise<ListWavesCommandOutput>;
-  listWaves(args: ListWavesCommandInput, options?: __HttpHandlerOptions): Promise<ListWavesCommandOutput>;
-  listWaves(args: ListWavesCommandInput, cb: (err: any, data?: ListWavesCommandOutput) => void): void;
+  listWaves(
+    args: ListWavesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWavesCommandOutput>;
+  listWaves(
+    args: ListWavesCommandInput,
+    cb: (err: any, data?: ListWavesCommandOutput) => void
+  ): void;
   listWaves(
     args: ListWavesCommandInput,
     options: __HttpHandlerOptions,
@@ -1054,7 +1114,10 @@ export interface Mgn {
     args: MarkAsArchivedCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<MarkAsArchivedCommandOutput>;
-  markAsArchived(args: MarkAsArchivedCommandInput, cb: (err: any, data?: MarkAsArchivedCommandOutput) => void): void;
+  markAsArchived(
+    args: MarkAsArchivedCommandInput,
+    cb: (err: any, data?: MarkAsArchivedCommandOutput) => void
+  ): void;
   markAsArchived(
     args: MarkAsArchivedCommandInput,
     options: __HttpHandlerOptions,
@@ -1183,8 +1246,14 @@ export interface Mgn {
   /**
    * @see {@link StartCutoverCommand}
    */
-  startCutover(args: StartCutoverCommandInput, options?: __HttpHandlerOptions): Promise<StartCutoverCommandOutput>;
-  startCutover(args: StartCutoverCommandInput, cb: (err: any, data?: StartCutoverCommandOutput) => void): void;
+  startCutover(
+    args: StartCutoverCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCutoverCommandOutput>;
+  startCutover(
+    args: StartCutoverCommandInput,
+    cb: (err: any, data?: StartCutoverCommandOutput) => void
+  ): void;
   startCutover(
     args: StartCutoverCommandInput,
     options: __HttpHandlerOptions,
@@ -1194,8 +1263,14 @@ export interface Mgn {
   /**
    * @see {@link StartExportCommand}
    */
-  startExport(args: StartExportCommandInput, options?: __HttpHandlerOptions): Promise<StartExportCommandOutput>;
-  startExport(args: StartExportCommandInput, cb: (err: any, data?: StartExportCommandOutput) => void): void;
+  startExport(
+    args: StartExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartExportCommandOutput>;
+  startExport(
+    args: StartExportCommandInput,
+    cb: (err: any, data?: StartExportCommandOutput) => void
+  ): void;
   startExport(
     args: StartExportCommandInput,
     options: __HttpHandlerOptions,
@@ -1205,8 +1280,14 @@ export interface Mgn {
   /**
    * @see {@link StartImportCommand}
    */
-  startImport(args: StartImportCommandInput, options?: __HttpHandlerOptions): Promise<StartImportCommandOutput>;
-  startImport(args: StartImportCommandInput, cb: (err: any, data?: StartImportCommandOutput) => void): void;
+  startImport(
+    args: StartImportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartImportCommandOutput>;
+  startImport(
+    args: StartImportCommandInput,
+    cb: (err: any, data?: StartImportCommandOutput) => void
+  ): void;
   startImport(
     args: StartImportCommandInput,
     options: __HttpHandlerOptions,
@@ -1233,8 +1314,14 @@ export interface Mgn {
   /**
    * @see {@link StartTestCommand}
    */
-  startTest(args: StartTestCommandInput, options?: __HttpHandlerOptions): Promise<StartTestCommandOutput>;
-  startTest(args: StartTestCommandInput, cb: (err: any, data?: StartTestCommandOutput) => void): void;
+  startTest(
+    args: StartTestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartTestCommandOutput>;
+  startTest(
+    args: StartTestCommandInput,
+    cb: (err: any, data?: StartTestCommandOutput) => void
+  ): void;
   startTest(
     args: StartTestCommandInput,
     options: __HttpHandlerOptions,
@@ -1248,7 +1335,10 @@ export interface Mgn {
     args: StopReplicationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopReplicationCommandOutput>;
-  stopReplication(args: StopReplicationCommandInput, cb: (err: any, data?: StopReplicationCommandOutput) => void): void;
+  stopReplication(
+    args: StopReplicationCommandInput,
+    cb: (err: any, data?: StopReplicationCommandOutput) => void
+  ): void;
   stopReplication(
     args: StopReplicationCommandInput,
     options: __HttpHandlerOptions,
@@ -1258,8 +1348,14 @@ export interface Mgn {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1303,8 +1399,14 @@ export interface Mgn {
   /**
    * @see {@link UnarchiveWaveCommand}
    */
-  unarchiveWave(args: UnarchiveWaveCommandInput, options?: __HttpHandlerOptions): Promise<UnarchiveWaveCommandOutput>;
-  unarchiveWave(args: UnarchiveWaveCommandInput, cb: (err: any, data?: UnarchiveWaveCommandOutput) => void): void;
+  unarchiveWave(
+    args: UnarchiveWaveCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnarchiveWaveCommandOutput>;
+  unarchiveWave(
+    args: UnarchiveWaveCommandInput,
+    cb: (err: any, data?: UnarchiveWaveCommandOutput) => void
+  ): void;
   unarchiveWave(
     args: UnarchiveWaveCommandInput,
     options: __HttpHandlerOptions,
@@ -1314,8 +1416,14 @@ export interface Mgn {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1346,7 +1454,10 @@ export interface Mgn {
     args: UpdateConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateConnectorCommandOutput>;
-  updateConnector(args: UpdateConnectorCommandInput, cb: (err: any, data?: UpdateConnectorCommandOutput) => void): void;
+  updateConnector(
+    args: UpdateConnectorCommandInput,
+    cb: (err: any, data?: UpdateConnectorCommandOutput) => void
+  ): void;
   updateConnector(
     args: UpdateConnectorCommandInput,
     options: __HttpHandlerOptions,
@@ -1458,8 +1569,14 @@ export interface Mgn {
   /**
    * @see {@link UpdateWaveCommand}
    */
-  updateWave(args: UpdateWaveCommandInput, options?: __HttpHandlerOptions): Promise<UpdateWaveCommandOutput>;
-  updateWave(args: UpdateWaveCommandInput, cb: (err: any, data?: UpdateWaveCommandOutput) => void): void;
+  updateWave(
+    args: UpdateWaveCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWaveCommandOutput>;
+  updateWave(
+    args: UpdateWaveCommandInput,
+    cb: (err: any, data?: UpdateWaveCommandOutput) => void
+  ): void;
   updateWave(
     args: UpdateWaveCommandInput,
     options: __HttpHandlerOptions,

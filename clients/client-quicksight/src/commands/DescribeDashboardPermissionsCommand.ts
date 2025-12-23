@@ -24,9 +24,7 @@ export interface DescribeDashboardPermissionsCommandInput extends DescribeDashbo
  *
  * The output of {@link DescribeDashboardPermissionsCommand}.
  */
-export interface DescribeDashboardPermissionsCommandOutput
-  extends DescribeDashboardPermissionsResponse,
-    __MetadataBearer {}
+export interface DescribeDashboardPermissionsCommandOutput extends DescribeDashboardPermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes read and write permissions for a dashboard.</p>

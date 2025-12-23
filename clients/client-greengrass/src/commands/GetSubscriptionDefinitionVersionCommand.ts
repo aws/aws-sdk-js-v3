@@ -27,9 +27,7 @@ export interface GetSubscriptionDefinitionVersionCommandInput extends GetSubscri
  *
  * The output of {@link GetSubscriptionDefinitionVersionCommand}.
  */
-export interface GetSubscriptionDefinitionVersionCommandOutput
-  extends GetSubscriptionDefinitionVersionResponse,
-    __MetadataBearer {}
+export interface GetSubscriptionDefinitionVersionCommandOutput extends GetSubscriptionDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Retrieves information about a subscription definition version.

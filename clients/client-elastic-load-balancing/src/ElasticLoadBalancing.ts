@@ -177,8 +177,14 @@ export interface ElasticLoadBalancing {
   /**
    * @see {@link AddTagsCommand}
    */
-  addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
-  addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
+  addTags(
+    args: AddTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddTagsCommandOutput>;
+  addTags(
+    args: AddTagsCommandInput,
+    cb: (err: any, data?: AddTagsCommandOutput) => void
+  ): void;
   addTags(
     args: AddTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -498,8 +504,14 @@ export interface ElasticLoadBalancing {
   /**
    * @see {@link DescribeTagsCommand}
    */
-  describeTags(args: DescribeTagsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTagsCommandOutput>;
-  describeTags(args: DescribeTagsCommandInput, cb: (err: any, data?: DescribeTagsCommandOutput) => void): void;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTagsCommandOutput>;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    cb: (err: any, data?: DescribeTagsCommandOutput) => void
+  ): void;
   describeTags(
     args: DescribeTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -594,8 +606,14 @@ export interface ElasticLoadBalancing {
   /**
    * @see {@link RemoveTagsCommand}
    */
-  removeTags(args: RemoveTagsCommandInput, options?: __HttpHandlerOptions): Promise<RemoveTagsCommandOutput>;
-  removeTags(args: RemoveTagsCommandInput, cb: (err: any, data?: RemoveTagsCommandOutput) => void): void;
+  removeTags(
+    args: RemoveTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveTagsCommandOutput>;
+  removeTags(
+    args: RemoveTagsCommandInput,
+    cb: (err: any, data?: RemoveTagsCommandOutput) => void
+  ): void;
   removeTags(
     args: RemoveTagsCommandInput,
     options: __HttpHandlerOptions,

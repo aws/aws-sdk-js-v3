@@ -24,9 +24,7 @@ export interface ModifyRedshiftIdcApplicationCommandInput extends ModifyRedshift
  *
  * The output of {@link ModifyRedshiftIdcApplicationCommand}.
  */
-export interface ModifyRedshiftIdcApplicationCommandOutput
-  extends ModifyRedshiftIdcApplicationResult,
-    __MetadataBearer {}
+export interface ModifyRedshiftIdcApplicationCommandOutput extends ModifyRedshiftIdcApplicationResult, __MetadataBearer {}
 
 /**
  * <p>Changes an existing Amazon Redshift IAM Identity Center application.</p>

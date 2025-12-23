@@ -10,10 +10,10 @@ const checkState = async (client: EC2Client, input: DescribeInstancesCommandInpu
     const result: any = await client.send(new DescribeInstancesCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.Reservations);
-        return flat_1.length > 0.0;
-      };
+      let returnComparator = () => {
+        let flat_1: any[] = [].concat(...result.Reservations);
+        return (flat_1.length > 0.0);
+      }
       if (returnComparator() == true) {
         return { state: WaiterState.SUCCESS, reason };
       }

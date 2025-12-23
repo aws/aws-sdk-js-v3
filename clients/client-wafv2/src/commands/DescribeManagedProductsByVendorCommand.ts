@@ -27,9 +27,7 @@ export interface DescribeManagedProductsByVendorCommandInput extends DescribeMan
  *
  * The output of {@link DescribeManagedProductsByVendorCommand}.
  */
-export interface DescribeManagedProductsByVendorCommandOutput
-  extends DescribeManagedProductsByVendorResponse,
-    __MetadataBearer {}
+export interface DescribeManagedProductsByVendorCommandOutput extends DescribeManagedProductsByVendorResponse, __MetadataBearer {}
 
 /**
  * <p>Provides high-level information for the managed rule groups owned by a specific vendor.  </p>

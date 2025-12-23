@@ -24,9 +24,7 @@ export interface UpdateResourceConfigurationCommandInput extends UpdateResourceC
  *
  * The output of {@link UpdateResourceConfigurationCommand}.
  */
-export interface UpdateResourceConfigurationCommandOutput
-  extends UpdateResourceConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateResourceConfigurationCommandOutput extends UpdateResourceConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the specified resource configuration.</p>

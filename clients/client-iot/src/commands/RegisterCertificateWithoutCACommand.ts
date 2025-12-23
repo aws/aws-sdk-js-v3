@@ -24,9 +24,7 @@ export interface RegisterCertificateWithoutCACommandInput extends RegisterCertif
  *
  * The output of {@link RegisterCertificateWithoutCACommand}.
  */
-export interface RegisterCertificateWithoutCACommandOutput
-  extends RegisterCertificateWithoutCAResponse,
-    __MetadataBearer {}
+export interface RegisterCertificateWithoutCACommandOutput extends RegisterCertificateWithoutCAResponse, __MetadataBearer {}
 
 /**
  * <p>Register a certificate that does not have a certificate authority (CA).

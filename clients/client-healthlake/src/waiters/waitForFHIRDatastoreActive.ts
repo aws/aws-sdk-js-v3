@@ -7,34 +7,31 @@ import {
 } from "../commands/DescribeFHIRDatastoreCommand";
 import { HealthLakeClient } from "../HealthLakeClient";
 
-const checkState = async (
-  client: HealthLakeClient,
-  input: DescribeFHIRDatastoreCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: HealthLakeClient, input: DescribeFHIRDatastoreCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
     const result: any = await client.send(new DescribeFHIRDatastoreCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.DatastoreProperties.DatastoreStatus;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.DatastoreProperties.DatastoreStatus;
-      };
+      }
       if (returnComparator() === "CREATE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.DatastoreProperties.DatastoreStatus;
-      };
+      }
       if (returnComparator() === "DELETED") {
         return { state: WaiterState.FAILURE, reason };
       }

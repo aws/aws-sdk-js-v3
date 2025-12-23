@@ -945,7 +945,9 @@ export interface CancelQuantumTaskResponse {
  * <p>Enabled experimental capabilities for quantum hardware. Note that the use of these features may impact device capabilities and performance beyond its standard specifications.</p>
  * @public
  */
-export type ExperimentalCapabilities = ExperimentalCapabilities.EnabledMember | ExperimentalCapabilities.$UnknownMember;
+export type ExperimentalCapabilities =
+  | ExperimentalCapabilities.EnabledMember
+  | ExperimentalCapabilities.$UnknownMember;
 
 /**
  * @public

@@ -24,9 +24,7 @@ export interface DeletePlaybackConfigurationCommandInput extends DeletePlaybackC
  *
  * The output of {@link DeletePlaybackConfigurationCommand}.
  */
-export interface DeletePlaybackConfigurationCommandOutput
-  extends DeletePlaybackConfigurationResponse,
-    __MetadataBearer {}
+export interface DeletePlaybackConfigurationCommandOutput extends DeletePlaybackConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a playback configuration. For information about MediaTailor configurations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working with configurations in AWS Elemental MediaTailor</a>.</p>

@@ -27,9 +27,7 @@ export interface DescribeDocumentClassificationJobCommandInput extends DescribeD
  *
  * The output of {@link DescribeDocumentClassificationJobCommand}.
  */
-export interface DescribeDocumentClassificationJobCommandOutput
-  extends DescribeDocumentClassificationJobResponse,
-    __MetadataBearer {}
+export interface DescribeDocumentClassificationJobCommandOutput extends DescribeDocumentClassificationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a document classification job. Use this operation to

@@ -38,11 +38,14 @@ import {
   ListTagsForResourceResponse$,
   Operator,
   OrganizationIntegration,
+  paginateListLinuxSubscriptionInstances,
+  paginateListLinuxSubscriptions,
+  paginateListRegisteredSubscriptionProviders,
+  RegisteredSubscriptionProvider$,
   RegisterSubscriptionProvider$,
   RegisterSubscriptionProviderCommand,
   RegisterSubscriptionProviderRequest$,
   RegisterSubscriptionProviderResponse$,
-  RegisteredSubscriptionProvider$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   Status,
@@ -65,9 +68,6 @@ import {
   UpdateServiceSettingsResponse$,
   ValidationException,
   ValidationException$,
-  paginateListLinuxSubscriptionInstances,
-  paginateListLinuxSubscriptions,
-  paginateListRegisteredSubscriptionProviders,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

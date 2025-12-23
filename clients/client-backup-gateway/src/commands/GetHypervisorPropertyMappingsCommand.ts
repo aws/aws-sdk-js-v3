@@ -24,9 +24,7 @@ export interface GetHypervisorPropertyMappingsCommandInput extends GetHypervisor
  *
  * The output of {@link GetHypervisorPropertyMappingsCommand}.
  */
-export interface GetHypervisorPropertyMappingsCommandOutput
-  extends GetHypervisorPropertyMappingsOutput,
-    __MetadataBearer {}
+export interface GetHypervisorPropertyMappingsCommandOutput extends GetHypervisorPropertyMappingsOutput, __MetadataBearer {}
 
 /**
  * <p>This action retrieves the property mappings for the specified hypervisor.

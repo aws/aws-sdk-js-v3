@@ -24,9 +24,7 @@ export interface GetCollaborationChangeRequestCommandInput extends GetCollaborat
  *
  * The output of {@link GetCollaborationChangeRequestCommand}.
  */
-export interface GetCollaborationChangeRequestCommandOutput
-  extends GetCollaborationChangeRequestOutput,
-    __MetadataBearer {}
+export interface GetCollaborationChangeRequestCommandOutput extends GetCollaborationChangeRequestOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves detailed information about a specific collaboration change request.</p>

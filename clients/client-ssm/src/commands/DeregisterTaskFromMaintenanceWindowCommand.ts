@@ -27,9 +27,7 @@ export interface DeregisterTaskFromMaintenanceWindowCommandInput extends Deregis
  *
  * The output of {@link DeregisterTaskFromMaintenanceWindowCommand}.
  */
-export interface DeregisterTaskFromMaintenanceWindowCommandOutput
-  extends DeregisterTaskFromMaintenanceWindowResult,
-    __MetadataBearer {}
+export interface DeregisterTaskFromMaintenanceWindowCommandOutput extends DeregisterTaskFromMaintenanceWindowResult, __MetadataBearer {}
 
 /**
  * <p>Removes a task from a maintenance window.</p>

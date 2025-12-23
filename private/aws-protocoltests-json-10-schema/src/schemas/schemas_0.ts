@@ -150,268 +150,219 @@ import { ComplexError, FooError, InvalidGreeting } from "../models/errors";
 import { JSONRPC10ServiceException } from "../models/JSONRPC10ServiceException";
 
 /* eslint no-var: 0 */
-export var ClientOptionalDefaults$: StaticStructureSchema = [3, n0, _COD, 0, [_m], [1]];
-export var ComplexError$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CE,
+export var ClientOptionalDefaults$: StaticStructureSchema = [3, n0, _COD,
+  0,
+  [_m],
+  [1]
+];
+export var ComplexError$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c },
   [_TL, _N],
-  [0, [() => ComplexNestedErrorData$, 0]],
+  [0, [() => ComplexNestedErrorData$, 0]]
 ];
 TypeRegistry.for(n0).registerError(ComplexError$, ComplexError);
-export var ComplexNestedErrorData$: StaticStructureSchema = [3, n0, _CNED, 0, [_F], [[0, { [_jN]: _Fo }]]];
-export var ContentTypeParametersInput$: StaticStructureSchema = [3, n0, _CTPI, 0, [_v], [1]];
-export var ContentTypeParametersOutput$: StaticStructureSchema = [3, n0, _CTPO, 0, [], []];
-export var Defaults$: StaticStructureSchema = [
-  3,
-  n0,
-  _D,
+export var ComplexNestedErrorData$: StaticStructureSchema = [3, n0, _CNED,
   0,
-  [
-    _dS,
-    _dB,
-    _dL,
-    _dDM,
-    _dDS,
-    _dDB,
-    _dDL,
-    _dND,
-    _dT,
-    _dBe,
-    _dBef,
-    _dSe,
-    _dI,
-    _dLe,
-    _dF,
-    _dD,
-    _dM,
-    _dE,
-    _dIE,
-    _eS,
-    _fB,
-    _eB,
-    _zB,
-    _zS,
-    _zI,
-    _zL,
-    _zF,
-    _zD,
-  ],
-  [0, 2, 64 | 0, 15, 15, 15, 15, 15, 4, 21, 1, 1, 1, 1, 1, 1, 128 | 0, 0, 1, 0, 2, 21, 1, 1, 1, 1, 1, 1],
+  [_F],
+  [[0, { [_jN]: _Fo }]]
 ];
-export var Dialog$: StaticStructureSchema = [3, n0, _Di, 0, [_l, _g, _f], [0, 0, () => Farewell$]];
-export var EmptyInputAndEmptyOutputInput$: StaticStructureSchema = [3, n0, _EIAEOI, 0, [], []];
-export var EmptyInputAndEmptyOutputOutput$: StaticStructureSchema = [3, n0, _EIAEOO, 0, [], []];
-export var EndpointWithHostLabelOperationInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _EWHLOI,
+export var ContentTypeParametersInput$: StaticStructureSchema = [3, n0, _CTPI,
+  0,
+  [_v],
+  [1]
+];
+export var ContentTypeParametersOutput$: StaticStructureSchema = [3, n0, _CTPO,
+  0,
+  [],
+  []
+];
+export var Defaults$: StaticStructureSchema = [3, n0, _D,
+  0,
+  [_dS, _dB, _dL, _dDM, _dDS, _dDB, _dDL, _dND, _dT, _dBe, _dBef, _dSe, _dI, _dLe, _dF, _dD, _dM, _dE, _dIE, _eS, _fB, _eB, _zB, _zS, _zI, _zL, _zF, _zD],
+  [0, 2, 64 | 0, 15, 15, 15, 15, 15, 4, 21, 1, 1, 1, 1, 1, 1, 128 | 0, 0, 1, 0, 2, 21, 1, 1, 1, 1, 1, 1]
+];
+export var Dialog$: StaticStructureSchema = [3, n0, _Di,
+  0,
+  [_l, _g, _f],
+  [0, 0, () => Farewell$]
+];
+export var EmptyInputAndEmptyOutputInput$: StaticStructureSchema = [3, n0, _EIAEOI,
+  0,
+  [],
+  []
+];
+export var EmptyInputAndEmptyOutputOutput$: StaticStructureSchema = [3, n0, _EIAEOO,
+  0,
+  [],
+  []
+];
+export var EndpointWithHostLabelOperationInput$: StaticStructureSchema = [3, n0, _EWHLOI,
   0,
   [_la],
-  [[0, { [_hL]: 1 }]],
+  [[0, { [_hL]: 1 }]]
 ];
-export var Farewell$: StaticStructureSchema = [3, n0, _Fa, 0, [_p], [0]];
-export var FooError$: StaticErrorSchema = [-3, n0, _FE, { [_e]: _s }, [], []];
+export var Farewell$: StaticStructureSchema = [3, n0, _Fa,
+  0,
+  [_p],
+  [0]
+];
+export var FooError$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _s },
+  [],
+  []
+];
 TypeRegistry.for(n0).registerError(FooError$, FooError);
-export var GreetingWithErrorsInput$: StaticStructureSchema = [3, n0, _GWEI, 0, [_g], [0]];
-export var GreetingWithErrorsOutput$: StaticStructureSchema = [3, n0, _GWEO, 0, [_g], [0]];
-export var InvalidGreeting$: StaticErrorSchema = [-3, n0, _IG, { [_e]: _c }, [_M], [0]];
+export var GreetingWithErrorsInput$: StaticStructureSchema = [3, n0, _GWEI,
+  0,
+  [_g],
+  [0]
+];
+export var GreetingWithErrorsOutput$: StaticStructureSchema = [3, n0, _GWEO,
+  0,
+  [_g],
+  [0]
+];
+export var InvalidGreeting$: StaticErrorSchema = [-3, n0, _IG,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
 TypeRegistry.for(n0).registerError(InvalidGreeting$, InvalidGreeting);
-export var JsonUnionsInput$: StaticStructureSchema = [3, n0, _JUI, 0, [_co], [() => MyUnion$]];
-export var JsonUnionsOutput$: StaticStructureSchema = [3, n0, _JUO, 0, [_co], [() => MyUnion$]];
-export var NoInputAndOutputOutput$: StaticStructureSchema = [3, n0, _NIAOO, 0, [], []];
-export var OperationWithDefaultsInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _OWDI,
+export var JsonUnionsInput$: StaticStructureSchema = [3, n0, _JUI,
+  0,
+  [_co],
+  [() => MyUnion$]
+];
+export var JsonUnionsOutput$: StaticStructureSchema = [3, n0, _JUO,
+  0,
+  [_co],
+  [() => MyUnion$]
+];
+export var NoInputAndOutputOutput$: StaticStructureSchema = [3, n0, _NIAOO,
+  0,
+  [],
+  []
+];
+export var OperationWithDefaultsInput$: StaticStructureSchema = [3, n0, _OWDI,
   0,
   [_d, _cOD, _tLD, _oTLD],
-  [() => Defaults$, () => ClientOptionalDefaults$, 0, 1],
+  [() => Defaults$, () => ClientOptionalDefaults$, 0, 1]
 ];
-export var OperationWithDefaultsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _OWDO,
+export var OperationWithDefaultsOutput$: StaticStructureSchema = [3, n0, _OWDO,
   0,
-  [
-    _dS,
-    _dB,
-    _dL,
-    _dDM,
-    _dDS,
-    _dDB,
-    _dDL,
-    _dND,
-    _dT,
-    _dBe,
-    _dBef,
-    _dSe,
-    _dI,
-    _dLe,
-    _dF,
-    _dD,
-    _dM,
-    _dE,
-    _dIE,
-    _eS,
-    _fB,
-    _eB,
-    _zB,
-    _zS,
-    _zI,
-    _zL,
-    _zF,
-    _zD,
-  ],
-  [0, 2, 64 | 0, 15, 15, 15, 15, 15, 4, 21, 1, 1, 1, 1, 1, 1, 128 | 0, 0, 1, 0, 2, 21, 1, 1, 1, 1, 1, 1],
+  [_dS, _dB, _dL, _dDM, _dDS, _dDB, _dDL, _dND, _dT, _dBe, _dBef, _dSe, _dI, _dLe, _dF, _dD, _dM, _dE, _dIE, _eS, _fB, _eB, _zB, _zS, _zI, _zL, _zF, _zD],
+  [0, 2, 64 | 0, 15, 15, 15, 15, 15, 4, 21, 1, 1, 1, 1, 1, 1, 128 | 0, 0, 1, 0, 2, 21, 1, 1, 1, 1, 1, 1]
 ];
-export var OperationWithNestedStructureInput$: StaticStructureSchema = [3, n0, _OWNSI, 0, [_tL], [() => TopLevel$]];
-export var OperationWithNestedStructureOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _OWNSO,
+export var OperationWithNestedStructureInput$: StaticStructureSchema = [3, n0, _OWNSI,
+  0,
+  [_tL],
+  [() => TopLevel$]
+];
+export var OperationWithNestedStructureOutput$: StaticStructureSchema = [3, n0, _OWNSO,
   0,
   [_di, _dLi, _dMi],
-  [() => Dialog$, () => DialogList, () => DialogMap],
+  [() => Dialog$, () => DialogList, () => DialogMap]
 ];
-export var OperationWithRequiredMembersOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _OWRMO,
+export var OperationWithRequiredMembersOutput$: StaticStructureSchema = [3, n0, _OWRMO,
   0,
   [_rS, _rB, _rL, _rT, _rBe, _rBeq, _rSe, _rI, _rLe, _rF, _rD, _rM],
-  [0, 2, 64 | 0, 4, 21, 1, 1, 1, 1, 1, 1, 128 | 0],
+  [0, 2, 64 | 0, 4, 21, 1, 1, 1, 1, 1, 1, 128 | 0]
 ];
-export var OperationWithRequiredMembersWithDefaultsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _OWRMWDO,
+export var OperationWithRequiredMembersWithDefaultsOutput$: StaticStructureSchema = [3, n0, _OWRMWDO,
   0,
   [_rS, _rB, _rL, _rT, _rBe, _rBeq, _rSe, _rI, _rLe, _rF, _rD, _rM, _rE, _rIE],
-  [0, 2, 64 | 0, 4, 21, 1, 1, 1, 1, 1, 1, 128 | 0, 0, 1],
+  [0, 2, 64 | 0, 4, 21, 1, 1, 1, 1, 1, 1, 128 | 0, 0, 1]
 ];
-export var PutWithContentEncodingInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _PWCEI,
+export var PutWithContentEncodingInput$: StaticStructureSchema = [3, n0, _PWCEI,
   0,
   [_en, _da],
-  [[0, { [_hH]: _CE_ }], 0],
+  [[0, { [_hH]: _CE_ }], 0]
 ];
-export var SimpleScalarPropertiesInput$: StaticStructureSchema = [3, n0, _SSPI, 0, [_fV, _dV], [1, 1]];
-export var SimpleScalarPropertiesOutput$: StaticStructureSchema = [3, n0, _SSPO, 0, [_fV, _dV], [1, 1]];
-export var TopLevel$: StaticStructureSchema = [
-  3,
-  n0,
-  _TL,
+export var SimpleScalarPropertiesInput$: StaticStructureSchema = [3, n0, _SSPI,
+  0,
+  [_fV, _dV],
+  [1, 1]
+];
+export var SimpleScalarPropertiesOutput$: StaticStructureSchema = [3, n0, _SSPO,
+  0,
+  [_fV, _dV],
+  [1, 1]
+];
+export var TopLevel$: StaticStructureSchema = [3, n0, _TL,
   0,
   [_di, _dLi, _dMi],
-  [() => Dialog$, () => DialogList, () => DialogMap],
+  [() => Dialog$, () => DialogList, () => DialogMap]
 ];
-export var GreetingStruct$: StaticStructureSchema = [3, n1, _GS, 0, [_h], [0]];
+export var GreetingStruct$: StaticStructureSchema = [3, n1, _GS,
+  0,
+  [_h],
+  [0]
+];
 var __Unit = "unit" as const;
 export var JSONRPC10ServiceException$: StaticErrorSchema = [-3, _sm, "JSONRPC10ServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(JSONRPC10ServiceException$, JSONRPC10ServiceException);
-var DialogList: StaticListSchema = [1, n0, _DL, 0, () => Dialog$];
+var DialogList: StaticListSchema = [1, n0, _DL,
+  0, () => Dialog$
+];
 var RequiredStringList = 64 | 0;
 var TestStringList = 64 | 0;
 var StringList = 64 | 0;
-var DialogMap: StaticMapSchema = [2, n0, _DM, 0, 0, () => Dialog$];
+var DialogMap: StaticMapSchema = [2, n0, _DM,
+  0, 0, () => Dialog$
+];
 var RequiredStringMap = 128 | 0;
 var TestStringMap = 128 | 0;
 var StringMap = 128 | 0;
-export var MyUnion$: StaticUnionSchema = [
-  4,
-  n0,
-  _MU,
+export var MyUnion$: StaticUnionSchema = [4, n0, _MU,
   0,
   [_sV, _bV, _nV, _bVl, _tV, _eV, _iEV, _lV, _mV, _sVt],
-  [0, 2, 1, 21, 4, 0, 1, 64 | 0, 128 | 0, () => GreetingStruct$],
+  [0, 2, 1, 21, 4, 0, 1, 64 | 0, 128 | 0, () => GreetingStruct$]
 ];
-export var ContentTypeParameters$: StaticOperationSchema = [
-  9,
-  n0,
-  _CTP,
-  0,
-  () => ContentTypeParametersInput$,
-  () => ContentTypeParametersOutput$,
+export var ContentTypeParameters$: StaticOperationSchema = [9, n0, _CTP,
+  0, () => ContentTypeParametersInput$, () => ContentTypeParametersOutput$
 ];
-export var EmptyInputAndEmptyOutput$: StaticOperationSchema = [
-  9,
-  n0,
-  _EIAEO,
-  0,
-  () => EmptyInputAndEmptyOutputInput$,
-  () => EmptyInputAndEmptyOutputOutput$,
+export var EmptyInputAndEmptyOutput$: StaticOperationSchema = [9, n0, _EIAEO,
+  0, () => EmptyInputAndEmptyOutputInput$, () => EmptyInputAndEmptyOutputOutput$
 ];
-export var EndpointOperation$: StaticOperationSchema = [9, n0, _EO, { [_end]: ["foo."] }, () => __Unit, () => __Unit];
-export var EndpointWithHostLabelOperation$: StaticOperationSchema = [
-  9,
-  n0,
-  _EWHLO,
-  { [_end]: ["foo.{label}."] },
-  () => EndpointWithHostLabelOperationInput$,
-  () => __Unit,
+export var EndpointOperation$: StaticOperationSchema = [9, n0, _EO,
+  { [_end]: ["foo."] }, () => __Unit, () => __Unit
 ];
-export var GreetingWithErrors$: StaticOperationSchema = [
-  9,
-  n0,
-  _GWE,
-  2,
-  () => GreetingWithErrorsInput$,
-  () => GreetingWithErrorsOutput$,
+export var EndpointWithHostLabelOperation$: StaticOperationSchema = [9, n0, _EWHLO,
+  { [_end]: ["foo.{label}."] }, () => EndpointWithHostLabelOperationInput$, () => __Unit
 ];
-export var HostWithPathOperation$: StaticOperationSchema = [9, n0, _HWPO, 0, () => __Unit, () => __Unit];
-export var JsonUnions$: StaticOperationSchema = [9, n0, _JU, 2, () => JsonUnionsInput$, () => JsonUnionsOutput$];
-export var NoInputAndNoOutput$: StaticOperationSchema = [9, n0, _NIANO, 0, () => __Unit, () => __Unit];
-export var NoInputAndOutput$: StaticOperationSchema = [9, n0, _NIAO, 0, () => __Unit, () => NoInputAndOutputOutput$];
-export var OperationWithDefaults$: StaticOperationSchema = [
-  9,
-  n0,
-  _OWD,
-  0,
-  () => OperationWithDefaultsInput$,
-  () => OperationWithDefaultsOutput$,
+export var GreetingWithErrors$: StaticOperationSchema = [9, n0, _GWE,
+  2, () => GreetingWithErrorsInput$, () => GreetingWithErrorsOutput$
 ];
-export var OperationWithNestedStructure$: StaticOperationSchema = [
-  9,
-  n0,
-  _OWNS,
-  0,
-  () => OperationWithNestedStructureInput$,
-  () => OperationWithNestedStructureOutput$,
+export var HostWithPathOperation$: StaticOperationSchema = [9, n0, _HWPO,
+  0, () => __Unit, () => __Unit
 ];
-export var OperationWithRequiredMembers$: StaticOperationSchema = [
-  9,
-  n0,
-  _OWRM,
-  0,
-  () => __Unit,
-  () => OperationWithRequiredMembersOutput$,
+export var JsonUnions$: StaticOperationSchema = [9, n0, _JU,
+  2, () => JsonUnionsInput$, () => JsonUnionsOutput$
 ];
-export var OperationWithRequiredMembersWithDefaults$: StaticOperationSchema = [
-  9,
-  n0,
-  _OWRMWD,
-  0,
-  () => __Unit,
-  () => OperationWithRequiredMembersWithDefaultsOutput$,
+export var NoInputAndNoOutput$: StaticOperationSchema = [9, n0, _NIANO,
+  0, () => __Unit, () => __Unit
 ];
-export var PutWithContentEncoding$: StaticOperationSchema = [
-  9,
-  n0,
-  _PWCE,
-  0,
-  () => PutWithContentEncodingInput$,
-  () => __Unit,
+export var NoInputAndOutput$: StaticOperationSchema = [9, n0, _NIAO,
+  0, () => __Unit, () => NoInputAndOutputOutput$
 ];
-export var QueryIncompatibleOperation$: StaticOperationSchema = [9, n0, _QIO, 2, () => __Unit, () => __Unit];
-export var SimpleScalarProperties$: StaticOperationSchema = [
-  9,
-  n0,
-  _SSP,
-  0,
-  () => SimpleScalarPropertiesInput$,
-  () => SimpleScalarPropertiesOutput$,
+export var OperationWithDefaults$: StaticOperationSchema = [9, n0, _OWD,
+  0, () => OperationWithDefaultsInput$, () => OperationWithDefaultsOutput$
+];
+export var OperationWithNestedStructure$: StaticOperationSchema = [9, n0, _OWNS,
+  0, () => OperationWithNestedStructureInput$, () => OperationWithNestedStructureOutput$
+];
+export var OperationWithRequiredMembers$: StaticOperationSchema = [9, n0, _OWRM,
+  0, () => __Unit, () => OperationWithRequiredMembersOutput$
+];
+export var OperationWithRequiredMembersWithDefaults$: StaticOperationSchema = [9, n0, _OWRMWD,
+  0, () => __Unit, () => OperationWithRequiredMembersWithDefaultsOutput$
+];
+export var PutWithContentEncoding$: StaticOperationSchema = [9, n0, _PWCE,
+  0, () => PutWithContentEncodingInput$, () => __Unit
+];
+export var QueryIncompatibleOperation$: StaticOperationSchema = [9, n0, _QIO,
+  2, () => __Unit, () => __Unit
+];
+export var SimpleScalarProperties$: StaticOperationSchema = [9, n0, _SSP,
+  0, () => SimpleScalarPropertiesInput$, () => SimpleScalarPropertiesOutput$
 ];

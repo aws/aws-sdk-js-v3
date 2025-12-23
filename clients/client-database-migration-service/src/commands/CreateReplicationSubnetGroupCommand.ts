@@ -28,9 +28,7 @@ export interface CreateReplicationSubnetGroupCommandInput extends CreateReplicat
  *
  * The output of {@link CreateReplicationSubnetGroupCommand}.
  */
-export interface CreateReplicationSubnetGroupCommandOutput
-  extends CreateReplicationSubnetGroupResponse,
-    __MetadataBearer {}
+export interface CreateReplicationSubnetGroupCommandOutput extends CreateReplicationSubnetGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a replication subnet group given a list of the subnet IDs in a VPC.</p>

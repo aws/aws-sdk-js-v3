@@ -132,8 +132,14 @@ export interface EBS {
   /**
    * @see {@link StartSnapshotCommand}
    */
-  startSnapshot(args: StartSnapshotCommandInput, options?: __HttpHandlerOptions): Promise<StartSnapshotCommandOutput>;
-  startSnapshot(args: StartSnapshotCommandInput, cb: (err: any, data?: StartSnapshotCommandOutput) => void): void;
+  startSnapshot(
+    args: StartSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSnapshotCommandOutput>;
+  startSnapshot(
+    args: StartSnapshotCommandInput,
+    cb: (err: any, data?: StartSnapshotCommandOutput) => void
+  ): void;
   startSnapshot(
     args: StartSnapshotCommandInput,
     options: __HttpHandlerOptions,

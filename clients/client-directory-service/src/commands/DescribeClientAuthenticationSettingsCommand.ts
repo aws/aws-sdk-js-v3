@@ -31,9 +31,7 @@ export interface DescribeClientAuthenticationSettingsCommandInput extends Descri
  *
  * The output of {@link DescribeClientAuthenticationSettingsCommand}.
  */
-export interface DescribeClientAuthenticationSettingsCommandOutput
-  extends DescribeClientAuthenticationSettingsResult,
-    __MetadataBearer {}
+export interface DescribeClientAuthenticationSettingsCommandOutput extends DescribeClientAuthenticationSettingsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the type of client authentication for the specified directory,

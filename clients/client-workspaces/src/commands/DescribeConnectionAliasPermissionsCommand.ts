@@ -27,9 +27,7 @@ export interface DescribeConnectionAliasPermissionsCommandInput extends Describe
  *
  * The output of {@link DescribeConnectionAliasPermissionsCommand}.
  */
-export interface DescribeConnectionAliasPermissionsCommandOutput
-  extends DescribeConnectionAliasPermissionsResult,
-    __MetadataBearer {}
+export interface DescribeConnectionAliasPermissionsCommandOutput extends DescribeConnectionAliasPermissionsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the permissions that the owner of a connection alias has granted to another

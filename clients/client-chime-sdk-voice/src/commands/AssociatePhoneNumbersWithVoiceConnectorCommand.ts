@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link AssociatePhoneNumbersWithVoiceConnectorCommand}.
  */
-export interface AssociatePhoneNumbersWithVoiceConnectorCommandInput
-  extends AssociatePhoneNumbersWithVoiceConnectorRequest {}
+export interface AssociatePhoneNumbersWithVoiceConnectorCommandInput extends AssociatePhoneNumbersWithVoiceConnectorRequest {}
 /**
  * @public
  *
  * The output of {@link AssociatePhoneNumbersWithVoiceConnectorCommand}.
  */
-export interface AssociatePhoneNumbersWithVoiceConnectorCommandOutput
-  extends AssociatePhoneNumbersWithVoiceConnectorResponse,
-    __MetadataBearer {}
+export interface AssociatePhoneNumbersWithVoiceConnectorCommandOutput extends AssociatePhoneNumbersWithVoiceConnectorResponse, __MetadataBearer {}
 
 /**
  * <p>Associates phone numbers with the specified Amazon Chime SDK Voice Connector.</p>

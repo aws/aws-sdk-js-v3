@@ -28,52 +28,38 @@ import { MarketplaceCommerceAnalyticsException } from "../models/errors";
 import { MarketplaceCommerceAnalyticsServiceException } from "../models/MarketplaceCommerceAnalyticsServiceException";
 
 /* eslint no-var: 0 */
-export var GenerateDataSetRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _GDSR,
+export var GenerateDataSetRequest$: StaticStructureSchema = [3, n0, _GDSR,
   0,
   [_dST, _dSPD, _rNA, _dSBN, _dSP, _sTA, _cDV],
-  [0, 4, 0, 0, 0, 0, 128 | 0],
+  [0, 4, 0, 0, 0, 0, 128 | 0]
 ];
-export var GenerateDataSetResult$: StaticStructureSchema = [3, n0, _GDSRe, 0, [_dSRI], [0]];
-export var MarketplaceCommerceAnalyticsException$: StaticErrorSchema = [-3, n0, _MCAE, { [_e]: _s }, [_m], [0]];
+export var GenerateDataSetResult$: StaticStructureSchema = [3, n0, _GDSRe,
+  0,
+  [_dSRI],
+  [0]
+];
+export var MarketplaceCommerceAnalyticsException$: StaticErrorSchema = [-3, n0, _MCAE,
+  { [_e]: _s },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(MarketplaceCommerceAnalyticsException$, MarketplaceCommerceAnalyticsException);
-export var StartSupportDataExportRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _SSDER,
+export var StartSupportDataExportRequest$: StaticStructureSchema = [3, n0, _SSDER,
   0,
   [_dST, _fD, _rNA, _dSBN, _dSP, _sTA, _cDV],
-  [0, 4, 0, 0, 0, 0, 128 | 0],
+  [0, 4, 0, 0, 0, 0, 128 | 0]
 ];
-export var StartSupportDataExportResult$: StaticStructureSchema = [3, n0, _SSDERt, 0, [_dSRI], [0]];
-export var MarketplaceCommerceAnalyticsServiceException$: StaticErrorSchema = [
-  -3,
-  _sm,
-  "MarketplaceCommerceAnalyticsServiceException",
+export var StartSupportDataExportResult$: StaticStructureSchema = [3, n0, _SSDERt,
   0,
-  [],
-  [],
+  [_dSRI],
+  [0]
 ];
-TypeRegistry.for(_sm).registerError(
-  MarketplaceCommerceAnalyticsServiceException$,
-  MarketplaceCommerceAnalyticsServiceException
-);
+export var MarketplaceCommerceAnalyticsServiceException$: StaticErrorSchema = [-3, _sm, "MarketplaceCommerceAnalyticsServiceException", 0, [], []];
+TypeRegistry.for(_sm).registerError(MarketplaceCommerceAnalyticsServiceException$, MarketplaceCommerceAnalyticsServiceException);
 var CustomerDefinedValues = 128 | 0;
-export var GenerateDataSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _GDS,
-  0,
-  () => GenerateDataSetRequest$,
-  () => GenerateDataSetResult$,
+export var GenerateDataSet$: StaticOperationSchema = [9, n0, _GDS,
+  0, () => GenerateDataSetRequest$, () => GenerateDataSetResult$
 ];
-export var StartSupportDataExport$: StaticOperationSchema = [
-  9,
-  n0,
-  _SSDE,
-  0,
-  () => StartSupportDataExportRequest$,
-  () => StartSupportDataExportResult$,
+export var StartSupportDataExport$: StaticOperationSchema = [9, n0, _SSDE,
+  0, () => StartSupportDataExportRequest$, () => StartSupportDataExportResult$
 ];

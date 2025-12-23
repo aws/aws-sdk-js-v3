@@ -862,8 +862,14 @@ export interface Redshift {
   /**
    * @see {@link AddPartnerCommand}
    */
-  addPartner(args: AddPartnerCommandInput, options?: __HttpHandlerOptions): Promise<AddPartnerCommandOutput>;
-  addPartner(args: AddPartnerCommandInput, cb: (err: any, data?: AddPartnerCommandOutput) => void): void;
+  addPartner(
+    args: AddPartnerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddPartnerCommandOutput>;
+  addPartner(
+    args: AddPartnerCommandInput,
+    cb: (err: any, data?: AddPartnerCommandOutput) => void
+  ): void;
   addPartner(
     args: AddPartnerCommandInput,
     options: __HttpHandlerOptions,
@@ -992,8 +998,14 @@ export interface Redshift {
   /**
    * @see {@link CancelResizeCommand}
    */
-  cancelResize(args: CancelResizeCommandInput, options?: __HttpHandlerOptions): Promise<CancelResizeCommandOutput>;
-  cancelResize(args: CancelResizeCommandInput, cb: (err: any, data?: CancelResizeCommandOutput) => void): void;
+  cancelResize(
+    args: CancelResizeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelResizeCommandOutput>;
+  cancelResize(
+    args: CancelResizeCommandInput,
+    cb: (err: any, data?: CancelResizeCommandOutput) => void
+  ): void;
   cancelResize(
     args: CancelResizeCommandInput,
     options: __HttpHandlerOptions,
@@ -1037,8 +1049,14 @@ export interface Redshift {
   /**
    * @see {@link CreateClusterCommand}
    */
-  createCluster(args: CreateClusterCommandInput, options?: __HttpHandlerOptions): Promise<CreateClusterCommandOutput>;
-  createCluster(args: CreateClusterCommandInput, cb: (err: any, data?: CreateClusterCommandOutput) => void): void;
+  createCluster(
+    args: CreateClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateClusterCommandOutput>;
+  createCluster(
+    args: CreateClusterCommandInput,
+    cb: (err: any, data?: CreateClusterCommandOutput) => void
+  ): void;
   createCluster(
     args: CreateClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -1287,8 +1305,14 @@ export interface Redshift {
   /**
    * @see {@link CreateTagsCommand}
    */
-  createTags(args: CreateTagsCommandInput, options?: __HttpHandlerOptions): Promise<CreateTagsCommandOutput>;
-  createTags(args: CreateTagsCommandInput, cb: (err: any, data?: CreateTagsCommandOutput) => void): void;
+  createTags(
+    args: CreateTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTagsCommandOutput>;
+  createTags(
+    args: CreateTagsCommandInput,
+    cb: (err: any, data?: CreateTagsCommandOutput) => void
+  ): void;
   createTags(
     args: CreateTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -1349,8 +1373,14 @@ export interface Redshift {
   /**
    * @see {@link DeleteClusterCommand}
    */
-  deleteCluster(args: DeleteClusterCommandInput, options?: __HttpHandlerOptions): Promise<DeleteClusterCommandOutput>;
-  deleteCluster(args: DeleteClusterCommandInput, cb: (err: any, data?: DeleteClusterCommandOutput) => void): void;
+  deleteCluster(
+    args: DeleteClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteClusterCommandOutput>;
+  deleteCluster(
+    args: DeleteClusterCommandInput,
+    cb: (err: any, data?: DeleteClusterCommandOutput) => void
+  ): void;
   deleteCluster(
     args: DeleteClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -1530,8 +1560,14 @@ export interface Redshift {
   /**
    * @see {@link DeletePartnerCommand}
    */
-  deletePartner(args: DeletePartnerCommandInput, options?: __HttpHandlerOptions): Promise<DeletePartnerCommandOutput>;
-  deletePartner(args: DeletePartnerCommandInput, cb: (err: any, data?: DeletePartnerCommandOutput) => void): void;
+  deletePartner(
+    args: DeletePartnerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePartnerCommandOutput>;
+  deletePartner(
+    args: DeletePartnerCommandInput,
+    cb: (err: any, data?: DeletePartnerCommandOutput) => void
+  ): void;
   deletePartner(
     args: DeletePartnerCommandInput,
     options: __HttpHandlerOptions,
@@ -1626,8 +1662,14 @@ export interface Redshift {
   /**
    * @see {@link DeleteTagsCommand}
    */
-  deleteTags(args: DeleteTagsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTagsCommandOutput>;
-  deleteTags(args: DeleteTagsCommandInput, cb: (err: any, data?: DeleteTagsCommandOutput) => void): void;
+  deleteTags(
+    args: DeleteTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTagsCommandOutput>;
+  deleteTags(
+    args: DeleteTagsCommandInput,
+    cb: (err: any, data?: DeleteTagsCommandOutput) => void
+  ): void;
   deleteTags(
     args: DeleteTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -2016,7 +2058,10 @@ export interface Redshift {
     args: DescribeEventsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeEventsCommandOutput>;
-  describeEvents(args: DescribeEventsCommandInput, cb: (err: any, data?: DescribeEventsCommandOutput) => void): void;
+  describeEvents(
+    args: DescribeEventsCommandInput,
+    cb: (err: any, data?: DescribeEventsCommandOutput) => void
+  ): void;
   describeEvents(
     args: DescribeEventsCommandInput,
     options: __HttpHandlerOptions,
@@ -2261,7 +2306,10 @@ export interface Redshift {
     args: DescribeResizeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeResizeCommandOutput>;
-  describeResize(args: DescribeResizeCommandInput, cb: (err: any, data?: DescribeResizeCommandOutput) => void): void;
+  describeResize(
+    args: DescribeResizeCommandInput,
+    cb: (err: any, data?: DescribeResizeCommandOutput) => void
+  ): void;
   describeResize(
     args: DescribeResizeCommandInput,
     options: __HttpHandlerOptions,
@@ -2330,7 +2378,10 @@ export interface Redshift {
     args: DescribeStorageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeStorageCommandOutput>;
-  describeStorage(args: DescribeStorageCommandInput, cb: (err: any, data?: DescribeStorageCommandOutput) => void): void;
+  describeStorage(
+    args: DescribeStorageCommandInput,
+    cb: (err: any, data?: DescribeStorageCommandOutput) => void
+  ): void;
   describeStorage(
     args: DescribeStorageCommandInput,
     options: __HttpHandlerOptions,
@@ -2359,8 +2410,14 @@ export interface Redshift {
    * @see {@link DescribeTagsCommand}
    */
   describeTags(): Promise<DescribeTagsCommandOutput>;
-  describeTags(args: DescribeTagsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTagsCommandOutput>;
-  describeTags(args: DescribeTagsCommandInput, cb: (err: any, data?: DescribeTagsCommandOutput) => void): void;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTagsCommandOutput>;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    cb: (err: any, data?: DescribeTagsCommandOutput) => void
+  ): void;
   describeTags(
     args: DescribeTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -2392,7 +2449,10 @@ export interface Redshift {
     args: DisableLoggingCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DisableLoggingCommandOutput>;
-  disableLogging(args: DisableLoggingCommandInput, cb: (err: any, data?: DisableLoggingCommandOutput) => void): void;
+  disableLogging(
+    args: DisableLoggingCommandInput,
+    cb: (err: any, data?: DisableLoggingCommandOutput) => void
+  ): void;
   disableLogging(
     args: DisableLoggingCommandInput,
     options: __HttpHandlerOptions,
@@ -2436,8 +2496,14 @@ export interface Redshift {
   /**
    * @see {@link EnableLoggingCommand}
    */
-  enableLogging(args: EnableLoggingCommandInput, options?: __HttpHandlerOptions): Promise<EnableLoggingCommandOutput>;
-  enableLogging(args: EnableLoggingCommandInput, cb: (err: any, data?: EnableLoggingCommandOutput) => void): void;
+  enableLogging(
+    args: EnableLoggingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableLoggingCommandOutput>;
+  enableLogging(
+    args: EnableLoggingCommandInput,
+    cb: (err: any, data?: EnableLoggingCommandOutput) => void
+  ): void;
   enableLogging(
     args: EnableLoggingCommandInput,
     options: __HttpHandlerOptions,
@@ -2636,8 +2702,14 @@ export interface Redshift {
   /**
    * @see {@link ModifyClusterCommand}
    */
-  modifyCluster(args: ModifyClusterCommandInput, options?: __HttpHandlerOptions): Promise<ModifyClusterCommandOutput>;
-  modifyCluster(args: ModifyClusterCommandInput, cb: (err: any, data?: ModifyClusterCommandOutput) => void): void;
+  modifyCluster(
+    args: ModifyClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyClusterCommandOutput>;
+  modifyCluster(
+    args: ModifyClusterCommandInput,
+    cb: (err: any, data?: ModifyClusterCommandOutput) => void
+  ): void;
   modifyCluster(
     args: ModifyClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -2936,8 +3008,14 @@ export interface Redshift {
   /**
    * @see {@link PauseClusterCommand}
    */
-  pauseCluster(args: PauseClusterCommandInput, options?: __HttpHandlerOptions): Promise<PauseClusterCommandOutput>;
-  pauseCluster(args: PauseClusterCommandInput, cb: (err: any, data?: PauseClusterCommandOutput) => void): void;
+  pauseCluster(
+    args: PauseClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PauseClusterCommandOutput>;
+  pauseCluster(
+    args: PauseClusterCommandInput,
+    cb: (err: any, data?: PauseClusterCommandOutput) => void
+  ): void;
   pauseCluster(
     args: PauseClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -2981,8 +3059,14 @@ export interface Redshift {
   /**
    * @see {@link RebootClusterCommand}
    */
-  rebootCluster(args: RebootClusterCommandInput, options?: __HttpHandlerOptions): Promise<RebootClusterCommandOutput>;
-  rebootCluster(args: RebootClusterCommandInput, cb: (err: any, data?: RebootClusterCommandOutput) => void): void;
+  rebootCluster(
+    args: RebootClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RebootClusterCommandOutput>;
+  rebootCluster(
+    args: RebootClusterCommandInput,
+    cb: (err: any, data?: RebootClusterCommandOutput) => void
+  ): void;
   rebootCluster(
     args: RebootClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -3013,7 +3097,10 @@ export interface Redshift {
     args: RejectDataShareCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RejectDataShareCommandOutput>;
-  rejectDataShare(args: RejectDataShareCommandInput, cb: (err: any, data?: RejectDataShareCommandOutput) => void): void;
+  rejectDataShare(
+    args: RejectDataShareCommandInput,
+    cb: (err: any, data?: RejectDataShareCommandOutput) => void
+  ): void;
   rejectDataShare(
     args: RejectDataShareCommandInput,
     options: __HttpHandlerOptions,
@@ -3040,8 +3127,14 @@ export interface Redshift {
   /**
    * @see {@link ResizeClusterCommand}
    */
-  resizeCluster(args: ResizeClusterCommandInput, options?: __HttpHandlerOptions): Promise<ResizeClusterCommandOutput>;
-  resizeCluster(args: ResizeClusterCommandInput, cb: (err: any, data?: ResizeClusterCommandOutput) => void): void;
+  resizeCluster(
+    args: ResizeClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResizeClusterCommandOutput>;
+  resizeCluster(
+    args: ResizeClusterCommandInput,
+    cb: (err: any, data?: ResizeClusterCommandOutput) => void
+  ): void;
   resizeCluster(
     args: ResizeClusterCommandInput,
     options: __HttpHandlerOptions,
@@ -3085,8 +3178,14 @@ export interface Redshift {
   /**
    * @see {@link ResumeClusterCommand}
    */
-  resumeCluster(args: ResumeClusterCommandInput, options?: __HttpHandlerOptions): Promise<ResumeClusterCommandOutput>;
-  resumeCluster(args: ResumeClusterCommandInput, cb: (err: any, data?: ResumeClusterCommandOutput) => void): void;
+  resumeCluster(
+    args: ResumeClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResumeClusterCommandOutput>;
+  resumeCluster(
+    args: ResumeClusterCommandInput,
+    cb: (err: any, data?: ResumeClusterCommandOutput) => void
+  ): void;
   resumeCluster(
     args: ResumeClusterCommandInput,
     options: __HttpHandlerOptions,

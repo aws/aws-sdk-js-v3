@@ -10,9 +10,9 @@ const checkState = async (client: Route53Client, input: GetChangeCommandInput): 
     const result: any = await client.send(new GetChangeCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.ChangeInfo.Status;
-      };
+      }
       if (returnComparator() === "INSYNC") {
         return { state: WaiterState.SUCCESS, reason };
       }

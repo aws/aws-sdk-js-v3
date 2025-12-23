@@ -25,9 +25,7 @@ export interface BatchCreateTopicReviewedAnswerCommandInput extends BatchCreateT
  *
  * The output of {@link BatchCreateTopicReviewedAnswerCommand}.
  */
-export interface BatchCreateTopicReviewedAnswerCommandOutput
-  extends BatchCreateTopicReviewedAnswerResponse,
-    __MetadataBearer {}
+export interface BatchCreateTopicReviewedAnswerCommandOutput extends BatchCreateTopicReviewedAnswerResponse, __MetadataBearer {}
 
 /**
  * <p>Creates new reviewed answers for a Q Topic.</p>

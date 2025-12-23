@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteTransitGatewayPeeringAttachmentCommand}.
  */
-export interface DeleteTransitGatewayPeeringAttachmentCommandInput
-  extends DeleteTransitGatewayPeeringAttachmentRequest {}
+export interface DeleteTransitGatewayPeeringAttachmentCommandInput extends DeleteTransitGatewayPeeringAttachmentRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteTransitGatewayPeeringAttachmentCommand}.
  */
-export interface DeleteTransitGatewayPeeringAttachmentCommandOutput
-  extends DeleteTransitGatewayPeeringAttachmentResult,
-    __MetadataBearer {}
+export interface DeleteTransitGatewayPeeringAttachmentCommandOutput extends DeleteTransitGatewayPeeringAttachmentResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a transit gateway peering attachment.</p>

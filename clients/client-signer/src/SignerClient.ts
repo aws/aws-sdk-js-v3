@@ -370,7 +370,7 @@ export interface SignerClientResolvedConfig extends SignerClientResolvedConfigTy
  *          <p>With code signing for IoT, you can sign code for any IoT device that is supported by AWS.
  * 			IoT code signing is available for <a href="http://docs.aws.amazon.com/freertos/latest/userguide/">Amazon FreeRTOS</a> and <a href="http://docs.aws.amazon.com/iot/latest/developerguide/">AWS IoT Device Management</a>, and is integrated with <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager (ACM)</a>. In order to sign code, you import a third-party code-signing
  * 			certificate using ACM, and use that to sign updates in Amazon FreeRTOS and AWS IoT Device Management. </p>
- *          <p>With Signer and the Notation CLI from the <a href="https://notaryproject.dev/">Notary
+ *          <p>With Signer and the Notation CLI from the <a href="https://notaryproject.dev/">Notary 
  * 				Project</a>, you can sign container images stored in a container registry such
  * 			as Amazon Elastic Container Registry (ECR). The signatures are stored in the registry
  * 			alongside the images, where they are available for verifying image authenticity and

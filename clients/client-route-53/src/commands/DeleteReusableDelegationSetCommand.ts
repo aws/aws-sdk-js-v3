@@ -25,9 +25,7 @@ export interface DeleteReusableDelegationSetCommandInput extends DeleteReusableD
  *
  * The output of {@link DeleteReusableDelegationSetCommand}.
  */
-export interface DeleteReusableDelegationSetCommandOutput
-  extends DeleteReusableDelegationSetResponse,
-    __MetadataBearer {}
+export interface DeleteReusableDelegationSetCommandOutput extends DeleteReusableDelegationSetResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a reusable delegation set.</p>
@@ -90,7 +88,10 @@ export class DeleteReusableDelegationSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "DeleteReusableDelegationSet", {})
   .n("Route53Client", "DeleteReusableDelegationSetCommand")

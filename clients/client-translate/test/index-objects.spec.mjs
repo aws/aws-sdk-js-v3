@@ -76,6 +76,10 @@ import {
   ListTextTranslationJobsResponse$,
   MergeStrategy,
   OutputDataConfig$,
+  paginateListLanguages,
+  paginateListParallelData,
+  paginateListTerminologies,
+  paginateListTextTranslationJobs,
   ParallelDataConfig$,
   ParallelDataDataLocation$,
   ParallelDataFormat,
@@ -114,6 +118,7 @@ import {
   TooManyTagsException$,
   Translate,
   TranslateClient,
+  TranslatedDocument$,
   TranslateDocument$,
   TranslateDocumentCommand,
   TranslateDocumentRequest$,
@@ -123,7 +128,6 @@ import {
   TranslateTextCommand,
   TranslateTextRequest$,
   TranslateTextResponse$,
-  TranslatedDocument$,
   TranslationSettings$,
   UnsupportedDisplayLanguageCodeException,
   UnsupportedDisplayLanguageCodeException$,
@@ -137,10 +141,6 @@ import {
   UpdateParallelDataCommand,
   UpdateParallelDataRequest$,
   UpdateParallelDataResponse$,
-  paginateListLanguages,
-  paginateListParallelData,
-  paginateListTerminologies,
-  paginateListTextTranslationJobs,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

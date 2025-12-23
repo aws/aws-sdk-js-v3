@@ -24,9 +24,7 @@ export interface StartKeyPhrasesDetectionJobCommandInput extends StartKeyPhrases
  *
  * The output of {@link StartKeyPhrasesDetectionJobCommand}.
  */
-export interface StartKeyPhrasesDetectionJobCommandOutput
-  extends StartKeyPhrasesDetectionJobResponse,
-    __MetadataBearer {}
+export interface StartKeyPhrasesDetectionJobCommandOutput extends StartKeyPhrasesDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous key phrase detection job for a collection of documents. Use the

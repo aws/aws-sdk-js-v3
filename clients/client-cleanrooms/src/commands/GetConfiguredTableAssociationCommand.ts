@@ -24,9 +24,7 @@ export interface GetConfiguredTableAssociationCommandInput extends GetConfigured
  *
  * The output of {@link GetConfiguredTableAssociationCommand}.
  */
-export interface GetConfiguredTableAssociationCommandOutput
-  extends GetConfiguredTableAssociationOutput,
-    __MetadataBearer {}
+export interface GetConfiguredTableAssociationCommandOutput extends GetConfiguredTableAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves a configured table association.</p>

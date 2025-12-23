@@ -24,9 +24,7 @@ export interface ListAWSDefaultServiceQuotasCommandInput extends ListAWSDefaultS
  *
  * The output of {@link ListAWSDefaultServiceQuotasCommand}.
  */
-export interface ListAWSDefaultServiceQuotasCommandOutput
-  extends ListAWSDefaultServiceQuotasResponse,
-    __MetadataBearer {}
+export interface ListAWSDefaultServiceQuotasCommandOutput extends ListAWSDefaultServiceQuotasResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the default values for the quotas for the specified Amazon Web Services service. A default

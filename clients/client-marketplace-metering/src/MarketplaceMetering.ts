@@ -35,7 +35,10 @@ export interface MarketplaceMetering {
     args: BatchMeterUsageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchMeterUsageCommandOutput>;
-  batchMeterUsage(args: BatchMeterUsageCommandInput, cb: (err: any, data?: BatchMeterUsageCommandOutput) => void): void;
+  batchMeterUsage(
+    args: BatchMeterUsageCommandInput,
+    cb: (err: any, data?: BatchMeterUsageCommandOutput) => void
+  ): void;
   batchMeterUsage(
     args: BatchMeterUsageCommandInput,
     options: __HttpHandlerOptions,
@@ -45,8 +48,14 @@ export interface MarketplaceMetering {
   /**
    * @see {@link MeterUsageCommand}
    */
-  meterUsage(args: MeterUsageCommandInput, options?: __HttpHandlerOptions): Promise<MeterUsageCommandOutput>;
-  meterUsage(args: MeterUsageCommandInput, cb: (err: any, data?: MeterUsageCommandOutput) => void): void;
+  meterUsage(
+    args: MeterUsageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MeterUsageCommandOutput>;
+  meterUsage(
+    args: MeterUsageCommandInput,
+    cb: (err: any, data?: MeterUsageCommandOutput) => void
+  ): void;
   meterUsage(
     args: MeterUsageCommandInput,
     options: __HttpHandlerOptions,
@@ -56,8 +65,14 @@ export interface MarketplaceMetering {
   /**
    * @see {@link RegisterUsageCommand}
    */
-  registerUsage(args: RegisterUsageCommandInput, options?: __HttpHandlerOptions): Promise<RegisterUsageCommandOutput>;
-  registerUsage(args: RegisterUsageCommandInput, cb: (err: any, data?: RegisterUsageCommandOutput) => void): void;
+  registerUsage(
+    args: RegisterUsageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterUsageCommandOutput>;
+  registerUsage(
+    args: RegisterUsageCommandInput,
+    cb: (err: any, data?: RegisterUsageCommandOutput) => void
+  ): void;
   registerUsage(
     args: RegisterUsageCommandInput,
     options: __HttpHandlerOptions,
@@ -71,7 +86,10 @@ export interface MarketplaceMetering {
     args: ResolveCustomerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ResolveCustomerCommandOutput>;
-  resolveCustomer(args: ResolveCustomerCommandInput, cb: (err: any, data?: ResolveCustomerCommandOutput) => void): void;
+  resolveCustomer(
+    args: ResolveCustomerCommandInput,
+    cb: (err: any, data?: ResolveCustomerCommandOutput) => void
+  ): void;
   resolveCustomer(
     args: ResolveCustomerCommandInput,
     options: __HttpHandlerOptions,

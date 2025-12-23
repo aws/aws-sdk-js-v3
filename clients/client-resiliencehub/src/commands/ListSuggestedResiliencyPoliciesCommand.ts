@@ -27,9 +27,7 @@ export interface ListSuggestedResiliencyPoliciesCommandInput extends ListSuggest
  *
  * The output of {@link ListSuggestedResiliencyPoliciesCommand}.
  */
-export interface ListSuggestedResiliencyPoliciesCommandOutput
-  extends ListSuggestedResiliencyPoliciesResponse,
-    __MetadataBearer {}
+export interface ListSuggestedResiliencyPoliciesCommandOutput extends ListSuggestedResiliencyPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the suggested resiliency policies for the Resilience Hub

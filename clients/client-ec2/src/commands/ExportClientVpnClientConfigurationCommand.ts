@@ -27,9 +27,7 @@ export interface ExportClientVpnClientConfigurationCommandInput extends ExportCl
  *
  * The output of {@link ExportClientVpnClientConfigurationCommand}.
  */
-export interface ExportClientVpnClientConfigurationCommandOutput
-  extends ExportClientVpnClientConfigurationResult,
-    __MetadataBearer {}
+export interface ExportClientVpnClientConfigurationCommandOutput extends ExportClientVpnClientConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Downloads the contents of the Client VPN endpoint configuration file for the specified Client VPN endpoint. The Client VPN endpoint configuration

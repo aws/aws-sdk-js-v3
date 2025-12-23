@@ -7,7 +7,6 @@
 AWS SDK for JavaScript CognitoSync Client for Node.js, Browser and React Native.
 
 <fullname>Amazon Cognito Sync</fullname>
-
 <p>Amazon Cognito Sync provides an AWS service and client library that enable cross-device syncing of
 application-related user data. High-level client libraries are available for both iOS and
 Android. You can use these libraries to persist data locally so that it's available even if
@@ -22,10 +21,8 @@ to make API calls using credentials retrieved with <a href="http://docs.aws.amaz
 make API calls via the AWS Mobile SDK. To learn more, see the <a href="http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/cognito-sync.html">Developer Guide for Android</a> and the <a href="http://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-sync.html">Developer Guide for iOS</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-cognito-sync
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-cognito-sync`
 - `yarn add @aws-sdk/client-cognito-sync`
 - `pnpm add @aws-sdk/client-cognito-sync`
@@ -61,9 +58,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new CognitoSyncClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListIdentityPoolUsageCommand(params);
 ```
 
@@ -222,7 +217,6 @@ BulkPublish
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-sync/command/BulkPublishCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/BulkPublishCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/BulkPublishCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -230,7 +224,6 @@ DeleteDataset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-sync/command/DeleteDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/DeleteDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/DeleteDatasetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -238,7 +231,6 @@ DescribeDataset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-sync/command/DescribeDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/DescribeDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/DescribeDatasetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -246,7 +238,6 @@ DescribeIdentityPoolUsage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-sync/command/DescribeIdentityPoolUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/DescribeIdentityPoolUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/DescribeIdentityPoolUsageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -254,7 +245,6 @@ DescribeIdentityUsage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-sync/command/DescribeIdentityUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/DescribeIdentityUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/DescribeIdentityUsageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -262,7 +252,6 @@ GetBulkPublishDetails
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-sync/command/GetBulkPublishDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/GetBulkPublishDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/GetBulkPublishDetailsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -270,7 +259,6 @@ GetCognitoEvents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-sync/command/GetCognitoEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/GetCognitoEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/GetCognitoEventsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -278,7 +266,6 @@ GetIdentityPoolConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-sync/command/GetIdentityPoolConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/GetIdentityPoolConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/GetIdentityPoolConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -286,7 +273,6 @@ ListDatasets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-sync/command/ListDatasetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/ListDatasetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/ListDatasetsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -294,7 +280,6 @@ ListIdentityPoolUsage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-sync/command/ListIdentityPoolUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/ListIdentityPoolUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/ListIdentityPoolUsageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -302,7 +287,6 @@ ListRecords
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-sync/command/ListRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/ListRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/ListRecordsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -310,7 +294,6 @@ RegisterDevice
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-sync/command/RegisterDeviceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/RegisterDeviceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/RegisterDeviceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -318,7 +301,6 @@ SetCognitoEvents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-sync/command/SetCognitoEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/SetCognitoEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/SetCognitoEventsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -326,7 +308,6 @@ SetIdentityPoolConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-sync/command/SetIdentityPoolConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/SetIdentityPoolConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/SetIdentityPoolConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -334,7 +315,6 @@ SubscribeToDataset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-sync/command/SubscribeToDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/SubscribeToDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/SubscribeToDatasetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -342,7 +322,6 @@ UnsubscribeFromDataset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-sync/command/UnsubscribeFromDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/UnsubscribeFromDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/UnsubscribeFromDatasetCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -350,5 +329,4 @@ UpdateRecords
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-sync/command/UpdateRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/UpdateRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-sync/Interface/UpdateRecordsCommandOutput/)
-
 </details>

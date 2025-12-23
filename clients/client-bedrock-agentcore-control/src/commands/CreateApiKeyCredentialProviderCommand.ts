@@ -28,9 +28,7 @@ export interface CreateApiKeyCredentialProviderCommandInput extends CreateApiKey
  *
  * The output of {@link CreateApiKeyCredentialProviderCommand}.
  */
-export interface CreateApiKeyCredentialProviderCommandOutput
-  extends CreateApiKeyCredentialProviderResponse,
-    __MetadataBearer {}
+export interface CreateApiKeyCredentialProviderCommandOutput extends CreateApiKeyCredentialProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new API key credential provider.</p>

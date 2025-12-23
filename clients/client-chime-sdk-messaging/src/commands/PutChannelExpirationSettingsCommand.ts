@@ -28,9 +28,7 @@ export interface PutChannelExpirationSettingsCommandInput extends PutChannelExpi
  *
  * The output of {@link PutChannelExpirationSettingsCommand}.
  */
-export interface PutChannelExpirationSettingsCommandOutput
-  extends PutChannelExpirationSettingsResponse,
-    __MetadataBearer {}
+export interface PutChannelExpirationSettingsCommandOutput extends PutChannelExpirationSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the number of days before the channel is automatically deleted.</p>

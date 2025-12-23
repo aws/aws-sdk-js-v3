@@ -24,9 +24,7 @@ export interface GetIntegrationResourcePropertyCommandInput extends GetIntegrati
  *
  * The output of {@link GetIntegrationResourcePropertyCommand}.
  */
-export interface GetIntegrationResourcePropertyCommandOutput
-  extends GetIntegrationResourcePropertyResponse,
-    __MetadataBearer {}
+export interface GetIntegrationResourcePropertyCommandOutput extends GetIntegrationResourcePropertyResponse, __MetadataBearer {}
 
 /**
  * <p>This API is used for fetching the <code>ResourceProperty</code> of the Glue connection (for the source) or Glue database ARN (for the target)</p>

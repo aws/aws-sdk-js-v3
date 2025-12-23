@@ -49,11 +49,9 @@ export const defaultPinpointSMSVoiceV2HttpAuthSchemeParametersProvider = async (
 ): Promise<PinpointSMSVoiceV2HttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -85,9 +83,7 @@ export interface PinpointSMSVoiceV2HttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultPinpointSMSVoiceV2HttpAuthSchemeProvider: PinpointSMSVoiceV2HttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultPinpointSMSVoiceV2HttpAuthSchemeProvider: PinpointSMSVoiceV2HttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

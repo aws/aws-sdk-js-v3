@@ -27,9 +27,7 @@ export interface CreateDelegateMacVolumeOwnershipTaskCommandInput extends Create
  *
  * The output of {@link CreateDelegateMacVolumeOwnershipTaskCommand}.
  */
-export interface CreateDelegateMacVolumeOwnershipTaskCommandOutput
-  extends CreateDelegateMacVolumeOwnershipTaskResult,
-    __MetadataBearer {}
+export interface CreateDelegateMacVolumeOwnershipTaskCommandOutput extends CreateDelegateMacVolumeOwnershipTaskResult, __MetadataBearer {}
 
 /**
  * <p>Delegates ownership of the Amazon EBS root volume for an Apple silicon

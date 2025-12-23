@@ -24,9 +24,7 @@ export interface GetResourceShareInvitationsCommandInput extends GetResourceShar
  *
  * The output of {@link GetResourceShareInvitationsCommand}.
  */
-export interface GetResourceShareInvitationsCommandOutput
-  extends GetResourceShareInvitationsResponse,
-    __MetadataBearer {}
+export interface GetResourceShareInvitationsCommandOutput extends GetResourceShareInvitationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details about invitations that you have received for resource shares.</p>

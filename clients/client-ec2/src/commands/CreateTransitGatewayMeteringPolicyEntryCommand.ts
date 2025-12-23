@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateTransitGatewayMeteringPolicyEntryCommand}.
  */
-export interface CreateTransitGatewayMeteringPolicyEntryCommandInput
-  extends CreateTransitGatewayMeteringPolicyEntryRequest {}
+export interface CreateTransitGatewayMeteringPolicyEntryCommandInput extends CreateTransitGatewayMeteringPolicyEntryRequest {}
 /**
  * @public
  *
  * The output of {@link CreateTransitGatewayMeteringPolicyEntryCommand}.
  */
-export interface CreateTransitGatewayMeteringPolicyEntryCommandOutput
-  extends CreateTransitGatewayMeteringPolicyEntryResult,
-    __MetadataBearer {}
+export interface CreateTransitGatewayMeteringPolicyEntryCommandOutput extends CreateTransitGatewayMeteringPolicyEntryResult, __MetadataBearer {}
 
 /**
  * <p>Creates an entry in a transit gateway metering policy to define traffic measurement rules.</p>

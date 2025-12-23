@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListStackInstancesForProvisionedProductCommand}.
  */
-export interface ListStackInstancesForProvisionedProductCommandInput
-  extends ListStackInstancesForProvisionedProductInput {}
+export interface ListStackInstancesForProvisionedProductCommandInput extends ListStackInstancesForProvisionedProductInput {}
 /**
  * @public
  *
  * The output of {@link ListStackInstancesForProvisionedProductCommand}.
  */
-export interface ListStackInstancesForProvisionedProductCommandOutput
-  extends ListStackInstancesForProvisionedProductOutput,
-    __MetadataBearer {}
+export interface ListStackInstancesForProvisionedProductCommandOutput extends ListStackInstancesForProvisionedProductOutput, __MetadataBearer {}
 
 /**
  * <p>Returns summary information about stack instances that are associated with the specified <code>CFN_STACKSET</code> type provisioned product. You can filter for stack instances that are associated with a specific Amazon Web Services account name or Region. </p>

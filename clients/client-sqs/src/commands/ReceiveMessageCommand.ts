@@ -216,7 +216,10 @@ export class ReceiveMessageCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getReceiveMessagePlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getReceiveMessagePlugin(config),
+    ];
   })
   .s("AmazonSQS", "ReceiveMessage", {})
   .n("SQSClient", "ReceiveMessageCommand")

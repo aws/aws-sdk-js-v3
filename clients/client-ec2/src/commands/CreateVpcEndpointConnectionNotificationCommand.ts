@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateVpcEndpointConnectionNotificationCommand}.
  */
-export interface CreateVpcEndpointConnectionNotificationCommandInput
-  extends CreateVpcEndpointConnectionNotificationRequest {}
+export interface CreateVpcEndpointConnectionNotificationCommandInput extends CreateVpcEndpointConnectionNotificationRequest {}
 /**
  * @public
  *
  * The output of {@link CreateVpcEndpointConnectionNotificationCommand}.
  */
-export interface CreateVpcEndpointConnectionNotificationCommandOutput
-  extends CreateVpcEndpointConnectionNotificationResult,
-    __MetadataBearer {}
+export interface CreateVpcEndpointConnectionNotificationCommandOutput extends CreateVpcEndpointConnectionNotificationResult, __MetadataBearer {}
 
 /**
  * <p>Creates a connection notification for a specified VPC endpoint or VPC endpoint

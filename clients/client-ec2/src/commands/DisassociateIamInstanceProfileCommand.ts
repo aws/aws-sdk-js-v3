@@ -24,9 +24,7 @@ export interface DisassociateIamInstanceProfileCommandInput extends Disassociate
  *
  * The output of {@link DisassociateIamInstanceProfileCommand}.
  */
-export interface DisassociateIamInstanceProfileCommandOutput
-  extends DisassociateIamInstanceProfileResult,
-    __MetadataBearer {}
+export interface DisassociateIamInstanceProfileCommandOutput extends DisassociateIamInstanceProfileResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates an IAM instance profile from a running or stopped instance.</p>

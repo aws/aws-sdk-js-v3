@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DetachRuleGroupsFromProxyConfigurationCommand}.
  */
-export interface DetachRuleGroupsFromProxyConfigurationCommandInput
-  extends DetachRuleGroupsFromProxyConfigurationRequest {}
+export interface DetachRuleGroupsFromProxyConfigurationCommandInput extends DetachRuleGroupsFromProxyConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DetachRuleGroupsFromProxyConfigurationCommand}.
  */
-export interface DetachRuleGroupsFromProxyConfigurationCommandOutput
-  extends DetachRuleGroupsFromProxyConfigurationResponse,
-    __MetadataBearer {}
+export interface DetachRuleGroupsFromProxyConfigurationCommandOutput extends DetachRuleGroupsFromProxyConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Detaches <a>ProxyRuleGroup</a> resources from a <a>ProxyConfiguration</a>

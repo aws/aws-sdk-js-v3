@@ -24,9 +24,7 @@ export interface DescribeTrafficMirrorFiltersCommandInput extends DescribeTraffi
  *
  * The output of {@link DescribeTrafficMirrorFiltersCommand}.
  */
-export interface DescribeTrafficMirrorFiltersCommandOutput
-  extends DescribeTrafficMirrorFiltersResult,
-    __MetadataBearer {}
+export interface DescribeTrafficMirrorFiltersCommandOutput extends DescribeTrafficMirrorFiltersResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more Traffic Mirror filters.</p>

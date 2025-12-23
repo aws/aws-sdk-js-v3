@@ -27,9 +27,7 @@ export interface DescribeDominantLanguageDetectionJobCommandInput extends Descri
  *
  * The output of {@link DescribeDominantLanguageDetectionJobCommand}.
  */
-export interface DescribeDominantLanguageDetectionJobCommandOutput
-  extends DescribeDominantLanguageDetectionJobResponse,
-    __MetadataBearer {}
+export interface DescribeDominantLanguageDetectionJobCommandOutput extends DescribeDominantLanguageDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a dominant language detection job. Use this operation

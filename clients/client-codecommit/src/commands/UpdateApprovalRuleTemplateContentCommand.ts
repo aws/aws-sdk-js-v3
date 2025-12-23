@@ -27,9 +27,7 @@ export interface UpdateApprovalRuleTemplateContentCommandInput extends UpdateApp
  *
  * The output of {@link UpdateApprovalRuleTemplateContentCommand}.
  */
-export interface UpdateApprovalRuleTemplateContentCommandOutput
-  extends UpdateApprovalRuleTemplateContentOutput,
-    __MetadataBearer {}
+export interface UpdateApprovalRuleTemplateContentCommandOutput extends UpdateApprovalRuleTemplateContentOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the content of an approval rule template. You can change the number of

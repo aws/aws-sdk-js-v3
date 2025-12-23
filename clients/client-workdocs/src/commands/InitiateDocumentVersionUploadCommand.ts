@@ -24,9 +24,7 @@ export interface InitiateDocumentVersionUploadCommandInput extends InitiateDocum
  *
  * The output of {@link InitiateDocumentVersionUploadCommand}.
  */
-export interface InitiateDocumentVersionUploadCommandOutput
-  extends InitiateDocumentVersionUploadResponse,
-    __MetadataBearer {}
+export interface InitiateDocumentVersionUploadCommandOutput extends InitiateDocumentVersionUploadResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new document object and version object.</p>

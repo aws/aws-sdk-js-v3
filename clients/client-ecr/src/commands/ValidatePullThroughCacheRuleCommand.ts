@@ -24,9 +24,7 @@ export interface ValidatePullThroughCacheRuleCommandInput extends ValidatePullTh
  *
  * The output of {@link ValidatePullThroughCacheRuleCommand}.
  */
-export interface ValidatePullThroughCacheRuleCommandOutput
-  extends ValidatePullThroughCacheRuleResponse,
-    __MetadataBearer {}
+export interface ValidatePullThroughCacheRuleCommandOutput extends ValidatePullThroughCacheRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Validates an existing pull through cache rule for an upstream registry that requires

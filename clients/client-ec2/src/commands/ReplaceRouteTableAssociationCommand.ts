@@ -24,9 +24,7 @@ export interface ReplaceRouteTableAssociationCommandInput extends ReplaceRouteTa
  *
  * The output of {@link ReplaceRouteTableAssociationCommand}.
  */
-export interface ReplaceRouteTableAssociationCommandOutput
-  extends ReplaceRouteTableAssociationResult,
-    __MetadataBearer {}
+export interface ReplaceRouteTableAssociationCommandOutput extends ReplaceRouteTableAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Changes the route table associated with a given subnet, internet gateway, or virtual private gateway in a VPC. After the operation

@@ -24,9 +24,7 @@ export interface ListRecoveryPointsByResourceCommandInput extends ListRecoveryPo
  *
  * The output of {@link ListRecoveryPointsByResourceCommand}.
  */
-export interface ListRecoveryPointsByResourceCommandOutput
-  extends ListRecoveryPointsByResourceOutput,
-    __MetadataBearer {}
+export interface ListRecoveryPointsByResourceCommandOutput extends ListRecoveryPointsByResourceOutput, __MetadataBearer {}
 
 /**
  * <p>The information about the recovery points of the type specified by a

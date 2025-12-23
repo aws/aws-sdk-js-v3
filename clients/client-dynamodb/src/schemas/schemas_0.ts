@@ -704,1943 +704,1719 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var ArchivalSummary$: StaticStructureSchema = [3, n0, _AS, 0, [_ADT, _AR, _ABA], [4, 0, 0]];
-export var AttributeDefinition$: StaticStructureSchema = [3, n0, _AD, 0, [_AN, _AT], [0, 0]];
-export var AttributeValueUpdate$: StaticStructureSchema = [3, n0, _AVU, 0, [_V, _A], [() => AttributeValue$, 0]];
-export var AutoScalingPolicyDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _ASPD,
+export var ArchivalSummary$: StaticStructureSchema = [3, n0, _AS,
+  0,
+  [_ADT, _AR, _ABA],
+  [4, 0, 0]
+];
+export var AttributeDefinition$: StaticStructureSchema = [3, n0, _AD,
+  0,
+  [_AN, _AT],
+  [0, 0]
+];
+export var AttributeValueUpdate$: StaticStructureSchema = [3, n0, _AVU,
+  0,
+  [_V, _A],
+  [() => AttributeValue$, 0]
+];
+export var AutoScalingPolicyDescription$: StaticStructureSchema = [3, n0, _ASPD,
   0,
   [_PN, _TTSPC],
-  [0, () => AutoScalingTargetTrackingScalingPolicyConfigurationDescription$],
+  [0, () => AutoScalingTargetTrackingScalingPolicyConfigurationDescription$]
 ];
-export var AutoScalingPolicyUpdate$: StaticStructureSchema = [
-  3,
-  n0,
-  _ASPU,
+export var AutoScalingPolicyUpdate$: StaticStructureSchema = [3, n0, _ASPU,
   0,
   [_PN, _TTSPC],
-  [0, () => AutoScalingTargetTrackingScalingPolicyConfigurationUpdate$],
+  [0, () => AutoScalingTargetTrackingScalingPolicyConfigurationUpdate$]
 ];
-export var AutoScalingSettingsDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _ASSD,
+export var AutoScalingSettingsDescription$: StaticStructureSchema = [3, n0, _ASSD,
   0,
   [_MU, _MUa, _ASD, _ASRA, _SP],
-  [1, 1, 2, 0, () => AutoScalingPolicyDescriptionList],
+  [1, 1, 2, 0, () => AutoScalingPolicyDescriptionList]
 ];
-export var AutoScalingSettingsUpdate$: StaticStructureSchema = [
-  3,
-  n0,
-  _ASSU,
+export var AutoScalingSettingsUpdate$: StaticStructureSchema = [3, n0, _ASSU,
   0,
   [_MU, _MUa, _ASD, _ASRA, _SPU],
-  [1, 1, 2, 0, () => AutoScalingPolicyUpdate$],
+  [1, 1, 2, 0, () => AutoScalingPolicyUpdate$]
 ];
-export var AutoScalingTargetTrackingScalingPolicyConfigurationDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _ASTTSPCD,
+export var AutoScalingTargetTrackingScalingPolicyConfigurationDescription$: StaticStructureSchema = [3, n0, _ASTTSPCD,
   0,
   [_DSI, _SIC, _SOC, _TV],
-  [2, 1, 1, 1],
+  [2, 1, 1, 1]
 ];
-export var AutoScalingTargetTrackingScalingPolicyConfigurationUpdate$: StaticStructureSchema = [
-  3,
-  n0,
-  _ASTTSPCU,
+export var AutoScalingTargetTrackingScalingPolicyConfigurationUpdate$: StaticStructureSchema = [3, n0, _ASTTSPCU,
   0,
   [_DSI, _SIC, _SOC, _TV],
-  [2, 1, 1, 1],
+  [2, 1, 1, 1]
 ];
-export var BackupDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _BD,
+export var BackupDescription$: StaticStructureSchema = [3, n0, _BD,
   0,
   [_BDa, _STD, _STFD],
-  [() => BackupDetails$, () => SourceTableDetails$, () => SourceTableFeatureDetails$],
+  [() => BackupDetails$, () => SourceTableDetails$, () => SourceTableFeatureDetails$]
 ];
-export var BackupDetails$: StaticStructureSchema = [
-  3,
-  n0,
-  _BDa,
+export var BackupDetails$: StaticStructureSchema = [3, n0, _BDa,
   0,
   [_BA, _BN, _BSB, _BS, _BT, _BCDT, _BEDT],
-  [0, 0, 1, 0, 0, 4, 4],
+  [0, 0, 1, 0, 0, 4, 4]
 ];
-export var BackupInUseException$: StaticErrorSchema = [-3, n0, _BIUE, { [_e]: _c }, [_m], [0]];
+export var BackupInUseException$: StaticErrorSchema = [-3, n0, _BIUE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(BackupInUseException$, BackupInUseException);
-export var BackupNotFoundException$: StaticErrorSchema = [-3, n0, _BNFE, { [_e]: _c }, [_m], [0]];
+export var BackupNotFoundException$: StaticErrorSchema = [-3, n0, _BNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(BackupNotFoundException$, BackupNotFoundException);
-export var BackupSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _BSa,
+export var BackupSummary$: StaticStructureSchema = [3, n0, _BSa,
   0,
   [_TN, _TI, _TA, _BA, _BN, _BCDT, _BEDT, _BS, _BT, _BSB],
-  [0, 0, 0, 0, 0, 4, 4, 0, 0, 1],
+  [0, 0, 0, 0, 0, 4, 4, 0, 0, 1]
 ];
-export var BatchExecuteStatementInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _BESI,
+export var BatchExecuteStatementInput$: StaticStructureSchema = [3, n0, _BESI,
   0,
   [_S, _RCC],
-  [() => PartiQLBatchRequest, 0],
+  [() => PartiQLBatchRequest, 0]
 ];
-export var BatchExecuteStatementOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _BESO,
+export var BatchExecuteStatementOutput$: StaticStructureSchema = [3, n0, _BESO,
   0,
   [_R, _CC],
-  [() => PartiQLBatchResponse, () => ConsumedCapacityMultiple],
+  [() => PartiQLBatchResponse, () => ConsumedCapacityMultiple]
 ];
-export var BatchGetItemInput$: StaticStructureSchema = [3, n0, _BGII, 0, [_RI, _RCC], [() => BatchGetRequestMap, 0]];
-export var BatchGetItemOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _BGIO,
+export var BatchGetItemInput$: StaticStructureSchema = [3, n0, _BGII,
+  0,
+  [_RI, _RCC],
+  [() => BatchGetRequestMap, 0]
+];
+export var BatchGetItemOutput$: StaticStructureSchema = [3, n0, _BGIO,
   0,
   [_R, _UK, _CC],
-  [() => BatchGetResponseMap, () => BatchGetRequestMap, () => ConsumedCapacityMultiple],
+  [() => BatchGetResponseMap, () => BatchGetRequestMap, () => ConsumedCapacityMultiple]
 ];
-export var BatchStatementError$: StaticStructureSchema = [3, n0, _BSE, 0, [_C, _M, _I], [0, 0, () => AttributeMap]];
-export var BatchStatementRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _BSR,
+export var BatchStatementError$: StaticStructureSchema = [3, n0, _BSE,
+  0,
+  [_C, _M, _I],
+  [0, 0, () => AttributeMap]
+];
+export var BatchStatementRequest$: StaticStructureSchema = [3, n0, _BSR,
   0,
   [_St, _P, _CR, _RVOCCF],
-  [0, () => PreparedStatementParameters, 2, 0],
+  [0, () => PreparedStatementParameters, 2, 0]
 ];
-export var BatchStatementResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _BSRa,
+export var BatchStatementResponse$: StaticStructureSchema = [3, n0, _BSRa,
   0,
   [_E, _TN, _I],
-  [() => BatchStatementError$, 0, () => AttributeMap],
+  [() => BatchStatementError$, 0, () => AttributeMap]
 ];
-export var BatchWriteItemInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _BWII,
+export var BatchWriteItemInput$: StaticStructureSchema = [3, n0, _BWII,
   0,
   [_RI, _RCC, _RICM],
-  [() => BatchWriteItemRequestMap, 0, 0],
+  [() => BatchWriteItemRequestMap, 0, 0]
 ];
-export var BatchWriteItemOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _BWIO,
+export var BatchWriteItemOutput$: StaticStructureSchema = [3, n0, _BWIO,
   0,
   [_UI, _ICM, _CC],
-  [() => BatchWriteItemRequestMap, () => ItemCollectionMetricsPerTable, () => ConsumedCapacityMultiple],
+  [() => BatchWriteItemRequestMap, () => ItemCollectionMetricsPerTable, () => ConsumedCapacityMultiple]
 ];
-export var BillingModeSummary$: StaticStructureSchema = [3, n0, _BMS, 0, [_BM, _LUTPPRDT], [0, 4]];
-export var CancellationReason$: StaticStructureSchema = [3, n0, _CRa, 0, [_I, _C, _M], [() => AttributeMap, 0, 0]];
-export var Capacity$: StaticStructureSchema = [3, n0, _Ca, 0, [_RCU, _WCU, _CU], [1, 1, 1]];
-export var Condition$: StaticStructureSchema = [3, n0, _Co, 0, [_AVL, _CO], [() => AttributeValueList, 0]];
-export var ConditionalCheckFailedException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CCFE,
+export var BillingModeSummary$: StaticStructureSchema = [3, n0, _BMS,
+  0,
+  [_BM, _LUTPPRDT],
+  [0, 4]
+];
+export var CancellationReason$: StaticStructureSchema = [3, n0, _CRa,
+  0,
+  [_I, _C, _M],
+  [() => AttributeMap, 0, 0]
+];
+export var Capacity$: StaticStructureSchema = [3, n0, _Ca,
+  0,
+  [_RCU, _WCU, _CU],
+  [1, 1, 1]
+];
+export var Condition$: StaticStructureSchema = [3, n0, _Co,
+  0,
+  [_AVL, _CO],
+  [() => AttributeValueList, 0]
+];
+export var ConditionalCheckFailedException$: StaticErrorSchema = [-3, n0, _CCFE,
   { [_e]: _c },
   [_m, _I],
-  [0, () => AttributeMap],
+  [0, () => AttributeMap]
 ];
 TypeRegistry.for(n0).registerError(ConditionalCheckFailedException$, ConditionalCheckFailedException);
-export var ConditionCheck$: StaticStructureSchema = [
-  3,
-  n0,
-  _CCo,
+export var ConditionCheck$: StaticStructureSchema = [3, n0, _CCo,
   0,
   [_K, _TN, _CE, _EAN, _EAV, _RVOCCF],
-  [() => Key, 0, 0, 128 | 0, () => ExpressionAttributeValueMap, 0],
+  [() => Key, 0, 0, 128 | 0, () => ExpressionAttributeValueMap, 0]
 ];
-export var ConsumedCapacity$: StaticStructureSchema = [
-  3,
-  n0,
-  _CC,
+export var ConsumedCapacity$: StaticStructureSchema = [3, n0, _CC,
   0,
   [_TN, _CU, _RCU, _WCU, _T, _LSI, _GSI],
-  [0, 1, 1, 1, () => Capacity$, () => SecondaryIndexesCapacityMap, () => SecondaryIndexesCapacityMap],
+  [0, 1, 1, 1, () => Capacity$, () => SecondaryIndexesCapacityMap, () => SecondaryIndexesCapacityMap]
 ];
-export var ContinuousBackupsDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _CBD,
+export var ContinuousBackupsDescription$: StaticStructureSchema = [3, n0, _CBD,
   0,
   [_CBS, _PITRD],
-  [0, () => PointInTimeRecoveryDescription$],
+  [0, () => PointInTimeRecoveryDescription$]
 ];
-export var ContinuousBackupsUnavailableException$: StaticErrorSchema = [-3, n0, _CBUE, { [_e]: _c }, [_m], [0]];
+export var ContinuousBackupsUnavailableException$: StaticErrorSchema = [-3, n0, _CBUE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ContinuousBackupsUnavailableException$, ContinuousBackupsUnavailableException);
-export var ContributorInsightsSummary$: StaticStructureSchema = [3, n0, _CIS, 0, [_TN, _IN, _CISo, _CIM], [0, 0, 0, 0]];
-export var CreateBackupInput$: StaticStructureSchema = [3, n0, _CBI, 0, [_TN, _BN], [0, 0]];
-export var CreateBackupOutput$: StaticStructureSchema = [3, n0, _CBO, 0, [_BDa], [() => BackupDetails$]];
-export var CreateGlobalSecondaryIndexAction$: StaticStructureSchema = [
-  3,
-  n0,
-  _CGSIA,
-  0,
-  [_IN, _KS, _Pr, _PT, _ODT, _WT],
-  [
-    0,
-    () => KeySchema,
-    () => Projection$,
-    () => ProvisionedThroughput$,
-    () => OnDemandThroughput$,
-    () => WarmThroughput$,
-  ],
-];
-export var CreateGlobalTableInput$: StaticStructureSchema = [3, n0, _CGTI, 0, [_GTN, _RG], [0, () => ReplicaList]];
-export var CreateGlobalTableOutput$: StaticStructureSchema = [3, n0, _CGTO, 0, [_GTD], [() => GlobalTableDescription$]];
-export var CreateGlobalTableWitnessGroupMemberAction$: StaticStructureSchema = [3, n0, _CGTWGMA, 0, [_RN], [0]];
-export var CreateReplicaAction$: StaticStructureSchema = [3, n0, _CRA, 0, [_RN], [0]];
-export var CreateReplicationGroupMemberAction$: StaticStructureSchema = [
-  3,
-  n0,
-  _CRGMA,
-  0,
-  [_RN, _KMSMKI, _PTO, _ODTO, _GSI, _TCO],
-  [
-    0,
-    0,
-    () => ProvisionedThroughputOverride$,
-    () => OnDemandThroughputOverride$,
-    () => ReplicaGlobalSecondaryIndexList,
-    0,
-  ],
-];
-export var CreateTableInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _CTI,
-  0,
-  [_ADt, _TN, _KS, _LSI, _GSI, _BM, _PT, _SS, _SSES, _Ta, _TC, _DPE, _WT, _RP, _ODT],
-  [
-    () => AttributeDefinitions,
-    0,
-    () => KeySchema,
-    () => LocalSecondaryIndexList,
-    () => GlobalSecondaryIndexList,
-    0,
-    () => ProvisionedThroughput$,
-    () => StreamSpecification$,
-    () => SSESpecification$,
-    () => TagList,
-    0,
-    2,
-    () => WarmThroughput$,
-    0,
-    () => OnDemandThroughput$,
-  ],
-];
-export var CreateTableOutput$: StaticStructureSchema = [3, n0, _CTO, 0, [_TD], [() => TableDescription$]];
-export var CsvOptions$: StaticStructureSchema = [3, n0, _COs, 0, [_D, _HL], [0, 64 | 0]];
-export var Delete$: StaticStructureSchema = [
-  3,
-  n0,
-  _De,
-  0,
-  [_K, _TN, _CE, _EAN, _EAV, _RVOCCF],
-  [() => Key, 0, 0, 128 | 0, () => ExpressionAttributeValueMap, 0],
-];
-export var DeleteBackupInput$: StaticStructureSchema = [3, n0, _DBI, 0, [_BA], [0]];
-export var DeleteBackupOutput$: StaticStructureSchema = [3, n0, _DBO, 0, [_BD], [() => BackupDescription$]];
-export var DeleteGlobalSecondaryIndexAction$: StaticStructureSchema = [3, n0, _DGSIA, 0, [_IN], [0]];
-export var DeleteGlobalTableWitnessGroupMemberAction$: StaticStructureSchema = [3, n0, _DGTWGMA, 0, [_RN], [0]];
-export var DeleteItemInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DII,
-  0,
-  [_TN, _K, _Ex, _COo, _RV, _RCC, _RICM, _CE, _EAN, _EAV, _RVOCCF],
-  [0, () => Key, () => ExpectedAttributeMap, 0, 0, 0, 0, 0, 128 | 0, () => ExpressionAttributeValueMap, 0],
-];
-export var DeleteItemOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DIO,
-  0,
-  [_At, _CC, _ICM],
-  [() => AttributeMap, () => ConsumedCapacity$, () => ItemCollectionMetrics$],
-];
-export var DeleteReplicaAction$: StaticStructureSchema = [3, n0, _DRA, 0, [_RN], [0]];
-export var DeleteReplicationGroupMemberAction$: StaticStructureSchema = [3, n0, _DRGMA, 0, [_RN], [0]];
-export var DeleteRequest$: StaticStructureSchema = [3, n0, _DR, 0, [_K], [() => Key]];
-export var DeleteResourcePolicyInput$: StaticStructureSchema = [3, n0, _DRPI, 0, [_RA, _ERI], [0, 0]];
-export var DeleteResourcePolicyOutput$: StaticStructureSchema = [3, n0, _DRPO, 0, [_RIe], [0]];
-export var DeleteTableInput$: StaticStructureSchema = [3, n0, _DTI, 0, [_TN], [0]];
-export var DeleteTableOutput$: StaticStructureSchema = [3, n0, _DTO, 0, [_TD], [() => TableDescription$]];
-export var DescribeBackupInput$: StaticStructureSchema = [3, n0, _DBIe, 0, [_BA], [0]];
-export var DescribeBackupOutput$: StaticStructureSchema = [3, n0, _DBOe, 0, [_BD], [() => BackupDescription$]];
-export var DescribeContinuousBackupsInput$: StaticStructureSchema = [3, n0, _DCBI, 0, [_TN], [0]];
-export var DescribeContinuousBackupsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DCBO,
-  0,
-  [_CBD],
-  [() => ContinuousBackupsDescription$],
-];
-export var DescribeContributorInsightsInput$: StaticStructureSchema = [3, n0, _DCII, 0, [_TN, _IN], [0, 0]];
-export var DescribeContributorInsightsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DCIO,
-  0,
-  [_TN, _IN, _CIRL, _CISo, _LUDT, _FE, _CIM],
-  [0, 0, 64 | 0, 0, 4, () => FailureException$, 0],
-];
-export var DescribeEndpointsRequest$: StaticStructureSchema = [3, n0, _DER, 0, [], []];
-export var DescribeEndpointsResponse$: StaticStructureSchema = [3, n0, _DERe, 0, [_En], [() => Endpoints]];
-export var DescribeExportInput$: StaticStructureSchema = [3, n0, _DEI, 0, [_EA], [0]];
-export var DescribeExportOutput$: StaticStructureSchema = [3, n0, _DEO, 0, [_ED], [() => ExportDescription$]];
-export var DescribeGlobalTableInput$: StaticStructureSchema = [3, n0, _DGTI, 0, [_GTN], [0]];
-export var DescribeGlobalTableOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DGTO,
-  0,
-  [_GTD],
-  [() => GlobalTableDescription$],
-];
-export var DescribeGlobalTableSettingsInput$: StaticStructureSchema = [3, n0, _DGTSI, 0, [_GTN], [0]];
-export var DescribeGlobalTableSettingsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DGTSO,
-  0,
-  [_GTN, _RS],
-  [0, () => ReplicaSettingsDescriptionList],
-];
-export var DescribeImportInput$: StaticStructureSchema = [3, n0, _DIIe, 0, [_IA], [0]];
-export var DescribeImportOutput$: StaticStructureSchema = [3, n0, _DIOe, 0, [_ITD], [() => ImportTableDescription$]];
-export var DescribeKinesisStreamingDestinationInput$: StaticStructureSchema = [3, n0, _DKSDI, 0, [_TN], [0]];
-export var DescribeKinesisStreamingDestinationOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DKSDO,
-  0,
-  [_TN, _KDSD],
-  [0, () => KinesisDataStreamDestinations],
-];
-export var DescribeLimitsInput$: StaticStructureSchema = [3, n0, _DLI, 0, [], []];
-export var DescribeLimitsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DLO,
-  0,
-  [_AMRCU, _AMWCU, _TMRCU, _TMWCU],
-  [1, 1, 1, 1],
-];
-export var DescribeTableInput$: StaticStructureSchema = [3, n0, _DTIe, 0, [_TN], [0]];
-export var DescribeTableOutput$: StaticStructureSchema = [3, n0, _DTOe, 0, [_T], [() => TableDescription$]];
-export var DescribeTableReplicaAutoScalingInput$: StaticStructureSchema = [3, n0, _DTRASI, 0, [_TN], [0]];
-export var DescribeTableReplicaAutoScalingOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DTRASO,
-  0,
-  [_TASD],
-  [() => TableAutoScalingDescription$],
-];
-export var DescribeTimeToLiveInput$: StaticStructureSchema = [3, n0, _DTTLI, 0, [_TN], [0]];
-export var DescribeTimeToLiveOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DTTLO,
-  0,
-  [_TTLD],
-  [() => TimeToLiveDescription$],
-];
-export var DuplicateItemException$: StaticErrorSchema = [-3, n0, _DIE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(DuplicateItemException$, DuplicateItemException);
-export var EnableKinesisStreamingConfiguration$: StaticStructureSchema = [3, n0, _EKSC, 0, [_ACDTP], [0]];
-export var Endpoint$: StaticStructureSchema = [3, n0, _End, 0, [_Ad, _CPIM], [0, 1]];
-export var ExecuteStatementInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _ESI,
-  0,
-  [_St, _P, _CR, _NT, _RCC, _L, _RVOCCF],
-  [0, () => PreparedStatementParameters, 2, 0, 0, 1, 0],
-];
-export var ExecuteStatementOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _ESO,
-  0,
-  [_It, _NT, _CC, _LEK],
-  [() => ItemList, 0, () => ConsumedCapacity$, () => Key],
-];
-export var ExecuteTransactionInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _ETI,
-  0,
-  [_TS, _CRT, _RCC],
-  [() => ParameterizedStatements, [0, 4], 0],
-];
-export var ExecuteTransactionOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _ETO,
-  0,
-  [_R, _CC],
-  [() => ItemResponseList, () => ConsumedCapacityMultiple],
-];
-export var ExpectedAttributeValue$: StaticStructureSchema = [
-  3,
-  n0,
-  _EAVx,
-  0,
-  [_V, _Exi, _CO, _AVL],
-  [() => AttributeValue$, 2, 0, () => AttributeValueList],
-];
-export var ExportConflictException$: StaticErrorSchema = [-3, n0, _ECE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ExportConflictException$, ExportConflictException);
-export var ExportDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _ED,
-  0,
-  [_EA, _ES, _ST, _ET, _EM, _TA, _TI, _ETx, _CT, _SB, _SBO, _SPr, _SSA, _SSKKI, _FC, _FM, _EF, _BSBi, _IC, _ETxp, _IES],
-  [0, 0, 4, 4, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, () => IncrementalExportSpecification$],
-];
-export var ExportNotFoundException$: StaticErrorSchema = [-3, n0, _ENFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ExportNotFoundException$, ExportNotFoundException);
-export var ExportSummary$: StaticStructureSchema = [3, n0, _ESx, 0, [_EA, _ES, _ETxp], [0, 0, 0]];
-export var ExportTableToPointInTimeInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _ETTPITI,
-  0,
-  [_TA, _ETx, _CT, _SB, _SBO, _SPr, _SSA, _SSKKI, _EF, _ETxp, _IES],
-  [0, 4, [0, 4], 0, 0, 0, 0, 0, 0, 0, () => IncrementalExportSpecification$],
-];
-export var ExportTableToPointInTimeOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _ETTPITO,
-  0,
-  [_ED],
-  [() => ExportDescription$],
-];
-export var FailureException$: StaticStructureSchema = [3, n0, _FE, 0, [_EN, _EDx], [0, 0]];
-export var Get$: StaticStructureSchema = [3, n0, _G, 0, [_K, _TN, _PE, _EAN], [() => Key, 0, 0, 128 | 0]];
-export var GetItemInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _GII,
-  0,
-  [_TN, _K, _ATG, _CR, _RCC, _PE, _EAN],
-  [0, () => Key, 64 | 0, 2, 0, 0, 128 | 0],
-];
-export var GetItemOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _GIO,
-  0,
-  [_I, _CC],
-  [() => AttributeMap, () => ConsumedCapacity$],
-];
-export var GetResourcePolicyInput$: StaticStructureSchema = [3, n0, _GRPI, 0, [_RA], [0]];
-export var GetResourcePolicyOutput$: StaticStructureSchema = [3, n0, _GRPO, 0, [_Po, _RIe], [0, 0]];
-export var GlobalSecondaryIndex$: StaticStructureSchema = [
-  3,
-  n0,
-  _GSIl,
-  0,
-  [_IN, _KS, _Pr, _PT, _ODT, _WT],
-  [
-    0,
-    () => KeySchema,
-    () => Projection$,
-    () => ProvisionedThroughput$,
-    () => OnDemandThroughput$,
-    () => WarmThroughput$,
-  ],
-];
-export var GlobalSecondaryIndexAutoScalingUpdate$: StaticStructureSchema = [
-  3,
-  n0,
-  _GSIASU,
-  0,
-  [_IN, _PWCASU],
-  [0, () => AutoScalingSettingsUpdate$],
-];
-export var GlobalSecondaryIndexDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _GSID,
-  0,
-  [_IN, _KS, _Pr, _IS, _B, _PT, _ISB, _IC, _IAn, _ODT, _WT],
-  [
-    0,
-    () => KeySchema,
-    () => Projection$,
-    0,
-    2,
-    () => ProvisionedThroughputDescription$,
-    1,
-    1,
-    0,
-    () => OnDemandThroughput$,
-    () => GlobalSecondaryIndexWarmThroughputDescription$,
-  ],
-];
-export var GlobalSecondaryIndexInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _GSII,
-  0,
-  [_IN, _KS, _Pr, _PT, _ODT],
-  [0, () => KeySchema, () => Projection$, () => ProvisionedThroughput$, () => OnDemandThroughput$],
-];
-export var GlobalSecondaryIndexUpdate$: StaticStructureSchema = [
-  3,
-  n0,
-  _GSIU,
-  0,
-  [_U, _Cr, _De],
-  [
-    () => UpdateGlobalSecondaryIndexAction$,
-    () => CreateGlobalSecondaryIndexAction$,
-    () => DeleteGlobalSecondaryIndexAction$,
-  ],
-];
-export var GlobalSecondaryIndexWarmThroughputDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _GSIWTD,
-  0,
-  [_RUPS, _WUPS, _Sta],
-  [1, 1, 0],
-];
-export var GlobalTable$: StaticStructureSchema = [3, n0, _GT, 0, [_GTN, _RG], [0, () => ReplicaList]];
-export var GlobalTableAlreadyExistsException$: StaticErrorSchema = [-3, n0, _GTAEE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(GlobalTableAlreadyExistsException$, GlobalTableAlreadyExistsException);
-export var GlobalTableDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _GTD,
-  0,
-  [_RG, _GTA, _CDT, _GTS, _GTN],
-  [() => ReplicaDescriptionList, 0, 4, 0, 0],
-];
-export var GlobalTableGlobalSecondaryIndexSettingsUpdate$: StaticStructureSchema = [
-  3,
-  n0,
-  _GTGSISU,
-  0,
-  [_IN, _PWCU, _PWCASSU],
-  [0, 1, () => AutoScalingSettingsUpdate$],
-];
-export var GlobalTableNotFoundException$: StaticErrorSchema = [-3, n0, _GTNFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(GlobalTableNotFoundException$, GlobalTableNotFoundException);
-export var GlobalTableWitnessDescription$: StaticStructureSchema = [3, n0, _GTWD, 0, [_RN, _WS], [0, 0]];
-export var GlobalTableWitnessGroupUpdate$: StaticStructureSchema = [
-  3,
-  n0,
-  _GTWGU,
-  0,
-  [_Cr, _De],
-  [() => CreateGlobalTableWitnessGroupMemberAction$, () => DeleteGlobalTableWitnessGroupMemberAction$],
-];
-export var IdempotentParameterMismatchException$: StaticErrorSchema = [-3, n0, _IPME, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(IdempotentParameterMismatchException$, IdempotentParameterMismatchException);
-export var ImportConflictException$: StaticErrorSchema = [-3, n0, _ICE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ImportConflictException$, ImportConflictException);
-export var ImportNotFoundException$: StaticErrorSchema = [-3, n0, _INFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ImportNotFoundException$, ImportNotFoundException);
-export var ImportSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _ISm,
-  0,
-  [_IA, _ISmp, _TA, _SBS, _CWLGA, _IF, _ST, _ET],
-  [0, 0, 0, () => S3BucketSource$, 0, 0, 4, 4],
-];
-export var ImportTableDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _ITD,
-  0,
-  [_IA, _ISmp, _TA, _TI, _CT, _SBS, _EC, _CWLGA, _IF, _IFO, _ICT, _TCP, _ST, _ET, _PSB, _PIC, _IIC, _FC, _FM],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    () => S3BucketSource$,
-    1,
-    0,
-    0,
-    () => InputFormatOptions$,
-    0,
-    () => TableCreationParameters$,
-    4,
-    4,
-    1,
-    1,
-    1,
-    0,
-    0,
-  ],
-];
-export var ImportTableInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _ITI,
-  0,
-  [_CT, _SBS, _IF, _IFO, _ICT, _TCP],
-  [[0, 4], () => S3BucketSource$, 0, () => InputFormatOptions$, 0, () => TableCreationParameters$],
-];
-export var ImportTableOutput$: StaticStructureSchema = [3, n0, _ITO, 0, [_ITD], [() => ImportTableDescription$]];
-export var IncrementalExportSpecification$: StaticStructureSchema = [3, n0, _IES, 0, [_EFT, _ETT, _EVT], [4, 4, 0]];
-export var IndexNotFoundException$: StaticErrorSchema = [-3, n0, _INFEn, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(IndexNotFoundException$, IndexNotFoundException);
-export var InputFormatOptions$: StaticStructureSchema = [3, n0, _IFO, 0, [_Cs], [() => CsvOptions$]];
-export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
-export var InvalidEndpointException$: StaticErrorSchema = [-3, n0, _IEE, { [_e]: _c, [_hE]: 421 }, [_M], [0]];
-TypeRegistry.for(n0).registerError(InvalidEndpointException$, InvalidEndpointException);
-export var InvalidExportTimeException$: StaticErrorSchema = [-3, n0, _IETE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InvalidExportTimeException$, InvalidExportTimeException);
-export var InvalidRestoreTimeException$: StaticErrorSchema = [-3, n0, _IRTE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InvalidRestoreTimeException$, InvalidRestoreTimeException);
-export var ItemCollectionMetrics$: StaticStructureSchema = [
-  3,
-  n0,
-  _ICM,
-  0,
-  [_ICK, _SERGB],
-  [() => ItemCollectionKeyAttributeMap, 64 | 1],
-];
-export var ItemCollectionSizeLimitExceededException$: StaticErrorSchema = [-3, n0, _ICSLEE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ItemCollectionSizeLimitExceededException$, ItemCollectionSizeLimitExceededException);
-export var ItemResponse$: StaticStructureSchema = [3, n0, _IR, 0, [_I], [() => AttributeMap]];
-export var KeysAndAttributes$: StaticStructureSchema = [
-  3,
-  n0,
-  _KAA,
-  0,
-  [_Ke, _ATG, _CR, _PE, _EAN],
-  [() => KeyList, 64 | 0, 2, 0, 128 | 0],
-];
-export var KeySchemaElement$: StaticStructureSchema = [3, n0, _KSE, 0, [_AN, _KT], [0, 0]];
-export var KinesisDataStreamDestination$: StaticStructureSchema = [
-  3,
-  n0,
-  _KDSDi,
-  0,
-  [_SA, _DS, _DSD, _ACDTP],
-  [0, 0, 0, 0],
-];
-export var KinesisStreamingDestinationInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _KSDI,
-  0,
-  [_TN, _SA, _EKSC],
-  [0, 0, () => EnableKinesisStreamingConfiguration$],
-];
-export var KinesisStreamingDestinationOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _KSDO,
-  0,
-  [_TN, _SA, _DS, _EKSC],
-  [0, 0, 0, () => EnableKinesisStreamingConfiguration$],
-];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
-export var ListBackupsInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LBI,
-  0,
-  [_TN, _L, _TRLB, _TRUB, _ESBA, _BT],
-  [0, 1, 4, 4, 0, 0],
-];
-export var ListBackupsOutput$: StaticStructureSchema = [3, n0, _LBO, 0, [_BSac, _LEBA], [() => BackupSummaries, 0]];
-export var ListContributorInsightsInput$: StaticStructureSchema = [3, n0, _LCII, 0, [_TN, _NT, _MR], [0, 0, 1]];
-export var ListContributorInsightsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LCIO,
-  0,
-  [_CISon, _NT],
-  [() => ContributorInsightsSummaries, 0],
-];
-export var ListExportsInput$: StaticStructureSchema = [3, n0, _LEI, 0, [_TA, _MR, _NT], [0, 1, 0]];
-export var ListExportsOutput$: StaticStructureSchema = [3, n0, _LEO, 0, [_ESxp, _NT], [() => ExportSummaries, 0]];
-export var ListGlobalTablesInput$: StaticStructureSchema = [3, n0, _LGTI, 0, [_ESGTN, _L, _RN], [0, 1, 0]];
-export var ListGlobalTablesOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LGTO,
-  0,
-  [_GTl, _LEGTN],
-  [() => GlobalTableList, 0],
-];
-export var ListImportsInput$: StaticStructureSchema = [3, n0, _LII, 0, [_TA, _PS, _NT], [0, 1, 0]];
-export var ListImportsOutput$: StaticStructureSchema = [3, n0, _LIO, 0, [_ISL, _NT], [() => ImportSummaryList, 0]];
-export var ListTablesInput$: StaticStructureSchema = [3, n0, _LTI, 0, [_ESTN, _L], [0, 1]];
-export var ListTablesOutput$: StaticStructureSchema = [3, n0, _LTO, 0, [_TNa, _LETN], [64 | 0, 0]];
-export var ListTagsOfResourceInput$: StaticStructureSchema = [3, n0, _LTORI, 0, [_RA, _NT], [0, 0]];
-export var ListTagsOfResourceOutput$: StaticStructureSchema = [3, n0, _LTORO, 0, [_Ta, _NT], [() => TagList, 0]];
-export var LocalSecondaryIndex$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSIo,
-  0,
-  [_IN, _KS, _Pr],
-  [0, () => KeySchema, () => Projection$],
-];
-export var LocalSecondaryIndexDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSID,
-  0,
-  [_IN, _KS, _Pr, _ISB, _IC, _IAn],
-  [0, () => KeySchema, () => Projection$, 1, 1, 0],
-];
-export var LocalSecondaryIndexInfo$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSII,
-  0,
-  [_IN, _KS, _Pr],
-  [0, () => KeySchema, () => Projection$],
-];
-export var OnDemandThroughput$: StaticStructureSchema = [3, n0, _ODT, 0, [_MRRU, _MWRU], [1, 1]];
-export var OnDemandThroughputOverride$: StaticStructureSchema = [3, n0, _ODTO, 0, [_MRRU], [1]];
-export var ParameterizedStatement$: StaticStructureSchema = [
-  3,
-  n0,
-  _PSa,
-  0,
-  [_St, _P, _RVOCCF],
-  [0, () => PreparedStatementParameters, 0],
-];
-export var PointInTimeRecoveryDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _PITRD,
-  0,
-  [_PITRS, _RPID, _ERDT, _LRDT],
-  [0, 1, 4, 4],
-];
-export var PointInTimeRecoverySpecification$: StaticStructureSchema = [3, n0, _PITRSo, 0, [_PITRE, _RPID], [2, 1]];
-export var PointInTimeRecoveryUnavailableException$: StaticErrorSchema = [-3, n0, _PITRUE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(PointInTimeRecoveryUnavailableException$, PointInTimeRecoveryUnavailableException);
-export var PolicyNotFoundException$: StaticErrorSchema = [-3, n0, _PNFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(PolicyNotFoundException$, PolicyNotFoundException);
-export var Projection$: StaticStructureSchema = [3, n0, _Pr, 0, [_PTr, _NKA], [0, 64 | 0]];
-export var ProvisionedThroughput$: StaticStructureSchema = [3, n0, _PT, 0, [_RCU, _WCU], [1, 1]];
-export var ProvisionedThroughputDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _PTD,
-  0,
-  [_LIDT, _LDDT, _NODT, _RCU, _WCU],
-  [4, 4, 1, 1, 1],
-];
-export var ProvisionedThroughputExceededException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _PTEE,
-  { [_e]: _c },
-  [_m, _TR],
-  [0, () => ThrottlingReasonList],
-];
-TypeRegistry.for(n0).registerError(ProvisionedThroughputExceededException$, ProvisionedThroughputExceededException);
-export var ProvisionedThroughputOverride$: StaticStructureSchema = [3, n0, _PTO, 0, [_RCU], [1]];
-export var Put$: StaticStructureSchema = [
-  3,
-  n0,
-  _Pu,
-  0,
-  [_I, _TN, _CE, _EAN, _EAV, _RVOCCF],
-  [() => PutItemInputAttributeMap, 0, 0, 128 | 0, () => ExpressionAttributeValueMap, 0],
-];
-export var PutItemInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _PII,
-  0,
-  [_TN, _I, _Ex, _RV, _RCC, _RICM, _COo, _CE, _EAN, _EAV, _RVOCCF],
-  [
-    0,
-    () => PutItemInputAttributeMap,
-    () => ExpectedAttributeMap,
-    0,
-    0,
-    0,
-    0,
-    0,
-    128 | 0,
-    () => ExpressionAttributeValueMap,
-    0,
-  ],
-];
-export var PutItemOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _PIO,
-  0,
-  [_At, _CC, _ICM],
-  [() => AttributeMap, () => ConsumedCapacity$, () => ItemCollectionMetrics$],
-];
-export var PutRequest$: StaticStructureSchema = [3, n0, _PR, 0, [_I], [() => PutItemInputAttributeMap]];
-export var PutResourcePolicyInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _PRPI,
-  0,
-  [_RA, _Po, _ERI, _CRSRA],
-  [0, 0, 0, [2, { [_hH]: _xacrsra }]],
-];
-export var PutResourcePolicyOutput$: StaticStructureSchema = [3, n0, _PRPO, 0, [_RIe], [0]];
-export var QueryInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _QI,
-  0,
-  [_TN, _IN, _Se, _ATG, _L, _CR, _KC, _QF, _COo, _SIF, _ESK, _RCC, _PE, _FEi, _KCE, _EAN, _EAV],
-  [
-    0,
-    0,
-    0,
-    64 | 0,
-    1,
-    2,
-    () => KeyConditions,
-    () => FilterConditionMap,
-    0,
-    2,
-    () => Key,
-    0,
-    0,
-    0,
-    0,
-    128 | 0,
-    () => ExpressionAttributeValueMap,
-  ],
-];
-export var QueryOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _QO,
-  0,
-  [_It, _Cou, _SC, _LEK, _CC],
-  [() => ItemList, 1, 1, () => Key, () => ConsumedCapacity$],
-];
-export var Replica$: StaticStructureSchema = [3, n0, _Re, 0, [_RN], [0]];
-export var ReplicaAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ReplicaAlreadyExistsException$, ReplicaAlreadyExistsException);
-export var ReplicaAutoScalingDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _RASD,
-  0,
-  [_RN, _GSI, _RPRCASS, _RPWCASS, _RSe],
-  [
-    0,
-    () => ReplicaGlobalSecondaryIndexAutoScalingDescriptionList,
-    () => AutoScalingSettingsDescription$,
-    () => AutoScalingSettingsDescription$,
-    0,
-  ],
-];
-export var ReplicaAutoScalingUpdate$: StaticStructureSchema = [
-  3,
-  n0,
-  _RASU,
-  0,
-  [_RN, _RGSIU, _RPRCASU],
-  [0, () => ReplicaGlobalSecondaryIndexAutoScalingUpdateList, () => AutoScalingSettingsUpdate$],
-];
-export var ReplicaDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _RD,
-  0,
-  [_RN, _RSe, _RSD, _RSPP, _KMSMKI, _PTO, _ODTO, _WT, _GSI, _RIDT, _RTCS],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    () => ProvisionedThroughputOverride$,
-    () => OnDemandThroughputOverride$,
-    () => TableWarmThroughputDescription$,
-    () => ReplicaGlobalSecondaryIndexDescriptionList,
-    4,
-    () => TableClassSummary$,
-  ],
-];
-export var ReplicaGlobalSecondaryIndex$: StaticStructureSchema = [
-  3,
-  n0,
-  _RGSI,
-  0,
-  [_IN, _PTO, _ODTO],
-  [0, () => ProvisionedThroughputOverride$, () => OnDemandThroughputOverride$],
-];
-export var ReplicaGlobalSecondaryIndexAutoScalingDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _RGSIASD,
-  0,
-  [_IN, _IS, _PRCASS, _PWCASS],
-  [0, 0, () => AutoScalingSettingsDescription$, () => AutoScalingSettingsDescription$],
-];
-export var ReplicaGlobalSecondaryIndexAutoScalingUpdate$: StaticStructureSchema = [
-  3,
-  n0,
-  _RGSIASU,
-  0,
-  [_IN, _PRCASU],
-  [0, () => AutoScalingSettingsUpdate$],
-];
-export var ReplicaGlobalSecondaryIndexDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _RGSID,
-  0,
-  [_IN, _PTO, _ODTO, _WT],
-  [
-    0,
-    () => ProvisionedThroughputOverride$,
-    () => OnDemandThroughputOverride$,
-    () => GlobalSecondaryIndexWarmThroughputDescription$,
-  ],
-];
-export var ReplicaGlobalSecondaryIndexSettingsDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _RGSISD,
-  0,
-  [_IN, _IS, _PRCU, _PRCASS, _PWCU, _PWCASS],
-  [0, 0, 1, () => AutoScalingSettingsDescription$, 1, () => AutoScalingSettingsDescription$],
-];
-export var ReplicaGlobalSecondaryIndexSettingsUpdate$: StaticStructureSchema = [
-  3,
-  n0,
-  _RGSISU,
-  0,
-  [_IN, _PRCU, _PRCASSU],
-  [0, 1, () => AutoScalingSettingsUpdate$],
-];
-export var ReplicaNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ReplicaNotFoundException$, ReplicaNotFoundException);
-export var ReplicaSettingsDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _RSDe,
-  0,
-  [_RN, _RSe, _RBMS, _RPRCU, _RPRCASS, _RPWCU, _RPWCASS, _RGSIS, _RTCS],
-  [
-    0,
-    0,
-    () => BillingModeSummary$,
-    1,
-    () => AutoScalingSettingsDescription$,
-    1,
-    () => AutoScalingSettingsDescription$,
-    () => ReplicaGlobalSecondaryIndexSettingsDescriptionList,
-    () => TableClassSummary$,
-  ],
-];
-export var ReplicaSettingsUpdate$: StaticStructureSchema = [
-  3,
-  n0,
-  _RSU,
-  0,
-  [_RN, _RPRCU, _RPRCASSU, _RGSISU, _RTC],
-  [0, 1, () => AutoScalingSettingsUpdate$, () => ReplicaGlobalSecondaryIndexSettingsUpdateList, 0],
-];
-export var ReplicatedWriteConflictException$: StaticErrorSchema = [-3, n0, _RWCE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ReplicatedWriteConflictException$, ReplicatedWriteConflictException);
-export var ReplicationGroupUpdate$: StaticStructureSchema = [
-  3,
-  n0,
-  _RGU,
-  0,
-  [_Cr, _U, _De],
-  [
-    () => CreateReplicationGroupMemberAction$,
-    () => UpdateReplicationGroupMemberAction$,
-    () => DeleteReplicationGroupMemberAction$,
-  ],
-];
-export var ReplicaUpdate$: StaticStructureSchema = [
-  3,
-  n0,
-  _RU,
-  0,
-  [_Cr, _De],
-  [() => CreateReplicaAction$, () => DeleteReplicaAction$],
-];
-export var RequestLimitExceeded$: StaticErrorSchema = [
-  -3,
-  n0,
-  _RLE,
-  { [_e]: _c },
-  [_m, _TR],
-  [0, () => ThrottlingReasonList],
-];
-TypeRegistry.for(n0).registerError(RequestLimitExceeded$, RequestLimitExceeded);
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFEe, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var RestoreSummary$: StaticStructureSchema = [3, n0, _RSes, 0, [_SBA, _STA, _RDT, _RIP], [0, 0, 4, 2]];
-export var RestoreTableFromBackupInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _RTFBI,
-  0,
-  [_TTN, _BA, _BMO, _GSIO, _LSIO, _PTO, _ODTO, _SSESO],
-  [
-    0,
-    0,
-    0,
-    () => GlobalSecondaryIndexList,
-    () => LocalSecondaryIndexList,
-    () => ProvisionedThroughput$,
-    () => OnDemandThroughput$,
-    () => SSESpecification$,
-  ],
-];
-export var RestoreTableFromBackupOutput$: StaticStructureSchema = [3, n0, _RTFBO, 0, [_TD], [() => TableDescription$]];
-export var RestoreTableToPointInTimeInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _RTTPITI,
-  0,
-  [_STA, _STN, _TTN, _ULRT, _RDT, _BMO, _GSIO, _LSIO, _PTO, _ODTO, _SSESO],
-  [
-    0,
-    0,
-    0,
-    2,
-    4,
-    0,
-    () => GlobalSecondaryIndexList,
-    () => LocalSecondaryIndexList,
-    () => ProvisionedThroughput$,
-    () => OnDemandThroughput$,
-    () => SSESpecification$,
-  ],
-];
-export var RestoreTableToPointInTimeOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _RTTPITO,
-  0,
-  [_TD],
-  [() => TableDescription$],
-];
-export var S3BucketSource$: StaticStructureSchema = [3, n0, _SBS, 0, [_SBO, _SB, _SKP], [0, 0, 0]];
-export var ScanInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _SI,
-  0,
-  [_TN, _IN, _ATG, _L, _Se, _SF, _COo, _ESK, _RCC, _TSo, _Seg, _PE, _FEi, _EAN, _EAV, _CR],
-  [
-    0,
-    0,
-    64 | 0,
-    1,
-    0,
-    () => FilterConditionMap,
-    0,
-    () => Key,
-    0,
-    1,
-    1,
-    0,
-    0,
-    128 | 0,
-    () => ExpressionAttributeValueMap,
-    2,
-  ],
-];
-export var ScanOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _SO,
-  0,
-  [_It, _Cou, _SC, _LEK, _CC],
-  [() => ItemList, 1, 1, () => Key, () => ConsumedCapacity$],
-];
-export var SourceTableDetails$: StaticStructureSchema = [
-  3,
-  n0,
-  _STD,
-  0,
-  [_TN, _TI, _TA, _TSB, _KS, _TCDT, _PT, _ODT, _IC, _BM],
-  [0, 0, 0, 1, () => KeySchema, 4, () => ProvisionedThroughput$, () => OnDemandThroughput$, 1, 0],
-];
-export var SourceTableFeatureDetails$: StaticStructureSchema = [
-  3,
-  n0,
-  _STFD,
-  0,
-  [_LSI, _GSI, _SD, _TTLD, _SSED],
-  [
-    () => LocalSecondaryIndexes,
-    () => GlobalSecondaryIndexes,
-    () => StreamSpecification$,
-    () => TimeToLiveDescription$,
-    () => SSEDescription$,
-  ],
-];
-export var SSEDescription$: StaticStructureSchema = [3, n0, _SSED, 0, [_Sta, _SSET, _KMSMKA, _IEDT], [0, 0, 0, 4]];
-export var SSESpecification$: StaticStructureSchema = [3, n0, _SSES, 0, [_Ena, _SSET, _KMSMKI], [2, 0, 0]];
-export var StreamSpecification$: StaticStructureSchema = [3, n0, _SS, 0, [_SE, _SVT], [2, 0]];
-export var TableAlreadyExistsException$: StaticErrorSchema = [-3, n0, _TAEE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(TableAlreadyExistsException$, TableAlreadyExistsException);
-export var TableAutoScalingDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _TASD,
-  0,
-  [_TN, _TSa, _Rep],
-  [0, 0, () => ReplicaAutoScalingDescriptionList],
-];
-export var TableClassSummary$: StaticStructureSchema = [3, n0, _TCS, 0, [_TC, _LUDT], [0, 4]];
-export var TableCreationParameters$: StaticStructureSchema = [
-  3,
-  n0,
-  _TCP,
-  0,
-  [_TN, _ADt, _KS, _BM, _PT, _ODT, _SSES, _GSI],
-  [
-    0,
-    () => AttributeDefinitions,
-    () => KeySchema,
-    0,
-    () => ProvisionedThroughput$,
-    () => OnDemandThroughput$,
-    () => SSESpecification$,
-    () => GlobalSecondaryIndexList,
-  ],
-];
-export var TableDescription$: StaticStructureSchema = [
-  3,
-  n0,
-  _TD,
-  0,
-  [
-    _ADt,
-    _TN,
-    _KS,
-    _TSa,
-    _CDT,
-    _PT,
-    _TSB,
-    _IC,
-    _TA,
-    _TI,
-    _BMS,
-    _LSI,
-    _GSI,
-    _SS,
-    _LSL,
-    _LSA,
-    _GTV,
-    _Rep,
-    _GTW,
-    _RSes,
-    _SSED,
-    _AS,
-    _TCS,
-    _DPE,
-    _ODT,
-    _WT,
-    _MRC,
-  ],
-  [
-    () => AttributeDefinitions,
-    0,
-    () => KeySchema,
-    0,
-    4,
-    () => ProvisionedThroughputDescription$,
-    1,
-    1,
-    0,
-    0,
-    () => BillingModeSummary$,
-    () => LocalSecondaryIndexDescriptionList,
-    () => GlobalSecondaryIndexDescriptionList,
-    () => StreamSpecification$,
-    0,
-    0,
-    0,
-    () => ReplicaDescriptionList,
-    () => GlobalTableWitnessDescriptionList,
-    () => RestoreSummary$,
-    () => SSEDescription$,
-    () => ArchivalSummary$,
-    () => TableClassSummary$,
-    2,
-    () => OnDemandThroughput$,
-    () => TableWarmThroughputDescription$,
-    0,
-  ],
-];
-export var TableInUseException$: StaticErrorSchema = [-3, n0, _TIUE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(TableInUseException$, TableInUseException);
-export var TableNotFoundException$: StaticErrorSchema = [-3, n0, _TNFE, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(TableNotFoundException$, TableNotFoundException);
-export var TableWarmThroughputDescription$: StaticStructureSchema = [3, n0, _TWTD, 0, [_RUPS, _WUPS, _Sta], [1, 1, 0]];
-export var Tag$: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
-export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI, 0, [_RA, _Ta], [0, () => TagList]];
-export var ThrottlingException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _TE,
-  { [_aQE]: [`Throttling`, 400], [_e]: _c, [_hE]: 400 },
-  [_m, _tR],
-  [0, () => ThrottlingReasonList],
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var ThrottlingReason$: StaticStructureSchema = [3, n0, _TRh, 0, [_r, _re], [0, 0]];
-export var TimeToLiveDescription$: StaticStructureSchema = [3, n0, _TTLD, 0, [_TTLS, _AN], [0, 0]];
-export var TimeToLiveSpecification$: StaticStructureSchema = [3, n0, _TTLSi, 0, [_Ena, _AN], [2, 0]];
-export var TransactGetItem$: StaticStructureSchema = [3, n0, _TGI, 0, [_G], [() => Get$]];
-export var TransactGetItemsInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _TGII,
-  0,
-  [_TIr, _RCC],
-  [() => TransactGetItemList, 0],
-];
-export var TransactGetItemsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _TGIO,
-  0,
-  [_CC, _R],
-  [() => ConsumedCapacityMultiple, () => ItemResponseList],
-];
-export var TransactionCanceledException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _TCE,
-  { [_e]: _c },
-  [_M, _CRan],
-  [0, () => CancellationReasonList],
-];
-TypeRegistry.for(n0).registerError(TransactionCanceledException$, TransactionCanceledException);
-export var TransactionConflictException$: StaticErrorSchema = [-3, n0, _TCEr, { [_e]: _c }, [_m], [0]];
-TypeRegistry.for(n0).registerError(TransactionConflictException$, TransactionConflictException);
-export var TransactionInProgressException$: StaticErrorSchema = [-3, n0, _TIPE, { [_e]: _c }, [_M], [0]];
-TypeRegistry.for(n0).registerError(TransactionInProgressException$, TransactionInProgressException);
-export var TransactWriteItem$: StaticStructureSchema = [
-  3,
-  n0,
-  _TWI,
-  0,
-  [_CCo, _Pu, _De, _U],
-  [() => ConditionCheck$, () => Put$, () => Delete$, () => Update$],
-];
-export var TransactWriteItemsInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _TWII,
-  0,
-  [_TIr, _RCC, _RICM, _CRT],
-  [() => TransactWriteItemList, 0, 0, [0, 4]],
-];
-export var TransactWriteItemsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _TWIO,
-  0,
-  [_CC, _ICM],
-  [() => ConsumedCapacityMultiple, () => ItemCollectionMetricsPerTable],
-];
-export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI, 0, [_RA, _TK], [0, 64 | 0]];
-export var Update$: StaticStructureSchema = [
-  3,
-  n0,
-  _U,
-  0,
-  [_K, _UE, _TN, _CE, _EAN, _EAV, _RVOCCF],
-  [() => Key, 0, 0, 0, 128 | 0, () => ExpressionAttributeValueMap, 0],
-];
-export var UpdateContinuousBackupsInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCBI,
-  0,
-  [_TN, _PITRSo],
-  [0, () => PointInTimeRecoverySpecification$],
-];
-export var UpdateContinuousBackupsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCBO,
-  0,
-  [_CBD],
-  [() => ContinuousBackupsDescription$],
-];
-export var UpdateContributorInsightsInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCII,
-  0,
-  [_TN, _IN, _CIA, _CIM],
-  [0, 0, 0, 0],
-];
-export var UpdateContributorInsightsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UCIO,
+export var ContributorInsightsSummary$: StaticStructureSchema = [3, n0, _CIS,
   0,
   [_TN, _IN, _CISo, _CIM],
-  [0, 0, 0, 0],
+  [0, 0, 0, 0]
 ];
-export var UpdateGlobalSecondaryIndexAction$: StaticStructureSchema = [
-  3,
-  n0,
-  _UGSIA,
+export var CreateBackupInput$: StaticStructureSchema = [3, n0, _CBI,
   0,
-  [_IN, _PT, _ODT, _WT],
-  [0, () => ProvisionedThroughput$, () => OnDemandThroughput$, () => WarmThroughput$],
+  [_TN, _BN],
+  [0, 0]
 ];
-export var UpdateGlobalTableInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UGTI,
+export var CreateBackupOutput$: StaticStructureSchema = [3, n0, _CBO,
   0,
-  [_GTN, _RUe],
-  [0, () => ReplicaUpdateList],
+  [_BDa],
+  [() => BackupDetails$]
 ];
-export var UpdateGlobalTableOutput$: StaticStructureSchema = [3, n0, _UGTO, 0, [_GTD], [() => GlobalTableDescription$]];
-export var UpdateGlobalTableSettingsInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UGTSI,
+export var CreateGlobalSecondaryIndexAction$: StaticStructureSchema = [3, n0, _CGSIA,
   0,
-  [_GTN, _GTBM, _GTPWCU, _GTPWCASSU, _GTGSISU, _RSU],
-  [
-    0,
-    0,
-    1,
-    () => AutoScalingSettingsUpdate$,
-    () => GlobalTableGlobalSecondaryIndexSettingsUpdateList,
-    () => ReplicaSettingsUpdateList,
-  ],
+  [_IN, _KS, _Pr, _PT, _ODT, _WT],
+  [0, () => KeySchema, () => Projection$, () => ProvisionedThroughput$, () => OnDemandThroughput$, () => WarmThroughput$]
 ];
-export var UpdateGlobalTableSettingsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UGTSO,
+export var CreateGlobalTableInput$: StaticStructureSchema = [3, n0, _CGTI,
   0,
-  [_GTN, _RS],
-  [0, () => ReplicaSettingsDescriptionList],
+  [_GTN, _RG],
+  [0, () => ReplicaList]
 ];
-export var UpdateItemInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UII,
+export var CreateGlobalTableOutput$: StaticStructureSchema = [3, n0, _CGTO,
   0,
-  [_TN, _K, _AU, _Ex, _COo, _RV, _RCC, _RICM, _UE, _CE, _EAN, _EAV, _RVOCCF],
-  [
-    0,
-    () => Key,
-    () => AttributeUpdates,
-    () => ExpectedAttributeMap,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    128 | 0,
-    () => ExpressionAttributeValueMap,
-    0,
-  ],
+  [_GTD],
+  [() => GlobalTableDescription$]
 ];
-export var UpdateItemOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UIO,
+export var CreateGlobalTableWitnessGroupMemberAction$: StaticStructureSchema = [3, n0, _CGTWGMA,
   0,
-  [_At, _CC, _ICM],
-  [() => AttributeMap, () => ConsumedCapacity$, () => ItemCollectionMetrics$],
+  [_RN],
+  [0]
 ];
-export var UpdateKinesisStreamingConfiguration$: StaticStructureSchema = [3, n0, _UKSC, 0, [_ACDTP], [0]];
-export var UpdateKinesisStreamingDestinationInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UKSDI,
+export var CreateReplicaAction$: StaticStructureSchema = [3, n0, _CRA,
   0,
-  [_TN, _SA, _UKSC],
-  [0, 0, () => UpdateKinesisStreamingConfiguration$],
+  [_RN],
+  [0]
 ];
-export var UpdateKinesisStreamingDestinationOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UKSDO,
-  0,
-  [_TN, _SA, _DS, _UKSC],
-  [0, 0, 0, () => UpdateKinesisStreamingConfiguration$],
-];
-export var UpdateReplicationGroupMemberAction$: StaticStructureSchema = [
-  3,
-  n0,
-  _URGMA,
+export var CreateReplicationGroupMemberAction$: StaticStructureSchema = [3, n0, _CRGMA,
   0,
   [_RN, _KMSMKI, _PTO, _ODTO, _GSI, _TCO],
-  [
-    0,
-    0,
-    () => ProvisionedThroughputOverride$,
-    () => OnDemandThroughputOverride$,
-    () => ReplicaGlobalSecondaryIndexList,
-    0,
-  ],
+  [0, 0, () => ProvisionedThroughputOverride$, () => OnDemandThroughputOverride$, () => ReplicaGlobalSecondaryIndexList, 0]
 ];
-export var UpdateTableInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UTI,
+export var CreateTableInput$: StaticStructureSchema = [3, n0, _CTI,
   0,
-  [_ADt, _TN, _BM, _PT, _GSIUl, _SS, _SSES, _RUe, _TC, _DPE, _MRC, _GTWU, _ODT, _WT],
-  [
-    () => AttributeDefinitions,
-    0,
-    0,
-    () => ProvisionedThroughput$,
-    () => GlobalSecondaryIndexUpdateList,
-    () => StreamSpecification$,
-    () => SSESpecification$,
-    () => ReplicationGroupUpdateList,
-    0,
-    2,
-    0,
-    () => GlobalTableWitnessGroupUpdateList,
-    () => OnDemandThroughput$,
-    () => WarmThroughput$,
-  ],
+  [_ADt, _TN, _KS, _LSI, _GSI, _BM, _PT, _SS, _SSES, _Ta, _TC, _DPE, _WT, _RP, _ODT],
+  [() => AttributeDefinitions, 0, () => KeySchema, () => LocalSecondaryIndexList, () => GlobalSecondaryIndexList, 0, () => ProvisionedThroughput$, () => StreamSpecification$, () => SSESpecification$, () => TagList, 0, 2, () => WarmThroughput$, 0, () => OnDemandThroughput$]
 ];
-export var UpdateTableOutput$: StaticStructureSchema = [3, n0, _UTO, 0, [_TD], [() => TableDescription$]];
-export var UpdateTableReplicaAutoScalingInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UTRASI,
+export var CreateTableOutput$: StaticStructureSchema = [3, n0, _CTO,
   0,
-  [_GSIUl, _TN, _PWCASU, _RUe],
-  [
-    () => GlobalSecondaryIndexAutoScalingUpdateList,
-    0,
-    () => AutoScalingSettingsUpdate$,
-    () => ReplicaAutoScalingUpdateList,
-  ],
+  [_TD],
+  [() => TableDescription$]
 ];
-export var UpdateTableReplicaAutoScalingOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UTRASO,
+export var CsvOptions$: StaticStructureSchema = [3, n0, _COs,
+  0,
+  [_D, _HL],
+  [0, 64 | 0]
+];
+export var Delete$: StaticStructureSchema = [3, n0, _De,
+  0,
+  [_K, _TN, _CE, _EAN, _EAV, _RVOCCF],
+  [() => Key, 0, 0, 128 | 0, () => ExpressionAttributeValueMap, 0]
+];
+export var DeleteBackupInput$: StaticStructureSchema = [3, n0, _DBI,
+  0,
+  [_BA],
+  [0]
+];
+export var DeleteBackupOutput$: StaticStructureSchema = [3, n0, _DBO,
+  0,
+  [_BD],
+  [() => BackupDescription$]
+];
+export var DeleteGlobalSecondaryIndexAction$: StaticStructureSchema = [3, n0, _DGSIA,
+  0,
+  [_IN],
+  [0]
+];
+export var DeleteGlobalTableWitnessGroupMemberAction$: StaticStructureSchema = [3, n0, _DGTWGMA,
+  0,
+  [_RN],
+  [0]
+];
+export var DeleteItemInput$: StaticStructureSchema = [3, n0, _DII,
+  0,
+  [_TN, _K, _Ex, _COo, _RV, _RCC, _RICM, _CE, _EAN, _EAV, _RVOCCF],
+  [0, () => Key, () => ExpectedAttributeMap, 0, 0, 0, 0, 0, 128 | 0, () => ExpressionAttributeValueMap, 0]
+];
+export var DeleteItemOutput$: StaticStructureSchema = [3, n0, _DIO,
+  0,
+  [_At, _CC, _ICM],
+  [() => AttributeMap, () => ConsumedCapacity$, () => ItemCollectionMetrics$]
+];
+export var DeleteReplicaAction$: StaticStructureSchema = [3, n0, _DRA,
+  0,
+  [_RN],
+  [0]
+];
+export var DeleteReplicationGroupMemberAction$: StaticStructureSchema = [3, n0, _DRGMA,
+  0,
+  [_RN],
+  [0]
+];
+export var DeleteRequest$: StaticStructureSchema = [3, n0, _DR,
+  0,
+  [_K],
+  [() => Key]
+];
+export var DeleteResourcePolicyInput$: StaticStructureSchema = [3, n0, _DRPI,
+  0,
+  [_RA, _ERI],
+  [0, 0]
+];
+export var DeleteResourcePolicyOutput$: StaticStructureSchema = [3, n0, _DRPO,
+  0,
+  [_RIe],
+  [0]
+];
+export var DeleteTableInput$: StaticStructureSchema = [3, n0, _DTI,
+  0,
+  [_TN],
+  [0]
+];
+export var DeleteTableOutput$: StaticStructureSchema = [3, n0, _DTO,
+  0,
+  [_TD],
+  [() => TableDescription$]
+];
+export var DescribeBackupInput$: StaticStructureSchema = [3, n0, _DBIe,
+  0,
+  [_BA],
+  [0]
+];
+export var DescribeBackupOutput$: StaticStructureSchema = [3, n0, _DBOe,
+  0,
+  [_BD],
+  [() => BackupDescription$]
+];
+export var DescribeContinuousBackupsInput$: StaticStructureSchema = [3, n0, _DCBI,
+  0,
+  [_TN],
+  [0]
+];
+export var DescribeContinuousBackupsOutput$: StaticStructureSchema = [3, n0, _DCBO,
+  0,
+  [_CBD],
+  [() => ContinuousBackupsDescription$]
+];
+export var DescribeContributorInsightsInput$: StaticStructureSchema = [3, n0, _DCII,
+  0,
+  [_TN, _IN],
+  [0, 0]
+];
+export var DescribeContributorInsightsOutput$: StaticStructureSchema = [3, n0, _DCIO,
+  0,
+  [_TN, _IN, _CIRL, _CISo, _LUDT, _FE, _CIM],
+  [0, 0, 64 | 0, 0, 4, () => FailureException$, 0]
+];
+export var DescribeEndpointsRequest$: StaticStructureSchema = [3, n0, _DER,
+  0,
+  [],
+  []
+];
+export var DescribeEndpointsResponse$: StaticStructureSchema = [3, n0, _DERe,
+  0,
+  [_En],
+  [() => Endpoints]
+];
+export var DescribeExportInput$: StaticStructureSchema = [3, n0, _DEI,
+  0,
+  [_EA],
+  [0]
+];
+export var DescribeExportOutput$: StaticStructureSchema = [3, n0, _DEO,
+  0,
+  [_ED],
+  [() => ExportDescription$]
+];
+export var DescribeGlobalTableInput$: StaticStructureSchema = [3, n0, _DGTI,
+  0,
+  [_GTN],
+  [0]
+];
+export var DescribeGlobalTableOutput$: StaticStructureSchema = [3, n0, _DGTO,
+  0,
+  [_GTD],
+  [() => GlobalTableDescription$]
+];
+export var DescribeGlobalTableSettingsInput$: StaticStructureSchema = [3, n0, _DGTSI,
+  0,
+  [_GTN],
+  [0]
+];
+export var DescribeGlobalTableSettingsOutput$: StaticStructureSchema = [3, n0, _DGTSO,
+  0,
+  [_GTN, _RS],
+  [0, () => ReplicaSettingsDescriptionList]
+];
+export var DescribeImportInput$: StaticStructureSchema = [3, n0, _DIIe,
+  0,
+  [_IA],
+  [0]
+];
+export var DescribeImportOutput$: StaticStructureSchema = [3, n0, _DIOe,
+  0,
+  [_ITD],
+  [() => ImportTableDescription$]
+];
+export var DescribeKinesisStreamingDestinationInput$: StaticStructureSchema = [3, n0, _DKSDI,
+  0,
+  [_TN],
+  [0]
+];
+export var DescribeKinesisStreamingDestinationOutput$: StaticStructureSchema = [3, n0, _DKSDO,
+  0,
+  [_TN, _KDSD],
+  [0, () => KinesisDataStreamDestinations]
+];
+export var DescribeLimitsInput$: StaticStructureSchema = [3, n0, _DLI,
+  0,
+  [],
+  []
+];
+export var DescribeLimitsOutput$: StaticStructureSchema = [3, n0, _DLO,
+  0,
+  [_AMRCU, _AMWCU, _TMRCU, _TMWCU],
+  [1, 1, 1, 1]
+];
+export var DescribeTableInput$: StaticStructureSchema = [3, n0, _DTIe,
+  0,
+  [_TN],
+  [0]
+];
+export var DescribeTableOutput$: StaticStructureSchema = [3, n0, _DTOe,
+  0,
+  [_T],
+  [() => TableDescription$]
+];
+export var DescribeTableReplicaAutoScalingInput$: StaticStructureSchema = [3, n0, _DTRASI,
+  0,
+  [_TN],
+  [0]
+];
+export var DescribeTableReplicaAutoScalingOutput$: StaticStructureSchema = [3, n0, _DTRASO,
   0,
   [_TASD],
-  [() => TableAutoScalingDescription$],
+  [() => TableAutoScalingDescription$]
 ];
-export var UpdateTimeToLiveInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UTTLI,
+export var DescribeTimeToLiveInput$: StaticStructureSchema = [3, n0, _DTTLI,
+  0,
+  [_TN],
+  [0]
+];
+export var DescribeTimeToLiveOutput$: StaticStructureSchema = [3, n0, _DTTLO,
+  0,
+  [_TTLD],
+  [() => TimeToLiveDescription$]
+];
+export var DuplicateItemException$: StaticErrorSchema = [-3, n0, _DIE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(DuplicateItemException$, DuplicateItemException);
+export var EnableKinesisStreamingConfiguration$: StaticStructureSchema = [3, n0, _EKSC,
+  0,
+  [_ACDTP],
+  [0]
+];
+export var Endpoint$: StaticStructureSchema = [3, n0, _End,
+  0,
+  [_Ad, _CPIM],
+  [0, 1]
+];
+export var ExecuteStatementInput$: StaticStructureSchema = [3, n0, _ESI,
+  0,
+  [_St, _P, _CR, _NT, _RCC, _L, _RVOCCF],
+  [0, () => PreparedStatementParameters, 2, 0, 0, 1, 0]
+];
+export var ExecuteStatementOutput$: StaticStructureSchema = [3, n0, _ESO,
+  0,
+  [_It, _NT, _CC, _LEK],
+  [() => ItemList, 0, () => ConsumedCapacity$, () => Key]
+];
+export var ExecuteTransactionInput$: StaticStructureSchema = [3, n0, _ETI,
+  0,
+  [_TS, _CRT, _RCC],
+  [() => ParameterizedStatements, [0, 4], 0]
+];
+export var ExecuteTransactionOutput$: StaticStructureSchema = [3, n0, _ETO,
+  0,
+  [_R, _CC],
+  [() => ItemResponseList, () => ConsumedCapacityMultiple]
+];
+export var ExpectedAttributeValue$: StaticStructureSchema = [3, n0, _EAVx,
+  0,
+  [_V, _Exi, _CO, _AVL],
+  [() => AttributeValue$, 2, 0, () => AttributeValueList]
+];
+export var ExportConflictException$: StaticErrorSchema = [-3, n0, _ECE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ExportConflictException$, ExportConflictException);
+export var ExportDescription$: StaticStructureSchema = [3, n0, _ED,
+  0,
+  [_EA, _ES, _ST, _ET, _EM, _TA, _TI, _ETx, _CT, _SB, _SBO, _SPr, _SSA, _SSKKI, _FC, _FM, _EF, _BSBi, _IC, _ETxp, _IES],
+  [0, 0, 4, 4, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, () => IncrementalExportSpecification$]
+];
+export var ExportNotFoundException$: StaticErrorSchema = [-3, n0, _ENFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ExportNotFoundException$, ExportNotFoundException);
+export var ExportSummary$: StaticStructureSchema = [3, n0, _ESx,
+  0,
+  [_EA, _ES, _ETxp],
+  [0, 0, 0]
+];
+export var ExportTableToPointInTimeInput$: StaticStructureSchema = [3, n0, _ETTPITI,
+  0,
+  [_TA, _ETx, _CT, _SB, _SBO, _SPr, _SSA, _SSKKI, _EF, _ETxp, _IES],
+  [0, 4, [0, 4], 0, 0, 0, 0, 0, 0, 0, () => IncrementalExportSpecification$]
+];
+export var ExportTableToPointInTimeOutput$: StaticStructureSchema = [3, n0, _ETTPITO,
+  0,
+  [_ED],
+  [() => ExportDescription$]
+];
+export var FailureException$: StaticStructureSchema = [3, n0, _FE,
+  0,
+  [_EN, _EDx],
+  [0, 0]
+];
+export var Get$: StaticStructureSchema = [3, n0, _G,
+  0,
+  [_K, _TN, _PE, _EAN],
+  [() => Key, 0, 0, 128 | 0]
+];
+export var GetItemInput$: StaticStructureSchema = [3, n0, _GII,
+  0,
+  [_TN, _K, _ATG, _CR, _RCC, _PE, _EAN],
+  [0, () => Key, 64 | 0, 2, 0, 0, 128 | 0]
+];
+export var GetItemOutput$: StaticStructureSchema = [3, n0, _GIO,
+  0,
+  [_I, _CC],
+  [() => AttributeMap, () => ConsumedCapacity$]
+];
+export var GetResourcePolicyInput$: StaticStructureSchema = [3, n0, _GRPI,
+  0,
+  [_RA],
+  [0]
+];
+export var GetResourcePolicyOutput$: StaticStructureSchema = [3, n0, _GRPO,
+  0,
+  [_Po, _RIe],
+  [0, 0]
+];
+export var GlobalSecondaryIndex$: StaticStructureSchema = [3, n0, _GSIl,
+  0,
+  [_IN, _KS, _Pr, _PT, _ODT, _WT],
+  [0, () => KeySchema, () => Projection$, () => ProvisionedThroughput$, () => OnDemandThroughput$, () => WarmThroughput$]
+];
+export var GlobalSecondaryIndexAutoScalingUpdate$: StaticStructureSchema = [3, n0, _GSIASU,
+  0,
+  [_IN, _PWCASU],
+  [0, () => AutoScalingSettingsUpdate$]
+];
+export var GlobalSecondaryIndexDescription$: StaticStructureSchema = [3, n0, _GSID,
+  0,
+  [_IN, _KS, _Pr, _IS, _B, _PT, _ISB, _IC, _IAn, _ODT, _WT],
+  [0, () => KeySchema, () => Projection$, 0, 2, () => ProvisionedThroughputDescription$, 1, 1, 0, () => OnDemandThroughput$, () => GlobalSecondaryIndexWarmThroughputDescription$]
+];
+export var GlobalSecondaryIndexInfo$: StaticStructureSchema = [3, n0, _GSII,
+  0,
+  [_IN, _KS, _Pr, _PT, _ODT],
+  [0, () => KeySchema, () => Projection$, () => ProvisionedThroughput$, () => OnDemandThroughput$]
+];
+export var GlobalSecondaryIndexUpdate$: StaticStructureSchema = [3, n0, _GSIU,
+  0,
+  [_U, _Cr, _De],
+  [() => UpdateGlobalSecondaryIndexAction$, () => CreateGlobalSecondaryIndexAction$, () => DeleteGlobalSecondaryIndexAction$]
+];
+export var GlobalSecondaryIndexWarmThroughputDescription$: StaticStructureSchema = [3, n0, _GSIWTD,
+  0,
+  [_RUPS, _WUPS, _Sta],
+  [1, 1, 0]
+];
+export var GlobalTable$: StaticStructureSchema = [3, n0, _GT,
+  0,
+  [_GTN, _RG],
+  [0, () => ReplicaList]
+];
+export var GlobalTableAlreadyExistsException$: StaticErrorSchema = [-3, n0, _GTAEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(GlobalTableAlreadyExistsException$, GlobalTableAlreadyExistsException);
+export var GlobalTableDescription$: StaticStructureSchema = [3, n0, _GTD,
+  0,
+  [_RG, _GTA, _CDT, _GTS, _GTN],
+  [() => ReplicaDescriptionList, 0, 4, 0, 0]
+];
+export var GlobalTableGlobalSecondaryIndexSettingsUpdate$: StaticStructureSchema = [3, n0, _GTGSISU,
+  0,
+  [_IN, _PWCU, _PWCASSU],
+  [0, 1, () => AutoScalingSettingsUpdate$]
+];
+export var GlobalTableNotFoundException$: StaticErrorSchema = [-3, n0, _GTNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(GlobalTableNotFoundException$, GlobalTableNotFoundException);
+export var GlobalTableWitnessDescription$: StaticStructureSchema = [3, n0, _GTWD,
+  0,
+  [_RN, _WS],
+  [0, 0]
+];
+export var GlobalTableWitnessGroupUpdate$: StaticStructureSchema = [3, n0, _GTWGU,
+  0,
+  [_Cr, _De],
+  [() => CreateGlobalTableWitnessGroupMemberAction$, () => DeleteGlobalTableWitnessGroupMemberAction$]
+];
+export var IdempotentParameterMismatchException$: StaticErrorSchema = [-3, n0, _IPME,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(IdempotentParameterMismatchException$, IdempotentParameterMismatchException);
+export var ImportConflictException$: StaticErrorSchema = [-3, n0, _ICE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ImportConflictException$, ImportConflictException);
+export var ImportNotFoundException$: StaticErrorSchema = [-3, n0, _INFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ImportNotFoundException$, ImportNotFoundException);
+export var ImportSummary$: StaticStructureSchema = [3, n0, _ISm,
+  0,
+  [_IA, _ISmp, _TA, _SBS, _CWLGA, _IF, _ST, _ET],
+  [0, 0, 0, () => S3BucketSource$, 0, 0, 4, 4]
+];
+export var ImportTableDescription$: StaticStructureSchema = [3, n0, _ITD,
+  0,
+  [_IA, _ISmp, _TA, _TI, _CT, _SBS, _EC, _CWLGA, _IF, _IFO, _ICT, _TCP, _ST, _ET, _PSB, _PIC, _IIC, _FC, _FM],
+  [0, 0, 0, 0, 0, () => S3BucketSource$, 1, 0, 0, () => InputFormatOptions$, 0, () => TableCreationParameters$, 4, 4, 1, 1, 1, 0, 0]
+];
+export var ImportTableInput$: StaticStructureSchema = [3, n0, _ITI,
+  0,
+  [_CT, _SBS, _IF, _IFO, _ICT, _TCP],
+  [[0, 4], () => S3BucketSource$, 0, () => InputFormatOptions$, 0, () => TableCreationParameters$]
+];
+export var ImportTableOutput$: StaticStructureSchema = [3, n0, _ITO,
+  0,
+  [_ITD],
+  [() => ImportTableDescription$]
+];
+export var IncrementalExportSpecification$: StaticStructureSchema = [3, n0, _IES,
+  0,
+  [_EFT, _ETT, _EVT],
+  [4, 4, 0]
+];
+export var IndexNotFoundException$: StaticErrorSchema = [-3, n0, _INFEn,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(IndexNotFoundException$, IndexNotFoundException);
+export var InputFormatOptions$: StaticStructureSchema = [3, n0, _IFO,
+  0,
+  [_Cs],
+  [() => CsvOptions$]
+];
+export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _s },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
+export var InvalidEndpointException$: StaticErrorSchema = [-3, n0, _IEE,
+  { [_e]: _c, [_hE]: 421 },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidEndpointException$, InvalidEndpointException);
+export var InvalidExportTimeException$: StaticErrorSchema = [-3, n0, _IETE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidExportTimeException$, InvalidExportTimeException);
+export var InvalidRestoreTimeException$: StaticErrorSchema = [-3, n0, _IRTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InvalidRestoreTimeException$, InvalidRestoreTimeException);
+export var ItemCollectionMetrics$: StaticStructureSchema = [3, n0, _ICM,
+  0,
+  [_ICK, _SERGB],
+  [() => ItemCollectionKeyAttributeMap, 64 | 1]
+];
+export var ItemCollectionSizeLimitExceededException$: StaticErrorSchema = [-3, n0, _ICSLEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ItemCollectionSizeLimitExceededException$, ItemCollectionSizeLimitExceededException);
+export var ItemResponse$: StaticStructureSchema = [3, n0, _IR,
+  0,
+  [_I],
+  [() => AttributeMap]
+];
+export var KeysAndAttributes$: StaticStructureSchema = [3, n0, _KAA,
+  0,
+  [_Ke, _ATG, _CR, _PE, _EAN],
+  [() => KeyList, 64 | 0, 2, 0, 128 | 0]
+];
+export var KeySchemaElement$: StaticStructureSchema = [3, n0, _KSE,
+  0,
+  [_AN, _KT],
+  [0, 0]
+];
+export var KinesisDataStreamDestination$: StaticStructureSchema = [3, n0, _KDSDi,
+  0,
+  [_SA, _DS, _DSD, _ACDTP],
+  [0, 0, 0, 0]
+];
+export var KinesisStreamingDestinationInput$: StaticStructureSchema = [3, n0, _KSDI,
+  0,
+  [_TN, _SA, _EKSC],
+  [0, 0, () => EnableKinesisStreamingConfiguration$]
+];
+export var KinesisStreamingDestinationOutput$: StaticStructureSchema = [3, n0, _KSDO,
+  0,
+  [_TN, _SA, _DS, _EKSC],
+  [0, 0, 0, () => EnableKinesisStreamingConfiguration$]
+];
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+export var ListBackupsInput$: StaticStructureSchema = [3, n0, _LBI,
+  0,
+  [_TN, _L, _TRLB, _TRUB, _ESBA, _BT],
+  [0, 1, 4, 4, 0, 0]
+];
+export var ListBackupsOutput$: StaticStructureSchema = [3, n0, _LBO,
+  0,
+  [_BSac, _LEBA],
+  [() => BackupSummaries, 0]
+];
+export var ListContributorInsightsInput$: StaticStructureSchema = [3, n0, _LCII,
+  0,
+  [_TN, _NT, _MR],
+  [0, 0, 1]
+];
+export var ListContributorInsightsOutput$: StaticStructureSchema = [3, n0, _LCIO,
+  0,
+  [_CISon, _NT],
+  [() => ContributorInsightsSummaries, 0]
+];
+export var ListExportsInput$: StaticStructureSchema = [3, n0, _LEI,
+  0,
+  [_TA, _MR, _NT],
+  [0, 1, 0]
+];
+export var ListExportsOutput$: StaticStructureSchema = [3, n0, _LEO,
+  0,
+  [_ESxp, _NT],
+  [() => ExportSummaries, 0]
+];
+export var ListGlobalTablesInput$: StaticStructureSchema = [3, n0, _LGTI,
+  0,
+  [_ESGTN, _L, _RN],
+  [0, 1, 0]
+];
+export var ListGlobalTablesOutput$: StaticStructureSchema = [3, n0, _LGTO,
+  0,
+  [_GTl, _LEGTN],
+  [() => GlobalTableList, 0]
+];
+export var ListImportsInput$: StaticStructureSchema = [3, n0, _LII,
+  0,
+  [_TA, _PS, _NT],
+  [0, 1, 0]
+];
+export var ListImportsOutput$: StaticStructureSchema = [3, n0, _LIO,
+  0,
+  [_ISL, _NT],
+  [() => ImportSummaryList, 0]
+];
+export var ListTablesInput$: StaticStructureSchema = [3, n0, _LTI,
+  0,
+  [_ESTN, _L],
+  [0, 1]
+];
+export var ListTablesOutput$: StaticStructureSchema = [3, n0, _LTO,
+  0,
+  [_TNa, _LETN],
+  [64 | 0, 0]
+];
+export var ListTagsOfResourceInput$: StaticStructureSchema = [3, n0, _LTORI,
+  0,
+  [_RA, _NT],
+  [0, 0]
+];
+export var ListTagsOfResourceOutput$: StaticStructureSchema = [3, n0, _LTORO,
+  0,
+  [_Ta, _NT],
+  [() => TagList, 0]
+];
+export var LocalSecondaryIndex$: StaticStructureSchema = [3, n0, _LSIo,
+  0,
+  [_IN, _KS, _Pr],
+  [0, () => KeySchema, () => Projection$]
+];
+export var LocalSecondaryIndexDescription$: StaticStructureSchema = [3, n0, _LSID,
+  0,
+  [_IN, _KS, _Pr, _ISB, _IC, _IAn],
+  [0, () => KeySchema, () => Projection$, 1, 1, 0]
+];
+export var LocalSecondaryIndexInfo$: StaticStructureSchema = [3, n0, _LSII,
+  0,
+  [_IN, _KS, _Pr],
+  [0, () => KeySchema, () => Projection$]
+];
+export var OnDemandThroughput$: StaticStructureSchema = [3, n0, _ODT,
+  0,
+  [_MRRU, _MWRU],
+  [1, 1]
+];
+export var OnDemandThroughputOverride$: StaticStructureSchema = [3, n0, _ODTO,
+  0,
+  [_MRRU],
+  [1]
+];
+export var ParameterizedStatement$: StaticStructureSchema = [3, n0, _PSa,
+  0,
+  [_St, _P, _RVOCCF],
+  [0, () => PreparedStatementParameters, 0]
+];
+export var PointInTimeRecoveryDescription$: StaticStructureSchema = [3, n0, _PITRD,
+  0,
+  [_PITRS, _RPID, _ERDT, _LRDT],
+  [0, 1, 4, 4]
+];
+export var PointInTimeRecoverySpecification$: StaticStructureSchema = [3, n0, _PITRSo,
+  0,
+  [_PITRE, _RPID],
+  [2, 1]
+];
+export var PointInTimeRecoveryUnavailableException$: StaticErrorSchema = [-3, n0, _PITRUE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(PointInTimeRecoveryUnavailableException$, PointInTimeRecoveryUnavailableException);
+export var PolicyNotFoundException$: StaticErrorSchema = [-3, n0, _PNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(PolicyNotFoundException$, PolicyNotFoundException);
+export var Projection$: StaticStructureSchema = [3, n0, _Pr,
+  0,
+  [_PTr, _NKA],
+  [0, 64 | 0]
+];
+export var ProvisionedThroughput$: StaticStructureSchema = [3, n0, _PT,
+  0,
+  [_RCU, _WCU],
+  [1, 1]
+];
+export var ProvisionedThroughputDescription$: StaticStructureSchema = [3, n0, _PTD,
+  0,
+  [_LIDT, _LDDT, _NODT, _RCU, _WCU],
+  [4, 4, 1, 1, 1]
+];
+export var ProvisionedThroughputExceededException$: StaticErrorSchema = [-3, n0, _PTEE,
+  { [_e]: _c },
+  [_m, _TR],
+  [0, () => ThrottlingReasonList]
+];
+TypeRegistry.for(n0).registerError(ProvisionedThroughputExceededException$, ProvisionedThroughputExceededException);
+export var ProvisionedThroughputOverride$: StaticStructureSchema = [3, n0, _PTO,
+  0,
+  [_RCU],
+  [1]
+];
+export var Put$: StaticStructureSchema = [3, n0, _Pu,
+  0,
+  [_I, _TN, _CE, _EAN, _EAV, _RVOCCF],
+  [() => PutItemInputAttributeMap, 0, 0, 128 | 0, () => ExpressionAttributeValueMap, 0]
+];
+export var PutItemInput$: StaticStructureSchema = [3, n0, _PII,
+  0,
+  [_TN, _I, _Ex, _RV, _RCC, _RICM, _COo, _CE, _EAN, _EAV, _RVOCCF],
+  [0, () => PutItemInputAttributeMap, () => ExpectedAttributeMap, 0, 0, 0, 0, 0, 128 | 0, () => ExpressionAttributeValueMap, 0]
+];
+export var PutItemOutput$: StaticStructureSchema = [3, n0, _PIO,
+  0,
+  [_At, _CC, _ICM],
+  [() => AttributeMap, () => ConsumedCapacity$, () => ItemCollectionMetrics$]
+];
+export var PutRequest$: StaticStructureSchema = [3, n0, _PR,
+  0,
+  [_I],
+  [() => PutItemInputAttributeMap]
+];
+export var PutResourcePolicyInput$: StaticStructureSchema = [3, n0, _PRPI,
+  0,
+  [_RA, _Po, _ERI, _CRSRA],
+  [0, 0, 0, [2, { [_hH]: _xacrsra }]]
+];
+export var PutResourcePolicyOutput$: StaticStructureSchema = [3, n0, _PRPO,
+  0,
+  [_RIe],
+  [0]
+];
+export var QueryInput$: StaticStructureSchema = [3, n0, _QI,
+  0,
+  [_TN, _IN, _Se, _ATG, _L, _CR, _KC, _QF, _COo, _SIF, _ESK, _RCC, _PE, _FEi, _KCE, _EAN, _EAV],
+  [0, 0, 0, 64 | 0, 1, 2, () => KeyConditions, () => FilterConditionMap, 0, 2, () => Key, 0, 0, 0, 0, 128 | 0, () => ExpressionAttributeValueMap]
+];
+export var QueryOutput$: StaticStructureSchema = [3, n0, _QO,
+  0,
+  [_It, _Cou, _SC, _LEK, _CC],
+  [() => ItemList, 1, 1, () => Key, () => ConsumedCapacity$]
+];
+export var Replica$: StaticStructureSchema = [3, n0, _Re,
+  0,
+  [_RN],
+  [0]
+];
+export var ReplicaAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ReplicaAlreadyExistsException$, ReplicaAlreadyExistsException);
+export var ReplicaAutoScalingDescription$: StaticStructureSchema = [3, n0, _RASD,
+  0,
+  [_RN, _GSI, _RPRCASS, _RPWCASS, _RSe],
+  [0, () => ReplicaGlobalSecondaryIndexAutoScalingDescriptionList, () => AutoScalingSettingsDescription$, () => AutoScalingSettingsDescription$, 0]
+];
+export var ReplicaAutoScalingUpdate$: StaticStructureSchema = [3, n0, _RASU,
+  0,
+  [_RN, _RGSIU, _RPRCASU],
+  [0, () => ReplicaGlobalSecondaryIndexAutoScalingUpdateList, () => AutoScalingSettingsUpdate$]
+];
+export var ReplicaDescription$: StaticStructureSchema = [3, n0, _RD,
+  0,
+  [_RN, _RSe, _RSD, _RSPP, _KMSMKI, _PTO, _ODTO, _WT, _GSI, _RIDT, _RTCS],
+  [0, 0, 0, 0, 0, () => ProvisionedThroughputOverride$, () => OnDemandThroughputOverride$, () => TableWarmThroughputDescription$, () => ReplicaGlobalSecondaryIndexDescriptionList, 4, () => TableClassSummary$]
+];
+export var ReplicaGlobalSecondaryIndex$: StaticStructureSchema = [3, n0, _RGSI,
+  0,
+  [_IN, _PTO, _ODTO],
+  [0, () => ProvisionedThroughputOverride$, () => OnDemandThroughputOverride$]
+];
+export var ReplicaGlobalSecondaryIndexAutoScalingDescription$: StaticStructureSchema = [3, n0, _RGSIASD,
+  0,
+  [_IN, _IS, _PRCASS, _PWCASS],
+  [0, 0, () => AutoScalingSettingsDescription$, () => AutoScalingSettingsDescription$]
+];
+export var ReplicaGlobalSecondaryIndexAutoScalingUpdate$: StaticStructureSchema = [3, n0, _RGSIASU,
+  0,
+  [_IN, _PRCASU],
+  [0, () => AutoScalingSettingsUpdate$]
+];
+export var ReplicaGlobalSecondaryIndexDescription$: StaticStructureSchema = [3, n0, _RGSID,
+  0,
+  [_IN, _PTO, _ODTO, _WT],
+  [0, () => ProvisionedThroughputOverride$, () => OnDemandThroughputOverride$, () => GlobalSecondaryIndexWarmThroughputDescription$]
+];
+export var ReplicaGlobalSecondaryIndexSettingsDescription$: StaticStructureSchema = [3, n0, _RGSISD,
+  0,
+  [_IN, _IS, _PRCU, _PRCASS, _PWCU, _PWCASS],
+  [0, 0, 1, () => AutoScalingSettingsDescription$, 1, () => AutoScalingSettingsDescription$]
+];
+export var ReplicaGlobalSecondaryIndexSettingsUpdate$: StaticStructureSchema = [3, n0, _RGSISU,
+  0,
+  [_IN, _PRCU, _PRCASSU],
+  [0, 1, () => AutoScalingSettingsUpdate$]
+];
+export var ReplicaNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ReplicaNotFoundException$, ReplicaNotFoundException);
+export var ReplicaSettingsDescription$: StaticStructureSchema = [3, n0, _RSDe,
+  0,
+  [_RN, _RSe, _RBMS, _RPRCU, _RPRCASS, _RPWCU, _RPWCASS, _RGSIS, _RTCS],
+  [0, 0, () => BillingModeSummary$, 1, () => AutoScalingSettingsDescription$, 1, () => AutoScalingSettingsDescription$, () => ReplicaGlobalSecondaryIndexSettingsDescriptionList, () => TableClassSummary$]
+];
+export var ReplicaSettingsUpdate$: StaticStructureSchema = [3, n0, _RSU,
+  0,
+  [_RN, _RPRCU, _RPRCASSU, _RGSISU, _RTC],
+  [0, 1, () => AutoScalingSettingsUpdate$, () => ReplicaGlobalSecondaryIndexSettingsUpdateList, 0]
+];
+export var ReplicatedWriteConflictException$: StaticErrorSchema = [-3, n0, _RWCE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ReplicatedWriteConflictException$, ReplicatedWriteConflictException);
+export var ReplicationGroupUpdate$: StaticStructureSchema = [3, n0, _RGU,
+  0,
+  [_Cr, _U, _De],
+  [() => CreateReplicationGroupMemberAction$, () => UpdateReplicationGroupMemberAction$, () => DeleteReplicationGroupMemberAction$]
+];
+export var ReplicaUpdate$: StaticStructureSchema = [3, n0, _RU,
+  0,
+  [_Cr, _De],
+  [() => CreateReplicaAction$, () => DeleteReplicaAction$]
+];
+export var RequestLimitExceeded$: StaticErrorSchema = [-3, n0, _RLE,
+  { [_e]: _c },
+  [_m, _TR],
+  [0, () => ThrottlingReasonList]
+];
+TypeRegistry.for(n0).registerError(RequestLimitExceeded$, RequestLimitExceeded);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFEe,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var RestoreSummary$: StaticStructureSchema = [3, n0, _RSes,
+  0,
+  [_SBA, _STA, _RDT, _RIP],
+  [0, 0, 4, 2]
+];
+export var RestoreTableFromBackupInput$: StaticStructureSchema = [3, n0, _RTFBI,
+  0,
+  [_TTN, _BA, _BMO, _GSIO, _LSIO, _PTO, _ODTO, _SSESO],
+  [0, 0, 0, () => GlobalSecondaryIndexList, () => LocalSecondaryIndexList, () => ProvisionedThroughput$, () => OnDemandThroughput$, () => SSESpecification$]
+];
+export var RestoreTableFromBackupOutput$: StaticStructureSchema = [3, n0, _RTFBO,
+  0,
+  [_TD],
+  [() => TableDescription$]
+];
+export var RestoreTableToPointInTimeInput$: StaticStructureSchema = [3, n0, _RTTPITI,
+  0,
+  [_STA, _STN, _TTN, _ULRT, _RDT, _BMO, _GSIO, _LSIO, _PTO, _ODTO, _SSESO],
+  [0, 0, 0, 2, 4, 0, () => GlobalSecondaryIndexList, () => LocalSecondaryIndexList, () => ProvisionedThroughput$, () => OnDemandThroughput$, () => SSESpecification$]
+];
+export var RestoreTableToPointInTimeOutput$: StaticStructureSchema = [3, n0, _RTTPITO,
+  0,
+  [_TD],
+  [() => TableDescription$]
+];
+export var S3BucketSource$: StaticStructureSchema = [3, n0, _SBS,
+  0,
+  [_SBO, _SB, _SKP],
+  [0, 0, 0]
+];
+export var ScanInput$: StaticStructureSchema = [3, n0, _SI,
+  0,
+  [_TN, _IN, _ATG, _L, _Se, _SF, _COo, _ESK, _RCC, _TSo, _Seg, _PE, _FEi, _EAN, _EAV, _CR],
+  [0, 0, 64 | 0, 1, 0, () => FilterConditionMap, 0, () => Key, 0, 1, 1, 0, 0, 128 | 0, () => ExpressionAttributeValueMap, 2]
+];
+export var ScanOutput$: StaticStructureSchema = [3, n0, _SO,
+  0,
+  [_It, _Cou, _SC, _LEK, _CC],
+  [() => ItemList, 1, 1, () => Key, () => ConsumedCapacity$]
+];
+export var SourceTableDetails$: StaticStructureSchema = [3, n0, _STD,
+  0,
+  [_TN, _TI, _TA, _TSB, _KS, _TCDT, _PT, _ODT, _IC, _BM],
+  [0, 0, 0, 1, () => KeySchema, 4, () => ProvisionedThroughput$, () => OnDemandThroughput$, 1, 0]
+];
+export var SourceTableFeatureDetails$: StaticStructureSchema = [3, n0, _STFD,
+  0,
+  [_LSI, _GSI, _SD, _TTLD, _SSED],
+  [() => LocalSecondaryIndexes, () => GlobalSecondaryIndexes, () => StreamSpecification$, () => TimeToLiveDescription$, () => SSEDescription$]
+];
+export var SSEDescription$: StaticStructureSchema = [3, n0, _SSED,
+  0,
+  [_Sta, _SSET, _KMSMKA, _IEDT],
+  [0, 0, 0, 4]
+];
+export var SSESpecification$: StaticStructureSchema = [3, n0, _SSES,
+  0,
+  [_Ena, _SSET, _KMSMKI],
+  [2, 0, 0]
+];
+export var StreamSpecification$: StaticStructureSchema = [3, n0, _SS,
+  0,
+  [_SE, _SVT],
+  [2, 0]
+];
+export var TableAlreadyExistsException$: StaticErrorSchema = [-3, n0, _TAEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TableAlreadyExistsException$, TableAlreadyExistsException);
+export var TableAutoScalingDescription$: StaticStructureSchema = [3, n0, _TASD,
+  0,
+  [_TN, _TSa, _Rep],
+  [0, 0, () => ReplicaAutoScalingDescriptionList]
+];
+export var TableClassSummary$: StaticStructureSchema = [3, n0, _TCS,
+  0,
+  [_TC, _LUDT],
+  [0, 4]
+];
+export var TableCreationParameters$: StaticStructureSchema = [3, n0, _TCP,
+  0,
+  [_TN, _ADt, _KS, _BM, _PT, _ODT, _SSES, _GSI],
+  [0, () => AttributeDefinitions, () => KeySchema, 0, () => ProvisionedThroughput$, () => OnDemandThroughput$, () => SSESpecification$, () => GlobalSecondaryIndexList]
+];
+export var TableDescription$: StaticStructureSchema = [3, n0, _TD,
+  0,
+  [_ADt, _TN, _KS, _TSa, _CDT, _PT, _TSB, _IC, _TA, _TI, _BMS, _LSI, _GSI, _SS, _LSL, _LSA, _GTV, _Rep, _GTW, _RSes, _SSED, _AS, _TCS, _DPE, _ODT, _WT, _MRC],
+  [() => AttributeDefinitions, 0, () => KeySchema, 0, 4, () => ProvisionedThroughputDescription$, 1, 1, 0, 0, () => BillingModeSummary$, () => LocalSecondaryIndexDescriptionList, () => GlobalSecondaryIndexDescriptionList, () => StreamSpecification$, 0, 0, 0, () => ReplicaDescriptionList, () => GlobalTableWitnessDescriptionList, () => RestoreSummary$, () => SSEDescription$, () => ArchivalSummary$, () => TableClassSummary$, 2, () => OnDemandThroughput$, () => TableWarmThroughputDescription$, 0]
+];
+export var TableInUseException$: StaticErrorSchema = [-3, n0, _TIUE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TableInUseException$, TableInUseException);
+export var TableNotFoundException$: StaticErrorSchema = [-3, n0, _TNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TableNotFoundException$, TableNotFoundException);
+export var TableWarmThroughputDescription$: StaticStructureSchema = [3, n0, _TWTD,
+  0,
+  [_RUPS, _WUPS, _Sta],
+  [1, 1, 0]
+];
+export var Tag$: StaticStructureSchema = [3, n0, _Tag,
+  0,
+  [_K, _V],
+  [0, 0]
+];
+export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
+  0,
+  [_RA, _Ta],
+  [0, () => TagList]
+];
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_aQE]: [`Throttling`, 400], [_e]: _c, [_hE]: 400 },
+  [_m, _tR],
+  [0, () => ThrottlingReasonList]
+];
+TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
+export var ThrottlingReason$: StaticStructureSchema = [3, n0, _TRh,
+  0,
+  [_r, _re],
+  [0, 0]
+];
+export var TimeToLiveDescription$: StaticStructureSchema = [3, n0, _TTLD,
+  0,
+  [_TTLS, _AN],
+  [0, 0]
+];
+export var TimeToLiveSpecification$: StaticStructureSchema = [3, n0, _TTLSi,
+  0,
+  [_Ena, _AN],
+  [2, 0]
+];
+export var TransactGetItem$: StaticStructureSchema = [3, n0, _TGI,
+  0,
+  [_G],
+  [() => Get$]
+];
+export var TransactGetItemsInput$: StaticStructureSchema = [3, n0, _TGII,
+  0,
+  [_TIr, _RCC],
+  [() => TransactGetItemList, 0]
+];
+export var TransactGetItemsOutput$: StaticStructureSchema = [3, n0, _TGIO,
+  0,
+  [_CC, _R],
+  [() => ConsumedCapacityMultiple, () => ItemResponseList]
+];
+export var TransactionCanceledException$: StaticErrorSchema = [-3, n0, _TCE,
+  { [_e]: _c },
+  [_M, _CRan],
+  [0, () => CancellationReasonList]
+];
+TypeRegistry.for(n0).registerError(TransactionCanceledException$, TransactionCanceledException);
+export var TransactionConflictException$: StaticErrorSchema = [-3, n0, _TCEr,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TransactionConflictException$, TransactionConflictException);
+export var TransactionInProgressException$: StaticErrorSchema = [-3, n0, _TIPE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+TypeRegistry.for(n0).registerError(TransactionInProgressException$, TransactionInProgressException);
+export var TransactWriteItem$: StaticStructureSchema = [3, n0, _TWI,
+  0,
+  [_CCo, _Pu, _De, _U],
+  [() => ConditionCheck$, () => Put$, () => Delete$, () => Update$]
+];
+export var TransactWriteItemsInput$: StaticStructureSchema = [3, n0, _TWII,
+  0,
+  [_TIr, _RCC, _RICM, _CRT],
+  [() => TransactWriteItemList, 0, 0, [0, 4]]
+];
+export var TransactWriteItemsOutput$: StaticStructureSchema = [3, n0, _TWIO,
+  0,
+  [_CC, _ICM],
+  [() => ConsumedCapacityMultiple, () => ItemCollectionMetricsPerTable]
+];
+export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
+  0,
+  [_RA, _TK],
+  [0, 64 | 0]
+];
+export var Update$: StaticStructureSchema = [3, n0, _U,
+  0,
+  [_K, _UE, _TN, _CE, _EAN, _EAV, _RVOCCF],
+  [() => Key, 0, 0, 0, 128 | 0, () => ExpressionAttributeValueMap, 0]
+];
+export var UpdateContinuousBackupsInput$: StaticStructureSchema = [3, n0, _UCBI,
+  0,
+  [_TN, _PITRSo],
+  [0, () => PointInTimeRecoverySpecification$]
+];
+export var UpdateContinuousBackupsOutput$: StaticStructureSchema = [3, n0, _UCBO,
+  0,
+  [_CBD],
+  [() => ContinuousBackupsDescription$]
+];
+export var UpdateContributorInsightsInput$: StaticStructureSchema = [3, n0, _UCII,
+  0,
+  [_TN, _IN, _CIA, _CIM],
+  [0, 0, 0, 0]
+];
+export var UpdateContributorInsightsOutput$: StaticStructureSchema = [3, n0, _UCIO,
+  0,
+  [_TN, _IN, _CISo, _CIM],
+  [0, 0, 0, 0]
+];
+export var UpdateGlobalSecondaryIndexAction$: StaticStructureSchema = [3, n0, _UGSIA,
+  0,
+  [_IN, _PT, _ODT, _WT],
+  [0, () => ProvisionedThroughput$, () => OnDemandThroughput$, () => WarmThroughput$]
+];
+export var UpdateGlobalTableInput$: StaticStructureSchema = [3, n0, _UGTI,
+  0,
+  [_GTN, _RUe],
+  [0, () => ReplicaUpdateList]
+];
+export var UpdateGlobalTableOutput$: StaticStructureSchema = [3, n0, _UGTO,
+  0,
+  [_GTD],
+  [() => GlobalTableDescription$]
+];
+export var UpdateGlobalTableSettingsInput$: StaticStructureSchema = [3, n0, _UGTSI,
+  0,
+  [_GTN, _GTBM, _GTPWCU, _GTPWCASSU, _GTGSISU, _RSU],
+  [0, 0, 1, () => AutoScalingSettingsUpdate$, () => GlobalTableGlobalSecondaryIndexSettingsUpdateList, () => ReplicaSettingsUpdateList]
+];
+export var UpdateGlobalTableSettingsOutput$: StaticStructureSchema = [3, n0, _UGTSO,
+  0,
+  [_GTN, _RS],
+  [0, () => ReplicaSettingsDescriptionList]
+];
+export var UpdateItemInput$: StaticStructureSchema = [3, n0, _UII,
+  0,
+  [_TN, _K, _AU, _Ex, _COo, _RV, _RCC, _RICM, _UE, _CE, _EAN, _EAV, _RVOCCF],
+  [0, () => Key, () => AttributeUpdates, () => ExpectedAttributeMap, 0, 0, 0, 0, 0, 0, 128 | 0, () => ExpressionAttributeValueMap, 0]
+];
+export var UpdateItemOutput$: StaticStructureSchema = [3, n0, _UIO,
+  0,
+  [_At, _CC, _ICM],
+  [() => AttributeMap, () => ConsumedCapacity$, () => ItemCollectionMetrics$]
+];
+export var UpdateKinesisStreamingConfiguration$: StaticStructureSchema = [3, n0, _UKSC,
+  0,
+  [_ACDTP],
+  [0]
+];
+export var UpdateKinesisStreamingDestinationInput$: StaticStructureSchema = [3, n0, _UKSDI,
+  0,
+  [_TN, _SA, _UKSC],
+  [0, 0, () => UpdateKinesisStreamingConfiguration$]
+];
+export var UpdateKinesisStreamingDestinationOutput$: StaticStructureSchema = [3, n0, _UKSDO,
+  0,
+  [_TN, _SA, _DS, _UKSC],
+  [0, 0, 0, () => UpdateKinesisStreamingConfiguration$]
+];
+export var UpdateReplicationGroupMemberAction$: StaticStructureSchema = [3, n0, _URGMA,
+  0,
+  [_RN, _KMSMKI, _PTO, _ODTO, _GSI, _TCO],
+  [0, 0, () => ProvisionedThroughputOverride$, () => OnDemandThroughputOverride$, () => ReplicaGlobalSecondaryIndexList, 0]
+];
+export var UpdateTableInput$: StaticStructureSchema = [3, n0, _UTI,
+  0,
+  [_ADt, _TN, _BM, _PT, _GSIUl, _SS, _SSES, _RUe, _TC, _DPE, _MRC, _GTWU, _ODT, _WT],
+  [() => AttributeDefinitions, 0, 0, () => ProvisionedThroughput$, () => GlobalSecondaryIndexUpdateList, () => StreamSpecification$, () => SSESpecification$, () => ReplicationGroupUpdateList, 0, 2, 0, () => GlobalTableWitnessGroupUpdateList, () => OnDemandThroughput$, () => WarmThroughput$]
+];
+export var UpdateTableOutput$: StaticStructureSchema = [3, n0, _UTO,
+  0,
+  [_TD],
+  [() => TableDescription$]
+];
+export var UpdateTableReplicaAutoScalingInput$: StaticStructureSchema = [3, n0, _UTRASI,
+  0,
+  [_GSIUl, _TN, _PWCASU, _RUe],
+  [() => GlobalSecondaryIndexAutoScalingUpdateList, 0, () => AutoScalingSettingsUpdate$, () => ReplicaAutoScalingUpdateList]
+];
+export var UpdateTableReplicaAutoScalingOutput$: StaticStructureSchema = [3, n0, _UTRASO,
+  0,
+  [_TASD],
+  [() => TableAutoScalingDescription$]
+];
+export var UpdateTimeToLiveInput$: StaticStructureSchema = [3, n0, _UTTLI,
   0,
   [_TN, _TTLSi],
-  [0, () => TimeToLiveSpecification$],
+  [0, () => TimeToLiveSpecification$]
 ];
-export var UpdateTimeToLiveOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UTTLO,
+export var UpdateTimeToLiveOutput$: StaticStructureSchema = [3, n0, _UTTLO,
   0,
   [_TTLSi],
-  [() => TimeToLiveSpecification$],
+  [() => TimeToLiveSpecification$]
 ];
-export var WarmThroughput$: StaticStructureSchema = [3, n0, _WT, 0, [_RUPS, _WUPS], [1, 1]];
-export var WriteRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _WR,
+export var WarmThroughput$: StaticStructureSchema = [3, n0, _WT,
+  0,
+  [_RUPS, _WUPS],
+  [1, 1]
+];
+export var WriteRequest$: StaticStructureSchema = [3, n0, _WR,
   0,
   [_PR, _DR],
-  [() => PutRequest$, () => DeleteRequest$],
+  [() => PutRequest$, () => DeleteRequest$]
 ];
 var __Unit = "unit" as const;
 export var DynamoDBServiceException$: StaticErrorSchema = [-3, _sm, "DynamoDBServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(DynamoDBServiceException$, DynamoDBServiceException);
-var AttributeDefinitions: StaticListSchema = [1, n0, _ADt, 0, () => AttributeDefinition$];
+var AttributeDefinitions: StaticListSchema = [1, n0, _ADt,
+  0, () => AttributeDefinition$
+];
 var AttributeNameList = 64 | 0;
-var AttributeValueList: StaticListSchema = [1, n0, _AVL, 0, () => AttributeValue$];
-var AutoScalingPolicyDescriptionList: StaticListSchema = [1, n0, _ASPDL, 0, () => AutoScalingPolicyDescription$];
-var BackupSummaries: StaticListSchema = [1, n0, _BSac, 0, () => BackupSummary$];
+var AttributeValueList: StaticListSchema = [1, n0, _AVL,
+  0, () => AttributeValue$
+];
+var AutoScalingPolicyDescriptionList: StaticListSchema = [1, n0, _ASPDL,
+  0, () => AutoScalingPolicyDescription$
+];
+var BackupSummaries: StaticListSchema = [1, n0, _BSac,
+  0, () => BackupSummary$
+];
 var BinarySetAttributeValue = 64 | 21;
-var CancellationReasonList: StaticListSchema = [1, n0, _CRL, 0, () => CancellationReason$];
-var ConsumedCapacityMultiple: StaticListSchema = [1, n0, _CCM, 0, () => ConsumedCapacity$];
+var CancellationReasonList: StaticListSchema = [1, n0, _CRL,
+  0, () => CancellationReason$
+];
+var ConsumedCapacityMultiple: StaticListSchema = [1, n0, _CCM,
+  0, () => ConsumedCapacity$
+];
 var ContributorInsightsRuleList = 64 | 0;
-var ContributorInsightsSummaries: StaticListSchema = [1, n0, _CISon, 0, () => ContributorInsightsSummary$];
+var ContributorInsightsSummaries: StaticListSchema = [1, n0, _CISon,
+  0, () => ContributorInsightsSummary$
+];
 var CsvHeaderList = 64 | 0;
-var Endpoints: StaticListSchema = [1, n0, _En, 0, () => Endpoint$];
-var ExportSummaries: StaticListSchema = [1, n0, _ESxp, 0, () => ExportSummary$];
-var GlobalSecondaryIndexAutoScalingUpdateList: StaticListSchema = [
-  1,
-  n0,
-  _GSIASUL,
-  0,
-  () => GlobalSecondaryIndexAutoScalingUpdate$,
+var Endpoints: StaticListSchema = [1, n0, _En,
+  0, () => Endpoint$
 ];
-var GlobalSecondaryIndexDescriptionList: StaticListSchema = [1, n0, _GSIDL, 0, () => GlobalSecondaryIndexDescription$];
-var GlobalSecondaryIndexes: StaticListSchema = [1, n0, _GSI, 0, () => GlobalSecondaryIndexInfo$];
-var GlobalSecondaryIndexList: StaticListSchema = [1, n0, _GSIL, 0, () => GlobalSecondaryIndex$];
-var GlobalSecondaryIndexUpdateList: StaticListSchema = [1, n0, _GSIUL, 0, () => GlobalSecondaryIndexUpdate$];
-var GlobalTableGlobalSecondaryIndexSettingsUpdateList: StaticListSchema = [
-  1,
-  n0,
-  _GTGSISUL,
-  0,
-  () => GlobalTableGlobalSecondaryIndexSettingsUpdate$,
+var ExportSummaries: StaticListSchema = [1, n0, _ESxp,
+  0, () => ExportSummary$
 ];
-var GlobalTableList: StaticListSchema = [1, n0, _GTL, 0, () => GlobalTable$];
-var GlobalTableWitnessDescriptionList: StaticListSchema = [1, n0, _GTWDL, 0, () => GlobalTableWitnessDescription$];
-var GlobalTableWitnessGroupUpdateList: StaticListSchema = [1, n0, _GTWGUL, 0, () => GlobalTableWitnessGroupUpdate$];
-var ImportSummaryList: StaticListSchema = [1, n0, _ISL, 0, () => ImportSummary$];
-var ItemCollectionMetricsMultiple: StaticListSchema = [1, n0, _ICMM, 0, () => ItemCollectionMetrics$];
+var GlobalSecondaryIndexAutoScalingUpdateList: StaticListSchema = [1, n0, _GSIASUL,
+  0, () => GlobalSecondaryIndexAutoScalingUpdate$
+];
+var GlobalSecondaryIndexDescriptionList: StaticListSchema = [1, n0, _GSIDL,
+  0, () => GlobalSecondaryIndexDescription$
+];
+var GlobalSecondaryIndexes: StaticListSchema = [1, n0, _GSI,
+  0, () => GlobalSecondaryIndexInfo$
+];
+var GlobalSecondaryIndexList: StaticListSchema = [1, n0, _GSIL,
+  0, () => GlobalSecondaryIndex$
+];
+var GlobalSecondaryIndexUpdateList: StaticListSchema = [1, n0, _GSIUL,
+  0, () => GlobalSecondaryIndexUpdate$
+];
+var GlobalTableGlobalSecondaryIndexSettingsUpdateList: StaticListSchema = [1, n0, _GTGSISUL,
+  0, () => GlobalTableGlobalSecondaryIndexSettingsUpdate$
+];
+var GlobalTableList: StaticListSchema = [1, n0, _GTL,
+  0, () => GlobalTable$
+];
+var GlobalTableWitnessDescriptionList: StaticListSchema = [1, n0, _GTWDL,
+  0, () => GlobalTableWitnessDescription$
+];
+var GlobalTableWitnessGroupUpdateList: StaticListSchema = [1, n0, _GTWGUL,
+  0, () => GlobalTableWitnessGroupUpdate$
+];
+var ImportSummaryList: StaticListSchema = [1, n0, _ISL,
+  0, () => ImportSummary$
+];
+var ItemCollectionMetricsMultiple: StaticListSchema = [1, n0, _ICMM,
+  0, () => ItemCollectionMetrics$
+];
 var ItemCollectionSizeEstimateRange = 64 | 1;
-var ItemList: StaticListSchema = [1, n0, _IL, 0, () => AttributeMap];
-var ItemResponseList: StaticListSchema = [1, n0, _IRL, 0, () => ItemResponse$];
-var KeyList: StaticListSchema = [1, n0, _KL, 0, () => Key];
-var KeySchema: StaticListSchema = [1, n0, _KS, 0, () => KeySchemaElement$];
-var KinesisDataStreamDestinations: StaticListSchema = [1, n0, _KDSD, 0, () => KinesisDataStreamDestination$];
-var ListAttributeValue: StaticListSchema = [1, n0, _LAV, 0, () => AttributeValue$];
-var LocalSecondaryIndexDescriptionList: StaticListSchema = [1, n0, _LSIDL, 0, () => LocalSecondaryIndexDescription$];
-var LocalSecondaryIndexes: StaticListSchema = [1, n0, _LSI, 0, () => LocalSecondaryIndexInfo$];
-var LocalSecondaryIndexList: StaticListSchema = [1, n0, _LSIL, 0, () => LocalSecondaryIndex$];
+var ItemList: StaticListSchema = [1, n0, _IL,
+  0, () => AttributeMap
+];
+var ItemResponseList: StaticListSchema = [1, n0, _IRL,
+  0, () => ItemResponse$
+];
+var KeyList: StaticListSchema = [1, n0, _KL,
+  0, () => Key
+];
+var KeySchema: StaticListSchema = [1, n0, _KS,
+  0, () => KeySchemaElement$
+];
+var KinesisDataStreamDestinations: StaticListSchema = [1, n0, _KDSD,
+  0, () => KinesisDataStreamDestination$
+];
+var ListAttributeValue: StaticListSchema = [1, n0, _LAV,
+  0, () => AttributeValue$
+];
+var LocalSecondaryIndexDescriptionList: StaticListSchema = [1, n0, _LSIDL,
+  0, () => LocalSecondaryIndexDescription$
+];
+var LocalSecondaryIndexes: StaticListSchema = [1, n0, _LSI,
+  0, () => LocalSecondaryIndexInfo$
+];
+var LocalSecondaryIndexList: StaticListSchema = [1, n0, _LSIL,
+  0, () => LocalSecondaryIndex$
+];
 var NonKeyAttributeNameList = 64 | 0;
 var NumberSetAttributeValue = 64 | 0;
-var ParameterizedStatements: StaticListSchema = [1, n0, _PSar, 0, () => ParameterizedStatement$];
-var PartiQLBatchRequest: StaticListSchema = [1, n0, _PQLBR, 0, () => BatchStatementRequest$];
-var PartiQLBatchResponse: StaticListSchema = [1, n0, _PQLBRa, 0, () => BatchStatementResponse$];
-var PreparedStatementParameters: StaticListSchema = [1, n0, _PSP, 0, () => AttributeValue$];
-var ReplicaAutoScalingDescriptionList: StaticListSchema = [1, n0, _RASDL, 0, () => ReplicaAutoScalingDescription$];
-var ReplicaAutoScalingUpdateList: StaticListSchema = [1, n0, _RASUL, 0, () => ReplicaAutoScalingUpdate$];
-var ReplicaDescriptionList: StaticListSchema = [1, n0, _RDL, 0, () => ReplicaDescription$];
-var ReplicaGlobalSecondaryIndexAutoScalingDescriptionList: StaticListSchema = [
-  1,
-  n0,
-  _RGSIASDL,
-  0,
-  () => ReplicaGlobalSecondaryIndexAutoScalingDescription$,
+var ParameterizedStatements: StaticListSchema = [1, n0, _PSar,
+  0, () => ParameterizedStatement$
 ];
-var ReplicaGlobalSecondaryIndexAutoScalingUpdateList: StaticListSchema = [
-  1,
-  n0,
-  _RGSIASUL,
-  0,
-  () => ReplicaGlobalSecondaryIndexAutoScalingUpdate$,
+var PartiQLBatchRequest: StaticListSchema = [1, n0, _PQLBR,
+  0, () => BatchStatementRequest$
 ];
-var ReplicaGlobalSecondaryIndexDescriptionList: StaticListSchema = [
-  1,
-  n0,
-  _RGSIDL,
-  0,
-  () => ReplicaGlobalSecondaryIndexDescription$,
+var PartiQLBatchResponse: StaticListSchema = [1, n0, _PQLBRa,
+  0, () => BatchStatementResponse$
 ];
-var ReplicaGlobalSecondaryIndexList: StaticListSchema = [1, n0, _RGSIL, 0, () => ReplicaGlobalSecondaryIndex$];
-var ReplicaGlobalSecondaryIndexSettingsDescriptionList: StaticListSchema = [
-  1,
-  n0,
-  _RGSISDL,
-  0,
-  () => ReplicaGlobalSecondaryIndexSettingsDescription$,
+var PreparedStatementParameters: StaticListSchema = [1, n0, _PSP,
+  0, () => AttributeValue$
 ];
-var ReplicaGlobalSecondaryIndexSettingsUpdateList: StaticListSchema = [
-  1,
-  n0,
-  _RGSISUL,
-  0,
-  () => ReplicaGlobalSecondaryIndexSettingsUpdate$,
+var ReplicaAutoScalingDescriptionList: StaticListSchema = [1, n0, _RASDL,
+  0, () => ReplicaAutoScalingDescription$
 ];
-var ReplicaList: StaticListSchema = [1, n0, _RL, 0, () => Replica$];
-var ReplicaSettingsDescriptionList: StaticListSchema = [1, n0, _RSDL, 0, () => ReplicaSettingsDescription$];
-var ReplicaSettingsUpdateList: StaticListSchema = [1, n0, _RSUL, 0, () => ReplicaSettingsUpdate$];
-var ReplicationGroupUpdateList: StaticListSchema = [1, n0, _RGUL, 0, () => ReplicationGroupUpdate$];
-var ReplicaUpdateList: StaticListSchema = [1, n0, _RUL, 0, () => ReplicaUpdate$];
+var ReplicaAutoScalingUpdateList: StaticListSchema = [1, n0, _RASUL,
+  0, () => ReplicaAutoScalingUpdate$
+];
+var ReplicaDescriptionList: StaticListSchema = [1, n0, _RDL,
+  0, () => ReplicaDescription$
+];
+var ReplicaGlobalSecondaryIndexAutoScalingDescriptionList: StaticListSchema = [1, n0, _RGSIASDL,
+  0, () => ReplicaGlobalSecondaryIndexAutoScalingDescription$
+];
+var ReplicaGlobalSecondaryIndexAutoScalingUpdateList: StaticListSchema = [1, n0, _RGSIASUL,
+  0, () => ReplicaGlobalSecondaryIndexAutoScalingUpdate$
+];
+var ReplicaGlobalSecondaryIndexDescriptionList: StaticListSchema = [1, n0, _RGSIDL,
+  0, () => ReplicaGlobalSecondaryIndexDescription$
+];
+var ReplicaGlobalSecondaryIndexList: StaticListSchema = [1, n0, _RGSIL,
+  0, () => ReplicaGlobalSecondaryIndex$
+];
+var ReplicaGlobalSecondaryIndexSettingsDescriptionList: StaticListSchema = [1, n0, _RGSISDL,
+  0, () => ReplicaGlobalSecondaryIndexSettingsDescription$
+];
+var ReplicaGlobalSecondaryIndexSettingsUpdateList: StaticListSchema = [1, n0, _RGSISUL,
+  0, () => ReplicaGlobalSecondaryIndexSettingsUpdate$
+];
+var ReplicaList: StaticListSchema = [1, n0, _RL,
+  0, () => Replica$
+];
+var ReplicaSettingsDescriptionList: StaticListSchema = [1, n0, _RSDL,
+  0, () => ReplicaSettingsDescription$
+];
+var ReplicaSettingsUpdateList: StaticListSchema = [1, n0, _RSUL,
+  0, () => ReplicaSettingsUpdate$
+];
+var ReplicationGroupUpdateList: StaticListSchema = [1, n0, _RGUL,
+  0, () => ReplicationGroupUpdate$
+];
+var ReplicaUpdateList: StaticListSchema = [1, n0, _RUL,
+  0, () => ReplicaUpdate$
+];
 var StringSetAttributeValue = 64 | 0;
 var TableNameList = 64 | 0;
 var TagKeyList = 64 | 0;
-var TagList: StaticListSchema = [1, n0, _TL, 0, () => Tag$];
-var ThrottlingReasonList: StaticListSchema = [1, n0, _TRL, 0, () => ThrottlingReason$];
-var TransactGetItemList: StaticListSchema = [1, n0, _TGIL, 0, () => TransactGetItem$];
-var TransactWriteItemList: StaticListSchema = [1, n0, _TWIL, 0, () => TransactWriteItem$];
-var WriteRequests: StaticListSchema = [1, n0, _WRr, 0, () => WriteRequest$];
-var AttributeMap: StaticMapSchema = [2, n0, _AM, 0, 0, () => AttributeValue$];
-var AttributeUpdates: StaticMapSchema = [2, n0, _AU, 0, 0, () => AttributeValueUpdate$];
-var BatchGetRequestMap: StaticMapSchema = [2, n0, _BGRMa, 0, 0, () => KeysAndAttributes$];
-var BatchGetResponseMap: StaticMapSchema = [2, n0, _BGRM, 0, 0, () => ItemList];
-var BatchWriteItemRequestMap: StaticMapSchema = [2, n0, _BWIRM, 0, 0, () => WriteRequests];
-var ExpectedAttributeMap: StaticMapSchema = [2, n0, _EAM, 0, 0, () => ExpectedAttributeValue$];
+var TagList: StaticListSchema = [1, n0, _TL,
+  0, () => Tag$
+];
+var ThrottlingReasonList: StaticListSchema = [1, n0, _TRL,
+  0, () => ThrottlingReason$
+];
+var TransactGetItemList: StaticListSchema = [1, n0, _TGIL,
+  0, () => TransactGetItem$
+];
+var TransactWriteItemList: StaticListSchema = [1, n0, _TWIL,
+  0, () => TransactWriteItem$
+];
+var WriteRequests: StaticListSchema = [1, n0, _WRr,
+  0, () => WriteRequest$
+];
+var AttributeMap: StaticMapSchema = [2, n0, _AM,
+  0, 0, () => AttributeValue$
+];
+var AttributeUpdates: StaticMapSchema = [2, n0, _AU,
+  0, 0, () => AttributeValueUpdate$
+];
+var BatchGetRequestMap: StaticMapSchema = [2, n0, _BGRMa,
+  0, 0, () => KeysAndAttributes$
+];
+var BatchGetResponseMap: StaticMapSchema = [2, n0, _BGRM,
+  0, 0, () => ItemList
+];
+var BatchWriteItemRequestMap: StaticMapSchema = [2, n0, _BWIRM,
+  0, 0, () => WriteRequests
+];
+var ExpectedAttributeMap: StaticMapSchema = [2, n0, _EAM,
+  0, 0, () => ExpectedAttributeValue$
+];
 var ExpressionAttributeNameMap = 128 | 0;
-var ExpressionAttributeValueMap: StaticMapSchema = [2, n0, _EAVM, 0, 0, () => AttributeValue$];
-var FilterConditionMap: StaticMapSchema = [2, n0, _FCM, 0, 0, () => Condition$];
-var ItemCollectionKeyAttributeMap: StaticMapSchema = [2, n0, _ICKAM, 0, 0, () => AttributeValue$];
-var ItemCollectionMetricsPerTable: StaticMapSchema = [2, n0, _ICMPT, 0, 0, () => ItemCollectionMetricsMultiple];
-var Key: StaticMapSchema = [2, n0, _K, 0, 0, () => AttributeValue$];
-var KeyConditions: StaticMapSchema = [2, n0, _KC, 0, 0, () => Condition$];
-var MapAttributeValue: StaticMapSchema = [2, n0, _MAV, 0, 0, () => AttributeValue$];
-var PutItemInputAttributeMap: StaticMapSchema = [2, n0, _PIIAM, 0, 0, () => AttributeValue$];
-var SecondaryIndexesCapacityMap: StaticMapSchema = [2, n0, _SICM, 0, 0, () => Capacity$];
-export var AttributeValue$: StaticUnionSchema = [
-  4,
-  n0,
-  _AV,
+var ExpressionAttributeValueMap: StaticMapSchema = [2, n0, _EAVM,
+  0, 0, () => AttributeValue$
+];
+var FilterConditionMap: StaticMapSchema = [2, n0, _FCM,
+  0, 0, () => Condition$
+];
+var ItemCollectionKeyAttributeMap: StaticMapSchema = [2, n0, _ICKAM,
+  0, 0, () => AttributeValue$
+];
+var ItemCollectionMetricsPerTable: StaticMapSchema = [2, n0, _ICMPT,
+  0, 0, () => ItemCollectionMetricsMultiple
+];
+var Key: StaticMapSchema = [2, n0, _K,
+  0, 0, () => AttributeValue$
+];
+var KeyConditions: StaticMapSchema = [2, n0, _KC,
+  0, 0, () => Condition$
+];
+var MapAttributeValue: StaticMapSchema = [2, n0, _MAV,
+  0, 0, () => AttributeValue$
+];
+var PutItemInputAttributeMap: StaticMapSchema = [2, n0, _PIIAM,
+  0, 0, () => AttributeValue$
+];
+var SecondaryIndexesCapacityMap: StaticMapSchema = [2, n0, _SICM,
+  0, 0, () => Capacity$
+];
+export var AttributeValue$: StaticUnionSchema = [4, n0, _AV,
   0,
   [_S_, _N, _B_, _SS_, _NS, _BS_, _M_, _L_, _NULL, _BOOL],
-  [0, 0, 21, 64 | 0, 64 | 0, 64 | 21, () => MapAttributeValue, () => ListAttributeValue, 2, 2],
+  [0, 0, 21, 64 | 0, 64 | 0, 64 | 21, () => MapAttributeValue, () => ListAttributeValue, 2, 2]
 ];
-export var BatchExecuteStatement$: StaticOperationSchema = [
-  9,
-  n0,
-  _BES,
-  0,
-  () => BatchExecuteStatementInput$,
-  () => BatchExecuteStatementOutput$,
+export var BatchExecuteStatement$: StaticOperationSchema = [9, n0, _BES,
+  0, () => BatchExecuteStatementInput$, () => BatchExecuteStatementOutput$
 ];
-export var BatchGetItem$: StaticOperationSchema = [9, n0, _BGI, 0, () => BatchGetItemInput$, () => BatchGetItemOutput$];
-export var BatchWriteItem$: StaticOperationSchema = [
-  9,
-  n0,
-  _BWI,
-  0,
-  () => BatchWriteItemInput$,
-  () => BatchWriteItemOutput$,
+export var BatchGetItem$: StaticOperationSchema = [9, n0, _BGI,
+  0, () => BatchGetItemInput$, () => BatchGetItemOutput$
 ];
-export var CreateBackup$: StaticOperationSchema = [9, n0, _CB, 0, () => CreateBackupInput$, () => CreateBackupOutput$];
-export var CreateGlobalTable$: StaticOperationSchema = [
-  9,
-  n0,
-  _CGT,
-  0,
-  () => CreateGlobalTableInput$,
-  () => CreateGlobalTableOutput$,
+export var BatchWriteItem$: StaticOperationSchema = [9, n0, _BWI,
+  0, () => BatchWriteItemInput$, () => BatchWriteItemOutput$
 ];
-export var CreateTable$: StaticOperationSchema = [9, n0, _CTr, 0, () => CreateTableInput$, () => CreateTableOutput$];
-export var DeleteBackup$: StaticOperationSchema = [9, n0, _DB, 0, () => DeleteBackupInput$, () => DeleteBackupOutput$];
-export var DeleteItem$: StaticOperationSchema = [9, n0, _DI, 0, () => DeleteItemInput$, () => DeleteItemOutput$];
-export var DeleteResourcePolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRP,
-  0,
-  () => DeleteResourcePolicyInput$,
-  () => DeleteResourcePolicyOutput$,
+export var CreateBackup$: StaticOperationSchema = [9, n0, _CB,
+  0, () => CreateBackupInput$, () => CreateBackupOutput$
 ];
-export var DeleteTable$: StaticOperationSchema = [9, n0, _DT, 0, () => DeleteTableInput$, () => DeleteTableOutput$];
-export var DescribeBackup$: StaticOperationSchema = [
-  9,
-  n0,
-  _DBe,
-  0,
-  () => DescribeBackupInput$,
-  () => DescribeBackupOutput$,
+export var CreateGlobalTable$: StaticOperationSchema = [9, n0, _CGT,
+  0, () => CreateGlobalTableInput$, () => CreateGlobalTableOutput$
 ];
-export var DescribeContinuousBackups$: StaticOperationSchema = [
-  9,
-  n0,
-  _DCB,
-  0,
-  () => DescribeContinuousBackupsInput$,
-  () => DescribeContinuousBackupsOutput$,
+export var CreateTable$: StaticOperationSchema = [9, n0, _CTr,
+  0, () => CreateTableInput$, () => CreateTableOutput$
 ];
-export var DescribeContributorInsights$: StaticOperationSchema = [
-  9,
-  n0,
-  _DCI,
-  0,
-  () => DescribeContributorInsightsInput$,
-  () => DescribeContributorInsightsOutput$,
+export var DeleteBackup$: StaticOperationSchema = [9, n0, _DB,
+  0, () => DeleteBackupInput$, () => DeleteBackupOutput$
 ];
-export var DescribeEndpoints$: StaticOperationSchema = [
-  9,
-  n0,
-  _DE,
-  0,
-  () => DescribeEndpointsRequest$,
-  () => DescribeEndpointsResponse$,
+export var DeleteItem$: StaticOperationSchema = [9, n0, _DI,
+  0, () => DeleteItemInput$, () => DeleteItemOutput$
 ];
-export var DescribeExport$: StaticOperationSchema = [
-  9,
-  n0,
-  _DEe,
-  0,
-  () => DescribeExportInput$,
-  () => DescribeExportOutput$,
+export var DeleteResourcePolicy$: StaticOperationSchema = [9, n0, _DRP,
+  0, () => DeleteResourcePolicyInput$, () => DeleteResourcePolicyOutput$
 ];
-export var DescribeGlobalTable$: StaticOperationSchema = [
-  9,
-  n0,
-  _DGT,
-  0,
-  () => DescribeGlobalTableInput$,
-  () => DescribeGlobalTableOutput$,
+export var DeleteTable$: StaticOperationSchema = [9, n0, _DT,
+  0, () => DeleteTableInput$, () => DeleteTableOutput$
 ];
-export var DescribeGlobalTableSettings$: StaticOperationSchema = [
-  9,
-  n0,
-  _DGTS,
-  0,
-  () => DescribeGlobalTableSettingsInput$,
-  () => DescribeGlobalTableSettingsOutput$,
+export var DescribeBackup$: StaticOperationSchema = [9, n0, _DBe,
+  0, () => DescribeBackupInput$, () => DescribeBackupOutput$
 ];
-export var DescribeImport$: StaticOperationSchema = [
-  9,
-  n0,
-  _DIe,
-  0,
-  () => DescribeImportInput$,
-  () => DescribeImportOutput$,
+export var DescribeContinuousBackups$: StaticOperationSchema = [9, n0, _DCB,
+  0, () => DescribeContinuousBackupsInput$, () => DescribeContinuousBackupsOutput$
 ];
-export var DescribeKinesisStreamingDestination$: StaticOperationSchema = [
-  9,
-  n0,
-  _DKSD,
-  0,
-  () => DescribeKinesisStreamingDestinationInput$,
-  () => DescribeKinesisStreamingDestinationOutput$,
+export var DescribeContributorInsights$: StaticOperationSchema = [9, n0, _DCI,
+  0, () => DescribeContributorInsightsInput$, () => DescribeContributorInsightsOutput$
 ];
-export var DescribeLimits$: StaticOperationSchema = [
-  9,
-  n0,
-  _DL,
-  0,
-  () => DescribeLimitsInput$,
-  () => DescribeLimitsOutput$,
+export var DescribeEndpoints$: StaticOperationSchema = [9, n0, _DE,
+  0, () => DescribeEndpointsRequest$, () => DescribeEndpointsResponse$
 ];
-export var DescribeTable$: StaticOperationSchema = [
-  9,
-  n0,
-  _DTe,
-  0,
-  () => DescribeTableInput$,
-  () => DescribeTableOutput$,
+export var DescribeExport$: StaticOperationSchema = [9, n0, _DEe,
+  0, () => DescribeExportInput$, () => DescribeExportOutput$
 ];
-export var DescribeTableReplicaAutoScaling$: StaticOperationSchema = [
-  9,
-  n0,
-  _DTRAS,
-  0,
-  () => DescribeTableReplicaAutoScalingInput$,
-  () => DescribeTableReplicaAutoScalingOutput$,
+export var DescribeGlobalTable$: StaticOperationSchema = [9, n0, _DGT,
+  0, () => DescribeGlobalTableInput$, () => DescribeGlobalTableOutput$
 ];
-export var DescribeTimeToLive$: StaticOperationSchema = [
-  9,
-  n0,
-  _DTTL,
-  0,
-  () => DescribeTimeToLiveInput$,
-  () => DescribeTimeToLiveOutput$,
+export var DescribeGlobalTableSettings$: StaticOperationSchema = [9, n0, _DGTS,
+  0, () => DescribeGlobalTableSettingsInput$, () => DescribeGlobalTableSettingsOutput$
 ];
-export var DisableKinesisStreamingDestination$: StaticOperationSchema = [
-  9,
-  n0,
-  _DKSDi,
-  0,
-  () => KinesisStreamingDestinationInput$,
-  () => KinesisStreamingDestinationOutput$,
+export var DescribeImport$: StaticOperationSchema = [9, n0, _DIe,
+  0, () => DescribeImportInput$, () => DescribeImportOutput$
 ];
-export var EnableKinesisStreamingDestination$: StaticOperationSchema = [
-  9,
-  n0,
-  _EKSD,
-  0,
-  () => KinesisStreamingDestinationInput$,
-  () => KinesisStreamingDestinationOutput$,
+export var DescribeKinesisStreamingDestination$: StaticOperationSchema = [9, n0, _DKSD,
+  0, () => DescribeKinesisStreamingDestinationInput$, () => DescribeKinesisStreamingDestinationOutput$
 ];
-export var ExecuteStatement$: StaticOperationSchema = [
-  9,
-  n0,
-  _ESxe,
-  0,
-  () => ExecuteStatementInput$,
-  () => ExecuteStatementOutput$,
+export var DescribeLimits$: StaticOperationSchema = [9, n0, _DL,
+  0, () => DescribeLimitsInput$, () => DescribeLimitsOutput$
 ];
-export var ExecuteTransaction$: StaticOperationSchema = [
-  9,
-  n0,
-  _ETxe,
-  0,
-  () => ExecuteTransactionInput$,
-  () => ExecuteTransactionOutput$,
+export var DescribeTable$: StaticOperationSchema = [9, n0, _DTe,
+  0, () => DescribeTableInput$, () => DescribeTableOutput$
 ];
-export var ExportTableToPointInTime$: StaticOperationSchema = [
-  9,
-  n0,
-  _ETTPIT,
-  0,
-  () => ExportTableToPointInTimeInput$,
-  () => ExportTableToPointInTimeOutput$,
+export var DescribeTableReplicaAutoScaling$: StaticOperationSchema = [9, n0, _DTRAS,
+  0, () => DescribeTableReplicaAutoScalingInput$, () => DescribeTableReplicaAutoScalingOutput$
 ];
-export var GetItem$: StaticOperationSchema = [9, n0, _GI, 0, () => GetItemInput$, () => GetItemOutput$];
-export var GetResourcePolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _GRP,
-  0,
-  () => GetResourcePolicyInput$,
-  () => GetResourcePolicyOutput$,
+export var DescribeTimeToLive$: StaticOperationSchema = [9, n0, _DTTL,
+  0, () => DescribeTimeToLiveInput$, () => DescribeTimeToLiveOutput$
 ];
-export var ImportTable$: StaticOperationSchema = [9, n0, _IT, 0, () => ImportTableInput$, () => ImportTableOutput$];
-export var ListBackups$: StaticOperationSchema = [9, n0, _LB, 0, () => ListBackupsInput$, () => ListBackupsOutput$];
-export var ListContributorInsights$: StaticOperationSchema = [
-  9,
-  n0,
-  _LCI,
-  0,
-  () => ListContributorInsightsInput$,
-  () => ListContributorInsightsOutput$,
+export var DisableKinesisStreamingDestination$: StaticOperationSchema = [9, n0, _DKSDi,
+  0, () => KinesisStreamingDestinationInput$, () => KinesisStreamingDestinationOutput$
 ];
-export var ListExports$: StaticOperationSchema = [9, n0, _LE, 0, () => ListExportsInput$, () => ListExportsOutput$];
-export var ListGlobalTables$: StaticOperationSchema = [
-  9,
-  n0,
-  _LGT,
-  0,
-  () => ListGlobalTablesInput$,
-  () => ListGlobalTablesOutput$,
+export var EnableKinesisStreamingDestination$: StaticOperationSchema = [9, n0, _EKSD,
+  0, () => KinesisStreamingDestinationInput$, () => KinesisStreamingDestinationOutput$
 ];
-export var ListImports$: StaticOperationSchema = [9, n0, _LI, 0, () => ListImportsInput$, () => ListImportsOutput$];
-export var ListTables$: StaticOperationSchema = [9, n0, _LT, 0, () => ListTablesInput$, () => ListTablesOutput$];
-export var ListTagsOfResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _LTOR,
-  0,
-  () => ListTagsOfResourceInput$,
-  () => ListTagsOfResourceOutput$,
+export var ExecuteStatement$: StaticOperationSchema = [9, n0, _ESxe,
+  0, () => ExecuteStatementInput$, () => ExecuteStatementOutput$
 ];
-export var PutItem$: StaticOperationSchema = [9, n0, _PI, 0, () => PutItemInput$, () => PutItemOutput$];
-export var PutResourcePolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _PRP,
-  0,
-  () => PutResourcePolicyInput$,
-  () => PutResourcePolicyOutput$,
+export var ExecuteTransaction$: StaticOperationSchema = [9, n0, _ETxe,
+  0, () => ExecuteTransactionInput$, () => ExecuteTransactionOutput$
 ];
-export var Query$: StaticOperationSchema = [9, n0, _Q, 0, () => QueryInput$, () => QueryOutput$];
-export var RestoreTableFromBackup$: StaticOperationSchema = [
-  9,
-  n0,
-  _RTFB,
-  0,
-  () => RestoreTableFromBackupInput$,
-  () => RestoreTableFromBackupOutput$,
+export var ExportTableToPointInTime$: StaticOperationSchema = [9, n0, _ETTPIT,
+  0, () => ExportTableToPointInTimeInput$, () => ExportTableToPointInTimeOutput$
 ];
-export var RestoreTableToPointInTime$: StaticOperationSchema = [
-  9,
-  n0,
-  _RTTPIT,
-  0,
-  () => RestoreTableToPointInTimeInput$,
-  () => RestoreTableToPointInTimeOutput$,
+export var GetItem$: StaticOperationSchema = [9, n0, _GI,
+  0, () => GetItemInput$, () => GetItemOutput$
 ];
-export var Scan$: StaticOperationSchema = [9, n0, _Sc, 0, () => ScanInput$, () => ScanOutput$];
-export var TagResource$: StaticOperationSchema = [9, n0, _TRa, 0, () => TagResourceInput$, () => __Unit];
-export var TransactGetItems$: StaticOperationSchema = [
-  9,
-  n0,
-  _TGIr,
-  0,
-  () => TransactGetItemsInput$,
-  () => TransactGetItemsOutput$,
+export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRP,
+  0, () => GetResourcePolicyInput$, () => GetResourcePolicyOutput$
 ];
-export var TransactWriteItems$: StaticOperationSchema = [
-  9,
-  n0,
-  _TWIr,
-  0,
-  () => TransactWriteItemsInput$,
-  () => TransactWriteItemsOutput$,
+export var ImportTable$: StaticOperationSchema = [9, n0, _IT,
+  0, () => ImportTableInput$, () => ImportTableOutput$
 ];
-export var UntagResource$: StaticOperationSchema = [9, n0, _UR, 0, () => UntagResourceInput$, () => __Unit];
-export var UpdateContinuousBackups$: StaticOperationSchema = [
-  9,
-  n0,
-  _UCB,
-  0,
-  () => UpdateContinuousBackupsInput$,
-  () => UpdateContinuousBackupsOutput$,
+export var ListBackups$: StaticOperationSchema = [9, n0, _LB,
+  0, () => ListBackupsInput$, () => ListBackupsOutput$
 ];
-export var UpdateContributorInsights$: StaticOperationSchema = [
-  9,
-  n0,
-  _UCI,
-  0,
-  () => UpdateContributorInsightsInput$,
-  () => UpdateContributorInsightsOutput$,
+export var ListContributorInsights$: StaticOperationSchema = [9, n0, _LCI,
+  0, () => ListContributorInsightsInput$, () => ListContributorInsightsOutput$
 ];
-export var UpdateGlobalTable$: StaticOperationSchema = [
-  9,
-  n0,
-  _UGT,
-  0,
-  () => UpdateGlobalTableInput$,
-  () => UpdateGlobalTableOutput$,
+export var ListExports$: StaticOperationSchema = [9, n0, _LE,
+  0, () => ListExportsInput$, () => ListExportsOutput$
 ];
-export var UpdateGlobalTableSettings$: StaticOperationSchema = [
-  9,
-  n0,
-  _UGTS,
-  0,
-  () => UpdateGlobalTableSettingsInput$,
-  () => UpdateGlobalTableSettingsOutput$,
+export var ListGlobalTables$: StaticOperationSchema = [9, n0, _LGT,
+  0, () => ListGlobalTablesInput$, () => ListGlobalTablesOutput$
 ];
-export var UpdateItem$: StaticOperationSchema = [9, n0, _UIp, 0, () => UpdateItemInput$, () => UpdateItemOutput$];
-export var UpdateKinesisStreamingDestination$: StaticOperationSchema = [
-  9,
-  n0,
-  _UKSD,
-  0,
-  () => UpdateKinesisStreamingDestinationInput$,
-  () => UpdateKinesisStreamingDestinationOutput$,
+export var ListImports$: StaticOperationSchema = [9, n0, _LI,
+  0, () => ListImportsInput$, () => ListImportsOutput$
 ];
-export var UpdateTable$: StaticOperationSchema = [9, n0, _UT, 0, () => UpdateTableInput$, () => UpdateTableOutput$];
-export var UpdateTableReplicaAutoScaling$: StaticOperationSchema = [
-  9,
-  n0,
-  _UTRAS,
-  0,
-  () => UpdateTableReplicaAutoScalingInput$,
-  () => UpdateTableReplicaAutoScalingOutput$,
+export var ListTables$: StaticOperationSchema = [9, n0, _LT,
+  0, () => ListTablesInput$, () => ListTablesOutput$
 ];
-export var UpdateTimeToLive$: StaticOperationSchema = [
-  9,
-  n0,
-  _UTTL,
-  0,
-  () => UpdateTimeToLiveInput$,
-  () => UpdateTimeToLiveOutput$,
+export var ListTagsOfResource$: StaticOperationSchema = [9, n0, _LTOR,
+  0, () => ListTagsOfResourceInput$, () => ListTagsOfResourceOutput$
+];
+export var PutItem$: StaticOperationSchema = [9, n0, _PI,
+  0, () => PutItemInput$, () => PutItemOutput$
+];
+export var PutResourcePolicy$: StaticOperationSchema = [9, n0, _PRP,
+  0, () => PutResourcePolicyInput$, () => PutResourcePolicyOutput$
+];
+export var Query$: StaticOperationSchema = [9, n0, _Q,
+  0, () => QueryInput$, () => QueryOutput$
+];
+export var RestoreTableFromBackup$: StaticOperationSchema = [9, n0, _RTFB,
+  0, () => RestoreTableFromBackupInput$, () => RestoreTableFromBackupOutput$
+];
+export var RestoreTableToPointInTime$: StaticOperationSchema = [9, n0, _RTTPIT,
+  0, () => RestoreTableToPointInTimeInput$, () => RestoreTableToPointInTimeOutput$
+];
+export var Scan$: StaticOperationSchema = [9, n0, _Sc,
+  0, () => ScanInput$, () => ScanOutput$
+];
+export var TagResource$: StaticOperationSchema = [9, n0, _TRa,
+  0, () => TagResourceInput$, () => __Unit
+];
+export var TransactGetItems$: StaticOperationSchema = [9, n0, _TGIr,
+  0, () => TransactGetItemsInput$, () => TransactGetItemsOutput$
+];
+export var TransactWriteItems$: StaticOperationSchema = [9, n0, _TWIr,
+  0, () => TransactWriteItemsInput$, () => TransactWriteItemsOutput$
+];
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  0, () => UntagResourceInput$, () => __Unit
+];
+export var UpdateContinuousBackups$: StaticOperationSchema = [9, n0, _UCB,
+  0, () => UpdateContinuousBackupsInput$, () => UpdateContinuousBackupsOutput$
+];
+export var UpdateContributorInsights$: StaticOperationSchema = [9, n0, _UCI,
+  0, () => UpdateContributorInsightsInput$, () => UpdateContributorInsightsOutput$
+];
+export var UpdateGlobalTable$: StaticOperationSchema = [9, n0, _UGT,
+  0, () => UpdateGlobalTableInput$, () => UpdateGlobalTableOutput$
+];
+export var UpdateGlobalTableSettings$: StaticOperationSchema = [9, n0, _UGTS,
+  0, () => UpdateGlobalTableSettingsInput$, () => UpdateGlobalTableSettingsOutput$
+];
+export var UpdateItem$: StaticOperationSchema = [9, n0, _UIp,
+  0, () => UpdateItemInput$, () => UpdateItemOutput$
+];
+export var UpdateKinesisStreamingDestination$: StaticOperationSchema = [9, n0, _UKSD,
+  0, () => UpdateKinesisStreamingDestinationInput$, () => UpdateKinesisStreamingDestinationOutput$
+];
+export var UpdateTable$: StaticOperationSchema = [9, n0, _UT,
+  0, () => UpdateTableInput$, () => UpdateTableOutput$
+];
+export var UpdateTableReplicaAutoScaling$: StaticOperationSchema = [9, n0, _UTRAS,
+  0, () => UpdateTableReplicaAutoScalingInput$, () => UpdateTableReplicaAutoScalingOutput$
+];
+export var UpdateTimeToLive$: StaticOperationSchema = [9, n0, _UTTL,
+  0, () => UpdateTimeToLiveInput$, () => UpdateTimeToLiveOutput$
 ];

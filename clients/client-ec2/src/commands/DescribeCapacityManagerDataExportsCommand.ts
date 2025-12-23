@@ -27,9 +27,7 @@ export interface DescribeCapacityManagerDataExportsCommandInput extends Describe
  *
  * The output of {@link DescribeCapacityManagerDataExportsCommand}.
  */
-export interface DescribeCapacityManagerDataExportsCommandOutput
-  extends DescribeCapacityManagerDataExportsResult,
-    __MetadataBearer {}
+export interface DescribeCapacityManagerDataExportsCommandOutput extends DescribeCapacityManagerDataExportsResult, __MetadataBearer {}
 
 /**
  * <p>

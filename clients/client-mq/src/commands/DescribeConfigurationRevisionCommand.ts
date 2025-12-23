@@ -24,9 +24,7 @@ export interface DescribeConfigurationRevisionCommandInput extends DescribeConfi
  *
  * The output of {@link DescribeConfigurationRevisionCommand}.
  */
-export interface DescribeConfigurationRevisionCommandOutput
-  extends DescribeConfigurationRevisionResponse,
-    __MetadataBearer {}
+export interface DescribeConfigurationRevisionCommandOutput extends DescribeConfigurationRevisionResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the specified configuration revision for the specified configuration.</p>

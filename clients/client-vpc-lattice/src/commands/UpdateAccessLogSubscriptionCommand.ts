@@ -24,9 +24,7 @@ export interface UpdateAccessLogSubscriptionCommandInput extends UpdateAccessLog
  *
  * The output of {@link UpdateAccessLogSubscriptionCommand}.
  */
-export interface UpdateAccessLogSubscriptionCommandOutput
-  extends UpdateAccessLogSubscriptionResponse,
-    __MetadataBearer {}
+export interface UpdateAccessLogSubscriptionCommandOutput extends UpdateAccessLogSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the specified access log subscription.</p>

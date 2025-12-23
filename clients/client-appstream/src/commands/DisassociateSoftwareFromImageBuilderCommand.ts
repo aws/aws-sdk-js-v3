@@ -27,9 +27,7 @@ export interface DisassociateSoftwareFromImageBuilderCommandInput extends Disass
  *
  * The output of {@link DisassociateSoftwareFromImageBuilderCommand}.
  */
-export interface DisassociateSoftwareFromImageBuilderCommandOutput
-  extends DisassociateSoftwareFromImageBuilderResult,
-    __MetadataBearer {}
+export interface DisassociateSoftwareFromImageBuilderCommandOutput extends DisassociateSoftwareFromImageBuilderResult, __MetadataBearer {}
 
 /**
  * <p>Removes license included application(s) association(s) from an image builder instance.</p>

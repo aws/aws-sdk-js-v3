@@ -24,9 +24,7 @@ export interface DescribePendingMaintenanceActionsCommandInput extends DescribeP
  *
  * The output of {@link DescribePendingMaintenanceActionsCommand}.
  */
-export interface DescribePendingMaintenanceActionsCommandOutput
-  extends PendingMaintenanceActionsMessage,
-    __MetadataBearer {}
+export interface DescribePendingMaintenanceActionsCommandOutput extends PendingMaintenanceActionsMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of resources (for example, instances) that have at least one pending

@@ -24,9 +24,7 @@ export interface CreateTransitGatewayPolicyTableCommandInput extends CreateTrans
  *
  * The output of {@link CreateTransitGatewayPolicyTableCommand}.
  */
-export interface CreateTransitGatewayPolicyTableCommandOutput
-  extends CreateTransitGatewayPolicyTableResult,
-    __MetadataBearer {}
+export interface CreateTransitGatewayPolicyTableCommandOutput extends CreateTransitGatewayPolicyTableResult, __MetadataBearer {}
 
 /**
  * <p>Creates a transit gateway policy table.</p>

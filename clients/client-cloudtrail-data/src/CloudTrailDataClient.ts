@@ -78,12 +78,14 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = PutAuditEventsCommandInput;
+export type ServiceInputTypes =
+  | PutAuditEventsCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = PutAuditEventsCommandOutput;
+export type ServiceOutputTypes =
+  | PutAuditEventsCommandOutput;
 
 /**
  * @public

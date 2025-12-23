@@ -24,9 +24,7 @@ export interface DescribeContainerGroupDefinitionCommandInput extends DescribeCo
  *
  * The output of {@link DescribeContainerGroupDefinitionCommand}.
  */
-export interface DescribeContainerGroupDefinitionCommandOutput
-  extends DescribeContainerGroupDefinitionOutput,
-    __MetadataBearer {}
+export interface DescribeContainerGroupDefinitionCommandOutput extends DescribeContainerGroupDefinitionOutput, __MetadataBearer {}
 
 /**
  * <p>

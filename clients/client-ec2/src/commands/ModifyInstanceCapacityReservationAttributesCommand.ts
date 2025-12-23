@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ModifyInstanceCapacityReservationAttributesCommand}.
  */
-export interface ModifyInstanceCapacityReservationAttributesCommandInput
-  extends ModifyInstanceCapacityReservationAttributesRequest {}
+export interface ModifyInstanceCapacityReservationAttributesCommandInput extends ModifyInstanceCapacityReservationAttributesRequest {}
 /**
  * @public
  *
  * The output of {@link ModifyInstanceCapacityReservationAttributesCommand}.
  */
-export interface ModifyInstanceCapacityReservationAttributesCommandOutput
-  extends ModifyInstanceCapacityReservationAttributesResult,
-    __MetadataBearer {}
+export interface ModifyInstanceCapacityReservationAttributesCommandOutput extends ModifyInstanceCapacityReservationAttributesResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the Capacity Reservation settings for a stopped instance. Use this action to

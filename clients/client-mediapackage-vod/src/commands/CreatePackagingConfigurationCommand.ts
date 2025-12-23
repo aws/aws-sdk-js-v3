@@ -28,9 +28,7 @@ export interface CreatePackagingConfigurationCommandInput extends CreatePackagin
  *
  * The output of {@link CreatePackagingConfigurationCommand}.
  */
-export interface CreatePackagingConfigurationCommandOutput
-  extends CreatePackagingConfigurationResponse,
-    __MetadataBearer {}
+export interface CreatePackagingConfigurationCommandOutput extends CreatePackagingConfigurationResponse, __MetadataBearer {}
 
 /**
  * Creates a new MediaPackage VOD PackagingConfiguration resource.

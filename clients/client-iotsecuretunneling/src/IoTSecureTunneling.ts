@@ -43,8 +43,14 @@ export interface IoTSecureTunneling {
   /**
    * @see {@link CloseTunnelCommand}
    */
-  closeTunnel(args: CloseTunnelCommandInput, options?: __HttpHandlerOptions): Promise<CloseTunnelCommandOutput>;
-  closeTunnel(args: CloseTunnelCommandInput, cb: (err: any, data?: CloseTunnelCommandOutput) => void): void;
+  closeTunnel(
+    args: CloseTunnelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CloseTunnelCommandOutput>;
+  closeTunnel(
+    args: CloseTunnelCommandInput,
+    cb: (err: any, data?: CloseTunnelCommandOutput) => void
+  ): void;
   closeTunnel(
     args: CloseTunnelCommandInput,
     options: __HttpHandlerOptions,
@@ -58,7 +64,10 @@ export interface IoTSecureTunneling {
     args: DescribeTunnelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeTunnelCommandOutput>;
-  describeTunnel(args: DescribeTunnelCommandInput, cb: (err: any, data?: DescribeTunnelCommandOutput) => void): void;
+  describeTunnel(
+    args: DescribeTunnelCommandInput,
+    cb: (err: any, data?: DescribeTunnelCommandOutput) => void
+  ): void;
   describeTunnel(
     args: DescribeTunnelCommandInput,
     options: __HttpHandlerOptions,
@@ -86,8 +95,14 @@ export interface IoTSecureTunneling {
    * @see {@link ListTunnelsCommand}
    */
   listTunnels(): Promise<ListTunnelsCommandOutput>;
-  listTunnels(args: ListTunnelsCommandInput, options?: __HttpHandlerOptions): Promise<ListTunnelsCommandOutput>;
-  listTunnels(args: ListTunnelsCommandInput, cb: (err: any, data?: ListTunnelsCommandOutput) => void): void;
+  listTunnels(
+    args: ListTunnelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTunnelsCommandOutput>;
+  listTunnels(
+    args: ListTunnelsCommandInput,
+    cb: (err: any, data?: ListTunnelsCommandOutput) => void
+  ): void;
   listTunnels(
     args: ListTunnelsCommandInput,
     options: __HttpHandlerOptions,
@@ -98,8 +113,14 @@ export interface IoTSecureTunneling {
    * @see {@link OpenTunnelCommand}
    */
   openTunnel(): Promise<OpenTunnelCommandOutput>;
-  openTunnel(args: OpenTunnelCommandInput, options?: __HttpHandlerOptions): Promise<OpenTunnelCommandOutput>;
-  openTunnel(args: OpenTunnelCommandInput, cb: (err: any, data?: OpenTunnelCommandOutput) => void): void;
+  openTunnel(
+    args: OpenTunnelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<OpenTunnelCommandOutput>;
+  openTunnel(
+    args: OpenTunnelCommandInput,
+    cb: (err: any, data?: OpenTunnelCommandOutput) => void
+  ): void;
   openTunnel(
     args: OpenTunnelCommandInput,
     options: __HttpHandlerOptions,
@@ -126,8 +147,14 @@ export interface IoTSecureTunneling {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -137,8 +164,14 @@ export interface IoTSecureTunneling {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

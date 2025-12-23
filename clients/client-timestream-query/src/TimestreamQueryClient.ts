@@ -57,8 +57,8 @@ import {
   type UrlParser as __UrlParser,
   AwsCredentialIdentityProvider,
   EndpointV2 as __EndpointV2,
-  Provider as __Provider,
   Provider,
+  Provider as __Provider,
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
@@ -320,6 +320,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * @internal
    */
   endpointDiscoveryEnabledProvider?: __Provider<boolean | undefined>;
+
 }
 
 /**
@@ -391,9 +392,7 @@ export class TimestreamQueryClient extends __Client<
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
-    const _config_8 = resolveEndpointDiscoveryConfig(_config_7, {
-      endpointDiscoveryCommandCtor: DescribeEndpointsCommand,
-    });
+    const _config_8 = resolveEndpointDiscoveryConfig(_config_7, { endpointDiscoveryCommandCtor: DescribeEndpointsCommand });
     const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
     this.config = _config_9;
     this.middlewareStack.use(getSchemaSerdePlugin(this.config));

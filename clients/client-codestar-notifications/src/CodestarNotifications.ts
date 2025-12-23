@@ -107,8 +107,14 @@ export interface CodestarNotifications {
   /**
    * @see {@link DeleteTargetCommand}
    */
-  deleteTarget(args: DeleteTargetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTargetCommandOutput>;
-  deleteTarget(args: DeleteTargetCommandInput, cb: (err: any, data?: DeleteTargetCommandOutput) => void): void;
+  deleteTarget(
+    args: DeleteTargetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTargetCommandOutput>;
+  deleteTarget(
+    args: DeleteTargetCommandInput,
+    cb: (err: any, data?: DeleteTargetCommandOutput) => void
+  ): void;
   deleteTarget(
     args: DeleteTargetCommandInput,
     options: __HttpHandlerOptions,
@@ -140,7 +146,10 @@ export interface CodestarNotifications {
     args: ListEventTypesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListEventTypesCommandOutput>;
-  listEventTypes(args: ListEventTypesCommandInput, cb: (err: any, data?: ListEventTypesCommandOutput) => void): void;
+  listEventTypes(
+    args: ListEventTypesCommandInput,
+    cb: (err: any, data?: ListEventTypesCommandOutput) => void
+  ): void;
   listEventTypes(
     args: ListEventTypesCommandInput,
     options: __HttpHandlerOptions,
@@ -186,8 +195,14 @@ export interface CodestarNotifications {
    * @see {@link ListTargetsCommand}
    */
   listTargets(): Promise<ListTargetsCommandOutput>;
-  listTargets(args: ListTargetsCommandInput, options?: __HttpHandlerOptions): Promise<ListTargetsCommandOutput>;
-  listTargets(args: ListTargetsCommandInput, cb: (err: any, data?: ListTargetsCommandOutput) => void): void;
+  listTargets(
+    args: ListTargetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTargetsCommandOutput>;
+  listTargets(
+    args: ListTargetsCommandInput,
+    cb: (err: any, data?: ListTargetsCommandOutput) => void
+  ): void;
   listTargets(
     args: ListTargetsCommandInput,
     options: __HttpHandlerOptions,
@@ -197,8 +212,14 @@ export interface CodestarNotifications {
   /**
    * @see {@link SubscribeCommand}
    */
-  subscribe(args: SubscribeCommandInput, options?: __HttpHandlerOptions): Promise<SubscribeCommandOutput>;
-  subscribe(args: SubscribeCommandInput, cb: (err: any, data?: SubscribeCommandOutput) => void): void;
+  subscribe(
+    args: SubscribeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SubscribeCommandOutput>;
+  subscribe(
+    args: SubscribeCommandInput,
+    cb: (err: any, data?: SubscribeCommandOutput) => void
+  ): void;
   subscribe(
     args: SubscribeCommandInput,
     options: __HttpHandlerOptions,
@@ -208,8 +229,14 @@ export interface CodestarNotifications {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -219,8 +246,14 @@ export interface CodestarNotifications {
   /**
    * @see {@link UnsubscribeCommand}
    */
-  unsubscribe(args: UnsubscribeCommandInput, options?: __HttpHandlerOptions): Promise<UnsubscribeCommandOutput>;
-  unsubscribe(args: UnsubscribeCommandInput, cb: (err: any, data?: UnsubscribeCommandOutput) => void): void;
+  unsubscribe(
+    args: UnsubscribeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnsubscribeCommandOutput>;
+  unsubscribe(
+    args: UnsubscribeCommandInput,
+    cb: (err: any, data?: UnsubscribeCommandOutput) => void
+  ): void;
   unsubscribe(
     args: UnsubscribeCommandInput,
     options: __HttpHandlerOptions,
@@ -230,8 +263,14 @@ export interface CodestarNotifications {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,

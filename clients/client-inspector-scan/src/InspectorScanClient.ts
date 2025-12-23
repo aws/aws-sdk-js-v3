@@ -78,12 +78,14 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = ScanSbomCommandInput;
+export type ServiceInputTypes =
+  | ScanSbomCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = ScanSbomCommandOutput;
+export type ServiceOutputTypes =
+  | ScanSbomCommandOutput;
 
 /**
  * @public

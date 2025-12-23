@@ -24,9 +24,7 @@ export interface BatchAddChannelRoleToAccessorsCommandInput extends BatchAddChan
  *
  * The output of {@link BatchAddChannelRoleToAccessorsCommand}.
  */
-export interface BatchAddChannelRoleToAccessorsCommandOutput
-  extends BatchAddChannelRoleToAccessorsOutput,
-    __MetadataBearer {}
+export interface BatchAddChannelRoleToAccessorsCommandOutput extends BatchAddChannelRoleToAccessorsOutput, __MetadataBearer {}
 
 /**
  * <p>Add role to multiple users or groups in a private re:Post channel.</p>

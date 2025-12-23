@@ -24,9 +24,7 @@ export interface ListWorkspaceServiceAccountsCommandInput extends ListWorkspaceS
  *
  * The output of {@link ListWorkspaceServiceAccountsCommand}.
  */
-export interface ListWorkspaceServiceAccountsCommandOutput
-  extends ListWorkspaceServiceAccountsResponse,
-    __MetadataBearer {}
+export interface ListWorkspaceServiceAccountsCommandOutput extends ListWorkspaceServiceAccountsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of service accounts for a workspace.</p>

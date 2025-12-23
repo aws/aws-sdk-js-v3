@@ -49,6 +49,9 @@ import {
   ListPipelinesOutput$,
   Operator$,
   OperatorType,
+  paginateDescribeObjects,
+  paginateListPipelines,
+  paginateQueryObjects,
   ParameterAttribute$,
   ParameterObject$,
   ParameterValue$,
@@ -103,9 +106,6 @@ import {
   ValidatePipelineDefinitionOutput$,
   ValidationError$,
   ValidationWarning$,
-  paginateDescribeObjects,
-  paginateListPipelines,
-  paginateQueryObjects,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

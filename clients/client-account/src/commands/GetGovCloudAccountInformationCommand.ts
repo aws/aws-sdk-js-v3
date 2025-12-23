@@ -24,9 +24,7 @@ export interface GetGovCloudAccountInformationCommandInput extends GetGovCloudAc
  *
  * The output of {@link GetGovCloudAccountInformationCommand}.
  */
-export interface GetGovCloudAccountInformationCommandOutput
-  extends GetGovCloudAccountInformationResponse,
-    __MetadataBearer {}
+export interface GetGovCloudAccountInformationCommandOutput extends GetGovCloudAccountInformationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the GovCloud account linked to the specified standard account (if it exists) including the GovCloud account ID and state. To use this API, an IAM user or role must have the <code>account:GetGovCloudAccountInformation</code> IAM permission. </p>

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link UpdateLakeFormationIdentityCenterConfigurationCommand}.
  */
-export interface UpdateLakeFormationIdentityCenterConfigurationCommandInput
-  extends UpdateLakeFormationIdentityCenterConfigurationRequest {}
+export interface UpdateLakeFormationIdentityCenterConfigurationCommandInput extends UpdateLakeFormationIdentityCenterConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link UpdateLakeFormationIdentityCenterConfigurationCommand}.
  */
-export interface UpdateLakeFormationIdentityCenterConfigurationCommandOutput
-  extends UpdateLakeFormationIdentityCenterConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateLakeFormationIdentityCenterConfigurationCommandOutput extends UpdateLakeFormationIdentityCenterConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the IAM Identity Center connection parameters.</p>

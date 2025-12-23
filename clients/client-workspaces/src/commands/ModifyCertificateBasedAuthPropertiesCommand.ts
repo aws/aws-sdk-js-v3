@@ -27,9 +27,7 @@ export interface ModifyCertificateBasedAuthPropertiesCommandInput extends Modify
  *
  * The output of {@link ModifyCertificateBasedAuthPropertiesCommand}.
  */
-export interface ModifyCertificateBasedAuthPropertiesCommandOutput
-  extends ModifyCertificateBasedAuthPropertiesResult,
-    __MetadataBearer {}
+export interface ModifyCertificateBasedAuthPropertiesCommandOutput extends ModifyCertificateBasedAuthPropertiesResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the properties of the certificate-based authentication you want

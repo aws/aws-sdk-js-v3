@@ -24,9 +24,7 @@ export interface StartColumnStatisticsTaskRunCommandInput extends StartColumnSta
  *
  * The output of {@link StartColumnStatisticsTaskRunCommand}.
  */
-export interface StartColumnStatisticsTaskRunCommandOutput
-  extends StartColumnStatisticsTaskRunResponse,
-    __MetadataBearer {}
+export interface StartColumnStatisticsTaskRunCommandOutput extends StartColumnStatisticsTaskRunResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a column statistics task run, for a specified table and columns.</p>

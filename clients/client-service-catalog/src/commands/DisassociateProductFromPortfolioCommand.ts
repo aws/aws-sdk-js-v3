@@ -28,9 +28,7 @@ export interface DisassociateProductFromPortfolioCommandInput extends Disassocia
  *
  * The output of {@link DisassociateProductFromPortfolioCommand}.
  */
-export interface DisassociateProductFromPortfolioCommandOutput
-  extends DisassociateProductFromPortfolioOutput,
-    __MetadataBearer {}
+export interface DisassociateProductFromPortfolioCommandOutput extends DisassociateProductFromPortfolioOutput, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified product from the specified portfolio. </p>

@@ -27,9 +27,7 @@ export interface DeleteTargetAccountConfigurationCommandInput extends DeleteTarg
  *
  * The output of {@link DeleteTargetAccountConfigurationCommand}.
  */
-export interface DeleteTargetAccountConfigurationCommandOutput
-  extends DeleteTargetAccountConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteTargetAccountConfigurationCommandOutput extends DeleteTargetAccountConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified target account configuration of the experiment template.</p>

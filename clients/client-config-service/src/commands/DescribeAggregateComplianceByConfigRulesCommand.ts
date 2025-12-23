@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeAggregateComplianceByConfigRulesCommand}.
  */
-export interface DescribeAggregateComplianceByConfigRulesCommandInput
-  extends DescribeAggregateComplianceByConfigRulesRequest {}
+export interface DescribeAggregateComplianceByConfigRulesCommandInput extends DescribeAggregateComplianceByConfigRulesRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeAggregateComplianceByConfigRulesCommand}.
  */
-export interface DescribeAggregateComplianceByConfigRulesCommandOutput
-  extends DescribeAggregateComplianceByConfigRulesResponse,
-    __MetadataBearer {}
+export interface DescribeAggregateComplianceByConfigRulesCommandOutput extends DescribeAggregateComplianceByConfigRulesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of compliant and noncompliant rules with the

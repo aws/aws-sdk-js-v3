@@ -30,31 +30,43 @@ import {
 import { MarketplaceReportingServiceException } from "../models/MarketplaceReportingServiceException";
 
 /* eslint no-var: 0 */
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
-export var GetBuyerDashboardInput$: StaticStructureSchema = [3, n0, _GBDI, 0, [_dI, _eD], [0, 64 | 0]];
-export var GetBuyerDashboardOutput$: StaticStructureSchema = [3, n0, _GBDO, 0, [_eU, _dI, _eD], [0, 0, 64 | 0]];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _s, [_hE]: 500 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE, { [_e]: _c, [_hE]: 401 }, [_m], [0]];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
-export var MarketplaceReportingServiceException$: StaticErrorSchema = [
-  -3,
-  _sm,
-  "MarketplaceReportingServiceException",
-  0,
-  [],
-  [],
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
 ];
+TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+export var GetBuyerDashboardInput$: StaticStructureSchema = [3, n0, _GBDI,
+  0,
+  [_dI, _eD],
+  [0, 64 | 0]
+];
+export var GetBuyerDashboardOutput$: StaticStructureSchema = [3, n0, _GBDO,
+  0,
+  [_eU, _dI, _eD],
+  [0, 0, 64 | 0]
+];
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _s, [_hE]: 500 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_m],
+  [0]
+];
+TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
+export var MarketplaceReportingServiceException$: StaticErrorSchema = [-3, _sm, "MarketplaceReportingServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(MarketplaceReportingServiceException$, MarketplaceReportingServiceException);
 var EmbeddingDomains = 64 | 0;
-export var GetBuyerDashboard$: StaticOperationSchema = [
-  9,
-  n0,
-  _GBD,
-  { [_h]: ["POST", "/getBuyerDashboard", 200] },
-  () => GetBuyerDashboardInput$,
-  () => GetBuyerDashboardOutput$,
+export var GetBuyerDashboard$: StaticOperationSchema = [9, n0, _GBD,
+  { [_h]: ["POST", "/getBuyerDashboard", 200] }, () => GetBuyerDashboardInput$, () => GetBuyerDashboardOutput$
 ];

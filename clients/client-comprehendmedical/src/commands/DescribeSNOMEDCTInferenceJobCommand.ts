@@ -28,9 +28,7 @@ export interface DescribeSNOMEDCTInferenceJobCommandInput extends DescribeSNOMED
  *
  * The output of {@link DescribeSNOMEDCTInferenceJobCommand}.
  */
-export interface DescribeSNOMEDCTInferenceJobCommandOutput
-  extends DescribeSNOMEDCTInferenceJobResponse,
-    __MetadataBearer {}
+export interface DescribeSNOMEDCTInferenceJobCommandOutput extends DescribeSNOMEDCTInferenceJobResponse, __MetadataBearer {}
 
 /**
  * <p>

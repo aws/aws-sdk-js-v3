@@ -9,10 +9,8 @@ AWS SDK for JavaScript BCMPricingCalculator Client for Node.js, Browser and Reac
 <p> You can use the Pricing Calculator API to programmatically create estimates for your planned cloud use. You can model usage and commitments such as Savings Plans and Reserved Instances, and generate estimated costs using your discounts and benefit sharing preferences. </p> <p>The Pricing Calculator API provides the following endpoint:</p> <ul> <li> <p> <code>https://bcm-pricing-calculator.us-east-1.api.aws</code> </p> </li> </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-bcm-pricing-calculator
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-bcm-pricing-calculator`
 - `yarn add @aws-sdk/client-bcm-pricing-calculator`
 - `pnpm add @aws-sdk/client-bcm-pricing-calculator`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new BCMPricingCalculatorClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListBillEstimatesCommand(params);
 ```
 
@@ -209,7 +205,6 @@ BatchCreateBillScenarioCommitmentModification
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/BatchCreateBillScenarioCommitmentModificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/BatchCreateBillScenarioCommitmentModificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/BatchCreateBillScenarioCommitmentModificationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ BatchCreateBillScenarioUsageModification
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/BatchCreateBillScenarioUsageModificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/BatchCreateBillScenarioUsageModificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/BatchCreateBillScenarioUsageModificationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,7 +219,6 @@ BatchCreateWorkloadEstimateUsage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/BatchCreateWorkloadEstimateUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/BatchCreateWorkloadEstimateUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/BatchCreateWorkloadEstimateUsageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -233,7 +226,6 @@ BatchDeleteBillScenarioCommitmentModification
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/BatchDeleteBillScenarioCommitmentModificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/BatchDeleteBillScenarioCommitmentModificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/BatchDeleteBillScenarioCommitmentModificationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -241,7 +233,6 @@ BatchDeleteBillScenarioUsageModification
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/BatchDeleteBillScenarioUsageModificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/BatchDeleteBillScenarioUsageModificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/BatchDeleteBillScenarioUsageModificationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -249,7 +240,6 @@ BatchDeleteWorkloadEstimateUsage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/BatchDeleteWorkloadEstimateUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/BatchDeleteWorkloadEstimateUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/BatchDeleteWorkloadEstimateUsageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -257,7 +247,6 @@ BatchUpdateBillScenarioCommitmentModification
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/BatchUpdateBillScenarioCommitmentModificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/BatchUpdateBillScenarioCommitmentModificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/BatchUpdateBillScenarioCommitmentModificationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -265,7 +254,6 @@ BatchUpdateBillScenarioUsageModification
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/BatchUpdateBillScenarioUsageModificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/BatchUpdateBillScenarioUsageModificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/BatchUpdateBillScenarioUsageModificationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -273,7 +261,6 @@ BatchUpdateWorkloadEstimateUsage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/BatchUpdateWorkloadEstimateUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/BatchUpdateWorkloadEstimateUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/BatchUpdateWorkloadEstimateUsageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -281,7 +268,6 @@ CreateBillEstimate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/CreateBillEstimateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/CreateBillEstimateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/CreateBillEstimateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -289,7 +275,6 @@ CreateBillScenario
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/CreateBillScenarioCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/CreateBillScenarioCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/CreateBillScenarioCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -297,7 +282,6 @@ CreateWorkloadEstimate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/CreateWorkloadEstimateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/CreateWorkloadEstimateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/CreateWorkloadEstimateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -305,7 +289,6 @@ DeleteBillEstimate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/DeleteBillEstimateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/DeleteBillEstimateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/DeleteBillEstimateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -313,7 +296,6 @@ DeleteBillScenario
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/DeleteBillScenarioCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/DeleteBillScenarioCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/DeleteBillScenarioCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -321,7 +303,6 @@ DeleteWorkloadEstimate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/DeleteWorkloadEstimateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/DeleteWorkloadEstimateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/DeleteWorkloadEstimateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -329,7 +310,6 @@ GetBillEstimate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/GetBillEstimateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/GetBillEstimateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/GetBillEstimateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -337,7 +317,6 @@ GetBillScenario
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/GetBillScenarioCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/GetBillScenarioCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/GetBillScenarioCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -345,7 +324,6 @@ GetPreferences
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/GetPreferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/GetPreferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/GetPreferencesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -353,7 +331,6 @@ GetWorkloadEstimate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/GetWorkloadEstimateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/GetWorkloadEstimateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/GetWorkloadEstimateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -361,7 +338,6 @@ ListBillEstimateCommitments
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/ListBillEstimateCommitmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListBillEstimateCommitmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListBillEstimateCommitmentsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -369,7 +345,6 @@ ListBillEstimateInputCommitmentModifications
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/ListBillEstimateInputCommitmentModificationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListBillEstimateInputCommitmentModificationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListBillEstimateInputCommitmentModificationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -377,7 +352,6 @@ ListBillEstimateInputUsageModifications
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/ListBillEstimateInputUsageModificationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListBillEstimateInputUsageModificationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListBillEstimateInputUsageModificationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -385,7 +359,6 @@ ListBillEstimateLineItems
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/ListBillEstimateLineItemsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListBillEstimateLineItemsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListBillEstimateLineItemsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -393,7 +366,6 @@ ListBillEstimates
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/ListBillEstimatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListBillEstimatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListBillEstimatesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -401,7 +373,6 @@ ListBillScenarioCommitmentModifications
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/ListBillScenarioCommitmentModificationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListBillScenarioCommitmentModificationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListBillScenarioCommitmentModificationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -409,7 +380,6 @@ ListBillScenarios
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/ListBillScenariosCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListBillScenariosCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListBillScenariosCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -417,7 +387,6 @@ ListBillScenarioUsageModifications
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/ListBillScenarioUsageModificationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListBillScenarioUsageModificationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListBillScenarioUsageModificationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -425,7 +394,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -433,7 +401,6 @@ ListWorkloadEstimates
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/ListWorkloadEstimatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListWorkloadEstimatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListWorkloadEstimatesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -441,7 +408,6 @@ ListWorkloadEstimateUsage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/ListWorkloadEstimateUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListWorkloadEstimateUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/ListWorkloadEstimateUsageCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -449,7 +415,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -457,7 +422,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -465,7 +429,6 @@ UpdateBillEstimate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/UpdateBillEstimateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/UpdateBillEstimateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/UpdateBillEstimateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -473,7 +436,6 @@ UpdateBillScenario
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/UpdateBillScenarioCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/UpdateBillScenarioCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/UpdateBillScenarioCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -481,7 +443,6 @@ UpdatePreferences
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/UpdatePreferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/UpdatePreferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/UpdatePreferencesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -489,5 +450,4 @@ UpdateWorkloadEstimate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bcm-pricing-calculator/command/UpdateWorkloadEstimateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/UpdateWorkloadEstimateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bcm-pricing-calculator/Interface/UpdateWorkloadEstimateCommandOutput/)
-
 </details>

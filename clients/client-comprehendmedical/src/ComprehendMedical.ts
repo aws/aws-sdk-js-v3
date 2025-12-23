@@ -248,7 +248,10 @@ export interface ComprehendMedical {
     args: DetectEntitiesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DetectEntitiesCommandOutput>;
-  detectEntities(args: DetectEntitiesCommandInput, cb: (err: any, data?: DetectEntitiesCommandOutput) => void): void;
+  detectEntities(
+    args: DetectEntitiesCommandInput,
+    cb: (err: any, data?: DetectEntitiesCommandOutput) => void
+  ): void;
   detectEntities(
     args: DetectEntitiesCommandInput,
     options: __HttpHandlerOptions,
@@ -275,8 +278,14 @@ export interface ComprehendMedical {
   /**
    * @see {@link DetectPHICommand}
    */
-  detectPHI(args: DetectPHICommandInput, options?: __HttpHandlerOptions): Promise<DetectPHICommandOutput>;
-  detectPHI(args: DetectPHICommandInput, cb: (err: any, data?: DetectPHICommandOutput) => void): void;
+  detectPHI(
+    args: DetectPHICommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetectPHICommandOutput>;
+  detectPHI(
+    args: DetectPHICommandInput,
+    cb: (err: any, data?: DetectPHICommandOutput) => void
+  ): void;
   detectPHI(
     args: DetectPHICommandInput,
     options: __HttpHandlerOptions,
@@ -286,8 +295,14 @@ export interface ComprehendMedical {
   /**
    * @see {@link InferICD10CMCommand}
    */
-  inferICD10CM(args: InferICD10CMCommandInput, options?: __HttpHandlerOptions): Promise<InferICD10CMCommandOutput>;
-  inferICD10CM(args: InferICD10CMCommandInput, cb: (err: any, data?: InferICD10CMCommandOutput) => void): void;
+  inferICD10CM(
+    args: InferICD10CMCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InferICD10CMCommandOutput>;
+  inferICD10CM(
+    args: InferICD10CMCommandInput,
+    cb: (err: any, data?: InferICD10CMCommandOutput) => void
+  ): void;
   inferICD10CM(
     args: InferICD10CMCommandInput,
     options: __HttpHandlerOptions,
@@ -297,8 +312,14 @@ export interface ComprehendMedical {
   /**
    * @see {@link InferRxNormCommand}
    */
-  inferRxNorm(args: InferRxNormCommandInput, options?: __HttpHandlerOptions): Promise<InferRxNormCommandOutput>;
-  inferRxNorm(args: InferRxNormCommandInput, cb: (err: any, data?: InferRxNormCommandOutput) => void): void;
+  inferRxNorm(
+    args: InferRxNormCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InferRxNormCommandOutput>;
+  inferRxNorm(
+    args: InferRxNormCommandInput,
+    cb: (err: any, data?: InferRxNormCommandOutput) => void
+  ): void;
   inferRxNorm(
     args: InferRxNormCommandInput,
     options: __HttpHandlerOptions,
@@ -308,8 +329,14 @@ export interface ComprehendMedical {
   /**
    * @see {@link InferSNOMEDCTCommand}
    */
-  inferSNOMEDCT(args: InferSNOMEDCTCommandInput, options?: __HttpHandlerOptions): Promise<InferSNOMEDCTCommandOutput>;
-  inferSNOMEDCT(args: InferSNOMEDCTCommandInput, cb: (err: any, data?: InferSNOMEDCTCommandOutput) => void): void;
+  inferSNOMEDCT(
+    args: InferSNOMEDCTCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InferSNOMEDCTCommandOutput>;
+  inferSNOMEDCT(
+    args: InferSNOMEDCTCommandInput,
+    cb: (err: any, data?: InferSNOMEDCTCommandOutput) => void
+  ): void;
   inferSNOMEDCT(
     args: InferSNOMEDCTCommandInput,
     options: __HttpHandlerOptions,

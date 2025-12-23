@@ -27,9 +27,7 @@ export interface DeleteSlackWorkspaceConfigurationCommandInput extends DeleteSla
  *
  * The output of {@link DeleteSlackWorkspaceConfigurationCommand}.
  */
-export interface DeleteSlackWorkspaceConfigurationCommandOutput
-  extends DeleteSlackWorkspaceConfigurationResult,
-    __MetadataBearer {}
+export interface DeleteSlackWorkspaceConfigurationCommandOutput extends DeleteSlackWorkspaceConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a Slack workspace configuration from your Amazon Web Services account. This operation doesn't

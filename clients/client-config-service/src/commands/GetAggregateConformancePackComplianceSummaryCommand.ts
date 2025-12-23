@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetAggregateConformancePackComplianceSummaryCommand}.
  */
-export interface GetAggregateConformancePackComplianceSummaryCommandInput
-  extends GetAggregateConformancePackComplianceSummaryRequest {}
+export interface GetAggregateConformancePackComplianceSummaryCommandInput extends GetAggregateConformancePackComplianceSummaryRequest {}
 /**
  * @public
  *
  * The output of {@link GetAggregateConformancePackComplianceSummaryCommand}.
  */
-export interface GetAggregateConformancePackComplianceSummaryCommandOutput
-  extends GetAggregateConformancePackComplianceSummaryResponse,
-    __MetadataBearer {}
+export interface GetAggregateConformancePackComplianceSummaryCommandOutput extends GetAggregateConformancePackComplianceSummaryResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the count of compliant and noncompliant conformance packs across all Amazon Web Services accounts and Amazon Web Services Regions in an aggregator. You can filter based on Amazon Web Services account ID or Amazon Web Services Region.</p>

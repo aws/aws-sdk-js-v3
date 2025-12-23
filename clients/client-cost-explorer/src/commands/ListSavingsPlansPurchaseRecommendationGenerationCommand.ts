@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListSavingsPlansPurchaseRecommendationGenerationCommand}.
  */
-export interface ListSavingsPlansPurchaseRecommendationGenerationCommandInput
-  extends ListSavingsPlansPurchaseRecommendationGenerationRequest {}
+export interface ListSavingsPlansPurchaseRecommendationGenerationCommandInput extends ListSavingsPlansPurchaseRecommendationGenerationRequest {}
 /**
  * @public
  *
  * The output of {@link ListSavingsPlansPurchaseRecommendationGenerationCommand}.
  */
-export interface ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
-  extends ListSavingsPlansPurchaseRecommendationGenerationResponse,
-    __MetadataBearer {}
+export interface ListSavingsPlansPurchaseRecommendationGenerationCommandOutput extends ListSavingsPlansPurchaseRecommendationGenerationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of your historical recommendation generations within the past 30

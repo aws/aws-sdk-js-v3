@@ -24,9 +24,7 @@ export interface GetVoiceConnectorTerminationCommandInput extends GetVoiceConnec
  *
  * The output of {@link GetVoiceConnectorTerminationCommand}.
  */
-export interface GetVoiceConnectorTerminationCommandOutput
-  extends GetVoiceConnectorTerminationResponse,
-    __MetadataBearer {}
+export interface GetVoiceConnectorTerminationCommandOutput extends GetVoiceConnectorTerminationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the termination setting details for the specified Voice Connector.</p>

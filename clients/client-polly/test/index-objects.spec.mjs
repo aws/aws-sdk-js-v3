@@ -60,6 +60,7 @@ import {
   MaxLexiconsNumberExceededException,
   MaxLexiconsNumberExceededException$,
   OutputFormat,
+  paginateListSpeechSynthesisTasks,
   Polly,
   PollyClient,
   PollyServiceException,
@@ -93,7 +94,6 @@ import {
   UnsupportedPlsLanguageException$,
   Voice$,
   VoiceId,
-  paginateListSpeechSynthesisTasks,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

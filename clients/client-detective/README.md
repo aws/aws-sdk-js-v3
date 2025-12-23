@@ -84,10 +84,8 @@ graph.</p>
 </note>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-detective
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-detective`
 - `yarn add @aws-sdk/client-detective`
 - `pnpm add @aws-sdk/client-detective`
@@ -123,9 +121,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new DetectiveClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListGraphsCommand(params);
 ```
 
@@ -284,7 +280,6 @@ AcceptInvitation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/AcceptInvitationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/AcceptInvitationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/AcceptInvitationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -292,7 +287,6 @@ BatchGetGraphMemberDatasources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/BatchGetGraphMemberDatasourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/BatchGetGraphMemberDatasourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/BatchGetGraphMemberDatasourcesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -300,7 +294,6 @@ BatchGetMembershipDatasources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/BatchGetMembershipDatasourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/BatchGetMembershipDatasourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/BatchGetMembershipDatasourcesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -308,7 +301,6 @@ CreateGraph
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/CreateGraphCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/CreateGraphCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/CreateGraphCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -316,7 +308,6 @@ CreateMembers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/CreateMembersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/CreateMembersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/CreateMembersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -324,7 +315,6 @@ DeleteGraph
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/DeleteGraphCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/DeleteGraphCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/DeleteGraphCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -332,7 +322,6 @@ DeleteMembers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/DeleteMembersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/DeleteMembersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/DeleteMembersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -340,7 +329,6 @@ DescribeOrganizationConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/DescribeOrganizationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/DescribeOrganizationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/DescribeOrganizationConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -348,7 +336,6 @@ DisableOrganizationAdminAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/DisableOrganizationAdminAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/DisableOrganizationAdminAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/DisableOrganizationAdminAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -356,7 +343,6 @@ DisassociateMembership
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/DisassociateMembershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/DisassociateMembershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/DisassociateMembershipCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -364,7 +350,6 @@ EnableOrganizationAdminAccount
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/EnableOrganizationAdminAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/EnableOrganizationAdminAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/EnableOrganizationAdminAccountCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -372,7 +357,6 @@ GetInvestigation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/GetInvestigationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/GetInvestigationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/GetInvestigationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -380,7 +364,6 @@ GetMembers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/GetMembersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/GetMembersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/GetMembersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -388,7 +371,6 @@ ListDatasourcePackages
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/ListDatasourcePackagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListDatasourcePackagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListDatasourcePackagesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -396,7 +378,6 @@ ListGraphs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/ListGraphsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListGraphsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListGraphsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -404,7 +385,6 @@ ListIndicators
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/ListIndicatorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListIndicatorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListIndicatorsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -412,7 +392,6 @@ ListInvestigations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/ListInvestigationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListInvestigationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListInvestigationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -420,7 +399,6 @@ ListInvitations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/ListInvitationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListInvitationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListInvitationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -428,7 +406,6 @@ ListMembers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/ListMembersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListMembersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListMembersCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -436,7 +413,6 @@ ListOrganizationAdminAccounts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/ListOrganizationAdminAccountsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListOrganizationAdminAccountsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListOrganizationAdminAccountsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -444,7 +420,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -452,7 +427,6 @@ RejectInvitation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/RejectInvitationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/RejectInvitationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/RejectInvitationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -460,7 +434,6 @@ StartInvestigation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/StartInvestigationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/StartInvestigationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/StartInvestigationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -468,7 +441,6 @@ StartMonitoringMember
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/StartMonitoringMemberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/StartMonitoringMemberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/StartMonitoringMemberCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -476,7 +448,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -484,7 +455,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -492,7 +462,6 @@ UpdateDatasourcePackages
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/UpdateDatasourcePackagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/UpdateDatasourcePackagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/UpdateDatasourcePackagesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -500,7 +469,6 @@ UpdateInvestigationState
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/UpdateInvestigationStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/UpdateInvestigationStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/UpdateInvestigationStateCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -508,5 +476,4 @@ UpdateOrganizationConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/detective/command/UpdateOrganizationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/UpdateOrganizationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-detective/Interface/UpdateOrganizationConfigurationCommandOutput/)
-
 </details>

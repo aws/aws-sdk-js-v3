@@ -24,9 +24,7 @@ export interface UpdateWorkspaceAuthenticationCommandInput extends UpdateWorkspa
  *
  * The output of {@link UpdateWorkspaceAuthenticationCommand}.
  */
-export interface UpdateWorkspaceAuthenticationCommandOutput
-  extends UpdateWorkspaceAuthenticationResponse,
-    __MetadataBearer {}
+export interface UpdateWorkspaceAuthenticationCommandOutput extends UpdateWorkspaceAuthenticationResponse, __MetadataBearer {}
 
 /**
  * <p>Use this operation to define the identity provider (IdP) that this workspace

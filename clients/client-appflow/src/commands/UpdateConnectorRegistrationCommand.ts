@@ -24,9 +24,7 @@ export interface UpdateConnectorRegistrationCommandInput extends UpdateConnector
  *
  * The output of {@link UpdateConnectorRegistrationCommand}.
  */
-export interface UpdateConnectorRegistrationCommandOutput
-  extends UpdateConnectorRegistrationResponse,
-    __MetadataBearer {}
+export interface UpdateConnectorRegistrationCommandOutput extends UpdateConnectorRegistrationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a custom connector that you've previously registered. This operation updates the

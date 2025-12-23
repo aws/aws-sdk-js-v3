@@ -24,9 +24,7 @@ export interface DisassociateExternalConnectionCommandInput extends Disassociate
  *
  * The output of {@link DisassociateExternalConnectionCommand}.
  */
-export interface DisassociateExternalConnectionCommandOutput
-  extends DisassociateExternalConnectionResult,
-    __MetadataBearer {}
+export interface DisassociateExternalConnectionCommandOutput extends DisassociateExternalConnectionResult, __MetadataBearer {}
 
 /**
  * <p>

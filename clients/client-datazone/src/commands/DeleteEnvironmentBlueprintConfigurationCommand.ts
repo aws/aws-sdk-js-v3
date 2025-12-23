@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteEnvironmentBlueprintConfigurationCommand}.
  */
-export interface DeleteEnvironmentBlueprintConfigurationCommandInput
-  extends DeleteEnvironmentBlueprintConfigurationInput {}
+export interface DeleteEnvironmentBlueprintConfigurationCommandInput extends DeleteEnvironmentBlueprintConfigurationInput {}
 /**
  * @public
  *
  * The output of {@link DeleteEnvironmentBlueprintConfigurationCommand}.
  */
-export interface DeleteEnvironmentBlueprintConfigurationCommandOutput
-  extends DeleteEnvironmentBlueprintConfigurationOutput,
-    __MetadataBearer {}
+export interface DeleteEnvironmentBlueprintConfigurationCommandOutput extends DeleteEnvironmentBlueprintConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the blueprint configuration in Amazon DataZone.</p>

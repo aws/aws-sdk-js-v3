@@ -31,9 +31,7 @@ export interface StartMetadataModelExportToTargetCommandInput extends StartMetad
  *
  * The output of {@link StartMetadataModelExportToTargetCommand}.
  */
-export interface StartMetadataModelExportToTargetCommandOutput
-  extends StartMetadataModelExportToTargetResponse,
-    __MetadataBearer {}
+export interface StartMetadataModelExportToTargetCommandOutput extends StartMetadataModelExportToTargetResponse, __MetadataBearer {}
 
 /**
  * <p>Applies converted database objects to your target database. </p>

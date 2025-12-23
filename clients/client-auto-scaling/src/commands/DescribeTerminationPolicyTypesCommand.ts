@@ -24,9 +24,7 @@ export interface DescribeTerminationPolicyTypesCommandInput {}
  *
  * The output of {@link DescribeTerminationPolicyTypesCommand}.
  */
-export interface DescribeTerminationPolicyTypesCommandOutput
-  extends DescribeTerminationPolicyTypesAnswer,
-    __MetadataBearer {}
+export interface DescribeTerminationPolicyTypesCommandOutput extends DescribeTerminationPolicyTypesAnswer, __MetadataBearer {}
 
 /**
  * <p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p>

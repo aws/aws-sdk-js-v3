@@ -24,9 +24,7 @@ export interface ListModelBiasJobDefinitionsCommandInput extends ListModelBiasJo
  *
  * The output of {@link ListModelBiasJobDefinitionsCommand}.
  */
-export interface ListModelBiasJobDefinitionsCommandOutput
-  extends ListModelBiasJobDefinitionsResponse,
-    __MetadataBearer {}
+export interface ListModelBiasJobDefinitionsCommandOutput extends ListModelBiasJobDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists model bias jobs definitions that satisfy various filters.</p>

@@ -119,7 +119,10 @@ export interface KafkaConnect {
     args: CreateConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateConnectorCommandOutput>;
-  createConnector(args: CreateConnectorCommandInput, cb: (err: any, data?: CreateConnectorCommandOutput) => void): void;
+  createConnector(
+    args: CreateConnectorCommandInput,
+    cb: (err: any, data?: CreateConnectorCommandOutput) => void
+  ): void;
   createConnector(
     args: CreateConnectorCommandInput,
     options: __HttpHandlerOptions,
@@ -167,7 +170,10 @@ export interface KafkaConnect {
     args: DeleteConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteConnectorCommandOutput>;
-  deleteConnector(args: DeleteConnectorCommandInput, cb: (err: any, data?: DeleteConnectorCommandOutput) => void): void;
+  deleteConnector(
+    args: DeleteConnectorCommandInput,
+    cb: (err: any, data?: DeleteConnectorCommandOutput) => void
+  ): void;
   deleteConnector(
     args: DeleteConnectorCommandInput,
     options: __HttpHandlerOptions,
@@ -301,7 +307,10 @@ export interface KafkaConnect {
     args: ListConnectorsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListConnectorsCommandOutput>;
-  listConnectors(args: ListConnectorsCommandInput, cb: (err: any, data?: ListConnectorsCommandOutput) => void): void;
+  listConnectors(
+    args: ListConnectorsCommandInput,
+    cb: (err: any, data?: ListConnectorsCommandOutput) => void
+  ): void;
   listConnectors(
     args: ListConnectorsCommandInput,
     options: __HttpHandlerOptions,
@@ -364,8 +373,14 @@ export interface KafkaConnect {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -375,8 +390,14 @@ export interface KafkaConnect {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -390,7 +411,10 @@ export interface KafkaConnect {
     args: UpdateConnectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateConnectorCommandOutput>;
-  updateConnector(args: UpdateConnectorCommandInput, cb: (err: any, data?: UpdateConnectorCommandOutput) => void): void;
+  updateConnector(
+    args: UpdateConnectorCommandInput,
+    cb: (err: any, data?: UpdateConnectorCommandOutput) => void
+  ): void;
   updateConnector(
     args: UpdateConnectorCommandInput,
     options: __HttpHandlerOptions,

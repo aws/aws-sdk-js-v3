@@ -24,9 +24,7 @@ export interface SearchAvailablePhoneNumbersCommandInput extends SearchAvailable
  *
  * The output of {@link SearchAvailablePhoneNumbersCommand}.
  */
-export interface SearchAvailablePhoneNumbersCommandOutput
-  extends SearchAvailablePhoneNumbersResponse,
-    __MetadataBearer {}
+export interface SearchAvailablePhoneNumbersCommandOutput extends SearchAvailablePhoneNumbersResponse, __MetadataBearer {}
 
 /**
  * <p>Searches the provisioned phone numbers in an organization.</p>

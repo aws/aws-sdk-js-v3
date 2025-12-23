@@ -24,9 +24,7 @@ export interface ListDataQualityJobDefinitionsCommandInput extends ListDataQuali
  *
  * The output of {@link ListDataQualityJobDefinitionsCommand}.
  */
-export interface ListDataQualityJobDefinitionsCommandOutput
-  extends ListDataQualityJobDefinitionsResponse,
-    __MetadataBearer {}
+export interface ListDataQualityJobDefinitionsCommandOutput extends ListDataQualityJobDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the data quality job definitions in your account.</p>

@@ -24,9 +24,7 @@ export interface DescribeFlowExecutionRecordsCommandInput extends DescribeFlowEx
  *
  * The output of {@link DescribeFlowExecutionRecordsCommand}.
  */
-export interface DescribeFlowExecutionRecordsCommandOutput
-  extends DescribeFlowExecutionRecordsResponse,
-    __MetadataBearer {}
+export interface DescribeFlowExecutionRecordsCommandOutput extends DescribeFlowExecutionRecordsResponse, __MetadataBearer {}
 
 /**
  * <p> Fetches the execution history of the flow. </p>

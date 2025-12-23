@@ -42,10 +42,8 @@ previous</p>
 permissions for AWS Auto Scaling actions, see the <a href="https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html">AWS Auto Scaling User Guide</a>. </p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-auto-scaling-plans
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-auto-scaling-plans`
 - `yarn add @aws-sdk/client-auto-scaling-plans`
 - `pnpm add @aws-sdk/client-auto-scaling-plans`
@@ -81,9 +79,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new AutoScalingPlansClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new DescribeScalingPlansCommand(params);
 ```
 
@@ -242,7 +238,6 @@ CreateScalingPlan
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling-plans/command/CreateScalingPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/CreateScalingPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/CreateScalingPlanCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -250,7 +245,6 @@ DeleteScalingPlan
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling-plans/command/DeleteScalingPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/DeleteScalingPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/DeleteScalingPlanCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -258,7 +252,6 @@ DescribeScalingPlanResources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling-plans/command/DescribeScalingPlanResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/DescribeScalingPlanResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/DescribeScalingPlanResourcesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -266,7 +259,6 @@ DescribeScalingPlans
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling-plans/command/DescribeScalingPlansCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/DescribeScalingPlansCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/DescribeScalingPlansCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -274,7 +266,6 @@ GetScalingPlanResourceForecastData
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling-plans/command/GetScalingPlanResourceForecastDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/GetScalingPlanResourceForecastDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/GetScalingPlanResourceForecastDataCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -282,5 +273,4 @@ UpdateScalingPlan
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling-plans/command/UpdateScalingPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/UpdateScalingPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/UpdateScalingPlanCommandOutput/)
-
 </details>

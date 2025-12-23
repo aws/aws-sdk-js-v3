@@ -10,25 +10,25 @@ const checkState = async (client: LambdaClient, input: GetFunctionCommandInput):
     const result: any = await client.send(new GetFunctionCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Configuration.State;
-      };
+      }
       if (returnComparator() === "Active") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Configuration.State;
-      };
+      }
       if (returnComparator() === "Failed") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Configuration.State;
-      };
+      }
       if (returnComparator() === "Pending") {
         return { state: WaiterState.RETRY, reason };
       }

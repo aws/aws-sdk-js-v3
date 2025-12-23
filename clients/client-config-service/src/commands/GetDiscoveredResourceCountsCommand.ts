@@ -24,9 +24,7 @@ export interface GetDiscoveredResourceCountsCommandInput extends GetDiscoveredRe
  *
  * The output of {@link GetDiscoveredResourceCountsCommand}.
  */
-export interface GetDiscoveredResourceCountsCommandOutput
-  extends GetDiscoveredResourceCountsResponse,
-    __MetadataBearer {}
+export interface GetDiscoveredResourceCountsCommandOutput extends GetDiscoveredResourceCountsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the resource types, the number of each resource type,

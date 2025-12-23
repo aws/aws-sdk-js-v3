@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutPermissionsBoundaryToPermissionSetCommand}.
  */
-export interface PutPermissionsBoundaryToPermissionSetCommandInput
-  extends PutPermissionsBoundaryToPermissionSetRequest {}
+export interface PutPermissionsBoundaryToPermissionSetCommandInput extends PutPermissionsBoundaryToPermissionSetRequest {}
 /**
  * @public
  *
  * The output of {@link PutPermissionsBoundaryToPermissionSetCommand}.
  */
-export interface PutPermissionsBoundaryToPermissionSetCommandOutput
-  extends PutPermissionsBoundaryToPermissionSetResponse,
-    __MetadataBearer {}
+export interface PutPermissionsBoundaryToPermissionSetCommandOutput extends PutPermissionsBoundaryToPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Attaches an Amazon Web Services managed or customer managed policy to the specified <a>PermissionSet</a> as a permissions boundary.</p>

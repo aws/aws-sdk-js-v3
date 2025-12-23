@@ -24,9 +24,7 @@ export interface DescribeBudgetActionsForBudgetCommandInput extends DescribeBudg
  *
  * The output of {@link DescribeBudgetActionsForBudgetCommand}.
  */
-export interface DescribeBudgetActionsForBudgetCommandOutput
-  extends DescribeBudgetActionsForBudgetResponse,
-    __MetadataBearer {}
+export interface DescribeBudgetActionsForBudgetCommandOutput extends DescribeBudgetActionsForBudgetResponse, __MetadataBearer {}
 
 /**
  * <p>

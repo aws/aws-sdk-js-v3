@@ -3153,7 +3153,7 @@ export interface GetLifecyclePolicyPreviewRequest {
   imageIds?: ImageIdentifier[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
+   * <p>The <code>nextToken</code> value returned from a previous paginated 
    *                 <code>GetLifecyclePolicyPreviewRequest</code> request where <code>maxResults</code>
    *             was used and the  results exceeded the value of that parameter. Pagination continues
    *             from the end of the  previous results that returned the <code>nextToken</code> value.
@@ -3166,7 +3166,7 @@ export interface GetLifecyclePolicyPreviewRequest {
   /**
    * <p>The maximum number of repository results returned by
    *                 <code>GetLifecyclePolicyPreviewRequest</code> in  paginated output. When this
-   *             parameter is used, <code>GetLifecyclePolicyPreviewRequest</code> only returns
+   *             parameter is used, <code>GetLifecyclePolicyPreviewRequest</code> only returns 
    *                 <code>maxResults</code> results in a single page along with a
    *             <code>nextToken</code>  response element. The remaining results of the initial request
    *             can be seen by sending  another <code>GetLifecyclePolicyPreviewRequest</code> request

@@ -24,9 +24,7 @@ export interface StopTrainingEntityRecognizerCommandInput extends StopTrainingEn
  *
  * The output of {@link StopTrainingEntityRecognizerCommand}.
  */
-export interface StopTrainingEntityRecognizerCommandOutput
-  extends StopTrainingEntityRecognizerResponse,
-    __MetadataBearer {}
+export interface StopTrainingEntityRecognizerCommandOutput extends StopTrainingEntityRecognizerResponse, __MetadataBearer {}
 
 /**
  * <p>Stops an entity recognizer training job while in progress.</p>

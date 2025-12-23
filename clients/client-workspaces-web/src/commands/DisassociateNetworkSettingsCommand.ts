@@ -24,9 +24,7 @@ export interface DisassociateNetworkSettingsCommandInput extends DisassociateNet
  *
  * The output of {@link DisassociateNetworkSettingsCommand}.
  */
-export interface DisassociateNetworkSettingsCommandOutput
-  extends DisassociateNetworkSettingsResponse,
-    __MetadataBearer {}
+export interface DisassociateNetworkSettingsCommandOutput extends DisassociateNetworkSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates network settings from a web portal.</p>

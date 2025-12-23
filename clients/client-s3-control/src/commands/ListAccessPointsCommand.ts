@@ -123,7 +123,10 @@ export class ListAccessPointsCommand extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getProcessArnablesPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getProcessArnablesPlugin(config),
+    ];
   })
   .s("AWSS3ControlServiceV20180820", "ListAccessPoints", {})
   .n("S3ControlClient", "ListAccessPointsCommand")

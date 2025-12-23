@@ -1404,7 +1404,9 @@ export interface EbsVolume {
  * <p>Detailed configuration information for a specific Amazon Web Services resource, with type-specific details.</p>
  * @public
  */
-export type ResourceDetails = ResourceDetails.EbsVolumeMember | ResourceDetails.$UnknownMember;
+export type ResourceDetails =
+  | ResourceDetails.EbsVolumeMember
+  | ResourceDetails.$UnknownMember;
 
 /**
  * @public

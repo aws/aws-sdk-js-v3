@@ -28,9 +28,7 @@ export interface DeactivateOrganizationsAccessCommandInput extends DeactivateOrg
  *
  * The output of {@link DeactivateOrganizationsAccessCommand}.
  */
-export interface DeactivateOrganizationsAccessCommandOutput
-  extends DeactivateOrganizationsAccessOutput,
-    __MetadataBearer {}
+export interface DeactivateOrganizationsAccessCommandOutput extends DeactivateOrganizationsAccessOutput, __MetadataBearer {}
 
 /**
  * <p>Deactivates trusted access with Organizations. If trusted access is deactivated,

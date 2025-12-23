@@ -24,9 +24,7 @@ export interface CreateModelBiasJobDefinitionCommandInput extends CreateModelBia
  *
  * The output of {@link CreateModelBiasJobDefinitionCommand}.
  */
-export interface CreateModelBiasJobDefinitionCommandOutput
-  extends CreateModelBiasJobDefinitionResponse,
-    __MetadataBearer {}
+export interface CreateModelBiasJobDefinitionCommandOutput extends CreateModelBiasJobDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates the definition for a model bias job.</p>

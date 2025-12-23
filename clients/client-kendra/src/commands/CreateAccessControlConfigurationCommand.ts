@@ -27,9 +27,7 @@ export interface CreateAccessControlConfigurationCommandInput extends CreateAcce
  *
  * The output of {@link CreateAccessControlConfigurationCommand}.
  */
-export interface CreateAccessControlConfigurationCommandOutput
-  extends CreateAccessControlConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateAccessControlConfigurationCommandOutput extends CreateAccessControlConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an access configuration for your documents. This includes user and group

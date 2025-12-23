@@ -24,9 +24,7 @@ export interface AllocateTransitVirtualInterfaceCommandInput extends AllocateTra
  *
  * The output of {@link AllocateTransitVirtualInterfaceCommand}.
  */
-export interface AllocateTransitVirtualInterfaceCommandOutput
-  extends AllocateTransitVirtualInterfaceResult,
-    __MetadataBearer {}
+export interface AllocateTransitVirtualInterfaceCommandOutput extends AllocateTransitVirtualInterfaceResult, __MetadataBearer {}
 
 /**
  * <p>Provisions a transit virtual interface to be owned by the specified Amazon Web Services account. Use this type of interface to connect a transit gateway to your Direct Connect gateway.</p>

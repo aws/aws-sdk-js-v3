@@ -24,9 +24,7 @@ export interface GetSensitiveDataOccurrencesCommandInput extends GetSensitiveDat
  *
  * The output of {@link GetSensitiveDataOccurrencesCommand}.
  */
-export interface GetSensitiveDataOccurrencesCommandOutput
-  extends GetSensitiveDataOccurrencesResponse,
-    __MetadataBearer {}
+export interface GetSensitiveDataOccurrencesCommandOutput extends GetSensitiveDataOccurrencesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves occurrences of sensitive data reported by a finding.</p>

@@ -24,9 +24,7 @@ export interface DescribePublishingDestinationCommandInput extends DescribePubli
  *
  * The output of {@link DescribePublishingDestinationCommand}.
  */
-export interface DescribePublishingDestinationCommandOutput
-  extends DescribePublishingDestinationResponse,
-    __MetadataBearer {}
+export interface DescribePublishingDestinationCommandOutput extends DescribePublishingDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the publishing destination specified by the provided

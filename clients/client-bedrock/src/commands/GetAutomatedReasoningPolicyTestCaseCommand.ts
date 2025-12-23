@@ -27,9 +27,7 @@ export interface GetAutomatedReasoningPolicyTestCaseCommandInput extends GetAuto
  *
  * The output of {@link GetAutomatedReasoningPolicyTestCaseCommand}.
  */
-export interface GetAutomatedReasoningPolicyTestCaseCommandOutput
-  extends GetAutomatedReasoningPolicyTestCaseResponse,
-    __MetadataBearer {}
+export interface GetAutomatedReasoningPolicyTestCaseCommandOutput extends GetAutomatedReasoningPolicyTestCaseResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details about a specific Automated Reasoning policy test.</p>

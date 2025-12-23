@@ -22,16 +22,13 @@ export { $Command };
  *
  * The input for {@link HttpPayloadWithXmlNamespaceAndPrefixCommand}.
  */
-export interface HttpPayloadWithXmlNamespaceAndPrefixCommandInput
-  extends HttpPayloadWithXmlNamespaceAndPrefixInputOutput {}
+export interface HttpPayloadWithXmlNamespaceAndPrefixCommandInput extends HttpPayloadWithXmlNamespaceAndPrefixInputOutput {}
 /**
  * @public
  *
  * The output of {@link HttpPayloadWithXmlNamespaceAndPrefixCommand}.
  */
-export interface HttpPayloadWithXmlNamespaceAndPrefixCommandOutput
-  extends HttpPayloadWithXmlNamespaceAndPrefixInputOutput,
-    __MetadataBearer {}
+export interface HttpPayloadWithXmlNamespaceAndPrefixCommandOutput extends HttpPayloadWithXmlNamespaceAndPrefixInputOutput, __MetadataBearer {}
 
 /**
  * The following example serializes a payload that uses an XML namespace.

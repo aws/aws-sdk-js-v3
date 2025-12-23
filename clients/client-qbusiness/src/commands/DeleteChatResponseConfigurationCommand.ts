@@ -27,9 +27,7 @@ export interface DeleteChatResponseConfigurationCommandInput extends DeleteChatR
  *
  * The output of {@link DeleteChatResponseConfigurationCommand}.
  */
-export interface DeleteChatResponseConfigurationCommandOutput
-  extends DeleteChatResponseConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteChatResponseConfigurationCommandOutput extends DeleteChatResponseConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a specified chat response configuration from an Amazon Q Business application.</p>

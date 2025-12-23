@@ -220,8 +220,14 @@ export interface AppMesh {
   /**
    * @see {@link CreateMeshCommand}
    */
-  createMesh(args: CreateMeshCommandInput, options?: __HttpHandlerOptions): Promise<CreateMeshCommandOutput>;
-  createMesh(args: CreateMeshCommandInput, cb: (err: any, data?: CreateMeshCommandOutput) => void): void;
+  createMesh(
+    args: CreateMeshCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMeshCommandOutput>;
+  createMesh(
+    args: CreateMeshCommandInput,
+    cb: (err: any, data?: CreateMeshCommandOutput) => void
+  ): void;
   createMesh(
     args: CreateMeshCommandInput,
     options: __HttpHandlerOptions,
@@ -231,8 +237,14 @@ export interface AppMesh {
   /**
    * @see {@link CreateRouteCommand}
    */
-  createRoute(args: CreateRouteCommandInput, options?: __HttpHandlerOptions): Promise<CreateRouteCommandOutput>;
-  createRoute(args: CreateRouteCommandInput, cb: (err: any, data?: CreateRouteCommandOutput) => void): void;
+  createRoute(
+    args: CreateRouteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRouteCommandOutput>;
+  createRoute(
+    args: CreateRouteCommandInput,
+    cb: (err: any, data?: CreateRouteCommandOutput) => void
+  ): void;
   createRoute(
     args: CreateRouteCommandInput,
     options: __HttpHandlerOptions,
@@ -327,8 +339,14 @@ export interface AppMesh {
   /**
    * @see {@link DeleteMeshCommand}
    */
-  deleteMesh(args: DeleteMeshCommandInput, options?: __HttpHandlerOptions): Promise<DeleteMeshCommandOutput>;
-  deleteMesh(args: DeleteMeshCommandInput, cb: (err: any, data?: DeleteMeshCommandOutput) => void): void;
+  deleteMesh(
+    args: DeleteMeshCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMeshCommandOutput>;
+  deleteMesh(
+    args: DeleteMeshCommandInput,
+    cb: (err: any, data?: DeleteMeshCommandOutput) => void
+  ): void;
   deleteMesh(
     args: DeleteMeshCommandInput,
     options: __HttpHandlerOptions,
@@ -338,8 +356,14 @@ export interface AppMesh {
   /**
    * @see {@link DeleteRouteCommand}
    */
-  deleteRoute(args: DeleteRouteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRouteCommandOutput>;
-  deleteRoute(args: DeleteRouteCommandInput, cb: (err: any, data?: DeleteRouteCommandOutput) => void): void;
+  deleteRoute(
+    args: DeleteRouteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRouteCommandOutput>;
+  deleteRoute(
+    args: DeleteRouteCommandInput,
+    cb: (err: any, data?: DeleteRouteCommandOutput) => void
+  ): void;
   deleteRoute(
     args: DeleteRouteCommandInput,
     options: __HttpHandlerOptions,
@@ -434,8 +458,14 @@ export interface AppMesh {
   /**
    * @see {@link DescribeMeshCommand}
    */
-  describeMesh(args: DescribeMeshCommandInput, options?: __HttpHandlerOptions): Promise<DescribeMeshCommandOutput>;
-  describeMesh(args: DescribeMeshCommandInput, cb: (err: any, data?: DescribeMeshCommandOutput) => void): void;
+  describeMesh(
+    args: DescribeMeshCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMeshCommandOutput>;
+  describeMesh(
+    args: DescribeMeshCommandInput,
+    cb: (err: any, data?: DescribeMeshCommandOutput) => void
+  ): void;
   describeMesh(
     args: DescribeMeshCommandInput,
     options: __HttpHandlerOptions,
@@ -445,8 +475,14 @@ export interface AppMesh {
   /**
    * @see {@link DescribeRouteCommand}
    */
-  describeRoute(args: DescribeRouteCommandInput, options?: __HttpHandlerOptions): Promise<DescribeRouteCommandOutput>;
-  describeRoute(args: DescribeRouteCommandInput, cb: (err: any, data?: DescribeRouteCommandOutput) => void): void;
+  describeRoute(
+    args: DescribeRouteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRouteCommandOutput>;
+  describeRoute(
+    args: DescribeRouteCommandInput,
+    cb: (err: any, data?: DescribeRouteCommandOutput) => void
+  ): void;
   describeRoute(
     args: DescribeRouteCommandInput,
     options: __HttpHandlerOptions,
@@ -542,8 +578,14 @@ export interface AppMesh {
    * @see {@link ListMeshesCommand}
    */
   listMeshes(): Promise<ListMeshesCommandOutput>;
-  listMeshes(args: ListMeshesCommandInput, options?: __HttpHandlerOptions): Promise<ListMeshesCommandOutput>;
-  listMeshes(args: ListMeshesCommandInput, cb: (err: any, data?: ListMeshesCommandOutput) => void): void;
+  listMeshes(
+    args: ListMeshesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMeshesCommandOutput>;
+  listMeshes(
+    args: ListMeshesCommandInput,
+    cb: (err: any, data?: ListMeshesCommandOutput) => void
+  ): void;
   listMeshes(
     args: ListMeshesCommandInput,
     options: __HttpHandlerOptions,
@@ -553,8 +595,14 @@ export interface AppMesh {
   /**
    * @see {@link ListRoutesCommand}
    */
-  listRoutes(args: ListRoutesCommandInput, options?: __HttpHandlerOptions): Promise<ListRoutesCommandOutput>;
-  listRoutes(args: ListRoutesCommandInput, cb: (err: any, data?: ListRoutesCommandOutput) => void): void;
+  listRoutes(
+    args: ListRoutesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRoutesCommandOutput>;
+  listRoutes(
+    args: ListRoutesCommandInput,
+    cb: (err: any, data?: ListRoutesCommandOutput) => void
+  ): void;
   listRoutes(
     args: ListRoutesCommandInput,
     options: __HttpHandlerOptions,
@@ -649,8 +697,14 @@ export interface AppMesh {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -660,8 +714,14 @@ export interface AppMesh {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -688,8 +748,14 @@ export interface AppMesh {
   /**
    * @see {@link UpdateMeshCommand}
    */
-  updateMesh(args: UpdateMeshCommandInput, options?: __HttpHandlerOptions): Promise<UpdateMeshCommandOutput>;
-  updateMesh(args: UpdateMeshCommandInput, cb: (err: any, data?: UpdateMeshCommandOutput) => void): void;
+  updateMesh(
+    args: UpdateMeshCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMeshCommandOutput>;
+  updateMesh(
+    args: UpdateMeshCommandInput,
+    cb: (err: any, data?: UpdateMeshCommandOutput) => void
+  ): void;
   updateMesh(
     args: UpdateMeshCommandInput,
     options: __HttpHandlerOptions,
@@ -699,8 +765,14 @@ export interface AppMesh {
   /**
    * @see {@link UpdateRouteCommand}
    */
-  updateRoute(args: UpdateRouteCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRouteCommandOutput>;
-  updateRoute(args: UpdateRouteCommandInput, cb: (err: any, data?: UpdateRouteCommandOutput) => void): void;
+  updateRoute(
+    args: UpdateRouteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRouteCommandOutput>;
+  updateRoute(
+    args: UpdateRouteCommandInput,
+    cb: (err: any, data?: UpdateRouteCommandOutput) => void
+  ): void;
   updateRoute(
     args: UpdateRouteCommandInput,
     options: __HttpHandlerOptions,

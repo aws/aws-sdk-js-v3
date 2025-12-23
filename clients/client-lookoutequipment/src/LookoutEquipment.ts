@@ -273,8 +273,14 @@ export interface LookoutEquipment {
   /**
    * @see {@link CreateDatasetCommand}
    */
-  createDataset(args: CreateDatasetCommandInput, options?: __HttpHandlerOptions): Promise<CreateDatasetCommandOutput>;
-  createDataset(args: CreateDatasetCommandInput, cb: (err: any, data?: CreateDatasetCommandOutput) => void): void;
+  createDataset(
+    args: CreateDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDatasetCommandOutput>;
+  createDataset(
+    args: CreateDatasetCommandInput,
+    cb: (err: any, data?: CreateDatasetCommandOutput) => void
+  ): void;
   createDataset(
     args: CreateDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -301,8 +307,14 @@ export interface LookoutEquipment {
   /**
    * @see {@link CreateLabelCommand}
    */
-  createLabel(args: CreateLabelCommandInput, options?: __HttpHandlerOptions): Promise<CreateLabelCommandOutput>;
-  createLabel(args: CreateLabelCommandInput, cb: (err: any, data?: CreateLabelCommandOutput) => void): void;
+  createLabel(
+    args: CreateLabelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLabelCommandOutput>;
+  createLabel(
+    args: CreateLabelCommandInput,
+    cb: (err: any, data?: CreateLabelCommandOutput) => void
+  ): void;
   createLabel(
     args: CreateLabelCommandInput,
     options: __HttpHandlerOptions,
@@ -329,8 +341,14 @@ export interface LookoutEquipment {
   /**
    * @see {@link CreateModelCommand}
    */
-  createModel(args: CreateModelCommandInput, options?: __HttpHandlerOptions): Promise<CreateModelCommandOutput>;
-  createModel(args: CreateModelCommandInput, cb: (err: any, data?: CreateModelCommandOutput) => void): void;
+  createModel(
+    args: CreateModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateModelCommandOutput>;
+  createModel(
+    args: CreateModelCommandInput,
+    cb: (err: any, data?: CreateModelCommandOutput) => void
+  ): void;
   createModel(
     args: CreateModelCommandInput,
     options: __HttpHandlerOptions,
@@ -357,8 +375,14 @@ export interface LookoutEquipment {
   /**
    * @see {@link DeleteDatasetCommand}
    */
-  deleteDataset(args: DeleteDatasetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDatasetCommandOutput>;
-  deleteDataset(args: DeleteDatasetCommandInput, cb: (err: any, data?: DeleteDatasetCommandOutput) => void): void;
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDatasetCommandOutput>;
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    cb: (err: any, data?: DeleteDatasetCommandOutput) => void
+  ): void;
   deleteDataset(
     args: DeleteDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -385,8 +409,14 @@ export interface LookoutEquipment {
   /**
    * @see {@link DeleteLabelCommand}
    */
-  deleteLabel(args: DeleteLabelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLabelCommandOutput>;
-  deleteLabel(args: DeleteLabelCommandInput, cb: (err: any, data?: DeleteLabelCommandOutput) => void): void;
+  deleteLabel(
+    args: DeleteLabelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLabelCommandOutput>;
+  deleteLabel(
+    args: DeleteLabelCommandInput,
+    cb: (err: any, data?: DeleteLabelCommandOutput) => void
+  ): void;
   deleteLabel(
     args: DeleteLabelCommandInput,
     options: __HttpHandlerOptions,
@@ -413,8 +443,14 @@ export interface LookoutEquipment {
   /**
    * @see {@link DeleteModelCommand}
    */
-  deleteModel(args: DeleteModelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteModelCommandOutput>;
-  deleteModel(args: DeleteModelCommandInput, cb: (err: any, data?: DeleteModelCommandOutput) => void): void;
+  deleteModel(
+    args: DeleteModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteModelCommandOutput>;
+  deleteModel(
+    args: DeleteModelCommandInput,
+    cb: (err: any, data?: DeleteModelCommandOutput) => void
+  ): void;
   deleteModel(
     args: DeleteModelCommandInput,
     options: __HttpHandlerOptions,
@@ -479,7 +515,10 @@ export interface LookoutEquipment {
     args: DescribeDatasetCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDatasetCommandOutput>;
-  describeDataset(args: DescribeDatasetCommandInput, cb: (err: any, data?: DescribeDatasetCommandOutput) => void): void;
+  describeDataset(
+    args: DescribeDatasetCommandInput,
+    cb: (err: any, data?: DescribeDatasetCommandOutput) => void
+  ): void;
   describeDataset(
     args: DescribeDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -506,8 +545,14 @@ export interface LookoutEquipment {
   /**
    * @see {@link DescribeLabelCommand}
    */
-  describeLabel(args: DescribeLabelCommandInput, options?: __HttpHandlerOptions): Promise<DescribeLabelCommandOutput>;
-  describeLabel(args: DescribeLabelCommandInput, cb: (err: any, data?: DescribeLabelCommandOutput) => void): void;
+  describeLabel(
+    args: DescribeLabelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLabelCommandOutput>;
+  describeLabel(
+    args: DescribeLabelCommandInput,
+    cb: (err: any, data?: DescribeLabelCommandOutput) => void
+  ): void;
   describeLabel(
     args: DescribeLabelCommandInput,
     options: __HttpHandlerOptions,
@@ -534,8 +579,14 @@ export interface LookoutEquipment {
   /**
    * @see {@link DescribeModelCommand}
    */
-  describeModel(args: DescribeModelCommandInput, options?: __HttpHandlerOptions): Promise<DescribeModelCommandOutput>;
-  describeModel(args: DescribeModelCommandInput, cb: (err: any, data?: DescribeModelCommandOutput) => void): void;
+  describeModel(
+    args: DescribeModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeModelCommandOutput>;
+  describeModel(
+    args: DescribeModelCommandInput,
+    cb: (err: any, data?: DescribeModelCommandOutput) => void
+  ): void;
   describeModel(
     args: DescribeModelCommandInput,
     options: __HttpHandlerOptions,
@@ -596,8 +647,14 @@ export interface LookoutEquipment {
   /**
    * @see {@link ImportDatasetCommand}
    */
-  importDataset(args: ImportDatasetCommandInput, options?: __HttpHandlerOptions): Promise<ImportDatasetCommandOutput>;
-  importDataset(args: ImportDatasetCommandInput, cb: (err: any, data?: ImportDatasetCommandOutput) => void): void;
+  importDataset(
+    args: ImportDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportDatasetCommandOutput>;
+  importDataset(
+    args: ImportDatasetCommandInput,
+    cb: (err: any, data?: ImportDatasetCommandOutput) => void
+  ): void;
   importDataset(
     args: ImportDatasetCommandInput,
     options: __HttpHandlerOptions,
@@ -643,8 +700,14 @@ export interface LookoutEquipment {
    * @see {@link ListDatasetsCommand}
    */
   listDatasets(): Promise<ListDatasetsCommandOutput>;
-  listDatasets(args: ListDatasetsCommandInput, options?: __HttpHandlerOptions): Promise<ListDatasetsCommandOutput>;
-  listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatasetsCommandOutput>;
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    cb: (err: any, data?: ListDatasetsCommandOutput) => void
+  ): void;
   listDatasets(
     args: ListDatasetsCommandInput,
     options: __HttpHandlerOptions,
@@ -711,7 +774,10 @@ export interface LookoutEquipment {
     args: ListLabelGroupsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListLabelGroupsCommandOutput>;
-  listLabelGroups(args: ListLabelGroupsCommandInput, cb: (err: any, data?: ListLabelGroupsCommandOutput) => void): void;
+  listLabelGroups(
+    args: ListLabelGroupsCommandInput,
+    cb: (err: any, data?: ListLabelGroupsCommandOutput) => void
+  ): void;
   listLabelGroups(
     args: ListLabelGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -721,8 +787,14 @@ export interface LookoutEquipment {
   /**
    * @see {@link ListLabelsCommand}
    */
-  listLabels(args: ListLabelsCommandInput, options?: __HttpHandlerOptions): Promise<ListLabelsCommandOutput>;
-  listLabels(args: ListLabelsCommandInput, cb: (err: any, data?: ListLabelsCommandOutput) => void): void;
+  listLabels(
+    args: ListLabelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLabelsCommandOutput>;
+  listLabels(
+    args: ListLabelsCommandInput,
+    cb: (err: any, data?: ListLabelsCommandOutput) => void
+  ): void;
   listLabels(
     args: ListLabelsCommandInput,
     options: __HttpHandlerOptions,
@@ -733,8 +805,14 @@ export interface LookoutEquipment {
    * @see {@link ListModelsCommand}
    */
   listModels(): Promise<ListModelsCommandOutput>;
-  listModels(args: ListModelsCommandInput, options?: __HttpHandlerOptions): Promise<ListModelsCommandOutput>;
-  listModels(args: ListModelsCommandInput, cb: (err: any, data?: ListModelsCommandOutput) => void): void;
+  listModels(
+    args: ListModelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListModelsCommandOutput>;
+  listModels(
+    args: ListModelsCommandInput,
+    cb: (err: any, data?: ListModelsCommandOutput) => void
+  ): void;
   listModels(
     args: ListModelsCommandInput,
     options: __HttpHandlerOptions,
@@ -915,8 +993,14 @@ export interface LookoutEquipment {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -926,8 +1010,14 @@ export interface LookoutEquipment {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -988,8 +1078,14 @@ export interface LookoutEquipment {
   /**
    * @see {@link UpdateModelCommand}
    */
-  updateModel(args: UpdateModelCommandInput, options?: __HttpHandlerOptions): Promise<UpdateModelCommandOutput>;
-  updateModel(args: UpdateModelCommandInput, cb: (err: any, data?: UpdateModelCommandOutput) => void): void;
+  updateModel(
+    args: UpdateModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateModelCommandOutput>;
+  updateModel(
+    args: UpdateModelCommandInput,
+    cb: (err: any, data?: UpdateModelCommandOutput) => void
+  ): void;
   updateModel(
     args: UpdateModelCommandInput,
     options: __HttpHandlerOptions,

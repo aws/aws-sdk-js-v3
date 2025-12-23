@@ -27,9 +27,7 @@ export interface GetSavingsPlansUtilizationDetailsCommandInput extends GetSaving
  *
  * The output of {@link GetSavingsPlansUtilizationDetailsCommand}.
  */
-export interface GetSavingsPlansUtilizationDetailsCommandOutput
-  extends GetSavingsPlansUtilizationDetailsResponse,
-    __MetadataBearer {}
+export interface GetSavingsPlansUtilizationDetailsCommandOutput extends GetSavingsPlansUtilizationDetailsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves attribute data along with aggregate utilization and savings data for a given

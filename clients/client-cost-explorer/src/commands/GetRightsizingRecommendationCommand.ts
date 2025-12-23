@@ -24,9 +24,7 @@ export interface GetRightsizingRecommendationCommandInput extends GetRightsizing
  *
  * The output of {@link GetRightsizingRecommendationCommand}.
  */
-export interface GetRightsizingRecommendationCommandOutput
-  extends GetRightsizingRecommendationResponse,
-    __MetadataBearer {}
+export interface GetRightsizingRecommendationCommandOutput extends GetRightsizingRecommendationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates recommendations that help you save cost by identifying idle and underutilized

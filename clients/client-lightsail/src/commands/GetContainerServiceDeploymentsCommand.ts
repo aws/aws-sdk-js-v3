@@ -24,9 +24,7 @@ export interface GetContainerServiceDeploymentsCommandInput extends GetContainer
  *
  * The output of {@link GetContainerServiceDeploymentsCommand}.
  */
-export interface GetContainerServiceDeploymentsCommandOutput
-  extends GetContainerServiceDeploymentsResult,
-    __MetadataBearer {}
+export interface GetContainerServiceDeploymentsCommandOutput extends GetContainerServiceDeploymentsResult, __MetadataBearer {}
 
 /**
  * <p>Returns the deployments for your Amazon Lightsail container service</p>

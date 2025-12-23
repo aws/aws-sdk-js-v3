@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DescribeChannelMembershipForAppInstanceUserCommand}.
  */
-export interface DescribeChannelMembershipForAppInstanceUserCommandInput
-  extends DescribeChannelMembershipForAppInstanceUserRequest {}
+export interface DescribeChannelMembershipForAppInstanceUserCommandInput extends DescribeChannelMembershipForAppInstanceUserRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeChannelMembershipForAppInstanceUserCommand}.
  */
-export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
-  extends DescribeChannelMembershipForAppInstanceUserResponse,
-    __MetadataBearer {}
+export interface DescribeChannelMembershipForAppInstanceUserCommandOutput extends DescribeChannelMembershipForAppInstanceUserResponse, __MetadataBearer {}
 
 /**
  * <p> Returns the details of a channel based on the membership of the specified

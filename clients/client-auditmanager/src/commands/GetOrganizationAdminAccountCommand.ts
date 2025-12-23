@@ -24,9 +24,7 @@ export interface GetOrganizationAdminAccountCommandInput extends GetOrganization
  *
  * The output of {@link GetOrganizationAdminAccountCommand}.
  */
-export interface GetOrganizationAdminAccountCommandOutput
-  extends GetOrganizationAdminAccountResponse,
-    __MetadataBearer {}
+export interface GetOrganizationAdminAccountCommandOutput extends GetOrganizationAdminAccountResponse, __MetadataBearer {}
 
 /**
  * <p> Gets the name of the delegated Amazon Web Services administrator account for a specified

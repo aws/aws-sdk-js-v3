@@ -27,9 +27,7 @@ export interface DeleteIntegrationResourcePropertyCommandInput extends DeleteInt
  *
  * The output of {@link DeleteIntegrationResourcePropertyCommand}.
  */
-export interface DeleteIntegrationResourcePropertyCommandOutput
-  extends DeleteIntegrationResourcePropertyResponse,
-    __MetadataBearer {}
+export interface DeleteIntegrationResourcePropertyCommandOutput extends DeleteIntegrationResourcePropertyResponse, __MetadataBearer {}
 
 /**
  * <p>This API is used for deleting the <code>ResourceProperty</code> of the Glue connection (for the source) or Glue database ARN (for the target).</p>

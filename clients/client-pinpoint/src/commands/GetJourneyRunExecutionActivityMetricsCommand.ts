@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetJourneyRunExecutionActivityMetricsCommand}.
  */
-export interface GetJourneyRunExecutionActivityMetricsCommandInput
-  extends GetJourneyRunExecutionActivityMetricsRequest {}
+export interface GetJourneyRunExecutionActivityMetricsCommandInput extends GetJourneyRunExecutionActivityMetricsRequest {}
 /**
  * @public
  *
  * The output of {@link GetJourneyRunExecutionActivityMetricsCommand}.
  */
-export interface GetJourneyRunExecutionActivityMetricsCommandOutput
-  extends GetJourneyRunExecutionActivityMetricsResponse,
-    __MetadataBearer {}
+export interface GetJourneyRunExecutionActivityMetricsCommandOutput extends GetJourneyRunExecutionActivityMetricsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves (queries) pre-aggregated data for a standard run execution metric that applies to a journey activity.</p>

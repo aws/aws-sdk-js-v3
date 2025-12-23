@@ -24,9 +24,7 @@ export interface DescribeInstanceStorageConfigCommandInput extends DescribeInsta
  *
  * The output of {@link DescribeInstanceStorageConfigCommand}.
  */
-export interface DescribeInstanceStorageConfigCommandOutput
-  extends DescribeInstanceStorageConfigResponse,
-    __MetadataBearer {}
+export interface DescribeInstanceStorageConfigCommandOutput extends DescribeInstanceStorageConfigResponse, __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

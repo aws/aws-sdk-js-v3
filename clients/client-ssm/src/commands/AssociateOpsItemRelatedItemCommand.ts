@@ -24,9 +24,7 @@ export interface AssociateOpsItemRelatedItemCommandInput extends AssociateOpsIte
  *
  * The output of {@link AssociateOpsItemRelatedItemCommand}.
  */
-export interface AssociateOpsItemRelatedItemCommandOutput
-  extends AssociateOpsItemRelatedItemResponse,
-    __MetadataBearer {}
+export interface AssociateOpsItemRelatedItemCommandOutput extends AssociateOpsItemRelatedItemResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a related item to a Systems Manager OpsCenter OpsItem. For example, you can associate an

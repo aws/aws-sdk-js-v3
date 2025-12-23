@@ -24,9 +24,7 @@ export interface SetDefaultPermissionVersionCommandInput extends SetDefaultPermi
  *
  * The output of {@link SetDefaultPermissionVersionCommand}.
  */
-export interface SetDefaultPermissionVersionCommandOutput
-  extends SetDefaultPermissionVersionResponse,
-    __MetadataBearer {}
+export interface SetDefaultPermissionVersionCommandOutput extends SetDefaultPermissionVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Designates the specified version number as the default version for the specified

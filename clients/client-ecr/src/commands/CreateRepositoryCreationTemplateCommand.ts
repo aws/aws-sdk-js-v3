@@ -27,9 +27,7 @@ export interface CreateRepositoryCreationTemplateCommandInput extends CreateRepo
  *
  * The output of {@link CreateRepositoryCreationTemplateCommand}.
  */
-export interface CreateRepositoryCreationTemplateCommandOutput
-  extends CreateRepositoryCreationTemplateResponse,
-    __MetadataBearer {}
+export interface CreateRepositoryCreationTemplateCommandOutput extends CreateRepositoryCreationTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a repository creation template. This template is used to define the settings

@@ -24,9 +24,7 @@ export interface RestoreDBInstanceFromDBSnapshotCommandInput extends RestoreDBIn
  *
  * The output of {@link RestoreDBInstanceFromDBSnapshotCommand}.
  */
-export interface RestoreDBInstanceFromDBSnapshotCommandOutput
-  extends RestoreDBInstanceFromDBSnapshotResult,
-    __MetadataBearer {}
+export interface RestoreDBInstanceFromDBSnapshotCommandOutput extends RestoreDBInstanceFromDBSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new DB instance from a DB snapshot. The target database is created from the source database restore point with most

@@ -24,9 +24,7 @@ export interface BatchDescribeDataTableValueCommandInput extends BatchDescribeDa
  *
  * The output of {@link BatchDescribeDataTableValueCommand}.
  */
-export interface BatchDescribeDataTableValueCommandOutput
-  extends BatchDescribeDataTableValueResponse,
-    __MetadataBearer {}
+export interface BatchDescribeDataTableValueCommandOutput extends BatchDescribeDataTableValueResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves multiple values from a data table without evaluating expressions. Returns the raw stored values along

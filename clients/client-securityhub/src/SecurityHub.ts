@@ -987,8 +987,14 @@ export interface SecurityHub {
   /**
    * @see {@link CreateInsightCommand}
    */
-  createInsight(args: CreateInsightCommandInput, options?: __HttpHandlerOptions): Promise<CreateInsightCommandOutput>;
-  createInsight(args: CreateInsightCommandInput, cb: (err: any, data?: CreateInsightCommandOutput) => void): void;
+  createInsight(
+    args: CreateInsightCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateInsightCommandOutput>;
+  createInsight(
+    args: CreateInsightCommandInput,
+    cb: (err: any, data?: CreateInsightCommandOutput) => void
+  ): void;
   createInsight(
     args: CreateInsightCommandInput,
     options: __HttpHandlerOptions,
@@ -998,8 +1004,14 @@ export interface SecurityHub {
   /**
    * @see {@link CreateMembersCommand}
    */
-  createMembers(args: CreateMembersCommandInput, options?: __HttpHandlerOptions): Promise<CreateMembersCommandOutput>;
-  createMembers(args: CreateMembersCommandInput, cb: (err: any, data?: CreateMembersCommandOutput) => void): void;
+  createMembers(
+    args: CreateMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMembersCommandOutput>;
+  createMembers(
+    args: CreateMembersCommandInput,
+    cb: (err: any, data?: CreateMembersCommandOutput) => void
+  ): void;
   createMembers(
     args: CreateMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -1013,7 +1025,10 @@ export interface SecurityHub {
     args: CreateTicketV2CommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateTicketV2CommandOutput>;
-  createTicketV2(args: CreateTicketV2CommandInput, cb: (err: any, data?: CreateTicketV2CommandOutput) => void): void;
+  createTicketV2(
+    args: CreateTicketV2CommandInput,
+    cb: (err: any, data?: CreateTicketV2CommandOutput) => void
+  ): void;
   createTicketV2(
     args: CreateTicketV2CommandInput,
     options: __HttpHandlerOptions,
@@ -1142,8 +1157,14 @@ export interface SecurityHub {
   /**
    * @see {@link DeleteInsightCommand}
    */
-  deleteInsight(args: DeleteInsightCommandInput, options?: __HttpHandlerOptions): Promise<DeleteInsightCommandOutput>;
-  deleteInsight(args: DeleteInsightCommandInput, cb: (err: any, data?: DeleteInsightCommandOutput) => void): void;
+  deleteInsight(
+    args: DeleteInsightCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteInsightCommandOutput>;
+  deleteInsight(
+    args: DeleteInsightCommandInput,
+    cb: (err: any, data?: DeleteInsightCommandOutput) => void
+  ): void;
   deleteInsight(
     args: DeleteInsightCommandInput,
     options: __HttpHandlerOptions,
@@ -1170,8 +1191,14 @@ export interface SecurityHub {
   /**
    * @see {@link DeleteMembersCommand}
    */
-  deleteMembers(args: DeleteMembersCommandInput, options?: __HttpHandlerOptions): Promise<DeleteMembersCommandOutput>;
-  deleteMembers(args: DeleteMembersCommandInput, cb: (err: any, data?: DeleteMembersCommandOutput) => void): void;
+  deleteMembers(
+    args: DeleteMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMembersCommandOutput>;
+  deleteMembers(
+    args: DeleteMembersCommandInput,
+    cb: (err: any, data?: DeleteMembersCommandOutput) => void
+  ): void;
   deleteMembers(
     args: DeleteMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -1200,8 +1227,14 @@ export interface SecurityHub {
    * @see {@link DescribeHubCommand}
    */
   describeHub(): Promise<DescribeHubCommandOutput>;
-  describeHub(args: DescribeHubCommandInput, options?: __HttpHandlerOptions): Promise<DescribeHubCommandOutput>;
-  describeHub(args: DescribeHubCommandInput, cb: (err: any, data?: DescribeHubCommandOutput) => void): void;
+  describeHub(
+    args: DescribeHubCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeHubCommandOutput>;
+  describeHub(
+    args: DescribeHubCommandInput,
+    cb: (err: any, data?: DescribeHubCommandOutput) => void
+  ): void;
   describeHub(
     args: DescribeHubCommandInput,
     options: __HttpHandlerOptions,
@@ -1533,7 +1566,10 @@ export interface SecurityHub {
     args: GetAggregatorV2CommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAggregatorV2CommandOutput>;
-  getAggregatorV2(args: GetAggregatorV2CommandInput, cb: (err: any, data?: GetAggregatorV2CommandOutput) => void): void;
+  getAggregatorV2(
+    args: GetAggregatorV2CommandInput,
+    cb: (err: any, data?: GetAggregatorV2CommandOutput) => void
+  ): void;
   getAggregatorV2(
     args: GetAggregatorV2CommandInput,
     options: __HttpHandlerOptions,
@@ -1598,7 +1634,10 @@ export interface SecurityHub {
     args: GetConnectorV2CommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetConnectorV2CommandOutput>;
-  getConnectorV2(args: GetConnectorV2CommandInput, cb: (err: any, data?: GetConnectorV2CommandOutput) => void): void;
+  getConnectorV2(
+    args: GetConnectorV2CommandInput,
+    cb: (err: any, data?: GetConnectorV2CommandOutput) => void
+  ): void;
   getConnectorV2(
     args: GetConnectorV2CommandInput,
     options: __HttpHandlerOptions,
@@ -1661,8 +1700,14 @@ export interface SecurityHub {
    * @see {@link GetFindingsCommand}
    */
   getFindings(): Promise<GetFindingsCommandOutput>;
-  getFindings(args: GetFindingsCommandInput, options?: __HttpHandlerOptions): Promise<GetFindingsCommandOutput>;
-  getFindings(args: GetFindingsCommandInput, cb: (err: any, data?: GetFindingsCommandOutput) => void): void;
+  getFindings(
+    args: GetFindingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFindingsCommandOutput>;
+  getFindings(
+    args: GetFindingsCommandInput,
+    cb: (err: any, data?: GetFindingsCommandOutput) => void
+  ): void;
   getFindings(
     args: GetFindingsCommandInput,
     options: __HttpHandlerOptions,
@@ -1707,8 +1752,14 @@ export interface SecurityHub {
    * @see {@link GetFindingsV2Command}
    */
   getFindingsV2(): Promise<GetFindingsV2CommandOutput>;
-  getFindingsV2(args: GetFindingsV2CommandInput, options?: __HttpHandlerOptions): Promise<GetFindingsV2CommandOutput>;
-  getFindingsV2(args: GetFindingsV2CommandInput, cb: (err: any, data?: GetFindingsV2CommandOutput) => void): void;
+  getFindingsV2(
+    args: GetFindingsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFindingsV2CommandOutput>;
+  getFindingsV2(
+    args: GetFindingsV2CommandInput,
+    cb: (err: any, data?: GetFindingsV2CommandOutput) => void
+  ): void;
   getFindingsV2(
     args: GetFindingsV2CommandInput,
     options: __HttpHandlerOptions,
@@ -1736,8 +1787,14 @@ export interface SecurityHub {
    * @see {@link GetInsightsCommand}
    */
   getInsights(): Promise<GetInsightsCommandOutput>;
-  getInsights(args: GetInsightsCommandInput, options?: __HttpHandlerOptions): Promise<GetInsightsCommandOutput>;
-  getInsights(args: GetInsightsCommandInput, cb: (err: any, data?: GetInsightsCommandOutput) => void): void;
+  getInsights(
+    args: GetInsightsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInsightsCommandOutput>;
+  getInsights(
+    args: GetInsightsCommandInput,
+    cb: (err: any, data?: GetInsightsCommandOutput) => void
+  ): void;
   getInsights(
     args: GetInsightsCommandInput,
     options: __HttpHandlerOptions,
@@ -1783,8 +1840,14 @@ export interface SecurityHub {
   /**
    * @see {@link GetMembersCommand}
    */
-  getMembers(args: GetMembersCommandInput, options?: __HttpHandlerOptions): Promise<GetMembersCommandOutput>;
-  getMembers(args: GetMembersCommandInput, cb: (err: any, data?: GetMembersCommandOutput) => void): void;
+  getMembers(
+    args: GetMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMembersCommandOutput>;
+  getMembers(
+    args: GetMembersCommandInput,
+    cb: (err: any, data?: GetMembersCommandOutput) => void
+  ): void;
   getMembers(
     args: GetMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -1833,7 +1896,10 @@ export interface SecurityHub {
     args: GetResourcesV2CommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetResourcesV2CommandOutput>;
-  getResourcesV2(args: GetResourcesV2CommandInput, cb: (err: any, data?: GetResourcesV2CommandOutput) => void): void;
+  getResourcesV2(
+    args: GetResourcesV2CommandInput,
+    cb: (err: any, data?: GetResourcesV2CommandOutput) => void
+  ): void;
   getResourcesV2(
     args: GetResourcesV2CommandInput,
     options: __HttpHandlerOptions,
@@ -1860,8 +1926,14 @@ export interface SecurityHub {
   /**
    * @see {@link InviteMembersCommand}
    */
-  inviteMembers(args: InviteMembersCommandInput, options?: __HttpHandlerOptions): Promise<InviteMembersCommandOutput>;
-  inviteMembers(args: InviteMembersCommandInput, cb: (err: any, data?: InviteMembersCommandOutput) => void): void;
+  inviteMembers(
+    args: InviteMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InviteMembersCommandOutput>;
+  inviteMembers(
+    args: InviteMembersCommandInput,
+    cb: (err: any, data?: InviteMembersCommandOutput) => void
+  ): void;
   inviteMembers(
     args: InviteMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -2020,7 +2092,10 @@ export interface SecurityHub {
     args: ListInvitationsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListInvitationsCommandOutput>;
-  listInvitations(args: ListInvitationsCommandInput, cb: (err: any, data?: ListInvitationsCommandOutput) => void): void;
+  listInvitations(
+    args: ListInvitationsCommandInput,
+    cb: (err: any, data?: ListInvitationsCommandOutput) => void
+  ): void;
   listInvitations(
     args: ListInvitationsCommandInput,
     options: __HttpHandlerOptions,
@@ -2031,8 +2106,14 @@ export interface SecurityHub {
    * @see {@link ListMembersCommand}
    */
   listMembers(): Promise<ListMembersCommandOutput>;
-  listMembers(args: ListMembersCommandInput, options?: __HttpHandlerOptions): Promise<ListMembersCommandOutput>;
-  listMembers(args: ListMembersCommandInput, cb: (err: any, data?: ListMembersCommandOutput) => void): void;
+  listMembers(
+    args: ListMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMembersCommandOutput>;
+  listMembers(
+    args: ListMembersCommandInput,
+    cb: (err: any, data?: ListMembersCommandOutput) => void
+  ): void;
   listMembers(
     args: ListMembersCommandInput,
     options: __HttpHandlerOptions,
@@ -2163,8 +2244,14 @@ export interface SecurityHub {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2174,8 +2261,14 @@ export interface SecurityHub {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2291,7 +2384,10 @@ export interface SecurityHub {
     args: UpdateFindingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateFindingsCommandOutput>;
-  updateFindings(args: UpdateFindingsCommandInput, cb: (err: any, data?: UpdateFindingsCommandOutput) => void): void;
+  updateFindings(
+    args: UpdateFindingsCommandInput,
+    cb: (err: any, data?: UpdateFindingsCommandOutput) => void
+  ): void;
   updateFindings(
     args: UpdateFindingsCommandInput,
     options: __HttpHandlerOptions,
@@ -2301,8 +2397,14 @@ export interface SecurityHub {
   /**
    * @see {@link UpdateInsightCommand}
    */
-  updateInsight(args: UpdateInsightCommandInput, options?: __HttpHandlerOptions): Promise<UpdateInsightCommandOutput>;
-  updateInsight(args: UpdateInsightCommandInput, cb: (err: any, data?: UpdateInsightCommandOutput) => void): void;
+  updateInsight(
+    args: UpdateInsightCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateInsightCommandOutput>;
+  updateInsight(
+    args: UpdateInsightCommandInput,
+    cb: (err: any, data?: UpdateInsightCommandOutput) => void
+  ): void;
   updateInsight(
     args: UpdateInsightCommandInput,
     options: __HttpHandlerOptions,

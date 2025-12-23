@@ -27,9 +27,7 @@ export interface ListFunctionsByCodeSigningConfigCommandInput extends ListFuncti
  *
  * The output of {@link ListFunctionsByCodeSigningConfigCommand}.
  */
-export interface ListFunctionsByCodeSigningConfigCommandOutput
-  extends ListFunctionsByCodeSigningConfigResponse,
-    __MetadataBearer {}
+export interface ListFunctionsByCodeSigningConfigCommandOutput extends ListFunctionsByCodeSigningConfigResponse, __MetadataBearer {}
 
 /**
  * <p>List the functions that use the specified code signing configuration. You can use this method prior to deleting a code signing configuration, to verify that no functions are using it.</p>

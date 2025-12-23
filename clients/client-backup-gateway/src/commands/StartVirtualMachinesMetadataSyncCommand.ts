@@ -24,9 +24,7 @@ export interface StartVirtualMachinesMetadataSyncCommandInput extends StartVirtu
  *
  * The output of {@link StartVirtualMachinesMetadataSyncCommand}.
  */
-export interface StartVirtualMachinesMetadataSyncCommandOutput
-  extends StartVirtualMachinesMetadataSyncOutput,
-    __MetadataBearer {}
+export interface StartVirtualMachinesMetadataSyncCommandOutput extends StartVirtualMachinesMetadataSyncOutput, __MetadataBearer {}
 
 /**
  * <p>This action sends a request to sync metadata across the specified virtual machines.</p>

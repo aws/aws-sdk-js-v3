@@ -197,7 +197,10 @@ export interface ACM {
     args: GetCertificateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCertificateCommandOutput>;
-  getCertificate(args: GetCertificateCommandInput, cb: (err: any, data?: GetCertificateCommandOutput) => void): void;
+  getCertificate(
+    args: GetCertificateCommandInput,
+    cb: (err: any, data?: GetCertificateCommandOutput) => void
+  ): void;
   getCertificate(
     args: GetCertificateCommandInput,
     options: __HttpHandlerOptions,

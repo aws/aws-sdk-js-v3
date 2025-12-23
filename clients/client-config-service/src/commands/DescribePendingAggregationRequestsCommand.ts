@@ -27,9 +27,7 @@ export interface DescribePendingAggregationRequestsCommandInput extends Describe
  *
  * The output of {@link DescribePendingAggregationRequestsCommand}.
  */
-export interface DescribePendingAggregationRequestsCommandOutput
-  extends DescribePendingAggregationRequestsResponse,
-    __MetadataBearer {}
+export interface DescribePendingAggregationRequestsCommandOutput extends DescribePendingAggregationRequestsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of all pending aggregation requests.</p>

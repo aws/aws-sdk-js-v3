@@ -31,9 +31,7 @@ export interface UpdateSubscriptionsToEventBridgeCommandInput extends UpdateSubs
  *
  * The output of {@link UpdateSubscriptionsToEventBridgeCommand}.
  */
-export interface UpdateSubscriptionsToEventBridgeCommandOutput
-  extends UpdateSubscriptionsToEventBridgeResponse,
-    __MetadataBearer {}
+export interface UpdateSubscriptionsToEventBridgeCommandOutput extends UpdateSubscriptionsToEventBridgeResponse, __MetadataBearer {}
 
 /**
  * <p>Migrates 10 active and enabled Amazon SNS subscriptions at a time and converts them to

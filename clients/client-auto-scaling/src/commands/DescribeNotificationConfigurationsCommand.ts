@@ -27,9 +27,7 @@ export interface DescribeNotificationConfigurationsCommandInput extends Describe
  *
  * The output of {@link DescribeNotificationConfigurationsCommand}.
  */
-export interface DescribeNotificationConfigurationsCommandOutput
-  extends DescribeNotificationConfigurationsAnswer,
-    __MetadataBearer {}
+export interface DescribeNotificationConfigurationsCommandOutput extends DescribeNotificationConfigurationsAnswer, __MetadataBearer {}
 
 /**
  * <p>Gets information about the Amazon SNS notifications that are configured for one or more

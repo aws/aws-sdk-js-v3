@@ -27,9 +27,7 @@ export interface DisassociateGlobalReplicationGroupCommandInput extends Disassoc
  *
  * The output of {@link DisassociateGlobalReplicationGroupCommand}.
  */
-export interface DisassociateGlobalReplicationGroupCommandOutput
-  extends DisassociateGlobalReplicationGroupResult,
-    __MetadataBearer {}
+export interface DisassociateGlobalReplicationGroupCommandOutput extends DisassociateGlobalReplicationGroupResult, __MetadataBearer {}
 
 /**
  * <p>Remove a secondary cluster from the Global datastore using the Global datastore name.

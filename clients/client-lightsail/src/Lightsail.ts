@@ -915,8 +915,14 @@ export interface Lightsail {
   /**
    * @see {@link AttachDiskCommand}
    */
-  attachDisk(args: AttachDiskCommandInput, options?: __HttpHandlerOptions): Promise<AttachDiskCommandOutput>;
-  attachDisk(args: AttachDiskCommandInput, cb: (err: any, data?: AttachDiskCommandOutput) => void): void;
+  attachDisk(
+    args: AttachDiskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AttachDiskCommandOutput>;
+  attachDisk(
+    args: AttachDiskCommandInput,
+    cb: (err: any, data?: AttachDiskCommandOutput) => void
+  ): void;
   attachDisk(
     args: AttachDiskCommandInput,
     options: __HttpHandlerOptions,
@@ -964,7 +970,10 @@ export interface Lightsail {
     args: AttachStaticIpCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AttachStaticIpCommandOutput>;
-  attachStaticIp(args: AttachStaticIpCommandInput, cb: (err: any, data?: AttachStaticIpCommandOutput) => void): void;
+  attachStaticIp(
+    args: AttachStaticIpCommandInput,
+    cb: (err: any, data?: AttachStaticIpCommandOutput) => void
+  ): void;
   attachStaticIp(
     args: AttachStaticIpCommandInput,
     options: __HttpHandlerOptions,
@@ -991,8 +1000,14 @@ export interface Lightsail {
   /**
    * @see {@link CopySnapshotCommand}
    */
-  copySnapshot(args: CopySnapshotCommandInput, options?: __HttpHandlerOptions): Promise<CopySnapshotCommandOutput>;
-  copySnapshot(args: CopySnapshotCommandInput, cb: (err: any, data?: CopySnapshotCommandOutput) => void): void;
+  copySnapshot(
+    args: CopySnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CopySnapshotCommandOutput>;
+  copySnapshot(
+    args: CopySnapshotCommandInput,
+    cb: (err: any, data?: CopySnapshotCommandOutput) => void
+  ): void;
   copySnapshot(
     args: CopySnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -1002,8 +1017,14 @@ export interface Lightsail {
   /**
    * @see {@link CreateBucketCommand}
    */
-  createBucket(args: CreateBucketCommandInput, options?: __HttpHandlerOptions): Promise<CreateBucketCommandOutput>;
-  createBucket(args: CreateBucketCommandInput, cb: (err: any, data?: CreateBucketCommandOutput) => void): void;
+  createBucket(
+    args: CreateBucketCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBucketCommandOutput>;
+  createBucket(
+    args: CreateBucketCommandInput,
+    cb: (err: any, data?: CreateBucketCommandOutput) => void
+  ): void;
   createBucket(
     args: CreateBucketCommandInput,
     options: __HttpHandlerOptions,
@@ -1133,8 +1154,14 @@ export interface Lightsail {
   /**
    * @see {@link CreateDiskCommand}
    */
-  createDisk(args: CreateDiskCommandInput, options?: __HttpHandlerOptions): Promise<CreateDiskCommandOutput>;
-  createDisk(args: CreateDiskCommandInput, cb: (err: any, data?: CreateDiskCommandOutput) => void): void;
+  createDisk(
+    args: CreateDiskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDiskCommandOutput>;
+  createDisk(
+    args: CreateDiskCommandInput,
+    cb: (err: any, data?: CreateDiskCommandOutput) => void
+  ): void;
   createDisk(
     args: CreateDiskCommandInput,
     options: __HttpHandlerOptions,
@@ -1195,8 +1222,14 @@ export interface Lightsail {
   /**
    * @see {@link CreateDomainCommand}
    */
-  createDomain(args: CreateDomainCommandInput, options?: __HttpHandlerOptions): Promise<CreateDomainCommandOutput>;
-  createDomain(args: CreateDomainCommandInput, cb: (err: any, data?: CreateDomainCommandOutput) => void): void;
+  createDomain(
+    args: CreateDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDomainCommandOutput>;
+  createDomain(
+    args: CreateDomainCommandInput,
+    cb: (err: any, data?: CreateDomainCommandOutput) => void
+  ): void;
   createDomain(
     args: CreateDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -1244,7 +1277,10 @@ export interface Lightsail {
     args: CreateInstancesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateInstancesCommandOutput>;
-  createInstances(args: CreateInstancesCommandInput, cb: (err: any, data?: CreateInstancesCommandOutput) => void): void;
+  createInstances(
+    args: CreateInstancesCommandInput,
+    cb: (err: any, data?: CreateInstancesCommandOutput) => void
+  ): void;
   createInstances(
     args: CreateInstancesCommandInput,
     options: __HttpHandlerOptions,
@@ -1288,8 +1324,14 @@ export interface Lightsail {
   /**
    * @see {@link CreateKeyPairCommand}
    */
-  createKeyPair(args: CreateKeyPairCommandInput, options?: __HttpHandlerOptions): Promise<CreateKeyPairCommandOutput>;
-  createKeyPair(args: CreateKeyPairCommandInput, cb: (err: any, data?: CreateKeyPairCommandOutput) => void): void;
+  createKeyPair(
+    args: CreateKeyPairCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateKeyPairCommandOutput>;
+  createKeyPair(
+    args: CreateKeyPairCommandInput,
+    cb: (err: any, data?: CreateKeyPairCommandOutput) => void
+  ): void;
   createKeyPair(
     args: CreateKeyPairCommandInput,
     options: __HttpHandlerOptions,
@@ -1384,8 +1426,14 @@ export interface Lightsail {
   /**
    * @see {@link DeleteAlarmCommand}
    */
-  deleteAlarm(args: DeleteAlarmCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAlarmCommandOutput>;
-  deleteAlarm(args: DeleteAlarmCommandInput, cb: (err: any, data?: DeleteAlarmCommandOutput) => void): void;
+  deleteAlarm(
+    args: DeleteAlarmCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAlarmCommandOutput>;
+  deleteAlarm(
+    args: DeleteAlarmCommandInput,
+    cb: (err: any, data?: DeleteAlarmCommandOutput) => void
+  ): void;
   deleteAlarm(
     args: DeleteAlarmCommandInput,
     options: __HttpHandlerOptions,
@@ -1412,8 +1460,14 @@ export interface Lightsail {
   /**
    * @see {@link DeleteBucketCommand}
    */
-  deleteBucket(args: DeleteBucketCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBucketCommandOutput>;
-  deleteBucket(args: DeleteBucketCommandInput, cb: (err: any, data?: DeleteBucketCommandOutput) => void): void;
+  deleteBucket(
+    args: DeleteBucketCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBucketCommandOutput>;
+  deleteBucket(
+    args: DeleteBucketCommandInput,
+    cb: (err: any, data?: DeleteBucketCommandOutput) => void
+  ): void;
   deleteBucket(
     args: DeleteBucketCommandInput,
     options: __HttpHandlerOptions,
@@ -1508,8 +1562,14 @@ export interface Lightsail {
   /**
    * @see {@link DeleteDiskCommand}
    */
-  deleteDisk(args: DeleteDiskCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDiskCommandOutput>;
-  deleteDisk(args: DeleteDiskCommandInput, cb: (err: any, data?: DeleteDiskCommandOutput) => void): void;
+  deleteDisk(
+    args: DeleteDiskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDiskCommandOutput>;
+  deleteDisk(
+    args: DeleteDiskCommandInput,
+    cb: (err: any, data?: DeleteDiskCommandOutput) => void
+  ): void;
   deleteDisk(
     args: DeleteDiskCommandInput,
     options: __HttpHandlerOptions,
@@ -1554,8 +1614,14 @@ export interface Lightsail {
   /**
    * @see {@link DeleteDomainCommand}
    */
-  deleteDomain(args: DeleteDomainCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDomainCommandOutput>;
-  deleteDomain(args: DeleteDomainCommandInput, cb: (err: any, data?: DeleteDomainCommandOutput) => void): void;
+  deleteDomain(
+    args: DeleteDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDomainCommandOutput>;
+  deleteDomain(
+    args: DeleteDomainCommandInput,
+    cb: (err: any, data?: DeleteDomainCommandOutput) => void
+  ): void;
   deleteDomain(
     args: DeleteDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -1586,7 +1652,10 @@ export interface Lightsail {
     args: DeleteInstanceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteInstanceCommandOutput>;
-  deleteInstance(args: DeleteInstanceCommandInput, cb: (err: any, data?: DeleteInstanceCommandOutput) => void): void;
+  deleteInstance(
+    args: DeleteInstanceCommandInput,
+    cb: (err: any, data?: DeleteInstanceCommandOutput) => void
+  ): void;
   deleteInstance(
     args: DeleteInstanceCommandInput,
     options: __HttpHandlerOptions,
@@ -1613,8 +1682,14 @@ export interface Lightsail {
   /**
    * @see {@link DeleteKeyPairCommand}
    */
-  deleteKeyPair(args: DeleteKeyPairCommandInput, options?: __HttpHandlerOptions): Promise<DeleteKeyPairCommandOutput>;
-  deleteKeyPair(args: DeleteKeyPairCommandInput, cb: (err: any, data?: DeleteKeyPairCommandOutput) => void): void;
+  deleteKeyPair(
+    args: DeleteKeyPairCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteKeyPairCommandOutput>;
+  deleteKeyPair(
+    args: DeleteKeyPairCommandInput,
+    cb: (err: any, data?: DeleteKeyPairCommandOutput) => void
+  ): void;
   deleteKeyPair(
     args: DeleteKeyPairCommandInput,
     options: __HttpHandlerOptions,
@@ -1726,8 +1801,14 @@ export interface Lightsail {
   /**
    * @see {@link DetachDiskCommand}
    */
-  detachDisk(args: DetachDiskCommandInput, options?: __HttpHandlerOptions): Promise<DetachDiskCommandOutput>;
-  detachDisk(args: DetachDiskCommandInput, cb: (err: any, data?: DetachDiskCommandOutput) => void): void;
+  detachDisk(
+    args: DetachDiskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetachDiskCommandOutput>;
+  detachDisk(
+    args: DetachDiskCommandInput,
+    cb: (err: any, data?: DetachDiskCommandOutput) => void
+  ): void;
   detachDisk(
     args: DetachDiskCommandInput,
     options: __HttpHandlerOptions,
@@ -1758,7 +1839,10 @@ export interface Lightsail {
     args: DetachStaticIpCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DetachStaticIpCommandOutput>;
-  detachStaticIp(args: DetachStaticIpCommandInput, cb: (err: any, data?: DetachStaticIpCommandOutput) => void): void;
+  detachStaticIp(
+    args: DetachStaticIpCommandInput,
+    cb: (err: any, data?: DetachStaticIpCommandOutput) => void
+  ): void;
   detachStaticIp(
     args: DetachStaticIpCommandInput,
     options: __HttpHandlerOptions,
@@ -1768,8 +1852,14 @@ export interface Lightsail {
   /**
    * @see {@link DisableAddOnCommand}
    */
-  disableAddOn(args: DisableAddOnCommandInput, options?: __HttpHandlerOptions): Promise<DisableAddOnCommandOutput>;
-  disableAddOn(args: DisableAddOnCommandInput, cb: (err: any, data?: DisableAddOnCommandOutput) => void): void;
+  disableAddOn(
+    args: DisableAddOnCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableAddOnCommandOutput>;
+  disableAddOn(
+    args: DisableAddOnCommandInput,
+    cb: (err: any, data?: DisableAddOnCommandOutput) => void
+  ): void;
   disableAddOn(
     args: DisableAddOnCommandInput,
     options: __HttpHandlerOptions,
@@ -1797,8 +1887,14 @@ export interface Lightsail {
   /**
    * @see {@link EnableAddOnCommand}
    */
-  enableAddOn(args: EnableAddOnCommandInput, options?: __HttpHandlerOptions): Promise<EnableAddOnCommandOutput>;
-  enableAddOn(args: EnableAddOnCommandInput, cb: (err: any, data?: EnableAddOnCommandOutput) => void): void;
+  enableAddOn(
+    args: EnableAddOnCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableAddOnCommandOutput>;
+  enableAddOn(
+    args: EnableAddOnCommandInput,
+    cb: (err: any, data?: EnableAddOnCommandOutput) => void
+  ): void;
   enableAddOn(
     args: EnableAddOnCommandInput,
     options: __HttpHandlerOptions,
@@ -1812,7 +1908,10 @@ export interface Lightsail {
     args: ExportSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ExportSnapshotCommandOutput>;
-  exportSnapshot(args: ExportSnapshotCommandInput, cb: (err: any, data?: ExportSnapshotCommandOutput) => void): void;
+  exportSnapshot(
+    args: ExportSnapshotCommandInput,
+    cb: (err: any, data?: ExportSnapshotCommandOutput) => void
+  ): void;
   exportSnapshot(
     args: ExportSnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -1827,7 +1926,10 @@ export interface Lightsail {
     args: GetActiveNamesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetActiveNamesCommandOutput>;
-  getActiveNames(args: GetActiveNamesCommandInput, cb: (err: any, data?: GetActiveNamesCommandOutput) => void): void;
+  getActiveNames(
+    args: GetActiveNamesCommandInput,
+    cb: (err: any, data?: GetActiveNamesCommandOutput) => void
+  ): void;
   getActiveNames(
     args: GetActiveNamesCommandInput,
     options: __HttpHandlerOptions,
@@ -1838,8 +1940,14 @@ export interface Lightsail {
    * @see {@link GetAlarmsCommand}
    */
   getAlarms(): Promise<GetAlarmsCommandOutput>;
-  getAlarms(args: GetAlarmsCommandInput, options?: __HttpHandlerOptions): Promise<GetAlarmsCommandOutput>;
-  getAlarms(args: GetAlarmsCommandInput, cb: (err: any, data?: GetAlarmsCommandOutput) => void): void;
+  getAlarms(
+    args: GetAlarmsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAlarmsCommandOutput>;
+  getAlarms(
+    args: GetAlarmsCommandInput,
+    cb: (err: any, data?: GetAlarmsCommandOutput) => void
+  ): void;
   getAlarms(
     args: GetAlarmsCommandInput,
     options: __HttpHandlerOptions,
@@ -1867,8 +1975,14 @@ export interface Lightsail {
    * @see {@link GetBlueprintsCommand}
    */
   getBlueprints(): Promise<GetBlueprintsCommandOutput>;
-  getBlueprints(args: GetBlueprintsCommandInput, options?: __HttpHandlerOptions): Promise<GetBlueprintsCommandOutput>;
-  getBlueprints(args: GetBlueprintsCommandInput, cb: (err: any, data?: GetBlueprintsCommandOutput) => void): void;
+  getBlueprints(
+    args: GetBlueprintsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBlueprintsCommandOutput>;
+  getBlueprints(
+    args: GetBlueprintsCommandInput,
+    cb: (err: any, data?: GetBlueprintsCommandOutput) => void
+  ): void;
   getBlueprints(
     args: GetBlueprintsCommandInput,
     options: __HttpHandlerOptions,
@@ -1931,8 +2045,14 @@ export interface Lightsail {
    * @see {@link GetBucketsCommand}
    */
   getBuckets(): Promise<GetBucketsCommandOutput>;
-  getBuckets(args: GetBucketsCommandInput, options?: __HttpHandlerOptions): Promise<GetBucketsCommandOutput>;
-  getBuckets(args: GetBucketsCommandInput, cb: (err: any, data?: GetBucketsCommandOutput) => void): void;
+  getBuckets(
+    args: GetBucketsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBucketsCommandOutput>;
+  getBuckets(
+    args: GetBucketsCommandInput,
+    cb: (err: any, data?: GetBucketsCommandOutput) => void
+  ): void;
   getBuckets(
     args: GetBucketsCommandInput,
     options: __HttpHandlerOptions,
@@ -1943,8 +2063,14 @@ export interface Lightsail {
    * @see {@link GetBundlesCommand}
    */
   getBundles(): Promise<GetBundlesCommandOutput>;
-  getBundles(args: GetBundlesCommandInput, options?: __HttpHandlerOptions): Promise<GetBundlesCommandOutput>;
-  getBundles(args: GetBundlesCommandInput, cb: (err: any, data?: GetBundlesCommandOutput) => void): void;
+  getBundles(
+    args: GetBundlesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBundlesCommandOutput>;
+  getBundles(
+    args: GetBundlesCommandInput,
+    cb: (err: any, data?: GetBundlesCommandOutput) => void
+  ): void;
   getBundles(
     args: GetBundlesCommandInput,
     options: __HttpHandlerOptions,
@@ -1959,7 +2085,10 @@ export interface Lightsail {
     args: GetCertificatesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCertificatesCommandOutput>;
-  getCertificates(args: GetCertificatesCommandInput, cb: (err: any, data?: GetCertificatesCommandOutput) => void): void;
+  getCertificates(
+    args: GetCertificatesCommandInput,
+    cb: (err: any, data?: GetCertificatesCommandOutput) => void
+  ): void;
   getCertificates(
     args: GetCertificatesCommandInput,
     options: __HttpHandlerOptions,
@@ -2044,7 +2173,10 @@ export interface Lightsail {
     args: GetContainerLogCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetContainerLogCommandOutput>;
-  getContainerLog(args: GetContainerLogCommandInput, cb: (err: any, data?: GetContainerLogCommandOutput) => void): void;
+  getContainerLog(
+    args: GetContainerLogCommandInput,
+    cb: (err: any, data?: GetContainerLogCommandOutput) => void
+  ): void;
   getContainerLog(
     args: GetContainerLogCommandInput,
     options: __HttpHandlerOptions,
@@ -2128,7 +2260,10 @@ export interface Lightsail {
     args: GetCostEstimateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCostEstimateCommandOutput>;
-  getCostEstimate(args: GetCostEstimateCommandInput, cb: (err: any, data?: GetCostEstimateCommandOutput) => void): void;
+  getCostEstimate(
+    args: GetCostEstimateCommandInput,
+    cb: (err: any, data?: GetCostEstimateCommandOutput) => void
+  ): void;
   getCostEstimate(
     args: GetCostEstimateCommandInput,
     options: __HttpHandlerOptions,
@@ -2138,8 +2273,14 @@ export interface Lightsail {
   /**
    * @see {@link GetDiskCommand}
    */
-  getDisk(args: GetDiskCommandInput, options?: __HttpHandlerOptions): Promise<GetDiskCommandOutput>;
-  getDisk(args: GetDiskCommandInput, cb: (err: any, data?: GetDiskCommandOutput) => void): void;
+  getDisk(
+    args: GetDiskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDiskCommandOutput>;
+  getDisk(
+    args: GetDiskCommandInput,
+    cb: (err: any, data?: GetDiskCommandOutput) => void
+  ): void;
   getDisk(
     args: GetDiskCommandInput,
     options: __HttpHandlerOptions,
@@ -2150,8 +2291,14 @@ export interface Lightsail {
    * @see {@link GetDisksCommand}
    */
   getDisks(): Promise<GetDisksCommandOutput>;
-  getDisks(args: GetDisksCommandInput, options?: __HttpHandlerOptions): Promise<GetDisksCommandOutput>;
-  getDisks(args: GetDisksCommandInput, cb: (err: any, data?: GetDisksCommandOutput) => void): void;
+  getDisks(
+    args: GetDisksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDisksCommandOutput>;
+  getDisks(
+    args: GetDisksCommandInput,
+    cb: (err: any, data?: GetDisksCommandOutput) => void
+  ): void;
   getDisks(
     args: GetDisksCommandInput,
     options: __HttpHandlerOptions,
@@ -2165,7 +2312,10 @@ export interface Lightsail {
     args: GetDiskSnapshotCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDiskSnapshotCommandOutput>;
-  getDiskSnapshot(args: GetDiskSnapshotCommandInput, cb: (err: any, data?: GetDiskSnapshotCommandOutput) => void): void;
+  getDiskSnapshot(
+    args: GetDiskSnapshotCommandInput,
+    cb: (err: any, data?: GetDiskSnapshotCommandOutput) => void
+  ): void;
   getDiskSnapshot(
     args: GetDiskSnapshotCommandInput,
     options: __HttpHandlerOptions,
@@ -2264,8 +2414,14 @@ export interface Lightsail {
   /**
    * @see {@link GetDomainCommand}
    */
-  getDomain(args: GetDomainCommandInput, options?: __HttpHandlerOptions): Promise<GetDomainCommandOutput>;
-  getDomain(args: GetDomainCommandInput, cb: (err: any, data?: GetDomainCommandOutput) => void): void;
+  getDomain(
+    args: GetDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDomainCommandOutput>;
+  getDomain(
+    args: GetDomainCommandInput,
+    cb: (err: any, data?: GetDomainCommandOutput) => void
+  ): void;
   getDomain(
     args: GetDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -2276,8 +2432,14 @@ export interface Lightsail {
    * @see {@link GetDomainsCommand}
    */
   getDomains(): Promise<GetDomainsCommandOutput>;
-  getDomains(args: GetDomainsCommandInput, options?: __HttpHandlerOptions): Promise<GetDomainsCommandOutput>;
-  getDomains(args: GetDomainsCommandInput, cb: (err: any, data?: GetDomainsCommandOutput) => void): void;
+  getDomains(
+    args: GetDomainsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDomainsCommandOutput>;
+  getDomains(
+    args: GetDomainsCommandInput,
+    cb: (err: any, data?: GetDomainsCommandOutput) => void
+  ): void;
   getDomains(
     args: GetDomainsCommandInput,
     options: __HttpHandlerOptions,
@@ -2305,8 +2467,14 @@ export interface Lightsail {
   /**
    * @see {@link GetInstanceCommand}
    */
-  getInstance(args: GetInstanceCommandInput, options?: __HttpHandlerOptions): Promise<GetInstanceCommandOutput>;
-  getInstance(args: GetInstanceCommandInput, cb: (err: any, data?: GetInstanceCommandOutput) => void): void;
+  getInstance(
+    args: GetInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInstanceCommandOutput>;
+  getInstance(
+    args: GetInstanceCommandInput,
+    cb: (err: any, data?: GetInstanceCommandOutput) => void
+  ): void;
   getInstance(
     args: GetInstanceCommandInput,
     options: __HttpHandlerOptions,
@@ -2368,8 +2536,14 @@ export interface Lightsail {
    * @see {@link GetInstancesCommand}
    */
   getInstances(): Promise<GetInstancesCommandOutput>;
-  getInstances(args: GetInstancesCommandInput, options?: __HttpHandlerOptions): Promise<GetInstancesCommandOutput>;
-  getInstances(args: GetInstancesCommandInput, cb: (err: any, data?: GetInstancesCommandOutput) => void): void;
+  getInstances(
+    args: GetInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInstancesCommandOutput>;
+  getInstances(
+    args: GetInstancesCommandInput,
+    cb: (err: any, data?: GetInstancesCommandOutput) => void
+  ): void;
   getInstances(
     args: GetInstancesCommandInput,
     options: __HttpHandlerOptions,
@@ -2431,8 +2605,14 @@ export interface Lightsail {
   /**
    * @see {@link GetKeyPairCommand}
    */
-  getKeyPair(args: GetKeyPairCommandInput, options?: __HttpHandlerOptions): Promise<GetKeyPairCommandOutput>;
-  getKeyPair(args: GetKeyPairCommandInput, cb: (err: any, data?: GetKeyPairCommandOutput) => void): void;
+  getKeyPair(
+    args: GetKeyPairCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetKeyPairCommandOutput>;
+  getKeyPair(
+    args: GetKeyPairCommandInput,
+    cb: (err: any, data?: GetKeyPairCommandOutput) => void
+  ): void;
   getKeyPair(
     args: GetKeyPairCommandInput,
     options: __HttpHandlerOptions,
@@ -2443,8 +2623,14 @@ export interface Lightsail {
    * @see {@link GetKeyPairsCommand}
    */
   getKeyPairs(): Promise<GetKeyPairsCommandOutput>;
-  getKeyPairs(args: GetKeyPairsCommandInput, options?: __HttpHandlerOptions): Promise<GetKeyPairsCommandOutput>;
-  getKeyPairs(args: GetKeyPairsCommandInput, cb: (err: any, data?: GetKeyPairsCommandOutput) => void): void;
+  getKeyPairs(
+    args: GetKeyPairsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetKeyPairsCommandOutput>;
+  getKeyPairs(
+    args: GetKeyPairsCommandInput,
+    cb: (err: any, data?: GetKeyPairsCommandOutput) => void
+  ): void;
   getKeyPairs(
     args: GetKeyPairsCommandInput,
     options: __HttpHandlerOptions,
@@ -2458,7 +2644,10 @@ export interface Lightsail {
     args: GetLoadBalancerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetLoadBalancerCommandOutput>;
-  getLoadBalancer(args: GetLoadBalancerCommandInput, cb: (err: any, data?: GetLoadBalancerCommandOutput) => void): void;
+  getLoadBalancer(
+    args: GetLoadBalancerCommandInput,
+    cb: (err: any, data?: GetLoadBalancerCommandOutput) => void
+  ): void;
   getLoadBalancer(
     args: GetLoadBalancerCommandInput,
     options: __HttpHandlerOptions,
@@ -2538,8 +2727,14 @@ export interface Lightsail {
   /**
    * @see {@link GetOperationCommand}
    */
-  getOperation(args: GetOperationCommandInput, options?: __HttpHandlerOptions): Promise<GetOperationCommandOutput>;
-  getOperation(args: GetOperationCommandInput, cb: (err: any, data?: GetOperationCommandOutput) => void): void;
+  getOperation(
+    args: GetOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOperationCommandOutput>;
+  getOperation(
+    args: GetOperationCommandInput,
+    cb: (err: any, data?: GetOperationCommandOutput) => void
+  ): void;
   getOperation(
     args: GetOperationCommandInput,
     options: __HttpHandlerOptions,
@@ -2550,8 +2745,14 @@ export interface Lightsail {
    * @see {@link GetOperationsCommand}
    */
   getOperations(): Promise<GetOperationsCommandOutput>;
-  getOperations(args: GetOperationsCommandInput, options?: __HttpHandlerOptions): Promise<GetOperationsCommandOutput>;
-  getOperations(args: GetOperationsCommandInput, cb: (err: any, data?: GetOperationsCommandOutput) => void): void;
+  getOperations(
+    args: GetOperationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOperationsCommandOutput>;
+  getOperations(
+    args: GetOperationsCommandInput,
+    cb: (err: any, data?: GetOperationsCommandOutput) => void
+  ): void;
   getOperations(
     args: GetOperationsCommandInput,
     options: __HttpHandlerOptions,
@@ -2579,8 +2780,14 @@ export interface Lightsail {
    * @see {@link GetRegionsCommand}
    */
   getRegions(): Promise<GetRegionsCommandOutput>;
-  getRegions(args: GetRegionsCommandInput, options?: __HttpHandlerOptions): Promise<GetRegionsCommandOutput>;
-  getRegions(args: GetRegionsCommandInput, cb: (err: any, data?: GetRegionsCommandOutput) => void): void;
+  getRegions(
+    args: GetRegionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRegionsCommandOutput>;
+  getRegions(
+    args: GetRegionsCommandInput,
+    cb: (err: any, data?: GetRegionsCommandOutput) => void
+  ): void;
   getRegions(
     args: GetRegionsCommandInput,
     options: __HttpHandlerOptions,
@@ -2802,7 +3009,10 @@ export interface Lightsail {
     args: GetSetupHistoryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSetupHistoryCommandOutput>;
-  getSetupHistory(args: GetSetupHistoryCommandInput, cb: (err: any, data?: GetSetupHistoryCommandOutput) => void): void;
+  getSetupHistory(
+    args: GetSetupHistoryCommandInput,
+    cb: (err: any, data?: GetSetupHistoryCommandOutput) => void
+  ): void;
   getSetupHistory(
     args: GetSetupHistoryCommandInput,
     options: __HttpHandlerOptions,
@@ -2812,8 +3022,14 @@ export interface Lightsail {
   /**
    * @see {@link GetStaticIpCommand}
    */
-  getStaticIp(args: GetStaticIpCommandInput, options?: __HttpHandlerOptions): Promise<GetStaticIpCommandOutput>;
-  getStaticIp(args: GetStaticIpCommandInput, cb: (err: any, data?: GetStaticIpCommandOutput) => void): void;
+  getStaticIp(
+    args: GetStaticIpCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStaticIpCommandOutput>;
+  getStaticIp(
+    args: GetStaticIpCommandInput,
+    cb: (err: any, data?: GetStaticIpCommandOutput) => void
+  ): void;
   getStaticIp(
     args: GetStaticIpCommandInput,
     options: __HttpHandlerOptions,
@@ -2824,8 +3040,14 @@ export interface Lightsail {
    * @see {@link GetStaticIpsCommand}
    */
   getStaticIps(): Promise<GetStaticIpsCommandOutput>;
-  getStaticIps(args: GetStaticIpsCommandInput, options?: __HttpHandlerOptions): Promise<GetStaticIpsCommandOutput>;
-  getStaticIps(args: GetStaticIpsCommandInput, cb: (err: any, data?: GetStaticIpsCommandOutput) => void): void;
+  getStaticIps(
+    args: GetStaticIpsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStaticIpsCommandOutput>;
+  getStaticIps(
+    args: GetStaticIpsCommandInput,
+    cb: (err: any, data?: GetStaticIpsCommandOutput) => void
+  ): void;
   getStaticIps(
     args: GetStaticIpsCommandInput,
     options: __HttpHandlerOptions,
@@ -2835,8 +3057,14 @@ export interface Lightsail {
   /**
    * @see {@link ImportKeyPairCommand}
    */
-  importKeyPair(args: ImportKeyPairCommandInput, options?: __HttpHandlerOptions): Promise<ImportKeyPairCommandOutput>;
-  importKeyPair(args: ImportKeyPairCommandInput, cb: (err: any, data?: ImportKeyPairCommandOutput) => void): void;
+  importKeyPair(
+    args: ImportKeyPairCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportKeyPairCommandOutput>;
+  importKeyPair(
+    args: ImportKeyPairCommandInput,
+    cb: (err: any, data?: ImportKeyPairCommandOutput) => void
+  ): void;
   importKeyPair(
     args: ImportKeyPairCommandInput,
     options: __HttpHandlerOptions,
@@ -2847,8 +3075,14 @@ export interface Lightsail {
    * @see {@link IsVpcPeeredCommand}
    */
   isVpcPeered(): Promise<IsVpcPeeredCommandOutput>;
-  isVpcPeered(args: IsVpcPeeredCommandInput, options?: __HttpHandlerOptions): Promise<IsVpcPeeredCommandOutput>;
-  isVpcPeered(args: IsVpcPeeredCommandInput, cb: (err: any, data?: IsVpcPeeredCommandOutput) => void): void;
+  isVpcPeered(
+    args: IsVpcPeeredCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<IsVpcPeeredCommandOutput>;
+  isVpcPeered(
+    args: IsVpcPeeredCommandInput,
+    cb: (err: any, data?: IsVpcPeeredCommandOutput) => void
+  ): void;
   isVpcPeered(
     args: IsVpcPeeredCommandInput,
     options: __HttpHandlerOptions,
@@ -2876,8 +3110,14 @@ export interface Lightsail {
    * @see {@link PeerVpcCommand}
    */
   peerVpc(): Promise<PeerVpcCommandOutput>;
-  peerVpc(args: PeerVpcCommandInput, options?: __HttpHandlerOptions): Promise<PeerVpcCommandOutput>;
-  peerVpc(args: PeerVpcCommandInput, cb: (err: any, data?: PeerVpcCommandOutput) => void): void;
+  peerVpc(
+    args: PeerVpcCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PeerVpcCommandOutput>;
+  peerVpc(
+    args: PeerVpcCommandInput,
+    cb: (err: any, data?: PeerVpcCommandOutput) => void
+  ): void;
   peerVpc(
     args: PeerVpcCommandInput,
     options: __HttpHandlerOptions,
@@ -2887,8 +3127,14 @@ export interface Lightsail {
   /**
    * @see {@link PutAlarmCommand}
    */
-  putAlarm(args: PutAlarmCommandInput, options?: __HttpHandlerOptions): Promise<PutAlarmCommandOutput>;
-  putAlarm(args: PutAlarmCommandInput, cb: (err: any, data?: PutAlarmCommandOutput) => void): void;
+  putAlarm(
+    args: PutAlarmCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAlarmCommandOutput>;
+  putAlarm(
+    args: PutAlarmCommandInput,
+    cb: (err: any, data?: PutAlarmCommandOutput) => void
+  ): void;
   putAlarm(
     args: PutAlarmCommandInput,
     options: __HttpHandlerOptions,
@@ -2919,7 +3165,10 @@ export interface Lightsail {
     args: RebootInstanceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RebootInstanceCommandOutput>;
-  rebootInstance(args: RebootInstanceCommandInput, cb: (err: any, data?: RebootInstanceCommandOutput) => void): void;
+  rebootInstance(
+    args: RebootInstanceCommandInput,
+    cb: (err: any, data?: RebootInstanceCommandOutput) => void
+  ): void;
   rebootInstance(
     args: RebootInstanceCommandInput,
     options: __HttpHandlerOptions,
@@ -2967,7 +3216,10 @@ export interface Lightsail {
     args: ReleaseStaticIpCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ReleaseStaticIpCommandOutput>;
-  releaseStaticIp(args: ReleaseStaticIpCommandInput, cb: (err: any, data?: ReleaseStaticIpCommandOutput) => void): void;
+  releaseStaticIp(
+    args: ReleaseStaticIpCommandInput,
+    cb: (err: any, data?: ReleaseStaticIpCommandOutput) => void
+  ): void;
   releaseStaticIp(
     args: ReleaseStaticIpCommandInput,
     options: __HttpHandlerOptions,
@@ -3067,7 +3319,10 @@ export interface Lightsail {
     args: StartGUISessionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartGUISessionCommandOutput>;
-  startGUISession(args: StartGUISessionCommandInput, cb: (err: any, data?: StartGUISessionCommandOutput) => void): void;
+  startGUISession(
+    args: StartGUISessionCommandInput,
+    cb: (err: any, data?: StartGUISessionCommandOutput) => void
+  ): void;
   startGUISession(
     args: StartGUISessionCommandInput,
     options: __HttpHandlerOptions,
@@ -3077,8 +3332,14 @@ export interface Lightsail {
   /**
    * @see {@link StartInstanceCommand}
    */
-  startInstance(args: StartInstanceCommandInput, options?: __HttpHandlerOptions): Promise<StartInstanceCommandOutput>;
-  startInstance(args: StartInstanceCommandInput, cb: (err: any, data?: StartInstanceCommandOutput) => void): void;
+  startInstance(
+    args: StartInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartInstanceCommandOutput>;
+  startInstance(
+    args: StartInstanceCommandInput,
+    cb: (err: any, data?: StartInstanceCommandOutput) => void
+  ): void;
   startInstance(
     args: StartInstanceCommandInput,
     options: __HttpHandlerOptions,
@@ -3109,7 +3370,10 @@ export interface Lightsail {
     args: StopGUISessionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StopGUISessionCommandOutput>;
-  stopGUISession(args: StopGUISessionCommandInput, cb: (err: any, data?: StopGUISessionCommandOutput) => void): void;
+  stopGUISession(
+    args: StopGUISessionCommandInput,
+    cb: (err: any, data?: StopGUISessionCommandOutput) => void
+  ): void;
   stopGUISession(
     args: StopGUISessionCommandInput,
     options: __HttpHandlerOptions,
@@ -3119,8 +3383,14 @@ export interface Lightsail {
   /**
    * @see {@link StopInstanceCommand}
    */
-  stopInstance(args: StopInstanceCommandInput, options?: __HttpHandlerOptions): Promise<StopInstanceCommandOutput>;
-  stopInstance(args: StopInstanceCommandInput, cb: (err: any, data?: StopInstanceCommandOutput) => void): void;
+  stopInstance(
+    args: StopInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopInstanceCommandOutput>;
+  stopInstance(
+    args: StopInstanceCommandInput,
+    cb: (err: any, data?: StopInstanceCommandOutput) => void
+  ): void;
   stopInstance(
     args: StopInstanceCommandInput,
     options: __HttpHandlerOptions,
@@ -3147,8 +3417,14 @@ export interface Lightsail {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -3158,8 +3434,14 @@ export interface Lightsail {
   /**
    * @see {@link TestAlarmCommand}
    */
-  testAlarm(args: TestAlarmCommandInput, options?: __HttpHandlerOptions): Promise<TestAlarmCommandOutput>;
-  testAlarm(args: TestAlarmCommandInput, cb: (err: any, data?: TestAlarmCommandOutput) => void): void;
+  testAlarm(
+    args: TestAlarmCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestAlarmCommandOutput>;
+  testAlarm(
+    args: TestAlarmCommandInput,
+    cb: (err: any, data?: TestAlarmCommandOutput) => void
+  ): void;
   testAlarm(
     args: TestAlarmCommandInput,
     options: __HttpHandlerOptions,
@@ -3170,8 +3452,14 @@ export interface Lightsail {
    * @see {@link UnpeerVpcCommand}
    */
   unpeerVpc(): Promise<UnpeerVpcCommandOutput>;
-  unpeerVpc(args: UnpeerVpcCommandInput, options?: __HttpHandlerOptions): Promise<UnpeerVpcCommandOutput>;
-  unpeerVpc(args: UnpeerVpcCommandInput, cb: (err: any, data?: UnpeerVpcCommandOutput) => void): void;
+  unpeerVpc(
+    args: UnpeerVpcCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnpeerVpcCommandOutput>;
+  unpeerVpc(
+    args: UnpeerVpcCommandInput,
+    cb: (err: any, data?: UnpeerVpcCommandOutput) => void
+  ): void;
   unpeerVpc(
     args: UnpeerVpcCommandInput,
     options: __HttpHandlerOptions,
@@ -3181,8 +3469,14 @@ export interface Lightsail {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -3192,8 +3486,14 @@ export interface Lightsail {
   /**
    * @see {@link UpdateBucketCommand}
    */
-  updateBucket(args: UpdateBucketCommandInput, options?: __HttpHandlerOptions): Promise<UpdateBucketCommandOutput>;
-  updateBucket(args: UpdateBucketCommandInput, cb: (err: any, data?: UpdateBucketCommandOutput) => void): void;
+  updateBucket(
+    args: UpdateBucketCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBucketCommandOutput>;
+  updateBucket(
+    args: UpdateBucketCommandInput,
+    cb: (err: any, data?: UpdateBucketCommandOutput) => void
+  ): void;
   updateBucket(
     args: UpdateBucketCommandInput,
     options: __HttpHandlerOptions,

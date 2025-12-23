@@ -28,7 +28,7 @@ export interface PutResourceConfigCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Records the configuration state for the resource provided in the request.
- *
+ * 			
  * 			The configuration state of a resource is represented in Config as Configuration Items.
  * 			Once this API records the configuration item, you can retrieve the list of configuration items for the custom resource type using existing Config APIs. </p>
  *          <note>

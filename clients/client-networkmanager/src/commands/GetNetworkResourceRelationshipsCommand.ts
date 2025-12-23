@@ -31,9 +31,7 @@ export interface GetNetworkResourceRelationshipsCommandInput extends GetNetworkR
  *
  * The output of {@link GetNetworkResourceRelationshipsCommand}.
  */
-export interface GetNetworkResourceRelationshipsCommandOutput
-  extends GetNetworkResourceRelationshipsResponse,
-    __MetadataBearer {}
+export interface GetNetworkResourceRelationshipsCommandOutput extends GetNetworkResourceRelationshipsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the network resource relationships for the specified global network.</p>

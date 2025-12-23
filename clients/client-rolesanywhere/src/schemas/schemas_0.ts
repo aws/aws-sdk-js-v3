@@ -187,475 +187,404 @@ import { RolesAnywhereServiceException } from "../models/RolesAnywhereServiceExc
 /* eslint no-var: 0 */
 var TagKey: StaticSimpleSchema = [0, n0, _TK, 8, 0];
 var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE, { [_e]: _c, [_hE]: 403 }, [_m], [0]];
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var AttributeMapping$: StaticStructureSchema = [3, n0, _AM, 0, [_cF, _mR], [0, () => MappingRules]];
-export var CreateProfileRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CPR,
+export var AttributeMapping$: StaticStructureSchema = [3, n0, _AM,
+  0,
+  [_cF, _mR],
+  [0, () => MappingRules]
+];
+export var CreateProfileRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
   [_n, _rIP, _sP, _rA, _mPA, _dS, _en, _t, _aRSN],
-  [0, 2, 0, 64 | 0, 64 | 0, 1, 2, [() => TagList, 0], 2],
+  [0, 2, 0, 64 | 0, 64 | 0, 1, 2, [() => TagList, 0], 2]
 ];
-export var CreateTrustAnchorRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _CTAR,
+export var CreateTrustAnchorRequest$: StaticStructureSchema = [3, n0, _CTAR,
   0,
   [_n, _s, _en, _t, _nS],
-  [0, () => Source$, 2, [() => TagList, 0], () => NotificationSettings],
+  [0, () => Source$, 2, [() => TagList, 0], () => NotificationSettings]
 ];
-export var CredentialSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _CS,
+export var CredentialSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_sA, _sN, _i, _en, _xCD, _f],
-  [5, 0, 0, 2, 0, 2],
+  [5, 0, 0, 2, 0, 2]
 ];
-export var CrlDetail$: StaticStructureSchema = [
-  3,
-  n0,
-  _CD,
+export var CrlDetail$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_cI, _cA, _n, _en, _cD, _tAA, _cAr, _uA],
-  [0, 0, 0, 2, 21, 0, 5, 5],
+  [0, 0, 0, 2, 21, 0, 5, 5]
 ];
-export var CrlDetailResponse$: StaticStructureSchema = [3, n0, _CDR, 0, [_cr], [() => CrlDetail$]];
-export var DeleteAttributeMappingRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _DAMR,
+export var CrlDetailResponse$: StaticStructureSchema = [3, n0, _CDR,
+  0,
+  [_cr],
+  [() => CrlDetail$]
+];
+export var DeleteAttributeMappingRequest$: StaticStructureSchema = [3, n0, _DAMR,
   0,
   [_pI, _cF, _sp],
-  [
-    [0, 1],
-    [0, { [_hQ]: _cF }],
-    [64 | 0, { [_hQ]: _sp }],
-  ],
+  [[0, 1], [0, { [_hQ]: _cF }], [64 | 0, { [_hQ]: _sp }]]
 ];
-export var DeleteAttributeMappingResponse$: StaticStructureSchema = [3, n0, _DAMRe, 0, [_p], [() => ProfileDetail$]];
-export var ImportCrlRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _ICR,
+export var DeleteAttributeMappingResponse$: StaticStructureSchema = [3, n0, _DAMRe,
+  0,
+  [_p],
+  [() => ProfileDetail$]
+];
+export var ImportCrlRequest$: StaticStructureSchema = [3, n0, _ICR,
   0,
   [_n, _cD, _en, _t, _tAA],
-  [0, 21, 2, [() => TagList, 0], 0],
+  [0, 21, 2, [() => TagList, 0], 0]
 ];
-export var InstanceProperty$: StaticStructureSchema = [3, n0, _IP, 0, [_sA, _pr, _f], [5, 128 | 0, 2]];
-export var ListCrlsResponse$: StaticStructureSchema = [3, n0, _LCR, 0, [_nT, _crl], [0, () => CrlDetails]];
-export var ListProfilesResponse$: StaticStructureSchema = [3, n0, _LPR, 0, [_nT, _pro], [0, () => ProfileDetails]];
-export var ListRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _LR,
+export var InstanceProperty$: StaticStructureSchema = [3, n0, _IP,
+  0,
+  [_sA, _pr, _f],
+  [5, 128 | 0, 2]
+];
+export var ListCrlsResponse$: StaticStructureSchema = [3, n0, _LCR,
+  0,
+  [_nT, _crl],
+  [0, () => CrlDetails]
+];
+export var ListProfilesResponse$: StaticStructureSchema = [3, n0, _LPR,
+  0,
+  [_nT, _pro],
+  [0, () => ProfileDetails]
+];
+export var ListRequest$: StaticStructureSchema = [3, n0, _LR,
   0,
   [_nT, _pS],
-  [
-    [0, { [_hQ]: _nT }],
-    [1, { [_hQ]: _pS }],
-  ],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _pS }]]
 ];
-export var ListSubjectsResponse$: StaticStructureSchema = [3, n0, _LSR, 0, [_su, _nT], [() => SubjectSummaries, 0]];
-export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR, 0, [_rAe], [[0, { [_hQ]: _rAe }]]];
-export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi, 0, [_t], [[() => TagList, 0]]];
-export var ListTrustAnchorsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _LTAR,
+export var ListSubjectsResponse$: StaticStructureSchema = [3, n0, _LSR,
+  0,
+  [_su, _nT],
+  [() => SubjectSummaries, 0]
+];
+export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
+  0,
+  [_rAe],
+  [[0, { [_hQ]: _rAe }]]
+];
+export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
+  0,
+  [_t],
+  [[() => TagList, 0]]
+];
+export var ListTrustAnchorsResponse$: StaticStructureSchema = [3, n0, _LTAR,
   0,
   [_nT, _tA],
-  [0, () => TrustAnchorDetails],
+  [0, () => TrustAnchorDetails]
 ];
-export var MappingRule$: StaticStructureSchema = [3, n0, _MR, 0, [_spe], [0]];
-export var NotificationSetting$: StaticStructureSchema = [3, n0, _NS, 0, [_en, _ev, _th, _ch], [2, 0, 1, 0]];
-export var NotificationSettingDetail$: StaticStructureSchema = [
-  3,
-  n0,
-  _NSD,
+export var MappingRule$: StaticStructureSchema = [3, n0, _MR,
+  0,
+  [_spe],
+  [0]
+];
+export var NotificationSetting$: StaticStructureSchema = [3, n0, _NS,
+  0,
+  [_en, _ev, _th, _ch],
+  [2, 0, 1, 0]
+];
+export var NotificationSettingDetail$: StaticStructureSchema = [3, n0, _NSD,
   0,
   [_en, _ev, _th, _ch, _cB],
-  [2, 0, 1, 0, 0],
+  [2, 0, 1, 0, 0]
 ];
-export var NotificationSettingKey$: StaticStructureSchema = [3, n0, _NSK, 0, [_ev, _ch], [0, 0]];
-export var ProfileDetail$: StaticStructureSchema = [
-  3,
-  n0,
-  _PD,
+export var NotificationSettingKey$: StaticStructureSchema = [3, n0, _NSK,
+  0,
+  [_ev, _ch],
+  [0, 0]
+];
+export var ProfileDetail$: StaticStructureSchema = [3, n0, _PD,
   0,
   [_pI, _pA, _n, _rIP, _en, _cBr, _sP, _rA, _mPA, _cAr, _uA, _dS, _aRSN, _aM],
-  [0, 0, 0, 2, 2, 0, 0, 64 | 0, 64 | 0, 5, 5, 1, 2, () => AttributeMappings],
+  [0, 0, 0, 2, 2, 0, 0, 64 | 0, 64 | 0, 5, 5, 1, 2, () => AttributeMappings]
 ];
-export var ProfileDetailResponse$: StaticStructureSchema = [3, n0, _PDR, 0, [_p], [() => ProfileDetail$]];
-export var PutAttributeMappingRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _PAMR,
+export var ProfileDetailResponse$: StaticStructureSchema = [3, n0, _PDR,
+  0,
+  [_p],
+  [() => ProfileDetail$]
+];
+export var PutAttributeMappingRequest$: StaticStructureSchema = [3, n0, _PAMR,
   0,
   [_pI, _cF, _mR],
-  [[0, 1], 0, () => MappingRules],
+  [[0, 1], 0, () => MappingRules]
 ];
-export var PutAttributeMappingResponse$: StaticStructureSchema = [3, n0, _PAMRu, 0, [_p], [() => ProfileDetail$]];
-export var PutNotificationSettingsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _PNSR,
+export var PutAttributeMappingResponse$: StaticStructureSchema = [3, n0, _PAMRu,
+  0,
+  [_p],
+  [() => ProfileDetail$]
+];
+export var PutNotificationSettingsRequest$: StaticStructureSchema = [3, n0, _PNSR,
   0,
   [_tAI, _nS],
-  [0, () => NotificationSettings],
+  [0, () => NotificationSettings]
 ];
-export var PutNotificationSettingsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _PNSRu,
+export var PutNotificationSettingsResponse$: StaticStructureSchema = [3, n0, _PNSRu,
   0,
   [_tAr],
-  [() => TrustAnchorDetail$],
+  [() => TrustAnchorDetail$]
 ];
-export var ResetNotificationSettingsRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _RNSR,
+export var ResetNotificationSettingsRequest$: StaticStructureSchema = [3, n0, _RNSR,
   0,
   [_tAI, _nSK],
-  [0, () => NotificationSettingKeys],
+  [0, () => NotificationSettingKeys]
 ];
-export var ResetNotificationSettingsResponse$: StaticStructureSchema = [
-  3,
-  n0,
-  _RNSRe,
+export var ResetNotificationSettingsResponse$: StaticStructureSchema = [3, n0, _RNSRe,
   0,
   [_tAr],
-  [() => TrustAnchorDetail$],
+  [() => TrustAnchorDetail$]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE, { [_e]: _c, [_hE]: 404 }, [_m], [0]];
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ScalarCrlRequest$: StaticStructureSchema = [3, n0, _SCR, 0, [_cI], [[0, 1]]];
-export var ScalarProfileRequest$: StaticStructureSchema = [3, n0, _SPR, 0, [_pI], [[0, 1]]];
-export var ScalarSubjectRequest$: StaticStructureSchema = [3, n0, _SSR, 0, [_sI], [[0, 1]]];
-export var ScalarTrustAnchorRequest$: StaticStructureSchema = [3, n0, _STAR, 0, [_tAI], [[0, 1]]];
-export var Source$: StaticStructureSchema = [3, n0, _S, 0, [_sT, _sD], [0, () => SourceData$]];
-export var SubjectDetail$: StaticStructureSchema = [
-  3,
-  n0,
-  _SD,
+export var ScalarCrlRequest$: StaticStructureSchema = [3, n0, _SCR,
+  0,
+  [_cI],
+  [[0, 1]]
+];
+export var ScalarProfileRequest$: StaticStructureSchema = [3, n0, _SPR,
+  0,
+  [_pI],
+  [[0, 1]]
+];
+export var ScalarSubjectRequest$: StaticStructureSchema = [3, n0, _SSR,
+  0,
+  [_sI],
+  [[0, 1]]
+];
+export var ScalarTrustAnchorRequest$: StaticStructureSchema = [3, n0, _STAR,
+  0,
+  [_tAI],
+  [[0, 1]]
+];
+export var Source$: StaticStructureSchema = [3, n0, _S,
+  0,
+  [_sT, _sD],
+  [0, () => SourceData$]
+];
+export var SubjectDetail$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_sAu, _sI, _en, _xS, _lSA, _cAr, _uA, _cre, _iP],
-  [0, 0, 2, 0, 5, 5, 5, () => CredentialSummaries, () => InstanceProperties],
+  [0, 0, 2, 0, 5, 5, 5, () => CredentialSummaries, () => InstanceProperties]
 ];
-export var SubjectDetailResponse$: StaticStructureSchema = [3, n0, _SDR, 0, [_sub], [() => SubjectDetail$]];
-export var SubjectSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _SS,
+export var SubjectDetailResponse$: StaticStructureSchema = [3, n0, _SDR,
+  0,
+  [_sub],
+  [() => SubjectDetail$]
+];
+export var SubjectSummary$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_sAu, _sI, _en, _xS, _lSA, _cAr, _uA],
-  [0, 0, 2, 0, 5, 5, 5],
+  [0, 0, 2, 0, 5, 5, 5]
 ];
-export var Tag$: StaticStructureSchema = [
-  3,
-  n0,
-  _T,
+export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _v],
-  [
-    [() => TagKey, 0],
-    [() => TagValue, 0],
-  ],
+  [[() => TagKey, 0], [() => TagValue, 0]]
 ];
-export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR, 0, [_rAe, _t], [0, [() => TagList, 0]]];
-export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa, 0, [], []];
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
+  0,
+  [_rAe, _t],
+  [0, [() => TagList, 0]]
+];
+export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
+  0,
+  [],
+  []
+];
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
-export var TrustAnchorDetail$: StaticStructureSchema = [
-  3,
-  n0,
-  _TAD,
+export var TrustAnchorDetail$: StaticStructureSchema = [3, n0, _TAD,
   0,
   [_tAI, _tAA, _n, _s, _en, _cAr, _uA, _nS],
-  [0, 0, 0, () => Source$, 2, 5, 5, () => NotificationSettingDetails],
+  [0, 0, 0, () => Source$, 2, 5, 5, () => NotificationSettingDetails]
 ];
-export var TrustAnchorDetailResponse$: StaticStructureSchema = [3, n0, _TADR, 0, [_tAr], [() => TrustAnchorDetail$]];
-export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR, 0, [_rAe, _tK], [0, [() => TagKeyList, 0]]];
-export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn, 0, [], []];
-export var UpdateCrlRequest$: StaticStructureSchema = [3, n0, _UCR, 0, [_cI, _n, _cD], [[0, 1], 0, 21]];
-export var UpdateProfileRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UPR,
+export var TrustAnchorDetailResponse$: StaticStructureSchema = [3, n0, _TADR,
+  0,
+  [_tAr],
+  [() => TrustAnchorDetail$]
+];
+export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
+  0,
+  [_rAe, _tK],
+  [0, [() => TagKeyList, 0]]
+];
+export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
+  0,
+  [],
+  []
+];
+export var UpdateCrlRequest$: StaticStructureSchema = [3, n0, _UCR,
+  0,
+  [_cI, _n, _cD],
+  [[0, 1], 0, 21]
+];
+export var UpdateProfileRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
   [_pI, _n, _sP, _rA, _mPA, _dS, _aRSN],
-  [[0, 1], 0, 0, 64 | 0, 64 | 0, 1, 2],
+  [[0, 1], 0, 0, 64 | 0, 64 | 0, 1, 2]
 ];
-export var UpdateTrustAnchorRequest$: StaticStructureSchema = [
-  3,
-  n0,
-  _UTAR,
+export var UpdateTrustAnchorRequest$: StaticStructureSchema = [3, n0, _UTAR,
   0,
   [_tAI, _n, _s],
-  [[0, 1], 0, () => Source$],
+  [[0, 1], 0, () => Source$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE, { [_e]: _c, [_hE]: 400 }, [_m], [0]];
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
 TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var RolesAnywhereServiceException$: StaticErrorSchema = [-3, _sm, "RolesAnywhereServiceException", 0, [], []];
 TypeRegistry.for(_sm).registerError(RolesAnywhereServiceException$, RolesAnywhereServiceException);
-var AttributeMappings: StaticListSchema = [1, n0, _AMt, 0, () => AttributeMapping$];
-var CredentialSummaries: StaticListSchema = [1, n0, _CSr, 0, () => CredentialSummary$];
-var CrlDetails: StaticListSchema = [1, n0, _CDr, 0, () => CrlDetail$];
-var InstanceProperties: StaticListSchema = [1, n0, _IPn, 0, () => InstanceProperty$];
+var AttributeMappings: StaticListSchema = [1, n0, _AMt,
+  0, () => AttributeMapping$
+];
+var CredentialSummaries: StaticListSchema = [1, n0, _CSr,
+  0, () => CredentialSummary$
+];
+var CrlDetails: StaticListSchema = [1, n0, _CDr,
+  0, () => CrlDetail$
+];
+var InstanceProperties: StaticListSchema = [1, n0, _IPn,
+  0, () => InstanceProperty$
+];
 var ManagedPolicyList = 64 | 0;
-var MappingRules: StaticListSchema = [1, n0, _MRa, 0, () => MappingRule$];
-var NotificationSettingDetails: StaticListSchema = [1, n0, _NSDo, 0, () => NotificationSettingDetail$];
-var NotificationSettingKeys: StaticListSchema = [1, n0, _NSKo, 0, () => NotificationSettingKey$];
-var NotificationSettings: StaticListSchema = [1, n0, _NSo, 0, () => NotificationSetting$];
-var ProfileDetails: StaticListSchema = [1, n0, _PDr, 0, () => ProfileDetail$];
+var MappingRules: StaticListSchema = [1, n0, _MRa,
+  0, () => MappingRule$
+];
+var NotificationSettingDetails: StaticListSchema = [1, n0, _NSDo,
+  0, () => NotificationSettingDetail$
+];
+var NotificationSettingKeys: StaticListSchema = [1, n0, _NSKo,
+  0, () => NotificationSettingKey$
+];
+var NotificationSettings: StaticListSchema = [1, n0, _NSo,
+  0, () => NotificationSetting$
+];
+var ProfileDetails: StaticListSchema = [1, n0, _PDr,
+  0, () => ProfileDetail$
+];
 var RoleArnList = 64 | 0;
 var SpecifierList = 64 | 0;
-var SubjectSummaries: StaticListSchema = [1, n0, _SSu, 0, () => SubjectSummary$];
-var TagKeyList: StaticListSchema = [1, n0, _TKL, 0, [() => TagKey, 0]];
-var TagList: StaticListSchema = [1, n0, _TL, 0, [() => Tag$, 0]];
-var TrustAnchorDetails: StaticListSchema = [1, n0, _TADr, 0, () => TrustAnchorDetail$];
+var SubjectSummaries: StaticListSchema = [1, n0, _SSu,
+  0, () => SubjectSummary$
+];
+var TagKeyList: StaticListSchema = [1, n0, _TKL,
+  0, [() => TagKey,
+    0]
+];
+var TagList: StaticListSchema = [1, n0, _TL,
+  0, [() => Tag$,
+    0]
+];
+var TrustAnchorDetails: StaticListSchema = [1, n0, _TADr,
+  0, () => TrustAnchorDetail$
+];
 var InstancePropertyMap = 128 | 0;
-export var SourceData$: StaticUnionSchema = [4, n0, _SDo, 0, [_xCD, _aPA], [0, 0]];
-export var CreateProfile$: StaticOperationSchema = [
-  9,
-  n0,
-  _CP,
-  { [_h]: ["POST", "/profiles", 201] },
-  () => CreateProfileRequest$,
-  () => ProfileDetailResponse$,
+export var SourceData$: StaticUnionSchema = [4, n0, _SDo,
+  0,
+  [_xCD, _aPA],
+  [0, 0]
 ];
-export var CreateTrustAnchor$: StaticOperationSchema = [
-  9,
-  n0,
-  _CTA,
-  { [_h]: ["POST", "/trustanchors", 201] },
-  () => CreateTrustAnchorRequest$,
-  () => TrustAnchorDetailResponse$,
+export var CreateProfile$: StaticOperationSchema = [9, n0, _CP,
+  { [_h]: ["POST", "/profiles", 201] }, () => CreateProfileRequest$, () => ProfileDetailResponse$
 ];
-export var DeleteAttributeMapping$: StaticOperationSchema = [
-  9,
-  n0,
-  _DAM,
-  { [_h]: ["DELETE", "/profiles/{profileId}/mappings", 200] },
-  () => DeleteAttributeMappingRequest$,
-  () => DeleteAttributeMappingResponse$,
+export var CreateTrustAnchor$: StaticOperationSchema = [9, n0, _CTA,
+  { [_h]: ["POST", "/trustanchors", 201] }, () => CreateTrustAnchorRequest$, () => TrustAnchorDetailResponse$
 ];
-export var DeleteCrl$: StaticOperationSchema = [
-  9,
-  n0,
-  _DC,
-  { [_h]: ["DELETE", "/crl/{crlId}", 200] },
-  () => ScalarCrlRequest$,
-  () => CrlDetailResponse$,
+export var DeleteAttributeMapping$: StaticOperationSchema = [9, n0, _DAM,
+  { [_h]: ["DELETE", "/profiles/{profileId}/mappings", 200] }, () => DeleteAttributeMappingRequest$, () => DeleteAttributeMappingResponse$
 ];
-export var DeleteProfile$: StaticOperationSchema = [
-  9,
-  n0,
-  _DP,
-  { [_h]: ["DELETE", "/profile/{profileId}", 200] },
-  () => ScalarProfileRequest$,
-  () => ProfileDetailResponse$,
+export var DeleteCrl$: StaticOperationSchema = [9, n0, _DC,
+  { [_h]: ["DELETE", "/crl/{crlId}", 200] }, () => ScalarCrlRequest$, () => CrlDetailResponse$
 ];
-export var DeleteTrustAnchor$: StaticOperationSchema = [
-  9,
-  n0,
-  _DTA,
-  { [_h]: ["DELETE", "/trustanchor/{trustAnchorId}", 200] },
-  () => ScalarTrustAnchorRequest$,
-  () => TrustAnchorDetailResponse$,
+export var DeleteProfile$: StaticOperationSchema = [9, n0, _DP,
+  { [_h]: ["DELETE", "/profile/{profileId}", 200] }, () => ScalarProfileRequest$, () => ProfileDetailResponse$
 ];
-export var DisableCrl$: StaticOperationSchema = [
-  9,
-  n0,
-  _DCi,
-  { [_h]: ["POST", "/crl/{crlId}/disable", 200] },
-  () => ScalarCrlRequest$,
-  () => CrlDetailResponse$,
+export var DeleteTrustAnchor$: StaticOperationSchema = [9, n0, _DTA,
+  { [_h]: ["DELETE", "/trustanchor/{trustAnchorId}", 200] }, () => ScalarTrustAnchorRequest$, () => TrustAnchorDetailResponse$
 ];
-export var DisableProfile$: StaticOperationSchema = [
-  9,
-  n0,
-  _DPi,
-  { [_h]: ["POST", "/profile/{profileId}/disable", 200] },
-  () => ScalarProfileRequest$,
-  () => ProfileDetailResponse$,
+export var DisableCrl$: StaticOperationSchema = [9, n0, _DCi,
+  { [_h]: ["POST", "/crl/{crlId}/disable", 200] }, () => ScalarCrlRequest$, () => CrlDetailResponse$
 ];
-export var DisableTrustAnchor$: StaticOperationSchema = [
-  9,
-  n0,
-  _DTAi,
-  { [_h]: ["POST", "/trustanchor/{trustAnchorId}/disable", 200] },
-  () => ScalarTrustAnchorRequest$,
-  () => TrustAnchorDetailResponse$,
+export var DisableProfile$: StaticOperationSchema = [9, n0, _DPi,
+  { [_h]: ["POST", "/profile/{profileId}/disable", 200] }, () => ScalarProfileRequest$, () => ProfileDetailResponse$
 ];
-export var EnableCrl$: StaticOperationSchema = [
-  9,
-  n0,
-  _EC,
-  { [_h]: ["POST", "/crl/{crlId}/enable", 200] },
-  () => ScalarCrlRequest$,
-  () => CrlDetailResponse$,
+export var DisableTrustAnchor$: StaticOperationSchema = [9, n0, _DTAi,
+  { [_h]: ["POST", "/trustanchor/{trustAnchorId}/disable", 200] }, () => ScalarTrustAnchorRequest$, () => TrustAnchorDetailResponse$
 ];
-export var EnableProfile$: StaticOperationSchema = [
-  9,
-  n0,
-  _EP,
-  { [_h]: ["POST", "/profile/{profileId}/enable", 200] },
-  () => ScalarProfileRequest$,
-  () => ProfileDetailResponse$,
+export var EnableCrl$: StaticOperationSchema = [9, n0, _EC,
+  { [_h]: ["POST", "/crl/{crlId}/enable", 200] }, () => ScalarCrlRequest$, () => CrlDetailResponse$
 ];
-export var EnableTrustAnchor$: StaticOperationSchema = [
-  9,
-  n0,
-  _ETA,
-  { [_h]: ["POST", "/trustanchor/{trustAnchorId}/enable", 200] },
-  () => ScalarTrustAnchorRequest$,
-  () => TrustAnchorDetailResponse$,
+export var EnableProfile$: StaticOperationSchema = [9, n0, _EP,
+  { [_h]: ["POST", "/profile/{profileId}/enable", 200] }, () => ScalarProfileRequest$, () => ProfileDetailResponse$
 ];
-export var GetCrl$: StaticOperationSchema = [
-  9,
-  n0,
-  _GC,
-  { [_h]: ["GET", "/crl/{crlId}", 200] },
-  () => ScalarCrlRequest$,
-  () => CrlDetailResponse$,
+export var EnableTrustAnchor$: StaticOperationSchema = [9, n0, _ETA,
+  { [_h]: ["POST", "/trustanchor/{trustAnchorId}/enable", 200] }, () => ScalarTrustAnchorRequest$, () => TrustAnchorDetailResponse$
 ];
-export var GetProfile$: StaticOperationSchema = [
-  9,
-  n0,
-  _GP,
-  { [_h]: ["GET", "/profile/{profileId}", 200] },
-  () => ScalarProfileRequest$,
-  () => ProfileDetailResponse$,
+export var GetCrl$: StaticOperationSchema = [9, n0, _GC,
+  { [_h]: ["GET", "/crl/{crlId}", 200] }, () => ScalarCrlRequest$, () => CrlDetailResponse$
 ];
-export var GetSubject$: StaticOperationSchema = [
-  9,
-  n0,
-  _GS,
-  { [_h]: ["GET", "/subject/{subjectId}", 200] },
-  () => ScalarSubjectRequest$,
-  () => SubjectDetailResponse$,
+export var GetProfile$: StaticOperationSchema = [9, n0, _GP,
+  { [_h]: ["GET", "/profile/{profileId}", 200] }, () => ScalarProfileRequest$, () => ProfileDetailResponse$
 ];
-export var GetTrustAnchor$: StaticOperationSchema = [
-  9,
-  n0,
-  _GTA,
-  { [_h]: ["GET", "/trustanchor/{trustAnchorId}", 200] },
-  () => ScalarTrustAnchorRequest$,
-  () => TrustAnchorDetailResponse$,
+export var GetSubject$: StaticOperationSchema = [9, n0, _GS,
+  { [_h]: ["GET", "/subject/{subjectId}", 200] }, () => ScalarSubjectRequest$, () => SubjectDetailResponse$
 ];
-export var ImportCrl$: StaticOperationSchema = [
-  9,
-  n0,
-  _IC,
-  { [_h]: ["POST", "/crls", 201] },
-  () => ImportCrlRequest$,
-  () => CrlDetailResponse$,
+export var GetTrustAnchor$: StaticOperationSchema = [9, n0, _GTA,
+  { [_h]: ["GET", "/trustanchor/{trustAnchorId}", 200] }, () => ScalarTrustAnchorRequest$, () => TrustAnchorDetailResponse$
 ];
-export var ListCrls$: StaticOperationSchema = [
-  9,
-  n0,
-  _LC,
-  { [_h]: ["GET", "/crls", 200] },
-  () => ListRequest$,
-  () => ListCrlsResponse$,
+export var ImportCrl$: StaticOperationSchema = [9, n0, _IC,
+  { [_h]: ["POST", "/crls", 201] }, () => ImportCrlRequest$, () => CrlDetailResponse$
 ];
-export var ListProfiles$: StaticOperationSchema = [
-  9,
-  n0,
-  _LP,
-  { [_h]: ["GET", "/profiles", 200] },
-  () => ListRequest$,
-  () => ListProfilesResponse$,
+export var ListCrls$: StaticOperationSchema = [9, n0, _LC,
+  { [_h]: ["GET", "/crls", 200] }, () => ListRequest$, () => ListCrlsResponse$
 ];
-export var ListSubjects$: StaticOperationSchema = [
-  9,
-  n0,
-  _LS,
-  { [_h]: ["GET", "/subjects", 200] },
-  () => ListRequest$,
-  () => ListSubjectsResponse$,
+export var ListProfiles$: StaticOperationSchema = [9, n0, _LP,
+  { [_h]: ["GET", "/profiles", 200] }, () => ListRequest$, () => ListProfilesResponse$
 ];
-export var ListTagsForResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _LTFR,
-  { [_h]: ["GET", "/ListTagsForResource", 200] },
-  () => ListTagsForResourceRequest$,
-  () => ListTagsForResourceResponse$,
+export var ListSubjects$: StaticOperationSchema = [9, n0, _LS,
+  { [_h]: ["GET", "/subjects", 200] }, () => ListRequest$, () => ListSubjectsResponse$
 ];
-export var ListTrustAnchors$: StaticOperationSchema = [
-  9,
-  n0,
-  _LTA,
-  { [_h]: ["GET", "/trustanchors", 200] },
-  () => ListRequest$,
-  () => ListTrustAnchorsResponse$,
+export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
+  { [_h]: ["GET", "/ListTagsForResource", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
-export var PutAttributeMapping$: StaticOperationSchema = [
-  9,
-  n0,
-  _PAM,
-  { [_h]: ["PUT", "/profiles/{profileId}/mappings", 200] },
-  () => PutAttributeMappingRequest$,
-  () => PutAttributeMappingResponse$,
+export var ListTrustAnchors$: StaticOperationSchema = [9, n0, _LTA,
+  { [_h]: ["GET", "/trustanchors", 200] }, () => ListRequest$, () => ListTrustAnchorsResponse$
 ];
-export var PutNotificationSettings$: StaticOperationSchema = [
-  9,
-  n0,
-  _PNS,
-  { [_h]: ["PATCH", "/put-notifications-settings", 200] },
-  () => PutNotificationSettingsRequest$,
-  () => PutNotificationSettingsResponse$,
+export var PutAttributeMapping$: StaticOperationSchema = [9, n0, _PAM,
+  { [_h]: ["PUT", "/profiles/{profileId}/mappings", 200] }, () => PutAttributeMappingRequest$, () => PutAttributeMappingResponse$
 ];
-export var ResetNotificationSettings$: StaticOperationSchema = [
-  9,
-  n0,
-  _RNS,
-  { [_h]: ["PATCH", "/reset-notifications-settings", 200] },
-  () => ResetNotificationSettingsRequest$,
-  () => ResetNotificationSettingsResponse$,
+export var PutNotificationSettings$: StaticOperationSchema = [9, n0, _PNS,
+  { [_h]: ["PATCH", "/put-notifications-settings", 200] }, () => PutNotificationSettingsRequest$, () => PutNotificationSettingsResponse$
 ];
-export var TagResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _TR,
-  { [_h]: ["POST", "/TagResource", 201] },
-  () => TagResourceRequest$,
-  () => TagResourceResponse$,
+export var ResetNotificationSettings$: StaticOperationSchema = [9, n0, _RNS,
+  { [_h]: ["PATCH", "/reset-notifications-settings", 200] }, () => ResetNotificationSettingsRequest$, () => ResetNotificationSettingsResponse$
 ];
-export var UntagResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _UR,
-  { [_h]: ["POST", "/UntagResource", 200] },
-  () => UntagResourceRequest$,
-  () => UntagResourceResponse$,
+export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+  { [_h]: ["POST", "/TagResource", 201] }, () => TagResourceRequest$, () => TagResourceResponse$
 ];
-export var UpdateCrl$: StaticOperationSchema = [
-  9,
-  n0,
-  _UC,
-  { [_h]: ["PATCH", "/crl/{crlId}", 200] },
-  () => UpdateCrlRequest$,
-  () => CrlDetailResponse$,
+export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+  { [_h]: ["POST", "/UntagResource", 200] }, () => UntagResourceRequest$, () => UntagResourceResponse$
 ];
-export var UpdateProfile$: StaticOperationSchema = [
-  9,
-  n0,
-  _UP,
-  { [_h]: ["PATCH", "/profile/{profileId}", 200] },
-  () => UpdateProfileRequest$,
-  () => ProfileDetailResponse$,
+export var UpdateCrl$: StaticOperationSchema = [9, n0, _UC,
+  { [_h]: ["PATCH", "/crl/{crlId}", 200] }, () => UpdateCrlRequest$, () => CrlDetailResponse$
 ];
-export var UpdateTrustAnchor$: StaticOperationSchema = [
-  9,
-  n0,
-  _UTA,
-  { [_h]: ["PATCH", "/trustanchor/{trustAnchorId}", 200] },
-  () => UpdateTrustAnchorRequest$,
-  () => TrustAnchorDetailResponse$,
+export var UpdateProfile$: StaticOperationSchema = [9, n0, _UP,
+  { [_h]: ["PATCH", "/profile/{profileId}", 200] }, () => UpdateProfileRequest$, () => ProfileDetailResponse$
+];
+export var UpdateTrustAnchor$: StaticOperationSchema = [9, n0, _UTA,
+  { [_h]: ["PATCH", "/trustanchor/{trustAnchorId}", 200] }, () => UpdateTrustAnchorRequest$, () => TrustAnchorDetailResponse$
 ];

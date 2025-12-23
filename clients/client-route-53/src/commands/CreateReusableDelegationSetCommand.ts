@@ -25,9 +25,7 @@ export interface CreateReusableDelegationSetCommandInput extends CreateReusableD
  *
  * The output of {@link CreateReusableDelegationSetCommand}.
  */
-export interface CreateReusableDelegationSetCommandOutput
-  extends CreateReusableDelegationSetResponse,
-    __MetadataBearer {}
+export interface CreateReusableDelegationSetCommandOutput extends CreateReusableDelegationSetResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a delegation set (a group of four name servers) that can be reused by multiple
@@ -164,7 +162,10 @@ export class CreateReusableDelegationSetCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions()), getIdNormalizerPlugin(config)];
+    return [
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getIdNormalizerPlugin(config),
+    ];
   })
   .s("AWSDnsV20130401", "CreateReusableDelegationSet", {})
   .n("Route53Client", "CreateReusableDelegationSetCommand")

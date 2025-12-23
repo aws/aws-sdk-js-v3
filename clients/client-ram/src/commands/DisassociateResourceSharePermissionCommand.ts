@@ -27,9 +27,7 @@ export interface DisassociateResourceSharePermissionCommandInput extends Disasso
  *
  * The output of {@link DisassociateResourceSharePermissionCommand}.
  */
-export interface DisassociateResourceSharePermissionCommandOutput
-  extends DisassociateResourceSharePermissionResponse,
-    __MetadataBearer {}
+export interface DisassociateResourceSharePermissionCommandOutput extends DisassociateResourceSharePermissionResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a managed permission from a resource share. Permission changes take effect immediately. You can

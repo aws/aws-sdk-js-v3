@@ -24,9 +24,7 @@ export interface DescribeCostCategoryDefinitionCommandInput extends DescribeCost
  *
  * The output of {@link DescribeCostCategoryDefinitionCommand}.
  */
-export interface DescribeCostCategoryDefinitionCommandOutput
-  extends DescribeCostCategoryDefinitionResponse,
-    __MetadataBearer {}
+export interface DescribeCostCategoryDefinitionCommandOutput extends DescribeCostCategoryDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the name, Amazon Resource Name (ARN), rules, definition, and effective dates of a

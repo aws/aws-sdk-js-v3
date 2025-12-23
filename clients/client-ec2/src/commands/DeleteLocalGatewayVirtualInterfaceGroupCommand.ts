@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeleteLocalGatewayVirtualInterfaceGroupCommand}.
  */
-export interface DeleteLocalGatewayVirtualInterfaceGroupCommandInput
-  extends DeleteLocalGatewayVirtualInterfaceGroupRequest {}
+export interface DeleteLocalGatewayVirtualInterfaceGroupCommandInput extends DeleteLocalGatewayVirtualInterfaceGroupRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteLocalGatewayVirtualInterfaceGroupCommand}.
  */
-export interface DeleteLocalGatewayVirtualInterfaceGroupCommandOutput
-  extends DeleteLocalGatewayVirtualInterfaceGroupResult,
-    __MetadataBearer {}
+export interface DeleteLocalGatewayVirtualInterfaceGroupCommandOutput extends DeleteLocalGatewayVirtualInterfaceGroupResult, __MetadataBearer {}
 
 /**
  * <p>Delete the specified local gateway interface group.</p>

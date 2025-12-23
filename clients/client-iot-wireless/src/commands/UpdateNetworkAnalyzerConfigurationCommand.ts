@@ -27,9 +27,7 @@ export interface UpdateNetworkAnalyzerConfigurationCommandInput extends UpdateNe
  *
  * The output of {@link UpdateNetworkAnalyzerConfigurationCommand}.
  */
-export interface UpdateNetworkAnalyzerConfigurationCommandOutput
-  extends UpdateNetworkAnalyzerConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateNetworkAnalyzerConfigurationCommandOutput extends UpdateNetworkAnalyzerConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Update network analyzer configuration.</p>

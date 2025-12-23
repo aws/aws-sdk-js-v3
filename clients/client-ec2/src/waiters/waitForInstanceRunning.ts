@@ -10,74 +10,74 @@ const checkState = async (client: EC2Client, input: DescribeInstancesCommandInpu
     const result: any = await client.send(new DescribeInstancesCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.Reservations);
-        const projection_3 = flat_1.map((element_2: any) => {
+      let returnComparator = () => {
+        let flat_1: any[] = [].concat(...result.Reservations);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Instances;
         });
-        const flat_4: any[] = [].concat(...projection_3);
-        const projection_6 = flat_4.map((element_5: any) => {
+        let flat_4: any[] = [].concat(...projection_3);
+        let projection_6 = flat_4.map((element_5: any) => {
           return element_5.State.Name;
         });
         return projection_6;
-      };
-      let allStringEq_8 = returnComparator().length > 0;
-      for (const element_7 of returnComparator()) {
-        allStringEq_8 = allStringEq_8 && element_7 == "running";
+      }
+      let allStringEq_8 = (returnComparator().length > 0);
+      for (let element_7 of returnComparator()) {
+        allStringEq_8 = allStringEq_8 && (element_7 == "running")
       }
       if (allStringEq_8) {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.Reservations);
-        const projection_3 = flat_1.map((element_2: any) => {
+      let returnComparator = () => {
+        let flat_1: any[] = [].concat(...result.Reservations);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Instances;
         });
-        const flat_4: any[] = [].concat(...projection_3);
-        const projection_6 = flat_4.map((element_5: any) => {
+        let flat_4: any[] = [].concat(...projection_3);
+        let projection_6 = flat_4.map((element_5: any) => {
           return element_5.State.Name;
         });
         return projection_6;
-      };
-      for (const anyStringEq_7 of returnComparator()) {
+      }
+      for (let anyStringEq_7 of returnComparator()) {
         if (anyStringEq_7 == "shutting-down") {
           return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.Reservations);
-        const projection_3 = flat_1.map((element_2: any) => {
+      let returnComparator = () => {
+        let flat_1: any[] = [].concat(...result.Reservations);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Instances;
         });
-        const flat_4: any[] = [].concat(...projection_3);
-        const projection_6 = flat_4.map((element_5: any) => {
+        let flat_4: any[] = [].concat(...projection_3);
+        let projection_6 = flat_4.map((element_5: any) => {
           return element_5.State.Name;
         });
         return projection_6;
-      };
-      for (const anyStringEq_7 of returnComparator()) {
+      }
+      for (let anyStringEq_7 of returnComparator()) {
         if (anyStringEq_7 == "terminated") {
           return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
-        const flat_1: any[] = [].concat(...result.Reservations);
-        const projection_3 = flat_1.map((element_2: any) => {
+      let returnComparator = () => {
+        let flat_1: any[] = [].concat(...result.Reservations);
+        let projection_3 = flat_1.map((element_2: any) => {
           return element_2.Instances;
         });
-        const flat_4: any[] = [].concat(...projection_3);
-        const projection_6 = flat_4.map((element_5: any) => {
+        let flat_4: any[] = [].concat(...projection_3);
+        let projection_6 = flat_4.map((element_5: any) => {
           return element_5.State.Name;
         });
         return projection_6;
-      };
-      for (const anyStringEq_7 of returnComparator()) {
+      }
+      for (let anyStringEq_7 of returnComparator()) {
         if (anyStringEq_7 == "stopping") {
           return { state: WaiterState.FAILURE, reason };
         }

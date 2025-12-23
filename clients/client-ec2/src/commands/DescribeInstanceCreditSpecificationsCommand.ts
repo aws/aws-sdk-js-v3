@@ -27,9 +27,7 @@ export interface DescribeInstanceCreditSpecificationsCommandInput extends Descri
  *
  * The output of {@link DescribeInstanceCreditSpecificationsCommand}.
  */
-export interface DescribeInstanceCreditSpecificationsCommandOutput
-  extends DescribeInstanceCreditSpecificationsResult,
-    __MetadataBearer {}
+export interface DescribeInstanceCreditSpecificationsCommandOutput extends DescribeInstanceCreditSpecificationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the credit option for CPU usage of the specified burstable performance

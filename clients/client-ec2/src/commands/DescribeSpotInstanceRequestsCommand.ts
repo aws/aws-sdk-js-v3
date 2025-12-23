@@ -24,9 +24,7 @@ export interface DescribeSpotInstanceRequestsCommandInput extends DescribeSpotIn
  *
  * The output of {@link DescribeSpotInstanceRequestsCommand}.
  */
-export interface DescribeSpotInstanceRequestsCommandOutput
-  extends DescribeSpotInstanceRequestsResult,
-    __MetadataBearer {}
+export interface DescribeSpotInstanceRequestsCommandOutput extends DescribeSpotInstanceRequestsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified Spot Instance requests.</p>

@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link BatchDisassociateServiceActionFromProvisioningArtifactCommand}.
  */
-export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandInput
-  extends BatchDisassociateServiceActionFromProvisioningArtifactInput {}
+export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandInput extends BatchDisassociateServiceActionFromProvisioningArtifactInput {}
 /**
  * @public
  *
  * The output of {@link BatchDisassociateServiceActionFromProvisioningArtifactCommand}.
  */
-export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
-  extends BatchDisassociateServiceActionFromProvisioningArtifactOutput,
-    __MetadataBearer {}
+export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput extends BatchDisassociateServiceActionFromProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
  * <p>Disassociates a batch of self-service actions from the specified provisioning artifact.</p>

@@ -573,6 +573,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
    * @internal
    */
   eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;
+
 }
 
 /**

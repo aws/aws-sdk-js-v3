@@ -24,9 +24,7 @@ export interface DescribePredefinedAttributeCommandInput extends DescribePredefi
  *
  * The output of {@link DescribePredefinedAttributeCommand}.
  */
-export interface DescribePredefinedAttributeCommandOutput
-  extends DescribePredefinedAttributeResponse,
-    __MetadataBearer {}
+export interface DescribePredefinedAttributeCommandOutput extends DescribePredefinedAttributeResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a predefined attribute for the specified Amazon Connect instance. A <i>predefined attribute</i>

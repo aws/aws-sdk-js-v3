@@ -27,9 +27,7 @@ export interface AssociateWirelessDeviceWithFuotaTaskCommandInput extends Associ
  *
  * The output of {@link AssociateWirelessDeviceWithFuotaTaskCommand}.
  */
-export interface AssociateWirelessDeviceWithFuotaTaskCommandOutput
-  extends AssociateWirelessDeviceWithFuotaTaskResponse,
-    __MetadataBearer {}
+export interface AssociateWirelessDeviceWithFuotaTaskCommandOutput extends AssociateWirelessDeviceWithFuotaTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Associate a wireless device with a FUOTA task.</p>

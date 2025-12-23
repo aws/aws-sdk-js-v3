@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateReplicationConfigurationTemplateCommand}.
  */
-export interface CreateReplicationConfigurationTemplateCommandInput
-  extends CreateReplicationConfigurationTemplateRequest {}
+export interface CreateReplicationConfigurationTemplateCommandInput extends CreateReplicationConfigurationTemplateRequest {}
 /**
  * @public
  *
  * The output of {@link CreateReplicationConfigurationTemplateCommand}.
  */
-export interface CreateReplicationConfigurationTemplateCommandOutput
-  extends ReplicationConfigurationTemplate,
-    __MetadataBearer {}
+export interface CreateReplicationConfigurationTemplateCommandOutput extends ReplicationConfigurationTemplate, __MetadataBearer {}
 
 /**
  * <p>Creates a new ReplicationConfigurationTemplate.</p>

@@ -27,9 +27,7 @@ export interface UpdateGroupCertificateConfigurationCommandInput extends UpdateG
  *
  * The output of {@link UpdateGroupCertificateConfigurationCommand}.
  */
-export interface UpdateGroupCertificateConfigurationCommandOutput
-  extends UpdateGroupCertificateConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateGroupCertificateConfigurationCommandOutput extends UpdateGroupCertificateConfigurationResponse, __MetadataBearer {}
 
 /**
  * Updates the Certificate expiry time for a group.

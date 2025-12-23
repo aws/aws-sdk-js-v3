@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetEvidenceFoldersByAssessmentControlCommand}.
  */
-export interface GetEvidenceFoldersByAssessmentControlCommandInput
-  extends GetEvidenceFoldersByAssessmentControlRequest {}
+export interface GetEvidenceFoldersByAssessmentControlCommandInput extends GetEvidenceFoldersByAssessmentControlRequest {}
 /**
  * @public
  *
  * The output of {@link GetEvidenceFoldersByAssessmentControlCommand}.
  */
-export interface GetEvidenceFoldersByAssessmentControlCommandOutput
-  extends GetEvidenceFoldersByAssessmentControlResponse,
-    __MetadataBearer {}
+export interface GetEvidenceFoldersByAssessmentControlCommandOutput extends GetEvidenceFoldersByAssessmentControlResponse, __MetadataBearer {}
 
 /**
  * <p> Gets a list of evidence folders that are associated with a specified control in an

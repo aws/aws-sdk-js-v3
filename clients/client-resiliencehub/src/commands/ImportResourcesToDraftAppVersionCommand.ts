@@ -27,9 +27,7 @@ export interface ImportResourcesToDraftAppVersionCommandInput extends ImportReso
  *
  * The output of {@link ImportResourcesToDraftAppVersionCommand}.
  */
-export interface ImportResourcesToDraftAppVersionCommandOutput
-  extends ImportResourcesToDraftAppVersionResponse,
-    __MetadataBearer {}
+export interface ImportResourcesToDraftAppVersionCommandOutput extends ImportResourcesToDraftAppVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Imports resources to Resilience Hub application draft version from different input

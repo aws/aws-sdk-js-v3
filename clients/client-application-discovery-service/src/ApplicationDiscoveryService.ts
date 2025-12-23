@@ -239,8 +239,14 @@ export interface ApplicationDiscoveryService {
   /**
    * @see {@link CreateTagsCommand}
    */
-  createTags(args: CreateTagsCommandInput, options?: __HttpHandlerOptions): Promise<CreateTagsCommandOutput>;
-  createTags(args: CreateTagsCommandInput, cb: (err: any, data?: CreateTagsCommandOutput) => void): void;
+  createTags(
+    args: CreateTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTagsCommandOutput>;
+  createTags(
+    args: CreateTagsCommandInput,
+    cb: (err: any, data?: CreateTagsCommandOutput) => void
+  ): void;
   createTags(
     args: CreateTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -267,8 +273,14 @@ export interface ApplicationDiscoveryService {
   /**
    * @see {@link DeleteTagsCommand}
    */
-  deleteTags(args: DeleteTagsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTagsCommandOutput>;
-  deleteTags(args: DeleteTagsCommandInput, cb: (err: any, data?: DeleteTagsCommandOutput) => void): void;
+  deleteTags(
+    args: DeleteTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTagsCommandOutput>;
+  deleteTags(
+    args: DeleteTagsCommandInput,
+    cb: (err: any, data?: DeleteTagsCommandOutput) => void
+  ): void;
   deleteTags(
     args: DeleteTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -283,7 +295,10 @@ export interface ApplicationDiscoveryService {
     args: DescribeAgentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeAgentsCommandOutput>;
-  describeAgents(args: DescribeAgentsCommandInput, cb: (err: any, data?: DescribeAgentsCommandOutput) => void): void;
+  describeAgents(
+    args: DescribeAgentsCommandInput,
+    cb: (err: any, data?: DescribeAgentsCommandOutput) => void
+  ): void;
   describeAgents(
     args: DescribeAgentsCommandInput,
     options: __HttpHandlerOptions,
@@ -400,8 +415,14 @@ export interface ApplicationDiscoveryService {
    * @see {@link DescribeTagsCommand}
    */
   describeTags(): Promise<DescribeTagsCommandOutput>;
-  describeTags(args: DescribeTagsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTagsCommandOutput>;
-  describeTags(args: DescribeTagsCommandInput, cb: (err: any, data?: DescribeTagsCommandOutput) => void): void;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTagsCommandOutput>;
+  describeTags(
+    args: DescribeTagsCommandInput,
+    cb: (err: any, data?: DescribeTagsCommandOutput) => void
+  ): void;
   describeTags(
     args: DescribeTagsCommandInput,
     options: __HttpHandlerOptions,
@@ -555,7 +576,10 @@ export interface ApplicationDiscoveryService {
     args: StartExportTaskCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartExportTaskCommandOutput>;
-  startExportTask(args: StartExportTaskCommandInput, cb: (err: any, data?: StartExportTaskCommandOutput) => void): void;
+  startExportTask(
+    args: StartExportTaskCommandInput,
+    cb: (err: any, data?: StartExportTaskCommandOutput) => void
+  ): void;
   startExportTask(
     args: StartExportTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -569,7 +593,10 @@ export interface ApplicationDiscoveryService {
     args: StartImportTaskCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartImportTaskCommandOutput>;
-  startImportTask(args: StartImportTaskCommandInput, cb: (err: any, data?: StartImportTaskCommandOutput) => void): void;
+  startImportTask(
+    args: StartImportTaskCommandInput,
+    cb: (err: any, data?: StartImportTaskCommandOutput) => void
+  ): void;
   startImportTask(
     args: StartImportTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -737,7 +764,5 @@ export interface ApplicationDiscoveryService {
  *          </important>
  * @public
  */
-export class ApplicationDiscoveryService
-  extends ApplicationDiscoveryServiceClient
-  implements ApplicationDiscoveryService {}
+export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClient implements ApplicationDiscoveryService {}
 createAggregatedClient(commands, ApplicationDiscoveryService);

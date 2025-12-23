@@ -24,9 +24,7 @@ export interface GetContinuousDeploymentPolicyCommandInput extends GetContinuous
  *
  * The output of {@link GetContinuousDeploymentPolicyCommand}.
  */
-export interface GetContinuousDeploymentPolicyCommandOutput
-  extends GetContinuousDeploymentPolicyResult,
-    __MetadataBearer {}
+export interface GetContinuousDeploymentPolicyCommandOutput extends GetContinuousDeploymentPolicyResult, __MetadataBearer {}
 
 /**
  * <p>Gets a continuous deployment policy, including metadata (the policy's identifier and the date and time when the policy was last modified).</p>

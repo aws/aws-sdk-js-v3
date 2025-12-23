@@ -168,8 +168,14 @@ export interface MediaConvert {
   /**
    * @see {@link CancelJobCommand}
    */
-  cancelJob(args: CancelJobCommandInput, options?: __HttpHandlerOptions): Promise<CancelJobCommandOutput>;
-  cancelJob(args: CancelJobCommandInput, cb: (err: any, data?: CancelJobCommandOutput) => void): void;
+  cancelJob(
+    args: CancelJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelJobCommandOutput>;
+  cancelJob(
+    args: CancelJobCommandInput,
+    cb: (err: any, data?: CancelJobCommandOutput) => void
+  ): void;
   cancelJob(
     args: CancelJobCommandInput,
     options: __HttpHandlerOptions,
@@ -179,8 +185,14 @@ export interface MediaConvert {
   /**
    * @see {@link CreateJobCommand}
    */
-  createJob(args: CreateJobCommandInput, options?: __HttpHandlerOptions): Promise<CreateJobCommandOutput>;
-  createJob(args: CreateJobCommandInput, cb: (err: any, data?: CreateJobCommandOutput) => void): void;
+  createJob(
+    args: CreateJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateJobCommandOutput>;
+  createJob(
+    args: CreateJobCommandInput,
+    cb: (err: any, data?: CreateJobCommandOutput) => void
+  ): void;
   createJob(
     args: CreateJobCommandInput,
     options: __HttpHandlerOptions,
@@ -207,8 +219,14 @@ export interface MediaConvert {
   /**
    * @see {@link CreatePresetCommand}
    */
-  createPreset(args: CreatePresetCommandInput, options?: __HttpHandlerOptions): Promise<CreatePresetCommandOutput>;
-  createPreset(args: CreatePresetCommandInput, cb: (err: any, data?: CreatePresetCommandOutput) => void): void;
+  createPreset(
+    args: CreatePresetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePresetCommandOutput>;
+  createPreset(
+    args: CreatePresetCommandInput,
+    cb: (err: any, data?: CreatePresetCommandOutput) => void
+  ): void;
   createPreset(
     args: CreatePresetCommandInput,
     options: __HttpHandlerOptions,
@@ -218,8 +236,14 @@ export interface MediaConvert {
   /**
    * @see {@link CreateQueueCommand}
    */
-  createQueue(args: CreateQueueCommandInput, options?: __HttpHandlerOptions): Promise<CreateQueueCommandOutput>;
-  createQueue(args: CreateQueueCommandInput, cb: (err: any, data?: CreateQueueCommandOutput) => void): void;
+  createQueue(
+    args: CreateQueueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateQueueCommandOutput>;
+  createQueue(
+    args: CreateQueueCommandInput,
+    cb: (err: any, data?: CreateQueueCommandOutput) => void
+  ): void;
   createQueue(
     args: CreateQueueCommandInput,
     options: __HttpHandlerOptions,
@@ -264,8 +288,14 @@ export interface MediaConvert {
    * @see {@link DeletePolicyCommand}
    */
   deletePolicy(): Promise<DeletePolicyCommandOutput>;
-  deletePolicy(args: DeletePolicyCommandInput, options?: __HttpHandlerOptions): Promise<DeletePolicyCommandOutput>;
-  deletePolicy(args: DeletePolicyCommandInput, cb: (err: any, data?: DeletePolicyCommandOutput) => void): void;
+  deletePolicy(
+    args: DeletePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePolicyCommandOutput>;
+  deletePolicy(
+    args: DeletePolicyCommandInput,
+    cb: (err: any, data?: DeletePolicyCommandOutput) => void
+  ): void;
   deletePolicy(
     args: DeletePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -275,8 +305,14 @@ export interface MediaConvert {
   /**
    * @see {@link DeletePresetCommand}
    */
-  deletePreset(args: DeletePresetCommandInput, options?: __HttpHandlerOptions): Promise<DeletePresetCommandOutput>;
-  deletePreset(args: DeletePresetCommandInput, cb: (err: any, data?: DeletePresetCommandOutput) => void): void;
+  deletePreset(
+    args: DeletePresetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePresetCommandOutput>;
+  deletePreset(
+    args: DeletePresetCommandInput,
+    cb: (err: any, data?: DeletePresetCommandOutput) => void
+  ): void;
   deletePreset(
     args: DeletePresetCommandInput,
     options: __HttpHandlerOptions,
@@ -286,8 +322,14 @@ export interface MediaConvert {
   /**
    * @see {@link DeleteQueueCommand}
    */
-  deleteQueue(args: DeleteQueueCommandInput, options?: __HttpHandlerOptions): Promise<DeleteQueueCommandOutput>;
-  deleteQueue(args: DeleteQueueCommandInput, cb: (err: any, data?: DeleteQueueCommandOutput) => void): void;
+  deleteQueue(
+    args: DeleteQueueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteQueueCommandOutput>;
+  deleteQueue(
+    args: DeleteQueueCommandInput,
+    cb: (err: any, data?: DeleteQueueCommandOutput) => void
+  ): void;
   deleteQueue(
     args: DeleteQueueCommandInput,
     options: __HttpHandlerOptions,
@@ -332,8 +374,14 @@ export interface MediaConvert {
   /**
    * @see {@link GetJobCommand}
    */
-  getJob(args: GetJobCommandInput, options?: __HttpHandlerOptions): Promise<GetJobCommandOutput>;
-  getJob(args: GetJobCommandInput, cb: (err: any, data?: GetJobCommandOutput) => void): void;
+  getJob(
+    args: GetJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetJobCommandOutput>;
+  getJob(
+    args: GetJobCommandInput,
+    cb: (err: any, data?: GetJobCommandOutput) => void
+  ): void;
   getJob(
     args: GetJobCommandInput,
     options: __HttpHandlerOptions,
@@ -364,7 +412,10 @@ export interface MediaConvert {
     args: GetJobTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetJobTemplateCommandOutput>;
-  getJobTemplate(args: GetJobTemplateCommandInput, cb: (err: any, data?: GetJobTemplateCommandOutput) => void): void;
+  getJobTemplate(
+    args: GetJobTemplateCommandInput,
+    cb: (err: any, data?: GetJobTemplateCommandOutput) => void
+  ): void;
   getJobTemplate(
     args: GetJobTemplateCommandInput,
     options: __HttpHandlerOptions,
@@ -375,8 +426,14 @@ export interface MediaConvert {
    * @see {@link GetPolicyCommand}
    */
   getPolicy(): Promise<GetPolicyCommandOutput>;
-  getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
-  getPolicy(args: GetPolicyCommandInput, cb: (err: any, data?: GetPolicyCommandOutput) => void): void;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPolicyCommandOutput>;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    cb: (err: any, data?: GetPolicyCommandOutput) => void
+  ): void;
   getPolicy(
     args: GetPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -386,8 +443,14 @@ export interface MediaConvert {
   /**
    * @see {@link GetPresetCommand}
    */
-  getPreset(args: GetPresetCommandInput, options?: __HttpHandlerOptions): Promise<GetPresetCommandOutput>;
-  getPreset(args: GetPresetCommandInput, cb: (err: any, data?: GetPresetCommandOutput) => void): void;
+  getPreset(
+    args: GetPresetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPresetCommandOutput>;
+  getPreset(
+    args: GetPresetCommandInput,
+    cb: (err: any, data?: GetPresetCommandOutput) => void
+  ): void;
   getPreset(
     args: GetPresetCommandInput,
     options: __HttpHandlerOptions,
@@ -397,8 +460,14 @@ export interface MediaConvert {
   /**
    * @see {@link GetQueueCommand}
    */
-  getQueue(args: GetQueueCommandInput, options?: __HttpHandlerOptions): Promise<GetQueueCommandOutput>;
-  getQueue(args: GetQueueCommandInput, cb: (err: any, data?: GetQueueCommandOutput) => void): void;
+  getQueue(
+    args: GetQueueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQueueCommandOutput>;
+  getQueue(
+    args: GetQueueCommandInput,
+    cb: (err: any, data?: GetQueueCommandOutput) => void
+  ): void;
   getQueue(
     args: GetQueueCommandInput,
     options: __HttpHandlerOptions,
@@ -409,8 +478,14 @@ export interface MediaConvert {
    * @see {@link ListJobsCommand}
    */
   listJobs(): Promise<ListJobsCommandOutput>;
-  listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
-  listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
+  listJobs(
+    args: ListJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobsCommandOutput>;
+  listJobs(
+    args: ListJobsCommandInput,
+    cb: (err: any, data?: ListJobsCommandOutput) => void
+  ): void;
   listJobs(
     args: ListJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -439,8 +514,14 @@ export interface MediaConvert {
    * @see {@link ListPresetsCommand}
    */
   listPresets(): Promise<ListPresetsCommandOutput>;
-  listPresets(args: ListPresetsCommandInput, options?: __HttpHandlerOptions): Promise<ListPresetsCommandOutput>;
-  listPresets(args: ListPresetsCommandInput, cb: (err: any, data?: ListPresetsCommandOutput) => void): void;
+  listPresets(
+    args: ListPresetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPresetsCommandOutput>;
+  listPresets(
+    args: ListPresetsCommandInput,
+    cb: (err: any, data?: ListPresetsCommandOutput) => void
+  ): void;
   listPresets(
     args: ListPresetsCommandInput,
     options: __HttpHandlerOptions,
@@ -451,8 +532,14 @@ export interface MediaConvert {
    * @see {@link ListQueuesCommand}
    */
   listQueues(): Promise<ListQueuesCommandOutput>;
-  listQueues(args: ListQueuesCommandInput, options?: __HttpHandlerOptions): Promise<ListQueuesCommandOutput>;
-  listQueues(args: ListQueuesCommandInput, cb: (err: any, data?: ListQueuesCommandOutput) => void): void;
+  listQueues(
+    args: ListQueuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListQueuesCommandOutput>;
+  listQueues(
+    args: ListQueuesCommandInput,
+    cb: (err: any, data?: ListQueuesCommandOutput) => void
+  ): void;
   listQueues(
     args: ListQueuesCommandInput,
     options: __HttpHandlerOptions,
@@ -480,8 +567,14 @@ export interface MediaConvert {
    * @see {@link ListVersionsCommand}
    */
   listVersions(): Promise<ListVersionsCommandOutput>;
-  listVersions(args: ListVersionsCommandInput, options?: __HttpHandlerOptions): Promise<ListVersionsCommandOutput>;
-  listVersions(args: ListVersionsCommandInput, cb: (err: any, data?: ListVersionsCommandOutput) => void): void;
+  listVersions(
+    args: ListVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVersionsCommandOutput>;
+  listVersions(
+    args: ListVersionsCommandInput,
+    cb: (err: any, data?: ListVersionsCommandOutput) => void
+  ): void;
   listVersions(
     args: ListVersionsCommandInput,
     options: __HttpHandlerOptions,
@@ -492,8 +585,14 @@ export interface MediaConvert {
    * @see {@link ProbeCommand}
    */
   probe(): Promise<ProbeCommandOutput>;
-  probe(args: ProbeCommandInput, options?: __HttpHandlerOptions): Promise<ProbeCommandOutput>;
-  probe(args: ProbeCommandInput, cb: (err: any, data?: ProbeCommandOutput) => void): void;
+  probe(
+    args: ProbeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ProbeCommandOutput>;
+  probe(
+    args: ProbeCommandInput,
+    cb: (err: any, data?: ProbeCommandOutput) => void
+  ): void;
   probe(
     args: ProbeCommandInput,
     options: __HttpHandlerOptions,
@@ -503,8 +602,14 @@ export interface MediaConvert {
   /**
    * @see {@link PutPolicyCommand}
    */
-  putPolicy(args: PutPolicyCommandInput, options?: __HttpHandlerOptions): Promise<PutPolicyCommandOutput>;
-  putPolicy(args: PutPolicyCommandInput, cb: (err: any, data?: PutPolicyCommandOutput) => void): void;
+  putPolicy(
+    args: PutPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutPolicyCommandOutput>;
+  putPolicy(
+    args: PutPolicyCommandInput,
+    cb: (err: any, data?: PutPolicyCommandOutput) => void
+  ): void;
   putPolicy(
     args: PutPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -515,8 +620,14 @@ export interface MediaConvert {
    * @see {@link SearchJobsCommand}
    */
   searchJobs(): Promise<SearchJobsCommandOutput>;
-  searchJobs(args: SearchJobsCommandInput, options?: __HttpHandlerOptions): Promise<SearchJobsCommandOutput>;
-  searchJobs(args: SearchJobsCommandInput, cb: (err: any, data?: SearchJobsCommandOutput) => void): void;
+  searchJobs(
+    args: SearchJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchJobsCommandOutput>;
+  searchJobs(
+    args: SearchJobsCommandInput,
+    cb: (err: any, data?: SearchJobsCommandOutput) => void
+  ): void;
   searchJobs(
     args: SearchJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -531,7 +642,10 @@ export interface MediaConvert {
     args: StartJobsQueryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartJobsQueryCommandOutput>;
-  startJobsQuery(args: StartJobsQueryCommandInput, cb: (err: any, data?: StartJobsQueryCommandOutput) => void): void;
+  startJobsQuery(
+    args: StartJobsQueryCommandInput,
+    cb: (err: any, data?: StartJobsQueryCommandOutput) => void
+  ): void;
   startJobsQuery(
     args: StartJobsQueryCommandInput,
     options: __HttpHandlerOptions,
@@ -541,8 +655,14 @@ export interface MediaConvert {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -552,8 +672,14 @@ export interface MediaConvert {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -580,8 +706,14 @@ export interface MediaConvert {
   /**
    * @see {@link UpdatePresetCommand}
    */
-  updatePreset(args: UpdatePresetCommandInput, options?: __HttpHandlerOptions): Promise<UpdatePresetCommandOutput>;
-  updatePreset(args: UpdatePresetCommandInput, cb: (err: any, data?: UpdatePresetCommandOutput) => void): void;
+  updatePreset(
+    args: UpdatePresetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePresetCommandOutput>;
+  updatePreset(
+    args: UpdatePresetCommandInput,
+    cb: (err: any, data?: UpdatePresetCommandOutput) => void
+  ): void;
   updatePreset(
     args: UpdatePresetCommandInput,
     options: __HttpHandlerOptions,
@@ -591,8 +723,14 @@ export interface MediaConvert {
   /**
    * @see {@link UpdateQueueCommand}
    */
-  updateQueue(args: UpdateQueueCommandInput, options?: __HttpHandlerOptions): Promise<UpdateQueueCommandOutput>;
-  updateQueue(args: UpdateQueueCommandInput, cb: (err: any, data?: UpdateQueueCommandOutput) => void): void;
+  updateQueue(
+    args: UpdateQueueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQueueCommandOutput>;
+  updateQueue(
+    args: UpdateQueueCommandInput,
+    cb: (err: any, data?: UpdateQueueCommandOutput) => void
+  ): void;
   updateQueue(
     args: UpdateQueueCommandInput,
     options: __HttpHandlerOptions,

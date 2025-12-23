@@ -26,7 +26,8 @@ export const getRuntimeConfig = (config: CodeCatalystClientConfig) => {
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "smithy.api#httpBearerAuth",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("smithy.api#httpBearerAuth"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("smithy.api#httpBearerAuth"),
         signer: new HttpBearerAuthSigner(),
       },
     ],

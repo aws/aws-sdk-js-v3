@@ -22,8 +22,7 @@ export { $Command };
  *
  * The input for {@link MalformedContentTypeWithoutBodyEmptyInputCommand}.
  */
-export interface MalformedContentTypeWithoutBodyEmptyInputCommandInput
-  extends MalformedContentTypeWithoutBodyEmptyInputInput {}
+export interface MalformedContentTypeWithoutBodyEmptyInputCommandInput extends MalformedContentTypeWithoutBodyEmptyInputInput {}
 /**
  * @public
  *

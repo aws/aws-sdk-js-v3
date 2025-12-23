@@ -27,9 +27,7 @@ export interface DeregisterPatchBaselineForPatchGroupCommandInput extends Deregi
  *
  * The output of {@link DeregisterPatchBaselineForPatchGroupCommand}.
  */
-export interface DeregisterPatchBaselineForPatchGroupCommandOutput
-  extends DeregisterPatchBaselineForPatchGroupResult,
-    __MetadataBearer {}
+export interface DeregisterPatchBaselineForPatchGroupCommandOutput extends DeregisterPatchBaselineForPatchGroupResult, __MetadataBearer {}
 
 /**
  * <p>Removes a patch group from a patch baseline.</p>

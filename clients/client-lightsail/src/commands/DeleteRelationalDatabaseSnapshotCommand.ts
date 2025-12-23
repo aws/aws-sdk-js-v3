@@ -27,9 +27,7 @@ export interface DeleteRelationalDatabaseSnapshotCommandInput extends DeleteRela
  *
  * The output of {@link DeleteRelationalDatabaseSnapshotCommand}.
  */
-export interface DeleteRelationalDatabaseSnapshotCommandOutput
-  extends DeleteRelationalDatabaseSnapshotResult,
-    __MetadataBearer {}
+export interface DeleteRelationalDatabaseSnapshotCommandOutput extends DeleteRelationalDatabaseSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a database snapshot in Amazon Lightsail.</p>

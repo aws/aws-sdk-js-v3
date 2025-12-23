@@ -32,10 +32,8 @@ AWS SDK for JavaScript Chatbot Client for Node.js, Browser and React Native.
 </note>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-chatbot
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-chatbot`
 - `yarn add @aws-sdk/client-chatbot`
 - `pnpm add @aws-sdk/client-chatbot`
@@ -71,9 +69,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new ChatbotClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListCustomActionsCommand(params);
 ```
 
@@ -232,7 +228,6 @@ AssociateToConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/AssociateToConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/AssociateToConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/AssociateToConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -240,7 +235,6 @@ CreateChimeWebhookConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/CreateChimeWebhookConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/CreateChimeWebhookConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/CreateChimeWebhookConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -248,7 +242,6 @@ CreateCustomAction
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/CreateCustomActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/CreateCustomActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/CreateCustomActionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -256,7 +249,6 @@ CreateMicrosoftTeamsChannelConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/CreateMicrosoftTeamsChannelConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/CreateMicrosoftTeamsChannelConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/CreateMicrosoftTeamsChannelConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -264,7 +256,6 @@ CreateSlackChannelConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/CreateSlackChannelConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/CreateSlackChannelConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/CreateSlackChannelConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -272,7 +263,6 @@ DeleteChimeWebhookConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/DeleteChimeWebhookConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DeleteChimeWebhookConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DeleteChimeWebhookConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -280,7 +270,6 @@ DeleteCustomAction
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/DeleteCustomActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DeleteCustomActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DeleteCustomActionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -288,7 +277,6 @@ DeleteMicrosoftTeamsChannelConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/DeleteMicrosoftTeamsChannelConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DeleteMicrosoftTeamsChannelConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DeleteMicrosoftTeamsChannelConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -296,7 +284,6 @@ DeleteMicrosoftTeamsConfiguredTeam
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/DeleteMicrosoftTeamsConfiguredTeamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DeleteMicrosoftTeamsConfiguredTeamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DeleteMicrosoftTeamsConfiguredTeamCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -304,7 +291,6 @@ DeleteMicrosoftTeamsUserIdentity
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/DeleteMicrosoftTeamsUserIdentityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DeleteMicrosoftTeamsUserIdentityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DeleteMicrosoftTeamsUserIdentityCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -312,7 +298,6 @@ DeleteSlackChannelConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/DeleteSlackChannelConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DeleteSlackChannelConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DeleteSlackChannelConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -320,7 +305,6 @@ DeleteSlackUserIdentity
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/DeleteSlackUserIdentityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DeleteSlackUserIdentityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DeleteSlackUserIdentityCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -328,7 +312,6 @@ DeleteSlackWorkspaceAuthorization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/DeleteSlackWorkspaceAuthorizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DeleteSlackWorkspaceAuthorizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DeleteSlackWorkspaceAuthorizationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -336,7 +319,6 @@ DescribeChimeWebhookConfigurations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/DescribeChimeWebhookConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DescribeChimeWebhookConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DescribeChimeWebhookConfigurationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -344,7 +326,6 @@ DescribeSlackChannelConfigurations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/DescribeSlackChannelConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DescribeSlackChannelConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DescribeSlackChannelConfigurationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -352,7 +333,6 @@ DescribeSlackUserIdentities
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/DescribeSlackUserIdentitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DescribeSlackUserIdentitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DescribeSlackUserIdentitiesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -360,7 +340,6 @@ DescribeSlackWorkspaces
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/DescribeSlackWorkspacesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DescribeSlackWorkspacesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DescribeSlackWorkspacesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -368,7 +347,6 @@ DisassociateFromConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/DisassociateFromConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DisassociateFromConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DisassociateFromConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -376,7 +354,6 @@ GetAccountPreferences
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/GetAccountPreferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/GetAccountPreferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/GetAccountPreferencesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -384,7 +361,6 @@ GetCustomAction
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/GetCustomActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/GetCustomActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/GetCustomActionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -392,7 +368,6 @@ GetMicrosoftTeamsChannelConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/GetMicrosoftTeamsChannelConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/GetMicrosoftTeamsChannelConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/GetMicrosoftTeamsChannelConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -400,7 +375,6 @@ ListAssociations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/ListAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/ListAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/ListAssociationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -408,7 +382,6 @@ ListCustomActions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/ListCustomActionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/ListCustomActionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/ListCustomActionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -416,7 +389,6 @@ ListMicrosoftTeamsChannelConfigurations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/ListMicrosoftTeamsChannelConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/ListMicrosoftTeamsChannelConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/ListMicrosoftTeamsChannelConfigurationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -424,7 +396,6 @@ ListMicrosoftTeamsConfiguredTeams
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/ListMicrosoftTeamsConfiguredTeamsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/ListMicrosoftTeamsConfiguredTeamsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/ListMicrosoftTeamsConfiguredTeamsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -432,7 +403,6 @@ ListMicrosoftTeamsUserIdentities
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/ListMicrosoftTeamsUserIdentitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/ListMicrosoftTeamsUserIdentitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/ListMicrosoftTeamsUserIdentitiesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -440,7 +410,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -448,7 +417,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -456,7 +424,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -464,7 +431,6 @@ UpdateAccountPreferences
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/UpdateAccountPreferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/UpdateAccountPreferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/UpdateAccountPreferencesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -472,7 +438,6 @@ UpdateChimeWebhookConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/UpdateChimeWebhookConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/UpdateChimeWebhookConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/UpdateChimeWebhookConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -480,7 +445,6 @@ UpdateCustomAction
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/UpdateCustomActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/UpdateCustomActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/UpdateCustomActionCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -488,7 +452,6 @@ UpdateMicrosoftTeamsChannelConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/UpdateMicrosoftTeamsChannelConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/UpdateMicrosoftTeamsChannelConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/UpdateMicrosoftTeamsChannelConfigurationCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -496,5 +459,4 @@ UpdateSlackChannelConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/UpdateSlackChannelConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/UpdateSlackChannelConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/UpdateSlackChannelConfigurationCommandOutput/)
-
 </details>

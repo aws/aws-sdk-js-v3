@@ -22,8 +22,7 @@ export { $Command };
  *
  * The input for {@link DeleteMediaPipelineKinesisVideoStreamPoolCommand}.
  */
-export interface DeleteMediaPipelineKinesisVideoStreamPoolCommandInput
-  extends DeleteMediaPipelineKinesisVideoStreamPoolRequest {}
+export interface DeleteMediaPipelineKinesisVideoStreamPoolCommandInput extends DeleteMediaPipelineKinesisVideoStreamPoolRequest {}
 /**
  * @public
  *

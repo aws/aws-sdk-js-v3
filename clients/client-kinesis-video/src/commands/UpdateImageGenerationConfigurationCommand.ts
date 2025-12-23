@@ -27,9 +27,7 @@ export interface UpdateImageGenerationConfigurationCommandInput extends UpdateIm
  *
  * The output of {@link UpdateImageGenerationConfigurationCommand}.
  */
-export interface UpdateImageGenerationConfigurationCommandOutput
-  extends UpdateImageGenerationConfigurationOutput,
-    __MetadataBearer {}
+export interface UpdateImageGenerationConfigurationCommandOutput extends UpdateImageGenerationConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the <code>StreamInfo</code> and <code>ImageProcessingConfiguration</code> fields.</p>

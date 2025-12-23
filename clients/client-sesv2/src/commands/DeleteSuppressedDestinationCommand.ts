@@ -24,9 +24,7 @@ export interface DeleteSuppressedDestinationCommandInput extends DeleteSuppresse
  *
  * The output of {@link DeleteSuppressedDestinationCommand}.
  */
-export interface DeleteSuppressedDestinationCommandOutput
-  extends DeleteSuppressedDestinationResponse,
-    __MetadataBearer {}
+export interface DeleteSuppressedDestinationCommandOutput extends DeleteSuppressedDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Removes an email address from the suppression list for your account.</p>

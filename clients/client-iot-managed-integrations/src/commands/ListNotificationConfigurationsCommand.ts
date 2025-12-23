@@ -28,9 +28,7 @@ export interface ListNotificationConfigurationsCommandInput extends ListNotifica
  *
  * The output of {@link ListNotificationConfigurationsCommand}.
  */
-export interface ListNotificationConfigurationsCommandOutput
-  extends ListNotificationConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListNotificationConfigurationsCommandOutput extends ListNotificationConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p> List all notification configurations.</p>

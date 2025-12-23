@@ -24,9 +24,7 @@ export interface DeleteExpressGatewayServiceCommandInput extends DeleteExpressGa
  *
  * The output of {@link DeleteExpressGatewayServiceCommand}.
  */
-export interface DeleteExpressGatewayServiceCommandOutput
-  extends DeleteExpressGatewayServiceResponse,
-    __MetadataBearer {}
+export interface DeleteExpressGatewayServiceCommandOutput extends DeleteExpressGatewayServiceResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an Express service and removes all associated Amazon Web Services resources. This operation

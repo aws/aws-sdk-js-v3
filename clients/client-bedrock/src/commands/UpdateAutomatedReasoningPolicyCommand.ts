@@ -24,9 +24,7 @@ export interface UpdateAutomatedReasoningPolicyCommandInput extends UpdateAutoma
  *
  * The output of {@link UpdateAutomatedReasoningPolicyCommand}.
  */
-export interface UpdateAutomatedReasoningPolicyCommandOutput
-  extends UpdateAutomatedReasoningPolicyResponse,
-    __MetadataBearer {}
+export interface UpdateAutomatedReasoningPolicyCommandOutput extends UpdateAutomatedReasoningPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing Automated Reasoning policy with new rules, variables, or configuration. This creates a new version of the policy while preserving the previous version.</p>

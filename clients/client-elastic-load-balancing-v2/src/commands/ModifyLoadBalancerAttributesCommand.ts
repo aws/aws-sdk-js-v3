@@ -28,9 +28,7 @@ export interface ModifyLoadBalancerAttributesCommandInput extends ModifyLoadBala
  *
  * The output of {@link ModifyLoadBalancerAttributesCommand}.
  */
-export interface ModifyLoadBalancerAttributesCommandOutput
-  extends ModifyLoadBalancerAttributesOutput,
-    __MetadataBearer {}
+export interface ModifyLoadBalancerAttributesCommandOutput extends ModifyLoadBalancerAttributesOutput, __MetadataBearer {}
 
 /**
  * <p>Modifies the specified attributes of the specified Application Load Balancer, Network Load

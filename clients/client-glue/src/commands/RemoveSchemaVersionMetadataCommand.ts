@@ -24,9 +24,7 @@ export interface RemoveSchemaVersionMetadataCommandInput extends RemoveSchemaVer
  *
  * The output of {@link RemoveSchemaVersionMetadataCommand}.
  */
-export interface RemoveSchemaVersionMetadataCommandOutput
-  extends RemoveSchemaVersionMetadataResponse,
-    __MetadataBearer {}
+export interface RemoveSchemaVersionMetadataCommandOutput extends RemoveSchemaVersionMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a key value pair from the schema version metadata for the specified schema version ID.</p>

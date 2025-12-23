@@ -54,6 +54,9 @@ import {
   ListTargetsResult$,
   NotificationRuleStatus,
   NotificationRuleSummary$,
+  paginateListEventTypes,
+  paginateListNotificationRules,
+  paginateListTargets,
   ResourceAlreadyExistsException,
   ResourceAlreadyExistsException$,
   ResourceNotFoundException,
@@ -83,9 +86,6 @@ import {
   UpdateNotificationRuleResult$,
   ValidationException,
   ValidationException$,
-  paginateListEventTypes,
-  paginateListNotificationRules,
-  paginateListTargets,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

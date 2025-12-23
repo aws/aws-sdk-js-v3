@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DeleteCoreNetworkPrefixListAssociationCommand}.
  */
-export interface DeleteCoreNetworkPrefixListAssociationCommandInput
-  extends DeleteCoreNetworkPrefixListAssociationRequest {}
+export interface DeleteCoreNetworkPrefixListAssociationCommandInput extends DeleteCoreNetworkPrefixListAssociationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteCoreNetworkPrefixListAssociationCommand}.
  */
-export interface DeleteCoreNetworkPrefixListAssociationCommandOutput
-  extends DeleteCoreNetworkPrefixListAssociationResponse,
-    __MetadataBearer {}
+export interface DeleteCoreNetworkPrefixListAssociationCommandOutput extends DeleteCoreNetworkPrefixListAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an association between a core network and a prefix list.</p>

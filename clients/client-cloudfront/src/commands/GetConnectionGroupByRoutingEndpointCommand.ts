@@ -27,9 +27,7 @@ export interface GetConnectionGroupByRoutingEndpointCommandInput extends GetConn
  *
  * The output of {@link GetConnectionGroupByRoutingEndpointCommand}.
  */
-export interface GetConnectionGroupByRoutingEndpointCommandOutput
-  extends GetConnectionGroupByRoutingEndpointResult,
-    __MetadataBearer {}
+export interface GetConnectionGroupByRoutingEndpointCommandOutput extends GetConnectionGroupByRoutingEndpointResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about a connection group by using the endpoint that you specify.</p>

@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link PutBucketIntelligentTieringConfigurationCommand}.
  */
-export interface PutBucketIntelligentTieringConfigurationCommandInput
-  extends PutBucketIntelligentTieringConfigurationRequest {}
+export interface PutBucketIntelligentTieringConfigurationCommandInput extends PutBucketIntelligentTieringConfigurationRequest {}
 /**
  * @public
  *

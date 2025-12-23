@@ -29,16 +29,13 @@ export type InvokeEndpointWithResponseStreamCommandInputType = Omit<InvokeEndpoi
  *
  * The input for {@link InvokeEndpointWithResponseStreamCommand}.
  */
-export interface InvokeEndpointWithResponseStreamCommandInput
-  extends InvokeEndpointWithResponseStreamCommandInputType {}
+export interface InvokeEndpointWithResponseStreamCommandInput extends InvokeEndpointWithResponseStreamCommandInputType {}
 /**
  * @public
  *
  * The output of {@link InvokeEndpointWithResponseStreamCommand}.
  */
-export interface InvokeEndpointWithResponseStreamCommandOutput
-  extends InvokeEndpointWithResponseStreamOutput,
-    __MetadataBearer {}
+export interface InvokeEndpointWithResponseStreamCommandOutput extends InvokeEndpointWithResponseStreamOutput, __MetadataBearer {}
 
 /**
  * <p>Invokes a model at the specified endpoint to return the inference response as a

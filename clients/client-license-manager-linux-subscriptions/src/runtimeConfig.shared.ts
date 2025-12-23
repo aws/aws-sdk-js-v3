@@ -22,12 +22,12 @@ export const getRuntimeConfig = (config: LicenseManagerLinuxSubscriptionsClientC
     disableHostPrefix: config?.disableHostPrefix ?? false,
     endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
     extensions: config?.extensions ?? [],
-    httpAuthSchemeProvider:
-      config?.httpAuthSchemeProvider ?? defaultLicenseManagerLinuxSubscriptionsHttpAuthSchemeProvider,
+    httpAuthSchemeProvider: config?.httpAuthSchemeProvider ?? defaultLicenseManagerLinuxSubscriptionsHttpAuthSchemeProvider,
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
       },
     ],

@@ -24,9 +24,7 @@ export interface GetMicrosoftTeamsChannelConfigurationCommandInput extends GetTe
  *
  * The output of {@link GetMicrosoftTeamsChannelConfigurationCommand}.
  */
-export interface GetMicrosoftTeamsChannelConfigurationCommandOutput
-  extends GetTeamsChannelConfigurationResult,
-    __MetadataBearer {}
+export interface GetMicrosoftTeamsChannelConfigurationCommandOutput extends GetTeamsChannelConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Returns a Microsoft Teams channel configuration in an AWS account.</p>

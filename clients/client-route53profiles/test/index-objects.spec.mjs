@@ -63,6 +63,9 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  paginateListProfileAssociations,
+  paginateListProfileResourceAssociations,
+  paginateListProfiles,
   Profile$,
   ProfileAssociation$,
   ProfileResourceAssociation$,
@@ -93,9 +96,6 @@ import {
   UpdateProfileResourceAssociationResponse$,
   ValidationException,
   ValidationException$,
-  paginateListProfileAssociations,
-  paginateListProfileResourceAssociations,
-  paginateListProfiles,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

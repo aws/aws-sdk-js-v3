@@ -389,8 +389,7 @@ export type MigrationHubOrchestratorClientResolvedConfigType = __SmithyResolvedC
  *
  *  The resolved configuration interface of MigrationHubOrchestratorClient class. This is resolved and normalized from the {@link MigrationHubOrchestratorClientConfig | constructor configuration interface}.
  */
-export interface MigrationHubOrchestratorClientResolvedConfig
-  extends MigrationHubOrchestratorClientResolvedConfigType {}
+export interface MigrationHubOrchestratorClientResolvedConfig extends MigrationHubOrchestratorClientResolvedConfigType {}
 
 /**
  * <p>This API reference provides descriptions, syntax, and other details about each of the

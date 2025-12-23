@@ -24,9 +24,7 @@ export interface DescribeCapacityBlockOfferingsCommandInput extends DescribeCapa
  *
  * The output of {@link DescribeCapacityBlockOfferingsCommand}.
  */
-export interface DescribeCapacityBlockOfferingsCommandOutput
-  extends DescribeCapacityBlockOfferingsResult,
-    __MetadataBearer {}
+export interface DescribeCapacityBlockOfferingsCommandOutput extends DescribeCapacityBlockOfferingsResult, __MetadataBearer {}
 
 /**
  * <p>Describes Capacity Block offerings available for purchase in the Amazon Web Services Region that you're currently using. With Capacity Blocks, you can

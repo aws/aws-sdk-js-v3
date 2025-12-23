@@ -27,9 +27,7 @@ export interface GetEventConfigurationByResourceTypesCommandInput extends GetEve
  *
  * The output of {@link GetEventConfigurationByResourceTypesCommand}.
  */
-export interface GetEventConfigurationByResourceTypesCommandOutput
-  extends GetEventConfigurationByResourceTypesResponse,
-    __MetadataBearer {}
+export interface GetEventConfigurationByResourceTypesCommandOutput extends GetEventConfigurationByResourceTypesResponse, __MetadataBearer {}
 
 /**
  * <p>Get the event configuration based on resource types.</p>

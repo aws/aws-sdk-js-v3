@@ -24,9 +24,7 @@ export interface DeleteUsageReportSubscriptionCommandInput extends DeleteUsageRe
  *
  * The output of {@link DeleteUsageReportSubscriptionCommand}.
  */
-export interface DeleteUsageReportSubscriptionCommandOutput
-  extends DeleteUsageReportSubscriptionResult,
-    __MetadataBearer {}
+export interface DeleteUsageReportSubscriptionCommandOutput extends DeleteUsageReportSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Disables usage report generation.</p>

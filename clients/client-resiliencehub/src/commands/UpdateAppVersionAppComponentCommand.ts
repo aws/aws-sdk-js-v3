@@ -24,9 +24,7 @@ export interface UpdateAppVersionAppComponentCommandInput extends UpdateAppVersi
  *
  * The output of {@link UpdateAppVersionAppComponentCommand}.
  */
-export interface UpdateAppVersionAppComponentCommandOutput
-  extends UpdateAppVersionAppComponentResponse,
-    __MetadataBearer {}
+export interface UpdateAppVersionAppComponentCommandOutput extends UpdateAppVersionAppComponentResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing Application Component in the Resilience Hub application.</p>

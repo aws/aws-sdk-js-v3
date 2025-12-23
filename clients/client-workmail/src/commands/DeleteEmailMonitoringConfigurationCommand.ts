@@ -27,9 +27,7 @@ export interface DeleteEmailMonitoringConfigurationCommandInput extends DeleteEm
  *
  * The output of {@link DeleteEmailMonitoringConfigurationCommand}.
  */
-export interface DeleteEmailMonitoringConfigurationCommandOutput
-  extends DeleteEmailMonitoringConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteEmailMonitoringConfigurationCommandOutput extends DeleteEmailMonitoringConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the email monitoring configuration for a specified organization.</p>

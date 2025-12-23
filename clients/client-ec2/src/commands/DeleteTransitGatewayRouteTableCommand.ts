@@ -24,9 +24,7 @@ export interface DeleteTransitGatewayRouteTableCommandInput extends DeleteTransi
  *
  * The output of {@link DeleteTransitGatewayRouteTableCommand}.
  */
-export interface DeleteTransitGatewayRouteTableCommandOutput
-  extends DeleteTransitGatewayRouteTableResult,
-    __MetadataBearer {}
+export interface DeleteTransitGatewayRouteTableCommandOutput extends DeleteTransitGatewayRouteTableResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified transit gateway route table. If there are any route tables associated with

@@ -60,6 +60,10 @@ import {
   NotScaledReason$,
   ObjectNotFoundException,
   ObjectNotFoundException$,
+  paginateDescribeScalableTargets,
+  paginateDescribeScalingActivities,
+  paginateDescribeScalingPolicies,
+  paginateDescribeScheduledActions,
   PolicyType,
   PredefinedMetricSpecification$,
   PredictiveScalingCustomizedMetricSpecification$,
@@ -116,10 +120,6 @@ import {
   UntagResourceResponse$,
   ValidationException,
   ValidationException$,
-  paginateDescribeScalableTargets,
-  paginateDescribeScalingActivities,
-  paginateDescribeScalingPolicies,
-  paginateDescribeScheduledActions,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link UpdateCustomVerificationEmailTemplateCommand}.
  */
-export interface UpdateCustomVerificationEmailTemplateCommandInput
-  extends UpdateCustomVerificationEmailTemplateRequest {}
+export interface UpdateCustomVerificationEmailTemplateCommandInput extends UpdateCustomVerificationEmailTemplateRequest {}
 /**
  * @public
  *

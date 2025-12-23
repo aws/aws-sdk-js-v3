@@ -31,9 +31,7 @@ export interface SetTextMessageSpendLimitOverrideCommandInput extends SetTextMes
  *
  * The output of {@link SetTextMessageSpendLimitOverrideCommand}.
  */
-export interface SetTextMessageSpendLimitOverrideCommandOutput
-  extends SetTextMessageSpendLimitOverrideResult,
-    __MetadataBearer {}
+export interface SetTextMessageSpendLimitOverrideCommandOutput extends SetTextMessageSpendLimitOverrideResult, __MetadataBearer {}
 
 /**
  * <p>Sets an account level monthly spend limit override for sending text messages. The requested spend limit must be less than or equal to the <code>MaxLimit</code>, which is set by Amazon Web Services. </p>

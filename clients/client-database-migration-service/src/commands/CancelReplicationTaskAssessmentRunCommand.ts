@@ -31,9 +31,7 @@ export interface CancelReplicationTaskAssessmentRunCommandInput extends CancelRe
  *
  * The output of {@link CancelReplicationTaskAssessmentRunCommand}.
  */
-export interface CancelReplicationTaskAssessmentRunCommandOutput
-  extends CancelReplicationTaskAssessmentRunResponse,
-    __MetadataBearer {}
+export interface CancelReplicationTaskAssessmentRunCommandOutput extends CancelReplicationTaskAssessmentRunResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels a single premigration assessment run.</p>

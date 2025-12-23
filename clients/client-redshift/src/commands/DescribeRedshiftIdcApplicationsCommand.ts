@@ -24,9 +24,7 @@ export interface DescribeRedshiftIdcApplicationsCommandInput extends DescribeRed
  *
  * The output of {@link DescribeRedshiftIdcApplicationsCommand}.
  */
-export interface DescribeRedshiftIdcApplicationsCommandOutput
-  extends DescribeRedshiftIdcApplicationsResult,
-    __MetadataBearer {}
+export interface DescribeRedshiftIdcApplicationsCommandOutput extends DescribeRedshiftIdcApplicationsResult, __MetadataBearer {}
 
 /**
  * <p>Lists the Amazon Redshift IAM Identity Center applications.</p>

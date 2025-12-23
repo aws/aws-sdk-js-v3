@@ -31,9 +31,7 @@ export interface AssociateResolverEndpointIpAddressCommandInput extends Associat
  *
  * The output of {@link AssociateResolverEndpointIpAddressCommand}.
  */
-export interface AssociateResolverEndpointIpAddressCommandOutput
-  extends AssociateResolverEndpointIpAddressResponse,
-    __MetadataBearer {}
+export interface AssociateResolverEndpointIpAddressCommandOutput extends AssociateResolverEndpointIpAddressResponse, __MetadataBearer {}
 
 /**
  * <p>Adds IP addresses to an inbound or an outbound Resolver endpoint. If you want to add more than one IP address,

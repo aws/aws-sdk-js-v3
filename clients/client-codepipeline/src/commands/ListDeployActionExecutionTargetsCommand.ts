@@ -24,9 +24,7 @@ export interface ListDeployActionExecutionTargetsCommandInput extends ListDeploy
  *
  * The output of {@link ListDeployActionExecutionTargetsCommand}.
  */
-export interface ListDeployActionExecutionTargetsCommandOutput
-  extends ListDeployActionExecutionTargetsOutput,
-    __MetadataBearer {}
+export interface ListDeployActionExecutionTargetsCommandOutput extends ListDeployActionExecutionTargetsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the targets for the deploy action.</p>

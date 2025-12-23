@@ -45,6 +45,8 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  paginateListSuiteDefinitions,
+  paginateListSuiteRuns,
   Protocol,
   ResourceNotFoundException,
   ResourceNotFoundException$,
@@ -81,8 +83,6 @@ import {
   UpdateSuiteDefinitionResponse$,
   ValidationException,
   ValidationException$,
-  paginateListSuiteDefinitions,
-  paginateListSuiteRuns,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

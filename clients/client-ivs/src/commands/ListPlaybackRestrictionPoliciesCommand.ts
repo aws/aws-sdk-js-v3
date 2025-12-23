@@ -27,9 +27,7 @@ export interface ListPlaybackRestrictionPoliciesCommandInput extends ListPlaybac
  *
  * The output of {@link ListPlaybackRestrictionPoliciesCommand}.
  */
-export interface ListPlaybackRestrictionPoliciesCommandOutput
-  extends ListPlaybackRestrictionPoliciesResponse,
-    __MetadataBearer {}
+export interface ListPlaybackRestrictionPoliciesCommandOutput extends ListPlaybackRestrictionPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets summary information about playback restriction policies.</p>

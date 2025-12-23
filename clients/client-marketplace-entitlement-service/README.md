@@ -7,7 +7,6 @@
 AWS SDK for JavaScript MarketplaceEntitlementService Client for Node.js, Browser and React Native.
 
 <fullname>AWS Marketplace Entitlement Service</fullname>
-
 <p>This reference provides descriptions of the AWS Marketplace Entitlement Service
 API.</p>
 <p>AWS Marketplace Entitlement Service is used to determine the entitlement of a customer to
@@ -26,10 +25,8 @@ product.</p>
 </ul>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-marketplace-entitlement-service
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-marketplace-entitlement-service`
 - `yarn add @aws-sdk/client-marketplace-entitlement-service`
 - `pnpm add @aws-sdk/client-marketplace-entitlement-service`
@@ -44,18 +41,12 @@ the commands you need, for example `GetEntitlementsCommand`:
 
 ```js
 // ES5 example
-const {
-  MarketplaceEntitlementServiceClient,
-  GetEntitlementsCommand,
-} = require("@aws-sdk/client-marketplace-entitlement-service");
+const { MarketplaceEntitlementServiceClient, GetEntitlementsCommand } = require("@aws-sdk/client-marketplace-entitlement-service");
 ```
 
 ```ts
 // ES6+ example
-import {
-  MarketplaceEntitlementServiceClient,
-  GetEntitlementsCommand,
-} from "@aws-sdk/client-marketplace-entitlement-service";
+import { MarketplaceEntitlementServiceClient, GetEntitlementsCommand } from "@aws-sdk/client-marketplace-entitlement-service";
 ```
 
 ### Usage
@@ -71,9 +62,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new MarketplaceEntitlementServiceClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new GetEntitlementsCommand(params);
 ```
 
@@ -232,5 +221,4 @@ GetEntitlements
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-entitlement-service/command/GetEntitlementsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-entitlement-service/Interface/GetEntitlementsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-entitlement-service/Interface/GetEntitlementsCommandOutput/)
-
 </details>

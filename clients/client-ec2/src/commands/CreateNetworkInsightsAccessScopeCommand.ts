@@ -27,9 +27,7 @@ export interface CreateNetworkInsightsAccessScopeCommandInput extends CreateNetw
  *
  * The output of {@link CreateNetworkInsightsAccessScopeCommand}.
  */
-export interface CreateNetworkInsightsAccessScopeCommandOutput
-  extends CreateNetworkInsightsAccessScopeResult,
-    __MetadataBearer {}
+export interface CreateNetworkInsightsAccessScopeCommandOutput extends CreateNetworkInsightsAccessScopeResult, __MetadataBearer {}
 
 /**
  * <p>Creates a Network Access Scope.</p>

@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListTrainingJobsForHyperParameterTuningJobCommand}.
  */
-export interface ListTrainingJobsForHyperParameterTuningJobCommandInput
-  extends ListTrainingJobsForHyperParameterTuningJobRequest {}
+export interface ListTrainingJobsForHyperParameterTuningJobCommandInput extends ListTrainingJobsForHyperParameterTuningJobRequest {}
 /**
  * @public
  *
  * The output of {@link ListTrainingJobsForHyperParameterTuningJobCommand}.
  */
-export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput
-  extends ListTrainingJobsForHyperParameterTuningJobResponse,
-    __MetadataBearer {}
+export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput extends ListTrainingJobsForHyperParameterTuningJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html">TrainingJobSummary</a> objects that describe the training jobs that a hyperparameter tuning job launched.</p>

@@ -24,9 +24,7 @@ export interface DescribeAssetCompositeModelCommandInput extends DescribeAssetCo
  *
  * The output of {@link DescribeAssetCompositeModelCommand}.
  */
-export interface DescribeAssetCompositeModelCommandOutput
-  extends DescribeAssetCompositeModelResponse,
-    __MetadataBearer {}
+export interface DescribeAssetCompositeModelCommandOutput extends DescribeAssetCompositeModelResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about an asset composite model (also known as an asset component).

@@ -24,9 +24,7 @@ export interface GetTargetAccountConfigurationCommandInput extends GetTargetAcco
  *
  * The output of {@link GetTargetAccountConfigurationCommand}.
  */
-export interface GetTargetAccountConfigurationCommandOutput
-  extends GetTargetAccountConfigurationResponse,
-    __MetadataBearer {}
+export interface GetTargetAccountConfigurationCommandOutput extends GetTargetAccountConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about the specified target account configuration of the experiment template.</p>

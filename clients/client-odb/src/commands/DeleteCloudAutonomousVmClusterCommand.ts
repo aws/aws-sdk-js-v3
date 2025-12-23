@@ -24,9 +24,7 @@ export interface DeleteCloudAutonomousVmClusterCommandInput extends DeleteCloudA
  *
  * The output of {@link DeleteCloudAutonomousVmClusterCommand}.
  */
-export interface DeleteCloudAutonomousVmClusterCommandOutput
-  extends DeleteCloudAutonomousVmClusterOutput,
-    __MetadataBearer {}
+export interface DeleteCloudAutonomousVmClusterCommandOutput extends DeleteCloudAutonomousVmClusterOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes an Autonomous VM cluster.</p>

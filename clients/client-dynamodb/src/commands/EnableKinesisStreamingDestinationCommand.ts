@@ -24,9 +24,7 @@ export interface EnableKinesisStreamingDestinationCommandInput extends KinesisSt
  *
  * The output of {@link EnableKinesisStreamingDestinationCommand}.
  */
-export interface EnableKinesisStreamingDestinationCommandOutput
-  extends KinesisStreamingDestinationOutput,
-    __MetadataBearer {}
+export interface EnableKinesisStreamingDestinationCommandOutput extends KinesisStreamingDestinationOutput, __MetadataBearer {}
 
 /**
  * <p>Starts table data replication to the specified Kinesis data stream at a timestamp

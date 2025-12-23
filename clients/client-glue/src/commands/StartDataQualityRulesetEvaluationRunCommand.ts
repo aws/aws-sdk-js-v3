@@ -27,9 +27,7 @@ export interface StartDataQualityRulesetEvaluationRunCommandInput extends StartD
  *
  * The output of {@link StartDataQualityRulesetEvaluationRunCommand}.
  */
-export interface StartDataQualityRulesetEvaluationRunCommandOutput
-  extends StartDataQualityRulesetEvaluationRunResponse,
-    __MetadataBearer {}
+export interface StartDataQualityRulesetEvaluationRunCommandOutput extends StartDataQualityRulesetEvaluationRunResponse, __MetadataBearer {}
 
 /**
  * <p>Once you have a ruleset definition (either recommended or your own), you call this operation to evaluate the ruleset against a data source (Glue table). The evaluation computes results which you can retrieve with the <code>GetDataQualityResult</code> API.</p>

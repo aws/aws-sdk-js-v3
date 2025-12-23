@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link CreateLicenseConversionTaskForResourceCommand}.
  */
-export interface CreateLicenseConversionTaskForResourceCommandInput
-  extends CreateLicenseConversionTaskForResourceRequest {}
+export interface CreateLicenseConversionTaskForResourceCommandInput extends CreateLicenseConversionTaskForResourceRequest {}
 /**
  * @public
  *
  * The output of {@link CreateLicenseConversionTaskForResourceCommand}.
  */
-export interface CreateLicenseConversionTaskForResourceCommandOutput
-  extends CreateLicenseConversionTaskForResourceResponse,
-    __MetadataBearer {}
+export interface CreateLicenseConversionTaskForResourceCommandOutput extends CreateLicenseConversionTaskForResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new license conversion task.</p>

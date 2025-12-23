@@ -24,9 +24,7 @@ export interface DeleteDataProtectionSettingsCommandInput extends DeleteDataProt
  *
  * The output of {@link DeleteDataProtectionSettingsCommand}.
  */
-export interface DeleteDataProtectionSettingsCommandOutput
-  extends DeleteDataProtectionSettingsResponse,
-    __MetadataBearer {}
+export interface DeleteDataProtectionSettingsCommandOutput extends DeleteDataProtectionSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes data protection settings.</p>

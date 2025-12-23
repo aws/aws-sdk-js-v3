@@ -28,9 +28,7 @@ export interface CreateDirectoryRegistrationCommandInput extends CreateDirectory
  *
  * The output of {@link CreateDirectoryRegistrationCommand}.
  */
-export interface CreateDirectoryRegistrationCommandOutput
-  extends CreateDirectoryRegistrationResponse,
-    __MetadataBearer {}
+export interface CreateDirectoryRegistrationCommandOutput extends CreateDirectoryRegistrationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a directory registration that authorizes communication between Amazon Web Services Private CA and an

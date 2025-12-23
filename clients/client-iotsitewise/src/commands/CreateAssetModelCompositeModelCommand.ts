@@ -24,9 +24,7 @@ export interface CreateAssetModelCompositeModelCommandInput extends CreateAssetM
  *
  * The output of {@link CreateAssetModelCompositeModelCommand}.
  */
-export interface CreateAssetModelCompositeModelCommandOutput
-  extends CreateAssetModelCompositeModelResponse,
-    __MetadataBearer {}
+export interface CreateAssetModelCompositeModelCommandOutput extends CreateAssetModelCompositeModelResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a custom composite model from specified property and hierarchy definitions. There

@@ -24,9 +24,7 @@ export interface StartTrainedModelInferenceJobCommandInput extends StartTrainedM
  *
  * The output of {@link StartTrainedModelInferenceJobCommand}.
  */
-export interface StartTrainedModelInferenceJobCommandOutput
-  extends StartTrainedModelInferenceJobResponse,
-    __MetadataBearer {}
+export interface StartTrainedModelInferenceJobCommandOutput extends StartTrainedModelInferenceJobResponse, __MetadataBearer {}
 
 /**
  * <p>Defines the information necessary to begin a trained model inference job.</p>

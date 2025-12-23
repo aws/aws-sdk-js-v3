@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DisassociateApplicationFromEntitlementCommand}.
  */
-export interface DisassociateApplicationFromEntitlementCommandInput
-  extends DisassociateApplicationFromEntitlementRequest {}
+export interface DisassociateApplicationFromEntitlementCommandInput extends DisassociateApplicationFromEntitlementRequest {}
 /**
  * @public
  *
  * The output of {@link DisassociateApplicationFromEntitlementCommand}.
  */
-export interface DisassociateApplicationFromEntitlementCommandOutput
-  extends DisassociateApplicationFromEntitlementResult,
-    __MetadataBearer {}
+export interface DisassociateApplicationFromEntitlementCommandOutput extends DisassociateApplicationFromEntitlementResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified application from the specified entitlement.</p>

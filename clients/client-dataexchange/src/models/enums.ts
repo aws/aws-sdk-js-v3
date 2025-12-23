@@ -174,8 +174,7 @@ export const LimitName = {
   AWS_Lake_Formation_data_permission_assets_per_revision: "AWS Lake Formation data permission assets per revision",
   Active_and_pending_data_grants: "Active and pending data grants",
   Amazon_API_Gateway_API_assets_per_revision: "Amazon API Gateway API assets per revision",
-  Amazon_Redshift_datashare_assets_per_import_job_from_Redshift:
-    "Amazon Redshift datashare assets per import job from Redshift",
+  Amazon_Redshift_datashare_assets_per_import_job_from_Redshift: "Amazon Redshift datashare assets per import job from Redshift",
   Amazon_Redshift_datashare_assets_per_revision: "Amazon Redshift datashare assets per revision",
   Amazon_S3_data_access_assets_per_revision: "Amazon S3 data access assets per revision",
   Asset_per_export_job_from_Amazon_S3: "Asset per export job from Amazon S3",
@@ -183,31 +182,21 @@ export const LimitName = {
   Assets_per_import_job_from_Amazon_S3: "Assets per import job from Amazon S3",
   Assets_per_revision: "Assets per revision",
   Auto_export_event_actions_per_data_set: "Auto export event actions per data set",
-  Concurrent_in_progress_jobs_to_create_Amazon_S3_data_access_assets_from_S3_buckets:
-    "Concurrent in progress jobs to create Amazon S3 data access assets from S3 buckets",
-  Concurrent_in_progress_jobs_to_export_assets_to_Amazon_S3:
-    "Concurrent in progress jobs to export assets to Amazon S3",
-  Concurrent_in_progress_jobs_to_export_assets_to_a_signed_URL:
-    "Concurrent in progress jobs to export assets to a signed URL",
-  Concurrent_in_progress_jobs_to_export_revisions_to_Amazon_S3:
-    "Concurrent in progress jobs to export revisions to Amazon S3",
-  Concurrent_in_progress_jobs_to_import_assets_from_Amazon_Redshift_datashares:
-    "Concurrent in progress jobs to import assets from Amazon Redshift datashares",
-  Concurrent_in_progress_jobs_to_import_assets_from_Amazon_S3:
-    "Concurrent in progress jobs to import assets from Amazon S3",
-  Concurrent_in_progress_jobs_to_import_assets_from_a_signed_URL:
-    "Concurrent in progress jobs to import assets from a signed URL",
-  Concurrent_in_progress_jobs_to_import_assets_from_an_API_Gateway_API:
-    "Concurrent in progress jobs to import assets from an API Gateway API",
-  Concurrent_in_progress_jobs_to_import_assets_from_an_AWS_Lake_Formation_tag_policy:
-    "Concurrent in progress jobs to import assets from an AWS Lake Formation tag policy",
+  Concurrent_in_progress_jobs_to_create_Amazon_S3_data_access_assets_from_S3_buckets: "Concurrent in progress jobs to create Amazon S3 data access assets from S3 buckets",
+  Concurrent_in_progress_jobs_to_export_assets_to_Amazon_S3: "Concurrent in progress jobs to export assets to Amazon S3",
+  Concurrent_in_progress_jobs_to_export_assets_to_a_signed_URL: "Concurrent in progress jobs to export assets to a signed URL",
+  Concurrent_in_progress_jobs_to_export_revisions_to_Amazon_S3: "Concurrent in progress jobs to export revisions to Amazon S3",
+  Concurrent_in_progress_jobs_to_import_assets_from_Amazon_Redshift_datashares: "Concurrent in progress jobs to import assets from Amazon Redshift datashares",
+  Concurrent_in_progress_jobs_to_import_assets_from_Amazon_S3: "Concurrent in progress jobs to import assets from Amazon S3",
+  Concurrent_in_progress_jobs_to_import_assets_from_a_signed_URL: "Concurrent in progress jobs to import assets from a signed URL",
+  Concurrent_in_progress_jobs_to_import_assets_from_an_API_Gateway_API: "Concurrent in progress jobs to import assets from an API Gateway API",
+  Concurrent_in_progress_jobs_to_import_assets_from_an_AWS_Lake_Formation_tag_policy: "Concurrent in progress jobs to import assets from an AWS Lake Formation tag policy",
   Data_sets_per_account: "Data sets per account",
   Data_sets_per_product: "Data sets per product",
   Event_actions_per_account: "Event actions per account",
   Pending_data_grants_per_consumer: "Pending data grants per consumer",
   Products_per_account: "Products per account",
-  Revisions_per_AWS_Lake_Formation_data_permission_data_set:
-    "Revisions per AWS Lake Formation data permission data set",
+  Revisions_per_AWS_Lake_Formation_data_permission_data_set: "Revisions per AWS Lake Formation data permission data set",
   Revisions_per_Amazon_API_Gateway_API_data_set: "Revisions per Amazon API Gateway API data set",
   Revisions_per_Amazon_Redshift_datashare_data_set: "Revisions per Amazon Redshift datashare data set",
   Revisions_per_Amazon_S3_data_access_data_set: "Revisions per Amazon S3 data access data set",

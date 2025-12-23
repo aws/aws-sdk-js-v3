@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link AddApplicationInputProcessingConfigurationCommand}.
  */
-export interface AddApplicationInputProcessingConfigurationCommandInput
-  extends AddApplicationInputProcessingConfigurationRequest {}
+export interface AddApplicationInputProcessingConfigurationCommandInput extends AddApplicationInputProcessingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link AddApplicationInputProcessingConfigurationCommand}.
  */
-export interface AddApplicationInputProcessingConfigurationCommandOutput
-  extends AddApplicationInputProcessingConfigurationResponse,
-    __MetadataBearer {}
+export interface AddApplicationInputProcessingConfigurationCommandOutput extends AddApplicationInputProcessingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Adds an <a>InputProcessingConfiguration</a> to a SQL-based Kinesis Data Analytics application. An input processor pre-processes records

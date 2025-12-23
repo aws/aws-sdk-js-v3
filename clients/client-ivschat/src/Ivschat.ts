@@ -89,7 +89,10 @@ export interface Ivschat {
     args: CreateChatTokenCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateChatTokenCommandOutput>;
-  createChatToken(args: CreateChatTokenCommandInput, cb: (err: any, data?: CreateChatTokenCommandOutput) => void): void;
+  createChatToken(
+    args: CreateChatTokenCommandInput,
+    cb: (err: any, data?: CreateChatTokenCommandOutput) => void
+  ): void;
   createChatToken(
     args: CreateChatTokenCommandInput,
     options: __HttpHandlerOptions,
@@ -117,8 +120,14 @@ export interface Ivschat {
    * @see {@link CreateRoomCommand}
    */
   createRoom(): Promise<CreateRoomCommandOutput>;
-  createRoom(args: CreateRoomCommandInput, options?: __HttpHandlerOptions): Promise<CreateRoomCommandOutput>;
-  createRoom(args: CreateRoomCommandInput, cb: (err: any, data?: CreateRoomCommandOutput) => void): void;
+  createRoom(
+    args: CreateRoomCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRoomCommandOutput>;
+  createRoom(
+    args: CreateRoomCommandInput,
+    cb: (err: any, data?: CreateRoomCommandOutput) => void
+  ): void;
   createRoom(
     args: CreateRoomCommandInput,
     options: __HttpHandlerOptions,
@@ -145,8 +154,14 @@ export interface Ivschat {
   /**
    * @see {@link DeleteMessageCommand}
    */
-  deleteMessage(args: DeleteMessageCommandInput, options?: __HttpHandlerOptions): Promise<DeleteMessageCommandOutput>;
-  deleteMessage(args: DeleteMessageCommandInput, cb: (err: any, data?: DeleteMessageCommandOutput) => void): void;
+  deleteMessage(
+    args: DeleteMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMessageCommandOutput>;
+  deleteMessage(
+    args: DeleteMessageCommandInput,
+    cb: (err: any, data?: DeleteMessageCommandOutput) => void
+  ): void;
   deleteMessage(
     args: DeleteMessageCommandInput,
     options: __HttpHandlerOptions,
@@ -156,8 +171,14 @@ export interface Ivschat {
   /**
    * @see {@link DeleteRoomCommand}
    */
-  deleteRoom(args: DeleteRoomCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRoomCommandOutput>;
-  deleteRoom(args: DeleteRoomCommandInput, cb: (err: any, data?: DeleteRoomCommandOutput) => void): void;
+  deleteRoom(
+    args: DeleteRoomCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRoomCommandOutput>;
+  deleteRoom(
+    args: DeleteRoomCommandInput,
+    cb: (err: any, data?: DeleteRoomCommandOutput) => void
+  ): void;
   deleteRoom(
     args: DeleteRoomCommandInput,
     options: __HttpHandlerOptions,
@@ -171,7 +192,10 @@ export interface Ivschat {
     args: DisconnectUserCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DisconnectUserCommandOutput>;
-  disconnectUser(args: DisconnectUserCommandInput, cb: (err: any, data?: DisconnectUserCommandOutput) => void): void;
+  disconnectUser(
+    args: DisconnectUserCommandInput,
+    cb: (err: any, data?: DisconnectUserCommandOutput) => void
+  ): void;
   disconnectUser(
     args: DisconnectUserCommandInput,
     options: __HttpHandlerOptions,
@@ -198,8 +222,14 @@ export interface Ivschat {
   /**
    * @see {@link GetRoomCommand}
    */
-  getRoom(args: GetRoomCommandInput, options?: __HttpHandlerOptions): Promise<GetRoomCommandOutput>;
-  getRoom(args: GetRoomCommandInput, cb: (err: any, data?: GetRoomCommandOutput) => void): void;
+  getRoom(
+    args: GetRoomCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRoomCommandOutput>;
+  getRoom(
+    args: GetRoomCommandInput,
+    cb: (err: any, data?: GetRoomCommandOutput) => void
+  ): void;
   getRoom(
     args: GetRoomCommandInput,
     options: __HttpHandlerOptions,
@@ -228,8 +258,14 @@ export interface Ivschat {
    * @see {@link ListRoomsCommand}
    */
   listRooms(): Promise<ListRoomsCommandOutput>;
-  listRooms(args: ListRoomsCommandInput, options?: __HttpHandlerOptions): Promise<ListRoomsCommandOutput>;
-  listRooms(args: ListRoomsCommandInput, cb: (err: any, data?: ListRoomsCommandOutput) => void): void;
+  listRooms(
+    args: ListRoomsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRoomsCommandOutput>;
+  listRooms(
+    args: ListRoomsCommandInput,
+    cb: (err: any, data?: ListRoomsCommandOutput) => void
+  ): void;
   listRooms(
     args: ListRoomsCommandInput,
     options: __HttpHandlerOptions,
@@ -256,8 +292,14 @@ export interface Ivschat {
   /**
    * @see {@link SendEventCommand}
    */
-  sendEvent(args: SendEventCommandInput, options?: __HttpHandlerOptions): Promise<SendEventCommandOutput>;
-  sendEvent(args: SendEventCommandInput, cb: (err: any, data?: SendEventCommandOutput) => void): void;
+  sendEvent(
+    args: SendEventCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendEventCommandOutput>;
+  sendEvent(
+    args: SendEventCommandInput,
+    cb: (err: any, data?: SendEventCommandOutput) => void
+  ): void;
   sendEvent(
     args: SendEventCommandInput,
     options: __HttpHandlerOptions,
@@ -267,8 +309,14 @@ export interface Ivschat {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -278,8 +326,14 @@ export interface Ivschat {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -306,8 +360,14 @@ export interface Ivschat {
   /**
    * @see {@link UpdateRoomCommand}
    */
-  updateRoom(args: UpdateRoomCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRoomCommandOutput>;
-  updateRoom(args: UpdateRoomCommandInput, cb: (err: any, data?: UpdateRoomCommandOutput) => void): void;
+  updateRoom(
+    args: UpdateRoomCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRoomCommandOutput>;
+  updateRoom(
+    args: UpdateRoomCommandInput,
+    cb: (err: any, data?: UpdateRoomCommandOutput) => void
+  ): void;
   updateRoom(
     args: UpdateRoomCommandInput,
     options: __HttpHandlerOptions,

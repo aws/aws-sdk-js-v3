@@ -28,9 +28,7 @@ export interface DeleteRegistrationFieldValueCommandInput extends DeleteRegistra
  *
  * The output of {@link DeleteRegistrationFieldValueCommand}.
  */
-export interface DeleteRegistrationFieldValueCommandOutput
-  extends DeleteRegistrationFieldValueResult,
-    __MetadataBearer {}
+export interface DeleteRegistrationFieldValueCommandOutput extends DeleteRegistrationFieldValueResult, __MetadataBearer {}
 
 /**
  * <p>Delete the value in a registration form field.</p>

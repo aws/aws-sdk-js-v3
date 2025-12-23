@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetReservedNodeExchangeConfigurationOptionsCommand}.
  */
-export interface GetReservedNodeExchangeConfigurationOptionsCommandInput
-  extends GetReservedNodeExchangeConfigurationOptionsInputMessage {}
+export interface GetReservedNodeExchangeConfigurationOptionsCommandInput extends GetReservedNodeExchangeConfigurationOptionsInputMessage {}
 /**
  * @public
  *
  * The output of {@link GetReservedNodeExchangeConfigurationOptionsCommand}.
  */
-export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput
-  extends GetReservedNodeExchangeConfigurationOptionsOutputMessage,
-    __MetadataBearer {}
+export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput extends GetReservedNodeExchangeConfigurationOptionsOutputMessage, __MetadataBearer {}
 
 /**
  * <p>Gets the configuration options for the reserved-node exchange. These options

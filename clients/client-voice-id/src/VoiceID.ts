@@ -194,8 +194,14 @@ export interface VoiceID {
   /**
    * @see {@link CreateDomainCommand}
    */
-  createDomain(args: CreateDomainCommandInput, options?: __HttpHandlerOptions): Promise<CreateDomainCommandOutput>;
-  createDomain(args: CreateDomainCommandInput, cb: (err: any, data?: CreateDomainCommandOutput) => void): void;
+  createDomain(
+    args: CreateDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDomainCommandOutput>;
+  createDomain(
+    args: CreateDomainCommandInput,
+    cb: (err: any, data?: CreateDomainCommandOutput) => void
+  ): void;
   createDomain(
     args: CreateDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -209,7 +215,10 @@ export interface VoiceID {
     args: CreateWatchlistCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateWatchlistCommandOutput>;
-  createWatchlist(args: CreateWatchlistCommandInput, cb: (err: any, data?: CreateWatchlistCommandOutput) => void): void;
+  createWatchlist(
+    args: CreateWatchlistCommandInput,
+    cb: (err: any, data?: CreateWatchlistCommandOutput) => void
+  ): void;
   createWatchlist(
     args: CreateWatchlistCommandInput,
     options: __HttpHandlerOptions,
@@ -219,8 +228,14 @@ export interface VoiceID {
   /**
    * @see {@link DeleteDomainCommand}
    */
-  deleteDomain(args: DeleteDomainCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDomainCommandOutput>;
-  deleteDomain(args: DeleteDomainCommandInput, cb: (err: any, data?: DeleteDomainCommandOutput) => void): void;
+  deleteDomain(
+    args: DeleteDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDomainCommandOutput>;
+  deleteDomain(
+    args: DeleteDomainCommandInput,
+    cb: (err: any, data?: DeleteDomainCommandOutput) => void
+  ): void;
   deleteDomain(
     args: DeleteDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -234,7 +249,10 @@ export interface VoiceID {
     args: DeleteFraudsterCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteFraudsterCommandOutput>;
-  deleteFraudster(args: DeleteFraudsterCommandInput, cb: (err: any, data?: DeleteFraudsterCommandOutput) => void): void;
+  deleteFraudster(
+    args: DeleteFraudsterCommandInput,
+    cb: (err: any, data?: DeleteFraudsterCommandOutput) => void
+  ): void;
   deleteFraudster(
     args: DeleteFraudsterCommandInput,
     options: __HttpHandlerOptions,
@@ -244,8 +262,14 @@ export interface VoiceID {
   /**
    * @see {@link DeleteSpeakerCommand}
    */
-  deleteSpeaker(args: DeleteSpeakerCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSpeakerCommandOutput>;
-  deleteSpeaker(args: DeleteSpeakerCommandInput, cb: (err: any, data?: DeleteSpeakerCommandOutput) => void): void;
+  deleteSpeaker(
+    args: DeleteSpeakerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSpeakerCommandOutput>;
+  deleteSpeaker(
+    args: DeleteSpeakerCommandInput,
+    cb: (err: any, data?: DeleteSpeakerCommandOutput) => void
+  ): void;
   deleteSpeaker(
     args: DeleteSpeakerCommandInput,
     options: __HttpHandlerOptions,
@@ -259,7 +283,10 @@ export interface VoiceID {
     args: DeleteWatchlistCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteWatchlistCommandOutput>;
-  deleteWatchlist(args: DeleteWatchlistCommandInput, cb: (err: any, data?: DeleteWatchlistCommandOutput) => void): void;
+  deleteWatchlist(
+    args: DeleteWatchlistCommandInput,
+    cb: (err: any, data?: DeleteWatchlistCommandOutput) => void
+  ): void;
   deleteWatchlist(
     args: DeleteWatchlistCommandInput,
     options: __HttpHandlerOptions,
@@ -273,7 +300,10 @@ export interface VoiceID {
     args: DescribeDomainCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDomainCommandOutput>;
-  describeDomain(args: DescribeDomainCommandInput, cb: (err: any, data?: DescribeDomainCommandOutput) => void): void;
+  describeDomain(
+    args: DescribeDomainCommandInput,
+    cb: (err: any, data?: DescribeDomainCommandOutput) => void
+  ): void;
   describeDomain(
     args: DescribeDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -321,7 +351,10 @@ export interface VoiceID {
     args: DescribeSpeakerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeSpeakerCommandOutput>;
-  describeSpeaker(args: DescribeSpeakerCommandInput, cb: (err: any, data?: DescribeSpeakerCommandOutput) => void): void;
+  describeSpeaker(
+    args: DescribeSpeakerCommandInput,
+    cb: (err: any, data?: DescribeSpeakerCommandOutput) => void
+  ): void;
   describeSpeaker(
     args: DescribeSpeakerCommandInput,
     options: __HttpHandlerOptions,
@@ -386,7 +419,10 @@ export interface VoiceID {
     args: EvaluateSessionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<EvaluateSessionCommandOutput>;
-  evaluateSession(args: EvaluateSessionCommandInput, cb: (err: any, data?: EvaluateSessionCommandOutput) => void): void;
+  evaluateSession(
+    args: EvaluateSessionCommandInput,
+    cb: (err: any, data?: EvaluateSessionCommandOutput) => void
+  ): void;
   evaluateSession(
     args: EvaluateSessionCommandInput,
     options: __HttpHandlerOptions,
@@ -397,8 +433,14 @@ export interface VoiceID {
    * @see {@link ListDomainsCommand}
    */
   listDomains(): Promise<ListDomainsCommandOutput>;
-  listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
-  listDomains(args: ListDomainsCommandInput, cb: (err: any, data?: ListDomainsCommandOutput) => void): void;
+  listDomains(
+    args: ListDomainsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDomainsCommandOutput>;
+  listDomains(
+    args: ListDomainsCommandInput,
+    cb: (err: any, data?: ListDomainsCommandOutput) => void
+  ): void;
   listDomains(
     args: ListDomainsCommandInput,
     options: __HttpHandlerOptions,
@@ -429,7 +471,10 @@ export interface VoiceID {
     args: ListFraudstersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListFraudstersCommandOutput>;
-  listFraudsters(args: ListFraudstersCommandInput, cb: (err: any, data?: ListFraudstersCommandOutput) => void): void;
+  listFraudsters(
+    args: ListFraudstersCommandInput,
+    cb: (err: any, data?: ListFraudstersCommandOutput) => void
+  ): void;
   listFraudsters(
     args: ListFraudstersCommandInput,
     options: __HttpHandlerOptions,
@@ -456,8 +501,14 @@ export interface VoiceID {
   /**
    * @see {@link ListSpeakersCommand}
    */
-  listSpeakers(args: ListSpeakersCommandInput, options?: __HttpHandlerOptions): Promise<ListSpeakersCommandOutput>;
-  listSpeakers(args: ListSpeakersCommandInput, cb: (err: any, data?: ListSpeakersCommandOutput) => void): void;
+  listSpeakers(
+    args: ListSpeakersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSpeakersCommandOutput>;
+  listSpeakers(
+    args: ListSpeakersCommandInput,
+    cb: (err: any, data?: ListSpeakersCommandOutput) => void
+  ): void;
   listSpeakers(
     args: ListSpeakersCommandInput,
     options: __HttpHandlerOptions,
@@ -488,7 +539,10 @@ export interface VoiceID {
     args: ListWatchlistsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListWatchlistsCommandOutput>;
-  listWatchlists(args: ListWatchlistsCommandInput, cb: (err: any, data?: ListWatchlistsCommandOutput) => void): void;
+  listWatchlists(
+    args: ListWatchlistsCommandInput,
+    cb: (err: any, data?: ListWatchlistsCommandOutput) => void
+  ): void;
   listWatchlists(
     args: ListWatchlistsCommandInput,
     options: __HttpHandlerOptions,
@@ -498,8 +552,14 @@ export interface VoiceID {
   /**
    * @see {@link OptOutSpeakerCommand}
    */
-  optOutSpeaker(args: OptOutSpeakerCommandInput, options?: __HttpHandlerOptions): Promise<OptOutSpeakerCommandOutput>;
-  optOutSpeaker(args: OptOutSpeakerCommandInput, cb: (err: any, data?: OptOutSpeakerCommandOutput) => void): void;
+  optOutSpeaker(
+    args: OptOutSpeakerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<OptOutSpeakerCommandOutput>;
+  optOutSpeaker(
+    args: OptOutSpeakerCommandInput,
+    cb: (err: any, data?: OptOutSpeakerCommandOutput) => void
+  ): void;
   optOutSpeaker(
     args: OptOutSpeakerCommandInput,
     options: __HttpHandlerOptions,
@@ -543,8 +603,14 @@ export interface VoiceID {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -554,8 +620,14 @@ export interface VoiceID {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -565,8 +637,14 @@ export interface VoiceID {
   /**
    * @see {@link UpdateDomainCommand}
    */
-  updateDomain(args: UpdateDomainCommandInput, options?: __HttpHandlerOptions): Promise<UpdateDomainCommandOutput>;
-  updateDomain(args: UpdateDomainCommandInput, cb: (err: any, data?: UpdateDomainCommandOutput) => void): void;
+  updateDomain(
+    args: UpdateDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDomainCommandOutput>;
+  updateDomain(
+    args: UpdateDomainCommandInput,
+    cb: (err: any, data?: UpdateDomainCommandOutput) => void
+  ): void;
   updateDomain(
     args: UpdateDomainCommandInput,
     options: __HttpHandlerOptions,
@@ -580,7 +658,10 @@ export interface VoiceID {
     args: UpdateWatchlistCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateWatchlistCommandOutput>;
-  updateWatchlist(args: UpdateWatchlistCommandInput, cb: (err: any, data?: UpdateWatchlistCommandOutput) => void): void;
+  updateWatchlist(
+    args: UpdateWatchlistCommandInput,
+    cb: (err: any, data?: UpdateWatchlistCommandOutput) => void
+  ): void;
   updateWatchlist(
     args: UpdateWatchlistCommandInput,
     options: __HttpHandlerOptions,

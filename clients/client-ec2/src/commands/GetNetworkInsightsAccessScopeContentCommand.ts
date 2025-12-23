@@ -27,9 +27,7 @@ export interface GetNetworkInsightsAccessScopeContentCommandInput extends GetNet
  *
  * The output of {@link GetNetworkInsightsAccessScopeContentCommand}.
  */
-export interface GetNetworkInsightsAccessScopeContentCommandOutput
-  extends GetNetworkInsightsAccessScopeContentResult,
-    __MetadataBearer {}
+export interface GetNetworkInsightsAccessScopeContentCommandOutput extends GetNetworkInsightsAccessScopeContentResult, __MetadataBearer {}
 
 /**
  * <p>Gets the content for the specified Network Access Scope.</p>

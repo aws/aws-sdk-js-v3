@@ -27,9 +27,7 @@ export interface GetDomainDeliverabilityCampaignCommandInput extends GetDomainDe
  *
  * The output of {@link GetDomainDeliverabilityCampaignCommand}.
  */
-export interface GetDomainDeliverabilityCampaignCommandOutput
-  extends GetDomainDeliverabilityCampaignResponse,
-    __MetadataBearer {}
+export interface GetDomainDeliverabilityCampaignCommandOutput extends GetDomainDeliverabilityCampaignResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve all the deliverability data for a specific campaign. This data is available

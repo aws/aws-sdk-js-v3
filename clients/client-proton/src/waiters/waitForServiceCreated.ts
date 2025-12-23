@@ -10,33 +10,33 @@ const checkState = async (client: ProtonClient, input: GetServiceCommandInput): 
     const result: any = await client.send(new GetServiceCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.service.status;
-      };
+      }
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.service.status;
-      };
+      }
       if (returnComparator() === "CREATE_FAILED_CLEANUP_COMPLETE") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.service.status;
-      };
+      }
       if (returnComparator() === "CREATE_FAILED_CLEANUP_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.service.status;
-      };
+      }
       if (returnComparator() === "CREATE_FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

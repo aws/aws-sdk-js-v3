@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link SendDestinationNumberVerificationCodeCommand}.
  */
-export interface SendDestinationNumberVerificationCodeCommandInput
-  extends SendDestinationNumberVerificationCodeRequest {}
+export interface SendDestinationNumberVerificationCodeCommandInput extends SendDestinationNumberVerificationCodeRequest {}
 /**
  * @public
  *
  * The output of {@link SendDestinationNumberVerificationCodeCommand}.
  */
-export interface SendDestinationNumberVerificationCodeCommandOutput
-  extends SendDestinationNumberVerificationCodeResult,
-    __MetadataBearer {}
+export interface SendDestinationNumberVerificationCodeCommandOutput extends SendDestinationNumberVerificationCodeResult, __MetadataBearer {}
 
 /**
  * <p>Before you can send test messages to a verified destination phone number you need to opt-in the verified destination phone number. Creates a new text message with a verification code and send it to a verified destination phone number. Once you have the verification code use <a>VerifyDestinationNumber</a> to opt-in the verified destination phone number to receive messages.</p>

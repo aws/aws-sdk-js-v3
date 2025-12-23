@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateMacSystemIntegrityProtectionModificationTaskCommand}.
  */
-export interface CreateMacSystemIntegrityProtectionModificationTaskCommandInput
-  extends CreateMacSystemIntegrityProtectionModificationTaskRequest {}
+export interface CreateMacSystemIntegrityProtectionModificationTaskCommandInput extends CreateMacSystemIntegrityProtectionModificationTaskRequest {}
 /**
  * @public
  *
  * The output of {@link CreateMacSystemIntegrityProtectionModificationTaskCommand}.
  */
-export interface CreateMacSystemIntegrityProtectionModificationTaskCommandOutput
-  extends CreateMacSystemIntegrityProtectionModificationTaskResult,
-    __MetadataBearer {}
+export interface CreateMacSystemIntegrityProtectionModificationTaskCommandOutput extends CreateMacSystemIntegrityProtectionModificationTaskResult, __MetadataBearer {}
 
 /**
  * <p>Creates a System Integrity Protection (SIP) modification task to configure the SIP settings

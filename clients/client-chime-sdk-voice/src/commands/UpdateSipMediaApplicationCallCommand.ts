@@ -24,9 +24,7 @@ export interface UpdateSipMediaApplicationCallCommandInput extends UpdateSipMedi
  *
  * The output of {@link UpdateSipMediaApplicationCallCommand}.
  */
-export interface UpdateSipMediaApplicationCallCommandOutput
-  extends UpdateSipMediaApplicationCallResponse,
-    __MetadataBearer {}
+export interface UpdateSipMediaApplicationCallCommandOutput extends UpdateSipMediaApplicationCallResponse, __MetadataBearer {}
 
 /**
  * <p>Invokes the AWS Lambda function associated with the SIP media application and

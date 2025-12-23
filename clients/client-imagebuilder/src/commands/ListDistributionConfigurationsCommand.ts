@@ -24,9 +24,7 @@ export interface ListDistributionConfigurationsCommandInput extends ListDistribu
  *
  * The output of {@link ListDistributionConfigurationsCommand}.
  */
-export interface ListDistributionConfigurationsCommandOutput
-  extends ListDistributionConfigurationsResponse,
-    __MetadataBearer {}
+export interface ListDistributionConfigurationsCommandOutput extends ListDistributionConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of distribution configurations.</p>

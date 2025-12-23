@@ -28,9 +28,7 @@ export interface ListPartnerEventSourceAccountsCommandInput extends ListPartnerE
  *
  * The output of {@link ListPartnerEventSourceAccountsCommand}.
  */
-export interface ListPartnerEventSourceAccountsCommandOutput
-  extends ListPartnerEventSourceAccountsResponse,
-    __MetadataBearer {}
+export interface ListPartnerEventSourceAccountsCommandOutput extends ListPartnerEventSourceAccountsResponse, __MetadataBearer {}
 
 /**
  * <p>An SaaS partner can use this operation to display the Amazon Web Services account ID that a particular

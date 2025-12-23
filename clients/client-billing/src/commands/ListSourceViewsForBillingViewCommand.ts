@@ -24,9 +24,7 @@ export interface ListSourceViewsForBillingViewCommandInput extends ListSourceVie
  *
  * The output of {@link ListSourceViewsForBillingViewCommand}.
  */
-export interface ListSourceViewsForBillingViewCommandOutput
-  extends ListSourceViewsForBillingViewResponse,
-    __MetadataBearer {}
+export interface ListSourceViewsForBillingViewCommandOutput extends ListSourceViewsForBillingViewResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the source views (managed Amazon Web Services billing views) associated with the billing view. </p>

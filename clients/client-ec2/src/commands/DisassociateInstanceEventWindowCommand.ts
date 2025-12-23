@@ -24,9 +24,7 @@ export interface DisassociateInstanceEventWindowCommandInput extends Disassociat
  *
  * The output of {@link DisassociateInstanceEventWindowCommand}.
  */
-export interface DisassociateInstanceEventWindowCommandOutput
-  extends DisassociateInstanceEventWindowResult,
-    __MetadataBearer {}
+export interface DisassociateInstanceEventWindowCommandOutput extends DisassociateInstanceEventWindowResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates one or more targets from an event window.</p>

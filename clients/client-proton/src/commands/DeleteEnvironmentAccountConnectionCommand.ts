@@ -27,9 +27,7 @@ export interface DeleteEnvironmentAccountConnectionCommandInput extends DeleteEn
  *
  * The output of {@link DeleteEnvironmentAccountConnectionCommand}.
  */
-export interface DeleteEnvironmentAccountConnectionCommandOutput
-  extends DeleteEnvironmentAccountConnectionOutput,
-    __MetadataBearer {}
+export interface DeleteEnvironmentAccountConnectionCommandOutput extends DeleteEnvironmentAccountConnectionOutput, __MetadataBearer {}
 
 /**
  * <p>In an environment account, delete an environment account connection.</p>

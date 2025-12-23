@@ -24,9 +24,7 @@ export interface CopyServerlessCacheSnapshotCommandInput extends CopyServerlessC
  *
  * The output of {@link CopyServerlessCacheSnapshotCommand}.
  */
-export interface CopyServerlessCacheSnapshotCommandOutput
-  extends CopyServerlessCacheSnapshotResponse,
-    __MetadataBearer {}
+export interface CopyServerlessCacheSnapshotCommandOutput extends CopyServerlessCacheSnapshotResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a copy of an existing serverless cache’s snapshot. Available for Valkey, Redis OSS and Serverless Memcached only.</p>

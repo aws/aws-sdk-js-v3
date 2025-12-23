@@ -28,9 +28,7 @@ export interface GetECSServiceRecommendationsCommandInput extends GetECSServiceR
  *
  * The output of {@link GetECSServiceRecommendationsCommand}.
  */
-export interface GetECSServiceRecommendationsCommandOutput
-  extends GetECSServiceRecommendationsResponse,
-    __MetadataBearer {}
+export interface GetECSServiceRecommendationsCommandOutput extends GetECSServiceRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>

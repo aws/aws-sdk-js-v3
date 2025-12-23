@@ -813,7 +813,10 @@ export interface CreateReservationResponse {
  * <p>The schedule of when Amazon Redshift Serverless should run the scheduled action.</p>
  * @public
  */
-export type Schedule = Schedule.AtMember | Schedule.CronMember | Schedule.$UnknownMember;
+export type Schedule =
+  | Schedule.AtMember
+  | Schedule.CronMember
+  | Schedule.$UnknownMember;
 
 /**
  * @public
@@ -893,7 +896,9 @@ export interface CreateSnapshotScheduleActionParameters {
  * <p>A JSON format string of the Amazon Redshift Serverless API operation with input parameters. The following is an example of a target action.</p> <p> <code>"\{"CreateSnapshot": \{"NamespaceName": "sampleNamespace","SnapshotName": "sampleSnapshot", "retentionPeriod": "1"\}\}"</code> </p>
  * @public
  */
-export type TargetAction = TargetAction.CreateSnapshotMember | TargetAction.$UnknownMember;
+export type TargetAction =
+  | TargetAction.CreateSnapshotMember
+  | TargetAction.$UnknownMember;
 
 /**
  * @public

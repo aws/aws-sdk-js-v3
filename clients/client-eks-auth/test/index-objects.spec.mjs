@@ -1,11 +1,11 @@
 import {
   AccessDeniedException,
   AccessDeniedException$,
+  AssumedRoleUser$,
   AssumeRoleForPodIdentity$,
   AssumeRoleForPodIdentityCommand,
   AssumeRoleForPodIdentityRequest$,
   AssumeRoleForPodIdentityResponse$,
-  AssumedRoleUser$,
   Credentials$,
   EKSAuth,
   EKSAuthClient,

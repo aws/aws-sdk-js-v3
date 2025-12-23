@@ -28,9 +28,7 @@ export interface GetTrustStoreRevocationContentCommandInput extends GetTrustStor
  *
  * The output of {@link GetTrustStoreRevocationContentCommand}.
  */
-export interface GetTrustStoreRevocationContentCommandOutput
-  extends GetTrustStoreRevocationContentOutput,
-    __MetadataBearer {}
+export interface GetTrustStoreRevocationContentCommandOutput extends GetTrustStoreRevocationContentOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified revocation file.</p>

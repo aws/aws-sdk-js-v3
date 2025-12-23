@@ -24,9 +24,7 @@ export interface UpdateCloudWatchAlarmTemplateCommandInput extends UpdateCloudWa
  *
  * The output of {@link UpdateCloudWatchAlarmTemplateCommand}.
  */
-export interface UpdateCloudWatchAlarmTemplateCommandOutput
-  extends UpdateCloudWatchAlarmTemplateResponse,
-    __MetadataBearer {}
+export interface UpdateCloudWatchAlarmTemplateCommandOutput extends UpdateCloudWatchAlarmTemplateResponse, __MetadataBearer {}
 
 /**
  * Updates the specified cloudwatch alarm template.

@@ -24,9 +24,7 @@ export interface ListJobsByConsumableResourceCommandInput extends ListJobsByCons
  *
  * The output of {@link ListJobsByConsumableResourceCommand}.
  */
-export interface ListJobsByConsumableResourceCommandOutput
-  extends ListJobsByConsumableResourceResponse,
-    __MetadataBearer {}
+export interface ListJobsByConsumableResourceCommandOutput extends ListJobsByConsumableResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of Batch jobs that require a specific consumable resource.</p>

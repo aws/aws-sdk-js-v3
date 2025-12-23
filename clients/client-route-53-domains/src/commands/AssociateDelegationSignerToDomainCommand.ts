@@ -31,9 +31,7 @@ export interface AssociateDelegationSignerToDomainCommandInput extends Associate
  *
  * The output of {@link AssociateDelegationSignerToDomainCommand}.
  */
-export interface AssociateDelegationSignerToDomainCommandOutput
-  extends AssociateDelegationSignerToDomainResponse,
-    __MetadataBearer {}
+export interface AssociateDelegationSignerToDomainCommandOutput extends AssociateDelegationSignerToDomainResponse, __MetadataBearer {}
 
 /**
  * <p> Creates a delegation signer (DS) record in the registry zone for this domain

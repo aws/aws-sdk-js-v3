@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DeleteApplicationInputProcessingConfigurationCommand}.
  */
-export interface DeleteApplicationInputProcessingConfigurationCommandInput
-  extends DeleteApplicationInputProcessingConfigurationRequest {}
+export interface DeleteApplicationInputProcessingConfigurationCommandInput extends DeleteApplicationInputProcessingConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link DeleteApplicationInputProcessingConfigurationCommand}.
  */
-export interface DeleteApplicationInputProcessingConfigurationCommandOutput
-  extends DeleteApplicationInputProcessingConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteApplicationInputProcessingConfigurationCommandOutput extends DeleteApplicationInputProcessingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an <a>InputProcessingConfiguration</a> from an input.</p>

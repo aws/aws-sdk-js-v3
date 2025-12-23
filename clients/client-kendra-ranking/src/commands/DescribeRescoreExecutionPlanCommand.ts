@@ -24,9 +24,7 @@ export interface DescribeRescoreExecutionPlanCommandInput extends DescribeRescor
  *
  * The output of {@link DescribeRescoreExecutionPlanCommand}.
  */
-export interface DescribeRescoreExecutionPlanCommandOutput
-  extends DescribeRescoreExecutionPlanResponse,
-    __MetadataBearer {}
+export interface DescribeRescoreExecutionPlanCommandOutput extends DescribeRescoreExecutionPlanResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a rescore execution plan. A rescore

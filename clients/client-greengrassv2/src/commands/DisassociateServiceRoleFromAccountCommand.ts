@@ -27,9 +27,7 @@ export interface DisassociateServiceRoleFromAccountCommandInput extends Disassoc
  *
  * The output of {@link DisassociateServiceRoleFromAccountCommand}.
  */
-export interface DisassociateServiceRoleFromAccountCommandOutput
-  extends DisassociateServiceRoleFromAccountResponse,
-    __MetadataBearer {}
+export interface DisassociateServiceRoleFromAccountCommandOutput extends DisassociateServiceRoleFromAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates the Greengrass service role from IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region.

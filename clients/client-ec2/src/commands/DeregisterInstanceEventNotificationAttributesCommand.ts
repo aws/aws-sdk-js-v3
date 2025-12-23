@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DeregisterInstanceEventNotificationAttributesCommand}.
  */
-export interface DeregisterInstanceEventNotificationAttributesCommandInput
-  extends DeregisterInstanceEventNotificationAttributesRequest {}
+export interface DeregisterInstanceEventNotificationAttributesCommandInput extends DeregisterInstanceEventNotificationAttributesRequest {}
 /**
  * @public
  *
  * The output of {@link DeregisterInstanceEventNotificationAttributesCommand}.
  */
-export interface DeregisterInstanceEventNotificationAttributesCommandOutput
-  extends DeregisterInstanceEventNotificationAttributesResult,
-    __MetadataBearer {}
+export interface DeregisterInstanceEventNotificationAttributesCommandOutput extends DeregisterInstanceEventNotificationAttributesResult, __MetadataBearer {}
 
 /**
  * <p>Deregisters tag keys to prevent tags that have the specified tag keys from being

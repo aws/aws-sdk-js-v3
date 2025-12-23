@@ -24,9 +24,7 @@ export interface CreateRedshiftIdcApplicationCommandInput extends CreateRedshift
  *
  * The output of {@link CreateRedshiftIdcApplicationCommand}.
  */
-export interface CreateRedshiftIdcApplicationCommandOutput
-  extends CreateRedshiftIdcApplicationResult,
-    __MetadataBearer {}
+export interface CreateRedshiftIdcApplicationCommandOutput extends CreateRedshiftIdcApplicationResult, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Redshift application for use with IAM Identity Center.</p>

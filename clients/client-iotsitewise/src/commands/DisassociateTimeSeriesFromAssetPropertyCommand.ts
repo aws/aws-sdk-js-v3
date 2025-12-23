@@ -18,8 +18,7 @@ export { $Command };
  *
  * The input for {@link DisassociateTimeSeriesFromAssetPropertyCommand}.
  */
-export interface DisassociateTimeSeriesFromAssetPropertyCommandInput
-  extends DisassociateTimeSeriesFromAssetPropertyRequest {}
+export interface DisassociateTimeSeriesFromAssetPropertyCommandInput extends DisassociateTimeSeriesFromAssetPropertyRequest {}
 /**
  * @public
  *

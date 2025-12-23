@@ -27,9 +27,7 @@ export interface DescribeRemediationConfigurationsCommandInput extends DescribeR
  *
  * The output of {@link DescribeRemediationConfigurationsCommand}.
  */
-export interface DescribeRemediationConfigurationsCommandOutput
-  extends DescribeRemediationConfigurationsResponse,
-    __MetadataBearer {}
+export interface DescribeRemediationConfigurationsCommandOutput extends DescribeRemediationConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the details of one or more remediation configurations.</p>

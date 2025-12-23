@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ExportClientVpnClientCertificateRevocationListCommand}.
  */
-export interface ExportClientVpnClientCertificateRevocationListCommandInput
-  extends ExportClientVpnClientCertificateRevocationListRequest {}
+export interface ExportClientVpnClientCertificateRevocationListCommandInput extends ExportClientVpnClientCertificateRevocationListRequest {}
 /**
  * @public
  *
  * The output of {@link ExportClientVpnClientCertificateRevocationListCommand}.
  */
-export interface ExportClientVpnClientCertificateRevocationListCommandOutput
-  extends ExportClientVpnClientCertificateRevocationListResult,
-    __MetadataBearer {}
+export interface ExportClientVpnClientCertificateRevocationListCommandOutput extends ExportClientVpnClientCertificateRevocationListResult, __MetadataBearer {}
 
 /**
  * <p>Downloads the client certificate revocation list for the specified Client VPN endpoint.</p>

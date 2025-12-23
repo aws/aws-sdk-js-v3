@@ -27,9 +27,7 @@ export interface CreateTargetAccountConfigurationCommandInput extends CreateTarg
  *
  * The output of {@link CreateTargetAccountConfigurationCommand}.
  */
-export interface CreateTargetAccountConfigurationCommandOutput
-  extends CreateTargetAccountConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateTargetAccountConfigurationCommandOutput extends CreateTargetAccountConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a target account configuration for the experiment template. A target account configuration

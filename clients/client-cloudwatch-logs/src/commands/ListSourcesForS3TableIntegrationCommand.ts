@@ -31,9 +31,7 @@ export interface ListSourcesForS3TableIntegrationCommandInput extends ListSource
  *
  * The output of {@link ListSourcesForS3TableIntegrationCommand}.
  */
-export interface ListSourcesForS3TableIntegrationCommandOutput
-  extends ListSourcesForS3TableIntegrationResponse,
-    __MetadataBearer {}
+export interface ListSourcesForS3TableIntegrationCommandOutput extends ListSourcesForS3TableIntegrationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of data source associations for a specified S3 Table Integration, showing

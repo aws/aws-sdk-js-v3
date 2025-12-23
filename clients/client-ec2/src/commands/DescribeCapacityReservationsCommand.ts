@@ -24,9 +24,7 @@ export interface DescribeCapacityReservationsCommandInput extends DescribeCapaci
  *
  * The output of {@link DescribeCapacityReservationsCommand}.
  */
-export interface DescribeCapacityReservationsCommandOutput
-  extends DescribeCapacityReservationsResult,
-    __MetadataBearer {}
+export interface DescribeCapacityReservationsCommandOutput extends DescribeCapacityReservationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your Capacity Reservations. The results describe only the

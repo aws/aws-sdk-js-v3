@@ -3532,9 +3532,7 @@ export interface AwsAthenaWorkGroupConfigurationResultConfigurationDetails {
    *         </p>
    * @public
    */
-  EncryptionConfiguration?:
-    | AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails
-    | undefined;
+  EncryptionConfiguration?: AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails | undefined;
 }
 
 /**
@@ -3746,9 +3744,7 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplat
    * <p>The launch template to use for a mixed instances policy.</p>
    * @public
    */
-  LaunchTemplateSpecification?:
-    | AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification
-    | undefined;
+  LaunchTemplateSpecification?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification | undefined;
 
   /**
    * <p>Property values to use to override the values in the launch template.</p>
@@ -8054,9 +8050,7 @@ export interface AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails
    *       </p>
    * @public
    */
-  CapacityReservationTarget?:
-    | AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails
-    | undefined;
+  CapacityReservationTarget?: AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails | undefined;
 }
 
 /**
@@ -12941,9 +12935,7 @@ export interface AwsEcsTaskDefinitionProxyConfigurationDetails {
    * <p>The set of network configuration parameters to provide to the Container Network Interface (CNI) plugin, specified as key-value pairs.</p>
    * @public
    */
-  ProxyConfigurationProperties?:
-    | AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails[]
-    | undefined;
+  ProxyConfigurationProperties?: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails[] | undefined;
 
   /**
    * <p>The proxy type.</p>

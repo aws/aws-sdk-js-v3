@@ -48,7 +48,7 @@ export interface UpdateGeoMatchSetCommandOutput extends UpdateGeoMatchSetRespons
  *                <p>The <code>Value</code>, which is a two character code for the country to add to the <code>GeoMatchConstraint</code> object. Valid codes are listed in <a>GeoMatchConstraint$Value</a>.</p>
  *             </li>
  *          </ul>
- *
+ * 		    	
  * 		       <p>To create and configure an <code>GeoMatchSet</code>, perform the following steps:</p>
  * 		       <ol>
  *             <li>
@@ -63,7 +63,7 @@ export interface UpdateGeoMatchSetCommandOutput extends UpdateGeoMatchSetRespons
  *             </li>
  *          </ol>
  * 		       <p>When you update an <code>GeoMatchSet</code>, you specify the country that you want to add and/or the country that you want to delete.
- * 			If you want to change a country, you delete the existing country and add the new one.</p>
+ * 			If you want to change a country, you delete the existing country and add the new one.</p>		
  * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
  * @example

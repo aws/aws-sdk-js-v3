@@ -46,11 +46,9 @@ export const defaultCloudWatchEventsHttpAuthSchemeParametersProvider = async (
 ): Promise<CloudWatchEventsHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -82,9 +80,7 @@ export interface CloudWatchEventsHttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultCloudWatchEventsHttpAuthSchemeProvider: CloudWatchEventsHttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultCloudWatchEventsHttpAuthSchemeProvider: CloudWatchEventsHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

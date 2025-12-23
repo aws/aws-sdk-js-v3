@@ -32,9 +32,7 @@ export type GetSolNetworkPackageDescriptorCommandOutputType = Omit<GetSolNetwork
  *
  * The output of {@link GetSolNetworkPackageDescriptorCommand}.
  */
-export interface GetSolNetworkPackageDescriptorCommandOutput
-  extends GetSolNetworkPackageDescriptorCommandOutputType,
-    __MetadataBearer {}
+export interface GetSolNetworkPackageDescriptorCommandOutput extends GetSolNetworkPackageDescriptorCommandOutputType, __MetadataBearer {}
 
 /**
  * <p>Gets the content of the network service descriptor.</p>

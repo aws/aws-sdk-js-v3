@@ -24,9 +24,7 @@ export interface GetConnectorDefinitionVersionCommandInput extends GetConnectorD
  *
  * The output of {@link GetConnectorDefinitionVersionCommand}.
  */
-export interface GetConnectorDefinitionVersionCommandOutput
-  extends GetConnectorDefinitionVersionResponse,
-    __MetadataBearer {}
+export interface GetConnectorDefinitionVersionCommandOutput extends GetConnectorDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Retrieves information about a connector definition version, including the connectors that the version contains. Connectors are prebuilt modules that interact with local infrastructure, device protocols, AWS, and other cloud services.

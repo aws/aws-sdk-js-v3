@@ -81,12 +81,14 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = AssumeRoleForPodIdentityCommandInput;
+export type ServiceInputTypes =
+  | AssumeRoleForPodIdentityCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = AssumeRoleForPodIdentityCommandOutput;
+export type ServiceOutputTypes =
+  | AssumeRoleForPodIdentityCommandOutput;
 
 /**
  * @public

@@ -75,7 +75,10 @@ export interface GeoRoutes {
     args: CalculateRoutesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CalculateRoutesCommandOutput>;
-  calculateRoutes(args: CalculateRoutesCommandInput, cb: (err: any, data?: CalculateRoutesCommandOutput) => void): void;
+  calculateRoutes(
+    args: CalculateRoutesCommandInput,
+    cb: (err: any, data?: CalculateRoutesCommandOutput) => void
+  ): void;
   calculateRoutes(
     args: CalculateRoutesCommandInput,
     options: __HttpHandlerOptions,
@@ -102,8 +105,14 @@ export interface GeoRoutes {
   /**
    * @see {@link SnapToRoadsCommand}
    */
-  snapToRoads(args: SnapToRoadsCommandInput, options?: __HttpHandlerOptions): Promise<SnapToRoadsCommandOutput>;
-  snapToRoads(args: SnapToRoadsCommandInput, cb: (err: any, data?: SnapToRoadsCommandOutput) => void): void;
+  snapToRoads(
+    args: SnapToRoadsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SnapToRoadsCommandOutput>;
+  snapToRoads(
+    args: SnapToRoadsCommandInput,
+    cb: (err: any, data?: SnapToRoadsCommandOutput) => void
+  ): void;
   snapToRoads(
     args: SnapToRoadsCommandInput,
     options: __HttpHandlerOptions,

@@ -24,9 +24,7 @@ export interface AssociateWorkspaceApplicationCommandInput extends AssociateWork
  *
  * The output of {@link AssociateWorkspaceApplicationCommand}.
  */
-export interface AssociateWorkspaceApplicationCommandOutput
-  extends AssociateWorkspaceApplicationResult,
-    __MetadataBearer {}
+export interface AssociateWorkspaceApplicationCommandOutput extends AssociateWorkspaceApplicationResult, __MetadataBearer {}
 
 /**
  * <p>Associates the specified application to the specified WorkSpace.</p>

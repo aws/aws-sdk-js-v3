@@ -24,9 +24,7 @@ export interface DescribeEntitiesDetectionJobCommandInput extends DescribeEntiti
  *
  * The output of {@link DescribeEntitiesDetectionJobCommand}.
  */
-export interface DescribeEntitiesDetectionJobCommandOutput
-  extends DescribeEntitiesDetectionJobResponse,
-    __MetadataBearer {}
+export interface DescribeEntitiesDetectionJobCommandOutput extends DescribeEntitiesDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with an entities detection job. Use this operation to get

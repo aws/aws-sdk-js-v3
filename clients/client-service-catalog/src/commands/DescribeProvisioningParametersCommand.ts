@@ -28,9 +28,7 @@ export interface DescribeProvisioningParametersCommandInput extends DescribeProv
  *
  * The output of {@link DescribeProvisioningParametersCommand}.
  */
-export interface DescribeProvisioningParametersCommandOutput
-  extends DescribeProvisioningParametersOutput,
-    __MetadataBearer {}
+export interface DescribeProvisioningParametersCommandOutput extends DescribeProvisioningParametersOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about the configuration required to provision the specified product using

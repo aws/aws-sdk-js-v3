@@ -65,8 +65,14 @@ export interface SSO {
   /**
    * @see {@link ListAccountsCommand}
    */
-  listAccounts(args: ListAccountsCommandInput, options?: __HttpHandlerOptions): Promise<ListAccountsCommandOutput>;
-  listAccounts(args: ListAccountsCommandInput, cb: (err: any, data?: ListAccountsCommandOutput) => void): void;
+  listAccounts(
+    args: ListAccountsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccountsCommandOutput>;
+  listAccounts(
+    args: ListAccountsCommandInput,
+    cb: (err: any, data?: ListAccountsCommandOutput) => void
+  ): void;
   listAccounts(
     args: ListAccountsCommandInput,
     options: __HttpHandlerOptions,
@@ -76,8 +82,14 @@ export interface SSO {
   /**
    * @see {@link LogoutCommand}
    */
-  logout(args: LogoutCommandInput, options?: __HttpHandlerOptions): Promise<LogoutCommandOutput>;
-  logout(args: LogoutCommandInput, cb: (err: any, data?: LogoutCommandOutput) => void): void;
+  logout(
+    args: LogoutCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<LogoutCommandOutput>;
+  logout(
+    args: LogoutCommandInput,
+    cb: (err: any, data?: LogoutCommandOutput) => void
+  ): void;
   logout(
     args: LogoutCommandInput,
     options: __HttpHandlerOptions,

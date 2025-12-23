@@ -22,8 +22,7 @@ export { $Command };
  *
  * The input for {@link DeleteMediaInsightsPipelineConfigurationCommand}.
  */
-export interface DeleteMediaInsightsPipelineConfigurationCommandInput
-  extends DeleteMediaInsightsPipelineConfigurationRequest {}
+export interface DeleteMediaInsightsPipelineConfigurationCommandInput extends DeleteMediaInsightsPipelineConfigurationRequest {}
 /**
  * @public
  *

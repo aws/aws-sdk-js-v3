@@ -31,9 +31,7 @@ export interface GetUserAttributeVerificationCodeCommandInput extends GetUserAtt
  *
  * The output of {@link GetUserAttributeVerificationCodeCommand}.
  */
-export interface GetUserAttributeVerificationCodeCommandOutput
-  extends GetUserAttributeVerificationCodeResponse,
-    __MetadataBearer {}
+export interface GetUserAttributeVerificationCodeCommandOutput extends GetUserAttributeVerificationCodeResponse, __MetadataBearer {}
 
 /**
  * <p>Given an attribute name, sends a user attribute verification code for the specified

@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link AssociateAwsTrainingCertificationEmailDomainCommand}.
  */
-export interface AssociateAwsTrainingCertificationEmailDomainCommandInput
-  extends AssociateAwsTrainingCertificationEmailDomainRequest {}
+export interface AssociateAwsTrainingCertificationEmailDomainCommandInput extends AssociateAwsTrainingCertificationEmailDomainRequest {}
 /**
  * @public
  *
  * The output of {@link AssociateAwsTrainingCertificationEmailDomainCommand}.
  */
-export interface AssociateAwsTrainingCertificationEmailDomainCommandOutput
-  extends AssociateAwsTrainingCertificationEmailDomainResponse,
-    __MetadataBearer {}
+export interface AssociateAwsTrainingCertificationEmailDomainCommandOutput extends AssociateAwsTrainingCertificationEmailDomainResponse, __MetadataBearer {}
 
 /**
  * <p>Associates an email domain with AWS training and certification for the partner account, enabling automatic verification of employee certifications.</p>

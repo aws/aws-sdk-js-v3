@@ -45,7 +45,10 @@ export interface SageMakerA2IRuntime {
     args: DeleteHumanLoopCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteHumanLoopCommandOutput>;
-  deleteHumanLoop(args: DeleteHumanLoopCommandInput, cb: (err: any, data?: DeleteHumanLoopCommandOutput) => void): void;
+  deleteHumanLoop(
+    args: DeleteHumanLoopCommandInput,
+    cb: (err: any, data?: DeleteHumanLoopCommandOutput) => void
+  ): void;
   deleteHumanLoop(
     args: DeleteHumanLoopCommandInput,
     options: __HttpHandlerOptions,
@@ -76,7 +79,10 @@ export interface SageMakerA2IRuntime {
     args: ListHumanLoopsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListHumanLoopsCommandOutput>;
-  listHumanLoops(args: ListHumanLoopsCommandInput, cb: (err: any, data?: ListHumanLoopsCommandOutput) => void): void;
+  listHumanLoops(
+    args: ListHumanLoopsCommandInput,
+    cb: (err: any, data?: ListHumanLoopsCommandOutput) => void
+  ): void;
   listHumanLoops(
     args: ListHumanLoopsCommandInput,
     options: __HttpHandlerOptions,
@@ -90,7 +96,10 @@ export interface SageMakerA2IRuntime {
     args: StartHumanLoopCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartHumanLoopCommandOutput>;
-  startHumanLoop(args: StartHumanLoopCommandInput, cb: (err: any, data?: StartHumanLoopCommandOutput) => void): void;
+  startHumanLoop(
+    args: StartHumanLoopCommandInput,
+    cb: (err: any, data?: StartHumanLoopCommandOutput) => void
+  ): void;
   startHumanLoop(
     args: StartHumanLoopCommandInput,
     options: __HttpHandlerOptions,
@@ -100,8 +109,14 @@ export interface SageMakerA2IRuntime {
   /**
    * @see {@link StopHumanLoopCommand}
    */
-  stopHumanLoop(args: StopHumanLoopCommandInput, options?: __HttpHandlerOptions): Promise<StopHumanLoopCommandOutput>;
-  stopHumanLoop(args: StopHumanLoopCommandInput, cb: (err: any, data?: StopHumanLoopCommandOutput) => void): void;
+  stopHumanLoop(
+    args: StopHumanLoopCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopHumanLoopCommandOutput>;
+  stopHumanLoop(
+    args: StopHumanLoopCommandInput,
+    cb: (err: any, data?: StopHumanLoopCommandOutput) => void
+  ): void;
   stopHumanLoop(
     args: StopHumanLoopCommandInput,
     options: __HttpHandlerOptions,

@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link CreateTransitGatewayRouteTableAttachmentCommand}.
  */
-export interface CreateTransitGatewayRouteTableAttachmentCommandInput
-  extends CreateTransitGatewayRouteTableAttachmentRequest {}
+export interface CreateTransitGatewayRouteTableAttachmentCommandInput extends CreateTransitGatewayRouteTableAttachmentRequest {}
 /**
  * @public
  *
  * The output of {@link CreateTransitGatewayRouteTableAttachmentCommand}.
  */
-export interface CreateTransitGatewayRouteTableAttachmentCommandOutput
-  extends CreateTransitGatewayRouteTableAttachmentResponse,
-    __MetadataBearer {}
+export interface CreateTransitGatewayRouteTableAttachmentCommandOutput extends CreateTransitGatewayRouteTableAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a transit gateway route table attachment.</p>

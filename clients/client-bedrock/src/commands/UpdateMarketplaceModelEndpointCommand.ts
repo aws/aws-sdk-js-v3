@@ -24,9 +24,7 @@ export interface UpdateMarketplaceModelEndpointCommandInput extends UpdateMarket
  *
  * The output of {@link UpdateMarketplaceModelEndpointCommand}.
  */
-export interface UpdateMarketplaceModelEndpointCommandOutput
-  extends UpdateMarketplaceModelEndpointResponse,
-    __MetadataBearer {}
+export interface UpdateMarketplaceModelEndpointCommandOutput extends UpdateMarketplaceModelEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the configuration of an existing endpoint for a model from Amazon Bedrock Marketplace.</p>

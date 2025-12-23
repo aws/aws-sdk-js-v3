@@ -24,9 +24,7 @@ export interface ModifyInstanceMetadataDefaultsCommandInput extends ModifyInstan
  *
  * The output of {@link ModifyInstanceMetadataDefaultsCommand}.
  */
-export interface ModifyInstanceMetadataDefaultsCommandOutput
-  extends ModifyInstanceMetadataDefaultsResult,
-    __MetadataBearer {}
+export interface ModifyInstanceMetadataDefaultsCommandOutput extends ModifyInstanceMetadataDefaultsResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the default instance metadata service (IMDS) settings at the account level in

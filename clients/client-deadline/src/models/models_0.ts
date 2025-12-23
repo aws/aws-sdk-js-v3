@@ -1846,7 +1846,9 @@ export interface FixedBudgetSchedule {
  * <p>The start and end time of the budget.</p>
  * @public
  */
-export type BudgetSchedule = BudgetSchedule.FixedMember | BudgetSchedule.$UnknownMember;
+export type BudgetSchedule =
+  | BudgetSchedule.FixedMember
+  | BudgetSchedule.$UnknownMember;
 
 /**
  * @public
@@ -1883,7 +1885,9 @@ export namespace BudgetSchedule {
  * <p>The usage details of the allotted budget.</p>
  * @public
  */
-export type UsageTrackingResource = UsageTrackingResource.QueueIdMember | UsageTrackingResource.$UnknownMember;
+export type UsageTrackingResource =
+  | UsageTrackingResource.QueueIdMember
+  | UsageTrackingResource.$UnknownMember;
 
 /**
  * @public

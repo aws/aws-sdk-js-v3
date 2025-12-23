@@ -27,9 +27,7 @@ export interface DisassociatePhoneNumberFromUserCommandInput extends Disassociat
  *
  * The output of {@link DisassociatePhoneNumberFromUserCommand}.
  */
-export interface DisassociatePhoneNumberFromUserCommandOutput
-  extends DisassociatePhoneNumberFromUserResponse,
-    __MetadataBearer {}
+export interface DisassociatePhoneNumberFromUserCommandOutput extends DisassociatePhoneNumberFromUserResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates the primary provisioned phone number from the specified Amazon Chime user.</p>

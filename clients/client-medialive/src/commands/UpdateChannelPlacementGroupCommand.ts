@@ -24,9 +24,7 @@ export interface UpdateChannelPlacementGroupCommandInput extends UpdateChannelPl
  *
  * The output of {@link UpdateChannelPlacementGroupCommand}.
  */
-export interface UpdateChannelPlacementGroupCommandOutput
-  extends UpdateChannelPlacementGroupResponse,
-    __MetadataBearer {}
+export interface UpdateChannelPlacementGroupCommandOutput extends UpdateChannelPlacementGroupResponse, __MetadataBearer {}
 
 /**
  * Change the settings for a ChannelPlacementGroup.

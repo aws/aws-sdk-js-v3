@@ -24,9 +24,7 @@ export interface CreateOpenIDConnectProviderCommandInput extends CreateOpenIDCon
  *
  * The output of {@link CreateOpenIDConnectProviderCommand}.
  */
-export interface CreateOpenIDConnectProviderCommandOutput
-  extends CreateOpenIDConnectProviderResponse,
-    __MetadataBearer {}
+export interface CreateOpenIDConnectProviderCommandOutput extends CreateOpenIDConnectProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an IAM entity to describe an identity provider (IdP) that supports <a href="http://openid.net/connect/">OpenID Connect (OIDC)</a>.</p>

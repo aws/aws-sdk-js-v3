@@ -27,9 +27,7 @@ export interface GetInvalidationForDistributionTenantCommandInput extends GetInv
  *
  * The output of {@link GetInvalidationForDistributionTenantCommand}.
  */
-export interface GetInvalidationForDistributionTenantCommandOutput
-  extends GetInvalidationForDistributionTenantResult,
-    __MetadataBearer {}
+export interface GetInvalidationForDistributionTenantCommandOutput extends GetInvalidationForDistributionTenantResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about a specific invalidation for a distribution tenant.</p>

@@ -28,9 +28,7 @@ export interface ListAppInstanceUserEndpointsCommandInput extends ListAppInstanc
  *
  * The output of {@link ListAppInstanceUserEndpointsCommand}.
  */
-export interface ListAppInstanceUserEndpointsCommandOutput
-  extends ListAppInstanceUserEndpointsResponse,
-    __MetadataBearer {}
+export interface ListAppInstanceUserEndpointsCommandOutput extends ListAppInstanceUserEndpointsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the <code>AppInstanceUserEndpoints</code> created under a single <code>AppInstanceUser</code>.</p>

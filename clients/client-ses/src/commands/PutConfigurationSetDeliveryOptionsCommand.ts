@@ -27,9 +27,7 @@ export interface PutConfigurationSetDeliveryOptionsCommandInput extends PutConfi
  *
  * The output of {@link PutConfigurationSetDeliveryOptionsCommand}.
  */
-export interface PutConfigurationSetDeliveryOptionsCommandOutput
-  extends PutConfigurationSetDeliveryOptionsResponse,
-    __MetadataBearer {}
+export interface PutConfigurationSetDeliveryOptionsCommandOutput extends PutConfigurationSetDeliveryOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Adds or updates the delivery options for a configuration set.</p>

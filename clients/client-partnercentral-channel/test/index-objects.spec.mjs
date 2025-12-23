@@ -71,6 +71,9 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  paginateListChannelHandshakes,
+  paginateListProgramManagementAccounts,
+  paginateListRelationships,
   ParticipantType,
   PartnerCentralChannel,
   PartnerCentralChannelClient,
@@ -137,9 +140,6 @@ import {
   ValidationException$,
   ValidationExceptionField$,
   ValidationExceptionReason,
-  paginateListChannelHandshakes,
-  paginateListProgramManagementAccounts,
-  paginateListRelationships,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

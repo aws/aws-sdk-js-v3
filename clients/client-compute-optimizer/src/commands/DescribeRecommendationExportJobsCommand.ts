@@ -31,9 +31,7 @@ export interface DescribeRecommendationExportJobsCommandInput extends DescribeRe
  *
  * The output of {@link DescribeRecommendationExportJobsCommand}.
  */
-export interface DescribeRecommendationExportJobsCommandOutput
-  extends DescribeRecommendationExportJobsResponse,
-    __MetadataBearer {}
+export interface DescribeRecommendationExportJobsCommandOutput extends DescribeRecommendationExportJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes recommendation export jobs created in the last seven days.</p>

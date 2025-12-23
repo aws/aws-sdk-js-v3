@@ -9,10 +9,8 @@ AWS SDK for JavaScript PersonalizeRuntime Client for Node.js, Browser and React 
 <p></p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-personalize-runtime
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-personalize-runtime`
 - `yarn add @aws-sdk/client-personalize-runtime`
 - `pnpm add @aws-sdk/client-personalize-runtime`
@@ -48,9 +46,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new PersonalizeRuntimeClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new GetRecommendationsCommand(params);
 ```
 
@@ -209,7 +205,6 @@ GetActionRecommendations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize-runtime/command/GetActionRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-runtime/Interface/GetActionRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-runtime/Interface/GetActionRecommendationsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -217,7 +212,6 @@ GetPersonalizedRanking
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize-runtime/command/GetPersonalizedRankingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-runtime/Interface/GetPersonalizedRankingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-runtime/Interface/GetPersonalizedRankingCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -225,5 +219,4 @@ GetRecommendations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize-runtime/command/GetRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-runtime/Interface/GetRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-runtime/Interface/GetRecommendationsCommandOutput/)
-
 </details>

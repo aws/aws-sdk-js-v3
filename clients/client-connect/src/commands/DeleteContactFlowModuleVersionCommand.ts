@@ -24,9 +24,7 @@ export interface DeleteContactFlowModuleVersionCommandInput extends DeleteContac
  *
  * The output of {@link DeleteContactFlowModuleVersionCommand}.
  */
-export interface DeleteContactFlowModuleVersionCommandOutput
-  extends DeleteContactFlowModuleVersionResponse,
-    __MetadataBearer {}
+export interface DeleteContactFlowModuleVersionCommandOutput extends DeleteContactFlowModuleVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a specific version of a contact flow module.</p>

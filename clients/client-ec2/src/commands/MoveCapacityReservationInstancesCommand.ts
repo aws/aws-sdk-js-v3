@@ -27,9 +27,7 @@ export interface MoveCapacityReservationInstancesCommandInput extends MoveCapaci
  *
  * The output of {@link MoveCapacityReservationInstancesCommand}.
  */
-export interface MoveCapacityReservationInstancesCommandOutput
-  extends MoveCapacityReservationInstancesResult,
-    __MetadataBearer {}
+export interface MoveCapacityReservationInstancesCommandOutput extends MoveCapacityReservationInstancesResult, __MetadataBearer {}
 
 /**
  * <p>Move available capacity from a source Capacity Reservation to a destination Capacity

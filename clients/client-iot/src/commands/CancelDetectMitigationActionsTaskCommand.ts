@@ -27,9 +27,7 @@ export interface CancelDetectMitigationActionsTaskCommandInput extends CancelDet
  *
  * The output of {@link CancelDetectMitigationActionsTaskCommand}.
  */
-export interface CancelDetectMitigationActionsTaskCommandOutput
-  extends CancelDetectMitigationActionsTaskResponse,
-    __MetadataBearer {}
+export interface CancelDetectMitigationActionsTaskCommandOutput extends CancelDetectMitigationActionsTaskResponse, __MetadataBearer {}
 
 /**
  * <p>

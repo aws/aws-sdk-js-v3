@@ -24,9 +24,7 @@ export interface DisableVpcClassicLinkDnsSupportCommandInput extends DisableVpcC
  *
  * The output of {@link DisableVpcClassicLinkDnsSupportCommand}.
  */
-export interface DisableVpcClassicLinkDnsSupportCommandOutput
-  extends DisableVpcClassicLinkDnsSupportResult,
-    __MetadataBearer {}
+export interface DisableVpcClassicLinkDnsSupportCommandOutput extends DisableVpcClassicLinkDnsSupportResult, __MetadataBearer {}
 
 /**
  * <note>

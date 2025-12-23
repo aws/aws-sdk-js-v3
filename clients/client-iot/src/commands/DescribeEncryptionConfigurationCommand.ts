@@ -27,9 +27,7 @@ export interface DescribeEncryptionConfigurationCommandInput extends DescribeEnc
  *
  * The output of {@link DescribeEncryptionConfigurationCommand}.
  */
-export interface DescribeEncryptionConfigurationCommandOutput
-  extends DescribeEncryptionConfigurationResponse,
-    __MetadataBearer {}
+export interface DescribeEncryptionConfigurationCommandOutput extends DescribeEncryptionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the encryption configuration for resources and data of your Amazon Web Services account in

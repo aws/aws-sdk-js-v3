@@ -417,7 +417,10 @@ export interface VPCLattice {
     args: BatchUpdateRuleCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchUpdateRuleCommandOutput>;
-  batchUpdateRule(args: BatchUpdateRuleCommandInput, cb: (err: any, data?: BatchUpdateRuleCommandOutput) => void): void;
+  batchUpdateRule(
+    args: BatchUpdateRuleCommandInput,
+    cb: (err: any, data?: BatchUpdateRuleCommandOutput) => void
+  ): void;
   batchUpdateRule(
     args: BatchUpdateRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -448,7 +451,10 @@ export interface VPCLattice {
     args: CreateListenerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateListenerCommandOutput>;
-  createListener(args: CreateListenerCommandInput, cb: (err: any, data?: CreateListenerCommandOutput) => void): void;
+  createListener(
+    args: CreateListenerCommandInput,
+    cb: (err: any, data?: CreateListenerCommandOutput) => void
+  ): void;
   createListener(
     args: CreateListenerCommandInput,
     options: __HttpHandlerOptions,
@@ -492,8 +498,14 @@ export interface VPCLattice {
   /**
    * @see {@link CreateRuleCommand}
    */
-  createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
-  createRule(args: CreateRuleCommandInput, cb: (err: any, data?: CreateRuleCommandOutput) => void): void;
+  createRule(
+    args: CreateRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRuleCommandOutput>;
+  createRule(
+    args: CreateRuleCommandInput,
+    cb: (err: any, data?: CreateRuleCommandOutput) => void
+  ): void;
   createRule(
     args: CreateRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -503,8 +515,14 @@ export interface VPCLattice {
   /**
    * @see {@link CreateServiceCommand}
    */
-  createService(args: CreateServiceCommandInput, options?: __HttpHandlerOptions): Promise<CreateServiceCommandOutput>;
-  createService(args: CreateServiceCommandInput, cb: (err: any, data?: CreateServiceCommandOutput) => void): void;
+  createService(
+    args: CreateServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateServiceCommandOutput>;
+  createService(
+    args: CreateServiceCommandInput,
+    cb: (err: any, data?: CreateServiceCommandOutput) => void
+  ): void;
   createService(
     args: CreateServiceCommandInput,
     options: __HttpHandlerOptions,
@@ -654,7 +672,10 @@ export interface VPCLattice {
     args: DeleteListenerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteListenerCommandOutput>;
-  deleteListener(args: DeleteListenerCommandInput, cb: (err: any, data?: DeleteListenerCommandOutput) => void): void;
+  deleteListener(
+    args: DeleteListenerCommandInput,
+    cb: (err: any, data?: DeleteListenerCommandOutput) => void
+  ): void;
   deleteListener(
     args: DeleteListenerCommandInput,
     options: __HttpHandlerOptions,
@@ -732,8 +753,14 @@ export interface VPCLattice {
   /**
    * @see {@link DeleteRuleCommand}
    */
-  deleteRule(args: DeleteRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleCommandOutput>;
-  deleteRule(args: DeleteRuleCommandInput, cb: (err: any, data?: DeleteRuleCommandOutput) => void): void;
+  deleteRule(
+    args: DeleteRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRuleCommandOutput>;
+  deleteRule(
+    args: DeleteRuleCommandInput,
+    cb: (err: any, data?: DeleteRuleCommandOutput) => void
+  ): void;
   deleteRule(
     args: DeleteRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -743,8 +770,14 @@ export interface VPCLattice {
   /**
    * @see {@link DeleteServiceCommand}
    */
-  deleteService(args: DeleteServiceCommandInput, options?: __HttpHandlerOptions): Promise<DeleteServiceCommandOutput>;
-  deleteService(args: DeleteServiceCommandInput, cb: (err: any, data?: DeleteServiceCommandOutput) => void): void;
+  deleteService(
+    args: DeleteServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteServiceCommandOutput>;
+  deleteService(
+    args: DeleteServiceCommandInput,
+    cb: (err: any, data?: DeleteServiceCommandOutput) => void
+  ): void;
   deleteService(
     args: DeleteServiceCommandInput,
     options: __HttpHandlerOptions,
@@ -873,8 +906,14 @@ export interface VPCLattice {
   /**
    * @see {@link GetAuthPolicyCommand}
    */
-  getAuthPolicy(args: GetAuthPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetAuthPolicyCommandOutput>;
-  getAuthPolicy(args: GetAuthPolicyCommandInput, cb: (err: any, data?: GetAuthPolicyCommandOutput) => void): void;
+  getAuthPolicy(
+    args: GetAuthPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAuthPolicyCommandOutput>;
+  getAuthPolicy(
+    args: GetAuthPolicyCommandInput,
+    cb: (err: any, data?: GetAuthPolicyCommandOutput) => void
+  ): void;
   getAuthPolicy(
     args: GetAuthPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -901,8 +940,14 @@ export interface VPCLattice {
   /**
    * @see {@link GetListenerCommand}
    */
-  getListener(args: GetListenerCommandInput, options?: __HttpHandlerOptions): Promise<GetListenerCommandOutput>;
-  getListener(args: GetListenerCommandInput, cb: (err: any, data?: GetListenerCommandOutput) => void): void;
+  getListener(
+    args: GetListenerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetListenerCommandOutput>;
+  getListener(
+    args: GetListenerCommandInput,
+    cb: (err: any, data?: GetListenerCommandOutput) => void
+  ): void;
   getListener(
     args: GetListenerCommandInput,
     options: __HttpHandlerOptions,
@@ -963,8 +1008,14 @@ export interface VPCLattice {
   /**
    * @see {@link GetRuleCommand}
    */
-  getRule(args: GetRuleCommandInput, options?: __HttpHandlerOptions): Promise<GetRuleCommandOutput>;
-  getRule(args: GetRuleCommandInput, cb: (err: any, data?: GetRuleCommandOutput) => void): void;
+  getRule(
+    args: GetRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRuleCommandOutput>;
+  getRule(
+    args: GetRuleCommandInput,
+    cb: (err: any, data?: GetRuleCommandOutput) => void
+  ): void;
   getRule(
     args: GetRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -974,8 +1025,14 @@ export interface VPCLattice {
   /**
    * @see {@link GetServiceCommand}
    */
-  getService(args: GetServiceCommandInput, options?: __HttpHandlerOptions): Promise<GetServiceCommandOutput>;
-  getService(args: GetServiceCommandInput, cb: (err: any, data?: GetServiceCommandOutput) => void): void;
+  getService(
+    args: GetServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetServiceCommandOutput>;
+  getService(
+    args: GetServiceCommandInput,
+    cb: (err: any, data?: GetServiceCommandOutput) => void
+  ): void;
   getService(
     args: GetServiceCommandInput,
     options: __HttpHandlerOptions,
@@ -1057,7 +1114,10 @@ export interface VPCLattice {
     args: GetTargetGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetTargetGroupCommandOutput>;
-  getTargetGroup(args: GetTargetGroupCommandInput, cb: (err: any, data?: GetTargetGroupCommandOutput) => void): void;
+  getTargetGroup(
+    args: GetTargetGroupCommandInput,
+    cb: (err: any, data?: GetTargetGroupCommandOutput) => void
+  ): void;
   getTargetGroup(
     args: GetTargetGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -1102,8 +1162,14 @@ export interface VPCLattice {
   /**
    * @see {@link ListListenersCommand}
    */
-  listListeners(args: ListListenersCommandInput, options?: __HttpHandlerOptions): Promise<ListListenersCommandOutput>;
-  listListeners(args: ListListenersCommandInput, cb: (err: any, data?: ListListenersCommandOutput) => void): void;
+  listListeners(
+    args: ListListenersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListListenersCommandOutput>;
+  listListeners(
+    args: ListListenersCommandInput,
+    cb: (err: any, data?: ListListenersCommandOutput) => void
+  ): void;
   listListeners(
     args: ListListenersCommandInput,
     options: __HttpHandlerOptions,
@@ -1166,8 +1232,14 @@ export interface VPCLattice {
   /**
    * @see {@link ListRulesCommand}
    */
-  listRules(args: ListRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListRulesCommandOutput>;
-  listRules(args: ListRulesCommandInput, cb: (err: any, data?: ListRulesCommandOutput) => void): void;
+  listRules(
+    args: ListRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRulesCommandOutput>;
+  listRules(
+    args: ListRulesCommandInput,
+    cb: (err: any, data?: ListRulesCommandOutput) => void
+  ): void;
   listRules(
     args: ListRulesCommandInput,
     options: __HttpHandlerOptions,
@@ -1267,8 +1339,14 @@ export interface VPCLattice {
    * @see {@link ListServicesCommand}
    */
   listServices(): Promise<ListServicesCommandOutput>;
-  listServices(args: ListServicesCommandInput, options?: __HttpHandlerOptions): Promise<ListServicesCommandOutput>;
-  listServices(args: ListServicesCommandInput, cb: (err: any, data?: ListServicesCommandOutput) => void): void;
+  listServices(
+    args: ListServicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServicesCommandOutput>;
+  listServices(
+    args: ListServicesCommandInput,
+    cb: (err: any, data?: ListServicesCommandOutput) => void
+  ): void;
   listServices(
     args: ListServicesCommandInput,
     options: __HttpHandlerOptions,
@@ -1313,8 +1391,14 @@ export interface VPCLattice {
   /**
    * @see {@link ListTargetsCommand}
    */
-  listTargets(args: ListTargetsCommandInput, options?: __HttpHandlerOptions): Promise<ListTargetsCommandOutput>;
-  listTargets(args: ListTargetsCommandInput, cb: (err: any, data?: ListTargetsCommandOutput) => void): void;
+  listTargets(
+    args: ListTargetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTargetsCommandOutput>;
+  listTargets(
+    args: ListTargetsCommandInput,
+    cb: (err: any, data?: ListTargetsCommandOutput) => void
+  ): void;
   listTargets(
     args: ListTargetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1324,8 +1408,14 @@ export interface VPCLattice {
   /**
    * @see {@link PutAuthPolicyCommand}
    */
-  putAuthPolicy(args: PutAuthPolicyCommandInput, options?: __HttpHandlerOptions): Promise<PutAuthPolicyCommandOutput>;
-  putAuthPolicy(args: PutAuthPolicyCommandInput, cb: (err: any, data?: PutAuthPolicyCommandOutput) => void): void;
+  putAuthPolicy(
+    args: PutAuthPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAuthPolicyCommandOutput>;
+  putAuthPolicy(
+    args: PutAuthPolicyCommandInput,
+    cb: (err: any, data?: PutAuthPolicyCommandOutput) => void
+  ): void;
   putAuthPolicy(
     args: PutAuthPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -1356,7 +1446,10 @@ export interface VPCLattice {
     args: RegisterTargetsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RegisterTargetsCommandOutput>;
-  registerTargets(args: RegisterTargetsCommandInput, cb: (err: any, data?: RegisterTargetsCommandOutput) => void): void;
+  registerTargets(
+    args: RegisterTargetsCommandInput,
+    cb: (err: any, data?: RegisterTargetsCommandOutput) => void
+  ): void;
   registerTargets(
     args: RegisterTargetsCommandInput,
     options: __HttpHandlerOptions,
@@ -1383,8 +1476,14 @@ export interface VPCLattice {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1394,8 +1493,14 @@ export interface VPCLattice {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1426,7 +1531,10 @@ export interface VPCLattice {
     args: UpdateListenerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateListenerCommandOutput>;
-  updateListener(args: UpdateListenerCommandInput, cb: (err: any, data?: UpdateListenerCommandOutput) => void): void;
+  updateListener(
+    args: UpdateListenerCommandInput,
+    cb: (err: any, data?: UpdateListenerCommandOutput) => void
+  ): void;
   updateListener(
     args: UpdateListenerCommandInput,
     options: __HttpHandlerOptions,
@@ -1470,8 +1578,14 @@ export interface VPCLattice {
   /**
    * @see {@link UpdateRuleCommand}
    */
-  updateRule(args: UpdateRuleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRuleCommandOutput>;
-  updateRule(args: UpdateRuleCommandInput, cb: (err: any, data?: UpdateRuleCommandOutput) => void): void;
+  updateRule(
+    args: UpdateRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRuleCommandOutput>;
+  updateRule(
+    args: UpdateRuleCommandInput,
+    cb: (err: any, data?: UpdateRuleCommandOutput) => void
+  ): void;
   updateRule(
     args: UpdateRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -1481,8 +1595,14 @@ export interface VPCLattice {
   /**
    * @see {@link UpdateServiceCommand}
    */
-  updateService(args: UpdateServiceCommandInput, options?: __HttpHandlerOptions): Promise<UpdateServiceCommandOutput>;
-  updateService(args: UpdateServiceCommandInput, cb: (err: any, data?: UpdateServiceCommandOutput) => void): void;
+  updateService(
+    args: UpdateServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateServiceCommandOutput>;
+  updateService(
+    args: UpdateServiceCommandInput,
+    cb: (err: any, data?: UpdateServiceCommandOutput) => void
+  ): void;
   updateService(
     args: UpdateServiceCommandInput,
     options: __HttpHandlerOptions,

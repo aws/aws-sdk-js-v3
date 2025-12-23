@@ -28,9 +28,7 @@ export interface UpdateCustomDomainAssociationCommandInput extends UpdateCustomD
  *
  * The output of {@link UpdateCustomDomainAssociationCommand}.
  */
-export interface UpdateCustomDomainAssociationCommandOutput
-  extends UpdateCustomDomainAssociationResponse,
-    __MetadataBearer {}
+export interface UpdateCustomDomainAssociationCommandOutput extends UpdateCustomDomainAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an Amazon Redshift Serverless certificate associated with a custom domain.</p>

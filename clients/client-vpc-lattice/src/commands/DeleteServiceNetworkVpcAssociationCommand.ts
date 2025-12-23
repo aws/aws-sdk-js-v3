@@ -27,9 +27,7 @@ export interface DeleteServiceNetworkVpcAssociationCommandInput extends DeleteSe
  *
  * The output of {@link DeleteServiceNetworkVpcAssociationCommand}.
  */
-export interface DeleteServiceNetworkVpcAssociationCommandOutput
-  extends DeleteServiceNetworkVpcAssociationResponse,
-    __MetadataBearer {}
+export interface DeleteServiceNetworkVpcAssociationCommandOutput extends DeleteServiceNetworkVpcAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates the VPC from the service network. You can't disassociate the VPC if there is a create or update association in progress.</p>

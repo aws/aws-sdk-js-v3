@@ -24,9 +24,7 @@ export interface GetGroupCertificateAuthorityCommandInput extends GetGroupCertif
  *
  * The output of {@link GetGroupCertificateAuthorityCommand}.
  */
-export interface GetGroupCertificateAuthorityCommandOutput
-  extends GetGroupCertificateAuthorityResponse,
-    __MetadataBearer {}
+export interface GetGroupCertificateAuthorityCommandOutput extends GetGroupCertificateAuthorityResponse, __MetadataBearer {}
 
 /**
  * Retreives the CA associated with a group. Returns the public key of the CA.

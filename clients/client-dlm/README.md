@@ -7,7 +7,6 @@
 AWS SDK for JavaScript DLM Client for Node.js, Browser and React Native.
 
 <fullname>Amazon Data Lifecycle Manager</fullname>
-
 <p>With Amazon Data Lifecycle Manager, you can manage the lifecycle of your Amazon Web Services resources. You create
 lifecycle policies, which are used to automate operations on the specified
 resources.</p>
@@ -16,10 +15,8 @@ with Amazon EBS, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuid
 Amazon Data Lifecycle Manager</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-dlm
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-dlm`
 - `yarn add @aws-sdk/client-dlm`
 - `pnpm add @aws-sdk/client-dlm`
@@ -55,9 +52,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new DLMClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new ListTagsForResourceCommand(params);
 ```
 
@@ -216,7 +211,6 @@ CreateLifecyclePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dlm/command/CreateLifecyclePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dlm/Interface/CreateLifecyclePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dlm/Interface/CreateLifecyclePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -224,7 +218,6 @@ DeleteLifecyclePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dlm/command/DeleteLifecyclePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dlm/Interface/DeleteLifecyclePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dlm/Interface/DeleteLifecyclePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -232,7 +225,6 @@ GetLifecyclePolicies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dlm/command/GetLifecyclePoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dlm/Interface/GetLifecyclePoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dlm/Interface/GetLifecyclePoliciesCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -240,7 +232,6 @@ GetLifecyclePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dlm/command/GetLifecyclePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dlm/Interface/GetLifecyclePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dlm/Interface/GetLifecyclePolicyCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -248,7 +239,6 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dlm/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dlm/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dlm/Interface/ListTagsForResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -256,7 +246,6 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dlm/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dlm/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dlm/Interface/TagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -264,7 +253,6 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dlm/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dlm/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dlm/Interface/UntagResourceCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -272,5 +260,4 @@ UpdateLifecyclePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dlm/command/UpdateLifecyclePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dlm/Interface/UpdateLifecyclePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dlm/Interface/UpdateLifecyclePolicyCommandOutput/)
-
 </details>

@@ -27,9 +27,7 @@ export interface ListAccountAssignmentsForPrincipalCommandInput extends ListAcco
  *
  * The output of {@link ListAccountAssignmentsForPrincipalCommand}.
  */
-export interface ListAccountAssignmentsForPrincipalCommandOutput
-  extends ListAccountAssignmentsForPrincipalResponse,
-    __MetadataBearer {}
+export interface ListAccountAssignmentsForPrincipalCommandOutput extends ListAccountAssignmentsForPrincipalResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of the IAM Identity Center associated Amazon Web Services accounts that the principal has access to. This action must be called from the management account containing your organization instance of IAM Identity Center. This action is not valid for account instances of IAM Identity Center.</p>

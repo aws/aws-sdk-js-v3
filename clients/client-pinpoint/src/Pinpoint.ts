@@ -695,8 +695,14 @@ export interface Pinpoint {
   /**
    * @see {@link CreateAppCommand}
    */
-  createApp(args: CreateAppCommandInput, options?: __HttpHandlerOptions): Promise<CreateAppCommandOutput>;
-  createApp(args: CreateAppCommandInput, cb: (err: any, data?: CreateAppCommandOutput) => void): void;
+  createApp(
+    args: CreateAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAppCommandOutput>;
+  createApp(
+    args: CreateAppCommandInput,
+    cb: (err: any, data?: CreateAppCommandOutput) => void
+  ): void;
   createApp(
     args: CreateAppCommandInput,
     options: __HttpHandlerOptions,
@@ -710,7 +716,10 @@ export interface Pinpoint {
     args: CreateCampaignCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateCampaignCommandOutput>;
-  createCampaign(args: CreateCampaignCommandInput, cb: (err: any, data?: CreateCampaignCommandOutput) => void): void;
+  createCampaign(
+    args: CreateCampaignCommandInput,
+    cb: (err: any, data?: CreateCampaignCommandOutput) => void
+  ): void;
   createCampaign(
     args: CreateCampaignCommandInput,
     options: __HttpHandlerOptions,
@@ -741,7 +750,10 @@ export interface Pinpoint {
     args: CreateExportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateExportJobCommandOutput>;
-  createExportJob(args: CreateExportJobCommandInput, cb: (err: any, data?: CreateExportJobCommandOutput) => void): void;
+  createExportJob(
+    args: CreateExportJobCommandInput,
+    cb: (err: any, data?: CreateExportJobCommandOutput) => void
+  ): void;
   createExportJob(
     args: CreateExportJobCommandInput,
     options: __HttpHandlerOptions,
@@ -755,7 +767,10 @@ export interface Pinpoint {
     args: CreateImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateImportJobCommandOutput>;
-  createImportJob(args: CreateImportJobCommandInput, cb: (err: any, data?: CreateImportJobCommandOutput) => void): void;
+  createImportJob(
+    args: CreateImportJobCommandInput,
+    cb: (err: any, data?: CreateImportJobCommandOutput) => void
+  ): void;
   createImportJob(
     args: CreateImportJobCommandInput,
     options: __HttpHandlerOptions,
@@ -782,8 +797,14 @@ export interface Pinpoint {
   /**
    * @see {@link CreateJourneyCommand}
    */
-  createJourney(args: CreateJourneyCommandInput, options?: __HttpHandlerOptions): Promise<CreateJourneyCommandOutput>;
-  createJourney(args: CreateJourneyCommandInput, cb: (err: any, data?: CreateJourneyCommandOutput) => void): void;
+  createJourney(
+    args: CreateJourneyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateJourneyCommandOutput>;
+  createJourney(
+    args: CreateJourneyCommandInput,
+    cb: (err: any, data?: CreateJourneyCommandOutput) => void
+  ): void;
   createJourney(
     args: CreateJourneyCommandInput,
     options: __HttpHandlerOptions,
@@ -827,8 +848,14 @@ export interface Pinpoint {
   /**
    * @see {@link CreateSegmentCommand}
    */
-  createSegment(args: CreateSegmentCommandInput, options?: __HttpHandlerOptions): Promise<CreateSegmentCommandOutput>;
-  createSegment(args: CreateSegmentCommandInput, cb: (err: any, data?: CreateSegmentCommandOutput) => void): void;
+  createSegment(
+    args: CreateSegmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSegmentCommandOutput>;
+  createSegment(
+    args: CreateSegmentCommandInput,
+    cb: (err: any, data?: CreateSegmentCommandOutput) => void
+  ): void;
   createSegment(
     args: CreateSegmentCommandInput,
     options: __HttpHandlerOptions,
@@ -957,8 +984,14 @@ export interface Pinpoint {
   /**
    * @see {@link DeleteAppCommand}
    */
-  deleteApp(args: DeleteAppCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAppCommandOutput>;
-  deleteApp(args: DeleteAppCommandInput, cb: (err: any, data?: DeleteAppCommandOutput) => void): void;
+  deleteApp(
+    args: DeleteAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppCommandOutput>;
+  deleteApp(
+    args: DeleteAppCommandInput,
+    cb: (err: any, data?: DeleteAppCommandOutput) => void
+  ): void;
   deleteApp(
     args: DeleteAppCommandInput,
     options: __HttpHandlerOptions,
@@ -989,7 +1022,10 @@ export interface Pinpoint {
     args: DeleteCampaignCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteCampaignCommandOutput>;
-  deleteCampaign(args: DeleteCampaignCommandInput, cb: (err: any, data?: DeleteCampaignCommandOutput) => void): void;
+  deleteCampaign(
+    args: DeleteCampaignCommandInput,
+    cb: (err: any, data?: DeleteCampaignCommandOutput) => void
+  ): void;
   deleteCampaign(
     args: DeleteCampaignCommandInput,
     options: __HttpHandlerOptions,
@@ -1037,7 +1073,10 @@ export interface Pinpoint {
     args: DeleteEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEndpointCommandOutput>;
-  deleteEndpoint(args: DeleteEndpointCommandInput, cb: (err: any, data?: DeleteEndpointCommandOutput) => void): void;
+  deleteEndpoint(
+    args: DeleteEndpointCommandInput,
+    cb: (err: any, data?: DeleteEndpointCommandOutput) => void
+  ): void;
   deleteEndpoint(
     args: DeleteEndpointCommandInput,
     options: __HttpHandlerOptions,
@@ -1098,8 +1137,14 @@ export interface Pinpoint {
   /**
    * @see {@link DeleteJourneyCommand}
    */
-  deleteJourney(args: DeleteJourneyCommandInput, options?: __HttpHandlerOptions): Promise<DeleteJourneyCommandOutput>;
-  deleteJourney(args: DeleteJourneyCommandInput, cb: (err: any, data?: DeleteJourneyCommandOutput) => void): void;
+  deleteJourney(
+    args: DeleteJourneyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteJourneyCommandOutput>;
+  deleteJourney(
+    args: DeleteJourneyCommandInput,
+    cb: (err: any, data?: DeleteJourneyCommandOutput) => void
+  ): void;
   deleteJourney(
     args: DeleteJourneyCommandInput,
     options: __HttpHandlerOptions,
@@ -1143,8 +1188,14 @@ export interface Pinpoint {
   /**
    * @see {@link DeleteSegmentCommand}
    */
-  deleteSegment(args: DeleteSegmentCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSegmentCommandOutput>;
-  deleteSegment(args: DeleteSegmentCommandInput, cb: (err: any, data?: DeleteSegmentCommandOutput) => void): void;
+  deleteSegment(
+    args: DeleteSegmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSegmentCommandOutput>;
+  deleteSegment(
+    args: DeleteSegmentCommandInput,
+    cb: (err: any, data?: DeleteSegmentCommandOutput) => void
+  ): void;
   deleteSegment(
     args: DeleteSegmentCommandInput,
     options: __HttpHandlerOptions,
@@ -1239,8 +1290,14 @@ export interface Pinpoint {
   /**
    * @see {@link GetAdmChannelCommand}
    */
-  getAdmChannel(args: GetAdmChannelCommandInput, options?: __HttpHandlerOptions): Promise<GetAdmChannelCommandOutput>;
-  getAdmChannel(args: GetAdmChannelCommandInput, cb: (err: any, data?: GetAdmChannelCommandOutput) => void): void;
+  getAdmChannel(
+    args: GetAdmChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAdmChannelCommandOutput>;
+  getAdmChannel(
+    args: GetAdmChannelCommandInput,
+    cb: (err: any, data?: GetAdmChannelCommandOutput) => void
+  ): void;
   getAdmChannel(
     args: GetAdmChannelCommandInput,
     options: __HttpHandlerOptions,
@@ -1254,7 +1311,10 @@ export interface Pinpoint {
     args: GetApnsChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetApnsChannelCommandOutput>;
-  getApnsChannel(args: GetApnsChannelCommandInput, cb: (err: any, data?: GetApnsChannelCommandOutput) => void): void;
+  getApnsChannel(
+    args: GetApnsChannelCommandInput,
+    cb: (err: any, data?: GetApnsChannelCommandOutput) => void
+  ): void;
   getApnsChannel(
     args: GetApnsChannelCommandInput,
     options: __HttpHandlerOptions,
@@ -1315,8 +1375,14 @@ export interface Pinpoint {
   /**
    * @see {@link GetAppCommand}
    */
-  getApp(args: GetAppCommandInput, options?: __HttpHandlerOptions): Promise<GetAppCommandOutput>;
-  getApp(args: GetAppCommandInput, cb: (err: any, data?: GetAppCommandOutput) => void): void;
+  getApp(
+    args: GetAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAppCommandOutput>;
+  getApp(
+    args: GetAppCommandInput,
+    cb: (err: any, data?: GetAppCommandOutput) => void
+  ): void;
   getApp(
     args: GetAppCommandInput,
     options: __HttpHandlerOptions,
@@ -1361,8 +1427,14 @@ export interface Pinpoint {
    * @see {@link GetAppsCommand}
    */
   getApps(): Promise<GetAppsCommandOutput>;
-  getApps(args: GetAppsCommandInput, options?: __HttpHandlerOptions): Promise<GetAppsCommandOutput>;
-  getApps(args: GetAppsCommandInput, cb: (err: any, data?: GetAppsCommandOutput) => void): void;
+  getApps(
+    args: GetAppsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAppsCommandOutput>;
+  getApps(
+    args: GetAppsCommandInput,
+    cb: (err: any, data?: GetAppsCommandOutput) => void
+  ): void;
   getApps(
     args: GetAppsCommandInput,
     options: __HttpHandlerOptions,
@@ -1376,7 +1448,10 @@ export interface Pinpoint {
     args: GetBaiduChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetBaiduChannelCommandOutput>;
-  getBaiduChannel(args: GetBaiduChannelCommandInput, cb: (err: any, data?: GetBaiduChannelCommandOutput) => void): void;
+  getBaiduChannel(
+    args: GetBaiduChannelCommandInput,
+    cb: (err: any, data?: GetBaiduChannelCommandOutput) => void
+  ): void;
   getBaiduChannel(
     args: GetBaiduChannelCommandInput,
     options: __HttpHandlerOptions,
@@ -1386,8 +1461,14 @@ export interface Pinpoint {
   /**
    * @see {@link GetCampaignCommand}
    */
-  getCampaign(args: GetCampaignCommandInput, options?: __HttpHandlerOptions): Promise<GetCampaignCommandOutput>;
-  getCampaign(args: GetCampaignCommandInput, cb: (err: any, data?: GetCampaignCommandOutput) => void): void;
+  getCampaign(
+    args: GetCampaignCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCampaignCommandOutput>;
+  getCampaign(
+    args: GetCampaignCommandInput,
+    cb: (err: any, data?: GetCampaignCommandOutput) => void
+  ): void;
   getCampaign(
     args: GetCampaignCommandInput,
     options: __HttpHandlerOptions,
@@ -1431,8 +1512,14 @@ export interface Pinpoint {
   /**
    * @see {@link GetCampaignsCommand}
    */
-  getCampaigns(args: GetCampaignsCommandInput, options?: __HttpHandlerOptions): Promise<GetCampaignsCommandOutput>;
-  getCampaigns(args: GetCampaignsCommandInput, cb: (err: any, data?: GetCampaignsCommandOutput) => void): void;
+  getCampaigns(
+    args: GetCampaignsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCampaignsCommandOutput>;
+  getCampaigns(
+    args: GetCampaignsCommandInput,
+    cb: (err: any, data?: GetCampaignsCommandOutput) => void
+  ): void;
   getCampaigns(
     args: GetCampaignsCommandInput,
     options: __HttpHandlerOptions,
@@ -1476,8 +1563,14 @@ export interface Pinpoint {
   /**
    * @see {@link GetChannelsCommand}
    */
-  getChannels(args: GetChannelsCommandInput, options?: __HttpHandlerOptions): Promise<GetChannelsCommandOutput>;
-  getChannels(args: GetChannelsCommandInput, cb: (err: any, data?: GetChannelsCommandOutput) => void): void;
+  getChannels(
+    args: GetChannelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetChannelsCommandOutput>;
+  getChannels(
+    args: GetChannelsCommandInput,
+    cb: (err: any, data?: GetChannelsCommandOutput) => void
+  ): void;
   getChannels(
     args: GetChannelsCommandInput,
     options: __HttpHandlerOptions,
@@ -1491,7 +1584,10 @@ export interface Pinpoint {
     args: GetEmailChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEmailChannelCommandOutput>;
-  getEmailChannel(args: GetEmailChannelCommandInput, cb: (err: any, data?: GetEmailChannelCommandOutput) => void): void;
+  getEmailChannel(
+    args: GetEmailChannelCommandInput,
+    cb: (err: any, data?: GetEmailChannelCommandOutput) => void
+  ): void;
   getEmailChannel(
     args: GetEmailChannelCommandInput,
     options: __HttpHandlerOptions,
@@ -1518,8 +1614,14 @@ export interface Pinpoint {
   /**
    * @see {@link GetEndpointCommand}
    */
-  getEndpoint(args: GetEndpointCommandInput, options?: __HttpHandlerOptions): Promise<GetEndpointCommandOutput>;
-  getEndpoint(args: GetEndpointCommandInput, cb: (err: any, data?: GetEndpointCommandOutput) => void): void;
+  getEndpoint(
+    args: GetEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEndpointCommandOutput>;
+  getEndpoint(
+    args: GetEndpointCommandInput,
+    cb: (err: any, data?: GetEndpointCommandOutput) => void
+  ): void;
   getEndpoint(
     args: GetEndpointCommandInput,
     options: __HttpHandlerOptions,
@@ -1533,7 +1635,10 @@ export interface Pinpoint {
     args: GetEventStreamCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEventStreamCommandOutput>;
-  getEventStream(args: GetEventStreamCommandInput, cb: (err: any, data?: GetEventStreamCommandOutput) => void): void;
+  getEventStream(
+    args: GetEventStreamCommandInput,
+    cb: (err: any, data?: GetEventStreamCommandOutput) => void
+  ): void;
   getEventStream(
     args: GetEventStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -1543,8 +1648,14 @@ export interface Pinpoint {
   /**
    * @see {@link GetExportJobCommand}
    */
-  getExportJob(args: GetExportJobCommandInput, options?: __HttpHandlerOptions): Promise<GetExportJobCommandOutput>;
-  getExportJob(args: GetExportJobCommandInput, cb: (err: any, data?: GetExportJobCommandOutput) => void): void;
+  getExportJob(
+    args: GetExportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExportJobCommandOutput>;
+  getExportJob(
+    args: GetExportJobCommandInput,
+    cb: (err: any, data?: GetExportJobCommandOutput) => void
+  ): void;
   getExportJob(
     args: GetExportJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1554,8 +1665,14 @@ export interface Pinpoint {
   /**
    * @see {@link GetExportJobsCommand}
    */
-  getExportJobs(args: GetExportJobsCommandInput, options?: __HttpHandlerOptions): Promise<GetExportJobsCommandOutput>;
-  getExportJobs(args: GetExportJobsCommandInput, cb: (err: any, data?: GetExportJobsCommandOutput) => void): void;
+  getExportJobs(
+    args: GetExportJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExportJobsCommandOutput>;
+  getExportJobs(
+    args: GetExportJobsCommandInput,
+    cb: (err: any, data?: GetExportJobsCommandOutput) => void
+  ): void;
   getExportJobs(
     args: GetExportJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -1565,8 +1682,14 @@ export interface Pinpoint {
   /**
    * @see {@link GetGcmChannelCommand}
    */
-  getGcmChannel(args: GetGcmChannelCommandInput, options?: __HttpHandlerOptions): Promise<GetGcmChannelCommandOutput>;
-  getGcmChannel(args: GetGcmChannelCommandInput, cb: (err: any, data?: GetGcmChannelCommandOutput) => void): void;
+  getGcmChannel(
+    args: GetGcmChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGcmChannelCommandOutput>;
+  getGcmChannel(
+    args: GetGcmChannelCommandInput,
+    cb: (err: any, data?: GetGcmChannelCommandOutput) => void
+  ): void;
   getGcmChannel(
     args: GetGcmChannelCommandInput,
     options: __HttpHandlerOptions,
@@ -1576,8 +1699,14 @@ export interface Pinpoint {
   /**
    * @see {@link GetImportJobCommand}
    */
-  getImportJob(args: GetImportJobCommandInput, options?: __HttpHandlerOptions): Promise<GetImportJobCommandOutput>;
-  getImportJob(args: GetImportJobCommandInput, cb: (err: any, data?: GetImportJobCommandOutput) => void): void;
+  getImportJob(
+    args: GetImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetImportJobCommandOutput>;
+  getImportJob(
+    args: GetImportJobCommandInput,
+    cb: (err: any, data?: GetImportJobCommandOutput) => void
+  ): void;
   getImportJob(
     args: GetImportJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1587,8 +1716,14 @@ export interface Pinpoint {
   /**
    * @see {@link GetImportJobsCommand}
    */
-  getImportJobs(args: GetImportJobsCommandInput, options?: __HttpHandlerOptions): Promise<GetImportJobsCommandOutput>;
-  getImportJobs(args: GetImportJobsCommandInput, cb: (err: any, data?: GetImportJobsCommandOutput) => void): void;
+  getImportJobs(
+    args: GetImportJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetImportJobsCommandOutput>;
+  getImportJobs(
+    args: GetImportJobsCommandInput,
+    cb: (err: any, data?: GetImportJobsCommandOutput) => void
+  ): void;
   getImportJobs(
     args: GetImportJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -1632,8 +1767,14 @@ export interface Pinpoint {
   /**
    * @see {@link GetJourneyCommand}
    */
-  getJourney(args: GetJourneyCommandInput, options?: __HttpHandlerOptions): Promise<GetJourneyCommandOutput>;
-  getJourney(args: GetJourneyCommandInput, cb: (err: any, data?: GetJourneyCommandOutput) => void): void;
+  getJourney(
+    args: GetJourneyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetJourneyCommandOutput>;
+  getJourney(
+    args: GetJourneyCommandInput,
+    cb: (err: any, data?: GetJourneyCommandOutput) => void
+  ): void;
   getJourney(
     args: GetJourneyCommandInput,
     options: __HttpHandlerOptions,
@@ -1732,7 +1873,10 @@ export interface Pinpoint {
     args: GetJourneyRunsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetJourneyRunsCommandOutput>;
-  getJourneyRuns(args: GetJourneyRunsCommandInput, cb: (err: any, data?: GetJourneyRunsCommandOutput) => void): void;
+  getJourneyRuns(
+    args: GetJourneyRunsCommandInput,
+    cb: (err: any, data?: GetJourneyRunsCommandOutput) => void
+  ): void;
   getJourneyRuns(
     args: GetJourneyRunsCommandInput,
     options: __HttpHandlerOptions,
@@ -1746,7 +1890,10 @@ export interface Pinpoint {
     args: GetPushTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetPushTemplateCommandOutput>;
-  getPushTemplate(args: GetPushTemplateCommandInput, cb: (err: any, data?: GetPushTemplateCommandOutput) => void): void;
+  getPushTemplate(
+    args: GetPushTemplateCommandInput,
+    cb: (err: any, data?: GetPushTemplateCommandOutput) => void
+  ): void;
   getPushTemplate(
     args: GetPushTemplateCommandInput,
     options: __HttpHandlerOptions,
@@ -1791,8 +1938,14 @@ export interface Pinpoint {
   /**
    * @see {@link GetSegmentCommand}
    */
-  getSegment(args: GetSegmentCommandInput, options?: __HttpHandlerOptions): Promise<GetSegmentCommandOutput>;
-  getSegment(args: GetSegmentCommandInput, cb: (err: any, data?: GetSegmentCommandOutput) => void): void;
+  getSegment(
+    args: GetSegmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSegmentCommandOutput>;
+  getSegment(
+    args: GetSegmentCommandInput,
+    cb: (err: any, data?: GetSegmentCommandOutput) => void
+  ): void;
   getSegment(
     args: GetSegmentCommandInput,
     options: __HttpHandlerOptions,
@@ -1836,8 +1989,14 @@ export interface Pinpoint {
   /**
    * @see {@link GetSegmentsCommand}
    */
-  getSegments(args: GetSegmentsCommandInput, options?: __HttpHandlerOptions): Promise<GetSegmentsCommandOutput>;
-  getSegments(args: GetSegmentsCommandInput, cb: (err: any, data?: GetSegmentsCommandOutput) => void): void;
+  getSegments(
+    args: GetSegmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSegmentsCommandOutput>;
+  getSegments(
+    args: GetSegmentsCommandInput,
+    cb: (err: any, data?: GetSegmentsCommandOutput) => void
+  ): void;
   getSegments(
     args: GetSegmentsCommandInput,
     options: __HttpHandlerOptions,
@@ -1881,8 +2040,14 @@ export interface Pinpoint {
   /**
    * @see {@link GetSmsChannelCommand}
    */
-  getSmsChannel(args: GetSmsChannelCommandInput, options?: __HttpHandlerOptions): Promise<GetSmsChannelCommandOutput>;
-  getSmsChannel(args: GetSmsChannelCommandInput, cb: (err: any, data?: GetSmsChannelCommandOutput) => void): void;
+  getSmsChannel(
+    args: GetSmsChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSmsChannelCommandOutput>;
+  getSmsChannel(
+    args: GetSmsChannelCommandInput,
+    cb: (err: any, data?: GetSmsChannelCommandOutput) => void
+  ): void;
   getSmsChannel(
     args: GetSmsChannelCommandInput,
     options: __HttpHandlerOptions,
@@ -1896,7 +2061,10 @@ export interface Pinpoint {
     args: GetSmsTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetSmsTemplateCommandOutput>;
-  getSmsTemplate(args: GetSmsTemplateCommandInput, cb: (err: any, data?: GetSmsTemplateCommandOutput) => void): void;
+  getSmsTemplate(
+    args: GetSmsTemplateCommandInput,
+    cb: (err: any, data?: GetSmsTemplateCommandOutput) => void
+  ): void;
   getSmsTemplate(
     args: GetSmsTemplateCommandInput,
     options: __HttpHandlerOptions,
@@ -1927,7 +2095,10 @@ export interface Pinpoint {
     args: GetVoiceChannelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetVoiceChannelCommandOutput>;
-  getVoiceChannel(args: GetVoiceChannelCommandInput, cb: (err: any, data?: GetVoiceChannelCommandOutput) => void): void;
+  getVoiceChannel(
+    args: GetVoiceChannelCommandInput,
+    cb: (err: any, data?: GetVoiceChannelCommandOutput) => void
+  ): void;
   getVoiceChannel(
     args: GetVoiceChannelCommandInput,
     options: __HttpHandlerOptions,
@@ -1954,8 +2125,14 @@ export interface Pinpoint {
   /**
    * @see {@link ListJourneysCommand}
    */
-  listJourneys(args: ListJourneysCommandInput, options?: __HttpHandlerOptions): Promise<ListJourneysCommandOutput>;
-  listJourneys(args: ListJourneysCommandInput, cb: (err: any, data?: ListJourneysCommandOutput) => void): void;
+  listJourneys(
+    args: ListJourneysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJourneysCommandOutput>;
+  listJourneys(
+    args: ListJourneysCommandInput,
+    cb: (err: any, data?: ListJourneysCommandOutput) => void
+  ): void;
   listJourneys(
     args: ListJourneysCommandInput,
     options: __HttpHandlerOptions,
@@ -1983,8 +2160,14 @@ export interface Pinpoint {
    * @see {@link ListTemplatesCommand}
    */
   listTemplates(): Promise<ListTemplatesCommandOutput>;
-  listTemplates(args: ListTemplatesCommandInput, options?: __HttpHandlerOptions): Promise<ListTemplatesCommandOutput>;
-  listTemplates(args: ListTemplatesCommandInput, cb: (err: any, data?: ListTemplatesCommandOutput) => void): void;
+  listTemplates(
+    args: ListTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTemplatesCommandOutput>;
+  listTemplates(
+    args: ListTemplatesCommandInput,
+    cb: (err: any, data?: ListTemplatesCommandOutput) => void
+  ): void;
   listTemplates(
     args: ListTemplatesCommandInput,
     options: __HttpHandlerOptions,
@@ -2028,8 +2211,14 @@ export interface Pinpoint {
   /**
    * @see {@link PutEventsCommand}
    */
-  putEvents(args: PutEventsCommandInput, options?: __HttpHandlerOptions): Promise<PutEventsCommandOutput>;
-  putEvents(args: PutEventsCommandInput, cb: (err: any, data?: PutEventsCommandOutput) => void): void;
+  putEvents(
+    args: PutEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutEventsCommandOutput>;
+  putEvents(
+    args: PutEventsCommandInput,
+    cb: (err: any, data?: PutEventsCommandOutput) => void
+  ): void;
   putEvents(
     args: PutEventsCommandInput,
     options: __HttpHandlerOptions,
@@ -2043,7 +2232,10 @@ export interface Pinpoint {
     args: PutEventStreamCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutEventStreamCommandOutput>;
-  putEventStream(args: PutEventStreamCommandInput, cb: (err: any, data?: PutEventStreamCommandOutput) => void): void;
+  putEventStream(
+    args: PutEventStreamCommandInput,
+    cb: (err: any, data?: PutEventStreamCommandOutput) => void
+  ): void;
   putEventStream(
     args: PutEventStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -2070,8 +2262,14 @@ export interface Pinpoint {
   /**
    * @see {@link SendMessagesCommand}
    */
-  sendMessages(args: SendMessagesCommandInput, options?: __HttpHandlerOptions): Promise<SendMessagesCommandOutput>;
-  sendMessages(args: SendMessagesCommandInput, cb: (err: any, data?: SendMessagesCommandOutput) => void): void;
+  sendMessages(
+    args: SendMessagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendMessagesCommandOutput>;
+  sendMessages(
+    args: SendMessagesCommandInput,
+    cb: (err: any, data?: SendMessagesCommandOutput) => void
+  ): void;
   sendMessages(
     args: SendMessagesCommandInput,
     options: __HttpHandlerOptions,
@@ -2085,7 +2283,10 @@ export interface Pinpoint {
     args: SendOTPMessageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<SendOTPMessageCommandOutput>;
-  sendOTPMessage(args: SendOTPMessageCommandInput, cb: (err: any, data?: SendOTPMessageCommandOutput) => void): void;
+  sendOTPMessage(
+    args: SendOTPMessageCommandInput,
+    cb: (err: any, data?: SendOTPMessageCommandOutput) => void
+  ): void;
   sendOTPMessage(
     args: SendOTPMessageCommandInput,
     options: __HttpHandlerOptions,
@@ -2112,8 +2313,14 @@ export interface Pinpoint {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2123,8 +2330,14 @@ export interface Pinpoint {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -2257,7 +2470,10 @@ export interface Pinpoint {
     args: UpdateCampaignCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateCampaignCommandOutput>;
-  updateCampaign(args: UpdateCampaignCommandInput, cb: (err: any, data?: UpdateCampaignCommandOutput) => void): void;
+  updateCampaign(
+    args: UpdateCampaignCommandInput,
+    cb: (err: any, data?: UpdateCampaignCommandOutput) => void
+  ): void;
   updateCampaign(
     args: UpdateCampaignCommandInput,
     options: __HttpHandlerOptions,
@@ -2305,7 +2521,10 @@ export interface Pinpoint {
     args: UpdateEndpointCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateEndpointCommandOutput>;
-  updateEndpoint(args: UpdateEndpointCommandInput, cb: (err: any, data?: UpdateEndpointCommandOutput) => void): void;
+  updateEndpoint(
+    args: UpdateEndpointCommandInput,
+    cb: (err: any, data?: UpdateEndpointCommandOutput) => void
+  ): void;
   updateEndpoint(
     args: UpdateEndpointCommandInput,
     options: __HttpHandlerOptions,
@@ -2366,8 +2585,14 @@ export interface Pinpoint {
   /**
    * @see {@link UpdateJourneyCommand}
    */
-  updateJourney(args: UpdateJourneyCommandInput, options?: __HttpHandlerOptions): Promise<UpdateJourneyCommandOutput>;
-  updateJourney(args: UpdateJourneyCommandInput, cb: (err: any, data?: UpdateJourneyCommandOutput) => void): void;
+  updateJourney(
+    args: UpdateJourneyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateJourneyCommandOutput>;
+  updateJourney(
+    args: UpdateJourneyCommandInput,
+    cb: (err: any, data?: UpdateJourneyCommandOutput) => void
+  ): void;
   updateJourney(
     args: UpdateJourneyCommandInput,
     options: __HttpHandlerOptions,
@@ -2428,8 +2653,14 @@ export interface Pinpoint {
   /**
    * @see {@link UpdateSegmentCommand}
    */
-  updateSegment(args: UpdateSegmentCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSegmentCommandOutput>;
-  updateSegment(args: UpdateSegmentCommandInput, cb: (err: any, data?: UpdateSegmentCommandOutput) => void): void;
+  updateSegment(
+    args: UpdateSegmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSegmentCommandOutput>;
+  updateSegment(
+    args: UpdateSegmentCommandInput,
+    cb: (err: any, data?: UpdateSegmentCommandOutput) => void
+  ): void;
   updateSegment(
     args: UpdateSegmentCommandInput,
     options: __HttpHandlerOptions,

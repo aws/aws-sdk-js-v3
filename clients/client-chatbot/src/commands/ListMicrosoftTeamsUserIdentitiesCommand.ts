@@ -27,9 +27,7 @@ export interface ListMicrosoftTeamsUserIdentitiesCommandInput extends ListMicros
  *
  * The output of {@link ListMicrosoftTeamsUserIdentitiesCommand}.
  */
-export interface ListMicrosoftTeamsUserIdentitiesCommandOutput
-  extends ListMicrosoftTeamsUserIdentitiesResult,
-    __MetadataBearer {}
+export interface ListMicrosoftTeamsUserIdentitiesCommandOutput extends ListMicrosoftTeamsUserIdentitiesResult, __MetadataBearer {}
 
 /**
  * <p>A list all Microsoft Teams user identities with a mapped role.</p>

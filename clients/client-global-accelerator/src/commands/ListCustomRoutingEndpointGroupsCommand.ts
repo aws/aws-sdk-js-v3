@@ -31,9 +31,7 @@ export interface ListCustomRoutingEndpointGroupsCommandInput extends ListCustomR
  *
  * The output of {@link ListCustomRoutingEndpointGroupsCommand}.
  */
-export interface ListCustomRoutingEndpointGroupsCommandOutput
-  extends ListCustomRoutingEndpointGroupsResponse,
-    __MetadataBearer {}
+export interface ListCustomRoutingEndpointGroupsCommandOutput extends ListCustomRoutingEndpointGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>List the endpoint groups that are associated with a listener for a custom routing accelerator. </p>

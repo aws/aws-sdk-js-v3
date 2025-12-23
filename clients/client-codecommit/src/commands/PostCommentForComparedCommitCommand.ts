@@ -24,9 +24,7 @@ export interface PostCommentForComparedCommitCommandInput extends PostCommentFor
  *
  * The output of {@link PostCommentForComparedCommitCommand}.
  */
-export interface PostCommentForComparedCommitCommandOutput
-  extends PostCommentForComparedCommitOutput,
-    __MetadataBearer {}
+export interface PostCommentForComparedCommitCommandOutput extends PostCommentForComparedCommitOutput, __MetadataBearer {}
 
 /**
  * <p>Posts a comment on the comparison between two commits.</p>

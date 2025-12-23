@@ -24,9 +24,7 @@ export interface ImportHypervisorConfigurationCommandInput extends ImportHypervi
  *
  * The output of {@link ImportHypervisorConfigurationCommand}.
  */
-export interface ImportHypervisorConfigurationCommandOutput
-  extends ImportHypervisorConfigurationOutput,
-    __MetadataBearer {}
+export interface ImportHypervisorConfigurationCommandOutput extends ImportHypervisorConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Connect to a hypervisor by importing its configuration.</p>

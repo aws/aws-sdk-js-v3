@@ -24,9 +24,7 @@ export interface DescribeIpamResourceDiscoveriesCommandInput extends DescribeIpa
  *
  * The output of {@link DescribeIpamResourceDiscoveriesCommand}.
  */
-export interface DescribeIpamResourceDiscoveriesCommandOutput
-  extends DescribeIpamResourceDiscoveriesResult,
-    __MetadataBearer {}
+export interface DescribeIpamResourceDiscoveriesCommandOutput extends DescribeIpamResourceDiscoveriesResult, __MetadataBearer {}
 
 /**
  * <p>Describes IPAM resource discoveries. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>

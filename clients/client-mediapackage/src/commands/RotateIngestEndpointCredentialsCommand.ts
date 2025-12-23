@@ -27,9 +27,7 @@ export interface RotateIngestEndpointCredentialsCommandInput extends RotateInges
  *
  * The output of {@link RotateIngestEndpointCredentialsCommand}.
  */
-export interface RotateIngestEndpointCredentialsCommandOutput
-  extends RotateIngestEndpointCredentialsResponse,
-    __MetadataBearer {}
+export interface RotateIngestEndpointCredentialsCommandOutput extends RotateIngestEndpointCredentialsResponse, __MetadataBearer {}
 
 /**
  * Rotate the IngestEndpoint's username and password, as specified by the IngestEndpoint's id.

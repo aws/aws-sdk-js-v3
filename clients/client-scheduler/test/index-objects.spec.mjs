@@ -51,6 +51,8 @@ import {
   ListTagsForResourceInput$,
   ListTagsForResourceOutput$,
   NetworkConfiguration$,
+  paginateListScheduleGroups,
+  paginateListSchedules,
   PlacementConstraint$,
   PlacementConstraintType,
   PlacementStrategy$,
@@ -63,11 +65,11 @@ import {
   SageMakerPipelineParameters$,
   ScheduleGroupState,
   ScheduleGroupSummary$,
-  ScheduleState,
-  ScheduleSummary$,
   Scheduler,
   SchedulerClient,
   SchedulerServiceException,
+  ScheduleState,
+  ScheduleSummary$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   SqsParameters$,
@@ -90,8 +92,6 @@ import {
   UpdateScheduleOutput$,
   ValidationException,
   ValidationException$,
-  paginateListScheduleGroups,
-  paginateListSchedules,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

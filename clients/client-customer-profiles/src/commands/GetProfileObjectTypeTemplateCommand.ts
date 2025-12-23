@@ -28,9 +28,7 @@ export interface GetProfileObjectTypeTemplateCommandInput extends GetProfileObje
  *
  * The output of {@link GetProfileObjectTypeTemplateCommand}.
  */
-export interface GetProfileObjectTypeTemplateCommandOutput
-  extends GetProfileObjectTypeTemplateResponse,
-    __MetadataBearer {}
+export interface GetProfileObjectTypeTemplateCommandOutput extends GetProfileObjectTypeTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the template information for a specific object type.</p>

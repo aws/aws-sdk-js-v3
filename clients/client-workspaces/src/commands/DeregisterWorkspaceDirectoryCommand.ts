@@ -24,9 +24,7 @@ export interface DeregisterWorkspaceDirectoryCommandInput extends DeregisterWork
  *
  * The output of {@link DeregisterWorkspaceDirectoryCommand}.
  */
-export interface DeregisterWorkspaceDirectoryCommandOutput
-  extends DeregisterWorkspaceDirectoryResult,
-    __MetadataBearer {}
+export interface DeregisterWorkspaceDirectoryCommandOutput extends DeregisterWorkspaceDirectoryResult, __MetadataBearer {}
 
 /**
  * <p>Deregisters the specified directory. This operation is asynchronous and returns before

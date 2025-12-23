@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { ServiceCatalogAppRegistryServiceException as __BaseException } from "./ServiceCatalogAppRegistryServiceException";
+import {
+  ServiceCatalogAppRegistryServiceException as __BaseException,
+} from "./ServiceCatalogAppRegistryServiceException";
 
 /**
  * <p>There was a conflict when processing the request (for example, a resource with the given

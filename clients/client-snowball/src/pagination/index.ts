@@ -1,6 +1,6 @@
-export * from "./DescribeAddressesPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeAddressesPaginator";
 export * from "./ListClusterJobsPaginator";
 export * from "./ListClustersPaginator";
 export * from "./ListCompatibleImagesPaginator";

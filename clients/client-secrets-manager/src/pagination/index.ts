@@ -1,5 +1,5 @@
-export * from "./BatchGetSecretValuePaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
-export * from "./ListSecretVersionIdsPaginator";
+export * from "./BatchGetSecretValuePaginator";
 export * from "./ListSecretsPaginator";
+export * from "./ListSecretVersionIdsPaginator";

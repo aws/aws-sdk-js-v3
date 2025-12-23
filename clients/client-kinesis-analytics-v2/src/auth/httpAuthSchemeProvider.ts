@@ -49,11 +49,9 @@ export const defaultKinesisAnalyticsV2HttpAuthSchemeParametersProvider = async (
 ): Promise<KinesisAnalyticsV2HttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -85,9 +83,7 @@ export interface KinesisAnalyticsV2HttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultKinesisAnalyticsV2HttpAuthSchemeProvider: KinesisAnalyticsV2HttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultKinesisAnalyticsV2HttpAuthSchemeProvider: KinesisAnalyticsV2HttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

@@ -24,9 +24,7 @@ export interface GetTrainedModelInferenceJobCommandInput extends GetTrainedModel
  *
  * The output of {@link GetTrainedModelInferenceJobCommand}.
  */
-export interface GetTrainedModelInferenceJobCommandOutput
-  extends GetTrainedModelInferenceJobResponse,
-    __MetadataBearer {}
+export interface GetTrainedModelInferenceJobCommandOutput extends GetTrainedModelInferenceJobResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a trained model inference job.</p>

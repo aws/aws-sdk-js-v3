@@ -28,9 +28,7 @@ export interface ListLinuxSubscriptionInstancesCommandInput extends ListLinuxSub
  *
  * The output of {@link ListLinuxSubscriptionInstancesCommand}.
  */
-export interface ListLinuxSubscriptionInstancesCommandOutput
-  extends ListLinuxSubscriptionInstancesResponse,
-    __MetadataBearer {}
+export interface ListLinuxSubscriptionInstancesCommandOutput extends ListLinuxSubscriptionInstancesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the running Amazon EC2 instances that were discovered with commercial Linux

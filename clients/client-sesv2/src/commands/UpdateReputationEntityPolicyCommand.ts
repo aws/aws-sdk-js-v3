@@ -24,9 +24,7 @@ export interface UpdateReputationEntityPolicyCommandInput extends UpdateReputati
  *
  * The output of {@link UpdateReputationEntityPolicyCommand}.
  */
-export interface UpdateReputationEntityPolicyCommandOutput
-  extends UpdateReputationEntityPolicyResponse,
-    __MetadataBearer {}
+export interface UpdateReputationEntityPolicyCommandOutput extends UpdateReputationEntityPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Update the reputation management policy for a reputation entity. The policy

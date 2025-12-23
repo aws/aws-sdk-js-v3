@@ -27,9 +27,7 @@ export interface UpdateColumnStatisticsForPartitionCommandInput extends UpdateCo
  *
  * The output of {@link UpdateColumnStatisticsForPartitionCommand}.
  */
-export interface UpdateColumnStatisticsForPartitionCommandOutput
-  extends UpdateColumnStatisticsForPartitionResponse,
-    __MetadataBearer {}
+export interface UpdateColumnStatisticsForPartitionCommandOutput extends UpdateColumnStatisticsForPartitionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates partition statistics of columns.</p>

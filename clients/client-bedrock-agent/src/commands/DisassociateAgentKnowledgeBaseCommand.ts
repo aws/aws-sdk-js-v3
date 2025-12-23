@@ -24,9 +24,7 @@ export interface DisassociateAgentKnowledgeBaseCommandInput extends Disassociate
  *
  * The output of {@link DisassociateAgentKnowledgeBaseCommand}.
  */
-export interface DisassociateAgentKnowledgeBaseCommandOutput
-  extends DisassociateAgentKnowledgeBaseResponse,
-    __MetadataBearer {}
+export interface DisassociateAgentKnowledgeBaseCommandOutput extends DisassociateAgentKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a knowledge base from an agent.</p>

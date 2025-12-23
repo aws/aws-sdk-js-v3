@@ -24,9 +24,7 @@ export interface GetProvisionedModelThroughputCommandInput extends GetProvisione
  *
  * The output of {@link GetProvisionedModelThroughputCommand}.
  */
-export interface GetProvisionedModelThroughputCommandOutput
-  extends GetProvisionedModelThroughputResponse,
-    __MetadataBearer {}
+export interface GetProvisionedModelThroughputCommandOutput extends GetProvisionedModelThroughputResponse, __MetadataBearer {}
 
 /**
  * <p>Returns details for a Provisioned Throughput. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>

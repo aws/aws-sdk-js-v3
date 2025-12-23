@@ -49,11 +49,9 @@ export const defaultConnectCampaignsV2HttpAuthSchemeParametersProvider = async (
 ): Promise<ConnectCampaignsV2HttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
-    region:
-      (await normalizeProvider(config.region)()) ||
-      (() => {
-        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
-      })(),
+    region: await normalizeProvider(config.region)() || (() => {
+      throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+    })(),
   };
 };
 
@@ -85,9 +83,7 @@ export interface ConnectCampaignsV2HttpAuthSchemeProvider
 /**
  * @internal
  */
-export const defaultConnectCampaignsV2HttpAuthSchemeProvider: ConnectCampaignsV2HttpAuthSchemeProvider = (
-  authParameters
-) => {
+export const defaultConnectCampaignsV2HttpAuthSchemeProvider: ConnectCampaignsV2HttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {

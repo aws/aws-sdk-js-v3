@@ -147,6 +147,12 @@ import {
   MetricMonitorConfig$,
   OnlineAbConfig$,
   OnlineAbDefinition$,
+  paginateListExperiments,
+  paginateListFeatures,
+  paginateListLaunches,
+  paginateListProjects,
+  paginateListSegmentReferences,
+  paginateListSegments,
   Project$,
   ProjectAppConfigResource$,
   ProjectAppConfigResourceConfig$,
@@ -235,12 +241,6 @@ import {
   Variation$,
   VariationConfig$,
   VariationValueType,
-  paginateListExperiments,
-  paginateListFeatures,
-  paginateListLaunches,
-  paginateListProjects,
-  paginateListSegmentReferences,
-  paginateListSegments,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

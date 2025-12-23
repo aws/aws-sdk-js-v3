@@ -31,9 +31,7 @@ export interface GetMessagingStreamingConfigurationsCommandInput extends GetMess
  *
  * The output of {@link GetMessagingStreamingConfigurationsCommand}.
  */
-export interface GetMessagingStreamingConfigurationsCommandOutput
-  extends GetMessagingStreamingConfigurationsResponse,
-    __MetadataBearer {}
+export interface GetMessagingStreamingConfigurationsCommandOutput extends GetMessagingStreamingConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the data streaming configuration for an <code>AppInstance</code>. For more information, see

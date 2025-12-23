@@ -31,9 +31,7 @@ export interface StartOpportunityFromEngagementTaskCommandInput extends StartOpp
  *
  * The output of {@link StartOpportunityFromEngagementTaskCommand}.
  */
-export interface StartOpportunityFromEngagementTaskCommandOutput
-  extends StartOpportunityFromEngagementTaskResponse,
-    __MetadataBearer {}
+export interface StartOpportunityFromEngagementTaskCommandOutput extends StartOpportunityFromEngagementTaskResponse, __MetadataBearer {}
 
 /**
  * <p>This action creates an opportunity from an existing engagement context. The task is asynchronous and orchestrates the process of converting engagement contextual information into a structured opportunity record within the partner's account.</p>

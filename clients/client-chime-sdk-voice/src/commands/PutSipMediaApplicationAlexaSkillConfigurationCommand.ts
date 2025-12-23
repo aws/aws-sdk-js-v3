@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutSipMediaApplicationAlexaSkillConfigurationCommand}.
  */
-export interface PutSipMediaApplicationAlexaSkillConfigurationCommandInput
-  extends PutSipMediaApplicationAlexaSkillConfigurationRequest {}
+export interface PutSipMediaApplicationAlexaSkillConfigurationCommandInput extends PutSipMediaApplicationAlexaSkillConfigurationRequest {}
 /**
  * @public
  *
  * The output of {@link PutSipMediaApplicationAlexaSkillConfigurationCommand}.
  */
-export interface PutSipMediaApplicationAlexaSkillConfigurationCommandOutput
-  extends PutSipMediaApplicationAlexaSkillConfigurationResponse,
-    __MetadataBearer {}
+export interface PutSipMediaApplicationAlexaSkillConfigurationCommandOutput extends PutSipMediaApplicationAlexaSkillConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the Alexa Skill configuration for the SIP media application.</p>

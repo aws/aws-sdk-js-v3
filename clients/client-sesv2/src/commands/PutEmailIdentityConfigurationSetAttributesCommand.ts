@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link PutEmailIdentityConfigurationSetAttributesCommand}.
  */
-export interface PutEmailIdentityConfigurationSetAttributesCommandInput
-  extends PutEmailIdentityConfigurationSetAttributesRequest {}
+export interface PutEmailIdentityConfigurationSetAttributesCommandInput extends PutEmailIdentityConfigurationSetAttributesRequest {}
 /**
  * @public
  *
  * The output of {@link PutEmailIdentityConfigurationSetAttributesCommand}.
  */
-export interface PutEmailIdentityConfigurationSetAttributesCommandOutput
-  extends PutEmailIdentityConfigurationSetAttributesResponse,
-    __MetadataBearer {}
+export interface PutEmailIdentityConfigurationSetAttributesCommandOutput extends PutEmailIdentityConfigurationSetAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Used to associate a configuration set with an email identity.</p>

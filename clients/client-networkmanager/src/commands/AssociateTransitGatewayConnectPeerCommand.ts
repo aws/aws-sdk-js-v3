@@ -31,9 +31,7 @@ export interface AssociateTransitGatewayConnectPeerCommandInput extends Associat
  *
  * The output of {@link AssociateTransitGatewayConnectPeerCommand}.
  */
-export interface AssociateTransitGatewayConnectPeerCommandOutput
-  extends AssociateTransitGatewayConnectPeerResponse,
-    __MetadataBearer {}
+export interface AssociateTransitGatewayConnectPeerCommandOutput extends AssociateTransitGatewayConnectPeerResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a transit gateway Connect peer with a device, and optionally, with a link. If you

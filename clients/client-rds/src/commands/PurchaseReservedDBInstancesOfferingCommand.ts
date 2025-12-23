@@ -27,9 +27,7 @@ export interface PurchaseReservedDBInstancesOfferingCommandInput extends Purchas
  *
  * The output of {@link PurchaseReservedDBInstancesOfferingCommand}.
  */
-export interface PurchaseReservedDBInstancesOfferingCommandOutput
-  extends PurchaseReservedDBInstancesOfferingResult,
-    __MetadataBearer {}
+export interface PurchaseReservedDBInstancesOfferingCommandOutput extends PurchaseReservedDBInstancesOfferingResult, __MetadataBearer {}
 
 /**
  * <p>Purchases a reserved DB instance offering.</p>

@@ -220,7 +220,7 @@ export class StartMedicalScribeStreamCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEventStreamPlugin(config),
       getWebSocketPlugin(config, {
-        headerPrefix: "x-amzn-transcribe-",
+        headerPrefix: 'x-amzn-transcribe-',
       }),
       getTranscribeStreamingPlugin(config),
     ];

@@ -24,9 +24,7 @@ export interface CreateProductRestEndpointPageCommandInput extends CreateProduct
  *
  * The output of {@link CreateProductRestEndpointPageCommand}.
  */
-export interface CreateProductRestEndpointPageCommandOutput
-  extends CreateProductRestEndpointPageResponse,
-    __MetadataBearer {}
+export interface CreateProductRestEndpointPageCommandOutput extends CreateProductRestEndpointPageResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a product REST endpoint page for a portal product.</p>

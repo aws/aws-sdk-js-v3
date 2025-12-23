@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link CreateAutomatedReasoningPolicyVersionCommand}.
  */
-export interface CreateAutomatedReasoningPolicyVersionCommandInput
-  extends CreateAutomatedReasoningPolicyVersionRequest {}
+export interface CreateAutomatedReasoningPolicyVersionCommandInput extends CreateAutomatedReasoningPolicyVersionRequest {}
 /**
  * @public
  *
  * The output of {@link CreateAutomatedReasoningPolicyVersionCommand}.
  */
-export interface CreateAutomatedReasoningPolicyVersionCommandOutput
-  extends CreateAutomatedReasoningPolicyVersionResponse,
-    __MetadataBearer {}
+export interface CreateAutomatedReasoningPolicyVersionCommandOutput extends CreateAutomatedReasoningPolicyVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new version of an existing Automated Reasoning policy. This allows you to iterate on your policy rules while maintaining previous versions for rollback or comparison purposes.</p>

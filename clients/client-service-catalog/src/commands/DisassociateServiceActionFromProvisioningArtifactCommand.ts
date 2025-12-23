@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link DisassociateServiceActionFromProvisioningArtifactCommand}.
  */
-export interface DisassociateServiceActionFromProvisioningArtifactCommandInput
-  extends DisassociateServiceActionFromProvisioningArtifactInput {}
+export interface DisassociateServiceActionFromProvisioningArtifactCommandInput extends DisassociateServiceActionFromProvisioningArtifactInput {}
 /**
  * @public
  *
  * The output of {@link DisassociateServiceActionFromProvisioningArtifactCommand}.
  */
-export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput
-  extends DisassociateServiceActionFromProvisioningArtifactOutput,
-    __MetadataBearer {}
+export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput extends DisassociateServiceActionFromProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified self-service action association from the specified provisioning artifact.</p>

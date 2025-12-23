@@ -24,9 +24,7 @@ export interface ListPackageVersionDependenciesCommandInput extends ListPackageV
  *
  * The output of {@link ListPackageVersionDependenciesCommand}.
  */
-export interface ListPackageVersionDependenciesCommandOutput
-  extends ListPackageVersionDependenciesResult,
-    __MetadataBearer {}
+export interface ListPackageVersionDependenciesCommandOutput extends ListPackageVersionDependenciesResult, __MetadataBearer {}
 
 /**
  * <p>

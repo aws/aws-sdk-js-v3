@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link GetAggregateConfigRuleComplianceSummaryCommand}.
  */
-export interface GetAggregateConfigRuleComplianceSummaryCommandInput
-  extends GetAggregateConfigRuleComplianceSummaryRequest {}
+export interface GetAggregateConfigRuleComplianceSummaryCommandInput extends GetAggregateConfigRuleComplianceSummaryRequest {}
 /**
  * @public
  *
  * The output of {@link GetAggregateConfigRuleComplianceSummaryCommand}.
  */
-export interface GetAggregateConfigRuleComplianceSummaryCommandOutput
-  extends GetAggregateConfigRuleComplianceSummaryResponse,
-    __MetadataBearer {}
+export interface GetAggregateConfigRuleComplianceSummaryCommandOutput extends GetAggregateConfigRuleComplianceSummaryResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the number of compliant and noncompliant rules for one

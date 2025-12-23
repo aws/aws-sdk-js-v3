@@ -8,7 +8,6 @@ import {
   PositioningConfigStatus,
   PositionResourceType,
 } from "./enums";
-
 import {
   type ConnectionStatusEventConfiguration,
   type ConnectionStatusResourceTypeEventConfiguration,

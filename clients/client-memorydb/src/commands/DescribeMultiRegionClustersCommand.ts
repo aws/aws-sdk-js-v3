@@ -24,9 +24,7 @@ export interface DescribeMultiRegionClustersCommandInput extends DescribeMultiRe
  *
  * The output of {@link DescribeMultiRegionClustersCommand}.
  */
-export interface DescribeMultiRegionClustersCommandOutput
-  extends DescribeMultiRegionClustersResponse,
-    __MetadataBearer {}
+export interface DescribeMultiRegionClustersCommandOutput extends DescribeMultiRegionClustersResponse, __MetadataBearer {}
 
 /**
  * <p>Returns details about one or more multi-Region clusters.</p>

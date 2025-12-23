@@ -24,9 +24,7 @@ export interface RemoveThingFromBillingGroupCommandInput extends RemoveThingFrom
  *
  * The output of {@link RemoveThingFromBillingGroupCommand}.
  */
-export interface RemoveThingFromBillingGroupCommandOutput
-  extends RemoveThingFromBillingGroupResponse,
-    __MetadataBearer {}
+export interface RemoveThingFromBillingGroupCommandOutput extends RemoveThingFromBillingGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the given thing from the billing group.</p>

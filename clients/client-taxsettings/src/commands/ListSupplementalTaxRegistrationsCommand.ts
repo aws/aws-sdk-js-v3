@@ -27,9 +27,7 @@ export interface ListSupplementalTaxRegistrationsCommandInput extends ListSupple
  *
  * The output of {@link ListSupplementalTaxRegistrationsCommand}.
  */
-export interface ListSupplementalTaxRegistrationsCommandOutput
-  extends ListSupplementalTaxRegistrationsResponse,
-    __MetadataBearer {}
+export interface ListSupplementalTaxRegistrationsCommandOutput extends ListSupplementalTaxRegistrationsResponse, __MetadataBearer {}
 
 /**
  * <p>

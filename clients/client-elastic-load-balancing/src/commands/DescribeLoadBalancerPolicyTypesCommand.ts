@@ -28,9 +28,7 @@ export interface DescribeLoadBalancerPolicyTypesCommandInput extends DescribeLoa
  *
  * The output of {@link DescribeLoadBalancerPolicyTypesCommand}.
  */
-export interface DescribeLoadBalancerPolicyTypesCommandOutput
-  extends DescribeLoadBalancerPolicyTypesOutput,
-    __MetadataBearer {}
+export interface DescribeLoadBalancerPolicyTypesCommandOutput extends DescribeLoadBalancerPolicyTypesOutput, __MetadataBearer {}
 
 /**
  * <p>Describes the specified load balancer policy types or all load balancer policy types.</p>

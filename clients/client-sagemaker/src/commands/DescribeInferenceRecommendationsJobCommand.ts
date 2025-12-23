@@ -27,9 +27,7 @@ export interface DescribeInferenceRecommendationsJobCommandInput extends Describ
  *
  * The output of {@link DescribeInferenceRecommendationsJobCommand}.
  */
-export interface DescribeInferenceRecommendationsJobCommandOutput
-  extends DescribeInferenceRecommendationsJobResponse,
-    __MetadataBearer {}
+export interface DescribeInferenceRecommendationsJobCommandOutput extends DescribeInferenceRecommendationsJobResponse, __MetadataBearer {}
 
 /**
  * <p>Provides the results of the Inference Recommender job. One or more recommendation jobs are returned.</p>

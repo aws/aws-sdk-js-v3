@@ -11,10 +11,8 @@ it for model training either alone or combined with historical data. For more in
 <a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-item-interaction-events.html">Recording item interaction events</a>.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-personalize-events
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-personalize-events`
 - `yarn add @aws-sdk/client-personalize-events`
 - `pnpm add @aws-sdk/client-personalize-events`
@@ -50,9 +48,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new PersonalizeEventsClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new PutActionsCommand(params);
 ```
 
@@ -211,7 +207,6 @@ PutActionInteractions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize-events/command/PutActionInteractionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutActionInteractionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutActionInteractionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -219,7 +214,6 @@ PutActions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize-events/command/PutActionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutActionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutActionsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -227,7 +221,6 @@ PutEvents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize-events/command/PutEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutEventsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -235,7 +228,6 @@ PutItems
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize-events/command/PutItemsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutItemsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutItemsCommandOutput/)
-
 </details>
 <details>
 <summary>
@@ -243,5 +235,4 @@ PutUsers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize-events/command/PutUsersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutUsersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutUsersCommandOutput/)
-
 </details>

@@ -27,9 +27,7 @@ export interface DisableOrganizationAdminAccountCommandInput extends DisableOrga
  *
  * The output of {@link DisableOrganizationAdminAccountCommand}.
  */
-export interface DisableOrganizationAdminAccountCommandOutput
-  extends DisableOrganizationAdminAccountResponse,
-    __MetadataBearer {}
+export interface DisableOrganizationAdminAccountCommandOutput extends DisableOrganizationAdminAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Disables an account as the delegated Amazon Macie administrator account for an organization in Organizations.</p>

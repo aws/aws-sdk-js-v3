@@ -24,9 +24,7 @@ export interface ListPendingMaintenanceActionsCommandInput extends ListPendingMa
  *
  * The output of {@link ListPendingMaintenanceActionsCommand}.
  */
-export interface ListPendingMaintenanceActionsCommandOutput
-  extends ListPendingMaintenanceActionsOutput,
-    __MetadataBearer {}
+export interface ListPendingMaintenanceActionsCommandOutput extends ListPendingMaintenanceActionsOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of all maintenance actions that are pending.</p>

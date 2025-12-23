@@ -24,9 +24,7 @@ export interface UpdateProductRestEndpointPageCommandInput extends UpdateProduct
  *
  * The output of {@link UpdateProductRestEndpointPageCommand}.
  */
-export interface UpdateProductRestEndpointPageCommandOutput
-  extends UpdateProductRestEndpointPageResponse,
-    __MetadataBearer {}
+export interface UpdateProductRestEndpointPageCommandOutput extends UpdateProductRestEndpointPageResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a product REST endpoint page.</p>

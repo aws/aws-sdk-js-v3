@@ -31,9 +31,7 @@ export interface UpdateTelemetryRuleForOrganizationCommandInput extends UpdateTe
  *
  * The output of {@link UpdateTelemetryRuleForOrganizationCommand}.
  */
-export interface UpdateTelemetryRuleForOrganizationCommandOutput
-  extends UpdateTelemetryRuleForOrganizationOutput,
-    __MetadataBearer {}
+export interface UpdateTelemetryRuleForOrganizationCommandOutput extends UpdateTelemetryRuleForOrganizationOutput, __MetadataBearer {}
 
 /**
  * <p> Updates an existing telemetry rule that applies across an Amazon Web Services Organization. This operation can only be called by the organization's management account or a delegated administrator account. </p>

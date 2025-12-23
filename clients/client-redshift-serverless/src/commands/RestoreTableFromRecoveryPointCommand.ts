@@ -28,9 +28,7 @@ export interface RestoreTableFromRecoveryPointCommandInput extends RestoreTableF
  *
  * The output of {@link RestoreTableFromRecoveryPointCommand}.
  */
-export interface RestoreTableFromRecoveryPointCommandOutput
-  extends RestoreTableFromRecoveryPointResponse,
-    __MetadataBearer {}
+export interface RestoreTableFromRecoveryPointCommandOutput extends RestoreTableFromRecoveryPointResponse, __MetadataBearer {}
 
 /**
  * <p>Restores a table from a recovery point to your Amazon Redshift Serverless instance. You can't use this operation to restore tables with interleaved sort keys.</p>

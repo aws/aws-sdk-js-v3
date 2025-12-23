@@ -1280,7 +1280,10 @@ export interface S3AccessPointConfiguration {
  * <p>You specify each grantee as a type-value pair using one of these types. You can specify only one type of grantee. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAcl.html">PutBucketAcl</a>.</p>
  * @public
  */
-export type AclGrantee = AclGrantee.IdMember | AclGrantee.UriMember | AclGrantee.$UnknownMember;
+export type AclGrantee =
+  | AclGrantee.IdMember
+  | AclGrantee.UriMember
+  | AclGrantee.$UnknownMember;
 
 /**
  * @public
@@ -2307,7 +2310,9 @@ export interface UnusedPermissionsRecommendedStep {
  * <p>Contains information about a recommended step for an unused access analyzer finding.</p>
  * @public
  */
-export type RecommendedStep = RecommendedStep.UnusedPermissionsRecommendedStepMember | RecommendedStep.$UnknownMember;
+export type RecommendedStep =
+  | RecommendedStep.UnusedPermissionsRecommendedStepMember
+  | RecommendedStep.$UnknownMember;
 
 /**
  * @public

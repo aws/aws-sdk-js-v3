@@ -24,9 +24,7 @@ export interface StartWirelessDeviceImportTaskCommandInput extends StartWireless
  *
  * The output of {@link StartWirelessDeviceImportTaskCommand}.
  */
-export interface StartWirelessDeviceImportTaskCommandOutput
-  extends StartWirelessDeviceImportTaskResponse,
-    __MetadataBearer {}
+export interface StartWirelessDeviceImportTaskCommandOutput extends StartWirelessDeviceImportTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Start import task for provisioning Sidewalk devices in bulk using an S3 CSV

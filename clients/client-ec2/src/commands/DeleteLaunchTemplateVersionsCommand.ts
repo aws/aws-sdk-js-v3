@@ -24,9 +24,7 @@ export interface DeleteLaunchTemplateVersionsCommandInput extends DeleteLaunchTe
  *
  * The output of {@link DeleteLaunchTemplateVersionsCommand}.
  */
-export interface DeleteLaunchTemplateVersionsCommandOutput
-  extends DeleteLaunchTemplateVersionsResult,
-    __MetadataBearer {}
+export interface DeleteLaunchTemplateVersionsCommandOutput extends DeleteLaunchTemplateVersionsResult, __MetadataBearer {}
 
 /**
  * <p>Deletes one or more versions of a launch template.</p>

@@ -24,9 +24,7 @@ export interface AssociatePhoneNumberWithUserCommandInput extends AssociatePhone
  *
  * The output of {@link AssociatePhoneNumberWithUserCommand}.
  */
-export interface AssociatePhoneNumberWithUserCommandOutput
-  extends AssociatePhoneNumberWithUserResponse,
-    __MetadataBearer {}
+export interface AssociatePhoneNumberWithUserCommandOutput extends AssociatePhoneNumberWithUserResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a phone number with the specified Amazon Chime user.</p>

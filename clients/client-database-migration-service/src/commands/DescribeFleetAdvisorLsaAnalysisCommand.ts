@@ -31,9 +31,7 @@ export interface DescribeFleetAdvisorLsaAnalysisCommandInput extends DescribeFle
  *
  * The output of {@link DescribeFleetAdvisorLsaAnalysisCommand}.
  */
-export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
-  extends DescribeFleetAdvisorLsaAnalysisResponse,
-    __MetadataBearer {}
+export interface DescribeFleetAdvisorLsaAnalysisCommandOutput extends DescribeFleetAdvisorLsaAnalysisResponse, __MetadataBearer {}
 
 /**
  * <important>

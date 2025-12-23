@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link ListConfiguredAudienceModelAssociationsCommand}.
  */
-export interface ListConfiguredAudienceModelAssociationsCommandInput
-  extends ListConfiguredAudienceModelAssociationsInput {}
+export interface ListConfiguredAudienceModelAssociationsCommandInput extends ListConfiguredAudienceModelAssociationsInput {}
 /**
  * @public
  *
  * The output of {@link ListConfiguredAudienceModelAssociationsCommand}.
  */
-export interface ListConfiguredAudienceModelAssociationsCommandOutput
-  extends ListConfiguredAudienceModelAssociationsOutput,
-    __MetadataBearer {}
+export interface ListConfiguredAudienceModelAssociationsCommandOutput extends ListConfiguredAudienceModelAssociationsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists information about requested configured audience model associations.</p>

@@ -4,11 +4,11 @@ import packageInfo from "../package.json"; // eslint-disable-line
 
 import {
   AwsSdkSigV4Signer,
-  NODE_AUTH_SCHEME_PREFERENCE_OPTIONS,
   emitWarningIfUnsupportedVersion as awsCheckVersion,
+  NODE_AUTH_SCHEME_PREFERENCE_OPTIONS,
 } from "@aws-sdk/core";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
-import { NODE_APP_ID_CONFIG_OPTIONS, createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-node";
+import { createDefaultUserAgentProvider, NODE_APP_ID_CONFIG_OPTIONS } from "@aws-sdk/util-user-agent-node";
 import {
   NODE_REGION_CONFIG_FILE_OPTIONS,
   NODE_REGION_CONFIG_OPTIONS,
@@ -47,19 +47,15 @@ export const getRuntimeConfig = (config: STSClientConfig) => {
     ...config,
     runtime: "node",
     defaultsMode,
-    authSchemePreference:
-      config?.authSchemePreference ?? loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, loaderConfig),
+    authSchemePreference: config?.authSchemePreference ?? loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, loaderConfig),
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,
-    defaultUserAgentProvider:
-      config?.defaultUserAgentProvider ??
-      createDefaultUserAgentProvider({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
+    defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
     httpAuthSchemes: config?.httpAuthSchemes ?? [
       {
         schemeId: "aws.auth#sigv4",
         identityProvider: (ipc: IdentityProviderConfig) =>
-          ipc.getIdentityProvider("aws.auth#sigv4") ||
-          (async (idProps) => await credentialDefaultProvider(idProps?.__config || {})()),
+          ipc.getIdentityProvider("aws.auth#sigv4") || (async (idProps) => await credentialDefaultProvider(idProps?.__config || {})()),
         signer: new AwsSdkSigV4Signer(),
       },
       {
@@ -70,9 +66,10 @@ export const getRuntimeConfig = (config: STSClientConfig) => {
       },
     ],
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
-    region:
-      config?.region ??
-      loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, { ...NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig }),
+    region: config?.region ?? loadNodeConfig(
+        NODE_REGION_CONFIG_OPTIONS,
+        {...NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig}
+    ),
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
     retryMode:
       config?.retryMode ??
@@ -85,8 +82,7 @@ export const getRuntimeConfig = (config: STSClientConfig) => {
       ),
     sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     streamCollector: config?.streamCollector ?? streamCollector,
-    useDualstackEndpoint:
-      config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
+    useDualstackEndpoint: config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
     useFipsEndpoint: config?.useFipsEndpoint ?? loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, loaderConfig),
     userAgentAppId: config?.userAgentAppId ?? loadNodeConfig(NODE_APP_ID_CONFIG_OPTIONS, loaderConfig),
   };

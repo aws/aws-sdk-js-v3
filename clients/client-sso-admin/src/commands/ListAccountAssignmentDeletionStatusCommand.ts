@@ -27,9 +27,7 @@ export interface ListAccountAssignmentDeletionStatusCommandInput extends ListAcc
  *
  * The output of {@link ListAccountAssignmentDeletionStatusCommand}.
  */
-export interface ListAccountAssignmentDeletionStatusCommandOutput
-  extends ListAccountAssignmentDeletionStatusResponse,
-    __MetadataBearer {}
+export interface ListAccountAssignmentDeletionStatusCommandOutput extends ListAccountAssignmentDeletionStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the status of the Amazon Web Services account assignment deletion requests for a specified IAM Identity Center instance.</p>

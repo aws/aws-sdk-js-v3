@@ -24,9 +24,7 @@ export interface ListResourceProfileDetectionsCommandInput extends ListResourceP
  *
  * The output of {@link ListResourceProfileDetectionsCommand}.
  */
-export interface ListResourceProfileDetectionsCommandOutput
-  extends ListResourceProfileDetectionsResponse,
-    __MetadataBearer {}
+export interface ListResourceProfileDetectionsCommandOutput extends ListResourceProfileDetectionsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the types and amount of sensitive data that Amazon Macie found in an S3 bucket.</p>

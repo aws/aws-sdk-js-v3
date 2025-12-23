@@ -27,9 +27,7 @@ export interface ListAggregateDiscoveredResourcesCommandInput extends ListAggreg
  *
  * The output of {@link ListAggregateDiscoveredResourcesCommand}.
  */
-export interface ListAggregateDiscoveredResourcesCommandOutput
-  extends ListAggregateDiscoveredResourcesResponse,
-    __MetadataBearer {}
+export interface ListAggregateDiscoveredResourcesCommandOutput extends ListAggregateDiscoveredResourcesResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts a resource type and returns a list of resource identifiers that are aggregated for a specific resource type across accounts and regions.

@@ -24,9 +24,7 @@ export interface UpdateCloudExadataInfrastructureCommandInput extends UpdateClou
  *
  * The output of {@link UpdateCloudExadataInfrastructureCommand}.
  */
-export interface UpdateCloudExadataInfrastructureCommandOutput
-  extends UpdateCloudExadataInfrastructureOutput,
-    __MetadataBearer {}
+export interface UpdateCloudExadataInfrastructureCommandOutput extends UpdateCloudExadataInfrastructureOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the properties of an Exadata infrastructure resource.</p>

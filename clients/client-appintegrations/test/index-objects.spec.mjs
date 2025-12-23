@@ -98,6 +98,12 @@ import {
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
   OnDemandConfiguration$,
+  paginateListApplicationAssociations,
+  paginateListApplications,
+  paginateListDataIntegrationAssociations,
+  paginateListDataIntegrations,
+  paginateListEventIntegrationAssociations,
+  paginateListEventIntegrations,
   Publication$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
@@ -133,12 +139,6 @@ import {
   UpdateEventIntegrationCommand,
   UpdateEventIntegrationRequest$,
   UpdateEventIntegrationResponse$,
-  paginateListApplicationAssociations,
-  paginateListApplications,
-  paginateListDataIntegrationAssociations,
-  paginateListDataIntegrations,
-  paginateListEventIntegrationAssociations,
-  paginateListEventIntegrations,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

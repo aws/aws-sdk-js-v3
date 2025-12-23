@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link PutProtectConfigurationRuleSetNumberOverrideCommand}.
  */
-export interface PutProtectConfigurationRuleSetNumberOverrideCommandInput
-  extends PutProtectConfigurationRuleSetNumberOverrideRequest {}
+export interface PutProtectConfigurationRuleSetNumberOverrideCommandInput extends PutProtectConfigurationRuleSetNumberOverrideRequest {}
 /**
  * @public
  *
  * The output of {@link PutProtectConfigurationRuleSetNumberOverrideCommand}.
  */
-export interface PutProtectConfigurationRuleSetNumberOverrideCommandOutput
-  extends PutProtectConfigurationRuleSetNumberOverrideResult,
-    __MetadataBearer {}
+export interface PutProtectConfigurationRuleSetNumberOverrideCommandOutput extends PutProtectConfigurationRuleSetNumberOverrideResult, __MetadataBearer {}
 
 /**
  * <p>Create or update a phone number rule override and associate it with a protect configuration.</p>

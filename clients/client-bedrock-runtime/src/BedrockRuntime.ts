@@ -63,7 +63,10 @@ export interface BedrockRuntime {
     args: ApplyGuardrailCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ApplyGuardrailCommandOutput>;
-  applyGuardrail(args: ApplyGuardrailCommandInput, cb: (err: any, data?: ApplyGuardrailCommandOutput) => void): void;
+  applyGuardrail(
+    args: ApplyGuardrailCommandInput,
+    cb: (err: any, data?: ApplyGuardrailCommandOutput) => void
+  ): void;
   applyGuardrail(
     args: ApplyGuardrailCommandInput,
     options: __HttpHandlerOptions,
@@ -73,8 +76,14 @@ export interface BedrockRuntime {
   /**
    * @see {@link ConverseCommand}
    */
-  converse(args: ConverseCommandInput, options?: __HttpHandlerOptions): Promise<ConverseCommandOutput>;
-  converse(args: ConverseCommandInput, cb: (err: any, data?: ConverseCommandOutput) => void): void;
+  converse(
+    args: ConverseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ConverseCommandOutput>;
+  converse(
+    args: ConverseCommandInput,
+    cb: (err: any, data?: ConverseCommandOutput) => void
+  ): void;
   converse(
     args: ConverseCommandInput,
     options: __HttpHandlerOptions,
@@ -88,7 +97,10 @@ export interface BedrockRuntime {
     args: ConverseStreamCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ConverseStreamCommandOutput>;
-  converseStream(args: ConverseStreamCommandInput, cb: (err: any, data?: ConverseStreamCommandOutput) => void): void;
+  converseStream(
+    args: ConverseStreamCommandInput,
+    cb: (err: any, data?: ConverseStreamCommandOutput) => void
+  ): void;
   converseStream(
     args: ConverseStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -98,8 +110,14 @@ export interface BedrockRuntime {
   /**
    * @see {@link CountTokensCommand}
    */
-  countTokens(args: CountTokensCommandInput, options?: __HttpHandlerOptions): Promise<CountTokensCommandOutput>;
-  countTokens(args: CountTokensCommandInput, cb: (err: any, data?: CountTokensCommandOutput) => void): void;
+  countTokens(
+    args: CountTokensCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CountTokensCommandOutput>;
+  countTokens(
+    args: CountTokensCommandInput,
+    cb: (err: any, data?: CountTokensCommandOutput) => void
+  ): void;
   countTokens(
     args: CountTokensCommandInput,
     options: __HttpHandlerOptions,
@@ -113,7 +131,10 @@ export interface BedrockRuntime {
     args: GetAsyncInvokeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAsyncInvokeCommandOutput>;
-  getAsyncInvoke(args: GetAsyncInvokeCommandInput, cb: (err: any, data?: GetAsyncInvokeCommandOutput) => void): void;
+  getAsyncInvoke(
+    args: GetAsyncInvokeCommandInput,
+    cb: (err: any, data?: GetAsyncInvokeCommandOutput) => void
+  ): void;
   getAsyncInvoke(
     args: GetAsyncInvokeCommandInput,
     options: __HttpHandlerOptions,
@@ -123,8 +144,14 @@ export interface BedrockRuntime {
   /**
    * @see {@link InvokeModelCommand}
    */
-  invokeModel(args: InvokeModelCommandInput, options?: __HttpHandlerOptions): Promise<InvokeModelCommandOutput>;
-  invokeModel(args: InvokeModelCommandInput, cb: (err: any, data?: InvokeModelCommandOutput) => void): void;
+  invokeModel(
+    args: InvokeModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InvokeModelCommandOutput>;
+  invokeModel(
+    args: InvokeModelCommandInput,
+    cb: (err: any, data?: InvokeModelCommandOutput) => void
+  ): void;
   invokeModel(
     args: InvokeModelCommandInput,
     options: __HttpHandlerOptions,

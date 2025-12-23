@@ -26,6 +26,7 @@ import {
   ListKeysRequest$,
   ListKeysResponse$,
   ListKeysResponseListItem$,
+  paginateListKeys,
   PutKey$,
   PutKeyCommand,
   PutKeyRequest$,
@@ -41,7 +42,6 @@ import {
   UpdateKeysResponse$,
   ValidationException,
   ValidationException$,
-  paginateListKeys,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

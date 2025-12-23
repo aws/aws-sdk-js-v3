@@ -24,9 +24,7 @@ export interface GetDistributionLatestCacheResetCommandInput extends GetDistribu
  *
  * The output of {@link GetDistributionLatestCacheResetCommand}.
  */
-export interface GetDistributionLatestCacheResetCommandOutput
-  extends GetDistributionLatestCacheResetResult,
-    __MetadataBearer {}
+export interface GetDistributionLatestCacheResetCommandOutput extends GetDistributionLatestCacheResetResult, __MetadataBearer {}
 
 /**
  * <p>Returns the timestamp and status of the last cache reset of a specific Amazon Lightsail

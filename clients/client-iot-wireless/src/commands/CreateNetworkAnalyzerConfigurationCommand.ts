@@ -27,9 +27,7 @@ export interface CreateNetworkAnalyzerConfigurationCommandInput extends CreateNe
  *
  * The output of {@link CreateNetworkAnalyzerConfigurationCommand}.
  */
-export interface CreateNetworkAnalyzerConfigurationCommandOutput
-  extends CreateNetworkAnalyzerConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateNetworkAnalyzerConfigurationCommandOutput extends CreateNetworkAnalyzerConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new network analyzer configuration.</p>

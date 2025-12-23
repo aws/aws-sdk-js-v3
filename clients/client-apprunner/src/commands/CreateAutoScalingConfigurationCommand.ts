@@ -24,9 +24,7 @@ export interface CreateAutoScalingConfigurationCommandInput extends CreateAutoSc
  *
  * The output of {@link CreateAutoScalingConfigurationCommand}.
  */
-export interface CreateAutoScalingConfigurationCommandOutput
-  extends CreateAutoScalingConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateAutoScalingConfigurationCommandOutput extends CreateAutoScalingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Create an App Runner automatic scaling configuration resource. App Runner requires this resource when you create or update App Runner services and you require

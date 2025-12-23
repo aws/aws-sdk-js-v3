@@ -24,9 +24,7 @@ export interface DeleteVerifiedAccessEndpointCommandInput extends DeleteVerified
  *
  * The output of {@link DeleteVerifiedAccessEndpointCommand}.
  */
-export interface DeleteVerifiedAccessEndpointCommandOutput
-  extends DeleteVerifiedAccessEndpointResult,
-    __MetadataBearer {}
+export interface DeleteVerifiedAccessEndpointCommandOutput extends DeleteVerifiedAccessEndpointResult, __MetadataBearer {}
 
 /**
  * <p>Delete an Amazon Web Services Verified Access endpoint.</p>

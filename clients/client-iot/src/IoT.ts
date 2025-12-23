@@ -1662,8 +1662,14 @@ export interface IoT {
   /**
    * @see {@link AttachPolicyCommand}
    */
-  attachPolicy(args: AttachPolicyCommandInput, options?: __HttpHandlerOptions): Promise<AttachPolicyCommandOutput>;
-  attachPolicy(args: AttachPolicyCommandInput, cb: (err: any, data?: AttachPolicyCommandOutput) => void): void;
+  attachPolicy(
+    args: AttachPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AttachPolicyCommandOutput>;
+  attachPolicy(
+    args: AttachPolicyCommandInput,
+    cb: (err: any, data?: AttachPolicyCommandOutput) => void
+  ): void;
   attachPolicy(
     args: AttachPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -1745,7 +1751,10 @@ export interface IoT {
     args: CancelAuditTaskCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CancelAuditTaskCommandOutput>;
-  cancelAuditTask(args: CancelAuditTaskCommandInput, cb: (err: any, data?: CancelAuditTaskCommandOutput) => void): void;
+  cancelAuditTask(
+    args: CancelAuditTaskCommandInput,
+    cb: (err: any, data?: CancelAuditTaskCommandOutput) => void
+  ): void;
   cancelAuditTask(
     args: CancelAuditTaskCommandInput,
     options: __HttpHandlerOptions,
@@ -1789,8 +1798,14 @@ export interface IoT {
   /**
    * @see {@link CancelJobCommand}
    */
-  cancelJob(args: CancelJobCommandInput, options?: __HttpHandlerOptions): Promise<CancelJobCommandOutput>;
-  cancelJob(args: CancelJobCommandInput, cb: (err: any, data?: CancelJobCommandOutput) => void): void;
+  cancelJob(
+    args: CancelJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelJobCommandOutput>;
+  cancelJob(
+    args: CancelJobCommandInput,
+    cb: (err: any, data?: CancelJobCommandOutput) => void
+  ): void;
   cancelJob(
     args: CancelJobCommandInput,
     options: __HttpHandlerOptions,
@@ -1937,8 +1952,14 @@ export interface IoT {
   /**
    * @see {@link CreateCommandCommand}
    */
-  createCommand(args: CreateCommandCommandInput, options?: __HttpHandlerOptions): Promise<CreateCommandCommandOutput>;
-  createCommand(args: CreateCommandCommandInput, cb: (err: any, data?: CreateCommandCommandOutput) => void): void;
+  createCommand(
+    args: CreateCommandCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCommandCommandOutput>;
+  createCommand(
+    args: CreateCommandCommandInput,
+    cb: (err: any, data?: CreateCommandCommandOutput) => void
+  ): void;
   createCommand(
     args: CreateCommandCommandInput,
     options: __HttpHandlerOptions,
@@ -1969,7 +1990,10 @@ export interface IoT {
     args: CreateDimensionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDimensionCommandOutput>;
-  createDimension(args: CreateDimensionCommandInput, cb: (err: any, data?: CreateDimensionCommandOutput) => void): void;
+  createDimension(
+    args: CreateDimensionCommandInput,
+    cb: (err: any, data?: CreateDimensionCommandOutput) => void
+  ): void;
   createDimension(
     args: CreateDimensionCommandInput,
     options: __HttpHandlerOptions,
@@ -2030,8 +2054,14 @@ export interface IoT {
   /**
    * @see {@link CreateJobCommand}
    */
-  createJob(args: CreateJobCommandInput, options?: __HttpHandlerOptions): Promise<CreateJobCommandOutput>;
-  createJob(args: CreateJobCommandInput, cb: (err: any, data?: CreateJobCommandOutput) => void): void;
+  createJob(
+    args: CreateJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateJobCommandOutput>;
+  createJob(
+    args: CreateJobCommandInput,
+    cb: (err: any, data?: CreateJobCommandOutput) => void
+  ): void;
   createJob(
     args: CreateJobCommandInput,
     options: __HttpHandlerOptions,
@@ -2097,7 +2127,10 @@ export interface IoT {
     args: CreateOTAUpdateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateOTAUpdateCommandOutput>;
-  createOTAUpdate(args: CreateOTAUpdateCommandInput, cb: (err: any, data?: CreateOTAUpdateCommandOutput) => void): void;
+  createOTAUpdate(
+    args: CreateOTAUpdateCommandInput,
+    cb: (err: any, data?: CreateOTAUpdateCommandOutput) => void
+  ): void;
   createOTAUpdate(
     args: CreateOTAUpdateCommandInput,
     options: __HttpHandlerOptions,
@@ -2107,8 +2140,14 @@ export interface IoT {
   /**
    * @see {@link CreatePackageCommand}
    */
-  createPackage(args: CreatePackageCommandInput, options?: __HttpHandlerOptions): Promise<CreatePackageCommandOutput>;
-  createPackage(args: CreatePackageCommandInput, cb: (err: any, data?: CreatePackageCommandOutput) => void): void;
+  createPackage(
+    args: CreatePackageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePackageCommandOutput>;
+  createPackage(
+    args: CreatePackageCommandInput,
+    cb: (err: any, data?: CreatePackageCommandOutput) => void
+  ): void;
   createPackage(
     args: CreatePackageCommandInput,
     options: __HttpHandlerOptions,
@@ -2135,8 +2174,14 @@ export interface IoT {
   /**
    * @see {@link CreatePolicyCommand}
    */
-  createPolicy(args: CreatePolicyCommandInput, options?: __HttpHandlerOptions): Promise<CreatePolicyCommandOutput>;
-  createPolicy(args: CreatePolicyCommandInput, cb: (err: any, data?: CreatePolicyCommandOutput) => void): void;
+  createPolicy(
+    args: CreatePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePolicyCommandOutput>;
+  createPolicy(
+    args: CreatePolicyCommandInput,
+    cb: (err: any, data?: CreatePolicyCommandOutput) => void
+  ): void;
   createPolicy(
     args: CreatePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -2218,7 +2263,10 @@ export interface IoT {
     args: CreateRoleAliasCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateRoleAliasCommandOutput>;
-  createRoleAlias(args: CreateRoleAliasCommandInput, cb: (err: any, data?: CreateRoleAliasCommandOutput) => void): void;
+  createRoleAlias(
+    args: CreateRoleAliasCommandInput,
+    cb: (err: any, data?: CreateRoleAliasCommandOutput) => void
+  ): void;
   createRoleAlias(
     args: CreateRoleAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -2262,8 +2310,14 @@ export interface IoT {
   /**
    * @see {@link CreateStreamCommand}
    */
-  createStream(args: CreateStreamCommandInput, options?: __HttpHandlerOptions): Promise<CreateStreamCommandOutput>;
-  createStream(args: CreateStreamCommandInput, cb: (err: any, data?: CreateStreamCommandOutput) => void): void;
+  createStream(
+    args: CreateStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStreamCommandOutput>;
+  createStream(
+    args: CreateStreamCommandInput,
+    cb: (err: any, data?: CreateStreamCommandOutput) => void
+  ): void;
   createStream(
     args: CreateStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -2273,8 +2327,14 @@ export interface IoT {
   /**
    * @see {@link CreateThingCommand}
    */
-  createThing(args: CreateThingCommandInput, options?: __HttpHandlerOptions): Promise<CreateThingCommandOutput>;
-  createThing(args: CreateThingCommandInput, cb: (err: any, data?: CreateThingCommandOutput) => void): void;
+  createThing(
+    args: CreateThingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateThingCommandOutput>;
+  createThing(
+    args: CreateThingCommandInput,
+    cb: (err: any, data?: CreateThingCommandOutput) => void
+  ): void;
   createThing(
     args: CreateThingCommandInput,
     options: __HttpHandlerOptions,
@@ -2305,7 +2365,10 @@ export interface IoT {
     args: CreateThingTypeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateThingTypeCommandOutput>;
-  createThingType(args: CreateThingTypeCommandInput, cb: (err: any, data?: CreateThingTypeCommandOutput) => void): void;
+  createThingType(
+    args: CreateThingTypeCommandInput,
+    cb: (err: any, data?: CreateThingTypeCommandOutput) => void
+  ): void;
   createThingType(
     args: CreateThingTypeCommandInput,
     options: __HttpHandlerOptions,
@@ -2319,7 +2382,10 @@ export interface IoT {
     args: CreateTopicRuleCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateTopicRuleCommandOutput>;
-  createTopicRule(args: CreateTopicRuleCommandInput, cb: (err: any, data?: CreateTopicRuleCommandOutput) => void): void;
+  createTopicRule(
+    args: CreateTopicRuleCommandInput,
+    cb: (err: any, data?: CreateTopicRuleCommandOutput) => void
+  ): void;
   createTopicRule(
     args: CreateTopicRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -2466,8 +2532,14 @@ export interface IoT {
   /**
    * @see {@link DeleteCommandCommand}
    */
-  deleteCommand(args: DeleteCommandCommandInput, options?: __HttpHandlerOptions): Promise<DeleteCommandCommandOutput>;
-  deleteCommand(args: DeleteCommandCommandInput, cb: (err: any, data?: DeleteCommandCommandOutput) => void): void;
+  deleteCommand(
+    args: DeleteCommandCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCommandCommandOutput>;
+  deleteCommand(
+    args: DeleteCommandCommandInput,
+    cb: (err: any, data?: DeleteCommandCommandOutput) => void
+  ): void;
   deleteCommand(
     args: DeleteCommandCommandInput,
     options: __HttpHandlerOptions,
@@ -2515,7 +2587,10 @@ export interface IoT {
     args: DeleteDimensionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDimensionCommandOutput>;
-  deleteDimension(args: DeleteDimensionCommandInput, cb: (err: any, data?: DeleteDimensionCommandOutput) => void): void;
+  deleteDimension(
+    args: DeleteDimensionCommandInput,
+    cb: (err: any, data?: DeleteDimensionCommandOutput) => void
+  ): void;
   deleteDimension(
     args: DeleteDimensionCommandInput,
     options: __HttpHandlerOptions,
@@ -2576,8 +2651,14 @@ export interface IoT {
   /**
    * @see {@link DeleteJobCommand}
    */
-  deleteJob(args: DeleteJobCommandInput, options?: __HttpHandlerOptions): Promise<DeleteJobCommandOutput>;
-  deleteJob(args: DeleteJobCommandInput, cb: (err: any, data?: DeleteJobCommandOutput) => void): void;
+  deleteJob(
+    args: DeleteJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteJobCommandOutput>;
+  deleteJob(
+    args: DeleteJobCommandInput,
+    cb: (err: any, data?: DeleteJobCommandOutput) => void
+  ): void;
   deleteJob(
     args: DeleteJobCommandInput,
     options: __HttpHandlerOptions,
@@ -2642,7 +2723,10 @@ export interface IoT {
     args: DeleteOTAUpdateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteOTAUpdateCommandOutput>;
-  deleteOTAUpdate(args: DeleteOTAUpdateCommandInput, cb: (err: any, data?: DeleteOTAUpdateCommandOutput) => void): void;
+  deleteOTAUpdate(
+    args: DeleteOTAUpdateCommandInput,
+    cb: (err: any, data?: DeleteOTAUpdateCommandOutput) => void
+  ): void;
   deleteOTAUpdate(
     args: DeleteOTAUpdateCommandInput,
     options: __HttpHandlerOptions,
@@ -2652,8 +2736,14 @@ export interface IoT {
   /**
    * @see {@link DeletePackageCommand}
    */
-  deletePackage(args: DeletePackageCommandInput, options?: __HttpHandlerOptions): Promise<DeletePackageCommandOutput>;
-  deletePackage(args: DeletePackageCommandInput, cb: (err: any, data?: DeletePackageCommandOutput) => void): void;
+  deletePackage(
+    args: DeletePackageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePackageCommandOutput>;
+  deletePackage(
+    args: DeletePackageCommandInput,
+    cb: (err: any, data?: DeletePackageCommandOutput) => void
+  ): void;
   deletePackage(
     args: DeletePackageCommandInput,
     options: __HttpHandlerOptions,
@@ -2680,8 +2770,14 @@ export interface IoT {
   /**
    * @see {@link DeletePolicyCommand}
    */
-  deletePolicy(args: DeletePolicyCommandInput, options?: __HttpHandlerOptions): Promise<DeletePolicyCommandOutput>;
-  deletePolicy(args: DeletePolicyCommandInput, cb: (err: any, data?: DeletePolicyCommandOutput) => void): void;
+  deletePolicy(
+    args: DeletePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePolicyCommandOutput>;
+  deletePolicy(
+    args: DeletePolicyCommandInput,
+    cb: (err: any, data?: DeletePolicyCommandOutput) => void
+  ): void;
   deletePolicy(
     args: DeletePolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -2764,7 +2860,10 @@ export interface IoT {
     args: DeleteRoleAliasCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteRoleAliasCommandOutput>;
-  deleteRoleAlias(args: DeleteRoleAliasCommandInput, cb: (err: any, data?: DeleteRoleAliasCommandOutput) => void): void;
+  deleteRoleAlias(
+    args: DeleteRoleAliasCommandInput,
+    cb: (err: any, data?: DeleteRoleAliasCommandOutput) => void
+  ): void;
   deleteRoleAlias(
     args: DeleteRoleAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -2808,8 +2907,14 @@ export interface IoT {
   /**
    * @see {@link DeleteStreamCommand}
    */
-  deleteStream(args: DeleteStreamCommandInput, options?: __HttpHandlerOptions): Promise<DeleteStreamCommandOutput>;
-  deleteStream(args: DeleteStreamCommandInput, cb: (err: any, data?: DeleteStreamCommandOutput) => void): void;
+  deleteStream(
+    args: DeleteStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteStreamCommandOutput>;
+  deleteStream(
+    args: DeleteStreamCommandInput,
+    cb: (err: any, data?: DeleteStreamCommandOutput) => void
+  ): void;
   deleteStream(
     args: DeleteStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -2819,8 +2924,14 @@ export interface IoT {
   /**
    * @see {@link DeleteThingCommand}
    */
-  deleteThing(args: DeleteThingCommandInput, options?: __HttpHandlerOptions): Promise<DeleteThingCommandOutput>;
-  deleteThing(args: DeleteThingCommandInput, cb: (err: any, data?: DeleteThingCommandOutput) => void): void;
+  deleteThing(
+    args: DeleteThingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteThingCommandOutput>;
+  deleteThing(
+    args: DeleteThingCommandInput,
+    cb: (err: any, data?: DeleteThingCommandOutput) => void
+  ): void;
   deleteThing(
     args: DeleteThingCommandInput,
     options: __HttpHandlerOptions,
@@ -2851,7 +2962,10 @@ export interface IoT {
     args: DeleteThingTypeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteThingTypeCommandOutput>;
-  deleteThingType(args: DeleteThingTypeCommandInput, cb: (err: any, data?: DeleteThingTypeCommandOutput) => void): void;
+  deleteThingType(
+    args: DeleteThingTypeCommandInput,
+    cb: (err: any, data?: DeleteThingTypeCommandOutput) => void
+  ): void;
   deleteThingType(
     args: DeleteThingTypeCommandInput,
     options: __HttpHandlerOptions,
@@ -2865,7 +2979,10 @@ export interface IoT {
     args: DeleteTopicRuleCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteTopicRuleCommandOutput>;
-  deleteTopicRule(args: DeleteTopicRuleCommandInput, cb: (err: any, data?: DeleteTopicRuleCommandOutput) => void): void;
+  deleteTopicRule(
+    args: DeleteTopicRuleCommandInput,
+    cb: (err: any, data?: DeleteTopicRuleCommandOutput) => void
+  ): void;
   deleteTopicRule(
     args: DeleteTopicRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -3254,8 +3371,14 @@ export interface IoT {
   /**
    * @see {@link DescribeIndexCommand}
    */
-  describeIndex(args: DescribeIndexCommandInput, options?: __HttpHandlerOptions): Promise<DescribeIndexCommandOutput>;
-  describeIndex(args: DescribeIndexCommandInput, cb: (err: any, data?: DescribeIndexCommandOutput) => void): void;
+  describeIndex(
+    args: DescribeIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIndexCommandOutput>;
+  describeIndex(
+    args: DescribeIndexCommandInput,
+    cb: (err: any, data?: DescribeIndexCommandOutput) => void
+  ): void;
   describeIndex(
     args: DescribeIndexCommandInput,
     options: __HttpHandlerOptions,
@@ -3265,8 +3388,14 @@ export interface IoT {
   /**
    * @see {@link DescribeJobCommand}
    */
-  describeJob(args: DescribeJobCommandInput, options?: __HttpHandlerOptions): Promise<DescribeJobCommandOutput>;
-  describeJob(args: DescribeJobCommandInput, cb: (err: any, data?: DescribeJobCommandOutput) => void): void;
+  describeJob(
+    args: DescribeJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeJobCommandOutput>;
+  describeJob(
+    args: DescribeJobCommandInput,
+    cb: (err: any, data?: DescribeJobCommandOutput) => void
+  ): void;
   describeJob(
     args: DescribeJobCommandInput,
     options: __HttpHandlerOptions,
@@ -3433,7 +3562,10 @@ export interface IoT {
     args: DescribeStreamCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeStreamCommandOutput>;
-  describeStream(args: DescribeStreamCommandInput, cb: (err: any, data?: DescribeStreamCommandOutput) => void): void;
+  describeStream(
+    args: DescribeStreamCommandInput,
+    cb: (err: any, data?: DescribeStreamCommandOutput) => void
+  ): void;
   describeStream(
     args: DescribeStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -3443,8 +3575,14 @@ export interface IoT {
   /**
    * @see {@link DescribeThingCommand}
    */
-  describeThing(args: DescribeThingCommandInput, options?: __HttpHandlerOptions): Promise<DescribeThingCommandOutput>;
-  describeThing(args: DescribeThingCommandInput, cb: (err: any, data?: DescribeThingCommandOutput) => void): void;
+  describeThing(
+    args: DescribeThingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeThingCommandOutput>;
+  describeThing(
+    args: DescribeThingCommandInput,
+    cb: (err: any, data?: DescribeThingCommandOutput) => void
+  ): void;
   describeThing(
     args: DescribeThingCommandInput,
     options: __HttpHandlerOptions,
@@ -3505,8 +3643,14 @@ export interface IoT {
   /**
    * @see {@link DetachPolicyCommand}
    */
-  detachPolicy(args: DetachPolicyCommandInput, options?: __HttpHandlerOptions): Promise<DetachPolicyCommandOutput>;
-  detachPolicy(args: DetachPolicyCommandInput, cb: (err: any, data?: DetachPolicyCommandOutput) => void): void;
+  detachPolicy(
+    args: DetachPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetachPolicyCommandOutput>;
+  detachPolicy(
+    args: DetachPolicyCommandInput,
+    cb: (err: any, data?: DetachPolicyCommandOutput) => void
+  ): void;
   detachPolicy(
     args: DetachPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -3605,7 +3749,10 @@ export interface IoT {
     args: EnableTopicRuleCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<EnableTopicRuleCommandOutput>;
-  enableTopicRule(args: EnableTopicRuleCommandInput, cb: (err: any, data?: EnableTopicRuleCommandOutput) => void): void;
+  enableTopicRule(
+    args: EnableTopicRuleCommandInput,
+    cb: (err: any, data?: EnableTopicRuleCommandOutput) => void
+  ): void;
   enableTopicRule(
     args: EnableTopicRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -3654,7 +3801,10 @@ export interface IoT {
     args: GetCardinalityCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCardinalityCommandOutput>;
-  getCardinality(args: GetCardinalityCommandInput, cb: (err: any, data?: GetCardinalityCommandOutput) => void): void;
+  getCardinality(
+    args: GetCardinalityCommandInput,
+    cb: (err: any, data?: GetCardinalityCommandOutput) => void
+  ): void;
   getCardinality(
     args: GetCardinalityCommandInput,
     options: __HttpHandlerOptions,
@@ -3664,8 +3814,14 @@ export interface IoT {
   /**
    * @see {@link GetCommandCommand}
    */
-  getCommand(args: GetCommandCommandInput, options?: __HttpHandlerOptions): Promise<GetCommandCommandOutput>;
-  getCommand(args: GetCommandCommandInput, cb: (err: any, data?: GetCommandCommandOutput) => void): void;
+  getCommand(
+    args: GetCommandCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCommandCommandOutput>;
+  getCommand(
+    args: GetCommandCommandInput,
+    cb: (err: any, data?: GetCommandCommandOutput) => void
+  ): void;
   getCommand(
     args: GetCommandCommandInput,
     options: __HttpHandlerOptions,
@@ -3732,7 +3888,10 @@ export interface IoT {
     args: GetJobDocumentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetJobDocumentCommandOutput>;
-  getJobDocument(args: GetJobDocumentCommandInput, cb: (err: any, data?: GetJobDocumentCommandOutput) => void): void;
+  getJobDocument(
+    args: GetJobDocumentCommandInput,
+    cb: (err: any, data?: GetJobDocumentCommandOutput) => void
+  ): void;
   getJobDocument(
     args: GetJobDocumentCommandInput,
     options: __HttpHandlerOptions,
@@ -3760,8 +3919,14 @@ export interface IoT {
   /**
    * @see {@link GetOTAUpdateCommand}
    */
-  getOTAUpdate(args: GetOTAUpdateCommandInput, options?: __HttpHandlerOptions): Promise<GetOTAUpdateCommandOutput>;
-  getOTAUpdate(args: GetOTAUpdateCommandInput, cb: (err: any, data?: GetOTAUpdateCommandOutput) => void): void;
+  getOTAUpdate(
+    args: GetOTAUpdateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOTAUpdateCommandOutput>;
+  getOTAUpdate(
+    args: GetOTAUpdateCommandInput,
+    cb: (err: any, data?: GetOTAUpdateCommandOutput) => void
+  ): void;
   getOTAUpdate(
     args: GetOTAUpdateCommandInput,
     options: __HttpHandlerOptions,
@@ -3771,8 +3936,14 @@ export interface IoT {
   /**
    * @see {@link GetPackageCommand}
    */
-  getPackage(args: GetPackageCommandInput, options?: __HttpHandlerOptions): Promise<GetPackageCommandOutput>;
-  getPackage(args: GetPackageCommandInput, cb: (err: any, data?: GetPackageCommandOutput) => void): void;
+  getPackage(
+    args: GetPackageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPackageCommandOutput>;
+  getPackage(
+    args: GetPackageCommandInput,
+    cb: (err: any, data?: GetPackageCommandOutput) => void
+  ): void;
   getPackage(
     args: GetPackageCommandInput,
     options: __HttpHandlerOptions,
@@ -3821,7 +3992,10 @@ export interface IoT {
     args: GetPercentilesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetPercentilesCommandOutput>;
-  getPercentiles(args: GetPercentilesCommandInput, cb: (err: any, data?: GetPercentilesCommandOutput) => void): void;
+  getPercentiles(
+    args: GetPercentilesCommandInput,
+    cb: (err: any, data?: GetPercentilesCommandOutput) => void
+  ): void;
   getPercentiles(
     args: GetPercentilesCommandInput,
     options: __HttpHandlerOptions,
@@ -3831,8 +4005,14 @@ export interface IoT {
   /**
    * @see {@link GetPolicyCommand}
    */
-  getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
-  getPolicy(args: GetPolicyCommandInput, cb: (err: any, data?: GetPolicyCommandOutput) => void): void;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPolicyCommandOutput>;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    cb: (err: any, data?: GetPolicyCommandOutput) => void
+  ): void;
   getPolicy(
     args: GetPolicyCommandInput,
     options: __HttpHandlerOptions,
@@ -3877,8 +4057,14 @@ export interface IoT {
   /**
    * @see {@link GetStatisticsCommand}
    */
-  getStatistics(args: GetStatisticsCommandInput, options?: __HttpHandlerOptions): Promise<GetStatisticsCommandOutput>;
-  getStatistics(args: GetStatisticsCommandInput, cb: (err: any, data?: GetStatisticsCommandOutput) => void): void;
+  getStatistics(
+    args: GetStatisticsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStatisticsCommandOutput>;
+  getStatistics(
+    args: GetStatisticsCommandInput,
+    cb: (err: any, data?: GetStatisticsCommandOutput) => void
+  ): void;
   getStatistics(
     args: GetStatisticsCommandInput,
     options: __HttpHandlerOptions,
@@ -3905,8 +4091,14 @@ export interface IoT {
   /**
    * @see {@link GetTopicRuleCommand}
    */
-  getTopicRule(args: GetTopicRuleCommandInput, options?: __HttpHandlerOptions): Promise<GetTopicRuleCommandOutput>;
-  getTopicRule(args: GetTopicRuleCommandInput, cb: (err: any, data?: GetTopicRuleCommandOutput) => void): void;
+  getTopicRule(
+    args: GetTopicRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTopicRuleCommandOutput>;
+  getTopicRule(
+    args: GetTopicRuleCommandInput,
+    cb: (err: any, data?: GetTopicRuleCommandOutput) => void
+  ): void;
   getTopicRule(
     args: GetTopicRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -4060,7 +4252,10 @@ export interface IoT {
     args: ListAuditTasksCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAuditTasksCommandOutput>;
-  listAuditTasks(args: ListAuditTasksCommandInput, cb: (err: any, data?: ListAuditTasksCommandOutput) => void): void;
+  listAuditTasks(
+    args: ListAuditTasksCommandInput,
+    cb: (err: any, data?: ListAuditTasksCommandOutput) => void
+  ): void;
   listAuditTasks(
     args: ListAuditTasksCommandInput,
     options: __HttpHandlerOptions,
@@ -4075,7 +4270,10 @@ export interface IoT {
     args: ListAuthorizersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListAuthorizersCommandOutput>;
-  listAuthorizers(args: ListAuthorizersCommandInput, cb: (err: any, data?: ListAuthorizersCommandOutput) => void): void;
+  listAuthorizers(
+    args: ListAuthorizersCommandInput,
+    cb: (err: any, data?: ListAuthorizersCommandOutput) => void
+  ): void;
   listAuthorizers(
     args: ListAuthorizersCommandInput,
     options: __HttpHandlerOptions,
@@ -4193,8 +4391,14 @@ export interface IoT {
    * @see {@link ListCommandsCommand}
    */
   listCommands(): Promise<ListCommandsCommandOutput>;
-  listCommands(args: ListCommandsCommandInput, options?: __HttpHandlerOptions): Promise<ListCommandsCommandOutput>;
-  listCommands(args: ListCommandsCommandInput, cb: (err: any, data?: ListCommandsCommandOutput) => void): void;
+  listCommands(
+    args: ListCommandsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCommandsCommandOutput>;
+  listCommands(
+    args: ListCommandsCommandInput,
+    cb: (err: any, data?: ListCommandsCommandOutput) => void
+  ): void;
   listCommands(
     args: ListCommandsCommandInput,
     options: __HttpHandlerOptions,
@@ -4262,7 +4466,10 @@ export interface IoT {
     args: ListDimensionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDimensionsCommandOutput>;
-  listDimensions(args: ListDimensionsCommandInput, cb: (err: any, data?: ListDimensionsCommandOutput) => void): void;
+  listDimensions(
+    args: ListDimensionsCommandInput,
+    cb: (err: any, data?: ListDimensionsCommandOutput) => void
+  ): void;
   listDimensions(
     args: ListDimensionsCommandInput,
     options: __HttpHandlerOptions,
@@ -4309,8 +4516,14 @@ export interface IoT {
    * @see {@link ListIndicesCommand}
    */
   listIndices(): Promise<ListIndicesCommandOutput>;
-  listIndices(args: ListIndicesCommandInput, options?: __HttpHandlerOptions): Promise<ListIndicesCommandOutput>;
-  listIndices(args: ListIndicesCommandInput, cb: (err: any, data?: ListIndicesCommandOutput) => void): void;
+  listIndices(
+    args: ListIndicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIndicesCommandOutput>;
+  listIndices(
+    args: ListIndicesCommandInput,
+    cb: (err: any, data?: ListIndicesCommandOutput) => void
+  ): void;
   listIndices(
     args: ListIndicesCommandInput,
     options: __HttpHandlerOptions,
@@ -4355,8 +4568,14 @@ export interface IoT {
    * @see {@link ListJobsCommand}
    */
   listJobs(): Promise<ListJobsCommandOutput>;
-  listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
-  listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
+  listJobs(
+    args: ListJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobsCommandOutput>;
+  listJobs(
+    args: ListJobsCommandInput,
+    cb: (err: any, data?: ListJobsCommandOutput) => void
+  ): void;
   listJobs(
     args: ListJobsCommandInput,
     options: __HttpHandlerOptions,
@@ -4442,7 +4661,10 @@ export interface IoT {
     args: ListOTAUpdatesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListOTAUpdatesCommandOutput>;
-  listOTAUpdates(args: ListOTAUpdatesCommandInput, cb: (err: any, data?: ListOTAUpdatesCommandOutput) => void): void;
+  listOTAUpdates(
+    args: ListOTAUpdatesCommandInput,
+    cb: (err: any, data?: ListOTAUpdatesCommandOutput) => void
+  ): void;
   listOTAUpdates(
     args: ListOTAUpdatesCommandInput,
     options: __HttpHandlerOptions,
@@ -4471,8 +4693,14 @@ export interface IoT {
    * @see {@link ListPackagesCommand}
    */
   listPackages(): Promise<ListPackagesCommandOutput>;
-  listPackages(args: ListPackagesCommandInput, options?: __HttpHandlerOptions): Promise<ListPackagesCommandOutput>;
-  listPackages(args: ListPackagesCommandInput, cb: (err: any, data?: ListPackagesCommandOutput) => void): void;
+  listPackages(
+    args: ListPackagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPackagesCommandOutput>;
+  listPackages(
+    args: ListPackagesCommandInput,
+    cb: (err: any, data?: ListPackagesCommandOutput) => void
+  ): void;
   listPackages(
     args: ListPackagesCommandInput,
     options: __HttpHandlerOptions,
@@ -4500,8 +4728,14 @@ export interface IoT {
    * @see {@link ListPoliciesCommand}
    */
   listPolicies(): Promise<ListPoliciesCommandOutput>;
-  listPolicies(args: ListPoliciesCommandInput, options?: __HttpHandlerOptions): Promise<ListPoliciesCommandOutput>;
-  listPolicies(args: ListPoliciesCommandInput, cb: (err: any, data?: ListPoliciesCommandOutput) => void): void;
+  listPolicies(
+    args: ListPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPoliciesCommandOutput>;
+  listPolicies(
+    args: ListPoliciesCommandInput,
+    cb: (err: any, data?: ListPoliciesCommandOutput) => void
+  ): void;
   listPolicies(
     args: ListPoliciesCommandInput,
     options: __HttpHandlerOptions,
@@ -4653,7 +4887,10 @@ export interface IoT {
     args: ListRoleAliasesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListRoleAliasesCommandOutput>;
-  listRoleAliases(args: ListRoleAliasesCommandInput, cb: (err: any, data?: ListRoleAliasesCommandOutput) => void): void;
+  listRoleAliases(
+    args: ListRoleAliasesCommandInput,
+    cb: (err: any, data?: ListRoleAliasesCommandOutput) => void
+  ): void;
   listRoleAliases(
     args: ListRoleAliasesCommandInput,
     options: __HttpHandlerOptions,
@@ -4734,8 +4971,14 @@ export interface IoT {
    * @see {@link ListStreamsCommand}
    */
   listStreams(): Promise<ListStreamsCommandOutput>;
-  listStreams(args: ListStreamsCommandInput, options?: __HttpHandlerOptions): Promise<ListStreamsCommandOutput>;
-  listStreams(args: ListStreamsCommandInput, cb: (err: any, data?: ListStreamsCommandOutput) => void): void;
+  listStreams(
+    args: ListStreamsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStreamsCommandOutput>;
+  listStreams(
+    args: ListStreamsCommandInput,
+    cb: (err: any, data?: ListStreamsCommandOutput) => void
+  ): void;
   listStreams(
     args: ListStreamsCommandInput,
     options: __HttpHandlerOptions,
@@ -4801,7 +5044,10 @@ export interface IoT {
     args: ListThingGroupsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListThingGroupsCommandOutput>;
-  listThingGroups(args: ListThingGroupsCommandInput, cb: (err: any, data?: ListThingGroupsCommandOutput) => void): void;
+  listThingGroups(
+    args: ListThingGroupsCommandInput,
+    cb: (err: any, data?: ListThingGroupsCommandOutput) => void
+  ): void;
   listThingGroups(
     args: ListThingGroupsCommandInput,
     options: __HttpHandlerOptions,
@@ -4898,8 +5144,14 @@ export interface IoT {
    * @see {@link ListThingsCommand}
    */
   listThings(): Promise<ListThingsCommandOutput>;
-  listThings(args: ListThingsCommandInput, options?: __HttpHandlerOptions): Promise<ListThingsCommandOutput>;
-  listThings(args: ListThingsCommandInput, cb: (err: any, data?: ListThingsCommandOutput) => void): void;
+  listThings(
+    args: ListThingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListThingsCommandOutput>;
+  listThings(
+    args: ListThingsCommandInput,
+    cb: (err: any, data?: ListThingsCommandOutput) => void
+  ): void;
   listThings(
     args: ListThingsCommandInput,
     options: __HttpHandlerOptions,
@@ -4948,7 +5200,10 @@ export interface IoT {
     args: ListThingTypesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListThingTypesCommandOutput>;
-  listThingTypes(args: ListThingTypesCommandInput, cb: (err: any, data?: ListThingTypesCommandOutput) => void): void;
+  listThingTypes(
+    args: ListThingTypesCommandInput,
+    cb: (err: any, data?: ListThingTypesCommandOutput) => void
+  ): void;
   listThingTypes(
     args: ListThingTypesCommandInput,
     options: __HttpHandlerOptions,
@@ -4981,7 +5236,10 @@ export interface IoT {
     args: ListTopicRulesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTopicRulesCommandOutput>;
-  listTopicRules(args: ListTopicRulesCommandInput, cb: (err: any, data?: ListTopicRulesCommandOutput) => void): void;
+  listTopicRules(
+    args: ListTopicRulesCommandInput,
+    cb: (err: any, data?: ListTopicRulesCommandOutput) => void
+  ): void;
   listTopicRules(
     args: ListTopicRulesCommandInput,
     options: __HttpHandlerOptions,
@@ -5094,8 +5352,14 @@ export interface IoT {
   /**
    * @see {@link RegisterThingCommand}
    */
-  registerThing(args: RegisterThingCommandInput, options?: __HttpHandlerOptions): Promise<RegisterThingCommandOutput>;
-  registerThing(args: RegisterThingCommandInput, cb: (err: any, data?: RegisterThingCommandOutput) => void): void;
+  registerThing(
+    args: RegisterThingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterThingCommandOutput>;
+  registerThing(
+    args: RegisterThingCommandInput,
+    cb: (err: any, data?: RegisterThingCommandOutput) => void
+  ): void;
   registerThing(
     args: RegisterThingCommandInput,
     options: __HttpHandlerOptions,
@@ -5175,8 +5439,14 @@ export interface IoT {
   /**
    * @see {@link SearchIndexCommand}
    */
-  searchIndex(args: SearchIndexCommandInput, options?: __HttpHandlerOptions): Promise<SearchIndexCommandOutput>;
-  searchIndex(args: SearchIndexCommandInput, cb: (err: any, data?: SearchIndexCommandOutput) => void): void;
+  searchIndex(
+    args: SearchIndexCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchIndexCommandOutput>;
+  searchIndex(
+    args: SearchIndexCommandInput,
+    cb: (err: any, data?: SearchIndexCommandOutput) => void
+  ): void;
   searchIndex(
     args: SearchIndexCommandInput,
     options: __HttpHandlerOptions,
@@ -5357,8 +5627,14 @@ export interface IoT {
   /**
    * @see {@link TagResourceCommand}
    */
-  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
   tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -5419,8 +5695,14 @@ export interface IoT {
   /**
    * @see {@link UntagResourceCommand}
    */
-  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
-  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
   untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -5550,8 +5832,14 @@ export interface IoT {
   /**
    * @see {@link UpdateCommandCommand}
    */
-  updateCommand(args: UpdateCommandCommandInput, options?: __HttpHandlerOptions): Promise<UpdateCommandCommandOutput>;
-  updateCommand(args: UpdateCommandCommandInput, cb: (err: any, data?: UpdateCommandCommandOutput) => void): void;
+  updateCommand(
+    args: UpdateCommandCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCommandCommandOutput>;
+  updateCommand(
+    args: UpdateCommandCommandInput,
+    cb: (err: any, data?: UpdateCommandCommandOutput) => void
+  ): void;
   updateCommand(
     args: UpdateCommandCommandInput,
     options: __HttpHandlerOptions,
@@ -5582,7 +5870,10 @@ export interface IoT {
     args: UpdateDimensionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateDimensionCommandOutput>;
-  updateDimension(args: UpdateDimensionCommandInput, cb: (err: any, data?: UpdateDimensionCommandOutput) => void): void;
+  updateDimension(
+    args: UpdateDimensionCommandInput,
+    cb: (err: any, data?: UpdateDimensionCommandOutput) => void
+  ): void;
   updateDimension(
     args: UpdateDimensionCommandInput,
     options: __HttpHandlerOptions,
@@ -5696,8 +5987,14 @@ export interface IoT {
   /**
    * @see {@link UpdateJobCommand}
    */
-  updateJob(args: UpdateJobCommandInput, options?: __HttpHandlerOptions): Promise<UpdateJobCommandOutput>;
-  updateJob(args: UpdateJobCommandInput, cb: (err: any, data?: UpdateJobCommandOutput) => void): void;
+  updateJob(
+    args: UpdateJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateJobCommandOutput>;
+  updateJob(
+    args: UpdateJobCommandInput,
+    cb: (err: any, data?: UpdateJobCommandOutput) => void
+  ): void;
   updateJob(
     args: UpdateJobCommandInput,
     options: __HttpHandlerOptions,
@@ -5724,8 +6021,14 @@ export interface IoT {
   /**
    * @see {@link UpdatePackageCommand}
    */
-  updatePackage(args: UpdatePackageCommandInput, options?: __HttpHandlerOptions): Promise<UpdatePackageCommandOutput>;
-  updatePackage(args: UpdatePackageCommandInput, cb: (err: any, data?: UpdatePackageCommandOutput) => void): void;
+  updatePackage(
+    args: UpdatePackageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePackageCommandOutput>;
+  updatePackage(
+    args: UpdatePackageCommandInput,
+    cb: (err: any, data?: UpdatePackageCommandOutput) => void
+  ): void;
   updatePackage(
     args: UpdatePackageCommandInput,
     options: __HttpHandlerOptions,
@@ -5791,7 +6094,10 @@ export interface IoT {
     args: UpdateRoleAliasCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateRoleAliasCommandOutput>;
-  updateRoleAlias(args: UpdateRoleAliasCommandInput, cb: (err: any, data?: UpdateRoleAliasCommandOutput) => void): void;
+  updateRoleAlias(
+    args: UpdateRoleAliasCommandInput,
+    cb: (err: any, data?: UpdateRoleAliasCommandOutput) => void
+  ): void;
   updateRoleAlias(
     args: UpdateRoleAliasCommandInput,
     options: __HttpHandlerOptions,
@@ -5835,8 +6141,14 @@ export interface IoT {
   /**
    * @see {@link UpdateStreamCommand}
    */
-  updateStream(args: UpdateStreamCommandInput, options?: __HttpHandlerOptions): Promise<UpdateStreamCommandOutput>;
-  updateStream(args: UpdateStreamCommandInput, cb: (err: any, data?: UpdateStreamCommandOutput) => void): void;
+  updateStream(
+    args: UpdateStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateStreamCommandOutput>;
+  updateStream(
+    args: UpdateStreamCommandInput,
+    cb: (err: any, data?: UpdateStreamCommandOutput) => void
+  ): void;
   updateStream(
     args: UpdateStreamCommandInput,
     options: __HttpHandlerOptions,
@@ -5846,8 +6158,14 @@ export interface IoT {
   /**
    * @see {@link UpdateThingCommand}
    */
-  updateThing(args: UpdateThingCommandInput, options?: __HttpHandlerOptions): Promise<UpdateThingCommandOutput>;
-  updateThing(args: UpdateThingCommandInput, cb: (err: any, data?: UpdateThingCommandOutput) => void): void;
+  updateThing(
+    args: UpdateThingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateThingCommandOutput>;
+  updateThing(
+    args: UpdateThingCommandInput,
+    cb: (err: any, data?: UpdateThingCommandOutput) => void
+  ): void;
   updateThing(
     args: UpdateThingCommandInput,
     options: __HttpHandlerOptions,
@@ -5896,7 +6214,10 @@ export interface IoT {
     args: UpdateThingTypeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateThingTypeCommandOutput>;
-  updateThingType(args: UpdateThingTypeCommandInput, cb: (err: any, data?: UpdateThingTypeCommandOutput) => void): void;
+  updateThingType(
+    args: UpdateThingTypeCommandInput,
+    cb: (err: any, data?: UpdateThingTypeCommandOutput) => void
+  ): void;
   updateThingType(
     args: UpdateThingTypeCommandInput,
     options: __HttpHandlerOptions,

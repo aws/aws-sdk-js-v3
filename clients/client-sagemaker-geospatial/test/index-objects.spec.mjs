@@ -42,8 +42,8 @@ import {
   ExportVectorEnrichmentJobOutput$,
   ExportVectorEnrichmentJobOutputConfig$,
   Filter$,
-  GeoMosaicConfigInput$,
   Geometry$,
+  GeoMosaicConfigInput$,
   GetEarthObservationJob$,
   GetEarthObservationJobCommand,
   GetEarthObservationJobInput$,
@@ -96,6 +96,10 @@ import {
   OutputResolutionResamplingInput$,
   OutputResolutionStackInput$,
   OutputType,
+  paginateListEarthObservationJobs,
+  paginateListRasterDataCollections,
+  paginateListVectorEnrichmentJobs,
+  paginateSearchRasterDataCollection,
   PlatformInput$,
   PolygonGeometryInput$,
   PredefinedResolution,
@@ -174,10 +178,6 @@ import {
   ViewSunElevationInput$,
   ZonalStatistics,
   ZonalStatisticsConfigInput$,
-  paginateListEarthObservationJobs,
-  paginateListRasterDataCollections,
-  paginateListVectorEnrichmentJobs,
-  paginateSearchRasterDataCollection,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients

@@ -27,9 +27,7 @@ export interface DisableIpamOrganizationAdminAccountCommandInput extends Disable
  *
  * The output of {@link DisableIpamOrganizationAdminAccountCommand}.
  */
-export interface DisableIpamOrganizationAdminAccountCommandOutput
-  extends DisableIpamOrganizationAdminAccountResult,
-    __MetadataBearer {}
+export interface DisableIpamOrganizationAdminAccountCommandOutput extends DisableIpamOrganizationAdminAccountResult, __MetadataBearer {}
 
 /**
  * <p>Disable the IPAM account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.

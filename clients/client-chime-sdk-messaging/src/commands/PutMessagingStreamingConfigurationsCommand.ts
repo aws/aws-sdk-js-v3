@@ -31,9 +31,7 @@ export interface PutMessagingStreamingConfigurationsCommandInput extends PutMess
  *
  * The output of {@link PutMessagingStreamingConfigurationsCommand}.
  */
-export interface PutMessagingStreamingConfigurationsCommandOutput
-  extends PutMessagingStreamingConfigurationsResponse,
-    __MetadataBearer {}
+export interface PutMessagingStreamingConfigurationsCommandOutput extends PutMessagingStreamingConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the data streaming configuration for an <code>AppInstance</code>. For more information, see

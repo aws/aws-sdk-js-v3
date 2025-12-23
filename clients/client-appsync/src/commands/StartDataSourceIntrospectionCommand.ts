@@ -24,9 +24,7 @@ export interface StartDataSourceIntrospectionCommandInput extends StartDataSourc
  *
  * The output of {@link StartDataSourceIntrospectionCommand}.
  */
-export interface StartDataSourceIntrospectionCommandOutput
-  extends StartDataSourceIntrospectionResponse,
-    __MetadataBearer {}
+export interface StartDataSourceIntrospectionCommandOutput extends StartDataSourceIntrospectionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new introspection. Returns the <code>introspectionId</code> of the new

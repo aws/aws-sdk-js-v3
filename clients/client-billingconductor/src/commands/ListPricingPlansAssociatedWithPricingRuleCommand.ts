@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListPricingPlansAssociatedWithPricingRuleCommand}.
  */
-export interface ListPricingPlansAssociatedWithPricingRuleCommandInput
-  extends ListPricingPlansAssociatedWithPricingRuleInput {}
+export interface ListPricingPlansAssociatedWithPricingRuleCommandInput extends ListPricingPlansAssociatedWithPricingRuleInput {}
 /**
  * @public
  *
  * The output of {@link ListPricingPlansAssociatedWithPricingRuleCommand}.
  */
-export interface ListPricingPlansAssociatedWithPricingRuleCommandOutput
-  extends ListPricingPlansAssociatedWithPricingRuleOutput,
-    __MetadataBearer {}
+export interface ListPricingPlansAssociatedWithPricingRuleCommandOutput extends ListPricingPlansAssociatedWithPricingRuleOutput, __MetadataBearer {}
 
 /**
  * <p> A list of the pricing plans that are associated with a pricing rule. </p>

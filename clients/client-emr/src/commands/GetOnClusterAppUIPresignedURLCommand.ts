@@ -24,9 +24,7 @@ export interface GetOnClusterAppUIPresignedURLCommandInput extends GetOnClusterA
  *
  * The output of {@link GetOnClusterAppUIPresignedURLCommand}.
  */
-export interface GetOnClusterAppUIPresignedURLCommandOutput
-  extends GetOnClusterAppUIPresignedURLOutput,
-    __MetadataBearer {}
+export interface GetOnClusterAppUIPresignedURLCommandOutput extends GetOnClusterAppUIPresignedURLOutput, __MetadataBearer {}
 
 /**
  * <p>The presigned URL properties for the cluster's application user interface.</p>

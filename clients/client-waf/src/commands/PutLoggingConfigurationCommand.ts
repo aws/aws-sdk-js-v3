@@ -51,7 +51,7 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  *                <p>Associate that firehose to your web ACL using a <code>PutLoggingConfiguration</code> request.</p>
  *             </li>
  *          </ol>
- *
+ * 	
  *          <p>When you successfully enable logging using a <code>PutLoggingConfiguration</code> request, AWS WAF will create a service linked role with the necessary permissions to write logs to the Amazon Kinesis Data Firehose.  For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging Web ACL Traffic Information</a> in the <i>AWS WAF Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

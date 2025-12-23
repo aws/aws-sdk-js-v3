@@ -1,22 +1,14 @@
-export * from "./DescribeClientAuthenticationSettingsPaginator";
-
-export * from "./DescribeDirectoriesPaginator";
-
-export * from "./DescribeDomainControllersPaginator";
-
-export * from "./DescribeLDAPSSettingsPaginator";
-
-export * from "./DescribeRegionsPaginator";
-
-export * from "./DescribeSharedDirectoriesPaginator";
-
-export * from "./DescribeSnapshotsPaginator";
-
-export * from "./DescribeTrustsPaginator";
-
-export * from "./DescribeUpdateDirectoryPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeClientAuthenticationSettingsPaginator";
+export * from "./DescribeDirectoriesPaginator";
+export * from "./DescribeDomainControllersPaginator";
+export * from "./DescribeLDAPSSettingsPaginator";
+export * from "./DescribeRegionsPaginator";
+export * from "./DescribeSharedDirectoriesPaginator";
+export * from "./DescribeSnapshotsPaginator";
+export * from "./DescribeTrustsPaginator";
+export * from "./DescribeUpdateDirectoryPaginator";
 export * from "./ListADAssessmentsPaginator";
 export * from "./ListCertificatesPaginator";
 export * from "./ListIpRoutesPaginator";

@@ -27,9 +27,7 @@ export interface DescribeNetworkInsightsAccessScopesCommandInput extends Describ
  *
  * The output of {@link DescribeNetworkInsightsAccessScopesCommand}.
  */
-export interface DescribeNetworkInsightsAccessScopesCommandOutput
-  extends DescribeNetworkInsightsAccessScopesResult,
-    __MetadataBearer {}
+export interface DescribeNetworkInsightsAccessScopesCommandOutput extends DescribeNetworkInsightsAccessScopesResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified Network Access Scopes.</p>

@@ -24,9 +24,7 @@ export interface GetImageBlockPublicAccessStateCommandInput extends GetImageBloc
  *
  * The output of {@link GetImageBlockPublicAccessStateCommand}.
  */
-export interface GetImageBlockPublicAccessStateCommandOutput
-  extends GetImageBlockPublicAccessStateResult,
-    __MetadataBearer {}
+export interface GetImageBlockPublicAccessStateCommandOutput extends GetImageBlockPublicAccessStateResult, __MetadataBearer {}
 
 /**
  * <p>Gets the current state of <i>block public access for AMIs</i> at the account

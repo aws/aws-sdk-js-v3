@@ -27,9 +27,7 @@ export interface ListAvailableManagementCidrRangesCommandInput extends ListAvail
  *
  * The output of {@link ListAvailableManagementCidrRangesCommand}.
  */
-export interface ListAvailableManagementCidrRangesCommandOutput
-  extends ListAvailableManagementCidrRangesResult,
-    __MetadataBearer {}
+export interface ListAvailableManagementCidrRangesCommandOutput extends ListAvailableManagementCidrRangesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of IP address ranges, specified as IPv4 CIDR blocks, that you can use

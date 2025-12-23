@@ -24,9 +24,7 @@ export interface ListEnvironmentTemplateVersionsCommandInput extends ListEnviron
  *
  * The output of {@link ListEnvironmentTemplateVersionsCommand}.
  */
-export interface ListEnvironmentTemplateVersionsCommandOutput
-  extends ListEnvironmentTemplateVersionsOutput,
-    __MetadataBearer {}
+export interface ListEnvironmentTemplateVersionsCommandOutput extends ListEnvironmentTemplateVersionsOutput, __MetadataBearer {}
 
 /**
  * <p>List major or minor versions of an environment template with detail data.</p>

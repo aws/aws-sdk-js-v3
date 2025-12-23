@@ -27,9 +27,7 @@ export interface AssociateDataProtectionSettingsCommandInput extends AssociateDa
  *
  * The output of {@link AssociateDataProtectionSettingsCommand}.
  */
-export interface AssociateDataProtectionSettingsCommandOutput
-  extends AssociateDataProtectionSettingsResponse,
-    __MetadataBearer {}
+export interface AssociateDataProtectionSettingsCommandOutput extends AssociateDataProtectionSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a data protection settings resource with a web portal.</p>

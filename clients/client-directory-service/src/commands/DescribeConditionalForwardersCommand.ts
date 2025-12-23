@@ -28,9 +28,7 @@ export interface DescribeConditionalForwardersCommandInput extends DescribeCondi
  *
  * The output of {@link DescribeConditionalForwardersCommand}.
  */
-export interface DescribeConditionalForwardersCommandOutput
-  extends DescribeConditionalForwardersResult,
-    __MetadataBearer {}
+export interface DescribeConditionalForwardersCommandOutput extends DescribeConditionalForwardersResult, __MetadataBearer {}
 
 /**
  * <p>Obtains information about the conditional forwarders for this account.</p>

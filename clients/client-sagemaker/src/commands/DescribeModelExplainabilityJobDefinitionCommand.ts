@@ -21,16 +21,13 @@ export { $Command };
  *
  * The input for {@link DescribeModelExplainabilityJobDefinitionCommand}.
  */
-export interface DescribeModelExplainabilityJobDefinitionCommandInput
-  extends DescribeModelExplainabilityJobDefinitionRequest {}
+export interface DescribeModelExplainabilityJobDefinitionCommandInput extends DescribeModelExplainabilityJobDefinitionRequest {}
 /**
  * @public
  *
  * The output of {@link DescribeModelExplainabilityJobDefinitionCommand}.
  */
-export interface DescribeModelExplainabilityJobDefinitionCommandOutput
-  extends DescribeModelExplainabilityJobDefinitionResponse,
-    __MetadataBearer {}
+export interface DescribeModelExplainabilityJobDefinitionCommandOutput extends DescribeModelExplainabilityJobDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a description of a model explainability job definition.</p>

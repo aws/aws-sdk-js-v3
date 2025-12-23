@@ -24,9 +24,7 @@ export interface UpdateTraceSegmentDestinationCommandInput extends UpdateTraceSe
  *
  * The output of {@link UpdateTraceSegmentDestinationCommand}.
  */
-export interface UpdateTraceSegmentDestinationCommandOutput
-  extends UpdateTraceSegmentDestinationResult,
-    __MetadataBearer {}
+export interface UpdateTraceSegmentDestinationCommandOutput extends UpdateTraceSegmentDestinationResult, __MetadataBearer {}
 
 /**
  * <p>

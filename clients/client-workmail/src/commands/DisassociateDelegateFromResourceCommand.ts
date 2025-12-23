@@ -27,9 +27,7 @@ export interface DisassociateDelegateFromResourceCommandInput extends Disassocia
  *
  * The output of {@link DisassociateDelegateFromResourceCommand}.
  */
-export interface DisassociateDelegateFromResourceCommandOutput
-  extends DisassociateDelegateFromResourceResponse,
-    __MetadataBearer {}
+export interface DisassociateDelegateFromResourceCommandOutput extends DisassociateDelegateFromResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a member from the resource's set of delegates.</p>

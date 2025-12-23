@@ -24,9 +24,7 @@ export interface UpdateMessageTemplateMetadataCommandInput extends UpdateMessage
  *
  * The output of {@link UpdateMessageTemplateMetadataCommand}.
  */
-export interface UpdateMessageTemplateMetadataCommandOutput
-  extends UpdateMessageTemplateMetadataResponse,
-    __MetadataBearer {}
+export interface UpdateMessageTemplateMetadataCommandOutput extends UpdateMessageTemplateMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the Amazon Q in Connect message template metadata. Note that any modification to the message template’s name, description and grouping configuration will applied to the message template pointed by the <code>$LATEST</code> qualifier and all available versions. Partial update is supported. If any field is not supplied, it will remain unchanged for the message template.</p>

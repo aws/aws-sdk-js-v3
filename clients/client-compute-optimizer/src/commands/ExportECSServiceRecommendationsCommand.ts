@@ -31,9 +31,7 @@ export interface ExportECSServiceRecommendationsCommandInput extends ExportECSSe
  *
  * The output of {@link ExportECSServiceRecommendationsCommand}.
  */
-export interface ExportECSServiceRecommendationsCommandOutput
-  extends ExportECSServiceRecommendationsResponse,
-    __MetadataBearer {}
+export interface ExportECSServiceRecommendationsCommandOutput extends ExportECSServiceRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>

@@ -814,2353 +814,1954 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AccountGateResult$: StaticStructureSchema = [3, n0, _AGR, 0, [_S, _SR], [0, 0]];
-export var AccountLimit$: StaticStructureSchema = [3, n0, _AL, 0, [_N, _V], [0, 1]];
-export var ActivateOrganizationsAccessInput$: StaticStructureSchema = [3, n0, _AOAI, 0, [], []];
-export var ActivateOrganizationsAccessOutput$: StaticStructureSchema = [3, n0, _AOAO, 0, [], []];
-export var ActivateTypeInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _ATI,
+export var AccountGateResult$: StaticStructureSchema = [3, n0, _AGR,
+  0,
+  [_S, _SR],
+  [0, 0]
+];
+export var AccountLimit$: StaticStructureSchema = [3, n0, _AL,
+  0,
+  [_N, _V],
+  [0, 1]
+];
+export var ActivateOrganizationsAccessInput$: StaticStructureSchema = [3, n0, _AOAI,
+  0,
+  [],
+  []
+];
+export var ActivateOrganizationsAccessOutput$: StaticStructureSchema = [3, n0, _AOAO,
+  0,
+  [],
+  []
+];
+export var ActivateTypeInput$: StaticStructureSchema = [3, n0, _ATI,
   0,
   [_T, _PTA, _PI, _TN, _TNA, _AU, _LC, _ERA, _VB, _MV],
-  [0, 0, 0, 0, 0, 2, () => LoggingConfig$, 0, 0, 1],
+  [0, 0, 0, 0, 0, 2, () => LoggingConfig$, 0, 0, 1]
 ];
-export var ActivateTypeOutput$: StaticStructureSchema = [3, n0, _ATO, 0, [_A], [0]];
-export var AlreadyExistsException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _AEE,
+export var ActivateTypeOutput$: StaticStructureSchema = [3, n0, _ATO,
+  0,
+  [_A],
+  [0]
+];
+export var AlreadyExistsException$: StaticErrorSchema = [-3, n0, _AEE,
   { [_aQE]: [`AlreadyExistsException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(AlreadyExistsException$, AlreadyExistsException);
-export var Annotation$: StaticStructureSchema = [3, n0, _An, 0, [_AN, _S, _SM, _RM, _RL, _SL], [0, 0, 0, 0, 0, 0]];
-export var AutoDeployment$: StaticStructureSchema = [3, n0, _AD, 0, [_E, _RSOAR, _DO], [2, 2, 64 | 0]];
-export var BatchDescribeTypeConfigurationsError$: StaticStructureSchema = [
-  3,
-  n0,
-  _BDTCE,
+export var Annotation$: StaticStructureSchema = [3, n0, _An,
+  0,
+  [_AN, _S, _SM, _RM, _RL, _SL],
+  [0, 0, 0, 0, 0, 0]
+];
+export var AutoDeployment$: StaticStructureSchema = [3, n0, _AD,
+  0,
+  [_E, _RSOAR, _DO],
+  [2, 2, 64 | 0]
+];
+export var BatchDescribeTypeConfigurationsError$: StaticStructureSchema = [3, n0, _BDTCE,
   0,
   [_EC, _EM, _TCI],
-  [0, 0, () => TypeConfigurationIdentifier$],
+  [0, 0, () => TypeConfigurationIdentifier$]
 ];
-export var BatchDescribeTypeConfigurationsInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _BDTCI,
+export var BatchDescribeTypeConfigurationsInput$: StaticStructureSchema = [3, n0, _BDTCI,
   0,
   [_TCIy],
-  [() => TypeConfigurationIdentifiers],
+  [() => TypeConfigurationIdentifiers]
 ];
-export var BatchDescribeTypeConfigurationsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _BDTCO,
+export var BatchDescribeTypeConfigurationsOutput$: StaticStructureSchema = [3, n0, _BDTCO,
   0,
   [_Er, _UTC, _TC],
-  [
-    () => BatchDescribeTypeConfigurationsErrors,
-    () => UnprocessedTypeConfigurations,
-    () => TypeConfigurationDetailsList,
-  ],
+  [() => BatchDescribeTypeConfigurationsErrors, () => UnprocessedTypeConfigurations, () => TypeConfigurationDetailsList]
 ];
-export var CancelUpdateStackInput$: StaticStructureSchema = [3, n0, _CUSI, 0, [_SN, _CRT], [0, 0]];
-export var CFNRegistryException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CFNRE,
+export var CancelUpdateStackInput$: StaticStructureSchema = [3, n0, _CUSI,
+  0,
+  [_SN, _CRT],
+  [0, 0]
+];
+export var CFNRegistryException$: StaticErrorSchema = [-3, n0, _CFNRE,
   { [_aQE]: [`CFNRegistryException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(CFNRegistryException$, CFNRegistryException);
-export var Change$: StaticStructureSchema = [3, n0, _C, 0, [_T, _HIC, _RC], [0, 1, () => ResourceChange$]];
-export var ChangeSetHook$: StaticStructureSchema = [
-  3,
-  n0,
-  _CSH,
+export var Change$: StaticStructureSchema = [3, n0, _C,
+  0,
+  [_T, _HIC, _RC],
+  [0, 1, () => ResourceChange$]
+];
+export var ChangeSetHook$: StaticStructureSchema = [3, n0, _CSH,
   0,
   [_IP, _FM, _TN, _TVI, _TCVI, _TD],
-  [0, 0, 0, 0, 0, () => ChangeSetHookTargetDetails$],
+  [0, 0, 0, 0, 0, () => ChangeSetHookTargetDetails$]
 ];
-export var ChangeSetHookResourceTargetDetails$: StaticStructureSchema = [
-  3,
-  n0,
-  _CSHRTD,
+export var ChangeSetHookResourceTargetDetails$: StaticStructureSchema = [3, n0, _CSHRTD,
   0,
   [_LRI, _RT, _RA],
-  [0, 0, 0],
+  [0, 0, 0]
 ];
-export var ChangeSetHookTargetDetails$: StaticStructureSchema = [
-  3,
-  n0,
-  _CSHTD,
+export var ChangeSetHookTargetDetails$: StaticStructureSchema = [3, n0, _CSHTD,
   0,
   [_TT, _RTD],
-  [0, () => ChangeSetHookResourceTargetDetails$],
+  [0, () => ChangeSetHookResourceTargetDetails$]
 ];
-export var ChangeSetNotFoundException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CSNFE,
+export var ChangeSetNotFoundException$: StaticErrorSchema = [-3, n0, _CSNFE,
   { [_aQE]: [`ChangeSetNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(ChangeSetNotFoundException$, ChangeSetNotFoundException);
-export var ChangeSetSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _CSS,
+export var ChangeSetSummary$: StaticStructureSchema = [3, n0, _CSS,
   0,
   [_SI, _SN, _CSI, _CSN, _ES, _S, _SR, _CT, _D, _INS, _PCSI, _RCSI, _IER],
-  [0, 0, 0, 0, 0, 0, 0, 4, 0, 2, 0, 0, 2],
+  [0, 0, 0, 0, 0, 0, 0, 4, 0, 2, 0, 0, 2]
 ];
-export var ConcurrentResourcesLimitExceededException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CRLEE,
+export var ConcurrentResourcesLimitExceededException$: StaticErrorSchema = [-3, n0, _CRLEE,
   { [_aQE]: [`ConcurrentResourcesLimitExceeded`, 429], [_e]: _c, [_hE]: 429 },
   [_M],
-  [0],
+  [0]
 ];
-TypeRegistry.for(n0).registerError(
-  ConcurrentResourcesLimitExceededException$,
-  ConcurrentResourcesLimitExceededException
-);
-export var ContinueUpdateRollbackInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _CURI,
+TypeRegistry.for(n0).registerError(ConcurrentResourcesLimitExceededException$, ConcurrentResourcesLimitExceededException);
+export var ContinueUpdateRollbackInput$: StaticStructureSchema = [3, n0, _CURI,
   0,
   [_SN, _RARN, _RTS, _CRT],
-  [0, 0, 64 | 0, 0],
+  [0, 0, 64 | 0, 0]
 ];
-export var ContinueUpdateRollbackOutput$: StaticStructureSchema = [3, n0, _CURO, 0, [], []];
-export var CreateChangeSetInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _CCSI,
+export var ContinueUpdateRollbackOutput$: StaticStructureSchema = [3, n0, _CURO,
+  0,
+  [],
+  []
+];
+export var CreateChangeSetInput$: StaticStructureSchema = [3, n0, _CCSI,
   0,
   [_SN, _TB, _TURL, _UPT, _P, _Ca, _RTe, _RARN, _RCo, _NARN, _Ta, _CSN, _CTl, _D, _CST, _RTI, _INS, _OSF, _IER, _DM],
-  [
-    0,
-    0,
-    0,
-    2,
-    () => _Parameters,
-    64 | 0,
-    64 | 0,
-    0,
-    () => RollbackConfiguration$,
-    64 | 0,
-    () => Tags,
-    0,
-    0,
-    0,
-    0,
-    () => ResourcesToImport,
-    2,
-    0,
-    2,
-    0,
-  ],
+  [0, 0, 0, 2, () => _Parameters, 64 | 0, 64 | 0, 0, () => RollbackConfiguration$, 64 | 0, () => Tags, 0, 0, 0, 0, () => ResourcesToImport, 2, 0, 2, 0]
 ];
-export var CreateChangeSetOutput$: StaticStructureSchema = [3, n0, _CCSO, 0, [_I, _SI], [0, 0]];
-export var CreatedButModifiedException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _CBME,
+export var CreateChangeSetOutput$: StaticStructureSchema = [3, n0, _CCSO,
+  0,
+  [_I, _SI],
+  [0, 0]
+];
+export var CreatedButModifiedException$: StaticErrorSchema = [-3, n0, _CBME,
   { [_aQE]: [`CreatedButModifiedException`, 409], [_e]: _c, [_hE]: 409 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(CreatedButModifiedException$, CreatedButModifiedException);
-export var CreateGeneratedTemplateInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _CGTI,
+export var CreateGeneratedTemplateInput$: StaticStructureSchema = [3, n0, _CGTI,
   0,
   [_R, _GTN, _SN, _TCe],
-  [() => ResourceDefinitions, 0, 0, () => TemplateConfiguration$],
+  [() => ResourceDefinitions, 0, 0, () => TemplateConfiguration$]
 ];
-export var CreateGeneratedTemplateOutput$: StaticStructureSchema = [3, n0, _CGTO, 0, [_GTI], [0]];
-export var CreateStackInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _CSIr,
+export var CreateGeneratedTemplateOutput$: StaticStructureSchema = [3, n0, _CGTO,
+  0,
+  [_GTI],
+  [0]
+];
+export var CreateStackInput$: StaticStructureSchema = [3, n0, _CSIr,
   0,
   [_SN, _TB, _TURL, _P, _DR, _RCo, _TIM, _NARN, _Ca, _RTe, _RARN, _OF, _SPB, _SPURL, _Ta, _CRT, _ETP, _REOC],
-  [
-    0,
-    0,
-    0,
-    () => _Parameters,
-    2,
-    () => RollbackConfiguration$,
-    1,
-    64 | 0,
-    64 | 0,
-    64 | 0,
-    0,
-    0,
-    0,
-    0,
-    () => Tags,
-    0,
-    2,
-    2,
-  ],
+  [0, 0, 0, () => _Parameters, 2, () => RollbackConfiguration$, 1, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, () => Tags, 0, 2, 2]
 ];
-export var CreateStackInstancesInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _CSII,
+export var CreateStackInstancesInput$: StaticStructureSchema = [3, n0, _CSII,
   0,
   [_SSN, _Ac, _DT, _Re, _PO, _OP, _OI, _CA],
-  [0, 64 | 0, () => DeploymentTargets$, 64 | 0, () => _Parameters, () => StackSetOperationPreferences$, [0, 4], 0],
+  [0, 64 | 0, () => DeploymentTargets$, 64 | 0, () => _Parameters, () => StackSetOperationPreferences$, [0, 4], 0]
 ];
-export var CreateStackInstancesOutput$: StaticStructureSchema = [3, n0, _CSIO, 0, [_OI], [0]];
-export var CreateStackOutput$: StaticStructureSchema = [3, n0, _CSO, 0, [_SI, _OI], [0, 0]];
-export var CreateStackRefactorInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _CSRI,
+export var CreateStackInstancesOutput$: StaticStructureSchema = [3, n0, _CSIO,
+  0,
+  [_OI],
+  [0]
+];
+export var CreateStackOutput$: StaticStructureSchema = [3, n0, _CSO,
+  0,
+  [_SI, _OI],
+  [0, 0]
+];
+export var CreateStackRefactorInput$: StaticStructureSchema = [3, n0, _CSRI,
   0,
   [_D, _ESC, _RMe, _SD],
-  [0, 2, () => ResourceMappings, () => StackDefinitions],
+  [0, 2, () => ResourceMappings, () => StackDefinitions]
 ];
-export var CreateStackRefactorOutput$: StaticStructureSchema = [3, n0, _CSRO, 0, [_SRI], [0]];
-export var CreateStackSetInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _CSSI,
+export var CreateStackRefactorOutput$: StaticStructureSchema = [3, n0, _CSRO,
+  0,
+  [_SRI],
+  [0]
+];
+export var CreateStackSetInput$: StaticStructureSchema = [3, n0, _CSSI,
   0,
   [_SSN, _D, _TB, _TURL, _SI, _P, _Ca, _Ta, _ARARN, _ERN, _PM, _AD, _CA, _CRT, _ME],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    () => _Parameters,
-    64 | 0,
-    () => Tags,
-    0,
-    0,
-    0,
-    () => AutoDeployment$,
-    0,
-    [0, 4],
-    () => ManagedExecution$,
-  ],
+  [0, 0, 0, 0, 0, () => _Parameters, 64 | 0, () => Tags, 0, 0, 0, () => AutoDeployment$, 0, [0, 4], () => ManagedExecution$]
 ];
-export var CreateStackSetOutput$: StaticStructureSchema = [3, n0, _CSSO, 0, [_SSI], [0]];
-export var DeactivateOrganizationsAccessInput$: StaticStructureSchema = [3, n0, _DOAI, 0, [], []];
-export var DeactivateOrganizationsAccessOutput$: StaticStructureSchema = [3, n0, _DOAO, 0, [], []];
-export var DeactivateTypeInput$: StaticStructureSchema = [3, n0, _DTI, 0, [_TN, _T, _A], [0, 0, 0]];
-export var DeactivateTypeOutput$: StaticStructureSchema = [3, n0, _DTO, 0, [], []];
-export var DeleteChangeSetInput$: StaticStructureSchema = [3, n0, _DCSI, 0, [_CSN, _SN], [0, 0]];
-export var DeleteChangeSetOutput$: StaticStructureSchema = [3, n0, _DCSO, 0, [], []];
-export var DeleteGeneratedTemplateInput$: StaticStructureSchema = [3, n0, _DGTI, 0, [_GTN], [0]];
-export var DeleteStackInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSI,
+export var CreateStackSetOutput$: StaticStructureSchema = [3, n0, _CSSO,
+  0,
+  [_SSI],
+  [0]
+];
+export var DeactivateOrganizationsAccessInput$: StaticStructureSchema = [3, n0, _DOAI,
+  0,
+  [],
+  []
+];
+export var DeactivateOrganizationsAccessOutput$: StaticStructureSchema = [3, n0, _DOAO,
+  0,
+  [],
+  []
+];
+export var DeactivateTypeInput$: StaticStructureSchema = [3, n0, _DTI,
+  0,
+  [_TN, _T, _A],
+  [0, 0, 0]
+];
+export var DeactivateTypeOutput$: StaticStructureSchema = [3, n0, _DTO,
+  0,
+  [],
+  []
+];
+export var DeleteChangeSetInput$: StaticStructureSchema = [3, n0, _DCSI,
+  0,
+  [_CSN, _SN],
+  [0, 0]
+];
+export var DeleteChangeSetOutput$: StaticStructureSchema = [3, n0, _DCSO,
+  0,
+  [],
+  []
+];
+export var DeleteGeneratedTemplateInput$: StaticStructureSchema = [3, n0, _DGTI,
+  0,
+  [_GTN],
+  [0]
+];
+export var DeleteStackInput$: StaticStructureSchema = [3, n0, _DSI,
   0,
   [_SN, _RR, _RARN, _CRT, _DMe],
-  [0, 64 | 0, 0, 0, 0],
+  [0, 64 | 0, 0, 0, 0]
 ];
-export var DeleteStackInstancesInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSII,
+export var DeleteStackInstancesInput$: StaticStructureSchema = [3, n0, _DSII,
   0,
   [_SSN, _Ac, _DT, _Re, _OP, _RS, _OI, _CA],
-  [0, 64 | 0, () => DeploymentTargets$, 64 | 0, () => StackSetOperationPreferences$, 2, [0, 4], 0],
+  [0, 64 | 0, () => DeploymentTargets$, 64 | 0, () => StackSetOperationPreferences$, 2, [0, 4], 0]
 ];
-export var DeleteStackInstancesOutput$: StaticStructureSchema = [3, n0, _DSIO, 0, [_OI], [0]];
-export var DeleteStackSetInput$: StaticStructureSchema = [3, n0, _DSSI, 0, [_SSN, _CA], [0, 0]];
-export var DeleteStackSetOutput$: StaticStructureSchema = [3, n0, _DSSO, 0, [], []];
-export var DeploymentTargets$: StaticStructureSchema = [3, n0, _DT, 0, [_Ac, _AUc, _OUI, _AFT], [64 | 0, 0, 64 | 0, 0]];
-export var DeregisterTypeInput$: StaticStructureSchema = [3, n0, _DTIe, 0, [_A, _T, _TN, _VI], [0, 0, 0, 0]];
-export var DeregisterTypeOutput$: StaticStructureSchema = [3, n0, _DTOe, 0, [], []];
-export var DescribeAccountLimitsInput$: StaticStructureSchema = [3, n0, _DALI, 0, [_NT], [0]];
-export var DescribeAccountLimitsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DALO,
+export var DeleteStackInstancesOutput$: StaticStructureSchema = [3, n0, _DSIO,
+  0,
+  [_OI],
+  [0]
+];
+export var DeleteStackSetInput$: StaticStructureSchema = [3, n0, _DSSI,
+  0,
+  [_SSN, _CA],
+  [0, 0]
+];
+export var DeleteStackSetOutput$: StaticStructureSchema = [3, n0, _DSSO,
+  0,
+  [],
+  []
+];
+export var DeploymentTargets$: StaticStructureSchema = [3, n0, _DT,
+  0,
+  [_Ac, _AUc, _OUI, _AFT],
+  [64 | 0, 0, 64 | 0, 0]
+];
+export var DeregisterTypeInput$: StaticStructureSchema = [3, n0, _DTIe,
+  0,
+  [_A, _T, _TN, _VI],
+  [0, 0, 0, 0]
+];
+export var DeregisterTypeOutput$: StaticStructureSchema = [3, n0, _DTOe,
+  0,
+  [],
+  []
+];
+export var DescribeAccountLimitsInput$: StaticStructureSchema = [3, n0, _DALI,
+  0,
+  [_NT],
+  [0]
+];
+export var DescribeAccountLimitsOutput$: StaticStructureSchema = [3, n0, _DALO,
   0,
   [_ALc, _NT],
-  [() => AccountLimitList, 0],
+  [() => AccountLimitList, 0]
 ];
-export var DescribeChangeSetHooksInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DCSHI,
+export var DescribeChangeSetHooksInput$: StaticStructureSchema = [3, n0, _DCSHI,
   0,
   [_CSN, _SN, _NT, _LRI],
-  [0, 0, 0, 0],
+  [0, 0, 0, 0]
 ];
-export var DescribeChangeSetHooksOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DCSHO,
+export var DescribeChangeSetHooksOutput$: StaticStructureSchema = [3, n0, _DCSHO,
   0,
   [_CSI, _CSN, _H, _S, _NT, _SI, _SN],
-  [0, 0, () => ChangeSetHooks, 0, 0, 0, 0],
+  [0, 0, () => ChangeSetHooks, 0, 0, 0, 0]
 ];
-export var DescribeChangeSetInput$: StaticStructureSchema = [3, n0, _DCSIe, 0, [_CSN, _SN, _NT, _IPV], [0, 0, 0, 2]];
-export var DescribeChangeSetOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DCSOe,
+export var DescribeChangeSetInput$: StaticStructureSchema = [3, n0, _DCSIe,
   0,
-  [
-    _CSN,
-    _CSI,
-    _SI,
-    _SN,
-    _D,
-    _P,
-    _CT,
-    _ES,
-    _S,
-    _SR,
-    _SDS,
-    _NARN,
-    _RCo,
-    _Ca,
-    _Ta,
-    _Ch,
-    _NT,
-    _INS,
-    _PCSI,
-    _RCSI,
-    _OSF,
-    _IER,
-    _DM,
-  ],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    () => _Parameters,
-    4,
-    0,
-    0,
-    0,
-    0,
-    64 | 0,
-    () => RollbackConfiguration$,
-    64 | 0,
-    () => Tags,
-    () => Changes,
-    0,
-    2,
-    0,
-    0,
-    0,
-    2,
-    0,
-  ],
+  [_CSN, _SN, _NT, _IPV],
+  [0, 0, 0, 2]
 ];
-export var DescribeEventsInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DEI,
+export var DescribeChangeSetOutput$: StaticStructureSchema = [3, n0, _DCSOe,
+  0,
+  [_CSN, _CSI, _SI, _SN, _D, _P, _CT, _ES, _S, _SR, _SDS, _NARN, _RCo, _Ca, _Ta, _Ch, _NT, _INS, _PCSI, _RCSI, _OSF, _IER, _DM],
+  [0, 0, 0, 0, 0, () => _Parameters, 4, 0, 0, 0, 0, 64 | 0, () => RollbackConfiguration$, 64 | 0, () => Tags, () => Changes, 0, 2, 0, 0, 0, 2, 0]
+];
+export var DescribeEventsInput$: StaticStructureSchema = [3, n0, _DEI,
   0,
   [_SN, _CSN, _OI, _F, _NT],
-  [0, 0, 0, () => EventFilter$, 0],
+  [0, 0, 0, () => EventFilter$, 0]
 ];
-export var DescribeEventsOutput$: StaticStructureSchema = [3, n0, _DEO, 0, [_OE, _NT], [() => OperationEvents, 0]];
-export var DescribeGeneratedTemplateInput$: StaticStructureSchema = [3, n0, _DGTIe, 0, [_GTN], [0]];
-export var DescribeGeneratedTemplateOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DGTO,
+export var DescribeEventsOutput$: StaticStructureSchema = [3, n0, _DEO,
+  0,
+  [_OE, _NT],
+  [() => OperationEvents, 0]
+];
+export var DescribeGeneratedTemplateInput$: StaticStructureSchema = [3, n0, _DGTIe,
+  0,
+  [_GTN],
+  [0]
+];
+export var DescribeGeneratedTemplateOutput$: StaticStructureSchema = [3, n0, _DGTO,
   0,
   [_GTI, _GTN, _R, _S, _SR, _CT, _LUT, _Pr, _SI, _TCe, _TW],
-  [0, 0, () => ResourceDetails, 0, 0, 4, 4, () => TemplateProgress$, 0, () => TemplateConfiguration$, 1],
+  [0, 0, () => ResourceDetails, 0, 0, 4, 4, () => TemplateProgress$, 0, () => TemplateConfiguration$, 1]
 ];
-export var DescribeOrganizationsAccessInput$: StaticStructureSchema = [3, n0, _DOAIe, 0, [_CA], [0]];
-export var DescribeOrganizationsAccessOutput$: StaticStructureSchema = [3, n0, _DOAOe, 0, [_S], [0]];
-export var DescribePublisherInput$: StaticStructureSchema = [3, n0, _DPI, 0, [_PI], [0]];
-export var DescribePublisherOutput$: StaticStructureSchema = [3, n0, _DPO, 0, [_PI, _PS, _IPd, _PP], [0, 0, 0, 0]];
-export var DescribeResourceScanInput$: StaticStructureSchema = [3, n0, _DRSI, 0, [_RSI], [0]];
-export var DescribeResourceScanOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DRSO,
+export var DescribeOrganizationsAccessInput$: StaticStructureSchema = [3, n0, _DOAIe,
+  0,
+  [_CA],
+  [0]
+];
+export var DescribeOrganizationsAccessOutput$: StaticStructureSchema = [3, n0, _DOAOe,
+  0,
+  [_S],
+  [0]
+];
+export var DescribePublisherInput$: StaticStructureSchema = [3, n0, _DPI,
+  0,
+  [_PI],
+  [0]
+];
+export var DescribePublisherOutput$: StaticStructureSchema = [3, n0, _DPO,
+  0,
+  [_PI, _PS, _IPd, _PP],
+  [0, 0, 0, 0]
+];
+export var DescribeResourceScanInput$: StaticStructureSchema = [3, n0, _DRSI,
+  0,
+  [_RSI],
+  [0]
+];
+export var DescribeResourceScanOutput$: StaticStructureSchema = [3, n0, _DRSO,
   0,
   [_RSI, _S, _SR, _ST, _ET, _PC, _RTe, _RSe, _RRe, _SF],
-  [0, 0, 0, 4, 4, 1, 64 | 0, 1, 1, () => ScanFilters],
+  [0, 0, 0, 4, 4, 1, 64 | 0, 1, 1, () => ScanFilters]
 ];
-export var DescribeStackDriftDetectionStatusInput$: StaticStructureSchema = [3, n0, _DSDDSI, 0, [_SDDI], [0]];
-export var DescribeStackDriftDetectionStatusOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSDDSO,
+export var DescribeStackDriftDetectionStatusInput$: StaticStructureSchema = [3, n0, _DSDDSI,
+  0,
+  [_SDDI],
+  [0]
+];
+export var DescribeStackDriftDetectionStatusOutput$: StaticStructureSchema = [3, n0, _DSDDSO,
   0,
   [_SI, _SDDI, _SDS, _DS, _DSR, _DSRC, _Ti],
-  [0, 0, 0, 0, 0, 1, 4],
+  [0, 0, 0, 0, 0, 1, 4]
 ];
-export var DescribeStackEventsInput$: StaticStructureSchema = [3, n0, _DSEI, 0, [_SN, _NT], [0, 0]];
-export var DescribeStackEventsOutput$: StaticStructureSchema = [3, n0, _DSEO, 0, [_SE, _NT], [() => StackEvents, 0]];
-export var DescribeStackInstanceInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSIIe,
+export var DescribeStackEventsInput$: StaticStructureSchema = [3, n0, _DSEI,
+  0,
+  [_SN, _NT],
+  [0, 0]
+];
+export var DescribeStackEventsOutput$: StaticStructureSchema = [3, n0, _DSEO,
+  0,
+  [_SE, _NT],
+  [() => StackEvents, 0]
+];
+export var DescribeStackInstanceInput$: StaticStructureSchema = [3, n0, _DSIIe,
   0,
   [_SSN, _SIA, _SIR, _CA],
-  [0, 0, 0, 0],
+  [0, 0, 0, 0]
 ];
-export var DescribeStackInstanceOutput$: StaticStructureSchema = [3, n0, _DSIOe, 0, [_SIt], [() => StackInstance$]];
-export var DescribeStackRefactorInput$: StaticStructureSchema = [3, n0, _DSRI, 0, [_SRI], [0]];
-export var DescribeStackRefactorOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSRO,
+export var DescribeStackInstanceOutput$: StaticStructureSchema = [3, n0, _DSIOe,
+  0,
+  [_SIt],
+  [() => StackInstance$]
+];
+export var DescribeStackRefactorInput$: StaticStructureSchema = [3, n0, _DSRI,
+  0,
+  [_SRI],
+  [0]
+];
+export var DescribeStackRefactorOutput$: StaticStructureSchema = [3, n0, _DSRO,
   0,
   [_D, _SRI, _SIta, _ES, _ESR, _S, _SR],
-  [0, 0, 64 | 0, 0, 0, 0, 0],
+  [0, 0, 64 | 0, 0, 0, 0, 0]
 ];
-export var DescribeStackResourceDriftsInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSRDI,
+export var DescribeStackResourceDriftsInput$: StaticStructureSchema = [3, n0, _DSRDI,
   0,
   [_SN, _SRDSF, _NT, _MR],
-  [0, 64 | 0, 0, 1],
+  [0, 64 | 0, 0, 1]
 ];
-export var DescribeStackResourceDriftsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSRDO,
+export var DescribeStackResourceDriftsOutput$: StaticStructureSchema = [3, n0, _DSRDO,
   0,
   [_SRD, _NT],
-  [() => StackResourceDrifts, 0],
+  [() => StackResourceDrifts, 0]
 ];
-export var DescribeStackResourceInput$: StaticStructureSchema = [3, n0, _DSRIe, 0, [_SN, _LRI], [0, 0]];
-export var DescribeStackResourceOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSROe,
+export var DescribeStackResourceInput$: StaticStructureSchema = [3, n0, _DSRIe,
+  0,
+  [_SN, _LRI],
+  [0, 0]
+];
+export var DescribeStackResourceOutput$: StaticStructureSchema = [3, n0, _DSROe,
   0,
   [_SRDt],
-  [() => StackResourceDetail$],
+  [() => StackResourceDetail$]
 ];
-export var DescribeStackResourcesInput$: StaticStructureSchema = [3, n0, _DSRIes, 0, [_SN, _LRI, _PRI], [0, 0, 0]];
-export var DescribeStackResourcesOutput$: StaticStructureSchema = [3, n0, _DSROes, 0, [_SRt], [() => StackResources]];
-export var DescribeStackSetInput$: StaticStructureSchema = [3, n0, _DSSIe, 0, [_SSN, _CA], [0, 0]];
-export var DescribeStackSetOperationInput$: StaticStructureSchema = [3, n0, _DSSOI, 0, [_SSN, _OI, _CA], [0, 0, 0]];
-export var DescribeStackSetOperationOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSSOO,
+export var DescribeStackResourcesInput$: StaticStructureSchema = [3, n0, _DSRIes,
+  0,
+  [_SN, _LRI, _PRI],
+  [0, 0, 0]
+];
+export var DescribeStackResourcesOutput$: StaticStructureSchema = [3, n0, _DSROes,
+  0,
+  [_SRt],
+  [() => StackResources]
+];
+export var DescribeStackSetInput$: StaticStructureSchema = [3, n0, _DSSIe,
+  0,
+  [_SSN, _CA],
+  [0, 0]
+];
+export var DescribeStackSetOperationInput$: StaticStructureSchema = [3, n0, _DSSOI,
+  0,
+  [_SSN, _OI, _CA],
+  [0, 0, 0]
+];
+export var DescribeStackSetOperationOutput$: StaticStructureSchema = [3, n0, _DSSOO,
   0,
   [_SSO],
-  [() => StackSetOperation$],
+  [() => StackSetOperation$]
 ];
-export var DescribeStackSetOutput$: StaticStructureSchema = [3, n0, _DSSOe, 0, [_SS], [() => StackSet$]];
-export var DescribeStacksInput$: StaticStructureSchema = [3, n0, _DSIe, 0, [_SN, _NT], [0, 0]];
-export var DescribeStacksOutput$: StaticStructureSchema = [3, n0, _DSO, 0, [_St, _NT], [() => Stacks, 0]];
-export var DescribeTypeInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DTIes,
+export var DescribeStackSetOutput$: StaticStructureSchema = [3, n0, _DSSOe,
+  0,
+  [_SS],
+  [() => StackSet$]
+];
+export var DescribeStacksInput$: StaticStructureSchema = [3, n0, _DSIe,
+  0,
+  [_SN, _NT],
+  [0, 0]
+];
+export var DescribeStacksOutput$: StaticStructureSchema = [3, n0, _DSO,
+  0,
+  [_St, _NT],
+  [() => Stacks, 0]
+];
+export var DescribeTypeInput$: StaticStructureSchema = [3, n0, _DTIes,
   0,
   [_T, _TN, _A, _VI, _PI, _PVN],
-  [0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0]
 ];
-export var DescribeTypeOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DTOes,
+export var DescribeTypeOutput$: StaticStructureSchema = [3, n0, _DTOes,
   0,
-  [
-    _A,
-    _T,
-    _TN,
-    _DVI,
-    _IDV,
-    _TTS,
-    _TTSD,
-    _D,
-    _Sc,
-    _PT,
-    _DSe,
-    _LC,
-    _RAT,
-    _ERA,
-    _Vi,
-    _SU,
-    _DU,
-    _LU,
-    _TCi,
-    _CS,
-    _PI,
-    _OTN,
-    _OTA,
-    _PVN,
-    _LPV,
-    _IA,
-    _AU,
-  ],
-  [
-    0,
-    0,
-    0,
-    0,
-    2,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    () => LoggingConfig$,
-    () => RequiredActivatedTypes,
-    0,
-    0,
-    0,
-    0,
-    4,
-    4,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    2,
-    2,
-  ],
+  [_A, _T, _TN, _DVI, _IDV, _TTS, _TTSD, _D, _Sc, _PT, _DSe, _LC, _RAT, _ERA, _Vi, _SU, _DU, _LU, _TCi, _CS, _PI, _OTN, _OTA, _PVN, _LPV, _IA, _AU],
+  [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, () => LoggingConfig$, () => RequiredActivatedTypes, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 2, 2]
 ];
-export var DescribeTypeRegistrationInput$: StaticStructureSchema = [3, n0, _DTRI, 0, [_RTeg], [0]];
-export var DescribeTypeRegistrationOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DTRO,
+export var DescribeTypeRegistrationInput$: StaticStructureSchema = [3, n0, _DTRI,
+  0,
+  [_RTeg],
+  [0]
+];
+export var DescribeTypeRegistrationOutput$: StaticStructureSchema = [3, n0, _DTRO,
   0,
   [_PSr, _D, _TA, _TVA],
-  [0, 0, 0, 0],
+  [0, 0, 0, 0]
 ];
-export var DetectStackDriftInput$: StaticStructureSchema = [3, n0, _DSDI, 0, [_SN, _LRIo], [0, 64 | 0]];
-export var DetectStackDriftOutput$: StaticStructureSchema = [3, n0, _DSDO, 0, [_SDDI], [0]];
-export var DetectStackResourceDriftInput$: StaticStructureSchema = [3, n0, _DSRDIe, 0, [_SN, _LRI], [0, 0]];
-export var DetectStackResourceDriftOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSRDOe,
+export var DetectStackDriftInput$: StaticStructureSchema = [3, n0, _DSDI,
+  0,
+  [_SN, _LRIo],
+  [0, 64 | 0]
+];
+export var DetectStackDriftOutput$: StaticStructureSchema = [3, n0, _DSDO,
+  0,
+  [_SDDI],
+  [0]
+];
+export var DetectStackResourceDriftInput$: StaticStructureSchema = [3, n0, _DSRDIe,
+  0,
+  [_SN, _LRI],
+  [0, 0]
+];
+export var DetectStackResourceDriftOutput$: StaticStructureSchema = [3, n0, _DSRDOe,
   0,
   [_SRDta],
-  [() => StackResourceDrift$],
+  [() => StackResourceDrift$]
 ];
-export var DetectStackSetDriftInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _DSSDI,
+export var DetectStackSetDriftInput$: StaticStructureSchema = [3, n0, _DSSDI,
   0,
   [_SSN, _OP, _OI, _CA],
-  [0, () => StackSetOperationPreferences$, [0, 4], 0],
+  [0, () => StackSetOperationPreferences$, [0, 4], 0]
 ];
-export var DetectStackSetDriftOutput$: StaticStructureSchema = [3, n0, _DSSDO, 0, [_OI], [0]];
-export var EstimateTemplateCostInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _ETCI,
+export var DetectStackSetDriftOutput$: StaticStructureSchema = [3, n0, _DSSDO,
+  0,
+  [_OI],
+  [0]
+];
+export var EstimateTemplateCostInput$: StaticStructureSchema = [3, n0, _ETCI,
   0,
   [_TB, _TURL, _P],
-  [0, 0, () => _Parameters],
+  [0, 0, () => _Parameters]
 ];
-export var EstimateTemplateCostOutput$: StaticStructureSchema = [3, n0, _ETCO, 0, [_U], [0]];
-export var EventFilter$: StaticStructureSchema = [3, n0, _EF, 0, [_FE], [2]];
-export var ExecuteChangeSetInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _ECSI,
+export var EstimateTemplateCostOutput$: StaticStructureSchema = [3, n0, _ETCO,
+  0,
+  [_U],
+  [0]
+];
+export var EventFilter$: StaticStructureSchema = [3, n0, _EF,
+  0,
+  [_FE],
+  [2]
+];
+export var ExecuteChangeSetInput$: StaticStructureSchema = [3, n0, _ECSI,
   0,
   [_CSN, _SN, _CRT, _DR, _REOC],
-  [0, 0, 0, 2, 2],
+  [0, 0, 0, 2, 2]
 ];
-export var ExecuteChangeSetOutput$: StaticStructureSchema = [3, n0, _ECSO, 0, [], []];
-export var ExecuteStackRefactorInput$: StaticStructureSchema = [3, n0, _ESRI, 0, [_SRI], [0]];
-export var Export$: StaticStructureSchema = [3, n0, _Ex, 0, [_ESI, _N, _V], [0, 0, 0]];
-export var GeneratedTemplateNotFoundException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _GTNFE,
+export var ExecuteChangeSetOutput$: StaticStructureSchema = [3, n0, _ECSO,
+  0,
+  [],
+  []
+];
+export var ExecuteStackRefactorInput$: StaticStructureSchema = [3, n0, _ESRI,
+  0,
+  [_SRI],
+  [0]
+];
+export var Export$: StaticStructureSchema = [3, n0, _Ex,
+  0,
+  [_ESI, _N, _V],
+  [0, 0, 0]
+];
+export var GeneratedTemplateNotFoundException$: StaticErrorSchema = [-3, n0, _GTNFE,
   { [_aQE]: [`GeneratedTemplateNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(GeneratedTemplateNotFoundException$, GeneratedTemplateNotFoundException);
-export var GetGeneratedTemplateInput$: StaticStructureSchema = [3, n0, _GGTI, 0, [_Fo, _GTN], [0, 0]];
-export var GetGeneratedTemplateOutput$: StaticStructureSchema = [3, n0, _GGTO, 0, [_S, _TB], [0, 0]];
-export var GetHookResultInput$: StaticStructureSchema = [3, n0, _GHRI, 0, [_HRI], [0]];
-export var GetHookResultOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _GHRO,
+export var GetGeneratedTemplateInput$: StaticStructureSchema = [3, n0, _GGTI,
+  0,
+  [_Fo, _GTN],
+  [0, 0]
+];
+export var GetGeneratedTemplateOutput$: StaticStructureSchema = [3, n0, _GGTO,
+  0,
+  [_S, _TB],
+  [0, 0]
+];
+export var GetHookResultInput$: StaticStructureSchema = [3, n0, _GHRI,
+  0,
+  [_HRI],
+  [0]
+];
+export var GetHookResultOutput$: StaticStructureSchema = [3, n0, _GHRO,
   0,
   [_HRI, _IP, _FM, _TN, _OTN, _TVI, _TCVI, _TA, _S, _HSR, _IAn, _Tar, _Ann],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, () => HookTarget$, () => AnnotationList],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, () => HookTarget$, () => AnnotationList]
 ];
-export var GetStackPolicyInput$: StaticStructureSchema = [3, n0, _GSPI, 0, [_SN], [0]];
-export var GetStackPolicyOutput$: StaticStructureSchema = [3, n0, _GSPO, 0, [_SPB], [0]];
-export var GetTemplateInput$: StaticStructureSchema = [3, n0, _GTIe, 0, [_SN, _CSN, _TS], [0, 0, 0]];
-export var GetTemplateOutput$: StaticStructureSchema = [3, n0, _GTO, 0, [_TB, _SA], [0, 64 | 0]];
-export var GetTemplateSummaryInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _GTSI,
+export var GetStackPolicyInput$: StaticStructureSchema = [3, n0, _GSPI,
+  0,
+  [_SN],
+  [0]
+];
+export var GetStackPolicyOutput$: StaticStructureSchema = [3, n0, _GSPO,
+  0,
+  [_SPB],
+  [0]
+];
+export var GetTemplateInput$: StaticStructureSchema = [3, n0, _GTIe,
+  0,
+  [_SN, _CSN, _TS],
+  [0, 0, 0]
+];
+export var GetTemplateOutput$: StaticStructureSchema = [3, n0, _GTO,
+  0,
+  [_TB, _SA],
+  [0, 64 | 0]
+];
+export var GetTemplateSummaryInput$: StaticStructureSchema = [3, n0, _GTSI,
   0,
   [_TB, _TURL, _SN, _SSN, _CA, _TSC],
-  [0, 0, 0, 0, 0, () => TemplateSummaryConfig$],
+  [0, 0, 0, 0, 0, () => TemplateSummaryConfig$]
 ];
-export var GetTemplateSummaryOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _GTSO,
+export var GetTemplateSummaryOutput$: StaticStructureSchema = [3, n0, _GTSO,
   0,
   [_P, _D, _Ca, _CR, _RTe, _Ve, _Me, _DTe, _RIS, _W],
-  [() => ParameterDeclarations, 0, 64 | 0, 0, 64 | 0, 0, 0, 64 | 0, () => ResourceIdentifierSummaries, () => Warnings$],
+  [() => ParameterDeclarations, 0, 64 | 0, 0, 64 | 0, 0, 0, 64 | 0, () => ResourceIdentifierSummaries, () => Warnings$]
 ];
-export var HookResultNotFoundException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _HRNFE,
+export var HookResultNotFoundException$: StaticErrorSchema = [-3, n0, _HRNFE,
   { [_aQE]: [`HookResultNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(HookResultNotFoundException$, HookResultNotFoundException);
-export var HookResultSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _HRS,
+export var HookResultSummary$: StaticStructureSchema = [3, n0, _HRS,
   0,
   [_HRI, _IP, _FM, _TN, _TVI, _TCVI, _S, _HSR, _IAn, _TT, _TI, _TA, _HET],
-  [0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0]
 ];
-export var HookTarget$: StaticStructureSchema = [3, n0, _HT, 0, [_TT, _TTN, _TI, _Act], [0, 0, 0, 0]];
-export var ImportStacksToStackSetInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _ISTSSI,
+export var HookTarget$: StaticStructureSchema = [3, n0, _HT,
+  0,
+  [_TT, _TTN, _TI, _Act],
+  [0, 0, 0, 0]
+];
+export var ImportStacksToStackSetInput$: StaticStructureSchema = [3, n0, _ISTSSI,
   0,
   [_SSN, _SIta, _SIU, _OUI, _OP, _OI, _CA],
-  [0, 64 | 0, 0, 64 | 0, () => StackSetOperationPreferences$, [0, 4], 0],
+  [0, 64 | 0, 0, 64 | 0, () => StackSetOperationPreferences$, [0, 4], 0]
 ];
-export var ImportStacksToStackSetOutput$: StaticStructureSchema = [3, n0, _ISTSSO, 0, [_OI], [0]];
-export var InsufficientCapabilitiesException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ICE,
+export var ImportStacksToStackSetOutput$: StaticStructureSchema = [3, n0, _ISTSSO,
+  0,
+  [_OI],
+  [0]
+];
+export var InsufficientCapabilitiesException$: StaticErrorSchema = [-3, n0, _ICE,
   { [_aQE]: [`InsufficientCapabilitiesException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(InsufficientCapabilitiesException$, InsufficientCapabilitiesException);
-export var InvalidChangeSetStatusException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ICSSE,
+export var InvalidChangeSetStatusException$: StaticErrorSchema = [-3, n0, _ICSSE,
   { [_aQE]: [`InvalidChangeSetStatus`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(InvalidChangeSetStatusException$, InvalidChangeSetStatusException);
-export var InvalidOperationException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IOE,
+export var InvalidOperationException$: StaticErrorSchema = [-3, n0, _IOE,
   { [_aQE]: [`InvalidOperationException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(InvalidOperationException$, InvalidOperationException);
-export var InvalidStateTransitionException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ISTE,
+export var InvalidStateTransitionException$: StaticErrorSchema = [-3, n0, _ISTE,
   { [_aQE]: [`InvalidStateTransition`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(InvalidStateTransitionException$, InvalidStateTransitionException);
-export var LimitExceededException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _LEE,
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
   { [_aQE]: [`LimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
-export var ListChangeSetsInput$: StaticStructureSchema = [3, n0, _LCSI, 0, [_SN, _NT], [0, 0]];
-export var ListChangeSetsOutput$: StaticStructureSchema = [3, n0, _LCSO, 0, [_Su, _NT], [() => ChangeSetSummaries, 0]];
-export var ListExportsInput$: StaticStructureSchema = [3, n0, _LEI, 0, [_NT], [0]];
-export var ListExportsOutput$: StaticStructureSchema = [3, n0, _LEO, 0, [_Exp, _NT], [() => Exports, 0]];
-export var ListGeneratedTemplatesInput$: StaticStructureSchema = [3, n0, _LGTI, 0, [_NT, _MR], [0, 1]];
-export var ListGeneratedTemplatesOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LGTO,
+export var ListChangeSetsInput$: StaticStructureSchema = [3, n0, _LCSI,
+  0,
+  [_SN, _NT],
+  [0, 0]
+];
+export var ListChangeSetsOutput$: StaticStructureSchema = [3, n0, _LCSO,
   0,
   [_Su, _NT],
-  [() => TemplateSummaries, 0],
+  [() => ChangeSetSummaries, 0]
 ];
-export var ListHookResultsInput$: StaticStructureSchema = [3, n0, _LHRI, 0, [_TT, _TI, _TA, _S, _NT], [0, 0, 0, 0, 0]];
-export var ListHookResultsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LHRO,
+export var ListExportsInput$: StaticStructureSchema = [3, n0, _LEI,
+  0,
+  [_NT],
+  [0]
+];
+export var ListExportsOutput$: StaticStructureSchema = [3, n0, _LEO,
+  0,
+  [_Exp, _NT],
+  [() => Exports, 0]
+];
+export var ListGeneratedTemplatesInput$: StaticStructureSchema = [3, n0, _LGTI,
+  0,
+  [_NT, _MR],
+  [0, 1]
+];
+export var ListGeneratedTemplatesOutput$: StaticStructureSchema = [3, n0, _LGTO,
+  0,
+  [_Su, _NT],
+  [() => TemplateSummaries, 0]
+];
+export var ListHookResultsInput$: StaticStructureSchema = [3, n0, _LHRI,
+  0,
+  [_TT, _TI, _TA, _S, _NT],
+  [0, 0, 0, 0, 0]
+];
+export var ListHookResultsOutput$: StaticStructureSchema = [3, n0, _LHRO,
   0,
   [_TT, _TI, _HR, _NT],
-  [0, 0, () => HookResultSummaries, 0],
+  [0, 0, () => HookResultSummaries, 0]
 ];
-export var ListImportsInput$: StaticStructureSchema = [3, n0, _LII, 0, [_EN, _NT], [0, 0]];
-export var ListImportsOutput$: StaticStructureSchema = [3, n0, _LIO, 0, [_Im, _NT], [64 | 0, 0]];
-export var ListResourceScanRelatedResourcesInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRSRRI,
+export var ListImportsInput$: StaticStructureSchema = [3, n0, _LII,
+  0,
+  [_EN, _NT],
+  [0, 0]
+];
+export var ListImportsOutput$: StaticStructureSchema = [3, n0, _LIO,
+  0,
+  [_Im, _NT],
+  [64 | 0, 0]
+];
+export var ListResourceScanRelatedResourcesInput$: StaticStructureSchema = [3, n0, _LRSRRI,
   0,
   [_RSI, _R, _NT, _MR],
-  [0, () => ScannedResourceIdentifiers, 0, 1],
+  [0, () => ScannedResourceIdentifiers, 0, 1]
 ];
-export var ListResourceScanRelatedResourcesOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRSRRO,
+export var ListResourceScanRelatedResourcesOutput$: StaticStructureSchema = [3, n0, _LRSRRO,
   0,
   [_RRel, _NT],
-  [() => RelatedResources, 0],
+  [() => RelatedResources, 0]
 ];
-export var ListResourceScanResourcesInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRSRI,
+export var ListResourceScanResourcesInput$: StaticStructureSchema = [3, n0, _LRSRI,
   0,
   [_RSI, _RI, _RTP, _TK, _TV, _NT, _MR],
-  [0, 0, 0, 0, 0, 0, 1],
+  [0, 0, 0, 0, 0, 0, 1]
 ];
-export var ListResourceScanResourcesOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRSRO,
+export var ListResourceScanResourcesOutput$: StaticStructureSchema = [3, n0, _LRSRO,
   0,
   [_R, _NT],
-  [() => ScannedResources, 0],
+  [() => ScannedResources, 0]
 ];
-export var ListResourceScansInput$: StaticStructureSchema = [3, n0, _LRSI, 0, [_NT, _MR, _STF], [0, 1, 0]];
-export var ListResourceScansOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LRSO,
+export var ListResourceScansInput$: StaticStructureSchema = [3, n0, _LRSI,
+  0,
+  [_NT, _MR, _STF],
+  [0, 1, 0]
+];
+export var ListResourceScansOutput$: StaticStructureSchema = [3, n0, _LRSO,
   0,
   [_RSS, _NT],
-  [() => ResourceScanSummaries, 0],
+  [() => ResourceScanSummaries, 0]
 ];
-export var ListStackInstanceResourceDriftsInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSIRDI,
+export var ListStackInstanceResourceDriftsInput$: StaticStructureSchema = [3, n0, _LSIRDI,
   0,
   [_SSN, _NT, _MR, _SIRDS, _SIA, _SIR, _OI, _CA],
-  [0, 0, 1, 64 | 0, 0, 0, 0, 0],
+  [0, 0, 1, 64 | 0, 0, 0, 0, 0]
 ];
-export var ListStackInstanceResourceDriftsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSIRDO,
+export var ListStackInstanceResourceDriftsOutput$: StaticStructureSchema = [3, n0, _LSIRDO,
   0,
   [_Su, _NT],
-  [() => StackInstanceResourceDriftsSummaries, 0],
+  [() => StackInstanceResourceDriftsSummaries, 0]
 ];
-export var ListStackInstancesInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSII,
+export var ListStackInstancesInput$: StaticStructureSchema = [3, n0, _LSII,
   0,
   [_SSN, _NT, _MR, _F, _SIA, _SIR, _CA],
-  [0, 0, 1, () => StackInstanceFilters, 0, 0, 0],
+  [0, 0, 1, () => StackInstanceFilters, 0, 0, 0]
 ];
-export var ListStackInstancesOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSIO,
+export var ListStackInstancesOutput$: StaticStructureSchema = [3, n0, _LSIO,
   0,
   [_Su, _NT],
-  [() => StackInstanceSummaries, 0],
+  [() => StackInstanceSummaries, 0]
 ];
-export var ListStackRefactorActionsInput$: StaticStructureSchema = [3, n0, _LSRAI, 0, [_SRI, _NT, _MR], [0, 0, 1]];
-export var ListStackRefactorActionsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSRAO,
+export var ListStackRefactorActionsInput$: StaticStructureSchema = [3, n0, _LSRAI,
+  0,
+  [_SRI, _NT, _MR],
+  [0, 0, 1]
+];
+export var ListStackRefactorActionsOutput$: StaticStructureSchema = [3, n0, _LSRAO,
   0,
   [_SRA, _NT],
-  [() => StackRefactorActions, 0],
+  [() => StackRefactorActions, 0]
 ];
-export var ListStackRefactorsInput$: StaticStructureSchema = [3, n0, _LSRI, 0, [_ESF, _NT, _MR], [64 | 0, 0, 1]];
-export var ListStackRefactorsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSRO,
+export var ListStackRefactorsInput$: StaticStructureSchema = [3, n0, _LSRI,
+  0,
+  [_ESF, _NT, _MR],
+  [64 | 0, 0, 1]
+];
+export var ListStackRefactorsOutput$: StaticStructureSchema = [3, n0, _LSRO,
   0,
   [_SRS, _NT],
-  [() => StackRefactorSummaries, 0],
+  [() => StackRefactorSummaries, 0]
 ];
-export var ListStackResourcesInput$: StaticStructureSchema = [3, n0, _LSRIi, 0, [_SN, _NT], [0, 0]];
-export var ListStackResourcesOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSROi,
+export var ListStackResourcesInput$: StaticStructureSchema = [3, n0, _LSRIi,
+  0,
+  [_SN, _NT],
+  [0, 0]
+];
+export var ListStackResourcesOutput$: StaticStructureSchema = [3, n0, _LSROi,
   0,
   [_SRSt, _NT],
-  [() => StackResourceSummaries, 0],
+  [() => StackResourceSummaries, 0]
 ];
-export var ListStackSetAutoDeploymentTargetsInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSSADTI,
+export var ListStackSetAutoDeploymentTargetsInput$: StaticStructureSchema = [3, n0, _LSSADTI,
   0,
   [_SSN, _NT, _MR, _CA],
-  [0, 0, 1, 0],
+  [0, 0, 1, 0]
 ];
-export var ListStackSetAutoDeploymentTargetsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSSADTO,
+export var ListStackSetAutoDeploymentTargetsOutput$: StaticStructureSchema = [3, n0, _LSSADTO,
   0,
   [_Su, _NT],
-  [() => StackSetAutoDeploymentTargetSummaries, 0],
+  [() => StackSetAutoDeploymentTargetSummaries, 0]
 ];
-export var ListStackSetOperationResultsInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSSORI,
+export var ListStackSetOperationResultsInput$: StaticStructureSchema = [3, n0, _LSSORI,
   0,
   [_SSN, _OI, _NT, _MR, _CA, _F],
-  [0, 0, 0, 1, 0, () => OperationResultFilters],
+  [0, 0, 0, 1, 0, () => OperationResultFilters]
 ];
-export var ListStackSetOperationResultsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSSORO,
+export var ListStackSetOperationResultsOutput$: StaticStructureSchema = [3, n0, _LSSORO,
   0,
   [_Su, _NT],
-  [() => StackSetOperationResultSummaries, 0],
+  [() => StackSetOperationResultSummaries, 0]
 ];
-export var ListStackSetOperationsInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSSOI,
+export var ListStackSetOperationsInput$: StaticStructureSchema = [3, n0, _LSSOI,
   0,
   [_SSN, _NT, _MR, _CA],
-  [0, 0, 1, 0],
+  [0, 0, 1, 0]
 ];
-export var ListStackSetOperationsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LSSOO,
+export var ListStackSetOperationsOutput$: StaticStructureSchema = [3, n0, _LSSOO,
   0,
   [_Su, _NT],
-  [() => StackSetOperationSummaries, 0],
+  [() => StackSetOperationSummaries, 0]
 ];
-export var ListStackSetsInput$: StaticStructureSchema = [3, n0, _LSSI, 0, [_NT, _MR, _S, _CA], [0, 1, 0, 0]];
-export var ListStackSetsOutput$: StaticStructureSchema = [3, n0, _LSSO, 0, [_Su, _NT], [() => StackSetSummaries, 0]];
-export var ListStacksInput$: StaticStructureSchema = [3, n0, _LSI, 0, [_NT, _SSF], [0, 64 | 0]];
-export var ListStacksOutput$: StaticStructureSchema = [3, n0, _LSO, 0, [_SSt, _NT], [() => StackSummaries, 0]];
-export var ListTypeRegistrationsInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LTRI,
+export var ListStackSetsInput$: StaticStructureSchema = [3, n0, _LSSI,
+  0,
+  [_NT, _MR, _S, _CA],
+  [0, 1, 0, 0]
+];
+export var ListStackSetsOutput$: StaticStructureSchema = [3, n0, _LSSO,
+  0,
+  [_Su, _NT],
+  [() => StackSetSummaries, 0]
+];
+export var ListStacksInput$: StaticStructureSchema = [3, n0, _LSI,
+  0,
+  [_NT, _SSF],
+  [0, 64 | 0]
+];
+export var ListStacksOutput$: StaticStructureSchema = [3, n0, _LSO,
+  0,
+  [_SSt, _NT],
+  [() => StackSummaries, 0]
+];
+export var ListTypeRegistrationsInput$: StaticStructureSchema = [3, n0, _LTRI,
   0,
   [_T, _TN, _TA, _RSF, _MR, _NT],
-  [0, 0, 0, 0, 1, 0],
+  [0, 0, 0, 0, 1, 0]
 ];
-export var ListTypeRegistrationsOutput$: StaticStructureSchema = [3, n0, _LTRO, 0, [_RTL, _NT], [64 | 0, 0]];
-export var ListTypesInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LTI,
+export var ListTypeRegistrationsOutput$: StaticStructureSchema = [3, n0, _LTRO,
+  0,
+  [_RTL, _NT],
+  [64 | 0, 0]
+];
+export var ListTypesInput$: StaticStructureSchema = [3, n0, _LTI,
   0,
   [_Vi, _PT, _DSe, _T, _F, _MR, _NT],
-  [0, 0, 0, 0, () => TypeFilters$, 1, 0],
+  [0, 0, 0, 0, () => TypeFilters$, 1, 0]
 ];
-export var ListTypesOutput$: StaticStructureSchema = [3, n0, _LTO, 0, [_TSy, _NT], [() => TypeSummaries, 0]];
-export var ListTypeVersionsInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LTVI,
+export var ListTypesOutput$: StaticStructureSchema = [3, n0, _LTO,
+  0,
+  [_TSy, _NT],
+  [() => TypeSummaries, 0]
+];
+export var ListTypeVersionsInput$: StaticStructureSchema = [3, n0, _LTVI,
   0,
   [_T, _TN, _A, _MR, _NT, _DSe, _PI],
-  [0, 0, 0, 1, 0, 0, 0],
+  [0, 0, 0, 1, 0, 0, 0]
 ];
-export var ListTypeVersionsOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _LTVO,
+export var ListTypeVersionsOutput$: StaticStructureSchema = [3, n0, _LTVO,
   0,
   [_TVS, _NT],
-  [() => TypeVersionSummaries, 0],
+  [() => TypeVersionSummaries, 0]
 ];
-export var LiveResourceDrift$: StaticStructureSchema = [3, n0, _LRD, 0, [_PV, _AV, _DDT], [0, 0, 4]];
-export var LoggingConfig$: StaticStructureSchema = [3, n0, _LC, 0, [_LRA, _LGN], [0, 0]];
-export var ManagedExecution$: StaticStructureSchema = [3, n0, _ME, 0, [_Acti], [2]];
-export var ModuleInfo$: StaticStructureSchema = [3, n0, _MI, 0, [_TH, _LIH], [0, 0]];
-export var NameAlreadyExistsException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _NAEE,
+export var LiveResourceDrift$: StaticStructureSchema = [3, n0, _LRD,
+  0,
+  [_PV, _AV, _DDT],
+  [0, 0, 4]
+];
+export var LoggingConfig$: StaticStructureSchema = [3, n0, _LC,
+  0,
+  [_LRA, _LGN],
+  [0, 0]
+];
+export var ManagedExecution$: StaticStructureSchema = [3, n0, _ME,
+  0,
+  [_Acti],
+  [2]
+];
+export var ModuleInfo$: StaticStructureSchema = [3, n0, _MI,
+  0,
+  [_TH, _LIH],
+  [0, 0]
+];
+export var NameAlreadyExistsException$: StaticErrorSchema = [-3, n0, _NAEE,
   { [_aQE]: [`NameAlreadyExistsException`, 409], [_e]: _c, [_hE]: 409 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(NameAlreadyExistsException$, NameAlreadyExistsException);
-export var OperationEntry$: StaticStructureSchema = [3, n0, _OEp, 0, [_OT, _OI], [0, 0]];
-export var OperationEvent$: StaticStructureSchema = [
-  3,
-  n0,
-  _OEpe,
+export var OperationEntry$: StaticStructureSchema = [3, n0, _OEp,
   0,
-  [
-    _EI,
-    _SI,
-    _OI,
-    _OT,
-    _OS,
-    _ETv,
-    _LRI,
-    _PRI,
-    _RT,
-    _Ti,
-    _ST,
-    _ET,
-    _RSes,
-    _RSR,
-    _RP,
-    _CRT,
-    _HTo,
-    _HS,
-    _HSR,
-    _HIP,
-    _HFM,
-    _DSet,
-    _VFM,
-    _VN,
-    _VS,
-    _VSR,
-    _VP,
-  ],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [_OT, _OI],
+  [0, 0]
 ];
-export var OperationIdAlreadyExistsException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _OIAEE,
+export var OperationEvent$: StaticStructureSchema = [3, n0, _OEpe,
+  0,
+  [_EI, _SI, _OI, _OT, _OS, _ETv, _LRI, _PRI, _RT, _Ti, _ST, _ET, _RSes, _RSR, _RP, _CRT, _HTo, _HS, _HSR, _HIP, _HFM, _DSet, _VFM, _VN, _VS, _VSR, _VP],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+export var OperationIdAlreadyExistsException$: StaticErrorSchema = [-3, n0, _OIAEE,
   { [_aQE]: [`OperationIdAlreadyExistsException`, 409], [_e]: _c, [_hE]: 409 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(OperationIdAlreadyExistsException$, OperationIdAlreadyExistsException);
-export var OperationInProgressException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _OIPE,
+export var OperationInProgressException$: StaticErrorSchema = [-3, n0, _OIPE,
   { [_aQE]: [`OperationInProgressException`, 409], [_e]: _c, [_hE]: 409 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(OperationInProgressException$, OperationInProgressException);
-export var OperationNotFoundException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ONFE,
+export var OperationNotFoundException$: StaticErrorSchema = [-3, n0, _ONFE,
   { [_aQE]: [`OperationNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(OperationNotFoundException$, OperationNotFoundException);
-export var OperationResultFilter$: StaticStructureSchema = [3, n0, _ORF, 0, [_N, _Va], [0, 0]];
-export var OperationStatusCheckFailedException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _OSCFE,
+export var OperationResultFilter$: StaticStructureSchema = [3, n0, _ORF,
+  0,
+  [_N, _Va],
+  [0, 0]
+];
+export var OperationStatusCheckFailedException$: StaticErrorSchema = [-3, n0, _OSCFE,
   { [_aQE]: [`ConditionalCheckFailed`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(OperationStatusCheckFailedException$, OperationStatusCheckFailedException);
-export var Output$: StaticStructureSchema = [3, n0, _O, 0, [_OK, _OV, _D, _EN], [0, 0, 0, 0]];
-export var Parameter$: StaticStructureSchema = [3, n0, _Pa, 0, [_PK, _PVa, _UPV, _RV], [0, 0, 2, 0]];
-export var ParameterConstraints$: StaticStructureSchema = [3, n0, _PCa, 0, [_AVl], [64 | 0]];
-export var ParameterDeclaration$: StaticStructureSchema = [
-  3,
-  n0,
-  _PD,
+export var Output$: StaticStructureSchema = [3, n0, _O,
+  0,
+  [_OK, _OV, _D, _EN],
+  [0, 0, 0, 0]
+];
+export var Parameter$: StaticStructureSchema = [3, n0, _Pa,
+  0,
+  [_PK, _PVa, _UPV, _RV],
+  [0, 0, 2, 0]
+];
+export var ParameterConstraints$: StaticStructureSchema = [3, n0, _PCa,
+  0,
+  [_AVl],
+  [64 | 0]
+];
+export var ParameterDeclaration$: StaticStructureSchema = [3, n0, _PD,
   0,
   [_PK, _DV, _PTa, _NE, _D, _PCa],
-  [0, 0, 0, 2, 0, () => ParameterConstraints$],
+  [0, 0, 0, 2, 0, () => ParameterConstraints$]
 ];
-export var PhysicalResourceIdContextKeyValuePair$: StaticStructureSchema = [3, n0, _PRICKVP, 0, [_K, _V], [0, 0]];
-export var PropertyDifference$: StaticStructureSchema = [3, n0, _PDr, 0, [_PPr, _EV, _AV, _DTi], [0, 0, 0, 0]];
-export var PublishTypeInput$: StaticStructureSchema = [3, n0, _PTI, 0, [_T, _A, _TN, _PVN], [0, 0, 0, 0]];
-export var PublishTypeOutput$: StaticStructureSchema = [3, n0, _PTO, 0, [_PTA], [0]];
-export var RecordHandlerProgressInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _RHPI,
+export var PhysicalResourceIdContextKeyValuePair$: StaticStructureSchema = [3, n0, _PRICKVP,
+  0,
+  [_K, _V],
+  [0, 0]
+];
+export var PropertyDifference$: StaticStructureSchema = [3, n0, _PDr,
+  0,
+  [_PPr, _EV, _AV, _DTi],
+  [0, 0, 0, 0]
+];
+export var PublishTypeInput$: StaticStructureSchema = [3, n0, _PTI,
+  0,
+  [_T, _A, _TN, _PVN],
+  [0, 0, 0, 0]
+];
+export var PublishTypeOutput$: StaticStructureSchema = [3, n0, _PTO,
+  0,
+  [_PTA],
+  [0]
+];
+export var RecordHandlerProgressInput$: StaticStructureSchema = [3, n0, _RHPI,
   0,
   [_BT, _OS, _COS, _SM, _EC, _RMes, _CRT],
-  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0]
 ];
-export var RecordHandlerProgressOutput$: StaticStructureSchema = [3, n0, _RHPO, 0, [], []];
-export var RegisterPublisherInput$: StaticStructureSchema = [3, n0, _RPI, 0, [_ATAC, _CAo], [2, 0]];
-export var RegisterPublisherOutput$: StaticStructureSchema = [3, n0, _RPO, 0, [_PI], [0]];
-export var RegisterTypeInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _RTIe,
+export var RecordHandlerProgressOutput$: StaticStructureSchema = [3, n0, _RHPO,
+  0,
+  [],
+  []
+];
+export var RegisterPublisherInput$: StaticStructureSchema = [3, n0, _RPI,
+  0,
+  [_ATAC, _CAo],
+  [2, 0]
+];
+export var RegisterPublisherOutput$: StaticStructureSchema = [3, n0, _RPO,
+  0,
+  [_PI],
+  [0]
+];
+export var RegisterTypeInput$: StaticStructureSchema = [3, n0, _RTIe,
   0,
   [_T, _TN, _SHP, _LC, _ERA, _CRT],
-  [0, 0, 0, () => LoggingConfig$, 0, 0],
+  [0, 0, 0, () => LoggingConfig$, 0, 0]
 ];
-export var RegisterTypeOutput$: StaticStructureSchema = [3, n0, _RTO, 0, [_RTeg], [0]];
-export var RequiredActivatedType$: StaticStructureSchema = [
-  3,
-  n0,
-  _RATe,
+export var RegisterTypeOutput$: StaticStructureSchema = [3, n0, _RTO,
+  0,
+  [_RTeg],
+  [0]
+];
+export var RequiredActivatedType$: StaticStructureSchema = [3, n0, _RATe,
   0,
   [_TNA, _OTN, _PI, _SMV],
-  [0, 0, 0, 64 | 1],
+  [0, 0, 0, 64 | 1]
 ];
-export var ResourceChange$: StaticStructureSchema = [
-  3,
-  n0,
-  _RC,
+export var ResourceChange$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_PA, _Act, _LRI, _PRI, _RT, _Rep, _Sco, _RDS, _RDIA, _De, _CSI, _MI, _BC, _AC, _PDC],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    64 | 0,
-    0,
-    () => ResourceDriftIgnoredAttributes,
-    () => ResourceChangeDetails,
-    0,
-    () => ModuleInfo$,
-    0,
-    0,
-    0,
-  ],
+  [0, 0, 0, 0, 0, 0, 64 | 0, 0, () => ResourceDriftIgnoredAttributes, () => ResourceChangeDetails, 0, () => ModuleInfo$, 0, 0, 0]
 ];
-export var ResourceChangeDetail$: StaticStructureSchema = [
-  3,
-  n0,
-  _RCD,
+export var ResourceChangeDetail$: StaticStructureSchema = [3, n0, _RCD,
   0,
   [_Tar, _Ev, _CSh, _CE],
-  [() => ResourceTargetDefinition$, 0, 0, 0],
+  [() => ResourceTargetDefinition$, 0, 0, 0]
 ];
-export var ResourceDefinition$: StaticStructureSchema = [3, n0, _RD, 0, [_RT, _LRI, _RI], [0, 0, 128 | 0]];
-export var ResourceDetail$: StaticStructureSchema = [
-  3,
-  n0,
-  _RDe,
+export var ResourceDefinition$: StaticStructureSchema = [3, n0, _RD,
+  0,
+  [_RT, _LRI, _RI],
+  [0, 0, 128 | 0]
+];
+export var ResourceDetail$: StaticStructureSchema = [3, n0, _RDe,
   0,
   [_RT, _LRI, _RI, _RSes, _RSR, _W],
-  [0, 0, 128 | 0, 0, 0, () => WarningDetails],
+  [0, 0, 128 | 0, 0, 0, () => WarningDetails]
 ];
-export var ResourceDriftIgnoredAttribute$: StaticStructureSchema = [3, n0, _RDIAe, 0, [_Pat, _Rea], [0, 0]];
-export var ResourceIdentifierSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _RISe,
+export var ResourceDriftIgnoredAttribute$: StaticStructureSchema = [3, n0, _RDIAe,
+  0,
+  [_Pat, _Rea],
+  [0, 0]
+];
+export var ResourceIdentifierSummary$: StaticStructureSchema = [3, n0, _RISe,
   0,
   [_RT, _LRIo, _RIe],
-  [0, 64 | 0, 64 | 0],
+  [0, 64 | 0, 64 | 0]
 ];
-export var ResourceLocation$: StaticStructureSchema = [3, n0, _RLe, 0, [_SN, _LRI], [0, 0]];
-export var ResourceMapping$: StaticStructureSchema = [
-  3,
-  n0,
-  _RMeso,
+export var ResourceLocation$: StaticStructureSchema = [3, n0, _RLe,
+  0,
+  [_SN, _LRI],
+  [0, 0]
+];
+export var ResourceMapping$: StaticStructureSchema = [3, n0, _RMeso,
   0,
   [_So, _Des],
-  [() => ResourceLocation$, () => ResourceLocation$],
+  [() => ResourceLocation$, () => ResourceLocation$]
 ];
-export var ResourceScanInProgressException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _RSIPE,
+export var ResourceScanInProgressException$: StaticErrorSchema = [-3, n0, _RSIPE,
   { [_aQE]: [`ResourceScanInProgress`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(ResourceScanInProgressException$, ResourceScanInProgressException);
-export var ResourceScanLimitExceededException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _RSLEE,
+export var ResourceScanLimitExceededException$: StaticErrorSchema = [-3, n0, _RSLEE,
   { [_aQE]: [`ResourceScanLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(ResourceScanLimitExceededException$, ResourceScanLimitExceededException);
-export var ResourceScanNotFoundException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _RSNFE,
+export var ResourceScanNotFoundException$: StaticErrorSchema = [-3, n0, _RSNFE,
   { [_aQE]: [`ResourceScanNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(ResourceScanNotFoundException$, ResourceScanNotFoundException);
-export var ResourceScanSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _RSSe,
+export var ResourceScanSummary$: StaticStructureSchema = [3, n0, _RSSe,
   0,
   [_RSI, _S, _SR, _ST, _ET, _PC, _STc],
-  [0, 0, 0, 4, 4, 1, 0],
+  [0, 0, 0, 4, 4, 1, 0]
 ];
-export var ResourceTargetDefinition$: StaticStructureSchema = [
-  3,
-  n0,
-  _RTDe,
+export var ResourceTargetDefinition$: StaticStructureSchema = [3, n0, _RTDe,
   0,
   [_At, _N, _RReq, _Pat, _BV, _AVf, _BVF, _AVF, _Dr, _ACT],
-  [0, 0, 0, 0, 0, 0, 0, 0, () => LiveResourceDrift$, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, () => LiveResourceDrift$, 0]
 ];
-export var ResourceToImport$: StaticStructureSchema = [3, n0, _RTIes, 0, [_RT, _LRI, _RI], [0, 0, 128 | 0]];
-export var RollbackConfiguration$: StaticStructureSchema = [3, n0, _RCo, 0, [_RTo, _MTIM], [() => RollbackTriggers, 1]];
-export var RollbackStackInput$: StaticStructureSchema = [3, n0, _RSIo, 0, [_SN, _RARN, _CRT, _REOC], [0, 0, 0, 2]];
-export var RollbackStackOutput$: StaticStructureSchema = [3, n0, _RSO, 0, [_SI, _OI], [0, 0]];
-export var RollbackTrigger$: StaticStructureSchema = [3, n0, _RTol, 0, [_A, _T], [0, 0]];
-export var ScanFilter$: StaticStructureSchema = [3, n0, _SFc, 0, [_Ty], [64 | 0]];
-export var ScannedResource$: StaticStructureSchema = [3, n0, _SRc, 0, [_RT, _RI, _MBS], [0, 128 | 0, 2]];
-export var ScannedResourceIdentifier$: StaticStructureSchema = [3, n0, _SRIc, 0, [_RT, _RI], [0, 128 | 0]];
-export var SetStackPolicyInput$: StaticStructureSchema = [3, n0, _SSPI, 0, [_SN, _SPB, _SPURL], [0, 0, 0]];
-export var SetTypeConfigurationInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _STCI,
+export var ResourceToImport$: StaticStructureSchema = [3, n0, _RTIes,
+  0,
+  [_RT, _LRI, _RI],
+  [0, 0, 128 | 0]
+];
+export var RollbackConfiguration$: StaticStructureSchema = [3, n0, _RCo,
+  0,
+  [_RTo, _MTIM],
+  [() => RollbackTriggers, 1]
+];
+export var RollbackStackInput$: StaticStructureSchema = [3, n0, _RSIo,
+  0,
+  [_SN, _RARN, _CRT, _REOC],
+  [0, 0, 0, 2]
+];
+export var RollbackStackOutput$: StaticStructureSchema = [3, n0, _RSO,
+  0,
+  [_SI, _OI],
+  [0, 0]
+];
+export var RollbackTrigger$: StaticStructureSchema = [3, n0, _RTol,
+  0,
+  [_A, _T],
+  [0, 0]
+];
+export var ScanFilter$: StaticStructureSchema = [3, n0, _SFc,
+  0,
+  [_Ty],
+  [64 | 0]
+];
+export var ScannedResource$: StaticStructureSchema = [3, n0, _SRc,
+  0,
+  [_RT, _RI, _MBS],
+  [0, 128 | 0, 2]
+];
+export var ScannedResourceIdentifier$: StaticStructureSchema = [3, n0, _SRIc,
+  0,
+  [_RT, _RI],
+  [0, 128 | 0]
+];
+export var SetStackPolicyInput$: StaticStructureSchema = [3, n0, _SSPI,
+  0,
+  [_SN, _SPB, _SPURL],
+  [0, 0, 0]
+];
+export var SetTypeConfigurationInput$: StaticStructureSchema = [3, n0, _STCI,
   0,
   [_TA, _Co, _CAon, _TN, _T],
-  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0]
 ];
-export var SetTypeConfigurationOutput$: StaticStructureSchema = [3, n0, _STCO, 0, [_CAonf], [0]];
-export var SetTypeDefaultVersionInput$: StaticStructureSchema = [3, n0, _STDVI, 0, [_A, _T, _TN, _VI], [0, 0, 0, 0]];
-export var SetTypeDefaultVersionOutput$: StaticStructureSchema = [3, n0, _STDVO, 0, [], []];
-export var SignalResourceInput$: StaticStructureSchema = [3, n0, _SRIi, 0, [_SN, _LRI, _UI, _S], [0, 0, 0, 0]];
-export var Stack$: StaticStructureSchema = [
-  3,
-  n0,
-  _Sta,
+export var SetTypeConfigurationOutput$: StaticStructureSchema = [3, n0, _STCO,
   0,
-  [
-    _SI,
-    _SN,
-    _CSI,
-    _D,
-    _P,
-    _CT,
-    _DTel,
-    _LUT,
-    _RCo,
-    _SSta,
-    _SSR,
-    _DR,
-    _NARN,
-    _TIM,
-    _Ca,
-    _Ou,
-    _RARN,
-    _Ta,
-    _ETP,
-    _PIa,
-    _RIo,
-    _DI,
-    _REOC,
-    _DMe,
-    _DSet,
-    _LO,
-  ],
-  [
-    0,
-    0,
-    0,
-    0,
-    () => _Parameters,
-    4,
-    4,
-    4,
-    () => RollbackConfiguration$,
-    0,
-    0,
-    2,
-    64 | 0,
-    1,
-    64 | 0,
-    () => Outputs,
-    0,
-    () => Tags,
-    2,
-    0,
-    0,
-    () => StackDriftInformation$,
-    2,
-    0,
-    0,
-    () => LastOperations,
-  ],
+  [_CAonf],
+  [0]
 ];
-export var StackDefinition$: StaticStructureSchema = [3, n0, _SDt, 0, [_SN, _TB, _TURL], [0, 0, 0]];
-export var StackDriftInformation$: StaticStructureSchema = [3, n0, _SDI, 0, [_SDS, _LCT], [0, 4]];
-export var StackDriftInformationSummary$: StaticStructureSchema = [3, n0, _SDIS, 0, [_SDS, _LCT], [0, 4]];
-export var StackEvent$: StaticStructureSchema = [
-  3,
-  n0,
-  _SEt,
+export var SetTypeDefaultVersionInput$: StaticStructureSchema = [3, n0, _STDVI,
+  0,
+  [_A, _T, _TN, _VI],
+  [0, 0, 0, 0]
+];
+export var SetTypeDefaultVersionOutput$: StaticStructureSchema = [3, n0, _STDVO,
+  0,
+  [],
+  []
+];
+export var SignalResourceInput$: StaticStructureSchema = [3, n0, _SRIi,
+  0,
+  [_SN, _LRI, _UI, _S],
+  [0, 0, 0, 0]
+];
+export var Stack$: StaticStructureSchema = [3, n0, _Sta,
+  0,
+  [_SI, _SN, _CSI, _D, _P, _CT, _DTel, _LUT, _RCo, _SSta, _SSR, _DR, _NARN, _TIM, _Ca, _Ou, _RARN, _Ta, _ETP, _PIa, _RIo, _DI, _REOC, _DMe, _DSet, _LO],
+  [0, 0, 0, 0, () => _Parameters, 4, 4, 4, () => RollbackConfiguration$, 0, 0, 2, 64 | 0, 1, 64 | 0, () => Outputs, 0, () => Tags, 2, 0, 0, () => StackDriftInformation$, 2, 0, 0, () => LastOperations]
+];
+export var StackDefinition$: StaticStructureSchema = [3, n0, _SDt,
+  0,
+  [_SN, _TB, _TURL],
+  [0, 0, 0]
+];
+export var StackDriftInformation$: StaticStructureSchema = [3, n0, _SDI,
+  0,
+  [_SDS, _LCT],
+  [0, 4]
+];
+export var StackDriftInformationSummary$: StaticStructureSchema = [3, n0, _SDIS,
+  0,
+  [_SDS, _LCT],
+  [0, 4]
+];
+export var StackEvent$: StaticStructureSchema = [3, n0, _SEt,
   0,
   [_SI, _EI, _SN, _OI, _LRI, _PRI, _RT, _Ti, _RSes, _RSR, _RP, _CRT, _HTo, _HS, _HSR, _HIP, _HII, _HFM, _DSet],
-  [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
-export var StackInstance$: StaticStructureSchema = [
-  3,
-  n0,
-  _SIt,
+export var StackInstance$: StaticStructureSchema = [3, n0, _SIt,
   0,
   [_SSI, _Reg, _Acc, _SI, _PO, _S, _SIS, _SR, _OUIr, _DSr, _LDCT, _LOI],
-  [0, 0, 0, 0, () => _Parameters, 0, () => StackInstanceComprehensiveStatus$, 0, 0, 0, 4, 0],
+  [0, 0, 0, 0, () => _Parameters, 0, () => StackInstanceComprehensiveStatus$, 0, 0, 0, 4, 0]
 ];
-export var StackInstanceComprehensiveStatus$: StaticStructureSchema = [3, n0, _SICS, 0, [_DSet], [0]];
-export var StackInstanceFilter$: StaticStructureSchema = [3, n0, _SIF, 0, [_N, _Va], [0, 0]];
-export var StackInstanceNotFoundException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SINFE,
+export var StackInstanceComprehensiveStatus$: StaticStructureSchema = [3, n0, _SICS,
+  0,
+  [_DSet],
+  [0]
+];
+export var StackInstanceFilter$: StaticStructureSchema = [3, n0, _SIF,
+  0,
+  [_N, _Va],
+  [0, 0]
+];
+export var StackInstanceNotFoundException$: StaticErrorSchema = [-3, n0, _SINFE,
   { [_aQE]: [`StackInstanceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(StackInstanceNotFoundException$, StackInstanceNotFoundException);
-export var StackInstanceResourceDriftsSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _SIRDSt,
+export var StackInstanceResourceDriftsSummary$: StaticStructureSchema = [3, n0, _SIRDSt,
   0,
   [_SI, _LRI, _PRI, _PRIC, _RT, _PDro, _SRDS, _Ti],
-  [0, 0, 0, () => PhysicalResourceIdContext, 0, () => PropertyDifferences, 0, 4],
+  [0, 0, 0, () => PhysicalResourceIdContext, 0, () => PropertyDifferences, 0, 4]
 ];
-export var StackInstanceSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _SISt,
+export var StackInstanceSummary$: StaticStructureSchema = [3, n0, _SISt,
   0,
   [_SSI, _Reg, _Acc, _SI, _S, _SR, _SIS, _OUIr, _DSr, _LDCT, _LOI],
-  [0, 0, 0, 0, 0, 0, () => StackInstanceComprehensiveStatus$, 0, 0, 4, 0],
+  [0, 0, 0, 0, 0, 0, () => StackInstanceComprehensiveStatus$, 0, 0, 4, 0]
 ];
-export var StackNotFoundException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SNFE,
+export var StackNotFoundException$: StaticErrorSchema = [-3, n0, _SNFE,
   { [_aQE]: [`StackNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(StackNotFoundException$, StackNotFoundException);
-export var StackRefactorAction$: StaticStructureSchema = [
-  3,
-  n0,
-  _SRAt,
+export var StackRefactorAction$: StaticStructureSchema = [3, n0, _SRAt,
   0,
   [_Act, _En, _PRI, _RI, _D, _Det, _DRe, _TR, _UR, _RMeso],
-  [0, 0, 0, 0, 0, 0, 0, () => StackRefactorTagResources, 64 | 0, () => ResourceMapping$],
+  [0, 0, 0, 0, 0, 0, 0, () => StackRefactorTagResources, 64 | 0, () => ResourceMapping$]
 ];
-export var StackRefactorNotFoundException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SRNFE,
+export var StackRefactorNotFoundException$: StaticErrorSchema = [-3, n0, _SRNFE,
   { [_aQE]: [`StackRefactorNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(StackRefactorNotFoundException$, StackRefactorNotFoundException);
-export var StackRefactorSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _SRSta,
+export var StackRefactorSummary$: StaticStructureSchema = [3, n0, _SRSta,
   0,
   [_SRI, _D, _ES, _ESR, _S, _SR],
-  [0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0]
 ];
-export var StackResource$: StaticStructureSchema = [
-  3,
-  n0,
-  _SRta,
+export var StackResource$: StaticStructureSchema = [3, n0, _SRta,
   0,
   [_SN, _SI, _LRI, _PRI, _RT, _Ti, _RSes, _RSR, _D, _DI, _MI],
-  [0, 0, 0, 0, 0, 4, 0, 0, 0, () => StackResourceDriftInformation$, () => ModuleInfo$],
+  [0, 0, 0, 0, 0, 4, 0, 0, 0, () => StackResourceDriftInformation$, () => ModuleInfo$]
 ];
-export var StackResourceDetail$: StaticStructureSchema = [
-  3,
-  n0,
-  _SRDt,
+export var StackResourceDetail$: StaticStructureSchema = [3, n0, _SRDt,
   0,
   [_SN, _SI, _LRI, _PRI, _RT, _LUTa, _RSes, _RSR, _D, _Me, _DI, _MI],
-  [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, () => StackResourceDriftInformation$, () => ModuleInfo$],
+  [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, () => StackResourceDriftInformation$, () => ModuleInfo$]
 ];
-export var StackResourceDrift$: StaticStructureSchema = [
-  3,
-  n0,
-  _SRDta,
+export var StackResourceDrift$: StaticStructureSchema = [3, n0, _SRDta,
   0,
   [_SI, _LRI, _PRI, _PRIC, _RT, _EP, _AP, _PDro, _SRDS, _Ti, _MI, _DSRr],
-  [0, 0, 0, () => PhysicalResourceIdContext, 0, 0, 0, () => PropertyDifferences, 0, 4, () => ModuleInfo$, 0],
+  [0, 0, 0, () => PhysicalResourceIdContext, 0, 0, 0, () => PropertyDifferences, 0, 4, () => ModuleInfo$, 0]
 ];
-export var StackResourceDriftInformation$: StaticStructureSchema = [3, n0, _SRDI, 0, [_SRDS, _LCT], [0, 4]];
-export var StackResourceDriftInformationSummary$: StaticStructureSchema = [3, n0, _SRDIS, 0, [_SRDS, _LCT], [0, 4]];
-export var StackResourceSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _SRStac,
+export var StackResourceDriftInformation$: StaticStructureSchema = [3, n0, _SRDI,
+  0,
+  [_SRDS, _LCT],
+  [0, 4]
+];
+export var StackResourceDriftInformationSummary$: StaticStructureSchema = [3, n0, _SRDIS,
+  0,
+  [_SRDS, _LCT],
+  [0, 4]
+];
+export var StackResourceSummary$: StaticStructureSchema = [3, n0, _SRStac,
   0,
   [_LRI, _PRI, _RT, _LUTa, _RSes, _RSR, _DI, _MI],
-  [0, 0, 0, 4, 0, 0, () => StackResourceDriftInformationSummary$, () => ModuleInfo$],
+  [0, 0, 0, 4, 0, 0, () => StackResourceDriftInformationSummary$, () => ModuleInfo$]
 ];
-export var StackSet$: StaticStructureSchema = [
-  3,
-  n0,
-  _SS,
+export var StackSet$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_SSN, _SSI, _D, _S, _TB, _P, _Ca, _Ta, _SSARN, _ARARN, _ERN, _SSDDD, _AD, _PM, _OUI, _ME, _Re],
-  [
-    0,
-    0,
-    0,
-    0,
-    0,
-    () => _Parameters,
-    64 | 0,
-    () => Tags,
-    0,
-    0,
-    0,
-    () => StackSetDriftDetectionDetails$,
-    () => AutoDeployment$,
-    0,
-    64 | 0,
-    () => ManagedExecution$,
-    64 | 0,
-  ],
+  [0, 0, 0, 0, 0, () => _Parameters, 64 | 0, () => Tags, 0, 0, 0, () => StackSetDriftDetectionDetails$, () => AutoDeployment$, 0, 64 | 0, () => ManagedExecution$, 64 | 0]
 ];
-export var StackSetAutoDeploymentTargetSummary$: StaticStructureSchema = [3, n0, _SSADTS, 0, [_OUIr, _Re], [0, 64 | 0]];
-export var StackSetDriftDetectionDetails$: StaticStructureSchema = [
-  3,
-  n0,
-  _SSDDD,
+export var StackSetAutoDeploymentTargetSummary$: StaticStructureSchema = [3, n0, _SSADTS,
+  0,
+  [_OUIr, _Re],
+  [0, 64 | 0]
+];
+export var StackSetDriftDetectionDetails$: StaticStructureSchema = [3, n0, _SSDDD,
   0,
   [_DSr, _DDS, _LDCT, _TSIC, _DSIC, _ISSIC, _IPSIC, _FSIC],
-  [0, 0, 4, 1, 1, 1, 1, 1],
+  [0, 0, 4, 1, 1, 1, 1, 1]
 ];
-export var StackSetNotEmptyException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SSNEE,
+export var StackSetNotEmptyException$: StaticErrorSchema = [-3, n0, _SSNEE,
   { [_aQE]: [`StackSetNotEmptyException`, 409], [_e]: _c, [_hE]: 409 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(StackSetNotEmptyException$, StackSetNotEmptyException);
-export var StackSetNotFoundException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SSNFE,
+export var StackSetNotFoundException$: StaticErrorSchema = [-3, n0, _SSNFE,
   { [_aQE]: [`StackSetNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(StackSetNotFoundException$, StackSetNotFoundException);
-export var StackSetOperation$: StaticStructureSchema = [
-  3,
-  n0,
-  _SSO,
+export var StackSetOperation$: StaticStructureSchema = [3, n0, _SSO,
   0,
   [_OI, _SSI, _Act, _S, _OP, _RS, _ARARN, _ERN, _CTr, _ETn, _DT, _SSDDD, _SR, _SDta],
-  [
-    0,
-    0,
-    0,
-    0,
-    () => StackSetOperationPreferences$,
-    2,
-    0,
-    0,
-    4,
-    4,
-    () => DeploymentTargets$,
-    () => StackSetDriftDetectionDetails$,
-    0,
-    () => StackSetOperationStatusDetails$,
-  ],
+  [0, 0, 0, 0, () => StackSetOperationPreferences$, 2, 0, 0, 4, 4, () => DeploymentTargets$, () => StackSetDriftDetectionDetails$, 0, () => StackSetOperationStatusDetails$]
 ];
-export var StackSetOperationPreferences$: StaticStructureSchema = [
-  3,
-  n0,
-  _SSOP,
+export var StackSetOperationPreferences$: StaticStructureSchema = [3, n0, _SSOP,
   0,
   [_RCT, _RO, _FTC, _FTP, _MCC, _MCP, _CM],
-  [0, 64 | 0, 1, 1, 1, 1, 0],
+  [0, 64 | 0, 1, 1, 1, 1, 0]
 ];
-export var StackSetOperationResultSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _SSORS,
+export var StackSetOperationResultSummary$: StaticStructureSchema = [3, n0, _SSORS,
   0,
   [_Acc, _Reg, _S, _SR, _AGR, _OUIr],
-  [0, 0, 0, 0, () => AccountGateResult$, 0],
+  [0, 0, 0, 0, () => AccountGateResult$, 0]
 ];
-export var StackSetOperationStatusDetails$: StaticStructureSchema = [3, n0, _SSOSD, 0, [_FSIC], [1]];
-export var StackSetOperationSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _SSOS,
+export var StackSetOperationStatusDetails$: StaticStructureSchema = [3, n0, _SSOSD,
+  0,
+  [_FSIC],
+  [1]
+];
+export var StackSetOperationSummary$: StaticStructureSchema = [3, n0, _SSOS,
   0,
   [_OI, _Act, _S, _CTr, _ETn, _SR, _SDta, _OP],
-  [0, 0, 0, 4, 4, 0, () => StackSetOperationStatusDetails$, () => StackSetOperationPreferences$],
+  [0, 0, 0, 4, 4, 0, () => StackSetOperationStatusDetails$, () => StackSetOperationPreferences$]
 ];
-export var StackSetSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _SSS,
+export var StackSetSummary$: StaticStructureSchema = [3, n0, _SSS,
   0,
   [_SSN, _SSI, _D, _S, _AD, _PM, _DSr, _LDCT, _ME],
-  [0, 0, 0, 0, () => AutoDeployment$, 0, 0, 4, () => ManagedExecution$],
+  [0, 0, 0, 0, () => AutoDeployment$, 0, 0, 4, () => ManagedExecution$]
 ];
-export var StackSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _SStac,
+export var StackSummary$: StaticStructureSchema = [3, n0, _SStac,
   0,
   [_SI, _SN, _TDe, _CT, _LUT, _DTel, _SSta, _SSR, _PIa, _RIo, _DI, _LO],
-  [0, 0, 0, 4, 4, 4, 0, 0, 0, 0, () => StackDriftInformationSummary$, () => LastOperations],
+  [0, 0, 0, 4, 4, 4, 0, 0, 0, 0, () => StackDriftInformationSummary$, () => LastOperations]
 ];
-export var StaleRequestException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _SRE,
+export var StaleRequestException$: StaticErrorSchema = [-3, n0, _SRE,
   { [_aQE]: [`StaleRequestException`, 409], [_e]: _c, [_hE]: 409 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(StaleRequestException$, StaleRequestException);
-export var StartResourceScanInput$: StaticStructureSchema = [3, n0, _SRSI, 0, [_CRT, _SF], [0, () => ScanFilters]];
-export var StartResourceScanOutput$: StaticStructureSchema = [3, n0, _SRSO, 0, [_RSI], [0]];
-export var StopStackSetOperationInput$: StaticStructureSchema = [3, n0, _SSSOI, 0, [_SSN, _OI, _CA], [0, 0, 0]];
-export var StopStackSetOperationOutput$: StaticStructureSchema = [3, n0, _SSSOO, 0, [], []];
-export var Tag$: StaticStructureSchema = [3, n0, _Tag, 0, [_K, _V], [0, 0]];
-export var TemplateConfiguration$: StaticStructureSchema = [3, n0, _TCe, 0, [_DP, _URP], [0, 0]];
-export var TemplateParameter$: StaticStructureSchema = [3, n0, _TP, 0, [_PK, _DV, _NE, _D], [0, 0, 2, 0]];
-export var TemplateProgress$: StaticStructureSchema = [3, n0, _TPe, 0, [_RSeso, _RF, _RPe, _RPes], [1, 1, 1, 1]];
-export var TemplateSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _TSe,
+export var StartResourceScanInput$: StaticStructureSchema = [3, n0, _SRSI,
+  0,
+  [_CRT, _SF],
+  [0, () => ScanFilters]
+];
+export var StartResourceScanOutput$: StaticStructureSchema = [3, n0, _SRSO,
+  0,
+  [_RSI],
+  [0]
+];
+export var StopStackSetOperationInput$: StaticStructureSchema = [3, n0, _SSSOI,
+  0,
+  [_SSN, _OI, _CA],
+  [0, 0, 0]
+];
+export var StopStackSetOperationOutput$: StaticStructureSchema = [3, n0, _SSSOO,
+  0,
+  [],
+  []
+];
+export var Tag$: StaticStructureSchema = [3, n0, _Tag,
+  0,
+  [_K, _V],
+  [0, 0]
+];
+export var TemplateConfiguration$: StaticStructureSchema = [3, n0, _TCe,
+  0,
+  [_DP, _URP],
+  [0, 0]
+];
+export var TemplateParameter$: StaticStructureSchema = [3, n0, _TP,
+  0,
+  [_PK, _DV, _NE, _D],
+  [0, 0, 2, 0]
+];
+export var TemplateProgress$: StaticStructureSchema = [3, n0, _TPe,
+  0,
+  [_RSeso, _RF, _RPe, _RPes],
+  [1, 1, 1, 1]
+];
+export var TemplateSummary$: StaticStructureSchema = [3, n0, _TSe,
   0,
   [_GTI, _GTN, _S, _SR, _CT, _LUT, _NOR],
-  [0, 0, 0, 0, 4, 4, 1],
+  [0, 0, 0, 0, 4, 4, 1]
 ];
-export var TemplateSummaryConfig$: StaticStructureSchema = [3, n0, _TSC, 0, [_TURTAW], [2]];
-export var TestTypeInput$: StaticStructureSchema = [3, n0, _TTI, 0, [_A, _T, _TN, _VI, _LDB], [0, 0, 0, 0, 0]];
-export var TestTypeOutput$: StaticStructureSchema = [3, n0, _TTO, 0, [_TVA], [0]];
-export var TokenAlreadyExistsException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _TAEE,
+export var TemplateSummaryConfig$: StaticStructureSchema = [3, n0, _TSC,
+  0,
+  [_TURTAW],
+  [2]
+];
+export var TestTypeInput$: StaticStructureSchema = [3, n0, _TTI,
+  0,
+  [_A, _T, _TN, _VI, _LDB],
+  [0, 0, 0, 0, 0]
+];
+export var TestTypeOutput$: StaticStructureSchema = [3, n0, _TTO,
+  0,
+  [_TVA],
+  [0]
+];
+export var TokenAlreadyExistsException$: StaticErrorSchema = [-3, n0, _TAEE,
   { [_aQE]: [`TokenAlreadyExistsException`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(TokenAlreadyExistsException$, TokenAlreadyExistsException);
-export var TypeConfigurationDetails$: StaticStructureSchema = [
-  3,
-  n0,
-  _TCD,
+export var TypeConfigurationDetails$: StaticStructureSchema = [3, n0, _TCD,
   0,
   [_A, _Al, _Co, _LU, _TA, _TN, _IDC],
-  [0, 0, 0, 4, 0, 0, 2],
+  [0, 0, 0, 4, 0, 0, 2]
 ];
-export var TypeConfigurationIdentifier$: StaticStructureSchema = [
-  3,
-  n0,
-  _TCI,
+export var TypeConfigurationIdentifier$: StaticStructureSchema = [3, n0, _TCI,
   0,
   [_TA, _TCA, _TCAy, _T, _TN],
-  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0]
 ];
-export var TypeConfigurationNotFoundException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _TCNFE,
+export var TypeConfigurationNotFoundException$: StaticErrorSchema = [-3, n0, _TCNFE,
   { [_aQE]: [`TypeConfigurationNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(TypeConfigurationNotFoundException$, TypeConfigurationNotFoundException);
-export var TypeFilters$: StaticStructureSchema = [3, n0, _TF, 0, [_Cat, _PI, _TNP], [0, 0, 0]];
-export var TypeNotFoundException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _TNFE,
+export var TypeFilters$: StaticStructureSchema = [3, n0, _TF,
+  0,
+  [_Cat, _PI, _TNP],
+  [0, 0, 0]
+];
+export var TypeNotFoundException$: StaticErrorSchema = [-3, n0, _TNFE,
   { [_aQE]: [`TypeNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
-  [0],
+  [0]
 ];
 TypeRegistry.for(n0).registerError(TypeNotFoundException$, TypeNotFoundException);
-export var TypeSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _TSyp,
+export var TypeSummary$: StaticStructureSchema = [3, n0, _TSyp,
   0,
   [_T, _TN, _DVI, _TA, _LU, _D, _PI, _OTN, _PVN, _LPV, _PIu, _PN, _IA],
-  [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 2],
+  [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 2]
 ];
-export var TypeVersionSummary$: StaticStructureSchema = [
-  3,
-  n0,
-  _TVSy,
+export var TypeVersionSummary$: StaticStructureSchema = [3, n0, _TVSy,
   0,
   [_T, _TN, _VI, _IDV, _A, _TCi, _D, _PVN],
-  [0, 0, 0, 2, 0, 4, 0, 0],
+  [0, 0, 0, 2, 0, 4, 0, 0]
 ];
-export var UpdateGeneratedTemplateInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _UGTI,
+export var UpdateGeneratedTemplateInput$: StaticStructureSchema = [3, n0, _UGTI,
   0,
   [_GTN, _NGTN, _AR, _RRem, _RAR, _TCe],
-  [0, 0, () => ResourceDefinitions, 64 | 0, 2, () => TemplateConfiguration$],
+  [0, 0, () => ResourceDefinitions, 64 | 0, 2, () => TemplateConfiguration$]
 ];
-export var UpdateGeneratedTemplateOutput$: StaticStructureSchema = [3, n0, _UGTO, 0, [_GTI], [0]];
-export var UpdateStackInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _USI,
+export var UpdateGeneratedTemplateOutput$: StaticStructureSchema = [3, n0, _UGTO,
+  0,
+  [_GTI],
+  [0]
+];
+export var UpdateStackInput$: StaticStructureSchema = [3, n0, _USI,
   0,
   [_SN, _TB, _TURL, _UPT, _SPDUB, _SPDUURL, _P, _Ca, _RTe, _RARN, _RCo, _SPB, _SPURL, _NARN, _Ta, _DR, _CRT, _REOC],
-  [
-    0,
-    0,
-    0,
-    2,
-    0,
-    0,
-    () => _Parameters,
-    64 | 0,
-    64 | 0,
-    0,
-    () => RollbackConfiguration$,
-    0,
-    0,
-    64 | 0,
-    () => Tags,
-    2,
-    0,
-    2,
-  ],
+  [0, 0, 0, 2, 0, 0, () => _Parameters, 64 | 0, 64 | 0, 0, () => RollbackConfiguration$, 0, 0, 64 | 0, () => Tags, 2, 0, 2]
 ];
-export var UpdateStackInstancesInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _USII,
+export var UpdateStackInstancesInput$: StaticStructureSchema = [3, n0, _USII,
   0,
   [_SSN, _Ac, _DT, _Re, _PO, _OP, _OI, _CA],
-  [0, 64 | 0, () => DeploymentTargets$, 64 | 0, () => _Parameters, () => StackSetOperationPreferences$, [0, 4], 0],
+  [0, 64 | 0, () => DeploymentTargets$, 64 | 0, () => _Parameters, () => StackSetOperationPreferences$, [0, 4], 0]
 ];
-export var UpdateStackInstancesOutput$: StaticStructureSchema = [3, n0, _USIO, 0, [_OI], [0]];
-export var UpdateStackOutput$: StaticStructureSchema = [3, n0, _USO, 0, [_SI, _OI], [0, 0]];
-export var UpdateStackSetInput$: StaticStructureSchema = [
-  3,
-  n0,
-  _USSI,
+export var UpdateStackInstancesOutput$: StaticStructureSchema = [3, n0, _USIO,
+  0,
+  [_OI],
+  [0]
+];
+export var UpdateStackOutput$: StaticStructureSchema = [3, n0, _USO,
+  0,
+  [_SI, _OI],
+  [0, 0]
+];
+export var UpdateStackSetInput$: StaticStructureSchema = [3, n0, _USSI,
   0,
   [_SSN, _D, _TB, _TURL, _UPT, _P, _Ca, _Ta, _OP, _ARARN, _ERN, _DT, _PM, _AD, _OI, _Ac, _Re, _CA, _ME],
-  [
-    0,
-    0,
-    0,
-    0,
-    2,
-    () => _Parameters,
-    64 | 0,
-    () => Tags,
-    () => StackSetOperationPreferences$,
-    0,
-    0,
-    () => DeploymentTargets$,
-    0,
-    () => AutoDeployment$,
-    [0, 4],
-    64 | 0,
-    64 | 0,
-    0,
-    () => ManagedExecution$,
-  ],
+  [0, 0, 0, 0, 2, () => _Parameters, 64 | 0, () => Tags, () => StackSetOperationPreferences$, 0, 0, () => DeploymentTargets$, 0, () => AutoDeployment$, [0, 4], 64 | 0, 64 | 0, 0, () => ManagedExecution$]
 ];
-export var UpdateStackSetOutput$: StaticStructureSchema = [3, n0, _USSO, 0, [_OI], [0]];
-export var UpdateTerminationProtectionInput$: StaticStructureSchema = [3, n0, _UTPI, 0, [_ETP, _SN], [2, 0]];
-export var UpdateTerminationProtectionOutput$: StaticStructureSchema = [3, n0, _UTPO, 0, [_SI], [0]];
-export var ValidateTemplateInput$: StaticStructureSchema = [3, n0, _VTI, 0, [_TB, _TURL], [0, 0]];
-export var ValidateTemplateOutput$: StaticStructureSchema = [
-  3,
-  n0,
-  _VTO,
+export var UpdateStackSetOutput$: StaticStructureSchema = [3, n0, _USSO,
+  0,
+  [_OI],
+  [0]
+];
+export var UpdateTerminationProtectionInput$: StaticStructureSchema = [3, n0, _UTPI,
+  0,
+  [_ETP, _SN],
+  [2, 0]
+];
+export var UpdateTerminationProtectionOutput$: StaticStructureSchema = [3, n0, _UTPO,
+  0,
+  [_SI],
+  [0]
+];
+export var ValidateTemplateInput$: StaticStructureSchema = [3, n0, _VTI,
+  0,
+  [_TB, _TURL],
+  [0, 0]
+];
+export var ValidateTemplateOutput$: StaticStructureSchema = [3, n0, _VTO,
   0,
   [_P, _D, _Ca, _CR, _DTe],
-  [() => TemplateParameters, 0, 64 | 0, 0, 64 | 0],
+  [() => TemplateParameters, 0, 64 | 0, 0, 64 | 0]
 ];
-export var WarningDetail$: StaticStructureSchema = [3, n0, _WD, 0, [_T, _Pro], [0, () => WarningProperties]];
-export var WarningProperty$: StaticStructureSchema = [3, n0, _WP, 0, [_PPr, _Req, _D], [0, 2, 0]];
-export var Warnings$: StaticStructureSchema = [3, n0, _W, 0, [_URT], [64 | 0]];
+export var WarningDetail$: StaticStructureSchema = [3, n0, _WD,
+  0,
+  [_T, _Pro],
+  [0, () => WarningProperties]
+];
+export var WarningProperty$: StaticStructureSchema = [3, n0, _WP,
+  0,
+  [_PPr, _Req, _D],
+  [0, 2, 0]
+];
+export var Warnings$: StaticStructureSchema = [3, n0, _W,
+  0,
+  [_URT],
+  [64 | 0]
+];
 var __Unit = "unit" as const;
 export var CloudFormationServiceException$: StaticErrorSchema = [-3, _s, "CloudFormationServiceException", 0, [], []];
 TypeRegistry.for(_s).registerError(CloudFormationServiceException$, CloudFormationServiceException);
-var AccountLimitList: StaticListSchema = [1, n0, _ALL, 0, () => AccountLimit$];
+var AccountLimitList: StaticListSchema = [1, n0, _ALL,
+  0, () => AccountLimit$
+];
 var AccountList = 64 | 0;
 var AllowedValues = 64 | 0;
-var AnnotationList: StaticListSchema = [1, n0, _ALn, 0, () => Annotation$];
-var BatchDescribeTypeConfigurationsErrors: StaticListSchema = [
-  1,
-  n0,
-  _BDTCEa,
-  0,
-  () => BatchDescribeTypeConfigurationsError$,
+var AnnotationList: StaticListSchema = [1, n0, _ALn,
+  0, () => Annotation$
+];
+var BatchDescribeTypeConfigurationsErrors: StaticListSchema = [1, n0, _BDTCEa,
+  0, () => BatchDescribeTypeConfigurationsError$
 ];
 var Capabilities = 64 | 0;
-var Changes: StaticListSchema = [1, n0, _Ch, 0, () => Change$];
-var ChangeSetHooks: StaticListSchema = [1, n0, _CSHh, 0, () => ChangeSetHook$];
-var ChangeSetSummaries: StaticListSchema = [1, n0, _CSSh, 0, () => ChangeSetSummary$];
-var Exports: StaticListSchema = [1, n0, _Exp, 0, () => Export$];
-var HookResultSummaries: StaticListSchema = [1, n0, _HRSo, 0, () => HookResultSummary$];
+var Changes: StaticListSchema = [1, n0, _Ch,
+  0, () => Change$
+];
+var ChangeSetHooks: StaticListSchema = [1, n0, _CSHh,
+  0, () => ChangeSetHook$
+];
+var ChangeSetSummaries: StaticListSchema = [1, n0, _CSSh,
+  0, () => ChangeSetSummary$
+];
+var Exports: StaticListSchema = [1, n0, _Exp,
+  0, () => Export$
+];
+var HookResultSummaries: StaticListSchema = [1, n0, _HRSo,
+  0, () => HookResultSummary$
+];
 var Imports = 64 | 0;
 var JazzLogicalResourceIds = 64 | 0;
-var LastOperations: StaticListSchema = [1, n0, _LO, 0, () => OperationEntry$];
+var LastOperations: StaticListSchema = [1, n0, _LO,
+  0, () => OperationEntry$
+];
 var LogicalResourceIds = 64 | 0;
 var NotificationARNs = 64 | 0;
-var OperationEvents: StaticListSchema = [1, n0, _OE, 0, () => OperationEvent$];
-var OperationResultFilters: StaticListSchema = [1, n0, _ORFp, 0, () => OperationResultFilter$];
+var OperationEvents: StaticListSchema = [1, n0, _OE,
+  0, () => OperationEvent$
+];
+var OperationResultFilters: StaticListSchema = [1, n0, _ORFp,
+  0, () => OperationResultFilter$
+];
 var OrganizationalUnitIdList = 64 | 0;
-var Outputs: StaticListSchema = [1, n0, _Ou, 0, () => Output$];
-var ParameterDeclarations: StaticListSchema = [1, n0, _PDa, 0, () => ParameterDeclaration$];
-var _Parameters: StaticListSchema = [1, n0, _P, 0, () => Parameter$];
-var PhysicalResourceIdContext: StaticListSchema = [1, n0, _PRIC, 0, () => PhysicalResourceIdContextKeyValuePair$];
-var PropertyDifferences: StaticListSchema = [1, n0, _PDro, 0, () => PropertyDifference$];
+var Outputs: StaticListSchema = [1, n0, _Ou,
+  0, () => Output$
+];
+var ParameterDeclarations: StaticListSchema = [1, n0, _PDa,
+  0, () => ParameterDeclaration$
+];
+var _Parameters: StaticListSchema = [1, n0, _P,
+  0, () => Parameter$
+];
+var PhysicalResourceIdContext: StaticListSchema = [1, n0, _PRIC,
+  0, () => PhysicalResourceIdContextKeyValuePair$
+];
+var PropertyDifferences: StaticListSchema = [1, n0, _PDro,
+  0, () => PropertyDifference$
+];
 var RegionList = 64 | 0;
 var RegistrationTokenList = 64 | 0;
-var RelatedResources: StaticListSchema = [1, n0, _RRel, 0, () => ScannedResource$];
-var RequiredActivatedTypes: StaticListSchema = [1, n0, _RAT, 0, () => RequiredActivatedType$];
-var ResourceChangeDetails: StaticListSchema = [1, n0, _RCDe, 0, () => ResourceChangeDetail$];
-var ResourceDefinitions: StaticListSchema = [1, n0, _RDes, 0, () => ResourceDefinition$];
-var ResourceDetails: StaticListSchema = [1, n0, _RDeso, 0, () => ResourceDetail$];
-var ResourceDriftIgnoredAttributes: StaticListSchema = [1, n0, _RDIA, 0, () => ResourceDriftIgnoredAttribute$];
+var RelatedResources: StaticListSchema = [1, n0, _RRel,
+  0, () => ScannedResource$
+];
+var RequiredActivatedTypes: StaticListSchema = [1, n0, _RAT,
+  0, () => RequiredActivatedType$
+];
+var ResourceChangeDetails: StaticListSchema = [1, n0, _RCDe,
+  0, () => ResourceChangeDetail$
+];
+var ResourceDefinitions: StaticListSchema = [1, n0, _RDes,
+  0, () => ResourceDefinition$
+];
+var ResourceDetails: StaticListSchema = [1, n0, _RDeso,
+  0, () => ResourceDetail$
+];
+var ResourceDriftIgnoredAttributes: StaticListSchema = [1, n0, _RDIA,
+  0, () => ResourceDriftIgnoredAttribute$
+];
 var ResourceIdentifiers = 64 | 0;
-var ResourceIdentifierSummaries: StaticListSchema = [1, n0, _RIS, 0, () => ResourceIdentifierSummary$];
-var ResourceMappings: StaticListSchema = [1, n0, _RMe, 0, () => ResourceMapping$];
-var ResourceScanSummaries: StaticListSchema = [1, n0, _RSS, 0, () => ResourceScanSummary$];
-var ResourcesToImport: StaticListSchema = [1, n0, _RTI, 0, () => ResourceToImport$];
+var ResourceIdentifierSummaries: StaticListSchema = [1, n0, _RIS,
+  0, () => ResourceIdentifierSummary$
+];
+var ResourceMappings: StaticListSchema = [1, n0, _RMe,
+  0, () => ResourceMapping$
+];
+var ResourceScanSummaries: StaticListSchema = [1, n0, _RSS,
+  0, () => ResourceScanSummary$
+];
+var ResourcesToImport: StaticListSchema = [1, n0, _RTI,
+  0, () => ResourceToImport$
+];
 var ResourcesToSkip = 64 | 0;
 var ResourceTypeFilters = 64 | 0;
 var ResourceTypes = 64 | 0;
 var RetainResources = 64 | 0;
-var RollbackTriggers: StaticListSchema = [1, n0, _RTo, 0, () => RollbackTrigger$];
-var ScanFilters: StaticListSchema = [1, n0, _SF, 0, () => ScanFilter$];
-var ScannedResourceIdentifiers: StaticListSchema = [1, n0, _SRIca, 0, () => ScannedResourceIdentifier$];
-var ScannedResources: StaticListSchema = [1, n0, _SRca, 0, () => ScannedResource$];
+var RollbackTriggers: StaticListSchema = [1, n0, _RTo,
+  0, () => RollbackTrigger$
+];
+var ScanFilters: StaticListSchema = [1, n0, _SF,
+  0, () => ScanFilter$
+];
+var ScannedResourceIdentifiers: StaticListSchema = [1, n0, _SRIca,
+  0, () => ScannedResourceIdentifier$
+];
+var ScannedResources: StaticListSchema = [1, n0, _SRca,
+  0, () => ScannedResource$
+];
 var Scope = 64 | 0;
-var StackDefinitions: StaticListSchema = [1, n0, _SD, 0, () => StackDefinition$];
-var StackEvents: StaticListSchema = [1, n0, _SE, 0, () => StackEvent$];
+var StackDefinitions: StaticListSchema = [1, n0, _SD,
+  0, () => StackDefinition$
+];
+var StackEvents: StaticListSchema = [1, n0, _SE,
+  0, () => StackEvent$
+];
 var StackIdList = 64 | 0;
 var StackIds = 64 | 0;
-var StackInstanceFilters: StaticListSchema = [1, n0, _SIFt, 0, () => StackInstanceFilter$];
-var StackInstanceResourceDriftsSummaries: StaticListSchema = [
-  1,
-  n0,
-  _SIRDSta,
-  0,
-  () => StackInstanceResourceDriftsSummary$,
+var StackInstanceFilters: StaticListSchema = [1, n0, _SIFt,
+  0, () => StackInstanceFilter$
 ];
-var StackInstanceSummaries: StaticListSchema = [1, n0, _SISta, 0, () => StackInstanceSummary$];
-var StackRefactorActions: StaticListSchema = [1, n0, _SRA, 0, () => StackRefactorAction$];
+var StackInstanceResourceDriftsSummaries: StaticListSchema = [1, n0, _SIRDSta,
+  0, () => StackInstanceResourceDriftsSummary$
+];
+var StackInstanceSummaries: StaticListSchema = [1, n0, _SISta,
+  0, () => StackInstanceSummary$
+];
+var StackRefactorActions: StaticListSchema = [1, n0, _SRA,
+  0, () => StackRefactorAction$
+];
 var StackRefactorExecutionStatusFilter = 64 | 0;
-var StackRefactorSummaries: StaticListSchema = [1, n0, _SRS, 0, () => StackRefactorSummary$];
-var StackRefactorTagResources: StaticListSchema = [1, n0, _SRTR, 0, () => Tag$];
-var StackRefactorUntagResources = 64 | 0;
-var StackResourceDrifts: StaticListSchema = [1, n0, _SRD, 0, () => StackResourceDrift$];
-var StackResourceDriftStatusFilters = 64 | 0;
-var StackResources: StaticListSchema = [1, n0, _SRt, 0, () => StackResource$];
-var StackResourceSummaries: StaticListSchema = [1, n0, _SRSt, 0, () => StackResourceSummary$];
-var Stacks: StaticListSchema = [1, n0, _St, 0, () => Stack$];
-var StackSetARNList = 64 | 0;
-var StackSetAutoDeploymentTargetSummaries: StaticListSchema = [
-  1,
-  n0,
-  _SSADTSt,
-  0,
-  () => StackSetAutoDeploymentTargetSummary$,
+var StackRefactorSummaries: StaticListSchema = [1, n0, _SRS,
+  0, () => StackRefactorSummary$
 ];
-var StackSetOperationResultSummaries: StaticListSchema = [1, n0, _SSORSt, 0, () => StackSetOperationResultSummary$];
-var StackSetOperationSummaries: StaticListSchema = [1, n0, _SSOSt, 0, () => StackSetOperationSummary$];
-var StackSetSummaries: StaticListSchema = [1, n0, _SSSt, 0, () => StackSetSummary$];
+var StackRefactorTagResources: StaticListSchema = [1, n0, _SRTR,
+  0, () => Tag$
+];
+var StackRefactorUntagResources = 64 | 0;
+var StackResourceDrifts: StaticListSchema = [1, n0, _SRD,
+  0, () => StackResourceDrift$
+];
+var StackResourceDriftStatusFilters = 64 | 0;
+var StackResources: StaticListSchema = [1, n0, _SRt,
+  0, () => StackResource$
+];
+var StackResourceSummaries: StaticListSchema = [1, n0, _SRSt,
+  0, () => StackResourceSummary$
+];
+var Stacks: StaticListSchema = [1, n0, _St,
+  0, () => Stack$
+];
+var StackSetARNList = 64 | 0;
+var StackSetAutoDeploymentTargetSummaries: StaticListSchema = [1, n0, _SSADTSt,
+  0, () => StackSetAutoDeploymentTargetSummary$
+];
+var StackSetOperationResultSummaries: StaticListSchema = [1, n0, _SSORSt,
+  0, () => StackSetOperationResultSummary$
+];
+var StackSetOperationSummaries: StaticListSchema = [1, n0, _SSOSt,
+  0, () => StackSetOperationSummary$
+];
+var StackSetSummaries: StaticListSchema = [1, n0, _SSSt,
+  0, () => StackSetSummary$
+];
 var StackStatusFilter = 64 | 0;
-var StackSummaries: StaticListSchema = [1, n0, _SSt, 0, () => StackSummary$];
+var StackSummaries: StaticListSchema = [1, n0, _SSt,
+  0, () => StackSummary$
+];
 var StageList = 64 | 0;
 var SupportedMajorVersions = 64 | 1;
-var Tags: StaticListSchema = [1, n0, _Ta, 0, () => Tag$];
-var TemplateParameters: StaticListSchema = [1, n0, _TPem, 0, () => TemplateParameter$];
-var TemplateSummaries: StaticListSchema = [1, n0, _TSem, 0, () => TemplateSummary$];
+var Tags: StaticListSchema = [1, n0, _Ta,
+  0, () => Tag$
+];
+var TemplateParameters: StaticListSchema = [1, n0, _TPem,
+  0, () => TemplateParameter$
+];
+var TemplateSummaries: StaticListSchema = [1, n0, _TSem,
+  0, () => TemplateSummary$
+];
 var TransformsList = 64 | 0;
-var TypeConfigurationDetailsList: StaticListSchema = [1, n0, _TCDL, 0, () => TypeConfigurationDetails$];
-var TypeConfigurationIdentifiers: StaticListSchema = [1, n0, _TCIy, 0, () => TypeConfigurationIdentifier$];
-var TypeSummaries: StaticListSchema = [1, n0, _TSy, 0, () => TypeSummary$];
-var TypeVersionSummaries: StaticListSchema = [1, n0, _TVS, 0, () => TypeVersionSummary$];
-var UnprocessedTypeConfigurations: StaticListSchema = [1, n0, _UTC, 0, () => TypeConfigurationIdentifier$];
-var WarningDetails: StaticListSchema = [1, n0, _WDa, 0, () => WarningDetail$];
-var WarningProperties: StaticListSchema = [1, n0, _WPa, 0, () => WarningProperty$];
+var TypeConfigurationDetailsList: StaticListSchema = [1, n0, _TCDL,
+  0, () => TypeConfigurationDetails$
+];
+var TypeConfigurationIdentifiers: StaticListSchema = [1, n0, _TCIy,
+  0, () => TypeConfigurationIdentifier$
+];
+var TypeSummaries: StaticListSchema = [1, n0, _TSy,
+  0, () => TypeSummary$
+];
+var TypeVersionSummaries: StaticListSchema = [1, n0, _TVS,
+  0, () => TypeVersionSummary$
+];
+var UnprocessedTypeConfigurations: StaticListSchema = [1, n0, _UTC,
+  0, () => TypeConfigurationIdentifier$
+];
+var WarningDetails: StaticListSchema = [1, n0, _WDa,
+  0, () => WarningDetail$
+];
+var WarningProperties: StaticListSchema = [1, n0, _WPa,
+  0, () => WarningProperty$
+];
 var JazzResourceIdentifierProperties = 128 | 0;
 var ResourceIdentifierProperties = 128 | 0;
-export var ActivateOrganizationsAccess$: StaticOperationSchema = [
-  9,
-  n0,
-  _AOA,
-  0,
-  () => ActivateOrganizationsAccessInput$,
-  () => ActivateOrganizationsAccessOutput$,
-];
-export var ActivateType$: StaticOperationSchema = [9, n0, _AT, 2, () => ActivateTypeInput$, () => ActivateTypeOutput$];
-export var BatchDescribeTypeConfigurations$: StaticOperationSchema = [
-  9,
-  n0,
-  _BDTC,
-  0,
-  () => BatchDescribeTypeConfigurationsInput$,
-  () => BatchDescribeTypeConfigurationsOutput$,
-];
-export var CancelUpdateStack$: StaticOperationSchema = [9, n0, _CUS, 0, () => CancelUpdateStackInput$, () => __Unit];
-export var ContinueUpdateRollback$: StaticOperationSchema = [
-  9,
-  n0,
-  _CUR,
-  0,
-  () => ContinueUpdateRollbackInput$,
-  () => ContinueUpdateRollbackOutput$,
-];
-export var CreateChangeSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _CCS,
-  0,
-  () => CreateChangeSetInput$,
-  () => CreateChangeSetOutput$,
-];
-export var CreateGeneratedTemplate$: StaticOperationSchema = [
-  9,
-  n0,
-  _CGT,
-  0,
-  () => CreateGeneratedTemplateInput$,
-  () => CreateGeneratedTemplateOutput$,
-];
-export var CreateStack$: StaticOperationSchema = [9, n0, _CSr, 0, () => CreateStackInput$, () => CreateStackOutput$];
-export var CreateStackInstances$: StaticOperationSchema = [
-  9,
-  n0,
-  _CSIre,
-  0,
-  () => CreateStackInstancesInput$,
-  () => CreateStackInstancesOutput$,
-];
-export var CreateStackRefactor$: StaticOperationSchema = [
-  9,
-  n0,
-  _CSR,
-  0,
-  () => CreateStackRefactorInput$,
-  () => CreateStackRefactorOutput$,
-];
-export var CreateStackSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _CSSr,
-  0,
-  () => CreateStackSetInput$,
-  () => CreateStackSetOutput$,
-];
-export var DeactivateOrganizationsAccess$: StaticOperationSchema = [
-  9,
-  n0,
-  _DOA,
-  0,
-  () => DeactivateOrganizationsAccessInput$,
-  () => DeactivateOrganizationsAccessOutput$,
-];
-export var DeactivateType$: StaticOperationSchema = [
-  9,
-  n0,
-  _DTea,
-  2,
-  () => DeactivateTypeInput$,
-  () => DeactivateTypeOutput$,
-];
-export var DeleteChangeSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _DCS,
-  0,
-  () => DeleteChangeSetInput$,
-  () => DeleteChangeSetOutput$,
-];
-export var DeleteGeneratedTemplate$: StaticOperationSchema = [
-  9,
-  n0,
-  _DGT,
-  0,
-  () => DeleteGeneratedTemplateInput$,
-  () => __Unit,
-];
-export var DeleteStack$: StaticOperationSchema = [9, n0, _DSel, 0, () => DeleteStackInput$, () => __Unit];
-export var DeleteStackInstances$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSIel,
-  0,
-  () => DeleteStackInstancesInput$,
-  () => DeleteStackInstancesOutput$,
-];
-export var DeleteStackSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSS,
-  0,
-  () => DeleteStackSetInput$,
-  () => DeleteStackSetOutput$,
-];
-export var DeregisterType$: StaticOperationSchema = [
-  9,
-  n0,
-  _DTer,
-  2,
-  () => DeregisterTypeInput$,
-  () => DeregisterTypeOutput$,
-];
-export var DescribeAccountLimits$: StaticOperationSchema = [
-  9,
-  n0,
-  _DAL,
-  0,
-  () => DescribeAccountLimitsInput$,
-  () => DescribeAccountLimitsOutput$,
-];
-export var DescribeChangeSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _DCSe,
-  0,
-  () => DescribeChangeSetInput$,
-  () => DescribeChangeSetOutput$,
-];
-export var DescribeChangeSetHooks$: StaticOperationSchema = [
-  9,
-  n0,
-  _DCSH,
-  0,
-  () => DescribeChangeSetHooksInput$,
-  () => DescribeChangeSetHooksOutput$,
-];
-export var DescribeEvents$: StaticOperationSchema = [
-  9,
-  n0,
-  _DE,
-  0,
-  () => DescribeEventsInput$,
-  () => DescribeEventsOutput$,
-];
-export var DescribeGeneratedTemplate$: StaticOperationSchema = [
-  9,
-  n0,
-  _DGTe,
-  0,
-  () => DescribeGeneratedTemplateInput$,
-  () => DescribeGeneratedTemplateOutput$,
-];
-export var DescribeOrganizationsAccess$: StaticOperationSchema = [
-  9,
-  n0,
-  _DOAe,
-  0,
-  () => DescribeOrganizationsAccessInput$,
-  () => DescribeOrganizationsAccessOutput$,
-];
-export var DescribePublisher$: StaticOperationSchema = [
-  9,
-  n0,
-  _DPe,
-  2,
-  () => DescribePublisherInput$,
-  () => DescribePublisherOutput$,
-];
-export var DescribeResourceScan$: StaticOperationSchema = [
-  9,
-  n0,
-  _DRS,
-  0,
-  () => DescribeResourceScanInput$,
-  () => DescribeResourceScanOutput$,
-];
-export var DescribeStackDriftDetectionStatus$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSDDS,
-  0,
-  () => DescribeStackDriftDetectionStatusInput$,
-  () => DescribeStackDriftDetectionStatusOutput$,
-];
-export var DescribeStackEvents$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSE,
-  0,
-  () => DescribeStackEventsInput$,
-  () => DescribeStackEventsOutput$,
-];
-export var DescribeStackInstance$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSIes,
-  0,
-  () => DescribeStackInstanceInput$,
-  () => DescribeStackInstanceOutput$,
-];
-export var DescribeStackRefactor$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSRe,
-  0,
-  () => DescribeStackRefactorInput$,
-  () => DescribeStackRefactorOutput$,
-];
-export var DescribeStackResource$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSRes,
-  0,
-  () => DescribeStackResourceInput$,
-  () => DescribeStackResourceOutput$,
-];
-export var DescribeStackResourceDrifts$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSRD,
-  0,
-  () => DescribeStackResourceDriftsInput$,
-  () => DescribeStackResourceDriftsOutput$,
-];
-export var DescribeStackResources$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSResc,
-  0,
-  () => DescribeStackResourcesInput$,
-  () => DescribeStackResourcesOutput$,
-];
-export var DescribeStacks$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSes,
-  0,
-  () => DescribeStacksInput$,
-  () => DescribeStacksOutput$,
-];
-export var DescribeStackSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSSe,
-  0,
-  () => DescribeStackSetInput$,
-  () => DescribeStackSetOutput$,
-];
-export var DescribeStackSetOperation$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSSOes,
-  0,
-  () => DescribeStackSetOperationInput$,
-  () => DescribeStackSetOperationOutput$,
-];
-export var DescribeType$: StaticOperationSchema = [
-  9,
-  n0,
-  _DTes,
-  2,
-  () => DescribeTypeInput$,
-  () => DescribeTypeOutput$,
-];
-export var DescribeTypeRegistration$: StaticOperationSchema = [
-  9,
-  n0,
-  _DTR,
-  2,
-  () => DescribeTypeRegistrationInput$,
-  () => DescribeTypeRegistrationOutput$,
-];
-export var DetectStackDrift$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSD,
-  0,
-  () => DetectStackDriftInput$,
-  () => DetectStackDriftOutput$,
-];
-export var DetectStackResourceDrift$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSRDe,
-  0,
-  () => DetectStackResourceDriftInput$,
-  () => DetectStackResourceDriftOutput$,
-];
-export var DetectStackSetDrift$: StaticOperationSchema = [
-  9,
-  n0,
-  _DSSD,
-  0,
-  () => DetectStackSetDriftInput$,
-  () => DetectStackSetDriftOutput$,
-];
-export var EstimateTemplateCost$: StaticOperationSchema = [
-  9,
-  n0,
-  _ETC,
-  0,
-  () => EstimateTemplateCostInput$,
-  () => EstimateTemplateCostOutput$,
-];
-export var ExecuteChangeSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _ECS,
-  0,
-  () => ExecuteChangeSetInput$,
-  () => ExecuteChangeSetOutput$,
-];
-export var ExecuteStackRefactor$: StaticOperationSchema = [
-  9,
-  n0,
-  _ESRx,
-  0,
-  () => ExecuteStackRefactorInput$,
-  () => __Unit,
-];
-export var GetGeneratedTemplate$: StaticOperationSchema = [
-  9,
-  n0,
-  _GGT,
-  0,
-  () => GetGeneratedTemplateInput$,
-  () => GetGeneratedTemplateOutput$,
-];
-export var GetHookResult$: StaticOperationSchema = [
-  9,
-  n0,
-  _GHR,
-  0,
-  () => GetHookResultInput$,
-  () => GetHookResultOutput$,
-];
-export var GetStackPolicy$: StaticOperationSchema = [
-  9,
-  n0,
-  _GSP,
-  0,
-  () => GetStackPolicyInput$,
-  () => GetStackPolicyOutput$,
-];
-export var GetTemplate$: StaticOperationSchema = [9, n0, _GT, 0, () => GetTemplateInput$, () => GetTemplateOutput$];
-export var GetTemplateSummary$: StaticOperationSchema = [
-  9,
-  n0,
-  _GTS,
-  0,
-  () => GetTemplateSummaryInput$,
-  () => GetTemplateSummaryOutput$,
-];
-export var ImportStacksToStackSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _ISTSS,
-  0,
-  () => ImportStacksToStackSetInput$,
-  () => ImportStacksToStackSetOutput$,
-];
-export var ListChangeSets$: StaticOperationSchema = [
-  9,
-  n0,
-  _LCS,
-  0,
-  () => ListChangeSetsInput$,
-  () => ListChangeSetsOutput$,
-];
-export var ListExports$: StaticOperationSchema = [9, n0, _LE, 0, () => ListExportsInput$, () => ListExportsOutput$];
-export var ListGeneratedTemplates$: StaticOperationSchema = [
-  9,
-  n0,
-  _LGT,
-  0,
-  () => ListGeneratedTemplatesInput$,
-  () => ListGeneratedTemplatesOutput$,
-];
-export var ListHookResults$: StaticOperationSchema = [
-  9,
-  n0,
-  _LHR,
-  0,
-  () => ListHookResultsInput$,
-  () => ListHookResultsOutput$,
-];
-export var ListImports$: StaticOperationSchema = [9, n0, _LI, 0, () => ListImportsInput$, () => ListImportsOutput$];
-export var ListResourceScanRelatedResources$: StaticOperationSchema = [
-  9,
-  n0,
-  _LRSRR,
-  0,
-  () => ListResourceScanRelatedResourcesInput$,
-  () => ListResourceScanRelatedResourcesOutput$,
-];
-export var ListResourceScanResources$: StaticOperationSchema = [
-  9,
-  n0,
-  _LRSR,
-  0,
-  () => ListResourceScanResourcesInput$,
-  () => ListResourceScanResourcesOutput$,
-];
-export var ListResourceScans$: StaticOperationSchema = [
-  9,
-  n0,
-  _LRS,
-  0,
-  () => ListResourceScansInput$,
-  () => ListResourceScansOutput$,
-];
-export var ListStackInstanceResourceDrifts$: StaticOperationSchema = [
-  9,
-  n0,
-  _LSIRD,
-  0,
-  () => ListStackInstanceResourceDriftsInput$,
-  () => ListStackInstanceResourceDriftsOutput$,
-];
-export var ListStackInstances$: StaticOperationSchema = [
-  9,
-  n0,
-  _LSIi,
-  0,
-  () => ListStackInstancesInput$,
-  () => ListStackInstancesOutput$,
-];
-export var ListStackRefactorActions$: StaticOperationSchema = [
-  9,
-  n0,
-  _LSRA,
-  0,
-  () => ListStackRefactorActionsInput$,
-  () => ListStackRefactorActionsOutput$,
-];
-export var ListStackRefactors$: StaticOperationSchema = [
-  9,
-  n0,
-  _LSR,
-  0,
-  () => ListStackRefactorsInput$,
-  () => ListStackRefactorsOutput$,
-];
-export var ListStackResources$: StaticOperationSchema = [
-  9,
-  n0,
-  _LSRi,
-  0,
-  () => ListStackResourcesInput$,
-  () => ListStackResourcesOutput$,
-];
-export var ListStacks$: StaticOperationSchema = [9, n0, _LS, 0, () => ListStacksInput$, () => ListStacksOutput$];
-export var ListStackSetAutoDeploymentTargets$: StaticOperationSchema = [
-  9,
-  n0,
-  _LSSADT,
-  0,
-  () => ListStackSetAutoDeploymentTargetsInput$,
-  () => ListStackSetAutoDeploymentTargetsOutput$,
-];
-export var ListStackSetOperationResults$: StaticOperationSchema = [
-  9,
-  n0,
-  _LSSOR,
-  0,
-  () => ListStackSetOperationResultsInput$,
-  () => ListStackSetOperationResultsOutput$,
-];
-export var ListStackSetOperations$: StaticOperationSchema = [
-  9,
-  n0,
-  _LSSOi,
-  0,
-  () => ListStackSetOperationsInput$,
-  () => ListStackSetOperationsOutput$,
-];
-export var ListStackSets$: StaticOperationSchema = [
-  9,
-  n0,
-  _LSS,
-  0,
-  () => ListStackSetsInput$,
-  () => ListStackSetsOutput$,
-];
-export var ListTypeRegistrations$: StaticOperationSchema = [
-  9,
-  n0,
-  _LTR,
-  2,
-  () => ListTypeRegistrationsInput$,
-  () => ListTypeRegistrationsOutput$,
-];
-export var ListTypes$: StaticOperationSchema = [9, n0, _LT, 2, () => ListTypesInput$, () => ListTypesOutput$];
-export var ListTypeVersions$: StaticOperationSchema = [
-  9,
-  n0,
-  _LTV,
-  2,
-  () => ListTypeVersionsInput$,
-  () => ListTypeVersionsOutput$,
-];
-export var PublishType$: StaticOperationSchema = [9, n0, _PTu, 2, () => PublishTypeInput$, () => PublishTypeOutput$];
-export var RecordHandlerProgress$: StaticOperationSchema = [
-  9,
-  n0,
-  _RHP,
-  2,
-  () => RecordHandlerProgressInput$,
-  () => RecordHandlerProgressOutput$,
-];
-export var RegisterPublisher$: StaticOperationSchema = [
-  9,
-  n0,
-  _RPeg,
-  2,
-  () => RegisterPublisherInput$,
-  () => RegisterPublisherOutput$,
-];
-export var RegisterType$: StaticOperationSchema = [
-  9,
-  n0,
-  _RTegi,
-  2,
-  () => RegisterTypeInput$,
-  () => RegisterTypeOutput$,
-];
-export var RollbackStack$: StaticOperationSchema = [
-  9,
-  n0,
-  _RSo,
-  0,
-  () => RollbackStackInput$,
-  () => RollbackStackOutput$,
-];
-export var SetStackPolicy$: StaticOperationSchema = [9, n0, _SSP, 0, () => SetStackPolicyInput$, () => __Unit];
-export var SetTypeConfiguration$: StaticOperationSchema = [
-  9,
-  n0,
-  _STC,
-  0,
-  () => SetTypeConfigurationInput$,
-  () => SetTypeConfigurationOutput$,
-];
-export var SetTypeDefaultVersion$: StaticOperationSchema = [
-  9,
-  n0,
-  _STDV,
-  2,
-  () => SetTypeDefaultVersionInput$,
-  () => SetTypeDefaultVersionOutput$,
-];
-export var SignalResource$: StaticOperationSchema = [9, n0, _SRi, 0, () => SignalResourceInput$, () => __Unit];
-export var StartResourceScan$: StaticOperationSchema = [
-  9,
-  n0,
-  _SRStar,
-  0,
-  () => StartResourceScanInput$,
-  () => StartResourceScanOutput$,
-];
-export var StopStackSetOperation$: StaticOperationSchema = [
-  9,
-  n0,
-  _SSSO,
-  0,
-  () => StopStackSetOperationInput$,
-  () => StopStackSetOperationOutput$,
-];
-export var TestType$: StaticOperationSchema = [9, n0, _TTe, 2, () => TestTypeInput$, () => TestTypeOutput$];
-export var UpdateGeneratedTemplate$: StaticOperationSchema = [
-  9,
-  n0,
-  _UGT,
-  0,
-  () => UpdateGeneratedTemplateInput$,
-  () => UpdateGeneratedTemplateOutput$,
-];
-export var UpdateStack$: StaticOperationSchema = [9, n0, _US, 0, () => UpdateStackInput$, () => UpdateStackOutput$];
-export var UpdateStackInstances$: StaticOperationSchema = [
-  9,
-  n0,
-  _USIp,
-  0,
-  () => UpdateStackInstancesInput$,
-  () => UpdateStackInstancesOutput$,
-];
-export var UpdateStackSet$: StaticOperationSchema = [
-  9,
-  n0,
-  _USS,
-  0,
-  () => UpdateStackSetInput$,
-  () => UpdateStackSetOutput$,
-];
-export var UpdateTerminationProtection$: StaticOperationSchema = [
-  9,
-  n0,
-  _UTP,
-  0,
-  () => UpdateTerminationProtectionInput$,
-  () => UpdateTerminationProtectionOutput$,
-];
-export var ValidateTemplate$: StaticOperationSchema = [
-  9,
-  n0,
-  _VT,
-  0,
-  () => ValidateTemplateInput$,
-  () => ValidateTemplateOutput$,
+export var ActivateOrganizationsAccess$: StaticOperationSchema = [9, n0, _AOA,
+  0, () => ActivateOrganizationsAccessInput$, () => ActivateOrganizationsAccessOutput$
+];
+export var ActivateType$: StaticOperationSchema = [9, n0, _AT,
+  2, () => ActivateTypeInput$, () => ActivateTypeOutput$
+];
+export var BatchDescribeTypeConfigurations$: StaticOperationSchema = [9, n0, _BDTC,
+  0, () => BatchDescribeTypeConfigurationsInput$, () => BatchDescribeTypeConfigurationsOutput$
+];
+export var CancelUpdateStack$: StaticOperationSchema = [9, n0, _CUS,
+  0, () => CancelUpdateStackInput$, () => __Unit
+];
+export var ContinueUpdateRollback$: StaticOperationSchema = [9, n0, _CUR,
+  0, () => ContinueUpdateRollbackInput$, () => ContinueUpdateRollbackOutput$
+];
+export var CreateChangeSet$: StaticOperationSchema = [9, n0, _CCS,
+  0, () => CreateChangeSetInput$, () => CreateChangeSetOutput$
+];
+export var CreateGeneratedTemplate$: StaticOperationSchema = [9, n0, _CGT,
+  0, () => CreateGeneratedTemplateInput$, () => CreateGeneratedTemplateOutput$
+];
+export var CreateStack$: StaticOperationSchema = [9, n0, _CSr,
+  0, () => CreateStackInput$, () => CreateStackOutput$
+];
+export var CreateStackInstances$: StaticOperationSchema = [9, n0, _CSIre,
+  0, () => CreateStackInstancesInput$, () => CreateStackInstancesOutput$
+];
+export var CreateStackRefactor$: StaticOperationSchema = [9, n0, _CSR,
+  0, () => CreateStackRefactorInput$, () => CreateStackRefactorOutput$
+];
+export var CreateStackSet$: StaticOperationSchema = [9, n0, _CSSr,
+  0, () => CreateStackSetInput$, () => CreateStackSetOutput$
+];
+export var DeactivateOrganizationsAccess$: StaticOperationSchema = [9, n0, _DOA,
+  0, () => DeactivateOrganizationsAccessInput$, () => DeactivateOrganizationsAccessOutput$
+];
+export var DeactivateType$: StaticOperationSchema = [9, n0, _DTea,
+  2, () => DeactivateTypeInput$, () => DeactivateTypeOutput$
+];
+export var DeleteChangeSet$: StaticOperationSchema = [9, n0, _DCS,
+  0, () => DeleteChangeSetInput$, () => DeleteChangeSetOutput$
+];
+export var DeleteGeneratedTemplate$: StaticOperationSchema = [9, n0, _DGT,
+  0, () => DeleteGeneratedTemplateInput$, () => __Unit
+];
+export var DeleteStack$: StaticOperationSchema = [9, n0, _DSel,
+  0, () => DeleteStackInput$, () => __Unit
+];
+export var DeleteStackInstances$: StaticOperationSchema = [9, n0, _DSIel,
+  0, () => DeleteStackInstancesInput$, () => DeleteStackInstancesOutput$
+];
+export var DeleteStackSet$: StaticOperationSchema = [9, n0, _DSS,
+  0, () => DeleteStackSetInput$, () => DeleteStackSetOutput$
+];
+export var DeregisterType$: StaticOperationSchema = [9, n0, _DTer,
+  2, () => DeregisterTypeInput$, () => DeregisterTypeOutput$
+];
+export var DescribeAccountLimits$: StaticOperationSchema = [9, n0, _DAL,
+  0, () => DescribeAccountLimitsInput$, () => DescribeAccountLimitsOutput$
+];
+export var DescribeChangeSet$: StaticOperationSchema = [9, n0, _DCSe,
+  0, () => DescribeChangeSetInput$, () => DescribeChangeSetOutput$
+];
+export var DescribeChangeSetHooks$: StaticOperationSchema = [9, n0, _DCSH,
+  0, () => DescribeChangeSetHooksInput$, () => DescribeChangeSetHooksOutput$
+];
+export var DescribeEvents$: StaticOperationSchema = [9, n0, _DE,
+  0, () => DescribeEventsInput$, () => DescribeEventsOutput$
+];
+export var DescribeGeneratedTemplate$: StaticOperationSchema = [9, n0, _DGTe,
+  0, () => DescribeGeneratedTemplateInput$, () => DescribeGeneratedTemplateOutput$
+];
+export var DescribeOrganizationsAccess$: StaticOperationSchema = [9, n0, _DOAe,
+  0, () => DescribeOrganizationsAccessInput$, () => DescribeOrganizationsAccessOutput$
+];
+export var DescribePublisher$: StaticOperationSchema = [9, n0, _DPe,
+  2, () => DescribePublisherInput$, () => DescribePublisherOutput$
+];
+export var DescribeResourceScan$: StaticOperationSchema = [9, n0, _DRS,
+  0, () => DescribeResourceScanInput$, () => DescribeResourceScanOutput$
+];
+export var DescribeStackDriftDetectionStatus$: StaticOperationSchema = [9, n0, _DSDDS,
+  0, () => DescribeStackDriftDetectionStatusInput$, () => DescribeStackDriftDetectionStatusOutput$
+];
+export var DescribeStackEvents$: StaticOperationSchema = [9, n0, _DSE,
+  0, () => DescribeStackEventsInput$, () => DescribeStackEventsOutput$
+];
+export var DescribeStackInstance$: StaticOperationSchema = [9, n0, _DSIes,
+  0, () => DescribeStackInstanceInput$, () => DescribeStackInstanceOutput$
+];
+export var DescribeStackRefactor$: StaticOperationSchema = [9, n0, _DSRe,
+  0, () => DescribeStackRefactorInput$, () => DescribeStackRefactorOutput$
+];
+export var DescribeStackResource$: StaticOperationSchema = [9, n0, _DSRes,
+  0, () => DescribeStackResourceInput$, () => DescribeStackResourceOutput$
+];
+export var DescribeStackResourceDrifts$: StaticOperationSchema = [9, n0, _DSRD,
+  0, () => DescribeStackResourceDriftsInput$, () => DescribeStackResourceDriftsOutput$
+];
+export var DescribeStackResources$: StaticOperationSchema = [9, n0, _DSResc,
+  0, () => DescribeStackResourcesInput$, () => DescribeStackResourcesOutput$
+];
+export var DescribeStacks$: StaticOperationSchema = [9, n0, _DSes,
+  0, () => DescribeStacksInput$, () => DescribeStacksOutput$
+];
+export var DescribeStackSet$: StaticOperationSchema = [9, n0, _DSSe,
+  0, () => DescribeStackSetInput$, () => DescribeStackSetOutput$
+];
+export var DescribeStackSetOperation$: StaticOperationSchema = [9, n0, _DSSOes,
+  0, () => DescribeStackSetOperationInput$, () => DescribeStackSetOperationOutput$
+];
+export var DescribeType$: StaticOperationSchema = [9, n0, _DTes,
+  2, () => DescribeTypeInput$, () => DescribeTypeOutput$
+];
+export var DescribeTypeRegistration$: StaticOperationSchema = [9, n0, _DTR,
+  2, () => DescribeTypeRegistrationInput$, () => DescribeTypeRegistrationOutput$
+];
+export var DetectStackDrift$: StaticOperationSchema = [9, n0, _DSD,
+  0, () => DetectStackDriftInput$, () => DetectStackDriftOutput$
+];
+export var DetectStackResourceDrift$: StaticOperationSchema = [9, n0, _DSRDe,
+  0, () => DetectStackResourceDriftInput$, () => DetectStackResourceDriftOutput$
+];
+export var DetectStackSetDrift$: StaticOperationSchema = [9, n0, _DSSD,
+  0, () => DetectStackSetDriftInput$, () => DetectStackSetDriftOutput$
+];
+export var EstimateTemplateCost$: StaticOperationSchema = [9, n0, _ETC,
+  0, () => EstimateTemplateCostInput$, () => EstimateTemplateCostOutput$
+];
+export var ExecuteChangeSet$: StaticOperationSchema = [9, n0, _ECS,
+  0, () => ExecuteChangeSetInput$, () => ExecuteChangeSetOutput$
+];
+export var ExecuteStackRefactor$: StaticOperationSchema = [9, n0, _ESRx,
+  0, () => ExecuteStackRefactorInput$, () => __Unit
+];
+export var GetGeneratedTemplate$: StaticOperationSchema = [9, n0, _GGT,
+  0, () => GetGeneratedTemplateInput$, () => GetGeneratedTemplateOutput$
+];
+export var GetHookResult$: StaticOperationSchema = [9, n0, _GHR,
+  0, () => GetHookResultInput$, () => GetHookResultOutput$
+];
+export var GetStackPolicy$: StaticOperationSchema = [9, n0, _GSP,
+  0, () => GetStackPolicyInput$, () => GetStackPolicyOutput$
+];
+export var GetTemplate$: StaticOperationSchema = [9, n0, _GT,
+  0, () => GetTemplateInput$, () => GetTemplateOutput$
+];
+export var GetTemplateSummary$: StaticOperationSchema = [9, n0, _GTS,
+  0, () => GetTemplateSummaryInput$, () => GetTemplateSummaryOutput$
+];
+export var ImportStacksToStackSet$: StaticOperationSchema = [9, n0, _ISTSS,
+  0, () => ImportStacksToStackSetInput$, () => ImportStacksToStackSetOutput$
+];
+export var ListChangeSets$: StaticOperationSchema = [9, n0, _LCS,
+  0, () => ListChangeSetsInput$, () => ListChangeSetsOutput$
+];
+export var ListExports$: StaticOperationSchema = [9, n0, _LE,
+  0, () => ListExportsInput$, () => ListExportsOutput$
+];
+export var ListGeneratedTemplates$: StaticOperationSchema = [9, n0, _LGT,
+  0, () => ListGeneratedTemplatesInput$, () => ListGeneratedTemplatesOutput$
+];
+export var ListHookResults$: StaticOperationSchema = [9, n0, _LHR,
+  0, () => ListHookResultsInput$, () => ListHookResultsOutput$
+];
+export var ListImports$: StaticOperationSchema = [9, n0, _LI,
+  0, () => ListImportsInput$, () => ListImportsOutput$
+];
+export var ListResourceScanRelatedResources$: StaticOperationSchema = [9, n0, _LRSRR,
+  0, () => ListResourceScanRelatedResourcesInput$, () => ListResourceScanRelatedResourcesOutput$
+];
+export var ListResourceScanResources$: StaticOperationSchema = [9, n0, _LRSR,
+  0, () => ListResourceScanResourcesInput$, () => ListResourceScanResourcesOutput$
+];
+export var ListResourceScans$: StaticOperationSchema = [9, n0, _LRS,
+  0, () => ListResourceScansInput$, () => ListResourceScansOutput$
+];
+export var ListStackInstanceResourceDrifts$: StaticOperationSchema = [9, n0, _LSIRD,
+  0, () => ListStackInstanceResourceDriftsInput$, () => ListStackInstanceResourceDriftsOutput$
+];
+export var ListStackInstances$: StaticOperationSchema = [9, n0, _LSIi,
+  0, () => ListStackInstancesInput$, () => ListStackInstancesOutput$
+];
+export var ListStackRefactorActions$: StaticOperationSchema = [9, n0, _LSRA,
+  0, () => ListStackRefactorActionsInput$, () => ListStackRefactorActionsOutput$
+];
+export var ListStackRefactors$: StaticOperationSchema = [9, n0, _LSR,
+  0, () => ListStackRefactorsInput$, () => ListStackRefactorsOutput$
+];
+export var ListStackResources$: StaticOperationSchema = [9, n0, _LSRi,
+  0, () => ListStackResourcesInput$, () => ListStackResourcesOutput$
+];
+export var ListStacks$: StaticOperationSchema = [9, n0, _LS,
+  0, () => ListStacksInput$, () => ListStacksOutput$
+];
+export var ListStackSetAutoDeploymentTargets$: StaticOperationSchema = [9, n0, _LSSADT,
+  0, () => ListStackSetAutoDeploymentTargetsInput$, () => ListStackSetAutoDeploymentTargetsOutput$
+];
+export var ListStackSetOperationResults$: StaticOperationSchema = [9, n0, _LSSOR,
+  0, () => ListStackSetOperationResultsInput$, () => ListStackSetOperationResultsOutput$
+];
+export var ListStackSetOperations$: StaticOperationSchema = [9, n0, _LSSOi,
+  0, () => ListStackSetOperationsInput$, () => ListStackSetOperationsOutput$
+];
+export var ListStackSets$: StaticOperationSchema = [9, n0, _LSS,
+  0, () => ListStackSetsInput$, () => ListStackSetsOutput$
+];
+export var ListTypeRegistrations$: StaticOperationSchema = [9, n0, _LTR,
+  2, () => ListTypeRegistrationsInput$, () => ListTypeRegistrationsOutput$
+];
+export var ListTypes$: StaticOperationSchema = [9, n0, _LT,
+  2, () => ListTypesInput$, () => ListTypesOutput$
+];
+export var ListTypeVersions$: StaticOperationSchema = [9, n0, _LTV,
+  2, () => ListTypeVersionsInput$, () => ListTypeVersionsOutput$
+];
+export var PublishType$: StaticOperationSchema = [9, n0, _PTu,
+  2, () => PublishTypeInput$, () => PublishTypeOutput$
+];
+export var RecordHandlerProgress$: StaticOperationSchema = [9, n0, _RHP,
+  2, () => RecordHandlerProgressInput$, () => RecordHandlerProgressOutput$
+];
+export var RegisterPublisher$: StaticOperationSchema = [9, n0, _RPeg,
+  2, () => RegisterPublisherInput$, () => RegisterPublisherOutput$
+];
+export var RegisterType$: StaticOperationSchema = [9, n0, _RTegi,
+  2, () => RegisterTypeInput$, () => RegisterTypeOutput$
+];
+export var RollbackStack$: StaticOperationSchema = [9, n0, _RSo,
+  0, () => RollbackStackInput$, () => RollbackStackOutput$
+];
+export var SetStackPolicy$: StaticOperationSchema = [9, n0, _SSP,
+  0, () => SetStackPolicyInput$, () => __Unit
+];
+export var SetTypeConfiguration$: StaticOperationSchema = [9, n0, _STC,
+  0, () => SetTypeConfigurationInput$, () => SetTypeConfigurationOutput$
+];
+export var SetTypeDefaultVersion$: StaticOperationSchema = [9, n0, _STDV,
+  2, () => SetTypeDefaultVersionInput$, () => SetTypeDefaultVersionOutput$
+];
+export var SignalResource$: StaticOperationSchema = [9, n0, _SRi,
+  0, () => SignalResourceInput$, () => __Unit
+];
+export var StartResourceScan$: StaticOperationSchema = [9, n0, _SRStar,
+  0, () => StartResourceScanInput$, () => StartResourceScanOutput$
+];
+export var StopStackSetOperation$: StaticOperationSchema = [9, n0, _SSSO,
+  0, () => StopStackSetOperationInput$, () => StopStackSetOperationOutput$
+];
+export var TestType$: StaticOperationSchema = [9, n0, _TTe,
+  2, () => TestTypeInput$, () => TestTypeOutput$
+];
+export var UpdateGeneratedTemplate$: StaticOperationSchema = [9, n0, _UGT,
+  0, () => UpdateGeneratedTemplateInput$, () => UpdateGeneratedTemplateOutput$
+];
+export var UpdateStack$: StaticOperationSchema = [9, n0, _US,
+  0, () => UpdateStackInput$, () => UpdateStackOutput$
+];
+export var UpdateStackInstances$: StaticOperationSchema = [9, n0, _USIp,
+  0, () => UpdateStackInstancesInput$, () => UpdateStackInstancesOutput$
+];
+export var UpdateStackSet$: StaticOperationSchema = [9, n0, _USS,
+  0, () => UpdateStackSetInput$, () => UpdateStackSetOutput$
+];
+export var UpdateTerminationProtection$: StaticOperationSchema = [9, n0, _UTP,
+  0, () => UpdateTerminationProtectionInput$, () => UpdateTerminationProtectionOutput$
+];
+export var ValidateTemplate$: StaticOperationSchema = [9, n0, _VT,
+  0, () => ValidateTemplateInput$, () => ValidateTemplateOutput$
 ];

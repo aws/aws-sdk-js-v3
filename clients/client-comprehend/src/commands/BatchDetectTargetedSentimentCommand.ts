@@ -24,9 +24,7 @@ export interface BatchDetectTargetedSentimentCommandInput extends BatchDetectTar
  *
  * The output of {@link BatchDetectTargetedSentimentCommand}.
  */
-export interface BatchDetectTargetedSentimentCommandOutput
-  extends BatchDetectTargetedSentimentResponse,
-    __MetadataBearer {}
+export interface BatchDetectTargetedSentimentCommandOutput extends BatchDetectTargetedSentimentResponse, __MetadataBearer {}
 
 /**
  * <p>Inspects a batch of documents and returns a sentiment analysis

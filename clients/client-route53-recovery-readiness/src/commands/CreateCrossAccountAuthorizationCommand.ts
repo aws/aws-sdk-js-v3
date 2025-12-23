@@ -31,9 +31,7 @@ export interface CreateCrossAccountAuthorizationCommandInput extends CreateCross
  *
  * The output of {@link CreateCrossAccountAuthorizationCommand}.
  */
-export interface CreateCrossAccountAuthorizationCommandOutput
-  extends CreateCrossAccountAuthorizationResponse,
-    __MetadataBearer {}
+export interface CreateCrossAccountAuthorizationCommandOutput extends CreateCrossAccountAuthorizationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a cross-account readiness authorization. This lets you authorize another account to work with Route 53 Application Recovery Controller, for example, to check the readiness status of resources in a separate account.</p>

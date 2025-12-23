@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link ListFailuresForLicenseConfigurationOperationsCommand}.
  */
-export interface ListFailuresForLicenseConfigurationOperationsCommandInput
-  extends ListFailuresForLicenseConfigurationOperationsRequest {}
+export interface ListFailuresForLicenseConfigurationOperationsCommandInput extends ListFailuresForLicenseConfigurationOperationsRequest {}
 /**
  * @public
  *
  * The output of {@link ListFailuresForLicenseConfigurationOperationsCommand}.
  */
-export interface ListFailuresForLicenseConfigurationOperationsCommandOutput
-  extends ListFailuresForLicenseConfigurationOperationsResponse,
-    __MetadataBearer {}
+export interface ListFailuresForLicenseConfigurationOperationsCommandOutput extends ListFailuresForLicenseConfigurationOperationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the license configuration operations that failed.</p>

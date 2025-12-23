@@ -27,9 +27,7 @@ export interface UpdateQPersonalizationConfigurationCommandInput extends UpdateQ
  *
  * The output of {@link UpdateQPersonalizationConfigurationCommand}.
  */
-export interface UpdateQPersonalizationConfigurationCommandOutput
-  extends UpdateQPersonalizationConfigurationResponse,
-    __MetadataBearer {}
+export interface UpdateQPersonalizationConfigurationCommandOutput extends UpdateQPersonalizationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a personalization configuration.</p>

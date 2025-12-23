@@ -27,9 +27,7 @@ export interface GetProvisionedConcurrencyConfigCommandInput extends GetProvisio
  *
  * The output of {@link GetProvisionedConcurrencyConfigCommand}.
  */
-export interface GetProvisionedConcurrencyConfigCommandOutput
-  extends GetProvisionedConcurrencyConfigResponse,
-    __MetadataBearer {}
+export interface GetProvisionedConcurrencyConfigCommandOutput extends GetProvisionedConcurrencyConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the provisioned concurrency configuration for a function's alias or version.</p>

@@ -27,9 +27,7 @@ export interface BatchCreateDelegationByAssessmentCommandInput extends BatchCrea
  *
  * The output of {@link BatchCreateDelegationByAssessmentCommand}.
  */
-export interface BatchCreateDelegationByAssessmentCommandOutput
-  extends BatchCreateDelegationByAssessmentResponse,
-    __MetadataBearer {}
+export interface BatchCreateDelegationByAssessmentCommandOutput extends BatchCreateDelegationByAssessmentResponse, __MetadataBearer {}
 
 /**
  * <p> Creates a batch of delegations for an assessment in Audit Manager. </p>

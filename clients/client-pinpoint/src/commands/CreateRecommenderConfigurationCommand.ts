@@ -24,9 +24,7 @@ export interface CreateRecommenderConfigurationCommandInput extends CreateRecomm
  *
  * The output of {@link CreateRecommenderConfigurationCommand}.
  */
-export interface CreateRecommenderConfigurationCommandOutput
-  extends CreateRecommenderConfigurationResponse,
-    __MetadataBearer {}
+export interface CreateRecommenderConfigurationCommandOutput extends CreateRecommenderConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Pinpoint configuration for a recommender model.</p>

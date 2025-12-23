@@ -23,10 +23,7 @@ export interface GetSolFunctionPackageContentCommandInput extends GetSolFunction
 /**
  * @public
  */
-export type GetSolFunctionPackageContentCommandOutputType = Omit<
-  GetSolFunctionPackageContentOutput,
-  "packageContent"
-> & {
+export type GetSolFunctionPackageContentCommandOutputType = Omit<GetSolFunctionPackageContentOutput, "packageContent"> & {
   packageContent?: Uint8ArrayBlobAdapter;
 };
 
@@ -35,9 +32,7 @@ export type GetSolFunctionPackageContentCommandOutputType = Omit<
  *
  * The output of {@link GetSolFunctionPackageContentCommand}.
  */
-export interface GetSolFunctionPackageContentCommandOutput
-  extends GetSolFunctionPackageContentCommandOutputType,
-    __MetadataBearer {}
+export interface GetSolFunctionPackageContentCommandOutput extends GetSolFunctionPackageContentCommandOutputType, __MetadataBearer {}
 
 /**
  * <p>Gets the contents of a function package.</p>

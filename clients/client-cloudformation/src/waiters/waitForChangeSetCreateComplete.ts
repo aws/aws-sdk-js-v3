@@ -4,26 +4,23 @@ import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, Waite
 import { CloudFormationClient } from "../CloudFormationClient";
 import { DescribeChangeSetCommand, DescribeChangeSetCommandInput } from "../commands/DescribeChangeSetCommand";
 
-const checkState = async (
-  client: CloudFormationClient,
-  input: DescribeChangeSetCommandInput
-): Promise<WaiterResult> => {
+const checkState = async (client: CloudFormationClient, input: DescribeChangeSetCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
     const result: any = await client.send(new DescribeChangeSetCommand(input));
     reason = result;
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "CREATE_COMPLETE") {
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
-      const returnComparator = () => {
+      let returnComparator = () => {
         return result.Status;
-      };
+      }
       if (returnComparator() === "FAILED") {
         return { state: WaiterState.FAILURE, reason };
       }

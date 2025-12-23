@@ -9,8 +9,8 @@ import {
   OperationOutput as __OperationOutput,
   OperationSerializer as __OperationSerializer,
   SerializationException as __SerializationException,
-  ServerSerdeContext as __ServerSerdeContext,
   ServerSerdeContext,
+  ServerSerdeContext as __ServerSerdeContext,
   ServiceException as __ServiceException,
   ServiceHandler as __ServiceHandler,
   SmithyFrameworkException as __SmithyFrameworkException,
@@ -30,59 +30,46 @@ import {
 } from "../../protocols/Aws_restJson1";
 import { RestJsonService } from "../RestJsonService";
 
-export type ContentTypeParameters<Context> = __Operation<
-  ContentTypeParametersServerInput,
-  ContentTypeParametersServerOutput,
-  Context
->;
+export type ContentTypeParameters<Context> = __Operation<ContentTypeParametersServerInput, ContentTypeParametersServerOutput, Context>
 
 export interface ContentTypeParametersServerInput extends ContentTypeParametersInput {}
 export namespace ContentTypeParametersServerInput {
   /**
    * @internal
    */
-  export const validate: (obj: Parameters<typeof ContentTypeParametersInput.validate>[0]) => __ValidationFailure[] =
-    ContentTypeParametersInput.validate;
+  export const validate: (obj: Parameters<typeof ContentTypeParametersInput.validate>[0]) => __ValidationFailure[] = ContentTypeParametersInput.validate;
 }
 export interface ContentTypeParametersServerOutput extends ContentTypeParametersOutput {}
 
 export type ContentTypeParametersErrors = never;
 
-export class ContentTypeParametersSerializer
-  implements __OperationSerializer<RestJsonService<any>, "ContentTypeParameters", ContentTypeParametersErrors>
-{
+export class ContentTypeParametersSerializer implements __OperationSerializer<RestJsonService<any>, "ContentTypeParameters", ContentTypeParametersErrors> {
   serialize = serializeContentTypeParametersResponse;
   deserialize = deserializeContentTypeParametersRequest;
 
   isOperationError(error: any): error is ContentTypeParametersErrors {
     return false;
-  }
+  };
 
   serializeError(error: ContentTypeParametersErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     throw error;
   }
+
 }
 
-export const getContentTypeParametersHandler = <Context>(
-  operation: __Operation<ContentTypeParametersServerInput, ContentTypeParametersServerOutput, Context>,
-  customizer: __ValidationCustomizer<"ContentTypeParameters">
-): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
+export const getContentTypeParametersHandler = <Context>(operation: __Operation<ContentTypeParametersServerInput, ContentTypeParametersServerOutput, Context>, customizer: __ValidationCustomizer<"ContentTypeParameters">): __ServiceHandler<Context, __HttpRequest, __HttpResponse> => {
   const mux = new httpbinding.HttpBindingMux<"RestJson", "ContentTypeParameters">([
     new httpbinding.UriSpec<"RestJson", "ContentTypeParameters">(
-      "POST",
-      [{ type: "path_literal", value: "ContentTypeParameters" }],
-      [],
-      { service: "RestJson", operation: "ContentTypeParameters" }
-    ),
+      'POST',
+      [
+        { type: 'path_literal', value: "ContentTypeParameters" },
+      ],
+      [
+      ],
+      { service: "RestJson", operation: "ContentTypeParameters" }),
   ]);
-  return new ContentTypeParametersHandler(
-    operation,
-    mux,
-    new ContentTypeParametersSerializer(),
-    serializeFrameworkException,
-    customizer
-  );
-};
+  return new ContentTypeParametersHandler(operation, mux, new ContentTypeParametersSerializer(), serializeFrameworkException, customizer);
+}
 
 const serdeContextBase = {
   base64Encoder: toBase64,
@@ -91,7 +78,7 @@ const serdeContextBase = {
   utf8Decoder: fromUtf8,
   streamCollector: streamCollector,
   requestHandler: new NodeHttpHandler(),
-  disableHostPrefix: true,
+  disableHostPrefix: true
 };
 async function handle<S, O extends keyof S & string, Context>(
   request: __HttpRequest,
@@ -106,45 +93,37 @@ async function handle<S, O extends keyof S & string, Context>(
   let input;
   try {
     input = await serializer.deserialize(request, {
-      endpoint: () => Promise.resolve(request),
-      ...serdeContextBase,
+      endpoint: () => Promise.resolve(request), ...serdeContextBase
     });
   } catch (error: unknown) {
     if (__isFrameworkException(error)) {
       return serializeFrameworkException(error, serdeContextBase);
-    }
+    };
     return serializeFrameworkException(new __SerializationException(), serdeContextBase);
   }
   try {
-    const validationFailures = validationFn(input);
+    let validationFailures = validationFn(input);
     if (validationFailures && validationFailures.length > 0) {
-      const validationException = validationCustomizer({ operation: operationName }, validationFailures);
+      let validationException = validationCustomizer({ operation: operationName }, validationFailures);
       if (validationException) {
         return serializer.serializeError(validationException, serdeContextBase);
       }
     }
-    const output = await operation(input, context);
+    let output = await operation(input, context);
     return serializer.serialize(output, serdeContextBase);
-  } catch (error: unknown) {
+  } catch(error: unknown) {
     if (serializer.isOperationError(error)) {
       return serializer.serializeError(error, serdeContextBase);
     }
-    console.log("Received an unexpected error", error);
+    console.log('Received an unexpected error', error);
     return serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
   }
 }
 export class ContentTypeParametersHandler<Context> implements __ServiceHandler<Context> {
   private readonly operation: __Operation<ContentTypeParametersServerInput, ContentTypeParametersServerOutput, Context>;
   private readonly mux: __Mux<"RestJson", "ContentTypeParameters">;
-  private readonly serializer: __OperationSerializer<
-    RestJsonService<Context>,
-    "ContentTypeParameters",
-    ContentTypeParametersErrors
-  >;
-  private readonly serializeFrameworkException: (
-    e: __SmithyFrameworkException,
-    ctx: __ServerSerdeContext
-  ) => Promise<__HttpResponse>;
+  private readonly serializer: __OperationSerializer<RestJsonService<Context>, "ContentTypeParameters", ContentTypeParametersErrors>;
+  private readonly serializeFrameworkException: (e: __SmithyFrameworkException, ctx: __ServerSerdeContext) => Promise<__HttpResponse>;
   private readonly validationCustomizer: __ValidationCustomizer<"ContentTypeParameters">;
   /**
    * Construct a ContentTypeParameters handler.
@@ -171,20 +150,9 @@ export class ContentTypeParametersHandler<Context> implements __ServiceHandler<C
   async handle(request: __HttpRequest, context: Context): Promise<__HttpResponse> {
     const target = this.mux.match(request);
     if (target === undefined) {
-      console.log(
-        "Received a request that did not match aws.protocoltests.restjson#RestJson.ContentTypeParameters. This indicates a misconfiguration."
-      );
+      console.log('Received a request that did not match aws.protocoltests.restjson#RestJson.ContentTypeParameters. This indicates a misconfiguration.');
       return this.serializeFrameworkException(new __InternalFailureException(), serdeContextBase);
     }
-    return handle(
-      request,
-      context,
-      "ContentTypeParameters",
-      this.serializer,
-      this.operation,
-      this.serializeFrameworkException,
-      ContentTypeParametersServerInput.validate,
-      this.validationCustomizer
-    );
+    return handle(request, context, "ContentTypeParameters", this.serializer, this.operation, this.serializeFrameworkException, ContentTypeParametersServerInput.validate, this.validationCustomizer);
   }
 }

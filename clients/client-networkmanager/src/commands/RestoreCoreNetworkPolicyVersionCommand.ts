@@ -31,9 +31,7 @@ export interface RestoreCoreNetworkPolicyVersionCommandInput extends RestoreCore
  *
  * The output of {@link RestoreCoreNetworkPolicyVersionCommand}.
  */
-export interface RestoreCoreNetworkPolicyVersionCommandOutput
-  extends RestoreCoreNetworkPolicyVersionResponse,
-    __MetadataBearer {}
+export interface RestoreCoreNetworkPolicyVersionCommandOutput extends RestoreCoreNetworkPolicyVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Restores a previous policy version as a new, immutable version of a core network policy. A subsequent change set is created showing the differences between the LIVE policy and restored policy.</p>

@@ -24,9 +24,7 @@ export interface DisassociateSecurityGroupVpcCommandInput extends DisassociateSe
  *
  * The output of {@link DisassociateSecurityGroupVpcCommand}.
  */
-export interface DisassociateSecurityGroupVpcCommandOutput
-  extends DisassociateSecurityGroupVpcResult,
-    __MetadataBearer {}
+export interface DisassociateSecurityGroupVpcCommandOutput extends DisassociateSecurityGroupVpcResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates a security group from a VPC. You cannot disassociate the security group if any Elastic network interfaces in the associated VPC are still associated with the security group.

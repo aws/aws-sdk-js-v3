@@ -24,9 +24,7 @@ export interface AbortMultipartReadSetUploadCommandInput extends AbortMultipartR
  *
  * The output of {@link AbortMultipartReadSetUploadCommand}.
  */
-export interface AbortMultipartReadSetUploadCommandOutput
-  extends AbortMultipartReadSetUploadResponse,
-    __MetadataBearer {}
+export interface AbortMultipartReadSetUploadCommandOutput extends AbortMultipartReadSetUploadResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a multipart read set upload into a sequence store and returns a response with no body if the operation is successful. To confirm that a multipart read set upload has been stopped, use the <code>ListMultipartReadSetUploads</code> API operation to view all active multipart read set uploads.</p>

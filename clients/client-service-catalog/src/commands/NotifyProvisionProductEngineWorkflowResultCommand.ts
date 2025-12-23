@@ -25,16 +25,13 @@ export { $Command };
  *
  * The input for {@link NotifyProvisionProductEngineWorkflowResultCommand}.
  */
-export interface NotifyProvisionProductEngineWorkflowResultCommandInput
-  extends NotifyProvisionProductEngineWorkflowResultInput {}
+export interface NotifyProvisionProductEngineWorkflowResultCommandInput extends NotifyProvisionProductEngineWorkflowResultInput {}
 /**
  * @public
  *
  * The output of {@link NotifyProvisionProductEngineWorkflowResultCommand}.
  */
-export interface NotifyProvisionProductEngineWorkflowResultCommandOutput
-  extends NotifyProvisionProductEngineWorkflowResultOutput,
-    __MetadataBearer {}
+export interface NotifyProvisionProductEngineWorkflowResultCommandOutput extends NotifyProvisionProductEngineWorkflowResultOutput, __MetadataBearer {}
 
 /**
  * <p>

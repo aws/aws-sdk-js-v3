@@ -24,9 +24,7 @@ export interface DeleteRemediationExceptionsCommandInput extends DeleteRemediati
  *
  * The output of {@link DeleteRemediationExceptionsCommand}.
  */
-export interface DeleteRemediationExceptionsCommandOutput
-  extends DeleteRemediationExceptionsResponse,
-    __MetadataBearer {}
+export interface DeleteRemediationExceptionsCommandOutput extends DeleteRemediationExceptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes one or more remediation exceptions mentioned in the resource keys.</p>

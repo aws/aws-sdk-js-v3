@@ -24,9 +24,7 @@ export interface CreateCustomDomainAssociationCommandInput extends CreateCustomD
  *
  * The output of {@link CreateCustomDomainAssociationCommand}.
  */
-export interface CreateCustomDomainAssociationCommandOutput
-  extends CreateCustomDomainAssociationResult,
-    __MetadataBearer {}
+export interface CreateCustomDomainAssociationCommandOutput extends CreateCustomDomainAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Used to create a custom domain name for a cluster. Properties include the custom domain name, the

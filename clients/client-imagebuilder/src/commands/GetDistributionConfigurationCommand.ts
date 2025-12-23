@@ -24,9 +24,7 @@ export interface GetDistributionConfigurationCommandInput extends GetDistributio
  *
  * The output of {@link GetDistributionConfigurationCommand}.
  */
-export interface GetDistributionConfigurationCommandOutput
-  extends GetDistributionConfigurationResponse,
-    __MetadataBearer {}
+export interface GetDistributionConfigurationCommandOutput extends GetDistributionConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a distribution configuration.</p>

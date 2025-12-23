@@ -28,9 +28,7 @@ export interface AssociateTagOptionWithResourceCommandInput extends AssociateTag
  *
  * The output of {@link AssociateTagOptionWithResourceCommand}.
  */
-export interface AssociateTagOptionWithResourceCommandOutput
-  extends AssociateTagOptionWithResourceOutput,
-    __MetadataBearer {}
+export interface AssociateTagOptionWithResourceCommandOutput extends AssociateTagOptionWithResourceOutput, __MetadataBearer {}
 
 /**
  * <p>Associate the specified TagOption with the specified portfolio or product.</p>

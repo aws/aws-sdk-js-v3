@@ -10,10 +10,8 @@ AWS SDK for JavaScript EKSAuth Client for Node.js, Browser and React Native.
 used by the EKS Pod Identity Agent.</p>
 
 ## Installing
-
 To install this package, simply type add or install @aws-sdk/client-eks-auth
 using your favorite package manager:
-
 - `npm install @aws-sdk/client-eks-auth`
 - `yarn add @aws-sdk/client-eks-auth`
 - `pnpm add @aws-sdk/client-eks-auth`
@@ -49,9 +47,7 @@ To send a request, you:
 // a client can be shared by different commands.
 const client = new EKSAuthClient({ region: "REGION" });
 
-const params = {
-  /** input parameters */
-};
+const params = { /** input parameters */ };
 const command = new AssumeRoleForPodIdentityCommand(params);
 ```
 
@@ -210,5 +206,4 @@ AssumeRoleForPodIdentity
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks-auth/command/AssumeRoleForPodIdentityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks-auth/Interface/AssumeRoleForPodIdentityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks-auth/Interface/AssumeRoleForPodIdentityCommandOutput/)
-
 </details>

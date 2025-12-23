@@ -27,9 +27,7 @@ export interface AssociateTransitGatewayRouteTableCommandInput extends Associate
  *
  * The output of {@link AssociateTransitGatewayRouteTableCommand}.
  */
-export interface AssociateTransitGatewayRouteTableCommandOutput
-  extends AssociateTransitGatewayRouteTableResult,
-    __MetadataBearer {}
+export interface AssociateTransitGatewayRouteTableCommandOutput extends AssociateTransitGatewayRouteTableResult, __MetadataBearer {}
 
 /**
  * <p>Associates the specified attachment with the specified transit gateway route table. You can

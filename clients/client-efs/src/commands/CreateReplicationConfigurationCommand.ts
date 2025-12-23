@@ -24,9 +24,7 @@ export interface CreateReplicationConfigurationCommandInput extends CreateReplic
  *
  * The output of {@link CreateReplicationConfigurationCommand}.
  */
-export interface CreateReplicationConfigurationCommandOutput
-  extends ReplicationConfigurationDescription,
-    __MetadataBearer {}
+export interface CreateReplicationConfigurationCommandOutput extends ReplicationConfigurationDescription, __MetadataBearer {}
 
 /**
  * <p>Creates a replication conﬁguration to either a new or existing EFS file system.

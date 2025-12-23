@@ -1,4 +1,6 @@
 import {
+  _Record$,
+  _Stream$,
   AttributeValue$,
   DescribeStream$,
   DescribeStreamCommand,
@@ -42,8 +44,6 @@ import {
   StreamViewType,
   TrimmedDataAccessException,
   TrimmedDataAccessException$,
-  _Record$,
-  _Stream$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
